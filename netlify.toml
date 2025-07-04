@@ -1,8 +1,8 @@
 [build]
-  command = "npm run build"
-  publish = "build"
+  command = "cd client && npm install && npm run build"
+  publish = "client/dist"
 
-[context.production.environment]
+[environment]
   REACT_APP_API_URL = "https://hippie-sciences.onrender.com"
 
 [[redirects]]
