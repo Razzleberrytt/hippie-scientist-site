@@ -2,19 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  @apply bg-black text-white font-sans antialiased;
-  scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
-}
+/* Custom animations */
+@layer utilities {
+  .animate-text-glow {
+    animation: glowText 3s ease-in-out infinite alternate;
+  }
 
-/* Fade-in animation */
-@keyframes fade-in {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-  animation: fade-in 1.2s ease-out forwards;
+  @keyframes glowText {
+    from {
+      text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc;
+    }
+    to {
+      text-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff, 0 0 40px #00ccff;
+    }
+  }
 }
