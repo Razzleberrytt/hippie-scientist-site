@@ -1,32 +1,20 @@
-/* index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Styles (optional but useful) */
 html, body {
   @apply bg-black text-white font-sans antialiased;
   scroll-behavior: smooth;
-  min-height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Hide scrollbar but keep scrolling */
-::-webkit-scrollbar {
-  display: none;
-}
-body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Fade-in animation */
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Links */
-a {
-  @apply text-teal-300 underline underline-offset-4 transition duration-200 hover:text-teal-400;
-}
-
-/* Button base style */
-button {
-  @apply px-4 py-2 rounded bg-teal-600 text-white font-medium transition duration-200 hover:bg-teal-700;
+.animate-fade-in {
+  animation: fade-in 1.2s ease-out forwards;
 }
