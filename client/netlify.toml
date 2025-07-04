@@ -5,3 +5,9 @@
 
 [environment]
   REACT_APP_API_URL = "https://hippie-sciences.onrender.com"
+
+[[redirects]]
+  from = "https://www.thehippiescientist.net/*"
+  to = "https://thehippiescientist.net/:splat"
+  status = 301
+  force = true
