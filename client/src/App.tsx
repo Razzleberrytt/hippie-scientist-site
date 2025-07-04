@@ -1,13 +1,12 @@
-// client/src/App.tsx
 import React from 'react';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif', textAlign: 'center' }}>
-      <h1>🌿 The Hippie Scientist</h1>
-      <p>Welcome to the psychedelic frontier.</p>
+    <div className="text-center text-3xl p-10 text-white">
+      <h1>🚀 Welcome to The Hippie Scientist</h1>
+      <p className="mt-4 text-lg">Site deployed successfully 🌈</p>
     </div>
   );
-}
+};
 
 export default App;
