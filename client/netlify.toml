@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[environment]
+  REACT_APP_API_URL = "https://hippie-sciences.onrender.com"
