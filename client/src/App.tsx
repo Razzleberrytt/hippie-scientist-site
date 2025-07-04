@@ -3,14 +3,32 @@ import React from "react";
 function App() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-[#1a0025] via-[#420e56] to-[#1a0025] text-white overflow-hidden font-sans transition-colors duration-500">
-      {/* Animated floating particles background layer */}
+      {/* Custom styles for animation */}
+      <style>
+        {`
+          @keyframes glowText {
+            from {
+              text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc;
+            }
+            to {
+              text-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff, 0 0 40px #00ccff;
+            }
+          }
+
+          .glow {
+            animation: glowText 3s ease-in-out infinite alternate;
+          }
+        `}
+      </style>
+
+      {/* Floating glow background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" />
       </div>
 
       {/* Main content */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 space-y-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-yellow-400 to-purple-500 animate-text-glow">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-yellow-400 to-purple-500 glow">
           🌿 The Hippie Scientist
         </h1>
 
