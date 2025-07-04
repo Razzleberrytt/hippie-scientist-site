@@ -1,12 +1,18 @@
-import React from 'react';
+// src/App.tsx
+import React from "react";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="text-center text-3xl p-10 text-white">
-      <h1>🚀 Welcome to The Hippie Scientist</h1>
-      <p className="mt-4 text-lg">Site deployed successfully 🌈</p>
+    <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="text-center space-y-4">
+        <h1 className="text-4xl font-bold">🌿 The Hippie Scientist</h1>
+        <p className="text-lg text-gray-300">Welcome to your psychedelic hub of herb info and chill vibes.</p>
+        <button className="bg-teal-600 px-4 py-2 rounded hover:bg-teal-700 transition">
+          Browse the Index
+        </button>
+      </div>
     </div>
   );
-};
+}
 
 export default App;
