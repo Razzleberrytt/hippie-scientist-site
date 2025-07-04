@@ -1,13 +1,14 @@
-// client/src/App.tsx
-import React from "react";
-import Hero from "./components/Hero.tsx";
+import React from 'react';
+import Header from './components/Header.tsx';
+import Hero from './components/Hero.tsx';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <>
+    <div>
+      <Header />
       <Hero />
-    </>
+    </div>
   );
-}
+};
 
 export default App;
