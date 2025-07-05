@@ -1,50 +1,21 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Hero from "./components/Hero";
+import HerbIndex from "./components/HerbIndex";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#1a0025] via-[#420e56] to-[#1a0025] text-white overflow-hidden font-sans transition-colors duration-500">
-      {/* Custom styles for animation */}
-      <style>
-        {`
-          @keyframes glowText {
-            from {
-              text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc;
-            }
-            to {
-              text-shadow: 0 0 20px #00ccff, 0 0 30px #00ccff, 0 0 40px #00ccff;
-            }
-          }
-
-          .glow {
-            animation: glowText 3s ease-in-out infinite alternate;
-          }
-        `}
-      </style>
-
-      {/* Floating glow background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.05),transparent_70%)] animate-pulse" />
-      </div>
-
-      {/* Main content */}
-      <main className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 space-y-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-yellow-400 to-purple-500 glow">
-          🌿 The Hippie Scientist
-        </h1>
-
-        <p className="text-lg md:text-xl text-gray-300 text-center max-w-xl">
-          Welcome to your psychedelic hub of herb wisdom, legal highs, and vibed-out science.
-        </p>
-
-        <a
-          href="#herb-index"
-          className="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded shadow transition-all hover:scale-105"
-        >
-          🌱 Browse the Index
-        </a>
-      </main>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/herb-index" element={<HerbIndex />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;
