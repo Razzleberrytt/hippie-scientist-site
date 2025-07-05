@@ -13,6 +13,7 @@
   node_bundler = "esbuild"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "https://thehippiescientist.net/*"
+  to = "https://www.thehippiescientist.net/:splat"
+  status = 301
+  force = true
