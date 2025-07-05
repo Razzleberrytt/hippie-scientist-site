@@ -1,7 +1,10 @@
 [build]
-  command = "npm run build --prefix client"
-  publish = "client/build"
-  functions = "client/netlify/functions"
+base = "client"
+command = "npm run build"
+publish = "build"
+
+[functions]
+directory = "netlify/functions"
 
 [[redirects]]
   from = "http://thehippiescientist.net/*"
