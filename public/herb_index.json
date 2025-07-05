@@ -1,67 +1,142 @@
 [
   {
-    "name": "Blue Lotus",
-    "effects": [
-      "Relaxation",
-      "Mild euphoria",
-      "Lucid dreaming"
-    ],
-    "active_compounds": [
-      "Aporphine",
-      "Nuciferine"
-    ],
-    "legal_status": "Legal in most countries",
-    "use_methods": [
-      "Tea",
-      "Smoking",
-      "Extract"
-    ],
-    "warnings": [
-      "Avoid mixing with other sedatives"
-    ]
+    "id": "1",
+    "name": "Psilocybe cubensis",
+    "category": "Mushroom",
+    "activeCompounds": ["Psilocybin", "Psilocin"],
+    "coaLink": "https://example.com/coa/psilocybe-cubensis.pdf"
   },
   {
-    "name": "Kratom",
-    "effects": [
-      "Stimulation (low dose)",
-      "Sedation (high dose)",
-      "Pain relief"
-    ],
-    "active_compounds": [
-      "Mitragynine",
-      "7-Hydroxymitragynine"
-    ],
-    "legal_status": "Varies by country and state",
-    "use_methods": [
-      "Capsule",
-      "Powder",
-      "Tea"
-    ],
-    "warnings": [
-      "Risk of dependence",
-      "Avoid mixing with depressants"
-    ]
+    "id": "2",
+    "name": "Amanita muscaria",
+    "category": "Mushroom",
+    "activeCompounds": ["Muscimol", "Ibotenic acid"],
+    "coaLink": "https://example.com/coa/amanita-muscaria.pdf"
   },
   {
-    "name": "Kanna",
-    "effects": [
-      "Mood enhancement",
-      "Anxiolytic",
-      "Euphoria"
-    ],
-    "active_compounds": [
-      "Mesembrine",
-      "Mesembrenone"
-    ],
-    "legal_status": "Legal in most places",
-    "use_methods": [
-      "Sublingual",
-      "Chewing",
-      "Capsules",
-      "Snuff"
-    ],
-    "warnings": [
-      "Can interact with SSRIs"
-    ]
+    "id": "3",
+    "name": "Golden Teacher",
+    "category": "Mushroom",
+    "activeCompounds": ["Psilocybin", "Psilocin"],
+    "coaLink": "https://example.com/coa/golden-teacher.pdf"
+  },
+  {
+    "id": "4",
+    "name": "Lion’s Mane",
+    "category": "Mushroom",
+    "activeCompounds": ["Hericenones", "Erinacines"],
+    "coaLink": "https://example.com/coa/lions-mane.pdf"
+  },
+  {
+    "id": "5",
+    "name": "Reishi",
+    "category": "Mushroom",
+    "activeCompounds": ["Triterpenes", "Polysaccharides"],
+    "coaLink": "https://example.com/coa/reishi.pdf"
+  },
+  {
+    "id": "6",
+    "name": "Cordyceps",
+    "category": "Mushroom",
+    "activeCompounds": ["Cordycepin", "Adenosine"],
+    "coaLink": "https://example.com/coa/cordyceps.pdf"
+  },
+  {
+    "id": "7",
+    "name": "Kava (Piper methysticum)",
+    "category": "Botanical",
+    "activeCompounds": ["Kavalactones"],
+    "coaLink": "https://example.com/coa/kava.pdf"
+  },
+  {
+    "id": "8",
+    "name": "Kanna (Sceletium tortuosum)",
+    "category": "Botanical",
+    "activeCompounds": ["Mesembrine", "Mesembrenone"],
+    "coaLink": "https://example.com/coa/kanna.pdf"
+  },
+  {
+    "id": "9",
+    "name": "Kratom (Mitragyna speciosa)",
+    "category": "Botanical",
+    "activeCompounds": ["Mitragynine", "7-Hydroxymitragynine"],
+    "coaLink": "https://example.com/coa/kratom.pdf"
+  },
+  {
+    "id": "10",
+    "name": "Mad Honey (Grayanotoxin)",
+    "category": "Botanical",
+    "activeCompounds": ["Grayanotoxins"],
+    "coaLink": "https://example.com/coa/mad-honey.pdf"
+  },
+  {
+    "id": "11",
+    "name": "Psilocybe semilanceata",
+    "category": "Mushroom",
+    "activeCompounds": ["Psilocybin", "Psilocin"],
+    "coaLink": "https://example.com/coa/psilocybe-semilanceata.pdf"
+  },
+  {
+    "id": "12",
+    "name": "Blue Meanies",
+    "category": "Mushroom",
+    "activeCompounds": ["Psilocybin", "Psilocin"],
+    "coaLink": "https://example.com/coa/blue-meanies.pdf"
+  },
+  {
+    "id": "13",
+    "name": "Chocolate Mushroom Gummies",
+    "category": "Edible",
+    "activeCompounds": ["Psilocybin", "Psilocin"],
+    "coaLink": "https://example.com/coa/choc-mushroom-gummies.pdf"
+  },
+  {
+    "id": "14",
+    "name": "Reishi Capsules",
+    "category": "Supplement",
+    "activeCompounds": ["Triterpenes", "Polysaccharides"],
+    "coaLink": "https://example.com/coa/reishi-capsules.pdf"
+  },
+  {
+    "id": "15",
+    "name": "Lion’s Mane Tincture",
+    "category": "Supplement",
+    "activeCompounds": ["Hericenones", "Erinacines"],
+    "coaLink": "https://example.com/coa/lions-mane-tincture.pdf"
+  },
+  {
+    "id": "16",
+    "name": "Amanita Muscaria Gummies",
+    "category": "Edible",
+    "activeCompounds": ["Muscimol", "Ibotenic acid"],
+    "coaLink": "https://example.com/coa/amanita-gummies.pdf"
+  },
+  {
+    "id": "17",
+    "name": "Cordyceps Powder",
+    "category": "Supplement",
+    "activeCompounds": ["Cordycepin", "Adenosine"],
+    "coaLink": "https://example.com/coa/cordyceps-powder.pdf"
+  },
+  {
+    "id": "18",
+    "name": "Kratom Capsules",
+    "category": "Supplement",
+    "activeCompounds": ["Mitragynine", "7-Hydroxymitragynine"],
+    "coaLink": "https://example.com/coa/kratom-capsules.pdf"
+  },
+  {
+    "id": "19",
+    "name": "Kava Root Powder",
+    "category": "Supplement",
+    "activeCompounds": ["Kavalactones"],
+    "coaLink": "https://example.com/coa/kava-powder.pdf"
+  },
+  {
+    "id": "20",
+    "name": "Kanna Tincture",
+    "category": "Supplement",
+    "activeCompounds": ["Mesembrine", "Mesembrenone"],
+    "coaLink": "https://example.com/coa/kanna-tincture.pdf"
   }
 ]
