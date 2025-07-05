@@ -2,121 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explore consciousness through psychedelic education, herb database, and premium products. Your gateway to safe and informed psychedelic experiences." />
-    <meta name="keywords" content="psychedelics, consciousness, herbs, education, psilocybin, meditation, mindfulness" />
-    <meta name="author" content="Psychedelic Hub" />
-    
-    <!-- Open Graph meta tags for social sharing -->
-    <meta property="og:title" content="Psychedelic Hub - Consciousness Exploration Platform" />
-    <meta property="og:description" content="Educational resources, herb database, and premium products for safe psychedelic exploration" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image.jpg" />
-    
-    <!-- Twitter Card meta tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Psychedelic Hub - Consciousness Exploration" />
-    <meta name="twitter:description" content="Your trusted source for psychedelic education and premium products" />
-    
-    <!-- Preconnect to external domains for performance -->
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://hippie-sciences.onrender.com" />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    
-    <title>Psychedelic Hub - Consciousness Exploration Platform</title>
-    
-    <style>
-      /* Prevent flash of unstyled content */
-      body {
-        margin: 0;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        overflow-x: hidden;
-      }
-      
-      /* Loading spinner styles */
-      .loading-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        z-index: 9999;
-      }
-      
-      .loading-spinner {
-        width: 60px;
-        height: 60px;
-        border: 4px solid rgba(255, 255, 255, 0.3);
-        border-top: 4px solid #ffffff;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      
-      .loading-text {
-        color: white;
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: 500;
-        text-align: center;
-      }
-      
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      
-      /* Hide loading when app loads */
-      .app-loaded .loading-container {
-        display: none;
-      }
-    </style>
+    <title>Hippie Scientist</title>
   </head>
   <body>
-    <!-- Loading screen -->
-    <div class="loading-container" id="loading">
-      <div>
-        <div class="loading-spinner"></div>
-        <div class="loading-text">
-          🌸 Loading Psychedelic Hub...
-        </div>
-      </div>
-    </div>
-    
-    <!-- Main app container -->
     <div id="root"></div>
-    
-    <!-- Environment check script -->
-    <script>
-      // Check if we're in development mode
-      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-        console.log('🌟 Running in development mode');
-      }
-      
-      // Remove loading screen when app loads
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          document.body.classList.add('app-loaded');
-        }, 500);
-      });
-      
-      // Service worker registration for PWA capabilities (future enhancement)
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          // Future PWA implementation
-        });
-      }
-    </script>
-    
-    <script type="module" src="/client/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
