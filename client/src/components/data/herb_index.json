@@ -1,47 +1,14 @@
 [
   {
-    "name": "Acorus calamus",
-    "mechanism_of_action": "May act on GABAergic and serotonergic systems.",
-    "therapeutic_uses": [
-      "Cognitive enhancement",
-      "Anti-inflammatory",
-      "Antimicrobial"
-    ],
-    "side_effects": [
-      "Nausea",
-      "Vomiting",
-      "Hallucinations at high doses"
-    ],
-    "contraindications": [
-      "Pregnancy",
-      "Epilepsy"
-    ],
-    "interactions": [
-      "May potentiate sedatives"
-    ],
-    "toxicity": "High doses may be carcinogenic due to \u03b2-asarone.",
-    "image": "https://example.com/images/acorus_calamus.jpg"
+    "name": "Acorus Calamus",
+    "tags": ["sedative", "nootropic"],
+    "description": "Aromatic rhizome with cognitive and calming effects.",
+    "image": "/images/acorus-calamus.jpg"
   },
   {
     "name": "Blue Lotus",
-    "mechanism_of_action": "Likely acts as a phosphodiesterase inhibitor and serotonin modulator.",
-    "therapeutic_uses": [
-      "Relaxation",
-      "Mild euphoria",
-      "Sleep support"
-    ],
-    "side_effects": [
-      "Dry mouth",
-      "Drowsiness"
-    ],
-    "contraindications": [
-      "Pregnancy",
-      "Use with CNS depressants"
-    ],
-    "interactions": [
-      "May enhance effects of alcohol and benzodiazepines"
-    ],
-    "toxicity": "Low; mild toxicity in high doses.",
-    "image": "https://example.com/images/blue_lotus.jpg"
+    "tags": ["euphoric", "aphrodisiac"],
+    "description": "A sacred flower known for its calming, dreamy state.",
+    "image": "/images/blue-lotus.jpg"
   }
 ]
