@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Blue Lotus",
+    "effects": [
+      "Relaxation",
+      "Mild euphoria",
+      "Lucid dreaming"
+    ],
+    "active_compounds": [
+      "Aporphine",
+      "Nuciferine"
+    ],
+    "legal_status": "Legal in most countries",
+    "use_methods": [
+      "Tea",
+      "Smoking",
+      "Extract"
+    ],
+    "warnings": [
+      "Avoid mixing with other sedatives"
+    ]
+  },
+  {
+    "name": "Kratom",
+    "effects": [
+      "Stimulation (low dose)",
+      "Sedation (high dose)",
+      "Pain relief"
+    ],
+    "active_compounds": [
+      "Mitragynine",
+      "7-Hydroxymitragynine"
+    ],
+    "legal_status": "Varies by country and state",
+    "use_methods": [
+      "Capsule",
+      "Powder",
+      "Tea"
+    ],
+    "warnings": [
+      "Risk of dependence",
+      "Avoid mixing with depressants"
+    ]
+  },
+  {
+    "name": "Kanna",
+    "effects": [
+      "Mood enhancement",
+      "Anxiolytic",
+      "Euphoria"
+    ],
+    "active_compounds": [
+      "Mesembrine",
+      "Mesembrenone"
+    ],
+    "legal_status": "Legal in most places",
+    "use_methods": [
+      "Sublingual",
+      "Chewing",
+      "Capsules",
+      "Snuff"
+    ],
+    "warnings": [
+      "Can interact with SSRIs"
+    ]
+  }
+]
