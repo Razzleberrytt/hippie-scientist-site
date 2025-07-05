@@ -1,50 +1,45 @@
-// src/components/HerbIndex.tsx
 import React, { useEffect, useState } from 'react';
 
-type Herb = {
+interface Herb {
   name: string;
-  effects: string;
+  description: string;
+  tags: string[];
+  mechanism: string;
   uses: string;
-  mechanism?: string;
-  toxicity?: string;
-};
+  toxicity: string;
+}
 
 const HerbIndex: React.FC = () => {
   const [herbs, setHerbs] = useState<Herb[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/herb_index.json')
+    fetch('/herbs.json')
       .then((res) => res.json())
       .then((data) => {
         setHerbs(data);
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Failed to load herb data:', err);
+        console.error('Failed to load herbs.json:', err);
         setLoading(false);
       });
   }, []);
 
-  if (loading) return <div className="text-center text-gray-300">Loading herbs...</div>;
+  if (loading) return <p className="text-center text-white">Loading herbs...</p>;
 
   return (
-    <div className="p-4 max-w-5xl mx-auto">
-      <h2 className="text-3xl font-bold text-teal-400 mb-6 text-center">🌿 Psychoactive Herb Index</h2>
-      <div className="grid md:grid-cols-2 gap-6">
-        {herbs.map((herb, index) => (
-          <div
-            key={index}
-            className="border border-teal-700 bg-gray-900 rounded-lg p-4 shadow hover:shadow-lg transition"
-          >
-            <h3 className="text-xl font-semibold text-white">{herb.name}</h3>
-            <p><span className="text-teal-300">Effects:</span> {herb.effects}</p>
-            <p><span className="text-teal-300">Uses:</span> {herb.uses}</p>
-            {herb.mechanism && <p><span className="text-teal-300">MOA:</span> {herb.mechanism}</p>}
-            {herb.toxicity && <p><span className="text-teal-300">Toxicity:</span> {herb.toxicity}</p>}
-          </div>
-        ))}
-      </div>
+    <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {herbs.map((herb, index) => (
+        <div key={index} className="border border-purple-400 p-4 rounded-lg bg-black text-white shadow-lg">
+          <h2 className="text-xl font-bold text-green-300">{herb.name}</h2>
+          <p className="text-sm text-gray-400 mb-2 italic">{herb.tags.join(', ')}</p>
+          <p><strong>Description:</strong> {herb.description}</p>
+          <p><strong>Mechanism:</strong> {herb.mechanism}</p>
+          <p><strong>Uses:</strong> {herb.uses}</p>
+          <p><strong>Toxicity:</strong> {herb.toxicity}</p>
+        </div>
+      ))}
     </div>
   );
 };
