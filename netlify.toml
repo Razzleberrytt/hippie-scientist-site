@@ -1,22 +1,9 @@
 [build]
-base = "client"
-command = "npm run build"
-publish = "build"
+  command = "cd client && npm install && npm run build"
+  publish = "client/build"
 
-[functions]
-directory = "netlify/functions"
-
-[[redirects]]
-  from = "http://thehippiescientist.net/*"
-  to = "https://www.thehippiescientist.net/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://thehippiescientist.net/*"
-  to = "https://www.thehippiescientist.net/:splat"
-  status = 301
-  force = true
+[environment]
+  REACT_APP_API_URL = "https://hippie-sciences.onrender.com"
 
 [[redirects]]
   from = "/*"
