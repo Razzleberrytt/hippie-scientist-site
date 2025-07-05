@@ -1,0 +1,38 @@
+/* src/components/HerbIndex.css */
+.herb-index {
+  padding: 1rem;
+}
+.herb-index__controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.herb-index__controls input {
+  flex: 1;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+.herb-index__sort button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.herb-index__sort button.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.herb-index__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.herb-index__table th,
+.herb-index__table td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+.herb-index__table th {
+  background: #f4f4f4;
+}
