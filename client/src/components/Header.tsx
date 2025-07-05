@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
-    <header className="flex justify-between items-center px-6 py-4 bg-black text-white shadow-md">
-      <Link to="/" className="text-3xl font-bold tracking-wide">
+    <header className="bg-black text-white shadow-md py-4 px-6 flex justify-between items-center">
+      <Link to="/" className="text-2xl font-bold text-purple-400 hover:text-purple-300 transition">
         The Hippie Scientist
       </Link>
-      <nav className="space-x-6 text-lg font-medium">
+      <nav className="flex space-x-6">
         <Link to="/" className="hover:text-purple-300 transition">Home</Link>
         <Link to="/herb-index" className="hover:text-purple-300 transition">Herb Index</Link>
+        <Link to="/store" className="hover:text-purple-300 transition">Store</Link>
+        <Link to="/blog" className="hover:text-purple-300 transition">Blog</Link>
       </nav>
     </header>
   );
