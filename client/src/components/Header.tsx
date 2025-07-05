@@ -1,30 +1,18 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   return (
-    <header style={styles.header}>
-      <h1 style={styles.title}>🌿 The Hippie Scientist 🌿</h1>
-      <p style={styles.tagline}>Exploring Psychoactive Herbs & Legal Highs</p>
+    <header className="flex justify-between items-center px-6 py-4 bg-black text-white shadow-md">
+      <Link to="/" className="text-3xl font-bold tracking-wide">
+        The Hippie Scientist
+      </Link>
+      <nav className="space-x-6 text-lg font-medium">
+        <Link to="/" className="hover:text-purple-300 transition">Home</Link>
+        <Link to="/herb-index" className="hover:text-purple-300 transition">Herb Index</Link>
+      </nav>
     </header>
   );
 };
-
-const styles = {
-  header: {
-    textAlign: 'center',
-    padding: '3rem 1rem',
-    backgroundColor: '#1a1a1a',
-    color: '#fff',
-    borderBottom: '2px solid #39ff14',
-  },
-  title: {
-    fontSize: '2.8rem',
-    marginBottom: '0.5rem',
-  },
-  tagline: {
-    fontSize: '1.2rem',
-    color: '#ccc',
-  },
-} as const;
 
 export default Header;
