@@ -6,12 +6,9 @@
     "moduleResolution": "Node",
     "strict": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
-    "allowJs": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src"]
 }
