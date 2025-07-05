@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Hero from './components/Hero';
-import Header from './components/Header';
+import Hero from './components/Hero.tsx';
+import Header from './components/Header.tsx';
 import HerbIndexPage from './components/HerbIndexPage.tsx';
 
 function App() {
