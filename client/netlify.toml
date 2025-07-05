@@ -1,0 +1,11 @@
+[build]
+  command = "npm install && npm run build"
+  publish = "dist/"
+
+[environment]
+  REACT_APP_API_URL = "https://hippie-sciences.onrender.com"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
