@@ -1,21 +1,21 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Hero from "./components/Hero";
-import HerbIndex from "./components/HerbIndex";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Hero from './components/Hero';
+import Header from './components/Header';
+import HerbIndexPage from './components/HerbIndexPage.tsx';
 
-const App: React.FC = () => {
+function App() {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/herb-index" element={<HerbIndex />} />
-      </Routes>
-      <Footer />
+      <div className="bg-gradient-to-br from-purple-900 to-indigo-900 min-h-screen text-white font-sans">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/herb-index" element={<HerbIndexPage />} />
+        </Routes>
+      </div>
     </Router>
   );
-};
+}
 
 export default App;
