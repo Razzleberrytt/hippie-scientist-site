@@ -1,24 +1,26 @@
 [build]
+  base    = "client"
   command = "npm run build"
-  publish = "dist"
-
-[dev]
-  command = "vite"
-  targetPort = 5173
-  port = 8888
-  autoLaunch = true
+  publish = "client/build"
 
 [functions]
-  directory = "netlify/functions"
+  directory    = "client/netlify/functions"
   node_bundler = "esbuild"
 
 [[redirects]]
-  from = "https://thehippiescientist.net/*"
-  to = "https://www.thehippiescientist.net/:splat"
+  from = "http://thehippiescientist.net/*"
+  to   = "https://www.thehippiescientist.net/:splat"
   status = 301
   force = true
 
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+  from = "https://thehippiescientist.net/*"
+  to   = "https://www.thehippiescientist.net/:splat"
+  status = 301
+  force = true
+
+# Required for SPAs using React, Vue, etc.
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
