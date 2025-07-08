@@ -204,4 +204,44 @@ const Database: React.FC = () => {
                 aria-label="Close modal"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Modal content would go here */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Scientific Name</h3>
+                <p className="opacity-80">{selectedHerb.scientificName}</p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Description</h3>
+                <p className="opacity-80">{selectedHerb.description}</p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Effects</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedHerb.effects.map((effect) => (
+                    <span key={effect} className="px-3 py-1 bg-glass-light rounded-full text-sm">
+                      {effect}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Safety Rating</h3>
+                <p className="opacity-80">{selectedHerb.safetyRating}/10</p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </div>
+  );
+};
+
+export default Database;
