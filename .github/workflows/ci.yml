@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI Pipeline
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  test:
     runs-on: ubuntu-latest
     
     steps:
@@ -18,12 +18,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-        cache: 'npm'
     
-    - name: Clean install dependencies
+    - name: Install dependencies
       run: |
-        rm -rf node_modules
-        npm ci
+        npm install
+        npm install --package-lock-only
     
     - name: TypeScript type checking
       run: npm run type-check
@@ -34,11 +33,3 @@ jobs:
     
     - name: Build project
       run: npm run build
-    
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-        cname: thehippiescientist.net
