@@ -3,22 +3,20 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './',
   build: {
-    outDir: 'dist',
-    sourcemap: true,
+    target: 'esnext',
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
+          motion: ['framer-motion'],
           router: ['react-router-dom'],
-          animations: ['framer-motion']
+          icons: ['lucide-react'],
         }
       }
     }
   },
-  server: {
-    port: 3000,
-    open: true
+  optimizeDeps: {
+    include: ['framer-motion', 'react-router-dom', 'lucide-react']
   }
 })
