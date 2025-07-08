@@ -1,43 +1,47 @@
 {
   "name": "hippie-scientist-site",
-  "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Explore consciousness through psychedelic research, ancient wisdom, and modern science",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "d3": "^7.9.0",
-    "framer-motion": "^11.18.2",
-    "fuse.js": "^7.1.0",
-    "jsdom": "^26.1.0",
-    "lucide-react": "^0.400.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-hook-form": "^7.60.0",
-    "react-hot-toast": "^2.5.2",
-    "react-router-dom": "^7.0.0",
-    "recharts": "^3.0.2",
-    "vitest": "^3.2.4"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "framer-motion": "^10.16.0",
+    "lucide-react": "^0.294.0",
+    "fuse.js": "^7.0.0"
   },
   "devDependencies": {
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
-    "@vitejs/plugin-react": "^4.3.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.0.0",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.12",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5.6.0",
-    "vite": "^7.0.2"
-  }
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  },
+  "keywords": [
+    "psychedelic",
+    "consciousness",
+    "research",
+    "meditation",
+    "harm-reduction",
+    "neuroscience",
+    "plant-medicine"
+  ],
+  "author": "Razzleberrytt",
+  "license": "MIT"
 }
