@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Atom } from 'lucide-react'
+import { Menu, X, Atom, Sun, Moon, Palette } from 'lucide-react'
+import { useTheme } from '../contexts/theme'
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +25,22 @@ const Navbar: React.FC = () => {
     { name: 'Safety', path: '/safety' },
     { name: 'Community', path: '/community' },
   ]
+
+  const getThemeIcon = () => {
+    switch (theme) {
+      case 'light': return <Sun className="w-5 h-5" />
+      case 'vaporwave': return <Palette className="w-5 h-5" />
+      default: return <Moon className="w-5 h-5" />
+    }
+  }
+
+  const getThemeColor = () => {
+    switch (theme) {
+      case 'light': return 'text-yellow-500'
+      case 'vaporwave': return 'text-pink-400'
+      default: return 'text-purple-400'
+    }
+  }
 
   return (
     <motion.nav 
@@ -66,6 +84,27 @@ const Navbar: React.FC = () => {
                 {item.name}
               </Link>
             ))}
+            
+            {/* Theme Toggle */}
+            <motion.button
+              onClick={toggleTheme}
+              className={`p-2 rounded-lg hover:bg-glass-light transition-colors ${getThemeColor()}`}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Toggle theme"
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={theme}
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {getThemeIcon()}
+                </motion.div>
+              </AnimatePresence>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -132,6 +171,18 @@ const Navbar: React.FC = () => {
                     </Link>
                   </motion.div>
                 ))}
+                
+                {/* Mobile Theme Toggle */}
+                <motion.button
+                  onClick={toggleTheme}
+                  className={`w-full px-4 py-3 rounded-lg transition-all duration-300 flex items-center ${getThemeColor()}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navItems.length * 0.1 }}
+                >
+                  {getThemeIcon()}
+                  <span className="ml-3">Theme: {theme}</span>
+                </motion.button>
               </div>
             </motion.div>
           )}
