@@ -54,6 +54,18 @@
       box-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
     }
   }
+
+  @keyframes sparkle {
+    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+    50% { transform: scale(1) rotate(180deg); opacity: 0.8; }
+    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+  }
+
+  @keyframes rainbow-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 }
 
 @layer components {
@@ -101,6 +113,14 @@
     animation: gradient-shift 3s ease infinite;
   }
 
+  .rainbow-text {
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-flow 3s ease infinite;
+  }
+
   .glow-subtle {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
   }
@@ -120,6 +140,29 @@
     animation: float 8s ease-in-out infinite;
     will-change: transform;
   }
+
+  .sparkle-animation {
+    animation: sparkle 1s ease-out forwards;
+  }
+
+  /* Enhanced scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #8B5CF6, #EC4899);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #7C3AED, #DB2777);
+  }
 }
 
 @layer utilities {
@@ -135,9 +178,25 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 1s ease-out forwards;
+  }
+
+  .animate-rainbow {
+    animation: rainbow-flow 3s ease infinite;
+  }
 }
 
-/* Enhanced scrollbar */
+/* Enhanced global scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -154,4 +213,28 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #7C3AED, #DB2777);
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .glass-card:hover {
+    transform: none;
+  }
+  
+  .glass-button:hover {
+    transform: none;
+  }
+  
+  .glass-button:active {
+    transform: scale(0.98);
+  }
 }
