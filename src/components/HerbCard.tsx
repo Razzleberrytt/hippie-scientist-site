@@ -42,7 +42,7 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick, isCompact = false })
 
   return (
     <motion.div
-      className="herb-card"
+      className="glass-card p-6 hover:glow-subtle transition-all duration-300 cursor-pointer"
       layout
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -65,7 +65,9 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick, isCompact = false })
           )}
         </div>
         <div className="flex flex-col items-end space-y-2">
-          <span className="tag-primary">{herb.category}</span>
+          <span className="px-3 py-1 bg-psychedelic-purple/20 text-psychedelic-purple border border-psychedelic-purple/30 rounded-full text-sm font-medium">
+            {herb.category}
+          </span>
           <div className={`px-2 py-1 rounded-full text-xs font-medium border ${getSafetyBgColor(herb.safetyRating)}`}>
             <span className={getSafetyColor(herb.safetyRating)}>
               Safety: {herb.safetyRating}/10
@@ -81,12 +83,12 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick, isCompact = false })
         </h4>
         <div className="flex flex-wrap gap-1">
           {herb.effects.slice(0, isCompact ? 2 : 4).map((effect, index) => (
-            <span key={index} className="tag-secondary text-xs">
+            <span key={index} className="px-3 py-1 bg-psychedelic-pink/20 text-psychedelic-pink border border-psychedelic-pink/30 rounded-full text-xs">
               {effect}
             </span>
           ))}
           {herb.effects.length > (isCompact ? 2 : 4) && (
-            <span className="tag-secondary text-xs opacity-70">
+            <span className="px-3 py-1 bg-psychedelic-pink/20 text-psychedelic-pink border border-psychedelic-pink/30 rounded-full text-xs opacity-70">
               +{herb.effects.length - (isCompact ? 2 : 4)} more
             </span>
           )}
@@ -108,7 +110,7 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick, isCompact = false })
             </div>
             <div className="flex flex-wrap gap-1">
               {herb.tags.slice(0, 2).map((tag, index) => (
-                <span key={index} className="tag-accent text-xs">
+                <span key={index} className="px-2 py-1 bg-psychedelic-cyan/20 text-psychedelic-cyan border border-psychedelic-cyan/30 rounded-full text-xs">
                   {tag}
                 </span>
               ))}
@@ -221,7 +223,7 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick, isCompact = false })
                   </h5>
                   <div className="flex flex-wrap gap-2">
                     {herb.tags.map((tag, index) => (
-                      <span key={index} className="tag-accent text-xs">
+                      <span key={index} className="px-2 py-1 bg-psychedelic-cyan/20 text-psychedelic-cyan border border-psychedelic-cyan/30 rounded-full text-xs">
                         {tag}
                       </span>
                     ))}
