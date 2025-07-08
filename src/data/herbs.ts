@@ -17,11 +17,12 @@ export interface Herb {
   tags: string[];
 }
 
-// Convert your JSON data to our structured format
+// Enhanced herb data with comprehensive information
 export const herbsData: Herb[] = [
   {
     id: "acorus-calamus",
     name: "Acorus Calamus",
+    scientificName: "Acorus calamus",
     category: "Psychoactive",
     effects: ["Mental Clarity", "Mild Stimulation", "Dream Enhancement"],
     description: "Traditional herb known for mental clarity and mild psychoactive effects through β-asarone content.",
@@ -145,24 +146,6 @@ export const herbsData: Herb[] = [
     tags: ["cannabinoid", "medical", "recreational", "legal-varies"]
   },
   {
-    id: "damiana",
-    name: "Damiana",
-    scientificName: "Turnera diffusa",
-    category: "Stimulant",
-    effects: ["Mood Enhancement", "Libido Support", "Mild Stimulation"],
-    description: "Traditional Mexican herb known for mood enhancement and aphrodisiac properties.",
-    mechanismOfAction: "Modulates GABA and dopamine; mild stimulant and aphrodisiac.",
-    pharmacokinetics: "Oral, smoked, or brewed; onset ~30 min; duration 1–2 hours.",
-    therapeuticUses: "Mood elevation, libido support, relaxation.",
-    sideEffects: "Headache, insomnia (in high doses).",
-    contraindications: "Pregnancy, diabetes.",
-    drugInteractions: "Hypoglycemics, sedatives.",
-    toxicityLD50: "Low; generally well-tolerated.",
-    safetyRating: 8,
-    legalStatus: "Legal worldwide",
-    tags: ["aphrodisiac", "safe", "traditional", "mood"]
-  },
-  {
     id: "kava",
     name: "Kava",
     scientificName: "Piper methysticum",
@@ -248,95 +231,3 @@ export const effectTags = [
   "Dream Enhancement",
   "Libido Support"
 ];
-
-// Helper to convert your JSON data
-export const convertJsonToHerbs = (jsonData: any[]): Herb[] => {
-  return jsonData.map((item) => ({
-    id: item.Herb.toLowerCase().replace(/[^a-z0-9]/g, '-'),
-    name: item.Herb,
-    scientificName: extractScientificName(item.Herb),
-    category: determineCategory(item["Therapeutic Uses"], item["Mechanism of Action"]),
-    effects: extractEffects(item["Therapeutic Uses"]),
-    description: `${item.Herb} is known for ${item["Therapeutic Uses"].toLowerCase()}.`,
-    mechanismOfAction: item["Mechanism of Action"] || "Unknown mechanism",
-    pharmacokinetics: item["Pharmacokinetics"] || "Data not available",
-    therapeuticUses: item["Therapeutic Uses"] || "Traditional use",
-    sideEffects: item["Side Effects"] || "Consult healthcare provider",
-    contraindications: item["Contraindications"] || "Unknown",
-    drugInteractions: item["Drug Interactions"] || "Unknown",
-    toxicityLD50: item["Toxicity / LD50"] || "Data not available",
-    safetyRating: calculateSafetyRating(item),
-    legalStatus: "Legal status varies",
-    tags: generateTags(item)
-  }));
-};
-
-function extractScientificName(name: string): string | undefined {
-  return undefined; // Add logic if needed
-}
-
-function determineCategory(therapeuticUses: string, mechanism: string): string {
-  const uses = therapeuticUses.toLowerCase();
-  const moa = mechanism.toLowerCase();
-  
-  if (uses.includes('psychedelic') || moa.includes('5-ht2a')) return 'Psychedelic';
-  if (uses.includes('anxiety') || moa.includes('gaba')) return 'Anxiolytic';
-  if (uses.includes('dream')) return 'Oneirogenic';
-  if (uses.includes('stimul') || uses.includes('energy')) return 'Stimulant';
-  if (uses.includes('memory') || uses.includes('cognit')) return 'Nootropic';
-  if (uses.includes('stress') || uses.includes('adaptogen')) return 'Adaptogen';
-  if (uses.includes('relax') || uses.includes('calm')) return 'Relaxant';
-  if (moa.includes('opioid')) return 'Opioid-like';
-  
-  return 'Psychoactive';
-}
-
-function extractEffects(therapeuticUses: string): string[] {
-  const uses = therapeuticUses.toLowerCase();
-  const effects: string[] = [];
-  
-  if (uses.includes('anxiety')) effects.push('Anxiety Relief');
-  if (uses.includes('pain')) effects.push('Pain Relief');
-  if (uses.includes('sleep')) effects.push('Sleep Aid');
-  if (uses.includes('stress')) effects.push('Stress Relief');
-  if (uses.includes('memory')) effects.push('Memory Enhancement');
-  if (uses.includes('mood')) effects.push('Mood Enhancement');
-  if (uses.includes('energy')) effects.push('Energy Boost');
-  if (uses.includes('relax')) effects.push('Relaxation');
-  if (uses.includes('dream')) effects.push('Dream Enhancement');
-  if (uses.includes('libido')) effects.push('Libido Support');
-  
-  return effects.length > 0 ? effects : ['Traditional Use'];
-}
-
-function calculateSafetyRating(item: any): number {
-  const sideEffects = item["Side Effects"]?.toLowerCase() || '';
-  const contraindications = item["Contraindications"]?.toLowerCase() || '';
-  const toxicity = item["Toxicity / LD50"]?.toLowerCase() || '';
-  
-  let rating = 5;
-  
-  if (sideEffects.includes('liver') || contraindications.includes('liver')) rating -= 2;
-  if (sideEffects.includes('heart') || contraindications.includes('heart')) rating -= 2;
-  if (sideEffects.includes('seizure')) rating -= 3;
-  if (toxicity.includes('carcinogenic') || toxicity.includes('toxic')) rating -= 3;
-  if (contraindications.includes('pregnancy')) rating -= 1;
-  
-  if (toxicity.includes('low') || toxicity.includes('safe')) rating += 2;
-  if (sideEffects.includes('rare') || sideEffects.includes('mild')) rating += 1;
-  
-  return Math.max(1, Math.min(10, rating));
-}
-
-function generateTags(item: any): string[] {
-  const tags: string[] = [];
-  const therapeuticUses = item["Therapeutic Uses"]?.toLowerCase() || '';
-  const sideEffects = item["Side Effects"]?.toLowerCase() || '';
-  
-  if (therapeuticUses.includes('traditional')) tags.push('traditional');
-  if (sideEffects.includes('low') || sideEffects.includes('safe')) tags.push('safe');
-  if (therapeuticUses.includes('research')) tags.push('research');
-  if (sideEffects.includes('liver') || sideEffects.includes('heart')) tags.push('caution-required');
-  
-  return tags;
-}
