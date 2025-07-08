@@ -73,18 +73,6 @@ class ErrorBoundary extends Component<Props, State> {
                 Return Home
               </motion.button>
             </div>
-            
-            {/* Show technical details in development mode */}
-            {import.meta.env.DEV && this.state.error && (
-              <details className="mt-6 text-left">
-                <summary className="cursor-pointer text-psychedelic-pink">
-                  Technical Details
-                </summary>
-                <pre className="mt-2 text-xs bg-black/50 p-3 rounded overflow-auto">
-                  {this.state.error.toString()}
-                </pre>
-              </details>
-            )}
           </motion.div>
         </div>
       )
