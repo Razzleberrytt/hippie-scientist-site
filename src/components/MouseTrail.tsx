@@ -1,78 +1,98 @@
-import React, { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import React, { useEffect, useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
 
 interface TrailDot {
   x: number
   y: number
   id: number
+  timestamp: number
 }
 
 const MouseTrail: React.FC = () => {
   const [dots, setDots] = useState<TrailDot[]>([])
   const [isVisible, setIsVisible] = useState(false)
-  
-  const cursorX = useMotionValue(0)
-  const cursorY = useMotionValue(0)
-  
-  const springConfig = { damping: 25, stiffness: 700 }
-  const cursorXSpring = useSpring(cursorX, springConfig)
-  const cursorYSpring = useSpring(cursorY, springConfig)
+
+  const addDot = useCallback((x: number, y: number) => {
+    const newDot: TrailDot = {
+      x,
+      y,
+      id: Date.now() + Math.random(),
+      timestamp: Date.now()
+    }
+    
+    setDots(prev => {
+      const filtered = prev.filter(dot => Date.now() - dot.timestamp < 800)
+      return [...filtered, newDot].slice(-12)
+    })
+  }, [])
 
   useEffect(() => {
-    let dotId = 0
-    
     const handleMouseMove = (e: MouseEvent) => {
       setIsVisible(true)
-      cursorX.set(e.clientX)
-      cursorY.set(e.clientY)
-      
-      setDots(prev => {
-        const newDots = [...prev, { x: e.clientX, y: e.clientY, id: dotId++ }]
-        return newDots.slice(-12) // Keep last 12 dots
-      })
+      addDot(e.clientX, e.clientY)
     }
     
     const handleMouseLeave = () => setIsVisible(false)
+    const handleMouseEnter = () => setIsVisible(true)
     
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mouseleave', handleMouseLeave)
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseleave', handleMouseLeave)
+    document.addEventListener('mouseenter', handleMouseEnter)
     
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mouseleave', handleMouseLeave)
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseleave', handleMouseLeave)
+      document.removeEventListener('mouseenter', handleMouseEnter)
     }
-  }, [cursorX, cursorY])
+  }, [addDot])
 
   if (!isVisible) return null
 
   return (
     <div className="fixed inset-0 pointer-events-none z-30">
-      {/* Main cursor */}
-      <motion.div
-        className="absolute w-4 h-4 bg-psychedelic-purple/60 rounded-full mix-blend-difference"
-        style={{
-          x: cursorXSpring,
-          y: cursorYSpring,
-          translateX: '-50%',
-          translateY: '-50%'
-        }}
-      />
-      
-      {/* Trail dots */}
       {dots.map((dot, index) => (
         <motion.div
           key={dot.id}
-          className="absolute w-2 h-2 bg-psychedelic-pink/40 rounded-full"
-          initial={{ opacity: 0.8, scale: 1 }}
+          className="absolute w-3 h-3 bg-psychedelic-pink/60 rounded-full"
+          initial={{ 
+            opacity: 0.8, 
+            scale: 1,
+            x: dot.x - 6,
+            y: dot.y - 6
+          }}
           animate={{ 
             opacity: 0, 
-            scale: 0,
-            x: dot.x - 4,
-            y: dot.y - 4
+            scale: 0.3,
+            x: dot.x - 6 + (Math.random() - 0.5) * 20,
+            y: dot.y - 6 + (Math.random() - 0.5) * 20
           }}
           transition={{ 
-            duration: 0.5,
-            delay: index * 0.05,
+            duration: 0.6,
+            delay: index * 0.02,
+            ease: "easeOut"
+          }}
+        />
+      ))}
+      
+      {/* Sparkle effects */}
+      {dots.slice(-5).map((dot) => (
+        <motion.div
+          key={`sparkle-${dot.id}`}
+          className="absolute w-1 h-1 bg-psychedelic-cyan rounded-full"
+          initial={{ 
+            opacity: 1, 
+            scale: 0,
+            x: dot.x - 2,
+            y: dot.y - 2
+          }}
+          animate={{ 
+            opacity: 0, 
+            scale: 1,
+            x: dot.x - 2 + (Math.random() - 0.5) * 30,
+            y: dot.y - 2 + (Math.random() - 0.5) * 30
+          }}
+          transition={{ 
+            duration: 0.8,
             ease: "easeOut"
           }}
         />
