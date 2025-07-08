@@ -7,10 +7,6 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: {
-        'display': ['Inter', 'system-ui', 'sans-serif'],
-        'body': ['Inter', 'system-ui', 'sans-serif'],
-      },
       colors: {
         'psychedelic': {
           'purple': '#8B5CF6',
@@ -30,33 +26,18 @@ export default {
       },
       animation: {
         'float': 'float 8s ease-in-out infinite',
-        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'spin-slow': 'spin 3s linear infinite',
-        'bounce-gentle': 'bounce-gentle 2s infinite',
+        'gradient-shift': 'gradient-shift 15s ease infinite',
       },
       keyframes: {
         'float': {
           '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
           '50%': { transform: 'translateY(-20px) rotate(180deg)' },
         },
-        'pulse-glow': {
-          '0%, 100%': { 
-            opacity: '1',
-            boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)'
-          },
-          '50%': { 
-            opacity: '0.8',
-            boxShadow: '0 0 40px rgba(139, 92, 246, 0.8)'
-          },
-        },
-        'bounce-gentle': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+        'gradient-shift': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
         }
       },
-      transitionTimingFunction: {
-        'bounce-in': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-      }
     },
   },
   plugins: [],
