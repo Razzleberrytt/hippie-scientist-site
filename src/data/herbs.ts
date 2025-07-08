@@ -17,12 +17,11 @@ export interface Herb {
   tags: string[];
 }
 
-// Convert your JSON data to proper TypeScript structure
+// Convert your JSON data to our structured format
 export const herbsData: Herb[] = [
   {
     id: "acorus-calamus",
     name: "Acorus Calamus",
-    scientificName: "Acorus calamus",
     category: "Psychoactive",
     effects: ["Mental Clarity", "Mild Stimulation", "Dream Enhancement"],
     description: "Traditional herb known for mental clarity and mild psychoactive effects through β-asarone content.",
@@ -217,7 +216,6 @@ export const herbsData: Herb[] = [
     legalStatus: "Illegal in most jurisdictions",
     tags: ["psychedelic", "therapeutic-potential", "illegal", "research"]
   }
-  // Add more herbs based on your JSON data...
 ];
 
 export const categories = [
@@ -251,15 +249,15 @@ export const effectTags = [
   "Libido Support"
 ];
 
-// Helper function to convert your JSON to our format
-export const convertHerbData = (jsonData: any[]): Herb[] => {
-  return jsonData.map((item, index) => ({
+// Helper to convert your JSON data
+export const convertJsonToHerbs = (jsonData: any[]): Herb[] => {
+  return jsonData.map((item) => ({
     id: item.Herb.toLowerCase().replace(/[^a-z0-9]/g, '-'),
     name: item.Herb,
     scientificName: extractScientificName(item.Herb),
     category: determineCategory(item["Therapeutic Uses"], item["Mechanism of Action"]),
     effects: extractEffects(item["Therapeutic Uses"]),
-    description: generateDescription(item.Herb, item["Therapeutic Uses"]),
+    description: `${item.Herb} is known for ${item["Therapeutic Uses"].toLowerCase()}.`,
     mechanismOfAction: item["Mechanism of Action"] || "Unknown mechanism",
     pharmacokinetics: item["Pharmacokinetics"] || "Data not available",
     therapeuticUses: item["Therapeutic Uses"] || "Traditional use",
@@ -274,22 +272,21 @@ export const convertHerbData = (jsonData: any[]): Herb[] => {
 };
 
 function extractScientificName(name: string): string | undefined {
-  // Add logic to extract scientific names if available
-  return undefined;
+  return undefined; // Add logic if needed
 }
 
 function determineCategory(therapeuticUses: string, mechanism: string): string {
   const uses = therapeuticUses.toLowerCase();
   const moa = mechanism.toLowerCase();
   
-  if (uses.includes('psychedelic') || uses.includes('hallucin') || moa.includes('5-ht2a')) return 'Psychedelic';
-  if (uses.includes('anxiety') || uses.includes('gaba')) return 'Anxiolytic';
-  if (uses.includes('dream') || uses.includes('lucid')) return 'Oneirogenic';
-  if (uses.includes('stimul') || uses.includes('energy') || uses.includes('alert')) return 'Stimulant';
-  if (uses.includes('memory') || uses.includes('cognit') || uses.includes('nootropic')) return 'Nootropic';
-  if (uses.includes('stress') || uses.includes('adaptogen') || uses.includes('cortisol')) return 'Adaptogen';
-  if (uses.includes('relax') || uses.includes('calm') || uses.includes('sedative')) return 'Relaxant';
-  if (uses.includes('pain') || moa.includes('opioid')) return 'Opioid-like';
+  if (uses.includes('psychedelic') || moa.includes('5-ht2a')) return 'Psychedelic';
+  if (uses.includes('anxiety') || moa.includes('gaba')) return 'Anxiolytic';
+  if (uses.includes('dream')) return 'Oneirogenic';
+  if (uses.includes('stimul') || uses.includes('energy')) return 'Stimulant';
+  if (uses.includes('memory') || uses.includes('cognit')) return 'Nootropic';
+  if (uses.includes('stress') || uses.includes('adaptogen')) return 'Adaptogen';
+  if (uses.includes('relax') || uses.includes('calm')) return 'Relaxant';
+  if (moa.includes('opioid')) return 'Opioid-like';
   
   return 'Psychoactive';
 }
@@ -300,11 +297,11 @@ function extractEffects(therapeuticUses: string): string[] {
   
   if (uses.includes('anxiety')) effects.push('Anxiety Relief');
   if (uses.includes('pain')) effects.push('Pain Relief');
-  if (uses.includes('sleep') || uses.includes('insomnia')) effects.push('Sleep Aid');
+  if (uses.includes('sleep')) effects.push('Sleep Aid');
   if (uses.includes('stress')) effects.push('Stress Relief');
   if (uses.includes('memory')) effects.push('Memory Enhancement');
   if (uses.includes('mood')) effects.push('Mood Enhancement');
-  if (uses.includes('energy') || uses.includes('stimul')) effects.push('Energy Boost');
+  if (uses.includes('energy')) effects.push('Energy Boost');
   if (uses.includes('relax')) effects.push('Relaxation');
   if (uses.includes('dream')) effects.push('Dream Enhancement');
   if (uses.includes('libido')) effects.push('Libido Support');
@@ -312,25 +309,19 @@ function extractEffects(therapeuticUses: string): string[] {
   return effects.length > 0 ? effects : ['Traditional Use'];
 }
 
-function generateDescription(name: string, therapeuticUses: string): string {
-  return `${name} is a traditional herb known for ${therapeuticUses.toLowerCase()}.`;
-}
-
 function calculateSafetyRating(item: any): number {
   const sideEffects = item["Side Effects"]?.toLowerCase() || '';
   const contraindications = item["Contraindications"]?.toLowerCase() || '';
   const toxicity = item["Toxicity / LD50"]?.toLowerCase() || '';
   
-  let rating = 5; // Start with neutral
+  let rating = 5;
   
-  // Reduce rating for serious concerns
   if (sideEffects.includes('liver') || contraindications.includes('liver')) rating -= 2;
   if (sideEffects.includes('heart') || contraindications.includes('heart')) rating -= 2;
-  if (sideEffects.includes('seizure') || contraindications.includes('seizure')) rating -= 3;
+  if (sideEffects.includes('seizure')) rating -= 3;
   if (toxicity.includes('carcinogenic') || toxicity.includes('toxic')) rating -= 3;
   if (contraindications.includes('pregnancy')) rating -= 1;
   
-  // Increase rating for safety indicators
   if (toxicity.includes('low') || toxicity.includes('safe')) rating += 2;
   if (sideEffects.includes('rare') || sideEffects.includes('mild')) rating += 1;
   
@@ -344,7 +335,7 @@ function generateTags(item: any): string[] {
   
   if (therapeuticUses.includes('traditional')) tags.push('traditional');
   if (sideEffects.includes('low') || sideEffects.includes('safe')) tags.push('safe');
-  if (therapeuticUses.includes('research') || therapeuticUses.includes('study')) tags.push('research');
+  if (therapeuticUses.includes('research')) tags.push('research');
   if (sideEffects.includes('liver') || sideEffects.includes('heart')) tags.push('caution-required');
   
   return tags;
