@@ -31,8 +31,10 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     if (typeof window !== 'undefined') {
       localStorage.setItem('hippie-scientist-theme', theme);
       
+      // Remove all theme classes
       document.body.classList.remove('light', 'vaporwave');
       
+      // Add current theme class (dark is default, no class needed)
       if (theme !== 'dark') {
         document.body.classList.add(theme);
       }
