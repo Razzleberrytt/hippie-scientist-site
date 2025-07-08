@@ -1,75 +1,207 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Database as DatabaseIcon, Search, Filter } from 'lucide-react'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { herbsData } from '../data/herbs';
+import { useHerbSearch } from '../hooks/search';
+import HerbCard from '../components/HerbCard';
+import SearchFilter from '../components/SearchFilter';
 
 const Database: React.FC = () => {
-  return (
-    <div className="min-h-screen pt-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <DatabaseIcon className="w-16 h-16 mx-auto mb-6 text-psychedelic-cyan" />
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 psychedelic-text font-display">
-            Sacred Database
-          </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Comprehensive collection of psychoactive compounds, plants, and traditional medicines
-          </p>
-        </motion.div>
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [showDetailedModal, setShowDetailedModal] = useState<string | null>(null);
 
-        {/* Search and Filter */}
+  const {
+    filteredHerbs,
+    searchTerm,
+    setSearchTerm,
+    selectedCategory,
+    setSelectedCategory,
+    selectedEffects,
+    setSelectedEffects,
+    selectedSafetyRange,
+    setSelectedSafetyRange,
+    sortBy,
+    setSortBy,
+    totalResults,
+    clearFilters
+  } = useHerbSearch({ herbs: herbsData });
+
+  const handleEffectToggle = (effect: string) => {
+    setSelectedEffects(
+      selectedEffects.includes(effect)
+        ? selectedEffects.filter(e => e !== effect)
+        : [...selectedEffects, effect]
+    );
+  };
+
+  const selectedHerb = showDetailedModal ? herbsData.find(h => h.id === showDetailedModal) : null;
+
+  return (
+    <div className="min-h-screen pt-20 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="glass-card p-6 mb-12"
+          transition={{ duration: 0.6 }}
         >
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search substances..."
-                className="w-full pl-10 pr-4 py-3 bg-glass-dark border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-psychedelic-purple"
-              />
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-4">
+            <span className="psychedelic-text">Herb Database</span>
+          </h1>
+          <p className="text-xl opacity-80 max-w-3xl mx-auto leading-relaxed">
+            Explore our comprehensive collection of psychoactive herbs with detailed research data, 
+            safety information, and therapeutic applications.
+          </p>
+          <div className="flex items-center justify-center mt-6 space-x-4 text-sm opacity-70">
+            <div className="flex items-center">
+              <span className="w-3 h-3 bg-green-400 rounded-full mr-2"></span>
+              High Safety (8-10)
             </div>
-            <button className="glass-button flex items-center">
-              <Filter className="w-5 h-5 mr-2" />
-              Filter
-            </button>
+            <div className="flex items-center">
+              <span className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></span>
+              Moderate Safety (6-7)
+            </div>
+            <div className="flex items-center">
+              <span className="w-3 h-3 bg-red-400 rounded-full mr-2"></span>
+              Lower Safety (1-5)
+            </div>
           </div>
         </motion.div>
 
-        {/* Database Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {['Psilocybin', 'LSD', 'DMT', 'MDMA', 'Ayahuasca', 'Cannabis'].map((substance, index) => (
-            <motion.div
-              key={substance}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="glass-card p-6 glow-subtle hover:glow-medium transition-all duration-300 cursor-pointer"
-            >
-              <h3 className="text-xl font-bold mb-3 psychedelic-text">
-                {substance}
-              </h3>
-              <p className="text-gray-300 mb-4">
-                Detailed information about {substance.toLowerCase()}, including effects, dosage, and safety protocols.
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-psychedelic-green">Plant Medicine</span>
-                <span className="text-sm text-psychedelic-pink">View Details</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
+        {/* Search and Filters */}
+        <SearchFilter
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          selectedEffects={selectedEffects}
+          onEffectToggle={handleEffectToggle}
+          selectedSafetyRange={selectedSafetyRange}
+          onSafetyRangeChange={setSelectedSafetyRange}
+          sortBy={sortBy}
+          onSortChange={setSortBy}
+          totalResults={totalResults}
+          onClearFilters={clearFilters}
+        />
 
-export default Database
+        {/* View Mode Toggle */}
+        <motion.div
+          className="flex justify-between items-center mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="flex items-center space-x-4">
+            <span className="text-sm opacity-70">View:</span>
+            <div className="flex space-x-1 bg-glass-light rounded-lg p-1">
+              <button
+                onClick={() => setViewMode('grid')}
+                className={`px-3 py-1 text-sm rounded transition-all duration-200 ${
+                  viewMode === 'grid' 
+                    ? 'bg-psychedelic-purple text-white' 
+                    : 'hover:bg-glass-medium'
+                }`}
+              >
+                Grid
+              </button>
+              <button
+                onClick={() => setViewMode('list')}
+                className={`px-3 py-1 text-sm rounded transition-all duration-200 ${
+                  viewMode === 'list' 
+                    ? 'bg-psychedelic-purple text-white' 
+                    : 'hover:bg-glass-medium'
+                }`}
+              >
+                List
+              </button>
+            </div>
+          </div>
+
+          <div className="text-sm opacity-70">
+            Showing {filteredHerbs.length} of {herbsData.length} herbs
+          </div>
+        </motion.div>
+
+        {/* Herb Grid/List */}
+        <motion.div
+          className={`${
+            viewMode === 'grid' 
+              ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' 
+              : 'space-y-4'
+          }`}
+          layout
+        >
+          {filteredHerbs.map((herb) => (
+            <HerbCard 
+              key={herb.id} 
+              herb={herb} 
+              isCompact={viewMode === 'list'}
+              onClick={() => setShowDetailedModal(herb.id)}
+            />
+          ))}
+        </motion.div>
+
+        {/* No Results */}
+        {filteredHerbs.length === 0 && (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-2xl font-display font-semibold mb-2">No herbs found</h3>
+            <p className="opacity-70 mb-6 max-w-md mx-auto">
+              Try adjusting your search terms or filters to find what you're looking for.
+            </p>
+            <button
+              onClick={clearFilters}
+              className="glass-button px-6 py-3"
+            >
+              Clear all filters
+            </button>
+          </motion.div>
+        )}
+
+        {/* Loading more indicator */}
+        {filteredHerbs.length > 0 && (
+          <motion.div
+            className="text-center mt-12 py-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <p className="text-sm opacity-60">
+              Found {totalResults} herbs matching your criteria
+            </p>
+          </motion.div>
+        )}
+      </div>
+
+      {/* Detailed Modal */}
+      {selectedHerb && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setShowDetailedModal(null)}
+        >
+          <motion.div
+            className="max-w-4xl max-h-[90vh] overflow-y-auto glass-card p-8"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-6">
+              <h2 className="text-3xl font-display font-bold psychedelic-text">
+                {selectedHerb.name}
+              </h2>
+              <button
+                onClick={() => setShowDetailedModal(null)}
+                className="p-2 hover:bg-glass-light rounded-lg transition-colors"
+                aria-label="Close modal"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6
