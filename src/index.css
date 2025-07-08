@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,11 +8,18 @@
     @apply border-border;
   }
   
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     @apply bg-black text-white transition-colors duration-300;
+    font-family: 'Inter', system-ui, sans-serif;
     background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
     background-size: 400% 400%;
     animation: gradient-shift 15s ease infinite;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body.light {
@@ -30,26 +38,67 @@
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+    50% { 
+      opacity: 0.8;
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
+    }
+  }
 }
 
 @layer components {
   .glass-card {
-    @apply backdrop-blur-glass border border-white/20 rounded-2xl transition-all duration-300;
-    background: rgba(255, 255, 255, 0.1);
+    @apply backdrop-blur-xl border border-white/20 rounded-2xl transition-all duration-300;
+    background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+  }
+
+  body.light .glass-card {
+    @apply bg-white/20 border-gray-200/30;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  body.vaporwave .glass-card {
+    @apply bg-purple-400/10 border-pink-400/30;
+    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.2);
   }
 
   .glass-button {
-    @apply glass-card px-6 py-3 font-medium transition-all duration-300 hover:scale-105 active:scale-95;
+    @apply glass-card px-6 py-3 font-medium transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer;
+    will-change: transform;
   }
 
   .nav-glass {
-    @apply fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/10;
+    @apply fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/10 transition-all duration-300;
     background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+  }
+
+  body.light .nav-glass {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  body.vaporwave .nav-glass {
+    background: rgba(45, 27, 105, 0.8);
+    border-bottom: 1px solid rgba(236, 72, 153, 0.3);
   }
 
   .psychedelic-text {
     @apply bg-gradient-to-r from-psychedelic-purple via-psychedelic-pink to-psychedelic-cyan bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
   }
 
   .glow-subtle {
@@ -69,6 +118,7 @@
     background: linear-gradient(45deg, #8B5CF6, #EC4899);
     border-radius: 50% 30% 70% 40%;
     animation: float 8s ease-in-out infinite;
+    will-change: transform;
   }
 }
 
@@ -99,6 +149,7 @@
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #8B5CF6, #EC4899);
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
