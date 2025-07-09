@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { Herb } from '../data/herbs.refactored';
+import type { Herb } from '../data/herbs';
 
 interface SearchFilterProps {
   onCategoryChange: (category: string) => void;

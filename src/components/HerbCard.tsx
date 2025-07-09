@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Leaf, Shield, AlertTriangle, CheckCircle } from 'lucide-react';
+import {  Shield, AlertTriangle, CheckCircle } from 'lucide-react';
 
 interface Herb {
   id: string;
@@ -18,11 +18,10 @@ interface Herb {
 
 interface HerbCardProps {
   herb: Herb;
-  isCompact?: boolean;
-  onClick?: () => void;
+    onClick?: () => void;
 }
 
-const HerbCard: React.FC<HerbCardProps> = ({ herb, isCompact = false, onClick }) => {
+const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick }) => {
   const getSafetyIcon = (rating: Herb['safetyRating']) => {
     switch (rating) {
       case 'high':
