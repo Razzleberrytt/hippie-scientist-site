@@ -1,50 +1,46 @@
 {
   "name": "hippie-scientist-site",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "type": "module",
-  "description": "Explore consciousness through psychedelic research, ancient wisdom, and modern science",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "type-check": "tsc --noEmit"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,md,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css,md,json}\"",
+    "type-check": "tsc --noEmit",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1",
-    "framer-motion": "^10.12.4",
-    "lucide-react": "^0.336.0",
-    "react-helmet-async": "^2.0.4",
-    "react-intersection-observer": "^9.8.1",
-    "clsx": "^2.1.0"
+    "react-router-dom": "^6.8.0",
+    "framer-motion": "^10.16.0",
+    "lucide-react": "^0.263.0",
+    "clsx": "^2.0.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
-    "@vitejs/plugin-react": "^4.0.0",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.38.0",
+    "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.3.4",
-    "postcss": "^8.4.23",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-config-prettier": "^9.0.0",
+    "gh-pages": "^5.0.0",
+    "postcss": "^8.4.24",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2",
-    "vite-plugin-pwa": "^0.19.2"
-  },
-  "keywords": [
-    "psychedelic",
-    "consciousness",
-    "research",
-    "harm-reduction",
-    "neuroscience",
-    "mental-health"
-  ],
-  "author": "Razzleberrytt",
-  "license": "MIT"
+    "vite": "^4.4.5"
+  }
 }
