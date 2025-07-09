@@ -1,41 +1,45 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { motion } from 'framer-motion'
 
 const FloatingElements: React.FC = () => {
-  const shapes = [
-    { size: 'w-32 h-32', delay: 0, duration: 20 },
-    { size: 'w-24 h-24', delay: 5, duration: 25 },
-    { size: 'w-40 h-40', delay: 10, duration: 30 },
-    { size: 'w-20 h-20', delay: 15, duration: 22 },
-    { size: 'w-28 h-28', delay: 8, duration: 28 },
-  ];
+  const elements = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 60 + 20,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 10 + 10,
+    delay: Math.random() * 5,
+  }))
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden">
-      {shapes.map((shape, index) => (
+    <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      {elements.map((element) => (
         <motion.div
-          key={index}
-          className={`floating-shape ${shape.size}`}
+          key={element.id}
+          className="absolute rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            width: element.size,
+            height: element.size,
+            left: `${element.x}%`,
+            top: `${element.y}%`,
+            background: `radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)`,
           }}
           animate={{
-            x: [0, 100, -50, 0],
-            y: [0, -100, 50, 0],
-            rotate: [0, 180, 360],
-            scale: [1, 1.2, 0.8, 1],
+            y: [0, -30, 0],
+            x: [0, 15, 0],
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
-            duration: shape.duration,
-            delay: shape.delay,
+            duration: element.duration,
+            delay: element.delay,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default FloatingElements;
+export default FloatingElements
