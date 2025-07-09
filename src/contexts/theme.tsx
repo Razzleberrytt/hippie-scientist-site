@@ -1,56 +1,37 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
-
-type Theme = 'dark' | 'light' | 'vaporwave'
-
-interface ThemeContextType {
-  theme: Theme
-  setTheme: (theme: Theme) => void
-  toggleTheme: () => void
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext)
-  if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider')
-  }
-  return context
-}
-
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('hippie-scientist-theme') as Theme
-      return saved || 'dark'
-    }
-    return 'dark'
-  })
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('hippie-scientist-theme', theme)
-      
-      // Remove all theme classes
-      document.body.classList.remove('light', 'vaporwave')
-      
-      // Add current theme class
-      if (theme !== 'dark') {
-        document.body.classList.add(theme)
-      }
-    }
-  }, [theme])
-
-  const toggleTheme = () => {
-    const themes: Theme[] = ['dark', 'light', 'vaporwave']
-    const currentIndex = themes.indexOf(theme)
-    const nextIndex = (currentIndex + 1) % themes.length
-    setTheme(themes[nextIndex])
-  }
-
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  )
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'space-dark': '#0F0F23',
+        'cosmic-purple': '#1A0B2E',
+        'psychedelic-purple': '#8b5cf6',
+        'psychedelic-pink': '#ec4899',
+        'psychedelic-cyan': '#06b6d4',
+      },
+      fontFamily: {
+        'display': ['Space Grotesk', 'sans-serif'],
+        'body': ['Inter', 'sans-serif'],
+      },
+      animation: {
+        'gradient-x': 'gradient-x 3s ease infinite',
+        'float': 'float 3s ease-in-out infinite',
+      },
+      keyframes: {
+        'gradient-x': {
+          '0%, 100%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+    },
+  },
+  plugins: [],
 }
