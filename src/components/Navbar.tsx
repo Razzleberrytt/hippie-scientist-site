@@ -1,194 +1,91 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Atom, Sun, Moon, Palette } from 'lucide-react'
-import { useTheme } from '../contexts/theme'
+import { motion } from 'framer-motion'
+import { Menu, X, Atom } from 'lucide-react'
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
-  const { theme, toggleTheme } = useTheme()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Research', path: '/research' },
-    { name: 'Database', path: '/database' },
-    { name: 'Safety', path: '/safety' },
-    { name: 'Community', path: '/community' },
+    { path: '/', label: 'Home' },
+    { path: '/research', label: 'Research' },
+    { path: '/database', label: 'Database' },
+    { path: '/safety', label: 'Safety' },
+    { path: '/community', label: 'Community' },
   ]
 
-  const getThemeIcon = () => {
-    switch (theme) {
-      case 'light': return <Sun className="w-5 h-5" />
-      case 'vaporwave': return <Palette className="w-5 h-5" />
-      default: return <Moon className="w-5 h-5" />
-    }
-  }
-
-  const getThemeColor = () => {
-    switch (theme) {
-      case 'light': return 'text-yellow-500'
-      case 'vaporwave': return 'text-pink-400'
-      default: return 'text-purple-400'
-    }
-  }
+  const isActive = (path: string) => location.pathname === path
 
   return (
-    <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'nav-glass bg-black/50 backdrop-blur-md' : 'nav-glass'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-card m-4 rounded-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <motion.div
-              className="relative"
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-psychedelic-purple to-psychedelic-pink flex items-center justify-center glow-subtle">
-                <Atom className="w-6 h-6 text-white" />
-              </div>
-            </motion.div>
-            <span className="text-xl font-bold psychedelic-text hidden sm:block">
+          <Link to="/" className="flex items-center space-x-2">
+            <Atom className="h-8 w-8 text-psychedelic-purple" />
+            <span className="text-xl font-bold psychedelic-text">
               Hippie Scientist
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all ${
+                    isActive(item.path)
+                      ? 'text-psychedelic-purple glow-subtle'
+                      : 'text-gray-300 hover:text-white hover:glow-subtle'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-300 hover:text-white p-2"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="md:hidden"
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  location.pathname === item.path
-                    ? 'bg-psychedelic-purple/20 text-psychedelic-purple glow-subtle'
-                    : 'hover:bg-glass-light hover:text-psychedelic-cyan'
+                onClick={() => setIsOpen(false)}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-all ${
+                  isActive(item.path)
+                    ? 'text-psychedelic-purple glow-subtle'
+                    : 'text-gray-300 hover:text-white hover:glow-subtle'
                 }`}
               >
-                {item.name}
+                {item.label}
               </Link>
             ))}
-            
-            {/* Theme Toggle */}
-            <motion.button
-              onClick={toggleTheme}
-              className={`p-2 rounded-lg hover:bg-glass-light transition-colors ${getThemeColor()}`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              aria-label="Toggle theme"
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={theme}
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {getThemeIcon()}
-                </motion.div>
-              </AnimatePresence>
-            </motion.button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-glass-light transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <AnimatePresence mode="wait">
-              {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="w-6 h-6" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="w-6 h-6" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
-        </div>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden overflow-hidden"
-            >
-              <div className="pb-4 pt-2 space-y-2">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Link
-                      to={item.path}
-                      onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-3 rounded-lg transition-all duration-300 ${
-                        location.pathname === item.path
-                          ? 'glass-card text-psychedelic-purple glow-subtle'
-                          : 'text-gray-300 hover:text-white hover:glass-card'
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  </motion.div>
-                ))}
-                
-                {/* Mobile Theme Toggle */}
-                <motion.button
-                  onClick={toggleTheme}
-                  className={`w-full px-4 py-3 rounded-lg transition-all duration-300 flex items-center ${getThemeColor()}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.1 }}
-                >
-                  {getThemeIcon()}
-                  <span className="ml-3">Theme: {theme}</span>
-                </motion.button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.nav>
+        </motion.div>
+      )}
+    </nav>
   )
 }
 
