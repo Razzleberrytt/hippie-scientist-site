@@ -1,375 +1,89 @@
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Shield, AlertTriangle, Heart, Phone, MapPin, Users, Clock, CheckCircle } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Shield, AlertTriangle, Heart, Phone } from 'lucide-react'
 
 const Safety: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('basics')
-
-  const safetyProtocols = [
-    {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Set & Setting",
-      description: "Your mindset and environment are crucial for a safe experience"
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: "Trip Sitter",
-      description: "Always have a trusted, sober person present during your experience"
-    },
-    {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Start Low",
-      description: "Begin with lower doses to understand your sensitivity and response"
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Safe Space",
-      description: "Choose a comfortable, familiar environment free from external stressors"
-    }
-  ]
-
-  const emergencyContacts = [
-    {
-      name: "Fireside Project",
-      description: "Psychedelic peer support helpline",
-      phone: "+1-623-473-7433",
-      available: "24/7 text support"
-    },
-    {
-      name: "MAPS Integration",
-      description: "Integration support resources",
-      phone: "Visit website for local resources",
-      available: "Therapist directory"
-    },
-    {
-      name: "Emergency Services",
-      description: "For medical emergencies",
-      phone: "911 (US) / 999 (UK) / 112 (EU)",
-      available: "24/7 emergency response"
-    }
-  ]
-
-  const substanceInfo = [
-    {
-      name: "Psilocybin",
-      duration: "4-6 hours",
-      onset: "30-60 minutes",
-      safetyNotes: "Generally well-tolerated. Avoid with certain medications.",
-      contraindications: ["Heart conditions", "Certain antidepressants", "Pregnancy"]
-    },
-    {
-      name: "LSD",
-      duration: "8-12 hours",
-      onset: "45-90 minutes",
-      safetyNotes: "Long duration requires proper preparation and setting.",
-      contraindications: ["Psychiatric conditions", "Heart problems", "Pregnancy"]
-    },
-    {
-      name: "MDMA",
-      duration: "3-5 hours",
-      onset: "30-45 minutes",
-      safetyNotes: "Stay hydrated, avoid overheating, don't redose frequently.",
-      contraindications: ["Heart conditions", "High blood pressure", "Pregnancy"]
-    }
-  ]
-
-  const tabs = [
-    { id: 'basics', label: 'Safety Basics', icon: <Shield className="w-4 h-4" /> },
-    { id: 'substances', label: 'Substance Info', icon: <AlertTriangle className="w-4 h-4" /> },
-    { id: 'emergency', label: 'Emergency', icon: <Phone className="w-4 h-4" /> }
-  ]
-
   return (
     <>
       <Helmet>
-        <title>Safety & Harm Reduction - The Hippie Scientist</title>
-        <meta name="description" content="Comprehensive safety protocols and harm reduction information for psychedelic use. Emergency contacts and substance-specific guidelines." />
-        <meta name="keywords" content="psychedelic safety, harm reduction, trip sitter, set and setting, emergency contacts, substance safety" />
+        <title>Safety - The Hippie Scientist</title>
+        <meta name="description" content="Essential harm reduction resources and safety information." />
       </Helmet>
-
+      
       <div className="min-h-screen pt-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
+        <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <Shield className="w-16 h-16 mx-auto mb-6 text-psychedelic-green" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-8 psychedelic-text font-display">
-              Safety & Harm Reduction
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 psychedelic-text">
+              Safety First
             </h1>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Your safety is our priority. Comprehensive guidelines, protocols, and resources for responsible psychedelic exploration.
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Comprehensive harm reduction resources and safety guidelines
             </p>
           </motion.div>
 
-          {/* Important Notice */}
+          {/* Emergency Info */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card p-6 mb-12 border-l-4 border-psychedelic-orange glow-subtle"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="glass-card p-6 mb-8 border-2 border-red-500 border-opacity-50"
           >
-            <div className="flex items-start gap-4">
-              <AlertTriangle className="w-8 h-8 text-psychedelic-orange flex-shrink-0 mt-1" />
+            <div className="flex items-center mb-4">
+              <Phone className="h-6 w-6 text-red-400 mr-3" />
+              <h2 className="text-2xl font-bold text-white">Emergency Resources</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <h2 className="text-xl font-bold text-psychedelic-orange mb-2">
-                  Important Legal & Medical Disclaimer
-                </h2>
-                <p className="text-gray-300 leading-relaxed">
-                  This information is for educational purposes only. Many psychedelic substances are illegal in most jurisdictions. 
-                  Always consult with healthcare professionals before use, especially if you have medical conditions or take medications. 
-                  This site does not encourage illegal activity.
-                </p>
+                <h3 className="text-lg font-semibold text-white mb-2">Crisis Hotlines</h3>
+                <p className="text-gray-300">Emergency: 911</p>
+                <p className="text-gray-300">Crisis Text Line: Text HOME to 741741</p>
+                <p className="text-gray-300">National Suicide Prevention Lifeline: 988</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white mb-2">Poison Control</h3>
+                <p className="text-gray-300">National Poison Control: 1-800-222-1222</p>
+                <p className="text-gray-300">Online: poison.org</p>
               </div>
             </div>
           </motion.div>
 
-          {/* Tab Navigation */}
-          <div className="flex justify-center mb-8">
-            <div className="glass-card p-2 inline-flex rounded-full">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? 'bg-psychedelic-purple text-white glow-medium'
-                      : 'text-gray-400 hover:text-white'
-                  }`}
-                >
-                  {tab.icon}
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Tab Content */}
-          <div className="min-h-[500px]">
-            {activeTab === 'basics' && (
+          {/* Safety Guidelines */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Shield,
+                title: 'Set & Setting',
+                description: 'Understanding the importance of mindset and environment for safe experiences.',
+              },
+              {
+                icon: Heart,
+                title: 'Health Screening',
+                description: 'Pre-experience health considerations and contraindications.',
+              },
+              {
+                icon: AlertTriangle,
+                title: 'Risk Assessment',
+                description: 'Identifying and mitigating potential risks and interactions.',
+              },
+            ].map((item, index) => (
               <motion.div
+                key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                className="glass-card p-6"
               >
-                {/* Safety Protocols */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                  {safetyProtocols.map((protocol, index) => (
-                    <motion.div
-                      key={protocol.title}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="glass-card p-6 glow-subtle hover:glow-medium transition-all duration-300"
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className="text-psychedelic-green flex-shrink-0 mt-1">
-                          {protocol.icon}
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-white mb-2">
-                            {protocol.title}
-                          </h3>
-                          <p className="text-gray-300 leading-relaxed">
-                            {protocol.description}
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Detailed Guidelines */}
-                <div className="glass-card p-8 glow-subtle">
-                  <h2 className="text-2xl font-bold psychedelic-text mb-6">
-                    Detailed Safety Guidelines
-                  </h2>
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-xl font-semibold text-psychedelic-cyan mb-3">
-                        Before Your Experience
-                      </h3>
-                      <ul className="space-y-2 text-gray-300">
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Research the substance thoroughly, including effects, duration, and risks</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Test your substance using reagent testing kits</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Clear your schedule for the entire duration plus recovery time</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Prepare your environment: comfortable, safe, and free from interruptions</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-semibold text-psychedelic-cyan mb-3">
-                        During Your Experience
-                      </h3>
-                      <ul className="space-y-2 text-gray-300">
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Stay hydrated but don't overhydrate</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Avoid driving or operating machinery</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Have emergency contacts readily available</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Remember: the experience is temporary</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-semibold text-psychedelic-cyan mb-3">
-                        After Your Experience
-                      </h3>
-                      <ul className="space-y-2 text-gray-300">
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Get adequate rest and nutrition</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Journal about your experience for integration</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Consider speaking with an integration therapist</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-psychedelic-green mt-0.5 flex-shrink-0" />
-                          <span>Allow time for processing before considering another experience</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                <item.icon className="h-12 w-12 mx-auto mb-4 text-psychedelic-purple" />
+                <h3 className="text-xl font-bold mb-4 text-white text-center">{item.title}</h3>
+                <p className="text-gray-300 text-center">{item.description}</p>
               </motion.div>
-            )}
-
-            {activeTab === 'substances' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="grid gap-6"
-              >
-                {substanceInfo.map((substance, index) => (
-                  <motion.div
-                    key={substance.name}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="glass-card p-6 glow-subtle"
-                  >
-                    <h3 className="text-2xl font-bold psychedelic-text mb-4">
-                      {substance.name}
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                      <div>
-                        <span className="text-psychedelic-cyan font-medium">Duration:</span>
-                        <p className="text-gray-300">{substance.duration}</p>
-                      </div>
-                      <div>
-                        <span className="text-psychedelic-cyan font-medium">Onset:</span>
-                        <p className="text-gray-300">{substance.onset}</p>
-                      </div>
-                      <div>
-                        <span className="text-psychedelic-cyan font-medium">Safety Notes:</span>
-                        <p className="text-gray-300">{substance.safetyNotes}</p>
-                      </div>
-                    </div>
-                    <div>
-                      <span className="text-psychedelic-orange font-medium">Contraindications:</span>
-                      <ul className="text-gray-300 mt-2">
-                        {substance.contraindications.map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-2">
-                            <AlertTriangle className="w-4 h-4 text-psychedelic-orange" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-
-            {activeTab === 'emergency' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className="grid gap-6 mb-8">
-                  {emergencyContacts.map((contact, index) => (
-                    <motion.div
-                      key={contact.name}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="glass-card p-6 glow-subtle"
-                    >
-                      <div className="flex items-start gap-4">
-                        <Phone className="w-8 h-8 text-psychedelic-green flex-shrink-0 mt-1" />
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-white mb-2">
-                            {contact.name}
-                          </h3>
-                          <p className="text-gray-300 mb-2">{contact.description}</p>
-                          <p className="text-psychedelic-cyan font-mono text-lg">
-                            {contact.phone}
-                          </p>
-                          <p className="text-sm text-gray-400">{contact.available}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="glass-card p-6 glow-subtle border-l-4 border-psychedelic-orange">
-                  <h3 className="text-xl font-bold text-psychedelic-orange mb-4">
-                    When to Seek Emergency Help
-                  </h3>
-                  <ul className="space-y-2 text-gray-300">
-                    <li className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 text-psychedelic-orange mt-0.5 flex-shrink-0" />
-                      <span>Chest pain, difficulty breathing, or rapid heart rate</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 text-psychedelic-orange mt-0.5 flex-shrink-0" />
-                      <span>Seizures or loss of consciousness</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 text-psychedelic-orange mt-0.5 flex-shrink-0" />
-                      <span>Severe agitation or risk of self-harm</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 text-psychedelic-orange mt-0.5 flex-shrink-0" />
-                      <span>Hyperthermia (overheating) or dehydration</span>
-                    </li>
-                  </ul>
-                </div>
-              </motion.div>
-            )}
+            ))}
           </div>
         </div>
       </div>
