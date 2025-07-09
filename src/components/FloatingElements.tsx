@@ -1,18 +1,23 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+
+import React, { useMemo } from 'react';
+import { motion } from 'framer-motion';
 
 const FloatingElements: React.FC = () => {
-  const elements = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 60 + 20,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 10 + 10,
-    delay: Math.random() * 5,
-  }))
+  const elements = useMemo(() =>
+    Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      size: Math.random() * 60 + 20,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      duration: Math.random() * 10 + 10,
+      delay: Math.random() * 5,
+    })), []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none">
+    <div
+      className="fixed inset-0 overflow-hidden pointer-events-none"
+      aria-hidden="true"
+    >
       {elements.map((element) => (
         <motion.div
           key={element.id}
@@ -23,6 +28,7 @@ const FloatingElements: React.FC = () => {
             left: `${element.x}%`,
             top: `${element.y}%`,
             background: `radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)`,
+            willChange: 'transform, opacity',
           }}
           animate={{
             y: [0, -30, 0],
@@ -32,14 +38,14 @@ const FloatingElements: React.FC = () => {
           }}
           transition={{
             duration: element.duration,
-            delay: element.delay,
             repeat: Infinity,
-            ease: "easeInOut",
+            delay: element.delay,
+            ease: 'easeInOut',
           }}
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default FloatingElements
+export default FloatingElements;

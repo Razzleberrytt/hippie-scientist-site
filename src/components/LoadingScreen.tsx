@@ -1,9 +1,14 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+
+import React from 'react';
+import { motion } from 'framer-motion';
 
 export const LoadingScreen: React.FC = () => {
   return (
-    <div className="fixed inset-0 bg-cosmic-gradient flex items-center justify-center z-50">
+    <div
+      className="fixed inset-0 bg-cosmic-gradient flex items-center justify-center z-50"
+      role="status"
+      aria-live="polite"
+    >
       <div className="text-center">
         <motion.div
           className="w-24 h-24 mx-auto mb-4 bg-psychedelic-gradient rounded-full flex items-center justify-center"
@@ -22,16 +27,17 @@ export const LoadingScreen: React.FC = () => {
         >
           <span className="text-2xl font-bold text-white">HS</span>
         </motion.div>
-        
+
         <motion.h2
-          className="text-2xl font-display font-bold psychedelic-text mb-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          className="text-2xl font-display font-bold text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
         >
-          Loading Consciousness
+          Loading...
         </motion.h2>
+        <span className="sr-only">Loading content, please wait</span>
       </div>
     </div>
-  )
-}
+  );
+};
