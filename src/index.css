@@ -2,8 +2,16 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  --psychedelic-purple: #8b5cf6;
+  --psychedelic-pink: #ec4899;
+  --psychedelic-cyan: #06b6d4;
+  --space-dark: #0F0F23;
+  --cosmic-purple: #1A0B2E;
+}
+
 body {
-  background: linear-gradient(135deg, #0F0F23 0%, #1A0B2E 100%);
+  background: linear-gradient(135deg, var(--space-dark) 0%, var(--cosmic-purple) 100%);
   color: white;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
@@ -13,9 +21,9 @@ body {
 .psychedelic-text {
   background: linear-gradient(
     45deg,
-    var(--psychedelic-purple, #8b5cf6),
-    var(--psychedelic-pink, #ec4899),
-    var(--psychedelic-cyan, #06b6d4)
+    var(--psychedelic-purple),
+    var(--psychedelic-pink),
+    var(--psychedelic-cyan)
   );
   background-size: 200% 200%;
   -webkit-background-clip: text;
@@ -78,7 +86,7 @@ body {
 
 /* Accessibility focus style */
 :focus-visible {
-  outline: 2px solid var(--psychedelic-cyan, #06b6d4);
+  outline: 2px solid var(--psychedelic-cyan);
   outline-offset: 2px;
 }
 
@@ -88,6 +96,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--psychedelic-purple, #8b5cf6), var(--psychedelic-pink, #ec4899));
+  background: linear-gradient(var(--psychedelic-purple), var(--psychedelic-pink));
   border-radius: 4px;
 }
