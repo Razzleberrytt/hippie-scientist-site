@@ -3,12 +3,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // Use '/' since you have a custom domain (thehippiescientist.net)
+  base: '/',
   build: {
-    target: 'esnext',
+    target: 'es2022', // Changed from 'esnext' for better compatibility
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false, // Disable source maps for production
+    sourcemap: false,
     minify: 'terser',
     rollupOptions: {
       output: {
@@ -18,20 +18,7 @@ export default defineConfig({
           router: ['react-router-dom'],
           icons: ['lucide-react'],
           utils: ['fuse.js']
-        },
-        assetFileNames: (assetInfo) => {
-          const info = assetInfo.name!.split('.');
-          const ext = info[info.length - 1];
-          if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(ext)) {
-            return `assets/images/[name]-[hash][extname]`;
-          }
-          if (/css/i.test(ext)) {
-            return `assets/css/[name]-[hash][extname]`;
-          }
-          return `assets/[name]-[hash][extname]`;
-        },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
+        }
       }
     }
   },
