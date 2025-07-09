@@ -2,41 +2,39 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Custom psychedelic theme variables */
-:root {
-  --psychedelic-purple: #8B5CF6;
-  --psychedelic-pink: #EC4899;
-  --psychedelic-cyan: #06B6D4;
-  --psychedelic-green: #10B981;
-  --psychedelic-orange: #F59E0B;
-}
-
-/* Dark theme base */
 body {
   background: linear-gradient(135deg, #0F0F23 0%, #1A0B2E 100%);
   color: white;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* Psychedelic text gradient */
 .psychedelic-text {
-  background: linear-gradient(45deg, 
-    var(--psychedelic-purple), 
-    var(--psychedelic-pink), 
-    var(--psychedelic-cyan));
+  background: linear-gradient(
+    45deg,
+    var(--psychedelic-purple, #8b5cf6),
+    var(--psychedelic-pink, #ec4899),
+    var(--psychedelic-cyan, #06b6d4)
+  );
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
+  animation: gradient-x 3s ease infinite;
 }
 
-/* Glass morphism effects */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .glass-button {
@@ -48,10 +46,9 @@ body {
 
 .glass-button:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
-/* Glow effects */
 .glow-subtle {
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
 }
@@ -60,20 +57,29 @@ body {
   box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
 }
 
-/* Display font */
+.glow-strong {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
+}
+
 .font-display {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
 }
 
-/* Animations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0px);}
+  50% { transform: translateY(-10px);}
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+@keyframes gradient-x {
+  0%,100% { background-position: 0% 50%;}
+  50% { background-position: 100% 50%;}
+}
+
+/* Accessibility focus style */
+:focus-visible {
+  outline: 2px solid var(--psychedelic-cyan, #06b6d4);
+  outline-offset: 2px;
 }
 
 /* Custom scrollbar */
@@ -81,18 +87,7 @@ body {
   width: 8px;
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-}
-
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--psychedelic-purple), var(--psychedelic-pink));
+  background: linear-gradient(var(--psychedelic-purple, #8b5cf6), var(--psychedelic-pink, #ec4899));
   border-radius: 4px;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .glass-card {
-    margin: 1rem;
-  }
 }
