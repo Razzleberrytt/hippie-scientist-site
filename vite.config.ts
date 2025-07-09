@@ -2,6 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/hippie-scientist-site/', // GitHub Pages base path
+  base: 'thehippiescientist.net', // Change this for custom domain
   plugins: [react()],
 });
