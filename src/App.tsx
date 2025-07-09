@@ -1,8 +1,8 @@
 
 const App = () => {
   return (
-    <div style={{ color: 'black', padding: '2rem', textAlign: 'center' }}>
-      ✅ App Loaded — Routing & Render OK
+    <div className="min-h-screen bg-white text-black text-center flex items-center justify-center text-3xl font-bold">
+      ✅ App is rendering AND Tailwind is working
     </div>
   );
 };
