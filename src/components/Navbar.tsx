@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Menu, X, Atom } from 'lucide-react'
+
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Menu, X, Atom } from 'lucide-react';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
     { path: '/', label: 'Home' },
@@ -13,80 +14,68 @@ const Navbar: React.FC = () => {
     { path: '/database', label: 'Database' },
     { path: '/safety', label: 'Safety' },
     { path: '/community', label: 'Community' },
-  ]
+  ];
 
-  const isActive = (path: string) => location.pathname === path
+  const isActive = (path: string) => location.pathname.startsWith(path);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card m-4 rounded-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <Atom className="h-8 w-8 text-psychedelic-purple" />
-            <span className="text-xl font-bold psychedelic-text">
-              Hippie Scientist
-            </span>
+            <Atom className="h-8 w-8 text-psychedelic-purple" aria-hidden="true" />
+            <span className="text-xl font-bold psychedelic-text">Hippie Scientist</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all ${
-                    isActive(item.path)
-                      ? 'text-psychedelic-purple glow-subtle'
-                      : 'text-gray-300 hover:text-white hover:glow-subtle'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="p-2"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X /> : <Menu />}
             </button>
           </div>
-        </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="md:hidden"
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
+          <div className="hidden md:flex space-x-4">
+            {navItems.map(({ path, label }) => (
               <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all ${
-                  isActive(item.path)
-                    ? 'text-psychedelic-purple glow-subtle'
-                    : 'text-gray-300 hover:text-white hover:glow-subtle'
+                key={path}
+                to={path}
+                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                  isActive(path) ? 'bg-psychedelic-purple text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                 }`}
               >
-                {item.label}
+                {label}
               </Link>
             ))}
           </div>
-        </motion.div>
-      )}
+        </div>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: 'auto' }}
+            exit={{ height: 0 }}
+            className="md:hidden flex flex-col space-y-2 mt-4 px-2 pb-4"
+          >
+            {navItems.map(({ path, label }) => (
+              <Link
+                key={path}
+                to={path}
+                onClick={() => setIsOpen(false)}
+                className={`block px-4 py-2 rounded-md text-base font-medium ${
+                  isActive(path) ? 'bg-psychedelic-purple text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
