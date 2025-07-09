@@ -1,20 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  base: '/hippie-scientist-site/', // GitHub Pages base path
   plugins: [react()],
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src')
-    }
-  },
-  server: {
-    open: true,
-    port: 5173
-  },
-  build: {
-    outDir: 'dist'
-  },
-  base: './'
-})
+});
