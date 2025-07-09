@@ -1,7 +1,31 @@
+
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Atom, Brain, Heart, Users } from 'lucide-react'
+
+const features = [
+  {
+    icon: Brain,
+    title: "Mind",
+    desc: "Psychedelic research and neuroplasticity studies to understand consciousness."
+  },
+  {
+    icon: Heart,
+    title: "Spirit",
+    desc: "Exploring ancient wisdom, ritual, and the interconnectedness of all things."
+  },
+  {
+    icon: Atom,
+    title: "Science",
+    desc: "Bridging quantum theory and modern science with introspective awareness."
+  },
+  {
+    icon: Users,
+    title: "Community",
+    desc: "Join the global conversation around human evolution and healing."
+  }
+];
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +34,7 @@ const Home: React.FC = () => {
         <title>The Hippie Scientist - Consciousness Research</title>
         <meta name="description" content="Explore consciousness through psychedelic research, ancient wisdom, and modern science." />
       </Helmet>
-      
+
       <div className="min-h-screen pt-20 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
@@ -24,35 +48,30 @@ const Home: React.FC = () => {
               The Hippie Scientist
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-              Bridging ancient wisdom and modern science to explore the depths of consciousness
+              A fusion of ancient wisdom, psychedelics, and modern science to understand the mind, body, and spirit.
             </p>
           </motion.div>
 
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {[
-              { icon: Brain, title: 'Research', description: 'Latest findings in psychedelic science' },
-              { icon: Atom, title: 'Database', description: 'Comprehensive substance information' },
-              { icon: Heart, title: 'Safety', description: 'Harm reduction resources' },
-              { icon: Users, title: 'Community', description: 'Connect with like-minded individuals' },
-            ].map((feature, index) => (
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {features.map(({ icon: Icon, title, desc }) => (
               <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className="glass-card p-6 text-center"
+                key={title}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="p-6 border border-gray-700 rounded-lg bg-opacity-10 backdrop-blur-md glass-card"
               >
-                <feature.icon className="h-12 w-12 mx-auto mb-4 text-psychedelic-purple" />
-                <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
-                <p className="text-gray-300">{feature.description}</p>
+                <Icon className="h-10 w-10 text-psychedelic-purple mb-4" aria-hidden="true" />
+                <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+                <p className="text-gray-300">{desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
