@@ -1,6 +1,8 @@
 export interface Herb {
+  id: string;
   name: string;
   scientificName?: string;
+  description: string;
   category: string;
   effects: string[];
   preparation: string;
@@ -17,4 +19,6 @@ export interface Herb {
   drugInteractions: string;
   toxicity: string;
   toxicityLD50: string;
+  safetyRating: 'low' | 'medium' | 'high' | 'unknown';
+  image?: string;
 }
