@@ -893,7 +893,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, lactation, hypersensitivity to any component [0, 5].",
     drugInteractions: "No major interactions documented; caution with sedatives [0, 5].",
     toxicity: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",
-    toxicityLD50: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6]."},
+    toxicityLD50: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",},
   {
     name: "Eleutherococcus senticosus (Siberian Ginseng)",
     scientificName: "",
@@ -912,6 +912,6 @@ export const herbsData: Herb[] = [
     contraindications: "Hypertension, pregnancy, hormone-sensitive conditions.",
     drugInteractions: "May interact with stimulants, immunosuppressants, and anticoagulants.",
     toxicity: "Generally considered safe when used short-term. Long-term effects less studied.",
-    toxicityLD50: "No established LD50; high doses in animals show minimal acute toxicity.",},
+    toxicityLD50: "No established LD50; high doses in animals show minimal acute toxicity.",}
   }
 ];
