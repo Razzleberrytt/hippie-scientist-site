@@ -1,73 +1,63 @@
 export interface Herb {
+  id: string;
   name: string;
-  tags: string[];
+  scientificName: string;
+  category: string;
+  effects: string[];
   description: string;
-  mechanism: string;
+  mechanismOfAction: string;
   pharmacokinetics: string;
-  therapeutic_uses: string[];
-  side_effects: string[];
-  contraindications: string[];
-  interactions: string[];
+  therapeuticUses: string;
+  sideEffects: string;
+  contraindications: string;
+  drugInteractions: string;
   toxicity: string;
-  image: string;
+  toxicityLD50: string;
+  safetyRating: 'low' | 'medium' | 'high';
+  legalStatus: 'legal' | 'regulated' | 'illegal';
+  tags: string[];
+  image?: string;
 }
 
 export const herbsData: Herb[] = [
   {
+    id: "567d2df4-c3b3-47b5-b420-9849074cbd47",
     name: "Acorus calamus",
-    tags: [
-  "calming",
-  "nootropic"
-],
+    scientificName: "Acorus calamus",
+    category: "Unknown",
+    effects: ["calming", "nootropic"],
     description: "Used traditionally for its calming and cognitive-enhancing properties.",
-    mechanism: "Contains asarones which interact with GABA and acetylcholine receptors.",
+    mechanismOfAction: "Contains asarones which interact with GABA and acetylcholine receptors.",
     pharmacokinetics: "Absorbed via oral route, metabolized in the liver.",
-    therapeutic_uses: [
-  "anxiety",
-  "mental clarity",
-  "digestion"
-],
-    side_effects: [
-  "nausea",
-  "potential carcinogenicity in high doses"
-],
-    contraindications: [
-  "pregnancy",
-  "seizure disorders"
-],
-    interactions: [
-  "CNS depressants"
-],
-    toxicity: "High doses of β-asarone have shown carcinogenic effects in animal models.",
+    therapeuticUses: "anxiety, mental clarity, digestion",
+    sideEffects: "nausea, potential carcinogenicity in high doses",
+    contraindications: "pregnancy, seizure disorders",
+    drugInteractions: "CNS depressants",
+    toxicity: "High doses of \u03b2-asarone have shown carcinogenic effects in animal models.",
+    toxicityLD50: "Unknown",
+    safetyRating: "medium",
+    legalStatus: "regulated",
+    tags: ["calming", "nootropic"],
     image: "https://example.com/images/acorus_calamus.jpg",
   },
   {
+    id: "671d0e86-3f75-4296-a160-86f5da286f30",
     name: "Blue Lotus",
-    tags: [
-  "euphoric",
-  "sedative"
-],
+    scientificName: "Blue Lotus",
+    category: "Unknown",
+    effects: ["euphoric", "sedative"],
     description: "Traditionally smoked or steeped in tea for mild euphoria and relaxation.",
-    mechanism: "Active compounds aporphine and nuciferine act as dopamine receptor agonists.",
+    mechanismOfAction: "Active compounds aporphine and nuciferine act as dopamine receptor agonists.",
     pharmacokinetics: "Rapid onset when smoked; oral ingestion shows slower absorption.",
-    therapeutic_uses: [
-  "sleep aid",
-  "anxiety",
-  "aphrodisiac"
-],
-    side_effects: [
-  "drowsiness",
-  "dry mouth"
-],
-    contraindications: [
-  "do not use with MAOIs",
-  "pregnancy"
-],
-    interactions: [
-  "alcohol",
-  "sedatives"
-],
+    therapeuticUses: "sleep aid, anxiety, aphrodisiac",
+    sideEffects: "drowsiness, dry mouth",
+    contraindications: "do not use with MAOIs, pregnancy",
+    drugInteractions: "alcohol, sedatives",
     toxicity: "Low toxicity; caution with concentrated extracts.",
+    toxicityLD50: "Unknown",
+    safetyRating: "medium",
+    legalStatus: "regulated",
+    tags: ["euphoric", "sedative"],
     image: "https://example.com/images/blue_lotus.jpg",
   },
 ];
