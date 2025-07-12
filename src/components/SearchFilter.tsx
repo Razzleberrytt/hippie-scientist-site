@@ -14,7 +14,8 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
     setQuery(value);
 
     const filtered = herbs.filter((herb) =>
-      herb.name.toLowerCase().includes(value.toLowerCase())
+      herb.name.toLowerCase().includes(value.toLowerCase()) ||
+      herb.tags.some(tag => tag.toLowerCase().includes(value.toLowerCase()))
     );
 
     onFilter(filtered);

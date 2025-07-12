@@ -11,8 +11,8 @@ interface Herb {
   description: string;
   image?: string;
   tags: string[];
-  safetyRating: 'low' | 'medium' | 'high';
-  legalStatus: 'legal' | 'regulated' | 'illegal';
+  safetyRating: 'low' | 'medium' | 'high' | 'unknown';
+  legalStatus: 'legal' | 'regulated' | 'illegal' | 'unknown';
 }
 
 interface HerbCardProps {
@@ -24,30 +24,12 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick }) => {
   const getSafetyIcon = (rating: Herb['safetyRating']) => {
     switch (rating) {
       case 'high':
-        return (
-          <CheckCircle
-            className="w-4 h-4 text-psychedelic-green"
-            role="img"
-            title="High safety rating"
-          />
-        );
+        return <CheckCircle className="w-4 h-4 text-psychedelic-green" title="High safety" />;
       case 'medium':
-        return (
-          <AlertTriangle
-            className="w-4 h-4 text-psychedelic-orange"
-            role="img"
-            title="Medium safety rating"
-          />
-        );
+        return <AlertTriangle className="w-4 h-4 text-psychedelic-orange" title="Medium safety" />;
       case 'low':
       default:
-        return (
-          <Shield
-            className="w-4 h-4 text-psychedelic-pink"
-            role="img"
-            title="Low safety rating"
-          />
-        );
+        return <Shield className="w-4 h-4 text-psychedelic-pink" title="Low safety" />;
     }
   };
 
@@ -78,11 +60,8 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick }) => {
       <p className="text-sm text-gray-300 mb-2 line-clamp-3">{herb.description}</p>
 
       <div className="flex flex-wrap gap-1 mt-2">
-        {herb.tags?.map((tag) => (
-          <span
-            key={tag}
-            className="text-xs bg-psychedelic-purple/20 text-purple-300 px-2 py-1 rounded"
-          >
+        {herb.tags.map(tag => (
+          <span key={tag} className="text-xs bg-psychedelic-purple/20 text-purple-300 px-2 py-1 rounded">
             {tag}
           </span>
         ))}
