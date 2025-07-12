@@ -9,16 +9,16 @@ interface HerbCardProps {
 }
 
 const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick }) => {
-  const getSafetyIcon = (rating: string) => {
+  const getSafetyIcon = (rating: Herb['safetyRating']) => {
     switch (rating) {
       case 'high':
-        return <CheckCircle className="w-4 h-4 text-green-400" />;
+        return <CheckCircle className="w-4 h-4 text-psychedelic-green" aria-label="High safety rating" />;
       case 'medium':
-        return <AlertTriangle className="w-4 h-4 text-yellow-400" />;
+        return <AlertTriangle className="w-4 h-4 text-psychedelic-orange" aria-label="Medium safety rating" />;
       case 'low':
-        return <Shield className="w-4 h-4 text-red-400" />;
+        return <Shield className="w-4 h-4 text-psychedelic-pink" aria-label="Low safety rating" />;
       default:
-        return <Shield className="w-4 h-4 text-gray-500" />;
+        return <Shield className="w-4 h-4 text-gray-500" aria-label="Unknown safety rating" />;
     }
   };
 
@@ -26,9 +26,8 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick }) => {
     <motion.div
       onClick={onClick}
       whileHover={{ scale: 1.02 }}
-      className="glass-card rounded-lg p-4 border border-gray-700 bg-opacity-10 backdrop-blur-md transition shadow-md hover:shadow-xl"
+      className="bg-opacity-10 backdrop-blur-md glass-card rounded-lg p-4 border border-gray-700 cursor-pointer transition-all"
     >
-      {/* Image */}
       {herb.image ? (
         <img
           src={herb.image}
@@ -41,34 +40,20 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick }) => {
         </div>
       )}
 
-      {/* Name */}
-      <h2 className="text-xl font-bold text-white mb-1">{herb.name}</h2>
-      <p className="text-sm text-gray-400 italic mb-2">{herb.scientificName}</p>
-
-      {/* Details */}
-      <div className="text-sm text-gray-300 space-y-1 mb-2">
-        <p><strong>Category:</strong> {herb.category}</p>
-        <p><strong>Region:</strong> {herb.region}</p>
-        <p><strong>Intensity:</strong> {herb.intensity} | <strong>Onset:</strong> {herb.onset}</p>
-        <p><strong>Effects:</strong> {herb.effects.join(', ')}</p>
+      <div className="flex items-center justify-between mb-2">
+        <h3 className="text-xl font-semibold">{herb.name}</h3>
+        {getSafetyIcon(herb.safetyRating)}
       </div>
 
-      {/* Tags */}
-      <div className="flex flex-wrap gap-1 mb-3">
-        {herb.tags.map((tag, i) => (
-          <span
-            key={i}
-            className="bg-pink-800 bg-opacity-30 border border-pink-500 text-xs px-2 py-1 rounded-full text-white"
-          >
+      <p className="text-sm italic text-gray-400 mb-2">{herb.scientificName}</p>
+      <p className="text-sm text-gray-300 mb-2 line-clamp-3">{herb.description}</p>
+
+      <div className="flex flex-wrap gap-1 mt-2">
+        {herb.tags.map(tag => (
+          <span key={tag} className="text-xs bg-psychedelic-purple/20 text-purple-300 px-2 py-1 rounded">
             {tag}
           </span>
         ))}
-      </div>
-
-      {/* Safety */}
-      <div className="flex items-center gap-2 mt-2 text-sm text-gray-300">
-        <span>Safety:</span>
-        {getSafetyIcon(herb.safetyRating)}
       </div>
     </motion.div>
   );
