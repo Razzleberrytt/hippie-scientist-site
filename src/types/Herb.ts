@@ -12,8 +12,8 @@ export interface Herb {
   contraindications: string;
   drugInteractions: string;
   toxicityLD50: string;
-  safetyRating: string;
-  legalStatus: string;
+  safetyRating: 'low' | 'medium' | 'high' | 'unknown';
+  legalStatus: 'legal' | 'regulated' | 'illegal' | 'unknown';
   tags: string[];
-  image: string;
+  image?: string;
 }
