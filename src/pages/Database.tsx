@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import HerbCard from '../components/HerbCard';
 import { herbsData } from '../data/herbsData';
 
 const Database: React.FC = () => {
@@ -13,6 +12,10 @@ const Database: React.FC = () => {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
+  const handleClick = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <>
@@ -38,26 +41,27 @@ const Database: React.FC = () => {
           {/* HERB GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {paginatedHerbs.map((herb, index) => (
-              <HerbCard key={index} herb={herb} />
+              <div key={index} className="p-6 rounded shadow-md bg-white/10 text-white">
+                <img src={herb.image} alt={herb.name} className="w-full h-40 object-cover rounded mb-4" />
+                <h2 className="text-xl font-semibold mb-2">{herb.name}</h2>
+                <p className="text-sm">{herb.description}</p>
+              </div>
             ))}
           </div>
 
           {/* PAGINATION */}
-          <div className="flex justify-center space-x-4 mt-10">
-            <button
-              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
-              disabled={currentPage === 1}
-              className="bg-purple-700 px-4 py-2 rounded text-white disabled:opacity-50"
-            >
-              Previous
-            </button>
-            <button
-              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className="bg-purple-700 px-4 py-2 rounded text-white disabled:opacity-50"
-            >
-              Next
-            </button>
+          <div className="flex justify-center flex-wrap gap-2 mt-10">
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i}
+                onClick={() => handleClick(i + 1)}
+                className={`px-4 py-2 rounded ${
+                  currentPage === i + 1 ? 'bg-purple-800 text-white' : 'bg-gray-200 text-black'
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
           </div>
         </div>
       </div>
