@@ -1,36 +1,34 @@
-
 import React from 'react';
-import type { Herb } from '../data/herbs';
+import { Herb } from '../types/Herb';
 
 interface SearchFilterProps {
-  onCategoryChange: (category: string) => void;
-  onEffectChange: (effect: string) => void;
   herbs: Herb[];
+  onFilter: (filtered: Herb[]) => void;
 }
 
-const SearchFilter: React.FC<SearchFilterProps> = ({ onCategoryChange, onEffectChange, herbs }) => {
-  const categories = Array.from(new Set(herbs.map(h => h.category)));
-  const effects = Array.from(new Set(herbs.flatMap(h => h.effects)));
+const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
+  const [query, setQuery] = React.useState('');
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+
+    const filtered = herbs.filter((herb) =>
+      herb.name.toLowerCase().includes(value.toLowerCase())
+    );
+
+    onFilter(filtered);
+  };
 
   return (
-    <div className="space-y-4">
-      <select onChange={e => onCategoryChange(e.target.value)} className="w-full rounded p-2">
-        <option value="">All Categories</option>
-        {categories.map(category => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
-
-      <select onChange={e => onEffectChange(e.target.value)} className="w-full rounded p-2">
-        <option value="">All Effects</option>
-        {effects.map(effect => (
-          <option key={effect} value={effect}>
-            {effect}
-          </option>
-        ))}
-      </select>
+    <div className="mb-8">
+      <input
+        type="text"
+        placeholder="Search herbs..."
+        value={query}
+        onChange={handleSearch}
+        className="w-full px-4 py-2 rounded-md bg-gray-900 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+      />
     </div>
   );
 };
