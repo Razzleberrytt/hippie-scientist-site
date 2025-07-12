@@ -52,7 +52,7 @@ const Database: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex justify-center items-center gap-4 mt-10">
+          <div className="flex justify-center items-center gap-4 mt-10 flex-wrap">
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
@@ -61,19 +61,15 @@ const Database: React.FC = () => {
               Previous
             </button>
 
-            <div className="flex gap-2">
-              {Array.from({ length: totalPages }, (_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`px-3 py-1 rounded ${
-                    currentPage === i + 1 ? 'bg-purple-900 text-white' : 'bg-gray-800 text-gray-300'
-                  }`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                className={\`px-3 py-1 rounded \${currentPage === i + 1 ? 'bg-purple-900 text-white' : 'bg-gray-800 text-gray-300'}\`}
+              >
+                {i + 1}
+              </button>
+            ))}
 
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
