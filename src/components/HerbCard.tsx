@@ -1,19 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, AlertTriangle, CheckCircle } from 'lucide-react';
-
-interface Herb {
-  id: string;
-  name: string;
-  scientificName: string;
-  category: string;
-  effects: string[];
-  description: string;
-  image?: string;
-  tags: string[];
-  safetyRating: 'low' | 'medium' | 'high' | 'unknown';
-  legalStatus: 'legal' | 'regulated' | 'illegal' | 'unknown';
-}
+import { Herb } from '../types/Herb';
 
 interface HerbCardProps {
   herb: Herb;
@@ -24,12 +12,13 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick }) => {
   const getSafetyIcon = (rating: Herb['safetyRating']) => {
     switch (rating) {
       case 'high':
-        return <CheckCircle className="w-4 h-4 text-psychedelic-green" title="High safety" />;
+        return <CheckCircle className="w-4 h-4 text-psychedelic-green" aria-label="High safety rating" />;
       case 'medium':
-        return <AlertTriangle className="w-4 h-4 text-psychedelic-orange" title="Medium safety" />;
+        return <AlertTriangle className="w-4 h-4 text-psychedelic-orange" aria-label="Medium safety rating" />;
       case 'low':
+        return <Shield className="w-4 h-4 text-psychedelic-pink" aria-label="Low safety rating" />;
       default:
-        return <Shield className="w-4 h-4 text-psychedelic-pink" title="Low safety" />;
+        return <Shield className="w-4 h-4 text-gray-500" aria-label="Unknown safety rating" />;
     }
   };
 
@@ -42,7 +31,7 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb, onClick }) => {
       {herb.image ? (
         <img
           src={herb.image}
-          alt={`Image of ${herb.name}`}
+          alt={herb.name}
           className="w-full h-40 object-cover rounded-md mb-4"
         />
       ) : (
