@@ -1,19 +1,20 @@
 export interface Herb {
-  id: string;
   name: string;
-  scientificName: string;
+  scientificName?: string;
   category: string;
   effects: string[];
-  description: string;
+  preparation: string;
+  intensity: string;
+  onset: string;
+  legalStatus: string;
+  region: string;
+  tags: string[];
   mechanismOfAction: string;
   pharmacokinetics: string;
   therapeuticUses: string;
   sideEffects: string;
   contraindications: string;
   drugInteractions: string;
+  toxicity: string;
   toxicityLD50: string;
-  safetyRating: 'low' | 'medium' | 'high' | 'unknown';
-  legalStatus: 'legal' | 'regulated' | 'illegal' | 'unknown';
-  tags: string[];
-  image?: string;
 }
