@@ -893,7 +893,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, lactation, hypersensitivity to any component [0, 5].",
     drugInteractions: "No major interactions documented; caution with sedatives [0, 5].",
     toxicity: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",
-    toxicityLD50: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",},
+    toxicityLD50: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6]."},
   {
     name: "Eleutherococcus senticosus (Siberian Ginseng)",
     scientificName: "",
