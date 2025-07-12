@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import HerbCard from '../components/HerbCard';
 import { herbsData } from '../data/herbsData';
 
 const Database: React.FC = () => {
@@ -41,11 +42,7 @@ const Database: React.FC = () => {
           {/* HERB GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {paginatedHerbs.map((herb, index) => (
-              <div key={index} className="p-6 rounded shadow-md bg-white/10 text-white">
-                <img src={herb.image} alt={herb.name} className="w-full h-40 object-cover rounded mb-4" />
-                <h2 className="text-xl font-semibold mb-2">{herb.name}</h2>
-                <p className="text-sm">{herb.description}</p>
-              </div>
+              <HerbCard key={index} herb={herb} />
             ))}
           </div>
 
