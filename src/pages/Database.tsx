@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import HerbCard from '../components/HerbCard';
-import { herbsData } from '../data/herbs';
 import SearchFilter from '../components/SearchFilter';
+import { herbsData } from '../data/herbs';
 import { Herb } from '../types/Herb';
 
 const Database: React.FC = () => {
@@ -20,7 +20,7 @@ const Database: React.FC = () => {
 
   const handleFilter = (results: Herb[]) => {
     setFilteredHerbs(results);
-    setCurrentPage(1); // Reset to first page on new search
+    setCurrentPage(1);
   };
 
   return (
@@ -46,14 +46,12 @@ const Database: React.FC = () => {
 
           <SearchFilter herbs={herbsData} onFilter={handleFilter} />
 
-          {/* HERB GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {paginatedHerbs.map((herb) => (
               <HerbCard key={herb.id} herb={herb} />
             ))}
           </div>
 
-          {/* PAGINATION CONTROLS */}
           <div className="flex justify-center items-center gap-4 mt-10">
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
@@ -63,7 +61,6 @@ const Database: React.FC = () => {
               Previous
             </button>
 
-            {/* Page Numbers */}
             <div className="flex gap-2">
               {Array.from({ length: totalPages }, (_, i) => (
                 <button
