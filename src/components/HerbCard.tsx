@@ -1,3 +1,10 @@
+import React from 'react';
+import type { Herb } from '../types/Herb';
+
+interface HerbCardProps {
+  herb: Herb;
+}
+
 export function HerbCard({ herb }: HerbCardProps) {
   return (
     <div className="herb-card">
@@ -5,15 +12,9 @@ export function HerbCard({ herb }: HerbCardProps) {
       <p className="herb-card__description">
         {herb.description || "No description available."}
       </p>
-      <p className="herb-card__effect">
-        {herb.effects?.join(", ") || "No listed effects"}
-      </p>
-      <p className="herb-card__mechanism">
-        {herb.mechanismOfAction || "Mechanism unknown"}
-      </p>
-      <p className="herb-card__toxicity">
-        LD50: {herb.toxicityLD50 || "N/A"}
-      </p>
+      <p>{herb.effects?.join(', ') || "No effects listed."}</p>
+      <p>{herb.mechanismOfAction || "No known mechanism."}</p>
+      <p>{herb.toxicityLD50 || "Toxicity unknown."}</p>
     </div>
   );
 }
