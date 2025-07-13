@@ -1,5 +1,16 @@
+interface Herb {
+  name: string;
+  description: string;
+  effects: string[];
+  mechanismOfAction: string;
+  toxicityLD50: string;
+}
 
-export function HerbCard({ herb }) {
+interface HerbCardProps {
+  herb: Herb;
+}
+
+export function HerbCard({ herb }: HerbCardProps) {
   return (
     <div className="p-4 border border-gray-600 rounded mb-4">
       <h2 className="text-2xl font-semibold">{herb.name}</h2>
