@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
-    "strict": true,
+    "target": "ES2017",
+    "lib": [
+      "ES2017",
+      "DOM"
+    ],
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strict": true
   },
   "include": [
     "src"
