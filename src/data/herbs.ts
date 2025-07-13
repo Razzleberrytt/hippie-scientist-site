@@ -912,6 +912,6 @@ export const herbsData: Herb[] = [
     contraindications: "Hypertension, pregnancy, hormone-sensitive conditions.",
     drugInteractions: "May interact with stimulants, immunosuppressants, and anticoagulants.",
     toxicity: "Generally considered safe when used short-term. Long-term effects less studied.",
-    toxicityLD50: "No established LD50; high doses in animals show minimal acute toxicity.",},
+    toxicityLD50: "No established LD50; high doses in animals show minimal acute toxicity."
   }
 ];
