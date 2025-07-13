@@ -38,7 +38,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, lactation, hypersensitivity [0, 6].",
     drugInteractions: "May potentiate CNS depressants; caution with anticholinergics [0, 6].",
     toxicity: "Low; no severe toxicity reported in traditional use [0, 6].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Mugwort",
     scientificName: "",
@@ -57,7 +57,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, allergies to ragweed, epilepsy [9, 9].",
     drugInteractions: "Avoid with CNS depressants and anticonvulsants [9, 9].",
     toxicity: "Contains thujone and other essential oils that are toxic in high doses.",
-    toxicityLD50: "Thujone LD50 ~87\u2013120 mg/kg in mice; caution advised at high doses or chronic use.",},
+    toxicityLD50: "Thujone LD50 ~87\u2013120 mg/kg in mice; caution advised at high doses or chronic use.",
   {
     name: "Heimia salicifolia (Sinicuichi)",
     scientificName: "",
@@ -76,7 +76,7 @@ export const herbsData: Herb[] = [
     contraindications: "Avoid with alcohol or CNS depressants, pregnancy [9, 4].",
     drugInteractions: "None known; caution with psychiatric medications [9, 4].",
     toxicity: "Low toxicity; high doses may cause mild sedation or nausea [9, 4].",
-    toxicityLD50: "Not well established; no fatal doses reported in traditional use.",},
+    toxicityLD50: "Not well established; no fatal doses reported in traditional use.",
   {
     name: "Sceletium tortuosum (Kanna)",
     scientificName: "",
@@ -95,7 +95,7 @@ export const herbsData: Herb[] = [
     contraindications: "Do not combine with other serotonergic substances; pregnancy [9, 4].",
     drugInteractions: "SSRIs, MAOIs, stimulants [9, 4].",
     toxicity: "Low toxicity at traditional doses [9, 4].",
-    toxicityLD50: "Not established in humans; high safety margin observed in animal studies.",},
+    toxicityLD50: "Not established in humans; high safety margin observed in animal studies.",
   {
     name: "Blue Lotus (Nymphaea caerulea)",
     scientificName: "",
@@ -114,7 +114,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, avoid with dopaminergic drugs.",
     drugInteractions: "Potential additive effects with CNS depressants.",
     toxicity: "Low toxicity; no serious effects reported from traditional use.",
-    toxicityLD50: "Not established; no reported lethal doses.",},
+    toxicityLD50: "Not established; no reported lethal doses.",
   {
     name: "Salvia divinorum",
     scientificName: "",
@@ -133,7 +133,7 @@ export const herbsData: Herb[] = [
     contraindications: "Psychiatric disorders, cardiovascular instability; avoid in those at risk for psychosis [3, 2].",
     drugInteractions: "CNS depressants may potentiate sedative effects; caution when coadministered [3, 3].",
     toxicity: "Low toxicity; animal studies show minimal organ damage even at high doses [3, 3].",
-    toxicityLD50: "LD50 not established; salvinorin A active at microgram levels with no evidence of physical toxicity.",},
+    toxicityLD50: "LD50 not established; salvinorin A active at microgram levels with no evidence of physical toxicity.",
   {
     name: "Wild Lettuce",
     scientificName: "",
@@ -152,7 +152,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, concurrent sedative use, latex allergy.",
     drugInteractions: "Additive sedation with CNS depressants and alcohol.",
     toxicity: "Dose-dependent toxicity; hospitalizations reported but full recovery common [0, 2].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Chiric Sanango",
     scientificName: "",
@@ -171,7 +171,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, cardiovascular conditions.",
     drugInteractions: "Other serotonergic or cholinergic agents.",
     toxicity: "Toxic in high doses; caution advised.",
-    toxicityLD50: "LD50 not established; considered mildly toxic in large doses due to cholinergic effects.",},
+    toxicityLD50: "LD50 not established; considered mildly toxic in large doses due to cholinergic effects.",
   {
     name: "Mapacho",
     scientificName: "",
@@ -190,7 +190,7 @@ export const herbsData: Herb[] = [
     contraindications: "Cardiovascular disease, pregnancy.",
     drugInteractions: "Other nicotinic agonists and MAO inhibitors.",
     toxicity: "High risk of nicotine overdose; very toxic.",
-    toxicityLD50: "LD50 (nicotine) ~0.5\u20131.0 mg/kg in humans (oral); overdose via smoke is rare but possible.",},
+    toxicityLD50: "LD50 (nicotine) ~0.5\u20131.0 mg/kg in humans (oral); overdose via smoke is rare but possible.",
   {
     name: "Tagetes lucida (Mexican Tarragon)",
     scientificName: "",
@@ -209,7 +209,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, concurrent sedatives.",
     drugInteractions: "Benzodiazepines and serotonergic drugs.",
     toxicity: "Low; traditional use generally safe.",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Turnera diffusa",
     scientificName: "Turnera diffusa",
@@ -228,7 +228,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, MAOI coadministration.",
     drugInteractions: "Serotonergic medications.",
     toxicity: "Low in traditional doses.",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Kra Thum Na / Kok",
     scientificName: "",
@@ -247,7 +247,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Sakae Naa",
     scientificName: "",
@@ -266,7 +266,7 @@ export const herbsData: Herb[] = [
     contraindications: "Avoid with stimulants or heart issues.",
     drugInteractions: "May interact with MAOIs, stimulants, and certain SSRIs.",
     toxicity: "Low, but less studied than kratom.",
-    toxicityLD50: "Not established; no fatalities reported in isolated use.",},
+    toxicityLD50: "Not established; no fatalities reported in isolated use.",
   {
     name: "Nelumbo nucifera",
     scientificName: "",
@@ -285,7 +285,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, hypotension.",
     drugInteractions: "Possible additive effects with MAOIs and dopamine agents.",
     toxicity: "Low toxicity in traditional doses.",
-    toxicityLD50: "Not well-established; estimated to be >500 mg/kg (safe range).",},
+    toxicityLD50: "Not well-established; estimated to be >500 mg/kg (safe range).",
   {
     name: "Scullcap (Scutellaria)",
     scientificName: "",
@@ -304,7 +304,7 @@ export const herbsData: Herb[] = [
     contraindications: "Liver issues; consult provider before long-term use.",
     drugInteractions: "Additive effects with sedatives or anxiolytics.",
     toxicity: "Generally safe, though adulterants in supplements have caused concern.",
-    toxicityLD50: "No standard LD50 data; high therapeutic margin.",},
+    toxicityLD50: "No standard LD50 data; high therapeutic margin.",
   {
     name: "California Poppy",
     scientificName: "",
@@ -323,7 +323,7 @@ export const herbsData: Herb[] = [
     contraindications: "Not for use in pregnancy or with other CNS depressants.",
     drugInteractions: "May amplify effects of benzodiazepines and alcohol.",
     toxicity: "Low toxicity; non-habit-forming.",
-    toxicityLD50: "No known LD50 in humans; safe at standard doses.",},
+    toxicityLD50: "No known LD50 in humans; safe at standard doses.",
   {
     name: "Hop Flowers",
     scientificName: "",
@@ -342,7 +342,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, estrogen-sensitive conditions (e.g. breast cancer).",
     drugInteractions: "May enhance sedatives, alcohol, and hypnotics.",
     toxicity: "Very low toxicity; generally regarded as safe.",
-    toxicityLD50: "No human LD50; high safety margin reported in herbal use.",},
+    toxicityLD50: "No human LD50; high safety margin reported in herbal use.",
   {
     name: "Copal",
     scientificName: "",
@@ -361,7 +361,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Sweetgrass",
     scientificName: "",
@@ -380,7 +380,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "White Sage",
     scientificName: "",
@@ -399,7 +399,7 @@ export const herbsData: Herb[] = [
     contraindications: "Asthma, pregnancy, respiratory disorders.",
     drugInteractions: "None significant documented.",
     toxicity: "Very low; excessive inhalation may cause dizziness or nausea [0, 4].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Frankincense (Boswellia)",
     scientificName: "",
@@ -418,7 +418,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Henbane",
     scientificName: "",
@@ -437,7 +437,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Belladonna",
     scientificName: "",
@@ -456,7 +456,7 @@ export const herbsData: Herb[] = [
     contraindications: "Cardiovascular disease, glaucoma, pregnancy.",
     drugInteractions: "CNS depressants, anticholinergic drugs.",
     toxicity: "Highly toxic; accidental ingestion can be fatal.",
-    toxicityLD50: "Atropine LD50 (rat, oral): ~453 mg/kg.",},
+    toxicityLD50: "Atropine LD50 (rat, oral): ~453 mg/kg.",
   {
     name: "Mandrake Root",
     scientificName: "",
@@ -475,7 +475,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, glaucoma, heart conditions.",
     drugInteractions: "Potentiates other anticholinergics, CNS depressants.",
     toxicity: "Highly toxic in moderate doses.",
-    toxicityLD50: "Scopolamine LD50 (rat, oral): ~310 mg/kg.",},
+    toxicityLD50: "Scopolamine LD50 (rat, oral): ~310 mg/kg.",
   {
     name: "Anadenanthera colubrina (Ceb\u00edl)",
     scientificName: "",
@@ -494,7 +494,7 @@ export const herbsData: Herb[] = [
     contraindications: "Cardiovascular disorders, psychiatric conditions, and pregnancy.",
     drugInteractions: "Concomitant use with SSRIs or MAOIs may risk serotonin syndrome [1, 0].",
     toxicity: "No documented human LD50; rodent LD50 approximately 200\u2013300\u202fmg/kg (intraperitoneal) [1, 0].",
-    toxicityLD50: "No documented human LD50; rodent LD50 approximately 200\u2013300\u202fmg/kg (intraperitoneal) [1, 0].",},
+    toxicityLD50: "No documented human LD50; rodent LD50 approximately 200\u2013300\u202fmg/kg (intraperitoneal) [1, 0].",
   {
     name: "Virola spp.",
     scientificName: "",
@@ -513,7 +513,7 @@ export const herbsData: Herb[] = [
     contraindications: "Mental health disorders, heart issues, MAOI interactions.",
     drugInteractions: "Dangerous with SSRIs, MAOIs, and other serotonergic substances.",
     toxicity: "Can be overwhelming; physical toxicity low but psychological risks high.",
-    toxicityLD50: "No established LD50 for DMT in humans; low systemic toxicity at typical doses.",},
+    toxicityLD50: "No established LD50 for DMT in humans; low systemic toxicity at typical doses.",
   {
     name: "Acorus gramineus",
     scientificName: "",
@@ -532,7 +532,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, long-term use caution due to \u03b2-asarone.",
     drugInteractions: "May enhance CNS depressants.",
     toxicity: "Concerns over \u03b2-asarone carcinogenicity in some studies.",
-    toxicityLD50: "\u03b2-asarone LD50 (rat, oral): ~310 mg/kg.",},
+    toxicityLD50: "\u03b2-asarone LD50 (rat, oral): ~310 mg/kg.",
   {
     name: "Celastrus paniculatus (Intellect Tree)",
     scientificName: "",
@@ -551,7 +551,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Silphium (extinct)",
     scientificName: "",
@@ -570,7 +570,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Nymphaea ampla",
     scientificName: "",
@@ -589,7 +589,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Pedicularis densiflora (Indian warrior)",
     scientificName: "",
@@ -608,7 +608,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, use with other sedatives [2, 0].",
     drugInteractions: "Additive effects with CNS depressants [2, 0].",
     toxicity: "Low; limited data on long-term use [2, 0].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Pedicularis groenlandica",
     scientificName: "",
@@ -627,7 +627,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, lactation [0, 7].",
     drugInteractions: "Additive with CNS depressants [0, 7].",
     toxicity: "Low; no significant toxicity reported [0, 7].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Lactuca canadensis",
     scientificName: "",
@@ -646,7 +646,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, concurrent opioid use [0, 6].",
     drugInteractions: "CNS depressants [0, 6].",
     toxicity: "Low; hospitalizations reported but recovery common [0, 6].",
-    toxicityLD50: "Not established; presumed low. No acute toxicity reported in human use.",},
+    toxicityLD50: "Not established; presumed low. No acute toxicity reported in human use.",
   {
     name: "Artemisia vulgaris (Mugwort)",
     scientificName: "",
@@ -665,7 +665,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Justicia pectoralis",
     scientificName: "",
@@ -684,7 +684,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy; MAOI coadministration [0, 18].",
     drugInteractions: "MAO inhibitors, sedatives [0, 18].",
     toxicity: "Low; safe at traditional doses [0, 10].",
-    toxicityLD50: "Low; no established LD50, but considered safe in traditional use.",},
+    toxicityLD50: "Low; no established LD50, but considered safe in traditional use.",
   {
     name: "Viola odorata (Sweet violet)",
     scientificName: "",
@@ -703,7 +703,7 @@ export const herbsData: Herb[] = [
     contraindications: "None known in normal amounts; avoid if allergic.",
     drugInteractions: "Minimal; theoretically additive with CNS depressants.",
     toxicity: "Regarded as very safe in traditional herbalism.",
-    toxicityLD50: "No human LD50 data; extremely low toxicity reported.",},
+    toxicityLD50: "No human LD50 data; extremely low toxicity reported.",
   {
     name: "Piper auritum (Root beer plant)",
     scientificName: "",
@@ -722,7 +722,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy; safrole-containing extracts discouraged [1, 11].",
     drugInteractions: "CYP450 substrates; caution with anticoagulants [0, 19].",
     toxicity: "Safrole hepatotoxic; use sparingly [1, 11].",
-    toxicityLD50: "LD50 (rats, oral) safrole ~1,950 mg/kg; safrole is hepatotoxic at high doses.",},
+    toxicityLD50: "LD50 (rats, oral) safrole ~1,950 mg/kg; safrole is hepatotoxic at high doses.",
   {
     name: "Eschscholzia californica (California poppy)",
     scientificName: "",
@@ -741,7 +741,7 @@ export const herbsData: Herb[] = [
     contraindications: "Glaucoma, MAOI therapy, pregnancy, lactation [2, 9].",
     drugInteractions: "Additive CNS depression with sedatives, barbiturates; caution with blood thinners and antihypertensives [2, 8].",
     toxicity: "Low; no significant toxicity at therapeutic doses [2, 9].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Rivea corymbosa",
     scientificName: "",
@@ -760,7 +760,7 @@ export const herbsData: Herb[] = [
     contraindications: "Cardiovascular disease, pregnancy [0, 4].",
     drugInteractions: "Serotonergic medications [0, 12].",
     toxicity: "Low; moderate overdose risk [0, 12].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Ipomoea tricolor (Heavenly Blue)",
     scientificName: "",
@@ -779,7 +779,7 @@ export const herbsData: Herb[] = [
     contraindications: "Cardiovascular disorders, psychiatric conditions [0, 5].",
     drugInteractions: "SSRIs/MAOIs [0, 5].",
     toxicity: "Low; rodent LD50 ~200\u2013300\u202fmg/kg [0, 5].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Tilia europaea (Linden flower)",
     scientificName: "",
@@ -798,7 +798,7 @@ export const herbsData: Herb[] = [
     contraindications: "N/A",
     drugInteractions: "N/A",
     toxicity: "N/A",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Melissa officinalis (Lemon balm)",
     scientificName: "",
@@ -817,7 +817,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, known Asteraceae allergy [0, 16].",
     drugInteractions: "May potentiate sedatives, anticoagulants; caution with CNS depressants [0, 16].",
     toxicity: "Low; safe at therapeutic doses [0, 0].",
-    toxicityLD50: "N/A",},
+    toxicityLD50: "N/A",
   {
     name: "Ocimum sanctum (Holy Basil / Tulsi)",
     scientificName: "",
@@ -836,7 +836,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, diabetes medication.",
     drugInteractions: "May potentiate anti-diabetic, anticoagulant, or sedative drugs.",
     toxicity: "Pending",
-    toxicityLD50: "Pending",},
+    toxicityLD50: "Pending",
   {
     name: "Rhodiola rosea",
     scientificName: "",
@@ -855,7 +855,7 @@ export const herbsData: Herb[] = [
     contraindications: "Bipolar disorder, stimulants, pregnancy.",
     drugInteractions: "May affect antidepressants, stimulants, or MAOIs.",
     toxicity: "Mild toxicity; high doses may cause irritability or insomnia.",
-    toxicityLD50: "LD50 (rats, oral) >28,000 mg/kg; very low toxicity.",},
+    toxicityLD50: "LD50 (rats, oral) >28,000 mg/kg; very low toxicity.",
   {
     name: "Withania somnifera (Ashwagandha)",
     scientificName: "",
@@ -874,7 +874,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, hyperthyroidism, autoimmune diseases [0, 1].",
     drugInteractions: "Immunosuppressants, sedatives, thyroid medications [0, 24].",
     toxicity: "Low; well-tolerated in clinical studies [0, 1].",
-    toxicityLD50: "LD50 (rats, oral) ~4650 mg/kg; relatively low acute toxicity.",},
+    toxicityLD50: "LD50 (rats, oral) ~4650 mg/kg; relatively low acute toxicity.",
   {
     name: "Bacopa monnieri",
     scientificName: "",
@@ -893,7 +893,7 @@ export const herbsData: Herb[] = [
     contraindications: "Pregnancy, lactation, hypersensitivity to any component [0, 5].",
     drugInteractions: "No major interactions documented; caution with sedatives [0, 5].",
     toxicity: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",
-    toxicityLD50: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",},
+    toxicityLD50: "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",
   {
     name: "Eleutherococcus senticosus (Siberian Ginseng)",
     scientificName: "",
@@ -912,6 +912,6 @@ export const herbsData: Herb[] = [
     contraindications: "Hypertension, pregnancy, hormone-sensitive conditions.",
     drugInteractions: "May interact with stimulants, immunosuppressants, and anticoagulants.",
     toxicity: "Generally considered safe when used short-term. Long-term effects less studied.",
-    toxicityLD50: "No established LD50; high doses in animals show minimal acute toxicity.",},
-  }
+    toxicityLD50: "No established LD50; high doses in animals show minimal acute toxicity.",
+  },
 ];
