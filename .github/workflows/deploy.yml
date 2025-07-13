@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -10,34 +11,29 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
 
     steps:
-      - name: Checkout main branch
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build site
+      - name: Build Project
         run: npm run build
 
-      - name: Copy index.html to 404.html
-        run: cp dist/index.html dist/404.html
+      - name: Add CNAME file
+        run: echo 'thehippiescientist.net' > dist/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: gh-pages
-          cname: thehippiescientist.net
-          force_orphan: true
