@@ -1,17 +1,40 @@
-
 export const herbsData = [
   {
+    id: "acorus-calamus",
     name: "Acorus Calamus",
-    description: "Mild stimulant herb used in traditional medicine.",
+    scientificName: "Acorus calamus",
+    category: "Stimulant",
     effects: ["Stimulation", "Focus"],
+    description: "Mild stimulant herb used in traditional medicine.",
     mechanismOfAction: "Contains β-asarone; modulates GABA and dopaminergic systems.",
-    toxicityLD50: "Unknown"
+    pharmacokinetics: "Unknown",
+    therapeuticUses: "Focus and alertness",
+    sideEffects: "None known",
+    contraindications: "Pregnancy",
+    drugInteractions: "None reported",
+    toxicityLD50: "Unknown",
+    safetyRating: "medium",
+    legalStatus: "Legal",
+    region: "Asia",
+    tags: ["focus", "stimulating"]
   },
   {
+    id: "entada-rheedii",
     name: "Entada rheedii",
-    description: "Dream-inducing seed used in African shamanic traditions.",
+    scientificName: "Entada rheedii",
+    category: "Oneirogen",
     effects: ["Dream enhancement", "Trance"],
+    description: "Dream-inducing seed used in African shamanic traditions.",
     mechanismOfAction: "Unknown",
-    toxicityLD50: "Low"
+    pharmacokinetics: "Unknown",
+    therapeuticUses: "Lucid dreaming",
+    sideEffects: "Drowsiness",
+    contraindications: "None documented",
+    drugInteractions: "None known",
+    toxicityLD50: "Low",
+    safetyRating: "low",
+    legalStatus: "Legal",
+    region: "Africa",
+    tags: ["dreams", "lucid"]
   }
 ];
