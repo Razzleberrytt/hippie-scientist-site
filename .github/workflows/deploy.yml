@@ -27,6 +27,10 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Prepare 404 fallback
+        run: |
+          cp dist/index.html dist/404.html
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
