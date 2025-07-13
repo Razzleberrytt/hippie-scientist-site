@@ -36,3 +36,4 @@ jobs:
           publish_dir: ./dist
           publish_branch: gh-pages
           cname: thehippiescientist.net
+          force_orphan: true
