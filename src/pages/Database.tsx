@@ -4,12 +4,16 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import HerbCard from '../components/HerbCard';
-import { herbs } from '../data/herbs';
+import data from '../data/herbs.json';
+import type { Herb } from '../types';
+
+const herbs: Herb[] = data as Herb[];
 
 export default function Database() {
   const [query, setQuery] = React.useState('');
   const filteredHerbs = herbs.filter((h) =>
-    h.name.toLowerCase().includes(query.toLowerCase())
+    h.name.toLowerCase().includes(query.toLowerCase()) ||
+    h.tags.some((t) => JSON.parse(`"${t}"`).toLowerCase().includes(query.toLowerCase()))
   );
 
   return (

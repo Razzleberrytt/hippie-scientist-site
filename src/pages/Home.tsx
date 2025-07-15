@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import HeroSection from '../components/HeroSection';
 import HerbGrid from '../components/HerbGrid';
-import { herbs } from '../data/herbs';
 
 export default function Home() {
   return (
@@ -15,7 +14,7 @@ export default function Home() {
       </Helmet>
       <HeroSection />
       <div className="mx-auto max-w-7xl px-4 py-20">
-        <HerbGrid herbs={herbs} />
+        <HerbGrid />
       </div>
     </>
   );
