@@ -1,44 +1,48 @@
-
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Menu, X, Atom } from 'lucide-react';
+import React, { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { Menu, X, Atom } from 'lucide-react'
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation()
 
-  const navItems = [{ path: '/', label: 'Home' }];
+  const navItems = [
+    { path: '/', label: 'Home' },
+    { path: '/blog', label: 'Blog' },
+  ]
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location.pathname === path
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-card m-4 rounded-2xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <Atom className="h-8 w-8 text-psychedelic-purple" aria-hidden="true" />
-            <span className="text-xl font-bold psychedelic-text">Hippie Scientist</span>
+    <nav className='glass-card fixed left-0 right-0 top-0 z-50 m-4 rounded-2xl'>
+      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+        <div className='flex h-16 items-center justify-between'>
+          <Link to='/' className='flex items-center space-x-2'>
+            <Atom className='h-8 w-8 text-psychedelic-purple' aria-hidden='true' />
+            <span className='text-gradient text-xl font-bold'>Hippie Scientist</span>
           </Link>
 
-          <div className="md:hidden">
+          <div className='md:hidden'>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2"
-              aria-label="Toggle navigation menu"
+              className='p-2'
+              aria-label='Toggle navigation menu'
               aria-expanded={isOpen}
             >
               {isOpen ? <X /> : <Menu />}
             </button>
           </div>
 
-          <div className="hidden md:flex space-x-4">
+          <div className='hidden space-x-4 md:flex'>
             {navItems.map(({ path, label }) => (
               <Link
                 key={path}
                 to={path}
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  isActive(path) ? 'bg-psychedelic-purple text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                className={`rounded-md px-3 py-2 text-sm font-medium ${
+                  isActive(path)
+                    ? 'bg-psychedelic-purple text-white'
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                 }`}
               >
                 {label}
@@ -51,15 +55,17 @@ const Navbar: React.FC = () => {
             initial={{ height: 0 }}
             animate={{ height: 'auto' }}
             exit={{ height: 0 }}
-            className="md:hidden flex flex-col space-y-2 mt-4 px-2 pb-4"
+            className='mt-4 flex flex-col space-y-2 px-2 pb-4 md:hidden'
           >
             {navItems.map(({ path, label }) => (
               <Link
                 key={path}
                 to={path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-2 rounded-md text-base font-medium ${
-                  isActive(path) ? 'bg-psychedelic-purple text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                className={`block rounded-md px-4 py-2 text-base font-medium ${
+                  isActive(path)
+                    ? 'bg-psychedelic-purple text-white'
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                 }`}
               >
                 {label}
@@ -69,7 +75,7 @@ const Navbar: React.FC = () => {
         )}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

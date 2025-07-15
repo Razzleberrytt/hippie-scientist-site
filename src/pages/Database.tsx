@@ -1,23 +1,23 @@
 // src/pages/Database.tsx
 
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
-import HerbGrid from '../components/HerbGrid';
-import SearchFilter from '../components/SearchFilter';
-import type { Herb } from '../types';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { motion } from 'framer-motion'
+import HerbGrid from '../components/HerbGrid'
+import SearchFilter from '../components/SearchFilter'
+import type { Herb } from '../types'
 
 export default function Database() {
-  const [herbs, setHerbs] = React.useState<Herb[]>([]);
-  const [filtered, setFiltered] = React.useState<Herb[]>([]);
+  const [herbs, setHerbs] = React.useState<Herb[]>([])
+  const [filtered, setFiltered] = React.useState<Herb[]>([])
 
   React.useEffect(() => {
-    import('../data/herbs.json').then((m) => {
-      const h = m.default as Herb[];
-      setHerbs(h);
-      setFiltered(h);
-    });
-  }, []);
+    import('../data/herbs.json').then(m => {
+      const h = m.default as Herb[]
+      setHerbs(h)
+      setFiltered(h)
+    })
+  }, [])
 
   return (
     <>
@@ -37,7 +37,7 @@ export default function Database() {
             transition={{ duration: 0.8 }}
             className='mb-8 text-center'
           >
-            <h1 className='psychedelic-text mb-6 text-5xl font-bold'>Herb Database</h1>
+            <h1 className='text-gradient mb-6 text-5xl font-bold'>Herb Database</h1>
             <p className='mx-auto max-w-3xl text-xl text-gray-300'>
               Explore our collection of herbs. Click any entry to see detailed information.
             </p>
@@ -48,5 +48,5 @@ export default function Database() {
         </div>
       </div>
     </>
-  );
+  )
 }
