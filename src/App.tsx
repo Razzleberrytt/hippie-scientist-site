@@ -1,17 +1,28 @@
-
-import { herbsData } from './herbsData';
-import { HerbCard } from './HerbCard';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Research from './pages/Research';
+import Database from './pages/Database';
+import Safety from './pages/Safety';
+import Community from './pages/Community';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#0f0e17] text-white p-6">
-      <h1 className="text-4xl font-bold text-center mb-8">🌿 Hippie Scientist Herbs 🌿</h1>
-      <div className="max-w-3xl mx-auto">
-        {herbsData.map((herb, i) => (
-          <HerbCard key={i} herb={herb} />
-        ))}
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <main className="pt-20">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/database" element={<Database />} />
+          <Route path="/safety" element={<Safety />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 

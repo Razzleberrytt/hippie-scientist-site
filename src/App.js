@@ -1,5 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-function App() {
-    return (_jsxs("div", { className: "min-h-screen bg-[#0f0e17] text-white flex flex-col items-center justify-center text-center px-6", children: [_jsx("div", { className: "text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 mb-4", children: "HIPPIE SCIENTIST is broken!" }), _jsxs("p", { className: "text-lg max-w-xl mb-6", children: ["Exploring the frontiers of consciousness through ", _jsx("span", { className: "text-pink-400", children: "psychedelic research" }), ", ", _jsx("span", { className: "text-purple-400", children: "ancient wisdom" }), ", and ", _jsx("span", { className: "text-blue-400", children: "modern science" }), "."] }), _jsxs("div", { className: "flex gap-4", children: [_jsx("button", { className: "bg-white text-black font-semibold py-2 px-4 rounded shadow hover:scale-105 transition", children: "Begin Journey" }), _jsx("button", { className: "border border-white py-2 px-4 rounded hover:bg-white hover:text-black transition", children: "Explore Database" })] })] }));
-}
-export default App;
