@@ -1,10 +1,12 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  margin: 0;
+  @apply bg-space-dark text-white font-sans m-0;
 }
 
 /* Custom utility classes */

@@ -8,13 +8,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/research', label: 'Research' },
-    { path: '/database', label: 'Database' },
-    { path: '/safety', label: 'Safety' },
-    { path: '/community', label: 'Community' },
-  ];
+  const navItems = [{ path: '/', label: 'Home' }];
 
   const isActive = (path: string) => location.pathname === path;
 

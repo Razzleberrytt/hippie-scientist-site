@@ -1,14 +1,16 @@
 // src/pages/Database.tsx
 
-import React from 'react'
-import { Helmet } from 'react-helmet-async'
-import { motion } from 'framer-motion'
-import { HerbCard } from '../components/HerbCard'
-import SearchFilter from '../components/SearchFilter'
-import { herbsData } from '../data/herbs'
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import HerbCard from '../components/HerbCard';
+import { herbs } from '../data/herbs';
 
 export default function Database() {
-  const [filteredHerbs, setFilteredHerbs] = React.useState(herbsData)
+  const [query, setQuery] = React.useState('');
+  const filteredHerbs = herbs.filter((h) =>
+    h.name.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <>
@@ -34,15 +36,21 @@ export default function Database() {
             </p>
           </motion.div>
 
-          <SearchFilter herbs={herbsData} onFilter={setFilteredHerbs} />
+          <input
+            type='text'
+            placeholder='Search herbs...'
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className='mb-8 w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500'
+          />
 
           <div className='space-y-4'>
-            {filteredHerbs.map(herb => (
-              <HerbCard key={herb.id} herb={herb} />
+            {filteredHerbs.map((herb) => (
+              <HerbCard key={herb.name} herb={herb} />
             ))}
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

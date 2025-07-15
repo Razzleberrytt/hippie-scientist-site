@@ -10,6 +10,10 @@ export default {
         'space-dark': '#0f172a',
         'cosmic-purple': '#7e22ce',
       },
+      fontFamily: {
+        display: ['"Fugaz One"', 'cursive'],
+        sans: ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
