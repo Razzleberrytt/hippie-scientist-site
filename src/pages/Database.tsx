@@ -3,18 +3,21 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import HerbCard from '../components/HerbCard';
-import data from '../data/herbs.json';
+import HerbGrid from '../components/HerbGrid';
+import SearchFilter from '../components/SearchFilter';
 import type { Herb } from '../types';
 
-const herbs: Herb[] = data as Herb[];
-
 export default function Database() {
-  const [query, setQuery] = React.useState('');
-  const filteredHerbs = herbs.filter((h) =>
-    h.name.toLowerCase().includes(query.toLowerCase()) ||
-    h.tags.some((t) => JSON.parse(`"${t}"`).toLowerCase().includes(query.toLowerCase()))
-  );
+  const [herbs, setHerbs] = React.useState<Herb[]>([]);
+  const [filtered, setFiltered] = React.useState<Herb[]>([]);
+
+  React.useEffect(() => {
+    import('../data/herbs.json').then((m) => {
+      const h = m.default as Herb[];
+      setHerbs(h);
+      setFiltered(h);
+    });
+  }, []);
 
   return (
     <>
@@ -40,19 +43,8 @@ export default function Database() {
             </p>
           </motion.div>
 
-          <input
-            type='text'
-            placeholder='Search herbs...'
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className='mb-8 w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500'
-          />
-
-          <div className='space-y-4'>
-            {filteredHerbs.map((herb) => (
-              <HerbCard key={herb.name} herb={herb} />
-            ))}
-          </div>
+          <SearchFilter herbs={herbs} onFilter={setFiltered} />
+          <HerbGrid herbs={filtered} />
         </div>
       </div>
     </>

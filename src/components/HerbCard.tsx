@@ -3,28 +3,16 @@ import type { Herb } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import clsx from 'clsx';
+import { decodeTag, safetyColorClass } from '../utils/format';
 
 interface Props {
   herb: Herb;
 }
 
-function decodeTag(tag: string) {
-  try {
-    return JSON.parse(`"${tag}"`);
-  } catch {
-    return tag;
-  }
-}
-
 export default function HerbCard({ herb }: Props) {
   const [open, setOpen] = useState(false);
 
-  const safetyColor =
-    herb.safetyRating && herb.safetyRating <= 1
-      ? 'text-green-400'
-      : herb.safetyRating === 2
-        ? 'text-yellow-300'
-        : 'text-red-400';
+  const safetyColor = safetyColorClass(herb.safetyRating);
 
   return (
     <div className="glass-card overflow-hidden rounded-lg">
@@ -121,6 +109,25 @@ export default function HerbCard({ herb }: Props) {
                     <p className="mt-1 pl-2 text-gray-300">{content}</p>
                   </details>
                 ),
+            )}
+            {herb.sourceRefs && herb.sourceRefs.length > 0 && (
+              <div>
+                <strong>Sources:</strong>
+                <ul className="list-disc pl-5">
+                  {herb.sourceRefs.map((ref) => (
+                    <li key={ref}>
+                      <a
+                        href={ref}
+                        className="underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {ref}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </motion.div>
         )}
