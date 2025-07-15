@@ -1,5 +1,5 @@
 import React from 'react';
-import { Herb } from '../types/Herb';
+import type { Herb } from '../types';
 
 interface SearchFilterProps {
   herbs: Herb[];
