@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
     { path: '/community', label: 'Community' },
   ];
 
-  const isActive = (path: string) => location.pathname.startsWith(path);
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card m-4 rounded-2xl">
