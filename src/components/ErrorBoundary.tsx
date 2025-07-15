@@ -14,7 +14,8 @@ class ErrorBoundary extends Component<Props, State> {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(_: Error): State {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  static getDerivedStateFromError(_error: Error): State {
     return { hasError: true };
   }
 
