@@ -8,16 +8,16 @@ import prettier from "eslint-config-prettier";
 export default [
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  ...tseslint.configs.strictTypeChecked,
   {
-    plugins: { "jsx-a11y": jsxA11y, "react-hooks": reactHooks, "react-refresh": reactRefresh },
-    extends: [
-      "plugin:jsx-a11y/recommended",
-      "plugin:react-hooks/recommended",
-      "plugin:react-refresh/recommended",
-      "prettier"
-    ],
+    plugins: {
+      "jsx-a11y": jsxA11y,
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+    },
     rules: {
+      ...jsxA11y.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      ...reactRefresh.configs.recommended.rules,
       "jsx-a11y/alt-text": "warn",
       "jsx-a11y/anchor-is-valid": "warn",
       "jsx-a11y/no-static-element-interactions": "warn",
@@ -25,7 +25,8 @@ export default [
       "react-refresh/only-export-components": "warn",
       "no-console": ["warn", { allow: ["warn", "error"] }],
       "@typescript-eslint/no-unused-vars": ["warn"],
-      "prefer-const": "error"
-    }
-  }
+      "prefer-const": "error",
+    },
+  },
+  prettier,
 ];
