@@ -25,3 +25,16 @@ body {
 .bg-cosmic-gradient {
   background-image: radial-gradient(circle at 50% 50%, #7e22ce, #0f172a);
 }
+/* Animations and extra utilities */
+.tag-pill {
+  @apply inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-0.5 text-xs shadow-sm backdrop-blur-sm transition hover:bg-white/20;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}

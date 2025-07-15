@@ -66,7 +66,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   }, [filtered, onFilter]);
 
   return (
-    <div className="mb-8 space-y-4">
+    <div className="sticky top-2 z-10 mb-8 space-y-4 rounded-lg bg-space-dark/70 p-4 backdrop-blur-md">
       <input
         type="text"
         placeholder="Search herbs..."
@@ -76,15 +76,14 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
       />
       <div className="flex flex-wrap items-center gap-2">
         {selectedTags.map((tag) => (
-          <span
+          <button
+            type="button"
             key={tag}
-            className="flex items-center gap-1 rounded-full bg-white/20 px-2 py-0.5 text-xs"
+            onClick={() => removeTag(tag)}
+            className="tag-pill"
           >
             {decodeTag(tag)}
-            <button onClick={() => removeTag(tag)} aria-label="remove tag">
-              &times;
-            </button>
-          </span>
+          </button>
         ))}
         <select
           onChange={handleAddTag}

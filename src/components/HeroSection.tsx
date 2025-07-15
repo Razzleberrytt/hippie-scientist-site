@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion';
+import FloatingElements from './FloatingElements';
 
 export default function HeroSection() {
   return (
-    <section className="bg-cosmic-gradient relative flex min-h-screen flex-col items-center justify-center text-center">
+    <section className="relative flex min-h-screen flex-col items-center justify-center text-center overflow-hidden">
+      <motion.div
+        className="absolute inset-0 -z-10 bg-cosmic-gradient animate-gradient"
+        aria-hidden="true"
+      />
+      <FloatingElements />
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
