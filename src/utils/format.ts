@@ -1,0 +1,14 @@
+export function decodeTag(tag: string): string {
+  try {
+    return JSON.parse(`"${tag}"`);
+  } catch {
+    return tag;
+  }
+}
+
+export function safetyColorClass(rating?: number): string {
+  if (rating == null) return '';
+  if (rating <= 1) return 'text-green-400';
+  if (rating === 2) return 'text-yellow-300';
+  return 'text-red-400';
+}

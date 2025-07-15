@@ -21,4 +21,5 @@ export interface Herb {
   toxicityLD50?: string;
   description?: string;
   safetyRating?: number;
+  sourceRefs?: string[];
 }
