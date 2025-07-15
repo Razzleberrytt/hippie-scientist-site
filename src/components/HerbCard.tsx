@@ -12,7 +12,7 @@ export function HerbCard({ herb }: HerbCardProps) {
       <p className="herb-card__description">
         {herb.description || "No description available."}
       </p>
-      <p>{herb.effects?.join(', ') || "No effects listed."}</p>
+      <p>{herb.effects.join(', ') || "No effects listed."}</p>
       <p>{herb.mechanismOfAction || "No known mechanism."}</p>
       <p>{herb.toxicityLD50 || "Toxicity unknown."}</p>
     </div>

@@ -1,13 +1,18 @@
 
-export function filterByScore(items: any[], minScore: number) {
-  return items.filter(item => {
+export interface HasScore {
+  score?: number | string;
+  [key: string]: unknown;
+}
+
+export function filterByScore<T extends HasScore>(items: T[], minScore: number): T[] {
+  return items.filter((item) => {
     const score = Number(item.score);
-    return !isNaN(score) && score >= minScore;
+    return !Number.isNaN(score) && score >= minScore;
   });
 }
 
-export function sortByValue(items: any[], key: string) {
-  return items.sort((a, b) => {
+export function sortByValue<T extends Record<string, number | string>>(items: T[], key: keyof T): T[] {
+  return [...items].sort((a, b) => {
     const aVal = Number(a[key]);
     const bVal = Number(b[key]);
     return aVal - bVal;

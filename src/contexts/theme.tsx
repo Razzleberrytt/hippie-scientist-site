@@ -9,6 +9,7 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const ThemeContext = createContext<ThemeContextType>({
   theme: 'light',
   setTheme: () => {},
@@ -24,10 +25,17 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.documentElement.classList.add(theme);
   };
 
+  // Update DOM and localStorage on theme change
+  const setTheme = useCallback((newTheme: Theme) => {
+    setThemeState(newTheme);
+    localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
+  }, []);
+
   // Toggle function
   const toggleTheme = useCallback(() => {
     setTheme(theme === 'light' ? 'dark' : 'light');
-  }, [theme]);
+  }, [setTheme, theme]);
 
   // Read theme from localStorage
   useEffect(() => {
@@ -38,12 +46,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, []);
 
-  // Update DOM and localStorage on theme change
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    localStorage.setItem('theme', newTheme);
-    applyTheme(newTheme);
-  };
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>

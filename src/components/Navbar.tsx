@@ -29,7 +29,9 @@ const Navbar: React.FC = () => {
 
           <div className="md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
               className="p-2"
               aria-label="Toggle navigation menu"
               aria-expanded={isOpen}
@@ -63,7 +65,9 @@ const Navbar: React.FC = () => {
               <Link
                 key={path}
                 to={path}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                }}
                 className={`block px-4 py-2 rounded-md text-base font-medium ${
                   isActive(path) ? 'bg-psychedelic-purple text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'
                 }`}

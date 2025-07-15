@@ -47,7 +47,9 @@ const NotFound: React.FC = () => {
                 <span>Go Home</span>
               </Link>
               <button
-                onClick={() => window.history.back()}
+                onClick={() => {
+                  window.history.back();
+                }}
                 className="glass-button px-8 py-4 rounded-lg text-white font-medium hover:scale-105 transition-all flex items-center justify-center space-x-2"
               >
                 <ArrowLeft className="h-5 w-5" />

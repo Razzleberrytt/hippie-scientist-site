@@ -68,7 +68,9 @@ const NotFound: React.FC = () => {
               className="mt-8 pt-8 border-t border-gray-700"
             >
               <button
-                onClick={() => window.history.back()}
+                onClick={() => {
+                  window.history.back();
+                }}
                 className="text-psychedelic-cyan hover:text-psychedelic-purple transition-colors inline-flex items-center gap-2"
               >
                 <ArrowLeft className="w-4 h-4" />

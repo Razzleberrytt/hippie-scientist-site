@@ -1,6 +1,6 @@
 
-import { herbsData } from './herbsData';
-import { HerbCard } from './HerbCard';
+import { herbsData } from './data/herbs';
+import { HerbCard } from './components/HerbCard';
 
 function App() {
   return (
