@@ -1,21 +1,24 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;700&family=IBM+Plex+Mono:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-space-dark text-white font-sans m-0;
+  @apply m-0 bg-space-dark font-sans text-lg leading-relaxed tracking-tight text-spore;
 }
 
 /* Custom utility classes */
-.psychedelic-text {
-  @apply bg-gradient-to-r from-psychedelic-purple to-psychedelic-pink text-transparent bg-clip-text;
+.text-gradient {
+  @apply bg-gradient-to-r from-lichen to-comet bg-clip-text text-transparent;
 }
 
 .glass-card {
-  @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-md;
+  @apply border border-white/10 bg-bark/60 shadow backdrop-blur-lg transition-shadow duration-300 hover:ring-2 hover:ring-lichen/50;
+}
+
+.ring-comet {
+  @apply ring-1 ring-comet/50;
 }
 
 .bg-psychedelic-gradient {
@@ -27,12 +30,17 @@ body {
 }
 /* Animations and extra utilities */
 .tag-pill {
-  @apply inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-0.5 text-xs shadow-sm backdrop-blur-sm transition hover:bg-white/20;
+  @apply inline-flex items-center gap-1 rounded-full bg-white/10 px-2 py-0.5 text-xs shadow backdrop-blur-sm hover:bg-white/20;
 }
 
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 .animate-gradient {
   background-size: 200% 200%;
