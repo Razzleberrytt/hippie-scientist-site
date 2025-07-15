@@ -2,6 +2,7 @@
   "name": "hippie-scientist-site",
   "version": "2.0.0",
   "private": true,
+  "homepage": ".",
   "type": "module",
   "scripts": {
     "dev": "vite",
