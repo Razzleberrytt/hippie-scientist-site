@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 const LoadingSpinner: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-space-dark via-cosmic-purple to-space-dark">
+    <div className="min-h-screen flex items-center justify-center bg-cosmic-forest">
       <motion.div
         className="flex flex-col items-center space-y-4"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -12,12 +12,12 @@ const LoadingSpinner: React.FC = () => {
       >
         <div className="relative">
           <motion.div
-            className="w-16 h-16 border-4 border-psychedelic-purple rounded-full border-t-transparent"
+            className="w-16 h-16 border-4 border-lichen rounded-full border-t-transparent"
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
           />
           <motion.div
-            className="absolute inset-0 w-16 h-16 border-4 border-psychedelic-pink rounded-full border-b-transparent"
+            className="absolute inset-0 w-16 h-16 border-4 border-comet rounded-full border-b-transparent"
             animate={{ rotate: -360 }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
           />

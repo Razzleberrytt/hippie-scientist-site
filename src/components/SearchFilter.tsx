@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Herb } from '../types';
 import { decodeTag } from '../utils/format';
+import Fuse from 'fuse.js';
 
 interface SearchFilterProps {
   herbs: Herb[];
@@ -13,6 +14,20 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   const [query, setQuery] = React.useState('');
   const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
   const [sort, setSort] = React.useState<SortKey>('');
+
+  const fuse = React.useMemo(
+    () =>
+      new Fuse(herbs, {
+        keys: ['name', 'scientificName', 'tags'],
+        threshold: 0.3,
+      }),
+    [herbs]
+  );
+
+  const pickRandom = () => {
+    const item = herbs[Math.floor(Math.random() * herbs.length)];
+    onFilter([item]);
+  };
 
   const allTags = React.useMemo(() => {
     const tags = herbs.reduce((acc: string[], h: Herb) => acc.concat(h.tags), []);
@@ -32,21 +47,14 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   };
 
   const filtered = React.useMemo(() => {
-    const q = query.toLowerCase();
-    let res = herbs.filter((h: Herb) => {
-      if (q) {
-        const nameMatch = h.name.toLowerCase().includes(q) ||
-          (h.scientificName ?? '').toLowerCase().includes(q) ||
-          h.tags.some((t) => decodeTag(t).toLowerCase().includes(q));
-        if (!nameMatch) return false;
-      }
-
-      if (selectedTags.length && !selectedTags.every((t) => h.tags.includes(t))) {
-        return false;
-      }
-
-      return true;
-    });
+    const q = query.trim();
+    let res: Herb[] = herbs;
+    if (q) {
+      res = fuse.search(q).map(r => r.item);
+    }
+    if (selectedTags.length) {
+      res = res.filter(h => selectedTags.every(t => h.tags.includes(t)));
+    }
 
     if (sort === 'intensity') {
       res = [...res].sort((a, b) => a.intensity.localeCompare(b.intensity));
@@ -97,6 +105,13 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
             </option>
           ))}
         </select>
+        <button
+          type="button"
+          onClick={pickRandom}
+          className="rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-white hover:bg-gray-700"
+        >
+          Random Herb
+        </button>
 
         <select
           value={sort}

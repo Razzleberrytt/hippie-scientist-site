@@ -15,11 +15,11 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path
 
   return (
-    <nav className='glass-card fixed left-0 right-0 top-0 z-50 m-4 rounded-2xl'>
+    <nav className='glass-card fixed left-0 right-0 top-0 z-50 m-4 rounded-2xl backdrop-blur-lg'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='flex h-16 items-center justify-between'>
           <Link to='/' className='flex items-center space-x-2'>
-            <Atom className='h-8 w-8 text-psychedelic-purple' aria-hidden='true' />
+            <Atom className='h-8 w-8 text-lichen drop-shadow-glow' aria-hidden='true' />
             <span className='text-gradient text-xl font-bold'>Hippie Scientist</span>
           </Link>
 
@@ -39,10 +39,10 @@ const Navbar: React.FC = () => {
               <Link
                 key={path}
                 to={path}
-                className={`rounded-md px-3 py-2 text-sm font-medium ${
+                className={`rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
                   isActive(path)
-                    ? 'bg-psychedelic-purple text-white'
-                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    ? 'bg-cosmic-forest text-white shadow-glow'
+                    : 'text-gray-300 hover:shadow-glow'
                 }`}
               >
                 {label}
@@ -62,10 +62,10 @@ const Navbar: React.FC = () => {
                 key={path}
                 to={path}
                 onClick={() => setIsOpen(false)}
-                className={`block rounded-md px-4 py-2 text-base font-medium ${
+                className={`block rounded-md px-4 py-2 text-base font-medium transition-shadow ${
                   isActive(path)
-                    ? 'bg-psychedelic-purple text-white'
-                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    ? 'bg-cosmic-forest text-white shadow-glow'
+                    : 'text-gray-300 hover:shadow-glow'
                 }`}
               >
                 {label}

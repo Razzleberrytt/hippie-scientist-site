@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import type { Herb } from '../types'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Dna, FlaskConical, Pill, AlertTriangle } from 'lucide-react'
+import { ChevronDown, Dna, FlaskConical, Pill, AlertTriangle, Heart } from 'lucide-react'
 import clsx from 'clsx'
-import { decodeTag, safetyColorClass } from '../utils/format'
+import { decodeTag, safetyColorClass, intensityColorClass } from '../utils/format'
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
+import { useFavorites } from '../hooks/useFavorites'
 
 interface Props {
   herb: Herb
@@ -20,8 +23,10 @@ const categoryColors: Record<string, string> = {
 export default function HerbCard({ herb }: Props) {
   const [open, setOpen] = useState(false)
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({})
+  const { toggle, isFavorite } = useFavorites()
 
   const safetyColor = safetyColorClass(herb.safetyRating)
+  const intensityBg = intensityColorClass(herb.intensity)
 
   return (
     <motion.div
@@ -38,10 +43,20 @@ export default function HerbCard({ herb }: Props) {
         aria-expanded={open}
       >
         <div>
-          <h2 className='text-lg font-semibold leading-snug'>{herb.name}</h2>
-          {herb.scientificName && (
-            <p className='text-xs italic text-gray-400'>{herb.scientificName}</p>
-          )}
+          <h2
+            className='text-lg font-semibold leading-snug'
+            data-tooltip-id={`sci-${herb.id}`}
+            data-tooltip-content={herb.scientificName || ''}
+          >
+            {herb.name}
+          </h2>
+          {herb.scientificName && <Tooltip id={`sci-${herb.id}`} />}
+          <div className='mt-1 flex gap-1'>
+            <span className={`tag-pill ${intensityBg} text-white`}>{herb.intensity}</span>
+            {herb.safetyRating != null && (
+              <span className={`tag-pill ${safetyColor}`}>S{herb.safetyRating}</span>
+            )}
+          </div>
           <div className='mt-2 flex flex-wrap gap-1'>
             {herb.tags.map(tag => {
               const decoded = decodeTag(tag)
@@ -57,7 +72,25 @@ export default function HerbCard({ herb }: Props) {
             })}
           </div>
         </div>
-        <ChevronDown className={clsx('mt-1 h-5 w-5 transition-transform', open && 'rotate-180')} />
+        <div className='flex items-center gap-2'>
+          <button
+            type='button'
+            onClick={e => {
+              e.stopPropagation();
+              toggle(herb.id);
+            }}
+            aria-label='Toggle favorite'
+            className='text-pink-400 transition hover:scale-110'
+          >
+            <Heart
+              className={clsx(
+                'h-5 w-5',
+                isFavorite(herb.id) ? 'fill-pink-400' : 'fill-transparent'
+              )}
+            />
+          </button>
+          <ChevronDown className={clsx('mt-1 h-5 w-5 transition-transform', open && 'rotate-180')} />
+        </div>
       </button>
       <AnimatePresence initial={false}>
         {open && (
