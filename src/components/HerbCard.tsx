@@ -34,7 +34,7 @@ export default function HerbCard({ herb }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05 }}
-      className='glass-card overflow-hidden rounded-lg shadow-md transition-shadow hover:shadow-lg hover:ring-2 hover:ring-forest-green/60'
+      className='glass-card overflow-hidden rounded-xl transition-shadow hover:shadow-glow hover:ring-2 hover:ring-lichen/50'
     >
       <button
         type='button'
@@ -44,7 +44,7 @@ export default function HerbCard({ herb }: Props) {
       >
         <div>
           <h2
-            className='text-lg font-semibold leading-snug'
+            className='text-lg font-display font-semibold leading-snug text-gold'
             data-tooltip-id={`sci-${herb.id}`}
             data-tooltip-content={herb.scientificName || ''}
           >
@@ -76,8 +76,8 @@ export default function HerbCard({ herb }: Props) {
           <button
             type='button'
             onClick={e => {
-              e.stopPropagation()
-              toggle(herb.id)
+              e.stopPropagation();
+              toggle(herb.id);
             }}
             aria-label='Toggle favorite'
             className='text-pink-400 transition hover:scale-110'
@@ -89,9 +89,7 @@ export default function HerbCard({ herb }: Props) {
               )}
             />
           </button>
-          <ChevronDown
-            className={clsx('mt-1 h-5 w-5 transition-transform', open && 'rotate-180')}
-          />
+          <ChevronDown className={clsx('mt-1 h-5 w-5 transition-transform', open && 'rotate-180')} />
         </div>
       </button>
       <AnimatePresence initial={false}>
@@ -102,7 +100,7 @@ export default function HerbCard({ herb }: Props) {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className='space-y-3 overflow-hidden px-4 pb-4 text-sm text-gray-200'
+            className='space-y-3 overflow-hidden px-4 pb-4 text-sm text-sand'
           >
             <div className='flex flex-wrap gap-x-6 gap-y-1'>
               <p>
@@ -207,7 +205,7 @@ export default function HerbCard({ herb }: Props) {
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.3 }}
-                          className='overflow-hidden pl-6 text-gray-300'
+                          className='overflow-hidden pl-6 text-sand/80'
                         >
                           <p className='mt-1'>{content}</p>
                         </motion.div>
@@ -217,8 +215,8 @@ export default function HerbCard({ herb }: Props) {
                 )
             )}
             {herb.sourceRefs && herb.sourceRefs.length > 0 && (
-              <div className='text-xs text-gray-400'>
-                <strong className='text-sm text-gray-300'>Sources:</strong>
+              <div className='text-xs text-sand/60'>
+                <strong className='text-sm text-sand'>Sources:</strong>
                 <ul className='ml-4 list-decimal'>
                   {herb.sourceRefs.map((ref, i) => (
                     <li key={ref}>
