@@ -1,21 +1,22 @@
-import React from 'react'
+import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Suspense } from 'react'
-import { LoadingScreen } from './components/LoadingScreen'
+import { motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ParticlesBackground from './components/ParticlesBackground'
-const Home = React.lazy(() => import('./pages/Home'))
-const BlogIndex = React.lazy(() => import('./pages/BlogIndex'))
-const BlogPost = React.lazy(() => import('./pages/BlogPost'))
-const NotFound = React.lazy(() => import('./pages/NotFound'))
+import { LoadingScreen } from './components/LoadingScreen'
 
-function App() {
+const Home = lazy(() => import('./pages/Home'))
+const BlogIndex = lazy(() => import('./pages/BlogIndex'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+
+export default function App() {
   return (
-    <>
+    <div className='relative flex min-h-screen flex-col overflow-x-hidden bg-space-dark text-spore'>
       <ParticlesBackground />
       <Navbar />
-      <main className='pt-20'>
+      <motion.main className='flex-1 pt-16' initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path='/' element={<Home />} />
@@ -24,10 +25,8 @@ function App() {
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Suspense>
-      </main>
+      </motion.main>
       <Footer />
-    </>
+    </div>
   )
 }
-
-export default App
