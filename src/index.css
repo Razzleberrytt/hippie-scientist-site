@@ -53,3 +53,13 @@ html {
   background-size: 200% 200%;
   animation: gradient-shift 15s ease infinite;
 }
+
+/* Typography tweaks */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display font-bold;
+}
