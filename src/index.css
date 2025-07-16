@@ -8,6 +8,10 @@ body {
   @apply m-0 bg-space-dark font-sans text-lg leading-relaxed tracking-tight text-spore;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Custom utility classes */
 .text-gradient {
   @apply bg-gradient-to-r from-lichen to-comet bg-clip-text text-transparent;
@@ -27,6 +31,9 @@ body {
 
 .bg-cosmic-gradient {
   background-image: radial-gradient(circle at 50% 50%, #7e22ce, #0f172a);
+}
+.bg-cosmic-forest {
+  background-image: linear-gradient(135deg, #0f172a, #1B4D3E, #7e22ce);
 }
 /* Animations and extra utilities */
 .tag-pill {

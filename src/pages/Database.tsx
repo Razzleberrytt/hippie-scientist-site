@@ -5,19 +5,15 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import HerbGrid from '../components/HerbGrid'
 import SearchFilter from '../components/SearchFilter'
-import type { Herb } from '../types'
+import { useHerbs } from '../hooks/useHerbs'
 
 export default function Database() {
-  const [herbs, setHerbs] = React.useState<Herb[]>([])
-  const [filtered, setFiltered] = React.useState<Herb[]>([])
+  const herbs = useHerbs()
+  const [filtered, setFiltered] = React.useState<typeof herbs>([])
 
   React.useEffect(() => {
-    import('../data/herbs.json').then(m => {
-      const h = m.default as Herb[]
-      setHerbs(h)
-      setFiltered(h)
-    })
-  }, [])
+    setFiltered(herbs)
+  }, [herbs])
 
   return (
     <>

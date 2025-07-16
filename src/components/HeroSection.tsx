@@ -11,7 +11,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className='mb-4 bg-gradient-to-r from-psychedelic-purple to-psychedelic-pink bg-clip-text font-display text-6xl font-bold text-transparent md:text-8xl'
+        className='mb-4 bg-cosmic-forest bg-clip-text font-display text-6xl font-bold text-transparent md:text-8xl'
       >
         The Hippie Scientist
       </motion.h1>

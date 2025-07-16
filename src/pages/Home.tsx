@@ -3,16 +3,10 @@ import { Helmet } from 'react-helmet-async'
 import HeroSection from '../components/HeroSection'
 import HerbGrid from '../components/HerbGrid'
 import PanelWrapper from '../components/PanelWrapper'
-import type { Herb } from '../types'
+import { useHerbs } from '../hooks/useHerbs'
 
 export default function Home() {
-  const [herbs, setHerbs] = React.useState<Herb[]>([])
-
-  React.useEffect(() => {
-    import('../data/herbs.json').then(m => {
-      setHerbs(m.default as Herb[])
-    })
-  }, [])
+  const herbs = useHerbs()
 
   return (
     <>
