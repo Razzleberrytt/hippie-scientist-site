@@ -34,7 +34,7 @@ export default function HerbCard({ herb }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       whileHover={{ scale: 1.05 }}
-      className='glass-card overflow-hidden rounded-lg transition-shadow hover:shadow-glow hover:ring-2 hover:ring-lichen/50'
+      className='glass-card overflow-hidden rounded-lg shadow-md transition-shadow hover:shadow-lg hover:ring-2 hover:ring-galactic-blue/60'
     >
       <button
         type='button'
@@ -76,8 +76,8 @@ export default function HerbCard({ herb }: Props) {
           <button
             type='button'
             onClick={e => {
-              e.stopPropagation();
-              toggle(herb.id);
+              e.stopPropagation()
+              toggle(herb.id)
             }}
             aria-label='Toggle favorite'
             className='text-pink-400 transition hover:scale-110'
@@ -89,7 +89,9 @@ export default function HerbCard({ herb }: Props) {
               )}
             />
           </button>
-          <ChevronDown className={clsx('mt-1 h-5 w-5 transition-transform', open && 'rotate-180')} />
+          <ChevronDown
+            className={clsx('mt-1 h-5 w-5 transition-transform', open && 'rotate-180')}
+          />
         </div>
       </button>
       <AnimatePresence initial={false}>

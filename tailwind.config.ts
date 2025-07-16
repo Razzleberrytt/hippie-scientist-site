@@ -6,8 +6,11 @@ export default {
     extend: {
       colors: {
         midnight: '#0C0F13',
+        'midnight-blue': '#0c1126',
         lichen: '#88C057',
         comet: '#4FC1E9',
+        'forest-green': '#1B4D3E',
+        'deep-indigo': '#312e81',
         spore: '#FAFAFA',
         moss: '#A4D4AE',
         fungal: '#F2785C',
@@ -16,6 +19,9 @@ export default {
         'psychedelic-pink': '#ec4899',
         'space-dark': '#0f172a',
         'cosmic-purple': '#7e22ce',
+        'galactic-blue': '#4338ca',
+        'nebula-pink': '#db2777',
+        'neon-green': '#2dd4bf',
       },
       boxShadow: {
         glow: '0 0 12px rgba(136, 192, 87, 0.5)',
@@ -28,4 +34,4 @@ export default {
     },
   },
   plugins: [],
-};
+}
