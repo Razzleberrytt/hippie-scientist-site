@@ -1,34 +1,31 @@
-name: Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: write
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-      - name: Install dependencies (with retries)
-        run: |
-          npm config set fetch-retries 5
-          npm config set fetch-retry-factor 2
-          npm config set fetch-retry-mintimeout 10000
-          npm config set fetch-retry-maxtimeout 60000
-          npm install --prefer-offline --no-audit || npm install || npm ci
+
+      - name: Clean install dependencies
+        run: npm ci || npm install
+
       - name: Build project
-        run: rm -rf dist && npm run build
-      - name: Run tests (optional)
-        run: npm test || echo "No tests found, skipping"
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          npx gh-pages -d dist
