@@ -12,6 +12,7 @@ This project is a Vite + React + TypeScript site exploring herbal and psychedeli
    ```bash
    npm run dev
    ```
+![Deploy Status](https://github.com/razzleberrytt/hippie-scientist-site/actions/workflows/pages/pages-build-deployment/badge.svg)
 
 Additional scripts are available:
 
