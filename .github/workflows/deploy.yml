@@ -1,29 +1,30 @@
-# .github/workflows/deploy.yml
 name: Deploy Vite to GitHub Pages
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: write
+    branches:
+      - main  # or 'master' if that's your default
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    runs-on: ubuntu-latest  # Ensures GitHub uses latest stable runner
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+    permissions:
+      contents: write  # Required to push to gh-pages
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build site
+      - name: Build Vite site
         run: npm run build
 
       - name: Deploy to GitHub Pages
