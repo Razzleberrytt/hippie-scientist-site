@@ -15,40 +15,38 @@ const Navbar: React.FC = () => {
   const isActive = (path: string) => location.pathname === path
 
   return (
-    <nav className='glass-card fixed left-0 right-0 top-0 z-50 m-4 rounded-2xl backdrop-blur-lg'>
-      <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-        <div className='flex h-16 items-center justify-between'>
-          <Link to='/' className='flex items-center space-x-2'>
-            <Atom className='h-8 w-8 text-lichen drop-shadow-glow' aria-hidden='true' />
-            <span className='text-gradient text-xl font-bold'>Hippie Scientist</span>
-          </Link>
+    <nav className='fixed left-0 right-0 top-0 z-50 bg-midnight-blue/50 backdrop-blur-md'>
+      <div className='mx-auto flex h-16 items-center justify-between px-6'>
+        <Link to='/' className='flex items-center space-x-2'>
+          <Atom className='drop-shadow-glow h-8 w-8 text-lichen' aria-hidden='true' />
+          <span className='text-gradient text-xl font-bold'>Hippie Scientist</span>
+        </Link>
 
-          <div className='md:hidden'>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className='p-2'
-              aria-label='Toggle navigation menu'
-              aria-expanded={isOpen}
+        <div className='md:hidden'>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className='p-2'
+            aria-label='Toggle navigation menu'
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+
+        <div className='hidden space-x-4 md:flex'>
+          {navItems.map(({ path, label }) => (
+            <Link
+              key={path}
+              to={path}
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
+                isActive(path)
+                  ? 'bg-cosmic-forest text-white shadow-glow'
+                  : 'text-gray-300 hover:shadow-glow'
+              }`}
             >
-              {isOpen ? <X /> : <Menu />}
-            </button>
-          </div>
-
-          <div className='hidden space-x-4 md:flex'>
-            {navItems.map(({ path, label }) => (
-              <Link
-                key={path}
-                to={path}
-                className={`rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
-                  isActive(path)
-                    ? 'bg-cosmic-forest text-white shadow-glow'
-                    : 'text-gray-300 hover:shadow-glow'
-                }`}
-              >
-                {label}
-              </Link>
-            ))}
-          </div>
+              {label}
+            </Link>
+          ))}
         </div>
         {isOpen && (
           <motion.div

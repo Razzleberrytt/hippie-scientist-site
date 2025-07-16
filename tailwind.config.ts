@@ -6,8 +6,11 @@ export default {
     extend: {
       colors: {
         midnight: '#0C0F13',
+        'midnight-blue': '#0c1126',
         lichen: '#88C057',
         comet: '#4FC1E9',
+        'forest-green': '#1B4D3E',
+        'deep-indigo': '#312e81',
         spore: '#FAFAFA',
         moss: '#A4D4AE',
         fungal: '#F2785C',
@@ -28,4 +31,4 @@ export default {
     },
   },
   plugins: [],
-};
+}
