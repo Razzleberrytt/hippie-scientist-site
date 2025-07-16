@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-      - run: npm install
-      - run: npm run build
+      - run: npm install --prefer-offline --no-audit
+      - run: rm -rf dist && npm run build
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
