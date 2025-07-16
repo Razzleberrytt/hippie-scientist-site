@@ -39,7 +39,7 @@ const HeroBackground: React.FC = () => {
             left: `${p.x}%`,
             top: `${p.y}%`,
           }}
-          className='absolute rounded-full bg-white/20'
+          className='absolute rounded-full bg-cosmic-purple/30'
           animate={{ y: [-10, 10, -10] }}
           transition={{
             duration: 8,
@@ -50,7 +50,7 @@ const HeroBackground: React.FC = () => {
         />
       ))}
       <motion.div
-        className='bg-cosmic-gradient animate-gradient absolute inset-0'
+        className='bg-space-gradient animate-gradient absolute inset-0'
         style={{ x: parallaxX, y: parallaxY }}
       />
     </motion.div>

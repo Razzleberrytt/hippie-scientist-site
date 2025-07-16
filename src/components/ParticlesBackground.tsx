@@ -14,14 +14,27 @@ export default function ParticlesBackground() {
       init={init}
       options={{
         fullScreen: { enable: true, zIndex: -1 },
+        background: { color: '#0c1126' },
         particles: {
-          color: { value: '#ffffff' },
-          number: { value: 40, density: { enable: true, area: 800 } },
-          size: { value: 1 },
-          move: { enable: true, speed: 0.3 },
-          opacity: { value: 0.2 },
+          number: { value: 80, density: { enable: true, area: 800 } },
+          color: { value: ['#ffffff', '#4FC1E9', '#88C057'] },
+          links: {
+            enable: true,
+            color: '#4FC1E9',
+            distance: 150,
+            opacity: 0.1,
+            width: 1,
+          },
+          move: { enable: true, speed: 0.2 },
+          opacity: {
+            value: 0.3,
+            anim: { enable: true, speed: 0.5, opacity_min: 0.1 },
+          },
+          size: {
+            value: { min: 1, max: 3 },
+            anim: { enable: true, speed: 3, size_min: 0.5 },
+          },
         },
-        background: { color: '#0f172a' },
       }}
     />
   )
