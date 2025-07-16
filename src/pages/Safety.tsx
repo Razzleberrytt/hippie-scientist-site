@@ -56,34 +56,36 @@ const Safety: React.FC = () => {
 
           {/* Safety Guidelines */}
           <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
-            {[
-              {
-                icon: Shield,
-                title: 'Set & Setting',
-                description:
-                  'Understanding the importance of mindset and environment for safe experiences.',
-              },
-              {
-                icon: Heart,
-                title: 'Health Screening',
-                description: 'Pre-experience health considerations and contraindications.',
-              },
-              {
-                icon: AlertTriangle,
-                title: 'Risk Assessment',
-                description: 'Identifying and mitigating potential risks and interactions.',
-              },
-            ].map((item, index) => (
+            {(
+              [
+                {
+                  icon: Shield,
+                  title: 'Set & Setting',
+                  description:
+                    'Understanding the importance of mindset and environment for safe experiences.',
+                },
+                {
+                  icon: Heart,
+                  title: 'Health Screening',
+                  description: 'Pre-experience health considerations and contraindications.',
+                },
+                {
+                  icon: AlertTriangle,
+                  title: 'Risk Assessment',
+                  description: 'Identifying and mitigating potential risks and interactions.',
+                },
+              ] as { icon: React.ElementType; title: string; description: string }[]
+            ).map(({ icon: Icon, title, description }, index) => (
               <motion.div
-                key={item.title}
+                key={title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className='glass-card p-6'
               >
-                <item.icon className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple' />
-                <h3 className='mb-4 text-center text-xl font-bold text-white'>{item.title}</h3>
-                <p className='text-center text-gray-300'>{item.description}</p>
+                <Icon className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple' />
+                <h3 className='mb-4 text-center text-xl font-bold text-white'>{title}</h3>
+                <p className='text-center text-gray-300'>{description}</p>
               </motion.div>
             ))}
           </div>
