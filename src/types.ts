@@ -22,4 +22,5 @@ export interface Herb {
   description?: string;
   safetyRating?: number;
   sourceRefs?: string[];
+  image?: string;
 }

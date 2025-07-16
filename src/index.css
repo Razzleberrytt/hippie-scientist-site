@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;700&family=IBM+Plex+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Marcellus&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply m-0 bg-midnight-blue font-sans text-lg leading-relaxed tracking-tight text-spore;
+  @apply m-0 bg-midnight font-sans text-lg leading-relaxed tracking-tight text-sand;
 }
 
 html {
@@ -52,4 +52,18 @@ html {
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes ripple {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+.animate-ripple {
+  animation: ripple 8s ease-in-out infinite;
 }

@@ -5,7 +5,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        midnight: '#0C0F13',
+        midnight: '#0b1120',
+        sand: '#f1e9d0',
+        gold: '#d7b56d',
+        opal: '#b2d0c9',
         'midnight-blue': '#0c1126',
         lichen: '#88C057',
         comet: '#4FC1E9',
@@ -25,8 +28,8 @@ export default {
         intense: '0 0 24px rgba(79, 193, 233, 0.4)',
       },
       fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
-        sans: ['Inter', '"IBM Plex Mono"', 'sans-serif'],
+        display: ['"Marcellus"', 'serif'],
+        sans: ['"DM Sans"', 'sans-serif'],
       },
     },
   },
