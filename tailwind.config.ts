@@ -28,8 +28,8 @@ export default {
         intense: '0 0 24px rgba(79, 193, 233, 0.4)',
       },
       fontFamily: {
-        display: ['"Marcellus"', 'serif'],
-        sans: ['"DM Sans"', 'sans-serif'],
+        display: ['"Righteous"', 'cursive'],
+        sans: ['"Inter"', 'sans-serif'],
       },
     },
   },
