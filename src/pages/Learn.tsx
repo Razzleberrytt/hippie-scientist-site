@@ -1,7 +1,19 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { BookOpen, BrainCircuit, Compass } from 'lucide-react'
+import {
+  BookOpen,
+  BrainCircuit,
+  Compass,
+  Leaf,
+  FlaskConical,
+  Globe,
+  Gavel,
+  Microscope,
+  PlayCircle,
+  Book,
+  GraduationCap,
+} from 'lucide-react'
 
 const modules = [
   {
@@ -18,6 +30,49 @@ const modules = [
     icon: Compass,
     title: 'Integration Practices',
     description: 'Techniques to ground and apply insights.',
+  },
+  {
+    icon: Leaf,
+    title: 'Herbal Identification',
+    description: 'Learn to recognize and safely harvest key species.',
+  },
+  {
+    icon: FlaskConical,
+    title: 'Lab Skills 101',
+    description: 'Basic extraction and analysis methods.',
+  },
+  {
+    icon: Globe,
+    title: 'Cultural Traditions',
+    description: 'Historical use of entheogens around the world.',
+  },
+  {
+    icon: Gavel,
+    title: 'Law & Ethics',
+    description: 'Understand legal considerations and responsible use.',
+  },
+  {
+    icon: Microscope,
+    title: 'Advanced Neurochemistry',
+    description: 'Deep dive into receptor dynamics and signaling.',
+  },
+]
+
+const tutorials = [
+  {
+    icon: PlayCircle,
+    title: 'Video Walkthroughs',
+    description: 'Short clips demonstrating practical techniques.',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Step-by-Step Guides',
+    description: 'Structured lessons to track your progress.',
+  },
+  {
+    icon: Book,
+    title: 'Reading List',
+    description: 'Hand-picked books and articles for deeper study.',
   },
 ]
 
@@ -61,6 +116,33 @@ export default function Learn() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className='mt-24 text-center'
+          >
+            <h2 className='text-gradient mb-6 text-4xl font-bold'>Tutorials &amp; Resources</h2>
+            <p className='mx-auto mb-12 max-w-2xl text-lg text-gray-300'>
+              Dive deeper with curated tutorials and recommended reading.
+            </p>
+            <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
+              {tutorials.map(({ icon: Icon, title, description }, index) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className='glass-card p-6 text-center'
+                >
+                  <Icon className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple' />
+                  <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
+                  <p className='text-gray-300'>{description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </>
