@@ -13,6 +13,10 @@ import {
   PlayCircle,
   Book,
   GraduationCap,
+  Users,
+  Shield,
+  PenLine,
+  Download,
 } from 'lucide-react'
 
 const modules = [
@@ -56,6 +60,21 @@ const modules = [
     title: 'Advanced Neurochemistry',
     description: 'Deep dive into receptor dynamics and signaling.',
   },
+  {
+    icon: Compass,
+    title: 'Field Research Methods',
+    description: 'Collect data responsibly in natural settings.',
+  },
+  {
+    icon: Users,
+    title: 'Community Building',
+    description: 'Create supportive networks for shared growth.',
+  },
+  {
+    icon: Shield,
+    title: 'Harm Reduction',
+    description: 'Best practices to keep explorations safe.',
+  },
 ]
 
 const tutorials = [
@@ -73,6 +92,16 @@ const tutorials = [
     icon: Book,
     title: 'Reading List',
     description: 'Hand-picked books and articles for deeper study.',
+  },
+  {
+    icon: PenLine,
+    title: 'Interactive Quizzes',
+    description: 'Test your knowledge as you progress.',
+  },
+  {
+    icon: Download,
+    title: 'Downloadable Charts',
+    description: 'Reference sheets for quick learning.',
   },
 ]
 

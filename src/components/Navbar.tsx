@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Atom } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
@@ -10,22 +10,24 @@ const Navbar: React.FC = () => {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/blog', label: 'Blog' },
+    { path: '/about', label: 'About' },
     { path: '/learn', label: 'Learn' },
+    { path: '/blog', label: 'Blog' },
+    { path: '/store', label: 'Store' },
   ]
 
-  const isActive = (path: string) => location.pathname === path
+  const isActive = (path: string) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
 
   return (
-    <nav className='fixed left-0 right-0 top-0 z-50 bg-midnight-blue/50 backdrop-blur-md'>
-      <div className='mx-auto flex h-16 items-center justify-between px-6'>
+    <nav className='fixed left-0 right-0 top-0 z-50 bg-space-dark/70 backdrop-blur'>
+      <div className='mx-auto flex h-16 max-w-7xl items-center justify-between px-4'>
         <Link to='/' className='flex items-center space-x-2'>
           <Atom className='drop-shadow-glow h-8 w-8 text-lichen' aria-hidden='true' />
           <span className='text-gradient text-xl font-bold'>Hippie Scientist</span>
         </Link>
 
-        <div className='flex items-center space-x-2 md:hidden'>
-          <ThemeToggle />
+        <div className='flex items-center md:hidden'>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className='p-2'
@@ -36,35 +38,12 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        <div className='hidden items-center space-x-4 md:flex'>
+        <ul className='hidden items-center space-x-6 md:flex'>
           {navItems.map(({ path, label }) => (
-            <Link
-              key={path}
-              to={path}
-              className={`rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
-                isActive(path)
-                  ? 'bg-cosmic-forest text-white shadow-glow'
-                  : 'text-gray-300 hover:shadow-glow'
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
-          <ThemeToggle />
-        </div>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: 'auto' }}
-            exit={{ height: 0 }}
-            className='mt-4 flex flex-col space-y-2 px-2 pb-4 md:hidden'
-          >
-            {navItems.map(({ path, label }) => (
+            <li key={path}>
               <Link
-                key={path}
                 to={path}
-                onClick={() => setIsOpen(false)}
-                className={`block rounded-md px-4 py-2 text-base font-medium transition-shadow ${
+                className={`rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
                   isActive(path)
                     ? 'bg-cosmic-forest text-white shadow-glow'
                     : 'text-gray-300 hover:shadow-glow'
@@ -72,11 +51,43 @@ const Navbar: React.FC = () => {
               >
                 {label}
               </Link>
-            ))}
+            </li>
+          ))}
+          <li>
             <ThemeToggle />
-          </motion.div>
-        )}
+          </li>
+        </ul>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            initial={{ height: 0 }}
+            animate={{ height: 'auto' }}
+            exit={{ height: 0 }}
+            className='flex flex-col space-y-2 overflow-hidden bg-space-dark/90 px-4 py-4 md:hidden'
+          >
+            {navItems.map(({ path, label }) => (
+              <li key={path}>
+                <Link
+                  to={path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block rounded-md px-4 py-2 text-base font-medium transition-shadow ${
+                    isActive(path)
+                      ? 'bg-cosmic-forest text-white shadow-glow'
+                      : 'text-gray-300 hover:shadow-glow'
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+            <li className='flex justify-center'>
+              <ThemeToggle />
+            </li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }
