@@ -27,6 +27,163 @@
     "toxicityLD50": "N/A",
     "id": "entada-rheedii",
     "description": "No description provided.",
+  "safetyRating": 1
+  },
+
+  {
+    "name": "Kava",
+    "scientificName": "Piper methysticum",
+    "category": "Dissociative / Sedative",
+    "effects": [
+      "Relaxation",
+      "anxiolytic",
+      "mild euphoria"
+    ],
+    "preparation": "Traditional root tea or capsule",
+    "intensity": "Moderate",
+    "onset": "10-20 min",
+    "legalStatus": "Regulated / Varies",
+    "region": "\ud83c\udf0e Pacific Islands",
+    "tags": [
+      "\\ud83d\\udc8a Oral",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "mechanismOfAction": "Kavalactones modulate GABA receptors and inhibit norepinephrine reuptake.",
+    "pharmacokinetics": "Oral onset 10\u201320 min; duration 2\u20133 h.",
+    "therapeuticUses": "Anxiety relief, muscle relaxation, social ease.",
+    "sideEffects": "Drowsiness, impaired coordination, rare hepatotoxicity.",
+    "contraindications": "Liver disease, pregnancy, use with CNS depressants.",
+    "drugInteractions": "Potentiates sedatives, alcohol, hepatotoxic drugs.",
+    "toxicity": "High doses linked to liver toxicity in extracts.",
+    "toxicityLD50": "No clear LD50; chronic heavy use may be harmful.",
+    "id": "kava",
+    "description": "No description provided.",
+    "safetyRating": 2
+  },
+
+  {
+    "name": "Lion's Mane",
+    "scientificName": "Hericium erinaceus",
+    "category": "Other",
+    "effects": [
+      "Neurotrophic support",
+      "cognitive enhancement"
+    ],
+    "preparation": "Cooked, tea, or capsule",
+    "intensity": "Mild",
+    "onset": "Days to weeks",
+    "legalStatus": "Legal / Unregulated",
+    "region": "\ud83c\udde8\ud83c\uddf3 East Asia",
+    "tags": [
+      "\\ud83d\\udc8a Oral",
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "mechanismOfAction": "Hericenones and erinacines stimulate nerve growth factor.",
+    "pharmacokinetics": "Benefits accumulate with regular use over weeks.",
+    "therapeuticUses": "Memory, focus, nerve regeneration, mood support.",
+    "sideEffects": "Rare allergic reactions; generally well-tolerated.",
+    "contraindications": "Allergy to mushrooms, pregnancy (limited data).",
+    "drugInteractions": "No major interactions documented.",
+    "toxicity": "Low toxicity; consumed as food in many cultures.",
+    "toxicityLD50": "Not established; considered safe.",
+    "id": "lions-mane",
+    "description": "No description provided.",
+    "safetyRating": 1
+  },
+
+  {
+    "name": "Passionflower",
+    "scientificName": "Passiflora incarnata",
+    "category": "Dissociative / Sedative",
+    "effects": [
+      "Anxiolytic",
+      "mild hypnotic"
+    ],
+    "preparation": "Tea, tincture, or smoke",
+    "intensity": "Mild",
+    "onset": "20-40 min",
+    "legalStatus": "Legal / Unregulated",
+    "region": "\ud83c\udf0e North America",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "mechanismOfAction": "Flavonoids and harmala alkaloids modulate GABA and MAO activity.",
+    "pharmacokinetics": "Oral onset 20\u201340 min; duration 1\u20132 h.",
+    "therapeuticUses": "Insomnia, anxiety relief, muscle relaxation.",
+    "sideEffects": "Drowsiness, dizziness at high doses.",
+    "contraindications": "Pregnancy, use with CNS depressants.",
+    "drugInteractions": "May enhance sedatives and MAOIs.",
+    "toxicity": "Generally safe at recommended doses.",
+    "toxicityLD50": "Not well established; high safety margin.",
+    "id": "passionflower",
+    "description": "No description provided.",
+    "safetyRating": 1
+  },
+
+  {
+    "name": "Reishi Mushroom",
+    "scientificName": "Ganoderma lucidum",
+    "category": "Other",
+    "effects": [
+      "Immune support",
+      "calm focus"
+    ],
+    "preparation": "Dried fruiting body tea or extract",
+    "intensity": "Mild",
+    "onset": "30-60 min",
+    "legalStatus": "Legal / Unregulated",
+    "region": "\ud83c\udde8\ud83c\uddf3 East Asia",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "mechanismOfAction": "Triterpenoids and beta-glucans modulate immune response.",
+    "pharmacokinetics": "Oral; benefits build over weeks of use.",
+    "therapeuticUses": "Immune enhancement, stress resilience, antioxidant.",
+    "sideEffects": "Rare digestive upset or rash.",
+    "contraindications": "Bleeding disorders, surgery.",
+    "drugInteractions": "Anticoagulants, immunosuppressants.",
+    "toxicity": "Very low toxicity; widely consumed as tonic.",
+    "toxicityLD50": "Not established; safe in traditional use.",
+    "id": "reishi-mushroom",
+    "description": "No description provided.",
+    "safetyRating": 1
+  },
+
+  {
+    "name": "Valerian",
+    "scientificName": "Valeriana officinalis",
+    "category": "Dissociative / Sedative",
+    "effects": [
+      "Relaxation",
+      "sleep support"
+    ],
+    "preparation": "Root tea or capsule",
+    "intensity": "Mild",
+    "onset": "30-60 min",
+    "legalStatus": "Legal / Unregulated",
+    "region": "\ud83c\udde7\ud83c\uddea Europe",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "mechanismOfAction": "Valerenic acid modulates GABA receptors and inhibits breakdown.",
+    "pharmacokinetics": "Oral onset 30\u201360 min; effects last 2\u20134 h.",
+    "therapeuticUses": "Insomnia, anxiety, muscle tension.",
+    "sideEffects": "Grogginess, vivid dreams, headache.",
+    "contraindications": "Pregnancy, heavy alcohol use.",
+    "drugInteractions": "Sedatives, alcohol.",
+    "toxicity": "Generally safe; high doses may cause dizziness.",
+    "toxicityLD50": "LD50 > 3 g/kg (rat).",
+    "id": "valerian",
+    "description": "No description provided.",
     "safetyRating": 1
   },
   {
