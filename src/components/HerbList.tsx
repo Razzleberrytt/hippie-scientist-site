@@ -8,6 +8,10 @@ interface Props {
 }
 
 const HerbList: React.FC<Props> = ({ herbs }) => {
+  if (herbs.length === 0) {
+    return <p className='text-center text-sand/80'>No herbs match your search.</p>
+  }
+
   return (
     <motion.div layout className='space-y-4'>
       <AnimatePresence>
