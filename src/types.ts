@@ -8,6 +8,7 @@ export interface Herb {
   preparation: string;
   intensity: string;
   onset: string;
+  duration?: string;
   legalStatus: string;
   region: string;
   tags: string[];

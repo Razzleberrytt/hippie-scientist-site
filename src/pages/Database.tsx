@@ -3,17 +3,24 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import HerbGrid from '../components/HerbGrid'
-import SearchFilter from '../components/SearchFilter'
+import HerbList from '../components/HerbList'
+import TagFilterBar from '../components/TagFilterBar'
+import FloatingParticles from '../components/FloatingParticles'
 import { useHerbs } from '../hooks/useHerbs'
 
 export default function Database() {
   const herbs = useHerbs()
-  const [filtered, setFiltered] = React.useState<typeof herbs>([])
+  const [selectedTags, setSelectedTags] = React.useState<string[]>([])
 
-  React.useEffect(() => {
-    setFiltered(herbs)
+  const allTags = React.useMemo(() => {
+    const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
+    return Array.from(new Set(t))
   }, [herbs])
+
+  const filtered = React.useMemo(() => {
+    if (!selectedTags.length) return herbs
+    return herbs.filter(h => selectedTags.every(t => h.tags.includes(t)))
+  }, [herbs, selectedTags])
 
   return (
     <>
@@ -25,8 +32,9 @@ export default function Database() {
         />
       </Helmet>
 
-      <div className='min-h-screen px-4 pt-20'>
-        <div className='mx-auto max-w-7xl'>
+      <div className='relative min-h-screen px-4 pt-20'>
+        <FloatingParticles />
+        <div className='relative mx-auto max-w-3xl'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -39,8 +47,8 @@ export default function Database() {
             </p>
           </motion.div>
 
-          <SearchFilter herbs={herbs} onFilter={setFiltered} />
-          <HerbGrid herbs={filtered} />
+          <TagFilterBar tags={allTags} selected={selectedTags} onChange={setSelectedTags} />
+          <HerbList herbs={filtered} />
         </div>
       </div>
     </>
