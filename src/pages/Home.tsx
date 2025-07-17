@@ -12,16 +12,16 @@ export default function Home() {
       <section className="space-y-10 max-w-4xl mx-auto">
 
         {/* 🌟 Featured Herb */}
-        <div>
+        <motion.div layout>
           <h2 className="mb-4 font-display text-3xl text-gold">Featured Herb</h2>
           <HerbCardAccordion herb={featured} />
-        </div>
+        </motion.div>
 
         {/* 🌿 Herb Index */}
-        <div>
+        <motion.div layout>
           <h2 className="mb-4 font-display text-3xl text-gold">Herb Index</h2>
           <HerbList herbs={herbs} />
-        </div>
+        </motion.div>
 
       </section>
     </main>
