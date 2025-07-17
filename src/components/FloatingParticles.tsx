@@ -1,6 +1,8 @@
 import { useCallback } from 'react'
 import Particles from '@tsparticles/react'
 import type { Engine } from '@tsparticles/engine'
+import Particles from 'react-tsparticles'
+import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
 
 export default function FloatingParticles() {
