@@ -32,7 +32,7 @@ const MouseTrail: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-6 h-6 pointer-events-none z-50"
+      className='pointer-events-none fixed left-0 top-0 z-50 h-6 w-6'
       style={{
         x,
         y,
@@ -42,7 +42,7 @@ const MouseTrail: React.FC = () => {
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="w-full h-full rounded-full bg-gradient-to-r from-psychedelic-purple to-psychedelic-pink opacity-50 blur-sm" />
+      <div className='bg-rainbow-gradient animate-sparkle h-full w-full rounded-full opacity-70 blur-md' />
     </motion.div>
   )
 }
