@@ -1,45 +1,29 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async'
-import HeroSection from '../components/HeroSection'
-import { useHerbs } from '../hooks/useHerbs'
-import HerbList from '../components/HerbList'
-import HerbCardAccordion from '../components/HerbCardAccordion'
-import FloatingParticles from '../components/FloatingParticles'
+import React from 'react';
+import { motion } from 'framer-motion';
+import HerbCardAccordion from '../components/HerbCardAccordion';
+import HerbList from '../components/HerbList';
+import { herbs } from '../data/herbs'; // Adjust if you're importing differently
+
 export default function Home() {
-  const herbs = useHerbs()
-  const featured = herbs[0]
+  const featured = herbs[0]; // Pick a featured herb for now
 
   return (
-    <>
-      <Helmet>
-        <title>The Hippie Scientist</title>
-        <meta name='description' content='Explore psychedelic botany and conscious exploration.' />
-      </Helmet>
-      <HeroSection />
-      <div className='relative'>
-        <FloatingParticles />
-        <section className='relative mx-auto max-w-6xl space-y-12 px-4 py-16'>
-          {featured && (
-            <div>
-              <h2 className='mb-4 font-display text-3xl text-gold'>Featured Herb</h2>
-              <HerbCardAccordion herb={featured} />
-            </div>
-          )}
-          <div>
-            <h2 className='mb-4 font-display text-3xl text-gold'>Herb Index</h2>
-            <HerbList herbs={herbs} />
-          </div>
-        </section>
-      </div>
-            <h2 className='mb-4 font-display text-3xl text-gold'>Featured Herb</h2>
-            <HerbCardAccordion herb={featured} />
-          </div>
-        )}
+    <main className="min-h-screen px-4 py-10 bg-gradient-to-br from-black via-indigo-950 to-slate-900 text-white">
+      <section className="space-y-10 max-w-4xl mx-auto">
+
+        {/* 🌟 Featured Herb */}
         <div>
-          <h2 className='mb-4 font-display text-3xl text-gold'>Herb Index</h2>
+          <h2 className="mb-4 font-display text-3xl text-gold">Featured Herb</h2>
+          <HerbCardAccordion herb={featured} />
+        </div>
+
+        {/* 🌿 Herb Index */}
+        <div>
+          <h2 className="mb-4 font-display text-3xl text-gold">Herb Index</h2>
           <HerbList herbs={herbs} />
         </div>
+
       </section>
-    </>
-  )
+    </main>
+  );
 }
