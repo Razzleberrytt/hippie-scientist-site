@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
 import type { Herb } from '../types'
@@ -17,42 +17,27 @@ const categoryColors: Record<string, Parameters<typeof TagBadge>[0]['variant']> 
   Other: 'yellow',
 }
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05 } },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 },
+}
+
 export default function HerbCardAccordion({ herb }: Props) {
   const [open, setOpen] = useState(false)
-
   const toggle = () => setOpen(v => !v)
 
-  const handleKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleKey = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
       toggle()
     }
   }
 
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.05 } },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 8 },
-    visible: { opacity: 1, y: 0 },
-  }
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { decodeTag } from '../utils/decodeTag'; // ✅ Correct relative path
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.05 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
-};
-
-export default function HerbCardAccordion({ herb, open, toggle }: any) {
   return (
     <motion.div
       layout
@@ -69,7 +54,9 @@ export default function HerbCardAccordion({ herb, open, toggle }: any) {
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
           <h3 className='font-display text-xl text-opal'>{herb.name}</h3>
-          {herb.scientificName && <p className='text-xs italic text-sand'>{herb.scientificName}</p>}
+          {herb.scientificName && (
+            <p className='text-xs italic text-sand'>{herb.scientificName}</p>
+          )}
         </div>
         <motion.span
           initial={false}
@@ -79,15 +66,12 @@ export default function HerbCardAccordion({ herb, open, toggle }: any) {
           <ChevronRight size={18} />
         </motion.span>
       </div>
+
       <div className='mt-2 flex flex-wrap gap-2'>
         {herb.tags.slice(0, 2).map(tag => (
           <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
         ))}
       </div>
-      className="rounded-xl bg-black/40 backdrop-blur-md ring-1 ring-emerald-400/20 shadow-lg p-6 text-white cursor-pointer hover:ring-emerald-300 transition-all"
-    >
-      <h2 className="text-xl font-bold text-emerald-300">{herb.name}</h2>
-      <p className="text-sm text-slate-400">{herb.scientificName}</p>
 
       <AnimatePresence initial={false}>
         {open && (
@@ -101,116 +85,63 @@ export default function HerbCardAccordion({ herb, open, toggle }: any) {
               collapsed: { opacity: 0, height: 0 },
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className='overflow-hidden text-sm text-sand'
+            className='overflow-hidden text-sm text-sand mt-4'
           >
             <motion.div
               variants={containerVariants}
               initial='hidden'
               animate='visible'
               exit='hidden'
-              className='mt-4 space-y-2'
+              className='space-y-2'
             >
-              <motion.div variants={itemVariants}>
-                <span className='font-semibold text-lime-300'>Category:</span>{' '}
-                <TagBadge
-                  label={herb.category}
-                  variant={categoryColors[herb.category] || 'purple'}
-                  className='ml-1'
-                />
-              </motion.div>
-              <motion.div variants={itemVariants}>
-                <span className='font-semibold text-lime-300'>Effects:</span>{' '}
-                {herb.effects.join(', ')}
-              </motion.div>
-              {herb.description && (
-                <motion.div variants={itemVariants}>{herb.description}</motion.div>
-              )}
-              {herb.mechanismOfAction && (
+              {herb.category && (
                 <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Mechanism:</span>{' '}
-                  {herb.mechanismOfAction}
+                  <span className='font-semibold text-lime-300'>Category:</span>{' '}
+                  <TagBadge
+                    label={herb.category}
+                    variant={categoryColors[herb.category] || 'purple'}
+                    className='ml-1'
+                  />
                 </motion.div>
               )}
-              {herb.therapeuticUses && (
+              {herb.effects?.length > 0 && (
                 <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Therapeutic Uses:</span>{' '}
-                  {herb.therapeuticUses}
+                  <span className='font-semibold text-lime-300'>Effects:</span>{' '}
+                  {herb.effects.join(', ')}
                 </motion.div>
               )}
-              {herb.sideEffects && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Side Effects:</span>{' '}
-                  {herb.sideEffects}
-                </motion.div>
-              )}
-              {herb.contraindications && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Contraindications:</span>{' '}
-                  {herb.contraindications}
-                </motion.div>
-              )}
-              {herb.drugInteractions && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Drug Interactions:</span>{' '}
-                  {herb.drugInteractions}
-                </motion.div>
-              )}
-              {herb.preparation && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Preparation:</span>{' '}
-                  {herb.preparation}
-                </motion.div>
-              )}
-              {herb.pharmacokinetics && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Pharmacokinetics:</span>{' '}
-                  {herb.pharmacokinetics}
-                </motion.div>
-              )}
-              {herb.onset && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Onset:</span> {herb.onset}
-                </motion.div>
-              )}
-              {herb.duration && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Duration:</span> {herb.duration}
-                </motion.div>
-              )}
-              {herb.intensity && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Intensity:</span> {herb.intensity}
-                </motion.div>
-              )}
-              {herb.region && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Region:</span> {herb.region}
-                </motion.div>
-              )}
-              {herb.legalStatus && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Legal Status:</span>{' '}
-                  {herb.legalStatus}
-                </motion.div>
-              )}
-              {herb.toxicity && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Toxicity:</span> {herb.toxicity}
-                </motion.div>
-              )}
-              {herb.toxicityLD50 && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Toxicity LD50:</span>{' '}
-                  {herb.toxicityLD50}
-                </motion.div>
-              )}
-              {herb.safetyRating != null && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Safety Rating:</span>{' '}
-                  {herb.safetyRating}
-                </motion.div>
-              )}
-              {herb.tags.length > 0 && (
+              {[
+                'description',
+                'mechanismOfAction',
+                'therapeuticUses',
+                'sideEffects',
+                'contraindications',
+                'drugInteractions',
+                'preparation',
+                'pharmacokinetics',
+                'onset',
+                'duration',
+                'intensity',
+                'region',
+                'legalStatus',
+                'toxicity',
+                'toxicityLD50',
+                'safetyRating',
+              ].map(key => {
+                const value = (herb as any)[key]
+                return (
+                  value && (
+                    <motion.div key={key} variants={itemVariants}>
+                      <span className='font-semibold text-lime-300'>
+                        {key.replace(/([A-Z])/g, ' $1') + ':'}
+                      </span>{' '}
+                      {value}
+                    </motion.div>
+                  )
+                )
+              })}
+
+              {herb.tags?.length > 0 && (
                 <motion.div variants={itemVariants} className='flex flex-wrap gap-2 pt-2'>
                   {herb.tags.map(tag => (
                     <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
@@ -218,114 +149,9 @@ export default function HerbCardAccordion({ herb, open, toggle }: any) {
                 </motion.div>
               )}
             </motion.div>
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            className="mt-4 space-y-1"
-          >
-            {herb.category && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Category:</span> {herb.category}
-              </motion.div>
-            )}
-            {herb.effects?.length > 0 && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Effects:</span> {herb.effects.join(', ')}
-              </motion.div>
-            )}
-            {herb.therapeuticUses && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Therapeutic Uses:</span> {herb.therapeuticUses}
-              </motion.div>
-            )}
-            {herb.sideEffects && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Side Effects:</span> {herb.sideEffects}
-              </motion.div>
-            )}
-            {herb.contraindications && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Contraindications:</span> {herb.contraindications}
-              </motion.div>
-            )}
-            {herb.drugInteractions && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Drug Interactions:</span> {herb.drugInteractions}
-              </motion.div>
-            )}
-            {herb.preparation && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Preparation:</span> {herb.preparation}
-              </motion.div>
-            )}
-            {herb.pharmacokinetics && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Pharmacokinetics:</span> {herb.pharmacokinetics}
-              </motion.div>
-            )}
-            {herb.onset && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Onset:</span> {herb.onset}
-              </motion.div>
-            )}
-            {herb.duration && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Duration:</span> {herb.duration}
-              </motion.div>
-            )}
-            {herb.intensity && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Intensity:</span> {herb.intensity}
-              </motion.div>
-            )}
-            {herb.region && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Region:</span> {herb.region}
-              </motion.div>
-            )}
-            {herb.legalStatus && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Legal Status:</span> {herb.legalStatus}
-              </motion.div>
-            )}
-            {herb.toxicity && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Toxicity:</span> {herb.toxicity}
-              </motion.div>
-            )}
-            {herb.toxicityLD50 && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Toxicity LD50:</span> {herb.toxicityLD50}
-              </motion.div>
-            )}
-            {herb.safetyRating != null && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Safety Rating:</span> {herb.safetyRating}
-              </motion.div>
-            )}
-            {herb.mechanismOfAction && (
-              <motion.div variants={itemVariants}>
-                <span className="font-medium text-gold">Mechanism:</span> {herb.mechanismOfAction}
-              </motion.div>
-            )}
-            {herb.tags?.length > 0 && (
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-2 mt-2">
-                {herb.tags.map((tag: string) => (
-                  <motion.span
-                    key={tag}
-                    variants={itemVariants}
-                    className="bg-emerald-700/30 text-emerald-200 px-3 py-1 rounded-full text-sm"
-                  >
-                    {decodeTag(tag)}
-                  </motion.span>
-                ))}
-              </motion.div>
-            )}
           </motion.div>
         )}
       </AnimatePresence>
     </motion.div>
   )
-  );
 }
