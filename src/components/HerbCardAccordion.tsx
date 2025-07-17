@@ -64,7 +64,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       </motion.span>
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
-          <h3 className='font-display text-xl text-opal'>{herb.name}</h3>
+          <h3 className='font-herb text-xl text-psychedelic-pink'>{herb.name}</h3>
           {herb.scientificName && (
             <p className='text-xs italic text-sand'>{herb.scientificName}</p>
           )}

@@ -28,10 +28,11 @@ export default {
         glow: '0 0 12px rgba(136, 192, 87, 0.5)',
         intense: '0 0 24px rgba(79, 193, 233, 0.4)',
       },
-      fontFamily: {
-        display: ['"Righteous"', 'cursive'],
-        sans: ['"Inter"', 'sans-serif'],
-      },
+        fontFamily: {
+          display: ['"Righteous"', 'cursive'],
+          sans: ['"Inter"', 'sans-serif'],
+          herb: ['"Pacifico"', 'cursive'],
+        },
     },
   },
   plugins: [],
