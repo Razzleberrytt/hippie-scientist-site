@@ -21,6 +21,7 @@ export default {
         'psychedelic-purple': '#8b5cf6',
         'psychedelic-pink': '#ec4899',
         'space-dark': '#0f172a',
+        'space-night': '#0c0c1a',
         'cosmic-purple': '#7e22ce',
       },
       boxShadow: {
@@ -28,8 +29,8 @@ export default {
         intense: '0 0 24px rgba(79, 193, 233, 0.4)',
       },
       fontFamily: {
-        display: ['"Marcellus"', 'serif'],
-        sans: ['"DM Sans"', 'sans-serif'],
+        display: ['"Righteous"', 'cursive'],
+        sans: ['"Inter"', 'sans-serif'],
       },
     },
   },

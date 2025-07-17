@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Marcellus&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Righteous&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply m-0 bg-midnight font-sans text-lg leading-relaxed tracking-tight text-sand;
+  @apply m-0 bg-space-night font-sans text-lg leading-relaxed tracking-tight text-sand;
 }
 
 html {
@@ -14,11 +14,11 @@ html {
 
 /* Custom utility classes */
 .text-gradient {
-  @apply bg-gradient-to-r from-lichen to-comet bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-sky-400 via-fuchsia-500 to-purple-600 bg-clip-text text-transparent;
 }
 
 .glass-card {
-  @apply border border-white/10 bg-midnight-blue/60 shadow backdrop-blur-lg transition-shadow duration-300 hover:ring-2 hover:ring-forest-green/50;
+  @apply border border-white/10 bg-space-dark/60 shadow-lg backdrop-blur-xl transition-shadow duration-300 hover:ring-2 hover:ring-fuchsia-500/50;
 }
 
 .ring-comet {
