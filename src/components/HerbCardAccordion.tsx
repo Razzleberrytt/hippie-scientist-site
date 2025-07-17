@@ -52,7 +52,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       whileHover={{ scale: 1.03, rotateX: 1, rotateY: -1 }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className='relative cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-purple-950/40 via-fuchsia-900/30 to-sky-900/40 p-6 shadow-xl backdrop-blur-lg transition-all focus:outline-none hover:shadow-2xl hover:ring-2 hover:ring-fuchsia-400/60 focus-visible:ring-2 focus-visible:ring-fuchsia-400/60'
+      className='relative cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-purple-950/40 via-fuchsia-900/30 to-sky-900/40 p-6 shadow-xl backdrop-blur-lg transition-all hover:shadow-2xl hover:ring-2 hover:ring-fuchsia-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/60'
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -65,9 +65,18 @@ export default function HerbCardAccordion({ herb }: Props) {
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
           <h3 className='font-herb text-xl text-psychedelic-pink'>{herb.name}</h3>
-          {herb.scientificName && (
-            <p className='text-xs italic text-sand'>{herb.scientificName}</p>
-          )}
+          {herb.scientificName && <p className='text-xs italic text-sand'>{herb.scientificName}</p>}
+          <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand'>
+            {herb.category && (
+              <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
+            )}
+            {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
+            {herb.safetyRating !== undefined && (
+              <span className={safetyColorClass(Number(herb.safetyRating))}>
+                {herb.safetyRating}
+              </span>
+            )}
+          </div>
         </div>
         <motion.span
           layout
@@ -104,7 +113,7 @@ export default function HerbCardAccordion({ herb }: Props) {
               collapsed: { opacity: 0, height: 0 },
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className='overflow-hidden text-sm text-sand mt-4'
+            className='mt-4 overflow-hidden text-sm text-sand'
           >
             <motion.div
               variants={containerVariants}
@@ -113,22 +122,6 @@ export default function HerbCardAccordion({ herb }: Props) {
               exit='hidden'
               className='space-y-2'
             >
-              {herb.category && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Category:</span>{' '}
-                  <TagBadge
-                    label={herb.category}
-                    variant={categoryColors[herb.category] || 'purple'}
-                    className='ml-1'
-                  />
-                </motion.div>
-              )}
-              {herb.effects?.length > 0 && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Effects:</span>{' '}
-                  {herb.effects.join(', ')}
-                </motion.div>
-              )}
               {[
                 'description',
                 'mechanismOfAction',
@@ -145,21 +138,9 @@ export default function HerbCardAccordion({ herb }: Props) {
                 'legalStatus',
                 'toxicity',
                 'toxicityLD50',
-                'safetyRating',
               ].map(key => {
                 const raw = (herb as any)[key]
-                const value =
-                  raw && raw !== 'No description provided.' && raw !== ''
-                    ? raw
-                    : 'N/A'
-                if (key === 'safetyRating') {
-                  return (
-                    <motion.div key={key} variants={itemVariants}>
-                      <span className='font-semibold text-lime-300'>Safety Rating:</span>{' '}
-                      <span className={safetyColorClass(Number(raw))}>{value}</span>
-                    </motion.div>
-                  )
-                }
+                const value = raw && raw !== 'No description provided.' && raw !== '' ? raw : 'N/A'
                 return (
                   <motion.div key={key} variants={itemVariants}>
                     <span className='font-semibold text-lime-300'>
