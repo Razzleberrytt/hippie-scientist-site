@@ -26,8 +26,15 @@ export default function Store() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className='glass-card p-8'
           >
-            <h2 className='mb-4 text-2xl font-bold text-white'>Coming Soon</h2>
-            <p className='text-gray-300'>Check back soon for merch and digital resources.</p>
+            <h2 className='mb-6 text-3xl font-bold text-white'>Featured Items</h2>
+            <ul className='mx-auto mb-6 max-w-md list-disc space-y-2 pl-5 text-left text-gray-300'>
+              <li>Stickers and patches celebrating ethnobotany</li>
+              <li>Digital field guides in PDF format</li>
+              <li>Limited run T-shirts designed by community artists</li>
+            </ul>
+            <p className='text-gray-300'>
+              Sign up to our newsletter to be notified when the shop goes live.
+            </p>
           </motion.div>
         </div>
       </div>

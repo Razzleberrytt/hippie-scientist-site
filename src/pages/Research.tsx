@@ -27,11 +27,16 @@ const Research: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className='glass-card p-8 text-center'>
-            <h2 className='mb-4 text-2xl font-bold text-white'>Coming Soon</h2>
-            <p className='text-gray-300'>
-              This section will feature the latest research in psychedelic science, consciousness
-              studies, and therapeutic applications.
+          <div className='glass-card p-8'>
+            <h2 className='mb-6 text-center text-3xl font-bold text-white'>Current Studies</h2>
+            <ul className='mx-auto mb-6 max-w-xl list-disc space-y-2 pl-5 text-left text-gray-300'>
+              <li>Clinical trials evaluating psychedelic-assisted therapy</li>
+              <li>Neuroimaging projects exploring brain connectivity</li>
+              <li>Longitudinal surveys on integration practices</li>
+            </ul>
+            <p className='text-center text-gray-300'>
+              This list highlights a few ongoing areas of investigation. Check back regularly for
+              detailed summaries and links to published papers.
             </p>
           </div>
         </div>

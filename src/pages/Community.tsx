@@ -63,7 +63,10 @@ const Community: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className='glass-card p-8'
               >
-                <feature.icon className='mb-4 h-12 w-12 text-psychedelic-purple' />
+                <feature.icon
+                  className='mb-4 h-12 w-12 text-psychedelic-purple'
+                  aria-hidden='true'
+                />
                 <h3 className='mb-4 text-2xl font-bold text-white'>{feature.title}</h3>
                 <p className='mb-6 text-gray-300'>{feature.description}</p>
                 <button className='glass-button rounded-lg px-6 py-3 font-medium text-white transition-all hover:scale-105'>
@@ -103,6 +106,9 @@ const Community: React.FC = () => {
                 </ul>
               </div>
             </div>
+            <p className='mt-6 text-center text-sm text-gray-400'>
+              Please remember that all interactions are moderated according to these guidelines.
+            </p>
           </motion.div>
         </div>
       </div>
