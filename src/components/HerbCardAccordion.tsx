@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { decodeTag } from '../utils/decodeTag';
+import { decodeTag } from '../../utils/decodeTag';
 
 const containerVariants = {
   hidden: {},
