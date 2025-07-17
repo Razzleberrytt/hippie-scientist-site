@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Menu, X, Atom } from 'lucide-react'
+import ThemeToggle from './ThemeToggle'
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -10,6 +11,7 @@ const Navbar: React.FC = () => {
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/blog', label: 'Blog' },
+    { path: '/learn', label: 'Learn' },
   ]
 
   const isActive = (path: string) => location.pathname === path
@@ -22,7 +24,8 @@ const Navbar: React.FC = () => {
           <span className='text-gradient text-xl font-bold'>Hippie Scientist</span>
         </Link>
 
-        <div className='md:hidden'>
+        <div className='flex items-center space-x-2 md:hidden'>
+          <ThemeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}
             className='p-2'
@@ -33,7 +36,7 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        <div className='hidden space-x-4 md:flex'>
+        <div className='hidden items-center space-x-4 md:flex'>
           {navItems.map(({ path, label }) => (
             <Link
               key={path}
@@ -47,6 +50,7 @@ const Navbar: React.FC = () => {
               {label}
             </Link>
           ))}
+          <ThemeToggle />
         </div>
         {isOpen && (
           <motion.div
@@ -69,6 +73,7 @@ const Navbar: React.FC = () => {
                 {label}
               </Link>
             ))}
+            <ThemeToggle />
           </motion.div>
         )}
       </div>
