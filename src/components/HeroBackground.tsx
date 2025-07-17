@@ -39,7 +39,7 @@ const HeroBackground: React.FC = () => {
             left: `${p.x}%`,
             top: `${p.y}%`,
           }}
-          className='absolute rounded-full bg-forest-green/20'
+          className='absolute rounded-full bg-psychedelic-pink/30'
           animate={{ y: [-10, 10, -10] }}
           transition={{
             duration: 8,
