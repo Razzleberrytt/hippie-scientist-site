@@ -11,22 +11,32 @@ const MouseTrail: React.FC = () => {
   const y = useSpring(mouseY, springConfig)
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX)
-      mouseY.set(e.clientY)
+    const updatePosition = (e: MouseEvent | TouchEvent) => {
+      const xPos = 'touches' in e ? e.touches[0].clientX : e.clientX
+      const yPos = 'touches' in e ? e.touches[0].clientY : e.clientY
+      mouseX.set(xPos)
+      mouseY.set(yPos)
       setIsVisible(true)
     }
 
-    const handleMouseLeave = () => {
+    const endTrail = () => {
       setIsVisible(false)
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('mouseleave', handleMouseLeave)
+    window.addEventListener('mousemove', updatePosition)
+    window.addEventListener('touchstart', updatePosition)
+    window.addEventListener('touchmove', updatePosition)
+    window.addEventListener('mouseleave', endTrail)
+    window.addEventListener('touchend', endTrail)
+    window.addEventListener('touchcancel', endTrail)
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('mouseleave', handleMouseLeave)
+      window.removeEventListener('mousemove', updatePosition)
+      window.removeEventListener('touchstart', updatePosition)
+      window.removeEventListener('touchmove', updatePosition)
+      window.removeEventListener('mouseleave', endTrail)
+      window.removeEventListener('touchend', endTrail)
+      window.removeEventListener('touchcancel', endTrail)
     }
   }, [mouseX, mouseY])
 
