@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { LoadingScreen } from './components/LoadingScreen'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import MouseTrail from './components/MouseTrail'
 const Home = React.lazy(() => import('./pages/Home'))
 const BlogIndex = React.lazy(() => import('./pages/BlogIndex'))
 const BlogPost = React.lazy(() => import('./pages/BlogPost'))
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <MouseTrail />
       <main className='pt-16 space-y-24'>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>

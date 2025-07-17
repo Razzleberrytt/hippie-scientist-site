@@ -1,28 +1,19 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import HerbCardAccordion from '../components/HerbCardAccordion';
-import HerbList from '../components/HerbList';
-import { herbs } from '../data/herbs'; // Adjust if you're importing differently
+import React from 'react'
+import { motion } from 'framer-motion'
+import HerbList from '../components/HerbList'
+import HeroSection from '../components/HeroSection'
+import { herbs } from '../data/herbs'
 
 export default function Home() {
-  const featured = herbs[0]; // Pick a featured herb for now
-
   return (
     <main className="min-h-screen px-4 py-10 bg-gradient-to-br from-black via-indigo-950 to-slate-900 text-white">
+      <HeroSection />
       <section className="space-y-10 max-w-4xl mx-auto">
-
-        {/* 🌟 Featured Herb */}
-        <motion.div layout>
-          <h2 className="mb-4 font-display text-3xl text-gold">Featured Herb</h2>
-          <HerbCardAccordion herb={featured} />
-        </motion.div>
-
         {/* 🌿 Herb Index */}
         <motion.div layout>
-          <h2 className="mb-4 font-display text-3xl text-gold">Herb Index</h2>
+          <h2 className="mb-4 font-display text-3xl text-gradient">Herb Index</h2>
           <HerbList herbs={herbs} />
         </motion.div>
-
       </section>
     </main>
   );
