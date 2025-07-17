@@ -139,7 +139,10 @@ export default function Learn() {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className='glass-card p-6 text-center'
               >
-                <Icon className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple' />
+                <Icon
+                  className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
+                  aria-hidden='true'
+                />
                 <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
                 <p className='text-gray-300'>{description}</p>
               </motion.div>
@@ -165,7 +168,10 @@ export default function Learn() {
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   className='glass-card p-6 text-center'
                 >
-                  <Icon className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple' />
+                  <Icon
+                    className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
+                    aria-hidden='true'
+                  />
                   <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
                   <p className='text-gray-300'>{description}</p>
                 </motion.div>

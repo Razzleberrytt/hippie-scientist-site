@@ -83,12 +83,19 @@ const Safety: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className='glass-card p-6'
               >
-                <Icon className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple' />
+                <Icon
+                  className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
+                  aria-hidden='true'
+                />
                 <h3 className='mb-4 text-center text-xl font-bold text-white'>{title}</h3>
                 <p className='text-center text-gray-300'>{description}</p>
               </motion.div>
             ))}
           </div>
+          <p className='mt-8 text-center text-sm text-gray-400'>
+            The information presented here is for educational purposes only and does not replace
+            professional medical advice.
+          </p>
         </div>
       </div>
     </>

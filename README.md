@@ -14,17 +14,28 @@ Recent updates introduced an expanded Learn section, a dedicated About page and 
    ```bash
    npm run dev
    ```
-![Deploy Status](https://github.com/razzleberrytt/hippie-scientist-site/actions/workflows/pages/pages-build-deployment/badge.svg)
+   ![Deploy Status](https://github.com/razzleberrytt/hippie-scientist-site/actions/workflows/pages/pages-build-deployment/badge.svg)
 
 Additional scripts are available:
 
-- `npm run build` – type-check and build the site
+- `npm run build` – build the site for production
 - `npm run preview` – preview the production build
-- `npm run lint` – run ESLint
-- `npm run format` – format source files with Prettier
-- `npm run type-check` – run TypeScript without emitting files
+- `npm run deploy` – publish the `dist/` folder to GitHub Pages
+- `npm test` – placeholder script
 
 ## Project Structure
 
 Source files live in `src/`. Pages are under `src/pages` and reusable components are in `src/components`. Production assets are generated into `dist/` during the build process.
 
+## Features
+
+- **Database** – interactive herbal index with tag filtering
+- **Learn** – animated lessons with curated resources
+- **Blog** – markdown-style posts served from the `posts` data file
+- **Community & Safety** – guidelines for responsible exploration
+- **Store** – upcoming merch and digital resources
+- **Theming** – light/dark modes persisted with local storage
+
+## Contributing
+
+Pull requests and issue reports are welcome. Please open an issue first if you would like to discuss a major change.
