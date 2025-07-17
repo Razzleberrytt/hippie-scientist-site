@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEvent } from 'react'
+import React, { useState, useCallback, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
 import type { Herb } from '../types'
@@ -27,16 +27,30 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
-export default function HerbCardAccordion({ herb }: Props) {
-  const [open, setOpen] = useState(false)
-  const toggle = () => setOpen(v => !v)
+const panelVariants = {
+  open: { opacity: 1, height: 'auto' },
+  collapsed: { opacity: 0, height: 0 },
+}
 
-  const handleKey = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      toggle()
-    }
-  }
+const chevronVariants = {
+  open: { rotate: 90 },
+  closed: { rotate: 0 },
+}
+
+function HerbCardAccordion({ herb }: Props) {
+  const [open, setOpen] = useState(false)
+
+  const toggle = useCallback(() => setOpen(v => !v), [])
+
+  const handleKey = useCallback(
+    (e: KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        toggle()
+      }
+    },
+    [toggle]
+  )
 
   return (
     <motion.div
@@ -49,7 +63,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       tabIndex={0}
       role='button'
       aria-expanded={open}
-      className='cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-purple-950/40 via-fuchsia-900/30 to-sky-900/40 p-6 shadow-xl backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-fuchsia-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/60'
+      className='cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-purple-950/40 via-fuchsia-900/30 to-sky-900/40 p-6 shadow-lg backdrop-blur-xl transition-transform duration-300 hover:scale-105 hover:shadow-intense hover:ring-2 hover:ring-fuchsia-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/60'
     >
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
@@ -60,7 +74,8 @@ export default function HerbCardAccordion({ herb }: Props) {
         </div>
         <motion.span
           initial={false}
-          animate={{ rotate: open ? 90 : 0 }}
+          animate={open ? 'open' : 'closed'}
+          variants={chevronVariants}
           className='text-cyan-200 transition-transform'
         >
           <ChevronRight size={18} />
@@ -80,12 +95,9 @@ export default function HerbCardAccordion({ herb }: Props) {
             initial='collapsed'
             animate='open'
             exit='collapsed'
-            variants={{
-              open: { opacity: 1, height: 'auto' },
-              collapsed: { opacity: 0, height: 0 },
-            }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className='overflow-hidden text-sm text-sand mt-4'
+            variants={panelVariants}
+            transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+            className='mt-4 overflow-hidden text-sm text-sand'
           >
             <motion.div
               variants={containerVariants}
@@ -105,39 +117,49 @@ export default function HerbCardAccordion({ herb }: Props) {
                 </motion.div>
               )}
               {herb.effects?.length > 0 && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Effects:</span>{' '}
-                  {herb.effects.join(', ')}
+                <motion.div
+                  variants={itemVariants}
+                  className='flex flex-wrap items-center gap-2'
+                >
+                  <span className='font-semibold text-lime-300'>Effects:</span>
+                  {herb.effects.map(effect => (
+                    <TagBadge
+                      key={effect}
+                      label={effect}
+                      variant={tagVariant(effect)}
+                    />
+                  ))}
                 </motion.div>
               )}
-              {[
-                'description',
-                'mechanismOfAction',
-                'therapeuticUses',
-                'sideEffects',
-                'contraindications',
-                'drugInteractions',
-                'preparation',
-                'pharmacokinetics',
-                'onset',
-                'duration',
-                'intensity',
-                'region',
-                'legalStatus',
-                'toxicity',
-                'toxicityLD50',
-                'safetyRating',
-              ].map(key => {
-                const value = (herb as any)[key]
+              {(
+                [
+                  'description',
+                  'mechanismOfAction',
+                  'therapeuticUses',
+                  'sideEffects',
+                  'contraindications',
+                  'drugInteractions',
+                  'preparation',
+                  'pharmacokinetics',
+                  'onset',
+                  'duration',
+                  'intensity',
+                  'region',
+                  'legalStatus',
+                  'toxicity',
+                  'toxicityLD50',
+                  'safetyRating',
+                ] as (keyof Herb)[]
+              ).map(key => {
+                const value = herb[key]
+                if (!value) return null
                 return (
-                  value && (
-                    <motion.div key={key} variants={itemVariants}>
-                      <span className='font-semibold text-lime-300'>
-                        {key.replace(/([A-Z])/g, ' $1') + ':'}
-                      </span>{' '}
-                      {value}
-                    </motion.div>
-                  )
+                  <motion.div key={key} variants={itemVariants}>
+                    <span className='font-semibold text-lime-300'>
+                      {String(key).replace(/([A-Z])/g, ' $1') + ':'}
+                    </span>{' '}
+                    {String(value)}
+                  </motion.div>
                 )
               })}
 
@@ -155,3 +177,5 @@ export default function HerbCardAccordion({ herb }: Props) {
     </motion.div>
   )
 }
+
+export default React.memo(HerbCardAccordion)
