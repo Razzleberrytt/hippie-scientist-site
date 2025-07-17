@@ -2,7 +2,7 @@ import React, { useState, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronRight } from 'lucide-react'
 import type { Herb } from '../types'
-import { decodeTag, tagVariant } from '../utils/format'
+import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
 import TagBadge from './TagBadge'
 
 interface Props {
@@ -49,8 +49,19 @@ export default function HerbCardAccordion({ herb }: Props) {
       tabIndex={0}
       role='button'
       aria-expanded={open}
-      className='cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-purple-950/40 via-fuchsia-900/30 to-sky-900/40 p-6 shadow-xl backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-fuchsia-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/60'
+      whileHover={{ scale: 1.03, rotateX: 1, rotateY: -1 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
+      className='relative cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-purple-950/40 via-fuchsia-900/30 to-sky-900/40 p-6 shadow-xl backdrop-blur-lg transition-all focus:outline-none hover:shadow-2xl hover:ring-2 hover:ring-fuchsia-400/60 focus-visible:ring-2 focus-visible:ring-fuchsia-400/60'
     >
+      <motion.span
+        initial={{ opacity: 0, y: -4 }}
+        whileHover={{ opacity: 1, y: 0 }}
+        whileTap={{ opacity: 1, y: 0 }}
+        className='pointer-events-none absolute right-4 top-2 text-xs text-sand'
+      >
+        + More Info
+      </motion.span>
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
           <h3 className='font-display text-xl text-opal'>{herb.name}</h3>
@@ -59,8 +70,10 @@ export default function HerbCardAccordion({ herb }: Props) {
           )}
         </div>
         <motion.span
+          layout
           initial={false}
           animate={{ rotate: open ? 90 : 0 }}
+          transition={{ duration: 0.3 }}
           className='text-cyan-200 transition-transform'
         >
           <ChevronRight size={18} />
@@ -69,13 +82,19 @@ export default function HerbCardAccordion({ herb }: Props) {
 
       <div className='mt-2 flex flex-wrap gap-2'>
         {herb.tags.slice(0, 2).map(tag => (
-          <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
+          <TagBadge
+            key={tag}
+            label={decodeTag(tag)}
+            variant={tagVariant(tag)}
+            className={open ? 'animate-pulse' : ''}
+          />
         ))}
       </div>
 
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
+            layout
             key='content'
             initial='collapsed'
             animate='open'
@@ -128,23 +147,38 @@ export default function HerbCardAccordion({ herb }: Props) {
                 'toxicityLD50',
                 'safetyRating',
               ].map(key => {
-                const value = (herb as any)[key]
-                return (
-                  value && (
+                const raw = (herb as any)[key]
+                const value =
+                  raw && raw !== 'No description provided.' && raw !== ''
+                    ? raw
+                    : 'N/A'
+                if (key === 'safetyRating') {
+                  return (
                     <motion.div key={key} variants={itemVariants}>
-                      <span className='font-semibold text-lime-300'>
-                        {key.replace(/([A-Z])/g, ' $1') + ':'}
-                      </span>{' '}
-                      {value}
+                      <span className='font-semibold text-lime-300'>Safety Rating:</span>{' '}
+                      <span className={safetyColorClass(Number(raw))}>{value}</span>
                     </motion.div>
                   )
+                }
+                return (
+                  <motion.div key={key} variants={itemVariants}>
+                    <span className='font-semibold text-lime-300'>
+                      {key.replace(/([A-Z])/g, ' $1') + ':'}
+                    </span>{' '}
+                    {value}
+                  </motion.div>
                 )
               })}
 
               {herb.tags?.length > 0 && (
                 <motion.div variants={itemVariants} className='flex flex-wrap gap-2 pt-2'>
                   {herb.tags.map(tag => (
-                    <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
+                    <TagBadge
+                      key={tag}
+                      label={decodeTag(tag)}
+                      variant={tagVariant(tag)}
+                      className={open ? 'animate-pulse' : ''}
+                    />
                   ))}
                 </motion.div>
               )}
