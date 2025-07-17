@@ -21,3 +21,25 @@ export function intensityColorClass(intensity: string): string {
     return 'bg-red-600';
   return 'bg-gray-600';
 }
+
+export type TagVariant =
+  | 'pink'
+  | 'blue'
+  | 'purple'
+  | 'green'
+  | 'yellow'
+  | 'red';
+
+export function tagVariant(tag: string): TagVariant {
+  const decoded = decodeTag(tag);
+  if (decoded.includes('Toxic') || decoded.includes('Restricted')) return 'red';
+  if (decoded.includes('Safe')) return 'green';
+  if (decoded.includes('Stimulant') || decoded.includes('Euphoria')) return 'pink';
+  if (decoded.includes('Dissociation') || decoded.includes('Sedation')) return 'purple';
+  if (decoded.includes('Dream')) return 'blue';
+  if (decoded.includes('Cognitive')) return 'yellow';
+  if (decoded.includes('Brewable') || decoded.includes('Smokable')) return 'blue';
+  if (decoded.includes('Oral') || decoded.includes('Fermented')) return 'yellow';
+  if (decoded.includes('Ritual')) return 'green';
+  return 'purple';
+}

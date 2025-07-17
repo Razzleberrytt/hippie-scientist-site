@@ -21,6 +21,7 @@ export default {
         'psychedelic-purple': '#8b5cf6',
         'psychedelic-pink': '#ec4899',
         'space-dark': '#0f172a',
+        'space-night': '#0c0c1a',
         'cosmic-purple': '#7e22ce',
       },
       boxShadow: {

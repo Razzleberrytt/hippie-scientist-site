@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
-import Particles from 'react-tsparticles'
-import type { Engine } from 'tsparticles-engine'
+import Particles from '@tsparticles/react'
+import type { Engine } from '@tsparticles/engine'
 import { loadFull } from 'tsparticles'
 
 export default function ParticlesBackground() {
@@ -21,7 +21,7 @@ export default function ParticlesBackground() {
           move: { enable: true, speed: 0.3 },
           opacity: { value: 0.2 },
         },
-        background: { color: '#0f172a' },
+        background: { color: '#0c0c1a' },
       }}
     />
   )
