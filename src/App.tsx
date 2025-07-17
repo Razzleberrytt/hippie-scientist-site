@@ -11,6 +11,8 @@ const BlogIndex = React.lazy(() => import('./pages/BlogIndex'))
 const BlogPost = React.lazy(() => import('./pages/BlogPost'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
 const Learn = React.lazy(() => import('./pages/Learn'))
+const About = React.lazy(() => import('./pages/About'))
+const Store = React.lazy(() => import('./pages/Store'))
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/learn' element={<Learn />} />
             <Route path='/blog' element={<BlogIndex />} />
             <Route path='/blog/:slug' element={<BlogPost />} />
-            <Route path='/learn' element={<Learn />} />
+            <Route path='/store' element={<Store />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Suspense>
