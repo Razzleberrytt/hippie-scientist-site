@@ -5,27 +5,31 @@ import { LoadingScreen } from './components/LoadingScreen'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MouseTrail from './components/MouseTrail'
+import ScrollToTopButton from './components/ScrollToTopButton'
 const Home = React.lazy(() => import('./pages/Home'))
 const BlogIndex = React.lazy(() => import('./pages/BlogIndex'))
 const BlogPost = React.lazy(() => import('./pages/BlogPost'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
+const Learn = React.lazy(() => import('./pages/Learn'))
 
 function App() {
   return (
     <>
       <Navbar />
       <MouseTrail />
-      <main className='pt-16 space-y-24'>
+      <main className='space-y-24 pt-16'>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/blog' element={<BlogIndex />} />
             <Route path='/blog/:slug' element={<BlogPost />} />
+            <Route path='/learn' element={<Learn />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>
       <Footer />
+      <ScrollToTopButton />
     </>
   )
 }

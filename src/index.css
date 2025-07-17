@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  @apply m-0 bg-space-night font-sans text-lg leading-relaxed tracking-tight text-sand;
+  @apply m-0 bg-space-night font-sans text-lg leading-relaxed tracking-tight text-sand dark:bg-black dark:text-sand;
 }
 
 html {
@@ -55,7 +55,8 @@ html {
 }
 
 @keyframes ripple {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(0.95);
     opacity: 0.8;
   }
