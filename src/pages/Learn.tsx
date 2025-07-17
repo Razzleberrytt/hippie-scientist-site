@@ -17,6 +17,9 @@ import {
   Shield,
   PenLine,
   Download,
+  Library,
+  TestTube2,
+  LeafyGreen,
 } from 'lucide-react'
 
 const modules = [
@@ -74,6 +77,21 @@ const modules = [
     icon: Shield,
     title: 'Harm Reduction',
     description: 'Best practices to keep explorations safe.',
+  },
+  {
+    icon: Library,
+    title: 'Herbal Pharmacology',
+    description: 'Study how active compounds interact with the body.',
+  },
+  {
+    icon: TestTube2,
+    title: 'Extraction Techniques',
+    description: 'Make tinctures, oils, and concentrates at home.',
+  },
+  {
+    icon: LeafyGreen,
+    title: 'Medicinal Mushrooms',
+    description: 'Explore adaptogenic fungi and their healing uses.',
   },
 ]
 
