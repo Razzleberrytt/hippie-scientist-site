@@ -20,6 +20,12 @@ import {
   Library,
   TestTube2,
   LeafyGreen,
+  Atom,
+  Sparkles,
+  Flower2,
+  Lightbulb,
+  BookCheck,
+  Mic,
 } from 'lucide-react'
 
 const modules = [
@@ -93,6 +99,21 @@ const modules = [
     title: 'Medicinal Mushrooms',
     description: 'Explore adaptogenic fungi and their healing uses.',
   },
+  {
+    icon: Atom,
+    title: 'Psychedelic Chemistry',
+    description: 'Analyze molecular structures and biosynthetic pathways.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Consciousness Studies',
+    description: 'Philosophical perspectives on awareness and mind.',
+  },
+  {
+    icon: Flower2,
+    title: 'Plant Morphology',
+    description: 'Examine the form and structure of botanical specimens.',
+  },
 ]
 
 const tutorials = [
@@ -120,6 +141,21 @@ const tutorials = [
     icon: Download,
     title: 'Downloadable Charts',
     description: 'Reference sheets for quick learning.',
+  },
+  {
+    icon: Mic,
+    title: 'Podcast Series',
+    description: 'Interviews with leading researchers and guides.',
+  },
+  {
+    icon: BookCheck,
+    title: 'Case Studies',
+    description: 'Real-world examples to reinforce key lessons.',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Idea Workshops',
+    description: 'Exercises to spark creativity and insight.',
   },
 ]
 
