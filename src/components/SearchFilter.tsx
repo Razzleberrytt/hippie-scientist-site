@@ -79,7 +79,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   }, [filtered, onFilter])
 
   return (
-    <div className='sticky top-2 z-10 mb-8 space-y-4 rounded-lg bg-space-dark/70 p-4 backdrop-blur-md'>
+    <div className='sticky top-20 z-10 mb-8 space-y-4 rounded-lg bg-space-dark/70 p-4 backdrop-blur-md'>
       <input
         type='text'
         placeholder='Search herbs...'
