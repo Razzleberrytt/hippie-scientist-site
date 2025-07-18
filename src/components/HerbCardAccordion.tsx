@@ -32,7 +32,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
-const TAG_LIMIT = 4
+const TAG_LIMIT = 3
 
 const fieldTooltips: Record<string, string> = {
   mechanismOfAction: 'How this herb produces its effects in the body.',
@@ -109,7 +109,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-md hover:shadow-psychedelic-pink/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-md hover:drop-shadow-xl hover:shadow-psychedelic-pink/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -121,23 +121,25 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       </motion.span>
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
-          <h3
-            className='text-shadow mb-0.5 font-herb text-xl text-white sm:text-2xl'
-            dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
-          />
-          {tier && (
-            <span
-              className={`ml-1 rounded-full px-2 py-0.5 text-xs font-medium shadow ${
-                tier === 'safe'
-                  ? 'bg-green-700/40 text-green-200 ring-1 ring-green-400/60'
-                  : tier === 'caution'
-                    ? 'bg-yellow-700/40 text-yellow-200 ring-1 ring-yellow-400/60'
-                    : 'bg-red-700/40 text-red-200 ring-1 ring-red-500/60'
-              }`}
-            >
-              {tier === 'safe' ? '✅ Safe' : tier === 'caution' ? '⚠️ Caution' : '☠️ High Risk'}
-            </span>
-          )}
+          <div className='flex flex-wrap items-baseline gap-1'>
+            <h3
+              className='text-shadow mb-0.5 font-herb text-xl text-white sm:text-2xl'
+              dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
+            />
+            {tier && (
+              <span
+                className={`rounded-full px-2 py-0.5 text-xs font-medium shadow ${
+                  tier === 'safe'
+                    ? 'bg-green-700/40 text-green-200 ring-1 ring-green-400/60'
+                    : tier === 'caution'
+                      ? 'bg-yellow-700/40 text-yellow-200 ring-1 ring-yellow-400/60'
+                      : 'bg-red-700/40 text-red-200 ring-1 ring-red-500/60'
+                }`}
+              >
+                {tier === 'safe' ? '✅ Safe' : tier === 'caution' ? '⚠️ Caution' : '☠️ High Risk'}
+              </span>
+            )}
+          </div>
           {herb.scientificName && (
             <p
               className='mt-0.5 text-xs italic text-sand'
@@ -175,13 +177,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
         </div>
       </div>
 
-      <div
-        className='mt-2 flex flex-wrap gap-2'
-        onClick={e => {
-          e.stopPropagation()
-          if (herb.tags.length > TAG_LIMIT) setTagsExpanded(t => !t)
-        }}
-      >
+      <div className='mt-2 flex flex-wrap gap-2'>
         {(tagsExpanded || herb.tags.length <= TAG_LIMIT
           ? herb.tags
           : herb.tags.slice(0, TAG_LIMIT)
@@ -193,11 +189,20 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className={open ? 'animate-pulse' : ''}
           />
         ))}
-        {herb.tags.length > TAG_LIMIT && !tagsExpanded && (
-          <TagBadge label={`+${herb.tags.length - TAG_LIMIT} more`} variant='yellow' />
-        )}
-        {herb.tags.length > TAG_LIMIT && tagsExpanded && (
-          <TagBadge label='Show Less' variant='yellow' />
+        {herb.tags.length > TAG_LIMIT && (
+          <button
+            type='button'
+            onClick={e => {
+              e.stopPropagation()
+              setTagsExpanded(t => !t)
+            }}
+            className='focus:outline-none'
+          >
+            <TagBadge
+              label={tagsExpanded ? 'Show Less' : `+${herb.tags.length - TAG_LIMIT} more`}
+              variant='yellow'
+            />
+          </button>
         )}
       </div>
 
