@@ -18,7 +18,13 @@ export const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setThemeState] = useState<Theme>('light');
+  const [theme, setThemeState] = useState<Theme>(() => {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || stored === 'light') {
+      return stored;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
 
   // Function to apply theme class
   const applyTheme = useCallback((theme: Theme) => {
@@ -28,18 +34,21 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   // Update DOM and localStorage on theme change
   const setTheme = useCallback(
-    (newTheme: Theme) => {
-      setThemeState(newTheme);
-      localStorage.setItem('theme', newTheme);
-      applyTheme(newTheme);
+    (newTheme: Theme | ((prev: Theme) => Theme)) => {
+      setThemeState((prev) => {
+        const value = typeof newTheme === 'function' ? (newTheme as (p: Theme) => Theme)(prev) : newTheme;
+        localStorage.setItem('theme', value);
+        applyTheme(value);
+        return value;
+      });
     },
     [applyTheme]
   );
 
   // Toggle function
   const toggleTheme = useCallback(() => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  }, [theme, setTheme]);
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  }, [setTheme]);
 
   // Read theme from localStorage
   useEffect(() => {
