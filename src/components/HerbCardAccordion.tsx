@@ -42,8 +42,7 @@ const fieldTooltips: Record<string, string> = {
 function gradientForCategory(cat: string): string {
   const c = cat.toLowerCase()
   if (c.includes('oneirogen')) return 'from-indigo-700/40 to-purple-700/40'
-  if (c.includes('ritual') || c.includes('visionary'))
-    return 'from-green-800/40 to-blue-800/40'
+  if (c.includes('ritual') || c.includes('visionary')) return 'from-green-800/40 to-blue-800/40'
   if (c.includes('stimulant')) return 'from-orange-700/40 to-red-700/40'
   return 'from-white/10 to-white/5'
 }
@@ -107,7 +106,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} p-4 sm:p-6 ring-1 ring-white/30 border border-white/10 shadow-xl backdrop-blur-md focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-md focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -120,7 +119,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
           <h3
-            className='font-herb text-xl sm:text-2xl text-white'
+            className='font-herb text-xl text-white sm:text-2xl'
             dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
           />
           {tier && (
@@ -129,8 +128,8 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 tier === 'safe'
                   ? 'bg-green-700/40 text-green-200 ring-1 ring-green-400/60'
                   : tier === 'caution'
-                  ? 'bg-yellow-700/40 text-yellow-200 ring-1 ring-yellow-400/60'
-                  : 'bg-red-700/40 text-red-200 ring-1 ring-red-500/60'
+                    ? 'bg-yellow-700/40 text-yellow-200 ring-1 ring-yellow-400/60'
+                    : 'bg-red-700/40 text-red-200 ring-1 ring-red-500/60'
               }`}
             >
               {tier === 'safe' ? '✅ Safe' : tier === 'caution' ? '⚠️ Caution' : '☠️ High Risk'}
@@ -142,7 +141,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               dangerouslySetInnerHTML={{ __html: mark(herb.scientificName) }}
             />
           )}
-          <div className='mt-1 flex flex-wrap items-center gap-2 text-sm sm:text-base text-sand'>
+          <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
             {herb.category && (
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
             )}
@@ -182,6 +181,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className={open ? 'animate-pulse' : ''}
           />
         ))}
+        {herb.tags.length > 3 && <TagBadge label={`+${herb.tags.length - 3}`} variant='yellow' />}
       </div>
 
       <AnimatePresence initial={false}>
@@ -197,7 +197,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               collapsed: { opacity: 0, height: 0 },
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className='mt-4 overflow-hidden text-sm sm:text-base text-sand break-words whitespace-pre-line'
+            className='mt-4 overflow-hidden whitespace-pre-line break-words text-sm text-sand sm:text-base'
           >
             <motion.div
               variants={containerVariants}
@@ -228,18 +228,14 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 const value =
                   typeof raw === 'string' && raw.trim() && raw !== 'No description provided.'
                     ? raw
-                    : key === 'mechanismOfAction' ||
-                      key === 'toxicity' ||
-                      key === 'toxicityLD50'
+                    : key === 'mechanismOfAction' || key === 'toxicity' || key === 'toxicityLD50'
                       ? UNKNOWN
                       : NOT_WELL_DOCUMENTED
                 return (
                   <motion.div key={key} variants={itemVariants}>
                     <span className='font-semibold text-lime-300'>
                       {key.replace(/([A-Z])/g, ' $1') + ':'}
-                      {fieldTooltips[key] && (
-                        <InfoTooltip text={fieldTooltips[key]} />
-                      )}
+                      {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
                     </span>{' '}
                     {key === 'safetyRating' ? (
                       <span className={typeof raw === 'number' ? safetyColorClass(raw) : ''}>
