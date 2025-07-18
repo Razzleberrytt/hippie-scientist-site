@@ -1,0 +1,9 @@
+.tag-section {
+  @apply rounded-xl bg-black/30 backdrop-blur-md p-2;
+}
+.tag-list {
+  @apply mt-2 flex flex-wrap gap-2 overflow-x-auto;
+}
+.tag-label {
+  @apply flex w-full items-center justify-between text-sm font-semibold text-violet-300;
+}
