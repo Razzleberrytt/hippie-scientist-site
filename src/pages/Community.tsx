@@ -55,25 +55,25 @@ const Community: React.FC = () => {
                 description: 'Connect with experienced researchers and practitioners.',
                 action: 'Find Mentors',
               },
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className='glass-card p-8'
-              >
-                <feature.icon
-                  className='mb-4 h-12 w-12 text-psychedelic-purple'
-                  aria-hidden='true'
-                />
-                <h3 className='mb-4 text-2xl font-bold text-white'>{feature.title}</h3>
-                <p className='mb-6 text-gray-300'>{feature.description}</p>
-                <button className='glass-button rounded-lg px-6 py-3 font-medium text-white transition-all hover:scale-105'>
-                  {feature.action}
-                </button>
-              </motion.div>
-            ))}
+            ].map((feature, index) => {
+              const Icon = feature.icon
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  className='glass-card p-8'
+                >
+                  <Icon className='mb-4 h-12 w-12 text-psychedelic-purple' aria-hidden='true' />
+                  <h3 className='mb-4 text-2xl font-bold text-white'>{feature.title}</h3>
+                  <p className='mb-6 text-gray-300'>{feature.description}</p>
+                  <button className='glass-button rounded-lg px-6 py-3 font-medium text-white transition-all hover:scale-105'>
+                    {feature.action}
+                  </button>
+                </motion.div>
+              )
+            })}
           </div>
 
           {/* Community Guidelines */}

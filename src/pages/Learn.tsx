@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import PanelWrapper from '../components/PanelWrapper'
 import { slugify } from '../utils/slugify'
 import {
   BookOpen,
@@ -186,28 +187,30 @@ export default function Learn() {
             </p>
           </motion.div>
 
-          <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
-            {modules.map(({ icon: Icon, title, description }, index) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-              >
-                <Link
-                  to={`/learn/${slugify(title)}`}
-                  className='glass-card block p-6 text-center hover:shadow-intense'
+          <PanelWrapper>
+            <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
+              {modules.map(({ icon: Icon, title, description }, index) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
                 >
-                  <Icon
-                    className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
-                    aria-hidden='true'
-                  />
-                  <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
-                  <p className='text-gray-300'>{description}</p>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                  <Link
+                    to={`/learn/${slugify(title)}`}
+                    className='glass-card block p-6 text-center hover:shadow-intense'
+                  >
+                    <Icon
+                      className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
+                      aria-hidden='true'
+                    />
+                    <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
+                    <p className='text-gray-300'>{description}</p>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </PanelWrapper>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -215,28 +218,30 @@ export default function Learn() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className='mt-24 text-center'
           >
-            <h2 className='text-gradient mb-6 text-4xl font-bold'>Tutorials &amp; Resources</h2>
-            <p className='mx-auto mb-12 max-w-2xl text-lg text-gray-300'>
-              Dive deeper with curated tutorials and recommended reading.
-            </p>
-            <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
-              {tutorials.map(({ icon: Icon, title, description }, index) => (
-                <motion.div
-                  key={title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className='glass-card p-6 text-center'
-                >
-                  <Icon
-                    className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
-                    aria-hidden='true'
-                  />
-                  <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
-                  <p className='text-gray-300'>{description}</p>
-                </motion.div>
-              ))}
-            </div>
+            <PanelWrapper>
+              <h2 className='text-gradient mb-6 text-4xl font-bold'>Tutorials &amp; Resources</h2>
+              <p className='mx-auto mb-12 max-w-2xl text-lg text-gray-300'>
+                Dive deeper with curated tutorials and recommended reading.
+              </p>
+              <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
+                {tutorials.map(({ icon: Icon, title, description }, index) => (
+                  <motion.div
+                    key={title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    className='glass-card p-6 text-center'
+                  >
+                    <Icon
+                      className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
+                      aria-hidden='true'
+                    />
+                    <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
+                    <p className='text-gray-300'>{description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </PanelWrapper>
           </motion.div>
         </div>
       </div>
