@@ -13,7 +13,10 @@ const HerbList: React.FC<Props> = ({ herbs }) => {
   }
 
   return (
-    <motion.div layout className='space-y-4'>
+    <motion.div
+      layout
+      className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
+    >
       <AnimatePresence>
         {herbs.map(h => (
           <HerbCardAccordion key={h.id || h.name} herb={h} />

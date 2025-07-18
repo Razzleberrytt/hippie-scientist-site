@@ -74,7 +74,7 @@ export default function HerbDetail() {
         </div>
         <button
           type='button'
-          className='rounded-md bg-fuchsia-700 px-3 py-2 text-white hover:bg-fuchsia-600'
+          className='rounded-md bg-gradient-to-r from-violet-900 to-sky-900 px-3 py-2 text-white hover:opacity-90'
           onClick={() => setShowSimilar(s => !s)}
         >
           🧠 Smart Explore
