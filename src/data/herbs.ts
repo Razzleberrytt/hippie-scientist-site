@@ -1,6 +1,8 @@
-import type { Herb } from '../types';
-import data from './herbs.json';
+import type { Herb } from '../types'
+import raw from '../../Full79.json?raw'
 
-const herbs = data as Herb[];
-export default herbs;
-export { herbs };
+const cleaned = raw.replace(/NaN/g, 'null')
+const herbs = JSON.parse(cleaned) as Herb[]
+
+export default herbs
+export { herbs }

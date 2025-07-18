@@ -1,15 +1,8 @@
-import { useState, useEffect } from 'react'
+import React from 'react'
 import type { Herb } from '../types'
+import herbsData from '../data/herbs'
 
-export function useHerbs() {
-  const [herbs, setHerbs] = useState<Herb[]>([])
-
-  useEffect(() => {
-    import('../../Full79.json?raw').then(m => {
-      const cleaned = (m.default as string).replace(/NaN/g, 'null')
-      setHerbs(JSON.parse(cleaned) as Herb[])
-    })
-  }, [])
-
+export function useHerbs(): Herb[] {
+  const [herbs] = React.useState<Herb[]>(herbsData)
   return herbs
 }
