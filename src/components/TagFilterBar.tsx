@@ -1,8 +1,8 @@
 import React from 'react'
 import clsx from 'clsx'
-import { decodeTag, tagVariant } from '../utils/format'
+import { motion } from 'framer-motion'
 import TagBadge from './TagBadge'
-import { decodeTag } from '../utils/format'
+import { decodeTag, tagVariant } from '../utils/format'
 
 interface Props {
   tags: string[]
@@ -20,9 +20,11 @@ const TagFilterBar: React.FC<Props> = ({ tags, selected, onChange }) => {
   }
 
   return (
-    <div className='flex overflow-x-auto gap-2 pb-4'>
+    <div className='flex flex-wrap gap-2 overflow-x-auto pb-4'>
       {tags.map(tag => (
-        <button
+        <motion.button
+          layout
+          whileTap={{ scale: 0.95 }}
           key={tag}
           type='button'
           onClick={() => toggle(tag)}
@@ -33,13 +35,7 @@ const TagFilterBar: React.FC<Props> = ({ tags, selected, onChange }) => {
             variant={selected.includes(tag) ? 'green' : tagVariant(tag)}
             className={clsx(selected.includes(tag) && 'ring-1 ring-emerald-300')}
           />
-          className={clsx(
-            'flex-shrink-0 bg-emerald-700/30 text-emerald-200 px-3 py-1 rounded-full text-xs shadow-md hover:bg-emerald-600/50 transition',
-            selected.includes(tag) && 'ring-1 ring-emerald-300 bg-emerald-600/50'
-          )}
-        >
-          {decodeTag(tag)}
-        </button>
+        </motion.button>
       ))}
     </div>
   )
