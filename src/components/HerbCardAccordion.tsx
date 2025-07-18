@@ -72,7 +72,13 @@ export default function HerbCardAccordion({ herb }: Props) {
             )}
             {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
             {herb.safetyRating !== undefined && (
-              <span className={safetyColorClass(Number(herb.safetyRating))}>
+              <span
+                className={
+                  typeof herb.safetyRating === 'number'
+                    ? safetyColorClass(herb.safetyRating)
+                    : ''
+                }
+              >
                 {herb.safetyRating}
               </span>
             )}

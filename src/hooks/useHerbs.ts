@@ -5,8 +5,9 @@ export function useHerbs() {
   const [herbs, setHerbs] = useState<Herb[]>([])
 
   useEffect(() => {
-    import('../data/herbs.json').then(m => {
-      setHerbs(m.default as Herb[])
+    import('../../Full79.json?raw').then(m => {
+      const cleaned = (m.default as string).replace(/NaN/g, 'null')
+      setHerbs(JSON.parse(cleaned) as Herb[])
     })
   }, [])
 
