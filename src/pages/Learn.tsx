@@ -1,6 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { slugify } from '../utils/slugify'
 import {
   BookOpen,
   BrainCircuit,
@@ -191,14 +193,18 @@ export default function Learn() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
-                className='glass-card p-6 text-center'
               >
-                <Icon
-                  className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
-                  aria-hidden='true'
-                />
-                <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
-                <p className='text-gray-300'>{description}</p>
+                <Link
+                  to={`/learn/${slugify(title)}`}
+                  className='glass-card block p-6 text-center hover:shadow-intense'
+                >
+                  <Icon
+                    className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
+                    aria-hidden='true'
+                  />
+                  <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
+                  <p className='text-gray-300'>{description}</p>
+                </Link>
               </motion.div>
             ))}
           </div>

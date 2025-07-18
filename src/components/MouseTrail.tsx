@@ -23,20 +23,21 @@ const MouseTrail: React.FC = () => {
       setIsVisible(false)
     }
 
-    window.addEventListener('mousemove', updatePosition)
-    window.addEventListener('touchstart', updatePosition)
-    window.addEventListener('touchmove', updatePosition)
-    window.addEventListener('mouseleave', endTrail)
-    window.addEventListener('touchend', endTrail)
-    window.addEventListener('touchcancel', endTrail)
+    const opts = { passive: true }
+    document.addEventListener('mousemove', updatePosition, opts)
+    document.addEventListener('touchstart', updatePosition, opts)
+    document.addEventListener('touchmove', updatePosition, opts)
+    document.addEventListener('mouseleave', endTrail, opts)
+    document.addEventListener('touchend', endTrail, opts)
+    document.addEventListener('touchcancel', endTrail, opts)
 
     return () => {
-      window.removeEventListener('mousemove', updatePosition)
-      window.removeEventListener('touchstart', updatePosition)
-      window.removeEventListener('touchmove', updatePosition)
-      window.removeEventListener('mouseleave', endTrail)
-      window.removeEventListener('touchend', endTrail)
-      window.removeEventListener('touchcancel', endTrail)
+      document.removeEventListener('mousemove', updatePosition)
+      document.removeEventListener('touchstart', updatePosition)
+      document.removeEventListener('touchmove', updatePosition)
+      document.removeEventListener('mouseleave', endTrail)
+      document.removeEventListener('touchend', endTrail)
+      document.removeEventListener('touchcancel', endTrail)
     }
   }, [mouseX, mouseY])
 
