@@ -23,7 +23,7 @@ export default function Home() {
   }
 
   return (
-    <main className='min-h-screen bg-gradient-to-br from-sand via-opal to-spore px-4 py-10 text-bark dark:from-black dark:via-indigo-950 dark:to-slate-900 dark:text-white'>
+    <main className='min-h-screen bg-white text-black dark:bg-black dark:text-white px-4 py-10'>
       <HeroSection />
       <section className='mx-auto max-w-4xl space-y-10'>
         <p className='text-center text-lg text-opal'>

@@ -5,7 +5,15 @@
 @tailwind utilities;
 
 body {
-  @apply m-0 bg-sand font-sans text-lg leading-relaxed tracking-tight text-bark dark:bg-black dark:text-sand;
+  @apply m-0 font-sans text-lg leading-relaxed tracking-tight;
+}
+
+body.light {
+  @apply bg-white text-black;
+}
+
+body.dark {
+  @apply bg-black text-sand;
 }
 
 html {
