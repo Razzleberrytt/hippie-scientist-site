@@ -54,6 +54,7 @@ export default function Database() {
     return counts
   }, [herbs])
 
+  const [filtersOpen, setFiltersOpen] = React.useState(false)
 
   const relatedTags = React.useMemo(() => {
     if (filteredTags.length === 0) return [] as string[]
@@ -107,14 +108,17 @@ export default function Database() {
             >
               {favoritesOnly ? 'All Herbs' : 'My Herbs'}
             </button>
+            <button
+              type='button'
+              onClick={() => setFiltersOpen(o => !o)}
+              className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10 sm:hidden'
+            >
+              {filtersOpen ? 'Hide Filters' : 'Show Filters'}
+            </button>
           </div>
 
-          <div className='mb-4'>
-            <TagFilterBar
-              tags={allTags}
-              counts={tagCounts}
-              onChange={setFilteredTags}
-            />
+          <div className={`mb-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
+            <TagFilterBar tags={allTags} counts={tagCounts} onChange={setFilteredTags} />
           </div>
           {relatedTags.length > 0 && (
             <div className='mb-4 flex flex-wrap items-center gap-2'>
