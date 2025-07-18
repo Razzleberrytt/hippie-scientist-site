@@ -36,6 +36,22 @@ Source files live in `src/`. Pages are under `src/pages` and reusable components
 - **Store** – upcoming merch and digital resources
 - **Theming** – light/dark modes persisted with local storage
 
+## Educational Resources
+
+This repository includes a variety of learning materials:
+
+- Over twenty short articles in `src/data/posts.ts` on topics like neuroscience, cultural traditions and field research.
+- A detailed herb database in `src/data/herbsData.ts` with pharmacology notes and images.
+- Modular lessons and tutorials on the Learn page (`src/pages/Learn.tsx`).
+
+## Potential Upgrades
+
+- Add search and tag filters for blog posts.
+- Allow users to bookmark herbs or lessons.
+- Integrate interactive quizzes from the Learn section.
+- Enable offline access via a service worker.
+- Expand the store with downloadable resources.
+
 ## Contributing
 
 Pull requests and issue reports are welcome. Please open an issue first if you would like to discuss a major change.
