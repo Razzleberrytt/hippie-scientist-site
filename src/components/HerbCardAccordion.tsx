@@ -32,6 +32,8 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
+const TAG_LIMIT = 4
+
 const fieldTooltips: Record<string, string> = {
   mechanismOfAction: 'How this herb produces its effects in the body.',
   toxicity: 'Known adverse effects or poisoning information.',
@@ -67,6 +69,7 @@ function safetyTier(rating: any, toxicity?: string): SafetyTier {
 
 export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const [open, setOpen] = useState(false)
+  const [tagsExpanded, setTagsExpanded] = useState(false)
   const toggle = () => setOpen(v => !v)
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
@@ -106,7 +109,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-md focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-md hover:shadow-psychedelic-pink/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -119,7 +122,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
           <h3
-            className='font-herb text-xl text-white sm:text-2xl'
+            className='text-shadow mb-0.5 font-herb text-xl text-white sm:text-2xl'
             dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
           />
           {tier && (
@@ -137,7 +140,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
           )}
           {herb.scientificName && (
             <p
-              className='text-xs italic text-sand'
+              className='mt-0.5 text-xs italic text-sand'
               dangerouslySetInnerHTML={{ __html: mark(herb.scientificName) }}
             />
           )}
@@ -172,8 +175,17 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
         </div>
       </div>
 
-      <div className='mt-2 flex flex-wrap gap-2'>
-        {herb.tags.slice(0, 3).map(tag => (
+      <div
+        className='mt-2 flex flex-wrap gap-2'
+        onClick={e => {
+          e.stopPropagation()
+          if (herb.tags.length > TAG_LIMIT) setTagsExpanded(t => !t)
+        }}
+      >
+        {(tagsExpanded || herb.tags.length <= TAG_LIMIT
+          ? herb.tags
+          : herb.tags.slice(0, TAG_LIMIT)
+        ).map(tag => (
           <TagBadge
             key={tag}
             label={decodeTag(tag)}
@@ -181,7 +193,12 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className={open ? 'animate-pulse' : ''}
           />
         ))}
-        {herb.tags.length > 3 && <TagBadge label={`+${herb.tags.length - 3}`} variant='yellow' />}
+        {herb.tags.length > TAG_LIMIT && !tagsExpanded && (
+          <TagBadge label={`+${herb.tags.length - TAG_LIMIT} more`} variant='yellow' />
+        )}
+        {herb.tags.length > TAG_LIMIT && tagsExpanded && (
+          <TagBadge label='Show Less' variant='yellow' />
+        )}
       </div>
 
       <AnimatePresence initial={false}>
