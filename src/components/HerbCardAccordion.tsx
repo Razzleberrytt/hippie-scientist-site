@@ -7,6 +7,7 @@ import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
 import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
 import TagBadge from './TagBadge'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
+import InfoTooltip from './InfoTooltip'
 
 interface Props {
   herb: Herb
@@ -31,6 +32,40 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
+const fieldTooltips: Record<string, string> = {
+  mechanismOfAction: 'How this herb produces its effects in the body.',
+  toxicity: 'Known adverse effects or poisoning information.',
+  therapeuticUses: 'Traditional or potential healing applications.',
+  contraindications: 'Situations where this herb should be avoided.',
+}
+
+function gradientForCategory(cat: string): string {
+  const c = cat.toLowerCase()
+  if (c.includes('oneirogen')) return 'from-indigo-700/40 to-purple-700/40'
+  if (c.includes('ritual') || c.includes('visionary'))
+    return 'from-green-800/40 to-blue-800/40'
+  if (c.includes('stimulant')) return 'from-orange-700/40 to-red-700/40'
+  return 'from-white/10 to-white/5'
+}
+
+type SafetyTier = 'safe' | 'caution' | 'danger' | undefined
+
+function safetyTier(rating: any, toxicity?: string): SafetyTier {
+  let r: number | undefined
+  if (typeof rating === 'number') r = rating
+  if (typeof rating === 'string') {
+    const val = rating.toLowerCase()
+    if (val === 'low') r = 1
+    else if (val === 'moderate') r = 3
+    else if (val === 'high') r = 5
+  }
+  if (toxicity && /severe|danger/i.test(toxicity)) return 'danger'
+  if (r == null) return undefined
+  if (r <= 2) return 'safe'
+  if (r <= 4) return 'caution'
+  return 'danger'
+}
+
 export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen(v => !v)
@@ -49,6 +84,9 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
     const regex = new RegExp(`(${escaped})`, 'ig')
     return text.replace(regex, '<span class="font-bold text-yellow-300">$1</span>')
   }
+
+  const gradient = gradientForCategory(herb.category)
+  const tier = safetyTier(herb.safetyRating, herb.toxicity)
 
   return (
     <motion.div
@@ -69,7 +107,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className='hover-glow relative cursor-pointer overflow-hidden rounded-2xl bg-white/10 p-4 sm:p-6 ring-1 ring-white/30 border border-white/10 shadow-xl backdrop-blur-md focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} p-4 sm:p-6 ring-1 ring-white/30 border border-white/10 shadow-xl backdrop-blur-md focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -85,6 +123,19 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className='font-herb text-xl sm:text-2xl text-white'
             dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
           />
+          {tier && (
+            <span
+              className={`ml-1 rounded-full px-2 py-0.5 text-xs font-medium shadow ${
+                tier === 'safe'
+                  ? 'bg-green-700/40 text-green-200 ring-1 ring-green-400/60'
+                  : tier === 'caution'
+                  ? 'bg-yellow-700/40 text-yellow-200 ring-1 ring-yellow-400/60'
+                  : 'bg-red-700/40 text-red-200 ring-1 ring-red-500/60'
+              }`}
+            >
+              {tier === 'safe' ? '✅ Safe' : tier === 'caution' ? '⚠️ Caution' : '☠️ High Risk'}
+            </span>
+          )}
           {herb.scientificName && (
             <p
               className='text-xs italic text-sand'
@@ -186,6 +237,9 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                   <motion.div key={key} variants={itemVariants}>
                     <span className='font-semibold text-lime-300'>
                       {key.replace(/([A-Z])/g, ' $1') + ':'}
+                      {fieldTooltips[key] && (
+                        <InfoTooltip text={fieldTooltips[key]} />
+                      )}
                     </span>{' '}
                     {key === 'safetyRating' ? (
                       <span className={typeof raw === 'number' ? safetyColorClass(raw) : ''}>

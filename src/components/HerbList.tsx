@@ -3,6 +3,16 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { Herb } from '../types'
 import HerbCardAccordion from './HerbCardAccordion'
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.05 } },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+}
+
 interface Props {
   herbs: Herb[]
   highlightQuery?: string
@@ -20,16 +30,18 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
   return (
     <>
       <motion.div
+        key={herbs.map(h => h.id).join('-')}
         layout
+        variants={containerVariants}
+        initial='hidden'
+        animate='visible'
         className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
       >
         <AnimatePresence>
           {herbs.slice(0, visible).map(h => (
-            <HerbCardAccordion
-              key={h.id || h.name}
-              herb={h}
-              highlight={highlightQuery}
-            />
+            <motion.div key={h.id || h.name} variants={itemVariants} layout>
+              <HerbCardAccordion herb={h} highlight={highlightQuery} />
+            </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
