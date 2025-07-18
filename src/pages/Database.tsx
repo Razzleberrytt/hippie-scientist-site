@@ -64,7 +64,11 @@ export default function Database() {
       if (window.scrollY > 150) setFiltersOpen(false)
     }
     window.addEventListener('scroll', close)
-    return () => window.removeEventListener('scroll', close)
+    window.addEventListener('touchmove', close)
+    return () => {
+      window.removeEventListener('scroll', close)
+      window.removeEventListener('touchmove', close)
+    }
   }, [])
 
   const relatedTags = React.useMemo(() => {
