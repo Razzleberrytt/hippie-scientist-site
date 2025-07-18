@@ -81,7 +81,7 @@ export default function Database() {
 
       <div className='relative min-h-screen px-4 pt-20'>
         <StarfieldBackground />
-        <div className='relative mx-auto max-w-3xl'>
+        <div className='relative mx-auto max-w-6xl'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,12 +89,12 @@ export default function Database() {
             className='mb-8 text-center'
           >
             <h1 className='text-gradient mb-6 text-5xl font-bold'>Herb Database</h1>
-            <p className='mx-auto max-w-3xl text-xl text-gray-300'>
+            <p className='mx-auto max-w-4xl text-xl text-gray-300'>
               Explore our collection of herbs. Click any entry to see detailed information.
             </p>
           </motion.div>
 
-          <div className='sticky top-2 z-10 mb-4 flex items-center gap-2'>
+          <div className='sticky top-2 z-20 mb-4 flex flex-wrap items-center gap-2'>
             <input
               type='text'
               placeholder='Search herbs...'
@@ -111,7 +111,9 @@ export default function Database() {
             </button>
           </div>
 
-          <TagFilterBar tags={allTags} onChange={setFilteredTags} />
+          <div className='mb-4'>
+            <TagFilterBar tags={allTags} onChange={setFilteredTags} />
+          </div>
           {relatedTags.length > 0 && (
             <div className='mb-4 flex flex-wrap items-center gap-2'>
               <span className='text-sm text-moss'>Related tags:</span>

@@ -25,7 +25,7 @@ export default function TagFilterBar({ tags, onChange, storageKey = 'tagFilters'
   }
 
   return (
-    <div className='flex flex-wrap gap-2 overflow-x-auto pb-4'>
+    <div className='sticky top-16 z-10 flex flex-wrap gap-2 overflow-x-auto pb-4 backdrop-blur-md bg-black/30 rounded-xl px-2'>
       {tags.map(tag => (
         <motion.button
           key={tag}
