@@ -1,11 +1,11 @@
 import React from 'react'
 import Fuse from 'fuse.js'
 import { decodeTag } from '../utils/format'
-import type { Post } from '../data/posts'
+import type { MdPost } from '../data/mdPosts'
 
 interface Props {
-  posts: Post[]
-  onFilter: (posts: Post[]) => void
+  posts: MdPost[]
+  onFilter: (posts: MdPost[]) => void
 }
 
 const PostFilter: React.FC<Props> = ({ posts, onFilter }) => {
@@ -46,7 +46,7 @@ const PostFilter: React.FC<Props> = ({ posts, onFilter }) => {
 
   const filtered = React.useMemo(() => {
     const q = query.trim()
-    let res: Post[] = posts
+    let res: MdPost[] = posts
     if (q) {
       res = fuse.search(q).map(r => r.item)
     }

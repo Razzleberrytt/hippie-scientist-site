@@ -9,6 +9,7 @@ import ScrollToTopButton from './components/ScrollToTopButton'
 const Home = React.lazy(() => import('./pages/Home'))
 const BlogIndex = React.lazy(() => import('./pages/BlogIndex'))
 const BlogPost = React.lazy(() => import('./pages/BlogPost'))
+const HerbDetail = React.lazy(() => import('./pages/HerbDetail'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
 const Learn = React.lazy(() => import('./pages/Learn'))
 const Lesson = React.lazy(() => import('./pages/Lesson'))
@@ -34,6 +35,7 @@ function App() {
             <Route path='/research' element={<Research />} />
             <Route path='/blog' element={<BlogIndex />} />
             <Route path='/blog/:slug' element={<BlogPost />} />
+            <Route path='/herbs/:id' element={<HerbDetail />} />
             <Route path='/bookmarks' element={<Bookmarks />} />
             <Route path='/store' element={<Store />} />
             <Route path='*' element={<NotFound />} />

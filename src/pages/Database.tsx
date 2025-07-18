@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import HerbList from '../components/HerbList'
 import TagFilterBar from '../components/TagFilterBar'
+import CategoryAnalytics from '../components/CategoryAnalytics'
+import { decodeTag } from '../utils/format'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
@@ -49,6 +51,24 @@ export default function Database() {
     return res
   }, [herbs, query, filteredTags, favoritesOnly, favorites])
 
+  const relatedTags = React.useMemo(() => {
+    if (filteredTags.length === 0) return [] as string[]
+    const counts: Record<string, number> = {}
+    herbs.forEach(h => {
+      if (filteredTags.every(t => h.tags.includes(t))) {
+        h.tags.forEach(t => {
+          if (!filteredTags.includes(t)) {
+            counts[t] = (counts[t] || 0) + 1
+          }
+        })
+      }
+    })
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([t]) => t)
+  }, [filteredTags, herbs])
+
   return (
     <>
       <Helmet>
@@ -92,6 +112,22 @@ export default function Database() {
           </div>
 
           <TagFilterBar tags={allTags} onChange={setFilteredTags} />
+          {relatedTags.length > 0 && (
+            <div className='mb-4 flex flex-wrap items-center gap-2'>
+              <span className='text-sm text-moss'>Related tags:</span>
+              {relatedTags.map(tag => (
+                <button
+                  key={tag}
+                  type='button'
+                  onClick={() => setFilteredTags(t => Array.from(new Set([...t, tag])))}
+                  className='tag-pill'
+                >
+                  {decodeTag(tag)}
+                </button>
+              ))}
+            </div>
+          )}
+          <CategoryAnalytics />
           <HerbList herbs={filtered} />
         </div>
       </div>

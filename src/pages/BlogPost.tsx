@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import PanelWrapper from '../components/PanelWrapper'
-import { posts } from '../data/posts'
+import { posts } from '../data/mdPosts'
+import ReactMarkdown from 'react-markdown'
 import { useFavorites } from '../hooks/useFavorites'
 
 const BlogPost: React.FC = () => {
@@ -49,14 +50,12 @@ const BlogPost: React.FC = () => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className='mb-8 text-sm text-moss'
+          className='mb-4 text-sm text-moss'
         >
-          Stardate: {post.date}
+          By {post.author} · {post.date} · {post.readingTime}
         </motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className='space-y-4'>
-          {post.content.split('\n').map((line, i) => (
-            <p key={i}>{line}</p>
-          ))}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className='prose prose-invert max-w-none'>
+          <ReactMarkdown>{post.content}</ReactMarkdown>
         </motion.div>
       </PanelWrapper>
     </>
