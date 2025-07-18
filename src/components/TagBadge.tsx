@@ -21,7 +21,7 @@ export default function TagBadge({ label, variant = 'purple', className }: Props
     <motion.span
       whileHover={{ scale: 1.05 }}
       className={clsx(
-        'inline-flex items-center rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white shadow',
+        'inline-flex items-center rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white shadow hover-glow',
         colorMap[variant],
         className,
       )}

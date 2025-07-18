@@ -25,14 +25,14 @@ export default function Home() {
   return (
     <main className='min-h-screen bg-white text-black dark:bg-black dark:text-white px-4 py-10'>
       <HeroSection />
-      <section className='mx-auto max-w-4xl space-y-10'>
-        <p className='text-center text-lg text-opal'>
+      <section className='mx-auto max-w-4xl space-y-12'>
+        <p className='text-center text-lg sm:text-xl text-opal'>
           Discover visionary plants used throughout history. Search the database or browse page by
           page.
         </p>
         <SearchFilter herbs={herbs} onFilter={handleFilter} />
         <motion.div layout>
-          <h2 className='text-gradient mb-4 font-display text-3xl'>Herb Index</h2>
+          <h2 className='text-gradient mb-4 font-display text-3xl md:text-4xl'>Herb Index</h2>
           <HerbList herbs={paginated} />
           <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
         </motion.div>

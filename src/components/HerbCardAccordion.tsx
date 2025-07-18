@@ -53,10 +53,10 @@ export default function HerbCardAccordion({ herb }: Props) {
       tabIndex={0}
       role='button'
       aria-expanded={open}
-      whileHover={{ scale: 1.03, rotateX: 1, rotateY: -1 }}
+      whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className='relative cursor-pointer overflow-hidden rounded-2xl bg-black/20 p-4 sm:p-6 ring-1 ring-white/10 shadow-xl backdrop-blur-lg transition-all hover:shadow-2xl focus:outline-none'
+      className='hover-glow relative cursor-pointer overflow-hidden rounded-2xl bg-black/30 p-4 sm:p-6 ring-1 ring-white/10 shadow-xl backdrop-blur-md focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -68,9 +68,9 @@ export default function HerbCardAccordion({ herb }: Props) {
       </motion.span>
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
-          <h3 className='font-herb text-lg sm:text-xl text-white'>{herb.name}</h3>
+          <h3 className='font-herb text-xl sm:text-2xl text-white'>{herb.name}</h3>
           {herb.scientificName && <p className='text-xs italic text-sand'>{herb.scientificName}</p>}
-          <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand'>
+          <div className='mt-1 flex flex-wrap items-center gap-2 text-sm sm:text-base text-sand'>
             {herb.category && (
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
             )}
@@ -125,14 +125,14 @@ export default function HerbCardAccordion({ herb }: Props) {
               collapsed: { opacity: 0, height: 0 },
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className='mt-4 overflow-hidden text-sm sm:text-base text-sand'
+            className='mt-4 overflow-hidden text-sm sm:text-base text-sand break-words whitespace-pre-line'
           >
             <motion.div
               variants={containerVariants}
               initial='hidden'
               animate='visible'
               exit='hidden'
-              className='space-y-2'
+              className='space-y-3'
             >
               {[
                 'description',
