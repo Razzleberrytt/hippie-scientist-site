@@ -5,7 +5,7 @@ import FloatingElements from './FloatingElements'
 
 export default function HeroSection() {
   return (
-    <section className='relative flex min-h-[70vh] items-center justify-center overflow-hidden py-16 text-center'>
+    <section className='relative flex min-h-[60vh] items-center justify-center overflow-hidden py-16 text-center'>
       <ParticlesBackground />
       <HeroBackground />
       <FloatingElements />

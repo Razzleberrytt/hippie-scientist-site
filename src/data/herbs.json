@@ -8,10 +8,10 @@
     "intensity": "Moderate",
     "onset": "30-60 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
+    "region": "🇲🇽 Latin America",
     "tags": ["\\ud83d\\udc8a Oral", "\\ud83e\\udde0 Dream", "\\u2705 Safe"],
     "mechanismOfAction": "Tryptamine alkaloids may interact with serotonin receptors.",
-    "pharmacokinetics": "Traditionally consumed as cold water infusion; onset ~1\u20132\u202fh; effects last ~6\u20138\u202fh [0, 11].",
+    "pharmacokinetics": "Traditionally consumed as cold water infusion; onset ~1–2 h; effects last ~6–8 h [0, 11].",
     "therapeuticUses": "Dream enhancement, lucid dreaming, traditional remedy for diarrhea and stomach aches [0, 6, 0, 11].",
     "sideEffects": "Mild GI upset, drowsiness; rare nausea [0, 6].",
     "contraindications": "Pregnancy, lactation, hypersensitivity [0, 6].",
@@ -22,7 +22,6 @@
     "description": "Seed from a tropical vine used in African traditions to induce vivid dreams.",
     "safetyRating": 1
   },
-
   {
     "name": "Kava",
     "scientificName": "Piper methysticum",
@@ -32,10 +31,10 @@
     "intensity": "Moderate",
     "onset": "10-20 min",
     "legalStatus": "Regulated / Varies",
-    "region": "\ud83c\udf0e Pacific Islands",
+    "region": "🌎 Pacific Islands",
     "tags": ["\\ud83d\\udc8a Oral", "\\ud83e\\uddd8 Sedation", "\\u2705 Safe"],
     "mechanismOfAction": "Kavalactones modulate GABA receptors and inhibit norepinephrine reuptake.",
-    "pharmacokinetics": "Oral onset 10\u201320 min; duration 2\u20133 h.",
+    "pharmacokinetics": "Oral onset 10–20 min; duration 2–3 h.",
     "therapeuticUses": "Anxiety relief, muscle relaxation, social ease.",
     "sideEffects": "Drowsiness, impaired coordination, rare hepatotoxicity.",
     "contraindications": "Liver disease, pregnancy, use with CNS depressants.",
@@ -46,7 +45,6 @@
     "description": "South Pacific root brew known for its relaxing and anxiolytic effects.",
     "safetyRating": 2
   },
-
   {
     "name": "Lion's Mane",
     "scientificName": "Hericium erinaceus",
@@ -56,7 +54,7 @@
     "intensity": "Mild",
     "onset": "Days to weeks",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udde8\ud83c\uddf3 East Asia",
+    "region": "🇨🇳 East Asia",
     "tags": ["\\ud83d\\udc8a Oral", "\\ud83e\\udde0 Cognitive", "\\u2705 Safe"],
     "mechanismOfAction": "Hericenones and erinacines stimulate nerve growth factor.",
     "pharmacokinetics": "Benefits accumulate with regular use over weeks.",
@@ -67,10 +65,9 @@
     "toxicity": "Low toxicity; consumed as food in many cultures.",
     "toxicityLD50": "Not established; considered safe.",
     "id": "lions-mane",
-    "description": "No description provided.",
+    "description": "Medicinal mushroom valued for promoting nerve growth and mental clarity.",
     "safetyRating": 1
   },
-
   {
     "name": "Passionflower",
     "scientificName": "Passiflora incarnata",
@@ -80,7 +77,7 @@
     "intensity": "Mild",
     "onset": "20-40 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e North America",
+    "region": "🌎 North America",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -88,7 +85,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Flavonoids and harmala alkaloids modulate GABA and MAO activity.",
-    "pharmacokinetics": "Oral onset 20\u201340 min; duration 1\u20132 h.",
+    "pharmacokinetics": "Oral onset 20–40 min; duration 1–2 h.",
     "therapeuticUses": "Insomnia, anxiety relief, muscle relaxation.",
     "sideEffects": "Drowsiness, dizziness at high doses.",
     "contraindications": "Pregnancy, use with CNS depressants.",
@@ -96,10 +93,9 @@
     "toxicity": "Generally safe at recommended doses.",
     "toxicityLD50": "Not well established; high safety margin.",
     "id": "passionflower",
-    "description": "No description provided.",
+    "description": "Climbing vine traditionally brewed for anxiety relief and restful sleep.",
     "safetyRating": 1
   },
-
   {
     "name": "Reishi Mushroom",
     "scientificName": "Ganoderma lucidum",
@@ -109,7 +105,7 @@
     "intensity": "Mild",
     "onset": "30-60 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udde8\ud83c\uddf3 East Asia",
+    "region": "🇨🇳 East Asia",
     "tags": ["\\u2615 Brewable", "\\ud83e\\udde0 Cognitive", "\\u2705 Safe"],
     "mechanismOfAction": "Triterpenoids and beta-glucans modulate immune response.",
     "pharmacokinetics": "Oral; benefits build over weeks of use.",
@@ -120,10 +116,9 @@
     "toxicity": "Very low toxicity; widely consumed as tonic.",
     "toxicityLD50": "Not established; safe in traditional use.",
     "id": "reishi-mushroom",
-    "description": "No description provided.",
+    "description": "Tonic fungus revered in Asia for boosting immunity and easing stress.",
     "safetyRating": 1
   },
-
   {
     "name": "Valerian",
     "scientificName": "Valeriana officinalis",
@@ -133,10 +128,10 @@
     "intensity": "Mild",
     "onset": "30-60 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udde7\ud83c\uddea Europe",
+    "region": "🇧🇪 Europe",
     "tags": ["\\u2615 Brewable", "\\ud83e\\uddd8 Sedation", "\\u2705 Safe"],
     "mechanismOfAction": "Valerenic acid modulates GABA receptors and inhibits breakdown.",
-    "pharmacokinetics": "Oral onset 30\u201360 min; effects last 2\u20134 h.",
+    "pharmacokinetics": "Oral onset 30–60 min; effects last 2–4 h.",
     "therapeuticUses": "Insomnia, anxiety, muscle tension.",
     "sideEffects": "Grogginess, vivid dreams, headache.",
     "contraindications": "Pregnancy, heavy alcohol use.",
@@ -144,7 +139,7 @@
     "toxicity": "Generally safe; high doses may cause dizziness.",
     "toxicityLD50": "LD50 > 3 g/kg (rat).",
     "id": "valerian",
-    "description": "No description provided.",
+    "description": "Pungent root used as a natural sleep aid and mild tranquilizer.",
     "safetyRating": 1
   },
   {
@@ -156,7 +151,7 @@
     "intensity": "Mild",
     "onset": "1-5 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddea\ud83c\uddfa Europe",
+    "region": "🇪🇺 Europe",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -164,15 +159,15 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Contains thujone, a GABAA antagonist; may also modulate cholinergic systems [9, 9].",
-    "pharmacokinetics": "Smoked or tea; onset 20\u201340\u202fmin; duration ~1\u20132\u202fh [9, 9].",
+    "pharmacokinetics": "Smoked or tea; onset 20–40 min; duration ~1–2 h [9, 9].",
     "therapeuticUses": "Lucid dreaming, digestive support, menstrual aid [9, 9].",
     "sideEffects": "Headache, nausea, dizziness; risk in pregnancy and seizure disorders [9, 9].",
     "contraindications": "Pregnancy, allergies to ragweed, epilepsy [9, 9].",
     "drugInteractions": "Avoid with CNS depressants and anticonvulsants [9, 9].",
     "toxicity": "Contains thujone and other essential oils that are toxic in high doses.",
-    "toxicityLD50": "Thujone LD50 ~87\u2013120 mg/kg in mice; caution advised at high doses or chronic use.",
+    "toxicityLD50": "Thujone LD50 ~87–120 mg/kg in mice; caution advised at high doses or chronic use.",
     "id": "mugwort",
-    "description": "No description provided.",
+    "description": "Aromatic herb smoked or sipped to enhance dreaming and soothe digestion.",
     "safetyRating": 1
   },
   {
@@ -184,7 +179,7 @@
     "intensity": "Moderate",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83e\\uddea Fermented",
@@ -192,7 +187,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Alkaloids may affect auditory processing and blood flow, potentially modulating neurotransmission [9, 4].",
-    "pharmacokinetics": "Traditionally fermented sun tea; slow onset 15\u201345\u202fmin; duration ~2\u20133\u202fh [9, 4].",
+    "pharmacokinetics": "Traditionally fermented sun tea; slow onset 15–45 min; duration ~2–3 h [9, 4].",
     "therapeuticUses": "Divination, auditory changes, euphoria in folk practices [9, 4].",
     "sideEffects": "Dry mouth, muscle relaxation, altered hearing [9, 4].",
     "contraindications": "Avoid with alcohol or CNS depressants, pregnancy [9, 4].",
@@ -200,7 +195,7 @@
     "toxicity": "Low toxicity; high doses may cause mild sedation or nausea [9, 4].",
     "toxicityLD50": "Not well established; no fatal doses reported in traditional use.",
     "id": "heimia-salicifolia-sinicuichi",
-    "description": "No description provided.",
+    "description": "Mexican shrub whose fermented leaves produce mild auditory shifts.",
     "safetyRating": 1
   },
   {
@@ -212,10 +207,10 @@
     "intensity": "Moderate",
     "onset": "30-60 min",
     "legalStatus": "Legal, sometimes restricted",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\ud83d\\udc8a Oral", "\\ud83d\\udcab Euphoria", "\\u26a0\\ufe0f Restricted"],
     "mechanismOfAction": "Selective serotonin reuptake inhibition (SSRI) and phosphodiesterase-4 (PDE4) inhibition [9, 4].",
-    "pharmacokinetics": "Oral onset 20\u201360\u202fmin; duration 2\u20134\u202fh [9, 4].",
+    "pharmacokinetics": "Oral onset 20–60 min; duration 2–4 h [9, 4].",
     "therapeuticUses": "Mood enhancement, anti-anxiety, social facilitation [9, 4].",
     "sideEffects": "Headache, nausea, mild sedation [9, 4].",
     "contraindications": "Do not combine with other serotonergic substances; pregnancy [9, 4].",
@@ -223,7 +218,7 @@
     "toxicity": "Low toxicity at traditional doses [9, 4].",
     "toxicityLD50": "Not established in humans; high safety margin observed in animal studies.",
     "id": "sceletium-tortuosum-kanna",
-    "description": "No description provided.",
+    "description": "South African succulent chewed to elevate mood and decrease tension.",
     "safetyRating": 1
   },
   {
@@ -235,7 +230,7 @@
     "intensity": "Mild",
     "onset": "1-5 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -243,7 +238,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Contains aporphine and nuciferine; dopamine receptor modulation and mild sedative effect.",
-    "pharmacokinetics": "Smoked or soaked in wine; onset rapid (5\u201320 min); duration ~1\u20133 hrs.",
+    "pharmacokinetics": "Smoked or soaked in wine; onset rapid (5–20 min); duration ~1–3 hrs.",
     "therapeuticUses": "Mild euphoria, anxiety relief, and aphrodisiac in traditional use.",
     "sideEffects": "Drowsiness, mild dizziness at high doses.",
     "contraindications": "Pregnancy, avoid with dopaminergic drugs.",
@@ -251,7 +246,7 @@
     "toxicity": "Low toxicity; no serious effects reported from traditional use.",
     "toxicityLD50": "Not established; no reported lethal doses.",
     "id": "blue-lotus-nymphaea-caerulea",
-    "description": "No description provided.",
+    "description": "Sacred water lily delivering gentle euphoria and relaxation.",
     "safetyRating": 1
   },
   {
@@ -263,14 +258,14 @@
     "intensity": "High",
     "onset": "1-5 min",
     "legalStatus": "Restricted in many regions",
-    "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
+    "region": "🇲🇽 Latin America",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\ud83c\\udf00 Dissociation",
       "\\u26a0\\ufe0f Restricted"
     ],
     "mechanismOfAction": "N/A",
-    "pharmacokinetics": "Absorbed via oral mucosa, smoking or vaporization; rapid onset (seconds\u2013minutes), short duration (~15\u201330\u202fmin), quickly metabolized to inactive salvinorin B [3, 1].",
+    "pharmacokinetics": "Absorbed via oral mucosa, smoking or vaporization; rapid onset (seconds–minutes), short duration (~15–30 min), quickly metabolized to inactive salvinorin B [3, 1].",
     "therapeuticUses": "Visionary experiences in traditional Mazatec rituals; investigated for analgesic and anti-inflammatory properties [3, 0].",
     "sideEffects": "Tiredness, dizziness, amnesia, potential for transient psychosis in vulnerable individuals [3, 2].",
     "contraindications": "Psychiatric disorders, cardiovascular instability; avoid in those at risk for psychosis [3, 2].",
@@ -278,7 +273,7 @@
     "toxicity": "Low toxicity; animal studies show minimal organ damage even at high doses [3, 3].",
     "toxicityLD50": "LD50 not established; salvinorin A active at microgram levels with no evidence of physical toxicity.",
     "id": "salvia-divinorum",
-    "description": "No description provided.",
+    "description": "Mazatec entheogen with powerful, short-lived visionary effects.",
     "safetyRating": 1
   },
   {
@@ -290,10 +285,10 @@
     "intensity": "Moderate",
     "onset": "1-5 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\ud83c\\udf2c\\ufe0f Smokable", "\\ud83c\\udf00 Dissociation", "\\u2705 Safe"],
     "mechanismOfAction": "Lactucin and lactucopicrin act as acetylcholinesterase inhibitors and may bind opioid receptors, producing sedative and analgesic effects [0, 50].",
-    "pharmacokinetics": "Oral ingestion (tea or tincture); onset 30\u201360\u202fmin; duration ~4\u202fh; metabolites excreted renally [0, 2].",
+    "pharmacokinetics": "Oral ingestion (tea or tincture); onset 30–60 min; duration ~4 h; metabolites excreted renally [0, 2].",
     "therapeuticUses": "Mild analgesic, sedative, sleep aid [0, 7].",
     "sideEffects": "Mydriasis, photophobia, dizziness, diaphoresis, auditory hallucinations, cardiovascular and respiratory distress at high doses [0, 2].",
     "contraindications": "Pregnancy, concurrent sedative use, latex allergy.",
@@ -301,7 +296,7 @@
     "toxicity": "Dose-dependent toxicity; hospitalizations reported but full recovery common [0, 2].",
     "toxicityLD50": "N/A",
     "id": "wild-lettuce",
-    "description": "No description provided.",
+    "description": "Leafy plant exuding sedative latex historically called 'lettuce opium.'",
     "safetyRating": 1
   },
   {
@@ -313,10 +308,10 @@
     "intensity": "High",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u2615 Brewable", "\\ud83c\\udf00 Dissociation", "\\u2705 Safe"],
-    "mechanismOfAction": "Contains \u03b2-carboline alkaloids (harmine, harmaline) and coumarins (scopoletin) that may inhibit monoamine oxidase and modulate serotonergic/cholinergic systems [0, 11, 0, 1].",
-    "pharmacokinetics": "Traditionally infused or added to ayahuasca; alkaloids absorbed orally; onset ~30\u201360\u202fmin; duration several hours [0, 10].",
+    "mechanismOfAction": "Contains β-carboline alkaloids (harmine, harmaline) and coumarins (scopoletin) that may inhibit monoamine oxidase and modulate serotonergic/cholinergic systems [0, 11, 0, 1].",
+    "pharmacokinetics": "Traditionally infused or added to ayahuasca; alkaloids absorbed orally; onset ~30–60 min; duration several hours [0, 10].",
     "therapeuticUses": "Potentiates ayahuasca, used in Amazonian rituals for introspection and mild hallucinations [0, 4].",
     "sideEffects": "Dizziness, nausea, muscle tremors, delirium at high doses [0, 11].",
     "contraindications": "Pregnancy, cardiovascular conditions.",
@@ -324,7 +319,7 @@
     "toxicity": "Toxic in high doses; caution advised.",
     "toxicityLD50": "LD50 not established; considered mildly toxic in large doses due to cholinergic effects.",
     "id": "chiric-sanango",
-    "description": "No description provided.",
+    "description": "Amazonian shrub added to ayahuasca for introspection and cleansing.",
     "safetyRating": 1
   },
   {
@@ -336,22 +331,22 @@
     "intensity": "High",
     "onset": "1-5 min",
     "legalStatus": "Restricted (due to nicotine content)",
-    "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
+    "region": "🇲🇽 Latin America",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\ud83d\\udd2e Ritual",
       "\\u26a0\\ufe0f Restricted"
     ],
-    "mechanismOfAction": "Nicotine agonizes nicotinic acetylcholine receptors; contains \u03b2-carbolines (harmala alkaloids) acting as reversible MAO inhibitors [1, 0, 1, 9].",
-    "pharmacokinetics": "Smoked or insufflated; rapid absorption via lungs or mucosa; peak plasma nicotine within minutes; half-life ~2\u202fhours [1, 0].",
-    "therapeuticUses": "Shamanic entheogen in rap\u00e9 blends for sensory enhancement and ritual purification [1, 0].",
+    "mechanismOfAction": "Nicotine agonizes nicotinic acetylcholine receptors; contains β-carbolines (harmala alkaloids) acting as reversible MAO inhibitors [1, 0, 1, 9].",
+    "pharmacokinetics": "Smoked or insufflated; rapid absorption via lungs or mucosa; peak plasma nicotine within minutes; half-life ~2 hours [1, 0].",
+    "therapeuticUses": "Shamanic entheogen in rapé blends for sensory enhancement and ritual purification [1, 0].",
     "sideEffects": "Nausea, tachycardia, vomiting, dizziness at high doses [1, 0].",
     "contraindications": "Cardiovascular disease, pregnancy.",
     "drugInteractions": "Other nicotinic agonists and MAO inhibitors.",
     "toxicity": "High risk of nicotine overdose; very toxic.",
-    "toxicityLD50": "LD50 (nicotine) ~0.5\u20131.0 mg/kg in humans (oral); overdose via smoke is rare but possible.",
+    "toxicityLD50": "LD50 (nicotine) ~0.5–1.0 mg/kg in humans (oral); overdose via smoke is rare but possible.",
     "id": "mapacho",
-    "description": "No description provided.",
+    "description": "Potent Nicotiana rustica tobacco burned in ritual for focus and protection.",
     "safetyRating": 1
   },
   {
@@ -363,7 +358,7 @@
     "intensity": "Mild",
     "onset": "1-5 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
+    "region": "🇲🇽 Latin America",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -371,8 +366,8 @@
       "\\ud83e\\udde0 Cognitive",
       "\\u2705 Safe"
     ],
-    "mechanismOfAction": "Coumarins (dimethylfraxetin, herniarin) and essential oils (methyl eugenol, estragole) interact with GABA\u2090 and 5-HT\u2081\u2090 receptors, producing anxiolytic and sedative effects [2, 2, 2, 10].",
-    "pharmacokinetics": "Consumed as tea or tincture; onset ~20\u201330\u202fmin; duration ~2\u20134\u202fhours [2, 2].",
+    "mechanismOfAction": "Coumarins (dimethylfraxetin, herniarin) and essential oils (methyl eugenol, estragole) interact with GABAₐ and 5-HT₁ₐ receptors, producing anxiolytic and sedative effects [2, 2, 2, 10].",
+    "pharmacokinetics": "Consumed as tea or tincture; onset ~20–30 min; duration ~2–4 hours [2, 2].",
     "therapeuticUses": "Anxiolytic, digestive aid, ritual incense for purification [2, 10].",
     "sideEffects": "Mild GI upset, potential photosensitivity [2, 3].",
     "contraindications": "Pregnancy, concurrent sedatives.",
@@ -380,7 +375,7 @@
     "toxicity": "Low; traditional use generally safe.",
     "toxicityLD50": "N/A",
     "id": "tagetes-lucida-mexican-tarragon",
-    "description": "No description provided.",
+    "description": "Sweet marigold used as tea or incense for clear dreams and calm.",
     "safetyRating": 1
   },
   {
@@ -400,7 +395,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Likely modulates serotonin, dopamine, and GABA neurotransmission via flavonoids and tannins [8, 6].",
-    "pharmacokinetics": "Tea or smoked; onset ~30\u201345\u202fmin; duration ~2\u20134\u202fhours [8, 6].",
+    "pharmacokinetics": "Tea or smoked; onset ~30–45 min; duration ~2–4 hours [8, 6].",
     "therapeuticUses": "Aphrodisiac, mood enhancement, stress relief [8, 6].",
     "sideEffects": "Mild headache, insomnia at high doses [8, 6].",
     "contraindications": "Pregnancy, MAOI coadministration.",
@@ -408,7 +403,7 @@
     "toxicity": "Low in traditional doses.",
     "toxicityLD50": "N/A",
     "id": "turnera-diffusa",
-    "description": "No description provided.",
+    "description": "Fragrant shrub known as damiana, smoked or brewed as aphrodisiac and relaxant.",
     "safetyRating": 1
   },
   {
@@ -420,7 +415,7 @@
     "intensity": "Moderate",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u2615 Brewable", "\\ud83d\\udc8a Oral", "\\ud83d\\udcab Euphoria", "\\u2705 Safe"],
     "mechanismOfAction": "N/A",
     "pharmacokinetics": "N/A",
@@ -431,7 +426,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "kra-thum-na--kok",
-    "description": "No description provided.",
+    "description": "Southeast Asian tree related to kratom with stimulating leaves.",
     "safetyRating": 1
   },
   {
@@ -443,7 +438,7 @@
     "intensity": "Mild",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83d\\udc8a Oral",
@@ -452,7 +447,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Mitragynine-like alkaloids; mild adrenergic and dopaminergic stimulation.",
-    "pharmacokinetics": "Oral (tea/capsule); onset 20\u201340 min; effects last ~3\u20134 hrs.",
+    "pharmacokinetics": "Oral (tea/capsule); onset 20–40 min; effects last ~3–4 hrs.",
     "therapeuticUses": "Used as stimulant, mood enhancer, and mild analgesic.",
     "sideEffects": "Mild stimulation, jitteriness, GI upset at high doses.",
     "contraindications": "Avoid with stimulants or heart issues.",
@@ -460,7 +455,7 @@
     "toxicity": "Low, but less studied than kratom.",
     "toxicityLD50": "Not established; no fatalities reported in isolated use.",
     "id": "sakae-naa",
-    "description": "No description provided.",
+    "description": "Thai herb with mitragynine-like alkaloids providing mild stimulation.",
     "safetyRating": 1
   },
   {
@@ -472,7 +467,7 @@
     "intensity": "Mild",
     "onset": "1-5 min",
     "legalStatus": "Legal, low concern",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -481,7 +476,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Contains nuciferine (dopamine receptor modulator) and aporphine alkaloids.",
-    "pharmacokinetics": "Smoked or tea; onset rapid (5\u201315 min); duration ~2\u20133 hrs.",
+    "pharmacokinetics": "Smoked or tea; onset rapid (5–15 min); duration ~2–3 hrs.",
     "therapeuticUses": "Mild euphoria, stress reduction, dream enhancement.",
     "sideEffects": "Mild dizziness or nausea if overused.",
     "contraindications": "Pregnancy, hypotension.",
@@ -489,7 +484,7 @@
     "toxicity": "Low toxicity in traditional doses.",
     "toxicityLD50": "Not well-established; estimated to be >500 mg/kg (safe range).",
     "id": "nelumbo-nucifera",
-    "description": "No description provided.",
+    "description": "Sacred lotus revered for tranquil, mildly euphoric properties.",
     "safetyRating": 1
   },
   {
@@ -501,10 +496,10 @@
     "intensity": "Mild",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u2615 Brewable", "\\ud83c\\udf00 Dissociation", "\\u2705 Safe"],
     "mechanismOfAction": "Flavonoids and baicalin modulate GABA-A receptors and inhibit inflammation.",
-    "pharmacokinetics": "Taken orally; onset ~30 min; effects last ~2\u20134 hrs.",
+    "pharmacokinetics": "Taken orally; onset ~30 min; effects last ~2–4 hrs.",
     "therapeuticUses": "Calming, anticonvulsant, neuroprotective.",
     "sideEffects": "Rarely causes liver enzyme elevation or drowsiness.",
     "contraindications": "Liver issues; consult provider before long-term use.",
@@ -512,7 +507,7 @@
     "toxicity": "Generally safe, though adulterants in supplements have caused concern.",
     "toxicityLD50": "No standard LD50 data; high therapeutic margin.",
     "id": "scullcap-scutellaria",
-    "description": "No description provided.",
+    "description": "Calming mint-family herb rich in baicalin used as nerve tonic.",
     "safetyRating": 1
   },
   {
@@ -524,7 +519,7 @@
     "intensity": "Mild",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83c\\udf00 Dissociation",
@@ -532,7 +527,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Mild GABAergic activity and opioid receptor affinity (non-narcotic).",
-    "pharmacokinetics": "Oral (tea or tincture); onset ~30 min; lasts 2\u20133 hrs.",
+    "pharmacokinetics": "Oral (tea or tincture); onset ~30 min; lasts 2–3 hrs.",
     "therapeuticUses": "Used for anxiety, insomnia, and pain management.",
     "sideEffects": "Drowsiness, vivid dreams, dizziness.",
     "contraindications": "Not for use in pregnancy or with other CNS depressants.",
@@ -540,7 +535,7 @@
     "toxicity": "Low toxicity; non-habit-forming.",
     "toxicityLD50": "No known LD50 in humans; safe at standard doses.",
     "id": "california-poppy",
-    "description": "No description provided.",
+    "description": "California's state flower containing non-addictive sedative alkaloids.",
     "safetyRating": 1
   },
   {
@@ -552,10 +547,10 @@
     "intensity": "Mild",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u2615 Brewable", "\\ud83c\\udf00 Dissociation", "\\u2705 Safe"],
     "mechanismOfAction": "Binds to GABA-A receptors, promoting sedation and relaxation.",
-    "pharmacokinetics": "Oral or inhaled; onset ~20\u201340 min; duration ~2\u20134 hrs.",
+    "pharmacokinetics": "Oral or inhaled; onset ~20–40 min; duration ~2–4 hrs.",
     "therapeuticUses": "Used as a mild sleep aid, anxiety reducer, and dream enhancer.",
     "sideEffects": "Drowsiness, mild headache, possible hormonal effects in large doses.",
     "contraindications": "Pregnancy, estrogen-sensitive conditions (e.g. breast cancer).",
@@ -563,7 +558,7 @@
     "toxicity": "Very low toxicity; generally regarded as safe.",
     "toxicityLD50": "No human LD50; high safety margin reported in herbal use.",
     "id": "hop-flowers",
-    "description": "No description provided.",
+    "description": "Bitter cones of Humulus lupulus used for relaxation and sleep.",
     "safetyRating": 1
   },
   {
@@ -575,7 +570,7 @@
     "intensity": "Mild",
     "onset": "5-20 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf10 Global / Ritual",
+    "region": "🌐 Global / Ritual",
     "tags": ["\\ud83d\\udd6f\\ufe0f Ritual", "\\ud83d\\udd2e Ritual", "\\u2705 Safe"],
     "mechanismOfAction": "N/A",
     "pharmacokinetics": "N/A",
@@ -586,7 +581,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "copal",
-    "description": "No description provided.",
+    "description": "Resin from Bursera trees burned ceremonially to purify and induce trance.",
     "safetyRating": 1
   },
   {
@@ -598,7 +593,7 @@
     "intensity": "Mild",
     "onset": "Varies",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf10 Global / Ritual",
+    "region": "🌐 Global / Ritual",
     "tags": ["\\ud83d\\udd2e Ritual", "\\u2705 Safe"],
     "mechanismOfAction": "N/A",
     "pharmacokinetics": "N/A",
@@ -609,7 +604,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "sweetgrass",
-    "description": "No description provided.",
+    "description": "Vanilla-scented grass braided and burned to invite positive spirits.",
     "safetyRating": 1
   },
   {
@@ -621,14 +616,14 @@
     "intensity": "Mild",
     "onset": "5-20 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf10 Global / Ritual",
+    "region": "🌐 Global / Ritual",
     "tags": [
       "\\ud83d\\udd6f\\ufe0f Ritual",
       "\\ud83d\\udd2e Ritual",
       "\\ud83e\\udde0 Cognitive",
       "\\u2705 Safe"
     ],
-    "mechanismOfAction": "1,8-Cineole and \u03b1-thujone inhibit pro-inflammatory cytokines (TNF\u03b1, IL-1\u03b2) and arachidonic acid metabolism; antimicrobial and antiviral effects via NF-\u03baB inhibition [0, 19, 0, 4].",
+    "mechanismOfAction": "1,8-Cineole and α-thujone inhibit pro-inflammatory cytokines (TNFα, IL-1β) and arachidonic acid metabolism; antimicrobial and antiviral effects via NF-κB inhibition [0, 19, 0, 4].",
     "pharmacokinetics": "Inhaled or topical; rapid local absorption; systemic exposure minimal; metabolites excreted renally [0, 4].",
     "therapeuticUses": "Smudging rituals for purification, antimicrobial, respiratory support, mental clarity [0, 19].",
     "sideEffects": "Respiratory irritation, asthmatic exacerbation, headaches at high exposure [0, 19].",
@@ -637,7 +632,7 @@
     "toxicity": "Very low; excessive inhalation may cause dizziness or nausea [0, 4].",
     "toxicityLD50": "N/A",
     "id": "white-sage",
-    "description": "No description provided.",
+    "description": "Aromatic sage revered for cleansing rituals and mental clarity.",
     "safetyRating": 1
   },
   {
@@ -649,7 +644,7 @@
     "intensity": "Mild",
     "onset": "Varies",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf10 Global / Ritual",
+    "region": "🌐 Global / Ritual",
     "tags": ["\\u2705 Safe"],
     "mechanismOfAction": "N/A",
     "pharmacokinetics": "N/A",
@@ -660,7 +655,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "frankincense-boswellia",
-    "description": "No description provided.",
+    "description": "Resin incense with boswellic acids studied for anti-inflammatory effects.",
     "safetyRating": 1
   },
   {
@@ -672,7 +667,7 @@
     "intensity": "High",
     "onset": "Varies",
     "legalStatus": "Controlled / Toxic",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\ud83d\\udd6f\\ufe0f Ritual", "\\u2620\\ufe0f Toxic"],
     "mechanismOfAction": "N/A",
     "pharmacokinetics": "N/A",
@@ -683,7 +678,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "henbane",
-    "description": "No description provided.",
+    "description": "Nightshade containing tropane alkaloids causing powerful delirium.",
     "safetyRating": 1
   },
   {
@@ -691,14 +686,14 @@
     "scientificName": "",
     "category": "Deliriant / Toxic",
     "effects": ["Hallucinations", "dreamlike confusion"],
-    "preparation": "Highly toxic \u2013 not for casual use",
+    "preparation": "Highly toxic – not for casual use",
     "intensity": "High",
     "onset": "Varies",
     "legalStatus": "Controlled / Toxic",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u2620\\ufe0f Toxic"],
     "mechanismOfAction": "Tropane alkaloids block acetylcholine; causes anticholinergic delirium.",
-    "pharmacokinetics": "Oral or topical; onset ~30\u201390 mins; effects last 4\u201312 hrs.",
+    "pharmacokinetics": "Oral or topical; onset ~30–90 mins; effects last 4–12 hrs.",
     "therapeuticUses": "Historically used for pain, muscle spasms, and cosmetic dilation.",
     "sideEffects": "Dry mouth, hallucinations, delirium, elevated pulse.",
     "contraindications": "Cardiovascular disease, glaucoma, pregnancy.",
@@ -706,7 +701,7 @@
     "toxicity": "Highly toxic; accidental ingestion can be fatal.",
     "toxicityLD50": "Atropine LD50 (rat, oral): ~453 mg/kg.",
     "id": "belladonna",
-    "description": "No description provided.",
+    "description": "Deadly nightshade once used for trance and as a cosmetic poison.",
     "safetyRating": 1
   },
   {
@@ -718,10 +713,10 @@
     "intensity": "High",
     "onset": "Varies",
     "legalStatus": "Controlled / Toxic",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u2620\\ufe0f Toxic"],
     "mechanismOfAction": "Contains tropane alkaloids (scopolamine, atropine); anticholinergic deliriant.",
-    "pharmacokinetics": "Oral or transdermal; slow absorption; long-lasting (6\u201312 hrs).",
+    "pharmacokinetics": "Oral or transdermal; slow absorption; long-lasting (6–12 hrs).",
     "therapeuticUses": "Historically used as anesthetic, antispasmodic, and in witchcraft.",
     "sideEffects": "Dry mouth, confusion, hallucinations, elevated heart rate.",
     "contraindications": "Pregnancy, glaucoma, heart conditions.",
@@ -729,11 +724,11 @@
     "toxicity": "Highly toxic in moderate doses.",
     "toxicityLD50": "Scopolamine LD50 (rat, oral): ~310 mg/kg.",
     "id": "mandrake-root",
-    "description": "No description provided.",
+    "description": "Mythic Mediterranean root with hallucinogenic tropane alkaloids.",
     "safetyRating": 1
   },
   {
-    "name": "Anadenanthera colubrina (Ceb\u00edl)",
+    "name": "Anadenanthera colubrina (Cebíl)",
     "scientificName": "",
     "category": "Ethnobotanical / Rare",
     "effects": ["Entheogenic snuff", "alternate reality feel"],
@@ -741,18 +736,18 @@
     "intensity": "High",
     "onset": "Varies",
     "legalStatus": "Restricted in many regions",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u26a0\\ufe0f Restricted"],
-    "mechanismOfAction": "Bufotenin acts as a potent and non-selective serotonin receptor agonist at 5-HT\u2081A, 5-HT\u2082A, 5-HT\u2082C, and 5-HT\u2083 receptors, and serves as a specific serotonin releasing agent [1, 0].",
-    "pharmacokinetics": "When insufflated, bufotenin is rapidly absorbed nasally with onset in 5\u201315\u202fmin and duration around 1\u20132\u202fh [1, 1].",
+    "mechanismOfAction": "Bufotenin acts as a potent and non-selective serotonin receptor agonist at 5-HT₁A, 5-HT₂A, 5-HT₂C, and 5-HT₃ receptors, and serves as a specific serotonin releasing agent [1, 0].",
+    "pharmacokinetics": "When insufflated, bufotenin is rapidly absorbed nasally with onset in 5–15 min and duration around 1–2 h [1, 1].",
     "therapeuticUses": "Traditionally used as a snuff for visionary and divinatory rituals in South American cultures [1, 1].",
     "sideEffects": "Prominent cardiovascular changes, nausea, vomiting, and dizziness [1, 0, 1, 1].",
     "contraindications": "Cardiovascular disorders, psychiatric conditions, and pregnancy.",
     "drugInteractions": "Concomitant use with SSRIs or MAOIs may risk serotonin syndrome [1, 0].",
-    "toxicity": "No documented human LD50; rodent LD50 approximately 200\u2013300\u202fmg/kg (intraperitoneal) [1, 0].",
-    "toxicityLD50": "No documented human LD50; rodent LD50 approximately 200\u2013300\u202fmg/kg (intraperitoneal) [1, 0].",
+    "toxicity": "No documented human LD50; rodent LD50 approximately 200–300 mg/kg (intraperitoneal) [1, 0].",
+    "toxicityLD50": "No documented human LD50; rodent LD50 approximately 200–300 mg/kg (intraperitoneal) [1, 0].",
     "id": "anadenanthera-colubrina-cebl",
-    "description": "No description provided.",
+    "description": "South American tree whose snuffable seeds contain bufotenin.",
     "safetyRating": 1
   },
   {
@@ -764,7 +759,7 @@
     "intensity": "High",
     "onset": "1-3 min",
     "legalStatus": "Restricted / Controlled",
-    "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
+    "region": "🇲🇽 Latin America",
     "tags": ["\\u26a0\\ufe0f Restricted"],
     "mechanismOfAction": "Contains DMT, 5-MeO-DMT, and beta-carbolines; classic tryptamine entheogen profile.",
     "pharmacokinetics": "Insufflated or oral with MAOIs; fast onset if smoked or snuffed.",
@@ -775,7 +770,7 @@
     "toxicity": "Can be overwhelming; physical toxicity low but psychological risks high.",
     "toxicityLD50": "No established LD50 for DMT in humans; low systemic toxicity at typical doses.",
     "id": "virola-spp",
-    "description": "No description provided.",
+    "description": "Amazonian trees producing DMT-rich resins for shamanic snuffs.",
     "safetyRating": 1
   },
   {
@@ -787,18 +782,18 @@
     "intensity": "Mild",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udde8\ud83c\uddf3 East Asia",
+    "region": "🇨🇳 East Asia",
     "tags": ["\\u2615 Brewable", "\\ud83d\\udc8a Oral", "\\ud83e\\udde0 Cognitive", "\\u2705 Safe"],
-    "mechanismOfAction": "Contains \u03b2-asarone; may modulate acetylcholine and GABA pathways; traditional use for cognition.",
-    "pharmacokinetics": "Oral tea or tincture; slow onset (~1 hr); mild duration (2\u20133 hrs).",
+    "mechanismOfAction": "Contains β-asarone; may modulate acetylcholine and GABA pathways; traditional use for cognition.",
+    "pharmacokinetics": "Oral tea or tincture; slow onset (~1 hr); mild duration (2–3 hrs).",
     "therapeuticUses": "Cognitive enhancement, anxiety, neuroprotective potential.",
-    "sideEffects": "Nausea at high doses, possible carcinogenic risk with long-term \u03b2-asarone exposure.",
-    "contraindications": "Pregnancy, long-term use caution due to \u03b2-asarone.",
+    "sideEffects": "Nausea at high doses, possible carcinogenic risk with long-term β-asarone exposure.",
+    "contraindications": "Pregnancy, long-term use caution due to β-asarone.",
     "drugInteractions": "May enhance CNS depressants.",
-    "toxicity": "Concerns over \u03b2-asarone carcinogenicity in some studies.",
-    "toxicityLD50": "\u03b2-asarone LD50 (rat, oral): ~310 mg/kg.",
+    "toxicity": "Concerns over β-asarone carcinogenicity in some studies.",
+    "toxicityLD50": "β-asarone LD50 (rat, oral): ~310 mg/kg.",
     "id": "acorus-gramineus",
-    "description": "No description provided.",
+    "description": "Asian sweet flag containing β-asarone, sometimes taken for cognition.",
     "safetyRating": 1
   },
   {
@@ -810,7 +805,7 @@
     "intensity": "Mild",
     "onset": "Varies",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\ud83e\\udde0 Cognitive", "\\u2705 Safe"],
     "mechanismOfAction": "N/A",
     "pharmacokinetics": "N/A",
@@ -821,7 +816,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "celastrus-paniculatus-intellect-tree",
-    "description": "No description provided.",
+    "description": "Indian vine whose oil is consumed to sharpen memory and dream vividly.",
     "safetyRating": 1
   },
   {
@@ -833,7 +828,7 @@
     "intensity": "Mild",
     "onset": "Varies",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u2705 Safe"],
     "mechanismOfAction": "N/A",
     "pharmacokinetics": "N/A",
@@ -844,7 +839,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "silphium-extinct",
-    "description": "No description provided.",
+    "description": "Famed classical herb believed to have contraceptive and psychoactive resins.",
     "safetyRating": 1
   },
   {
@@ -856,7 +851,7 @@
     "intensity": "Mild",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -872,7 +867,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "nymphaea-ampla",
-    "description": "No description provided.",
+    "description": "Central American water lily providing mild euphoria and sedation.",
     "safetyRating": 1
   },
   {
@@ -884,7 +879,7 @@
     "intensity": "Moderate",
     "onset": "5-15 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0d Africa, \ud83c\uddee\ud83c\uddf3 India",
+    "region": "🌍 Africa, 🇮🇳 India",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -892,7 +887,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Muscle relaxant potential via GABAergic modulation [2, 0].",
-    "pharmacokinetics": "Smoked or tea; onset rapid (minutes); duration ~2\u20133\u202fh [2, 0].",
+    "pharmacokinetics": "Smoked or tea; onset rapid (minutes); duration ~2–3 h [2, 0].",
     "therapeuticUses": "Muscle tension, pain relief, sleep aid applications [2, 0].",
     "sideEffects": "Drowsiness, dizziness [2, 0].",
     "contraindications": "Pregnancy, use with other sedatives [2, 0].",
@@ -900,7 +895,7 @@
     "toxicity": "Low; limited data on long-term use [2, 0].",
     "toxicityLD50": "N/A",
     "id": "pedicularis-densiflora-indian-warrior",
-    "description": "No description provided.",
+    "description": "North American wildflower smoked for muscle relaxation.",
     "safetyRating": 1
   },
   {
@@ -912,7 +907,7 @@
     "intensity": "Moderate",
     "onset": "5-15 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0d Africa",
+    "region": "🌍 Africa",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -920,7 +915,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "N/A",
-    "pharmacokinetics": "Oral infusion onset ~30\u202fmin; duration ~4\u202fh; metabolites excreted renally [0, 7].",
+    "pharmacokinetics": "Oral infusion onset ~30 min; duration ~4 h; metabolites excreted renally [0, 7].",
     "therapeuticUses": "Muscle relaxant, antioxidant, antimicrobial, traditional remedy for pain and inflammation [0, 7].",
     "sideEffects": "Rare; possible GI upset [0, 7].",
     "contraindications": "Pregnancy, lactation [0, 7].",
@@ -928,7 +923,7 @@
     "toxicity": "Low; no significant toxicity reported [0, 7].",
     "toxicityLD50": "N/A",
     "id": "pedicularis-groenlandica",
-    "description": "No description provided.",
+    "description": "High-elevation lousewort prized for soothing tense muscles.",
     "safetyRating": 1
   },
   {
@@ -940,7 +935,7 @@
     "intensity": "Mild",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -949,7 +944,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Contains lactucopicrin and lactucin; thought to act as mild opioid receptor agonists.",
-    "pharmacokinetics": "Oral ingestion onset 30\u201360\u202fmin; duration ~4\u202fh; metabolites excreted renally [0, 6].",
+    "pharmacokinetics": "Oral ingestion onset 30–60 min; duration ~4 h; metabolites excreted renally [0, 6].",
     "therapeuticUses": "Sedative, analgesic, sleep aid, antitussive [0, 6].",
     "sideEffects": "Mydriasis, dizziness, GI upset at high doses [0, 6].",
     "contraindications": "Pregnancy, concurrent opioid use [0, 6].",
@@ -957,7 +952,7 @@
     "toxicity": "Low; hospitalizations reported but recovery common [0, 6].",
     "toxicityLD50": "Not established; presumed low. No acute toxicity reported in human use.",
     "id": "lactuca-canadensis",
-    "description": "No description provided.",
+    "description": "Wild lettuce species containing lactucarium for gentle analgesia.",
     "safetyRating": 1
   },
   {
@@ -969,7 +964,7 @@
     "intensity": "Mild",
     "onset": "5-15 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddea\ud83c\uddfa Europe",
+    "region": "🇪🇺 Europe",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -986,7 +981,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "artemisia-vulgaris-mugwort",
-    "description": "No description provided.",
+    "description": "Common European mugwort used in dream pillows and as bitter tonic.",
     "safetyRating": 1
   },
   {
@@ -998,7 +993,7 @@
     "intensity": "Mild",
     "onset": "15-30 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -1006,7 +1001,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Contains coumarin and umbelliferone; mild monoamine modulation; relaxant properties.",
-    "pharmacokinetics": "Oral infusion onset 30\u201360\u202fmin; metabolites via hepatic pathways; urinary excretion [0, 10].",
+    "pharmacokinetics": "Oral infusion onset 30–60 min; metabolites via hepatic pathways; urinary excretion [0, 10].",
     "therapeuticUses": "Gastroprotective, anti-inflammatory, antispasmodic, anxiolytic; used as snuff admixture [0, 2, 0, 10].",
     "sideEffects": "Rare; possible sedation, GI discomfort [0, 10].",
     "contraindications": "Pregnancy; MAOI coadministration [0, 18].",
@@ -1014,7 +1009,7 @@
     "toxicity": "Low; safe at traditional doses [0, 10].",
     "toxicityLD50": "Low; no established LD50, but considered safe in traditional use.",
     "id": "justicia-pectoralis",
-    "description": "No description provided.",
+    "description": "Aromatic herb called tilo, brewed or smoked for calming effects.",
     "safetyRating": 1
   },
   {
@@ -1026,7 +1021,7 @@
     "intensity": "Mild",
     "onset": "15-30 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddea\ud83c\uddfa Europe",
+    "region": "🇪🇺 Europe",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83c\\udf00 Dissociation",
@@ -1042,7 +1037,7 @@
     "toxicity": "Regarded as very safe in traditional herbalism.",
     "toxicityLD50": "No human LD50 data; extremely low toxicity reported.",
     "id": "viola-odorata-sweet-violet",
-    "description": "No description provided.",
+    "description": "Fragrant violet whose flowers are a mild sedative and expectorant.",
     "safetyRating": 1
   },
   {
@@ -1054,7 +1049,7 @@
     "intensity": "Mild",
     "onset": "15-30 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83d\\udcab Euphoria",
@@ -1062,7 +1057,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Contains safrole and other volatile oils; possible mild dopaminergic stimulation and GI modulation.",
-    "pharmacokinetics": "Oral infusion or extract onset 30\u201360\u202fmin; hepatic metabolism; renal excretion [0, 11].",
+    "pharmacokinetics": "Oral infusion or extract onset 30–60 min; hepatic metabolism; renal excretion [0, 11].",
     "therapeuticUses": "Digestive aid, anti-inflammatory, antimutagen, diuretic, antipyretic [0, 11].",
     "sideEffects": "High doses may cause GI upset; safrole is a potential carcinogen [1, 11].",
     "contraindications": "Pregnancy; safrole-containing extracts discouraged [1, 11].",
@@ -1070,7 +1065,7 @@
     "toxicity": "Safrole hepatotoxic; use sparingly [1, 11].",
     "toxicityLD50": "LD50 (rats, oral) safrole ~1,950 mg/kg; safrole is hepatotoxic at high doses.",
     "id": "piper-auritum-root-beer-plant",
-    "description": "No description provided.",
+    "description": "Sassafras-scented leaf from Mexico used culinary and for mild mood lift.",
     "safetyRating": 1
   },
   {
@@ -1082,7 +1077,7 @@
     "intensity": "Mild",
     "onset": "15-45 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83c\\udf00 Dissociation",
@@ -1090,7 +1085,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "N/A",
-    "pharmacokinetics": "Oral (tea, extract); onset 30\u201360\u202fmin; duration ~4\u202fh; bioavailability of key alkaloids moderate [2, 3].",
+    "pharmacokinetics": "Oral (tea, extract); onset 30–60 min; duration ~4 h; bioavailability of key alkaloids moderate [2, 3].",
     "therapeuticUses": "Anxiety reduction, insomnia aid, mild analgesic, vasomotor headache relief [2, 3, 2, 7].",
     "sideEffects": "High doses may cause residual sedation (\"hangover\"), nausea, dizziness; avoid operating machinery [2, 8, 2, 9].",
     "contraindications": "Glaucoma, MAOI therapy, pregnancy, lactation [2, 9].",
@@ -1098,7 +1093,7 @@
     "toxicity": "Low; no significant toxicity at therapeutic doses [2, 9].",
     "toxicityLD50": "N/A",
     "id": "eschscholzia-californica-california-poppy",
-    "description": "No description provided.",
+    "description": "Gentle sedative flower used for anxiety and sleep support.",
     "safetyRating": 1
   },
   {
@@ -1110,10 +1105,10 @@
     "intensity": "High",
     "onset": "30-90 min",
     "legalStatus": "Restricted in some countries",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u26a0\\ufe0f Restricted"],
     "mechanismOfAction": "N/A",
-    "pharmacokinetics": "Insufflated or ingested; onset 20\u201360\u202fmin; duration 4\u20138\u202fh; hepatic metabolism [0, 12].",
+    "pharmacokinetics": "Insufflated or ingested; onset 20–60 min; duration 4–8 h; hepatic metabolism [0, 12].",
     "therapeuticUses": "Entheogenic snuff (ololiuqui) in Mesoamerican rituals [0, 4].",
     "sideEffects": "Nausea, vasoconstriction, dizziness [0, 4].",
     "contraindications": "Cardiovascular disease, pregnancy [0, 4].",
@@ -1121,7 +1116,7 @@
     "toxicity": "Low; moderate overdose risk [0, 12].",
     "toxicityLD50": "N/A",
     "id": "rivea-corymbosa",
-    "description": "No description provided.",
+    "description": "Morning glory species with LSA seeds used in ancient Mexican rituals.",
     "safetyRating": 1
   },
   {
@@ -1133,18 +1128,18 @@
     "intensity": "High",
     "onset": "30-90 min",
     "legalStatus": "Restricted in some countries",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": ["\\u26a0\\ufe0f Restricted"],
     "mechanismOfAction": "N/A",
-    "pharmacokinetics": "Oral ingestion onset 45\u2013120\u202fmin; duration 4\u201310\u202fh; hepatic metabolism [0, 5].",
+    "pharmacokinetics": "Oral ingestion onset 45–120 min; duration 4–10 h; hepatic metabolism [0, 5].",
     "therapeuticUses": "Visionary experiences, ethnobotanical use [0, 5].",
     "sideEffects": "Nausea, vasoconstriction, headache [0, 5].",
     "contraindications": "Cardiovascular disorders, psychiatric conditions [0, 5].",
     "drugInteractions": "SSRIs/MAOIs [0, 5].",
-    "toxicity": "Low; rodent LD50 ~200\u2013300\u202fmg/kg [0, 5].",
+    "toxicity": "Low; rodent LD50 ~200–300 mg/kg [0, 5].",
     "toxicityLD50": "N/A",
     "id": "ipomoea-tricolor-heavenly-blue",
-    "description": "No description provided.",
+    "description": "Ornamental morning glory whose seeds induce LSD-like visions.",
     "safetyRating": 1
   },
   {
@@ -1156,7 +1151,7 @@
     "intensity": "Mild",
     "onset": "15-30 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddea\ud83c\uddfa Europe",
+    "region": "🇪🇺 Europe",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83c\\udf00 Dissociation",
@@ -1172,7 +1167,7 @@
     "toxicity": "N/A",
     "toxicityLD50": "N/A",
     "id": "tilia-europaea-linden-flower",
-    "description": "No description provided.",
+    "description": "Soothing tree blossoms steeped as tea for relaxation and cold relief.",
     "safetyRating": 1
   },
   {
@@ -1184,7 +1179,7 @@
     "intensity": "Mild",
     "onset": "15-30 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -1194,7 +1189,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "N/A",
-    "pharmacokinetics": "Oral onset 30\u201360\u202fmin; active compounds absorbed in GI tract; hepatic metabolism; renal excretion [0, 0].",
+    "pharmacokinetics": "Oral onset 30–60 min; active compounds absorbed in GI tract; hepatic metabolism; renal excretion [0, 0].",
     "therapeuticUses": "Anxiety, insomnia, nervous tension, digestive aid [0, 8].",
     "sideEffects": "Drowsiness; possible allergic reactions; GI upset at high doses [0, 0].",
     "contraindications": "Pregnancy, known Asteraceae allergy [0, 16].",
@@ -1202,7 +1197,7 @@
     "toxicity": "Low; safe at therapeutic doses [0, 0].",
     "toxicityLD50": "N/A",
     "id": "melissa-officinalis-lemon-balm",
-    "description": "No description provided.",
+    "description": "Lemony herb easing anxiety and digestive upset while calming the mind.",
     "safetyRating": 1
   },
   {
@@ -1214,7 +1209,7 @@
     "intensity": "Mild",
     "onset": "15-30 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddee\ud83c\uddf3 India",
+    "region": "🇮🇳 India",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83d\\udd6f\\ufe0f Ritual",
@@ -1231,7 +1226,7 @@
     "toxicity": "Pending",
     "toxicityLD50": "Pending",
     "id": "ocimum-sanctum-holy-basil--tulsi",
-    "description": "No description provided.",
+    "description": "Sacred basil revered in Ayurveda for uplifting and adaptogenic qualities.",
     "safetyRating": 1
   },
   {
@@ -1243,7 +1238,7 @@
     "intensity": "Mild",
     "onset": "30-60 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udf0e Unknown / Global",
+    "region": "🌎 Unknown / Global",
     "tags": [
       "\\ud83d\\udc8a Oral",
       "\\ud83d\\udcab Euphoria",
@@ -1259,7 +1254,7 @@
     "toxicity": "Mild toxicity; high doses may cause irritability or insomnia.",
     "toxicityLD50": "LD50 (rats, oral) >28,000 mg/kg; very low toxicity.",
     "id": "rhodiola-rosea",
-    "description": "No description provided.",
+    "description": "Hardy root enhancing endurance and stress tolerance via adaptogens.",
     "safetyRating": 1
   },
   {
@@ -1271,7 +1266,7 @@
     "intensity": "Mild",
     "onset": "30-60 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddee\ud83c\uddf3 India",
+    "region": "🇮🇳 India",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83d\\udc8a Oral",
@@ -1280,7 +1275,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Modulates GABAergic and serotonergic activity; reduces cortisol; withanolides are primary active compounds.",
-    "pharmacokinetics": "Oral onset 30\u201360\u202fmin; withanolides bioavailable; hepatic metabolism; renal excretion [0, 17].",
+    "pharmacokinetics": "Oral onset 30–60 min; withanolides bioavailable; hepatic metabolism; renal excretion [0, 17].",
     "therapeuticUses": "Adaptogen, anti-stress, anxiolytic, neuroprotective, anti-inflammatory, immune support [0, 1, 0, 17].",
     "sideEffects": "GI upset, drowsiness, rare thyroid hormone changes [0, 9].",
     "contraindications": "Pregnancy, hyperthyroidism, autoimmune diseases [0, 1].",
@@ -1288,7 +1283,7 @@
     "toxicity": "Low; well-tolerated in clinical studies [0, 1].",
     "toxicityLD50": "LD50 (rats, oral) ~4650 mg/kg; relatively low acute toxicity.",
     "id": "withania-somnifera-ashwagandha",
-    "description": "No description provided.",
+    "description": "Indian nightshade root that reduces stress hormones and promotes sleep.",
     "safetyRating": 1
   },
   {
@@ -1300,7 +1295,7 @@
     "intensity": "Mild",
     "onset": "30-60 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\uddee\ud83c\uddf3 India",
+    "region": "🇮🇳 India",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83d\\udc8a Oral",
@@ -1309,7 +1304,7 @@
       "\\u2705 Safe"
     ],
     "mechanismOfAction": "Contains bacosides A and B which enhance cholinergic transmission, antioxidant defenses, and modulate neurotransmitter levels (serotonin, dopamine) [0, 0, 0, 2].",
-    "pharmacokinetics": "Oral preparations (extracts or powder); onset 30\u201360\u202fmin; requires chronic dosing for peak cognitive benefits [0, 5].",
+    "pharmacokinetics": "Oral preparations (extracts or powder); onset 30–60 min; requires chronic dosing for peak cognitive benefits [0, 5].",
     "therapeuticUses": "Cognitive enhancement (memory, learning), anxiety reduction, ADHD management [0, 1, 0, 6].",
     "sideEffects": "Gastrointestinal upset (nausea, increased motility), fatigue, dry mouth [0, 5].",
     "contraindications": "Pregnancy, lactation, hypersensitivity to any component [0, 5].",
@@ -1317,7 +1312,7 @@
     "toxicity": "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",
     "toxicityLD50": "Generally non-toxic; no serious adverse effects at recommended doses; rodent LD50 not well established [0, 6].",
     "id": "bacopa-monnieri",
-    "description": "No description provided.",
+    "description": "Aquatic herb taken long-term to improve memory and concentration.",
     "safetyRating": 1
   },
   {
@@ -1329,10 +1324,10 @@
     "intensity": "Mild",
     "onset": "30-60 min",
     "legalStatus": "Legal / Unregulated",
-    "region": "\ud83c\udde8\ud83c\uddf3 East Asia",
+    "region": "🇨🇳 East Asia",
     "tags": ["\\u2615 Brewable", "\\ud83d\\udcab Euphoria", "\\u2705 Safe"],
     "mechanismOfAction": "Adaptogenic modulation of HPA axis and immune response; contains eleutherosides influencing stress resilience.",
-    "pharmacokinetics": "Oral onset in 30\u201360 minutes; active glycosides metabolized hepatically.",
+    "pharmacokinetics": "Oral onset in 30–60 minutes; active glycosides metabolized hepatically.",
     "therapeuticUses": "Fatigue, immune support, cognitive performance under stress.",
     "sideEffects": "Mild insomnia, irritability, nervousness in high doses.",
     "contraindications": "Hypertension, pregnancy, hormone-sensitive conditions.",
@@ -1340,7 +1335,76 @@
     "toxicity": "Generally considered safe when used short-term. Long-term effects less studied.",
     "toxicityLD50": "No established LD50; high doses in animals show minimal acute toxicity.",
     "id": "eleutherococcus-senticosus-siberian-ginseng",
-    "description": "No description provided.",
+    "description": "Adaptogenic root boosting stamina and immune function.",
     "safetyRating": 1
+  },
+  {
+    "name": "LSD",
+    "scientificName": "Lysergic acid diethylamide",
+    "category": "Psychedelic",
+    "effects": ["Intense visuals", "ego dissolution", "synesthesia"],
+    "preparation": "Oral blotter or liquid",
+    "intensity": "High",
+    "onset": "30-90 min",
+    "legalStatus": "Controlled / Illegal in many regions",
+    "region": "🌎 Synthetic",
+    "tags": ["💊 Oral", "⚠️ Restricted", "🌀 Visionary"],
+    "mechanismOfAction": "Potent 5-HT2A receptor agonist affecting serotonin and dopamine systems.",
+    "pharmacokinetics": "Oral administration with effects lasting 8-12 h; hepatic metabolism to inactive metabolites.",
+    "therapeuticUses": "Investigated for cluster headaches, anxiety, and addiction therapy.",
+    "sideEffects": "Anxiety, confusion, possible flashbacks at high doses.",
+    "contraindications": "Psychosis, severe cardiovascular disease.",
+    "drugInteractions": "SSRIs may blunt effects; MAOIs potentiate.",
+    "toxicity": "Very low physiological toxicity but strong psychological effects.",
+    "toxicityLD50": ">14 mg/kg (mice, intravenous)",
+    "id": "lsd",
+    "description": "Semi-synthetic ergoline discovered in 1938; among the most potent psychedelics.",
+    "safetyRating": 2
+  },
+  {
+    "name": "Psilocybin",
+    "scientificName": "Psilocybin",
+    "category": "Psychedelic",
+    "effects": ["Visual patterns", "mystical insight", "emotional release"],
+    "preparation": "Consumed as dried mushrooms or extract",
+    "intensity": "Moderate",
+    "onset": "20-60 min",
+    "legalStatus": "Controlled in many countries",
+    "region": "🌎 Global",
+    "tags": ["💊 Oral", "🌀 Visionary", "⚠️ Restricted"],
+    "mechanismOfAction": "Converted to psilocin which acts as 5-HT2A agonist.",
+    "pharmacokinetics": "Oral onset ~30 min; duration 4-6 h; metabolized hepatically.",
+    "therapeuticUses": "Promising treatment for depression, addiction, and end-of-life anxiety.",
+    "sideEffects": "Nausea, anxiety, transient increase in heart rate.",
+    "contraindications": "Psychosis, uncontrolled hypertension.",
+    "drugInteractions": "SSRIs may reduce effects; avoid MAOIs.",
+    "toxicity": "Low toxicity; wide margin of safety.",
+    "toxicityLD50": "285 mg/kg (rats, oral) for psilocybin",
+    "id": "psilocybin",
+    "description": "Active compound in psychedelic mushrooms producing profound perceptual changes.",
+    "safetyRating": 2
+  },
+  {
+    "name": "Mescaline",
+    "scientificName": "3,4,5-trimethoxyphenethylamine",
+    "category": "Psychedelic",
+    "effects": ["Color enhancement", "empathy", "spiritual visions"],
+    "preparation": "Ingested cactus buttons or purified sulfate",
+    "intensity": "Moderate",
+    "onset": "45-120 min",
+    "legalStatus": "Controlled in many regions",
+    "region": "🌎 Americas",
+    "tags": ["💊 Oral", "🌀 Visionary", "⚠️ Restricted"],
+    "mechanismOfAction": "Phenethylamine psychedelic acting on 5-HT2A and dopamine receptors.",
+    "pharmacokinetics": "Oral absorption with peak at 2 h; duration 8-12 h; renal excretion.",
+    "therapeuticUses": "Traditional sacrament; studied for alcoholism and psychotherapy.",
+    "sideEffects": "Nausea, increased heart rate, dilated pupils.",
+    "contraindications": "Heart disease, pregnancy.",
+    "drugInteractions": "MAOIs and sympathomimetics may potentiate.",
+    "toxicity": "Low physiological toxicity; psychological effects strong.",
+    "toxicityLD50": ">1,000 mg/kg (rats, oral)",
+    "id": "mescaline",
+    "description": "Classic phenethylamine psychedelic from peyote and San Pedro cacti.",
+    "safetyRating": 2
   }
 ]
