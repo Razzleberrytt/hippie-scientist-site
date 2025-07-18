@@ -1,1 +1,0 @@
-import{r as o}from"./main-abfc2e64.js";function n(){const[e,r]=o.useState([]);return o.useEffect(()=>{const t=localStorage.getItem("favorites");t&&r(JSON.parse(t))},[]),o.useEffect(()=>{localStorage.setItem("favorites",JSON.stringify(e))},[e]),{favorites:e,toggle:t=>{r(s=>s.includes(t)?s.filter(a=>a!==t):[...s,t])},isFavorite:t=>e.includes(t)}}export{n as u};
