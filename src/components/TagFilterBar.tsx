@@ -1,22 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import TagBadge from './TagBadge'
 import { decodeTag, tagVariant } from '../utils/format'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 interface Props {
   tags: string[]
-  selected: string[]
-  onChange: (tags: string[]) => void
+  onChange?: (tags: string[]) => void
+  storageKey?: string
 }
 
-export default function TagFilterBar({ tags, selected, onChange }: Props) {
+export default function TagFilterBar({ tags, onChange, storageKey = 'tagFilters' }: Props) {
+  const [selected, setSelected] = useLocalStorage<string[]>(storageKey, [])
+
+  useEffect(() => {
+    onChange?.(selected)
+  }, [selected, onChange])
+
   const toggle = (tag: string) => {
-    if (selected.includes(tag)) {
-      onChange(selected.filter(t => t !== tag))
-    } else {
-      onChange([...selected, tag])
-    }
+    setSelected(prev =>
+      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
+    )
   }
 
   return (
@@ -28,6 +33,7 @@ export default function TagFilterBar({ tags, selected, onChange }: Props) {
           onClick={() => toggle(tag)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          animate={{ opacity: selected.includes(tag) ? 1 : 0.6 }}
           aria-pressed={selected.includes(tag)}
           className='flex-shrink-0 focus:outline-none'
         >

@@ -1,9 +1,10 @@
 import React, { useState, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Star } from 'lucide-react'
 import type { Herb } from '../types'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
 import TagBadge from './TagBadge'
+import { useHerbFavorites } from '../hooks/useHerbFavorites'
 
 interface Props {
   herb: Herb
@@ -30,6 +31,7 @@ const itemVariants = {
 export default function HerbCardAccordion({ herb }: Props) {
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen(v => !v)
+  const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
   const handleKey = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -44,6 +46,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      exit={{ opacity: 0, scale: 0.9 }}
       onClick={toggle}
       onKeyDown={handleKey}
       tabIndex={0}
@@ -84,15 +87,28 @@ export default function HerbCardAccordion({ herb }: Props) {
             )}
           </div>
         </div>
-        <motion.span
-          layout
-          initial={false}
-          animate={{ rotate: open ? 90 : 0 }}
-          transition={{ duration: 0.3 }}
-          className='text-cyan-200 transition-transform'
-        >
-          <ChevronRight size={18} />
-        </motion.span>
+        <div className='flex items-center gap-2'>
+          <button
+            type='button'
+            onClick={e => {
+              e.stopPropagation()
+              toggleFavorite(herb.id)
+            }}
+            aria-label={isFavorite(herb.id) ? 'Remove favorite' : 'Add favorite'}
+            className='rounded-md p-1 text-yellow-400 hover:bg-white/10'
+          >
+            <Star fill={isFavorite(herb.id) ? 'currentColor' : 'none'} size={18} />
+          </button>
+          <motion.span
+            layout
+            initial={false}
+            animate={{ rotate: open ? 90 : 0 }}
+            transition={{ duration: 0.3 }}
+            className='text-cyan-200 transition-transform'
+          >
+            <ChevronRight size={18} />
+          </motion.span>
+        </div>
       </div>
 
       <div className='mt-2 flex flex-wrap gap-2'>
