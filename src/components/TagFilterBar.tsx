@@ -2,13 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import TagBadge from './TagBadge'
-import {
-  decodeTag,
-  tagVariant,
-  tagCategory,
-  TagCategory,
-  normalizeTag,
-} from '../utils/format'
+import { decodeTag, tagVariant, tagCategory, TagCategory, normalizeTag } from '../utils/format'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 interface Props {
@@ -65,16 +59,15 @@ export default function TagFilterBar({
       Other: [],
     }
     tags.forEach(t => {
-      const cat = tagCategory(t)
-      map[cat].push(t)
+      const canon = normalizeTag(t)
+      const cat = tagCategory(canon)
+      if (!map[cat].includes(canon)) map[cat].push(canon)
     })
     return map
   }, [tags])
 
   const toggle = (tag: string) => {
-    setSelected(prev =>
-      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-    )
+    setSelected(prev => (prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]))
   }
 
   const labelFor = (cat: TagCategory) => {
@@ -128,9 +121,7 @@ export default function TagFilterBar({
             <motion.button
               type='button'
               whileHover={{ scale: 1.05 }}
-              onClick={() =>
-                setShowMore(m => ({ ...m, [cat]: !m[cat] }))
-              }
+              onClick={() => setShowMore(m => ({ ...m, [cat]: !m[cat] }))}
               className='tag-pill mt-2'
             >
               {showMore[cat] ? 'Show Less' : 'Show More'}
@@ -152,10 +143,7 @@ export default function TagFilterBar({
             aria-expanded={expanded[cat]}
           >
             {labelFor(cat)}
-            <motion.span
-              animate={{ rotate: expanded[cat] ? 90 : 0 }}
-              className='ml-1 text-xs'
-            >
+            <motion.span animate={{ rotate: expanded[cat] ? 90 : 0 }} className='ml-1 text-xs'>
               ▶
             </motion.span>
           </button>
