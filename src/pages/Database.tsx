@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import HerbList from '../components/HerbList'
 import TagFilterBar from '../components/TagFilterBar'
 import CategoryAnalytics from '../components/CategoryAnalytics'
+import CategoryFilter from '../components/CategoryFilter'
 import { decodeTag } from '../utils/format'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
@@ -23,6 +24,8 @@ export default function Database() {
     setQuery,
     tags: filteredTags,
     setTags: setFilteredTags,
+    categories: filteredCategories,
+    setCategories: setFilteredCategories,
     favoritesOnly,
     setFavoritesOnly,
     fuse,
@@ -55,6 +58,14 @@ export default function Database() {
   }, [herbs])
 
   const [filtersOpen, setFiltersOpen] = React.useState(false)
+
+  React.useEffect(() => {
+    const close = () => {
+      if (window.scrollY > 150) setFiltersOpen(false)
+    }
+    window.addEventListener('scroll', close)
+    return () => window.removeEventListener('scroll', close)
+  }, [])
 
   const relatedTags = React.useMemo(() => {
     if (filteredTags.length === 0) return [] as string[]
@@ -117,7 +128,8 @@ export default function Database() {
             </button>
           </div>
 
-          <div className={`mb-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
+          <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
+            <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />
             <TagFilterBar tags={allTags} counts={tagCounts} onChange={setFilteredTags} />
           </div>
           {relatedTags.length > 0 && (

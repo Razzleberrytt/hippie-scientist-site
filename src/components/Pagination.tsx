@@ -21,7 +21,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
   }
   const pages = getPages()
   return (
-    <div className='mb-8 mt-4 flex flex-nowrap justify-center gap-2 overflow-x-auto sm:flex-wrap'>
+    <div className='mb-8 mt-4 inline-flex flex-nowrap justify-center gap-2 overflow-x-auto sm:flex-wrap'>
       <button
         type='button'
         disabled={currentPage === 1}
@@ -36,12 +36,12 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
             whileHover={{ scale: 1.1 }}
             key={p}
             onClick={() => onPageChange(p)}
-            className={`rounded px-2 py-1 text-sm ${p === currentPage ? 'bg-cosmic-purple text-white' : 'text-sand'}`}
+            className={`min-w-[2rem] rounded px-2 py-1 text-center text-sm ${p === currentPage ? 'bg-cosmic-purple text-white' : 'text-sand'}`}
           >
             {p}
           </motion.button>
         ) : (
-          <span key={`ellipsis-${i}`} className='px-2 py-1 text-sand'>
+          <span key={`ellipsis-${i}`} className='min-w-[2rem] px-2 py-1 text-center text-sand'>
             {p}
           </span>
         )
