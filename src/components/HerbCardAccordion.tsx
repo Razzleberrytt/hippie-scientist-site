@@ -74,17 +74,6 @@ export default function HerbCardAccordion({ herb }: Props) {
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
             )}
             {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
-            {herb.safetyRating !== undefined && (
-              <span
-                className={
-                  typeof herb.safetyRating === 'number'
-                    ? safetyColorClass(herb.safetyRating)
-                    : ''
-                }
-              >
-                {herb.safetyRating}
-              </span>
-            )}
           </div>
         </div>
         <div className='flex items-center gap-2'>
@@ -158,6 +147,7 @@ export default function HerbCardAccordion({ herb }: Props) {
                 'intensity',
                 'region',
                 'legalStatus',
+                'safetyRating',
                 'toxicity',
                 'toxicityLD50',
               ].map(key => {
@@ -168,7 +158,13 @@ export default function HerbCardAccordion({ herb }: Props) {
                     <span className='font-semibold text-lime-300'>
                       {key.replace(/([A-Z])/g, ' $1') + ':'}
                     </span>{' '}
-                    {value}
+                    {key === 'safetyRating' ? (
+                      <span className={typeof raw === 'number' ? safetyColorClass(raw) : ''}>
+                        {value}
+                      </span>
+                    ) : (
+                      value
+                    )}
                   </motion.div>
                 )
               })}
