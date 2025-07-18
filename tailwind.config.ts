@@ -20,7 +20,8 @@ export default {
         fungal: '#F2785C',
         bark: '#1A1D1B',
         'psychedelic-purple': '#8b5cf6',
-        'psychedelic-pink': '#ec4899',
+        // darkened slightly for better contrast in light mode
+        'psychedelic-pink': '#db2777',
         'space-dark': '#0f172a',
         'space-night': '#0c0c1a',
         'cosmic-purple': '#7e22ce',

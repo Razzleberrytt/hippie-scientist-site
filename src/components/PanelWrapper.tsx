@@ -11,7 +11,7 @@ const PanelWrapper: React.FC<Props> = ({ children, className }) => (
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className={`relative my-12 overflow-hidden rounded-xl border border-bark bg-bark/60 p-6 shadow-glow backdrop-blur-lg ${className ?? ''}`}
+    className={`relative my-12 overflow-hidden rounded-xl border border-gray-300 bg-white/60 p-6 shadow-glow backdrop-blur-lg dark:border-bark dark:bg-bark/60 ${className ?? ''}`}
   >
     <div className='absolute inset-x-0 top-0 h-px animate-pulse bg-gradient-to-r from-transparent via-lichen/30 to-transparent' />
     {children}

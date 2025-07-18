@@ -56,7 +56,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       whileHover={{ scale: 1.03, rotateX: 1, rotateY: -1 }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className='relative cursor-pointer overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-purple-950/40 via-fuchsia-900/30 to-sky-900/40 p-6 shadow-xl backdrop-blur-lg transition-all hover:shadow-2xl hover:ring-2 hover:ring-fuchsia-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/60'
+      className='relative cursor-pointer overflow-hidden rounded-2xl border border-gray-300 bg-white/60 p-6 shadow-xl backdrop-blur-lg transition-all hover:shadow-2xl hover:ring-2 hover:ring-fuchsia-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/60 dark:border-white/10 dark:bg-gradient-to-br dark:from-purple-950/40 dark:via-fuchsia-900/30 dark:to-sky-900/40'
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -172,28 +172,28 @@ export default function HerbCardAccordion({ herb }: Props) {
 
               {herb.tags?.length > 0 && (
                 <motion.div variants={itemVariants} className='flex flex-wrap gap-2 pt-2'>
-              {herb.tags.map(tag => (
-                <TagBadge
-                  key={tag}
-                  label={decodeTag(tag)}
-                  variant={tagVariant(tag)}
-                  className={open ? 'animate-pulse' : ''}
-                />
-              ))}
+                  {herb.tags.map(tag => (
+                    <TagBadge
+                      key={tag}
+                      label={decodeTag(tag)}
+                      variant={tagVariant(tag)}
+                      className={open ? 'animate-pulse' : ''}
+                    />
+                  ))}
+                </motion.div>
+              )}
+              <motion.div variants={itemVariants} className='pt-2'>
+                <Link
+                  to={`/herbs/${herb.id}`}
+                  onClick={e => e.stopPropagation()}
+                  className='text-comet underline'
+                >
+                  View full page
+                </Link>
+              </motion.div>
             </motion.div>
-          )}
-          <motion.div variants={itemVariants} className='pt-2'>
-            <Link
-              to={`/herbs/${herb.id}`}
-              onClick={e => e.stopPropagation()}
-              className='text-comet underline'
-            >
-              View full page
-            </Link>
           </motion.div>
-        </motion.div>
-      </motion.div>
-    )}
+        )}
       </AnimatePresence>
     </motion.div>
   )

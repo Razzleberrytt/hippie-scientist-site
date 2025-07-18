@@ -68,22 +68,17 @@ const PostFilter: React.FC<Props> = ({ posts, onFilter }) => {
         aria-label='Search posts'
         value={query}
         onChange={e => setQuery(e.target.value)}
-        className='w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500'
+        className='w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white'
       />
       <div className='flex flex-wrap items-center gap-2'>
         {selectedTags.map(tag => (
-          <button
-            type='button'
-            key={tag}
-            onClick={() => removeTag(tag)}
-            className='tag-pill'
-          >
+          <button type='button' key={tag} onClick={() => removeTag(tag)} className='tag-pill'>
             {decodeTag(tag)}
           </button>
         ))}
         <select
           onChange={handleAddTag}
-          className='rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-white'
+          className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black dark:border-gray-700 dark:bg-gray-900 dark:text-white'
           defaultValue=''
         >
           <option value=''>Add Tag Filter...</option>
@@ -96,7 +91,7 @@ const PostFilter: React.FC<Props> = ({ posts, onFilter }) => {
         <button
           type='button'
           onClick={clearFilters}
-          className='rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-white hover:bg-gray-700'
+          className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700'
         >
           Clear Filters
         </button>

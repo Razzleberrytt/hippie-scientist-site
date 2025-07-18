@@ -79,14 +79,14 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   }, [filtered, onFilter])
 
   return (
-    <div className='sticky top-20 z-10 mb-8 space-y-4 rounded-lg bg-space-dark/70 p-4 backdrop-blur-md'>
+    <div className='sticky top-20 z-10 mb-8 space-y-4 rounded-lg bg-white/70 p-4 backdrop-blur-md dark:bg-space-dark/70'>
       <input
         type='text'
         placeholder='Search herbs...'
         aria-label='Search herbs'
         value={query}
         onChange={e => setQuery(e.target.value)}
-        className='w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500'
+        className='w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white'
       />
       <div className='flex flex-wrap items-center gap-2'>
         {selectedTags.map(tag => (
@@ -96,7 +96,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
         ))}
         <select
           onChange={handleAddTag}
-          className='rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-white'
+          className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black dark:border-gray-700 dark:bg-gray-900 dark:text-white'
           defaultValue=''
         >
           <option value=''>Add Tag Filter...</option>
@@ -109,7 +109,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
         <button
           type='button'
           onClick={pickRandom}
-          className='rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-white hover:bg-gray-700'
+          className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700'
         >
           Random Herb
         </button>
@@ -117,7 +117,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
         <select
           value={sort}
           onChange={e => setSort(e.target.value as SortKey)}
-          className='rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-white'
+          className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black dark:border-gray-700 dark:bg-gray-900 dark:text-white'
         >
           <option value=''>Sort By...</option>
           <option value='intensity'>Intensity</option>
@@ -127,7 +127,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
         <button
           type='button'
           onClick={clearFilters}
-          className='rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-white hover:bg-gray-700'
+          className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700'
         >
           Clear Filters
         </button>
