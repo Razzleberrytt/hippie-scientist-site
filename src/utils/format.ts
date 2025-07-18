@@ -6,6 +6,53 @@ export function decodeTag(tag: string): string {
   }
 }
 
+export function normalizeTag(tag: string): string {
+  const decoded = decodeTag(tag)
+  const key = decoded.toLowerCase()
+  if (key === 'ayahuasca-additive') return 'Ayahuasca'
+  if (key === 'sleep') return 'Dream'
+  if (key === 'sedative') return 'Sedation'
+  return decoded
+}
+
+export type TagCategory =
+  | 'Effect'
+  | 'Preparation'
+  | 'Safety'
+  | 'Region'
+  | 'Chemistry'
+  | 'Other'
+
+export function tagCategory(tag: string): TagCategory {
+  const t = normalizeTag(tag).toLowerCase()
+  if (/(toxic|caution|restricted|safe)/.test(t)) return 'Safety'
+  if (
+    /(brew|tea|smoke|smokable|oral|chew|snuff|ferment|tincture|capsule|decoction|seed|root|bark|flower|incense)/.test(
+      t
+    )
+  )
+    return 'Preparation'
+  if (
+    /(stimulant|euphoria|dream|sleep|sedat|vision|dissoci|cognit|anxiolytic|energy|hallucinogen|calming|pain relief)/.test(
+      t
+    )
+  )
+    return 'Effect'
+  if (
+    /(dmt|lsa|thc|alkaloid|maoi|caffeine|nicotine|muscimol|morphine|tryptamine)/.test(
+      t
+    )
+  )
+    return 'Chemistry'
+  if (
+    /(africa|america|europe|asia|amazon|andes|australia|brazil|mexico|peru|india|china|pacific|region|north|south|west|east)/.test(
+      t
+    )
+  )
+    return 'Region'
+  return 'Other'
+}
+
 export function safetyColorClass(rating?: number): string {
   if (rating == null) return '';
   if (rating <= 1) return 'text-green-400';
@@ -31,15 +78,15 @@ export type TagVariant =
   | 'red';
 
 export function tagVariant(tag: string): TagVariant {
-  const decoded = decodeTag(tag);
-  if (decoded.includes('Toxic') || decoded.includes('Restricted')) return 'red';
-  if (decoded.includes('Safe')) return 'green';
-  if (decoded.includes('Stimulant') || decoded.includes('Euphoria')) return 'pink';
-  if (decoded.includes('Dissociation') || decoded.includes('Sedation')) return 'purple';
-  if (decoded.includes('Dream')) return 'blue';
-  if (decoded.includes('Cognitive')) return 'yellow';
-  if (decoded.includes('Brewable') || decoded.includes('Smokable')) return 'blue';
-  if (decoded.includes('Oral') || decoded.includes('Fermented')) return 'yellow';
-  if (decoded.includes('Ritual')) return 'green';
-  return 'purple';
+  const decoded = normalizeTag(tag)
+  if (/toxic|restricted|caution/i.test(decoded)) return 'red'
+  if (/safe/i.test(decoded)) return 'green'
+  if (/stimulant|euphoria/i.test(decoded)) return 'pink'
+  if (/dissoci|sedat/i.test(decoded)) return 'purple'
+  if (/dream/i.test(decoded)) return 'blue'
+  if (/cognitive/i.test(decoded)) return 'yellow'
+  if (/brew|smok/i.test(decoded)) return 'blue'
+  if (/oral|ferment/i.test(decoded)) return 'yellow'
+  if (/ritual/i.test(decoded)) return 'green'
+  return 'purple'
 }

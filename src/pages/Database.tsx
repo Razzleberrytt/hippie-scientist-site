@@ -36,6 +36,16 @@ export default function Database() {
     return Array.from(new Set(t))
   }, [herbs])
 
+  const tagCounts = React.useMemo(() => {
+    const counts: Record<string, number> = {}
+    herbs.forEach(h => {
+      h.tags.forEach(t => {
+        counts[t] = (counts[t] || 0) + 1
+      })
+    })
+    return counts
+  }, [herbs])
+
   const filtered = React.useMemo(() => {
     let res = herbs
     const q = query.trim()
@@ -112,7 +122,11 @@ export default function Database() {
           </div>
 
           <div className='mb-4'>
-            <TagFilterBar tags={allTags} onChange={setFilteredTags} />
+            <TagFilterBar
+              tags={allTags}
+              counts={tagCounts}
+              onChange={setFilteredTags}
+            />
           </div>
           {relatedTags.length > 0 && (
             <div className='mb-4 flex flex-wrap items-center gap-2'>
