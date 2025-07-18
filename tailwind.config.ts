@@ -31,9 +31,9 @@ export default {
         intense: '0 0 24px rgba(79, 193, 233, 0.4)',
       },
       fontFamily: {
-        display: ['"Righteous"', 'cursive'],
+        display: ['"Syne"', '"Righteous"', 'cursive'],
         sans: ['"Inter"', 'sans-serif'],
-        herb: ['"Righteous"', 'cursive'],
+        herb: ['"Comfortaa"', '"Orbitron"', 'cursive'],
       },
     },
   },
