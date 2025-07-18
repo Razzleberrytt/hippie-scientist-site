@@ -1,4 +1,4 @@
-import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";if(typeof n=="string"||typeof n=="number")i+=n;else if(typeof n=="object")if(Array.isArray(n)){var t=n.length;for(a=0;a<t;a++)n[a]&&(e=o(n[a]))&&(i&&(i+=" "),i+=e)}else for(e in n)n[e]&&(i&&(i+=" "),i+=e);return i}function d(){for(var n,a,e=0,i="",t=arguments.length;e<t;e++)(n=arguments[e])&&(a=o(n))&&(i&&(i+=" "),i+=a);return i}const l={pink:"from-pink-600 via-fuchsia-500 to-pink-600 shadow-pink-500/40",blue:"from-sky-600 via-cyan-500 to-sky-600 shadow-cyan-500/40",purple:"from-purple-700 via-violet-600 to-purple-700 shadow-violet-600/40",green:"from-lime-600 via-emerald-500 to-lime-600 shadow-emerald-500/40",yellow:"from-amber-600 via-yellow-500 to-amber-600 shadow-amber-500/40",red:"from-rose-600 via-red-500 to-rose-600 shadow-red-500/40"};function g({label:n,variant:a="purple",className:e}){return r.jsx(c.span,{whileHover:{scale:1.05},className:d("inline-flex items-center rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white shadow hover-glow",l[a],e),children:n})}function p(n,a){const[e,i]=s.useState(()=>{try{const t=localStorage.getItem(n);return t?JSON.parse(t):a}catch{return a}});return s.useEffect(()=>{try{localStorage.setItem(n,JSON.stringify(e))}catch{}},[n,e]),[e,i]}const u=`[
+import{j as r,m as c,r as s}from"./main-7e24e225.js";const d=`[
   {
     "name": "Acacia confusa",
     "category": "Ritual / Visionary",
@@ -51,7 +51,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or chewed",
     "region": "🇨🇳 East Asia",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Nausea at high doses, possible carcinogenic risk with long-term β-asarone exposure.",
     "tags": [
       "\\\\u2615 Brewable",
@@ -69,7 +69,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "contraindications": "None well established",
     "description": "A sacred dream-enhancing root used by the Xhosa people of South Africa to induce powerful and meaningful dreams.",
     "drugInteractions": "Unknown",
-    "duration": "N/A (during REM)",
+    "duration": "During REM sleep",
     "effects": [
       "Vivid dreams",
       "lucidity",
@@ -147,7 +147,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "South American use",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Prominent cardiovascular changes, nausea, vomiting, and dizziness [1, 0, 1, 1].",
     "tags": [
       "\\\\u26a0\\\\ufe0f Restricted"
@@ -176,7 +176,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Smoke, tea, or ritual incense",
     "region": "🇪🇺 Europe",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
@@ -209,7 +209,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea, capsule",
     "region": "🇮🇳 India",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Gastrointestinal upset (nausea, increased motility), fatigue, dry mouth [0, 5].",
     "tags": [
       "\\\\u2615 Brewable",
@@ -242,7 +242,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Highly toxic – not for casual use",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Dry mouth, hallucinations, delirium, elevated pulse.",
     "tags": [
       "\\\\u2620\\\\ufe0f Toxic"
@@ -257,21 +257,21 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "contraindications": "Pregnancy, cardiovascular conditions",
     "description": "A widely used masticatory stimulant in Asia and the Pacific, often combined with lime and betel leaf.",
     "drugInteractions": "Stimulants, parasympathomimetics",
-    "duration": "",
+    "duration": "Unknown",
     "effects": [
       "Stimulation",
       "warmth",
       "mild euphoria"
     ],
     "id": "betel-nut",
-    "intensity": "",
-    "legalStatus": "",
+    "intensity": "Unknown",
+    "legalStatus": "Unknown",
     "mechanismOfAction": "Arecoline acts as a muscarinic cholinergic agonist",
-    "onset": "",
+    "onset": "Unknown",
     "pharmacokinetics": "Not well documented",
     "preparation": "Chewed with lime and leaf",
     "region": "South and Southeast Asia",
-    "safetyRating": "",
+    "safetyRating": "Unknown",
     "scientificName": "Areca catechu",
     "sideEffects": "Addiction, oral cancer with chronic use",
     "tags": [],
@@ -332,7 +332,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Wine soak, smoke, tea",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness, mild dizziness at high doses.",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
@@ -382,21 +382,21 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "contraindications": "All unsupervised use",
     "description": "Powerful and dangerous deliriant used in South American shamanism. Highly toxic and not recommended for casual use.",
     "drugInteractions": "Anticholinergics, CNS depressants",
-    "duration": "",
+    "duration": "Unknown",
     "effects": [
       "Hallucinations",
       "delirium",
       "disorientation"
     ],
     "id": "brugmansia",
-    "intensity": "",
-    "legalStatus": "",
+    "intensity": "Unknown",
+    "legalStatus": "Unknown",
     "mechanismOfAction": "Tropane alkaloids (scopolamine, atropine)",
-    "onset": "",
+    "onset": "Unknown",
     "pharmacokinetics": "Not well documented",
     "preparation": "Smoked or brewed (shamanic contexts only)",
     "region": "South America",
-    "safetyRating": "",
+    "safetyRating": "Unknown",
     "scientificName": "Brugmansia suaveolens",
     "sideEffects": "Extreme confusion, memory loss, risk of death",
     "tags": [],
@@ -410,21 +410,21 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "contraindications": "SSRIs, MAOIs, pregnancy",
     "description": "The vine of the soul used in Ayahuasca. Contains harmala alkaloids and facilitates DMT absorption in the brew.",
     "drugInteractions": "All serotonergic substances",
-    "duration": "",
+    "duration": "Unknown",
     "effects": [
       "MAOI effects",
       "spiritual opening",
       "purging"
     ],
     "id": "caapi",
-    "intensity": "",
-    "legalStatus": "",
+    "intensity": "Unknown",
+    "legalStatus": "Unknown",
     "mechanismOfAction": "Reversible MAO-A inhibition (harmine, harmaline)",
-    "onset": "",
+    "onset": "Unknown",
     "pharmacokinetics": "Not well documented",
     "preparation": "Brewed with DMT-containing plants",
     "region": "Amazon basin",
-    "safetyRating": "",
+    "safetyRating": "Unknown",
     "scientificName": "Banisteriopsis caapi",
     "sideEffects": "Nausea, purging, dizziness",
     "tags": [],
@@ -484,7 +484,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea, tincture, or extract",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness, vivid dreams, dizziness.",
     "tags": [
       "\\\\u2615 Brewable",
@@ -548,7 +548,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Oil or seeds consumed",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83e\\\\udde0 Cognitive",
@@ -610,7 +610,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Amazonian brew; not casual use",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Dizziness, nausea, muscle tremors, delirium at high doses [0, 11].",
     "tags": [
       "\\\\u2615 Brewable",
@@ -674,7 +674,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Burned as incense",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83d\\\\udd6f\\\\ufe0f Ritual",
@@ -801,7 +801,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or extract",
     "region": "🇨🇳 East Asia",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Mild insomnia, irritability, nervousness in high doses.",
     "tags": [
       "\\\\u2615 Brewable",
@@ -832,7 +832,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Seed powder or chew",
     "region": "🇲🇽 Latin America",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Mild GI upset, drowsiness; rare nausea [0, 6].",
     "tags": [
       "\\\\ud83d\\\\udc8a Oral",
@@ -863,7 +863,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea, tincture",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "High doses may cause residual sedation (\\"hangover\\"), nausea, dizziness; avoid operating machinery [2, 8, 2, 9].",
     "tags": [
       "\\\\u2615 Brewable",
@@ -895,7 +895,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Resin burned",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\u2705 Safe"
@@ -956,7 +956,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Fermented sun tea",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Dry mouth, muscle relaxation, altered hearing [9, 4].",
     "tags": [
       "\\\\u2615 Brewable",
@@ -989,7 +989,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Historically ritual; dangerous/toxic",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83d\\\\udd6f\\\\ufe0f Ritual",
@@ -1019,7 +1019,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or herbal pillow",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness, mild headache, possible hormonal effects in large doses.",
     "tags": [
       "\\\\u2615 Brewable",
@@ -1114,7 +1114,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Seeds ground and cold infused",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Nausea, vasoconstriction, headache [0, 5].",
     "tags": [
       "\\\\u26a0\\\\ufe0f Restricted"
@@ -1239,7 +1239,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Capsule or tea",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\u2615 Brewable",
@@ -1303,7 +1303,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Traditional ceremonial use only",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Dry mouth, confusion, hallucinations, elevated heart rate.",
     "tags": [
       "\\\\u2620\\\\ufe0f Toxic"
@@ -1332,7 +1332,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea, tincture, or smoke",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness; possible allergic reactions; GI upset at high doses [0, 0].",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
@@ -1431,7 +1431,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or smoke",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
@@ -1464,7 +1464,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or incense",
     "region": "🇮🇳 India",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "May lower blood sugar, mild sedation, mild nausea.",
     "tags": [
       "\\\\u2615 Brewable",
@@ -1529,7 +1529,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Smoked or tea",
     "region": "🌍 Africa, 🇮🇳 India",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness, dizziness [2, 0].",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
@@ -1561,7 +1561,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Smoked or tea",
     "region": "🌍 Africa",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Rare; possible GI upset [0, 7].",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
@@ -1626,7 +1626,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or culinary use",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "High doses may cause GI upset; safrole is a potential carcinogen [1, 11].",
     "tags": [
       "\\\\u2615 Brewable",
@@ -1659,7 +1659,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Capsule, tincture",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Irritability, dry mouth, dizziness (rare, dose-dependent).",
     "tags": [
       "\\\\ud83d\\\\udc8a Oral",
@@ -1692,7 +1692,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Seeds ground and cold infused",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Nausea, vasoconstriction, dizziness [0, 4].",
     "tags": [
       "\\\\u26a0\\\\ufe0f Restricted"
@@ -1721,7 +1721,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Smoked, intense, short duration",
     "region": "🇲🇽 Latin America",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Tiredness, dizziness, amnesia, potential for transient psychosis in vulnerable individuals [3, 2].",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
@@ -1753,7 +1753,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Chew, snuff, extract",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Headache, nausea, mild sedation [9, 4].",
     "tags": [
       "\\\\ud83d\\\\udc8a Oral",
@@ -1785,7 +1785,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or tincture",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Rarely causes liver enzyme elevation or drowsiness.",
     "tags": [
       "\\\\u2615 Brewable",
@@ -1879,7 +1879,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "No longer available but worth note",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\u2705 Safe"
@@ -1940,7 +1940,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Burned or braided for ceremonies",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83d\\\\udd2e Ritual",
@@ -1970,7 +1970,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea, incense, or smoke",
     "region": "🇲🇽 Latin America",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Mild GI upset, potential photosensitivity [2, 3].",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
@@ -2004,7 +2004,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea",
     "region": "🇪🇺 Europe",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
       "\\\\u2615 Brewable",
@@ -2166,7 +2166,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or syrup",
     "region": "🇪🇺 Europe",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Very rare; may include mild drowsiness or nausea.",
     "tags": [
       "\\\\u2615 Brewable",
@@ -2197,7 +2197,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Used in Amazonian snuffs",
     "region": "🇲🇽 Latin America",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Nausea, intense hallucinations, elevated heart rate.",
     "tags": [
       "\\\\u26a0\\\\ufe0f Restricted"
@@ -2323,7 +2323,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Burned as incense",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Respiratory irritation, asthmatic exacerbation, headaches at high exposure [0, 19].",
     "tags": [
       "\\\\ud83d\\\\udd6f\\\\ufe0f Ritual",
@@ -2387,7 +2387,7 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "preparation": "Tea or capsule",
     "region": "🇮🇳 India",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "GI upset, drowsiness, rare thyroid hormone changes [0, 9].",
     "tags": [
       "\\\\u2615 Brewable",
@@ -4373,4 +4373,4 @@ import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";
     "toxicityLD50": "~1 mg/kg in humans (estimated)",
     "safetyRating": "Very Low"
   }
-]`,m=u.replace(/NaN/g,"null"),f=JSON.parse(m);export{g as T,d as c,f as h,p as u};
+]`,l=d.replace(/NaN/g,"null"),g=JSON.parse(l);function o(n){var a,e,i="";if(typeof n=="string"||typeof n=="number")i+=n;else if(typeof n=="object")if(Array.isArray(n)){var t=n.length;for(a=0;a<t;a++)n[a]&&(e=o(n[a]))&&(i&&(i+=" "),i+=e)}else for(e in n)n[e]&&(i&&(i+=" "),i+=e);return i}function u(){for(var n,a,e=0,i="",t=arguments.length;e<t;e++)(n=arguments[e])&&(a=o(n))&&(i&&(i+=" "),i+=a);return i}const m={pink:"from-pink-600 via-fuchsia-500 to-pink-600 shadow-pink-500/40",blue:"from-sky-600 via-cyan-500 to-sky-600 shadow-cyan-500/40",purple:"from-purple-700 via-violet-600 to-purple-700 shadow-violet-600/40",green:"from-lime-600 via-emerald-500 to-lime-600 shadow-emerald-500/40",yellow:"from-amber-600 via-yellow-500 to-amber-600 shadow-amber-500/40",red:"from-rose-600 via-red-500 to-rose-600 shadow-red-500/40"};function p({label:n,variant:a="purple",className:e}){return r.jsx(c.span,{whileHover:{scale:1.05},className:u("inline-flex items-center rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white shadow hover-glow",m[a],e),children:n})}function f(n,a){const[e,i]=s.useState(()=>{try{const t=localStorage.getItem(n);return t?JSON.parse(t):a}catch{return a}});return s.useEffect(()=>{try{localStorage.setItem(n,JSON.stringify(e))}catch{}},[n,e]),[e,i]}export{p as T,u as c,g as h,f as u};
