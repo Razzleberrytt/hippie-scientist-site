@@ -1,5 +1,6 @@
 import React, { useState, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ChevronRight, Star } from 'lucide-react'
 import type { Herb } from '../types'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
@@ -171,19 +172,28 @@ export default function HerbCardAccordion({ herb }: Props) {
 
               {herb.tags?.length > 0 && (
                 <motion.div variants={itemVariants} className='flex flex-wrap gap-2 pt-2'>
-                  {herb.tags.map(tag => (
-                    <TagBadge
-                      key={tag}
-                      label={decodeTag(tag)}
-                      variant={tagVariant(tag)}
-                      className={open ? 'animate-pulse' : ''}
-                    />
-                  ))}
-                </motion.div>
-              )}
+              {herb.tags.map(tag => (
+                <TagBadge
+                  key={tag}
+                  label={decodeTag(tag)}
+                  variant={tagVariant(tag)}
+                  className={open ? 'animate-pulse' : ''}
+                />
+              ))}
             </motion.div>
+          )}
+          <motion.div variants={itemVariants} className='pt-2'>
+            <Link
+              to={`/herbs/${herb.id}`}
+              onClick={e => e.stopPropagation()}
+              className='text-comet underline'
+            >
+              View full page
+            </Link>
           </motion.div>
-        )}
+        </motion.div>
+      </motion.div>
+    )}
       </AnimatePresence>
     </motion.div>
   )
