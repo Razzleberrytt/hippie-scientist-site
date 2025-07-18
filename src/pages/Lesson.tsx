@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { posts } from '../data/posts'
+import PanelWrapper from '../components/PanelWrapper'
 
 const Lesson: React.FC = () => {
   const { slug } = useParams<{ slug: string }>()
@@ -24,7 +25,7 @@ const Lesson: React.FC = () => {
       <Helmet>
         <title>{post.title} - Learn</title>
       </Helmet>
-      <div className='mx-auto max-w-3xl px-6 py-12'>
+      <PanelWrapper className='mx-auto max-w-3xl px-6 py-12'>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,7 +45,7 @@ const Lesson: React.FC = () => {
             <p key={i}>{line}</p>
           ))}
         </motion.div>
-      </div>
+      </PanelWrapper>
     </>
   )
 }
