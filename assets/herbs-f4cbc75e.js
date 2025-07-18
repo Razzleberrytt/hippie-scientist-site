@@ -1,4 +1,4 @@
-import{j as r,m as c,r as o}from"./main-ec080d5d.js";function s(n){var a,i,e="";if(typeof n=="string"||typeof n=="number")e+=n;else if(typeof n=="object")if(Array.isArray(n)){var t=n.length;for(a=0;a<t;a++)n[a]&&(i=s(n[a]))&&(e&&(e+=" "),e+=i)}else for(i in n)n[i]&&(e&&(e+=" "),e+=i);return e}function d(){for(var n,a,i=0,e="",t=arguments.length;i<t;i++)(n=arguments[i])&&(a=s(n))&&(e&&(e+=" "),e+=a);return e}const u={pink:"from-pink-600 via-fuchsia-500 to-pink-600 shadow-pink-500/40",blue:"from-sky-600 via-cyan-500 to-sky-600 shadow-cyan-500/40",purple:"from-purple-700 via-violet-600 to-purple-700 shadow-violet-600/40",green:"from-lime-600 via-emerald-500 to-lime-600 shadow-emerald-500/40",yellow:"from-amber-600 via-yellow-500 to-amber-600 shadow-amber-500/40",red:"from-rose-600 via-red-500 to-rose-600 shadow-red-500/40"};function p({label:n,variant:a="purple",className:i}){return r.jsx(c.span,{whileHover:{scale:1.05},className:d("inline-flex items-center rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white shadow",u[a],i),children:n})}function g(n,a){const[i,e]=o.useState(()=>{try{const t=localStorage.getItem(n);return t?JSON.parse(t):a}catch{return a}});return o.useEffect(()=>{try{localStorage.setItem(n,JSON.stringify(i))}catch{}},[n,i]),[i,e]}const l=`[
+import{j as r,m as c,r as s}from"./main-cb8bc1c3.js";function o(n){var a,i,e="";if(typeof n=="string"||typeof n=="number")e+=n;else if(typeof n=="object")if(Array.isArray(n)){var t=n.length;for(a=0;a<t;a++)n[a]&&(i=o(n[a]))&&(e&&(e+=" "),e+=i)}else for(i in n)n[i]&&(e&&(e+=" "),e+=i);return e}function d(){for(var n,a,i=0,e="",t=arguments.length;i<t;i++)(n=arguments[i])&&(a=o(n))&&(e&&(e+=" "),e+=a);return e}const u={pink:"from-pink-600 via-fuchsia-500 to-pink-600 shadow-pink-500/40",blue:"from-sky-600 via-cyan-500 to-sky-600 shadow-cyan-500/40",purple:"from-purple-700 via-violet-600 to-purple-700 shadow-violet-600/40",green:"from-lime-600 via-emerald-500 to-lime-600 shadow-emerald-500/40",yellow:"from-amber-600 via-yellow-500 to-amber-600 shadow-amber-500/40",red:"from-rose-600 via-red-500 to-rose-600 shadow-red-500/40"};function h({label:n,variant:a="purple",className:i}){return r.jsx(c.span,{whileHover:{scale:1.05},className:d("inline-flex items-center rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white shadow",u[a],i),children:n})}function p(n,a){const[i,e]=s.useState(()=>{try{const t=localStorage.getItem(n);return t?JSON.parse(t):a}catch{return a}});return s.useEffect(()=>{try{localStorage.setItem(n,JSON.stringify(i))}catch{}},[n,i]),[i,e]}const l=`[
   {
     "name": "Acacia confusa",
     "category": "Ritual / Visionary",
@@ -2496,4 +2496,390 @@ import{j as r,m as c,r as o}from"./main-ec080d5d.js";function s(n){var a,i,e="";
     "toxicity": "High risk with improper use; bufotenine toxic at high dose",
     "toxicityLD50": "50\\u201380 mg/kg (bufotenine, mice)"
   }
-]`,m=l.replace(/NaN/g,"null"),h=JSON.parse(m);export{p as T,d as c,h,g as u};
+,
+  {
+    "name": "Amanita muscaria",
+    "scientificName": "Amanita muscaria",
+    "category": "Ritual / Visionary",
+    "tags": [
+      "\\ud83c\\udf44 Mushroom",
+      "\\u26a0\\ufe0f Caution"
+    ],
+    "effects": [
+      "Euphoria",
+      "dissociation",
+      "dreamlike state"
+    ],
+    "mechanismOfAction": "Ibotenic acid and muscimol act as GABA agonists and NMDA antagonists after decarboxylation.",
+    "therapeuticUses": "Shamanic ritual, historical analgesic and sedative use.",
+    "pharmacokinetics": "Onset 30\\u201390 min; duration 4\\u20138 hrs when ingested.",
+    "toxicity": "Can cause nausea, delirium, or poisoning if dose is high or raw mushrooms consumed.",
+    "toxicityLD50": "LD50 ~38 mg/kg (muscimol, mice)",
+    "intensity": "Moderate to strong",
+    "onset": "30\\u201390 min",
+    "duration": "4\\u20138 hrs",
+    "region": "Northern Hemisphere, boreal forests",
+    "legalStatus": "Legal in most countries",
+    "safetyRating": "medium",
+    "preparation": "Traditionally dried or parboiled to convert ibotenic acid to muscimol.",
+    "contraindications": "Avoid with sedatives or psychiatric conditions.",
+    "sideEffects": "Nausea, ataxia, delirium",
+    "drugInteractions": "Potentiates sedatives and alcohol",
+    "description": "Iconic red-capped mushroom used in Siberian shamanism and folklore. Psychoactive when properly prepared."
+  },
+  {
+    "name": "Valerian Root",
+    "scientificName": "Valeriana officinalis",
+    "category": "Sedative / Anxiolytic",
+    "tags": [
+      "\\ud83c\\udf3f Root",
+      "\\ud83d\\ude34 Sleep"
+    ],
+    "effects": [
+      "Relaxation",
+      "improved sleep",
+      "mild anxiolysis"
+    ],
+    "mechanismOfAction": "Valerenic acid modulates GABA receptors and may inhibit GABA breakdown.",
+    "therapeuticUses": "Insomnia, anxiety, muscle tension.",
+    "pharmacokinetics": "Oral; onset ~30 min; peak 1\\u20132 hrs; duration ~4 hrs.",
+    "toxicity": "Generally safe; high doses may cause headaches or dizziness.",
+    "toxicityLD50": "LD50 >3 g/kg (mouse, extract)",
+    "intensity": "Mild",
+    "onset": "30 min",
+    "duration": "4 hrs",
+    "region": "Europe, North America",
+    "legalStatus": "Legal",
+    "safetyRating": "low",
+    "preparation": "Dried root used as tea, tincture, or capsule.",
+    "contraindications": "Avoid with other sedatives or during pregnancy.",
+    "sideEffects": "Drowsiness, vivid dreams",
+    "drugInteractions": "Additive with benzodiazepines or alcohol",
+    "description": "Traditional European herb valued for calming and sleep-promoting properties."
+  },
+  {
+    "name": "Huperzia serrata",
+    "scientificName": "Huperzia serrata",
+    "category": "Nootropic / Cognitive",
+    "tags": [
+      "\\ud83e\\udde0 Memory",
+      "\\u2697\\ufe0f Alkaloid"
+    ],
+    "effects": [
+      "Improved memory",
+      "alertness"
+    ],
+    "mechanismOfAction": "Provides huperzine A, a reversible acetylcholinesterase inhibitor.",
+    "therapeuticUses": "Memory enhancement, research for Alzheimer\\u2019s disease.",
+    "pharmacokinetics": "Oral; onset within 30 min; duration 6\\u20138 hrs.",
+    "toxicity": "Generally safe at low doses; high doses may cause cholinergic effects.",
+    "toxicityLD50": "LD50 >2 mg/kg (rats, huperzine A)",
+    "intensity": "Mild",
+    "onset": "30 min",
+    "duration": "6\\u20138 hrs",
+    "region": "China, Southeast Asia",
+    "legalStatus": "Legal in most countries",
+    "safetyRating": "medium",
+    "preparation": "Standardized extract or whole plant tea.",
+    "contraindications": "Bradycardia, cholinergic medications.",
+    "sideEffects": "Nausea, sweating, muscle twitching at high doses",
+    "drugInteractions": "Potentiates cholinergic drugs or acetylcholinesterase inhibitors",
+    "description": "Club moss used in Traditional Chinese Medicine; source of huperzine A nootropic."
+  },
+  {
+    "name": "Syrian Rue",
+    "scientificName": "Peganum harmala",
+    "category": "Ritual / MAOI",
+    "tags": [
+      "\\ud83c\\udf3f Seeds",
+      "\\u26a0\\ufe0f MAOI"
+    ],
+    "effects": [
+      "MAOI effects",
+      "mild hallucinations",
+      "dream enhancement"
+    ],
+    "mechanismOfAction": "Harmala alkaloids reversibly inhibit MAO-A and MAO-B.",
+    "therapeuticUses": "Used in Middle Eastern rituals; sometimes combined with DMT for oral activity.",
+    "pharmacokinetics": "Oral ingestion; onset 20\\u201340 min; duration 4\\u20136 hrs.",
+    "toxicity": "High doses cause nausea, tremors, or hallucinations.",
+    "toxicityLD50": "LD50 ~150 mg/kg (harmaline, mice)",
+    "intensity": "Moderate",
+    "onset": "20\\u201340 min",
+    "duration": "4\\u20136 hrs",
+    "region": "Middle East, Central Asia",
+    "legalStatus": "Restricted in some countries",
+    "safetyRating": "medium",
+    "preparation": "Seeds ground for tea or extracted.",
+    "contraindications": "Avoid with SSRIs, stimulants, or liver disease.",
+    "sideEffects": "Nausea, vomiting, weakness",
+    "drugInteractions": "Dangerous with other MAOIs or serotonergic drugs",
+    "description": "Potent MAOI seed used traditionally for protection and divination."
+  },
+  {
+    "name": "Wild Dagga",
+    "scientificName": "Leonotis leonurus",
+    "category": "Relaxant / Euphoric",
+    "tags": [
+      "\\ud83c\\udf3f Smoke",
+      "\\ud83e\\udd81 Dagga"
+    ],
+    "effects": [
+      "Mild euphoria",
+      "relaxation"
+    ],
+    "mechanismOfAction": "Contains leonurine; may act on serotonin and cannabinoid receptors.",
+    "therapeuticUses": "Folk remedy for coughs, fever and as a mild psychoactive when smoked.",
+    "pharmacokinetics": "Smoked or brewed; onset within minutes; duration ~1\\u20133 hrs.",
+    "toxicity": "Low; high doses may cause dizziness or nausea.",
+    "toxicityLD50": "Not established",
+    "intensity": "Mild",
+    "onset": "Minutes",
+    "duration": "1\\u20133 hrs",
+    "region": "Southern Africa",
+    "legalStatus": "Legal",
+    "safetyRating": "low",
+    "preparation": "Dried leaves or flowers smoked or brewed as tea.",
+    "contraindications": "Avoid during pregnancy or with heart conditions.",
+    "sideEffects": "Dry mouth, slight dizziness",
+    "drugInteractions": "May potentiate other sedatives",
+    "description": "Orange-flowered shrub also called lion\\u2019s tail; smoked traditionally for mild cannabis-like effects."
+  },
+  {
+    "name": "Yohimbe",
+    "scientificName": "Pausinystalia johimbe",
+    "category": "Stimulant / Aphrodisiac",
+    "tags": [
+      "\\ud83c\\udf33 Bark",
+      "\\ud83d\\udd25 Libido"
+    ],
+    "effects": [
+      "Stimulation",
+      "increased libido",
+      "elevated heart rate"
+    ],
+    "mechanismOfAction": "Yohimbine blocks alpha-2 adrenergic receptors leading to increased norepinephrine release.",
+    "therapeuticUses": "Used for erectile dysfunction and as a stimulant.",
+    "pharmacokinetics": "Oral; onset ~30 min; duration 2\\u20134 hrs.",
+    "toxicity": "High doses cause anxiety, hypertension, or hallucinations.",
+    "toxicityLD50": "LD50 ~50 mg/kg (rats, yohimbine)",
+    "intensity": "Moderate",
+    "onset": "30 min",
+    "duration": "2\\u20134 hrs",
+    "region": "West Africa",
+    "legalStatus": "Restricted or prescription in some countries",
+    "safetyRating": "medium",
+    "preparation": "Bark extracts or standardized tablets.",
+    "contraindications": "Heart disease, anxiety disorders, MAOIs.",
+    "sideEffects": "Increased blood pressure, jitteriness, insomnia",
+    "drugInteractions": "Interacts with stimulants and antihypertensives",
+    "description": "West African tree bark rich in yohimbine, historically used as an aphrodisiac and stimulant."
+  },
+  {
+    "name": "Khat",
+    "scientificName": "Catha edulis",
+    "category": "Stimulant / Euphoric",
+    "tags": [
+      "\\ud83c\\udf3f Leaves",
+      "\\u26a0\\ufe0f Controlled"
+    ],
+    "effects": [
+      "Euphoria",
+      "alertness",
+      "appetite suppression"
+    ],
+    "mechanismOfAction": "Cathinone alkaloids release dopamine and norepinephrine.",
+    "therapeuticUses": "Social stimulant chewed in East Africa and the Arabian Peninsula.",
+    "pharmacokinetics": "Chewed fresh leaves; onset 15\\u201330 min; duration 3\\u20135 hrs.",
+    "toxicity": "Excess use leads to insomnia, hypertension, or dependency.",
+    "toxicityLD50": "Cathinone LD50 ~75 mg/kg (rats)",
+    "intensity": "Moderate",
+    "onset": "15\\u201330 min",
+    "duration": "3\\u20135 hrs",
+    "region": "Horn of Africa, Yemen",
+    "legalStatus": "Illegal or controlled in many countries",
+    "safetyRating": "medium",
+    "preparation": "Fresh leaves chewed slowly.",
+    "contraindications": "Heart issues, pregnancy, MAOIs.",
+    "sideEffects": "Dry mouth, increased heart rate, insomnia",
+    "drugInteractions": "Avoid with stimulants or MAOIs",
+    "description": "Evergreen shrub whose fresh leaves are chewed for stimulant and euphoric effects in social settings."
+  },
+  {
+    "name": "Camellia sinensis",
+    "scientificName": "Camellia sinensis",
+    "category": "Stimulant / Nootropic",
+    "tags": [
+      "\\ud83c\\udf75 Tea",
+      "\\u2615 Caffeine"
+    ],
+    "effects": [
+      "Alertness",
+      "relaxed focus"
+    ],
+    "mechanismOfAction": "Caffeine antagonizes adenosine receptors; L-theanine modulates glutamate and GABA.",
+    "therapeuticUses": "Improved cognition, antioxidant, metabolism boost.",
+    "pharmacokinetics": "Beverage; onset 15 min; peak 30\\u201360 min; duration 2\\u20134 hrs.",
+    "toxicity": "High intake can cause jitteriness or insomnia.",
+    "toxicityLD50": "Caffeine LD50 ~190 mg/kg (rats)",
+    "intensity": "Mild",
+    "onset": "15 min",
+    "duration": "2\\u20134 hrs",
+    "region": "China, India, worldwide cultivation",
+    "legalStatus": "Legal",
+    "safetyRating": "low",
+    "preparation": "Leaves steeped in hot water; various fermentations (green, black, oolong).",
+    "contraindications": "Heart conditions, pregnancy (high amounts).",
+    "sideEffects": "Jitters, insomnia, digestive upset",
+    "drugInteractions": "Potentiates other stimulants; may reduce sedative efficacy",
+    "description": "Source of green and black tea; contains caffeine and theanine for balanced stimulation."
+  },
+  {
+    "name": "Ephedra sinica",
+    "scientificName": "Ephedra sinica",
+    "category": "Stimulant / Decongestant",
+    "tags": [
+      "\\ud83c\\udf3f Ma Huang",
+      "\\u26a0\\ufe0f Potent"
+    ],
+    "effects": [
+      "Energy boost",
+      "bronchodilation"
+    ],
+    "mechanismOfAction": "Ephedrine and pseudoephedrine stimulate adrenergic receptors and release norepinephrine.",
+    "therapeuticUses": "Traditional Chinese medicine for asthma, colds, and as a stimulant.",
+    "pharmacokinetics": "Oral; onset ~20 min; duration 4\\u20136 hrs.",
+    "toxicity": "High doses can raise blood pressure and cause cardiovascular stress.",
+    "toxicityLD50": "Ephedrine LD50 ~50 mg/kg (rats)",
+    "intensity": "Strong",
+    "onset": "20 min",
+    "duration": "4\\u20136 hrs",
+    "region": "China and Central Asia",
+    "legalStatus": "Regulated in many countries",
+    "safetyRating": "medium",
+    "preparation": "Dried stems brewed as tea or processed into extract.",
+    "contraindications": "Heart disease, hypertension, MAOIs.",
+    "sideEffects": "Jitters, elevated heart rate, insomnia",
+    "drugInteractions": "Dangerous with other stimulants or MAOIs",
+    "description": "Shrubby plant known as Ma Huang; source of ephedrine used both medicinally and recreationally."
+  },
+  {
+    "name": "Sassafras",
+    "scientificName": "Sassafras albidum",
+    "category": "Stimulant / Traditional",
+    "tags": [
+      "\\ud83c\\udf33 Root bark",
+      "\\ud83c\\udf3f Tea"
+    ],
+    "effects": [
+      "Mild euphoria",
+      "warmth"
+    ],
+    "mechanismOfAction": "Safrole may modulate dopamine release and acts as a mild hallucinogen at high doses.",
+    "therapeuticUses": "Historically used as spring tonic, aromatic beverage, and folk medicine.",
+    "pharmacokinetics": "Brewed as tea; onset 20\\u201340 min; duration 2\\u20134 hrs.",
+    "toxicity": "Safrole is hepatotoxic and potentially carcinogenic in high amounts.",
+    "toxicityLD50": "Safrole LD50 ~1.95 g/kg (rats)",
+    "intensity": "Mild",
+    "onset": "20\\u201340 min",
+    "duration": "2\\u20134 hrs",
+    "region": "Eastern North America",
+    "legalStatus": "Restricted as food additive in the U.S.",
+    "safetyRating": "medium",
+    "preparation": "Root bark traditionally brewed or distilled into oil of sassafras.",
+    "contraindications": "Liver disease, pregnancy.",
+    "sideEffects": "Nausea, possible hepatotoxicity",
+    "drugInteractions": "May interact with MAOIs or increase hepatotoxic drugs",
+    "description": "Fragrant tree whose root bark and oil were once common flavorings; contains safrole with mild psychoactive properties."
+  },
+  {
+    "name": "Guarana",
+    "scientificName": "Paullinia cupana",
+    "category": "Stimulant / Nootropic",
+    "tags": [
+      "\\ud83c\\udf6b Seed",
+      "\\u2615 High caffeine"
+    ],
+    "effects": [
+      "Energy",
+      "mental focus"
+    ],
+    "mechanismOfAction": "Seeds contain high caffeine content that blocks adenosine receptors.",
+    "therapeuticUses": "Fatigue reduction, weight loss aid, traditional tonic.",
+    "pharmacokinetics": "Oral; onset 20 min; peak 1 hr; duration 4\\u20136 hrs.",
+    "toxicity": "Overuse leads to restlessness, insomnia, or tachycardia.",
+    "toxicityLD50": "Caffeine LD50 ~190 mg/kg (rats)",
+    "intensity": "Moderate",
+    "onset": "20 min",
+    "duration": "4\\u20136 hrs",
+    "region": "Amazon basin",
+    "legalStatus": "Legal",
+    "safetyRating": "low",
+    "preparation": "Roasted seeds ground into powder for drinks or capsules.",
+    "contraindications": "Heart problems, pregnancy, sensitivity to caffeine.",
+    "sideEffects": "Jitteriness, stomach upset",
+    "drugInteractions": "Potentiates other stimulants; may interfere with sedatives",
+    "description": "Climbing plant native to Brazil; its seeds provide a potent caffeine kick and are popular in energy drinks."
+  },
+  {
+    "name": "Hawaiian Baby Woodrose",
+    "scientificName": "Argyreia nervosa",
+    "category": "Psychedelic / LSA",
+    "tags": [
+      "\\ud83c\\udf31 Seeds",
+      "\\u26a0\\ufe0f Nausea"
+    ],
+    "effects": [
+      "Visual distortions",
+      "euphoria",
+      "introspection"
+    ],
+    "mechanismOfAction": "Seeds contain ergoline alkaloids (LSA) that act on serotonin receptors similarly to LSD but with milder potency.",
+    "therapeuticUses": "Occasional spiritual or introspective use; historically as ornamental and traditional medicine.",
+    "pharmacokinetics": "Oral; onset 30\\u201390 min; duration 6\\u201310 hrs.",
+    "toxicity": "Seeds can cause severe nausea and vasoconstriction at high doses.",
+    "toxicityLD50": "Not well established for humans; animal data scarce",
+    "intensity": "Strong",
+    "onset": "30\\u201390 min",
+    "duration": "6\\u201310 hrs",
+    "region": "India, tropical regions",
+    "legalStatus": "Seeds legal in many places; extraction may be controlled",
+    "safetyRating": "medium",
+    "preparation": "Seeds scraped and chewed or ground; often cold-water extracted.",
+    "contraindications": "Pregnancy, liver issues, MAOIs.",
+    "sideEffects": "Nausea, vasoconstriction, sedation",
+    "drugInteractions": "Avoid with vasoconstrictors or other psychedelics",
+    "description": "Climber with heart-shaped leaves; its seeds contain LSA and are used as a legal alternative to LSD experiences."
+  },
+  {
+    "name": "Tabernanthe iboga",
+    "scientificName": "Tabernanthe iboga",
+    "category": "Ritual / Visionary",
+    "tags": [
+      "\\ud83c\\udf3f Root bark",
+      "\\u26a0\\ufe0f Intense"
+    ],
+    "effects": [
+      "Powerful visions",
+      "spiritual insight",
+      "stimulation"
+    ],
+    "mechanismOfAction": "Ibogaine acts on NMDA, kappa-opioid, and serotonin systems while promoting neurotrophic factors.",
+    "therapeuticUses": "Traditional Bwiti initiation; studied for addiction interruption.",
+    "pharmacokinetics": "Oral; onset 1\\u20133 hrs; duration 12\\u201324 hrs.",
+    "toxicity": "Cardiotoxic and neurotoxic at high doses; medical supervision required.",
+    "toxicityLD50": "Ibogaine LD50 ~50 mg/kg (mice)",
+    "intensity": "Very strong",
+    "onset": "1\\u20133 hrs",
+    "duration": "12\\u201324 hrs",
+    "region": "Central Africa",
+    "legalStatus": "Controlled or prescription in many countries",
+    "safetyRating": "low",
+    "preparation": "Root bark chewed or made into extracts; used ceremonially.",
+    "contraindications": "Heart conditions, psychiatric disorders, MAOIs.",
+    "sideEffects": "Nausea, ataxia, prolonged recovery",
+    "drugInteractions": "Dangerous with other stimulants or opioids",
+    "description": "Sacred shrub central to Bwiti ceremonies; contains ibogaine producing intense visionary states and potential addiction therapy."
+  }
+]
+`,m=l.replace(/NaN/g,"null"),g=JSON.parse(m);export{h as T,d as c,g as h,p as u};
