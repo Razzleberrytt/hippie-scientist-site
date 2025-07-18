@@ -56,7 +56,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       whileHover={{ scale: 1.03, rotateX: 1, rotateY: -1 }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className='relative cursor-pointer overflow-hidden rounded-2xl bg-black/40 p-4 sm:p-6 ring-1 ring-white/10 shadow-xl backdrop-blur-lg transition-all hover:shadow-2xl focus:outline-none'
+      className='relative cursor-pointer overflow-hidden rounded-2xl bg-black/20 p-4 sm:p-6 ring-1 ring-white/10 shadow-xl backdrop-blur-lg transition-all hover:shadow-2xl focus:outline-none'
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}

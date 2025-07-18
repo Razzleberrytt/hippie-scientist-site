@@ -96,7 +96,7 @@ export default function HerbDetail() {
           <textarea
             value={notes}
             onChange={e => setNotes(e.target.value)}
-            className='mt-2 w-full rounded-md bg-black/40 p-2 text-white'
+            className='mt-2 w-full rounded-md bg-black/20 p-2 text-white'
             rows={5}
           />
         </div>
