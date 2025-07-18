@@ -15,6 +15,7 @@ const Lesson = React.lazy(() => import('./pages/Lesson'))
 const About = React.lazy(() => import('./pages/About'))
 const Store = React.lazy(() => import('./pages/Store'))
 const Research = React.lazy(() => import('./pages/Research'))
+const Bookmarks = React.lazy(() => import('./pages/Bookmarks'))
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path='/research' element={<Research />} />
             <Route path='/blog' element={<BlogIndex />} />
             <Route path='/blog/:slug' element={<BlogPost />} />
+            <Route path='/bookmarks' element={<Bookmarks />} />
             <Route path='/store' element={<Store />} />
             <Route path='*' element={<NotFound />} />
           </Routes>

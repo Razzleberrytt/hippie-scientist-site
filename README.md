@@ -35,6 +35,7 @@ Source files live in `src/`. Pages are under `src/pages` and reusable components
 - **Community & Safety** – guidelines for responsible exploration
 - **Store** – upcoming merch and digital resources
 - **Theming** – light/dark modes persisted with local storage
+- **Bookmarks** – save favorite blog posts for later
 
 ## Educational Resources
 
@@ -47,7 +48,7 @@ This repository includes a variety of learning materials:
 ## Potential Upgrades
 
 - Add search and tag filters for blog posts.
-- Allow users to bookmark herbs or lessons.
+- Allow users to bookmark herbs or lessons. _(Posts can already be bookmarked)_
 - Integrate interactive quizzes from the Learn section.
 - Enable offline access via a service worker.
 - Expand the store with downloadable resources.
