@@ -9,6 +9,7 @@ import { useHerbFavorites } from '../hooks/useHerbFavorites'
 
 interface Props {
   herb: Herb
+  highlight?: string
 }
 
 const categoryColors: Record<string, Parameters<typeof TagBadge>[0]['variant']> = {
@@ -29,7 +30,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
-export default function HerbCardAccordion({ herb }: Props) {
+export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen(v => !v)
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
@@ -39,6 +40,13 @@ export default function HerbCardAccordion({ herb }: Props) {
       e.preventDefault()
       toggle()
     }
+  }
+
+  const mark = (text: string) => {
+    if (!highlight) return text
+    const escaped = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const regex = new RegExp(`(${escaped})`, 'ig')
+    return text.replace(regex, '<span class="font-bold text-yellow-300">$1</span>')
   }
 
   return (
@@ -68,8 +76,16 @@ export default function HerbCardAccordion({ herb }: Props) {
       </motion.span>
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
-          <h3 className='font-herb text-xl sm:text-2xl text-white'>{herb.name}</h3>
-          {herb.scientificName && <p className='text-xs italic text-sand'>{herb.scientificName}</p>}
+          <h3
+            className='font-herb text-xl sm:text-2xl text-white'
+            dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
+          />
+          {herb.scientificName && (
+            <p
+              className='text-xs italic text-sand'
+              dangerouslySetInnerHTML={{ __html: mark(herb.scientificName) }}
+            />
+          )}
           <div className='mt-1 flex flex-wrap items-center gap-2 text-sm sm:text-base text-sand'>
             {herb.category && (
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />

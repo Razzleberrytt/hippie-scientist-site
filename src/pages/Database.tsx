@@ -10,26 +10,34 @@ import { decodeTag } from '../utils/format'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
-import { useLocalStorage } from '../hooks/useLocalStorage'
-import Fuse from 'fuse.js'
+import SearchBar from '../components/SearchBar'
+import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
+import { getLocal, setLocal } from '../utils/localStorage'
 
 export default function Database() {
   const herbs = useHerbs()
   const { favorites } = useHerbFavorites()
-  const [favoritesOnly, setFavoritesOnly] = useLocalStorage<boolean>(
-    'herbFavoritesOnly',
-    false
-  )
-  const [query, setQuery] = React.useState('')
-  const fuse = React.useMemo(
-    () =>
-      new Fuse(herbs, {
-        keys: ['name', 'tags', 'effects'],
-        threshold: 0.3,
-      }),
-    [herbs]
-  )
-  const [filteredTags, setFilteredTags] = React.useState<string[]>([])
+  const {
+    filtered,
+    query,
+    setQuery,
+    tags: filteredTags,
+    setTags: setFilteredTags,
+    favoritesOnly,
+    setFavoritesOnly,
+    fuse,
+  } = useFilteredHerbs(herbs, { favorites })
+
+  React.useEffect(() => {
+    const pos = getLocal<number>('dbScroll', 0)
+    if (pos) window.scrollTo(0, pos)
+    const handle = () => setLocal('dbScroll', window.scrollY)
+    window.addEventListener('scroll', handle)
+    return () => {
+      setLocal('dbScroll', window.scrollY)
+      window.removeEventListener('scroll', handle)
+    }
+  }, [])
 
   const allTags = React.useMemo(() => {
     const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
@@ -46,20 +54,6 @@ export default function Database() {
     return counts
   }, [herbs])
 
-  const filtered = React.useMemo(() => {
-    let res = herbs
-    const q = query.trim()
-    if (q) {
-      res = fuse.search(q).map(r => r.item)
-    }
-    if (filteredTags.length) {
-      res = res.filter(h => filteredTags.every(t => h.tags.includes(t)))
-    }
-    if (favoritesOnly) {
-      res = res.filter(h => favorites.includes(h.id))
-    }
-    return res
-  }, [herbs, query, filteredTags, favoritesOnly, favorites])
 
   const relatedTags = React.useMemo(() => {
     if (filteredTags.length === 0) return [] as string[]
@@ -105,19 +99,13 @@ export default function Database() {
           </motion.div>
 
           <div className='sticky top-2 z-20 mb-4 flex flex-wrap items-center gap-2'>
-            <input
-              type='text'
-              placeholder='Search herbs...'
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              className='flex-1 rounded-md bg-space-dark/70 px-3 py-2 text-white backdrop-blur-md focus:outline-none'
-            />
+            <SearchBar query={query} setQuery={setQuery} fuse={fuse} />
             <button
               type='button'
               onClick={() => setFavoritesOnly(f => !f)}
               className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-yellow-300 backdrop-blur-md hover:bg-white/10'
             >
-              {favoritesOnly ? 'All Herbs' : 'Favorites'}
+              {favoritesOnly ? 'All Herbs' : 'My Herbs'}
             </button>
           </div>
 
@@ -144,7 +132,7 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          <HerbList herbs={filtered} />
+          <HerbList herbs={filtered} highlightQuery={query} />
         </div>
       </div>
     </>
