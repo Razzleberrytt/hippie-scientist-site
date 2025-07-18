@@ -51,7 +51,7 @@
     "preparation": "Tea or chewed",
     "region": "🇨🇳 East Asia",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Nausea at high doses, possible carcinogenic risk with long-term β-asarone exposure.",
     "tags": [
       "\\u2615 Brewable",
@@ -69,7 +69,7 @@
     "contraindications": "None well established",
     "description": "A sacred dream-enhancing root used by the Xhosa people of South Africa to induce powerful and meaningful dreams.",
     "drugInteractions": "Unknown",
-    "duration": "N/A (during REM)",
+    "duration": "During REM sleep",
     "effects": [
       "Vivid dreams",
       "lucidity",
@@ -147,7 +147,7 @@
     "preparation": "South American use",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Prominent cardiovascular changes, nausea, vomiting, and dizziness [1, 0, 1, 1].",
     "tags": [
       "\\u26a0\\ufe0f Restricted"
@@ -159,9 +159,9 @@
   {
     "name": "Artemisia vulgaris (Mugwort)",
     "category": "Oneirogen",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Common European mugwort used in dream pillows and as bitter tonic.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Lucid dreaming",
@@ -170,14 +170,14 @@
     "id": "artemisia-vulgaris-mugwort",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "5-15 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Smoke, tea, or ritual incense",
     "region": "🇪🇺 Europe",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
@@ -185,9 +185,9 @@
       "\\ud83e\\udde0 Dream",
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Bacopa monnieri",
@@ -209,7 +209,7 @@
     "preparation": "Tea, capsule",
     "region": "🇮🇳 India",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Gastrointestinal upset (nausea, increased motility), fatigue, dry mouth [0, 5].",
     "tags": [
       "\\u2615 Brewable",
@@ -242,7 +242,7 @@
     "preparation": "Highly toxic – not for casual use",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Dry mouth, hallucinations, delirium, elevated pulse.",
     "tags": [
       "\\u2620\\ufe0f Toxic"
@@ -257,27 +257,27 @@
     "contraindications": "Pregnancy, cardiovascular conditions",
     "description": "A widely used masticatory stimulant in Asia and the Pacific, often combined with lime and betel leaf.",
     "drugInteractions": "Stimulants, parasympathomimetics",
-    "duration": "",
+    "duration": "Unknown",
     "effects": [
       "Stimulation",
       "warmth",
       "mild euphoria"
     ],
     "id": "betel-nut",
-    "intensity": "",
-    "legalStatus": "",
+    "intensity": "Unknown",
+    "legalStatus": "Unknown",
     "mechanismOfAction": "Arecoline acts as a muscarinic cholinergic agonist",
-    "onset": "",
-    "pharmacokinetics": "",
+    "onset": "Unknown",
+    "pharmacokinetics": "Unknown",
     "preparation": "Chewed with lime and leaf",
     "region": "South and Southeast Asia",
-    "safetyRating": "",
+    "safetyRating": "Unknown",
     "scientificName": "Areca catechu",
     "sideEffects": "Addiction, oral cancer with chronic use",
     "tags": [],
     "therapeuticUses": "Traditional digestive stimulant",
-    "toxicity": "",
-    "toxicityLD50": ""
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Blue Lotus",
@@ -332,7 +332,7 @@
     "preparation": "Wine soak, smoke, tea",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness, mild dizziness at high doses.",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
@@ -382,27 +382,27 @@
     "contraindications": "All unsupervised use",
     "description": "Powerful and dangerous deliriant used in South American shamanism. Highly toxic and not recommended for casual use.",
     "drugInteractions": "Anticholinergics, CNS depressants",
-    "duration": "",
+    "duration": "Unknown",
     "effects": [
       "Hallucinations",
       "delirium",
       "disorientation"
     ],
     "id": "brugmansia",
-    "intensity": "",
-    "legalStatus": "",
+    "intensity": "Unknown",
+    "legalStatus": "Unknown",
     "mechanismOfAction": "Tropane alkaloids (scopolamine, atropine)",
-    "onset": "",
-    "pharmacokinetics": "",
+    "onset": "Unknown",
+    "pharmacokinetics": "Unknown",
     "preparation": "Smoked or brewed (shamanic contexts only)",
     "region": "South America",
-    "safetyRating": "",
+    "safetyRating": "Unknown",
     "scientificName": "Brugmansia suaveolens",
     "sideEffects": "Extreme confusion, memory loss, risk of death",
     "tags": [],
     "therapeuticUses": "Historical use in asthma and pain (no modern safe use)",
-    "toxicity": "",
-    "toxicityLD50": ""
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Caapi",
@@ -410,27 +410,27 @@
     "contraindications": "SSRIs, MAOIs, pregnancy",
     "description": "The vine of the soul used in Ayahuasca. Contains harmala alkaloids and facilitates DMT absorption in the brew.",
     "drugInteractions": "All serotonergic substances",
-    "duration": "",
+    "duration": "Unknown",
     "effects": [
       "MAOI effects",
       "spiritual opening",
       "purging"
     ],
     "id": "caapi",
-    "intensity": "",
-    "legalStatus": "",
+    "intensity": "Unknown",
+    "legalStatus": "Unknown",
     "mechanismOfAction": "Reversible MAO-A inhibition (harmine, harmaline)",
-    "onset": "",
-    "pharmacokinetics": "",
+    "onset": "Unknown",
+    "pharmacokinetics": "Unknown",
     "preparation": "Brewed with DMT-containing plants",
     "region": "Amazon basin",
-    "safetyRating": "",
+    "safetyRating": "Unknown",
     "scientificName": "Banisteriopsis caapi",
     "sideEffects": "Nausea, purging, dizziness",
     "tags": [],
     "therapeuticUses": "Ayahuasca therapy for PTSD, depression",
-    "toxicity": "",
-    "toxicityLD50": ""
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Calea zacatechichi",
@@ -484,7 +484,7 @@
     "preparation": "Tea, tincture, or extract",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness, vivid dreams, dizziness.",
     "tags": [
       "\\u2615 Brewable",
@@ -531,9 +531,9 @@
   {
     "name": "Celastrus paniculatus (Intellect Tree)",
     "category": "Other",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Indian vine whose oil is consumed to sharpen memory and dream vividly.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Lucid dreaming",
@@ -542,21 +542,21 @@
     "id": "celastrus-paniculatus-intellect-tree",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Oil or seeds consumed",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\ud83e\\udde0 Cognitive",
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Chacruna",
@@ -610,7 +610,7 @@
     "preparation": "Amazonian brew; not casual use",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Dizziness, nausea, muscle tremors, delirium at high doses [0, 11].",
     "tags": [
       "\\u2615 Brewable",
@@ -656,9 +656,9 @@
   {
     "name": "Copal",
     "category": "Ritual / Visionary",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Resin from Bursera trees burned ceremonially to purify and induce trance.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Purifying",
@@ -668,22 +668,22 @@
     "id": "copal",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "5-20 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Burned as incense",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\ud83d\\udd6f\\ufe0f Ritual",
       "\\ud83d\\udd2e Ritual",
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Cyperus articulatus",
@@ -801,7 +801,7 @@
     "preparation": "Tea or extract",
     "region": "🇨🇳 East Asia",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Mild insomnia, irritability, nervousness in high doses.",
     "tags": [
       "\\u2615 Brewable",
@@ -826,13 +826,13 @@
     "id": "entada-rheedii",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "30-60 min",
     "pharmacokinetics": "Traditionally consumed as cold water infusion; onset ~1–2 h; effects last ~6–8 h [0, 11].",
     "preparation": "Seed powder or chew",
     "region": "🇲🇽 Latin America",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Mild GI upset, drowsiness; rare nausea [0, 6].",
     "tags": [
       "\\ud83d\\udc8a Oral",
@@ -841,7 +841,7 @@
     ],
     "therapeuticUses": "Dream enhancement, lucid dreaming, traditional remedy for diarrhea and stomach aches [0, 6, 0, 11].",
     "toxicity": "Low; no severe toxicity reported in traditional use [0, 6].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Eschscholzia californica (California poppy)",
@@ -857,13 +857,13 @@
     "id": "eschscholzia-californica-california-poppy",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-45 min",
     "pharmacokinetics": "Oral (tea, extract); onset 30–60 min; duration ~4 h; bioavailability of key alkaloids moderate [2, 3].",
     "preparation": "Tea, tincture",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "High doses may cause residual sedation (\"hangover\"), nausea, dizziness; avoid operating machinery [2, 8, 2, 9].",
     "tags": [
       "\\u2615 Brewable",
@@ -873,14 +873,14 @@
     ],
     "therapeuticUses": "Anxiety reduction, insomnia aid, mild analgesic, vasomotor headache relief [2, 3, 2, 7].",
     "toxicity": "Low; no significant toxicity at therapeutic doses [2, 9].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Frankincense (Boswellia)",
     "category": "Other",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Resin incense with boswellic acids studied for anti-inflammatory effects.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Trance",
@@ -889,20 +889,20 @@
     "id": "frankincense-boswellia",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Resin burned",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Guayusa",
@@ -956,7 +956,7 @@
     "preparation": "Fermented sun tea",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Dry mouth, muscle relaxation, altered hearing [9, 4].",
     "tags": [
       "\\u2615 Brewable",
@@ -971,9 +971,9 @@
   {
     "name": "Henbane",
     "category": "Deliriant / Toxic",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Nightshade containing tropane alkaloids causing powerful delirium.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Delirium",
@@ -983,21 +983,21 @@
     "id": "henbane",
     "intensity": "High",
     "legalStatus": "Controlled / Toxic",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Historically ritual; dangerous/toxic",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\ud83d\\udd6f\\ufe0f Ritual",
       "\\u2620\\ufe0f Toxic"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Hop Flowers",
@@ -1019,7 +1019,7 @@
     "preparation": "Tea or herbal pillow",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness, mild headache, possible hormonal effects in large doses.",
     "tags": [
       "\\u2615 Brewable",
@@ -1108,20 +1108,20 @@
     "id": "ipomoea-tricolor-heavenly-blue",
     "intensity": "High",
     "legalStatus": "Restricted in some countries",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "30-90 min",
     "pharmacokinetics": "Oral ingestion onset 45–120 min; duration 4–10 h; hepatic metabolism [0, 5].",
     "preparation": "Seeds ground and cold infused",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Nausea, vasoconstriction, headache [0, 5].",
     "tags": [
       "\\u26a0\\ufe0f Restricted"
     ],
     "therapeuticUses": "Visionary experiences, ethnobotanical use [0, 5].",
     "toxicity": "Low; rodent LD50 ~200–300 mg/kg [0, 5].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Justicia pectoralis",
@@ -1222,9 +1222,9 @@
   {
     "name": "Kra Thum Na / Kok",
     "category": "Empathogen / Euphoriant",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Southeast Asian tree related to kratom with stimulating leaves.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Stimulation",
@@ -1233,23 +1233,23 @@
     "id": "kra-thum-na--kok",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-45 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Capsule or tea",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83d\\udc8a Oral",
       "\\ud83d\\udcab Euphoria",
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Lactuca canadensis",
@@ -1303,7 +1303,7 @@
     "preparation": "Traditional ceremonial use only",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Dry mouth, confusion, hallucinations, elevated heart rate.",
     "tags": [
       "\\u2620\\ufe0f Toxic"
@@ -1326,13 +1326,13 @@
     "id": "melissa-officinalis-lemon-balm",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-30 min",
     "pharmacokinetics": "Oral onset 30–60 min; active compounds absorbed in GI tract; hepatic metabolism; renal excretion [0, 0].",
     "preparation": "Tea, tincture, or smoke",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness; possible allergic reactions; GI upset at high doses [0, 0].",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
@@ -1344,7 +1344,7 @@
     ],
     "therapeuticUses": "Anxiety, insomnia, nervous tension, digestive aid [0, 8].",
     "toxicity": "Low; safe at therapeutic doses [0, 0].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Mimosa hostilis",
@@ -1413,9 +1413,9 @@
   {
     "name": "Nymphaea ampla",
     "category": "Empathogen / Euphoriant",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Central American water lily providing mild euphoria and sedation.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Sedative",
@@ -1425,23 +1425,23 @@
     "id": "nymphaea-ampla",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-45 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Tea or smoke",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
       "\\u2615 Brewable",
       "\\ud83d\\udcab Euphoria",
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Ocimum sanctum (Holy Basil / Tulsi)",
@@ -1464,7 +1464,7 @@
     "preparation": "Tea or incense",
     "region": "🇮🇳 India",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "May lower blood sugar, mild sedation, mild nausea.",
     "tags": [
       "\\u2615 Brewable",
@@ -1529,7 +1529,7 @@
     "preparation": "Smoked or tea",
     "region": "🌍 Africa, 🇮🇳 India",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Drowsiness, dizziness [2, 0].",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
@@ -1539,7 +1539,7 @@
     ],
     "therapeuticUses": "Muscle tension, pain relief, sleep aid applications [2, 0].",
     "toxicity": "Low; limited data on long-term use [2, 0].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Pedicularis groenlandica",
@@ -1555,13 +1555,13 @@
     "id": "pedicularis-groenlandica",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "5-15 min",
     "pharmacokinetics": "Oral infusion onset ~30 min; duration ~4 h; metabolites excreted renally [0, 7].",
     "preparation": "Smoked or tea",
     "region": "🌍 Africa",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Rare; possible GI upset [0, 7].",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
@@ -1571,7 +1571,7 @@
     ],
     "therapeuticUses": "Muscle relaxant, antioxidant, antimicrobial, traditional remedy for pain and inflammation [0, 7].",
     "toxicity": "Low; no significant toxicity reported [0, 7].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Petasites hybridus",
@@ -1626,7 +1626,7 @@
     "preparation": "Tea or culinary use",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "High doses may cause GI upset; safrole is a potential carcinogen [1, 11].",
     "tags": [
       "\\u2615 Brewable",
@@ -1659,7 +1659,7 @@
     "preparation": "Capsule, tincture",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Irritability, dry mouth, dizziness (rare, dose-dependent).",
     "tags": [
       "\\ud83d\\udc8a Oral",
@@ -1686,20 +1686,20 @@
     "id": "rivea-corymbosa",
     "intensity": "High",
     "legalStatus": "Restricted in some countries",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "30-90 min",
     "pharmacokinetics": "Insufflated or ingested; onset 20–60 min; duration 4–8 h; hepatic metabolism [0, 12].",
     "preparation": "Seeds ground and cold infused",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Nausea, vasoconstriction, dizziness [0, 4].",
     "tags": [
       "\\u26a0\\ufe0f Restricted"
     ],
     "therapeuticUses": "Entheogenic snuff (ololiuqui) in Mesoamerican rituals [0, 4].",
     "toxicity": "Low; moderate overdose risk [0, 12].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Salvia divinorum",
@@ -1715,13 +1715,13 @@
     "id": "salvia-divinorum",
     "intensity": "High",
     "legalStatus": "Restricted in many regions",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "1-5 min",
     "pharmacokinetics": "Absorbed via oral mucosa, smoking or vaporization; rapid onset (seconds–minutes), short duration (~15–30 min), quickly metabolized to inactive salvinorin B [3, 1].",
     "preparation": "Smoked, intense, short duration",
     "region": "🇲🇽 Latin America",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Tiredness, dizziness, amnesia, potential for transient psychosis in vulnerable individuals [3, 2].",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
@@ -1753,7 +1753,7 @@
     "preparation": "Chew, snuff, extract",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Headache, nausea, mild sedation [9, 4].",
     "tags": [
       "\\ud83d\\udc8a Oral",
@@ -1785,7 +1785,7 @@
     "preparation": "Tea or tincture",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Rarely causes liver enzyme elevation or drowsiness.",
     "tags": [
       "\\u2615 Brewable",
@@ -1863,9 +1863,9 @@
   {
     "name": "Silphium (extinct)",
     "category": "Other",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Famed classical herb believed to have contraceptive and psychoactive resins.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Ancient psychoactive/contraceptive herb"
@@ -1873,20 +1873,20 @@
     "id": "silphium-extinct",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "No longer available but worth note",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Sinicuichi",
@@ -1923,9 +1923,9 @@
   {
     "name": "Sweetgrass",
     "category": "Ritual / Visionary",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Vanilla-scented grass braided and burned to invite positive spirits.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Positive energy",
@@ -1934,21 +1934,21 @@
     "id": "sweetgrass",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Burned or braided for ceremonies",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\ud83d\\udd2e Ritual",
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Tagetes lucida (Mexican Tarragon)",
@@ -1970,7 +1970,7 @@
     "preparation": "Tea, incense, or smoke",
     "region": "🇲🇽 Latin America",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Mild GI upset, potential photosensitivity [2, 3].",
     "tags": [
       "\\ud83c\\udf2c\\ufe0f Smokable",
@@ -1981,14 +1981,14 @@
     ],
     "therapeuticUses": "Anxiolytic, digestive aid, ritual incense for purification [2, 10].",
     "toxicity": "Low; traditional use generally safe.",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Tilia europaea (Linden flower)",
     "category": "Dissociative / Sedative",
-    "contraindications": "N/A",
+    "contraindications": "Unknown",
     "description": "Soothing tree blossoms steeped as tea for relaxation and cold relief.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Unknown",
     "duration": null,
     "effects": [
       "Calming",
@@ -1998,23 +1998,23 @@
     "id": "tilia-europaea-linden-flower",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-30 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Unknown",
     "preparation": "Tea",
     "region": "🇪🇺 Europe",
     "safetyRating": 1,
-    "scientificName": "",
-    "sideEffects": "N/A",
+    "scientificName": "Unknown",
+    "sideEffects": "Unknown",
     "tags": [
       "\\u2615 Brewable",
       "\\ud83c\\udf00 Dissociation",
       "\\ud83e\\uddd8 Sedation",
       "\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Unknown",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Toloache",
@@ -2079,7 +2079,7 @@
     ],
     "therapeuticUses": "Aphrodisiac, mood enhancement, stress relief [8, 6].",
     "toxicity": "Low in traditional doses.",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Turnera ulmifolia",
@@ -2166,7 +2166,7 @@
     "preparation": "Tea or syrup",
     "region": "🇪🇺 Europe",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Very rare; may include mild drowsiness or nausea.",
     "tags": [
       "\\u2615 Brewable",
@@ -2197,7 +2197,7 @@
     "preparation": "Used in Amazonian snuffs",
     "region": "🇲🇽 Latin America",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Nausea, intense hallucinations, elevated heart rate.",
     "tags": [
       "\\u26a0\\ufe0f Restricted"
@@ -2323,7 +2323,7 @@
     "preparation": "Burned as incense",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "Respiratory irritation, asthmatic exacerbation, headaches at high exposure [0, 19].",
     "tags": [
       "\\ud83d\\udd6f\\ufe0f Ritual",
@@ -2333,7 +2333,7 @@
     ],
     "therapeuticUses": "Smudging rituals for purification, antimicrobial, respiratory support, mental clarity [0, 19].",
     "toxicity": "Very low; excessive inhalation may cause dizziness or nausea [0, 4].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Wild Lettuce",
@@ -2387,7 +2387,7 @@
     "preparation": "Tea or capsule",
     "region": "🇮🇳 India",
     "safetyRating": 1,
-    "scientificName": "",
+    "scientificName": "Unknown",
     "sideEffects": "GI upset, drowsiness, rare thyroid hormone changes [0, 9].",
     "tags": [
       "\\u2615 Brewable",

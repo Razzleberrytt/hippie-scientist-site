@@ -62,10 +62,14 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       tabIndex={0}
       role='button'
       aria-expanded={open}
-      whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(255,255,255,0.15)' }}
+      whileHover={{
+        scale: 1.03,
+        boxShadow: '0 0 20px rgba(255,255,255,0.2)',
+        backgroundColor: 'rgba(255,255,255,0.1)',
+      }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className='hover-glow relative cursor-pointer overflow-hidden rounded-2xl bg-black/40 p-4 sm:p-6 ring-1 ring-white/20 border border-white/20 shadow-xl backdrop-blur-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
+      className='hover-glow relative cursor-pointer overflow-hidden rounded-2xl bg-white/10 p-4 sm:p-6 ring-1 ring-white/30 border border-white/10 shadow-xl backdrop-blur-md focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -171,7 +175,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               ].map(key => {
                 const raw = (herb as any)[key]
                 const value =
-                  raw && raw !== 'No description provided.' && raw !== ''
+                  typeof raw === 'string' && raw.trim() && raw !== 'No description provided.'
                     ? raw
                     : key === 'mechanismOfAction' ||
                       key === 'toxicity' ||
@@ -195,8 +199,11 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               })}
 
               {herb.tags?.length > 0 && (
-                <motion.div variants={itemVariants} className='flex flex-wrap gap-2 pt-2'>
-                  {herb.tags.map(tag => (
+                <motion.div
+                  variants={itemVariants}
+                  className='flex max-h-32 flex-wrap gap-2 overflow-y-auto pt-2'
+                >
+                  {herb.tags.slice(0, 10).map(tag => (
                     <TagBadge
                       key={tag}
                       label={decodeTag(tag)}
