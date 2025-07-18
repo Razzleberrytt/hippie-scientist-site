@@ -1,0 +1,1 @@
+import{j as r,m as s}from"./main-b5c144aa.js";const l=({children:e,className:o})=>r.jsx(s.div,{whileHover:{scale:1.05},className:`glass-card relative rounded-lg p-4 hover:shadow-glow hover:ring-2 hover:ring-lichen/50 ${o??""}`,children:e});export{l as C};
