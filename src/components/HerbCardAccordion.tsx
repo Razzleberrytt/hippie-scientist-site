@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ChevronRight, Star } from 'lucide-react'
 import type { Herb } from '../types'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
+import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
 import TagBadge from './TagBadge'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 
@@ -61,10 +62,10 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       tabIndex={0}
       role='button'
       aria-expanded={open}
-      whileHover={{ scale: 1.03 }}
+      whileHover={{ scale: 1.03, boxShadow: '0 0 20px rgba(255,255,255,0.15)' }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className='hover-glow relative cursor-pointer overflow-hidden rounded-2xl bg-black/30 p-4 sm:p-6 ring-1 ring-white/10 shadow-xl backdrop-blur-md focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
+      className='hover-glow relative cursor-pointer overflow-hidden rounded-2xl bg-black/40 p-4 sm:p-6 ring-1 ring-white/20 border border-white/20 shadow-xl backdrop-blur-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -169,7 +170,14 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 'toxicityLD50',
               ].map(key => {
                 const raw = (herb as any)[key]
-                const value = raw && raw !== 'No description provided.' && raw !== '' ? raw : 'N/A'
+                const value =
+                  raw && raw !== 'No description provided.' && raw !== ''
+                    ? raw
+                    : key === 'mechanismOfAction' ||
+                      key === 'toxicity' ||
+                      key === 'toxicityLD50'
+                      ? UNKNOWN
+                      : NOT_WELL_DOCUMENTED
                 return (
                   <motion.div key={key} variants={itemVariants}>
                     <span className='font-semibold text-lime-300'>
