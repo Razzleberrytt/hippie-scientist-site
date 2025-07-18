@@ -1,4 +1,4 @@
-import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";if(typeof n=="string"||typeof n=="number")i+=n;else if(typeof n=="object")if(Array.isArray(n)){var t=n.length;for(a=0;a<t;a++)n[a]&&(e=o(n[a]))&&(i&&(i+=" "),i+=e)}else for(e in n)n[e]&&(i&&(i+=" "),i+=e);return i}function d(){for(var n,a,e=0,i="",t=arguments.length;e<t;e++)(n=arguments[e])&&(a=o(n))&&(i&&(i+=" "),i+=a);return i}const l={pink:"from-pink-600 via-fuchsia-500 to-pink-600 shadow-pink-500/40",blue:"from-sky-600 via-cyan-500 to-sky-600 shadow-cyan-500/40",purple:"from-purple-700 via-violet-600 to-purple-700 shadow-violet-600/40",green:"from-lime-600 via-emerald-500 to-lime-600 shadow-emerald-500/40",yellow:"from-amber-600 via-yellow-500 to-amber-600 shadow-amber-500/40",red:"from-rose-600 via-red-500 to-rose-600 shadow-red-500/40"};function g({label:n,variant:a="purple",className:e}){return r.jsx(c.span,{whileHover:{scale:1.05},className:d("inline-flex items-center rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white shadow hover-glow",l[a],e),children:n})}function p(n,a){const[e,i]=s.useState(()=>{try{const t=localStorage.getItem(n);return t?JSON.parse(t):a}catch{return a}});return s.useEffect(()=>{try{localStorage.setItem(n,JSON.stringify(e))}catch{}},[n,e]),[e,i]}const u=`[
+import{j as r,m as c,r as s}from"./main-0c750a40.js";function o(n){var a,e,i="";if(typeof n=="string"||typeof n=="number")i+=n;else if(typeof n=="object")if(Array.isArray(n)){var t=n.length;for(a=0;a<t;a++)n[a]&&(e=o(n[a]))&&(i&&(i+=" "),i+=e)}else for(e in n)n[e]&&(i&&(i+=" "),i+=e);return i}function d(){for(var n,a,e=0,i="",t=arguments.length;e<t;e++)(n=arguments[e])&&(a=o(n))&&(i&&(i+=" "),i+=a);return i}const l={pink:"from-pink-600 via-fuchsia-500 to-pink-600 shadow-pink-500/40",blue:"from-sky-600 via-cyan-500 to-sky-600 shadow-cyan-500/40",purple:"from-purple-700 via-violet-600 to-purple-700 shadow-violet-600/40",green:"from-lime-600 via-emerald-500 to-lime-600 shadow-emerald-500/40",yellow:"from-amber-600 via-yellow-500 to-amber-600 shadow-amber-500/40",red:"from-rose-600 via-red-500 to-rose-600 shadow-red-500/40"};function g({label:n,variant:a="purple",className:e}){return r.jsx(c.span,{whileHover:{scale:1.05},className:d("inline-flex items-center rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white shadow hover-glow",l[a],e),children:n})}function p(n,a){const[e,i]=s.useState(()=>{try{const t=localStorage.getItem(n);return t?JSON.parse(t):a}catch{return a}});return s.useEffect(()=>{try{localStorage.setItem(n,JSON.stringify(e))}catch{}},[n,e]),[e,i]}const u=`[
   {
     "name": "Acacia confusa",
     "category": "Ritual / Visionary",
@@ -159,9 +159,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
   {
     "name": "Artemisia vulgaris (Mugwort)",
     "category": "Oneirogen",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Common European mugwort used in dream pillows and as bitter tonic.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Lucid dreaming",
@@ -170,14 +170,14 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "artemisia-vulgaris-mugwort",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "5-15 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Smoke, tea, or ritual incense",
     "region": "🇪🇺 Europe",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
       "\\\\u2615 Brewable",
@@ -185,9 +185,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
       "\\\\ud83e\\\\udde0 Dream",
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Bacopa monnieri",
@@ -268,7 +268,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "legalStatus": "",
     "mechanismOfAction": "Arecoline acts as a muscarinic cholinergic agonist",
     "onset": "",
-    "pharmacokinetics": "",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Chewed with lime and leaf",
     "region": "South and Southeast Asia",
     "safetyRating": "",
@@ -276,8 +276,8 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "sideEffects": "Addiction, oral cancer with chronic use",
     "tags": [],
     "therapeuticUses": "Traditional digestive stimulant",
-    "toxicity": "",
-    "toxicityLD50": ""
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Blue Lotus",
@@ -393,7 +393,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "legalStatus": "",
     "mechanismOfAction": "Tropane alkaloids (scopolamine, atropine)",
     "onset": "",
-    "pharmacokinetics": "",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Smoked or brewed (shamanic contexts only)",
     "region": "South America",
     "safetyRating": "",
@@ -401,8 +401,8 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "sideEffects": "Extreme confusion, memory loss, risk of death",
     "tags": [],
     "therapeuticUses": "Historical use in asthma and pain (no modern safe use)",
-    "toxicity": "",
-    "toxicityLD50": ""
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Caapi",
@@ -421,7 +421,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "legalStatus": "",
     "mechanismOfAction": "Reversible MAO-A inhibition (harmine, harmaline)",
     "onset": "",
-    "pharmacokinetics": "",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Brewed with DMT-containing plants",
     "region": "Amazon basin",
     "safetyRating": "",
@@ -429,8 +429,8 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "sideEffects": "Nausea, purging, dizziness",
     "tags": [],
     "therapeuticUses": "Ayahuasca therapy for PTSD, depression",
-    "toxicity": "",
-    "toxicityLD50": ""
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Calea zacatechichi",
@@ -531,9 +531,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
   {
     "name": "Celastrus paniculatus (Intellect Tree)",
     "category": "Other",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Indian vine whose oil is consumed to sharpen memory and dream vividly.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Lucid dreaming",
@@ -542,21 +542,21 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "celastrus-paniculatus-intellect-tree",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Oil or seeds consumed",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83e\\\\udde0 Cognitive",
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Chacruna",
@@ -656,9 +656,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
   {
     "name": "Copal",
     "category": "Ritual / Visionary",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Resin from Bursera trees burned ceremonially to purify and induce trance.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Purifying",
@@ -668,22 +668,22 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "copal",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "5-20 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Burned as incense",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83d\\\\udd6f\\\\ufe0f Ritual",
       "\\\\ud83d\\\\udd2e Ritual",
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Cyperus articulatus",
@@ -826,7 +826,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "entada-rheedii",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "30-60 min",
     "pharmacokinetics": "Traditionally consumed as cold water infusion; onset ~1–2 h; effects last ~6–8 h [0, 11].",
     "preparation": "Seed powder or chew",
@@ -841,7 +841,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Dream enhancement, lucid dreaming, traditional remedy for diarrhea and stomach aches [0, 6, 0, 11].",
     "toxicity": "Low; no severe toxicity reported in traditional use [0, 6].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Eschscholzia californica (California poppy)",
@@ -857,7 +857,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "eschscholzia-californica-california-poppy",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-45 min",
     "pharmacokinetics": "Oral (tea, extract); onset 30–60 min; duration ~4 h; bioavailability of key alkaloids moderate [2, 3].",
     "preparation": "Tea, tincture",
@@ -873,14 +873,14 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Anxiety reduction, insomnia aid, mild analgesic, vasomotor headache relief [2, 3, 2, 7].",
     "toxicity": "Low; no significant toxicity at therapeutic doses [2, 9].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Frankincense (Boswellia)",
     "category": "Other",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Resin incense with boswellic acids studied for anti-inflammatory effects.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Trance",
@@ -889,20 +889,20 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "frankincense-boswellia",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Resin burned",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Guayusa",
@@ -971,9 +971,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
   {
     "name": "Henbane",
     "category": "Deliriant / Toxic",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Nightshade containing tropane alkaloids causing powerful delirium.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Delirium",
@@ -983,21 +983,21 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "henbane",
     "intensity": "High",
     "legalStatus": "Controlled / Toxic",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Historically ritual; dangerous/toxic",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83d\\\\udd6f\\\\ufe0f Ritual",
       "\\\\u2620\\\\ufe0f Toxic"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Hop Flowers",
@@ -1108,7 +1108,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "ipomoea-tricolor-heavenly-blue",
     "intensity": "High",
     "legalStatus": "Restricted in some countries",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "30-90 min",
     "pharmacokinetics": "Oral ingestion onset 45–120 min; duration 4–10 h; hepatic metabolism [0, 5].",
     "preparation": "Seeds ground and cold infused",
@@ -1121,7 +1121,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Visionary experiences, ethnobotanical use [0, 5].",
     "toxicity": "Low; rodent LD50 ~200–300 mg/kg [0, 5].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Justicia pectoralis",
@@ -1222,9 +1222,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
   {
     "name": "Kra Thum Na / Kok",
     "category": "Empathogen / Euphoriant",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Southeast Asian tree related to kratom with stimulating leaves.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Stimulation",
@@ -1233,23 +1233,23 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "kra-thum-na--kok",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-45 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Capsule or tea",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\u2615 Brewable",
       "\\\\ud83d\\\\udc8a Oral",
       "\\\\ud83d\\\\udcab Euphoria",
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Lactuca canadensis",
@@ -1326,7 +1326,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "melissa-officinalis-lemon-balm",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-30 min",
     "pharmacokinetics": "Oral onset 30–60 min; active compounds absorbed in GI tract; hepatic metabolism; renal excretion [0, 0].",
     "preparation": "Tea, tincture, or smoke",
@@ -1344,7 +1344,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Anxiety, insomnia, nervous tension, digestive aid [0, 8].",
     "toxicity": "Low; safe at therapeutic doses [0, 0].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Mimosa hostilis",
@@ -1413,9 +1413,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
   {
     "name": "Nymphaea ampla",
     "category": "Empathogen / Euphoriant",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Central American water lily providing mild euphoria and sedation.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Sedative",
@@ -1425,23 +1425,23 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "nymphaea-ampla",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-45 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Tea or smoke",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83c\\\\udf2c\\\\ufe0f Smokable",
       "\\\\u2615 Brewable",
       "\\\\ud83d\\\\udcab Euphoria",
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Ocimum sanctum (Holy Basil / Tulsi)",
@@ -1539,7 +1539,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Muscle tension, pain relief, sleep aid applications [2, 0].",
     "toxicity": "Low; limited data on long-term use [2, 0].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Pedicularis groenlandica",
@@ -1555,7 +1555,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "pedicularis-groenlandica",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "5-15 min",
     "pharmacokinetics": "Oral infusion onset ~30 min; duration ~4 h; metabolites excreted renally [0, 7].",
     "preparation": "Smoked or tea",
@@ -1571,7 +1571,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Muscle relaxant, antioxidant, antimicrobial, traditional remedy for pain and inflammation [0, 7].",
     "toxicity": "Low; no significant toxicity reported [0, 7].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Petasites hybridus",
@@ -1686,7 +1686,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "rivea-corymbosa",
     "intensity": "High",
     "legalStatus": "Restricted in some countries",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "30-90 min",
     "pharmacokinetics": "Insufflated or ingested; onset 20–60 min; duration 4–8 h; hepatic metabolism [0, 12].",
     "preparation": "Seeds ground and cold infused",
@@ -1699,7 +1699,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Entheogenic snuff (ololiuqui) in Mesoamerican rituals [0, 4].",
     "toxicity": "Low; moderate overdose risk [0, 12].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Salvia divinorum",
@@ -1715,7 +1715,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "salvia-divinorum",
     "intensity": "High",
     "legalStatus": "Restricted in many regions",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "1-5 min",
     "pharmacokinetics": "Absorbed via oral mucosa, smoking or vaporization; rapid onset (seconds–minutes), short duration (~15–30 min), quickly metabolized to inactive salvinorin B [3, 1].",
     "preparation": "Smoked, intense, short duration",
@@ -1863,9 +1863,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
   {
     "name": "Silphium (extinct)",
     "category": "Other",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Famed classical herb believed to have contraceptive and psychoactive resins.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Ancient psychoactive/contraceptive herb"
@@ -1873,20 +1873,20 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "silphium-extinct",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "No longer available but worth note",
     "region": "🌎 Unknown / Global",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Sinicuichi",
@@ -1923,9 +1923,9 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
   {
     "name": "Sweetgrass",
     "category": "Ritual / Visionary",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Vanilla-scented grass braided and burned to invite positive spirits.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Positive energy",
@@ -1934,21 +1934,21 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "sweetgrass",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "Varies",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Burned or braided for ceremonies",
     "region": "🌐 Global / Ritual",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\ud83d\\\\udd2e Ritual",
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Tagetes lucida (Mexican Tarragon)",
@@ -1981,14 +1981,14 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Anxiolytic, digestive aid, ritual incense for purification [2, 10].",
     "toxicity": "Low; traditional use generally safe.",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Tilia europaea (Linden flower)",
     "category": "Dissociative / Sedative",
-    "contraindications": "N/A",
+    "contraindications": "Not well documented",
     "description": "Soothing tree blossoms steeped as tea for relaxation and cold relief.",
-    "drugInteractions": "N/A",
+    "drugInteractions": "Not well documented",
     "duration": null,
     "effects": [
       "Calming",
@@ -1998,23 +1998,23 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "id": "tilia-europaea-linden-flower",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
-    "mechanismOfAction": "N/A",
+    "mechanismOfAction": "Unknown",
     "onset": "15-30 min",
-    "pharmacokinetics": "N/A",
+    "pharmacokinetics": "Not well documented",
     "preparation": "Tea",
     "region": "🇪🇺 Europe",
     "safetyRating": 1,
     "scientificName": "",
-    "sideEffects": "N/A",
+    "sideEffects": "Not well documented",
     "tags": [
       "\\\\u2615 Brewable",
       "\\\\ud83c\\\\udf00 Dissociation",
       "\\\\ud83e\\\\uddd8 Sedation",
       "\\\\u2705 Safe"
     ],
-    "therapeuticUses": "N/A",
-    "toxicity": "N/A",
-    "toxicityLD50": "N/A"
+    "therapeuticUses": "Not well documented",
+    "toxicity": "Unknown",
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Toloache",
@@ -2079,7 +2079,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Aphrodisiac, mood enhancement, stress relief [8, 6].",
     "toxicity": "Low in traditional doses.",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Turnera ulmifolia",
@@ -2333,7 +2333,7 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     ],
     "therapeuticUses": "Smudging rituals for purification, antimicrobial, respiratory support, mental clarity [0, 19].",
     "toxicity": "Very low; excessive inhalation may cause dizziness or nausea [0, 4].",
-    "toxicityLD50": "N/A"
+    "toxicityLD50": "Unknown"
   },
   {
     "name": "Wild Lettuce",
@@ -4373,5 +4373,4 @@ import{j as r,m as c,r as s}from"./main-4b9367fc.js";function o(n){var a,e,i="";
     "toxicityLD50": "~1 mg/kg in humans (estimated)",
     "safetyRating": "Very Low"
   }
-]
-`,m=u.replace(/NaN/g,"null"),f=JSON.parse(m);export{g as T,d as c,f as h,p as u};
+]`,m=u.replace(/NaN/g,"null"),f=JSON.parse(m);export{g as T,d as c,f as h,p as u};
