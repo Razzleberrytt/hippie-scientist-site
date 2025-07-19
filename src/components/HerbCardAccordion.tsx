@@ -320,7 +320,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 <Link
                   to={`/herbs/${herb.id}`}
                   onClick={e => e.stopPropagation()}
-                  className='text-comet underline'
+                  className='text-comet underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
                 >
                   View full page
                 </Link>
@@ -330,12 +330,12 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                     target='_blank'
                     rel='noopener noreferrer'
                     onClick={e => e.stopPropagation()}
-                    className='ml-4 text-sm text-sky-300 underline'
+                    className='ml-4 text-sm text-sky-300 underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
                   >
                     🌐 Buy Online
                   </a>
                 ) : (
-                  <span className='ml-4 text-sm text-sand/50'>⚠️ No Link</span>
+                  <span className='ml-4 text-sm text-sand/50'>⚠️ Buy Online</span>
                 )}
               </motion.div>
             </motion.div>
