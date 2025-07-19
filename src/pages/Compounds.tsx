@@ -1,48 +1,54 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
 import { herbs } from '../data/herbs'
-import { slugify } from '../utils/slugify'
 
-function buildMap() {
-  const map: Record<string, string[]> = {}
-  herbs.forEach(h => {
-    (h.tags || []).forEach(t => {
-      if (t.startsWith('🧪')) {
-        const name = t.replace('🧪', '').trim()
-        map[name] = map[name] || []
-        map[name].push(h.id)
-      }
-    })
-  })
-  return map
+interface Compound {
+  name: string
+  type: string
+  effect: string
+  sources: string[]
 }
-const compoundMap = buildMap()
 
 export default function Compounds() {
-  const entries = Object.entries(compoundMap)
+  const compounds = React.useMemo(() => {
+    const map = new Map<string, Compound>()
+    herbs.forEach(h => {
+      h.activeConstituents?.forEach(c => {
+        const key = c.name
+        if (!map.has(key)) {
+          map.set(key, { name: c.name, type: c.type, effect: c.effect, sources: [h.name] })
+        } else {
+          map.get(key)!.sources.push(h.name)
+        }
+      })
+    })
+    return Array.from(map.values())
+  }, [])
+
   return (
-    <main className='mx-auto max-w-4xl px-4 py-20 space-y-6'>
+    <>
       <Helmet>
         <title>Compounds - The Hippie Scientist</title>
       </Helmet>
-      <h1 className='text-gradient mb-6 text-4xl font-bold'>Compounds</h1>
-      <p className='text-opal'>Psychoactive compounds and their source herbs.</p>
-      {entries.map(([compound, ids]) => (
-        <div key={compound} id={slugify(compound)} className='space-y-1'>
-          <h2 className='text-2xl font-semibold text-lime-300'>{compound}</h2>
-          <ul className='ml-4 list-disc'>
-            {ids.map(id => {
-              const herb = herbs.find(h => h.id === id)
-              return (
-                <li key={id}>
-                  <Link className='text-comet underline' to={`/herbs/${id}`}>{herb?.name || id}</Link>
-                </li>
-              )
-            })}
-          </ul>
+      <div className='min-h-screen px-4 pt-20'>
+        <div className='mx-auto max-w-4xl text-center'>
+          <h1 className='text-gradient mb-6 text-5xl font-bold'>Psychoactive Compounds</h1>
+          <p className='mb-8 text-gray-300'>
+            Prototype view of active constituents found in the herb database.
+          </p>
+          <div className='space-y-4'>
+            {compounds.map(c => (
+              <div key={c.name} className='glass-card p-4 text-left'>
+                <h2 className='text-xl font-bold text-white'>{c.name}</h2>
+                <p className='text-sm text-moss'>
+                  Type: {c.type} — {c.effect}
+                </p>
+                <p className='text-xs text-sand'>Sources: {c.sources.join(', ')}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </main>
+      </div>
+    </>
   )
 }

@@ -8,6 +8,7 @@ import TagFilterBar from '../components/TagFilterBar'
 import CategoryAnalytics from '../components/CategoryAnalytics'
 import CategoryFilter from '../components/CategoryFilter'
 import { decodeTag } from '../utils/format'
+import { canonicalTag } from '../utils/tagUtils'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
@@ -44,14 +45,15 @@ export default function Database() {
 
   const allTags = React.useMemo(() => {
     const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
-    return Array.from(new Set(t))
+    return Array.from(new Set(t.map(canonicalTag)))
   }, [herbs])
 
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
     herbs.forEach(h => {
       h.tags.forEach(t => {
-        counts[t] = (counts[t] || 0) + 1
+        const canon = canonicalTag(t)
+        counts[canon] = (counts[canon] || 0) + 1
       })
     })
     return counts
