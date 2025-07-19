@@ -8,7 +8,11 @@ import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
 import TagBadge from './TagBadge'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import InfoTooltip from './InfoTooltip'
+import CompoundTooltip from './CompoundTooltip'
 import { slugify } from '../utils/slugify'
+import { useLocalStorage } from '../hooks/useLocalStorage'
+import { isAdmin } from '../utils/admin'
+import { tagCategoryMap } from '../data/tagCategoryMap'
 
 interface Props {
   herb: Herb
@@ -71,6 +75,8 @@ function safetyTier(rating: any, toxicity?: string): SafetyTier {
 
 export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const [tagsExpanded, setTagsExpanded] = useState(false)
+  const [editTagsOpen, setEditTagsOpen] = useState(false)
+  const [customTags, setCustomTags] = useLocalStorage<string[]>(`tags-${herb.id}`, herb.tags)
   const navigate = useNavigate()
   const open = false
   const handleClick = () => {
@@ -185,9 +191,9 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       </div>
 
       <div className='mt-2 flex flex-wrap gap-2'>
-        {(tagsExpanded || herb.tags.length <= TAG_LIMIT
-          ? herb.tags
-          : herb.tags.slice(0, TAG_LIMIT)
+        {(tagsExpanded || customTags.length <= TAG_LIMIT
+          ? customTags
+          : customTags.slice(0, TAG_LIMIT)
         ).map(tag => (
           <TagBadge
             key={tag}
@@ -196,7 +202,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className={open ? 'animate-pulse' : ''}
           />
         ))}
-        {herb.tags.length > TAG_LIMIT && (
+        {customTags.length > TAG_LIMIT && (
           <button
             type='button'
             onClick={e => {
@@ -206,7 +212,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className='focus:outline-none'
           >
             <TagBadge
-              label={tagsExpanded ? 'Show Less' : `+${herb.tags.length - TAG_LIMIT} more`}
+              label={tagsExpanded ? 'Show Less' : `+${customTags.length - TAG_LIMIT} more`}
               variant='yellow'
             />
           </button>
@@ -284,24 +290,26 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                   {herb.activeConstituents.map((c, i) => (
                     <React.Fragment key={c.name}>
                       {i > 0 && ', '}
-                      <Link
-                        to={`/compounds?compound=${slugify(c.name)}`}
-                        onClick={e => e.stopPropagation()}
-                        className='hover-glow inline-block rounded px-1 text-sky-300 underline'
-                      >
-                        {c.name}
-                      </Link>
+                      <CompoundTooltip name={c.name}>
+                        <Link
+                          to={`/compounds?compound=${slugify(c.name)}`}
+                          onClick={e => e.stopPropagation()}
+                          className='hover-glow inline-block rounded px-1 text-sky-300 underline'
+                        >
+                          {c.name}
+                        </Link>
+                      </CompoundTooltip>
                     </React.Fragment>
                   ))}
                 </motion.div>
               )}
 
-              {herb.tags?.length > 0 && (
+              {customTags?.length > 0 && (
                 <motion.div
                   variants={itemVariants}
                   className='flex max-h-32 flex-wrap gap-2 overflow-y-auto pt-2'
                 >
-                  {herb.tags.slice(0, 10).map(tag => (
+                  {customTags.slice(0, 10).map(tag => (
                     <TagBadge
                       key={tag}
                       label={decodeTag(tag)}
@@ -322,6 +330,18 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 >
                   View full page
                 </Link>
+                {isAdmin() && (
+                  <button
+                    type='button'
+                    onClick={e => {
+                      e.stopPropagation()
+                      setEditTagsOpen(true)
+                    }}
+                    className='ml-4 text-sand underline'
+                  >
+                    Edit Tags
+                  </button>
+                )}
                 {herb.affiliateLink && (
                   <a
                     href={herb.affiliateLink}
@@ -338,6 +358,52 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
           </motion.div>
         )}
       </AnimatePresence>
+      {isAdmin() && editTagsOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur'
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className='max-h-[80vh] overflow-y-auto rounded-md bg-midnight p-4 text-white'
+          >
+            <h3 className='mb-2 text-lg font-bold'>Edit Tags</h3>
+            <div className='grid grid-cols-2 gap-2'>
+              {Object.keys(tagCategoryMap).map(tag => (
+                <label key={tag} className='flex items-center gap-2'>
+                  <input
+                    type='checkbox'
+                    checked={customTags.includes(tag)}
+                    onChange={e =>
+                      setCustomTags(t =>
+                        e.target.checked ? [...t, tag] : t.filter(x => x !== tag)
+                      )
+                    }
+                    className='rounded focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
+                  />
+                  {decodeTag(tag)}
+                </label>
+              ))}
+            </div>
+            <div className='mt-4 text-right'>
+              <button
+                type='button'
+                onClick={() => {
+                  console.log('Updated tags', customTags)
+                  setEditTagsOpen(false)
+                }}
+                className='rounded bg-psychedelic-purple px-3 py-1'
+              >
+                Save
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
     </motion.div>
   )
 }

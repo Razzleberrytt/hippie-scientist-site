@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import InfoTooltip from './InfoTooltip'
-import { tagAliasMap } from '../utils/tagUtils'
+import { aliasFor, canonicalTag } from '../utils/tagUtils'
 
 interface Props {
   label: string
@@ -19,7 +19,8 @@ const colorMap = {
 }
 
 export default function TagBadge({ label, variant = 'purple', className }: Props) {
-  const alias = tagAliasMap[label.toLowerCase()]
+  const canonical = canonicalTag(label)
+  const alias = canonical !== label.toLowerCase() ? label : aliasFor(canonical)
   const content = (
     <motion.span
       whileHover={{ scale: 1.05 }}
@@ -30,7 +31,7 @@ export default function TagBadge({ label, variant = 'purple', className }: Props
         className
       )}
     >
-      {label}
+      {canonical}
     </motion.span>
   )
   return alias ? <InfoTooltip text={`aka ${alias}`}>{content}</InfoTooltip> : content

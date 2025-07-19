@@ -34,6 +34,9 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
           ...extractAliases(h.name),
           ...(extraAliases[h.id] || extraAliases[h.name.toLowerCase()] || []),
         ],
+        tagAliases: h.tags
+          .map(t => aliasFor(canonicalTag(t)))
+          .filter(Boolean) as string[],
       })),
     [herbs]
   )
@@ -49,6 +52,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
           'effects',
           'description',
           'tags',
+          'tagAliases',
         ],
         threshold: 0.4,
         includeMatches: true,
