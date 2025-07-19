@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import HeroBackground from './HeroBackground'
 import ParticlesBackground from './ParticlesBackground'
 import FloatingElements from './FloatingElements'
-import FeaturedHerbTeaser from './FeaturedHerbTeaser'
+import RotatingHerbCard from './RotatingHerbCard'
 
 export default function Hero() {
   return (
@@ -27,7 +27,7 @@ export default function Hero() {
         <p className='text-opal text-base sm:text-lg md:text-xl'>Psychedelic Botany &amp; Conscious Exploration</p>
       </motion.div>
       <div className='relative z-10 mt-4'>
-        <FeaturedHerbTeaser fixedId='Cannabis sativa' />
+        <RotatingHerbCard />
       </div>
     </motion.section>
   )
