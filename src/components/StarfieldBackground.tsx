@@ -4,6 +4,9 @@ import type { Engine } from '@tsparticles/engine'
 import { loadFull } from 'tsparticles'
 
 export default function StarfieldBackground() {
+  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+    return null
+  }
   const init = useCallback(async (engine: Engine) => {
     await loadFull(engine)
   }, [])
