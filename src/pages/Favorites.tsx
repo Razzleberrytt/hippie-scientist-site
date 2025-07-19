@@ -7,7 +7,10 @@ import { useHerbFavorites } from '../hooks/useHerbFavorites'
 export default function Favorites() {
   const herbs = useHerbs()
   const { favorites } = useHerbFavorites()
-  const saved = React.useMemo(() => herbs.filter(h => favorites.includes(h.id)), [herbs, favorites])
+  const saved = React.useMemo(
+    () => (herbs ? herbs.filter(h => favorites.includes(h.id)) : []),
+    [herbs, favorites]
+  )
 
   return (
     <div className='min-h-screen px-4 pt-20 pb-12'>

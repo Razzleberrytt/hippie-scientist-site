@@ -19,7 +19,7 @@ import { getLocal, setLocal } from '../utils/localStorage'
 
 export default function Database() {
   const herbs = useHerbs()
-  console.log('herbs length', herbs.length)
+  console.log('herbs length', herbs ? herbs.length : 'loading')
   const { favorites } = useHerbFavorites()
   const {
     filtered,
@@ -37,7 +37,7 @@ export default function Database() {
   } = useFilteredHerbs(herbs, { favorites })
   const [params, setParams] = useSearchParams()
 
-  if (herbs.length === 0) {
+  if (!herbs || herbs.length === 0) {
     return (
       <>
         <Helmet>
@@ -74,13 +74,14 @@ export default function Database() {
   }, [])
 
   const allTags = React.useMemo(() => {
+    if (!herbs) return [] as string[]
     const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
     return Array.from(new Set(t.map(canonicalTag)))
   }, [herbs])
 
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
-    herbs.forEach(h => {
+    herbs?.forEach(h => {
       h.tags.forEach(t => {
         const canon = canonicalTag(t)
         counts[canon] = (counts[canon] || 0) + 1
@@ -140,7 +141,7 @@ export default function Database() {
   const relatedTags = React.useMemo(() => {
     if (filteredTags.length === 0) return [] as string[]
     const counts: Record<string, number> = {}
-    herbs.forEach(h => {
+    herbs?.forEach(h => {
       if (filteredTags.every(t => h.tags.includes(t))) {
         h.tags.forEach(t => {
           if (!filteredTags.includes(t)) {

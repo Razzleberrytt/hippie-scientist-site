@@ -19,7 +19,7 @@ export default function Compare() {
   const herbs = useHerbs()
 
   const herbList = React.useMemo(
-    () => herbIds.map(id => herbs.find(h => h.id === id)).filter(Boolean),
+    () => (herbs ? herbIds.map(id => herbs.find(h => h.id === id)).filter(Boolean) : []),
     [herbIds, herbs]
   )
 
@@ -65,7 +65,7 @@ export default function Compare() {
               .join(', ')
           }
           return (i.compound?.sourceHerbs || [])
-            .map(hid => herbs.find(h => h.id === hid)?.name || hid)
+            .map(hid => herbs?.find(h => h.id === hid)?.name || hid)
             .join(', ')
         },
       },
@@ -133,7 +133,7 @@ export default function Compare() {
             <p className='text-xs text-sand'>
               Herbs:{' '}
               {c.sourceHerbs.map((hid, i) => {
-                const herb = herbs.find(h => h.id === hid)
+                const herb = herbs?.find(h => h.id === hid)
                 return (
                   <React.Fragment key={hid}>
                     {i > 0 && ', '}
