@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
-import { herbs } from '../data/herbs'
+import { useHerbs } from '../hooks/useHerbs'
 import baseCompounds, { CompoundInfo } from '../data/compoundData'
 import { FlaskConical, Leaf, Gem, Droplet } from 'lucide-react'
 import { Link, useSearchParams } from 'react-router-dom'
@@ -24,6 +24,7 @@ export default function Compounds() {
   const [params] = useSearchParams()
   const selected = params.get('compound')
 
+  const herbs = useHerbs()
   const [tagFilter, setTagFilter] = React.useState<string[]>([])
 
   const compounds = React.useMemo(() => {
@@ -31,7 +32,7 @@ export default function Compounds() {
     baseCompounds.forEach(c => {
       map.set(c.name, { ...c, sources: [] })
     })
-    herbs.forEach(h => {
+    herbs?.forEach(h => {
       h.activeConstituents?.forEach(c => {
         const key = c.name
         if (!map.has(key)) {
@@ -51,7 +52,7 @@ export default function Compounds() {
       })
     })
     return Array.from(map.values())
-  }, [])
+  }, [herbs])
 
   const compoundList = React.useMemo(
     () => [...compounds].sort((a, b) => a.name.localeCompare(b.name)),

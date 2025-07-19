@@ -1,16 +1,17 @@
 import React, { useState, useMemo } from 'react'
 import InfoTooltip from './InfoTooltip'
-import { herbs } from '../data/herbs'
+import { useHerbs } from '../hooks/useHerbs'
 
 export default function CategoryAnalytics() {
+  const herbs = useHerbs()
   const counts = useMemo(() => {
     const c: Record<string, number> = {}
-    herbs.forEach(h => {
+    herbs?.forEach(h => {
       const main = h.category.split('/')[0].trim()
       c[main] = (c[main] || 0) + 1
     })
     return c
-  }, [])
+  }, [herbs])
   const entries = useMemo(() => Object.entries(counts).sort((a, b) => b[1] - a[1]), [counts])
   const [showAll, setShowAll] = useState(false)
   const [filter, setFilter] = useState('')

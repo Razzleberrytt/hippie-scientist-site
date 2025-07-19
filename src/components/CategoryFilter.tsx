@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { herbs } from '../data/herbs'
+import { useHerbs } from '../hooks/useHerbs'
 import { metaCategory } from '../hooks/useFilteredHerbs'
 
 interface Props {
@@ -9,15 +9,16 @@ interface Props {
 }
 
 export default function CategoryFilter({ selected, onChange }: Props) {
+  const herbs = useHerbs()
   const [open, setOpen] = useState(false)
   const counts = React.useMemo(() => {
     const c: Record<string, number> = {}
-    herbs.forEach(h => {
+    herbs?.forEach(h => {
       const m = metaCategory(h.category)
       c[m] = (c[m] || 0) + 1
     })
     return c
-  }, [])
+  }, [herbs])
 
   const toggle = (cat: string) => {
     const next = selected.includes(cat) ? selected.filter(c => c !== cat) : [...selected, cat]

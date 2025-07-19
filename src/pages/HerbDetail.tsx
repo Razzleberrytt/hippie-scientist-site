@@ -3,14 +3,14 @@ import { useParams, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Share2 } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
-import { herbs } from '../data/herbs'
+import { useHerbs } from '../hooks/useHerbs'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
 import TagBadge from '../components/TagBadge'
 import CompoundTooltip from '../components/CompoundTooltip'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
-function findSimilar(current: any) {
+function findSimilar(current: any, herbs: any[]) {
   const scores = herbs.map(h => {
     if (h.id === current.id) return { h, score: -1 }
     let score = 0
@@ -30,7 +30,8 @@ function findSimilar(current: any) {
 
 export default function HerbDetail() {
   const { id } = useParams<{ id: string }>()
-  const herb = herbs.find(h => h.id === id)
+  const herbs = useHerbs()
+  const herb = herbs?.find(h => h.id === id)
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [showSimilar, setShowSimilar] = React.useState(false)
   const [showAllCompounds, setShowAllCompounds] = React.useState(false)
@@ -53,7 +54,7 @@ export default function HerbDetail() {
       </div>
     )
   }
-  const similar = React.useMemo(() => findSimilar(herb), [herb])
+  const similar = React.useMemo(() => (herbs ? findSimilar(herb, herbs) : []), [herb, herbs])
   const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${(herb.effects || []).join(', ')}.`
   return (
     <>
