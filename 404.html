@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <title>Redirecting…</title>
     <script>
-      const cleanPath = window.location.pathname
-        .replace(/\/$/, '') +
+      const cleanPath =
+        window.location.pathname.replace(/\/$/, '') +
         window.location.search +
         window.location.hash;
-      window.location.replace('/#' + cleanPath);
+      const root = window.location.pathname.replace(/404\.html$/, '');
+      window.location.replace(root + '#' + cleanPath);
     </script>
   </head>
   <body>
