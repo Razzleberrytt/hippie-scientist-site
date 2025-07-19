@@ -1,7 +1,7 @@
 import React from 'react'
 import Fuse from 'fuse.js'
 import type { Herb } from '../types'
-import { extractAliases } from '../utils/herbAlias'
+import { extractAliases, extraAliases } from '../utils/herbAlias'
 import { canonicalTag } from '../utils/tagUtils'
 
 interface Options {
@@ -30,7 +30,10 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
     () =>
       herbs.map(h => ({
         ...h,
-        aliases: extractAliases(h.name),
+        aliases: [
+          ...extractAliases(h.name),
+          ...(extraAliases[h.id] || extraAliases[h.name.toLowerCase()] || []),
+        ],
       })),
     [herbs]
   )

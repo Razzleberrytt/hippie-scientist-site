@@ -328,7 +328,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                     target='_blank'
                     rel='noopener noreferrer'
                     onClick={e => e.stopPropagation()}
-                    className='ml-4 text-sm text-sky-300 underline'
+                    className='ml-4 inline-block min-h-[44px] text-sm text-sky-300 underline'
                   >
                     🌐 Buy Online
                   </a>
