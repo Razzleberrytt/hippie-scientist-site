@@ -56,6 +56,9 @@ export default function HerbDetail() {
     <>
       <Helmet>
         <title>{herb.name} - The Hippie Scientist</title>
+        {herb.description && (
+          <meta name='description' content={herb.description} />
+        )}
       </Helmet>
       <motion.div
         initial={{ opacity: 0 }}

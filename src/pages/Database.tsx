@@ -67,6 +67,12 @@ export default function Database() {
     return Array.from(new Set(t.map(canonicalTag)))
   }, [herbs])
 
+  const summary = React.useMemo(() => {
+    const affiliates = herbs.filter(h => h.affiliateLink && h.affiliateLink.startsWith('http')).length
+    const moaCount = herbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
+    return { total: herbs.length, affiliates, moaCount }
+  }, [herbs])
+
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
     herbs.forEach(h => {
@@ -198,6 +204,9 @@ export default function Database() {
           )}
           <CategoryAnalytics />
           <HerbList herbs={filtered} highlightQuery={query} />
+          <footer className='mt-4 text-center text-sm text-moss'>
+            Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented: {summary.moaCount} · Updated: {new Date(__BUILD_TIME__).toLocaleDateString()}
+          </footer>
         </div>
       </div>
     </>

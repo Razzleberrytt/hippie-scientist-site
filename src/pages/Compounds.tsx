@@ -92,9 +92,9 @@ export default function Compounds() {
                 {c.sources.length > 0 && (
                   <Link
                     to={`/database?herbs=${c.sources.map(s => s.id).join(',')}`}
-                    className='mt-2 inline-block rounded bg-space-dark/60 px-2 py-1 text-sm text-sky-200 hover:bg-space-dark/80'
+                    className='tag-pill mt-2 inline-block'
                   >
-                    View Source Herbs
+                    Found in: {c.sources.map(s => s.name).join(', ')}
                   </Link>
                 )}
                 {c.affiliateLink && (
