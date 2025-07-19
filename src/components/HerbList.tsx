@@ -1,9 +1,7 @@
 import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { Herb } from '../types'
-import type Fuse from 'fuse.js'
 import HerbCardAccordion from './HerbCardAccordion'
-import Pagination from './Pagination'
 
 const containerVariants = {
   hidden: {},
@@ -13,29 +11,17 @@ const containerVariants = {
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -20 },
 }
 
 interface Props {
   herbs: Herb[]
   highlightQuery?: string
-  matches?: Record<string, Fuse.FuseResultMatch[]>
-  compact?: boolean
-  pageSize?: number
+  batchSize?: number
 }
-const HerbList: React.FC<Props> = React.memo(({
-  herbs,
-  highlightQuery = '',
-  matches = {},
-  compact = false,
-  pageSize = 30,
-}) => {
-  const [page, setPage] = React.useState(1)
-  const totalPages = Math.ceil(herbs.length / pageSize)
-  const current = React.useMemo(
-    () => herbs.slice((page - 1) * pageSize, page * pageSize),
-    [herbs, page, pageSize]
-  )
+const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 }) => {
+  const [visible, setVisible] = React.useState(batchSize)
+
+  const showMore = () => setVisible(v => Math.min(v + batchSize, herbs.length))
 
   if (herbs.length === 0) {
     return <p className='text-center text-sand/80'>No herbs match your search.</p>
@@ -44,7 +30,7 @@ const HerbList: React.FC<Props> = React.memo(({
   return (
     <>
       <motion.div
-        key={current.map(h => h.id).join('-')}
+        key={herbs.map(h => h.id).join('-')}
         layout
         variants={containerVariants}
         initial='hidden'
@@ -52,23 +38,26 @@ const HerbList: React.FC<Props> = React.memo(({
         className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
       >
         <AnimatePresence>
-          {current.map(h => (
-            <motion.div
-              key={h.id || h.name}
-              variants={itemVariants}
-              layout
-              exit='exit'
-            >
-              <HerbCardAccordion herb={h} highlight={highlightQuery} matches={matches[h.id]} compact={compact} />
+          {herbs.slice(0, visible).map(h => (
+            <motion.div key={h.id || h.name} variants={itemVariants} layout>
+              <HerbCardAccordion herb={h} highlight={highlightQuery} />
             </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
-      {totalPages > 1 && (
-        <Pagination currentPage={page} totalPages={totalPages} onPageChange={setPage} />
+      {visible < herbs.length && (
+        <div className='mt-6 text-center'>
+          <button
+            type='button'
+            onClick={showMore}
+            className='rounded-md bg-black/30 px-4 py-2 text-sand hover:bg-white/10 backdrop-blur-md'
+          >
+            Show More
+          </button>
+        </div>
       )}
     </>
   )
-})
+}
 
 export default HerbList

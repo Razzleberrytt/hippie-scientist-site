@@ -12,7 +12,6 @@ type SortKey = '' | 'intensity' | 'onset' | 'safetyRating'
 
 const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   const [query, setQuery] = React.useState('')
-  const [debounced, setDebounced] = React.useState('')
   const [selectedTags, setSelectedTags] = React.useState<string[]>([])
   const [sort, setSort] = React.useState<SortKey>('')
 
@@ -24,11 +23,6 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
       }),
     [herbs]
   )
-
-  React.useEffect(() => {
-    const handle = setTimeout(() => setDebounced(query), 200)
-    return () => clearTimeout(handle)
-  }, [query])
 
   const pickRandom = () => {
     const item = herbs[Math.floor(Math.random() * herbs.length)]
@@ -60,7 +54,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   }
 
   const filtered = React.useMemo(() => {
-    const q = debounced.trim()
+    const q = query.trim()
     let res: Herb[] = herbs
     if (q) {
       res = fuse.search(q).map(r => r.item)
@@ -78,7 +72,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
     }
 
     return res
-  }, [herbs, debounced, selectedTags, sort])
+  }, [herbs, query, selectedTags, sort])
 
   React.useEffect(() => {
     onFilter(filtered)
