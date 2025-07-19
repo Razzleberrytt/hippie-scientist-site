@@ -27,6 +27,8 @@ export default function Database() {
     setTags: setFilteredTags,
     categories: filteredCategories,
     setCategories: setFilteredCategories,
+    tagMode,
+    setTagMode,
     favoritesOnly,
     setFavoritesOnly,
     fuse,
@@ -84,6 +86,10 @@ export default function Database() {
       window.removeEventListener('touchmove', close)
     }
   }, [])
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [filteredTags, filteredCategories, query])
 
   const relatedTags = React.useMemo(() => {
     if (filteredTags.length === 0) return [] as string[]
@@ -152,7 +158,13 @@ export default function Database() {
 
           <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
             <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />
-            <TagFilterBar tags={allTags} counts={tagCounts} onChange={setFilteredTags} />
+            <TagFilterBar
+              tags={allTags}
+              counts={tagCounts}
+              onChange={setFilteredTags}
+              mode={tagMode}
+              onModeChange={setTagMode}
+            />
           </div>
           {relatedTags.length > 0 && (
             <div className='mb-4 flex flex-wrap items-center gap-2'>

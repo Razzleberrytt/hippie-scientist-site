@@ -11,6 +11,8 @@ interface Props {
   onChange?: (tags: string[]) => void
   storageKey?: string
   counts?: Record<string, number>
+  mode?: 'AND' | 'OR'
+  onModeChange?: (mode: 'AND' | 'OR') => void
 }
 
 const CATEGORY_ORDER: TagCategory[] = [
@@ -27,6 +29,8 @@ export default function TagFilterBar({
   onChange,
   storageKey = 'tagFilters',
   counts = {},
+  mode = 'AND',
+  onModeChange,
 }: Props) {
   const [selected, setSelected] = useLocalStorage<string[]>(storageKey, [])
   const [expanded, setExpanded] = useState<Record<TagCategory, boolean>>({
@@ -37,6 +41,7 @@ export default function TagFilterBar({
     Region: false,
     Other: false,
   })
+  const reset = () => setSelected([])
   const [showMore, setShowMore] = useState<Record<TagCategory, boolean>>({
     Effect: false,
     Preparation: false,
@@ -135,7 +140,25 @@ export default function TagFilterBar({
   }
 
   return (
-    <div className='space-y-3 sticky top-16 z-20 sm:static'>
+    <div className='sticky top-16 z-20 space-y-3 sm:static'>
+      <div className='mb-2 flex items-center gap-2'>
+        <button
+          type='button'
+          onClick={() => onModeChange?.(mode === 'AND' ? 'OR' : 'AND')}
+          className='tag-pill'
+        >
+          {mode === 'AND' ? 'Match ALL' : 'Match ANY'}
+        </button>
+        {selected.length > 0 && (
+          <button
+            type='button'
+            onClick={reset}
+            className='tag-pill animate-pulse ring-2 ring-psychedelic-pink'
+          >
+            Reset Filters
+          </button>
+        )}
+      </div>
       {CATEGORY_ORDER.map(cat => (
         <div key={cat} className='tag-section'>
           <button

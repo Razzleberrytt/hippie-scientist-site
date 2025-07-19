@@ -20,6 +20,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const { favorites = [] } = options
   const [query, setQuery] = React.useState('')
   const [tags, setTags] = React.useState<string[]>([])
+  const [tagMode, setTagMode] = React.useState<'AND' | 'OR'>('AND')
   const [favoritesOnly, setFavoritesOnly] = React.useState(false)
   const [categories, setCategories] = React.useState<string[]>([])
   const [sort, setSort] = React.useState('')
@@ -43,9 +44,10 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
       res = fuse.search(q).map(r => r.item)
     }
     if (tags.length) {
-      res = res.filter(h =>
-        tags.every(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))
-      )
+      res = res.filter(h => {
+        const matches = tags.map(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))
+        return tagMode === 'AND' ? matches.every(Boolean) : matches.some(Boolean)
+      })
     }
     if (categories.length) {
       res = res.filter(h => categories.includes(metaCategory(h.category)))
@@ -65,6 +67,8 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
     setQuery,
     tags,
     setTags,
+    tagMode,
+    setTagMode,
     categories,
     setCategories,
     favoritesOnly,
