@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import HerbList from '../components/HerbList'
 import TagFilterBar from '../components/TagFilterBar'
 import CategoryAnalytics from '../components/CategoryAnalytics'
+import TagDistribution from '../components/TagDistribution'
 import CategoryFilter from '../components/CategoryFilter'
 import { decodeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
@@ -70,7 +71,9 @@ export default function Database() {
   }, [herbs])
 
   const summary = React.useMemo(() => {
-    const affiliates = herbs.filter(h => h.affiliateLink && h.affiliateLink.startsWith('http')).length
+    const affiliates = herbs.filter(
+      h => h.affiliateLink && h.affiliateLink.startsWith('http')
+    ).length
     const moaCount = herbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
     return { total: herbs.length, affiliates, moaCount }
   }, [herbs])
@@ -212,9 +215,11 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
+          <TagDistribution counts={tagCounts} />
           <HerbList herbs={filtered} highlightQuery={query} />
           <footer className='mt-4 text-center text-sm text-moss'>
-            Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented: {summary.moaCount} · Updated: {new Date(__BUILD_TIME__).toLocaleDateString()}
+            Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
+            {summary.moaCount} · Updated: {new Date(__BUILD_TIME__).toLocaleDateString()}
           </footer>
         </div>
       </div>
