@@ -23,6 +23,14 @@
     <link rel="stylesheet" href="/assets/index-d7589191.css">
   </head>
   <body>
+    <script>
+      if (!location.hash && location.pathname !== '/') {
+        const cleanPath = location.pathname.replace(/\/$/, '') +
+          location.search +
+          location.hash;
+        location.replace('/#' + cleanPath);
+      }
+    </script>
     <div id="root"></div>
     
   </body>
