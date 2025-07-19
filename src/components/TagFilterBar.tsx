@@ -5,15 +5,12 @@ import TagBadge from './TagBadge'
 import { decodeTag, tagVariant, tagCategory, TagCategory, normalizeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
 import { useLocalStorage } from '../hooks/useLocalStorage'
-import { tagCategoryMap } from '../utils/tagCategoryMap'
 
 interface Props {
   tags: string[]
   onChange?: (tags: string[]) => void
   storageKey?: string
   counts?: Record<string, number>
-  mode?: 'AND' | 'OR'
-  onModeChange?: (mode: 'AND' | 'OR') => void
 }
 
 const CATEGORY_ORDER: TagCategory[] = [
@@ -30,8 +27,6 @@ export default function TagFilterBar({
   onChange,
   storageKey = 'tagFilters',
   counts = {},
-  mode = 'AND',
-  onModeChange,
 }: Props) {
   const [selected, setSelected] = useLocalStorage<string[]>(storageKey, [])
   const [expanded, setExpanded] = useState<Record<TagCategory, boolean>>({
@@ -42,7 +37,6 @@ export default function TagFilterBar({
     Region: false,
     Other: false,
   })
-  const reset = () => setSelected([])
   const [showMore, setShowMore] = useState<Record<TagCategory, boolean>>({
     Effect: false,
     Preparation: false,
@@ -79,14 +73,20 @@ export default function TagFilterBar({
   }
 
   const labelFor = (cat: TagCategory) => {
-    const info = tagCategoryMap[cat]
-    const Icon = info.icon
-    return (
-      <>
-        {Icon && <Icon className='mr-1 inline-block h-4 w-4' />}
-        {info.label}
-      </>
-    )
+    switch (cat) {
+      case 'Effect':
+        return '⚡ Effects'
+      case 'Preparation':
+        return '🌿 Preparation'
+      case 'Safety':
+        return '⚠️ Safety'
+      case 'Chemistry':
+        return '🧪 Chemistry'
+      case 'Region':
+        return '📍 Region'
+      default:
+        return '✨ Other'
+    }
   }
 
   const renderTags = (cat: TagCategory) => {
@@ -135,25 +135,7 @@ export default function TagFilterBar({
   }
 
   return (
-    <div className='sticky top-16 z-20 space-y-3 sm:static'>
-      <div className='mb-2 flex items-center gap-2'>
-        <button
-          type='button'
-          onClick={() => onModeChange?.(mode === 'AND' ? 'OR' : 'AND')}
-          className='tag-pill'
-        >
-          {mode === 'AND' ? 'Match ALL' : 'Match ANY'}
-        </button>
-        {selected.length > 0 && (
-          <button
-            type='button'
-            onClick={reset}
-            className='tag-pill animate-pulse ring-2 ring-psychedelic-pink'
-          >
-            Reset Filters
-          </button>
-        )}
-      </div>
+    <div className='space-y-3 sticky top-16 z-20 sm:static'>
       {CATEGORY_ORDER.map(cat => (
         <div key={cat} className='tag-section'>
           <button

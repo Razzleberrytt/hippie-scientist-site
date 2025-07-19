@@ -1,14 +1,8 @@
 import type { Herb } from '../types'
-import raw from '../../Full200.json?raw'
+import raw from '../../Full190.json?raw'
 
-let herbs: Herb[] = []
-try {
-  const cleaned = raw.replace(/NaN/g, 'null')
-  herbs = JSON.parse(cleaned) as Herb[]
-} catch (err) {
-  console.error('Failed to load herb data', err)
-  herbs = []
-}
+const cleaned = raw.replace(/NaN/g, 'null')
+const herbs = JSON.parse(cleaned) as Herb[]
 
 export default herbs
 export { herbs }
