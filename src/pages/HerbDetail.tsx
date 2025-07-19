@@ -14,9 +14,18 @@ function findSimilar(current: any) {
     let score = 0
     const tags = new Set(h.tags)
     const effects = new Set(h.effects || [])
-    current.tags.forEach((t: string) => { if (tags.has(t)) score += 2 })
-    ;(current.effects || []).forEach((e: string) => { if (effects.has(e)) score += 1 })
-    if (current.mechanismOfAction && h.mechanismOfAction && current.mechanismOfAction === h.mechanismOfAction) score += 2
+    current.tags.forEach((t: string) => {
+      if (tags.has(t)) score += 2
+    })
+    ;(current.effects || []).forEach((e: string) => {
+      if (effects.has(e)) score += 1
+    })
+    if (
+      current.mechanismOfAction &&
+      h.mechanismOfAction &&
+      current.mechanismOfAction === h.mechanismOfAction
+    )
+      score += 2
     return { h, score }
   })
   return scores
@@ -35,7 +44,9 @@ export default function HerbDetail() {
     return (
       <div className='p-6 text-center'>
         <p>Herb not found.</p>
-        <Link to='/database' className='text-comet underline'>Back to database</Link>
+        <Link to='/database' className='text-comet underline'>
+          Back to database
+        </Link>
       </div>
     )
   }
@@ -49,9 +60,11 @@ export default function HerbDetail() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className='mx-auto max-w-3xl px-6 py-12 space-y-6'
+        className='mx-auto max-w-3xl space-y-6 px-6 py-12'
       >
-        <Link to='/database' className='text-comet underline'>← Back</Link>
+        <Link to='/database' className='text-comet underline'>
+          ← Back
+        </Link>
         <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
         {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
         <div className='space-y-2'>
@@ -78,8 +91,14 @@ export default function HerbDetail() {
             if (!raw) return null
             return (
               <div key={key}>
-                <span className='font-semibold text-lime-300'>{key.replace(/([A-Z])/g,' $1')}:</span>{' '}
-                {key==='safetyRating'? <span className={safetyColorClass(raw)}>{raw}</span> : raw}
+                <span className='font-semibold text-lime-300'>
+                  {key.replace(/([A-Z])/g, ' $1')}:
+                </span>{' '}
+                {key === 'safetyRating' ? (
+                  <span className={safetyColorClass(raw)}>{raw}</span>
+                ) : (
+                  raw
+                )}
               </div>
             )
           })}
@@ -89,12 +108,14 @@ export default function HerbDetail() {
               {herb.activeConstituents.map((c, i) => (
                 <React.Fragment key={c.name}>
                   {i > 0 && ', '}
-                  <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>{c.name}</Link>
+                  <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>
+                    {c.name}
+                  </Link>
                 </React.Fragment>
               ))}
             </div>
           )}
-          {herb.affiliateLink && (
+          {herb.affiliateLink && herb.affiliateLink.startsWith('http') && (
             <a
               href={herb.affiliateLink}
               target='_blank'
@@ -120,10 +141,12 @@ export default function HerbDetail() {
         {showSimilar && similar.length > 0 && (
           <div className='space-y-2'>
             <h2 className='mt-4 text-2xl font-bold text-sky-300'>Similar Herbs</h2>
-            <ul className='list-disc list-inside'>
+            <ul className='list-inside list-disc'>
               {similar.map(h => (
                 <li key={h.id}>
-                  <Link className='text-comet underline' to={`/herbs/${h.id}`}>{h.name}</Link>
+                  <Link className='text-comet underline' to={`/herbs/${h.id}`}>
+                    {h.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -138,12 +161,12 @@ export default function HerbDetail() {
             rows={5}
           />
         </div>
-        <details className='bg-slate-800/40 p-4 rounded-md'>
+        <details className='rounded-md bg-slate-800/40 p-4'>
           <summary className='cursor-pointer text-sky-300'>🧬 Summarize This Herb</summary>
           <p className='mt-2'>{summary}</p>
         </details>
       </motion.div>
-      {herb.affiliateLink && (
+      {herb.affiliateLink && herb.affiliateLink.startsWith('http') && (
         <a
           href={herb.affiliateLink}
           target='_blank'

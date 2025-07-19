@@ -94,6 +94,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
 
   return (
     <motion.div
+      id={`herb-${herb.id}`}
       layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +112,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-3 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:drop-shadow-2xl hover:shadow-psychedelic-pink/40 focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-3 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink focus-visible:ring-offset-2 sm:p-6`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -153,6 +154,11 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
             )}
             {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
+            {herb.affiliateLink && (
+              <span className='rounded bg-lime-700/40 px-2 py-0.5 text-xs text-lime-200'>
+                Available Online
+              </span>
+            )}
           </div>
         </div>
         <div className='flex items-center gap-2'>
@@ -314,7 +320,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 >
                   View full page
                 </Link>
-                {herb.affiliateLink && (
+                {herb.affiliateLink ? (
                   <a
                     href={herb.affiliateLink}
                     target='_blank'
@@ -324,6 +330,8 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                   >
                     🌐 Buy Online
                   </a>
+                ) : (
+                  <span className='ml-4 text-sm text-sand/50'>⚠️ No Link</span>
                 )}
               </motion.div>
             </motion.div>

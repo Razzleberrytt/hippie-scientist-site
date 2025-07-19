@@ -58,7 +58,7 @@ export default function Compounds() {
           content='Browse active constituents found in herbs and learn their mechanisms.'
         />
       </Helmet>
-      <div className='min-h-screen px-4 pt-20 pb-12'>
+      <div className='min-h-screen px-4 pb-12 pt-20'>
         <div className='mx-auto max-w-4xl text-center'>
           <h1 className='text-gradient mb-6 text-5xl font-bold'>Psychoactive Compounds</h1>
           <p className='mb-8 text-sand'>
@@ -69,18 +69,15 @@ export default function Compounds() {
               <motion.div
                 key={c.name}
                 whileHover={{ scale: 1.03 }}
-                className='glass-card hover-glow rounded-xl p-3 sm:p-6 text-left'
+                className='glass-card hover-glow rounded-xl p-3 text-left sm:p-6'
               >
-                <h2 className='text-xl font-bold text-white max-w-xs truncate'>
-                  {c.name}
-                </h2>
+                <h2 className='max-w-xs truncate text-xl font-bold text-white'>{c.name}</h2>
                 <p className='text-sm text-moss'>
                   {typeIcon(c.type)}
                   {c.type}
                 </p>
-                {c.mechanism && (
-                  <p className='text-xs text-sand'>MOA: {c.mechanism}</p>
-                )}
+                {c.mechanism && <p className='text-xs text-sand'>MOA: {c.mechanism}</p>}
+                {c.notes && <p className='text-xs italic text-sand'>{c.notes}</p>}
                 <p className='text-xs text-sand'>
                   Herbs:
                   {c.sources.map((s, i) => (
@@ -92,6 +89,14 @@ export default function Compounds() {
                     </React.Fragment>
                   ))}
                 </p>
+                {c.sources.length > 0 && (
+                  <Link
+                    to={`/database?herbs=${c.sources.map(s => s.id).join(',')}`}
+                    className='mt-2 inline-block rounded bg-space-dark/60 px-2 py-1 text-sm text-sky-200 hover:bg-space-dark/80'
+                  >
+                    View Source Herbs
+                  </Link>
+                )}
                 {c.affiliateLink && (
                   <a
                     href={c.affiliateLink}
