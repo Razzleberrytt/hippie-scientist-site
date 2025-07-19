@@ -7,7 +7,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className='rounded-md p-2 text-sand transition-shadow hover:shadow-glow'
+      className={`rounded-md p-2 text-sand transition-shadow hover:shadow-glow ${theme === 'dark' ? 'shadow-psychedelic-pink/40' : 'shadow-cosmic-purple/40'}`}
       aria-label='Toggle theme'
     >
       {theme === 'dark' ? <Sun /> : <Moon />}

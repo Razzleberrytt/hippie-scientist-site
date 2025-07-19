@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 const MouseTrail: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const [enabled, setEnabled] = useState(true)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
@@ -11,6 +12,7 @@ const MouseTrail: React.FC = () => {
   const y = useSpring(mouseY, springConfig)
 
   useEffect(() => {
+    setEnabled(!window.matchMedia('(pointer: coarse)').matches)
     const updatePosition = (e: MouseEvent | TouchEvent) => {
       const xPos = 'touches' in e ? e.touches[0].clientX : e.clientX
       const yPos = 'touches' in e ? e.touches[0].clientY : e.clientY
@@ -41,6 +43,7 @@ const MouseTrail: React.FC = () => {
     }
   }, [mouseX, mouseY])
 
+  if (!enabled) return null
   return (
     <motion.div
       className='pointer-events-none fixed left-0 top-0 z-50 h-6 w-6'
