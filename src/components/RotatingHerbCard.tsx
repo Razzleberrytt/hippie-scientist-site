@@ -13,7 +13,7 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-const INTERVAL = 6000
+const INTERVAL = 4500
 
 export default function RotatingHerbCard() {
   const reduceMotion = useReducedMotion()
@@ -43,11 +43,11 @@ export default function RotatingHerbCard() {
     return (
       <div
         aria-live='polite'
-        className='relative mx-auto mt-6 h-[220px] max-w-sm sm:h-64 md:h-72 lg:h-80'
+        className='relative mx-auto mt-6 flex min-h-[16rem] min-w-[280px] justify-center'
       >
         <div
-          className='glass-card hover-glow inset-0 flex flex-col rounded-xl p-4 text-center shadow-lg'
-          style={{ position: 'absolute' }}
+          className='glass-card hover-glow inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
+          style={{ position: 'absolute', top: 0, left: 0 }}
         >
           {herb.image && (
             <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
@@ -55,7 +55,7 @@ export default function RotatingHerbCard() {
           <h3
             className={`mt-3 font-herb ${
               herb.name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
-            } overflow-hidden text-ellipsis whitespace-nowrap`}
+            }`}
           >
             {herb.name}
           </h3>
@@ -76,19 +76,19 @@ export default function RotatingHerbCard() {
   return (
     <div
       aria-live='polite'
-      className='relative mx-auto mt-6 h-[220px] max-w-sm sm:h-64 md:h-72 lg:h-80'
+      className='relative mx-auto mt-6 flex min-h-[16rem] min-w-[280px] justify-center'
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouch}
     >
-      <AnimatePresence mode='wait'>
+      <AnimatePresence exitBeforeEnter>
         <motion.div
           key={herb.id}
-          className='glass-card hover-glow inset-0 flex flex-col rounded-xl p-4 text-center shadow-lg'
-          style={{ position: 'absolute' }}
-          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          className='glass-card hover-glow inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
+          style={{ position: 'absolute', top: 0, left: 0 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -20 }}
+          exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
           transition={{ duration: 0.6 }}
         >
           {herb.image && (
@@ -97,7 +97,7 @@ export default function RotatingHerbCard() {
           <h3
             className={`mt-3 font-herb ${
               herb.name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
-            } overflow-hidden text-ellipsis whitespace-nowrap`}
+            }`}
           >
             {herb.name}
           </h3>
@@ -110,6 +110,13 @@ export default function RotatingHerbCard() {
           >
             Learn More
           </Link>
+          <motion.div
+            key={index}
+            className='absolute bottom-0 left-0 h-1 w-full bg-forest-green/40'
+            initial={{ width: 0 }}
+            animate={{ width: '100%' }}
+            transition={{ duration: INTERVAL / 1000, ease: 'linear' }}
+          />
         </motion.div>
       </AnimatePresence>
     </div>
