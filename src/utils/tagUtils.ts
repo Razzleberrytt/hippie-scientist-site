@@ -15,6 +15,23 @@ export const tagAliasMap: Record<string, string> = {
   '⚡ stimulant': 'stimulant',
   '☕ stimulant': 'stimulant',
   '⚠️ stimulating': 'stimulant',
+  relaxant: 'sedative',
+  relaxing: 'sedative',
+  relaxation: 'sedative',
+  calming: 'sedative',
+  calm: 'sedative',
+  sleep: 'sedative',
+  dream: 'sedative',
+  'lucid dreaming': 'sedative',
+  hallucinogenic: 'psychedelic',
+  hallucinogen: 'psychedelic',
+  visionary: 'psychedelic',
+  entheogen: 'psychedelic',
+  dissociative: 'psychedelic',
+  euphoriant: 'stimulant',
+  energizing: 'stimulant',
+  energy: 'stimulant',
+  nootropic: 'stimulant',
 }
 
 export function canonicalTag(tag: string): string {
