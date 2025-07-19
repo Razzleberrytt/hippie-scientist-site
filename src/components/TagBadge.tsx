@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import InfoTooltip from './InfoTooltip'
-import { aliasFor, canonicalTag } from '../utils/tagUtils'
+import { tagAliasMap } from '../utils/tagUtils'
 
 interface Props {
   label: string
@@ -19,19 +19,18 @@ const colorMap = {
 }
 
 export default function TagBadge({ label, variant = 'purple', className }: Props) {
-  const canonical = canonicalTag(label)
-  const alias = canonical !== label.toLowerCase() ? label : aliasFor(canonical)
+  const alias = tagAliasMap[label.toLowerCase()]
   const content = (
     <motion.span
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={clsx(
-        'hover-glow text-shadow inline-flex items-center break-words rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white/90 shadow ring-1 ring-white/40 backdrop-blur-sm dark:ring-black/40',
+        'hover-glow text-shadow inline-flex items-center whitespace-nowrap rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white/90 shadow ring-1 ring-white/40 backdrop-blur-sm dark:ring-black/40',
         colorMap[variant],
         className
       )}
     >
-      {canonical}
+      {label}
     </motion.span>
   )
   return alias ? <InfoTooltip text={`aka ${alias}`}>{content}</InfoTooltip> : content

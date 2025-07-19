@@ -1,25 +1,18 @@
 import React, { useState, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ChevronRight, Star } from 'lucide-react'
-import type Fuse from 'fuse.js'
 import type { Herb } from '../types'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
 import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
 import TagBadge from './TagBadge'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import InfoTooltip from './InfoTooltip'
-import CompoundTooltip from './CompoundTooltip'
 import { slugify } from '../utils/slugify'
-import { useLocalStorage } from '../hooks/useLocalStorage'
-import { isAdmin } from '../utils/admin'
-import { tagCategoryMap } from '../data/tagCategoryMap'
 
 interface Props {
   herb: Herb
   highlight?: string
-  matches?: Fuse.FuseResultMatch[]
-  compact?: boolean
 }
 
 const categoryColors: Record<string, Parameters<typeof TagBadge>[0]['variant']> = {
@@ -50,35 +43,6 @@ const fieldTooltips: Record<string, string> = {
   dosage: 'Common oral or smoked amount for effects.',
 }
 
-const fullFields = [
-  'description',
-  'mechanismOfAction',
-  'therapeuticUses',
-  'sideEffects',
-  'contraindications',
-  'drugInteractions',
-  'preparation',
-  'dosage',
-  'pharmacokinetics',
-  'onset',
-  'duration',
-  'intensity',
-  'region',
-  'legalStatus',
-  'safetyRating',
-  'toxicity',
-  'toxicityLD50',
-]
-
-const compactFields = [
-  'description',
-  'preparation',
-  'dosage',
-  'onset',
-  'duration',
-  'intensity',
-]
-
 function gradientForCategory(cat: string): string {
   const c = cat.toLowerCase()
   if (c.includes('oneirogen')) return 'from-indigo-700/40 to-purple-700/40'
@@ -105,49 +69,24 @@ function safetyTier(rating: any, toxicity?: string): SafetyTier {
   return 'danger'
 }
 
-function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compact = false }: Props) {
-  const [tagsExpanded, setTagsExpanded] = useState(false)
-  const [editTagsOpen, setEditTagsOpen] = useState(false)
-  const [customTags, setCustomTags] = useLocalStorage<string[]>(`tags-${herb.id}`, herb.tags)
-  const navigate = useNavigate()
+export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const [open, setOpen] = useState(false)
-  const handleClick = () => {
-    localStorage.setItem('focusHerb', herb.id)
-    navigate(`/herb/${herb.id}`)
-  }
+  const [tagsExpanded, setTagsExpanded] = useState(false)
+  const toggle = () => setOpen(v => !v)
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
   const handleKey = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
-      handleClick()
+      toggle()
     }
   }
 
-  const simpleMark = (text: string) => {
+  const mark = (text: string) => {
     if (!highlight) return text
     const escaped = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
     const regex = new RegExp(`(${escaped})`, 'ig')
-    return text.replace(
-      regex,
-      '<mark class="rounded bg-yellow-500/40 px-1">$1</mark>'
-    )
-  }
-
-  const mark = (text: string, field: string, index?: number) => {
-    const m = matches.find(
-      mm => mm.key === field && (index == null || mm.refIndex === index)
-    )
-    if (!m || !m.indices) return simpleMark(text)
-    let res = ''
-    let last = 0
-    m.indices.forEach(([s, e]) => {
-      res += text.slice(last, s)
-      res += `<mark class="rounded bg-yellow-500/40 px-1">${text.slice(s, e + 1)}</mark>`
-      last = e + 1
-    })
-    res += text.slice(last)
-    return res
+    return text.replace(regex, '<span class="font-bold text-yellow-300">$1</span>')
   }
 
   const gradient = gradientForCategory(herb.category)
@@ -155,13 +94,12 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
 
   return (
     <motion.div
-      id={herb.id}
       layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       exit={{ opacity: 0, scale: 0.9 }}
-      onClick={handleClick}
+      onClick={toggle}
       onKeyDown={handleKey}
       tabIndex={0}
       role='button'
@@ -173,24 +111,22 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 ${compact ? 'p-2 sm:p-3' : 'p-4 sm:p-6'} shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
     >
-      {!compact && (
-        <motion.span
-          initial={{ opacity: 0, y: -4 }}
-          whileHover={{ opacity: 1, y: 0 }}
-          whileTap={{ opacity: 1, y: 0 }}
-          className='pointer-events-none absolute right-4 top-2 text-xs text-sand'
-        >
-          + More Info
-        </motion.span>
-      )}
+      <motion.span
+        initial={{ opacity: 0, y: -4 }}
+        whileHover={{ opacity: 1, y: 0 }}
+        whileTap={{ opacity: 1, y: 0 }}
+        className='pointer-events-none absolute right-4 top-2 text-xs text-sand'
+      >
+        + More Info
+      </motion.span>
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
           <div className='flex flex-wrap items-baseline gap-1'>
             <h3
               className='text-shadow mb-0.5 font-herb text-xl text-white sm:text-2xl'
-              dangerouslySetInnerHTML={{ __html: mark(herb.name, 'name') }}
+              dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
             />
             {tier && (
               <span
@@ -209,16 +145,14 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
           {herb.scientificName && (
             <p
               className='mt-0.5 text-xs italic text-sand'
-              dangerouslySetInnerHTML={{ __html: mark(herb.scientificName, 'scientificName') }}
+              dangerouslySetInnerHTML={{ __html: mark(herb.scientificName) }}
             />
           )}
           <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
             {herb.category && (
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
             )}
-            {herb.effects?.length > 0 && (
-              <span dangerouslySetInnerHTML={{ __html: mark(herb.effects.join(', '), 'effects') }} />
-            )}
+            {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
           </div>
         </div>
         <div className='flex items-center gap-2'>
@@ -236,23 +170,19 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
           <motion.span
             layout
             initial={false}
-            animate={{ rotate: compact ? 0 : open ? 90 : 0 }}
+            animate={{ rotate: open ? 90 : 0 }}
             transition={{ duration: 0.3 }}
             className='text-cyan-200 transition-transform'
-            onClick={e => {
-              e.stopPropagation()
-              setOpen(o => !o)
-            }}
           >
-            {compact ? (open ? '-' : '+') : <ChevronRight size={18} />}
+            <ChevronRight size={18} />
           </motion.span>
         </div>
       </div>
 
       <div className='mt-2 flex flex-wrap gap-2'>
-        {(tagsExpanded || customTags.length <= TAG_LIMIT
-          ? customTags
-          : customTags.slice(0, TAG_LIMIT)
+        {(tagsExpanded || herb.tags.length <= TAG_LIMIT
+          ? herb.tags
+          : herb.tags.slice(0, TAG_LIMIT)
         ).map(tag => (
           <TagBadge
             key={tag}
@@ -261,7 +191,7 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
             className={open ? 'animate-pulse' : ''}
           />
         ))}
-        {customTags.length > TAG_LIMIT && (
+        {herb.tags.length > TAG_LIMIT && (
           <button
             type='button'
             onClick={e => {
@@ -271,7 +201,7 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
             className='focus:outline-none'
           >
             <TagBadge
-              label={tagsExpanded ? 'Show Less' : `+${customTags.length - TAG_LIMIT} more`}
+              label={tagsExpanded ? 'Show Less' : `+${herb.tags.length - TAG_LIMIT} more`}
               variant='yellow'
             />
           </button>
@@ -300,7 +230,25 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
               exit='hidden'
               className='space-y-3'
             >
-              {(compact ? compactFields : fullFields).map(key => {
+              {[
+                'description',
+                'mechanismOfAction',
+                'therapeuticUses',
+                'sideEffects',
+                'contraindications',
+                'drugInteractions',
+                'preparation',
+                'dosage',
+                'pharmacokinetics',
+                'onset',
+                'duration',
+                'intensity',
+                'region',
+                'legalStatus',
+                'safetyRating',
+                'toxicity',
+                'toxicityLD50',
+              ].map(key => {
                 const raw = (herb as any)[key]
                 const value =
                   typeof raw === 'string' && raw.trim() && raw !== 'No description provided.'
@@ -319,7 +267,7 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
                         {value}
                       </span>
                     ) : (
-                      <span dangerouslySetInnerHTML={{ __html: mark(String(value), key) }} />
+                      value
                     )}
                   </motion.div>
                 )
@@ -331,26 +279,24 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
                   {herb.activeConstituents.map((c, i) => (
                     <React.Fragment key={c.name}>
                       {i > 0 && ', '}
-                      <CompoundTooltip name={c.name}>
-                        <Link
-                          to={`/compounds?compound=${slugify(c.name)}`}
-                          onClick={e => e.stopPropagation()}
-                          className='hover-glow inline-block rounded px-1 text-sky-300 underline'
-                        >
-                          {c.name}
-                        </Link>
-                      </CompoundTooltip>
+                      <Link
+                        to={`/compounds#${slugify(c.name)}`}
+                        onClick={e => e.stopPropagation()}
+                        className='hover-glow inline-block rounded px-1 text-sky-300 underline'
+                      >
+                        {c.name}
+                      </Link>
                     </React.Fragment>
                   ))}
                 </motion.div>
               )}
 
-              {customTags?.length > 0 && (
+              {herb.tags?.length > 0 && (
                 <motion.div
                   variants={itemVariants}
                   className='flex max-h-32 flex-wrap gap-2 overflow-y-auto pt-2'
                 >
-                  {customTags.slice(0, 10).map(tag => (
+                  {herb.tags.slice(0, 10).map(tag => (
                     <TagBadge
                       key={tag}
                       label={decodeTag(tag)}
@@ -362,34 +308,19 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
               )}
               <motion.div variants={itemVariants} className='pt-2'>
                 <Link
-                  to={`/herb/${herb.id}`}
-                  onClick={e => {
-                    e.stopPropagation()
-                    localStorage.setItem('focusHerb', herb.id)
-                  }}
+                  to={`/herbs/${herb.id}`}
+                  onClick={e => e.stopPropagation()}
                   className='text-comet underline'
                 >
                   View full page
                 </Link>
-                {isAdmin() && (
-                  <button
-                    type='button'
-                    onClick={e => {
-                      e.stopPropagation()
-                      setEditTagsOpen(true)
-                    }}
-                    className='ml-4 text-sand underline'
-                  >
-                    Edit Tags
-                  </button>
-                )}
                 {herb.affiliateLink && (
                   <a
                     href={herb.affiliateLink}
                     target='_blank'
                     rel='noopener noreferrer'
                     onClick={e => e.stopPropagation()}
-                    className='ml-4 inline-block min-h-[44px] text-sm text-sky-300 underline'
+                    className='ml-4 text-sm text-sky-300 underline'
                   >
                     🌐 Buy Online
                   </a>
@@ -399,54 +330,6 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
           </motion.div>
         )}
       </AnimatePresence>
-      {isAdmin() && editTagsOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur'
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className='max-h-[80vh] overflow-y-auto rounded-md bg-midnight p-4 text-white'
-          >
-            <h3 className='mb-2 text-lg font-bold'>Edit Tags</h3>
-            <div className='grid grid-cols-2 gap-2'>
-              {Object.keys(tagCategoryMap).map(tag => (
-                <label key={tag} className='flex items-center gap-2'>
-                  <input
-                    type='checkbox'
-                    checked={customTags.includes(tag)}
-                    onChange={e =>
-                      setCustomTags(t =>
-                        e.target.checked ? [...t, tag] : t.filter(x => x !== tag)
-                      )
-                    }
-                    className='rounded focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
-                  />
-                  {decodeTag(tag)}
-                </label>
-              ))}
-            </div>
-            <div className='mt-4 text-right'>
-              <button
-                type='button'
-                onClick={() => {
-                  console.log('Updated tags', customTags)
-                  setEditTagsOpen(false)
-                }}
-                className='rounded bg-psychedelic-purple px-3 py-1'
-              >
-                Save
-              </button>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
     </motion.div>
   )
 }
-
-export default React.memo(HerbCardAccordionComponent)

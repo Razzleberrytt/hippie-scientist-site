@@ -9,22 +9,18 @@ import CategoryAnalytics from '../components/CategoryAnalytics'
 import CategoryFilter from '../components/CategoryFilter'
 import { decodeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
-import { useSearchParams } from 'react-router-dom'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import SearchBar from '../components/SearchBar'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
-import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export default function Database() {
   const herbs = useHerbs()
-  console.log('herbs length', herbs ? herbs.length : 'loading')
   const { favorites } = useHerbFavorites()
   const {
     filtered,
-    matches,
     query,
     setQuery,
     tags: filteredTags,
@@ -37,36 +33,6 @@ export default function Database() {
     setFavoritesOnly,
     fuse,
   } = useFilteredHerbs(herbs, { favorites })
-  const [compactMode, setCompactMode] = useLocalStorage<boolean>('dbCompact', false)
-  const [params, setParams] = useSearchParams()
-
-  if (herbs === undefined) {
-    return (
-      <>
-        <Helmet>
-          <title>Database - The Hippie Scientist</title>
-        </Helmet>
-        <div className='relative min-h-screen px-4 pt-20'>
-          <StarfieldBackground />
-          <div className='text-center text-sand'>Loading herb data…</div>
-        </div>
-      </>
-    )
-  }
-
-  if (herbs.length === 0) {
-    return (
-      <>
-        <Helmet>
-          <title>Database - The Hippie Scientist</title>
-        </Helmet>
-        <div className='relative min-h-screen px-4 pt-20'>
-          <StarfieldBackground />
-          <div className='text-center text-sand'>Unable to load herb data.</div>
-        </div>
-      </>
-    )
-  }
 
   React.useEffect(() => {
     const pos = getLocal<number>('dbScroll', 0)
@@ -79,26 +45,14 @@ export default function Database() {
     }
   }, [])
 
-  React.useEffect(() => {
-    const focus = localStorage.getItem('focusHerb')
-    if (focus) {
-      const el = document.getElementById(focus)
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      }
-      localStorage.removeItem('focusHerb')
-    }
-  }, [])
-
   const allTags = React.useMemo(() => {
-    if (!herbs) return [] as string[]
     const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
     return Array.from(new Set(t.map(canonicalTag)))
   }, [herbs])
 
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
-    herbs?.forEach(h => {
+    herbs.forEach(h => {
       h.tags.forEach(t => {
         const canon = canonicalTag(t)
         counts[canon] = (counts[canon] || 0) + 1
@@ -107,32 +61,8 @@ export default function Database() {
     return counts
   }, [herbs])
 
-  React.useEffect(() => {
-    if (Object.keys(tagCounts).length) {
-      console.log('Tag usage counts', tagCounts)
-    }
-  }, [tagCounts])
-
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
-
-  React.useEffect(() => {
-    const tagsParam = params.get('tags')
-    if (tagsParam) {
-      const list = tagsParam.split(',').map(t => decodeURIComponent(t))
-      setFilteredTags(list)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  React.useEffect(() => {
-    if (filteredTags.length > 0) {
-      params.set('tags', filteredTags.map(encodeURIComponent).join(','))
-    } else {
-      params.delete('tags')
-    }
-    setParams(params, { replace: true })
-  }, [filteredTags, params, setParams])
 
   React.useEffect(() => {
     let last = window.scrollY
@@ -164,7 +94,7 @@ export default function Database() {
   const relatedTags = React.useMemo(() => {
     if (filteredTags.length === 0) return [] as string[]
     const counts: Record<string, number> = {}
-    herbs?.forEach(h => {
+    herbs.forEach(h => {
       if (filteredTags.every(t => h.tags.includes(t))) {
         h.tags.forEach(t => {
           if (!filteredTags.includes(t)) {
@@ -219,13 +149,6 @@ export default function Database() {
             </button>
             <button
               type='button'
-              onClick={() => setCompactMode(c => !c)}
-              className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
-            >
-              {compactMode ? 'Full Cards' : 'Compact'}
-            </button>
-            <button
-              type='button'
               onClick={() => setFiltersOpen(o => !o)}
               className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10 sm:hidden'
             >
@@ -259,7 +182,7 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          <HerbList herbs={filtered} highlightQuery={query} matches={matches} compact={compactMode} pageSize={30} />
+          <HerbList herbs={filtered} highlightQuery={query} />
         </div>
       </div>
     </>
