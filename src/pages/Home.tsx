@@ -8,7 +8,7 @@ import StatsCounters from '../components/StatsCounters'
 
 export default function Home() {
   return (
-    <main className='relative min-h-screen overflow-hidden bg-white px-4 pt-20 pb-0 md:pb-10 text-black dark:bg-black dark:text-white'>
+    <main className='relative min-h-screen overflow-hidden bg-white px-4 pt-16 pb-0 md:pb-10 text-black dark:bg-black dark:text-white'>
       <StarfieldBackground />
       <MouseTrail />
       <Hero />
