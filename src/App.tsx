@@ -8,6 +8,7 @@ import MouseTrail from './components/MouseTrail'
 import ScrollToTopButton from './components/ScrollToTopButton'
 const Home = React.lazy(() => import('./pages/Home'))
 const HerbDetail = React.lazy(() => import('./pages/HerbDetail'))
+const HerbDetailView = React.lazy(() => import('./pages/HerbDetailView'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
 const Learn = React.lazy(() => import('./pages/Learn'))
 const Lesson = React.lazy(() => import('./pages/Lesson'))
@@ -32,6 +33,7 @@ function App() {
             <Route path='/database' element={<Database />} />
             <Route path='/research' element={<Research />} />
             <Route path='/herbs/:id' element={<HerbDetail />} />
+            <Route path='/herb/:id' element={<HerbDetailView />} />
             <Route path='/compounds' element={<Compounds />} />
             <Route path='/store' element={<Store />} />
             <Route path='*' element={<NotFound />} />
