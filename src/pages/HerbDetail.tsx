@@ -46,6 +46,13 @@ export default function HerbDetail() {
     setCopied(true)
     setTimeout(() => setCopied(false), 1500)
   }
+  if (herbs === undefined) {
+    return (
+      <div className='p-6 text-center'>
+        <p>Loading herb data…</p>
+      </div>
+    )
+  }
   if (!herb) {
     return (
       <div className='p-6 text-center'>

@@ -2,10 +2,17 @@ import React from 'react'
 import type { Herb } from '../types'
 
 async function fetchHerbs(url: string): Promise<Herb[]> {
-  const res = await fetch(url)
-  if (!res.ok) throw new Error(`Failed to fetch ${url}`)
-  const text = await res.text()
-  return JSON.parse(text.replace(/NaN/g, 'null')) as Herb[]
+  try {
+    const res = await fetch(url)
+    if (!res.ok) {
+      throw new Error(`Failed to fetch ${url}: ${res.status}`)
+    }
+    const text = await res.text()
+    return JSON.parse(text.replace(/NaN/g, 'null')) as Herb[]
+  } catch (err) {
+    console.error('Error fetching herb data from', url, err)
+    throw err
+  }
 }
 
 export function useHerbs(): Herb[] | undefined {

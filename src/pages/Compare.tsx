@@ -18,6 +18,17 @@ export default function Compare() {
 
   const herbs = useHerbs()
 
+  if (herbs === undefined) {
+    return (
+      <div className='min-h-screen px-4 pt-20 text-center text-sand'>
+        <Helmet>
+          <title>Compare - The Hippie Scientist</title>
+        </Helmet>
+        <p>Loading herb data…</p>
+      </div>
+    )
+  }
+
   const herbList = React.useMemo(
     () => (herbs ? herbIds.map(id => herbs.find(h => h.id === id)).filter(Boolean) : []),
     [herbIds, herbs]

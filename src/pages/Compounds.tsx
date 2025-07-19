@@ -27,6 +27,17 @@ export default function Compounds() {
   const herbs = useHerbs()
   const [tagFilter, setTagFilter] = React.useState<string[]>([])
 
+  if (herbs === undefined) {
+    return (
+      <div className='min-h-screen px-4 pt-20 text-center text-sand'>
+        <Helmet>
+          <title>Psychoactive Compounds - The Hippie Scientist</title>
+        </Helmet>
+        <p>Loading herb data…</p>
+      </div>
+    )
+  }
+
   const compounds = React.useMemo(() => {
     const map = new Map<string, Compound>()
     baseCompounds.forEach(c => {
