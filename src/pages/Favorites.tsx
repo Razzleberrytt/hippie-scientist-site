@@ -7,21 +7,7 @@ import { useHerbFavorites } from '../hooks/useHerbFavorites'
 export default function Favorites() {
   const herbs = useHerbs()
   const { favorites } = useHerbFavorites()
-  const saved = React.useMemo(
-    () => (herbs ? herbs.filter(h => favorites.includes(h.id)) : []),
-    [herbs, favorites]
-  )
-
-  if (herbs === undefined) {
-    return (
-      <div className='min-h-screen px-4 pt-20 pb-12 text-center text-sand'>
-        <Helmet>
-          <title>My Herbs - The Hippie Scientist</title>
-        </Helmet>
-        <p>Loading herb data…</p>
-      </div>
-    )
-  }
+  const saved = React.useMemo(() => herbs.filter(h => favorites.includes(h.id)), [herbs, favorites])
 
   return (
     <div className='min-h-screen px-4 pt-20 pb-12'>

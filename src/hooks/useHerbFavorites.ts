@@ -2,7 +2,7 @@ import { useLocalStorage } from './useLocalStorage'
 
 export function useHerbFavorites() {
   const [favorites, setFavorites] = useLocalStorage<string[]>(
-    'favorites',
+    'herbFavorites',
     []
   )
 

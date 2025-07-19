@@ -1,9 +1,8 @@
 import React from 'react'
-import { useLocalStorage } from './useLocalStorage'
 import Fuse from 'fuse.js'
 import type { Herb } from '../types'
-import { extractAliases, extraAliases } from '../utils/herbAlias'
-import { canonicalTag, aliasFor } from '../utils/tagUtils'
+import { extractAliases } from '../utils/herbAlias'
+import { canonicalTag } from '../utils/tagUtils'
 
 interface Options {
   favorites?: string[]
@@ -18,27 +17,22 @@ export function metaCategory(cat: string): string {
   return 'Other'
 }
 
-export function useFilteredHerbs(herbs: Herb[] | undefined, options: Options = {}) {
+export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const { favorites = [] } = options
-  const safeHerbs = herbs ?? []
   const [query, setQuery] = React.useState('')
   const [tags, setTags] = React.useState<string[]>([])
   const [tagMode, setTagMode] = React.useState<'AND' | 'OR'>('AND')
   const [favoritesOnly, setFavoritesOnly] = React.useState(false)
-  const [categories, setCategories] = useLocalStorage<string[]>('dbCategories', [])
+  const [categories, setCategories] = React.useState<string[]>([])
   const [sort, setSort] = React.useState('')
 
   const fuseData = React.useMemo(
     () =>
-      safeHerbs.map(h => ({
+      herbs.map(h => ({
         ...h,
-        aliases: [
-          ...extractAliases(h.name),
-          ...(extraAliases[h.id] || extraAliases[h.name.toLowerCase()] || []),
-        ],
-        tagAliases: h.tags.map(t => aliasFor(canonicalTag(t))).filter(Boolean) as string[],
+        aliases: extractAliases(h.name),
       })),
-    [safeHerbs]
+    [herbs]
   )
 
   const fuse = React.useMemo(
@@ -52,7 +46,6 @@ export function useFilteredHerbs(herbs: Herb[] | undefined, options: Options = {
           'effects',
           'description',
           'tags',
-          'tagAliases',
         ],
         threshold: 0.4,
         includeMatches: true,
@@ -62,22 +55,12 @@ export function useFilteredHerbs(herbs: Herb[] | undefined, options: Options = {
     [fuseData]
   )
 
-  const [matchMap, setMatchMap] = React.useState<Record<string, Fuse.FuseResultMatch[]>>({})
-
   const filtered = React.useMemo(() => {
-    let results: { item: Herb; matches?: Fuse.FuseResultMatch[] }[] = []
+    let res = herbs
     const q = query.trim()
     if (q) {
-      results = fuse.search(q)
-    } else {
-      results = safeHerbs.map(item => ({ item }))
+      res = fuse.search(q).map(r => r.item)
     }
-    const map: Record<string, Fuse.FuseResultMatch[]> = {}
-    results.forEach(r => {
-      if (r.matches) map[r.item.id] = r.matches
-    })
-    setMatchMap(map)
-    let res = results.map(r => r.item)
     if (tags.length) {
       res = res.filter(h => {
         const matches = tags.map(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))
@@ -94,11 +77,10 @@ export function useFilteredHerbs(herbs: Herb[] | undefined, options: Options = {
       res = [...res].sort((a, b) => a.name.localeCompare(b.name))
     }
     return res
-  }, [safeHerbs, query, tags, categories, favoritesOnly, favorites, sort, fuse])
+  }, [herbs, query, tags, categories, favoritesOnly, favorites, sort, fuse])
 
   return {
     filtered,
-    matches: matchMap,
     query,
     setQuery,
     tags,
