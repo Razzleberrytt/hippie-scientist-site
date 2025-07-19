@@ -6,7 +6,3 @@ export function extractAliases(name: string): string[] {
     .map(a => a.trim())
     .filter(Boolean)
 }
-
-export const extraAliases: Record<string, string[]> = {
-  ayahuasca: ['chacruna', 'banisteriopsis caapi', 'psychotria viridis'],
-}

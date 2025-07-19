@@ -5,7 +5,6 @@ import TagBadge from './TagBadge'
 import { decodeTag, tagVariant, tagCategory, TagCategory, normalizeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
 import { useLocalStorage } from '../hooks/useLocalStorage'
-import { tagCategoryMap } from '../utils/tagCategoryMap'
 
 interface Props {
   tags: string[]
@@ -79,14 +78,20 @@ export default function TagFilterBar({
   }
 
   const labelFor = (cat: TagCategory) => {
-    const info = tagCategoryMap[cat]
-    const Icon = info.icon
-    return (
-      <>
-        {Icon && <Icon className='mr-1 inline-block h-4 w-4' />}
-        {info.label}
-      </>
-    )
+    switch (cat) {
+      case 'Effect':
+        return '⚡ Effects'
+      case 'Preparation':
+        return '🌿 Preparation'
+      case 'Safety':
+        return '⚠️ Safety'
+      case 'Chemistry':
+        return '🧪 Chemistry'
+      case 'Region':
+        return '📍 Region'
+      default:
+        return '✨ Other'
+    }
   }
 
   const renderTags = (cat: TagCategory) => {
