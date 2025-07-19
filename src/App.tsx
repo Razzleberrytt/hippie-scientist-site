@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import MouseTrail from './components/MouseTrail'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import ScrollToTop from './components/ScrollToTop'
+import ErrorBoundary from './components/ErrorBoundary'
 const Home = React.lazy(() => import('./pages/Home'))
 const BlogIndex = React.lazy(() => import('./pages/BlogIndex'))
 const BlogPost = React.lazy(() => import('./pages/BlogPost'))
@@ -30,26 +31,28 @@ function App() {
       <Navbar />
       <MouseTrail />
       <main className='space-y-24 pt-16'>
-        <Suspense fallback={<LoadingScreen />}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/learn' element={<Learn />} />
-            <Route path='/learn/:slug' element={<Lesson />} />
-            <Route path='/database' element={<Database />} />
-            <Route path='/research' element={<Research />} />
-            <Route path='/blog' element={<BlogIndex />} />
-            <Route path='/blog/:slug' element={<BlogPost />} />
-            <Route path='/herbs/:id' element={<HerbDetail />} />
-            <Route path='/herb/:id' element={<HerbDetail />} />
-            <Route path='/bookmarks' element={<Bookmarks />} />
-            <Route path='/favorites' element={<Favorites />} />
-            <Route path='/compounds' element={<Compounds />} />
-            <Route path='/compare' element={<Compare />} />
-            <Route path='/store' element={<Store />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingScreen />}>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/learn' element={<Learn />} />
+              <Route path='/learn/:slug' element={<Lesson />} />
+              <Route path='/database' element={<Database />} />
+              <Route path='/research' element={<Research />} />
+              <Route path='/blog' element={<BlogIndex />} />
+              <Route path='/blog/:slug' element={<BlogPost />} />
+              <Route path='/herbs/:id' element={<HerbDetail />} />
+              <Route path='/herb/:id' element={<HerbDetail />} />
+              <Route path='/bookmarks' element={<Bookmarks />} />
+              <Route path='/favorites' element={<Favorites />} />
+              <Route path='/compounds' element={<Compounds />} />
+              <Route path='/compare' element={<Compare />} />
+              <Route path='/store' element={<Store />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </main>
       <Footer />
       <ScrollToTopButton />
