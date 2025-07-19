@@ -1,0 +1,92 @@
+From beaceeabaa0b2ea21e2925a7ea5c0ac2f8907305 Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Fri, 18 Jul 2025 23:57:05 -0400
+Subject: [PATCH 15/27] chore: wrap routes with error boundary (#121)
+
+---
+ src/App.tsx                      | 43 +++++++++++++++++---------------
+ src/components/ErrorBoundary.tsx |  7 +++++-
+ 2 files changed, 29 insertions(+), 21 deletions(-)
+
+diff --git a/src/App.tsx b/src/App.tsx
+index 6dbacb2..ac13705 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -7,6 +7,7 @@ import Footer from './components/Footer'
+ import MouseTrail from './components/MouseTrail'
+ import ScrollToTopButton from './components/ScrollToTopButton'
+ import ScrollToTop from './components/ScrollToTop'
++import ErrorBoundary from './components/ErrorBoundary'
+ const Home = React.lazy(() => import('./pages/Home'))
+ const BlogIndex = React.lazy(() => import('./pages/BlogIndex'))
+ const BlogPost = React.lazy(() => import('./pages/BlogPost'))
+@@ -30,26 +31,28 @@ function App() {
+       <Navbar />
+       <MouseTrail />
+       <main className='space-y-24 pt-16'>
+-        <Suspense fallback={<LoadingScreen />}>
+-          <Routes>
+-            <Route path='/' element={<Home />} />
+-            <Route path='/about' element={<About />} />
+-            <Route path='/learn' element={<Learn />} />
+-            <Route path='/learn/:slug' element={<Lesson />} />
+-            <Route path='/database' element={<Database />} />
+-            <Route path='/research' element={<Research />} />
+-            <Route path='/blog' element={<BlogIndex />} />
+-            <Route path='/blog/:slug' element={<BlogPost />} />
+-            <Route path='/herbs/:id' element={<HerbDetail />} />
+-            <Route path='/herb/:id' element={<HerbDetail />} />
+-            <Route path='/bookmarks' element={<Bookmarks />} />
+-            <Route path='/favorites' element={<Favorites />} />
+-            <Route path='/compounds' element={<Compounds />} />
+-            <Route path='/compare' element={<Compare />} />
+-            <Route path='/store' element={<Store />} />
+-            <Route path='*' element={<NotFound />} />
+-          </Routes>
+-        </Suspense>
++        <ErrorBoundary>
++          <Suspense fallback={<LoadingScreen />}>
++            <Routes>
++              <Route path='/' element={<Home />} />
++              <Route path='/about' element={<About />} />
++              <Route path='/learn' element={<Learn />} />
++              <Route path='/learn/:slug' element={<Lesson />} />
++              <Route path='/database' element={<Database />} />
++              <Route path='/research' element={<Research />} />
++              <Route path='/blog' element={<BlogIndex />} />
++              <Route path='/blog/:slug' element={<BlogPost />} />
++              <Route path='/herbs/:id' element={<HerbDetail />} />
++              <Route path='/herb/:id' element={<HerbDetail />} />
++              <Route path='/bookmarks' element={<Bookmarks />} />
++              <Route path='/favorites' element={<Favorites />} />
++              <Route path='/compounds' element={<Compounds />} />
++              <Route path='/compare' element={<Compare />} />
++              <Route path='/store' element={<Store />} />
++              <Route path='*' element={<NotFound />} />
++            </Routes>
++          </Suspense>
++        </ErrorBoundary>
+       </main>
+       <Footer />
+       <ScrollToTopButton />
+diff --git a/src/components/ErrorBoundary.tsx b/src/components/ErrorBoundary.tsx
+index fd91bd0..3beed53 100644
+--- a/src/components/ErrorBoundary.tsx
++++ b/src/components/ErrorBoundary.tsx
+@@ -25,7 +25,12 @@ class ErrorBoundary extends Component<Props, State> {
+ 
+   render() {
+     if (this.state.hasError) {
+-      return <h1>Something went wrong.</h1>;
++      return (
++        <div className='p-6 text-center'>
++          <h1 className='mb-2 text-xl font-bold'>Something went wrong.</h1>
++          <p>Please refresh the page and try again.</p>
++        </div>
++      );
+     }
+ 
+     return this.props.children;
+-- 
+2.43.0
+

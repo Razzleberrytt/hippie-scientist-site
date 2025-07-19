@@ -1,0 +1,51 @@
+From 2e80f5497fa2fc424047786c7ba614f30e1b651e Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Fri, 18 Jul 2025 23:56:03 -0400
+Subject: [PATCH 14/27] fix routing for github pages (#120)
+
+---
+ src/main.tsx             | 6 +++---
+ src/pages/HerbDetail.tsx | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/main.tsx b/src/main.tsx
+index 8639b44..a64c805 100644
+--- a/src/main.tsx
++++ b/src/main.tsx
+@@ -1,7 +1,7 @@
+ 
+ import React from 'react';
+ import ReactDOM from 'react-dom/client';
+-import { BrowserRouter } from 'react-router-dom';
++import { HashRouter } from 'react-router-dom';
+ import { HelmetProvider } from 'react-helmet-async';
+ import App from './App';
+ import { ThemeProvider } from './contexts/theme';
+@@ -11,9 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
+   <React.StrictMode>
+     <HelmetProvider>
+       <ThemeProvider>
+-        <BrowserRouter>
++        <HashRouter>
+           <App />
+-        </BrowserRouter>
++        </HashRouter>
+       </ThemeProvider>
+     </HelmetProvider>
+   </React.StrictMode>
+diff --git a/src/pages/HerbDetail.tsx b/src/pages/HerbDetail.tsx
+index 1df599a..70aa850 100644
+--- a/src/pages/HerbDetail.tsx
++++ b/src/pages/HerbDetail.tsx
+@@ -41,7 +41,7 @@ export default function HerbDetail() {
+     window.scrollTo({ top: 0, behavior: 'smooth' })
+   }, [])
+   const share = () => {
+-    const url = `${window.location.origin}/herb/${herb?.id}`
++    const url = `${window.location.origin}/#/herb/${herb?.id}`
+     navigator.clipboard.writeText(url)
+     setCopied(true)
+     setTimeout(() => setCopied(false), 1500)
+-- 
+2.43.0
+

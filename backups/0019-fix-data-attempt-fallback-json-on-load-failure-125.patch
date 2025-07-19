@@ -1,0 +1,33 @@
+From 242c02605674ccbbab7d975e2bca4842638431c8 Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Sat, 19 Jul 2025 00:10:41 -0400
+Subject: [PATCH 19/27] fix(data): attempt fallback json on load failure (#125)
+
+---
+ src/hooks/useHerbs.ts | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/src/hooks/useHerbs.ts b/src/hooks/useHerbs.ts
+index c0429f5..2d2c4e7 100644
+--- a/src/hooks/useHerbs.ts
++++ b/src/hooks/useHerbs.ts
+@@ -26,8 +26,14 @@ export function useHerbs(): Herb[] | undefined {
+         const data = await fetchHerbs(`${base}data/Full200.json`)
+         if (active) setHerbs(data)
+       } catch (err) {
+-        console.error('Failed to load herb data', err)
+-        if (active) setHerbs([])
++        console.error('Failed to load Full200.json', err)
++        try {
++          const data = await fetchHerbs('/data/Full79.json')
++          if (active) setHerbs(data)
++        } catch (err2) {
++          console.error('Failed to load fallback herb data', err2)
++          if (active) setHerbs([])
++        }
+       }
+     }
+     load()
+-- 
+2.43.0
+

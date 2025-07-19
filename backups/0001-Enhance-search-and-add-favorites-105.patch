@@ -1,0 +1,462 @@
+From a5677d928c6835dea1ff21c828688de1f0ad0354 Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Fri, 18 Jul 2025 22:05:46 -0400
+Subject: [PATCH 01/27] Enhance search and add favorites (#105)
+
+---
+ src/App.tsx                          |  2 +
+ src/components/HerbCardAccordion.tsx |  2 +-
+ src/components/Navbar.tsx            |  1 +
+ src/components/SearchBar.tsx         | 32 +++++----
+ src/data/compoundData.ts             |  5 +-
+ src/hooks/useFilteredHerbs.ts        | 24 ++++++-
+ src/pages/Compare.tsx                | 22 ++++++-
+ src/pages/Compounds.tsx              | 97 ++++++++++++++++++++++++----
+ src/pages/Favorites.tsx              | 27 ++++++++
+ src/pages/HerbDetail.tsx             |  2 +-
+ src/utils/herbAlias.ts               |  8 +++
+ 11 files changed, 189 insertions(+), 33 deletions(-)
+ create mode 100644 src/pages/Favorites.tsx
+ create mode 100644 src/utils/herbAlias.ts
+
+diff --git a/src/App.tsx b/src/App.tsx
+index 62a9f8f..530e8fe 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -18,6 +18,7 @@ const Database = React.lazy(() => import('./pages/Database'))
+ const Store = React.lazy(() => import('./pages/Store'))
+ const Research = React.lazy(() => import('./pages/Research'))
+ const Bookmarks = React.lazy(() => import('./pages/Bookmarks'))
++const Favorites = React.lazy(() => import('./pages/Favorites'))
+ const Compounds = React.lazy(() => import('./pages/Compounds'))
+ const Compare = React.lazy(() => import('./pages/Compare'))
+ 
+@@ -39,6 +40,7 @@ function App() {
+             <Route path='/blog/:slug' element={<BlogPost />} />
+             <Route path='/herbs/:id' element={<HerbDetail />} />
+             <Route path='/bookmarks' element={<Bookmarks />} />
++            <Route path='/favorites' element={<Favorites />} />
+             <Route path='/compounds' element={<Compounds />} />
+             <Route path='/compare' element={<Compare />} />
+             <Route path='/store' element={<Store />} />
+diff --git a/src/components/HerbCardAccordion.tsx b/src/components/HerbCardAccordion.tsx
+index 499010d..9e919a5 100644
+--- a/src/components/HerbCardAccordion.tsx
++++ b/src/components/HerbCardAccordion.tsx
+@@ -280,7 +280,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+                     <React.Fragment key={c.name}>
+                       {i > 0 && ', '}
+                       <Link
+-                        to={`/compounds#${slugify(c.name)}`}
++                        to={`/compounds?compound=${slugify(c.name)}`}
+                         onClick={e => e.stopPropagation()}
+                         className='hover-glow inline-block rounded px-1 text-sky-300 underline'
+                       >
+diff --git a/src/components/Navbar.tsx b/src/components/Navbar.tsx
+index e8e420c..68e41ad 100644
+--- a/src/components/Navbar.tsx
++++ b/src/components/Navbar.tsx
+@@ -13,6 +13,7 @@ const Navbar: React.FC = () => {
+     { path: '/about', label: 'About' },
+     { path: '/learn', label: 'Learn' },
+     { path: '/database', label: 'Database' },
++    { path: '/favorites', label: 'My Herbs' },
+     { path: '/research', label: 'Research' },
+     { path: '/blog', label: 'Blog' },
+     { path: '/bookmarks', label: 'Bookmarks' },
+diff --git a/src/components/SearchBar.tsx b/src/components/SearchBar.tsx
+index 8a17c21..43b7a96 100644
+--- a/src/components/SearchBar.tsx
++++ b/src/components/SearchBar.tsx
+@@ -1,25 +1,30 @@
+ import React from 'react'
+ import type Fuse from 'fuse.js'
+-import type { Herb } from '../types'
+ 
+ interface Props {
+   query: string
+   setQuery: (q: string) => void
+-  fuse: Fuse<Herb>
++  fuse: Fuse<any>
+ }
+ 
+ export default function SearchBar({ query, setQuery, fuse }: Props) {
+   const [suggestions, setSuggestions] = React.useState<ReturnType<typeof fuse.search>>([])
++  const [loading, setLoading] = React.useState(false)
+ 
+   React.useEffect(() => {
++    setLoading(true)
+     const q = query.trim()
+-    if (q) {
+-      setSuggestions(
+-        fuse.search(q, { limit: 5, isCaseSensitive: false, ignoreLocation: true })
+-      )
+-    } else {
+-      setSuggestions([])
+-    }
++    const handle = setTimeout(() => {
++      if (q) {
++        setSuggestions(
++          fuse.search(q, { limit: 5, isCaseSensitive: false, ignoreLocation: true })
++        )
++      } else {
++        setSuggestions([])
++      }
++      setLoading(false)
++    }, 200)
++    return () => clearTimeout(handle)
+   }, [query, fuse])
+ 
+   const highlight = (text: string) => {
+@@ -38,13 +43,18 @@ export default function SearchBar({ query, setQuery, fuse }: Props) {
+         onChange={e => setQuery(e.target.value)}
+         className='w-full rounded-md bg-space-dark/70 px-3 py-2 text-white backdrop-blur-md focus:outline-none'
+       />
+-      {suggestions.length > 0 && (
++      {loading && (
++        <div className='absolute z-10 mt-1 w-full rounded-md bg-black/80 p-2 text-center text-sm text-sand backdrop-blur-md'>
++          Searching...
++        </div>
++      )}
++      {!loading && suggestions.length > 0 && (
+         <ul className='absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-black/80 p-2 text-sm text-sand backdrop-blur-md'>
+           {suggestions.map(s => (
+             <li key={s.item.id}>
+               <button
+                 type='button'
+-                className='w-full text-left hover:bg-white/10 px-2 py-1 rounded'
++                className='w-full rounded px-2 py-1 text-left hover:bg-white/10'
+                 onClick={() => setQuery(s.item.name)}
+                 dangerouslySetInnerHTML={{ __html: highlight(s.item.name) }}
+               />
+diff --git a/src/data/compoundData.ts b/src/data/compoundData.ts
+index 60ca380..5b03623 100644
+--- a/src/data/compoundData.ts
++++ b/src/data/compoundData.ts
+@@ -2,13 +2,14 @@ export interface CompoundInfo {
+   name: string
+   type: string
+   mechanism: string
++  aliases?: string[]
+   sourceHerbs?: string[]
+   affiliateLink?: string
+ }
+ 
+ export const baseCompounds: CompoundInfo[] = [
+-  { name: 'DMT', type: 'tryptamine', mechanism: '5-HT2A agonist', affiliateLink: undefined },
+-  { name: 'mescaline', type: 'phenethylamine', mechanism: '5-HT2A agonist', affiliateLink: undefined },
++  { name: 'DMT', type: 'tryptamine', mechanism: '5-HT2A agonist', aliases: ['N,N-Dimethyltryptamine'], affiliateLink: undefined },
++  { name: 'mescaline', type: 'phenethylamine', mechanism: '5-HT2A agonist', aliases: ['3,4,5-trimethoxyphenethylamine'], affiliateLink: undefined },
+   { name: 'caffeine', type: 'xanthine', mechanism: 'Adenosine receptor antagonist' },
+   { name: 'mitragynine', type: 'indole alkaloid', mechanism: 'Partial μ-opioid agonist' },
+   { name: 'cocaine', type: 'alkaloid', mechanism: 'Blocks monoamine reuptake' },
+diff --git a/src/hooks/useFilteredHerbs.ts b/src/hooks/useFilteredHerbs.ts
+index aa17a6b..36d0de8 100644
+--- a/src/hooks/useFilteredHerbs.ts
++++ b/src/hooks/useFilteredHerbs.ts
+@@ -1,6 +1,7 @@
+ import React from 'react'
+ import Fuse from 'fuse.js'
+ import type { Herb } from '../types'
++import { extractAliases } from '../utils/herbAlias'
+ import { canonicalTag } from '../utils/tagUtils'
+ 
+ interface Options {
+@@ -25,16 +26,33 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
+   const [categories, setCategories] = React.useState<string[]>([])
+   const [sort, setSort] = React.useState('')
+ 
++  const fuseData = React.useMemo(
++    () =>
++      herbs.map(h => ({
++        ...h,
++        aliases: extractAliases(h.name),
++      })),
++    [herbs]
++  )
++
+   const fuse = React.useMemo(
+     () =>
+-      new Fuse(herbs, {
+-        keys: ['name', 'scientificName', 'effects', 'description', 'tags'],
++      new Fuse(fuseData, {
++        keys: [
++          'name',
++          'aliases',
++          'scientificName',
++          'activeConstituents.name',
++          'effects',
++          'description',
++          'tags',
++        ],
+         threshold: 0.4,
+         includeMatches: true,
+         isCaseSensitive: false,
+         ignoreLocation: true,
+       }),
+-    [herbs]
++    [fuseData]
+   )
+ 
+   const filtered = React.useMemo(() => {
+diff --git a/src/pages/Compare.tsx b/src/pages/Compare.tsx
+index ffa8cc9..5106cdb 100644
+--- a/src/pages/Compare.tsx
++++ b/src/pages/Compare.tsx
+@@ -13,6 +13,9 @@ export default function Compare() {
+   const herbInfo = herbParam ? herbs.find(h => h.id === herbParam) : undefined
+   const name = herbInfo?.name || compound || herbParam || 'Item'
+   const tags = herbInfo?.tags || []
++  const products = herbInfo?.affiliateLink
++    ? [herbInfo.affiliateLink]
++    : []
+ 
+   return (
+     <>
+@@ -31,10 +34,23 @@ export default function Compare() {
+                 ))}
+               </div>
+             )}
+-            <p className='mb-4 text-sand'>Affiliate product comparison coming soon.</p>
++            {herbInfo?.description && (
++              <p className='mb-4 text-sand'>{herbInfo.description}</p>
++            )}
+             <div className='grid grid-cols-2 gap-3 sm:grid-cols-3'>
+-              {Array.from({ length: 3 }).map((_, i) => (
+-                <div key={i} className='h-24 rounded-lg bg-black/20 dark:bg-white/10' />
++              {products.map((link, i) => (
++                <a
++                  key={i}
++                  href={link}
++                  target='_blank'
++                  rel='noopener noreferrer'
++                  className='hover-glow flex h-24 items-center justify-center rounded-lg bg-black/20 p-2 text-sky-300 underline dark:bg-white/10'
++                >
++                  Buy Online
++                </a>
++              ))}
++              {Array.from({ length: Math.max(0, 3 - products.length) }).map((_, i) => (
++                <div key={`p${i}`} className='h-24 rounded-lg bg-black/20 dark:bg-white/10' />
+               ))}
+             </div>
+           </div>
+diff --git a/src/pages/Compounds.tsx b/src/pages/Compounds.tsx
+index f1020fe..0579e36 100644
+--- a/src/pages/Compounds.tsx
++++ b/src/pages/Compounds.tsx
+@@ -3,11 +3,11 @@ import { Helmet } from 'react-helmet-async'
+ import { herbs } from '../data/herbs'
+ import baseCompounds, { CompoundInfo } from '../data/compoundData'
+ import { FlaskConical, Leaf, Gem, Droplet } from 'lucide-react'
+-import { Link } from 'react-router-dom'
++import { Link, useSearchParams } from 'react-router-dom'
+ import { slugify } from '../utils/slugify'
+ 
+ interface Compound extends CompoundInfo {
+-  sources: { id: string; name: string }[]
++  sources: { id: string; name: string; link?: string }[]
+ }
+ 
+ function typeIcon(type: string) {
+@@ -21,6 +21,9 @@ function typeIcon(type: string) {
+ }
+ 
+ export default function Compounds() {
++  const [params] = useSearchParams()
++  const selected = params.get('compound')
++
+   const compounds = React.useMemo(() => {
+     const map = new Map<string, Compound>()
+     baseCompounds.forEach(c => {
+@@ -35,12 +38,12 @@ export default function Compounds() {
+             type: c.type,
+             mechanism: '',
+             affiliateLink: undefined,
+-            sources: [{ id: h.id, name: h.name }],
++            sources: [{ id: h.id, name: h.name, link: h.affiliateLink }],
+           })
+         } else {
+           const entry = map.get(key)!
+           if (!entry.sources.find(s => s.id === h.id)) {
+-            entry.sources.push({ id: h.id, name: h.name })
++            entry.sources.push({ id: h.id, name: h.name, link: h.affiliateLink })
+           }
+         }
+       })
+@@ -48,6 +51,16 @@ export default function Compounds() {
+     return Array.from(map.values())
+   }, [])
+ 
++  const compoundList = React.useMemo(
++    () => [...compounds].sort((a, b) => a.name.localeCompare(b.name)),
++    [compounds]
++  )
++
++  const selectedCompound = React.useMemo(
++    () => compoundList.find(c => selected && slugify(c.name) === selected) || null,
++    [compoundList, selected]
++  )
++
+   return (
+     <>
+       <Helmet>
+@@ -63,12 +76,61 @@ export default function Compounds() {
+           <p className='mb-8 text-sand'>
+             Prototype view of active constituents found in the herb database.
+           </p>
+-          <div className='space-y-4'>
+-            {compounds.map(c => (
+-              <div key={c.name} className='glass-card p-4 text-left'>
+-                <h2 className='text-xl font-bold text-white max-w-xs truncate'>
+-                  {c.name}
+-                </h2>
++          {selectedCompound ? (
++            <div className='glass-card mb-6 p-4 text-left'>
++              <h2 className='text-xl font-bold text-white'>{selectedCompound.name}</h2>
++              <p className='text-sm text-moss'>
++                {typeIcon(selectedCompound.type)}
++                {selectedCompound.type}
++              </p>
++              {selectedCompound.mechanism && (
++                <p className='text-xs text-sand'>MOA: {selectedCompound.mechanism}</p>
++              )}
++              {selectedCompound.aliases && selectedCompound.aliases.length > 0 && (
++                <p className='text-xs text-sand'>Also known as: {selectedCompound.aliases.join(', ')}</p>
++              )}
++              <p className='text-xs text-sand'>
++                Herbs:
++                {selectedCompound.sources.map((s, i) => (
++                  <React.Fragment key={s.id}>
++                    {i > 0 && ', '}
++                    <Link to={`/herbs/${s.id}`} className='underline'>
++                      {s.name}
++                    </Link>
++                    {s.link && (
++                      <a
++                        href={s.link}
++                        target='_blank'
++                        rel='noopener noreferrer'
++                        className='ml-1 text-sky-300 underline'
++                      >
++                        Buy
++                      </a>
++                    )}
++                  </React.Fragment>
++                ))}
++              </p>
++              {selectedCompound.affiliateLink && (
++                <a
++                  href={selectedCompound.affiliateLink}
++                  target='_blank'
++                  rel='noopener noreferrer'
++                  className='mt-1 inline-block text-sm text-sky-300 underline'
++                >
++                  Buy Online
++                </a>
++              )}
++              <div className='mt-2'>
++                <Link to='/compounds' className='text-comet underline'>Back to list</Link>
++              </div>
++            </div>
++          ) : (
++            <div className='space-y-4'>
++              {compoundList.map(c => (
++                <div key={c.name} id={slugify(c.name)} className='glass-card p-4 text-left'>
++                  <h2 className='text-xl font-bold text-white max-w-xs truncate'>
++                    {c.name}
++                  </h2>
+                 <p className='text-sm text-moss'>
+                   {typeIcon(c.type)}
+                   {c.type}
+@@ -84,6 +146,16 @@ export default function Compounds() {
+                       <Link to={`/herbs/${s.id}`} className='underline'>
+                         {s.name}
+                       </Link>
++                      {s.link && (
++                        <a
++                          href={s.link}
++                          target='_blank'
++                          rel='noopener noreferrer'
++                          className='ml-1 text-sky-300 underline'
++                        >
++                          Buy
++                        </a>
++                      )}
+                     </React.Fragment>
+                   ))}
+                 </p>
+@@ -98,8 +170,9 @@ export default function Compounds() {
+                   </a>
+                 )}
+               </div>
+-            ))}
+-          </div>
++              ))}
++            </div>
++          )}
+         </div>
+       </div>
+     </>
+diff --git a/src/pages/Favorites.tsx b/src/pages/Favorites.tsx
+new file mode 100644
+index 0000000..7da0a52
+--- /dev/null
++++ b/src/pages/Favorites.tsx
+@@ -0,0 +1,27 @@
++import React from 'react'
++import { Helmet } from 'react-helmet-async'
++import HerbList from '../components/HerbList'
++import { useHerbs } from '../hooks/useHerbs'
++import { useHerbFavorites } from '../hooks/useHerbFavorites'
++
++export default function Favorites() {
++  const herbs = useHerbs()
++  const { favorites } = useHerbFavorites()
++  const saved = React.useMemo(() => herbs.filter(h => favorites.includes(h.id)), [herbs, favorites])
++
++  return (
++    <div className='min-h-screen px-4 pt-20 pb-12'>
++      <Helmet>
++        <title>My Herbs - The Hippie Scientist</title>
++      </Helmet>
++      <div className='mx-auto max-w-6xl'>
++        <h1 className='text-gradient mb-6 text-center text-5xl font-bold'>My Herbs</h1>
++        {saved.length === 0 ? (
++          <p className='text-center text-sand'>No saved herbs yet.</p>
++        ) : (
++          <HerbList herbs={saved} />
++        )}
++      </div>
++    </div>
++  )
++}
+diff --git a/src/pages/HerbDetail.tsx b/src/pages/HerbDetail.tsx
+index 07173c1..f77cb49 100644
+--- a/src/pages/HerbDetail.tsx
++++ b/src/pages/HerbDetail.tsx
+@@ -73,7 +73,7 @@ export default function HerbDetail() {
+               {herb.activeConstituents.map((c, i) => (
+                 <React.Fragment key={c.name}>
+                   {i > 0 && ', '}
+-                  <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>{c.name}</Link>
++                  <Link className='text-sky-300 underline' to={`/compounds?compound=${slugify(c.name)}`}>{c.name}</Link>
+                 </React.Fragment>
+               ))}
+             </div>
+diff --git a/src/utils/herbAlias.ts b/src/utils/herbAlias.ts
+new file mode 100644
+index 0000000..dc500aa
+--- /dev/null
++++ b/src/utils/herbAlias.ts
+@@ -0,0 +1,8 @@
++export function extractAliases(name: string): string[] {
++  const match = name.match(/\(([^)]+)\)/)
++  if (!match) return []
++  return match[1]
++    .split(/[,/]| or /)
++    .map(a => a.trim())
++    .filter(Boolean)
++}
+-- 
+2.43.0
+
