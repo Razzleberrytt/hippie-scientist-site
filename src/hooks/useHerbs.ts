@@ -20,18 +20,16 @@ export function useHerbs(): Herb[] | undefined {
 
   React.useEffect(() => {
     let active = true
-    fetchHerbs('/data/Full200.json')
-      .catch(err => {
-        console.error('Failed to load Full200.json', err)
-        return fetchHerbs('/data/Full79.json')
-      })
-      .then(data => {
+    async function load() {
+      try {
+        const data = await fetchHerbs('/data/Full200.json')
         if (active) setHerbs(data)
-      })
-      .catch(err => {
-        console.error('Failed to load fallback herb data', err)
+      } catch (err) {
+        console.error('Failed to load herb data', err)
         if (active) setHerbs([])
-      })
+      }
+    }
+    load()
     return () => {
       active = false
     }
