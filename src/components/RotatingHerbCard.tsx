@@ -37,7 +37,18 @@ export default function RotatingHerbCard() {
   const herb = items[index]
   if (!herb) return null
 
-  const handleTouch = () => setPaused(p => !p)
+  const handleAdvance = () => {
+    const statsRaw = localStorage.getItem('herbTapCounts')
+    const stats = statsRaw ? JSON.parse(statsRaw) : {}
+    stats[herb.id] = (stats[herb.id] || 0) + 1
+    localStorage.setItem('herbTapCounts', JSON.stringify(stats))
+
+    setIndex(i => {
+      let next = Math.floor(Math.random() * items.length)
+      if (next === i) next = (i + 1) % items.length
+      return next
+    })
+  }
 
   if (reduceMotion) {
     return (
@@ -79,17 +90,29 @@ export default function RotatingHerbCard() {
       className='relative mx-auto mt-6 flex min-h-[16rem] min-w-[280px] justify-center'
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      onTouchStart={handleTouch}
+      onClick={handleAdvance}
+      onTouchStart={handleAdvance}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          handleAdvance()
+        }
+      }}
+      role='button'
+      tabIndex={0}
     >
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key={herb.id}
+          aria-label={`Herb preview: ${herb.name}${herb.effects?.length ? ` – ${herb.effects.slice(0, 2).join(', ')}` : ''}`}
           className='glass-card hover-glow inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
           style={{ position: 'absolute', top: 0, left: 0 }}
           initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
           transition={{ duration: 0.6 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
           {herb.image && (
             <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
@@ -110,6 +133,12 @@ export default function RotatingHerbCard() {
           >
             Learn More
           </Link>
+          <motion.div
+            className='pointer-events-none absolute inset-0 rounded-xl ring-2 ring-psychedelic-pink/40 drop-shadow-[0_0_8px_#ff00ff]'
+            style={{ willChange: 'filter' }}
+            animate={{ filter: ['hue-rotate(0deg)', 'hue-rotate(360deg)'] }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+          />
           <motion.div
             key={index}
             className='absolute bottom-0 left-0 h-1 w-full bg-forest-green/40'
