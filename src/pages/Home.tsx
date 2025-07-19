@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import HeroSection from '../components/HeroSection'
+import Hero from '../components/Hero'
 import StarfieldBackground from '../components/StarfieldBackground'
 import MouseTrail from '../components/MouseTrail'
 import FeaturedHerbCarousel from '../components/FeaturedHerbCarousel'
@@ -11,8 +11,10 @@ export default function Home() {
     <main className='relative min-h-screen overflow-hidden bg-white px-4 pt-20 pb-0 md:pb-10 text-black dark:bg-black dark:text-white'>
       <StarfieldBackground />
       <MouseTrail />
-      <HeroSection />
-      <FeaturedHerbCarousel />
+      <Hero />
+      <div className='hidden md:block'>
+        <FeaturedHerbCarousel />
+      </div>
       <StatsCounters />
       <section className='mx-auto max-w-4xl text-center'>
         <Link

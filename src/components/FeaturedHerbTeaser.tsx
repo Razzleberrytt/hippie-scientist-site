@@ -4,14 +4,23 @@ import { Link } from 'react-router-dom'
 import herbs from '../data/herbs'
 import type { Herb } from '../types'
 
-export default function FeaturedHerbTeaser() {
+interface Props {
+  fixedId?: string
+}
+
+export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
   const [herb, setHerb] = useState<Herb | null>(null)
 
   useEffect(() => {
+    if (fixedId) {
+      const selected = herbs.find(h => h.id === fixedId || h.name === fixedId)
+      setHerb(selected ?? herbs[0])
+      return
+    }
     const psychedelic = herbs.filter(h => h.category.includes('Psychedelic'))
     const pool = psychedelic.length > 0 ? psychedelic : herbs
     setHerb(pool[Math.floor(Math.random() * pool.length)])
-  }, [])
+  }, [fixedId])
 
   if (!herb) return null
 
