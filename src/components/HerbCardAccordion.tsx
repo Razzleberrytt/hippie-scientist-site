@@ -113,7 +113,7 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
   const [open, setOpen] = useState(false)
   const handleClick = () => {
     localStorage.setItem('focusHerb', herb.id)
-    navigate(`/herb/${herb.id}`)
+    navigate(`/herbs/${herb.id}`)
   }
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
@@ -362,7 +362,7 @@ function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compac
               )}
               <motion.div variants={itemVariants} className='pt-2'>
                 <Link
-                  to={`/herb/${herb.id}`}
+                  to={`/herbs/${herb.id}`}
                   onClick={e => {
                     e.stopPropagation()
                     localStorage.setItem('focusHerb', herb.id)

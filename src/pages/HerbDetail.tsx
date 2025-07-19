@@ -41,7 +41,7 @@ export default function HerbDetail() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
   const share = () => {
-    const url = `${window.location.origin}/#/herb/${herb?.id}`
+    const url = `${window.location.origin}/#/herbs/${herb?.id}`
     navigator.clipboard.writeText(url)
     setCopied(true)
     setTimeout(() => setCopied(false), 1500)

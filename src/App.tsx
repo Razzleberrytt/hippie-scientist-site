@@ -47,7 +47,6 @@ function App() {
               <Route path='/blog' element={<BlogIndex />} />
               <Route path='/blog/:slug' element={<BlogPost />} />
               <Route path='/herbs/:id' element={<HerbDetail />} />
-              <Route path='/herb/:id' element={<HerbDetail />} />
               <Route path='/bookmarks' element={<Bookmarks />} />
               <Route path='/favorites' element={<Favorites />} />
               <Route path='/compounds' element={<Compounds />} />
