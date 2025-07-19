@@ -161,6 +161,27 @@ export const baseCompounds: CompoundInfo[] = [
     sourceHerbs: ['salvia-divinorum'],
     notes: 'Potent short-acting hallucinogen',
   },
+  {
+    name: 'LSD',
+    type: 'ergoline',
+    mechanism: 'Potent 5-HT2A agonist',
+    sourceHerbs: ['claviceps-purpurea'],
+    notes: 'Semi-synthetic psychedelic derived from ergot alkaloids',
+  },
+  {
+    name: 'MDMA',
+    type: 'phenethylamine',
+    mechanism: 'Serotonin releasing agent',
+    sourceHerbs: ['sassafras-albidum'],
+    notes: 'Empathogenic stimulant originally synthesized from safrole oil',
+  },
+  {
+    name: 'ibogaine',
+    type: 'indole alkaloid',
+    mechanism: 'Complex serotonin and NMDA modulation',
+    sourceHerbs: ['tabernanthe-iboga'],
+    notes: 'Psychedelic used in addiction treatment rituals',
+  },
 ]
 
 export default baseCompounds

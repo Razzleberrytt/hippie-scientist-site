@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "echo \"No tests specified\" && exit 0",
+    "validate-herbs": "node scripts/validateHerbs.js"
   },
   "dependencies": {
     "@tsparticles/engine": "^3.8.1",

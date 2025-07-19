@@ -112,7 +112,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-3 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink focus-visible:ring-offset-2 sm:p-6`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-3 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink focus-visible:ring-offset-2 focus-visible:ring-offset-space-dark focus-visible:ring-sky-400 focus-visible:ring-4 sm:p-6`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -154,9 +154,13 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
             )}
             {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
-            {herb.affiliateLink && (
+            {herb.affiliateLink ? (
               <span className='rounded bg-lime-700/40 px-2 py-0.5 text-xs text-lime-200'>
                 Available Online
+              </span>
+            ) : (
+              <span className='rounded bg-slate-700/30 px-2 py-0.5 text-xs text-slate-300'>
+                ⚠️ No Link
               </span>
             )}
           </div>
