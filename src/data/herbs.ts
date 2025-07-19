@@ -1,5 +1,5 @@
 import type { Herb } from '../types'
-import raw from '../../Full150.json?raw'
+import raw from '../../Full170.json?raw'
 
 const cleaned = raw.replace(/NaN/g, 'null')
 const herbs = JSON.parse(cleaned) as Herb[]
