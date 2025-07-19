@@ -1,1 +1,0 @@
-import{j as s,m as r}from"./main-c28d56de.js";const a=({children:o,className:e})=>s.jsx(r.div,{whileHover:{scale:1.05},className:`glass-card hover-glow relative rounded-lg bg-gradient-to-br from-white/5 to-white/10 p-4 focus-within:shadow-glow ${e??""}`,children:o});export{a as C};
