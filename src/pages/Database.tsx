@@ -215,7 +215,13 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          <TagDistribution counts={tagCounts} />
+          <TagDistribution
+            counts={tagCounts}
+            selected={filteredTags}
+            onClick={tag =>
+              setFilteredTags(t => Array.from(new Set([...t, tag])))
+            }
+          />
           <HerbList herbs={filtered} highlightQuery={query} />
           <footer className='mt-4 text-center text-sm text-moss'>
             Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
