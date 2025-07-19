@@ -129,7 +129,7 @@ export default function Compounds() {
                   href={selectedCompound.affiliateLink}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='mt-1 inline-block text-sm text-sky-300 underline'
+                  className='mt-1 inline-block min-h-[44px] text-sm text-sky-300 underline'
                 >
                   Buy Online
                 </a>
@@ -198,7 +198,7 @@ export default function Compounds() {
                         href={c.affiliateLink}
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='mt-1 inline-block text-sm text-sky-300 underline'
+                        className='mt-1 inline-block min-h-[44px] text-sm text-sky-300 underline'
                       >
                         Buy Online
                       </a>

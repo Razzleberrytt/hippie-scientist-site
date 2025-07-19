@@ -29,9 +29,7 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className='text-lg text-sand'
           >
-            The Hippie Scientist is a grassroots project exploring the world of visionary botanicals
-            and the science of consciousness. Our goal is to share accurate information, celebrate
-            traditional knowledge and encourage safe, responsible exploration.
+            <strong>The Hippie Scientist</strong> is an interactive, educational database of psychoactive herbs, natural nootropics, and traditional plant medicines. It helps users explore effects, preparation, safety, active compounds, and cultural context — with research-backed entries for over 200 botanicals.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -62,6 +60,29 @@ export default function About() {
             If you have suggestions or wish to collaborate, please reach out through our contact
             links.
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className='text-lg text-sand'
+          >
+            As an Amazon Associate, I earn from qualifying purchases. Some links on this site may be affiliate links.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className='pt-4 text-center'
+          >
+            <a
+              href='https://www.buymeacoffee.com/hippiescientist'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='inline-block rounded-md bg-amber-600 px-3 py-2 font-medium text-white hover:bg-amber-500'
+            >
+              ☕ Buy Me a Coffee
+            </a>
+          </motion.div>
         </div>
       </div>
     </>

@@ -32,6 +32,7 @@ export default function HerbDetail() {
   const herb = herbs.find(h => h.id === id)
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [showSimilar, setShowSimilar] = React.useState(false)
+  const [showAllCompounds, setShowAllCompounds] = React.useState(false)
   const share = () => {
     const url = `${window.location.origin}/herb/${herb?.id}`
     navigator.clipboard.writeText(url)
@@ -91,12 +92,21 @@ export default function HerbDetail() {
           {herb.activeConstituents?.length > 0 && (
             <div>
               <span className='font-semibold text-lime-300'>Active Compounds:</span>{' '}
-              {herb.activeConstituents.map((c, i) => (
+              {(showAllCompounds ? herb.activeConstituents : herb.activeConstituents.slice(0, 5)).map((c, i) => (
                 <React.Fragment key={c.name}>
                   {i > 0 && ', '}
                   <Link className='text-sky-300 underline' to={`/compounds?compound=${slugify(c.name)}`}>{c.name}</Link>
                 </React.Fragment>
               ))}
+              {herb.activeConstituents.length > 5 && !showAllCompounds && (
+                <button
+                  type='button'
+                  onClick={() => setShowAllCompounds(true)}
+                  className='ml-2 underline'
+                >
+                  +{herb.activeConstituents.length - 5} more
+                </button>
+              )}
             </div>
           )}
         <div className='flex flex-wrap gap-2 pt-2'>
@@ -105,14 +115,19 @@ export default function HerbDetail() {
           ))}
         </div>
         {herb.affiliateLink && (
-          <a
-            href={herb.affiliateLink}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='hover-glow mt-4 block rounded-md bg-gradient-to-r from-green-700 to-lime-600 px-4 py-2 text-center text-white'
-          >
-            🌐 Buy Online
-          </a>
+          <div className='mt-4 space-y-1'>
+            <a
+              href={herb.affiliateLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='hover-glow block min-h-[44px] rounded-md bg-gradient-to-r from-green-700 to-lime-600 px-4 py-2 text-center text-white'
+            >
+              🌐 Buy Online
+            </a>
+            <p className='text-xs text-sand'>
+              As an Amazon Associate, I earn from qualifying purchases. Some links on this page may be affiliate links.
+            </p>
+          </div>
         )}
       </div>
         <button

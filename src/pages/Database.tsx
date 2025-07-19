@@ -9,6 +9,7 @@ import CategoryAnalytics from '../components/CategoryAnalytics'
 import CategoryFilter from '../components/CategoryFilter'
 import { decodeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
+import { useSearchParams } from 'react-router-dom'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
@@ -33,6 +34,7 @@ export default function Database() {
     setFavoritesOnly,
     fuse,
   } = useFilteredHerbs(herbs, { favorites })
+  const [params, setParams] = useSearchParams()
 
   React.useEffect(() => {
     const pos = getLocal<number>('dbScroll', 0)
@@ -74,6 +76,24 @@ export default function Database() {
 
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
+
+  React.useEffect(() => {
+    const tagsParam = params.get('tags')
+    if (tagsParam) {
+      const list = tagsParam.split(',').map(t => decodeURIComponent(t))
+      setFilteredTags(list)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  React.useEffect(() => {
+    if (filteredTags.length > 0) {
+      params.set('tags', filteredTags.map(encodeURIComponent).join(','))
+    } else {
+      params.delete('tags')
+    }
+    setParams(params, { replace: true })
+  }, [filteredTags, params, setParams])
 
   React.useEffect(() => {
     let last = window.scrollY
