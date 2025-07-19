@@ -349,7 +349,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               {herb.tags?.length > 0 && (
                 <motion.div
                   variants={itemVariants}
-                  className='flex max-h-32 flex-wrap gap-2 overflow-y-auto pt-2'
+                  className='flex max-h-24 flex-wrap gap-2 overflow-y-auto pt-2 sm:max-h-32'
                 >
                   {herb.tags.slice(0, 10).map(tag => (
                     <TagBadge

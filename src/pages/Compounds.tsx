@@ -68,10 +68,11 @@ export default function Compounds() {
             {compounds.map(c => (
               <motion.article
                 key={c.name}
-                whileHover={{ scale: 1.03 }}
-                whileFocus={{ scale: 1.03 }}
+                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(34,197,94,0.5)' }}
+                whileTap={{ scale: 0.98 }}
+                whileFocus={{ scale: 1.05 }}
                 tabIndex={0}
-                className='glass-card hover-glow rounded-xl p-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6'
+                className='glass-card hover-glow rounded-xl p-3 text-left transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6'
               >
                 <h2 className='max-w-xs truncate text-xl font-bold text-white'>{c.name}</h2>
                 <p className='text-sm text-moss'>

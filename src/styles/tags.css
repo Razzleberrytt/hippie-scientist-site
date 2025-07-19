@@ -2,7 +2,7 @@
   @apply rounded-xl bg-black/30 backdrop-blur-md p-2;
 }
 .tag-list {
-  @apply mt-2 flex flex-wrap gap-1 sm:gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory max-h-40 overflow-y-auto;
+  @apply mt-2 flex flex-wrap gap-1 sm:gap-2 overflow-x-auto scroll-smooth snap-x snap-mandatory max-h-32 overflow-y-auto;
 }
 .tag-label {
   @apply flex w-full items-center justify-between text-sm font-semibold text-violet-300;

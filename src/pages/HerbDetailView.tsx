@@ -115,10 +115,12 @@ export default function HerbDetailView() {
           {herb.dosage}
         </div>
       )}
-      {herb.affiliateLink && herb.affiliateLink.startsWith('http') && (
+      {herb.affiliateLink && herb.affiliateLink.startsWith('http') ? (
         <a href={herb.affiliateLink} target='_blank' rel='noopener noreferrer' className='text-sky-300 underline'>
           Buy Online
         </a>
+      ) : (
+        <span className='text-sm text-sand/60'>No affiliate link available.</span>
       )}
       <div>
         <h3 className='text-xl font-bold text-sky-300'>Usage Log</h3>

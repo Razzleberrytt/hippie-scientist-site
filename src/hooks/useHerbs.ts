@@ -6,25 +6,17 @@ export function useHerbs(): Herb[] {
   const [herbs] = React.useState<Herb[]>(herbsData)
 
   React.useEffect(() => {
-    const incomplete = herbsData.filter(
-      h =>
-        !h.affiliateLink ||
-        !h.activeConstituents?.length ||
-        !h.mechanismOfAction ||
-        !h.legalStatus
-    )
-    if (incomplete.length) {
-      console.groupCollapsed('Herb data missing fields')
-      incomplete.forEach(h => {
-        const missing: string[] = []
-        if (!h.affiliateLink) missing.push('affiliateLink')
-        if (!h.activeConstituents?.length) missing.push('activeConstituents')
-        if (!h.mechanismOfAction) missing.push('mechanismOfAction')
-        if (!h.legalStatus) missing.push('legalStatus')
-        console.log(`${h.name}: ${missing.join(', ')}`)
-      })
-      console.groupEnd()
-    }
+    if (!import.meta.env.DEV) return
+
+    herbsData.forEach(h => {
+      const missing: string[] = []
+      if (!h.affiliateLink) missing.push('affiliateLink')
+      if (!h.activeConstituents?.length) missing.push('activeConstituents')
+      if (!h.mechanismOfAction) missing.push('mechanismOfAction')
+      if (missing.length) {
+        console.warn(`${h.name} missing: ${missing.join(', ')}`)
+      }
+    })
   }, [])
 
   return herbs
