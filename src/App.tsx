@@ -16,6 +16,8 @@ const NotFound = React.lazy(() => import('./pages/NotFound'))
 const Learn = React.lazy(() => import('./pages/Learn'))
 const Lesson = React.lazy(() => import('./pages/Lesson'))
 const About = React.lazy(() => import('./pages/About'))
+const Community = React.lazy(() => import('./pages/Community'))
+const Safety = React.lazy(() => import('./pages/Safety'))
 const Database = React.lazy(() => import('./pages/Database'))
 const Store = React.lazy(() => import('./pages/Store'))
 const Research = React.lazy(() => import('./pages/Research'))
@@ -36,6 +38,8 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/about' element={<About />} />
+              <Route path='/community' element={<Community />} />
+              <Route path='/safety' element={<Safety />} />
               <Route path='/learn' element={<Learn />} />
               <Route path='/learn/:slug' element={<Lesson />} />
               <Route path='/database' element={<Database />} />
