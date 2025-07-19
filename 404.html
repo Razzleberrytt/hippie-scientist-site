@@ -1,6 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/#/" />
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      const cleanPath = window.location.pathname.replace(/\/$/, '') +
+        window.location.search +
+        window.location.hash;
+      window.location.replace('/#' + cleanPath);
+    </script>
   </head>
+  <body>
+    <p>Redirecting…</p>
+  </body>
 </html>
