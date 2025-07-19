@@ -14,7 +14,13 @@ export default function About() {
       </Helmet>
 
       <div className='min-h-screen px-4 pt-20'>
-        <div className='mx-auto max-w-3xl space-y-8'>
+        <div className='mx-auto max-w-3xl'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className='glass-card space-y-6 p-8'
+          >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,7 +68,19 @@ export default function About() {
             If you have suggestions or wish to collaborate, please reach out through our contact
             links.
           </motion.p>
-        </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            className='text-sm text-sand'
+          >
+            <strong>Affiliate Disclaimer:</strong> This site participates in Amazon Associates and
+            other affiliate programs, which means we may earn a small commission if you purchase
+            products through links on our pages. These earnings help keep the project running at no
+            extra cost to you.
+          </motion.p>
+        </motion.div>
+      </div>
       </div>
     </>
   )

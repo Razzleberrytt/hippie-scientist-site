@@ -21,6 +21,7 @@ const Bookmarks = React.lazy(() => import('./pages/Bookmarks'))
 const Favorites = React.lazy(() => import('./pages/Favorites'))
 const Compounds = React.lazy(() => import('./pages/Compounds'))
 const Compare = React.lazy(() => import('./pages/Compare'))
+const Support = React.lazy(() => import('./pages/Support'))
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path='/favorites' element={<Favorites />} />
             <Route path='/compounds' element={<Compounds />} />
             <Route path='/compare' element={<Compare />} />
+            <Route path='/support' element={<Support />} />
             <Route path='/store' element={<Store />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
