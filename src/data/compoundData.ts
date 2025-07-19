@@ -6,6 +6,10 @@ export interface CompoundInfo {
   sourceHerbs?: string[]
   affiliateLink?: string
   tags?: string[]
+  toxicity?: string
+  duration?: string
+  originHerbs?: string[]
+  biosynthesisNotes?: string
 }
 
 export const baseCompounds: CompoundInfo[] = [
@@ -15,6 +19,9 @@ export const baseCompounds: CompoundInfo[] = [
     mechanism: '5-HT2A agonist',
     aliases: ['N,N-Dimethyltryptamine'],
     tags: ['psychedelic'],
+    duration: '15-60 min',
+    originHerbs: ['mimosa-hostilis'],
+    biosynthesisNotes: 'Derived from tryptophan via tryptamine',
   },
   {
     name: 'mescaline',
@@ -22,24 +29,30 @@ export const baseCompounds: CompoundInfo[] = [
     mechanism: '5-HT2A agonist',
     aliases: ['3,4,5-trimethoxyphenethylamine'],
     tags: ['psychedelic'],
+    duration: '8-12 h',
+    originHerbs: ['lophophora-williamsii'],
   },
   {
     name: 'caffeine',
     type: 'xanthine',
     mechanism: 'Adenosine receptor antagonist',
     tags: ['stimulant'],
+    duration: '3-5 h',
+    originHerbs: ['camellia-sinensis'],
   },
   {
     name: 'mitragynine',
     type: 'indole alkaloid',
     mechanism: 'Partial μ-opioid agonist',
     tags: ['opioid', 'stimulant'],
+    originHerbs: ['mitragyna-speciosa'],
   },
   {
     name: 'cocaine',
     type: 'alkaloid',
     mechanism: 'Blocks monoamine reuptake',
     tags: ['stimulant'],
+    toxicity: 'Highly addictive and cardiotoxic',
   },
   {
     name: 'scopolamine',

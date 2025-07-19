@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
 import TagBadge from '../components/TagBadge'
+import CompoundTooltip from '../components/CompoundTooltip'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
@@ -95,7 +96,9 @@ export default function HerbDetail() {
               {(showAllCompounds ? herb.activeConstituents : herb.activeConstituents.slice(0, 5)).map((c, i) => (
                 <React.Fragment key={c.name}>
                   {i > 0 && ', '}
-                  <Link className='text-sky-300 underline' to={`/compounds?compound=${slugify(c.name)}`}>{c.name}</Link>
+                  <CompoundTooltip name={c.name}>
+                    <Link className='text-sky-300 underline' to={`/compounds?compound=${slugify(c.name)}`}>{c.name}</Link>
+                  </CompoundTooltip>
                 </React.Fragment>
               ))}
               {herb.activeConstituents.length > 5 && !showAllCompounds && (
