@@ -28,4 +28,5 @@ export interface Herb {
     type: 'alkaloid' | 'terpenoid' | 'phenethylamine' | 'tryptamine' | string
     effect: string
   }[]
+  affiliateLink?: string
 }

@@ -23,7 +23,7 @@ const BlogIndex: React.FC = () => {
                 {post.title}
               </motion.h2>
               <p className='text-moss'>{post.excerpt}</p>
-              <p className='text-sm text-gray-400'>
+              <p className='text-sm text-sand'>
                 By {post.author} · {post.date} · {post.readingTime}
               </p>
             </Link>

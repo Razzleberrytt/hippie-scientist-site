@@ -135,7 +135,7 @@ export default function TagFilterBar({
   }
 
   return (
-    <div className='space-y-3'>
+    <div className='space-y-3 sticky top-16 z-20 sm:static'>
       {CATEGORY_ORDER.map(cat => (
         <div key={cat} className='tag-section'>
           <button

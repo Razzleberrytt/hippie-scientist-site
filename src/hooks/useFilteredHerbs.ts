@@ -30,6 +30,8 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
         keys: ['name', 'scientificName', 'effects', 'description', 'tags'],
         threshold: 0.4,
         includeMatches: true,
+        isCaseSensitive: false,
+        ignoreLocation: true,
       }),
     [herbs]
   )

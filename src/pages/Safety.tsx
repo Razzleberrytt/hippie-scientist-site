@@ -23,7 +23,7 @@ const Safety: React.FC = () => {
             className='mb-20 text-center'
           >
             <h1 className='text-gradient mb-6 text-5xl font-bold md:text-6xl'>Safety First</h1>
-            <p className='mx-auto max-w-3xl text-xl text-gray-300'>
+            <p className='mx-auto max-w-3xl text-xl text-sand'>
               Comprehensive harm reduction resources and safety guidelines
             </p>
           </motion.div>
@@ -42,14 +42,14 @@ const Safety: React.FC = () => {
             <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
               <div>
                 <h3 className='mb-2 text-lg font-semibold text-white'>Crisis Hotlines</h3>
-                <p className='text-gray-300'>Emergency: 911</p>
-                <p className='text-gray-300'>Crisis Text Line: Text HOME to 741741</p>
-                <p className='text-gray-300'>National Suicide Prevention Lifeline: 988</p>
+                <p className='text-sand'>Emergency: 911</p>
+                <p className='text-sand'>Crisis Text Line: Text HOME to 741741</p>
+                <p className='text-sand'>National Suicide Prevention Lifeline: 988</p>
               </div>
               <div>
                 <h3 className='mb-2 text-lg font-semibold text-white'>Poison Control</h3>
-                <p className='text-gray-300'>National Poison Control: 1-800-222-1222</p>
-                <p className='text-gray-300'>Online: poison.org</p>
+                <p className='text-sand'>National Poison Control: 1-800-222-1222</p>
+                <p className='text-sand'>Online: poison.org</p>
               </div>
             </div>
           </motion.div>
@@ -88,11 +88,11 @@ const Safety: React.FC = () => {
                   aria-hidden='true'
                 />
                 <h3 className='mb-4 text-center text-xl font-bold text-white'>{title}</h3>
-                <p className='text-center text-gray-300'>{description}</p>
+                <p className='text-center text-sand'>{description}</p>
               </motion.div>
             ))}
           </div>
-          <p className='mt-8 text-center text-sm text-gray-400'>
+          <p className='mt-8 text-center text-sm text-sand'>
             The information presented here is for educational purposes only and does not replace
             professional medical advice.
           </p>
