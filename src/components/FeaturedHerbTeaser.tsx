@@ -18,7 +18,7 @@ export default function FeaturedHerbTeaser() {
   return (
     <motion.div
       id='featured-herb'
-      className='glass-card mx-auto mt-8 max-w-sm rounded-xl p-4 shadow-lg'
+      className='glass-card mx-auto mt-6 max-w-sm rounded-xl p-4 shadow-lg'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
