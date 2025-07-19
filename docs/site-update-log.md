@@ -5,3 +5,8 @@
 • Trimmed spacing and removed down-arrow
 • Limited hero preview to single card with subtle entrance animation
 Files: HeroSection.tsx, FeaturedHerbTeaser.tsx, FeaturedHerbCarousel.tsx
+[2025-07-19] Final Hero Viewport Fit
+•Raised Hero title block and tagline for mobile
+•Limited preview to 1 compound card (Cannabis sativa)
+•Removed scroll arrow and ensured everything fits above fold
+Files: Hero.tsx, Home.tsx, tailwind.config.js

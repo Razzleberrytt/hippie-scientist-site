@@ -35,6 +35,9 @@ export default {
         sans: ['"Inter"', 'sans-serif'],
         herb: ['"Comfortaa"', '"Orbitron"', 'cursive'],
       },
+      minHeight: {
+        'screen-nav': 'calc(100dvh - 5rem)',
+      },
     },
   },
   plugins: [],
