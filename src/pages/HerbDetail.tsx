@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Share2 } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
@@ -34,9 +34,16 @@ export default function HerbDetail() {
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [showSimilar, setShowSimilar] = React.useState(false)
   const [showAllCompounds, setShowAllCompounds] = React.useState(false)
+  const [copied, setCopied] = React.useState(false)
+
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
   const share = () => {
     const url = `${window.location.origin}/herb/${herb?.id}`
     navigator.clipboard.writeText(url)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
   }
   if (!herb) {
     return (
@@ -66,14 +73,36 @@ export default function HerbDetail() {
           >
             ← Back
           </Link>
-          <button
-            type='button'
-            aria-label='Copy link'
-            onClick={share}
-            className='rounded-md p-1 text-sand hover:bg-white/20'
-          >
-            <Share2 size={18} />
-          </button>
+          <div className='relative flex items-center gap-2'>
+            <button
+              type='button'
+              aria-label='Copy link'
+              onClick={share}
+              className='rounded-md p-1 text-sand hover:bg-white/20'
+            >
+              <Share2 size={18} />
+            </button>
+            <AnimatePresence>
+              {copied && (
+                <motion.div
+                  initial={{ opacity: 0, y: -5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  className='absolute right-0 top-full mt-1 rounded bg-black/80 px-2 py-1 text-xs text-white'
+                >
+                  Copied!
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <a
+              href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(herb.name)}%20%23herbs`}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-sky-300 underline'
+            >
+              Tweet
+            </a>
+          </div>
         </div>
         <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
         {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
@@ -160,6 +189,38 @@ export default function HerbDetail() {
             className='mt-2 w-full rounded-md bg-black/20 p-2 text-white'
             rows={5}
           />
+        </div>
+        <div className='space-y-2'>
+          <h2 className='text-2xl font-bold text-sky-300'>Community Notes</h2>
+          <div className='rounded-md bg-black/20 p-2 text-sm text-sand'>
+            <strong>Alice</strong>: Great for relaxation! <span className='float-right text-xs'>2024-05-01</span>
+          </div>
+          <div className='rounded-md bg-black/20 p-2 text-sm text-sand'>
+            <strong>Bob</strong>: Helped with sleep. <span className='float-right text-xs'>2024-05-02</span>
+          </div>
+          <form
+            onSubmit={e => {
+              e.preventDefault()
+              const form = e.target as HTMLFormElement
+              const data = (form.elements.namedItem('note') as HTMLInputElement).value
+              console.log('Submitted note:', data)
+              form.reset()
+            }}
+            className='space-y-2'
+          >
+            <textarea
+              name='note'
+              rows={3}
+              className='w-full rounded-md bg-black/20 p-2 text-white'
+              placeholder='Share your experience...'
+            />
+            <button
+              type='submit'
+              className='rounded bg-psychedelic-purple px-3 py-1 text-white hover:opacity-90'
+            >
+              Submit Note
+            </button>
+          </form>
         </div>
         <details className='bg-slate-800/40 p-4 rounded-md'>
           <summary className='cursor-pointer text-sky-300'>🧬 Summarize This Herb</summary>

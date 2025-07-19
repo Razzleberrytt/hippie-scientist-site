@@ -96,7 +96,10 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
     if (!highlight) return text
     const escaped = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
     const regex = new RegExp(`(${escaped})`, 'ig')
-    return text.replace(regex, '<span class="font-bold text-yellow-300">$1</span>')
+    return text.replace(
+      regex,
+      '<mark class="rounded bg-yellow-500/40 px-1">$1</mark>'
+    )
   }
 
   const gradient = gradientForCategory(herb.category)
@@ -163,7 +166,9 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             {herb.category && (
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
             )}
-            {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
+            {herb.effects?.length > 0 && (
+              <span dangerouslySetInnerHTML={{ __html: mark(herb.effects.join(', ')) }} />
+            )}
           </div>
         </div>
         <div className='flex items-center gap-2'>
