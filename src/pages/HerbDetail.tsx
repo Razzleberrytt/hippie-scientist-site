@@ -56,7 +56,23 @@ export default function HerbDetail() {
         {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
         <div className='space-y-2'>
           {[
-            'description','mechanismOfAction','therapeuticUses','sideEffects','contraindications','drugInteractions','preparation','dosage','pharmacokinetics','onset,'duration','intensity','region','legalStatus','safetyRating','toxicity','toxicityLD50'
+            'description',
+            'mechanismOfAction',
+            'therapeuticUses',
+            'sideEffects',
+            'contraindications',
+            'drugInteractions',
+            'preparation',
+            'dosage',
+            'pharmacokinetics',
+            'onset',
+            'duration',
+            'intensity',
+            'region',
+            'legalStatus',
+            'safetyRating',
+            'toxicity',
+            'toxicityLD50',
           ].map(key => {
             const raw = (herb as any)[key]
             if (!raw) return null
