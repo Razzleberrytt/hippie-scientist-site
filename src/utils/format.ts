@@ -1,3 +1,5 @@
+import { canonicalTag } from './tagUtils'
+
 export function decodeTag(tag: string): string {
   try {
     return JSON.parse(`"${tag}"`)
@@ -7,14 +9,14 @@ export function decodeTag(tag: string): string {
 }
 
 export function normalizeTag(tag: string): string {
-  const decoded = decodeTag(tag)
-  const key = decoded.toLowerCase()
+  const decoded = decodeTag(tag).trim()
+  const key = canonicalTag(decoded)
   if (key === 'ayahuasca-additive') return 'Ayahuasca'
   if (key === 'sleep') return 'Dream'
   if (key === 'sedative') return 'Sedation'
   if (/(intense|strong|powerful)/.test(key)) return '🔥 Intensity'
   if (/visionary|psychedelic|hallucinogenic/.test(key)) return 'Visionary'
-  return decoded
+  return key.charAt(0).toUpperCase() + key.slice(1)
 }
 
 export type TagCategory = 'Effect' | 'Preparation' | 'Safety' | 'Region' | 'Chemistry' | 'Other'

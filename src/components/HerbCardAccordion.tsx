@@ -2,6 +2,7 @@ import React, { useState, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useNavigate } from 'react-router-dom'
 import { ChevronRight, Star } from 'lucide-react'
+import type Fuse from 'fuse.js'
 import type { Herb } from '../types'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
 import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
@@ -17,6 +18,8 @@ import { tagCategoryMap } from '../data/tagCategoryMap'
 interface Props {
   herb: Herb
   highlight?: string
+  matches?: Fuse.FuseResultMatch[]
+  compact?: boolean
 }
 
 const categoryColors: Record<string, Parameters<typeof TagBadge>[0]['variant']> = {
@@ -47,6 +50,35 @@ const fieldTooltips: Record<string, string> = {
   dosage: 'Common oral or smoked amount for effects.',
 }
 
+const fullFields = [
+  'description',
+  'mechanismOfAction',
+  'therapeuticUses',
+  'sideEffects',
+  'contraindications',
+  'drugInteractions',
+  'preparation',
+  'dosage',
+  'pharmacokinetics',
+  'onset',
+  'duration',
+  'intensity',
+  'region',
+  'legalStatus',
+  'safetyRating',
+  'toxicity',
+  'toxicityLD50',
+]
+
+const compactFields = [
+  'description',
+  'preparation',
+  'dosage',
+  'onset',
+  'duration',
+  'intensity',
+]
+
 function gradientForCategory(cat: string): string {
   const c = cat.toLowerCase()
   if (c.includes('oneirogen')) return 'from-indigo-700/40 to-purple-700/40'
@@ -73,12 +105,12 @@ function safetyTier(rating: any, toxicity?: string): SafetyTier {
   return 'danger'
 }
 
-export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+function HerbCardAccordionComponent({ herb, highlight = '', matches = [], compact = false }: Props) {
   const [tagsExpanded, setTagsExpanded] = useState(false)
   const [editTagsOpen, setEditTagsOpen] = useState(false)
   const [customTags, setCustomTags] = useLocalStorage<string[]>(`tags-${herb.id}`, herb.tags)
   const navigate = useNavigate()
-  const open = false
+  const [open, setOpen] = useState(false)
   const handleClick = () => {
     localStorage.setItem('focusHerb', herb.id)
     navigate(`/herb/${herb.id}`)
@@ -92,7 +124,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
     }
   }
 
-  const mark = (text: string) => {
+  const simpleMark = (text: string) => {
     if (!highlight) return text
     const escaped = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
     const regex = new RegExp(`(${escaped})`, 'ig')
@@ -100,6 +132,22 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       regex,
       '<mark class="rounded bg-yellow-500/40 px-1">$1</mark>'
     )
+  }
+
+  const mark = (text: string, field: string, index?: number) => {
+    const m = matches.find(
+      mm => mm.key === field && (index == null || mm.refIndex === index)
+    )
+    if (!m || !m.indices) return simpleMark(text)
+    let res = ''
+    let last = 0
+    m.indices.forEach(([s, e]) => {
+      res += text.slice(last, s)
+      res += `<mark class="rounded bg-yellow-500/40 px-1">${text.slice(s, e + 1)}</mark>`
+      last = e + 1
+    })
+    res += text.slice(last)
+    return res
   }
 
   const gradient = gradientForCategory(herb.category)
@@ -125,22 +173,24 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 ${compact ? 'p-2 sm:p-3' : 'p-4 sm:p-6'} shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink`}
     >
-      <motion.span
-        initial={{ opacity: 0, y: -4 }}
-        whileHover={{ opacity: 1, y: 0 }}
-        whileTap={{ opacity: 1, y: 0 }}
-        className='pointer-events-none absolute right-4 top-2 text-xs text-sand'
-      >
-        + More Info
-      </motion.span>
+      {!compact && (
+        <motion.span
+          initial={{ opacity: 0, y: -4 }}
+          whileHover={{ opacity: 1, y: 0 }}
+          whileTap={{ opacity: 1, y: 0 }}
+          className='pointer-events-none absolute right-4 top-2 text-xs text-sand'
+        >
+          + More Info
+        </motion.span>
+      )}
       <div className='flex items-start justify-between gap-4'>
         <div className='min-w-0'>
           <div className='flex flex-wrap items-baseline gap-1'>
             <h3
               className='text-shadow mb-0.5 font-herb text-xl text-white sm:text-2xl'
-              dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
+              dangerouslySetInnerHTML={{ __html: mark(herb.name, 'name') }}
             />
             {tier && (
               <span
@@ -159,7 +209,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
           {herb.scientificName && (
             <p
               className='mt-0.5 text-xs italic text-sand'
-              dangerouslySetInnerHTML={{ __html: mark(herb.scientificName) }}
+              dangerouslySetInnerHTML={{ __html: mark(herb.scientificName, 'scientificName') }}
             />
           )}
           <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
@@ -167,7 +217,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
             )}
             {herb.effects?.length > 0 && (
-              <span dangerouslySetInnerHTML={{ __html: mark(herb.effects.join(', ')) }} />
+              <span dangerouslySetInnerHTML={{ __html: mark(herb.effects.join(', '), 'effects') }} />
             )}
           </div>
         </div>
@@ -186,11 +236,15 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
           <motion.span
             layout
             initial={false}
-            animate={{ rotate: open ? 90 : 0 }}
+            animate={{ rotate: compact ? 0 : open ? 90 : 0 }}
             transition={{ duration: 0.3 }}
             className='text-cyan-200 transition-transform'
+            onClick={e => {
+              e.stopPropagation()
+              setOpen(o => !o)
+            }}
           >
-            <ChevronRight size={18} />
+            {compact ? (open ? '-' : '+') : <ChevronRight size={18} />}
           </motion.span>
         </div>
       </div>
@@ -246,25 +300,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               exit='hidden'
               className='space-y-3'
             >
-              {[
-                'description',
-                'mechanismOfAction',
-                'therapeuticUses',
-                'sideEffects',
-                'contraindications',
-                'drugInteractions',
-                'preparation',
-                'dosage',
-                'pharmacokinetics',
-                'onset',
-                'duration',
-                'intensity',
-                'region',
-                'legalStatus',
-                'safetyRating',
-                'toxicity',
-                'toxicityLD50',
-              ].map(key => {
+              {(compact ? compactFields : fullFields).map(key => {
                 const raw = (herb as any)[key]
                 const value =
                   typeof raw === 'string' && raw.trim() && raw !== 'No description provided.'
@@ -283,7 +319,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                         {value}
                       </span>
                     ) : (
-                      value
+                      <span dangerouslySetInnerHTML={{ __html: mark(String(value), key) }} />
                     )}
                   </motion.div>
                 )
@@ -412,3 +448,5 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
     </motion.div>
   )
 }
+
+export default React.memo(HerbCardAccordionComponent)
