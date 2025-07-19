@@ -7,7 +7,7 @@ import FeaturedHerbTeaser from './FeaturedHerbTeaser'
 export default function Hero() {
   return (
     <motion.section
-      className='relative flex min-h-[calc(100dvh-4rem)] flex-col items-center justify-center overflow-hidden gap-4 px-4 py-0 text-center md:min-h-screen-nav md:pt-12'
+      className='relative flex flex-col items-center justify-start overflow-hidden gap-4 px-4 pt-6 text-center md:min-h-screen-nav md:justify-center md:pt-12'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
