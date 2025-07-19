@@ -1,4 +1,4 @@
-import{k as getAugmentedNamespace,g as getDefaultExportFromCjs}from"./main-b692e03e.js";const __vite_glob_0_0=`---
+import{k as getAugmentedNamespace,g as getDefaultExportFromCjs}from"./main-ba9ec8b0.js";const __vite_glob_0_0=`---
 title: Exploring Herbs
 author: Luna
 date: 2024-06-01
