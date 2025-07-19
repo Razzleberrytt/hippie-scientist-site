@@ -1,11 +1,11 @@
-import{k as getAugmentedNamespace,g as getDefaultExportFromCjs}from"./main-7fee06dd.js";const __vite_glob_0_0=`---
+import{k as getAugmentedNamespace,g as getDefaultExportFromCjs}from"./main-db4a877a.js";const __vite_glob_0_0=`---
 title: Exploring Herbs
 author: Luna
 date: 2024-06-01
 tags: [herbs, intro]
 excerpt: A short introduction to the plant index.
 ---
-Welcome to the garden of knowledge. Here we share insights on sacred plants and their cultural stories.
+Welcome to the garden of knowledge. Here we share insights on sacred plants and their cultural stories. not workimng
 `,__vite_glob_0_1=`---
 title: Visionary History
 author: Sage
