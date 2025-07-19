@@ -45,6 +45,17 @@ export default function Database() {
     }
   }, [])
 
+  React.useEffect(() => {
+    const focus = localStorage.getItem('focusHerb')
+    if (focus) {
+      const el = document.getElementById(focus)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+      localStorage.removeItem('focusHerb')
+    }
+  }, [])
+
   const allTags = React.useMemo(() => {
     const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
     return Array.from(new Set(t.map(canonicalTag)))

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Share2 } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
@@ -31,6 +32,10 @@ export default function HerbDetail() {
   const herb = herbs.find(h => h.id === id)
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [showSimilar, setShowSimilar] = React.useState(false)
+  const share = () => {
+    const url = `${window.location.origin}/herb/${herb?.id}`
+    navigator.clipboard.writeText(url)
+  }
   if (!herb) {
     return (
       <div className='p-6 text-center'>
@@ -49,14 +54,30 @@ export default function HerbDetail() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className='mx-auto max-w-3xl px-6 py-12 space-y-6'
+        className='glass-card mx-auto max-w-3xl space-y-6 overflow-y-auto px-6 py-8'
       >
-        <Link to='/database' className='text-comet underline'>← Back</Link>
+        <div className='flex items-center justify-between'>
+          <Link
+            to='/database'
+            onClick={() => localStorage.setItem('focusHerb', herb.id)}
+            className='text-comet underline'
+          >
+            ← Back
+          </Link>
+          <button
+            type='button'
+            aria-label='Copy link'
+            onClick={share}
+            className='rounded-md p-1 text-sand hover:bg-white/20'
+          >
+            <Share2 size={18} />
+          </button>
+        </div>
         <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
         {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
         <div className='space-y-2'>
           {[
-            'description','mechanismOfAction','therapeuticUses','sideEffects','contraindications','drugInteractions','preparation','dosage','pharmacokinetics','onset,'duration','intensity','region','legalStatus','safetyRating','toxicity','toxicityLD50'
+            'description','mechanismOfAction','therapeuticUses','sideEffects','contraindications','drugInteractions','preparation','dosage','pharmacokinetics','onset','duration','intensity','region','legalStatus','safetyRating','toxicity','toxicityLD50'
           ].map(key => {
             const raw = (herb as any)[key]
             if (!raw) return null
@@ -78,12 +99,22 @@ export default function HerbDetail() {
               ))}
             </div>
           )}
-          <div className='flex flex-wrap gap-2 pt-2'>
-            {herb.tags.map(tag => (
-              <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
-            ))}
-          </div>
+        <div className='flex flex-wrap gap-2 pt-2'>
+          {herb.tags.map(tag => (
+            <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
+          ))}
         </div>
+        {herb.affiliateLink && (
+          <a
+            href={herb.affiliateLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='hover-glow mt-4 block rounded-md bg-gradient-to-r from-green-700 to-lime-600 px-4 py-2 text-center text-white'
+          >
+            🌐 Buy Online
+          </a>
+        )}
+      </div>
         <button
           type='button'
           className='rounded-md bg-gradient-to-r from-violet-900 to-sky-900 px-3 py-2 text-white hover:opacity-90'

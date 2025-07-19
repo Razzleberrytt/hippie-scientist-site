@@ -1,6 +1,6 @@
 import React, { useState, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ChevronRight, Star } from 'lucide-react'
 import type { Herb } from '../types'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
@@ -70,15 +70,19 @@ function safetyTier(rating: any, toxicity?: string): SafetyTier {
 }
 
 export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
-  const [open, setOpen] = useState(false)
   const [tagsExpanded, setTagsExpanded] = useState(false)
-  const toggle = () => setOpen(v => !v)
+  const navigate = useNavigate()
+  const open = false
+  const handleClick = () => {
+    localStorage.setItem('focusHerb', herb.id)
+    navigate(`/herb/${herb.id}`)
+  }
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
   const handleKey = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
-      toggle()
+      handleClick()
     }
   }
 
@@ -94,12 +98,13 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
 
   return (
     <motion.div
+      id={herb.id}
       layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       exit={{ opacity: 0, scale: 0.9 }}
-      onClick={toggle}
+      onClick={handleClick}
       onKeyDown={handleKey}
       tabIndex={0}
       role='button'
@@ -308,8 +313,11 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               )}
               <motion.div variants={itemVariants} className='pt-2'>
                 <Link
-                  to={`/herbs/${herb.id}`}
-                  onClick={e => e.stopPropagation()}
+                  to={`/herb/${herb.id}`}
+                  onClick={e => {
+                    e.stopPropagation()
+                    localStorage.setItem('focusHerb', herb.id)
+                  }}
                   className='text-comet underline'
                 >
                   View full page
