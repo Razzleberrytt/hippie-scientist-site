@@ -8,6 +8,7 @@ import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
 import TagBadge from './TagBadge'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import InfoTooltip from './InfoTooltip'
+import { slugify } from '../utils/slugify'
 
 interface Props {
   herb: Herb
@@ -39,6 +40,7 @@ const fieldTooltips: Record<string, string> = {
   toxicity: 'Known adverse effects or poisoning information.',
   therapeuticUses: 'Traditional or potential healing applications.',
   contraindications: 'Situations where this herb should be avoided.',
+  dosage: 'Common oral or smoked amount for effects.',
 }
 
 function gradientForCategory(cat: string): string {
@@ -236,6 +238,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 'contraindications',
                 'drugInteractions',
                 'preparation',
+                'dosage',
                 'pharmacokinetics',
                 'onset',
                 'duration',
@@ -269,6 +272,24 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                   </motion.div>
                 )
               })}
+
+              {herb.activeConstituents?.length > 0 && (
+                <motion.div variants={itemVariants}>
+                  <span className='font-semibold text-lime-300'>Active Compounds:</span>{' '}
+                  {herb.activeConstituents.map((c, i) => (
+                    <React.Fragment key={c.name}>
+                      {i > 0 && ', '}
+                      <Link
+                        to={`/compounds#${slugify(c.name)}`}
+                        onClick={e => e.stopPropagation()}
+                        className='text-sky-300 underline'
+                      >
+                        {c.name}
+                      </Link>
+                    </React.Fragment>
+                  ))}
+                </motion.div>
+              )}
 
               {herb.tags?.length > 0 && (
                 <motion.div

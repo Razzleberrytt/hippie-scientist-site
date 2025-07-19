@@ -60,6 +60,18 @@ export default function Database() {
   }, [herbs])
 
   const [filtersOpen, setFiltersOpen] = React.useState(false)
+  const [showBar, setShowBar] = React.useState(true)
+
+  React.useEffect(() => {
+    let last = window.scrollY
+    const onScroll = () => {
+      const cur = window.scrollY
+      setShowBar(cur < last || cur < 100)
+      last = cur
+    }
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   React.useEffect(() => {
     const close = () => {
@@ -116,7 +128,11 @@ export default function Database() {
             </p>
           </motion.div>
 
-          <div className='sticky top-2 z-20 mb-4 flex flex-wrap items-center gap-2'>
+          <motion.div
+            className='sticky top-2 z-20 mb-4 flex flex-wrap items-center gap-2'
+            animate={{ y: showBar ? 0 : -60, opacity: showBar ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
             <SearchBar query={query} setQuery={setQuery} fuse={fuse} />
             <button
               type='button'
@@ -132,7 +148,7 @@ export default function Database() {
             >
               {filtersOpen ? 'Hide Filters' : 'Show Filters'}
             </button>
-          </div>
+          </motion.div>
 
           <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
             <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />

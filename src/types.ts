@@ -5,6 +5,7 @@ export interface Herb {
   category: string
   effects: string[]
   preparation: string
+  dosage?: string
   intensity: string
   onset: string
   duration?: string
