@@ -4,10 +4,10 @@ import ParticlesBackground from './ParticlesBackground'
 import FloatingElements from './FloatingElements'
 import FeaturedHerbTeaser from './FeaturedHerbTeaser'
 
-export default function HeroSection() {
+export default function Hero() {
   return (
     <motion.section
-      className='relative flex min-h-screen-nav flex-col items-center justify-start overflow-hidden px-4 pb-4 pt-8 text-center md:pt-12'
+      className='relative flex min-h-[100vh] md:min-h-screen-nav flex-col items-start md:items-center justify-start overflow-hidden gap-4 px-4 pt-8 pb-4 text-center md:pt-12'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -27,7 +27,7 @@ export default function HeroSection() {
         <p className='text-opal text-base sm:text-lg md:text-xl'>Psychedelic Botany &amp; Conscious Exploration</p>
       </motion.div>
       <div className='relative z-10'>
-        <FeaturedHerbTeaser />
+        <FeaturedHerbTeaser fixedId='Cannabis sativa' />
       </div>
     </motion.section>
   )
