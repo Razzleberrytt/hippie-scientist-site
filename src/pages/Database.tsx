@@ -89,6 +89,15 @@ export default function Database() {
     return counts
   }, [herbs])
 
+  const toggleTag = React.useCallback(
+    (tag: string) => {
+      setFilteredTags(prev =>
+        prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
+      )
+    },
+    [setFilteredTags]
+  )
+
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
 
@@ -215,7 +224,11 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          <TagDistribution counts={tagCounts} />
+          <TagDistribution
+            counts={tagCounts}
+            selected={filteredTags}
+            onToggle={toggleTag}
+          />
           <HerbList herbs={filtered} highlightQuery={query} />
           <footer className='mt-4 text-center text-sm text-moss'>
             Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
