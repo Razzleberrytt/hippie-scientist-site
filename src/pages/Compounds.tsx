@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import { motion } from 'framer-motion'
 import { herbs } from '../data/herbs'
 import baseCompounds, { CompoundInfo } from '../data/compoundData'
 import { FlaskConical, Leaf, Gem, Droplet } from 'lucide-react'
@@ -65,7 +66,11 @@ export default function Compounds() {
           </p>
           <div className='space-y-4'>
             {compounds.map(c => (
-              <div key={c.name} className='glass-card p-4 text-left'>
+              <motion.div
+                key={c.name}
+                whileHover={{ scale: 1.03 }}
+                className='glass-card hover-glow rounded-xl p-3 sm:p-6 text-left'
+              >
                 <h2 className='text-xl font-bold text-white max-w-xs truncate'>
                   {c.name}
                 </h2>
@@ -97,7 +102,7 @@ export default function Compounds() {
                     Buy Online
                   </a>
                 )}
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

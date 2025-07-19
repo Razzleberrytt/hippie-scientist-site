@@ -143,6 +143,16 @@ export default function HerbDetail() {
           <p className='mt-2'>{summary}</p>
         </details>
       </motion.div>
+      {herb.affiliateLink && (
+        <a
+          href={herb.affiliateLink}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='fixed bottom-4 right-4 z-20 rounded-full bg-gradient-to-r from-violet-600 to-sky-600 px-4 py-3 text-white shadow-lg hover:shadow-xl'
+        >
+          Buy Online
+        </a>
+      )}
     </>
   )
 }

@@ -9,7 +9,7 @@ interface Props {
 const CardShell: React.FC<Props> = ({ children, className }) => (
   <motion.div
     whileHover={{ scale: 1.05 }}
-    className={`glass-card relative rounded-lg p-4 hover:shadow-glow hover:ring-2 hover:ring-lichen/50 ${className ?? ''}`}
+    className={`glass-card hover-glow relative rounded-lg bg-gradient-to-br from-white/5 to-white/10 p-4 focus-within:shadow-glow ${className ?? ''}`}
   >
     {children}
   </motion.div>
