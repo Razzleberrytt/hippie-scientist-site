@@ -13,6 +13,9 @@ export default function Compare() {
   const herbInfo = herbParam ? herbs.find(h => h.id === herbParam) : undefined
   const name = herbInfo?.name || compound || herbParam || 'Item'
   const tags = herbInfo?.tags || []
+  const products = herbInfo?.affiliateLink
+    ? [herbInfo.affiliateLink]
+    : []
 
   return (
     <>
@@ -31,10 +34,23 @@ export default function Compare() {
                 ))}
               </div>
             )}
-            <p className='mb-4 text-sand'>Affiliate product comparison coming soon.</p>
+            {herbInfo?.description && (
+              <p className='mb-4 text-sand'>{herbInfo.description}</p>
+            )}
             <div className='grid grid-cols-2 gap-3 sm:grid-cols-3'>
-              {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className='h-24 rounded-lg bg-black/20 dark:bg-white/10' />
+              {products.map((link, i) => (
+                <a
+                  key={i}
+                  href={link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='hover-glow flex h-24 items-center justify-center rounded-lg bg-black/20 p-2 text-sky-300 underline dark:bg-white/10'
+                >
+                  Buy Online
+                </a>
+              ))}
+              {Array.from({ length: Math.max(0, 3 - products.length) }).map((_, i) => (
+                <div key={`p${i}`} className='h-24 rounded-lg bg-black/20 dark:bg-white/10' />
               ))}
             </div>
           </div>

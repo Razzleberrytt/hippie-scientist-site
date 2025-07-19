@@ -2,13 +2,14 @@ export interface CompoundInfo {
   name: string
   type: string
   mechanism: string
+  aliases?: string[]
   sourceHerbs?: string[]
   affiliateLink?: string
 }
 
 export const baseCompounds: CompoundInfo[] = [
-  { name: 'DMT', type: 'tryptamine', mechanism: '5-HT2A agonist', affiliateLink: undefined },
-  { name: 'mescaline', type: 'phenethylamine', mechanism: '5-HT2A agonist', affiliateLink: undefined },
+  { name: 'DMT', type: 'tryptamine', mechanism: '5-HT2A agonist', aliases: ['N,N-Dimethyltryptamine'], affiliateLink: undefined },
+  { name: 'mescaline', type: 'phenethylamine', mechanism: '5-HT2A agonist', aliases: ['3,4,5-trimethoxyphenethylamine'], affiliateLink: undefined },
   { name: 'caffeine', type: 'xanthine', mechanism: 'Adenosine receptor antagonist' },
   { name: 'mitragynine', type: 'indole alkaloid', mechanism: 'Partial μ-opioid agonist' },
   { name: 'cocaine', type: 'alkaloid', mechanism: 'Blocks monoamine reuptake' },
