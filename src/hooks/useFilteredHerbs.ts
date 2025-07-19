@@ -1,6 +1,7 @@
 import React from 'react'
 import Fuse from 'fuse.js'
 import type { Herb } from '../types'
+import { canonicalTag } from '../utils/tagUtils'
 
 interface Options {
   favorites?: string[]
@@ -40,7 +41,9 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
       res = fuse.search(q).map(r => r.item)
     }
     if (tags.length) {
-      res = res.filter(h => tags.every(t => h.tags.includes(t)))
+      res = res.filter(h =>
+        tags.every(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))
+      )
     }
     if (categories.length) {
       res = res.filter(h => categories.includes(metaCategory(h.category)))

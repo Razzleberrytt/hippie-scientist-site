@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import TagBadge from './TagBadge'
 import { decodeTag, tagVariant, tagCategory, TagCategory, normalizeTag } from '../utils/format'
+import { canonicalTag } from '../utils/tagUtils'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 interface Props {
@@ -59,7 +60,7 @@ export default function TagFilterBar({
       Other: [],
     }
     tags.forEach(t => {
-      const canon = normalizeTag(t)
+      const canon = canonicalTag(normalizeTag(t))
       const cat = tagCategory(canon)
       if (!map[cat].includes(canon)) map[cat].push(canon)
     })
@@ -67,7 +68,8 @@ export default function TagFilterBar({
   }, [tags])
 
   const toggle = (tag: string) => {
-    setSelected(prev => (prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]))
+    const canon = canonicalTag(tag)
+    setSelected(prev => (prev.includes(canon) ? prev.filter(t => t !== canon) : [...prev, canon]))
   }
 
   const labelFor = (cat: TagCategory) => {

@@ -21,7 +21,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
   }
   const pages = getPages()
   return (
-    <div className='mb-8 mt-4 mx-auto inline-flex w-max flex-nowrap justify-center gap-2 overflow-x-auto sm:w-full sm:flex-wrap'>
+    <div className='mx-auto mb-8 mt-4 inline-flex w-max flex-nowrap justify-center gap-2 overflow-x-auto pr-2 sm:w-full sm:flex-wrap'>
       <button
         type='button'
         disabled={currentPage === 1}
