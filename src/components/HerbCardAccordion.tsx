@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { ChevronRight, Star } from 'lucide-react'
 import type { Herb } from '../types'
 import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
+import { canonicalTag } from '../utils/tagUtils'
 import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
 import TagBadge from './TagBadge'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
@@ -33,7 +34,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
-const TAG_LIMIT = 4
+const TAG_LIMIT = 6
 
 const fieldTooltips: Record<string, string> = {
   mechanismOfAction: 'How this herb produces its effects in the body.',
@@ -88,6 +89,17 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
     const regex = new RegExp(`(${escaped})`, 'ig')
     return text.replace(regex, '<span class="font-bold text-yellow-300">$1</span>')
   }
+
+  const sortedTags = React.useMemo(() => {
+    const active = new Set(
+      herb.activeConstituents?.map(c => canonicalTag(c.name)) || []
+    )
+    return [...herb.tags].sort((a, b) => {
+      const aActive = active.has(canonicalTag(a))
+      const bActive = active.has(canonicalTag(b))
+      return aActive === bActive ? 0 : aActive ? -1 : 1
+    })
+  }, [herb])
 
   const gradient = gradientForCategory(herb.category)
   const tier = safetyTier(herb.safetyRating, herb.toxicity)
@@ -155,9 +167,15 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             )}
             {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
             {herb.affiliateLink ? (
-              <span className='rounded bg-lime-700/40 px-2 py-0.5 text-xs text-lime-200'>
-                Available Online
-              </span>
+              <a
+                href={herb.affiliateLink}
+                target='_blank'
+                rel='noopener noreferrer'
+                onClick={e => e.stopPropagation()}
+                className='rounded bg-lime-700/40 px-2 py-0.5 text-xs text-lime-200 hover:underline'
+              >
+                Buy Online
+              </a>
             ) : (
               <span className='rounded bg-slate-700/30 px-2 py-0.5 text-xs text-slate-300'>
                 ⚠️ No Link
@@ -190,9 +208,9 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       </div>
 
       <div className='mt-2 flex flex-wrap gap-2'>
-        {(tagsExpanded || herb.tags.length <= TAG_LIMIT
-          ? herb.tags
-          : herb.tags.slice(0, TAG_LIMIT)
+        {(tagsExpanded || sortedTags.length <= TAG_LIMIT
+          ? sortedTags
+          : sortedTags.slice(0, TAG_LIMIT)
         ).map(tag => (
           <TagBadge
             key={tag}
@@ -201,7 +219,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className={open ? 'animate-pulse' : ''}
           />
         ))}
-        {herb.tags.length > TAG_LIMIT && (
+        {sortedTags.length > TAG_LIMIT && (
           <button
             type='button'
             onClick={e => {
@@ -211,7 +229,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className='focus:outline-none'
           >
             <TagBadge
-              label={tagsExpanded ? 'Show Less' : `+${herb.tags.length - TAG_LIMIT} more`}
+              label={tagsExpanded ? 'Show Less' : `+${sortedTags.length - TAG_LIMIT} more`}
               variant='yellow'
             />
           </button>
