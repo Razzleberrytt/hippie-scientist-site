@@ -25,6 +25,8 @@ export default function Database() {
     setQuery,
     tags: filteredTags,
     setTags: setFilteredTags,
+    matchAll,
+    setMatchAll,
     categories: filteredCategories,
     setCategories: setFilteredCategories,
     favoritesOnly,
@@ -89,10 +91,13 @@ export default function Database() {
     if (filteredTags.length === 0) return [] as string[]
     const counts: Record<string, number> = {}
     herbs.forEach(h => {
-      if (filteredTags.every(t => h.tags.includes(t))) {
+      if (filteredTags.every(t =>
+        h.tags.some(ht => canonicalTag(ht) === canonicalTag(t))
+      )) {
         h.tags.forEach(t => {
-          if (!filteredTags.includes(t)) {
-            counts[t] = (counts[t] || 0) + 1
+          const canon = canonicalTag(t)
+          if (!filteredTags.some(ft => canonicalTag(ft) === canon)) {
+            counts[canon] = (counts[canon] || 0) + 1
           }
         })
       }
@@ -140,6 +145,13 @@ export default function Database() {
               className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-yellow-300 backdrop-blur-md hover:bg-white/10'
             >
               {favoritesOnly ? 'All Herbs' : 'My Herbs'}
+            </button>
+            <button
+              type='button'
+              onClick={() => setMatchAll(m => !m)}
+              className='hover-glow rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+            >
+              {matchAll ? 'Match ALL' : 'Match ANY'}
             </button>
             <button
               type='button'
