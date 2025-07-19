@@ -1,0 +1,1 @@
+import{e as s,j as e,L as a}from"./main-a619b353.js";const n=()=>(s(),e.jsxs("div",{className:"mx-auto max-w-3xl px-6 py-12 text-center",children:[e.jsx("p",{className:"mb-4",children:"Lesson not found."}),e.jsx(a,{to:"/learn",className:"text-comet underline",children:"Back to Learn"})]}));export{n as default};
