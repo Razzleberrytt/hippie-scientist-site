@@ -282,7 +282,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                       <Link
                         to={`/compounds#${slugify(c.name)}`}
                         onClick={e => e.stopPropagation()}
-                        className='text-sky-300 underline'
+                        className='hover-glow inline-block rounded px-1 text-sky-300 underline'
                       >
                         {c.name}
                       </Link>

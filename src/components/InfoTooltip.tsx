@@ -27,7 +27,7 @@ export default function InfoTooltip({ text, children }: Props) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.2 }}
-            className='absolute left-1/2 z-50 mt-1 w-56 -translate-x-1/2 rounded-md bg-black/80 p-2 text-xs text-white backdrop-blur'
+            className='absolute left-1/2 z-50 mt-1 w-56 -translate-x-1/2 rounded-md bg-black/80 p-2 text-xs text-white backdrop-blur break-words whitespace-normal'
           >
             {text}
           </motion.div>

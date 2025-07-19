@@ -2,11 +2,22 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
 import baseCompounds, { CompoundInfo } from '../data/compoundData'
+import { FlaskConical, Leaf, Gem, Droplet } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { slugify } from '../utils/slugify'
 
 interface Compound extends CompoundInfo {
   sources: { id: string; name: string }[]
+}
+
+function typeIcon(type: string) {
+  const t = type.toLowerCase()
+  if (t.includes('alkaloid')) return <FlaskConical className='mr-1 inline h-4 w-4' />
+  if (t.includes('terpene')) return <Leaf className='mr-1 inline h-4 w-4' />
+  if (t.includes('glycoside')) return <Gem className='mr-1 inline h-4 w-4' />
+  if (t.includes('phenolic') || t.includes('coumarin'))
+    return <Droplet className='mr-1 inline h-4 w-4' />
+  return null
 }
 
 export default function Compounds() {
@@ -40,7 +51,11 @@ export default function Compounds() {
   return (
     <>
       <Helmet>
-        <title>Compounds - The Hippie Scientist</title>
+        <title>Psychoactive Compounds - The Hippie Scientist</title>
+        <meta
+          name='description'
+          content='Browse active constituents found in herbs and learn their mechanisms.'
+        />
       </Helmet>
       <div className='min-h-screen px-4 pt-20 pb-12'>
         <div className='mx-auto max-w-4xl text-center'>
@@ -51,8 +66,13 @@ export default function Compounds() {
           <div className='space-y-4'>
             {compounds.map(c => (
               <div key={c.name} className='glass-card p-4 text-left'>
-                <h2 className='text-xl font-bold text-white'>{c.name}</h2>
-                <p className='text-sm text-moss'>Type: {c.type}</p>
+                <h2 className='text-xl font-bold text-white max-w-xs truncate'>
+                  {c.name}
+                </h2>
+                <p className='text-sm text-moss'>
+                  {typeIcon(c.type)}
+                  {c.type}
+                </p>
                 {c.mechanism && (
                   <p className='text-xs text-sand'>MOA: {c.mechanism}</p>
                 )}
