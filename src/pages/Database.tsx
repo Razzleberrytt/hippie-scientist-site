@@ -13,6 +13,8 @@ import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import SearchBar from '../components/SearchBar'
+import { Download } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
 
@@ -174,6 +176,13 @@ export default function Database() {
             >
               {matchAll ? 'Match ALL' : 'Match ANY'}
             </button>
+            <Link
+              to='/downloads'
+              className='rounded-md bg-space-dark/70 p-2 text-sand backdrop-blur-md hover:bg-white/10'
+              aria-label='Export data'
+            >
+              <Download size={18} />
+            </Link>
             <button
               type='button'
               onClick={() => setFiltersOpen(o => !o)}

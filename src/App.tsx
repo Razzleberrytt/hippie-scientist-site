@@ -17,6 +17,7 @@ const Database = React.lazy(() => import('./pages/Database'))
 const Store = React.lazy(() => import('./pages/Store'))
 const Research = React.lazy(() => import('./pages/Research'))
 const Compounds = React.lazy(() => import('./pages/Compounds'))
+const Downloads = React.lazy(() => import('./pages/Downloads'))
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path='/herb/:id' element={<HerbDetailView />} />
             <Route path='/compounds' element={<Compounds />} />
             <Route path='/store' element={<Store />} />
+            <Route path='/downloads' element={<Downloads />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Suspense>

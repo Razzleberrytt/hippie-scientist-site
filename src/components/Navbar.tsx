@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Atom } from 'lucide-react'
+import { Menu, X, Atom, Download } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
 const Navbar: React.FC = () => {
@@ -16,6 +16,7 @@ const Navbar: React.FC = () => {
     { path: '/research', label: 'Research' },
     { path: '/compounds', label: 'Explore Compounds' },
     { path: '/store', label: 'Store' },
+    { path: '/downloads', label: 'Downloads', icon: Download },
   ]
 
   const isActive = (path: string) =>
@@ -41,16 +42,17 @@ const Navbar: React.FC = () => {
         </div>
 
         <ul className='hidden items-center space-x-6 md:flex'>
-          {navItems.map(({ path, label }) => (
+          {navItems.map(({ path, label, icon: Icon }) => (
             <li key={path}>
               <Link
                 to={path}
-                className={`rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
+                className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
                   isActive(path)
                     ? 'bg-cosmic-forest text-white shadow-glow'
                     : 'text-gray-700 hover:shadow-glow dark:text-sand'
                 }`}
               >
+                {Icon && <Icon size={16} />}
                 {label}
               </Link>
             </li>
@@ -69,17 +71,18 @@ const Navbar: React.FC = () => {
             exit={{ height: 0 }}
             className='flex flex-col space-y-2 overflow-hidden bg-white/90 px-4 py-4 dark:bg-space-dark/90 md:hidden'
           >
-            {navItems.map(({ path, label }) => (
+            {navItems.map(({ path, label, icon: Icon }) => (
               <li key={path}>
                 <Link
                   to={path}
                   onClick={() => setIsOpen(false)}
-                  className={`block rounded-md px-4 py-2 text-base font-medium transition-shadow ${
+                  className={`flex items-center gap-1 rounded-md px-4 py-2 text-base font-medium transition-shadow ${
                     isActive(path)
                       ? 'bg-cosmic-forest text-white shadow-glow'
                       : 'text-gray-700 hover:shadow-glow dark:text-sand'
                   }`}
                 >
+                  {Icon && <Icon size={16} />}
                   {label}
                 </Link>
               </li>

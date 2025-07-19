@@ -1,10 +1,34 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
 import { resolve } from 'path'
+import manifest from './public/manifest.json'
 
 export default defineConfig({
   base: '/',
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest,
+      includeAssets: ['icon-192x192.png', 'icon-512x512.png'],
+      workbox: {
+        navigateFallback: '/offline.html',
+        runtimeCaching: [
+          {
+            urlPattern: /\/database/,
+            handler: 'NetworkFirst',
+            options: { cacheName: 'pages' },
+          },
+          {
+            urlPattern: /\/?$/,
+            handler: 'NetworkFirst',
+            options: { cacheName: 'pages' },
+          },
+        ],
+      },
+    }),
+  ],
   define: {
     __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
   },
