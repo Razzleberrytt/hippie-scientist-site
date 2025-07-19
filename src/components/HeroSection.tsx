@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import HeroBackground from './HeroBackground'
 import ParticlesBackground from './ParticlesBackground'
 import FloatingElements from './FloatingElements'
+import ScrollDownHint from './ScrollDownHint'
+import FeaturedHerbTeaser from './FeaturedHerbTeaser'
 
 export default function HeroSection() {
   return (
@@ -25,6 +27,8 @@ export default function HeroSection() {
         </h1>
         <p className='text-lg text-opal md:text-xl'>Psychedelic Botany &amp; Conscious Exploration</p>
       </motion.div>
+      <FeaturedHerbTeaser />
+      <ScrollDownHint />
     </motion.section>
   )
 }
