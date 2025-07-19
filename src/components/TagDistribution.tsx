@@ -6,6 +6,8 @@ import { decodeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
 import ScrollToTopButton from './ScrollToTopButton'
 
+const MIN_COUNT = 5
+
 interface Props {
   counts: Record<string, number>
   className?: string
@@ -61,6 +63,8 @@ export default function TagDistribution({
   const max = React.useMemo(() => Math.max(1, ...groups.map(g => g.count)), [groups])
   const [showAll, setShowAll] = React.useState(false)
   const [mode, setMode] = React.useState<'grouped' | 'raw'>('grouped')
+
+  React.useEffect(() => setShowAll(false), [mode])
 
   const selectedSet = React.useMemo(() => new Set(selected.map(canonicalTag)), [selected])
 
@@ -151,20 +155,31 @@ export default function TagDistribution({
     )
   }
 
-  const RawList = () => (
-    <div className='grid grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-2'>
-      {entries.map(([tag, count]) => (
-        <Row
-          key={tag}
-          tag={tag}
-          count={count}
-          color='from-purple-400 via-pink-500 to-fuchsia-500'
-        />
-      ))}
-    </div>
-  )
+  const RawList = () => {
+    const list = showAll
+      ? entries
+      : entries.filter(([, count]) => count >= MIN_COUNT)
+    return (
+      <div className='grid grid-cols-1 gap-x-4 gap-y-2 md:grid-cols-2'>
+        {list.map(([tag, count]) => (
+          <Row
+            key={tag}
+            tag={tag}
+            count={count}
+            color='from-purple-400 via-pink-500 to-fuchsia-500'
+          />
+        ))}
+      </div>
+    )
+  }
 
-  const displayGroups = showAll ? groups : groups.slice(0, 12)
+  const displayGroups = showAll
+    ? groups
+    : groups.filter(g => g.count >= MIN_COUNT)
+  const hasMore =
+    mode === 'grouped'
+      ? groups.some(g => g.count < MIN_COUNT)
+      : entries.some(([, c]) => c < MIN_COUNT)
 
   return (
     <div className={`space-y-2 ${className}`}>
@@ -190,7 +205,7 @@ export default function TagDistribution({
               />
             ))}
           </div>
-          {groups.length > 12 && (
+          {hasMore && (
             <button
               type='button'
               className='tag-pill mx-auto block'
@@ -201,7 +216,18 @@ export default function TagDistribution({
           )}
         </>
       ) : (
-        <RawList />
+        <>
+          <RawList />
+          {hasMore && (
+            <button
+              type='button'
+              className='tag-pill mx-auto block'
+              onClick={() => setShowAll(s => !s)}
+            >
+              {showAll ? 'Show Less' : 'Show More'}
+            </button>
+          )}
+        </>
       )}
       {groups.length > 10 && <ScrollToTopButton />}
     </div>
