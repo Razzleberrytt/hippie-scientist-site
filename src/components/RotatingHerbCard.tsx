@@ -39,10 +39,44 @@ export default function RotatingHerbCard() {
 
   const handleTouch = () => setPaused(p => !p)
 
+  if (reduceMotion) {
+    return (
+      <div
+        aria-live='polite'
+        className='relative mx-auto mt-6 h-[220px] max-w-sm sm:h-64 md:h-72 lg:h-80'
+      >
+        <div
+          className='glass-card hover-glow inset-0 flex flex-col rounded-xl p-4 text-center shadow-lg'
+          style={{ position: 'absolute' }}
+        >
+          {herb.image && (
+            <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
+          )}
+          <h3
+            className={`mt-3 font-herb ${
+              herb.name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
+            } overflow-hidden text-ellipsis whitespace-nowrap`}
+          >
+            {herb.name}
+          </h3>
+          {herb.effects?.length > 0 && (
+            <p className='mt-1 text-sm text-sand'>{herb.effects.slice(0, 3).join(', ')}</p>
+          )}
+          <Link
+            to={`/herbs/${herb.id}`}
+            className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
+          >
+            Learn More
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <motion.div
+    <div
       aria-live='polite'
-      className='relative mx-auto mt-6 max-w-sm h-96'
+      className='relative mx-auto mt-6 h-[220px] max-w-sm sm:h-64 md:h-72 lg:h-80'
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={handleTouch}
@@ -50,20 +84,23 @@ export default function RotatingHerbCard() {
       <AnimatePresence mode='wait'>
         <motion.div
           key={herb.id}
-          className='glass-card hover-glow absolute inset-0 flex flex-col rounded-xl p-4 shadow-lg'
+          className='glass-card hover-glow inset-0 flex flex-col rounded-xl p-4 text-center shadow-lg'
+          style={{ position: 'absolute' }}
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-          animate={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
           {herb.image && (
-            <img
-              src={herb.image}
-              alt={herb.name}
-              className='h-32 w-full rounded-md object-cover'
-            />
+            <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
           )}
-          <h3 className='mt-3 font-herb text-2xl'>{herb.name}</h3>
+          <h3
+            className={`mt-3 font-herb ${
+              herb.name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
+            } overflow-hidden text-ellipsis whitespace-nowrap`}
+          >
+            {herb.name}
+          </h3>
           {herb.effects?.length > 0 && (
             <p className='mt-1 text-sm text-sand'>{herb.effects.slice(0, 3).join(', ')}</p>
           )}
@@ -75,6 +112,6 @@ export default function RotatingHerbCard() {
           </Link>
         </motion.div>
       </AnimatePresence>
-    </motion.div>
+    </div>
   )
 }
