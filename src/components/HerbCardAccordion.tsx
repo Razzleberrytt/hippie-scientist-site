@@ -280,7 +280,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                     <React.Fragment key={c.name}>
                       {i > 0 && ', '}
                       <Link
-                        to={`/compounds#${slugify(c.name)}`}
+                        to={`/compounds?compound=${slugify(c.name)}`}
                         onClick={e => e.stopPropagation()}
                         className='hover-glow inline-block rounded px-1 text-sky-300 underline'
                       >

@@ -1,6 +1,7 @@
 import React from 'react'
 import Fuse from 'fuse.js'
 import type { Herb } from '../types'
+import { extractAliases } from '../utils/herbAlias'
 import { canonicalTag } from '../utils/tagUtils'
 
 interface Options {
@@ -25,16 +26,33 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const [categories, setCategories] = React.useState<string[]>([])
   const [sort, setSort] = React.useState('')
 
+  const fuseData = React.useMemo(
+    () =>
+      herbs.map(h => ({
+        ...h,
+        aliases: extractAliases(h.name),
+      })),
+    [herbs]
+  )
+
   const fuse = React.useMemo(
     () =>
-      new Fuse(herbs, {
-        keys: ['name', 'scientificName', 'effects', 'description', 'tags'],
+      new Fuse(fuseData, {
+        keys: [
+          'name',
+          'aliases',
+          'scientificName',
+          'activeConstituents.name',
+          'effects',
+          'description',
+          'tags',
+        ],
         threshold: 0.4,
         includeMatches: true,
         isCaseSensitive: false,
         ignoreLocation: true,
       }),
-    [herbs]
+    [fuseData]
   )
 
   const filtered = React.useMemo(() => {

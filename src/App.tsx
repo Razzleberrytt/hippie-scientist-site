@@ -18,6 +18,7 @@ const Database = React.lazy(() => import('./pages/Database'))
 const Store = React.lazy(() => import('./pages/Store'))
 const Research = React.lazy(() => import('./pages/Research'))
 const Bookmarks = React.lazy(() => import('./pages/Bookmarks'))
+const Favorites = React.lazy(() => import('./pages/Favorites'))
 const Compounds = React.lazy(() => import('./pages/Compounds'))
 const Compare = React.lazy(() => import('./pages/Compare'))
 
@@ -39,6 +40,7 @@ function App() {
             <Route path='/blog/:slug' element={<BlogPost />} />
             <Route path='/herbs/:id' element={<HerbDetail />} />
             <Route path='/bookmarks' element={<Bookmarks />} />
+            <Route path='/favorites' element={<Favorites />} />
             <Route path='/compounds' element={<Compounds />} />
             <Route path='/compare' element={<Compare />} />
             <Route path='/store' element={<Store />} />

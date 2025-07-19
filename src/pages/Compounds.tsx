@@ -3,11 +3,11 @@ import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
 import baseCompounds, { CompoundInfo } from '../data/compoundData'
 import { FlaskConical, Leaf, Gem, Droplet } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { slugify } from '../utils/slugify'
 
 interface Compound extends CompoundInfo {
-  sources: { id: string; name: string }[]
+  sources: { id: string; name: string; link?: string }[]
 }
 
 function typeIcon(type: string) {
@@ -21,6 +21,9 @@ function typeIcon(type: string) {
 }
 
 export default function Compounds() {
+  const [params] = useSearchParams()
+  const selected = params.get('compound')
+
   const compounds = React.useMemo(() => {
     const map = new Map<string, Compound>()
     baseCompounds.forEach(c => {
@@ -35,18 +38,28 @@ export default function Compounds() {
             type: c.type,
             mechanism: '',
             affiliateLink: undefined,
-            sources: [{ id: h.id, name: h.name }],
+            sources: [{ id: h.id, name: h.name, link: h.affiliateLink }],
           })
         } else {
           const entry = map.get(key)!
           if (!entry.sources.find(s => s.id === h.id)) {
-            entry.sources.push({ id: h.id, name: h.name })
+            entry.sources.push({ id: h.id, name: h.name, link: h.affiliateLink })
           }
         }
       })
     })
     return Array.from(map.values())
   }, [])
+
+  const compoundList = React.useMemo(
+    () => [...compounds].sort((a, b) => a.name.localeCompare(b.name)),
+    [compounds]
+  )
+
+  const selectedCompound = React.useMemo(
+    () => compoundList.find(c => selected && slugify(c.name) === selected) || null,
+    [compoundList, selected]
+  )
 
   return (
     <>
@@ -63,12 +76,61 @@ export default function Compounds() {
           <p className='mb-8 text-sand'>
             Prototype view of active constituents found in the herb database.
           </p>
-          <div className='space-y-4'>
-            {compounds.map(c => (
-              <div key={c.name} className='glass-card p-4 text-left'>
-                <h2 className='text-xl font-bold text-white max-w-xs truncate'>
-                  {c.name}
-                </h2>
+          {selectedCompound ? (
+            <div className='glass-card mb-6 p-4 text-left'>
+              <h2 className='text-xl font-bold text-white'>{selectedCompound.name}</h2>
+              <p className='text-sm text-moss'>
+                {typeIcon(selectedCompound.type)}
+                {selectedCompound.type}
+              </p>
+              {selectedCompound.mechanism && (
+                <p className='text-xs text-sand'>MOA: {selectedCompound.mechanism}</p>
+              )}
+              {selectedCompound.aliases && selectedCompound.aliases.length > 0 && (
+                <p className='text-xs text-sand'>Also known as: {selectedCompound.aliases.join(', ')}</p>
+              )}
+              <p className='text-xs text-sand'>
+                Herbs:
+                {selectedCompound.sources.map((s, i) => (
+                  <React.Fragment key={s.id}>
+                    {i > 0 && ', '}
+                    <Link to={`/herbs/${s.id}`} className='underline'>
+                      {s.name}
+                    </Link>
+                    {s.link && (
+                      <a
+                        href={s.link}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='ml-1 text-sky-300 underline'
+                      >
+                        Buy
+                      </a>
+                    )}
+                  </React.Fragment>
+                ))}
+              </p>
+              {selectedCompound.affiliateLink && (
+                <a
+                  href={selectedCompound.affiliateLink}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='mt-1 inline-block text-sm text-sky-300 underline'
+                >
+                  Buy Online
+                </a>
+              )}
+              <div className='mt-2'>
+                <Link to='/compounds' className='text-comet underline'>Back to list</Link>
+              </div>
+            </div>
+          ) : (
+            <div className='space-y-4'>
+              {compoundList.map(c => (
+                <div key={c.name} id={slugify(c.name)} className='glass-card p-4 text-left'>
+                  <h2 className='text-xl font-bold text-white max-w-xs truncate'>
+                    {c.name}
+                  </h2>
                 <p className='text-sm text-moss'>
                   {typeIcon(c.type)}
                   {c.type}
@@ -84,6 +146,16 @@ export default function Compounds() {
                       <Link to={`/herbs/${s.id}`} className='underline'>
                         {s.name}
                       </Link>
+                      {s.link && (
+                        <a
+                          href={s.link}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='ml-1 text-sky-300 underline'
+                        >
+                          Buy
+                        </a>
+                      )}
                     </React.Fragment>
                   ))}
                 </p>
@@ -98,8 +170,9 @@ export default function Compounds() {
                   </a>
                 )}
               </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>

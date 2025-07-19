@@ -73,7 +73,7 @@ export default function HerbDetail() {
               {herb.activeConstituents.map((c, i) => (
                 <React.Fragment key={c.name}>
                   {i > 0 && ', '}
-                  <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>{c.name}</Link>
+                  <Link className='text-sky-300 underline' to={`/compounds?compound=${slugify(c.name)}`}>{c.name}</Link>
                 </React.Fragment>
               ))}
             </div>
