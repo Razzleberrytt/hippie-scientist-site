@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocalStorage } from './useLocalStorage'
 import Fuse from 'fuse.js'
 import type { Herb } from '../types'
 import { extractAliases, extraAliases } from '../utils/herbAlias'
@@ -23,7 +24,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const [tags, setTags] = React.useState<string[]>([])
   const [tagMode, setTagMode] = React.useState<'AND' | 'OR'>('AND')
   const [favoritesOnly, setFavoritesOnly] = React.useState(false)
-  const [categories, setCategories] = React.useState<string[]>([])
+  const [categories, setCategories] = useLocalStorage<string[]>('dbCategories', [])
   const [sort, setSort] = React.useState('')
 
   const fuseData = React.useMemo(
