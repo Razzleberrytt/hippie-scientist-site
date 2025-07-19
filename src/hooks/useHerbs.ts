@@ -25,8 +25,14 @@ export function useHerbs(): Herb[] | undefined {
         const data = await fetchHerbs('/data/Full200.json')
         if (active) setHerbs(data)
       } catch (err) {
-        console.error('Failed to load herb data', err)
-        if (active) setHerbs([])
+        console.error('Failed to load Full200.json', err)
+        try {
+          const data = await fetchHerbs('/data/Full79.json')
+          if (active) setHerbs(data)
+        } catch (err2) {
+          console.error('Failed to load fallback herb data', err2)
+          if (active) setHerbs([])
+        }
       }
     }
     load()
