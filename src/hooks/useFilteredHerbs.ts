@@ -3,7 +3,7 @@ import { useLocalStorage } from './useLocalStorage'
 import Fuse from 'fuse.js'
 import type { Herb } from '../types'
 import { extractAliases, extraAliases } from '../utils/herbAlias'
-import { canonicalTag } from '../utils/tagUtils'
+import { canonicalTag, aliasFor } from '../utils/tagUtils'
 
 interface Options {
   favorites?: string[]
