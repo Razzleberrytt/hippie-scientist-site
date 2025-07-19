@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <title>Redirecting…</title>
     <script>
-      const cleanPath = window.location.pathname
-        .replace(/\/$/, '') +
-        window.location.search +
-        window.location.hash;
-      window.location.replace('/#' + cleanPath);
+      const cleanPath =
+        location.pathname.replace(/\/$/, '') + location.search + location.hash
+      location.replace('/#' + cleanPath)
     </script>
   </head>
   <body>

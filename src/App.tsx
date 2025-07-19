@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { Suspense } from 'react'
 import { LoadingScreen } from './components/LoadingScreen'
 import Navbar from './components/Navbar'
@@ -26,7 +26,7 @@ const Compare = React.lazy(() => import('./pages/Compare'))
 
 function App() {
   return (
-    <>
+    <Router>
       <ScrollToTop />
       <Navbar />
       <MouseTrail />
@@ -56,7 +56,7 @@ function App() {
       </main>
       <Footer />
       <ScrollToTopButton />
-    </>
+    </Router>
   )
 }
 
