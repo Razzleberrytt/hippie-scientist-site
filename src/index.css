@@ -46,7 +46,7 @@ html {
 }
 /* Animations and extra utilities */
 .tag-pill {
-  @apply inline-flex items-center gap-1 rounded-full bg-black/10 px-2 py-0.5 text-xs shadow backdrop-blur-sm hover:bg-black/20 dark:bg-white/10 dark:hover:bg-white/20 text-shadow ring-1 ring-white/20 dark:ring-black/30;
+  @apply text-shadow inline-flex items-center gap-1 rounded-full bg-black/10 px-2 py-0.5 text-xs shadow ring-1 ring-white/20 backdrop-blur-sm hover:bg-black/20 dark:bg-white/10 dark:ring-black/30 dark:hover:bg-white/20;
 }
 
 @keyframes gradient-shift {
@@ -102,7 +102,7 @@ html {
 }
 
 .card-contrast {
-  @apply shadow-inner shadow-white/10;
+  @apply shadow-inner shadow-white/10 dark:bg-white/5;
 }
 
 /* Improve text legibility */

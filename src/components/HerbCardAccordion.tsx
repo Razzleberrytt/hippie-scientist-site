@@ -33,7 +33,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
-const TAG_LIMIT = 4
+const TAG_LIMIT = 3
 
 const fieldTooltips: Record<string, string> = {
   mechanismOfAction: 'How this herb produces its effects in the body.',
@@ -111,7 +111,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:drop-shadow-2xl hover:shadow-psychedelic-pink/40 focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
