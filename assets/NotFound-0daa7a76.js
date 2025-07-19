@@ -1,0 +1,11 @@
+import{l as s,j as e,W as a,m as t,L as i}from"./main-7fee06dd.js";/**
+ * @license lucide-react v0.298.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const n=s("ArrowLeft",[["path",{d:"m12 19-7-7 7-7",key:"1l729n"}],["path",{d:"M19 12H5",key:"x3x0zl"}]]);/**
+ * @license lucide-react v0.298.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const o=s("Home",[["path",{d:"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",key:"y5dka4"}],["polyline",{points:"9 22 9 12 15 12 15 22",key:"e2us08"}]]),c=()=>e.jsxs(e.Fragment,{children:[e.jsxs(a,{children:[e.jsx("title",{children:"404 - Page Not Found | The Hippie Scientist"}),e.jsx("meta",{name:"description",content:"The page you're looking for doesn't exist."})]}),e.jsx("div",{className:"flex min-h-screen items-center justify-center px-4 pt-20",children:e.jsx("div",{className:"mx-auto max-w-2xl text-center",children:e.jsxs(t.div,{initial:{opacity:0,scale:.8},animate:{opacity:1,scale:1},transition:{duration:.8},className:"glass-card p-12",children:[e.jsxs(t.div,{initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.8,delay:.2},className:"mb-8",children:[e.jsx("h1",{className:"text-gradient mb-4 text-8xl font-bold",children:"404"}),e.jsx("h2",{className:"mb-4 text-3xl font-bold text-white",children:"Page Not Found"}),e.jsx("p",{className:"mb-8 text-xl text-sand",children:"Looks like this page got lost in the cosmic void. Let's get you back on track!"})]}),e.jsxs(t.div,{initial:{opacity:0,y:20},animate:{opacity:1,y:0},transition:{duration:.8,delay:.4},className:"flex flex-col justify-center gap-4 sm:flex-row",children:[e.jsxs(i,{to:"/",className:"glass-button flex items-center justify-center space-x-2 rounded-lg px-8 py-4 font-medium text-white transition-all hover:scale-105",children:[e.jsx(o,{className:"h-5 w-5"}),e.jsx("span",{children:"Go Home"})]}),e.jsxs("button",{onClick:()=>window.history.back(),className:"glass-button flex items-center justify-center space-x-2 rounded-lg px-8 py-4 font-medium text-white transition-all hover:scale-105",children:[e.jsx(n,{className:"h-5 w-5"}),e.jsx("span",{children:"Go Back"})]})]})]})})})]});export{c as default};
