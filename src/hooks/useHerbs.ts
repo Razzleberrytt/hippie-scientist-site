@@ -22,7 +22,8 @@ export function useHerbs(): Herb[] | undefined {
     let active = true
     async function load() {
       try {
-        const data = await fetchHerbs('/data/Full200.json')
+        const base = import.meta.env.BASE_URL || '/'
+        const data = await fetchHerbs(`${base}data/Full200.json`)
         if (active) setHerbs(data)
       } catch (err) {
         console.error('Failed to load herb data', err)
