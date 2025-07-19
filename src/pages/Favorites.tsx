@@ -12,6 +12,17 @@ export default function Favorites() {
     [herbs, favorites]
   )
 
+  if (herbs === undefined) {
+    return (
+      <div className='min-h-screen px-4 pt-20 pb-12 text-center text-sand'>
+        <Helmet>
+          <title>My Herbs - The Hippie Scientist</title>
+        </Helmet>
+        <p>Loading herb data…</p>
+      </div>
+    )
+  }
+
   return (
     <div className='min-h-screen px-4 pt-20 pb-12'>
       <Helmet>

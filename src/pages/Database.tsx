@@ -40,7 +40,21 @@ export default function Database() {
   const [compactMode, setCompactMode] = useLocalStorage<boolean>('dbCompact', false)
   const [params, setParams] = useSearchParams()
 
-  if (!herbs || herbs.length === 0) {
+  if (herbs === undefined) {
+    return (
+      <>
+        <Helmet>
+          <title>Database - The Hippie Scientist</title>
+        </Helmet>
+        <div className='relative min-h-screen px-4 pt-20'>
+          <StarfieldBackground />
+          <div className='text-center text-sand'>Loading herb data…</div>
+        </div>
+      </>
+    )
+  }
+
+  if (herbs.length === 0) {
     return (
       <>
         <Helmet>
