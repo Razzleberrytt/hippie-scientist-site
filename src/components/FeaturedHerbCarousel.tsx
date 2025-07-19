@@ -3,9 +3,14 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import herbs from '../data/herbs'
 
-const featured = herbs.slice(0, 5)
+function pickFeatured() {
+  const psychedelic = herbs.filter(h => h.category.includes('Psychedelic'))
+  const pool = psychedelic.length > 0 ? psychedelic : herbs
+  return [...pool].sort(() => Math.random() - 0.5).slice(0, 5)
+}
 
 export default function FeaturedHerbCarousel() {
+  const [featured] = useState(() => pickFeatured())
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -18,7 +23,12 @@ export default function FeaturedHerbCarousel() {
   const herb = featured[index]
 
   return (
-    <div className='relative mx-auto mt-8 max-w-md'>
+    <motion.div
+      id='featured-herb-carousel'
+      className='relative mx-auto mt-8 max-w-md'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <AnimatePresence mode='wait'>
         <motion.div
           key={herb.id}
@@ -44,6 +54,6 @@ export default function FeaturedHerbCarousel() {
           </Link>
         </motion.div>
       </AnimatePresence>
-    </div>
+    </motion.div>
   )
 }
