@@ -1,4 +1,4 @@
-import{l as y,R as l,j as e,h as j,L as m,W as b,m as N}from"./main-ca9bec1f.js";import{b as w,h as f}from"./compoundData-ce3d2f18.js";import{s as v,d as k,t as C}from"./format-5969a492.js";import{I as S,T as $}from"./TagBadge-ef210f55.js";import{s as A}from"./slugify-386a61cd.js";import{u as H}from"./useLocalStorage-07095062.js";/**
+import{l as y,R as l,j as e,h as j,L as m,W as b,m as N}from"./main-0f0fb674.js";import{b as w,h as f}from"./compoundData-ce3d2f18.js";import{s as v,d as k,t as C}from"./format-5969a492.js";import{I as S,T as $}from"./TagBadge-ba7f264f.js";import{s as A}from"./slugify-386a61cd.js";import{u as H}from"./useLocalStorage-025e5ba9.js";/**
  * @license lucide-react v0.298.0 - ISC
  *
  * This source code is licensed under the ISC license.
