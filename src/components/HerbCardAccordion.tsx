@@ -109,7 +109,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-md hover:shadow-psychedelic-pink/40 hover:drop-shadow-xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-4 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:drop-shadow-2xl hover:shadow-psychedelic-pink/40 focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -293,6 +293,17 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 >
                   View full page
                 </Link>
+                {herb.affiliateLink && (
+                  <a
+                    href={herb.affiliateLink}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    onClick={e => e.stopPropagation()}
+                    className='ml-4 text-sm text-sky-300 underline'
+                  >
+                    🌐 Buy Online
+                  </a>
+                )}
               </motion.div>
             </motion.div>
           </motion.div>

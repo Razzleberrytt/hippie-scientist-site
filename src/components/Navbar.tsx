@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
                 className={`rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
                   isActive(path)
                     ? 'bg-cosmic-forest text-white shadow-glow'
-                    : 'text-gray-700 hover:shadow-glow dark:text-gray-300'
+                    : 'text-gray-700 hover:shadow-glow dark:text-sand'
                 }`}
               >
                 {label}
@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
                   className={`block rounded-md px-4 py-2 text-base font-medium transition-shadow ${
                     isActive(path)
                       ? 'bg-cosmic-forest text-white shadow-glow'
-                      : 'text-gray-700 hover:shadow-glow dark:text-gray-300'
+                      : 'text-gray-700 hover:shadow-glow dark:text-sand'
                   }`}
                 >
                   {label}

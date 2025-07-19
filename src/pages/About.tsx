@@ -27,7 +27,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className='text-lg text-gray-300'
+            className='text-lg text-sand'
           >
             The Hippie Scientist is a grassroots project exploring the world of visionary botanicals
             and the science of consciousness. Our goal is to share accurate information, celebrate
@@ -37,7 +37,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className='text-lg text-gray-300'
+            className='text-lg text-sand'
           >
             This site is maintained by a small collective of enthusiasts who believe that open
             education and community dialogue can help demystify these powerful plants and
@@ -47,7 +47,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className='text-lg text-gray-300'
+            className='text-lg text-sand'
           >
             Whether you are new to the topic or a seasoned researcher, we hope you find resources
             here that spark curiosity and support your personal journey.
@@ -56,7 +56,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className='text-lg text-gray-300'
+            className='text-lg text-sand'
           >
             We are committed to open access education and welcome contributions from the community.
             If you have suggestions or wish to collaborate, please reach out through our contact

@@ -27,12 +27,12 @@ export default function Store() {
             className='glass-card p-8'
           >
             <h2 className='mb-6 text-3xl font-bold text-white'>Featured Items</h2>
-            <ul className='mx-auto mb-6 max-w-md list-disc space-y-2 pl-5 text-left text-gray-300'>
+            <ul className='mx-auto mb-6 max-w-md list-disc space-y-2 pl-5 text-left text-sand'>
               <li>Stickers and patches celebrating ethnobotany</li>
               <li>Digital field guides in PDF format</li>
               <li>Limited run T-shirts designed by community artists</li>
             </ul>
-            <p className='text-gray-300'>
+            <p className='text-sand'>
               Sign up to our newsletter to be notified when the shop goes live.
             </p>
           </motion.div>

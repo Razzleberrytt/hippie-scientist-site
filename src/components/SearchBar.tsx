@@ -14,7 +14,9 @@ export default function SearchBar({ query, setQuery, fuse }: Props) {
   React.useEffect(() => {
     const q = query.trim()
     if (q) {
-      setSuggestions(fuse.search(q, { limit: 5 }))
+      setSuggestions(
+        fuse.search(q, { limit: 5, isCaseSensitive: false, ignoreLocation: true })
+      )
     } else {
       setSuggestions([])
     }

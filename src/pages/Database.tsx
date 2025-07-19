@@ -111,7 +111,7 @@ export default function Database() {
             className='mb-8 text-center'
           >
             <h1 className='text-gradient mb-6 text-5xl font-bold'>Herb Database</h1>
-            <p className='mx-auto max-w-4xl text-xl text-gray-300'>
+            <p className='mx-auto max-w-4xl text-xl text-sand'>
               Explore our collection of herbs. Click any entry to see detailed information.
             </p>
           </motion.div>

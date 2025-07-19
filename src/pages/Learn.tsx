@@ -182,7 +182,7 @@ export default function Learn() {
             className='mb-20 text-center'
           >
             <h1 className='text-gradient mb-6 text-5xl font-bold md:text-6xl'>Learn</h1>
-            <p className='mx-auto max-w-3xl text-xl text-gray-300'>
+            <p className='mx-auto max-w-3xl text-xl text-sand'>
               Self-paced lessons to expand your knowledge.
             </p>
           </motion.div>
@@ -205,7 +205,7 @@ export default function Learn() {
                       aria-hidden='true'
                     />
                     <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
-                    <p className='text-gray-300'>{description}</p>
+                    <p className='text-sand'>{description}</p>
                   </Link>
                 </motion.div>
               ))}
@@ -220,7 +220,7 @@ export default function Learn() {
           >
             <PanelWrapper>
               <h2 className='text-gradient mb-6 text-4xl font-bold'>Tutorials &amp; Resources</h2>
-              <p className='mx-auto mb-12 max-w-2xl text-lg text-gray-300'>
+              <p className='mx-auto mb-12 max-w-2xl text-lg text-sand'>
                 Dive deeper with curated tutorials and recommended reading.
               </p>
               <div className='grid grid-cols-1 gap-8 md:grid-cols-3'>
@@ -237,7 +237,7 @@ export default function Learn() {
                       aria-hidden='true'
                     />
                     <h3 className='mb-2 text-xl font-bold text-white'>{title}</h3>
-                    <p className='text-gray-300'>{description}</p>
+                    <p className='text-sand'>{description}</p>
                   </motion.div>
                 ))}
               </div>

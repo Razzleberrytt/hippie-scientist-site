@@ -28,7 +28,7 @@ const NotFound: React.FC = () => {
             >
               <h1 className='text-gradient mb-4 text-8xl font-bold'>404</h1>
               <h2 className='mb-4 text-3xl font-bold text-white'>Page Not Found</h2>
-              <p className='mb-8 text-xl text-gray-300'>
+              <p className='mb-8 text-xl text-sand'>
                 Looks like this page got lost in the cosmic void. Let's get you back on track!
               </p>
             </motion.div>

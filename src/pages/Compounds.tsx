@@ -33,7 +33,7 @@ export default function Compounds() {
       <div className='min-h-screen px-4 pt-20'>
         <div className='mx-auto max-w-4xl text-center'>
           <h1 className='text-gradient mb-6 text-5xl font-bold'>Psychoactive Compounds</h1>
-          <p className='mb-8 text-gray-300'>
+          <p className='mb-8 text-sand'>
             Prototype view of active constituents found in the herb database.
           </p>
           <div className='space-y-4'>

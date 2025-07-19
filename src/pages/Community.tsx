@@ -23,7 +23,7 @@ const Community: React.FC = () => {
             className='mb-20 text-center'
           >
             <h1 className='text-gradient mb-6 text-5xl font-bold md:text-6xl'>Community</h1>
-            <p className='mx-auto max-w-3xl text-xl text-gray-300'>
+            <p className='mx-auto max-w-3xl text-xl text-sand'>
               Connect with fellow consciousness explorers and researchers
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ const Community: React.FC = () => {
                 >
                   <Icon className='mb-4 h-12 w-12 text-psychedelic-purple' aria-hidden='true' />
                   <h3 className='mb-4 text-2xl font-bold text-white'>{feature.title}</h3>
-                  <p className='mb-6 text-gray-300'>{feature.description}</p>
+                  <p className='mb-6 text-sand'>{feature.description}</p>
                   <button className='glass-button rounded-lg px-6 py-3 font-medium text-white transition-all hover:scale-105'>
                     {feature.action}
                   </button>
@@ -89,7 +89,7 @@ const Community: React.FC = () => {
                 <h3 className='mb-3 text-xl font-semibold text-psychedelic-purple'>
                   Respect & Safety
                 </h3>
-                <ul className='space-y-2 text-gray-300'>
+                <ul className='space-y-2 text-sand'>
                   <li>• Treat all members with respect and kindness</li>
                   <li>• Prioritize harm reduction and safety</li>
                   <li>• No medical advice - consult professionals</li>
@@ -99,14 +99,14 @@ const Community: React.FC = () => {
                 <h3 className='mb-3 text-xl font-semibold text-psychedelic-purple'>
                   Quality Content
                 </h3>
-                <ul className='space-y-2 text-gray-300'>
+                <ul className='space-y-2 text-sand'>
                   <li>• Share evidence-based information</li>
                   <li>• Cite sources when possible</li>
                   <li>• Keep discussions constructive</li>
                 </ul>
               </div>
             </div>
-            <p className='mt-6 text-center text-sm text-gray-400'>
+            <p className='mt-6 text-center text-sm text-sand'>
               Please remember that all interactions are moderated according to these guidelines.
             </p>
           </motion.div>
