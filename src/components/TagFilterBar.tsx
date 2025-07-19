@@ -6,6 +6,8 @@ import { decodeTag, tagVariant, tagCategory, TagCategory, normalizeTag } from '.
 import { canonicalTag } from '../utils/tagUtils'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
+const MIN_COUNT = 5
+
 interface Props {
   tags: string[]
   onChange?: (tags: string[]) => void
@@ -92,7 +94,18 @@ export default function TagFilterBar({
   const renderTags = (cat: TagCategory) => {
     const list = grouped[cat] || []
     const limit = 12
-    const display = showMore[cat] ? list : list.slice(0, limit)
+    const frequent = list.filter(
+      t => (counts[canonicalTag(t)] || 0) >= MIN_COUNT
+    )
+    const infrequent = list.filter(
+      t => (counts[canonicalTag(t)] || 0) < MIN_COUNT
+    )
+    const all = [...frequent, ...infrequent]
+    const display = showMore[cat]
+      ? all
+      : frequent.slice(0, limit)
+    const hasMore =
+      infrequent.length > 0 || frequent.length > limit
     return (
       <>
         <div className='tag-list'>
@@ -120,7 +133,7 @@ export default function TagFilterBar({
               />
             </motion.button>
           ))}
-          {list.length > limit && (
+          {hasMore && (
             <motion.button
               type='button'
               whileHover={{ scale: 1.05 }}
