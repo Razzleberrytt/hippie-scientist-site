@@ -35,6 +35,23 @@ export default function Database() {
   } = useFilteredHerbs(herbs, { favorites })
 
   React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const ids = params.get('herbs')?.split(',') || []
+    if (ids.length) {
+      setTimeout(() => {
+        ids.forEach(id => {
+          const el = document.getElementById(`herb-${id}`)
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' })
+            el.classList.add('ring-2', 'ring-sky-300')
+            setTimeout(() => el.classList.remove('ring-2', 'ring-sky-300'), 2000)
+          }
+        })
+      }, 300)
+    }
+  }, [])
+
+  React.useEffect(() => {
     const pos = getLocal<number>('dbScroll', 0)
     if (pos) window.scrollTo(0, pos)
     const handle = () => setLocal('dbScroll', window.scrollY)
@@ -91,9 +108,7 @@ export default function Database() {
     if (filteredTags.length === 0) return [] as string[]
     const counts: Record<string, number> = {}
     herbs.forEach(h => {
-      if (filteredTags.every(t =>
-        h.tags.some(ht => canonicalTag(ht) === canonicalTag(t))
-      )) {
+      if (filteredTags.every(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))) {
         h.tags.forEach(t => {
           const canon = canonicalTag(t)
           if (!filteredTags.some(ft => canonicalTag(ft) === canon)) {

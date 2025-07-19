@@ -5,6 +5,13 @@ export const tagAliasMap: Record<string, string> = {
   bark: 'root',
   tryptamine: 'psychedelic',
   phenethylamine: 'psychedelic',
+  stimulants: 'stimulant',
+  stimulant: 'stimulant',
+  stim: 'stimulant',
+  stimulating: 'stimulant',
+  '⚡ stimulant': 'stimulant',
+  '☕ stimulant': 'stimulant',
+  '⚠️ stimulating': 'stimulant',
 }
 
 export function canonicalTag(tag: string): string {
