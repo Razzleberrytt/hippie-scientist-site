@@ -10,6 +10,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      if (!window.location.hash) {
+        const path = window.location.pathname + window.location.search
+        window.location.replace('/#' + path)
+      }
+    </script>
     
   </body>
 </html>
