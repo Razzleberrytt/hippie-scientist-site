@@ -94,6 +94,16 @@ export default function HerbDetail() {
               ))}
             </div>
           )}
+          {herb.affiliateLink && (
+            <a
+              href={herb.affiliateLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-sky-300 underline'
+            >
+              Buy Online
+            </a>
+          )}
           <div className='flex flex-wrap gap-2 pt-2'>
             {herb.tags.map(tag => (
               <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
