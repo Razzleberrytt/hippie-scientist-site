@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MouseTrail from './components/MouseTrail'
 import ScrollToTopButton from './components/ScrollToTopButton'
+import ScrollToTop from './components/ScrollToTop'
 const Home = React.lazy(() => import('./pages/Home'))
 const BlogIndex = React.lazy(() => import('./pages/BlogIndex'))
 const BlogPost = React.lazy(() => import('./pages/BlogPost'))
@@ -25,6 +26,7 @@ const Compare = React.lazy(() => import('./pages/Compare'))
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <MouseTrail />
       <main className='space-y-24 pt-16'>
