@@ -20,6 +20,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const { favorites = [] } = options
   const [query, setQuery] = React.useState('')
   const [tags, setTags] = React.useState<string[]>([])
+  const [matchAll, setMatchAll] = React.useState(true)
   const [favoritesOnly, setFavoritesOnly] = React.useState(false)
   const [categories, setCategories] = React.useState<string[]>([])
   const [sort, setSort] = React.useState('')
@@ -27,7 +28,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const fuse = React.useMemo(
     () =>
       new Fuse(herbs, {
-        keys: ['name', 'scientificName', 'effects', 'description', 'tags'],
+        keys: ['name', 'altNames', 'scientificName', 'effects', 'tags'],
         threshold: 0.4,
         includeMatches: true,
         isCaseSensitive: false,
@@ -44,7 +45,13 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
     }
     if (tags.length) {
       res = res.filter(h =>
-        tags.every(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))
+        matchAll
+          ? tags.every(t =>
+              h.tags.some(ht => canonicalTag(ht) === canonicalTag(t))
+            )
+          : tags.some(t =>
+              h.tags.some(ht => canonicalTag(ht) === canonicalTag(t))
+            )
       )
     }
     if (categories.length) {
@@ -57,7 +64,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
       res = [...res].sort((a, b) => a.name.localeCompare(b.name))
     }
     return res
-  }, [herbs, query, tags, categories, favoritesOnly, favorites, sort, fuse])
+  }, [herbs, query, tags, categories, favoritesOnly, favorites, sort, fuse, matchAll])
 
   return {
     filtered,
@@ -65,6 +72,8 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
     setQuery,
     tags,
     setTags,
+    matchAll,
+    setMatchAll,
     categories,
     setCategories,
     favoritesOnly,

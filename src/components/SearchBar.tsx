@@ -29,6 +29,11 @@ export default function SearchBar({ query, setQuery, fuse }: Props) {
     return text.replace(regex, '<span class="font-bold">$1</span>')
   }
 
+  const labelFor = (s: ReturnType<typeof fuse.search>[0]) => {
+    const text = [s.item.name, ...(s.item as any).altNames || []].join(', ')
+    return highlight(text)
+  }
+
   return (
     <div className='relative w-full'>
       <input
@@ -44,9 +49,9 @@ export default function SearchBar({ query, setQuery, fuse }: Props) {
             <li key={s.item.id}>
               <button
                 type='button'
-                className='w-full text-left hover:bg-white/10 px-2 py-1 rounded'
+                className='w-full text-left rounded px-2 py-1 hover:bg-white/10'
                 onClick={() => setQuery(s.item.name)}
-                dangerouslySetInnerHTML={{ __html: highlight(s.item.name) }}
+                dangerouslySetInnerHTML={{ __html: labelFor(s) }}
               />
             </li>
           ))}

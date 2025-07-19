@@ -3,8 +3,8 @@ import { decodeTag } from './format'
 export const tagAliasMap: Record<string, string> = {
   'root bark': 'root',
   bark: 'root',
-  tryptamine: 'alkaloid',
-  phenethylamine: 'alkaloid',
+  tryptamine: 'psychedelic',
+  phenethylamine: 'psychedelic',
 }
 
 export function canonicalTag(tag: string): string {
