@@ -25,7 +25,7 @@ export default function FeaturedHerbCarousel() {
   return (
     <motion.div
       id='featured-herb-carousel'
-      className='relative mx-auto mt-8 max-w-md'
+      className='relative mx-auto mt-6 max-w-md'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
