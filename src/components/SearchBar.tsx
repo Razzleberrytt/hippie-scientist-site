@@ -39,6 +39,8 @@ export default function SearchBar({ query, setQuery, fuse }: Props) {
       <input
         type='text'
         placeholder='Search herbs...'
+        aria-label='Search herbs'
+        tabIndex={0}
         value={query}
         onChange={e => setQuery(e.target.value)}
         className='w-full rounded-md bg-space-dark/70 px-3 py-2 text-white backdrop-blur-md focus:outline-none'
@@ -49,6 +51,8 @@ export default function SearchBar({ query, setQuery, fuse }: Props) {
             <li key={s.item.id}>
               <button
                 type='button'
+                tabIndex={0}
+                aria-label={`Select ${s.item.name}`}
                 className='w-full text-left rounded px-2 py-1 hover:bg-white/10'
                 onClick={() => setQuery(s.item.name)}
                 dangerouslySetInnerHTML={{ __html: labelFor(s) }}

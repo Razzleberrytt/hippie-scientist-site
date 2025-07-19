@@ -1,7 +1,7 @@
 const fs = require('fs');
 const herbs = JSON.parse(fs.readFileSync('Full200.json', 'utf8'));
 
-const required = ['affiliateLink', 'activeConstituents', 'mechanismOfAction'];
+const required = ['affiliateLink', 'activeConstituents', 'mechanismOfAction', 'legalStatus'];
 let missing = [];
 herbs.forEach(h => {
   const missingKeys = required.filter(key => {

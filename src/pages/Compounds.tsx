@@ -66,10 +66,12 @@ export default function Compounds() {
           </p>
           <div className='space-y-4'>
             {compounds.map(c => (
-              <motion.div
+              <motion.article
                 key={c.name}
                 whileHover={{ scale: 1.03 }}
-                className='glass-card hover-glow rounded-xl p-3 text-left sm:p-6'
+                whileFocus={{ scale: 1.03 }}
+                tabIndex={0}
+                className='glass-card hover-glow rounded-xl p-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink sm:p-6'
               >
                 <h2 className='max-w-xs truncate text-xl font-bold text-white'>{c.name}</h2>
                 <p className='text-sm text-moss'>
@@ -94,7 +96,7 @@ export default function Compounds() {
                     to={`/database?herbs=${c.sources.map(s => s.id).join(',')}`}
                     className='tag-pill mt-2 inline-block'
                   >
-                    Found in: {c.sources.map(s => s.name).join(', ')}
+                    Source Herbs
                   </Link>
                 )}
                 {c.affiliateLink && (
@@ -107,7 +109,7 @@ export default function Compounds() {
                     Buy Online
                   </a>
                 )}
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>

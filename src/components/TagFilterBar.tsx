@@ -105,6 +105,7 @@ export default function TagFilterBar({
               whileTap={{ scale: 0.95 }}
               animate={{ opacity: selected.includes(tag) ? 1 : 0.6 }}
               aria-pressed={selected.includes(tag)}
+              tabIndex={0}
               className='flex-shrink-0 focus:outline-none'
               title={
                 counts[tag]
@@ -124,6 +125,7 @@ export default function TagFilterBar({
               type='button'
               whileHover={{ scale: 1.05 }}
               onClick={() => setShowMore(m => ({ ...m, [cat]: !m[cat] }))}
+              tabIndex={0}
               className='tag-pill mt-2'
             >
               {showMore[cat] ? 'Show Less' : 'Show More'}
@@ -141,6 +143,7 @@ export default function TagFilterBar({
           <button
             type='button'
             className='tag-label'
+            tabIndex={0}
             onClick={() => setExpanded(e => ({ ...e, [cat]: !e[cat] }))}
             aria-expanded={expanded[cat]}
           >
