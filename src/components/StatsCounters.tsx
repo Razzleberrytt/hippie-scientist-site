@@ -3,9 +3,11 @@ import CountUp from 'react-countup'
 import herbs from '../data/herbs'
 import { baseCompounds } from '../data/compoundData'
 
-export default function StatsCounters() {
+export default function StatsCounters({ className = '' }: { className?: string }) {
   return (
-    <div className='mx-auto mt-4 flex max-w-4xl flex-col items-center justify-center gap-6 text-center sm:flex-row sm:gap-12'>
+    <div
+      className={`mx-auto mt-4 flex max-w-4xl flex-col items-center justify-center gap-6 text-center sm:flex-row sm:gap-12 ${className}`}
+    >
       <div className='text-lg sm:text-xl'>
         <CountUp end={herbs.length} duration={2} />+ psychoactive herbs indexed
       </div>

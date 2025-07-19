@@ -37,6 +37,8 @@ export default {
       },
       minHeight: {
         'screen-nav': 'calc(100dvh - 5rem)',
+        // hero height accounts for fixed navbar (4rem) and safe area on modern devices
+        hero: 'calc(100dvh - 4rem - env(safe-area-inset-bottom))',
       },
     },
   },
