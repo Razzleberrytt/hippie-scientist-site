@@ -62,12 +62,22 @@ export function useFilteredHerbs(herbs: Herb[] | undefined, options: Options = {
     [fuseData]
   )
 
+  const [matchMap, setMatchMap] = React.useState<Record<string, Fuse.FuseResultMatch[]>>({})
+
   const filtered = React.useMemo(() => {
-    let res = safeHerbs
+    let results: { item: Herb; matches?: Fuse.FuseResultMatch[] }[] = []
     const q = query.trim()
     if (q) {
-      res = fuse.search(q).map(r => r.item)
+      results = fuse.search(q)
+    } else {
+      results = safeHerbs.map(item => ({ item }))
     }
+    const map: Record<string, Fuse.FuseResultMatch[]> = {}
+    results.forEach(r => {
+      if (r.matches) map[r.item.id] = r.matches
+    })
+    setMatchMap(map)
+    let res = results.map(r => r.item)
     if (tags.length) {
       res = res.filter(h => {
         const matches = tags.map(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))
@@ -88,6 +98,7 @@ export function useFilteredHerbs(herbs: Herb[] | undefined, options: Options = {
 
   return {
     filtered,
+    matches: matchMap,
     query,
     setQuery,
     tags,

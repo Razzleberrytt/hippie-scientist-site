@@ -16,6 +16,7 @@ import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import SearchBar from '../components/SearchBar'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export default function Database() {
   const herbs = useHerbs()
@@ -23,6 +24,7 @@ export default function Database() {
   const { favorites } = useHerbFavorites()
   const {
     filtered,
+    matches,
     query,
     setQuery,
     tags: filteredTags,
@@ -35,6 +37,7 @@ export default function Database() {
     setFavoritesOnly,
     fuse,
   } = useFilteredHerbs(herbs, { favorites })
+  const [compactMode, setCompactMode] = useLocalStorage<boolean>('dbCompact', false)
   const [params, setParams] = useSearchParams()
 
   if (!herbs || herbs.length === 0) {
@@ -89,6 +92,12 @@ export default function Database() {
     })
     return counts
   }, [herbs])
+
+  React.useEffect(() => {
+    if (Object.keys(tagCounts).length) {
+      console.log('Tag usage counts', tagCounts)
+    }
+  }, [tagCounts])
 
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
@@ -196,6 +205,13 @@ export default function Database() {
             </button>
             <button
               type='button'
+              onClick={() => setCompactMode(c => !c)}
+              className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+            >
+              {compactMode ? 'Full Cards' : 'Compact'}
+            </button>
+            <button
+              type='button'
               onClick={() => setFiltersOpen(o => !o)}
               className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10 sm:hidden'
             >
@@ -229,7 +245,7 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          <HerbList herbs={filtered} highlightQuery={query} />
+          <HerbList herbs={filtered} highlightQuery={query} matches={matches} compact={compactMode} pageSize={30} />
         </div>
       </div>
     </>
