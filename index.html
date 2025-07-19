@@ -21,6 +21,14 @@
     />
   </head>
   <body>
+    <script>
+      if (!location.hash && location.pathname !== '/') {
+        const cleanPath = location.pathname.replace(/\/$/, '') +
+          location.search +
+          location.hash;
+        location.replace('/#' + cleanPath);
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
