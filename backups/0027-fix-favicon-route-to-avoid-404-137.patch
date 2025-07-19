@@ -1,0 +1,25 @@
+From 8c52bfecc94dfc31e4a3db6900d3fc5d4464cb6d Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Sat, 19 Jul 2025 07:45:01 -0400
+Subject: [PATCH 27/27] fix favicon route to avoid 404 (#137)
+
+---
+ index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/index.html b/index.html
+index cd1dd64..3608ec1 100644
+--- a/index.html
++++ b/index.html
+@@ -2,7 +2,7 @@
+ <html lang="en">
+   <head>
+     <meta charset="UTF-8" />
+-    <link rel="icon" href="/favicon.ico" />
++    <link rel="icon" type="image/png" href="/icon-192x192.png" />
+     <link rel="manifest" href="/manifest.json" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <meta name="description" content="Psychedelic Botany &amp; Consciousness Exploration" />
+-- 
+2.43.0
+

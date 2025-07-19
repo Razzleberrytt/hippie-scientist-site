@@ -1,0 +1,526 @@
+From 61f20e87a550a4c001906dd876108118ab188117 Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Fri, 18 Jul 2025 22:52:43 -0400
+Subject: [PATCH 06/27] Add admin scaffolds and tag editing features (#111)
+
+---
+ src/admin/CompoundEditor.tsx         | 26 ++++++++
+ src/admin/HerbEditor.tsx             | 26 ++++++++
+ src/admin/TagManager.tsx             | 26 ++++++++
+ src/components/CompoundTooltip.tsx   | 32 ++++++++++
+ src/components/HerbCardAccordion.tsx | 94 +++++++++++++++++++++++-----
+ src/components/TagBadge.tsx          |  7 ++-
+ src/data/compoundData.ts             | 13 ++++
+ src/data/tagCategoryMap.ts           | 13 ++++
+ src/hooks/useFilteredHerbs.ts        |  4 ++
+ src/pages/HerbDetail.tsx             |  5 +-
+ src/utils/admin.ts                   |  7 +++
+ src/utils/tagUtils.ts                | 20 ++++--
+ 12 files changed, 249 insertions(+), 24 deletions(-)
+ create mode 100644 src/admin/CompoundEditor.tsx
+ create mode 100644 src/admin/HerbEditor.tsx
+ create mode 100644 src/admin/TagManager.tsx
+ create mode 100644 src/components/CompoundTooltip.tsx
+ create mode 100644 src/data/tagCategoryMap.ts
+ create mode 100644 src/utils/admin.ts
+
+diff --git a/src/admin/CompoundEditor.tsx b/src/admin/CompoundEditor.tsx
+new file mode 100644
+index 0000000..370a2c8
+--- /dev/null
++++ b/src/admin/CompoundEditor.tsx
+@@ -0,0 +1,26 @@
++import React from 'react'
++
++export default function CompoundEditor() {
++  const handleSave = () => {
++    console.log('Compound saved')
++  }
++  return (
++    <div className='p-4'>
++      <h2 className='text-lg font-bold mb-2'>Compound Editor</h2>
++      <form className='space-y-2'>
++        <input
++          type='text'
++          placeholder='Compound Name'
++          className='w-full rounded border border-gray-600 bg-black/20 p-2 text-white focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
++        />
++        <button
++          type='button'
++          onClick={handleSave}
++          className='rounded bg-psychedelic-purple px-3 py-1 text-white'
++        >
++          Save
++        </button>
++      </form>
++    </div>
++  )
++}
+diff --git a/src/admin/HerbEditor.tsx b/src/admin/HerbEditor.tsx
+new file mode 100644
+index 0000000..40f46f1
+--- /dev/null
++++ b/src/admin/HerbEditor.tsx
+@@ -0,0 +1,26 @@
++import React from 'react'
++
++export default function HerbEditor() {
++  const handleSave = () => {
++    console.log('Herb saved')
++  }
++  return (
++    <div className='p-4'>
++      <h2 className='text-lg font-bold mb-2'>Herb Editor</h2>
++      <form className='space-y-2'>
++        <input
++          type='text'
++          placeholder='Herb Name'
++          className='w-full rounded border border-gray-600 bg-black/20 p-2 text-white focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
++        />
++        <button
++          type='button'
++          onClick={handleSave}
++          className='rounded bg-psychedelic-purple px-3 py-1 text-white'
++        >
++          Save
++        </button>
++      </form>
++    </div>
++  )
++}
+diff --git a/src/admin/TagManager.tsx b/src/admin/TagManager.tsx
+new file mode 100644
+index 0000000..b36b904
+--- /dev/null
++++ b/src/admin/TagManager.tsx
+@@ -0,0 +1,26 @@
++import React from 'react'
++
++export default function TagManager() {
++  const handleSave = () => {
++    console.log('Tags saved')
++  }
++  return (
++    <div className='p-4'>
++      <h2 className='text-lg font-bold mb-2'>Tag Manager</h2>
++      <form className='space-y-2'>
++        <input
++          type='text'
++          placeholder='New Tag'
++          className='w-full rounded border border-gray-600 bg-black/20 p-2 text-white focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
++        />
++        <button
++          type='button'
++          onClick={handleSave}
++          className='rounded bg-psychedelic-purple px-3 py-1 text-white'
++        >
++          Save
++        </button>
++      </form>
++    </div>
++  )
++}
+diff --git a/src/components/CompoundTooltip.tsx b/src/components/CompoundTooltip.tsx
+new file mode 100644
+index 0000000..3bc6148
+--- /dev/null
++++ b/src/components/CompoundTooltip.tsx
+@@ -0,0 +1,32 @@
++import React from 'react'
++import InfoTooltip from './InfoTooltip'
++import baseCompounds from '../data/compoundData'
++
++interface Props {
++  name: string
++  children: React.ReactNode
++}
++
++export default function CompoundTooltip({ name, children }: Props) {
++  const compound = React.useMemo(
++    () => baseCompounds.find(c => c.name.toLowerCase() === name.toLowerCase()),
++    [name]
++  )
++  if (!compound) return <>{children}</>
++
++  const lines = [
++    compound.type,
++    compound.mechanism,
++    compound.duration && `Duration: ${compound.duration}`,
++    compound.toxicity && `Toxicity: ${compound.toxicity}`,
++    compound.originHerbs && compound.originHerbs.length > 0 &&
++      `Sources: ${compound.originHerbs.join(', ')}`,
++    compound.biosynthesisNotes && `Bio: ${compound.biosynthesisNotes}`,
++  ].filter(Boolean)
++
++  return (
++    <InfoTooltip text={lines.join('\n')}>
++      {children}
++    </InfoTooltip>
++  )
++}
+diff --git a/src/components/HerbCardAccordion.tsx b/src/components/HerbCardAccordion.tsx
+index d439380..798e91e 100644
+--- a/src/components/HerbCardAccordion.tsx
++++ b/src/components/HerbCardAccordion.tsx
+@@ -8,7 +8,11 @@ import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
+ import TagBadge from './TagBadge'
+ import { useHerbFavorites } from '../hooks/useHerbFavorites'
+ import InfoTooltip from './InfoTooltip'
++import CompoundTooltip from './CompoundTooltip'
+ import { slugify } from '../utils/slugify'
++import { useLocalStorage } from '../hooks/useLocalStorage'
++import { isAdmin } from '../utils/admin'
++import { tagCategoryMap } from '../data/tagCategoryMap'
+ 
+ interface Props {
+   herb: Herb
+@@ -71,6 +75,8 @@ function safetyTier(rating: any, toxicity?: string): SafetyTier {
+ 
+ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+   const [tagsExpanded, setTagsExpanded] = useState(false)
++  const [editTagsOpen, setEditTagsOpen] = useState(false)
++  const [customTags, setCustomTags] = useLocalStorage<string[]>(`tags-${herb.id}`, herb.tags)
+   const navigate = useNavigate()
+   const open = false
+   const handleClick = () => {
+@@ -185,9 +191,9 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+       </div>
+ 
+       <div className='mt-2 flex flex-wrap gap-2'>
+-        {(tagsExpanded || herb.tags.length <= TAG_LIMIT
+-          ? herb.tags
+-          : herb.tags.slice(0, TAG_LIMIT)
++        {(tagsExpanded || customTags.length <= TAG_LIMIT
++          ? customTags
++          : customTags.slice(0, TAG_LIMIT)
+         ).map(tag => (
+           <TagBadge
+             key={tag}
+@@ -196,7 +202,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+             className={open ? 'animate-pulse' : ''}
+           />
+         ))}
+-        {herb.tags.length > TAG_LIMIT && (
++        {customTags.length > TAG_LIMIT && (
+           <button
+             type='button'
+             onClick={e => {
+@@ -206,7 +212,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+             className='focus:outline-none'
+           >
+             <TagBadge
+-              label={tagsExpanded ? 'Show Less' : `+${herb.tags.length - TAG_LIMIT} more`}
++              label={tagsExpanded ? 'Show Less' : `+${customTags.length - TAG_LIMIT} more`}
+               variant='yellow'
+             />
+           </button>
+@@ -284,24 +290,26 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+                   {herb.activeConstituents.map((c, i) => (
+                     <React.Fragment key={c.name}>
+                       {i > 0 && ', '}
+-                      <Link
+-                        to={`/compounds?compound=${slugify(c.name)}`}
+-                        onClick={e => e.stopPropagation()}
+-                        className='hover-glow inline-block rounded px-1 text-sky-300 underline'
+-                      >
+-                        {c.name}
+-                      </Link>
++                      <CompoundTooltip name={c.name}>
++                        <Link
++                          to={`/compounds?compound=${slugify(c.name)}`}
++                          onClick={e => e.stopPropagation()}
++                          className='hover-glow inline-block rounded px-1 text-sky-300 underline'
++                        >
++                          {c.name}
++                        </Link>
++                      </CompoundTooltip>
+                     </React.Fragment>
+                   ))}
+                 </motion.div>
+               )}
+ 
+-              {herb.tags?.length > 0 && (
++              {customTags?.length > 0 && (
+                 <motion.div
+                   variants={itemVariants}
+                   className='flex max-h-32 flex-wrap gap-2 overflow-y-auto pt-2'
+                 >
+-                  {herb.tags.slice(0, 10).map(tag => (
++                  {customTags.slice(0, 10).map(tag => (
+                     <TagBadge
+                       key={tag}
+                       label={decodeTag(tag)}
+@@ -322,6 +330,18 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+                 >
+                   View full page
+                 </Link>
++                {isAdmin() && (
++                  <button
++                    type='button'
++                    onClick={e => {
++                      e.stopPropagation()
++                      setEditTagsOpen(true)
++                    }}
++                    className='ml-4 text-sand underline'
++                  >
++                    Edit Tags
++                  </button>
++                )}
+                 {herb.affiliateLink && (
+                   <a
+                     href={herb.affiliateLink}
+@@ -338,6 +358,52 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
+           </motion.div>
+         )}
+       </AnimatePresence>
++      {isAdmin() && editTagsOpen && (
++        <motion.div
++          initial={{ opacity: 0 }}
++          animate={{ opacity: 1 }}
++          exit={{ opacity: 0 }}
++          className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur'
++        >
++          <motion.div
++            initial={{ scale: 0.9, opacity: 0 }}
++            animate={{ scale: 1, opacity: 1 }}
++            exit={{ scale: 0.9, opacity: 0 }}
++            className='max-h-[80vh] overflow-y-auto rounded-md bg-midnight p-4 text-white'
++          >
++            <h3 className='mb-2 text-lg font-bold'>Edit Tags</h3>
++            <div className='grid grid-cols-2 gap-2'>
++              {Object.keys(tagCategoryMap).map(tag => (
++                <label key={tag} className='flex items-center gap-2'>
++                  <input
++                    type='checkbox'
++                    checked={customTags.includes(tag)}
++                    onChange={e =>
++                      setCustomTags(t =>
++                        e.target.checked ? [...t, tag] : t.filter(x => x !== tag)
++                      )
++                    }
++                    className='rounded focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
++                  />
++                  {decodeTag(tag)}
++                </label>
++              ))}
++            </div>
++            <div className='mt-4 text-right'>
++              <button
++                type='button'
++                onClick={() => {
++                  console.log('Updated tags', customTags)
++                  setEditTagsOpen(false)
++                }}
++                className='rounded bg-psychedelic-purple px-3 py-1'
++              >
++                Save
++              </button>
++            </div>
++          </motion.div>
++        </motion.div>
++      )}
+     </motion.div>
+   )
+ }
+diff --git a/src/components/TagBadge.tsx b/src/components/TagBadge.tsx
+index d65da02..82035a9 100644
+--- a/src/components/TagBadge.tsx
++++ b/src/components/TagBadge.tsx
+@@ -1,7 +1,7 @@
+ import clsx from 'clsx'
+ import { motion } from 'framer-motion'
+ import InfoTooltip from './InfoTooltip'
+-import { tagAliasMap } from '../utils/tagUtils'
++import { aliasFor, canonicalTag } from '../utils/tagUtils'
+ 
+ interface Props {
+   label: string
+@@ -19,7 +19,8 @@ const colorMap = {
+ }
+ 
+ export default function TagBadge({ label, variant = 'purple', className }: Props) {
+-  const alias = tagAliasMap[label.toLowerCase()]
++  const canonical = canonicalTag(label)
++  const alias = canonical !== label.toLowerCase() ? label : aliasFor(canonical)
+   const content = (
+     <motion.span
+       whileHover={{ scale: 1.05 }}
+@@ -30,7 +31,7 @@ export default function TagBadge({ label, variant = 'purple', className }: Props
+         className
+       )}
+     >
+-      {label}
++      {canonical}
+     </motion.span>
+   )
+   return alias ? <InfoTooltip text={`aka ${alias}`}>{content}</InfoTooltip> : content
+diff --git a/src/data/compoundData.ts b/src/data/compoundData.ts
+index 73dd17c..625646b 100644
+--- a/src/data/compoundData.ts
++++ b/src/data/compoundData.ts
+@@ -6,6 +6,10 @@ export interface CompoundInfo {
+   sourceHerbs?: string[]
+   affiliateLink?: string
+   tags?: string[]
++  toxicity?: string
++  duration?: string
++  originHerbs?: string[]
++  biosynthesisNotes?: string
+ }
+ 
+ export const baseCompounds: CompoundInfo[] = [
+@@ -15,6 +19,9 @@ export const baseCompounds: CompoundInfo[] = [
+     mechanism: '5-HT2A agonist',
+     aliases: ['N,N-Dimethyltryptamine'],
+     tags: ['psychedelic'],
++    duration: '15-60 min',
++    originHerbs: ['mimosa-hostilis'],
++    biosynthesisNotes: 'Derived from tryptophan via tryptamine',
+   },
+   {
+     name: 'mescaline',
+@@ -22,24 +29,30 @@ export const baseCompounds: CompoundInfo[] = [
+     mechanism: '5-HT2A agonist',
+     aliases: ['3,4,5-trimethoxyphenethylamine'],
+     tags: ['psychedelic'],
++    duration: '8-12 h',
++    originHerbs: ['lophophora-williamsii'],
+   },
+   {
+     name: 'caffeine',
+     type: 'xanthine',
+     mechanism: 'Adenosine receptor antagonist',
+     tags: ['stimulant'],
++    duration: '3-5 h',
++    originHerbs: ['camellia-sinensis'],
+   },
+   {
+     name: 'mitragynine',
+     type: 'indole alkaloid',
+     mechanism: 'Partial μ-opioid agonist',
+     tags: ['opioid', 'stimulant'],
++    originHerbs: ['mitragyna-speciosa'],
+   },
+   {
+     name: 'cocaine',
+     type: 'alkaloid',
+     mechanism: 'Blocks monoamine reuptake',
+     tags: ['stimulant'],
++    toxicity: 'Highly addictive and cardiotoxic',
+   },
+   {
+     name: 'scopolamine',
+diff --git a/src/data/tagCategoryMap.ts b/src/data/tagCategoryMap.ts
+new file mode 100644
+index 0000000..b5cf58a
+--- /dev/null
++++ b/src/data/tagCategoryMap.ts
+@@ -0,0 +1,13 @@
++export interface TagInfo {
++  category: string
++  alias?: string
++}
++
++export const tagCategoryMap: Record<string, TagInfo> = {
++  root: { category: 'Preparation', alias: 'root bark' },
++  bark: { category: 'Preparation', alias: 'root bark' },
++  tryptamine: { category: 'Compound Type', alias: 'alkaloid' },
++  phenethylamine: { category: 'Compound Type', alias: 'alkaloid' },
++}
++
++export const allTags = Object.keys(tagCategoryMap)
+diff --git a/src/hooks/useFilteredHerbs.ts b/src/hooks/useFilteredHerbs.ts
+index a5be34c..515c0a0 100644
+--- a/src/hooks/useFilteredHerbs.ts
++++ b/src/hooks/useFilteredHerbs.ts
+@@ -34,6 +34,9 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
+           ...extractAliases(h.name),
+           ...(extraAliases[h.id] || extraAliases[h.name.toLowerCase()] || []),
+         ],
++        tagAliases: h.tags
++          .map(t => aliasFor(canonicalTag(t)))
++          .filter(Boolean) as string[],
+       })),
+     [herbs]
+   )
+@@ -49,6 +52,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
+           'effects',
+           'description',
+           'tags',
++          'tagAliases',
+         ],
+         threshold: 0.4,
+         includeMatches: true,
+diff --git a/src/pages/HerbDetail.tsx b/src/pages/HerbDetail.tsx
+index ce6aae3..b59b747 100644
+--- a/src/pages/HerbDetail.tsx
++++ b/src/pages/HerbDetail.tsx
+@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet-async'
+ import { herbs } from '../data/herbs'
+ import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
+ import TagBadge from '../components/TagBadge'
++import CompoundTooltip from '../components/CompoundTooltip'
+ import { slugify } from '../utils/slugify'
+ import { useLocalStorage } from '../hooks/useLocalStorage'
+ 
+@@ -95,7 +96,9 @@ export default function HerbDetail() {
+               {(showAllCompounds ? herb.activeConstituents : herb.activeConstituents.slice(0, 5)).map((c, i) => (
+                 <React.Fragment key={c.name}>
+                   {i > 0 && ', '}
+-                  <Link className='text-sky-300 underline' to={`/compounds?compound=${slugify(c.name)}`}>{c.name}</Link>
++                  <CompoundTooltip name={c.name}>
++                    <Link className='text-sky-300 underline' to={`/compounds?compound=${slugify(c.name)}`}>{c.name}</Link>
++                  </CompoundTooltip>
+                 </React.Fragment>
+               ))}
+               {herb.activeConstituents.length > 5 && !showAllCompounds && (
+diff --git a/src/utils/admin.ts b/src/utils/admin.ts
+new file mode 100644
+index 0000000..027877a
+--- /dev/null
++++ b/src/utils/admin.ts
+@@ -0,0 +1,7 @@
++export function isAdmin() {
++  try {
++    return localStorage.getItem('isAdmin') === 'true'
++  } catch {
++    return false
++  }
++}
+diff --git a/src/utils/tagUtils.ts b/src/utils/tagUtils.ts
+index 87b89ca..dd31ac2 100644
+--- a/src/utils/tagUtils.ts
++++ b/src/utils/tagUtils.ts
+@@ -1,11 +1,15 @@
+ import { decodeTag } from './format'
++import { tagCategoryMap } from '../data/tagCategoryMap'
+ 
+-export const tagAliasMap: Record<string, string> = {
+-  'root bark': 'root',
+-  bark: 'root',
+-  tryptamine: 'alkaloid',
+-  phenethylamine: 'alkaloid',
+-}
++// build alias lookups from tagCategoryMap
++export const tagAliasMap: Record<string, string> = {}
++export const reverseAliasMap: Record<string, string> = {}
++Object.entries(tagCategoryMap).forEach(([tag, info]) => {
++  if (info.alias) {
++    tagAliasMap[info.alias.toLowerCase()] = tag
++    reverseAliasMap[tag.toLowerCase()] = info.alias
++  }
++})
+ 
+ export function canonicalTag(tag: string): string {
+   const decoded = decodeTag(tag).toLowerCase().trim()
+@@ -15,3 +19,7 @@ export function canonicalTag(tag: string): string {
+ export function tagsMatch(a: string, b: string): boolean {
+   return canonicalTag(a) === canonicalTag(b)
+ }
++
++export function aliasFor(tag: string): string | undefined {
++  return reverseAliasMap[tag.toLowerCase()]
++}
+-- 
+2.43.0
+

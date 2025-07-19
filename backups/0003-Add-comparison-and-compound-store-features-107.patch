@@ -1,0 +1,700 @@
+From 3f06e55a46d7c1e312beb93825b4aaa6bad84543 Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Fri, 18 Jul 2025 22:24:04 -0400
+Subject: [PATCH 03/27] Add comparison and compound store features (#107)
+
+---
+ src/components/ProductCard.tsx |  28 +++++
+ src/data/compareData.ts        |  39 +++++++
+ src/data/compoundData.ts       | 207 ++++++++++++++++++++++++++++-----
+ src/pages/Compare.tsx          | 172 ++++++++++++++++++++-------
+ src/pages/Compounds.tsx        | 137 ++++++++++++++--------
+ 5 files changed, 468 insertions(+), 115 deletions(-)
+ create mode 100644 src/components/ProductCard.tsx
+ create mode 100644 src/data/compareData.ts
+
+diff --git a/src/components/ProductCard.tsx b/src/components/ProductCard.tsx
+new file mode 100644
+index 0000000..dec2f91
+--- /dev/null
++++ b/src/components/ProductCard.tsx
+@@ -0,0 +1,28 @@
++import React from 'react'
++
++interface Props {
++  title: string
++  link: string
++  image?: string
++  price?: string
++}
++
++export default function ProductCard({ title, link, image, price }: Props) {
++  return (
++    <a
++      href={link}
++      target='_blank'
++      rel='noopener noreferrer'
++      className='flex w-40 flex-col overflow-hidden rounded-lg bg-black/30 backdrop-blur transition hover:shadow-glow'
++    >
++      {image && <img src={image} alt={title} className='h-24 w-full object-cover' />}
++      <div className='p-2 text-center'>
++        <h3 className='text-sm font-bold text-white'>{title}</h3>
++        {price && <p className='text-xs text-sand'>{price}</p>}
++        <span className='mt-2 inline-block rounded-md bg-gradient-to-r from-green-700 to-lime-600 px-2 py-1 text-xs text-white'>
++          Buy Now
++        </span>
++      </div>
++    </a>
++  )
++}
+diff --git a/src/data/compareData.ts b/src/data/compareData.ts
+new file mode 100644
+index 0000000..42aaaed
+--- /dev/null
++++ b/src/data/compareData.ts
+@@ -0,0 +1,39 @@
++export interface Product {
++  title: string
++  link: string
++  image?: string
++  price?: string
++}
++
++export const compareData: Record<string, Product[]> = {
++  'acacia-confusa': [
++    {
++      title: 'Acacia Root Bark 100g',
++      link: 'https://example.com/acacia',
++      image: 'https://via.placeholder.com/150',
++      price: '$20-30',
++    },
++    {
++      title: 'Acacia Powder 1lb',
++      link: 'https://example.com/acacia2',
++      image: 'https://via.placeholder.com/150',
++      price: '$45-55',
++    },
++  ],
++  dmt: [
++    {
++      title: 'DMT Reference Material',
++      link: 'https://example.com/dmt',
++      image: 'https://via.placeholder.com/150',
++      price: '$50+',
++    },
++    {
++      title: 'Portable Vapor Kit',
++      link: 'https://example.com/dmt-vape',
++      image: 'https://via.placeholder.com/150',
++      price: '$80-120',
++    },
++  ],
++}
++
++export default compareData
+diff --git a/src/data/compoundData.ts b/src/data/compoundData.ts
+index 5b03623..73dd17c 100644
+--- a/src/data/compoundData.ts
++++ b/src/data/compoundData.ts
+@@ -5,36 +5,189 @@ export interface CompoundInfo {
+   aliases?: string[]
+   sourceHerbs?: string[]
+   affiliateLink?: string
++  tags?: string[]
+ }
+ 
+ export const baseCompounds: CompoundInfo[] = [
+-  { name: 'DMT', type: 'tryptamine', mechanism: '5-HT2A agonist', aliases: ['N,N-Dimethyltryptamine'], affiliateLink: undefined },
+-  { name: 'mescaline', type: 'phenethylamine', mechanism: '5-HT2A agonist', aliases: ['3,4,5-trimethoxyphenethylamine'], affiliateLink: undefined },
+-  { name: 'caffeine', type: 'xanthine', mechanism: 'Adenosine receptor antagonist' },
+-  { name: 'mitragynine', type: 'indole alkaloid', mechanism: 'Partial μ-opioid agonist' },
+-  { name: 'cocaine', type: 'alkaloid', mechanism: 'Blocks monoamine reuptake' },
+-  { name: 'scopolamine', type: 'alkaloid', mechanism: 'Muscarinic acetylcholine antagonist' },
+-  { name: 'digitoxin', type: 'glycoside', mechanism: 'Inhibits Na+/K+-ATPase' },
+-  { name: 'chamazulene', type: 'terpene', mechanism: 'Anti-inflammatory', sourceHerbs: ['achillea-millefolium'] },
+-  { name: 'thujone', type: 'monoterpene', mechanism: 'GABA_A antagonist', sourceHerbs: ['achillea-millefolium', 'salvia-apiana'] },
+-  { name: 'vertine', type: 'alkaloid', mechanism: 'Unclear CNS action', sourceHerbs: ['heimia-myrtifolia'] },
+-  { name: '7-hydroxymitragynine', type: 'indole alkaloid', mechanism: 'Potent μ-opioid agonist', sourceHerbs: ['kratom-hybrids'] },
+-  { name: 'cineole', type: 'terpene', mechanism: 'Aromatic stimulant', sourceHerbs: ['salvia-apiana'] },
+-  { name: 'tenuigenin', type: 'glycoside', mechanism: 'Neurotrophic modulation', sourceHerbs: ['polygala-tenuifolia'] },
+-  { name: 'nicotine', type: 'alkaloid', mechanism: 'Nicotinic acetylcholine agonist', sourceHerbs: ['nicotiana-tabacum'] },
+-  { name: 'ephedrine', type: 'alkaloid', mechanism: 'Adrenergic agonist', sourceHerbs: ['sida-acuta'] },
+-  { name: 'marmelosin', type: 'coumarin', mechanism: 'Mild sedative', sourceHerbs: ['aegle-marmelos'] },
+-  { name: 'anthocyanins', type: 'flavonoid', mechanism: 'Antioxidant & hypotensive', sourceHerbs: ['hibiscus-sabdariffa'] },
+-  { name: 'verbenalin', type: 'glycoside', mechanism: 'GABAergic modulation', sourceHerbs: ['verbena-officinalis'] },
+-  { name: 'pinocamphone', type: 'monoterpene', mechanism: 'Convulsant in high doses', sourceHerbs: ['hyssopus-officinalis'] },
+-  { name: 'marrubiin', type: 'diterpenoid', mechanism: 'Expectorant effects', sourceHerbs: ['marrubium-vulgare'] },
+-  { name: 'thymol', type: 'phenolic', mechanism: 'Antimicrobial', sourceHerbs: ['thymus-vulgaris'] },
+-  { name: 'linalool', type: 'terpene', mechanism: 'Sedative via GABA', sourceHerbs: ['lavandula-angustifolia'] },
+-  { name: 'echinacoside', type: 'phenolic', mechanism: 'Immunomodulator', sourceHerbs: ['echinacea-purpurea'] },
+-  { name: 'valeranon', type: 'sesquiterpene', mechanism: 'Sedative', sourceHerbs: ['valeriana-jatamansi'] },
+-  { name: 'catuabine', type: 'alkaloid', mechanism: 'Dopamine modulation', sourceHerbs: ['erythroxylum-catuaba'] },
+-  { name: 'apomorphine', type: 'alkaloid', mechanism: 'Dopamine agonist', sourceHerbs: ['nymphaea-rubra'] },
+-  { name: 'gymnemic acids', type: 'triterpenoid', mechanism: 'Block sweet receptors', sourceHerbs: ['gymnema-sylvestre'] },
++  {
++    name: 'DMT',
++    type: 'tryptamine',
++    mechanism: '5-HT2A agonist',
++    aliases: ['N,N-Dimethyltryptamine'],
++    tags: ['psychedelic'],
++  },
++  {
++    name: 'mescaline',
++    type: 'phenethylamine',
++    mechanism: '5-HT2A agonist',
++    aliases: ['3,4,5-trimethoxyphenethylamine'],
++    tags: ['psychedelic'],
++  },
++  {
++    name: 'caffeine',
++    type: 'xanthine',
++    mechanism: 'Adenosine receptor antagonist',
++    tags: ['stimulant'],
++  },
++  {
++    name: 'mitragynine',
++    type: 'indole alkaloid',
++    mechanism: 'Partial μ-opioid agonist',
++    tags: ['opioid', 'stimulant'],
++  },
++  {
++    name: 'cocaine',
++    type: 'alkaloid',
++    mechanism: 'Blocks monoamine reuptake',
++    tags: ['stimulant'],
++  },
++  {
++    name: 'scopolamine',
++    type: 'alkaloid',
++    mechanism: 'Muscarinic acetylcholine antagonist',
++    tags: ['deliriant'],
++  },
++  { name: 'digitoxin', type: 'glycoside', mechanism: 'Inhibits Na+/K+-ATPase', tags: ['cardiac'] },
++  {
++    name: 'chamazulene',
++    type: 'terpene',
++    mechanism: 'Anti-inflammatory',
++    sourceHerbs: ['achillea-millefolium'],
++    tags: ['anti-inflammatory'],
++  },
++  {
++    name: 'thujone',
++    type: 'monoterpene',
++    mechanism: 'GABA_A antagonist',
++    sourceHerbs: ['achillea-millefolium', 'salvia-apiana'],
++    tags: ['gaba'],
++  },
++  {
++    name: 'vertine',
++    type: 'alkaloid',
++    mechanism: 'Unclear CNS action',
++    sourceHerbs: ['heimia-myrtifolia'],
++    tags: ['sedative'],
++  },
++  {
++    name: '7-hydroxymitragynine',
++    type: 'indole alkaloid',
++    mechanism: 'Potent μ-opioid agonist',
++    sourceHerbs: ['kratom-hybrids'],
++    tags: ['opioid'],
++  },
++  {
++    name: 'cineole',
++    type: 'terpene',
++    mechanism: 'Aromatic stimulant',
++    sourceHerbs: ['salvia-apiana'],
++    tags: ['stimulant'],
++  },
++  {
++    name: 'tenuigenin',
++    type: 'glycoside',
++    mechanism: 'Neurotrophic modulation',
++    sourceHerbs: ['polygala-tenuifolia'],
++    tags: ['nootropic'],
++  },
++  {
++    name: 'nicotine',
++    type: 'alkaloid',
++    mechanism: 'Nicotinic acetylcholine agonist',
++    sourceHerbs: ['nicotiana-tabacum'],
++    tags: ['stimulant'],
++  },
++  {
++    name: 'ephedrine',
++    type: 'alkaloid',
++    mechanism: 'Adrenergic agonist',
++    sourceHerbs: ['sida-acuta'],
++    tags: ['stimulant'],
++  },
++  {
++    name: 'marmelosin',
++    type: 'coumarin',
++    mechanism: 'Mild sedative',
++    sourceHerbs: ['aegle-marmelos'],
++    tags: ['sedative'],
++  },
++  {
++    name: 'anthocyanins',
++    type: 'flavonoid',
++    mechanism: 'Antioxidant & hypotensive',
++    sourceHerbs: ['hibiscus-sabdariffa'],
++    tags: ['antioxidant'],
++  },
++  {
++    name: 'verbenalin',
++    type: 'glycoside',
++    mechanism: 'GABAergic modulation',
++    sourceHerbs: ['verbena-officinalis'],
++    tags: ['sedative'],
++  },
++  {
++    name: 'pinocamphone',
++    type: 'monoterpene',
++    mechanism: 'Convulsant in high doses',
++    sourceHerbs: ['hyssopus-officinalis'],
++    tags: ['convulsant'],
++  },
++  {
++    name: 'marrubiin',
++    type: 'diterpenoid',
++    mechanism: 'Expectorant effects',
++    sourceHerbs: ['marrubium-vulgare'],
++    tags: ['expectorant'],
++  },
++  {
++    name: 'thymol',
++    type: 'phenolic',
++    mechanism: 'Antimicrobial',
++    sourceHerbs: ['thymus-vulgaris'],
++    tags: ['antimicrobial'],
++  },
++  {
++    name: 'linalool',
++    type: 'terpene',
++    mechanism: 'Sedative via GABA',
++    sourceHerbs: ['lavandula-angustifolia'],
++    tags: ['sedative'],
++  },
++  {
++    name: 'echinacoside',
++    type: 'phenolic',
++    mechanism: 'Immunomodulator',
++    sourceHerbs: ['echinacea-purpurea'],
++    tags: ['immunomodulator'],
++  },
++  {
++    name: 'valeranon',
++    type: 'sesquiterpene',
++    mechanism: 'Sedative',
++    sourceHerbs: ['valeriana-jatamansi'],
++    tags: ['sedative'],
++  },
++  {
++    name: 'catuabine',
++    type: 'alkaloid',
++    mechanism: 'Dopamine modulation',
++    sourceHerbs: ['erythroxylum-catuaba'],
++    tags: ['aphrodisiac'],
++  },
++  {
++    name: 'apomorphine',
++    type: 'alkaloid',
++    mechanism: 'Dopamine agonist',
++    sourceHerbs: ['nymphaea-rubra'],
++    tags: ['dopamine'],
++  },
++  {
++    name: 'gymnemic acids',
++    type: 'triterpenoid',
++    mechanism: 'Block sweet receptors',
++    sourceHerbs: ['gymnema-sylvestre'],
++    tags: ['sweet-blocker'],
++  },
+ ]
+ 
+ export default baseCompounds
+diff --git a/src/pages/Compare.tsx b/src/pages/Compare.tsx
+index 5106cdb..10a28a6 100644
+--- a/src/pages/Compare.tsx
++++ b/src/pages/Compare.tsx
+@@ -1,21 +1,137 @@
+ import React from 'react'
+ import { Helmet } from 'react-helmet-async'
+-import { useSearchParams } from 'react-router-dom'
++import { useSearchParams, Link } from 'react-router-dom'
+ import { useHerbs } from '../hooks/useHerbs'
++import baseCompounds, { CompoundInfo } from '../data/compoundData'
+ import TagBadge from '../components/TagBadge'
+ import { decodeTag } from '../utils/format'
++import { slugify } from '../utils/slugify'
++import ProductCard from '../components/ProductCard'
++import compareData from '../data/compareData'
+ 
+ export default function Compare() {
+   const [params] = useSearchParams()
+-  const herbParam = params.get('herb')
+-  const compound = params.get('compound')
++  const herbsParam = params.get('herbs')
++  const compoundsParam = params.get('compounds')
++  const herbIds = herbsParam ? herbsParam.split(',').map(s => s.trim()) : []
++  const compoundNames = compoundsParam ? compoundsParam.split(',').map(s => s.trim()) : []
++
+   const herbs = useHerbs()
+-  const herbInfo = herbParam ? herbs.find(h => h.id === herbParam) : undefined
+-  const name = herbInfo?.name || compound || herbParam || 'Item'
+-  const tags = herbInfo?.tags || []
+-  const products = herbInfo?.affiliateLink
+-    ? [herbInfo.affiliateLink]
+-    : []
++
++  const herbList = React.useMemo(
++    () => herbIds.map(id => herbs.find(h => h.id === id)).filter(Boolean),
++    [herbIds, herbs]
++  )
++
++  const compoundList = React.useMemo(() => {
++    return compoundNames
++      .map(n => baseCompounds.find(c => slugify(c.name) === slugify(n)))
++      .filter(Boolean) as CompoundInfo[]
++  }, [compoundNames])
++
++  const items = [
++    ...herbList.map(h => ({ type: 'herb' as const, herb: h })),
++    ...compoundList.map(c => ({ type: 'compound' as const, compound: c })),
++  ]
++
++  const productsFor = (key: string) => compareData[key] || []
++
++  const renderCard = (item: { type: 'herb' | 'compound'; herb?: any; compound?: CompoundInfo }) => {
++    if (item.type === 'herb' && item.herb) {
++      const h = item.herb
++      const prods = productsFor(h.id)
++      return (
++        <div key={h.id} className='glass-card flex min-w-[260px] flex-col gap-2 p-4'>
++          <h2 className='text-lg font-bold text-white'>{h.name}</h2>
++          {h.tags && (
++            <div className='flex flex-wrap gap-1'>
++              {h.tags.map((t: string) => (
++                <TagBadge key={t} label={decodeTag(t)} />
++              ))}
++            </div>
++          )}
++          {h.effects && <p className='text-xs text-sand'>Effects: {h.effects.join(', ')}</p>}
++          {h.mechanismOfAction && <p className='text-xs text-sand'>MOA: {h.mechanismOfAction}</p>}
++          {h.preparation && <p className='text-xs text-sand'>Prep: {h.preparation}</p>}
++          {h.safetyRating && <p className='text-xs text-sand'>Safety: {h.safetyRating}</p>}
++          {h.activeConstituents?.length > 0 && (
++            <p className='text-xs text-sand'>
++              Compounds:{' '}
++              {h.activeConstituents.map((c: any, i: number) => (
++                <React.Fragment key={c.name}>
++                  {i > 0 && ', '}
++                  <Link to={`/compounds?compound=${slugify(c.name)}`} className='underline'>
++                    {c.name}
++                  </Link>
++                </React.Fragment>
++              ))}
++            </p>
++          )}
++          <div className='mt-auto flex gap-2 overflow-x-auto pb-1'>
++            {h.affiliateLink && <ProductCard title={h.name} link={h.affiliateLink} />}
++            {prods.map(p => (
++              <ProductCard key={p.link} {...p} />
++            ))}
++          </div>
++        </div>
++      )
++    }
++    if (item.type === 'compound' && item.compound) {
++      const c = item.compound
++      const key = slugify(c.name)
++      const prods = productsFor(key)
++      return (
++        <div key={c.name} className='glass-card flex min-w-[260px] flex-col gap-2 p-4'>
++          <h2 className='text-lg font-bold text-white'>{c.name}</h2>
++          {c.tags && (
++            <div className='flex flex-wrap gap-1'>
++              {c.tags.map(t => (
++                <TagBadge key={t} label={decodeTag(t)} />
++              ))}
++            </div>
++          )}
++          {c.mechanism && <p className='text-xs text-sand'>MOA: {c.mechanism}</p>}
++          {c.sourceHerbs && c.sourceHerbs.length > 0 && (
++            <p className='text-xs text-sand'>
++              Herbs:{' '}
++              {c.sourceHerbs.map((hid, i) => {
++                const herb = herbs.find(h => h.id === hid)
++                return (
++                  <React.Fragment key={hid}>
++                    {i > 0 && ', '}
++                    {herb ? (
++                      <Link to={`/herbs/${herb.id}`} className='underline'>
++                        {herb.name}
++                      </Link>
++                    ) : (
++                      hid
++                    )}
++                    {herb?.affiliateLink && (
++                      <a
++                        href={herb.affiliateLink}
++                        target='_blank'
++                        rel='noopener noreferrer'
++                        className='ml-1 text-sky-300 underline'
++                      >
++                        Buy Herb
++                      </a>
++                    )}
++                  </React.Fragment>
++                )
++              })}
++            </p>
++          )}
++          <div className='mt-auto flex gap-2 overflow-x-auto pb-1'>
++            {c.affiliateLink && <ProductCard title={c.name} link={c.affiliateLink} />}
++            {prods.map(p => (
++              <ProductCard key={p.link} {...p} />
++            ))}
++          </div>
++        </div>
++      )
++    }
++    return null
++  }
+ 
+   return (
+     <>
+@@ -23,37 +139,13 @@ export default function Compare() {
+         <title>Compare - The Hippie Scientist</title>
+       </Helmet>
+       <div className='min-h-screen px-4 pt-20'>
+-        <div className='mx-auto max-w-3xl'>
+-          <h1 className='text-gradient mb-6 text-center text-5xl font-bold'>Comparison</h1>
+-          <div className='glass-card p-6 text-center'>
+-            <h2 className='mb-2 text-2xl font-bold'>{name}</h2>
+-            {tags.length > 0 && (
+-              <div className='mb-4 flex flex-wrap justify-center gap-2'>
+-                {tags.map(t => (
+-                  <TagBadge key={t} label={decodeTag(t)} />
+-                ))}
+-              </div>
+-            )}
+-            {herbInfo?.description && (
+-              <p className='mb-4 text-sand'>{herbInfo.description}</p>
+-            )}
+-            <div className='grid grid-cols-2 gap-3 sm:grid-cols-3'>
+-              {products.map((link, i) => (
+-                <a
+-                  key={i}
+-                  href={link}
+-                  target='_blank'
+-                  rel='noopener noreferrer'
+-                  className='hover-glow flex h-24 items-center justify-center rounded-lg bg-black/20 p-2 text-sky-300 underline dark:bg-white/10'
+-                >
+-                  Buy Online
+-                </a>
+-              ))}
+-              {Array.from({ length: Math.max(0, 3 - products.length) }).map((_, i) => (
+-                <div key={`p${i}`} className='h-24 rounded-lg bg-black/20 dark:bg-white/10' />
+-              ))}
+-            </div>
+-          </div>
++        <h1 className='text-gradient mb-6 text-center text-5xl font-bold'>Comparison</h1>
++        <div className='flex gap-4 overflow-x-auto pb-4'>
++          {items.length > 0 ? (
++            items.map(renderCard)
++          ) : (
++            <p className='text-sand'>Add ?herbs=id1,id2 or ?compounds=name1,name2</p>
++          )}
+         </div>
+       </div>
+     </>
+diff --git a/src/pages/Compounds.tsx b/src/pages/Compounds.tsx
+index 0579e36..507bfad 100644
+--- a/src/pages/Compounds.tsx
++++ b/src/pages/Compounds.tsx
+@@ -24,6 +24,8 @@ export default function Compounds() {
+   const [params] = useSearchParams()
+   const selected = params.get('compound')
+ 
++  const [tagFilter, setTagFilter] = React.useState<string[]>([])
++
+   const compounds = React.useMemo(() => {
+     const map = new Map<string, Compound>()
+     baseCompounds.forEach(c => {
+@@ -56,11 +58,21 @@ export default function Compounds() {
+     [compounds]
+   )
+ 
++  const allTags = React.useMemo(() => {
++    const t = compounds.reduce<string[]>((acc, c) => acc.concat(c.tags || []), [])
++    return Array.from(new Set(t))
++  }, [compounds])
++
+   const selectedCompound = React.useMemo(
+     () => compoundList.find(c => selected && slugify(c.name) === selected) || null,
+     [compoundList, selected]
+   )
+ 
++  const filteredList = React.useMemo(() => {
++    if (tagFilter.length === 0) return compoundList
++    return compoundList.filter(c => c.tags?.some(t => tagFilter.includes(t)))
++  }, [compoundList, tagFilter])
++
+   return (
+     <>
+       <Helmet>
+@@ -70,7 +82,7 @@ export default function Compounds() {
+           content='Browse active constituents found in herbs and learn their mechanisms.'
+         />
+       </Helmet>
+-      <div className='min-h-screen px-4 pt-20 pb-12'>
++      <div className='min-h-screen px-4 pb-12 pt-20'>
+         <div className='mx-auto max-w-4xl text-center'>
+           <h1 className='text-gradient mb-6 text-5xl font-bold'>Psychoactive Compounds</h1>
+           <p className='mb-8 text-sand'>
+@@ -87,7 +99,9 @@ export default function Compounds() {
+                 <p className='text-xs text-sand'>MOA: {selectedCompound.mechanism}</p>
+               )}
+               {selectedCompound.aliases && selectedCompound.aliases.length > 0 && (
+-                <p className='text-xs text-sand'>Also known as: {selectedCompound.aliases.join(', ')}</p>
++                <p className='text-xs text-sand'>
++                  Also known as: {selectedCompound.aliases.join(', ')}
++                </p>
+               )}
+               <p className='text-xs text-sand'>
+                 Herbs:
+@@ -121,57 +135,84 @@ export default function Compounds() {
+                 </a>
+               )}
+               <div className='mt-2'>
+-                <Link to='/compounds' className='text-comet underline'>Back to list</Link>
++                <Link to='/compounds' className='text-comet underline'>
++                  Back to list
++                </Link>
+               </div>
+             </div>
+           ) : (
+-            <div className='space-y-4'>
+-              {compoundList.map(c => (
+-                <div key={c.name} id={slugify(c.name)} className='glass-card p-4 text-left'>
+-                  <h2 className='text-xl font-bold text-white max-w-xs truncate'>
+-                    {c.name}
+-                  </h2>
+-                <p className='text-sm text-moss'>
+-                  {typeIcon(c.type)}
+-                  {c.type}
+-                </p>
+-                {c.mechanism && (
+-                  <p className='text-xs text-sand'>MOA: {c.mechanism}</p>
+-                )}
+-                <p className='text-xs text-sand'>
+-                  Herbs:
+-                  {c.sources.map((s, i) => (
+-                    <React.Fragment key={s.id}>
+-                      {i > 0 && ', '}
+-                      <Link to={`/herbs/${s.id}`} className='underline'>
+-                        {s.name}
+-                      </Link>
+-                      {s.link && (
+-                        <a
+-                          href={s.link}
+-                          target='_blank'
+-                          rel='noopener noreferrer'
+-                          className='ml-1 text-sky-300 underline'
+-                        >
+-                          Buy
+-                        </a>
+-                      )}
+-                    </React.Fragment>
+-                  ))}
+-                </p>
+-                {c.affiliateLink && (
+-                  <a
+-                    href={c.affiliateLink}
+-                    target='_blank'
+-                    rel='noopener noreferrer'
+-                    className='mt-1 inline-block text-sm text-sky-300 underline'
++            <>
++              <div className='mb-4 flex flex-wrap justify-center gap-2'>
++                {allTags.map(tag => (
++                  <button
++                    key={tag}
++                    type='button'
++                    onClick={() =>
++                      setTagFilter(prev =>
++                        prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
++                      )
++                    }
++                    className={`tag-pill ${tagFilter.includes(tag) ? 'ring-2 ring-emerald-400' : ''}`}
+                   >
+-                    Buy Online
+-                  </a>
+-                )}
++                    {tag}
++                  </button>
++                ))}
+               </div>
+-              ))}
+-            </div>
++              <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3'>
++                {filteredList.map(c => (
++                  <div
++                    key={c.name}
++                    id={slugify(c.name)}
++                    className='glass-card flex flex-col p-4 text-left'
++                  >
++                    <h2 className='max-w-xs truncate text-xl font-bold text-white'>{c.name}</h2>
++                    <p className='text-sm text-moss'>
++                      {typeIcon(c.type)}
++                      {c.type}
++                    </p>
++                    {c.tags && <p className='mb-1 text-xs text-sand'>Tags: {c.tags.join(', ')}</p>}
++                    {c.mechanism && <p className='text-xs text-sand'>MOA: {c.mechanism}</p>}
++                    <p className='text-xs text-sand'>
++                      Herbs:
++                      {c.sources.map((s, i) => (
++                        <React.Fragment key={s.id}>
++                          {i > 0 && ', '}
++                          <Link to={`/herbs/${s.id}`} className='underline'>
++                            {s.name}
++                          </Link>
++                          {s.link && (
++                            <a
++                              href={s.link}
++                              target='_blank'
++                              rel='noopener noreferrer'
++                              className='ml-1 text-sky-300 underline'
++                            >
++                              Buy
++                            </a>
++                          )}
++                        </React.Fragment>
++                      ))}
++                    </p>
++                    {c.affiliateLink && (
++                      <a
++                        href={c.affiliateLink}
++                        target='_blank'
++                        rel='noopener noreferrer'
++                        className='mt-1 inline-block text-sm text-sky-300 underline'
++                      >
++                        Buy Online
++                      </a>
++                    )}
++                    <Link
++                      to={`/compounds?compound=${slugify(c.name)}`}
++                      className='mt-1 text-comet underline'
++                    >
++                      Detail
++                    </Link>
++                  </div>
++                ))}
++              </div>
++            </>
+           )}
+         </div>
+       </div>
+-- 
+2.43.0
+

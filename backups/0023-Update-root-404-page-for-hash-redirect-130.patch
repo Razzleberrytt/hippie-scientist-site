@@ -1,0 +1,52 @@
+From a10c008f861294c04d97393b7298ab4a5bb2a0a4 Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Sat, 19 Jul 2025 00:53:09 -0400
+Subject: [PATCH 23/27] Update root 404 page for hash redirect (#130)
+
+---
+ 404.html        | 18 +++---------------
+ public/404.html |  6 ++++++
+ 2 files changed, 9 insertions(+), 15 deletions(-)
+ create mode 100644 public/404.html
+
+diff --git a/404.html b/404.html
+index 60f6056..1b5c4a8 100644
+--- a/404.html
++++ b/404.html
+@@ -1,18 +1,6 @@
+-<!doctype html>
+-<html lang="en">
++<!DOCTYPE html>
++<html>
+   <head>
+-    <meta charset="UTF-8" />
+-    <title>Redirecting…</title>
+-    <script>
+-      const cleanPath =
+-        window.location.pathname.replace(/\/$/, '') +
+-        window.location.search +
+-        window.location.hash;
+-      const root = window.location.pathname.replace(/404\.html$/, '');
+-      window.location.replace(root + '#' + cleanPath);
+-    </script>
++    <meta http-equiv="refresh" content="0; url=/#/" />
+   </head>
+-  <body>
+-    <p>Redirecting…</p>
+-  </body>
+ </html>
+diff --git a/public/404.html b/public/404.html
+new file mode 100644
+index 0000000..1b5c4a8
+--- /dev/null
++++ b/public/404.html
+@@ -0,0 +1,6 @@
++<!DOCTYPE html>
++<html>
++  <head>
++    <meta http-equiv="refresh" content="0; url=/#/" />
++  </head>
++</html>
+-- 
+2.43.0
+

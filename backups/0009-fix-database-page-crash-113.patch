@@ -1,0 +1,122 @@
+From 01411efc523e9415caa4df4b14de3957632f5167 Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Fri, 18 Jul 2025 23:13:08 -0400
+Subject: [PATCH 09/27] fix database page crash (#113)
+
+---
+ src/data/herbs.ts             | 10 ++++++++--
+ src/hooks/useFilteredHerbs.ts | 15 +++++++--------
+ src/pages/Database.tsx        | 15 +++++++++++++++
+ 3 files changed, 30 insertions(+), 10 deletions(-)
+
+diff --git a/src/data/herbs.ts b/src/data/herbs.ts
+index a2d8711..d36e740 100644
+--- a/src/data/herbs.ts
++++ b/src/data/herbs.ts
+@@ -1,8 +1,14 @@
+ import type { Herb } from '../types'
+ import raw from '../../Full200.json?raw'
+ 
+-const cleaned = raw.replace(/NaN/g, 'null')
+-const herbs = JSON.parse(cleaned) as Herb[]
++let herbs: Herb[] = []
++try {
++  const cleaned = raw.replace(/NaN/g, 'null')
++  herbs = JSON.parse(cleaned) as Herb[]
++} catch (err) {
++  console.error('Failed to load herb data', err)
++  herbs = []
++}
+ 
+ export default herbs
+ export { herbs }
+diff --git a/src/hooks/useFilteredHerbs.ts b/src/hooks/useFilteredHerbs.ts
+index 84a7978..2c79e51 100644
+--- a/src/hooks/useFilteredHerbs.ts
++++ b/src/hooks/useFilteredHerbs.ts
+@@ -18,8 +18,9 @@ export function metaCategory(cat: string): string {
+   return 'Other'
+ }
+ 
+-export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
++export function useFilteredHerbs(herbs: Herb[] | undefined, options: Options = {}) {
+   const { favorites = [] } = options
++  const safeHerbs = herbs ?? []
+   const [query, setQuery] = React.useState('')
+   const [tags, setTags] = React.useState<string[]>([])
+   const [tagMode, setTagMode] = React.useState<'AND' | 'OR'>('AND')
+@@ -29,17 +30,15 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
+ 
+   const fuseData = React.useMemo(
+     () =>
+-      herbs.map(h => ({
++      safeHerbs.map(h => ({
+         ...h,
+         aliases: [
+           ...extractAliases(h.name),
+           ...(extraAliases[h.id] || extraAliases[h.name.toLowerCase()] || []),
+         ],
+-        tagAliases: h.tags
+-          .map(t => aliasFor(canonicalTag(t)))
+-          .filter(Boolean) as string[],
++        tagAliases: h.tags.map(t => aliasFor(canonicalTag(t))).filter(Boolean) as string[],
+       })),
+-    [herbs]
++    [safeHerbs]
+   )
+ 
+   const fuse = React.useMemo(
+@@ -64,7 +63,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
+   )
+ 
+   const filtered = React.useMemo(() => {
+-    let res = herbs
++    let res = safeHerbs
+     const q = query.trim()
+     if (q) {
+       res = fuse.search(q).map(r => r.item)
+@@ -85,7 +84,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
+       res = [...res].sort((a, b) => a.name.localeCompare(b.name))
+     }
+     return res
+-  }, [herbs, query, tags, categories, favoritesOnly, favorites, sort, fuse])
++  }, [safeHerbs, query, tags, categories, favoritesOnly, favorites, sort, fuse])
+ 
+   return {
+     filtered,
+diff --git a/src/pages/Database.tsx b/src/pages/Database.tsx
+index 788a909..3fa93ab 100644
+--- a/src/pages/Database.tsx
++++ b/src/pages/Database.tsx
+@@ -19,6 +19,7 @@ import { getLocal, setLocal } from '../utils/localStorage'
+ 
+ export default function Database() {
+   const herbs = useHerbs()
++  console.log('herbs length', herbs.length)
+   const { favorites } = useHerbFavorites()
+   const {
+     filtered,
+@@ -36,6 +37,20 @@ export default function Database() {
+   } = useFilteredHerbs(herbs, { favorites })
+   const [params, setParams] = useSearchParams()
+ 
++  if (herbs.length === 0) {
++    return (
++      <>
++        <Helmet>
++          <title>Database - The Hippie Scientist</title>
++        </Helmet>
++        <div className='relative min-h-screen px-4 pt-20'>
++          <StarfieldBackground />
++          <div className='text-center text-sand'>Unable to load herb data.</div>
++        </div>
++      </>
++    )
++  }
++
+   React.useEffect(() => {
+     const pos = getLocal<number>('dbScroll', 0)
+     if (pos) window.scrollTo(0, pos)
+-- 
+2.43.0
+

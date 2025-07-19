@@ -1,0 +1,25 @@
+From 350aff9380aaf99f2bd539ebae5a64a70e2fae8c Mon Sep 17 00:00:00 2001
+From: Willie Randolph <RazzleberryT@gmail.com>
+Date: Fri, 18 Jul 2025 23:20:17 -0400
+Subject: [PATCH 10/27] Fix missing aliasFor import (#115)
+
+---
+ src/hooks/useFilteredHerbs.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/hooks/useFilteredHerbs.ts b/src/hooks/useFilteredHerbs.ts
+index 2c79e51..28678ed 100644
+--- a/src/hooks/useFilteredHerbs.ts
++++ b/src/hooks/useFilteredHerbs.ts
+@@ -3,7 +3,7 @@ import { useLocalStorage } from './useLocalStorage'
+ import Fuse from 'fuse.js'
+ import type { Herb } from '../types'
+ import { extractAliases, extraAliases } from '../utils/herbAlias'
+-import { canonicalTag } from '../utils/tagUtils'
++import { canonicalTag, aliasFor } from '../utils/tagUtils'
+ 
+ interface Options {
+   favorites?: string[]
+-- 
+2.43.0
+
