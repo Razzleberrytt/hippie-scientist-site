@@ -182,6 +182,27 @@ export const baseCompounds: CompoundInfo[] = [
     sourceHerbs: ['tabernanthe-iboga'],
     notes: 'Psychedelic used in addiction treatment rituals',
   },
+  {
+    name: 'harmine',
+    type: 'beta-carboline',
+    mechanism: 'Reversible MAO-A inhibitor',
+    sourceHerbs: ['banisteriopsis-caapi', 'pegnum-harmala'],
+    notes: 'Key alkaloid in many Ayahuasca brews',
+  },
+  {
+    name: 'ibotenic acid',
+    type: 'isoxazole',
+    mechanism: 'Glutamate receptor agonist',
+    sourceHerbs: ['amanita-muscaria'],
+    notes: 'Decarboxylates to muscimol when dried',
+  },
+  {
+    name: 'mesembrine',
+    type: 'alkaloid',
+    mechanism: 'Serotonin reuptake inhibitor',
+    sourceHerbs: ['sceletium-tortuosum'],
+    notes: 'Primary mood-elevating compound in kanna',
+  },
 ]
 
 export default baseCompounds
