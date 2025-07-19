@@ -11,6 +11,7 @@ const containerVariants = {
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
 }
 
 interface Props {
@@ -39,7 +40,12 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
       >
         <AnimatePresence>
           {herbs.slice(0, visible).map(h => (
-            <motion.div key={h.id || h.name} variants={itemVariants} layout>
+            <motion.div
+              key={h.id || h.name}
+              variants={itemVariants}
+              layout
+              exit='exit'
+            >
               <HerbCardAccordion herb={h} highlight={highlightQuery} />
             </motion.div>
           ))}

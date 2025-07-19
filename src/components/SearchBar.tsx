@@ -31,7 +31,10 @@ export default function SearchBar({ query, setQuery, fuse }: Props) {
     if (!query) return text
     const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
     const regex = new RegExp(`(${escaped})`, 'ig')
-    return text.replace(regex, '<span class="font-bold">$1</span>')
+    return text.replace(
+      regex,
+      '<mark class="rounded bg-yellow-500/40 px-1">$1</mark>'
+    )
   }
 
   return (
