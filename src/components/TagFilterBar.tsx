@@ -5,6 +5,7 @@ import TagBadge from './TagBadge'
 import { decodeTag, tagVariant, tagCategory, TagCategory, normalizeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import InfoTooltip from './InfoTooltip'
 
 const MIN_COUNT = 5
 
@@ -94,18 +95,11 @@ export default function TagFilterBar({
   const renderTags = (cat: TagCategory) => {
     const list = grouped[cat] || []
     const limit = 12
-    const frequent = list.filter(
-      t => (counts[canonicalTag(t)] || 0) >= MIN_COUNT
-    )
-    const infrequent = list.filter(
-      t => (counts[canonicalTag(t)] || 0) < MIN_COUNT
-    )
+    const frequent = list.filter(t => (counts[canonicalTag(t)] || 0) >= MIN_COUNT)
+    const infrequent = list.filter(t => (counts[canonicalTag(t)] || 0) < MIN_COUNT)
     const all = [...frequent, ...infrequent]
-    const display = showMore[cat]
-      ? all
-      : frequent.slice(0, limit)
-    const hasMore =
-      infrequent.length > 0 || frequent.length > limit
+    const display = showMore[cat] ? all : frequent.slice(0, limit)
+    const hasMore = infrequent.length > 0 || frequent.length > limit
     return (
       <>
         <div className='tag-list'>
@@ -120,17 +114,18 @@ export default function TagFilterBar({
               aria-pressed={selected.includes(tag)}
               tabIndex={0}
               className='flex-shrink-0 focus:outline-none'
-              title={
-                counts[tag]
-                  ? `${decodeTag(normalizeTag(tag))} — used in ${counts[tag]} herbs`
-                  : decodeTag(normalizeTag(tag))
-              }
             >
-              <TagBadge
-                label={decodeTag(normalizeTag(tag))}
-                variant={selected.includes(tag) ? 'green' : tagVariant(tag)}
-                className={clsx(selected.includes(tag) && 'ring-1 ring-emerald-400')}
-              />
+              <InfoTooltip
+                text={`${decodeTag(normalizeTag(tag))} — used in ${
+                  counts[tag] ?? counts[canonicalTag(tag)] ?? 0
+                } herbs`}
+              >
+                <TagBadge
+                  label={decodeTag(normalizeTag(tag))}
+                  variant={selected.includes(tag) ? 'green' : tagVariant(tag)}
+                  className={clsx(selected.includes(tag) && 'ring-1 ring-emerald-400')}
+                />
+              </InfoTooltip>
             </motion.button>
           ))}
           {hasMore && (
@@ -150,7 +145,7 @@ export default function TagFilterBar({
   }
 
   return (
-    <div className='sticky top-16 z-20 space-y-3 bg-black/30 backdrop-blur-md p-2 rounded-xl sm:static sm:bg-transparent sm:p-0'>
+    <div className='sticky top-16 z-20 space-y-3 rounded-xl bg-black/30 p-2 backdrop-blur-md sm:static sm:bg-transparent sm:p-0'>
       {CATEGORY_ORDER.map(cat => (
         <div key={cat} className='tag-section'>
           <button

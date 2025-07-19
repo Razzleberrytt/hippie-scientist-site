@@ -34,7 +34,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
-const TAG_LIMIT = 6
+const TAG_LIMIT = 5
 
 const fieldTooltips: Record<string, string> = {
   mechanismOfAction: 'How this herb produces its effects in the body.',
@@ -92,9 +92,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   }
 
   const sortedTags = React.useMemo(() => {
-    const active = new Set(
-      herb.activeConstituents?.map(c => canonicalTag(c.name)) || []
-    )
+    const active = new Set(herb.activeConstituents?.map(c => canonicalTag(c.name)) || [])
     return [...herb.tags].sort((a, b) => {
       const aActive = active.has(canonicalTag(a))
       const bActive = active.has(canonicalTag(b))
@@ -126,7 +124,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       }}
       whileTap={{ scale: 0.97 }}
       transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-3 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-psychedelic-pink focus-visible:ring-offset-2 focus-visible:ring-offset-space-dark focus-visible:ring-sky-400 focus-visible:ring-4 sm:p-6`}
+      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-3 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-4 focus-visible:ring-psychedelic-pink focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-space-dark sm:p-6`}
     >
       <motion.span
         initial={{ opacity: 0, y: -4 }}
@@ -209,11 +207,13 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
         </div>
       </div>
 
-      <div className='mt-2 flex flex-wrap gap-1 text-xs sm:gap-2 sm:text-sm'>
-        {(tagsExpanded || sortedTags.length <= TAG_LIMIT
-          ? sortedTags
-          : sortedTags.slice(0, TAG_LIMIT)
-        ).map(tag => (
+      <motion.div
+        layout
+        onHoverStart={() => setTagsExpanded(true)}
+        onHoverEnd={() => setTagsExpanded(false)}
+        className='mt-2 flex flex-wrap gap-1 text-xs sm:gap-2 sm:text-sm'
+      >
+        {(tagsExpanded ? sortedTags : sortedTags.slice(0, TAG_LIMIT)).map(tag => (
           <TagBadge
             key={tag}
             label={decodeTag(tag)}
@@ -221,22 +221,10 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             className={open ? 'animate-pulse' : ''}
           />
         ))}
-        {sortedTags.length > TAG_LIMIT && (
-          <button
-            type='button'
-            onClick={e => {
-              e.stopPropagation()
-              setTagsExpanded(t => !t)
-            }}
-            className='focus:outline-none'
-          >
-            <TagBadge
-              label={tagsExpanded ? 'Show Less' : `+${sortedTags.length - TAG_LIMIT} more`}
-              variant='yellow'
-            />
-          </button>
+        {sortedTags.length > TAG_LIMIT && !tagsExpanded && (
+          <TagBadge label={`+${sortedTags.length - TAG_LIMIT} more`} variant='yellow' />
         )}
-      </div>
+      </motion.div>
 
       <AnimatePresence initial={false}>
         {open && (
@@ -303,7 +291,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                             setDescExpanded(d => !d)
                           }}
                           aria-expanded={descExpanded}
-                          className='ml-2 underline text-sky-300'
+                          className='ml-2 text-sky-300 underline'
                         >
                           {descExpanded ? 'Show Less' : 'Read More'}
                         </button>
