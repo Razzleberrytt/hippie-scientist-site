@@ -84,6 +84,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
         type='text'
         placeholder='Search herbs...'
         aria-label='Search herbs'
+        tabIndex={0}
         value={query}
         onChange={e => setQuery(e.target.value)}
         className='w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-none focus:ring-2 focus:ring-purple-500 dark:border-gray-700 dark:bg-gray-900 dark:text-white'
@@ -96,6 +97,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
         ))}
         <select
           onChange={handleAddTag}
+          tabIndex={0}
           className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black dark:border-gray-700 dark:bg-gray-900 dark:text-white'
           defaultValue=''
         >
@@ -108,6 +110,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
         </select>
         <button
           type='button'
+          tabIndex={0}
           onClick={pickRandom}
           className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700'
         >
@@ -116,6 +119,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
 
         <select
           value={sort}
+          tabIndex={0}
           onChange={e => setSort(e.target.value as SortKey)}
           className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black dark:border-gray-700 dark:bg-gray-900 dark:text-white'
         >
@@ -126,6 +130,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
         </select>
         <button
           type='button'
+          tabIndex={0}
           onClick={clearFilters}
           className='rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-black hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-700'
         >

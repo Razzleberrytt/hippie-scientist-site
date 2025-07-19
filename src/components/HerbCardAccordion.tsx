@@ -73,6 +73,7 @@ function safetyTier(rating: any, toxicity?: string): SafetyTier {
 export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const [open, setOpen] = useState(false)
   const [tagsExpanded, setTagsExpanded] = useState(false)
+  const [descExpanded, setDescExpanded] = useState(false)
   const toggle = () => setOpen(v => !v)
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
@@ -105,7 +106,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const tier = safetyTier(herb.safetyRating, herb.toxicity)
 
   return (
-    <motion.div
+    <motion.article
       id={`herb-${herb.id}`}
       layout
       initial={{ opacity: 0, y: 20 }}
@@ -117,6 +118,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
       tabIndex={0}
       role='button'
       aria-expanded={open}
+      aria-label={`Herb card for ${herb.name}`}
       whileHover={{
         scale: 1.03,
         boxShadow: '0 0 20px rgba(255,255,255,0.2)',
@@ -207,7 +209,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
         </div>
       </div>
 
-      <div className='mt-2 flex flex-wrap gap-2'>
+      <div className='mt-2 flex flex-wrap gap-1 text-xs sm:gap-2 sm:text-sm'>
         {(tagsExpanded || sortedTags.length <= TAG_LIMIT
           ? sortedTags
           : sortedTags.slice(0, TAG_LIMIT)
@@ -284,6 +286,31 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                     : key === 'mechanismOfAction' || key === 'toxicity' || key === 'toxicityLD50'
                       ? UNKNOWN
                       : NOT_WELL_DOCUMENTED
+                if (key === 'description') {
+                  const truncated = value.slice(0, 200)
+                  return (
+                    <motion.div key={key} variants={itemVariants}>
+                      <span className='font-semibold text-lime-300'>
+                        Description:
+                        {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
+                      </span>{' '}
+                      {descExpanded || value.length <= 200 ? value : truncated + '...'}
+                      {value.length > 200 && (
+                        <button
+                          type='button'
+                          onClick={e => {
+                            e.stopPropagation()
+                            setDescExpanded(d => !d)
+                          }}
+                          aria-expanded={descExpanded}
+                          className='ml-2 underline text-sky-300'
+                        >
+                          {descExpanded ? 'Show Less' : 'Read More'}
+                        </button>
+                      )}
+                    </motion.div>
+                  )
+                }
                 return (
                   <motion.div key={key} variants={itemVariants}>
                     <span className='font-semibold text-lime-300'>
@@ -360,6 +387,6 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </motion.article>
   )
 }

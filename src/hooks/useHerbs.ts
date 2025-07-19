@@ -7,7 +7,11 @@ export function useHerbs(): Herb[] {
 
   React.useEffect(() => {
     const incomplete = herbsData.filter(
-      h => !h.affiliateLink || !h.activeConstituents?.length || !h.mechanismOfAction
+      h =>
+        !h.affiliateLink ||
+        !h.activeConstituents?.length ||
+        !h.mechanismOfAction ||
+        !h.legalStatus
     )
     if (incomplete.length) {
       console.groupCollapsed('Herb data missing fields')
@@ -16,6 +20,7 @@ export function useHerbs(): Herb[] {
         if (!h.affiliateLink) missing.push('affiliateLink')
         if (!h.activeConstituents?.length) missing.push('activeConstituents')
         if (!h.mechanismOfAction) missing.push('mechanismOfAction')
+        if (!h.legalStatus) missing.push('legalStatus')
         console.log(`${h.name}: ${missing.join(', ')}`)
       })
       console.groupEnd()
