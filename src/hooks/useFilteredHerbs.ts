@@ -3,7 +3,7 @@ import { useLocalStorage } from './useLocalStorage'
 import Fuse from 'fuse.js'
 import type { Herb } from '../types'
 import { extractAliases, extraAliases } from '../utils/herbAlias'
-import { canonicalTag } from '../utils/tagUtils'
+import { canonicalTag, aliasFor } from '../utils/tagUtils'
 
 interface Options {
   favorites?: string[]
@@ -18,8 +18,9 @@ export function metaCategory(cat: string): string {
   return 'Other'
 }
 
-export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
+export function useFilteredHerbs(herbs: Herb[] | undefined, options: Options = {}) {
   const { favorites = [] } = options
+  const safeHerbs = herbs ?? []
   const [query, setQuery] = React.useState('')
   const [tags, setTags] = React.useState<string[]>([])
   const [tagMode, setTagMode] = React.useState<'AND' | 'OR'>('AND')
@@ -29,17 +30,15 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
 
   const fuseData = React.useMemo(
     () =>
-      herbs.map(h => ({
+      safeHerbs.map(h => ({
         ...h,
         aliases: [
           ...extractAliases(h.name),
           ...(extraAliases[h.id] || extraAliases[h.name.toLowerCase()] || []),
         ],
-        tagAliases: h.tags
-          .map(t => aliasFor(canonicalTag(t)))
-          .filter(Boolean) as string[],
+        tagAliases: h.tags.map(t => aliasFor(canonicalTag(t))).filter(Boolean) as string[],
       })),
-    [herbs]
+    [safeHerbs]
   )
 
   const fuse = React.useMemo(
@@ -64,7 +63,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   )
 
   const filtered = React.useMemo(() => {
-    let res = herbs
+    let res = safeHerbs
     const q = query.trim()
     if (q) {
       res = fuse.search(q).map(r => r.item)
@@ -85,7 +84,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
       res = [...res].sort((a, b) => a.name.localeCompare(b.name))
     }
     return res
-  }, [herbs, query, tags, categories, favoritesOnly, favorites, sort, fuse])
+  }, [safeHerbs, query, tags, categories, favoritesOnly, favorites, sort, fuse])
 
   return {
     filtered,

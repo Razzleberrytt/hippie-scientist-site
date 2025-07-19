@@ -19,6 +19,7 @@ import { getLocal, setLocal } from '../utils/localStorage'
 
 export default function Database() {
   const herbs = useHerbs()
+  console.log('herbs length', herbs.length)
   const { favorites } = useHerbFavorites()
   const {
     filtered,
@@ -35,6 +36,20 @@ export default function Database() {
     fuse,
   } = useFilteredHerbs(herbs, { favorites })
   const [params, setParams] = useSearchParams()
+
+  if (herbs.length === 0) {
+    return (
+      <>
+        <Helmet>
+          <title>Database - The Hippie Scientist</title>
+        </Helmet>
+        <div className='relative min-h-screen px-4 pt-20'>
+          <StarfieldBackground />
+          <div className='text-center text-sand'>Unable to load herb data.</div>
+        </div>
+      </>
+    )
+  }
 
   React.useEffect(() => {
     const pos = getLocal<number>('dbScroll', 0)
