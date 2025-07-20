@@ -24,7 +24,7 @@ interface Props {
 const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 }) => {
   const [visible, setVisible] = React.useState(batchSize)
 
-  const validHerbs = React.useMemo(() => {
+  const safeHerbs = React.useMemo(() => {
     return herbs.filter((h, i) => {
       const ok = isValidHerb(h)
       if (!ok) {
@@ -34,16 +34,16 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
     })
   }, [herbs])
 
-  const showMore = () => setVisible(v => Math.min(v + batchSize, validHerbs.length))
+  const showMore = () => setVisible(v => Math.min(v + batchSize, safeHerbs.length))
 
-  if (validHerbs.length === 0) {
-    return <p className='text-center text-sand/80'>No herbs match your search.</p>
+  if (safeHerbs.length === 0) {
+    return <p className='text-center text-sand/80'>No valid herbs found.</p>
   }
 
   return (
     <>
       <motion.div
-        key={validHerbs.map(h => h.id).join('-')}
+        key={safeHerbs.map(h => h.id).join('-')}
         layout
         variants={containerVariants}
         initial='hidden'
@@ -51,7 +51,7 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
         className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
       >
         <AnimatePresence>
-          {validHerbs.slice(0, visible).map((h, idx) => (
+          {safeHerbs.slice(0, visible).map((h, idx) => (
             <motion.div key={h.id || h.name || idx} variants={itemVariants} layout>
               <ErrorBoundary fallback={<HerbCardError />}> 
                 <HerbCardAccordion herb={h} highlight={highlightQuery} />
@@ -60,7 +60,7 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
           ))}
         </AnimatePresence>
       </motion.div>
-      {visible < validHerbs.length && (
+      {visible < safeHerbs.length && (
         <div className='mt-6 text-center'>
           <button
             type='button'
