@@ -12,6 +12,11 @@ export interface Herb {
   legalStatus: string
   region: string
   tags: string[]
+  /**
+   * Normalized high-level categories derived from the raw category field.
+   * At most 3 values ordered by relevance.
+   */
+  normalizedCategories?: string[]
   mechanismOfAction?: string
   pharmacokinetics?: string
   therapeuticUses?: string
