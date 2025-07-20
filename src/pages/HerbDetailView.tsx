@@ -39,12 +39,17 @@ export default function HerbDetailView() {
 
   const overview = (
     <div className='space-y-2'>
-      {herb.effects?.length > 0 && (
-        <div>
-          <span className='font-semibold text-lime-300'>Effects:</span>{' '}
-          {herb.effects.join(', ')}
-        </div>
-      )}
+      {(() => {
+        const eff = Array.isArray(herb.effects)
+          ? herb.effects.join(', ')
+          : (herb.effects || '')
+        return eff ? (
+          <div>
+            <span className='font-semibold text-lime-300'>Effects:</span>{' '}
+            {eff}
+          </div>
+        ) : null
+      })()}
       {herb.region && (
         <div>
           <span className='font-semibold text-lime-300'>Region:</span>{' '}
@@ -148,7 +153,10 @@ export default function HerbDetailView() {
     { id: 'usage', label: 'Usage', content: usage },
   ]
 
-  const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${(herb.effects || []).join(', ')}.`
+  const effectsSummary = Array.isArray(herb.effects)
+    ? herb.effects.join(', ')
+    : (herb.effects || '')
+  const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${effectsSummary}.`
 
   return (
     <>

@@ -39,9 +39,12 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
         />
       )}
       <h3 className='mt-3 font-herb text-2xl'>{herb.name}</h3>
-      {herb.effects?.length > 0 && (
-        <p className='mt-1 text-sm text-sand'>{herb.effects.slice(0, 3).join(', ')}</p>
-      )}
+      {(() => {
+        const effects = Array.isArray(herb.effects)
+          ? herb.effects.slice(0, 3).join(', ')
+          : (herb.effects || '')
+        return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
+      })()}
       <Link
         to={`/herbs/${herb.id}`}
         className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'

@@ -70,9 +70,14 @@ export default function RotatingHerbCard() {
           >
             {herb.name}
           </h3>
-          {herb.effects?.length > 0 && (
-            <p className='mt-1 text-sm text-sand'>{herb.effects.slice(0, 3).join(', ')}</p>
-          )}
+          {(() => {
+            const effects = Array.isArray(herb.effects)
+              ? herb.effects.slice(0, 3).join(', ')
+              : (herb.effects || '')
+            return effects ? (
+              <p className='mt-1 text-sm text-sand'>{effects}</p>
+            ) : null
+          })()}
           <Link
             to={`/herbs/${herb.id}`}
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
@@ -104,7 +109,12 @@ export default function RotatingHerbCard() {
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key={herb.id}
-          aria-label={`Herb preview: ${herb.name}${herb.effects?.length ? ` – ${herb.effects.slice(0, 2).join(', ')}` : ''}`}
+          aria-label={`Herb preview: ${herb.name}${(() => {
+            const eff = Array.isArray(herb.effects)
+              ? herb.effects.slice(0, 2).join(', ')
+              : (herb.effects || '')
+            return eff ? ` – ${eff}` : ''
+          })()}`}
           className='glass-card hover-glow inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
           style={{ position: 'absolute', top: 0, left: 0 }}
           initial={reduceMotion ? false : { opacity: 0, y: 10 }}
@@ -124,9 +134,14 @@ export default function RotatingHerbCard() {
           >
             {herb.name}
           </h3>
-          {herb.effects?.length > 0 && (
-            <p className='mt-1 text-sm text-sand'>{herb.effects.slice(0, 3).join(', ')}</p>
-          )}
+          {(() => {
+            const effects = Array.isArray(herb.effects)
+              ? herb.effects.slice(0, 3).join(', ')
+              : (herb.effects || '')
+            return effects ? (
+              <p className='mt-1 text-sm text-sand'>{effects}</p>
+            ) : null
+          })()}
           <Link
             to={`/herbs/${herb.id}`}
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
