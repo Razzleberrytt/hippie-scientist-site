@@ -58,7 +58,7 @@ function gradientForCategory(cat: string): string {
 
 
 function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
-  if (!herb || !herb.name || !herb.effects) {
+  if (!herb || !herb.name) {
     console.warn('Skipping malformed herb:', herb)
     return null
   }
@@ -73,7 +73,9 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
 
   const [open, setOpen] = useState(false)
   const [tagsExpanded, setTagsExpanded] = useState(false)
-  const [descExpanded, setDescExpanded] = useState(false)
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({})
+  const toggleField = (k: string) =>
+    setExpanded(e => ({ ...e, [k]: !e[k] }))
   const toggle = () => setOpen(v => !v)
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
@@ -241,64 +243,101 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
               exit='hidden'
               className='space-y-3'
             >
-              {[
-                'description',
-                'mechanismOfAction',
-                'therapeuticUses',
-                'sideEffects',
-                'contraindications',
-                'drugInteractions',
-                'preparation',
-                'dosage',
-                'pharmacokinetics',
-                'onset',
-                'duration',
-                'intensity',
-                'region',
-                'legalStatus',
-              ].map(key => {
-                const raw = (h as any)[key]
-                const value =
-                  typeof raw === 'string' && raw.trim() && raw !== 'No description provided.'
-                    ? raw
-                    : key === 'mechanismOfAction' || key === 'toxicity' || key === 'toxicityLD50'
-                      ? UNKNOWN
-                      : NOT_WELL_DOCUMENTED
-                if (key === 'description') {
-                  const truncated = value.slice(0, 200)
-                  return (
-                    <motion.div key={key} variants={itemVariants}>
-                      <span className='font-semibold text-lime-300'>
-                        Description:
-                        {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
-                      </span>{' '}
-                      {descExpanded || value.length <= 200 ? value : truncated + '...'}
-                      {value.length > 200 && (
-                        <button
-                          type='button'
-                          onClick={e => {
-                            e.stopPropagation()
-                            setDescExpanded(d => !d)
-                          }}
-                          aria-expanded={descExpanded}
-                          className='ml-2 text-sky-300 underline'
-                        >
-                          {descExpanded ? 'Show Less' : 'Read More'}
-                        </button>
-                      )}
-                    </motion.div>
+              {(function () {
+                try {
+                  const fieldOrder = [
+                    'description',
+                    'mechanismOfAction',
+                    'therapeuticUses',
+                    'sideEffects',
+                    'contraindications',
+                    'drugInteractions',
+                    'preparation',
+                    'dosage',
+                    'pharmacokinetics',
+                    'onset',
+                    'duration',
+                    'intensity',
+                    'region',
+                    'legalStatus',
+                  ]
+
+                  const exclude = new Set([
+                    'id',
+                    'name',
+                    'slug',
+                    'tags',
+                    'category',
+                    'normalizedCategories',
+                    'affiliateLink',
+                    'activeConstituents',
+                    'scientificName',
+                    'effects',
+                  ])
+
+                  const extras = Object.keys(h).filter(
+                    k => !exclude.has(k) && !fieldOrder.includes(k)
                   )
+                  const keys = [...fieldOrder, ...extras]
+                  return keys.map(key => {
+                    const raw = (h as any)[key]
+                    if (raw == null || raw === '' || raw === 'N/A') {
+                      if (key === 'mechanismOfAction' || key === 'toxicity' || key === 'toxicityLD50') {
+                        return (
+                          <motion.div key={key} variants={itemVariants}>
+                            <span className='font-semibold text-lime-300'>
+                              {key.replace(/([A-Z])/g, ' $1') + ':'}
+                              {fieldTooltips[key] && (
+                                <InfoTooltip text={fieldTooltips[key]} />
+                              )}
+                            </span>{' '}
+                            {UNKNOWN}
+                          </motion.div>
+                        )
+                      }
+                      return null
+                    }
+                    const value = Array.isArray(raw) ? raw.join(', ') : String(raw)
+                    if (!value.trim()) return null
+                    const display = (
+                      <span
+                        className={
+                          expanded[key] || value.length < 200 ? '' : 'line-clamp-2'
+                        }
+                      >
+                        {value}
+                      </span>
+                    )
+                    return (
+                      <motion.div key={key} variants={itemVariants}>
+                        <span className='font-semibold text-lime-300'>
+                          {key.replace(/([A-Z])/g, ' $1') + ':'}
+                          {fieldTooltips[key] && (
+                            <InfoTooltip text={fieldTooltips[key]} />
+                          )}
+                        </span>{' '}
+                        {display}
+                        {value.length > 200 && (
+                          <button
+                            type='button'
+                            onClick={e => {
+                              e.stopPropagation()
+                              toggleField(key)
+                            }}
+                            aria-expanded={!!expanded[key]}
+                            className='ml-2 text-sky-300 underline'
+                          >
+                            {expanded[key] ? 'Show Less' : 'Show More'}
+                          </button>
+                        )}
+                      </motion.div>
+                    )
+                  })
+                } catch (err) {
+                  console.error('Render fields failed', err)
+                  return null
                 }
-                return (
-                  <motion.div key={key} variants={itemVariants}>
-                    <span className='font-semibold text-lime-300'>
-                      {key.replace(/([A-Z])/g, ' $1') + ':'}
-                      {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
-                    </span>{' '}
-                    {value}
-                  </motion.div>
-                )
-              })}
+              })()}
 
               {h.activeConstituents?.length > 0 && (
                 <motion.div variants={itemVariants}>
