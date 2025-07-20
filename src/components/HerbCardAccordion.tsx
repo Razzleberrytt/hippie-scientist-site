@@ -68,6 +68,8 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
     name: herb.name || 'Unknown Herb',
     effects: Array.isArray(herb.effects) ? herb.effects : [],
     category: herb.category || 'Other',
+    tags: Array.isArray(herb.tags) ? herb.tags : [],
+    description: typeof herb.description === 'string' ? herb.description : '',
     slug: (herb as any).slug || slugify(herb.name),
   }
 
