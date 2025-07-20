@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
-import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
+import { decodeTag, tagVariant } from '../utils/format'
 import TagBadge from '../components/TagBadge'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
@@ -97,11 +97,7 @@ export default function HerbDetail() {
                 <span className='font-semibold text-lime-300'>
                   {key.replace(/([A-Z])/g, ' $1')}:
                 </span>{' '}
-                {key === 'safetyRating' ? (
-                  <span className={safetyColorClass(raw)}>{raw}</span>
-                ) : (
-                  raw
-                )}
+                {raw}
               </div>
             )
           })}

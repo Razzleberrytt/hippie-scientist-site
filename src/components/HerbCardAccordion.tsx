@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronRight, Star } from 'lucide-react'
 import type { Herb } from '../types'
-import { decodeTag, tagVariant, safetyColorClass } from '../utils/format'
+import { decodeTag, tagVariant } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
 import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
 import TagBadge from './TagBadge'
@@ -52,23 +52,6 @@ function gradientForCategory(cat: string): string {
   return 'from-white/10 to-white/5'
 }
 
-type SafetyTier = 'safe' | 'caution' | 'danger' | undefined
-
-function safetyTier(rating: any, toxicity?: string): SafetyTier {
-  let r: number | undefined
-  if (typeof rating === 'number') r = rating
-  if (typeof rating === 'string') {
-    const val = rating.toLowerCase()
-    if (val === 'low') r = 1
-    else if (val === 'moderate') r = 3
-    else if (val === 'high') r = 5
-  }
-  if (toxicity && /severe|danger/i.test(toxicity)) return 'danger'
-  if (r == null) return undefined
-  if (r <= 2) return 'safe'
-  if (r <= 4) return 'caution'
-  return 'danger'
-}
 
 export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const [open, setOpen] = useState(false)
@@ -101,7 +84,6 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   }, [herb])
 
   const gradient = gradientForCategory(herb.category)
-  const tier = safetyTier(herb.safetyRating, herb.toxicity)
 
   return (
     <motion.article
@@ -141,19 +123,6 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               className='text-shadow mb-0.5 font-herb text-xl text-white sm:text-2xl'
               dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
             />
-            {tier && (
-              <span
-                className={`rounded-full px-2 py-0.5 text-xs font-medium shadow ${
-                  tier === 'safe'
-                    ? 'bg-green-700/40 text-green-200 ring-1 ring-green-400/60'
-                    : tier === 'caution'
-                      ? 'bg-yellow-700/40 text-yellow-200 ring-1 ring-yellow-400/60'
-                      : 'bg-red-700/40 text-red-200 ring-1 ring-red-500/60'
-                }`}
-              >
-                {tier === 'safe' ? '✅ Safe' : tier === 'caution' ? '⚠️ Caution' : '☠️ High Risk'}
-              </span>
-            )}
           </div>
           {herb.scientificName && (
             <p
@@ -263,9 +232,6 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 'intensity',
                 'region',
                 'legalStatus',
-                'safetyRating',
-                'toxicity',
-                'toxicityLD50',
               ].map(key => {
                 const raw = (herb as any)[key]
                 const value =
@@ -305,13 +271,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                       {key.replace(/([A-Z])/g, ' $1') + ':'}
                       {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
                     </span>{' '}
-                    {key === 'safetyRating' ? (
-                      <span className={typeof raw === 'number' ? safetyColorClass(raw) : ''}>
-                        {value}
-                      </span>
-                    ) : (
-                      value
-                    )}
+                    {value}
                   </motion.div>
                 )
               })}
@@ -347,6 +307,32 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                       className={open ? 'animate-pulse' : ''}
                     />
                   ))}
+                </motion.div>
+              )}
+
+              {(herb.safetyRating || herb.toxicity || herb.toxicityLD50) && (
+                <motion.div variants={itemVariants} className='space-y-1 pt-2'>
+                  {herb.safetyRating && (
+                    <div>
+                      <span className='font-semibold text-lime-300'>Safety Rating:</span>{' '}
+                      <TagBadge
+                        label={herb.safetyRating}
+                        variant={herb.safetyRating?.toString().toLowerCase() === 'low' ? 'green' : 'purple'}
+                      />
+                    </div>
+                  )}
+                  {herb.toxicity && (
+                    <div>
+                      <span className='font-semibold text-lime-300'>Toxicity:</span>{' '}
+                      {herb.toxicity}
+                    </div>
+                  )}
+                  {herb.toxicityLD50 && (
+                    <div>
+                      <span className='font-semibold text-lime-300'>Toxicity LD50:</span>{' '}
+                      {herb.toxicityLD50}
+                    </div>
+                  )}
                 </motion.div>
               )}
               <motion.div variants={itemVariants} className='pt-2'>

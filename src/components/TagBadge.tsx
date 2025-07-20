@@ -19,7 +19,8 @@ const colorMap = {
 }
 
 export default function TagBadge({ label, variant = 'purple', className }: Props) {
-  const alias = tagAliasMap[label.toLowerCase()]
+  const cleaned = label.replace(/☠️/g, '').trim()
+  const alias = tagAliasMap[cleaned.toLowerCase()]
   const content = (
     <motion.span
       whileHover={{ scale: 1.05 }}
@@ -31,7 +32,7 @@ export default function TagBadge({ label, variant = 'purple', className }: Props
         className
       )}
     >
-      {label}
+      {cleaned}
     </motion.span>
   )
   return alias ? <InfoTooltip text={`aka ${alias}`}>{content}</InfoTooltip> : content
