@@ -420,7 +420,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
 }
 
 export default function HerbCardAccordion({ herb, highlight }: Props) {
-  if (!herb || !(herb as any).name) return null
+  if (!herb || typeof herb !== 'object') return null
   return (
     <ErrorBoundary>
       <HerbCardAccordionInner herb={herb} highlight={highlight} />
