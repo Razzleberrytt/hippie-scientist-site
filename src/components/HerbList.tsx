@@ -5,6 +5,7 @@ import HerbCardAccordion from './HerbCardAccordion'
 import ErrorBoundary from './ErrorBoundary'
 import HerbCardError from './HerbCardError'
 import { sanitizeHerb } from '../utils/sanitizeHerb'
+import { isValidHerb } from '../utils/herbValidator'
 
 const containerVariants = {
   hidden: {},
@@ -25,11 +26,13 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
   const [visible, setVisible] = React.useState(batchSize)
 
   const safeHerbs = React.useMemo(() => {
-    return herbs.map((h, i) => {
+    return herbs.filter(isValidHerb).map((h, i) => {
       try {
         return sanitizeHerb(h)
       } catch (e) {
-        console.warn(`Bad herb at index ${i}:`, h)
+        if (import.meta.env.DEV) {
+          console.warn(`Bad herb at index ${i}:`, h)
+        }
         return sanitizeHerb({})
       }
     })

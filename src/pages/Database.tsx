@@ -19,21 +19,21 @@ import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
 import { sanitizeHerb } from '../utils/sanitizeHerb'
+import { isValidHerb } from '../utils/herbValidator'
 
 export default function Database() {
   const { herbs, loading } = useHerbs()
   const safeHerbs = React.useMemo(
     () =>
       (herbs || [])
-        .map((h, i) => {
-          try {
-            return sanitizeHerb(h)
-          } catch (err) {
+        .filter(h => {
+          const ok = isValidHerb(h)
+          if (!ok && import.meta.env.DEV) {
             console.warn('Invalid herb skipped:', h)
-            return null
           }
+          return ok
         })
-        .filter(Boolean) as import('../types').Herb[],
+        .map(h => sanitizeHerb(h)) as import('../types').Herb[],
     [herbs]
   )
   const { favorites } = useHerbFavorites()
