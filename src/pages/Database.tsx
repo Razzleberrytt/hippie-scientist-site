@@ -18,9 +18,24 @@ import { Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
+import { sanitizeHerb } from '../utils/sanitizeHerb'
 
 export default function Database() {
   const { herbs, loading } = useHerbs()
+  const safeHerbs = React.useMemo(
+    () =>
+      (herbs || [])
+        .map((h, i) => {
+          try {
+            return sanitizeHerb(h)
+          } catch (err) {
+            console.warn('Invalid herb skipped:', h)
+            return null
+          }
+        })
+        .filter(Boolean) as import('../types').Herb[],
+    [herbs]
+  )
   const { favorites } = useHerbFavorites()
   const {
     filtered,
@@ -35,7 +50,7 @@ export default function Database() {
     favoritesOnly,
     setFavoritesOnly,
     fuse,
-  } = useFilteredHerbs(herbs, { favorites })
+  } = useFilteredHerbs(safeHerbs, { favorites })
 
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -66,17 +81,17 @@ export default function Database() {
   }, [])
 
   const allTags = React.useMemo(() => {
-    const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags ?? []), [])
+    const t = safeHerbs.reduce<string[]>((acc, h) => acc.concat(h.tags ?? []), [])
     return Array.from(new Set(t.map(canonicalTag)))
-  }, [herbs])
+  }, [safeHerbs])
 
   const summary = React.useMemo(() => {
-    const affiliates = herbs.filter(
+    const affiliates = safeHerbs.filter(
       h => h.affiliateLink && h.affiliateLink.startsWith('http')
     ).length
-    const moaCount = herbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
-    return { total: herbs.length, affiliates, moaCount }
-  }, [herbs])
+    const moaCount = safeHerbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
+    return { total: safeHerbs.length, affiliates, moaCount }
+  }, [safeHerbs])
 
   if (loading) {
     return (
@@ -89,14 +104,14 @@ export default function Database() {
 
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
-    herbs.forEach(h => {
+    safeHerbs.forEach(h => {
       ;(h.tags ?? []).forEach(t => {
         const canon = canonicalTag(t)
         counts[canon] = (counts[canon] || 0) + 1
       })
     })
     return counts
-  }, [herbs])
+  }, [safeHerbs])
 
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
@@ -127,11 +142,9 @@ export default function Database() {
   const relatedTags = React.useMemo(() => {
     if (filteredTags.length === 0) return [] as string[]
     const counts: Record<string, number> = {}
-    herbs.forEach(h => {
+    safeHerbs.forEach(h => {
       if (
-        filteredTags.every(t =>
-          (h.tags ?? []).some(ht => canonicalTag(ht) === canonicalTag(t))
-        )
+        filteredTags.every(t => (h.tags ?? []).some(ht => canonicalTag(ht) === canonicalTag(t)))
       ) {
         ;(h.tags ?? []).forEach(t => {
           const canon = canonicalTag(t)
@@ -145,7 +158,7 @@ export default function Database() {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5)
       .map(([t]) => t)
-  }, [filteredTags, herbs])
+  }, [filteredTags, safeHerbs])
 
   return (
     <>
@@ -167,7 +180,7 @@ export default function Database() {
             className='mb-8 text-center'
           >
             <h1 className='text-gradient mb-2 text-5xl font-bold'>Herb Database</h1>
-            <p className='text-sand'>Total: {herbs.length} Herbs Loaded</p>
+            <p className='text-sand'>Total: {safeHerbs.length} Herbs Loaded</p>
             <p className='mx-auto mt-2 max-w-4xl text-xl text-sand'>
               Explore our collection of herbs. Click any entry to see detailed information.
             </p>
