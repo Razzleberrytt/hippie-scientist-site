@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import herbs from '../data/herbs'
-import { safeHerbField } from '../utils/safeHerbField'
 
 function pickFeatured() {
   const psychedelic = herbs.filter(h => h.category.includes('Psychedelic'))
@@ -22,8 +21,6 @@ export default function FeaturedHerbCarousel() {
   }, [])
 
   const herb = featured[index]
-  const name = safeHerbField(herb.name, 'Unnamed Herb')
-  const desc = safeHerbField(herb.description, '')
 
   return (
     <motion.div
@@ -43,11 +40,11 @@ export default function FeaturedHerbCarousel() {
           whileHover={{ scale: 1.03, rotate: 0.5 }}
         >
           {herb.image && (
-            <img src={herb.image} alt={name} className='h-40 w-full rounded-md object-cover' />
+            <img src={herb.image} alt={herb.name} className='h-40 w-full rounded-md object-cover' />
           )}
-          <h3 className='mt-3 font-herb text-2xl'>{name}</h3>
-          {desc && (
-            <p className='mt-1 line-clamp-2 text-sm text-sand'>{desc}</p>
+          <h3 className='mt-3 font-herb text-2xl'>{herb.name}</h3>
+          {herb.description && (
+            <p className='mt-1 line-clamp-2 text-sm text-sand'>{herb.description}</p>
           )}
           <Link
             to={`/herbs/${herb.id}`}

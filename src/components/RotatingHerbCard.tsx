@@ -3,7 +3,6 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import herbs from '../data/herbs'
 import type { Herb } from '../types'
-import { safeHerbField } from '../utils/safeHerbField'
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -38,9 +37,6 @@ export default function RotatingHerbCard() {
   const herb = items[index]
   if (!herb) return null
 
-  const name = safeHerbField(herb.name, 'Unnamed Herb')
-  const effects = Array.isArray(herb.effects) ? herb.effects : []
-
   const handleAdvance = () => {
     const statsRaw = localStorage.getItem('herbTapCounts')
     const stats = statsRaw ? JSON.parse(statsRaw) : {}
@@ -65,23 +61,21 @@ export default function RotatingHerbCard() {
           style={{ position: 'absolute', top: 0, left: 0 }}
         >
           {herb.image && (
-            <img
-              src={herb.image}
-              alt={name}
-              className='h-32 w-full rounded-md object-cover'
-            />
+            <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
           )}
           <h3
             className={`mt-3 font-herb ${
-              name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
+              herb.name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
             }`}
           >
-            {name}
+            {herb.name}
           </h3>
           {(() => {
-            const text = effects.slice(0, 3).join(', ')
-            return text ? (
-              <p className='mt-1 text-sm text-sand'>{text}</p>
+            const effects = Array.isArray(herb.effects)
+              ? herb.effects.slice(0, 3).join(', ')
+              : (herb.effects || '')
+            return effects ? (
+              <p className='mt-1 text-sm text-sand'>{effects}</p>
             ) : null
           })()}
           <Link
@@ -115,8 +109,10 @@ export default function RotatingHerbCard() {
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key={herb.id}
-          aria-label={`Herb preview: ${name}${(() => {
-            const eff = effects.slice(0, 2).join(', ')
+          aria-label={`Herb preview: ${herb.name}${(() => {
+            const eff = Array.isArray(herb.effects)
+              ? herb.effects.slice(0, 2).join(', ')
+              : (herb.effects || '')
             return eff ? ` – ${eff}` : ''
           })()}`}
           className='glass-card hover-glow inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
@@ -129,23 +125,21 @@ export default function RotatingHerbCard() {
           whileTap={{ scale: 0.98 }}
         >
           {herb.image && (
-            <img
-              src={herb.image}
-              alt={name}
-              className='h-32 w-full rounded-md object-cover'
-            />
+            <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
           )}
           <h3
             className={`mt-3 font-herb ${
-              name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
+              herb.name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
             }`}
           >
-            {name}
+            {herb.name}
           </h3>
           {(() => {
-            const text = effects.slice(0, 3).join(', ')
-            return text ? (
-              <p className='mt-1 text-sm text-sand'>{text}</p>
+            const effects = Array.isArray(herb.effects)
+              ? herb.effects.slice(0, 3).join(', ')
+              : (herb.effects || '')
+            return effects ? (
+              <p className='mt-1 text-sm text-sand'>{effects}</p>
             ) : null
           })()}
           <Link
