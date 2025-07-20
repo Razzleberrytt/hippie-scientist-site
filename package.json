@@ -9,7 +9,7 @@
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
     "validate-herbs": "node scripts/validateHerbs.js",
-    "clean-herbs": "ts-node scripts/cleanHerbData.ts",
+    "clean-herbs": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' scripts/cleanHerbData.ts",
     "predev": "npm run clean-herbs && npm run validate-herbs",
     "prebuild": "npm run clean-herbs && npm run validate-herbs"
   },
