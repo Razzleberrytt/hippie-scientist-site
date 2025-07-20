@@ -4,9 +4,8 @@ export function isValidHerb(h: any): h is Herb {
   return (
     h &&
     typeof h.name === 'string' &&
+    h.name.trim() !== '' &&
     Array.isArray(h.effects) &&
-    typeof h.category === 'string' &&
-    typeof h.description === 'string' &&
-    Array.isArray(h.tags)
+    h.effects.length > 0
   )
 }
