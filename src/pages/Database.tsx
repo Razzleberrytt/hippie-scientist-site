@@ -204,6 +204,8 @@ export default function Database() {
             </button>
           </motion.div>
 
+          <p className='text-xs text-moss mb-2'>Raw tags have been removed for clarity.</p>
+
           <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
             <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />
             <TagFilterBar tags={allTags} counts={tagCounts} onChange={setFilteredTags} />

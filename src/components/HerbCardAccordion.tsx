@@ -18,9 +18,10 @@ interface Props {
 
 const categoryColors: Record<string, Parameters<typeof TagBadge>[0]['variant']> = {
   Oneirogen: 'blue',
-  'Dissociative / Sedative': 'purple',
-  'Empathogen / Euphoriant': 'pink',
-  'Ritual / Visionary': 'green',
+  Dissociative: 'purple',
+  Psychedelic: 'purple',
+  Empathogen: 'pink',
+  Stimulant: 'yellow',
   Other: 'yellow',
 }
 
@@ -47,8 +48,10 @@ const fieldTooltips: Record<string, string> = {
 function gradientForCategory(cat: string): string {
   const c = cat.toLowerCase()
   if (c.includes('oneirogen')) return 'from-indigo-700/40 to-purple-700/40'
-  if (c.includes('ritual') || c.includes('visionary')) return 'from-green-800/40 to-blue-800/40'
-  if (c.includes('stimulant')) return 'from-orange-700/40 to-red-700/40'
+  if (c.includes('psychedelic')) return 'from-fuchsia-700/40 to-pink-700/40'
+  if (c.includes('dissociative')) return 'from-purple-700/40 to-violet-700/40'
+  if (c.includes('empathogen')) return 'from-rose-700/40 to-pink-600/40'
+  if (c.includes('stimulant')) return 'from-orange-700/40 to-amber-700/40'
   return 'from-white/10 to-white/5'
 }
 
@@ -83,7 +86,9 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
     })
   }, [herb])
 
-  const gradient = gradientForCategory(herb.category)
+  const gradient = gradientForCategory(
+    herb.normalizedCategories?.[0] || herb.category
+  )
 
   return (
     <motion.article
@@ -130,10 +135,14 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               dangerouslySetInnerHTML={{ __html: mark(herb.scientificName) }}
             />
           )}
+          {herb.normalizedCategories?.length > 0 && (
+            <div className='flex flex-wrap gap-2 mt-2'>
+              {herb.normalizedCategories.slice(0, 3).map(tag => (
+                <TagBadge key={tag} label={tag} variant={categoryColors[tag] || 'purple'} />
+              ))}
+            </div>
+          )}
           <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
-            {herb.category && (
-              <TagBadge label={herb.category} variant={categoryColors[herb.category] || 'purple'} />
-            )}
             {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
             {herb.affiliateLink ? (
               <a
