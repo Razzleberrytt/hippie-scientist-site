@@ -17,6 +17,10 @@ export default function HerbDetailView() {
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [copied, setCopied] = React.useState(false)
 
+  if (!herbRaw?.name || !herbRaw?.description) {
+    console.warn('Incomplete herb data', id, herbRaw)
+  }
+
   if (!herbRaw) {
     return (
       <div className='p-6 text-center'>

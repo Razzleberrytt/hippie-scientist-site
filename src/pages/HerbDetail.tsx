@@ -61,6 +61,10 @@ function HerbDetailInner() {
     slug: (herb as any).slug || slugify(herb.name),
   }
 
+  if (!herbRaw?.name || !herbRaw?.description) {
+    console.warn('Incomplete herb data', id, herbRaw)
+  }
+
   const similar = React.useMemo(() => findSimilar(h), [h])
   const summary = `${h.name} is classified as ${h.category}. Known effects include ${h.effects.join(', ')}.`
 

@@ -11,6 +11,7 @@ import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import InfoTooltip from './InfoTooltip'
 import { slugify } from '../utils/slugify'
 import ErrorBoundary from './ErrorBoundary'
+import HerbCardError from './HerbCardError'
 
 interface Props {
   herb: Herb
@@ -58,10 +59,11 @@ function gradientForCategory(cat: string): string {
 }
 
 function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
-  if (!herb || !herb.name) {
-    console.warn('Skipping malformed herb:', herb)
-    return null
-  }
+  try {
+    if (!herb || !herb.name) {
+      console.warn('Skipping malformed herb:', herb)
+      return <HerbCardError />
+    }
 
   const h = {
     ...herb,
@@ -279,6 +281,14 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                   return keys.map(key => {
                     const raw = (h as any)[key]
                     if (raw == null || raw === '' || raw === 'N/A') {
+                      if (key === 'description') {
+                        return (
+                          <motion.div key={key} variants={itemVariants}>
+                            <span className='font-semibold text-lime-300'>Description:</span>{' '}
+                            {NOT_WELL_DOCUMENTED}
+                          </motion.div>
+                        )
+                      }
                       if (
                         key === 'mechanismOfAction' ||
                         key === 'toxicity' ||
@@ -402,6 +412,10 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
       </AnimatePresence>
     </motion.article>
   )
+  } catch (err) {
+    console.warn('Render herb card failed', herb?.name, err)
+    return <HerbCardError />
+  }
 }
 
 export default function HerbCardAccordion({ herb, highlight }: Props) {
