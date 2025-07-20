@@ -1,5 +1,5 @@
 import type { Herb } from '../types'
-import raw from '../../Full200.json?raw'
+import raw from '../../data/herbs.json?raw'
 import { canonicalTag } from '../utils/tagUtils'
 import { decodeTag } from '../utils/format'
 

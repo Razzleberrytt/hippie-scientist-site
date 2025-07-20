@@ -143,7 +143,12 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
             </div>
           )}
           <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
-            {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
+            {(() => {
+              const effectText = Array.isArray(herb.effects)
+                ? herb.effects.join(', ')
+                : herb.effects
+              return effectText ? <span>{effectText}</span> : null
+            })()}
             {herb.affiliateLink && (
               <a
                 href={herb.affiliateLink}
