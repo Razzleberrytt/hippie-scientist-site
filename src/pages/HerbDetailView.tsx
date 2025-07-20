@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
 import TagBadge from '../components/TagBadge'
-import { sanitizeHerb } from '../utils/sanitizeHerb'
+import { safeRenderHerb } from '../utils/safeRenderHerb'
 import { decodeTag, tagVariant } from '../utils/format'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
@@ -13,7 +13,7 @@ import TabContainer from '../components/TabContainer'
 export default function HerbDetailView() {
   const { id } = useParams<{ id: string }>()
   const herbRaw = herbs.find(h => h.id === id)
-  const herb = sanitizeHerb(herbRaw || {})
+  const herb = safeRenderHerb(herbRaw || {})
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [copied, setCopied] = React.useState(false)
 
