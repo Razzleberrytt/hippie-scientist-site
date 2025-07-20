@@ -1,25 +1,34 @@
+function cleanStr(value: any, fallback = ''): string {
+  if (typeof value !== 'string') return fallback
+  if (value === 'N/A' || value === 'Unknown') return fallback
+  return value
+}
+
 export function sanitizeHerb(herb: any): import('../types').Herb {
   return {
-    name: typeof herb?.name === 'string' ? herb.name : 'Unnamed Herb',
-    scientificName: herb?.scientificName || '',
-    category: herb?.category || 'Other',
+    name: cleanStr(herb?.name, 'Unnamed Herb'),
+    scientificName: cleanStr(herb?.scientificName),
+    category: cleanStr(herb?.category, 'Other'),
     effects: Array.isArray(herb?.effects) ? herb.effects : [],
     tags: Array.isArray(herb?.tags) ? herb.tags : [],
-    description: herb?.description || '',
-    mechanismOfAction: herb?.mechanismOfAction || '',
-    preparation: herb?.preparation || '',
-    therapeuticUses: herb?.therapeuticUses || '',
-    pharmacokinetics: herb?.pharmacokinetics || '',
-    sideEffects: herb?.sideEffects || '',
-    contraindications: herb?.contraindications || '',
-    drugInteractions: herb?.drugInteractions || '',
-    intensity: herb?.intensity || '',
-    onset: herb?.onset || '',
-    duration: herb?.duration || '',
-    legalStatus: herb?.legalStatus || '',
-    region: herb?.region || '',
-    toxicity: herb?.toxicity || '',
-    toxicityLD50: herb?.toxicityLD50 || '',
-    safetyRating: herb?.safetyRating ?? null,
+    description: cleanStr(herb?.description),
+    mechanismOfAction: cleanStr(herb?.mechanismOfAction),
+    preparation: cleanStr(herb?.preparation),
+    therapeuticUses: cleanStr(herb?.therapeuticUses),
+    pharmacokinetics: cleanStr(herb?.pharmacokinetics),
+    sideEffects: cleanStr(herb?.sideEffects),
+    contraindications: cleanStr(herb?.contraindications),
+    drugInteractions: cleanStr(herb?.drugInteractions),
+    intensity: cleanStr(herb?.intensity),
+    onset: cleanStr(herb?.onset),
+    duration: cleanStr(herb?.duration),
+    legalStatus: cleanStr(herb?.legalStatus),
+    region: cleanStr(herb?.region),
+    toxicity: cleanStr(herb?.toxicity),
+    toxicityLD50: cleanStr(herb?.toxicityLD50),
+    safetyRating:
+      herb?.safetyRating === 'N/A' || herb?.safetyRating === 'Unknown'
+        ? null
+        : (herb?.safetyRating as any) ?? null,
   } as import('../types').Herb
 }

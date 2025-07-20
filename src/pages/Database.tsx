@@ -26,10 +26,15 @@ export default function Database() {
   const safeHerbs = React.useMemo(
     () =>
       (herbs || []).map(h => {
-        if (!isValidHerb(h) && import.meta.env.DEV) {
-          console.warn('Malformed herb entry:', h)
+        try {
+          if (!isValidHerb(h) && import.meta.env.DEV) {
+            console.warn('Malformed herb entry:', h)
+          }
+          return cleanHerb(h)
+        } catch (err) {
+          console.warn('Failed cleaning herb', h?.name, err)
+          return cleanHerb({})
         }
-        return cleanHerb(h)
       }) as import('../types').Herb[],
     [herbs]
   )

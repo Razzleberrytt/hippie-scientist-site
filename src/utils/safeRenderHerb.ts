@@ -8,7 +8,10 @@ import type { Herb } from '../types'
 export function safeRenderHerb(herb: any): Herb {
   try {
     return sanitizeHerb(herb)
-  } catch {
+  } catch (err) {
+    if (import.meta.env.DEV) {
+      console.warn('Failed to sanitize herb', herb?.name, err)
+    }
     return sanitizeHerb({})
   }
 }
