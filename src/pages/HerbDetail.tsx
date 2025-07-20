@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
+import { sanitizeHerb } from '../utils/sanitizeHerb'
 import { decodeTag, tagVariant } from '../utils/format'
 import TagBadge from '../components/TagBadge'
 import { slugify } from '../utils/slugify'
@@ -38,12 +39,13 @@ function findSimilar(current: any) {
 
 function HerbDetailInner() {
   const { id } = useParams<{ id: string }>()
-  const herb = herbs.find(h => h.id === id)
+  const herbRaw = herbs.find(h => h.id === id)
+  const herb = sanitizeHerb(herbRaw || {})
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [showSimilar, setShowSimilar] = React.useState(false)
 
-  if (!herb || !herb.name || !herb.effects) {
-    console.warn('Skipping malformed herb:', herb)
+  if (!herbRaw) {
+    console.warn('Herb not found or malformed:', id)
     return (
       <div className='p-6 text-center'>
         <p>Herb not found.</p>
@@ -56,9 +58,6 @@ function HerbDetailInner() {
 
   const h = {
     ...herb,
-    name: herb.name || 'Unknown Herb',
-    effects: Array.isArray(herb.effects) ? herb.effects : [],
-    category: herb.category || 'Other',
     slug: (herb as any).slug || slugify(herb.name),
   }
 
