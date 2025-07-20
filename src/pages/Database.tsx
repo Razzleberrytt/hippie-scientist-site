@@ -104,6 +104,16 @@ export default function Database() {
     )
   }
 
+  if (!loading && safeHerbs.length === 0) {
+    console.warn('No herbs available or failed to load.')
+    return (
+      <div className='min-h-screen pt-20'>
+        <StarfieldBackground />
+        <p className='text-center text-sand'>Failed to load herb database.</p>
+      </div>
+    )
+  }
+
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
     safeHerbs.forEach(h => {

@@ -281,7 +281,11 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                   const keys = [...fieldOrder, ...extras]
                   return keys.map(key => {
                     const raw = (h as any)[key]
-                    if (raw == null || raw === '' || raw === 'N/A') {
+                    const isArray = Array.isArray(raw)
+                    const safe = isArray
+                      ? (Array.isArray(raw) ? raw : [])
+                      : safeHerbField(raw, '')
+                    if (!isArray && safe === '') {
                       if (key === 'description') {
                         return (
                           <motion.div key={key} variants={itemVariants}>
@@ -307,7 +311,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                       }
                       return null
                     }
-                    const value = Array.isArray(raw) ? raw.join(', ') : String(raw)
+                    const value = isArray ? (safe as any[]).join(', ') : String(safe)
                     if (!value.trim()) return null
                     const display = (
                       <span className={expanded[key] || value.length < 200 ? '' : 'line-clamp-2'}>

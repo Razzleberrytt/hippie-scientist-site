@@ -111,13 +111,16 @@ function HerbDetailInner() {
             'toxicityLD50',
           ].map(key => {
             const raw = (h as any)[key]
-            if (!raw) return null
+            const isArray = Array.isArray(raw)
+            const safe = isArray ? (raw as any[]) : safeHerbField(raw, '')
+            if (!isArray && safe === '') return null
+            const value = isArray ? (safe as any[]).join(', ') : String(safe)
             return (
               <div key={key}>
                 <span className='font-semibold text-lime-300'>
                   {key.replace(/([A-Z])/g, ' $1')}:
                 </span>{' '}
-                {raw}
+                {value}
               </div>
             )
           })}
