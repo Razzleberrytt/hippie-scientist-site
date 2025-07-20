@@ -144,7 +144,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
           )}
           <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
             {herb.effects?.length > 0 && <span>{herb.effects.join(', ')}</span>}
-            {herb.affiliateLink ? (
+            {herb.affiliateLink && (
               <a
                 href={herb.affiliateLink}
                 target='_blank'
@@ -154,10 +154,6 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
               >
                 Buy Online
               </a>
-            ) : (
-              <span className='rounded bg-slate-700/30 px-2 py-0.5 text-xs text-slate-300'>
-                ⚠️ No Link
-              </span>
             )}
           </div>
         </div>
