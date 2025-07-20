@@ -11,6 +11,7 @@ import { decodeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
+import LoadingSpinner from '../components/LoadingSpinner'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import SearchBar from '../components/SearchBar'
 import { Download } from 'lucide-react'
@@ -19,7 +20,7 @@ import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
 
 export default function Database() {
-  const herbs = useHerbs()
+  const { herbs, loading } = useHerbs()
   const { favorites } = useHerbFavorites()
   const {
     filtered,
@@ -76,6 +77,15 @@ export default function Database() {
     const moaCount = herbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
     return { total: herbs.length, affiliates, moaCount }
   }, [herbs])
+
+  if (loading) {
+    return (
+      <div className='min-h-screen pt-20'>
+        <StarfieldBackground />
+        <LoadingSpinner />
+      </div>
+    )
+  }
 
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
@@ -152,8 +162,9 @@ export default function Database() {
             transition={{ duration: 0.8 }}
             className='mb-8 text-center'
           >
-            <h1 className='text-gradient mb-6 text-5xl font-bold'>Herb Database</h1>
-            <p className='mx-auto max-w-4xl text-xl text-sand'>
+            <h1 className='text-gradient mb-2 text-5xl font-bold'>Herb Database</h1>
+            <p className='text-sand'>Total: {herbs.length} Herbs Loaded</p>
+            <p className='mx-auto mt-2 max-w-4xl text-xl text-sand'>
               Explore our collection of herbs. Click any entry to see detailed information.
             </p>
           </motion.div>

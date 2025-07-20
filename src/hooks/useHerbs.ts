@@ -2,8 +2,35 @@ import React from 'react'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs'
 
-export function useHerbs(): Herb[] {
-  const [herbs] = React.useState<Herb[]>(herbsData)
+interface Result {
+  herbs: Herb[]
+  loading: boolean
+}
+
+export function useHerbs(): Result {
+  const [herbs, setHerbs] = React.useState<Herb[]>([])
+  const [loading, setLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    let mounted = true
+    fetch('/validated-master-herbs.json')
+      .then(res => (res.ok ? res.json() : Promise.reject(res)))
+      .then((data: Herb[]) => {
+        if (!mounted) return
+        const parsed = Array.isArray(data) ? data : []
+        const filtered = parsed.filter(h => h && h.name)
+        filtered.sort((a, b) => a.name.localeCompare(b.name))
+        setHerbs(filtered)
+      })
+      .catch(err => {
+        console.error('Failed loading herbs', err)
+        setHerbs(herbsData)
+      })
+      .finally(() => mounted && setLoading(false))
+    return () => {
+      mounted = false
+    }
+  }, [])
 
   React.useEffect(() => {
     if (!import.meta.env.DEV) return
@@ -19,5 +46,5 @@ export function useHerbs(): Herb[] {
     })
   }, [])
 
-  return herbs
+  return { herbs, loading }
 }
