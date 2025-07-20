@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { saveAs } from 'file-saver'
 import jsPDF from 'jspdf'
 import { Herb } from '../types'
-import raw from '../../data/herbs.json?raw'
+import raw from '../data/herbs.cleaned.json?raw'
 
 const cleaned = raw.replace(/NaN/g, 'null')
 const allHerbs: Herb[] = JSON.parse(cleaned)
