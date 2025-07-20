@@ -56,7 +56,6 @@ function gradientForCategory(cat: string): string {
   return 'from-white/10 to-white/5'
 }
 
-
 function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
   if (!herb || !herb.name) {
     console.warn('Skipping malformed herb:', herb)
@@ -76,8 +75,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
   const [open, setOpen] = useState(false)
   const [tagsExpanded, setTagsExpanded] = useState(false)
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
-  const toggleField = (k: string) =>
-    setExpanded(e => ({ ...e, [k]: !e[k] }))
+  const toggleField = (k: string) => setExpanded(e => ({ ...e, [k]: !e[k] }))
   const toggle = () => setOpen(v => !v)
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
@@ -104,9 +102,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
     })
   }, [h])
 
-  const gradient = gradientForCategory(
-    h.normalizedCategories?.[0] || h.category
-  )
+  const gradient = gradientForCategory(h.normalizedCategories?.[0] || h.category)
 
   return (
     <motion.article
@@ -154,7 +150,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
             />
           )}
           {h.normalizedCategories?.length > 0 && (
-            <div className='flex flex-wrap gap-2 mt-2'>
+            <div className='mt-2 flex flex-wrap gap-2'>
               {h.normalizedCategories.slice(0, 3).map(tag => (
                 <TagBadge key={tag} label={tag} variant={categoryColors[tag] || 'purple'} />
               ))}
@@ -162,9 +158,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
           )}
           <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
             {(() => {
-              const effectText = Array.isArray(h.effects)
-                ? h.effects.join(', ')
-                : h.effects
+              const effectText = Array.isArray(h.effects) ? h.effects.join(', ') : h.effects
               return effectText ? <span>{effectText}</span> : null
             })()}
             {h.affiliateLink && (
@@ -284,14 +278,16 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                   return keys.map(key => {
                     const raw = (h as any)[key]
                     if (raw == null || raw === '' || raw === 'N/A') {
-                      if (key === 'mechanismOfAction' || key === 'toxicity' || key === 'toxicityLD50') {
+                      if (
+                        key === 'mechanismOfAction' ||
+                        key === 'toxicity' ||
+                        key === 'toxicityLD50'
+                      ) {
                         return (
                           <motion.div key={key} variants={itemVariants}>
                             <span className='font-semibold text-lime-300'>
                               {key.replace(/([A-Z])/g, ' $1') + ':'}
-                              {fieldTooltips[key] && (
-                                <InfoTooltip text={fieldTooltips[key]} />
-                              )}
+                              {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
                             </span>{' '}
                             {UNKNOWN}
                           </motion.div>
@@ -302,11 +298,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                     const value = Array.isArray(raw) ? raw.join(', ') : String(raw)
                     if (!value.trim()) return null
                     const display = (
-                      <span
-                        className={
-                          expanded[key] || value.length < 200 ? '' : 'line-clamp-2'
-                        }
-                      >
+                      <span className={expanded[key] || value.length < 200 ? '' : 'line-clamp-2'}>
                         {value}
                       </span>
                     )
@@ -314,9 +306,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                       <motion.div key={key} variants={itemVariants}>
                         <span className='font-semibold text-lime-300'>
                           {key.replace(/([A-Z])/g, ' $1') + ':'}
-                          {fieldTooltips[key] && (
-                            <InfoTooltip text={fieldTooltips[key]} />
-                          )}
+                          {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
                         </span>{' '}
                         {display}
                         {value.length > 200 && (
@@ -382,14 +372,15 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                       <span className='font-semibold text-lime-300'>Safety Rating:</span>{' '}
                       <TagBadge
                         label={h.safetyRating}
-                        variant={h.safetyRating?.toString().toLowerCase() === 'low' ? 'green' : 'purple'}
+                        variant={
+                          h.safetyRating?.toString().toLowerCase() === 'low' ? 'green' : 'purple'
+                        }
                       />
                     </div>
                   )}
                   {h.toxicity && (
                     <div>
-                      <span className='font-semibold text-lime-300'>Toxicity:</span>{' '}
-                      {h.toxicity}
+                      <span className='font-semibold text-lime-300'>Toxicity:</span> {h.toxicity}
                     </div>
                   )}
                   {h.toxicityLD50 && (
@@ -428,10 +419,11 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
   )
 }
 
-export default function HerbCardAccordion(props: Props) {
+export default function HerbCardAccordion({ herb, highlight }: Props) {
+  if (!herb || !(herb as any).name) return null
   return (
     <ErrorBoundary>
-      <HerbCardAccordionInner {...props} />
+      <HerbCardAccordionInner herb={herb} highlight={highlight} />
     </ErrorBoundary>
   )
 }
