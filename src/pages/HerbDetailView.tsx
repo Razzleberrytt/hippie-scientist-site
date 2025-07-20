@@ -32,6 +32,7 @@ export default function HerbDetailView() {
   }
 
   if (!herbRaw) {
+    console.warn('Herb not found or malformed:', id)
     return (
       <div className='p-6 text-center'>
         <p>Herb not found.</p>
@@ -63,9 +64,10 @@ export default function HerbDetailView() {
           </div>
         ) : null
       })()}
-      {h.region && (
+      {safeHerbField(h.region, '') && (
         <div>
-          <span className='font-semibold text-lime-300'>Region:</span> {h.region}
+          <span className='font-semibold text-lime-300'>Region:</span>{' '}
+          {safeHerbField(h.region, '')}
         </div>
       )}
       {(h as any).history && (
@@ -98,14 +100,16 @@ export default function HerbDetailView() {
           ))}
         </div>
       )}
-      {h.mechanismOfAction && (
+      {safeHerbField(h.mechanismOfAction, '') && (
         <div>
-          <span className='font-semibold text-lime-300'>Mechanism:</span> {h.mechanismOfAction}
+          <span className='font-semibold text-lime-300'>Mechanism:</span>{' '}
+          {safeHerbField(h.mechanismOfAction, '')}
         </div>
       )}
-      {h.toxicityLD50 && (
+      {safeHerbField(h.toxicityLD50, '') && (
         <div>
-          <span className='font-semibold text-lime-300'>LD50:</span> {h.toxicityLD50}
+          <span className='font-semibold text-lime-300'>LD50:</span>{' '}
+          {safeHerbField(h.toxicityLD50, '')}
         </div>
       )}
     </div>
@@ -113,19 +117,22 @@ export default function HerbDetailView() {
 
   const usage = (
     <div className='space-y-2'>
-      {h.preparation && (
+      {safeHerbField(h.preparation, '') && (
         <div>
-          <span className='font-semibold text-lime-300'>Prep:</span> {h.preparation}
+          <span className='font-semibold text-lime-300'>Prep:</span>{' '}
+          {safeHerbField(h.preparation, '')}
         </div>
       )}
-      {h.intensity && (
+      {safeHerbField(h.intensity, '') && (
         <div>
-          <span className='font-semibold text-lime-300'>Intensity:</span> {h.intensity}
+          <span className='font-semibold text-lime-300'>Intensity:</span>{' '}
+          {safeHerbField(h.intensity, '')}
         </div>
       )}
-      {h.dosage && (
+      {safeHerbField(h.dosage, '') && (
         <div>
-          <span className='font-semibold text-lime-300'>Dosage:</span> {h.dosage}
+          <span className='font-semibold text-lime-300'>Dosage:</span>{' '}
+          {safeHerbField(h.dosage, '')}
         </div>
       )}
       {h.affiliateLink && h.affiliateLink.startsWith('http') ? (
