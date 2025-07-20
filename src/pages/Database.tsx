@@ -6,7 +6,6 @@ import { motion } from 'framer-motion'
 import HerbList from '../components/HerbList'
 import TagFilterBar from '../components/TagFilterBar'
 import CategoryAnalytics from '../components/CategoryAnalytics'
-import TagDistribution from '../components/TagDistribution'
 import CategoryFilter from '../components/CategoryFilter'
 import { decodeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
@@ -88,15 +87,6 @@ export default function Database() {
     })
     return counts
   }, [herbs])
-
-  const toggleTag = React.useCallback(
-    (tag: string) => {
-      setFilteredTags(prev =>
-        prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-      )
-    },
-    [setFilteredTags]
-  )
 
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
@@ -204,8 +194,6 @@ export default function Database() {
             </button>
           </motion.div>
 
-          <p className='text-xs text-moss mb-2'>Raw tags have been removed for clarity.</p>
-
           <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
             <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />
             <TagFilterBar tags={allTags} counts={tagCounts} onChange={setFilteredTags} />
@@ -226,11 +214,6 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          <TagDistribution
-            counts={tagCounts}
-            selected={filteredTags}
-            onToggle={toggleTag}
-          />
           <HerbList herbs={filtered} highlightQuery={query} />
           <footer className='mt-4 text-center text-sm text-moss'>
             Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
