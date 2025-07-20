@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-
 const dataDir = 'data'
 const originalPath = path.join(dataDir, 'herbs.original.json')
 const cleanedPath = path.join(dataDir, 'herbs.cleaned.json')
