@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
-import { sanitizeHerb } from '../utils/sanitizeHerb'
+import { safeRenderHerb } from '../utils/safeRenderHerb'
 import { decodeTag, tagVariant } from '../utils/format'
 import TagBadge from '../components/TagBadge'
 import { slugify } from '../utils/slugify'
@@ -40,7 +40,7 @@ function findSimilar(current: any) {
 function HerbDetailInner() {
   const { id } = useParams<{ id: string }>()
   const herbRaw = herbs.find(h => h.id === id)
-  const herb = sanitizeHerb(herbRaw || {})
+  const herb = safeRenderHerb(herbRaw || {})
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [showSimilar, setShowSimilar] = React.useState(false)
 

@@ -36,7 +36,8 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
-const TAG_LIMIT = 5
+// Only show a couple tags by default to keep cards compact
+const TAG_LIMIT = 2
 
 const fieldTooltips: Record<string, string> = {
   mechanismOfAction: 'How this herb produces its effects in the body.',
@@ -345,22 +346,6 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                         {c.name}
                       </Link>
                     </React.Fragment>
-                  ))}
-                </motion.div>
-              )}
-
-              {h.tags?.length > 0 && (
-                <motion.div
-                  variants={itemVariants}
-                  className='flex max-h-24 flex-wrap gap-2 overflow-y-auto pt-2 sm:max-h-32'
-                >
-                  {h.tags.slice(0, 10).map(tag => (
-                    <TagBadge
-                      key={tag}
-                      label={decodeTag(tag)}
-                      variant={tagVariant(tag)}
-                      className={open ? 'animate-pulse' : ''}
-                    />
                   ))}
                 </motion.div>
               )}
