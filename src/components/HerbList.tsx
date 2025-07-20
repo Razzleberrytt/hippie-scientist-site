@@ -4,7 +4,19 @@ import type { Herb } from '../types'
 import HerbCardAccordion from './HerbCardAccordion'
 import ErrorBoundary from './ErrorBoundary'
 import HerbCardError from './HerbCardError'
-import { isValidHerb } from '../utils/isValidHerb'
+
+function sanitizeHerb(herb: Partial<Herb> | null | undefined): Herb {
+  return {
+    name: herb?.name || 'Unknown Herb',
+    scientificName: herb?.scientificName || 'Unknown',
+    effects: Array.isArray(herb?.effects) ? (herb.effects as string[]) : ['Unknown'],
+    tags: Array.isArray(herb?.tags) ? (herb.tags as string[]) : [],
+    mechanismOfAction: (herb as any)?.mechanismOfAction || 'Unknown',
+    category: herb?.category || 'Uncategorized',
+    description: (herb as any)?.description || 'No description available',
+    ...(her as any),
+  } as Herb
+}
 
 const containerVariants = {
   hidden: {},
@@ -25,19 +37,22 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
   const [visible, setVisible] = React.useState(batchSize)
 
   const safeHerbs = React.useMemo(() => {
-    return herbs.filter((h, i) => {
-      const ok = isValidHerb(h)
-      if (!ok) {
-        console.warn('Skipping invalid herb:', h?.name ?? `index ${i}`)
-      }
-      return ok
-    })
+    const list = herbs.map(h => sanitizeHerb(h))
+    return list
   }, [herbs])
+
+  if (process.env.NODE_ENV !== 'production') {
+    safeHerbs.forEach(h => {
+      if (h.name === 'Unknown Herb') {
+        console.warn('⚠️ Invalid herb sanitized:', h)
+      }
+    })
+  }
 
   const showMore = () => setVisible(v => Math.min(v + batchSize, safeHerbs.length))
 
   if (safeHerbs.length === 0) {
-    return <p className='text-center text-sand/80'>No valid herbs found.</p>
+    return <p className='text-center text-sand/80'>No herbs found.</p>
   }
 
   return (
