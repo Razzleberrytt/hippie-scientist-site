@@ -10,6 +10,7 @@
     "test": "echo \"No tests specified\" && exit 0",
     "clean-herbs": "node scripts/cleanHerbData.js",
     "validate-herbs": "ts-node scripts/validateHerbData.ts",
+    "fix-herbs": "node scripts/fixHerbs.js",
     "predev": "npm run clean-herbs && npm run validate-herbs",
     "prebuild": "npm run clean-herbs && npm run validate-herbs || echo 'Validation skipped'"
   },
