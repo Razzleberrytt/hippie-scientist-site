@@ -14,7 +14,7 @@ export function useHerbs(): Result {
 
   React.useEffect(() => {
     let mounted = true
-    fetch('/validated-master-herbs.json')
+    fetch('/data/Full79.json')
       .then(res => (res.ok ? res.json() : Promise.reject(res)))
       .then((data: Herb[]) => {
         if (!mounted) return
