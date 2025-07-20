@@ -348,7 +348,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 >
                   View full page
                 </Link>
-                {herb.affiliateLink ? (
+                {herb.affiliateLink && (
                   <a
                     href={herb.affiliateLink}
                     target='_blank'
@@ -358,8 +358,6 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                   >
                     🌐 Buy Online
                   </a>
-                ) : (
-                  <span className='ml-4 text-sm text-sand/50'>⚠️ Buy Online</span>
                 )}
               </motion.div>
             </motion.div>
