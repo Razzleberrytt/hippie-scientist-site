@@ -1,15 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 
-interface Herb {
-  name?: string
-  slug?: string
-  tags?: string[]
-  effects?: string | string[]
-  category?: string
-  safetyRating?: string
-  [key: string]: any
-}
 
 const dataDir = 'data'
 const originalPath = path.join(dataDir, 'herbs.original.json')
@@ -23,12 +14,12 @@ if (!fs.existsSync(originalPath)) {
   process.exit(1)
 }
 
-const slugify = (s: string) =>
+const slugify = s =>
   s
     .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[^\w-]/g, '')
-const inferCategory = (tags: string[]) => {
+const inferCategory = tags => {
   if (tags.includes('Oneirogen')) return 'Oneirogen'
   if (tags.some(t => /dissociative|sedative/i.test(t))) return 'Dissociative / Sedative'
   if (tags.some(t => /empathogen|euphoriant/i.test(t))) return 'Empathogen / Euphoriant'
@@ -36,21 +27,21 @@ const inferCategory = (tags: string[]) => {
   return 'Other'
 }
 
-const raw = JSON.parse(fs.readFileSync(originalPath, 'utf8')) as Herb[]
+const raw = JSON.parse(fs.readFileSync(originalPath, 'utf8'))
 
 let processed = 0
 let fixed = 0
 let skipped = 0
 let duplicates = 0
-const seen = new Set<string>()
-const cleaned: Herb[] = []
+const seen = new Set()
+const cleaned = []
 
 for (const herb of raw) {
   processed++
-  const h: Herb = { ...herb }
+  const h = { ...herb }
 
   for (const k of Object.keys(h)) {
-    if (typeof h[k] === 'string') h[k] = (h[k] as string).trim()
+    if (typeof h[k] === 'string') h[k] = h[k].trim()
   }
 
   h.tags = Array.isArray(h.tags) ? h.tags.map(t => t.trim()).filter(Boolean) : []
