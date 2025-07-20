@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs'
+import { validateHerb } from '../utils/validateHerb'
 
 interface Result {
   herbs: Herb[]
@@ -18,13 +19,19 @@ export function useHerbs(): Result {
       .then((data: Herb[]) => {
         if (!mounted) return
         const parsed = Array.isArray(data) ? data : []
-        const filtered = parsed.filter(h => h && h.name)
-        filtered.sort((a, b) => a.name.localeCompare(b.name))
-        setHerbs(filtered)
+        const validated = parsed
+          .map(validateHerb)
+          .filter((h): h is Herb => h !== null)
+        validated.sort((a, b) => a.name.localeCompare(b.name))
+        setHerbs(validated)
       })
       .catch(err => {
         console.error('Failed loading herbs', err)
-        setHerbs(herbsData)
+        const validated = herbsData
+          .map(validateHerb)
+          .filter((h): h is Herb => h !== null)
+        validated.sort((a, b) => a.name.localeCompare(b.name))
+        setHerbs(validated)
       })
       .finally(() => mounted && setLoading(false))
     return () => {
