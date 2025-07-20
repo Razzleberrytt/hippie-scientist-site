@@ -62,9 +62,9 @@ export default function HerbDetailView() {
           {(herb as any).history}
         </div>
       )}
-      {herb.tags.length > 0 && (
+      {herb.tags?.length > 0 && (
         <div className='flex flex-wrap gap-2 pt-2'>
-          {herb.tags.map(tag => (
+          {herb.tags?.map(tag => (
             <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
           ))}
         </div>

@@ -13,9 +13,9 @@ function findSimilar(current: any) {
   const scores = herbs.map(h => {
     if (h.id === current.id) return { h, score: -1 }
     let score = 0
-    const tags = new Set(h.tags)
+    const tags = new Set(h.tags ?? [])
     const effects = new Set(h.effects || [])
-    current.tags.forEach((t: string) => {
+    ;(current.tags ?? []).forEach((t: string) => {
       if (tags.has(t)) score += 2
     })
     ;(current.effects || []).forEach((e: string) => {
@@ -136,7 +136,7 @@ function HerbDetailInner() {
             </a>
           )}
           <div className='flex flex-wrap gap-2 pt-2'>
-            {h.tags.map(tag => (
+            {h.tags?.map(tag => (
               <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
             ))}
           </div>

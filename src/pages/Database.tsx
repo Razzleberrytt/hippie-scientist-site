@@ -66,7 +66,7 @@ export default function Database() {
   }, [])
 
   const allTags = React.useMemo(() => {
-    const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
+    const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags ?? []), [])
     return Array.from(new Set(t.map(canonicalTag)))
   }, [herbs])
 
@@ -90,7 +90,7 @@ export default function Database() {
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
     herbs.forEach(h => {
-      h.tags.forEach(t => {
+      ;(h.tags ?? []).forEach(t => {
         const canon = canonicalTag(t)
         counts[canon] = (counts[canon] || 0) + 1
       })
@@ -128,8 +128,12 @@ export default function Database() {
     if (filteredTags.length === 0) return [] as string[]
     const counts: Record<string, number> = {}
     herbs.forEach(h => {
-      if (filteredTags.every(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))) {
-        h.tags.forEach(t => {
+      if (
+        filteredTags.every(t =>
+          (h.tags ?? []).some(ht => canonicalTag(ht) === canonicalTag(t))
+        )
+      ) {
+        ;(h.tags ?? []).forEach(t => {
           const canon = canonicalTag(t)
           if (!filteredTags.some(ft => canonicalTag(ft) === canon)) {
             counts[canon] = (counts[canon] || 0) + 1
