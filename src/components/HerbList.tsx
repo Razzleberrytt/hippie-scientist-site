@@ -4,7 +4,7 @@ import type { Herb } from '../types'
 import HerbCardAccordion from './HerbCardAccordion'
 import ErrorBoundary from './ErrorBoundary'
 import HerbCardError from './HerbCardError'
-import { isValidHerb } from '../utils/isValidHerb'
+import { sanitizeHerb } from '../utils/sanitizeHerb'
 
 const containerVariants = {
   hidden: {},
@@ -25,12 +25,13 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
   const [visible, setVisible] = React.useState(batchSize)
 
   const safeHerbs = React.useMemo(() => {
-    return herbs.filter((h, i) => {
-      const ok = isValidHerb(h)
-      if (!ok) {
-        console.warn('Skipping invalid herb:', h?.name ?? `index ${i}`)
+    return herbs.map((h, i) => {
+      try {
+        return sanitizeHerb(h)
+      } catch (e) {
+        console.warn(`Bad herb at index ${i}:`, h)
+        return sanitizeHerb({})
       }
-      return ok
     })
   }, [herbs])
 
@@ -53,7 +54,7 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
         <AnimatePresence>
           {safeHerbs.slice(0, visible).map((h, idx) => (
             <motion.div key={h.id || h.name || idx} variants={itemVariants} layout>
-              <ErrorBoundary fallback={<HerbCardError />}> 
+              <ErrorBoundary fallback={<HerbCardError />}>
                 <HerbCardAccordion herb={h} highlight={highlightQuery} />
               </ErrorBoundary>
             </motion.div>
@@ -65,7 +66,7 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
           <button
             type='button'
             onClick={showMore}
-            className='rounded-md bg-black/30 px-4 py-2 text-sand hover:bg-white/10 backdrop-blur-md'
+            className='rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:bg-white/10'
           >
             Show More
           </button>

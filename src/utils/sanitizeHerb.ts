@@ -1,0 +1,25 @@
+export function sanitizeHerb(raw: any): import('../types').Herb {
+  return {
+    name: raw?.name || 'Unnamed Herb',
+    scientificName: raw?.scientificName || '',
+    category: raw?.category || 'Unknown',
+    effects: Array.isArray(raw?.effects) ? raw.effects : ['Unknown'],
+    tags: Array.isArray(raw?.tags) ? raw.tags : [],
+    description: raw?.description || 'No description provided.',
+    mechanismOfAction: raw?.mechanismOfAction || 'Unknown',
+    preparation: raw?.preparation || '',
+    therapeuticUses: raw?.therapeuticUses || '',
+    pharmacokinetics: raw?.pharmacokinetics || '',
+    sideEffects: raw?.sideEffects || '',
+    contraindications: raw?.contraindications || '',
+    drugInteractions: raw?.drugInteractions || '',
+    intensity: raw?.intensity || '',
+    onset: raw?.onset || '',
+    duration: raw?.duration || '',
+    legalStatus: raw?.legalStatus || '',
+    region: raw?.region || '',
+    toxicity: raw?.toxicity || '',
+    toxicityLD50: raw?.toxicityLD50 || '',
+    safetyRating: raw?.safetyRating ?? null,
+  } as import('../types').Herb
+}
