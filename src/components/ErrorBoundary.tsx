@@ -1,35 +1,30 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
+import React from 'react'
 
-interface Props {
-  children: ReactNode;
-}
+interface State { hasError: boolean }
 
-interface State {
-  hasError: boolean;
-}
-
-class ErrorBoundary extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { hasError: false };
+export default class ErrorBoundary extends React.Component<React.PropsWithChildren, State> {
+  constructor(props: React.PropsWithChildren) {
+    super(props)
+    this.state = { hasError: false }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  static getDerivedStateFromError(_error: Error): State {
-    return { hasError: true };
+  static getDerivedStateFromError() {
+    return { hasError: true }
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('Uncaught error:', error, info);
+  componentDidCatch(error: Error, info: React.ErrorInfo) {
+    console.error('ErrorBoundary caught an error', error, info)
   }
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return (
+        <div className='p-6 text-center'>
+          <h1 className='mb-4 text-2xl font-bold text-red-400'>Something went wrong.</h1>
+          <p className='text-sand'>Please try refreshing the page.</p>
+        </div>
+      )
     }
-
-    return this.props.children;
+    return this.props.children
   }
 }
-
-export default ErrorBoundary;
