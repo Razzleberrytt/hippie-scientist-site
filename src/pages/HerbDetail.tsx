@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
 import { safeRenderHerb } from '../utils/safeRenderHerb'
+import { safeHerbField } from '../utils/safeHerbField'
 import { decodeTag, tagVariant } from '../utils/format'
 import TagBadge from '../components/TagBadge'
 import { slugify } from '../utils/slugify'
@@ -58,7 +59,12 @@ function HerbDetailInner() {
 
   const h = {
     ...herb,
-    slug: (herb as any).slug || slugify(herb.name),
+    name: safeHerbField(herb.name, 'Unnamed Herb'),
+    description: safeHerbField(herb.description, ''),
+    category: safeHerbField(herb.category, 'Other'),
+    tags: Array.isArray(herb.tags) ? herb.tags : [],
+    effects: Array.isArray(herb.effects) ? herb.effects : [],
+    slug: (herb as any).slug || slugify(safeHerbField(herb.name, '')),
   }
 
   if (!herbRaw?.name || !herbRaw?.description) {

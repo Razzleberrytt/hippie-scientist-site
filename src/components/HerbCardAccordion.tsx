@@ -10,6 +10,7 @@ import TagBadge from './TagBadge'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import InfoTooltip from './InfoTooltip'
 import { slugify } from '../utils/slugify'
+import { safeHerbField } from '../utils/safeHerbField'
 import ErrorBoundary from './ErrorBoundary'
 import HerbCardError from './HerbCardError'
 
@@ -67,12 +68,12 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
 
   const h = {
     ...herb,
-    name: herb.name || 'Unknown Herb',
+    name: safeHerbField(herb.name, 'Unknown Herb'),
     effects: Array.isArray(herb.effects) ? herb.effects : [],
-    category: herb.category || 'Other',
+    category: safeHerbField(herb.category, 'Other'),
     tags: Array.isArray(herb.tags) ? herb.tags : [],
-    description: typeof herb.description === 'string' ? herb.description : '',
-    slug: (herb as any).slug || slugify(herb.name),
+    description: safeHerbField(herb.description, ''),
+    slug: (herb as any).slug || slugify(safeHerbField(herb.name, '')),
   }
 
   const [open, setOpen] = useState(false)

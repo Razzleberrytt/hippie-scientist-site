@@ -1,7 +1,7 @@
+import { safeHerbField } from './safeHerbField'
+
 function cleanStr(value: any, fallback = ''): string {
-  if (typeof value !== 'string') return fallback
-  if (value === 'N/A' || value === 'Unknown') return fallback
-  return value
+  return safeHerbField(value, fallback)
 }
 
 export function sanitizeHerb(herb: any): import('../types').Herb {

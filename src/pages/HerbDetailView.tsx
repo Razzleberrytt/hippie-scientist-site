@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
 import TagBadge from '../components/TagBadge'
 import { safeRenderHerb } from '../utils/safeRenderHerb'
+import { safeHerbField } from '../utils/safeHerbField'
 import { decodeTag, tagVariant } from '../utils/format'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
@@ -14,6 +15,15 @@ export default function HerbDetailView() {
   const { id } = useParams<{ id: string }>()
   const herbRaw = herbs.find(h => h.id === id)
   const herb = safeRenderHerb(herbRaw || {})
+  const h = {
+    ...herb,
+    name: safeHerbField(herb.name, 'Unnamed Herb'),
+    description: safeHerbField(herb.description, ''),
+    category: safeHerbField(herb.category, 'Other'),
+    tags: Array.isArray(herb.tags) ? herb.tags : [],
+    effects: Array.isArray(herb.effects) ? herb.effects : [],
+    slug: (herb as any).slug || slugify(safeHerbField(herb.name, '')),
+  }
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [copied, setCopied] = React.useState(false)
 
@@ -32,7 +42,7 @@ export default function HerbDetailView() {
     )
   }
 
-  const shareUrl = `https://thehippiescientist.net/#/herb/${herb.id}`
+  const shareUrl = `https://thehippiescientist.net/#/herb/${h.id}`
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(shareUrl)
@@ -46,26 +56,26 @@ export default function HerbDetailView() {
   const overview = (
     <div className='space-y-2'>
       {(() => {
-        const eff = Array.isArray(herb.effects) ? herb.effects.join(', ') : herb.effects || ''
+        const eff = Array.isArray(h.effects) ? h.effects.join(', ') : h.effects || ''
         return eff ? (
           <div>
             <span className='font-semibold text-lime-300'>Effects:</span> {eff}
           </div>
         ) : null
       })()}
-      {herb.region && (
+      {h.region && (
         <div>
-          <span className='font-semibold text-lime-300'>Region:</span> {herb.region}
+          <span className='font-semibold text-lime-300'>Region:</span> {h.region}
         </div>
       )}
-      {(herb as any).history && (
+      {(h as any).history && (
         <div>
-          <span className='font-semibold text-lime-300'>History:</span> {(herb as any).history}
+          <span className='font-semibold text-lime-300'>History:</span> {(h as any).history}
         </div>
       )}
-      {herb.tags?.length > 0 && (
+      {h.tags?.length > 0 && (
         <div className='flex flex-wrap gap-2 pt-2'>
-          {herb.tags?.map(tag => (
+          {h.tags?.map(tag => (
             <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
           ))}
         </div>
@@ -75,10 +85,10 @@ export default function HerbDetailView() {
 
   const chemistry = (
     <div className='space-y-2'>
-      {herb.activeConstituents?.length > 0 && (
+      {h.activeConstituents?.length > 0 && (
         <div>
           <span className='font-semibold text-lime-300'>Compounds:</span>{' '}
-          {herb.activeConstituents.map((c, i) => (
+          {h.activeConstituents.map((c, i) => (
             <React.Fragment key={c.name}>
               {i > 0 && ', '}
               <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>
@@ -88,14 +98,14 @@ export default function HerbDetailView() {
           ))}
         </div>
       )}
-      {herb.mechanismOfAction && (
+      {h.mechanismOfAction && (
         <div>
-          <span className='font-semibold text-lime-300'>Mechanism:</span> {herb.mechanismOfAction}
+          <span className='font-semibold text-lime-300'>Mechanism:</span> {h.mechanismOfAction}
         </div>
       )}
-      {herb.toxicityLD50 && (
+      {h.toxicityLD50 && (
         <div>
-          <span className='font-semibold text-lime-300'>LD50:</span> {herb.toxicityLD50}
+          <span className='font-semibold text-lime-300'>LD50:</span> {h.toxicityLD50}
         </div>
       )}
     </div>
@@ -103,24 +113,24 @@ export default function HerbDetailView() {
 
   const usage = (
     <div className='space-y-2'>
-      {herb.preparation && (
+      {h.preparation && (
         <div>
-          <span className='font-semibold text-lime-300'>Prep:</span> {herb.preparation}
+          <span className='font-semibold text-lime-300'>Prep:</span> {h.preparation}
         </div>
       )}
-      {herb.intensity && (
+      {h.intensity && (
         <div>
-          <span className='font-semibold text-lime-300'>Intensity:</span> {herb.intensity}
+          <span className='font-semibold text-lime-300'>Intensity:</span> {h.intensity}
         </div>
       )}
-      {herb.dosage && (
+      {h.dosage && (
         <div>
-          <span className='font-semibold text-lime-300'>Dosage:</span> {herb.dosage}
+          <span className='font-semibold text-lime-300'>Dosage:</span> {h.dosage}
         </div>
       )}
-      {herb.affiliateLink && herb.affiliateLink.startsWith('http') ? (
+      {h.affiliateLink && h.affiliateLink.startsWith('http') ? (
         <a
-          href={herb.affiliateLink}
+          href={h.affiliateLink}
           target='_blank'
           rel='noopener noreferrer'
           className='text-sky-300 underline'
@@ -156,14 +166,14 @@ export default function HerbDetailView() {
     { id: 'usage', label: 'Usage', content: usage },
   ]
 
-  const effectsSummary = Array.isArray(herb.effects) ? herb.effects.join(', ') : herb.effects || ''
-  const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${effectsSummary}.`
+  const effectsSummary = Array.isArray(h.effects) ? h.effects.join(', ') : h.effects || ''
+  const summary = `${h.name} is classified as ${h.category}. Known effects include ${effectsSummary}.`
 
   return (
     <>
       <Helmet>
-        <title>{herb.name} - The Hippie Scientist</title>
-        {herb.description && <meta name='description' content={herb.description} />}
+        <title>{h.name} - The Hippie Scientist</title>
+        {h.description && <meta name='description' content={h.description} />}
       </Helmet>
       <motion.div
         initial={{ opacity: 0 }}
@@ -173,8 +183,8 @@ export default function HerbDetailView() {
         <Link to='/database' className='text-comet underline'>
           ← Back
         </Link>
-        <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
-        {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
+        <h1 className='text-gradient text-4xl font-bold'>{h.name}</h1>
+        {h.scientificName && <p className='italic'>{h.scientificName}</p>}
         <button
           type='button'
           onClick={copyLink}
