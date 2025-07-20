@@ -6,7 +6,11 @@ const n=`[
     "description": "A Taiwanese tree whose root bark is rich in DMT and related tryptamines. Commonly used in DIY Ayahuasca analogs or 'Anahuasca' brews.",
     "drugInteractions": "MAOIs, antidepressants — risky",
     "duration": "4–6 hrs",
-    "effects": "Visual distortion, mystical states, introspection",
+    "effects": [
+      "Visual distortion",
+      "mystical states",
+      "introspection"
+    ],
     "id": "acacia-confusa",
     "intensity": "Strong",
     "legalStatus": "DMT restricted in many countries",
@@ -44,7 +48,10 @@ const n=`[
     "description": "Asian sweet flag containing β-asarone, sometimes taken for cognition.",
     "drugInteractions": "May enhance CNS depressants.",
     "duration": "Unknown",
-    "effects": "Cognitive clarity, trippy effects (debated)",
+    "effects": [
+      "Cognitive clarity",
+      "trippy effects (debated)"
+    ],
     "id": "acorus-gramineus",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -76,7 +83,11 @@ const n=`[
     "description": "A sacred dream-enhancing root used by the Xhosa people of South Africa to induce powerful and meaningful dreams.",
     "drugInteractions": "Unknown",
     "duration": "During REM sleep",
-    "effects": "Vivid dreams, lucidity, spiritual connection",
+    "effects": [
+      "Vivid dreams",
+      "lucidity",
+      "spiritual connection"
+    ],
     "id": "african-dream-root",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -107,7 +118,11 @@ const n=`[
     "description": "Used in Amazonian shamanic rituals for its spiritual and anti-inflammatory effects. Often included in Ayahuasca blends.",
     "drugInteractions": "Unknown",
     "duration": "2–6 hrs",
-    "effects": "Anti-inflammatory, spiritual clarity, energetic cleansing",
+    "effects": [
+      "Anti-inflammatory",
+      "spiritual clarity",
+      "energetic cleansing"
+    ],
     "id": "alchornea-castaneifolia",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -138,7 +153,10 @@ const n=`[
     "description": "South American tree whose snuffable seeds contain bufotenin.",
     "drugInteractions": "Concomitant use with SSRIs or MAOIs may risk serotonin syndrome [1, 0].",
     "duration": "Unknown",
-    "effects": "Entheogenic snuff, alternate reality feel",
+    "effects": [
+      "Entheogenic snuff",
+      "alternate reality feel"
+    ],
     "id": "anadenanthera-colubrina-cebl",
     "intensity": "High",
     "legalStatus": "Restricted in many regions",
@@ -167,7 +185,10 @@ const n=`[
     "description": "Common European mugwort used in dream pillows and as bitter tonic.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Lucid dreaming, light hallucinations",
+    "effects": [
+      "Lucid dreaming",
+      "light hallucinations"
+    ],
     "id": "artemisia-vulgaris-mugwort",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -200,7 +221,10 @@ const n=`[
     "description": "Aquatic herb taken long-term to improve memory and concentration.",
     "drugInteractions": "No major interactions documented; caution with sedatives [0, 5].",
     "duration": "Unknown",
-    "effects": "Memory enhancer, mild calming",
+    "effects": [
+      "Memory enhancer",
+      "mild calming"
+    ],
     "id": "bacopa-monnieri",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -233,7 +257,10 @@ const n=`[
     "description": "Deadly nightshade once used for trance and as a cosmetic poison.",
     "drugInteractions": "CNS depressants, anticholinergic drugs.",
     "duration": "Unknown",
-    "effects": "Hallucinations, dreamlike confusion",
+    "effects": [
+      "Hallucinations",
+      "dreamlike confusion"
+    ],
     "id": "belladonna",
     "intensity": "High",
     "legalStatus": "Controlled / Toxic",
@@ -262,7 +289,11 @@ const n=`[
     "description": "A widely used masticatory stimulant in Asia and the Pacific, often combined with lime and betel leaf.",
     "drugInteractions": "Stimulants, parasympathomimetics",
     "duration": "Unknown",
-    "effects": "Stimulation, warmth, mild euphoria",
+    "effects": [
+      "Stimulation",
+      "warmth",
+      "mild euphoria"
+    ],
     "id": "betel-nut",
     "intensity": "Unknown",
     "legalStatus": "Unknown",
@@ -289,7 +320,11 @@ const n=`[
     "description": "Sacred Egyptian flower associated with dream states and aphrodisiac properties. Contains aporphine alkaloids.",
     "drugInteractions": "Avoid sedatives",
     "duration": "2–4 hrs",
-    "effects": "Mild euphoria, lucid dreaming, relaxation",
+    "effects": [
+      "Mild euphoria",
+      "lucid dreaming",
+      "relaxation"
+    ],
     "id": "blue-lotus",
     "intensity": "Mild",
     "legalStatus": "Legal in most countries",
@@ -320,7 +355,11 @@ const n=`[
     "description": "Sacred water lily delivering gentle euphoria and relaxation.",
     "drugInteractions": "Potential additive effects with CNS depressants.",
     "duration": "Unknown",
-    "effects": "Euphoria, aphrodisiac, dreamy calm",
+    "effects": [
+      "Euphoria",
+      "aphrodisiac",
+      "dreamy calm"
+    ],
     "id": "blue-lotus-nymphaea-caerulea",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -352,7 +391,11 @@ const n=`[
     "description": "A flowering Amazonian shrub used in master plant dieta and as an adjunct to Ayahuasca ceremonies for emotional healing and dream clarity.",
     "drugInteractions": "Unknown; caution with serotonergics",
     "duration": "2–6 hrs",
-    "effects": "Heart-opening, emotional clarity, mild euphoria",
+    "effects": [
+      "Heart-opening",
+      "emotional clarity",
+      "mild euphoria"
+    ],
     "id": "bobinsana",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -383,7 +426,11 @@ const n=`[
     "description": "Powerful and dangerous deliriant used in South American shamanism. Highly toxic and not recommended for casual use.",
     "drugInteractions": "Anticholinergics, CNS depressants",
     "duration": "Unknown",
-    "effects": "Hallucinations, delirium, disorientation",
+    "effects": [
+      "Hallucinations",
+      "delirium",
+      "disorientation"
+    ],
     "id": "brugmansia",
     "intensity": "Unknown",
     "legalStatus": "Unknown",
@@ -410,7 +457,11 @@ const n=`[
     "description": "The vine of the soul used in Ayahuasca. Contains harmala alkaloids and facilitates DMT absorption in the brew.",
     "drugInteractions": "All serotonergic substances",
     "duration": "Unknown",
-    "effects": "MAOI effects, spiritual opening, purging",
+    "effects": [
+      "MAOI effects",
+      "spiritual opening",
+      "purging"
+    ],
     "id": "caapi",
     "intensity": "Unknown",
     "legalStatus": "Unknown",
@@ -437,7 +488,11 @@ const n=`[
     "description": "Known as the 'dream herb' of the Chontal people of Mexico, Calea is traditionally used to enhance dreams and mental clarity during sleep.",
     "drugInteractions": "Avoid sedatives, alcohol",
     "duration": "4–8 hrs",
-    "effects": "Lucid dreaming, dream recall, hypnagogic imagery",
+    "effects": [
+      "Lucid dreaming",
+      "dream recall",
+      "hypnagogic imagery"
+    ],
     "id": "calea-zacatechichi",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -468,7 +523,10 @@ const n=`[
     "description": "California's state flower containing non-addictive sedative alkaloids.",
     "drugInteractions": "May amplify effects of benzodiazepines and alcohol.",
     "duration": "Unknown",
-    "effects": "Gentle sedative, dreamlike calm",
+    "effects": [
+      "Gentle sedative",
+      "dreamlike calm"
+    ],
     "id": "california-poppy",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -500,7 +558,11 @@ const n=`[
     "description": "Often called the 'Intellect Tree', this Ayurvedic plant is used to support memory, learning, and vivid dreams. Contains sesquiterpenes that may stimulate cholinergic activity.",
     "drugInteractions": "None well documented",
     "duration": "4–6 hrs",
-    "effects": "Cognitive clarity, memory enhancement, dream vividness",
+    "effects": [
+      "Cognitive clarity",
+      "memory enhancement",
+      "dream vividness"
+    ],
     "id": "celastrus-paniculatus",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -531,7 +593,10 @@ const n=`[
     "description": "Indian vine whose oil is consumed to sharpen memory and dream vividly.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Lucid dreaming, cognitive enhancer",
+    "effects": [
+      "Lucid dreaming",
+      "cognitive enhancer"
+    ],
     "id": "celastrus-paniculatus-intellect-tree",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -561,7 +626,11 @@ const n=`[
     "description": "A key component of traditional Ayahuasca brews, Chacruna contains DMT and is often combined with MAOIs like Banisteriopsis caapi to make it orally active.",
     "drugInteractions": "Dangerous with antidepressants or stimulants",
     "duration": "4–6 hrs",
-    "effects": "Visionary states, spiritual insight, hallucinations",
+    "effects": [
+      "Visionary states",
+      "spiritual insight",
+      "hallucinations"
+    ],
     "id": "chacruna",
     "intensity": "Strong",
     "legalStatus": "DMT is controlled in most countries",
@@ -592,7 +661,10 @@ const n=`[
     "description": "Amazonian shrub added to ayahuasca for introspection and cleansing.",
     "drugInteractions": "Other serotonergic or cholinergic agents.",
     "duration": "Unknown",
-    "effects": "Shadow work, spiritual clearing",
+    "effects": [
+      "Shadow work",
+      "spiritual clearing"
+    ],
     "id": "chiric-sanango",
     "intensity": "High",
     "legalStatus": "Legal / Unregulated",
@@ -623,7 +695,11 @@ const n=`[
     "description": "Amazonian vine used in both physical and spiritual medicine. Traditionally consumed as a libido enhancer and pre-Ayahuasca preparation.",
     "drugInteractions": "Avoid CNS depressants, alcohol",
     "duration": "3–6 hrs",
-    "effects": "Aphrodisiac, calming, digestive",
+    "effects": [
+      "Aphrodisiac",
+      "calming",
+      "digestive"
+    ],
     "id": "clavo-huasca",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -654,7 +730,11 @@ const n=`[
     "description": "Resin from Bursera trees burned ceremonially to purify and induce trance.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Purifying, sacred aroma, trance enhancement",
+    "effects": [
+      "Purifying",
+      "sacred aroma",
+      "trance enhancement"
+    ],
     "id": "copal",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -685,7 +765,11 @@ const n=`[
     "description": "Known as Piripiri or Guinea Rush, this sedge is used in Afro-Caribbean and Amazonian rituals for mild visionary states and spiritual grounding.",
     "drugInteractions": "Unknown",
     "duration": "2–5 hrs",
-    "effects": "Calm, focus, light trance",
+    "effects": [
+      "Calm",
+      "focus",
+      "light trance"
+    ],
     "id": "cyperus-articulatus",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -716,7 +800,11 @@ const n=`[
     "description": "Used traditionally in Mexico and Central America for libido, relaxation, and mild stimulation. Sometimes blended in herbal smoking mixes.",
     "drugInteractions": "May interact with blood sugar meds",
     "duration": "2–4 hrs",
-    "effects": "Mood boost, aphrodisiac, relaxation",
+    "effects": [
+      "Mood boost",
+      "aphrodisiac",
+      "relaxation"
+    ],
     "id": "damiana",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -747,7 +835,11 @@ const n=`[
     "description": "A rare South American shrub used by the Mapuche and other indigenous groups in Chile and Colombia as a ritual intoxicant. Known for unpredictable and potent effects.",
     "drugInteractions": "Unknown; avoid CNS drugs",
     "duration": "3–6 hrs",
-    "effects": "Hallucinations, disorientation, dreamlike state",
+    "effects": [
+      "Hallucinations",
+      "disorientation",
+      "dreamlike state"
+    ],
     "id": "desfontainia-spinosa",
     "intensity": "Strong",
     "legalStatus": "Legal but obscure",
@@ -778,7 +870,10 @@ const n=`[
     "description": "Adaptogenic root boosting stamina and immune function.",
     "drugInteractions": "May interact with stimulants, immunosuppressants, and anticoagulants.",
     "duration": "Unknown",
-    "effects": "Balanced energy, mood resilience",
+    "effects": [
+      "Balanced energy",
+      "mood resilience"
+    ],
     "id": "eleutherococcus-senticosus-siberian-ginseng",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -809,7 +904,10 @@ const n=`[
     "description": "Seed from a tropical vine used in African traditions to induce vivid dreams.",
     "drugInteractions": "May potentiate CNS depressants; caution with anticholinergics [0, 6].",
     "duration": "Unknown",
-    "effects": "Dream enhancement, trance",
+    "effects": [
+      "Dream enhancement",
+      "trance"
+    ],
     "id": "entada-rheedii",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
@@ -840,7 +938,10 @@ const n=`[
     "description": "Gentle sedative flower used for anxiety and sleep support.",
     "drugInteractions": "Additive CNS depression with sedatives, barbiturates; caution with blood thinners and antihypertensives [2, 8].",
     "duration": "Unknown",
-    "effects": "Sleep aid, mild dreamlike calm",
+    "effects": [
+      "Sleep aid",
+      "mild dreamlike calm"
+    ],
     "id": "eschscholzia-californica-california-poppy",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -872,7 +973,10 @@ const n=`[
     "description": "Resin incense with boswellic acids studied for anti-inflammatory effects.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Trance, meditative awareness",
+    "effects": [
+      "Trance",
+      "meditative awareness"
+    ],
     "id": "frankincense-boswellia",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -901,7 +1005,11 @@ const n=`[
     "description": "A caffeinated Amazonian holly used in dream rituals and for morning alertness. Known for smooth energy and calming clarity.",
     "drugInteractions": "Stimulants, caffeine",
     "duration": "3–5 hrs",
-    "effects": "Stimulation, mental clarity, lucid dreaming",
+    "effects": [
+      "Stimulation",
+      "mental clarity",
+      "lucid dreaming"
+    ],
     "id": "guayusa",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -932,7 +1040,10 @@ const n=`[
     "description": "Mexican shrub whose fermented leaves produce mild auditory shifts.",
     "drugInteractions": "None known; caution with psychiatric medications [9, 4].",
     "duration": "Unknown",
-    "effects": "Auditory hallucinations, slowed time",
+    "effects": [
+      "Auditory hallucinations",
+      "slowed time"
+    ],
     "id": "heimia-salicifolia-sinicuichi",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
@@ -964,7 +1075,11 @@ const n=`[
     "description": "Nightshade containing tropane alkaloids causing powerful delirium.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Delirium, hallucinations, anticholinergic",
+    "effects": [
+      "Delirium",
+      "hallucinations",
+      "anticholinergic"
+    ],
     "id": "henbane",
     "intensity": "High",
     "legalStatus": "Controlled / Toxic",
@@ -994,7 +1109,10 @@ const n=`[
     "description": "Bitter cones of Humulus lupulus used for relaxation and sleep.",
     "drugInteractions": "May enhance sedatives, alcohol, and hypnotics.",
     "duration": "Unknown",
-    "effects": "Relaxation, dream enhancement",
+    "effects": [
+      "Relaxation",
+      "dream enhancement"
+    ],
     "id": "hop-flowers",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1025,7 +1143,11 @@ const n=`[
     "description": "Sacred flower in Buddhism and Hinduism, with mild psychoactive and calming properties. Often used in teas or tinctures.",
     "drugInteractions": "Sedatives, CNS depressants",
     "duration": "2–4 hrs",
-    "effects": "Calm, mild euphoria, dreaminess",
+    "effects": [
+      "Calm",
+      "mild euphoria",
+      "dreaminess"
+    ],
     "id": "Unknown",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -1056,7 +1178,11 @@ const n=`[
     "description": "A ghostly white forest plant used in Native American medicine for pain and spiritual insight. Non-photosynthetic and mysterious.",
     "drugInteractions": "Possibly CNS depressants",
     "duration": "2–4 hrs",
-    "effects": "Analgesia, calm, emotional detachment",
+    "effects": [
+      "Analgesia",
+      "calm",
+      "emotional detachment"
+    ],
     "id": "Unknown",
     "intensity": "Mild",
     "legalStatus": "Legal (but rare and protected in places)",
@@ -1087,7 +1213,10 @@ const n=`[
     "description": "Ornamental morning glory whose seeds induce LSD-like visions.",
     "drugInteractions": "SSRIs/MAOIs [0, 5].",
     "duration": "Unknown",
-    "effects": "LSD-like visuals, spiritual confusion",
+    "effects": [
+      "LSD-like visuals",
+      "spiritual confusion"
+    ],
     "id": "ipomoea-tricolor-heavenly-blue",
     "intensity": "High",
     "legalStatus": "Restricted in some countries",
@@ -1116,7 +1245,11 @@ const n=`[
     "description": "Aromatic herb called tilo, brewed or smoked for calming effects.",
     "drugInteractions": "Coumarin-sensitive meds (e.g., blood thinners)",
     "duration": "2–5 hrs",
-    "effects": "Relaxation, light euphoria, spiritual dreams",
+    "effects": [
+      "Relaxation",
+      "light euphoria",
+      "spiritual dreams"
+    ],
     "id": "justicia-pectoralis",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -1147,7 +1280,11 @@ const n=`[
     "description": "A South African succulent traditionally chewed or snuffed to reduce anxiety and induce euphoria.",
     "drugInteractions": "Antidepressants, serotonergic agents",
     "duration": "1–3 hrs",
-    "effects": "Mood lift, calm euphoria, focus",
+    "effects": [
+      "Mood lift",
+      "calm euphoria",
+      "focus"
+    ],
     "id": "Unknown",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -1178,7 +1315,11 @@ const n=`[
     "description": "South Pacific root brew known for its relaxing and anxiolytic effects.",
     "drugInteractions": "CNS depressants, alcohol, liver-metabolized drugs",
     "duration": "3–6 hrs",
-    "effects": "Relaxation, social ease, mild euphoria",
+    "effects": [
+      "Relaxation",
+      "social ease",
+      "mild euphoria"
+    ],
     "id": "kava",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal; restricted in some EU countries",
@@ -1216,7 +1357,10 @@ const n=`[
     "description": "Southeast Asian tree related to kratom with stimulating leaves.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Stimulation, kratom-like body feel",
+    "effects": [
+      "Stimulation",
+      "kratom-like body feel"
+    ],
     "id": "kra-thum-na--kok",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
@@ -1248,7 +1392,11 @@ const n=`[
     "description": "Wild lettuce species containing lactucarium for gentle analgesia.",
     "drugInteractions": "CNS depressants, alcohol",
     "duration": "3–5 hrs",
-    "effects": "Relaxation, pain relief, drowsiness",
+    "effects": [
+      "Relaxation",
+      "pain relief",
+      "drowsiness"
+    ],
     "id": "lactuca-canadensis",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -1279,7 +1427,10 @@ const n=`[
     "description": "Mythic Mediterranean root with hallucinogenic tropane alkaloids.",
     "drugInteractions": "Potentiates other anticholinergics, CNS depressants.",
     "duration": "Unknown",
-    "effects": "Narcotic, visionary trance",
+    "effects": [
+      "Narcotic",
+      "visionary trance"
+    ],
     "id": "mandrake-root",
     "intensity": "High",
     "legalStatus": "Controlled / Toxic",
@@ -1308,7 +1459,10 @@ const n=`[
     "description": "Lemony herb easing anxiety and digestive upset while calming the mind.",
     "drugInteractions": "May potentiate sedatives, anticoagulants; caution with CNS depressants [0, 16].",
     "duration": "Unknown",
-    "effects": "Anxiolytic, cognitive calming",
+    "effects": [
+      "Anxiolytic",
+      "cognitive calming"
+    ],
     "id": "melissa-officinalis-lemon-balm",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1342,7 +1496,11 @@ const n=`[
     "description": "Highly sought after for its DMT-rich root bark. Used in Anahuasca brews as a substitute for chacruna or yopo.",
     "drugInteractions": "MAOIs, antidepressants",
     "duration": "4–6 hrs",
-    "effects": "Visionary states, purging, emotional release",
+    "effects": [
+      "Visionary states",
+      "purging",
+      "emotional release"
+    ],
     "id": "mimosa-hostilis",
     "intensity": "Strong",
     "legalStatus": "DMT controlled in many countries",
@@ -1373,7 +1531,11 @@ const n=`[
     "description": "Sacred lotus revered for tranquil, mildly euphoric properties.",
     "drugInteractions": "Avoid CNS depressants",
     "duration": "2–4 hrs",
-    "effects": "Relaxation, dream enhancement, calm euphoria",
+    "effects": [
+      "Relaxation",
+      "dream enhancement",
+      "calm euphoria"
+    ],
     "id": "nelumbo-nucifera",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -1404,7 +1566,11 @@ const n=`[
     "description": "Central American water lily providing mild euphoria and sedation.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Sedative, euphoric, dreamlike states",
+    "effects": [
+      "Sedative",
+      "euphoric",
+      "dreamlike states"
+    ],
     "id": "nymphaea-ampla",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1436,7 +1602,11 @@ const n=`[
     "description": "Sacred basil revered in Ayurveda for uplifting and adaptogenic qualities.",
     "drugInteractions": "May potentiate anti-diabetic, anticoagulant, or sedative drugs.",
     "duration": "Unknown",
-    "effects": "Mood lift, sacred calm, spiritual focus",
+    "effects": [
+      "Mood lift",
+      "sacred calm",
+      "spiritual focus"
+    ],
     "id": "ocimum-sanctum-holy-basil--tulsi",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1469,7 +1639,11 @@ const n=`[
     "description": "Climbing vine traditionally brewed for anxiety relief and restful sleep.",
     "drugInteractions": "CNS depressants, MAOIs",
     "duration": "3–6 hrs",
-    "effects": "Relaxation, mild sedation, anxiolytic",
+    "effects": [
+      "Relaxation",
+      "mild sedation",
+      "anxiolytic"
+    ],
     "id": "passionflower",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -1507,7 +1681,10 @@ const n=`[
     "description": "North American wildflower smoked for muscle relaxation.",
     "drugInteractions": "Additive effects with CNS depressants [2, 0].",
     "duration": "Unknown",
-    "effects": "Muscle relaxation, mild body high",
+    "effects": [
+      "Muscle relaxation",
+      "mild body high"
+    ],
     "id": "pedicularis-densiflora-indian-warrior",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
@@ -1539,7 +1716,10 @@ const n=`[
     "description": "High-elevation lousewort prized for soothing tense muscles.",
     "drugInteractions": "Additive with CNS depressants [0, 7].",
     "duration": "Unknown",
-    "effects": "Stronger relaxation, tension relief",
+    "effects": [
+      "Stronger relaxation",
+      "tension relief"
+    ],
     "id": "pedicularis-groenlandica",
     "intensity": "Moderate",
     "legalStatus": "Legal / Unregulated",
@@ -1571,7 +1751,11 @@ const n=`[
     "description": "Also known as Butterbur, this European root was historically used as a remedy for migraines and spasms. Contains pyrrolizidine alkaloids, so safe extracts must be purified.",
     "drugInteractions": "Avoid hepatotoxic meds",
     "duration": "4–6 hrs",
-    "effects": "Relaxation, muscle relief, headache reduction",
+    "effects": [
+      "Relaxation",
+      "muscle relief",
+      "headache reduction"
+    ],
     "id": "petasites-hybridus",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal with restrictions (PA-free only)",
@@ -1602,7 +1786,11 @@ const n=`[
     "description": "Sassafras-scented leaf from Mexico used culinary and for mild mood lift.",
     "drugInteractions": "CYP450 substrates; caution with anticoagulants [0, 19].",
     "duration": "Unknown",
-    "effects": "Calming, warming, euphoric",
+    "effects": [
+      "Calming",
+      "warming",
+      "euphoric"
+    ],
     "id": "piper-auritum-root-beer-plant",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1634,7 +1822,11 @@ const n=`[
     "description": "Hardy root enhancing endurance and stress tolerance via adaptogens.",
     "drugInteractions": "May affect antidepressants, stimulants, or MAOIs.",
     "duration": "Unknown",
-    "effects": "Focus, reduced fatigue, mind clarity",
+    "effects": [
+      "Focus",
+      "reduced fatigue",
+      "mind clarity"
+    ],
     "id": "rhodiola-rosea",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1666,7 +1858,11 @@ const n=`[
     "description": "Morning glory species with LSA seeds used in ancient Mexican rituals.",
     "drugInteractions": "Serotonergic medications [0, 12].",
     "duration": "Unknown",
-    "effects": "Dreamy visuals, nausea, traditional Mazatec use",
+    "effects": [
+      "Dreamy visuals",
+      "nausea",
+      "traditional Mazatec use"
+    ],
     "id": "rivea-corymbosa",
     "intensity": "High",
     "legalStatus": "Restricted in some countries",
@@ -1695,7 +1891,10 @@ const n=`[
     "description": "Mazatec entheogen with powerful, short-lived visionary effects.",
     "drugInteractions": "CNS depressants may potentiate sedative effects; caution when coadministered [3, 3].",
     "duration": "Unknown",
-    "effects": "Total dissociation, entity contact",
+    "effects": [
+      "Total dissociation",
+      "entity contact"
+    ],
     "id": "salvia-divinorum",
     "intensity": "High",
     "legalStatus": "Restricted in many regions",
@@ -1726,7 +1925,11 @@ const n=`[
     "description": "South African succulent chewed to elevate mood and decrease tension.",
     "drugInteractions": "SSRIs, MAOIs, stimulants [9, 4].",
     "duration": "Unknown",
-    "effects": "Mood lift, empathy, sociability",
+    "effects": [
+      "Mood lift",
+      "empathy",
+      "sociability"
+    ],
     "id": "sceletium-tortuosum-kanna",
     "intensity": "Moderate",
     "legalStatus": "Legal, sometimes restricted",
@@ -1757,7 +1960,11 @@ const n=`[
     "description": "Calming mint-family herb rich in baicalin used as nerve tonic.",
     "drugInteractions": "Additive effects with sedatives or anxiolytics.",
     "duration": "Unknown",
-    "effects": "Relaxing, anxiety-reducing, dream support",
+    "effects": [
+      "Relaxing",
+      "anxiety-reducing",
+      "dream support"
+    ],
     "id": "scullcap-scutellaria",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1788,7 +1995,11 @@ const n=`[
     "description": "Commonly known as Skullcap, this North American herb has a long history in Western herbalism for treating nervous tension and insomnia.",
     "drugInteractions": "CNS depressants, alcohol, benzodiazepines",
     "duration": "3–5 hrs",
-    "effects": "Mild sedation, anxiety relief, mental clarity",
+    "effects": [
+      "Mild sedation",
+      "anxiety relief",
+      "mental clarity"
+    ],
     "id": "scutellaria-lateriflora",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -1819,7 +2030,11 @@ const n=`[
     "description": "Known as 'Xhosa Dream Root', Silene capensis is a sacred plant used by the Xhosa people of South Africa for initiating vivid and prophetic dreams.",
     "drugInteractions": "None well documented",
     "duration": "6–8 hrs",
-    "effects": "Lucid dreaming, enhanced dream recall, vivid visions",
+    "effects": [
+      "Lucid dreaming",
+      "enhanced dream recall",
+      "vivid visions"
+    ],
     "id": "silene-capensis",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -1850,7 +2065,9 @@ const n=`[
     "description": "Famed classical herb believed to have contraceptive and psychoactive resins.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Ancient psychoactive/contraceptive herb",
+    "effects": [
+      "Ancient psychoactive/contraceptive herb"
+    ],
     "id": "silphium-extinct",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1879,7 +2096,11 @@ const n=`[
     "description": "Used traditionally in Central America as a 'sun opener,' believed to enhance memory and auditory perception. Alters sound and memory in dreamlike ways.",
     "drugInteractions": "Avoid CNS depressants or alcohol",
     "duration": "4–6 hrs",
-    "effects": "Auditory distortion, dreamy state, euphoria",
+    "effects": [
+      "Auditory distortion",
+      "dreamy state",
+      "euphoria"
+    ],
     "id": "sinicuichi",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -1910,7 +2131,10 @@ const n=`[
     "description": "Vanilla-scented grass braided and burned to invite positive spirits.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Positive energy, spiritual invocation",
+    "effects": [
+      "Positive energy",
+      "spiritual invocation"
+    ],
     "id": "sweetgrass",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1940,7 +2164,10 @@ const n=`[
     "description": "Sweet marigold used as tea or incense for clear dreams and calm.",
     "drugInteractions": "Benzodiazepines and serotonergic drugs.",
     "duration": "Unknown",
-    "effects": "Visionary dreams, clarity",
+    "effects": [
+      "Visionary dreams",
+      "clarity"
+    ],
     "id": "tagetes-lucida-mexican-tarragon",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -1973,7 +2200,11 @@ const n=`[
     "description": "Soothing tree blossoms steeped as tea for relaxation and cold relief.",
     "drugInteractions": "Not well documented",
     "duration": "Unknown",
-    "effects": "Calming, relaxing, mild dream aid",
+    "effects": [
+      "Calming",
+      "relaxing",
+      "mild dream aid"
+    ],
     "id": "tilia-europaea-linden-flower",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -2005,7 +2236,11 @@ const n=`[
     "description": "A powerful and dangerous tropane alkaloid plant traditionally used in witchcraft and shamanic rituals. Highly toxic.",
     "drugInteractions": "All CNS-affecting meds",
     "duration": "8–24 hrs",
-    "effects": "Delirium, hallucinations, disorientation",
+    "effects": [
+      "Delirium",
+      "hallucinations",
+      "disorientation"
+    ],
     "id": "toloache",
     "intensity": "Extremely strong",
     "legalStatus": "Legal but restricted in many countries",
@@ -2036,7 +2271,11 @@ const n=`[
     "description": "Fragrant shrub known as damiana, smoked or brewed as aphrodisiac and relaxant.",
     "drugInteractions": "Serotonergic medications.",
     "duration": "Unknown",
-    "effects": "aphrodisiac, mood-enhancing, anxiolytic",
+    "effects": [
+      "aphrodisiac",
+      "mood-enhancing",
+      "anxiolytic"
+    ],
     "id": "turnera-diffusa",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -2068,7 +2307,11 @@ const n=`[
     "description": "Closely related to Damiana (Turnera diffusa), this species is also used traditionally in folk medicine for reproductive health and mood.",
     "drugInteractions": "Unknown",
     "duration": "2–4 hrs",
-    "effects": "Relaxation, mood elevation, aphrodisiac",
+    "effects": [
+      "Relaxation",
+      "mood elevation",
+      "aphrodisiac"
+    ],
     "id": "turnera-ulmifolia",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -2099,7 +2342,11 @@ const n=`[
     "description": "Known as stinging nettle, this European herb has been used for centuries to relieve joint pain, allergies, and fatigue. Its psychoactivity is subtle, mostly somatic.",
     "drugInteractions": "Diuretics, anticoagulants",
     "duration": "3–6 hrs",
-    "effects": "Stimulation, anti-inflammatory, tonic",
+    "effects": [
+      "Stimulation",
+      "anti-inflammatory",
+      "tonic"
+    ],
     "id": "urtica-dioica",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -2130,7 +2377,11 @@ const n=`[
     "description": "Fragrant violet whose flowers are a mild sedative and expectorant.",
     "drugInteractions": "Minimal; theoretically additive with CNS depressants.",
     "duration": "Unknown",
-    "effects": "Mild sedative, calming, gentle dreaminess",
+    "effects": [
+      "Mild sedative",
+      "calming",
+      "gentle dreaminess"
+    ],
     "id": "viola-odorata-sweet-violet",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -2162,7 +2413,9 @@ const n=`[
     "description": "Amazonian trees producing DMT-rich resins for shamanic snuffs.",
     "drugInteractions": "Dangerous with SSRIs, MAOIs, and other serotonergic substances.",
     "duration": "Unknown",
-    "effects": "DMT-containing tree resin",
+    "effects": [
+      "DMT-containing tree resin"
+    ],
     "id": "virola-spp",
     "intensity": "High",
     "legalStatus": "Restricted / Controlled",
@@ -2191,7 +2444,11 @@ const n=`[
     "description": "A snuff plant from the Amazon containing DMT and 5-MeO-DMT. Used by Yanomami and other tribes for potent visionary rituals.",
     "drugInteractions": "MAOIs, antidepressants",
     "duration": "20–60 min",
-    "effects": "Strong visuals, spiritual experiences, disorientation",
+    "effects": [
+      "Strong visuals",
+      "spiritual experiences",
+      "disorientation"
+    ],
     "id": "virola-theiodora",
     "intensity": "Very strong",
     "legalStatus": "DMT controlled in most countries",
@@ -2222,7 +2479,11 @@ const n=`[
     "description": "A powerful African plant containing voacangine and iboga alkaloids. Used traditionally in ritual contexts and studied as a potential ibogaine precursor.",
     "drugInteractions": "Avoid all stimulants, antidepressants, MAOIs",
     "duration": "6–12 hrs",
-    "effects": "Stimulation, psychedelic effects, cardiovascular activation",
+    "effects": [
+      "Stimulation",
+      "psychedelic effects",
+      "cardiovascular activation"
+    ],
     "id": "voacanga-africana",
     "intensity": "Strong",
     "legalStatus": "Unscheduled; may be regulated for alkaloids",
@@ -2253,7 +2514,11 @@ const n=`[
     "description": "Related to Blue Lotus, this sacred flower from Mesoamerican traditions is used to promote meditation and lucid dreaming.",
     "drugInteractions": "Avoid CNS depressants",
     "duration": "2–4 hrs",
-    "effects": "Calm, light sedation, dream potentiation",
+    "effects": [
+      "Calm",
+      "light sedation",
+      "dream potentiation"
+    ],
     "id": "white-lily",
     "intensity": "Mild",
     "legalStatus": "Legal",
@@ -2284,7 +2549,11 @@ const n=`[
     "description": "Aromatic sage revered for cleansing rituals and mental clarity.",
     "drugInteractions": "None significant documented.",
     "duration": "Unknown",
-    "effects": "Clarity, purification, spiritual reset",
+    "effects": [
+      "Clarity",
+      "purification",
+      "spiritual reset"
+    ],
     "id": "white-sage",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -2316,7 +2585,11 @@ const n=`[
     "description": "Leafy plant exuding sedative latex historically called 'lettuce opium.'",
     "drugInteractions": "Avoid with sedatives, opioids",
     "duration": "3–6 hrs",
-    "effects": "Sedation, pain relief, light euphoria",
+    "effects": [
+      "Sedation",
+      "pain relief",
+      "light euphoria"
+    ],
     "id": "wild-lettuce",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -2347,7 +2620,10 @@ const n=`[
     "description": "Indian nightshade root that reduces stress hormones and promotes sleep.",
     "drugInteractions": "Immunosuppressants, sedatives, thyroid medications [0, 24].",
     "duration": "Unknown",
-    "effects": "Grounded calm, dream support",
+    "effects": [
+      "Grounded calm",
+      "dream support"
+    ],
     "id": "withania-somnifera-ashwagandha",
     "intensity": "Mild",
     "legalStatus": "Legal / Unregulated",
@@ -2380,7 +2656,11 @@ const n=`[
     "description": "Key ingredient in absinthe. Contains thujone, which is a GABA_A antagonist and neurostimulant in high doses. Historically used for dreaming, digestion, and ritual.",
     "drugInteractions": "Avoid alcohol, CNS drugs",
     "duration": "4–6 hrs",
-    "effects": "Lucid dreams, stimulating, mental clarity",
+    "effects": [
+      "Lucid dreams",
+      "stimulating",
+      "mental clarity"
+    ],
     "id": "wormwood",
     "intensity": "Mild to moderate",
     "legalStatus": "Restricted in high-thujone formulations",
@@ -2418,7 +2698,11 @@ const n=`[
     "description": "South American herbal stimulant rich in caffeine, theobromine, and theophylline. Traditionally shared as a communal energizing tea.",
     "drugInteractions": "CNS stimulants, caffeine",
     "duration": "3–5 hrs",
-    "effects": "Stimulation, focus, social energy",
+    "effects": [
+      "Stimulation",
+      "focus",
+      "social energy"
+    ],
     "id": "yerba-mate",
     "intensity": "Mild to moderate",
     "legalStatus": "Legal",
@@ -2449,7 +2733,11 @@ const n=`[
     "description": "Used in Amazonian rituals, Yopo seeds are ground and insufflated to induce powerful entheogenic experiences. Contains bufotenine, DMT, and 5-MeO-DMT.",
     "drugInteractions": "Avoid with antidepressants or MAOIs",
     "duration": "30–60 min",
-    "effects": "Intense visions, altered time perception, spiritual insight",
+    "effects": [
+      "Intense visions",
+      "altered time perception",
+      "spiritual insight"
+    ],
     "id": "yopo",
     "intensity": "Very strong",
     "legalStatus": "Controlled in many countries due to DMT content",
@@ -2481,7 +2769,11 @@ const n=`[
       "⚠️ caution",
       "🍄 mushroom"
     ],
-    "effects": "Euphoria, dissociation, dreamlike state",
+    "effects": [
+      "Euphoria",
+      "dissociation",
+      "dreamlike state"
+    ],
     "mechanismOfAction": "Ibotenic acid and muscimol act as GABA agonists and NMDA antagonists after decarboxylation.",
     "therapeuticUses": "Shamanic ritual, historical analgesic and sedative use.",
     "pharmacokinetics": "Onset 30–90 min; duration 4–8 hrs when ingested.",
@@ -2510,7 +2802,11 @@ const n=`[
       "🌿 root",
       "😴 sleep"
     ],
-    "effects": "Relaxation, improved sleep, mild anxiolysis",
+    "effects": [
+      "Relaxation",
+      "improved sleep",
+      "mild anxiolysis"
+    ],
     "mechanismOfAction": "Valerenic acid modulates GABA receptors and may inhibit GABA breakdown.",
     "therapeuticUses": "Insomnia, anxiety, muscle tension.",
     "pharmacokinetics": "Oral; onset ~30 min; peak 1–2 hrs; duration ~4 hrs.",
@@ -2539,7 +2835,10 @@ const n=`[
       "⚗️ alkaloid",
       "🧠 memory"
     ],
-    "effects": "Improved memory, alertness",
+    "effects": [
+      "Improved memory",
+      "alertness"
+    ],
     "mechanismOfAction": "Provides huperzine A, a reversible acetylcholinesterase inhibitor.",
     "therapeuticUses": "Memory enhancement, research for Alzheimer’s disease.",
     "pharmacokinetics": "Oral; onset within 30 min; duration 6–8 hrs.",
@@ -2568,7 +2867,11 @@ const n=`[
       "⚠️ maoi",
       "🌿 seeds"
     ],
-    "effects": "MAOI effects, mild hallucinations, dream enhancement",
+    "effects": [
+      "MAOI effects",
+      "mild hallucinations",
+      "dream enhancement"
+    ],
     "mechanismOfAction": "Harmala alkaloids reversibly inhibit MAO-A and MAO-B.",
     "therapeuticUses": "Used in Middle Eastern rituals; sometimes combined with DMT for oral activity.",
     "pharmacokinetics": "Oral ingestion; onset 20–40 min; duration 4–6 hrs.",
@@ -2597,7 +2900,10 @@ const n=`[
       "🌿 smoke",
       "🦁 dagga"
     ],
-    "effects": "Mild euphoria, relaxation",
+    "effects": [
+      "Mild euphoria",
+      "relaxation"
+    ],
     "mechanismOfAction": "Contains leonurine; may act on serotonin and cannabinoid receptors.",
     "therapeuticUses": "Folk remedy for coughs, fever and as a mild psychoactive when smoked.",
     "pharmacokinetics": "Smoked or brewed; onset within minutes; duration ~1–3 hrs.",
@@ -2626,7 +2932,11 @@ const n=`[
       "🌳 bark",
       "🔥 libido"
     ],
-    "effects": "Stimulation, increased libido, elevated heart rate",
+    "effects": [
+      "Stimulation",
+      "increased libido",
+      "elevated heart rate"
+    ],
     "mechanismOfAction": "Yohimbine blocks alpha-2 adrenergic receptors leading to increased norepinephrine release.",
     "therapeuticUses": "Used for erectile dysfunction and as a stimulant.",
     "pharmacokinetics": "Oral; onset ~30 min; duration 2–4 hrs.",
@@ -2655,7 +2965,11 @@ const n=`[
       "⚠️ controlled",
       "🌿 leaves"
     ],
-    "effects": "Euphoria, alertness, appetite suppression",
+    "effects": [
+      "Euphoria",
+      "alertness",
+      "appetite suppression"
+    ],
     "mechanismOfAction": "Cathinone alkaloids release dopamine and norepinephrine.",
     "therapeuticUses": "Social stimulant chewed in East Africa and the Arabian Peninsula.",
     "pharmacokinetics": "Chewed fresh leaves; onset 15–30 min; duration 3–5 hrs.",
@@ -2684,7 +2998,10 @@ const n=`[
       "☕ caffeine",
       "🍵 tea"
     ],
-    "effects": "Alertness, relaxed focus",
+    "effects": [
+      "Alertness",
+      "relaxed focus"
+    ],
     "mechanismOfAction": "Caffeine antagonizes adenosine receptors; L-theanine modulates glutamate and GABA.",
     "therapeuticUses": "Improved cognition, antioxidant, metabolism boost.",
     "pharmacokinetics": "Beverage; onset 15 min; peak 30–60 min; duration 2–4 hrs.",
@@ -2713,7 +3030,10 @@ const n=`[
       "⚠️ potent",
       "🌿 ma huang"
     ],
-    "effects": "Energy boost, bronchodilation",
+    "effects": [
+      "Energy boost",
+      "bronchodilation"
+    ],
     "mechanismOfAction": "Ephedrine and pseudoephedrine stimulate adrenergic receptors and release norepinephrine.",
     "therapeuticUses": "Traditional Chinese medicine for asthma, colds, and as a stimulant.",
     "pharmacokinetics": "Oral; onset ~20 min; duration 4–6 hrs.",
@@ -2742,7 +3062,10 @@ const n=`[
       "🌳 root bark",
       "🌿 tea"
     ],
-    "effects": "Mild euphoria, warmth",
+    "effects": [
+      "Mild euphoria",
+      "warmth"
+    ],
     "mechanismOfAction": "Safrole may modulate dopamine release and acts as a mild hallucinogen at high doses.",
     "therapeuticUses": "Historically used as spring tonic, aromatic beverage, and folk medicine.",
     "pharmacokinetics": "Brewed as tea; onset 20–40 min; duration 2–4 hrs.",
@@ -2771,7 +3094,10 @@ const n=`[
       "☕ high caffeine",
       "🍫 seed"
     ],
-    "effects": "Energy, mental focus",
+    "effects": [
+      "Energy",
+      "mental focus"
+    ],
     "mechanismOfAction": "Seeds contain high caffeine content that blocks adenosine receptors.",
     "therapeuticUses": "Fatigue reduction, weight loss aid, traditional tonic.",
     "pharmacokinetics": "Oral; onset 20 min; peak 1 hr; duration 4–6 hrs.",
@@ -2800,7 +3126,11 @@ const n=`[
       "⚠️ nausea",
       "🌱 seeds"
     ],
-    "effects": "Visual distortions, euphoria, introspection",
+    "effects": [
+      "Visual distortions",
+      "euphoria",
+      "introspection"
+    ],
     "mechanismOfAction": "Seeds contain ergoline alkaloids (LSA) that act on serotonin receptors similarly to LSD but with milder potency.",
     "therapeuticUses": "Occasional spiritual or introspective use; historically as ornamental and traditional medicine.",
     "pharmacokinetics": "Oral; onset 30–90 min; duration 6–10 hrs.",
@@ -2829,7 +3159,11 @@ const n=`[
       "⚠️ intense",
       "🌿 root bark"
     ],
-    "effects": "Powerful visions, spiritual insight, stimulation",
+    "effects": [
+      "Powerful visions",
+      "spiritual insight",
+      "stimulation"
+    ],
     "mechanismOfAction": "Ibogaine acts on NMDA, kappa-opioid, and serotonin systems while promoting neurotrophic factors.",
     "therapeuticUses": "Traditional Bwiti initiation; studied for addiction interruption.",
     "pharmacokinetics": "Oral; onset 1–3 hrs; duration 12–24 hrs.",
@@ -2854,7 +3188,11 @@ const n=`[
     "name": "LSD",
     "scientificName": "Lysergic acid diethylamide",
     "category": "Psychedelic",
-    "effects": "Intense visuals, ego dissolution, synesthesia",
+    "effects": [
+      "Intense visuals",
+      "ego dissolution",
+      "synesthesia"
+    ],
     "preparation": "Oral blotter or liquid",
     "intensity": "High",
     "onset": "30-90 min",
@@ -2884,7 +3222,11 @@ const n=`[
     "name": "Psilocybin",
     "scientificName": "Psilocybin",
     "category": "Psychedelic",
-    "effects": "Visual patterns, mystical insight, emotional release",
+    "effects": [
+      "Visual patterns",
+      "mystical insight",
+      "emotional release"
+    ],
     "preparation": "Consumed as dried mushrooms or extract",
     "intensity": "Moderate",
     "onset": "20-60 min",
@@ -2914,7 +3256,11 @@ const n=`[
     "name": "Mescaline",
     "scientificName": "3,4,5-trimethoxyphenethylamine",
     "category": "Psychedelic",
-    "effects": "Color enhancement, empathy, spiritual visions",
+    "effects": [
+      "Color enhancement",
+      "empathy",
+      "spiritual visions"
+    ],
     "preparation": "Ingested cactus buttons or purified sulfate",
     "intensity": "Moderate",
     "onset": "45-120 min",
@@ -2949,7 +3295,11 @@ const n=`[
       "dmt",
       "tree"
     ],
-    "effects": "strong visuals, mystical experience, euphoria",
+    "effects": [
+      "strong visuals",
+      "mystical experience",
+      "euphoria"
+    ],
     "mechanismOfAction": "Root bark contains DMT that acts as a 5‑HT2A agonist; requires MAOI inhibition for oral activity",
     "therapeuticUses": "Used in entheogenic brews for introspection and spiritual healing",
     "pharmacokinetics": "Smoked onset 2–3 min, duration 15–30 min; oral with MAOI onset 20–45 min, duration 4–6 h",
@@ -2980,7 +3330,11 @@ const n=`[
       "root",
       "sedative"
     ],
-    "effects": "calm, mild euphoria, dream enhancement",
+    "effects": [
+      "calm",
+      "mild euphoria",
+      "dream enhancement"
+    ],
     "mechanismOfAction": "Contains beta‑asarone which may modulate GABA and serotonin receptors",
     "therapeuticUses": "Traditionally used for digestion, anxiety and divination",
     "pharmacokinetics": "Onset ~30 min orally, lasting 2–4 h",
@@ -3011,7 +3365,11 @@ const n=`[
       "anxiolytic",
       "flower"
     ],
-    "effects": "uplifted mood, relaxation, mild sedation",
+    "effects": [
+      "uplifted mood",
+      "relaxation",
+      "mild sedation"
+    ],
     "mechanismOfAction": "Contains saponins and flavonoids thought to modulate serotonin and GABA",
     "therapeuticUses": "Traditional Chinese medicine uses the bark and flowers as a calming antidepressant",
     "pharmacokinetics": "Onset 30–60 min orally; effects last 3–5 h",
@@ -3042,7 +3400,11 @@ const n=`[
       "folk",
       "sedative"
     ],
-    "effects": "calm, pain relief, mild altered awareness",
+    "effects": [
+      "calm",
+      "pain relief",
+      "mild altered awareness"
+    ],
     "mechanismOfAction": "Contains lactones derived from protoanemonin that depress the central nervous system",
     "therapeuticUses": "European folk remedy for anxiety, insomnia and menstrual pain",
     "pharmacokinetics": "Onset 20–30 min, lasting 2–4 h when taken orally",
@@ -3073,7 +3435,11 @@ const n=`[
       "folk medicine",
       "poppy"
     ],
-    "effects": "relaxation, analgesia, slight euphoria",
+    "effects": [
+      "relaxation",
+      "analgesia",
+      "slight euphoria"
+    ],
     "mechanismOfAction": "Isoquinoline alkaloids interact with opioid and dopamine receptors",
     "therapeuticUses": "Mexican and Ayurvedic traditions use it for pain, insomnia and mild narcotic effects",
     "pharmacokinetics": "Onset 20–30 min orally, lasting 3–6 h",
@@ -3104,7 +3470,11 @@ const n=`[
       "southeast asia",
       "energy"
     ],
-    "effects": "heightened alertness, subtle euphoria, increased focus",
+    "effects": [
+      "heightened alertness",
+      "subtle euphoria",
+      "increased focus"
+    ],
     "mechanismOfAction": "Leaves contain combretol and related alkaloids acting on adrenergic systems",
     "therapeuticUses": "Traditional stimulant and tonic in Laos and Thailand",
     "pharmacokinetics": "Onset about 30 min orally; effects up to 4–6 h",
@@ -3135,7 +3505,11 @@ const n=`[
       "dopamine",
       "pain relief"
     ],
-    "effects": "analgesia, relaxation, subtle dreaminess",
+    "effects": [
+      "analgesia",
+      "relaxation",
+      "subtle dreaminess"
+    ],
     "mechanismOfAction": "Alkaloids such as tetrahydropalmatine act on dopamine and GABA receptors",
     "therapeuticUses": "Traditional Chinese remedy for pain and insomnia",
     "pharmacokinetics": "Onset 20–40 min orally, lasting 3–5 h",
@@ -3166,7 +3540,11 @@ const n=`[
       "dmt",
       "root"
     ],
-    "effects": "visual enhancements, introspection, altered perception",
+    "effects": [
+      "visual enhancements",
+      "introspection",
+      "altered perception"
+    ],
     "mechanismOfAction": "Root bark contains DMT; usually combined with MAOIs to be active orally",
     "therapeuticUses": "Used in underground ayahuasca analogs for spiritual exploration",
     "pharmacokinetics": "Smoked onset 2–3 min; oral with MAOI onset 20–45 min; duration up to 6 h",
@@ -3197,7 +3575,11 @@ const n=`[
       "root",
       "sleep"
     ],
-    "effects": "deep relaxation, anxiety relief, sleepiness",
+    "effects": [
+      "deep relaxation",
+      "anxiety relief",
+      "sleepiness"
+    ],
     "mechanismOfAction": "Erythrinan alkaloids interact with GABA receptors causing CNS depression",
     "therapeuticUses": "South American remedy for insomnia and stress",
     "pharmacokinetics": "Onset ~30 min orally; effects last 4–6 h",
@@ -3228,7 +3610,11 @@ const n=`[
       "flower",
       "sleep"
     ],
-    "effects": "relaxation, dreaminess, reduced anxiety",
+    "effects": [
+      "relaxation",
+      "dreaminess",
+      "reduced anxiety"
+    ],
     "mechanismOfAction": "Contains erythrinan alkaloids acting as GABAergic depressants",
     "therapeuticUses": "Mexican folk remedy for insomnia and nervous tension",
     "pharmacokinetics": "Onset 30–45 min orally; duration 3–5 h",
@@ -3259,7 +3645,11 @@ const n=`[
       "hallucinogen",
       "tree"
     ],
-    "effects": "dreamlike visions, dizziness, altered consciousness",
+    "effects": [
+      "dreamlike visions",
+      "dizziness",
+      "altered consciousness"
+    ],
     "mechanismOfAction": "Contains himbacine-type alkaloids with muscarinic antagonist activity",
     "therapeuticUses": "Used by Papuan tribes for shamanic rituals and hunting magic",
     "pharmacokinetics": "Onset 30–60 min when consumed, lasting 4–8 h",
@@ -3290,7 +3680,11 @@ const n=`[
       "galangal",
       "spice"
     ],
-    "effects": "warm stimulation, mild euphoria, enhanced circulation",
+    "effects": [
+      "warm stimulation",
+      "mild euphoria",
+      "enhanced circulation"
+    ],
     "mechanismOfAction": "Contains eugenol and cineole that increase circulation and mild CNS stimulation",
     "therapeuticUses": "Used in Southeast Asian medicine for digestion and fatigue",
     "pharmacokinetics": "Onset 20–40 min, duration 2–4 h",
@@ -3321,7 +3715,11 @@ const n=`[
       "mint family",
       "sedative"
     ],
-    "effects": "mild sedation, light euphoria, dream enhancement",
+    "effects": [
+      "mild sedation",
+      "light euphoria",
+      "dream enhancement"
+    ],
     "mechanismOfAction": "Contains leonurine and other alkaloids that depress CNS activity",
     "therapeuticUses": "Used in Latin American and Asian folk medicine for relaxation and spiritual rituals",
     "pharmacokinetics": "Onset 20–30 min when smoked or brewed; effects last 2–4 h",
@@ -3352,7 +3750,11 @@ const n=`[
       "calming",
       "intoxicating mint"
     ],
-    "effects": "relaxation, mild euphoria, reduced anxiety",
+    "effects": [
+      "relaxation",
+      "mild euphoria",
+      "reduced anxiety"
+    ],
     "mechanismOfAction": "Contains lagochilin which depresses the CNS and may interact with GABA",
     "therapeuticUses": "Folk remedy in Uzbekistan and Kazakhstan for tension and insomnia",
     "pharmacokinetics": "Onset about 30 min orally or smoked; duration 3–5 h",
@@ -3383,7 +3785,11 @@ const n=`[
       "nicotine",
       "tobacco"
     ],
-    "effects": "alertness, intense buzz, clearing of thoughts",
+    "effects": [
+      "alertness",
+      "intense buzz",
+      "clearing of thoughts"
+    ],
     "mechanismOfAction": "High nicotine plus MAO‑inhibiting beta‑carbolines stimulate nicotinic receptors and inhibit MAO",
     "therapeuticUses": "Used by Amazonian shamans for cleansing and focus",
     "pharmacokinetics": "Smoked onset immediate, duration 30–60 min; oral snuff onset ~5 min",
@@ -3414,7 +3820,11 @@ const n=`[
       "sedative",
       "water lily"
     ],
-    "effects": "relaxation, dream enhancement, mild euphoria",
+    "effects": [
+      "relaxation",
+      "dream enhancement",
+      "mild euphoria"
+    ],
     "mechanismOfAction": "Contains aporphine alkaloids that act on dopamine and serotonin receptors",
     "therapeuticUses": "Used in ancient Egypt for sedation and ritual ceremonies",
     "pharmacokinetics": "Onset 20–30 min when brewed; duration about 2–5 h",
@@ -3445,7 +3855,11 @@ const n=`[
       "dmt",
       "chaliponga"
     ],
-    "effects": "visual effects, introspection, spiritual insight",
+    "effects": [
+      "visual effects",
+      "introspection",
+      "spiritual insight"
+    ],
     "mechanismOfAction": "Leaves contain N,N-dimethyltryptamine acting as a serotonin agonist; requires MAO inhibition orally",
     "therapeuticUses": "Used in ayahuasca analogues for visionary experiences",
     "pharmacokinetics": "Onset 20–45 min orally with MAOI, duration 4–6 h",
@@ -3476,7 +3890,11 @@ const n=`[
       "dopamine",
       "velvet bean"
     ],
-    "effects": "increased motivation, energy, elevated mood",
+    "effects": [
+      "increased motivation",
+      "energy",
+      "elevated mood"
+    ],
     "mechanismOfAction": "Seeds contain L‑DOPA which increases brain dopamine levels",
     "therapeuticUses": "Used in Ayurveda for Parkinson's disease, mood disorders and vitality",
     "pharmacokinetics": "Onset around 30 min, duration 4–6 h",
@@ -3507,7 +3925,11 @@ const n=`[
       "caffeine",
       "vine"
     ],
-    "effects": "alertness, energy, reduced fatigue",
+    "effects": [
+      "alertness",
+      "energy",
+      "reduced fatigue"
+    ],
     "mechanismOfAction": "Bark rich in caffeine acts as an adenosine receptor antagonist",
     "therapeuticUses": "Used by indigenous Amazonian peoples for stamina on hunts",
     "pharmacokinetics": "Onset 10–20 min when brewed; duration 2–4 h",
@@ -3538,7 +3960,11 @@ const n=`[
       "iboza",
       "aromatic"
     ],
-    "effects": "relaxation, pain relief, lightheadedness",
+    "effects": [
+      "relaxation",
+      "pain relief",
+      "lightheadedness"
+    ],
     "mechanismOfAction": "Aromatic diterpenes may modulate GABA and opioid receptors",
     "therapeuticUses": "Used in African folk medicine for headaches and anxiety",
     "pharmacokinetics": "Onset 20–30 min as tea or smoked, lasting 2–4 h",
@@ -3569,7 +3995,11 @@ const n=`[
       "uchu sanango",
       "iboga alkaloids"
     ],
-    "effects": "tingling sensation, dream enhancement, altered perception",
+    "effects": [
+      "tingling sensation",
+      "dream enhancement",
+      "altered perception"
+    ],
     "mechanismOfAction": "Contains iboga-type alkaloids affecting serotonin and NMDA receptors",
     "therapeuticUses": "Amazonian tribes use the bark for hunting preparation and pain",
     "pharmacokinetics": "Onset 15–30 min when chewed or brewed; duration 2–5 h",
@@ -3600,7 +4030,11 @@ const n=`[
       "incense",
       "sedative"
     ],
-    "effects": "tranquil mind, subtle euphoria, aromatic relaxation",
+    "effects": [
+      "tranquil mind",
+      "subtle euphoria",
+      "aromatic relaxation"
+    ],
     "mechanismOfAction": "Resin rich in sesquiterpenes acts via GABAergic and dopaminergic pathways when inhaled",
     "therapeuticUses": "Used in traditional Asian medicine and incense for calming and meditation",
     "pharmacokinetics": "Effects appear within minutes when smoked or heated, lasting 1–2 h",
@@ -3631,7 +4065,11 @@ const n=`[
       "lsa",
       "seeds"
     ],
-    "effects": "closed-eye visuals, euphoria, enhanced introspection",
+    "effects": [
+      "closed-eye visuals",
+      "euphoria",
+      "enhanced introspection"
+    ],
     "mechanismOfAction": "Seeds contain lysergic acid amide (LSA) acting on serotonin receptors",
     "therapeuticUses": "Occasionally used in Ayurveda as a tonic and for spiritual rituals",
     "pharmacokinetics": "Onset 1–2 h orally, duration 6–8 h",
@@ -3662,7 +4100,11 @@ const n=`[
       "tingling",
       "toothache tree"
     ],
-    "effects": "mouth numbness, mild stimulation, pain relief",
+    "effects": [
+      "mouth numbness",
+      "mild stimulation",
+      "pain relief"
+    ],
     "mechanismOfAction": "Bark contains sanshools that cause paresthesia and stimulate trigeminal nerves",
     "therapeuticUses": "Native American remedy for toothaches and sore throats; also used as a tonic",
     "pharmacokinetics": "Onset within minutes when chewed; duration 1–3 h",
@@ -3693,7 +4135,11 @@ const n=`[
       "respiratory",
       "vasaka"
     ],
-    "effects": "clear breathing, mild stimulation, warming",
+    "effects": [
+      "clear breathing",
+      "mild stimulation",
+      "warming"
+    ],
     "mechanismOfAction": "Alkaloids such as vasicine act as bronchodilators and respiratory stimulants",
     "therapeuticUses": "Ayurvedic herb for asthma, coughs and general vitality",
     "pharmacokinetics": "Onset 30 min orally; effects last about 3–4 h",
@@ -3724,7 +4170,11 @@ const n=`[
       "mushroom",
       "panther cap"
     ],
-    "effects": "sedation, confusion, dizziness",
+    "effects": [
+      "sedation",
+      "confusion",
+      "dizziness"
+    ],
     "mechanismOfAction": "Contains muscimol and ibotenic acid acting on GABA receptors",
     "therapeuticUses": "Traditional Siberian shamanic use; rarely employed medically",
     "sideEffects": "Nausea, loss of coordination, delirium",
@@ -3742,7 +4192,8 @@ const n=`[
     "safetyRating": "Low",
     "affiliateLink": "",
     "slug": "amanita-pantherina",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Cannabis sativa",
@@ -3753,7 +4204,11 @@ const n=`[
       "thc",
       "marijuana"
     ],
-    "effects": "euphoria, relaxation, altered perception",
+    "effects": [
+      "euphoria",
+      "relaxation",
+      "altered perception"
+    ],
     "mechanismOfAction": "THC acts on cannabinoid receptors CB1 and CB2",
     "therapeuticUses": "Pain relief, appetite stimulation, anxiety reduction",
     "sideEffects": "Dry mouth, short-term memory impairment, anxiety in high doses",
@@ -3771,7 +4226,8 @@ const n=`[
     "safetyRating": "Medium",
     "affiliateLink": "",
     "slug": "cannabis-sativa",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Claviceps purpurea",
@@ -3782,7 +4238,11 @@ const n=`[
       "fungus",
       "vasoconstrictor"
     ],
-    "effects": "vasoconstriction, hallucinations, numbness",
+    "effects": [
+      "vasoconstriction",
+      "hallucinations",
+      "numbness"
+    ],
     "mechanismOfAction": "Produces ergot alkaloids acting on serotonin and adrenergic receptors",
     "therapeuticUses": "Historically used to induce labor and treat migraines",
     "sideEffects": "Nausea, convulsions, gangrene in high doses",
@@ -3800,7 +4260,8 @@ const n=`[
     "safetyRating": "Very Low",
     "affiliateLink": "",
     "slug": "claviceps-purpurea",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Coleus blumei",
@@ -3811,7 +4272,11 @@ const n=`[
       "painted nettle",
       "visionary"
     ],
-    "effects": "mild visuals, color enhancement, relaxation",
+    "effects": [
+      "mild visuals",
+      "color enhancement",
+      "relaxation"
+    ],
     "mechanismOfAction": "Unclear; may act on serotonergic pathways",
     "therapeuticUses": "Rarely used; some folk use for divination",
     "sideEffects": "Headache, nausea at high doses",
@@ -3829,7 +4294,8 @@ const n=`[
     "safetyRating": "Medium",
     "affiliateLink": "",
     "slug": "coleus-blumei",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Echinopsis pachanoi",
@@ -3840,7 +4306,11 @@ const n=`[
       "cactus",
       "mescaline"
     ],
-    "effects": "visuals, euphoria, spiritual insight",
+    "effects": [
+      "visuals",
+      "euphoria",
+      "spiritual insight"
+    ],
     "mechanismOfAction": "Contains mescaline, a 5‑HT2A agonist phenethylamine",
     "therapeuticUses": "Andean traditional medicine for divination and healing",
     "sideEffects": "Nausea, increased heart rate, anxiety",
@@ -3858,7 +4328,8 @@ const n=`[
     "safetyRating": "Medium",
     "affiliateLink": "",
     "slug": "echinopsis-pachanoi",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Erythroxylum coca",
@@ -3869,7 +4340,11 @@ const n=`[
       "alkaloid",
       "coca leaf"
     ],
-    "effects": "alertness, reduced fatigue, mild euphoria",
+    "effects": [
+      "alertness",
+      "reduced fatigue",
+      "mild euphoria"
+    ],
     "mechanismOfAction": "Leaves contain cocaine acting as a dopamine and norepinephrine reuptake inhibitor",
     "therapeuticUses": "Altitude sickness relief, energy boost, appetite suppression",
     "sideEffects": "Increased heart rate, insomnia, potential dependence",
@@ -3887,7 +4362,8 @@ const n=`[
     "safetyRating": "Low",
     "affiliateLink": "",
     "slug": "erythroxylum-coca",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Ginkgo biloba",
@@ -3898,7 +4374,11 @@ const n=`[
       "blood flow",
       "memory"
     ],
-    "effects": "improved cognition, circulation boost, alertness",
+    "effects": [
+      "improved cognition",
+      "circulation boost",
+      "alertness"
+    ],
     "mechanismOfAction": "Flavone glycosides and terpenoids enhance blood flow and modulate neurotransmission",
     "therapeuticUses": "Used for memory loss, dementia, and circulatory issues",
     "sideEffects": "Headache, upset stomach, possible bleeding risk",
@@ -3916,7 +4396,8 @@ const n=`[
     "safetyRating": "High",
     "affiliateLink": "",
     "slug": "ginkgo-biloba",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Helichrysum odoratissimum",
@@ -3927,7 +4408,11 @@ const n=`[
       "imphepho",
       "smoke"
     ],
-    "effects": "relaxation, mild euphoria, dream enhancement",
+    "effects": [
+      "relaxation",
+      "mild euphoria",
+      "dream enhancement"
+    ],
     "mechanismOfAction": "Aromatic compounds interact with GABA and serotonin systems",
     "therapeuticUses": "Used by South African healers for cleansing and ancestor communication",
     "sideEffects": "Mild headache from smoke inhalation",
@@ -3945,7 +4430,8 @@ const n=`[
     "safetyRating": "High",
     "affiliateLink": "",
     "slug": "helichrysum-odoratissimum",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Hypericum perforatum",
@@ -3956,7 +4442,11 @@ const n=`[
       "st. john's wort",
       "mood"
     ],
-    "effects": "improved mood, reduced anxiety, light sedation",
+    "effects": [
+      "improved mood",
+      "reduced anxiety",
+      "light sedation"
+    ],
     "mechanismOfAction": "Hyperforin and hypericin inhibit reuptake of serotonin, dopamine, and norepinephrine",
     "therapeuticUses": "Mild to moderate depression, anxiety, sleep issues",
     "sideEffects": "Photosensitivity, dry mouth, gastrointestinal upset",
@@ -3974,7 +4464,8 @@ const n=`[
     "safetyRating": "Medium",
     "affiliateLink": "",
     "slug": "hypericum-perforatum",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Ilex vomitoria",
@@ -3985,7 +4476,11 @@ const n=`[
       "caffeine",
       "yaupon"
     ],
-    "effects": "alertness, mild euphoria, cleansing",
+    "effects": [
+      "alertness",
+      "mild euphoria",
+      "cleansing"
+    ],
     "mechanismOfAction": "Contains caffeine and theobromine acting as adenosine receptor antagonists",
     "therapeuticUses": "Native American ceremonial drink for stimulation and purification",
     "sideEffects": "Nausea in excess, insomnia",
@@ -4003,13 +4498,17 @@ const n=`[
     "safetyRating": "Medium",
     "affiliateLink": "",
     "slug": "ilex-vomitoria",
-    "tagCount": 3
+    "tagCount": 3,
+    "description": "No description available"
   },
   {
     "name": "Centella asiatica",
     "scientificName": "Centella asiatica",
     "category": "Cognitive",
-    "effects": "Mental clarity, calm focus",
+    "effects": [
+      "Mental clarity",
+      "calm focus"
+    ],
     "preparation": "Tea or capsules",
     "intensity": "Mild",
     "onset": "30 min",
@@ -4047,7 +4546,10 @@ const n=`[
     "name": "Eschscholzia californica",
     "scientificName": "Eschscholzia californica",
     "category": "Dissociative / Sedative",
-    "effects": "Sedation, mild euphoria",
+    "effects": [
+      "Sedation",
+      "mild euphoria"
+    ],
     "preparation": "Tincture or smoked",
     "intensity": "Mild",
     "onset": "20 min",
@@ -4085,7 +4587,10 @@ const n=`[
     "name": "Leonotis leonurus",
     "scientificName": "Leonotis leonurus",
     "category": "Ritual / Visionary",
-    "effects": "Mild euphoria, relaxation",
+    "effects": [
+      "Mild euphoria",
+      "relaxation"
+    ],
     "preparation": "Dried leaves smoked",
     "intensity": "Mild",
     "onset": "Immediate when smoked",
@@ -4123,7 +4628,9 @@ const n=`[
     "name": "Uncaria tomentosa",
     "scientificName": "Uncaria tomentosa",
     "category": "Other",
-    "effects": "Immune modulation",
+    "effects": [
+      "Immune modulation"
+    ],
     "preparation": "Bark decoction or capsules",
     "intensity": "Mild",
     "onset": "1 hr",
@@ -4161,7 +4668,10 @@ const n=`[
     "name": "Myristica fragrans",
     "scientificName": "Myristica fragrans",
     "category": "Ritual / Visionary",
-    "effects": "Deliriant states, nausea",
+    "effects": [
+      "Deliriant states",
+      "nausea"
+    ],
     "preparation": "Ground seed orally",
     "intensity": "Strong",
     "onset": "2-3 hrs",
@@ -4199,7 +4709,10 @@ const n=`[
     "name": "Pausinystalia yohimbe",
     "scientificName": "Pausinystalia yohimbe",
     "category": "Stimulant",
-    "effects": "Aphrodisiac, stimulant",
+    "effects": [
+      "Aphrodisiac",
+      "stimulant"
+    ],
     "preparation": "Bark extract",
     "intensity": "Moderate",
     "onset": "30 min",
@@ -4237,7 +4750,10 @@ const n=`[
     "name": "Eleutherococcus senticosus",
     "scientificName": "Eleutherococcus senticosus",
     "category": "Stimulant / Adaptogen",
-    "effects": "Energy, stress resistance",
+    "effects": [
+      "Energy",
+      "stress resistance"
+    ],
     "preparation": "Root extract",
     "intensity": "Mild",
     "onset": "1 hr",
@@ -4275,7 +4791,10 @@ const n=`[
     "name": "Ptychopetalum olacoides",
     "scientificName": "Ptychopetalum olacoides",
     "category": "Stimulant",
-    "effects": "Libido boost, mild stimulation",
+    "effects": [
+      "Libido boost",
+      "mild stimulation"
+    ],
     "preparation": "Bark tincture",
     "intensity": "Mild",
     "onset": "30 min",
@@ -4313,7 +4832,10 @@ const n=`[
     "name": "Cola nitida",
     "scientificName": "Cola nitida",
     "category": "Stimulant",
-    "effects": "Alertness, reduced fatigue",
+    "effects": [
+      "Alertness",
+      "reduced fatigue"
+    ],
     "preparation": "Chewed seeds or beverages",
     "intensity": "Moderate",
     "onset": "Immediate when chewed",
@@ -4351,7 +4873,10 @@ const n=`[
     "name": "Gynostemma pentaphyllum",
     "scientificName": "Gynostemma pentaphyllum",
     "category": "Other",
-    "effects": "Adaptogenic, anti-inflammatory",
+    "effects": [
+      "Adaptogenic",
+      "anti-inflammatory"
+    ],
     "preparation": "Tea infusion",
     "intensity": "Mild",
     "onset": "30 min",
@@ -4388,7 +4913,9 @@ const n=`[
     "name": "Silybum marianum",
     "scientificName": "Silybum marianum",
     "category": "Other",
-    "effects": "Liver protection",
+    "effects": [
+      "Liver protection"
+    ],
     "preparation": "Seed extract",
     "intensity": "Mild",
     "onset": "1 hr",
@@ -4425,7 +4952,10 @@ const n=`[
     "name": "Piper methysticum",
     "scientificName": "Piper methysticum",
     "category": "Dissociative / Sedative",
-    "effects": "Anxiolytic, sedation",
+    "effects": [
+      "Anxiolytic",
+      "sedation"
+    ],
     "preparation": "Root beverage",
     "intensity": "Moderate",
     "onset": "20 min",
@@ -4463,7 +4993,10 @@ const n=`[
     "name": "Uncaria rhynchophylla",
     "scientificName": "Uncaria rhynchophylla",
     "category": "Dissociative / Sedative",
-    "effects": "Calming, anticonvulsant",
+    "effects": [
+      "Calming",
+      "anticonvulsant"
+    ],
     "preparation": "Hook vine decoction",
     "intensity": "Mild",
     "onset": "30 min",
@@ -4501,7 +5034,10 @@ const n=`[
     "name": "Mandrake",
     "scientificName": "Mandragora officinarum",
     "category": "Ritual / Visionary",
-    "effects": "hallucinations, sedation",
+    "effects": [
+      "hallucinations",
+      "sedation"
+    ],
     "mechanismOfAction": "Tropane alkaloids block muscarinic acetylcholine receptors",
     "activeConstituents": [
       {
@@ -4538,7 +5074,9 @@ const n=`[
     "name": "Foxglove",
     "scientificName": "Digitalis purpurea",
     "category": "Other",
-    "effects": "cardiac stimulation",
+    "effects": [
+      "cardiac stimulation"
+    ],
     "mechanismOfAction": "Cardiac glycosides inhibit Na⁺/K⁺-ATPase",
     "activeConstituents": [
       {
@@ -4575,7 +5113,10 @@ const n=`[
     "name": "Jimson Weed",
     "scientificName": "Datura stramonium",
     "category": "Ritual / Visionary",
-    "effects": "delirium, hallucinations",
+    "effects": [
+      "delirium",
+      "hallucinations"
+    ],
     "mechanismOfAction": "Scopolamine and atropine block muscarinic receptors",
     "activeConstituents": [
       {
@@ -4612,7 +5153,10 @@ const n=`[
     "name": "Yellow Horned Poppy",
     "scientificName": "Glaucium flavum",
     "category": "Other",
-    "effects": "mild euphoria, sedation",
+    "effects": [
+      "mild euphoria",
+      "sedation"
+    ],
     "mechanismOfAction": "Contains glaucine, a bronchodilator acting on dopamine receptors",
     "activeConstituents": [
       {
@@ -4649,7 +5193,10 @@ const n=`[
     "name": "Carolina Jessamine",
     "scientificName": "Gelsemium sempervirens",
     "category": "Other",
-    "effects": "relaxation, sedation",
+    "effects": [
+      "relaxation",
+      "sedation"
+    ],
     "mechanismOfAction": "Gelsemine acts on glycine and nicotinic receptors",
     "activeConstituents": [
       {
@@ -4685,7 +5232,10 @@ const n=`[
     "name": "Opium Poppy",
     "scientificName": "Papaver somniferum",
     "category": "Other",
-    "effects": "analgesia, euphoria",
+    "effects": [
+      "analgesia",
+      "euphoria"
+    ],
     "mechanismOfAction": "Morphine alkaloids activate mu-opioid receptors",
     "activeConstituents": [
       {
@@ -4722,7 +5272,10 @@ const n=`[
     "name": "Coffee",
     "scientificName": "Coffea arabica",
     "category": "Stimulant",
-    "effects": "alertness, energy",
+    "effects": [
+      "alertness",
+      "energy"
+    ],
     "mechanismOfAction": "Caffeine blocks adenosine receptors increasing neurotransmitter release",
     "activeConstituents": [
       {
@@ -4758,7 +5311,10 @@ const n=`[
     "name": "Asian Ginseng",
     "scientificName": "Panax ginseng",
     "category": "Empathogen / Euphoriant",
-    "effects": "vitality, adaptogen",
+    "effects": [
+      "vitality",
+      "adaptogen"
+    ],
     "mechanismOfAction": "Ginsenosides modulate HPA axis and nitric oxide pathways",
     "activeConstituents": [
       {
@@ -4795,7 +5351,9 @@ const n=`[
     "name": "American Ginseng",
     "scientificName": "Panax quinquefolius",
     "category": "Empathogen / Euphoriant",
-    "effects": "calm energy",
+    "effects": [
+      "calm energy"
+    ],
     "mechanismOfAction": "Similar ginsenosides modulate neurotransmitters",
     "activeConstituents": [
       {
@@ -4832,7 +5390,10 @@ const n=`[
     "name": "Kratom",
     "scientificName": "Mitragyna speciosa",
     "category": "Stimulant",
-    "effects": "euphoria, pain relief",
+    "effects": [
+      "euphoria",
+      "pain relief"
+    ],
     "mechanismOfAction": "Mitragynine acts on opioid receptors",
     "activeConstituents": [
       {
@@ -4869,7 +5430,10 @@ const n=`[
     "name": "Peruvian Torch",
     "scientificName": "Echinopsis peruviana",
     "category": "Psychedelic",
-    "effects": "visions, empathy",
+    "effects": [
+      "visions",
+      "empathy"
+    ],
     "mechanismOfAction": "Mescaline acts as a 5-HT2A agonist",
     "activeConstituents": [
       {
@@ -4906,7 +5470,10 @@ const n=`[
     "name": "Chaliponga",
     "scientificName": "Diplopterys cabrerana",
     "category": "Ritual / Visionary",
-    "effects": "visions, introspection",
+    "effects": [
+      "visions",
+      "introspection"
+    ],
     "mechanismOfAction": "Leaves contain DMT and 5-MeO-DMT acting on serotonin receptors",
     "activeConstituents": [
       {
@@ -4943,7 +5510,9 @@ const n=`[
     "name": "Mormon Tea",
     "scientificName": "Ephedra nevadensis",
     "category": "Stimulant",
-    "effects": "mild stimulation",
+    "effects": [
+      "mild stimulation"
+    ],
     "mechanismOfAction": "Contains ephedrine-like alkaloids releasing norepinephrine",
     "activeConstituents": [
       {
@@ -4979,7 +5548,10 @@ const n=`[
     "name": "Coca",
     "scientificName": "Erythroxylum coca",
     "category": "Stimulant",
-    "effects": "euphoria, energy",
+    "effects": [
+      "euphoria",
+      "energy"
+    ],
     "mechanismOfAction": "Cocaine inhibits monoamine reuptake",
     "activeConstituents": [
       {
@@ -5016,7 +5588,10 @@ const n=`[
     "name": "Sanango",
     "scientificName": "Tabernaemontana sananho",
     "category": "Ritual / Visionary",
-    "effects": "dream enhancement, mild stimulation",
+    "effects": [
+      "dream enhancement",
+      "mild stimulation"
+    ],
     "mechanismOfAction": "Iboga-type alkaloids act on NMDA and serotonin receptors",
     "activeConstituents": [
       {
@@ -5052,7 +5627,10 @@ const n=`[
     "name": "Kieli",
     "scientificName": "Solandra maxima",
     "category": "Ritual / Visionary",
-    "effects": "visions, disorientation",
+    "effects": [
+      "visions",
+      "disorientation"
+    ],
     "mechanismOfAction": "Tropane alkaloids similar to datura",
     "activeConstituents": [
       {
@@ -5088,7 +5666,10 @@ const n=`[
     "name": "Flame Lily",
     "scientificName": "Gloriosa superba",
     "category": "Other",
-    "effects": "intense nausea, weak delirium",
+    "effects": [
+      "intense nausea",
+      "weak delirium"
+    ],
     "mechanismOfAction": "Contains colchicine disrupting microtubules",
     "activeConstituents": [
       {
@@ -5124,7 +5705,9 @@ const n=`[
     "name": "Giant Reed",
     "scientificName": "Arundo donax",
     "category": "Ritual / Visionary",
-    "effects": "mild visions",
+    "effects": [
+      "mild visions"
+    ],
     "mechanismOfAction": "Root bark may contain DMT and bufotenine",
     "activeConstituents": [
       {
@@ -5160,7 +5743,10 @@ const n=`[
     "name": "Bolivian Torch",
     "scientificName": "Echinopsis lageniformis",
     "category": "Psychedelic",
-    "effects": "visions, clarity",
+    "effects": [
+      "visions",
+      "clarity"
+    ],
     "mechanismOfAction": "Mescaline as 5-HT2A agonist",
     "activeConstituents": [
       {
@@ -5196,7 +5782,10 @@ const n=`[
     "name": "Yarrow",
     "scientificName": "Achillea millefolium",
     "category": "Sedative / Analgesic",
-    "effects": "relaxation, pain relief",
+    "effects": [
+      "relaxation",
+      "pain relief"
+    ],
     "mechanismOfAction": "Sesquiterpene lactones like chamazulene reduce inflammation and may calm nerves",
     "activeConstituents": [
       {
@@ -5236,7 +5825,10 @@ const n=`[
     "name": "Heimia myrtifolia",
     "scientificName": "Heimia myrtifolia",
     "category": "Dissociative / Sedative",
-    "effects": "auditory shift, relaxation",
+    "effects": [
+      "auditory shift",
+      "relaxation"
+    ],
     "mechanismOfAction": "Alkaloids like vertine may alter neurotransmission",
     "activeConstituents": [
       {
@@ -5272,7 +5864,10 @@ const n=`[
     "name": "Kratom Hybrids",
     "scientificName": "Mitragyna speciosa hybrids",
     "category": "Stimulant / Analgesic",
-    "effects": "energy, pain relief",
+    "effects": [
+      "energy",
+      "pain relief"
+    ],
     "mechanismOfAction": "Indole alkaloids act as partial mu-opioid agonists",
     "activeConstituents": [
       {
@@ -5312,7 +5907,10 @@ const n=`[
     "name": "Psychotria carthaginensis",
     "scientificName": "Psychotria carthaginensis",
     "category": "Psychedelic",
-    "effects": "visions, euphoria",
+    "effects": [
+      "visions",
+      "euphoria"
+    ],
     "mechanismOfAction": "Leaves contain DMT acting on 5-HT2A when combined with MAOI",
     "activeConstituents": [
       {
@@ -5348,7 +5946,10 @@ const n=`[
     "name": "Salvia apiana",
     "scientificName": "Salvia apiana",
     "category": "Ritual / Aromatic",
-    "effects": "calm, clarity",
+    "effects": [
+      "calm",
+      "clarity"
+    ],
     "mechanismOfAction": "Essential oils like cineole and thujone provide mild GABA modulation",
     "activeConstituents": [
       {
@@ -5388,7 +5989,10 @@ const n=`[
     "name": "Polygala tenuifolia",
     "scientificName": "Polygala tenuifolia",
     "category": "Nootropic / Adaptogen",
-    "effects": "focus, mood lift",
+    "effects": [
+      "focus",
+      "mood lift"
+    ],
     "mechanismOfAction": "Tenuigenin saponins modulate neurochemistry and neurotrophic factors",
     "activeConstituents": [
       {
@@ -5423,7 +6027,10 @@ const n=`[
     "name": "Nicotiana tabacum",
     "scientificName": "Nicotiana tabacum",
     "category": "Stimulant",
-    "effects": "alertness, mild euphoria",
+    "effects": [
+      "alertness",
+      "mild euphoria"
+    ],
     "mechanismOfAction": "Nicotine stimulates nicotinic acetylcholine receptors releasing dopamine",
     "activeConstituents": [
       {
@@ -5459,7 +6066,10 @@ const n=`[
     "name": "Sida acuta",
     "scientificName": "Sida acuta",
     "category": "Stimulant / Nootropic",
-    "effects": "energy, focus",
+    "effects": [
+      "energy",
+      "focus"
+    ],
     "mechanismOfAction": "Contains ephedrine-like alkaloids stimulating adrenergic receptors",
     "activeConstituents": [
       {
@@ -5495,7 +6105,10 @@ const n=`[
     "name": "Aegle marmelos",
     "scientificName": "Aegle marmelos",
     "category": "Digestive / Mild Sedative",
-    "effects": "calm, digestive relief",
+    "effects": [
+      "calm",
+      "digestive relief"
+    ],
     "mechanismOfAction": "Coumarins like marmelosin exhibit mild sedative and GI effects",
     "activeConstituents": [
       {
@@ -5531,7 +6144,10 @@ const n=`[
     "name": "Hibiscus sabdariffa",
     "scientificName": "Hibiscus sabdariffa",
     "category": "Relaxant / Beverage",
-    "effects": "mild calm, vitamin C",
+    "effects": [
+      "mild calm",
+      "vitamin C"
+    ],
     "mechanismOfAction": "Anthocyanins provide antioxidant and hypotensive actions",
     "activeConstituents": [
       {
@@ -5566,7 +6182,10 @@ const n=`[
     "name": "Verbena officinalis",
     "scientificName": "Verbena officinalis",
     "category": "Mild Sedative",
-    "effects": "relaxation, digestive aid",
+    "effects": [
+      "relaxation",
+      "digestive aid"
+    ],
     "mechanismOfAction": "Iridoid glycosides like verbenalin may influence GABA",
     "activeConstituents": [
       {
@@ -5601,7 +6220,10 @@ const n=`[
     "name": "Hyssopus officinalis",
     "scientificName": "Hyssopus officinalis",
     "category": "Stimulant / Expectorant",
-    "effects": "respiratory relief, mild alertness",
+    "effects": [
+      "respiratory relief",
+      "mild alertness"
+    ],
     "mechanismOfAction": "Monoterpenes like pinocamphone stimulate circulation",
     "activeConstituents": [
       {
@@ -5637,7 +6259,10 @@ const n=`[
     "name": "Marrubium vulgare",
     "scientificName": "Marrubium vulgare",
     "category": "Expectorant / Bitter",
-    "effects": "digestive stimulation, clear lungs",
+    "effects": [
+      "digestive stimulation",
+      "clear lungs"
+    ],
     "mechanismOfAction": "Diterpene lactone marrubiin stimulates mucus production",
     "activeConstituents": [
       {
@@ -5672,7 +6297,10 @@ const n=`[
     "name": "Thymus vulgaris",
     "scientificName": "Thymus vulgaris",
     "category": "Aromatic / Antimicrobial",
-    "effects": "alertness, respiratory relief",
+    "effects": [
+      "alertness",
+      "respiratory relief"
+    ],
     "mechanismOfAction": "Essential oil rich in thymol acts as antimicrobial and mild stimulant",
     "activeConstituents": [
       {
@@ -5707,7 +6335,10 @@ const n=`[
     "name": "Lavandula angustifolia",
     "scientificName": "Lavandula angustifolia",
     "category": "Relaxant / Aromatic",
-    "effects": "calm, sleep aid",
+    "effects": [
+      "calm",
+      "sleep aid"
+    ],
     "mechanismOfAction": "Linalool and linalyl acetate modulate GABA",
     "activeConstituents": [
       {
@@ -5742,7 +6373,10 @@ const n=`[
     "name": "Echinacea purpurea",
     "scientificName": "Echinacea purpurea",
     "category": "Immune / Mild Stimulant",
-    "effects": "immune boost, slight energy",
+    "effects": [
+      "immune boost",
+      "slight energy"
+    ],
     "mechanismOfAction": "Phenolic compounds like echinacoside modulate immune response",
     "activeConstituents": [
       {
@@ -5777,7 +6411,10 @@ const n=`[
     "name": "Valeriana jatamansi",
     "scientificName": "Valeriana jatamansi",
     "category": "Sedative / Anxiolytic",
-    "effects": "calming, sleep",
+    "effects": [
+      "calming",
+      "sleep"
+    ],
     "mechanismOfAction": "Sesquiterpenes like valeranon interact with GABA",
     "activeConstituents": [
       {
@@ -5812,7 +6449,10 @@ const n=`[
     "name": "Erythroxylum catuaba",
     "scientificName": "Erythroxylum catuaba",
     "category": "Stimulant / Aphrodisiac",
-    "effects": "mild euphoria, libido boost",
+    "effects": [
+      "mild euphoria",
+      "libido boost"
+    ],
     "mechanismOfAction": "Alkaloids like catuabine may modulate dopamine",
     "activeConstituents": [
       {
@@ -5847,7 +6487,10 @@ const n=`[
     "name": "Nymphaea rubra",
     "scientificName": "Nymphaea rubra",
     "category": "Sedative / Euphoric",
-    "effects": "calming, dreamy state",
+    "effects": [
+      "calming",
+      "dreamy state"
+    ],
     "mechanismOfAction": "Alkaloids like apomorphine interact with dopamine receptors",
     "activeConstituents": [
       {
@@ -5882,7 +6525,10 @@ const n=`[
     "name": "Gymnema sylvestre",
     "scientificName": "Gymnema sylvestre",
     "category": "Metabolic / Nootropic",
-    "effects": "reduced sweet taste, focus",
+    "effects": [
+      "reduced sweet taste",
+      "focus"
+    ],
     "mechanismOfAction": "Gymnemic acids block sweet receptors and modulate glucose absorption",
     "activeConstituents": [
       {
