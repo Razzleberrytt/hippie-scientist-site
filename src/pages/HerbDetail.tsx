@@ -7,6 +7,7 @@ import { decodeTag, tagVariant } from '../utils/format'
 import TagBadge from '../components/TagBadge'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import ErrorBoundary from '../components/ErrorBoundary'
 
 function findSimilar(current: any) {
   const scores = herbs.map(h => {
@@ -35,12 +36,14 @@ function findSimilar(current: any) {
     .map(x => x.h)
 }
 
-export default function HerbDetail() {
+function HerbDetailInner() {
   const { id } = useParams<{ id: string }>()
   const herb = herbs.find(h => h.id === id)
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [showSimilar, setShowSimilar] = React.useState(false)
-  if (!herb) {
+
+  if (!herb || !herb.name || !herb.effects) {
+    console.warn('Skipping malformed herb:', herb)
     return (
       <div className='p-6 text-center'>
         <p>Herb not found.</p>
@@ -50,15 +53,23 @@ export default function HerbDetail() {
       </div>
     )
   }
-  const similar = React.useMemo(() => findSimilar(herb), [herb])
-  const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${(herb.effects || []).join(', ')}.`
+
+  const h = {
+    ...herb,
+    name: herb.name || 'Unknown Herb',
+    effects: Array.isArray(herb.effects) ? herb.effects : [],
+    category: herb.category || 'Other',
+    slug: (herb as any).slug || slugify(herb.name),
+  }
+
+  const similar = React.useMemo(() => findSimilar(h), [h])
+  const summary = `${h.name} is classified as ${h.category}. Known effects include ${h.effects.join(', ')}.`
+
   return (
     <>
       <Helmet>
-        <title>{herb.name} - The Hippie Scientist</title>
-        {herb.description && (
-          <meta name='description' content={herb.description} />
-        )}
+        <title>{h.name} - The Hippie Scientist</title>
+        {h.description && <meta name='description' content={h.description} />}
       </Helmet>
       <motion.div
         initial={{ opacity: 0 }}
@@ -68,8 +79,8 @@ export default function HerbDetail() {
         <Link to='/database' className='text-comet underline'>
           ← Back
         </Link>
-        <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
-        {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
+        <h1 className='text-gradient text-4xl font-bold'>{h.name}</h1>
+        {h.scientificName && <p className='italic'>{h.scientificName}</p>}
         <div className='space-y-2'>
           {[
             'description',
@@ -90,7 +101,7 @@ export default function HerbDetail() {
             'toxicity',
             'toxicityLD50',
           ].map(key => {
-            const raw = (herb as any)[key]
+            const raw = (h as any)[key]
             if (!raw) return null
             return (
               <div key={key}>
@@ -101,10 +112,10 @@ export default function HerbDetail() {
               </div>
             )
           })}
-          {herb.activeConstituents?.length > 0 && (
+          {h.activeConstituents?.length > 0 && (
             <div>
               <span className='font-semibold text-lime-300'>Active Compounds:</span>{' '}
-              {herb.activeConstituents.map((c, i) => (
+              {h.activeConstituents.map((c, i) => (
                 <React.Fragment key={c.name}>
                   {i > 0 && ', '}
                   <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>
@@ -114,9 +125,9 @@ export default function HerbDetail() {
               ))}
             </div>
           )}
-          {herb.affiliateLink && herb.affiliateLink.startsWith('http') && (
+          {h.affiliateLink && h.affiliateLink.startsWith('http') && (
             <a
-              href={herb.affiliateLink}
+              href={h.affiliateLink}
               target='_blank'
               rel='noopener noreferrer'
               className='text-sky-300 underline'
@@ -125,7 +136,7 @@ export default function HerbDetail() {
             </a>
           )}
           <div className='flex flex-wrap gap-2 pt-2'>
-            {herb.tags.map(tag => (
+            {h.tags.map(tag => (
               <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
             ))}
           </div>
@@ -165,9 +176,9 @@ export default function HerbDetail() {
           <p className='mt-2'>{summary}</p>
         </details>
       </motion.div>
-      {herb.affiliateLink && herb.affiliateLink.startsWith('http') && (
+      {h.affiliateLink && h.affiliateLink.startsWith('http') && (
         <a
-          href={herb.affiliateLink}
+          href={h.affiliateLink}
           target='_blank'
           rel='noopener noreferrer'
           className='fixed bottom-4 right-4 z-20 rounded-full bg-gradient-to-r from-violet-600 to-sky-600 px-4 py-3 text-white shadow-lg hover:shadow-xl'
@@ -176,5 +187,13 @@ export default function HerbDetail() {
         </a>
       )}
     </>
+  )
+}
+
+export default function HerbDetail() {
+  return (
+    <ErrorBoundary>
+      <HerbDetailInner />
+    </ErrorBoundary>
   )
 }

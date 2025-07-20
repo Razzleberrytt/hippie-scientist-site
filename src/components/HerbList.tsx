@@ -2,6 +2,7 @@ import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { Herb } from '../types'
 import HerbCardAccordion from './HerbCardAccordion'
+import ErrorBoundary from './ErrorBoundary'
 
 const containerVariants = {
   hidden: {},
@@ -40,7 +41,9 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
         <AnimatePresence>
           {herbs.slice(0, visible).map(h => (
             <motion.div key={h.id || h.name} variants={itemVariants} layout>
-              <HerbCardAccordion herb={h} highlight={highlightQuery} />
+              <ErrorBoundary>
+                <HerbCardAccordion herb={h} highlight={highlightQuery} />
+              </ErrorBoundary>
             </motion.div>
           ))}
         </AnimatePresence>
