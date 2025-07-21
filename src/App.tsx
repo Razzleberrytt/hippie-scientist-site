@@ -1,4 +1,5 @@
 import React from 'react'
+import HerbDetailPage from './pages/HerbDetailPage';
 import { Routes, Route } from 'react-router-dom'
 import { Suspense } from 'react'
 import { LoadingScreen } from './components/LoadingScreen'
@@ -18,7 +19,6 @@ const Store = React.lazy(() => import('./pages/Store'))
 const Research = React.lazy(() => import('./pages/Research'))
 const Compounds = React.lazy(() => import('./pages/Compounds'))
 const Downloads = React.lazy(() => import('./pages/Downloads'))
-
 function App() {
   return (
     <>
@@ -27,6 +27,7 @@ function App() {
       <main className='space-y-24 pt-16'>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
+            <Route path="/herbs/:herbId" element={<HerbDetailPage />} />
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
             <Route path='/learn' element={<Learn />} />
