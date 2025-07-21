@@ -8,7 +8,7 @@ import { decodeTag, tagVariant } from '../utils/format'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import TabContainer from '../components/TabContainer'
-import InfoTooltip from '../components/InfoTooltip'
+import SafetyIcon from '../components/SafetyIcon'
 
 export default function HerbDetailView() {
   const { id } = useParams<{ id: string }>()
@@ -41,26 +41,21 @@ export default function HerbDetailView() {
   const overview = (
     <div className='space-y-2'>
       {(() => {
-        const eff = Array.isArray(herb.effects)
-          ? herb.effects.join(', ')
-          : (herb.effects || '')
+        const eff = Array.isArray(herb.effects) ? herb.effects.join(', ') : herb.effects || ''
         return eff ? (
           <div>
-            <span className='font-semibold text-lime-300'>Effects:</span>{' '}
-            {eff}
+            <span className='font-semibold text-lime-300'>Effects:</span> {eff}
           </div>
         ) : null
       })()}
       {herb.region && (
         <div>
-          <span className='font-semibold text-lime-300'>Region:</span>{' '}
-          {herb.region}
+          <span className='font-semibold text-lime-300'>Region:</span> {herb.region}
         </div>
       )}
       {(herb as any).history && (
         <div>
-          <span className='font-semibold text-lime-300'>History:</span>{' '}
-          {(herb as any).history}
+          <span className='font-semibold text-lime-300'>History:</span> {(herb as any).history}
         </div>
       )}
       {Array.isArray(herb.tags) && herb.tags.length > 0 && (
@@ -81,21 +76,21 @@ export default function HerbDetailView() {
           {herb.activeConstituents.map((c, i) => (
             <React.Fragment key={c.name}>
               {i > 0 && ', '}
-              <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>{c.name}</Link>
+              <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>
+                {c.name}
+              </Link>
             </React.Fragment>
           ))}
         </div>
       )}
       {herb.mechanismOfAction && (
         <div>
-          <span className='font-semibold text-lime-300'>Mechanism:</span>{' '}
-          {herb.mechanismOfAction}
+          <span className='font-semibold text-lime-300'>Mechanism:</span> {herb.mechanismOfAction}
         </div>
       )}
       {herb.toxicityLD50 && (
         <div>
-          <span className='font-semibold text-lime-300'>LD50:</span>{' '}
-          {herb.toxicityLD50}
+          <span className='font-semibold text-lime-300'>LD50:</span> {herb.toxicityLD50}
         </div>
       )}
     </div>
@@ -105,24 +100,26 @@ export default function HerbDetailView() {
     <div className='space-y-2'>
       {herb.preparation && (
         <div>
-          <span className='font-semibold text-lime-300'>Prep:</span>{' '}
-          {herb.preparation}
+          <span className='font-semibold text-lime-300'>Prep:</span> {herb.preparation}
         </div>
       )}
       {herb.intensity && (
         <div>
-          <span className='font-semibold text-lime-300'>Intensity:</span>{' '}
-          {herb.intensity}
+          <span className='font-semibold text-lime-300'>Intensity:</span> {herb.intensity}
         </div>
       )}
       {herb.dosage && (
         <div>
-          <span className='font-semibold text-lime-300'>Dosage:</span>{' '}
-          {herb.dosage}
+          <span className='font-semibold text-lime-300'>Dosage:</span> {herb.dosage}
         </div>
       )}
       {herb.affiliateLink && herb.affiliateLink.startsWith('http') ? (
-        <a href={herb.affiliateLink} target='_blank' rel='noopener noreferrer' className='text-sky-300 underline'>
+        <a
+          href={herb.affiliateLink}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='text-sky-300 underline'
+        >
           Buy Online
         </a>
       ) : (
@@ -154,9 +151,7 @@ export default function HerbDetailView() {
     { id: 'usage', label: 'Usage', content: usage },
   ]
 
-  const effectsSummary = Array.isArray(herb.effects)
-    ? herb.effects.join(', ')
-    : (herb.effects || '')
+  const effectsSummary = Array.isArray(herb.effects) ? herb.effects.join(', ') : herb.effects || ''
   const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${effectsSummary}.`
 
   return (
@@ -165,38 +160,23 @@ export default function HerbDetailView() {
         <title>{herb.name} - The Hippie Scientist</title>
         {herb.description && <meta name='description' content={herb.description} />}
       </Helmet>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className='mx-auto max-w-3xl space-y-6 px-6 py-12'>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className='mx-auto max-w-3xl space-y-6 px-6 py-12'
+      >
         <Link to='/database' className='text-comet underline'>
           ← Back
         </Link>
-        <h1 className='text-gradient text-4xl font-bold flex items-center gap-2'>
+        <h1 className='text-gradient flex items-center gap-2 text-4xl font-bold'>
           {herb.name}
-          {(() => {
-            const r = String(herb.safetyRating || '').toLowerCase()
-            let icon = '❓'
-            let color = 'gray'
-            if (r.includes('high')) {
-              icon = '✅'
-              color = 'green'
-            } else if (r.includes('low')) {
-              icon = '☣️'
-              color = 'red'
-            } else if (r.includes('medium')) {
-              icon = '⚠️'
-              color = 'yellow'
-            }
-            return (
-              <InfoTooltip text={`Safety rating: ${r || 'unknown'}`}>
-                <span className={`text-${color}-300`}>{icon}</span>
-              </InfoTooltip>
-            )
-          })()}
+          <SafetyIcon level={herb.safetyRating} />
         </h1>
         {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
         <button
           type='button'
           onClick={copyLink}
-          className='rounded-md bg-black/30 px-3 py-2 text-sm text-sand hover:bg-white/10 backdrop-blur-md'
+          className='rounded-md bg-black/30 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
         >
           {copied ? '✅ Copied!' : 'Share \uD83D\uDD17'}
         </button>
