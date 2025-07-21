@@ -101,7 +101,7 @@ export default function HerbDetail() {
               </div>
             )
           })}
-          {herb.activeConstituents?.length > 0 && (
+          {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
             <div>
               <span className='font-semibold text-lime-300'>Active Compounds:</span>{' '}
               {herb.activeConstituents.map((c, i) => (
@@ -124,11 +124,13 @@ export default function HerbDetail() {
               Buy Online
             </a>
           )}
-          <div className='flex flex-wrap gap-2 pt-2'>
-            {herb.tags.map(tag => (
-              <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
-            ))}
-          </div>
+          {Array.isArray(herb.tags) && (
+            <div className='flex flex-wrap gap-2 pt-2'>
+              {herb.tags.map(tag => (
+                <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
+              ))}
+            </div>
+          )}
         </div>
         <button
           type='button'

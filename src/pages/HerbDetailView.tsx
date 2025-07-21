@@ -62,7 +62,7 @@ export default function HerbDetailView() {
           {(herb as any).history}
         </div>
       )}
-      {herb.tags.length > 0 && (
+      {Array.isArray(herb.tags) && herb.tags.length > 0 && (
         <div className='flex flex-wrap gap-2 pt-2'>
           {herb.tags.map(tag => (
             <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
@@ -74,7 +74,7 @@ export default function HerbDetailView() {
 
   const chemistry = (
     <div className='space-y-2'>
-      {herb.activeConstituents?.length > 0 && (
+      {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
         <div>
           <span className='font-semibold text-lime-300'>Compounds:</span>{' '}
           {herb.activeConstituents.map((c, i) => (
