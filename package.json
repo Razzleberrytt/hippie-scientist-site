@@ -8,11 +8,7 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
-    "clean-herbs": "node scripts/cleanHerbData.js",
-    "validate-herbs": "ts-node scripts/validateHerbData.ts",
-    "fix-herbs": "node scripts/fixHerbs.js",
-    "predev": "npm run clean-herbs && npm run validate-herbs",
-    "prebuild": "npm run clean-herbs && npm run validate-herbs || echo 'Validation skipped'"
+    "validate-herbs": "node scripts/validateHerbs.js"
   },
   "dependencies": {
     "@tsparticles/engine": "^3.8.1",
@@ -44,8 +40,6 @@
     "postcss": "^8.4.31",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
     "vite": "^4.5.14"
   }
 }

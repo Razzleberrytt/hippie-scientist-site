@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import herbs from '../data/herbs'
 import type { Herb } from '../types'
-import { safeHerbField } from '../utils/safeHerbField'
 
 interface Props {
   fixedId?: string
@@ -25,9 +24,6 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
 
   if (!herb) return null
 
-  const name = safeHerbField(herb.name, 'Unnamed Herb')
-  const effects = Array.isArray(herb.effects) ? herb.effects : []
-
   return (
     <motion.div
       id='featured-herb'
@@ -38,14 +34,16 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
       {herb.image && (
         <img
           src={herb.image}
-          alt={name}
+          alt={herb.name}
           className='h-32 w-full rounded-md object-cover'
         />
       )}
-      <h3 className='mt-3 font-herb text-2xl'>{name}</h3>
+      <h3 className='mt-3 font-herb text-2xl'>{herb.name}</h3>
       {(() => {
-        const text = effects.slice(0, 3).join(', ')
-        return text ? <p className='mt-1 text-sm text-sand'>{text}</p> : null
+        const effects = Array.isArray(herb.effects)
+          ? herb.effects.slice(0, 3).join(', ')
+          : (herb.effects || '')
+        return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
       })()}
       <Link
         to={`/herbs/${herb.id}`}

@@ -10,9 +10,6 @@ import TagBadge from './TagBadge'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import InfoTooltip from './InfoTooltip'
 import { slugify } from '../utils/slugify'
-import { safeHerbField } from '../utils/safeHerbField'
-import ErrorBoundary from './ErrorBoundary'
-import HerbCardError from './HerbCardError'
 
 interface Props {
   herb: Herb
@@ -38,8 +35,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 }
 
-// Only show a couple tags by default to keep cards compact
-const TAG_LIMIT = 2
+const TAG_LIMIT = 5
 
 const fieldTooltips: Record<string, string> = {
   mechanismOfAction: 'How this herb produces its effects in the body.',
@@ -59,27 +55,11 @@ function gradientForCategory(cat: string): string {
   return 'from-white/10 to-white/5'
 }
 
-function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
-  try {
-    if (!herb || !herb.name) {
-      console.warn('Skipping malformed herb:', herb)
-      return <HerbCardError />
-    }
 
-  const h = {
-    ...herb,
-    name: safeHerbField(herb.name, 'Unknown Herb'),
-    effects: Array.isArray(herb.effects) ? herb.effects : [],
-    category: safeHerbField(herb.category, 'Other'),
-    tags: Array.isArray(herb.tags) ? herb.tags : [],
-    description: safeHerbField(herb.description, ''),
-    slug: (herb as any).slug || slugify(safeHerbField(herb.name, '')),
-  }
-
+export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   const [open, setOpen] = useState(false)
   const [tagsExpanded, setTagsExpanded] = useState(false)
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({})
-  const toggleField = (k: string) => setExpanded(e => ({ ...e, [k]: !e[k] }))
+  const [descExpanded, setDescExpanded] = useState(false)
   const toggle = () => setOpen(v => !v)
   const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
 
@@ -98,19 +78,21 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
   }
 
   const sortedTags = React.useMemo(() => {
-    const active = new Set(h.activeConstituents?.map(c => canonicalTag(c.name)) || [])
-    return [...h.tags].sort((a, b) => {
+    const active = new Set(herb.activeConstituents?.map(c => canonicalTag(c.name)) || [])
+    return [...herb.tags].sort((a, b) => {
       const aActive = active.has(canonicalTag(a))
       const bActive = active.has(canonicalTag(b))
       return aActive === bActive ? 0 : aActive ? -1 : 1
     })
-  }, [h])
+  }, [herb])
 
-  const gradient = gradientForCategory(h.normalizedCategories?.[0] || h.category)
+  const gradient = gradientForCategory(
+    herb.normalizedCategories?.[0] || herb.category
+  )
 
   return (
     <motion.article
-      id={`herb-${h.id}`}
+      id={`herb-${herb.id}`}
       layout
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +103,7 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
       tabIndex={0}
       role='button'
       aria-expanded={open}
-      aria-label={`Herb card for ${h.name}`}
+      aria-label={`Herb card for ${herb.name}`}
       whileHover={{
         scale: 1.03,
         boxShadow: '0 0 20px rgba(255,255,255,0.2)',
@@ -144,30 +126,32 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
           <div className='flex flex-wrap items-baseline gap-1'>
             <h3
               className='text-shadow mb-0.5 font-herb text-xl text-white sm:text-2xl'
-              dangerouslySetInnerHTML={{ __html: mark(h.name) }}
+              dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
             />
           </div>
-          {h.scientificName && (
+          {herb.scientificName && (
             <p
               className='mt-0.5 text-xs italic text-sand'
-              dangerouslySetInnerHTML={{ __html: mark(h.scientificName) }}
+              dangerouslySetInnerHTML={{ __html: mark(herb.scientificName) }}
             />
           )}
-          {h.normalizedCategories?.length > 0 && (
-            <div className='mt-2 flex flex-wrap gap-2'>
-              {h.normalizedCategories.slice(0, 3).map(tag => (
+          {herb.normalizedCategories?.length > 0 && (
+            <div className='flex flex-wrap gap-2 mt-2'>
+              {herb.normalizedCategories.slice(0, 3).map(tag => (
                 <TagBadge key={tag} label={tag} variant={categoryColors[tag] || 'purple'} />
               ))}
             </div>
           )}
           <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
             {(() => {
-              const effectText = Array.isArray(h.effects) ? h.effects.join(', ') : h.effects
+              const effectText = Array.isArray(herb.effects)
+                ? herb.effects.join(', ')
+                : herb.effects
               return effectText ? <span>{effectText}</span> : null
             })()}
-            {h.affiliateLink && (
+            {herb.affiliateLink && (
               <a
-                href={h.affiliateLink}
+                href={herb.affiliateLink}
                 target='_blank'
                 rel='noopener noreferrer'
                 onClick={e => e.stopPropagation()}
@@ -183,12 +167,12 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
             type='button'
             onClick={e => {
               e.stopPropagation()
-              toggleFavorite(h.id)
+              toggleFavorite(herb.id)
             }}
-            aria-label={isFavorite(h.id) ? 'Remove favorite' : 'Add favorite'}
+            aria-label={isFavorite(herb.id) ? 'Remove favorite' : 'Add favorite'}
             className='rounded-md p-1 text-yellow-400 hover:bg-white/10'
           >
-            <Star fill={isFavorite(h.id) ? 'currentColor' : 'none'} size={18} />
+            <Star fill={isFavorite(herb.id) ? 'currentColor' : 'none'} size={18} />
           </button>
           <motion.span
             layout
@@ -243,114 +227,69 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
               exit='hidden'
               className='space-y-3'
             >
-              {(function () {
-                try {
-                  const fieldOrder = [
-                    'description',
-                    'mechanismOfAction',
-                    'therapeuticUses',
-                    'sideEffects',
-                    'contraindications',
-                    'drugInteractions',
-                    'preparation',
-                    'dosage',
-                    'pharmacokinetics',
-                    'onset',
-                    'duration',
-                    'intensity',
-                    'region',
-                    'legalStatus',
-                  ]
-
-                  const exclude = new Set([
-                    'id',
-                    'name',
-                    'slug',
-                    'tags',
-                    'category',
-                    'normalizedCategories',
-                    'affiliateLink',
-                    'activeConstituents',
-                    'scientificName',
-                    'effects',
-                  ])
-
-                  const extras = Object.keys(h).filter(
-                    k => !exclude.has(k) && !fieldOrder.includes(k)
+              {[
+                'description',
+                'mechanismOfAction',
+                'therapeuticUses',
+                'sideEffects',
+                'contraindications',
+                'drugInteractions',
+                'preparation',
+                'dosage',
+                'pharmacokinetics',
+                'onset',
+                'duration',
+                'intensity',
+                'region',
+                'legalStatus',
+              ].map(key => {
+                const raw = (herb as any)[key]
+                const value =
+                  typeof raw === 'string' && raw.trim() && raw !== 'No description provided.'
+                    ? raw
+                    : key === 'mechanismOfAction' || key === 'toxicity' || key === 'toxicityLD50'
+                      ? UNKNOWN
+                      : NOT_WELL_DOCUMENTED
+                if (key === 'description') {
+                  const truncated = value.slice(0, 200)
+                  return (
+                    <motion.div key={key} variants={itemVariants}>
+                      <span className='font-semibold text-lime-300'>
+                        Description:
+                        {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
+                      </span>{' '}
+                      {descExpanded || value.length <= 200 ? value : truncated + '...'}
+                      {value.length > 200 && (
+                        <button
+                          type='button'
+                          onClick={e => {
+                            e.stopPropagation()
+                            setDescExpanded(d => !d)
+                          }}
+                          aria-expanded={descExpanded}
+                          className='ml-2 text-sky-300 underline'
+                        >
+                          {descExpanded ? 'Show Less' : 'Read More'}
+                        </button>
+                      )}
+                    </motion.div>
                   )
-                  const keys = [...fieldOrder, ...extras]
-                  return keys.map(key => {
-                    const raw = (h as any)[key]
-                    const isArray = Array.isArray(raw)
-                    const safe = isArray
-                      ? (Array.isArray(raw) ? raw : [])
-                      : safeHerbField(raw, '')
-                    if (!isArray && safe === '') {
-                      if (key === 'description') {
-                        return (
-                          <motion.div key={key} variants={itemVariants}>
-                            <span className='font-semibold text-lime-300'>Description:</span>{' '}
-                            {NOT_WELL_DOCUMENTED}
-                          </motion.div>
-                        )
-                      }
-                      if (
-                        key === 'mechanismOfAction' ||
-                        key === 'toxicity' ||
-                        key === 'toxicityLD50'
-                      ) {
-                        return (
-                          <motion.div key={key} variants={itemVariants}>
-                            <span className='font-semibold text-lime-300'>
-                              {key.replace(/([A-Z])/g, ' $1') + ':'}
-                              {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
-                            </span>{' '}
-                            {UNKNOWN}
-                          </motion.div>
-                        )
-                      }
-                      return null
-                    }
-                    const value = isArray ? (safe as any[]).join(', ') : String(safe)
-                    if (!value.trim()) return null
-                    const display = (
-                      <span className={expanded[key] || value.length < 200 ? '' : 'line-clamp-2'}>
-                        {value}
-                      </span>
-                    )
-                    return (
-                      <motion.div key={key} variants={itemVariants}>
-                        <span className='font-semibold text-lime-300'>
-                          {key.replace(/([A-Z])/g, ' $1') + ':'}
-                          {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
-                        </span>{' '}
-                        {display}
-                        {value.length > 200 && (
-                          <button
-                            type='button'
-                            onClick={e => {
-                              e.stopPropagation()
-                              toggleField(key)
-                            }}
-                            aria-expanded={!!expanded[key]}
-                            className='ml-2 text-sky-300 underline'
-                          >
-                            {expanded[key] ? 'Show Less' : 'Show More'}
-                          </button>
-                        )}
-                      </motion.div>
-                    )
-                  })
-                } catch (err) {
-                  console.error('Render fields failed', err)
-                  return null
                 }
-              })()}
+                return (
+                  <motion.div key={key} variants={itemVariants}>
+                    <span className='font-semibold text-lime-300'>
+                      {key.replace(/([A-Z])/g, ' $1') + ':'}
+                      {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
+                    </span>{' '}
+                    {value}
+                  </motion.div>
+                )
+              })}
 
-              {h.activeConstituents?.length > 0 && (
+              {herb.activeConstituents?.length > 0 && (
                 <motion.div variants={itemVariants}>
                   <span className='font-semibold text-lime-300'>Active Compounds:</span>{' '}
-                  {h.activeConstituents.map((c, i) => (
+                  {herb.activeConstituents.map((c, i) => (
                     <React.Fragment key={c.name}>
                       {i > 0 && ', '}
                       <Link
@@ -365,43 +304,58 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
                 </motion.div>
               )}
 
-              {(h.safetyRating || h.toxicity || h.toxicityLD50) && (
+              {herb.tags?.length > 0 && (
+                <motion.div
+                  variants={itemVariants}
+                  className='flex max-h-24 flex-wrap gap-2 overflow-y-auto pt-2 sm:max-h-32'
+                >
+                  {herb.tags.slice(0, 10).map(tag => (
+                    <TagBadge
+                      key={tag}
+                      label={decodeTag(tag)}
+                      variant={tagVariant(tag)}
+                      className={open ? 'animate-pulse' : ''}
+                    />
+                  ))}
+                </motion.div>
+              )}
+
+              {(herb.safetyRating || herb.toxicity || herb.toxicityLD50) && (
                 <motion.div variants={itemVariants} className='space-y-1 pt-2'>
-                  {h.safetyRating && (
+                  {herb.safetyRating && (
                     <div>
                       <span className='font-semibold text-lime-300'>Safety Rating:</span>{' '}
                       <TagBadge
-                        label={h.safetyRating}
-                        variant={
-                          h.safetyRating?.toString().toLowerCase() === 'low' ? 'green' : 'purple'
-                        }
+                        label={herb.safetyRating}
+                        variant={herb.safetyRating?.toString().toLowerCase() === 'low' ? 'green' : 'purple'}
                       />
                     </div>
                   )}
-                  {h.toxicity && (
+                  {herb.toxicity && (
                     <div>
-                      <span className='font-semibold text-lime-300'>Toxicity:</span> {h.toxicity}
+                      <span className='font-semibold text-lime-300'>Toxicity:</span>{' '}
+                      {herb.toxicity}
                     </div>
                   )}
-                  {h.toxicityLD50 && (
+                  {herb.toxicityLD50 && (
                     <div>
                       <span className='font-semibold text-lime-300'>Toxicity LD50:</span>{' '}
-                      {h.toxicityLD50}
+                      {herb.toxicityLD50}
                     </div>
                   )}
                 </motion.div>
               )}
               <motion.div variants={itemVariants} className='pt-2'>
                 <Link
-                  to={`/herbs/${h.id}`}
+                  to={`/herbs/${herb.id}`}
                   onClick={e => e.stopPropagation()}
                   className='text-comet underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
                 >
                   View full page
                 </Link>
-                {h.affiliateLink && (
+                {herb.affiliateLink && (
                   <a
-                    href={h.affiliateLink}
+                    href={herb.affiliateLink}
                     target='_blank'
                     rel='noopener noreferrer'
                     onClick={e => e.stopPropagation()}
@@ -416,18 +370,5 @@ function HerbCardAccordionInner({ herb, highlight = '' }: Props) {
         )}
       </AnimatePresence>
     </motion.article>
-  )
-  } catch (err) {
-    console.warn('Render herb card failed', herb?.name, err)
-    return <HerbCardError />
-  }
-}
-
-export default function HerbCardAccordion({ herb, highlight }: Props) {
-  if (!herb || typeof herb !== 'object') return null
-  return (
-    <ErrorBoundary>
-      <HerbCardAccordionInner herb={herb} highlight={highlight} />
-    </ErrorBoundary>
   )
 }

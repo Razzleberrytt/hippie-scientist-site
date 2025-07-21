@@ -4,8 +4,6 @@ import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs'
 import TagBadge from '../components/TagBadge'
-import { safeRenderHerb } from '../utils/safeRenderHerb'
-import { safeHerbField } from '../utils/safeHerbField'
 import { decodeTag, tagVariant } from '../utils/format'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
@@ -13,26 +11,11 @@ import TabContainer from '../components/TabContainer'
 
 export default function HerbDetailView() {
   const { id } = useParams<{ id: string }>()
-  const herbRaw = herbs.find(h => h.id === id)
-  const herb = safeRenderHerb(herbRaw || {})
-  const h = {
-    ...herb,
-    name: safeHerbField(herb.name, 'Unnamed Herb'),
-    description: safeHerbField(herb.description, ''),
-    category: safeHerbField(herb.category, 'Other'),
-    tags: Array.isArray(herb.tags) ? herb.tags : [],
-    effects: Array.isArray(herb.effects) ? herb.effects : [],
-    slug: (herb as any).slug || slugify(safeHerbField(herb.name, '')),
-  }
+  const herb = herbs.find(h => h.id === id)
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [copied, setCopied] = React.useState(false)
 
-  if (!herbRaw?.name || !herbRaw?.description) {
-    console.warn('Incomplete herb data', id, herbRaw)
-  }
-
-  if (!herbRaw) {
-    console.warn('Herb not found or malformed:', id)
+  if (!herb) {
     return (
       <div className='p-6 text-center'>
         <p>Herb not found.</p>
@@ -43,7 +26,7 @@ export default function HerbDetailView() {
     )
   }
 
-  const shareUrl = `https://thehippiescientist.net/#/herb/${h.id}`
+  const shareUrl = `https://thehippiescientist.net/#/herb/${herb.id}`
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(shareUrl)
@@ -57,27 +40,31 @@ export default function HerbDetailView() {
   const overview = (
     <div className='space-y-2'>
       {(() => {
-        const eff = Array.isArray(h.effects) ? h.effects.join(', ') : h.effects || ''
+        const eff = Array.isArray(herb.effects)
+          ? herb.effects.join(', ')
+          : (herb.effects || '')
         return eff ? (
           <div>
-            <span className='font-semibold text-lime-300'>Effects:</span> {eff}
+            <span className='font-semibold text-lime-300'>Effects:</span>{' '}
+            {eff}
           </div>
         ) : null
       })()}
-      {safeHerbField(h.region, '') && (
+      {herb.region && (
         <div>
           <span className='font-semibold text-lime-300'>Region:</span>{' '}
-          {safeHerbField(h.region, '')}
+          {herb.region}
         </div>
       )}
-      {(h as any).history && (
+      {(herb as any).history && (
         <div>
-          <span className='font-semibold text-lime-300'>History:</span> {(h as any).history}
+          <span className='font-semibold text-lime-300'>History:</span>{' '}
+          {(herb as any).history}
         </div>
       )}
-      {h.tags?.length > 0 && (
+      {herb.tags.length > 0 && (
         <div className='flex flex-wrap gap-2 pt-2'>
-          {h.tags?.map(tag => (
+          {herb.tags.map(tag => (
             <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
           ))}
         </div>
@@ -87,29 +74,27 @@ export default function HerbDetailView() {
 
   const chemistry = (
     <div className='space-y-2'>
-      {h.activeConstituents?.length > 0 && (
+      {herb.activeConstituents?.length > 0 && (
         <div>
           <span className='font-semibold text-lime-300'>Compounds:</span>{' '}
-          {h.activeConstituents.map((c, i) => (
+          {herb.activeConstituents.map((c, i) => (
             <React.Fragment key={c.name}>
               {i > 0 && ', '}
-              <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>
-                {c.name}
-              </Link>
+              <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>{c.name}</Link>
             </React.Fragment>
           ))}
         </div>
       )}
-      {safeHerbField(h.mechanismOfAction, '') && (
+      {herb.mechanismOfAction && (
         <div>
           <span className='font-semibold text-lime-300'>Mechanism:</span>{' '}
-          {safeHerbField(h.mechanismOfAction, '')}
+          {herb.mechanismOfAction}
         </div>
       )}
-      {safeHerbField(h.toxicityLD50, '') && (
+      {herb.toxicityLD50 && (
         <div>
           <span className='font-semibold text-lime-300'>LD50:</span>{' '}
-          {safeHerbField(h.toxicityLD50, '')}
+          {herb.toxicityLD50}
         </div>
       )}
     </div>
@@ -117,31 +102,26 @@ export default function HerbDetailView() {
 
   const usage = (
     <div className='space-y-2'>
-      {safeHerbField(h.preparation, '') && (
+      {herb.preparation && (
         <div>
           <span className='font-semibold text-lime-300'>Prep:</span>{' '}
-          {safeHerbField(h.preparation, '')}
+          {herb.preparation}
         </div>
       )}
-      {safeHerbField(h.intensity, '') && (
+      {herb.intensity && (
         <div>
           <span className='font-semibold text-lime-300'>Intensity:</span>{' '}
-          {safeHerbField(h.intensity, '')}
+          {herb.intensity}
         </div>
       )}
-      {safeHerbField(h.dosage, '') && (
+      {herb.dosage && (
         <div>
           <span className='font-semibold text-lime-300'>Dosage:</span>{' '}
-          {safeHerbField(h.dosage, '')}
+          {herb.dosage}
         </div>
       )}
-      {h.affiliateLink && h.affiliateLink.startsWith('http') ? (
-        <a
-          href={h.affiliateLink}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-sky-300 underline'
-        >
+      {herb.affiliateLink && herb.affiliateLink.startsWith('http') ? (
+        <a href={herb.affiliateLink} target='_blank' rel='noopener noreferrer' className='text-sky-300 underline'>
           Buy Online
         </a>
       ) : (
@@ -173,29 +153,27 @@ export default function HerbDetailView() {
     { id: 'usage', label: 'Usage', content: usage },
   ]
 
-  const effectsSummary = Array.isArray(h.effects) ? h.effects.join(', ') : h.effects || ''
-  const summary = `${h.name} is classified as ${h.category}. Known effects include ${effectsSummary}.`
+  const effectsSummary = Array.isArray(herb.effects)
+    ? herb.effects.join(', ')
+    : (herb.effects || '')
+  const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${effectsSummary}.`
 
   return (
     <>
       <Helmet>
-        <title>{h.name} - The Hippie Scientist</title>
-        {h.description && <meta name='description' content={h.description} />}
+        <title>{herb.name} - The Hippie Scientist</title>
+        {herb.description && <meta name='description' content={herb.description} />}
       </Helmet>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className='mx-auto max-w-3xl space-y-6 px-6 py-12'
-      >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className='mx-auto max-w-3xl space-y-6 px-6 py-12'>
         <Link to='/database' className='text-comet underline'>
           ← Back
         </Link>
-        <h1 className='text-gradient text-4xl font-bold'>{h.name}</h1>
-        {h.scientificName && <p className='italic'>{h.scientificName}</p>}
+        <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
+        {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
         <button
           type='button'
           onClick={copyLink}
-          className='rounded-md bg-black/30 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+          className='rounded-md bg-black/30 px-3 py-2 text-sm text-sand hover:bg-white/10 backdrop-blur-md'
         >
           {copied ? '✅ Copied!' : 'Share \uD83D\uDD17'}
         </button>
