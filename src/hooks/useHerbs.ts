@@ -1,14 +1,14 @@
 import React from 'react'
 import type { Herb } from '../types'
-import herbsData from '../data/herbs'
+import { herbs } from '../data/herbs'
 
 export function useHerbs(): Herb[] {
-  const [herbs] = React.useState<Herb[]>(herbsData)
+  const [herbList] = React.useState<Herb[]>(herbs)
 
   React.useEffect(() => {
     if (!import.meta.env.DEV) return
 
-    herbsData.forEach(h => {
+    herbs.forEach(h => {
       const missing: string[] = []
       if (!h.affiliateLink) missing.push('affiliateLink')
       if (!h.activeConstituents?.length) missing.push('activeConstituents')
@@ -19,5 +19,5 @@ export function useHerbs(): Herb[] {
     })
   }, [])
 
-  return herbs
+  return herbList
 }

@@ -2,12 +2,12 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { herbs } from '../data/herbs'
 import HerbCardAccordion from '../components/HerbCardAccordion'
-import ErrorBoundary from '../components/ErrorBoundary'
+import { ErrorBoundary } from '../components/ErrorBoundary'
 import { slugify } from '../utils/slugify'
 
 export default function HerbCardPage() {
-  const { herbId } = useParams<{ herbId?: string }>();
-  const id = herbId?.toLowerCase() || '';
+  const { herbId } = useParams<{ herbId?: string }>()
+  const id = herbId?.toLowerCase() || ''
   const herb = React.useMemo(() => {
     return herbs.find(h => {
       const nameSlug = h.name?.toLowerCase().replaceAll(' ', '-')
