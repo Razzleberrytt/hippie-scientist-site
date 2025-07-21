@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { herbs } from '../data/herbs'
+import { herbs } from '../../herbsfull'
 import type { Herb } from '../types'
 
 interface Props {

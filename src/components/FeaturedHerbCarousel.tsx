@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { herbs } from '../data/herbs'
+import { herbs } from '../../herbsfull'
 
 function pickFeatured() {
   const psychedelic = herbs.filter(h => h.category.includes('Psychedelic'))
