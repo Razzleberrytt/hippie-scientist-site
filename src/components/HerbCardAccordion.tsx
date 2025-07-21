@@ -61,9 +61,6 @@ export default function HerbCardAccordion({ herb }: Props) {
         animate={expanded ? { opacity: 1, scale: 1.05 } : { opacity: 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       />
-      <div className='absolute left-3 top-3'>
-        <SafetyIcon level={rating} />
-      </div>
       <button
         type='button'
         onClick={e => {
@@ -75,7 +72,10 @@ export default function HerbCardAccordion({ herb }: Props) {
       >
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
       </button>
-      <h2 className='text-xl font-bold text-lime-300'>{herb.name || 'Unknown Herb'}</h2>
+      <div className='flex items-center gap-2'>
+        <span className='text-xl font-bold text-lime-300'>{herb.name || 'Unknown Herb'}</span>
+        {herb.safetyRating && <SafetyIcon safety={String(herb.safetyRating)} />}
+      </div>
       <p className='text-sm italic text-sand'>{herb.scientificName || 'Unknown species'}</p>
 
       <div className='mt-2 text-sm text-white'>
@@ -166,7 +166,7 @@ export default function HerbCardAccordion({ herb }: Props) {
               variants={itemVariants}
               className='inline-flex items-center gap-1 rounded px-2 py-0.5'
             >
-              <SafetyIcon level={rating} />
+              <SafetyIcon safety={String(rating)} />
               <span>{rating || 'Unknown'}</span>
             </motion.p>
             {Array.isArray(herb.sources) && herb.sources.length > 0 && (

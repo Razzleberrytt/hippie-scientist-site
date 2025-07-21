@@ -169,8 +169,8 @@ export default function HerbDetailView() {
           ← Back
         </Link>
         <h1 className='text-gradient flex items-center gap-2 text-4xl font-bold'>
-          {herb.name}
-          <SafetyIcon level={herb.safetyRating} />
+          <span>{herb.name}</span>
+          {herb.safetyRating && <SafetyIcon safety={String(herb.safetyRating)} />}
         </h1>
         {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
         <button
