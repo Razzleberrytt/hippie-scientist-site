@@ -2,6 +2,7 @@ import type { Herb } from '../types'
 import raw from '../../data/herbs.json?raw'
 import { canonicalTag } from '../utils/tagUtils'
 import { decodeTag } from '../utils/format'
+import { slugify } from '../utils/slugify'
 
 const RAW_PATTERN = /^(?:[\p{Emoji}\p{Extended_Pictographic}]|.*\b(?:tea|snuff|mood|flower)\b)/iu
 
@@ -29,6 +30,9 @@ function normalizeCategories(cat: string): string[] {
 const cleaned = raw.replace(/NaN/g, 'null')
 const herbs = JSON.parse(cleaned) as Herb[]
 herbs.forEach(h => {
+  if (!h.id) {
+    h.id = slugify(h.name)
+  }
   if (Array.isArray(h.tags)) {
     const filtered = h.tags.filter(t => {
       const decoded = decodeTag(t).toLowerCase().trim()
