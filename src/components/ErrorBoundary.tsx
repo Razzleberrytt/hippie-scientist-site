@@ -20,12 +20,16 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('Uncaught error:', error, info);
+    console.error('Uncaught error:', error, info)
   }
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return (
+        <div className='flex min-h-screen items-center justify-center p-6'>
+          <h1 className='text-2xl font-bold'>Something went wrong.</h1>
+        </div>
+      )
     }
 
     return this.props.children;

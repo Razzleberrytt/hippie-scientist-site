@@ -78,8 +78,11 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
   }
 
   const sortedTags = React.useMemo(() => {
-    const active = new Set(herb.activeConstituents?.map(c => canonicalTag(c.name)) || [])
-    return [...herb.tags].sort((a, b) => {
+    const tags = Array.isArray(herb.tags) ? herb.tags : []
+    const active = new Set(
+      herb.activeConstituents?.map(c => canonicalTag(c.name)) || []
+    )
+    return [...tags].sort((a, b) => {
       const aActive = active.has(canonicalTag(a))
       const bActive = active.has(canonicalTag(b))
       return aActive === bActive ? 0 : aActive ? -1 : 1
@@ -286,7 +289,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 )
               })}
 
-              {herb.activeConstituents?.length > 0 && (
+              {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
                 <motion.div variants={itemVariants}>
                   <span className='font-semibold text-lime-300'>Active Compounds:</span>{' '}
                   {herb.activeConstituents.map((c, i) => (
@@ -304,7 +307,7 @@ export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
                 </motion.div>
               )}
 
-              {herb.tags?.length > 0 && (
+              {Array.isArray(herb.tags) && herb.tags.length > 0 && (
                 <motion.div
                   variants={itemVariants}
                   className='flex max-h-24 flex-wrap gap-2 overflow-y-auto pt-2 sm:max-h-32'
