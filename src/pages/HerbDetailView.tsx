@@ -8,6 +8,7 @@ import { decodeTag, tagVariant } from '../utils/format'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import TabContainer from '../components/TabContainer'
+import InfoTooltip from '../components/InfoTooltip'
 
 export default function HerbDetailView() {
   const { id } = useParams<{ id: string }>()
@@ -168,7 +169,29 @@ export default function HerbDetailView() {
         <Link to='/database' className='text-comet underline'>
           ← Back
         </Link>
-        <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
+        <h1 className='text-gradient text-4xl font-bold flex items-center gap-2'>
+          {herb.name}
+          {(() => {
+            const r = String(herb.safetyRating || '').toLowerCase()
+            let icon = '❓'
+            let color = 'gray'
+            if (r.includes('high')) {
+              icon = '✅'
+              color = 'green'
+            } else if (r.includes('low')) {
+              icon = '☣️'
+              color = 'red'
+            } else if (r.includes('medium')) {
+              icon = '⚠️'
+              color = 'yellow'
+            }
+            return (
+              <InfoTooltip text={`Safety rating: ${r || 'unknown'}`}>
+                <span className={`text-${color}-300`}>{icon}</span>
+              </InfoTooltip>
+            )
+          })()}
+        </h1>
         {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
         <button
           type='button'

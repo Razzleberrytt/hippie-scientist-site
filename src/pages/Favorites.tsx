@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 import HerbList from '../components/HerbList'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
@@ -23,6 +24,11 @@ export default function Favorites() {
         />
       </Helmet>
       <div className='mx-auto max-w-6xl'>
+        <div className='mb-4'>
+          <Link to='/database' className='text-comet underline'>
+            ← Back to All Herbs
+          </Link>
+        </div>
         <h1 className='text-gradient mb-6 text-center text-5xl font-bold'>My Herbs</h1>
         {favoriteHerbs.length ? (
           <HerbList herbs={favoriteHerbs} />
