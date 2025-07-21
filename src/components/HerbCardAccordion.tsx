@@ -60,10 +60,11 @@ export default function HerbCardAccordion({ herb }: Props) {
           toggleExpanded()
         }
       }}
+      id={`herb-${herb.id}`}
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
-      className='bg-psychedelic-gradient/30 relative cursor-pointer overflow-hidden rounded-2xl p-4 text-white shadow-lg backdrop-blur-md transition-all hover:shadow-intense'
+      className='bg-psychedelic-gradient/30 relative cursor-pointer overflow-hidden rounded-2xl p-4 text-white shadow-lg backdrop-blur-md transition-all hover:shadow-intense focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500'
     >
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-2xl border-2 border-fuchsia-500/40'
