@@ -11,33 +11,15 @@ import { decodeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
-import LoadingSpinner from '../components/LoadingSpinner'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import SearchBar from '../components/SearchBar'
 import { Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
-import { cleanHerb } from '../utils/cleanHerb'
-import { isValidHerb } from '../utils/herbValidator'
 
 export default function Database() {
-  const { herbs, loading } = useHerbs()
-  const safeHerbs = React.useMemo(
-    () =>
-      (herbs || []).map(h => {
-        try {
-          if (!isValidHerb(h) && import.meta.env.DEV) {
-            console.warn('Malformed herb entry:', h)
-          }
-          return cleanHerb(h)
-        } catch (err) {
-          console.warn('Failed cleaning herb', h?.name, err)
-          return cleanHerb({})
-        }
-      }) as import('../types').Herb[],
-    [herbs]
-  )
+  const herbs = useHerbs()
   const { favorites } = useHerbFavorites()
   const {
     filtered,
@@ -52,7 +34,7 @@ export default function Database() {
     favoritesOnly,
     setFavoritesOnly,
     fuse,
-  } = useFilteredHerbs(safeHerbs, { favorites })
+  } = useFilteredHerbs(herbs, { favorites })
 
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -83,47 +65,28 @@ export default function Database() {
   }, [])
 
   const allTags = React.useMemo(() => {
-    const t = safeHerbs.reduce<string[]>((acc, h) => acc.concat(h.tags ?? []), [])
+    const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
     return Array.from(new Set(t.map(canonicalTag)))
-  }, [safeHerbs])
+  }, [herbs])
 
   const summary = React.useMemo(() => {
-    const affiliates = safeHerbs.filter(
+    const affiliates = herbs.filter(
       h => h.affiliateLink && h.affiliateLink.startsWith('http')
     ).length
-    const moaCount = safeHerbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
-    return { total: safeHerbs.length, affiliates, moaCount }
-  }, [safeHerbs])
-
-  if (loading) {
-    return (
-      <div className='min-h-screen pt-20'>
-        <StarfieldBackground />
-        <LoadingSpinner />
-      </div>
-    )
-  }
-
-  if (!loading && safeHerbs.length === 0) {
-    console.warn('No herbs available or failed to load.')
-    return (
-      <div className='min-h-screen pt-20'>
-        <StarfieldBackground />
-        <p className='text-center text-sand'>Failed to load herb database.</p>
-      </div>
-    )
-  }
+    const moaCount = herbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
+    return { total: herbs.length, affiliates, moaCount }
+  }, [herbs])
 
   const tagCounts = React.useMemo(() => {
     const counts: Record<string, number> = {}
-    safeHerbs.forEach(h => {
-      ;(h.tags ?? []).forEach(t => {
+    herbs.forEach(h => {
+      h.tags.forEach(t => {
         const canon = canonicalTag(t)
         counts[canon] = (counts[canon] || 0) + 1
       })
     })
     return counts
-  }, [safeHerbs])
+  }, [herbs])
 
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
@@ -154,11 +117,9 @@ export default function Database() {
   const relatedTags = React.useMemo(() => {
     if (filteredTags.length === 0) return [] as string[]
     const counts: Record<string, number> = {}
-    safeHerbs.forEach(h => {
-      if (
-        filteredTags.every(t => (h.tags ?? []).some(ht => canonicalTag(ht) === canonicalTag(t)))
-      ) {
-        ;(h.tags ?? []).forEach(t => {
+    herbs.forEach(h => {
+      if (filteredTags.every(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))) {
+        h.tags.forEach(t => {
           const canon = canonicalTag(t)
           if (!filteredTags.some(ft => canonicalTag(ft) === canon)) {
             counts[canon] = (counts[canon] || 0) + 1
@@ -170,7 +131,7 @@ export default function Database() {
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5)
       .map(([t]) => t)
-  }, [filteredTags, safeHerbs])
+  }, [filteredTags, herbs])
 
   return (
     <>
@@ -191,9 +152,8 @@ export default function Database() {
             transition={{ duration: 0.8 }}
             className='mb-8 text-center'
           >
-            <h1 className='text-gradient mb-2 text-5xl font-bold'>Herb Database</h1>
-            <p className='text-sand'>Total: {safeHerbs.length} Herbs Loaded</p>
-            <p className='mx-auto mt-2 max-w-4xl text-xl text-sand'>
+            <h1 className='text-gradient mb-6 text-5xl font-bold'>Herb Database</h1>
+            <p className='mx-auto max-w-4xl text-xl text-sand'>
               Explore our collection of herbs. Click any entry to see detailed information.
             </p>
           </motion.div>

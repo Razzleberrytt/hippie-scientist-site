@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
-    "esModuleInterop": true,
+    "target": "ES2017",
+    "lib": [
+      "ES2017",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
     "moduleResolution": "node",
-    "strict": true,
-    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "outDir": "./dist"
+    "strict": true,
+    "skipLibCheck": true
   },
   "include": [
-    "src",
-    "scripts/**/*.ts"
+    "src"
   ]
 }
