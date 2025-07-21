@@ -1,377 +1,43 @@
-import React, { useState, KeyboardEvent } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { ChevronRight, Star } from 'lucide-react'
-import type { Herb } from '../types'
-import { decodeTag, tagVariant } from '../utils/format'
-import { canonicalTag } from '../utils/tagUtils'
-import { UNKNOWN, NOT_WELL_DOCUMENTED } from '../utils/constants'
-import TagBadge from './TagBadge'
-import { useHerbFavorites } from '../hooks/useHerbFavorites'
-import InfoTooltip from './InfoTooltip'
-import { slugify } from '../utils/slugify'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Herb } from '../types/Herb';
 
 interface Props {
-  herb: Herb
-  highlight?: string
+  herb: Herb;
 }
 
-const categoryColors: Record<string, Parameters<typeof TagBadge>[0]['variant']> = {
-  Oneirogen: 'blue',
-  Dissociative: 'purple',
-  Psychedelic: 'purple',
-  Empathogen: 'pink',
-  Stimulant: 'yellow',
-  Other: 'yellow',
-}
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.05 } },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
-}
-
-const TAG_LIMIT = 5
-
-const fieldTooltips: Record<string, string> = {
-  mechanismOfAction: 'How this herb produces its effects in the body.',
-  toxicity: 'Known adverse effects or poisoning information.',
-  therapeuticUses: 'Traditional or potential healing applications.',
-  contraindications: 'Situations where this herb should be avoided.',
-  dosage: 'Common oral or smoked amount for effects.',
-}
-
-function gradientForCategory(cat: string): string {
-  const c = cat.toLowerCase()
-  if (c.includes('oneirogen')) return 'from-indigo-700/40 to-purple-700/40'
-  if (c.includes('psychedelic')) return 'from-fuchsia-700/40 to-pink-700/40'
-  if (c.includes('dissociative')) return 'from-purple-700/40 to-violet-700/40'
-  if (c.includes('empathogen')) return 'from-rose-700/40 to-pink-600/40'
-  if (c.includes('stimulant')) return 'from-orange-700/40 to-amber-700/40'
-  return 'from-white/10 to-white/5'
-}
-
-
-export default function HerbCardAccordion({ herb, highlight = '' }: Props) {
-  const [open, setOpen] = useState(false)
-  const [tagsExpanded, setTagsExpanded] = useState(false)
-  const [descExpanded, setDescExpanded] = useState(false)
-  const toggle = () => setOpen(v => !v)
-  const { isFavorite, toggle: toggleFavorite } = useHerbFavorites()
-
-  const handleKey = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      toggle()
-    }
-  }
-
-  const mark = (text: string) => {
-    if (!highlight) return text
-    const escaped = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const regex = new RegExp(`(${escaped})`, 'ig')
-    return text.replace(regex, '<span class="font-bold text-yellow-300">$1</span>')
-  }
-
-  const sortedTags = React.useMemo(() => {
-    const tags = Array.isArray(herb.tags) ? herb.tags : []
-    const active = new Set(
-      herb.activeConstituents?.map(c => canonicalTag(c.name)) || []
-    )
-    return [...tags].sort((a, b) => {
-      const aActive = active.has(canonicalTag(a))
-      const bActive = active.has(canonicalTag(b))
-      return aActive === bActive ? 0 : aActive ? -1 : 1
-    })
-  }, [herb])
-
-  const gradient = gradientForCategory(
-    herb.normalizedCategories?.[0] || herb.category
-  )
+export default function HerbCardAccordion({ herb }: Props) {
+  const safeTags = Array.isArray(herb.tags) ? herb.tags : [];
+  const safeEffects = Array.isArray(herb.effects) ? herb.effects : [];
 
   return (
-    <motion.article
-      id={`herb-${herb.id}`}
+    <motion.div
       layout
+      className="rounded-lg border border-white/20 bg-white/5 p-4 backdrop-blur-sm shadow-md"
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      onClick={toggle}
-      onKeyDown={handleKey}
-      tabIndex={0}
-      role='button'
-      aria-expanded={open}
-      aria-label={`Herb card for ${herb.name}`}
-      whileHover={{
-        scale: 1.03,
-        boxShadow: '0 0 20px rgba(255,255,255,0.2)',
-        backgroundColor: 'rgba(255,255,255,0.1)',
-      }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ layout: { duration: 0.4, ease: 'easeInOut' } }}
-      className={`hover-glow card-contrast relative cursor-pointer overflow-hidden rounded-2xl bg-gradient-to-br ${gradient} border border-white/10 p-3 shadow-lg shadow-black/50 ring-1 ring-white/30 backdrop-blur-lg hover:shadow-psychedelic-pink/40 hover:drop-shadow-2xl focus:outline-none focus-visible:shadow-intense focus-visible:ring-2 focus-visible:ring-4 focus-visible:ring-psychedelic-pink focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-space-dark sm:p-6`}
     >
-      <motion.span
-        initial={{ opacity: 0, y: -4 }}
-        whileHover={{ opacity: 1, y: 0 }}
-        whileTap={{ opacity: 1, y: 0 }}
-        className='pointer-events-none absolute right-4 top-2 text-xs text-sand'
-      >
-        + More Info
-      </motion.span>
-      <div className='flex items-start justify-between gap-4'>
-        <div className='min-w-0'>
-          <div className='flex flex-wrap items-baseline gap-1'>
-            <h3
-              className='text-shadow mb-0.5 font-herb text-xl text-white sm:text-2xl'
-              dangerouslySetInnerHTML={{ __html: mark(herb.name) }}
-            />
-          </div>
-          {herb.scientificName && (
-            <p
-              className='mt-0.5 text-xs italic text-sand'
-              dangerouslySetInnerHTML={{ __html: mark(herb.scientificName) }}
-            />
-          )}
-          {herb.normalizedCategories?.length > 0 && (
-            <div className='flex flex-wrap gap-2 mt-2'>
-              {herb.normalizedCategories.slice(0, 3).map(tag => (
-                <TagBadge key={tag} label={tag} variant={categoryColors[tag] || 'purple'} />
-              ))}
-            </div>
-          )}
-          <div className='mt-1 flex flex-wrap items-center gap-2 text-sm text-sand sm:text-base'>
-            {(() => {
-              const effectText = Array.isArray(herb.effects)
-                ? herb.effects.join(', ')
-                : herb.effects
-              return effectText ? <span>{effectText}</span> : null
-            })()}
-            {herb.affiliateLink && (
-              <a
-                href={herb.affiliateLink}
-                target='_blank'
-                rel='noopener noreferrer'
-                onClick={e => e.stopPropagation()}
-                className='rounded bg-lime-700/40 px-2 py-0.5 text-xs text-lime-200 hover:underline'
-              >
-                Buy Online
-              </a>
-            )}
-          </div>
-        </div>
-        <div className='flex items-center gap-2'>
-          <button
-            type='button'
-            onClick={e => {
-              e.stopPropagation()
-              toggleFavorite(herb.id)
-            }}
-            aria-label={isFavorite(herb.id) ? 'Remove favorite' : 'Add favorite'}
-            className='rounded-md p-1 text-yellow-400 hover:bg-white/10'
-          >
-            <Star fill={isFavorite(herb.id) ? 'currentColor' : 'none'} size={18} />
-          </button>
-          <motion.span
-            layout
-            initial={false}
-            animate={{ rotate: open ? 90 : 0 }}
-            transition={{ duration: 0.3 }}
-            className='text-cyan-200 transition-transform'
-          >
-            <ChevronRight size={18} />
-          </motion.span>
-        </div>
+      <h2 className="text-xl font-bold text-lime-300">{herb.name || 'Unknown Herb'}</h2>
+      <p className="text-sm text-sand italic">{herb.scientificName || 'Unknown species'}</p>
+      <div className="mt-2 text-sm text-white">
+        <strong>Effects:</strong>{' '}
+        {safeEffects.length > 0 ? safeEffects.join(', ') : 'Unknown'}
       </div>
-
-      <motion.div
-        layout
-        onHoverStart={() => setTagsExpanded(true)}
-        onHoverEnd={() => setTagsExpanded(false)}
-        className='mt-2 flex flex-wrap gap-1 text-xs sm:gap-2 sm:text-sm'
-      >
-        {(tagsExpanded ? sortedTags : sortedTags.slice(0, TAG_LIMIT)).map(tag => (
-          <TagBadge
-            key={tag}
-            label={decodeTag(tag)}
-            variant={tagVariant(tag)}
-            className={open ? 'animate-pulse' : ''}
-          />
-        ))}
-        {sortedTags.length > TAG_LIMIT && !tagsExpanded && (
-          <TagBadge label={`+${sortedTags.length - TAG_LIMIT} more`} variant='yellow' />
-        )}
-      </motion.div>
-
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            layout
-            key='content'
-            initial='collapsed'
-            animate='open'
-            exit='collapsed'
-            variants={{
-              open: { opacity: 1, height: 'auto' },
-              collapsed: { opacity: 0, height: 0 },
-            }}
-            transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className='mt-4 overflow-hidden whitespace-pre-line break-words text-sm text-sand sm:text-base'
+      <div className="mt-2 text-sm text-white">
+        <strong>Description:</strong>{' '}
+        {herb.description || 'No description provided.'}
+      </div>
+      <div className="mt-2 flex flex-wrap gap-2">
+        {safeTags.map((tag, index) => (
+          <span
+            key={index}
+            className="bg-cyan-700/50 text-xs px-2 py-1 rounded-full text-white shadow"
           >
-            <motion.div
-              variants={containerVariants}
-              initial='hidden'
-              animate='visible'
-              exit='hidden'
-              className='space-y-3'
-            >
-              {[
-                'description',
-                'mechanismOfAction',
-                'therapeuticUses',
-                'sideEffects',
-                'contraindications',
-                'drugInteractions',
-                'preparation',
-                'dosage',
-                'pharmacokinetics',
-                'onset',
-                'duration',
-                'intensity',
-                'region',
-                'legalStatus',
-              ].map(key => {
-                const raw = (herb as any)[key]
-                const value =
-                  typeof raw === 'string' && raw.trim() && raw !== 'No description provided.'
-                    ? raw
-                    : key === 'mechanismOfAction' || key === 'toxicity' || key === 'toxicityLD50'
-                      ? UNKNOWN
-                      : NOT_WELL_DOCUMENTED
-                if (key === 'description') {
-                  const truncated = value.slice(0, 200)
-                  return (
-                    <motion.div key={key} variants={itemVariants}>
-                      <span className='font-semibold text-lime-300'>
-                        Description:
-                        {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
-                      </span>{' '}
-                      {descExpanded || value.length <= 200 ? value : truncated + '...'}
-                      {value.length > 200 && (
-                        <button
-                          type='button'
-                          onClick={e => {
-                            e.stopPropagation()
-                            setDescExpanded(d => !d)
-                          }}
-                          aria-expanded={descExpanded}
-                          className='ml-2 text-sky-300 underline'
-                        >
-                          {descExpanded ? 'Show Less' : 'Read More'}
-                        </button>
-                      )}
-                    </motion.div>
-                  )
-                }
-                return (
-                  <motion.div key={key} variants={itemVariants}>
-                    <span className='font-semibold text-lime-300'>
-                      {key.replace(/([A-Z])/g, ' $1') + ':'}
-                      {fieldTooltips[key] && <InfoTooltip text={fieldTooltips[key]} />}
-                    </span>{' '}
-                    {value}
-                  </motion.div>
-                )
-              })}
-
-              {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
-                <motion.div variants={itemVariants}>
-                  <span className='font-semibold text-lime-300'>Active Compounds:</span>{' '}
-                  {herb.activeConstituents.map((c, i) => (
-                    <React.Fragment key={c.name}>
-                      {i > 0 && ', '}
-                      <Link
-                        to={`/compounds#${slugify(c.name)}`}
-                        onClick={e => e.stopPropagation()}
-                        className='hover-glow inline-block rounded px-1 text-sky-300 underline'
-                      >
-                        {c.name}
-                      </Link>
-                    </React.Fragment>
-                  ))}
-                </motion.div>
-              )}
-
-              {Array.isArray(herb.tags) && herb.tags.length > 0 && (
-                <motion.div
-                  variants={itemVariants}
-                  className='flex max-h-24 flex-wrap gap-2 overflow-y-auto pt-2 sm:max-h-32'
-                >
-                  {herb.tags.slice(0, 10).map(tag => (
-                    <TagBadge
-                      key={tag}
-                      label={decodeTag(tag)}
-                      variant={tagVariant(tag)}
-                      className={open ? 'animate-pulse' : ''}
-                    />
-                  ))}
-                </motion.div>
-              )}
-
-              {(herb.safetyRating || herb.toxicity || herb.toxicityLD50) && (
-                <motion.div variants={itemVariants} className='space-y-1 pt-2'>
-                  {herb.safetyRating && (
-                    <div>
-                      <span className='font-semibold text-lime-300'>Safety Rating:</span>{' '}
-                      <TagBadge
-                        label={herb.safetyRating}
-                        variant={herb.safetyRating?.toString().toLowerCase() === 'low' ? 'green' : 'purple'}
-                      />
-                    </div>
-                  )}
-                  {herb.toxicity && (
-                    <div>
-                      <span className='font-semibold text-lime-300'>Toxicity:</span>{' '}
-                      {herb.toxicity}
-                    </div>
-                  )}
-                  {herb.toxicityLD50 && (
-                    <div>
-                      <span className='font-semibold text-lime-300'>Toxicity LD50:</span>{' '}
-                      {herb.toxicityLD50}
-                    </div>
-                  )}
-                </motion.div>
-              )}
-              <motion.div variants={itemVariants} className='pt-2'>
-                <Link
-                  to={`/herbs/${herb.id}`}
-                  onClick={e => e.stopPropagation()}
-                  className='text-comet underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
-                >
-                  View full page
-                </Link>
-                {herb.affiliateLink && (
-                  <a
-                    href={herb.affiliateLink}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    onClick={e => e.stopPropagation()}
-                    className='ml-4 text-sm text-sky-300 underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-pink'
-                  >
-                    🌐 Buy Online
-                  </a>
-                )}
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.article>
-  )
+            {tag}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+  );
 }
