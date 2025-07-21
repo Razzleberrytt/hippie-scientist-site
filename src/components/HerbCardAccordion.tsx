@@ -7,6 +7,7 @@ import InfoTooltip from './InfoTooltip'
 import { decodeTag, tagVariant } from '../utils/format'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { Star } from 'lucide-react'
+import SafetyIcon from './SafetyIcon'
 
 interface Props {
   herb: Herb
@@ -21,19 +22,7 @@ export default function HerbCardAccordion({ herb }: Props) {
   const safeEffects = Array.isArray(herb.effects) ? herb.effects : []
   const favorite = isFavorite(herb.id)
 
-  const rating = String(herb.safetyRating || 'unknown').toLowerCase()
-  let ratingColor = 'gray'
-  let ratingIcon = '❓'
-  if (rating.includes('high')) {
-    ratingColor = 'green'
-    ratingIcon = '✅'
-  } else if (rating.includes('low')) {
-    ratingColor = 'red'
-    ratingIcon = '☠️'
-  } else if (rating.includes('medium')) {
-    ratingColor = 'yellow'
-    ratingIcon = '⚠️'
-  }
+  const rating = herb.safetyRating
 
   const containerVariants = {
     open: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
@@ -72,20 +61,16 @@ export default function HerbCardAccordion({ herb }: Props) {
         animate={expanded ? { opacity: 1, scale: 1.05 } : { opacity: 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       />
-      <InfoTooltip text={`Safety rating: ${rating}`}>
-        <span
-          className={`absolute left-3 top-3 text-${ratingColor}-300 text-lg drop-shadow dark:drop-shadow-lg`}
-        >
-          {ratingIcon}
-        </span>
-      </InfoTooltip>
+      <div className='absolute left-3 top-3'>
+        <SafetyIcon level={rating} />
+      </div>
       <button
         type='button'
         onClick={e => {
           e.stopPropagation()
           toggle(herb.id)
         }}
-        className='absolute right-3 top-3 rounded-full bg-black/40 p-1 text-sand hover-glow backdrop-blur-md hover:bg-white/10'
+        className='hover-glow absolute right-3 top-3 rounded-full bg-black/40 p-1 text-sand backdrop-blur-md hover:bg-white/10'
         aria-label='Toggle favorite'
       >
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
@@ -179,9 +164,9 @@ export default function HerbCardAccordion({ herb }: Props) {
             )}
             <motion.p
               variants={itemVariants}
-              className={`inline-flex items-center gap-1 rounded px-2 py-0.5 text-${ratingColor}-300`}
+              className='inline-flex items-center gap-1 rounded px-2 py-0.5'
             >
-              <span>{ratingIcon}</span>
+              <SafetyIcon level={rating} />
               <span>{rating || 'Unknown'}</span>
             </motion.p>
             {Array.isArray(herb.sources) && herb.sources.length > 0 && (
