@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Atom, Download } from 'lucide-react'
+import { Menu, X, Atom, Download, Star } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
 const Navbar: React.FC = () => {
@@ -14,6 +14,7 @@ const Navbar: React.FC = () => {
     { path: '/learn', label: 'Learn' },
     { path: '/database', label: 'Database' },
     { path: '/research', label: 'Research' },
+    { path: '/favorites', label: 'Favorites', icon: Star },
     { path: '/compounds', label: 'Explore Compounds' },
     { path: '/store', label: 'Store' },
     { path: '/downloads', label: 'Downloads', icon: Download },

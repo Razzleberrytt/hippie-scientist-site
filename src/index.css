@@ -107,6 +107,14 @@ html {
   @apply transition-shadow hover:shadow-intense hover:ring-2 hover:ring-psychedelic-pink/60;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .card-contrast {
   @apply shadow-inner shadow-white/10;
 }
