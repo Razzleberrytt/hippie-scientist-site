@@ -77,17 +77,6 @@ export default function Database() {
     return { total: herbs.length, affiliates, moaCount }
   }, [herbs])
 
-  const tagCounts = React.useMemo(() => {
-    const counts: Record<string, number> = {}
-    herbs.forEach(h => {
-      h.tags.forEach(t => {
-        const canon = canonicalTag(t)
-        counts[canon] = (counts[canon] || 0) + 1
-      })
-    })
-    return counts
-  }, [herbs])
-
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
 
@@ -196,7 +185,7 @@ export default function Database() {
 
           <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
             <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />
-            <TagFilterBar tags={allTags} counts={tagCounts} onChange={setFilteredTags} />
+            <TagFilterBar tags={allTags} onChange={setFilteredTags} />
           </div>
           {relatedTags.length > 0 && (
             <div className='mb-4 flex flex-wrap items-center gap-2'>

@@ -1,180 +1,43 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import clsx from 'clsx'
-import { AnimatePresence, motion } from 'framer-motion'
-import TagBadge from './TagBadge'
-import { decodeTag, tagVariant, tagCategory, TagCategory, normalizeTag } from '../utils/format'
-import { canonicalTag } from '../utils/tagUtils'
-import { useLocalStorage } from '../hooks/useLocalStorage'
-import InfoTooltip from './InfoTooltip'
-
-const MIN_COUNT = 5
+import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { decodeTag } from '../utils/format'
 
 interface Props {
   tags: string[]
   onChange?: (tags: string[]) => void
-  storageKey?: string
-  counts?: Record<string, number>
 }
 
-const CATEGORY_ORDER: TagCategory[] = [
-  'Effect',
-  'Preparation',
-  'Safety',
-  'Chemistry',
-  'Region',
-  'Other',
-]
-
-export default function TagFilterBar({
-  tags,
-  onChange,
-  storageKey = 'tagFilters',
-  counts = {},
-}: Props) {
-  const [selected, setSelected] = useLocalStorage<string[]>(storageKey, [])
-  const [expanded, setExpanded] = useState<Record<TagCategory, boolean>>({
-    Effect: true,
-    Preparation: false,
-    Safety: false,
-    Chemistry: false,
-    Region: false,
-    Other: false,
-  })
-  const [showMore, setShowMore] = useState<Record<TagCategory, boolean>>({
-    Effect: false,
-    Preparation: false,
-    Safety: false,
-    Chemistry: false,
-    Region: false,
-    Other: false,
-  })
-
-  useEffect(() => {
-    onChange?.(selected)
-  }, [selected, onChange])
-
-  const grouped = useMemo(() => {
-    const map: Record<TagCategory, string[]> = {
-      Effect: [],
-      Preparation: [],
-      Safety: [],
-      Chemistry: [],
-      Region: [],
-      Other: [],
-    }
-    tags.forEach(t => {
-      const canon = canonicalTag(normalizeTag(t))
-      const cat = tagCategory(canon)
-      if (!map[cat].includes(canon)) map[cat].push(canon)
-    })
-    return map
-  }, [tags])
+export default function TagFilterBar({ tags, onChange }: Props) {
+  const unique = Array.from(new Set(tags))
+  const [activeTags, setActiveTags] = useState<string[]>([])
 
   const toggle = (tag: string) => {
-    const canon = canonicalTag(tag)
-    setSelected(prev => (prev.includes(canon) ? prev.filter(t => t !== canon) : [...prev, canon]))
+    setActiveTags(prev => (prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]))
   }
 
-  const labelFor = (cat: TagCategory) => {
-    switch (cat) {
-      case 'Effect':
-        return '⚡ Effects'
-      case 'Preparation':
-        return '🌿 Preparation'
-      case 'Safety':
-        return '⚠️ Safety'
-      case 'Chemistry':
-        return '🧪 Chemistry'
-      case 'Region':
-        return '📍 Region'
-      default:
-        return '✨ Other'
-    }
-  }
-
-  const renderTags = (cat: TagCategory) => {
-    const list = grouped[cat] || []
-    const limit = 12
-    const frequent = list.filter(t => (counts[canonicalTag(t)] || 0) >= MIN_COUNT)
-    const infrequent = list.filter(t => (counts[canonicalTag(t)] || 0) < MIN_COUNT)
-    const all = [...frequent, ...infrequent]
-    const display = showMore[cat] ? all : frequent.slice(0, limit)
-    const hasMore = infrequent.length > 0 || frequent.length > limit
-    return (
-      <>
-        <div className='tag-list'>
-          {display.map(tag => (
-            <motion.button
-              key={tag}
-              type='button'
-              onClick={() => toggle(tag)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ opacity: selected.includes(tag) ? 1 : 0.6 }}
-              aria-pressed={selected.includes(tag)}
-              tabIndex={0}
-              className='flex-shrink-0 focus:outline-none'
-            >
-              <InfoTooltip
-                text={`${decodeTag(normalizeTag(tag))} — used in ${
-                  counts[tag] ?? counts[canonicalTag(tag)] ?? 0
-                } herbs`}
-              >
-                <TagBadge
-                  label={decodeTag(normalizeTag(tag))}
-                  variant={selected.includes(tag) ? 'green' : tagVariant(tag)}
-                  className={clsx(selected.includes(tag) && 'ring-1 ring-emerald-400')}
-                />
-              </InfoTooltip>
-            </motion.button>
-          ))}
-          {hasMore && (
-            <motion.button
-              type='button'
-              whileHover={{ scale: 1.05 }}
-              onClick={() => setShowMore(m => ({ ...m, [cat]: !m[cat] }))}
-              tabIndex={0}
-              className='tag-pill mt-2'
-            >
-              {showMore[cat] ? 'Show Less' : 'Show More'}
-            </motion.button>
-          )}
-        </div>
-      </>
-    )
-  }
+  useEffect(() => {
+    onChange?.(activeTags)
+  }, [activeTags, onChange])
 
   return (
-    <div className='sticky top-16 z-20 space-y-3 rounded-xl bg-black/30 p-2 backdrop-blur-md sm:static sm:bg-transparent sm:p-0'>
-      {CATEGORY_ORDER.map(cat => (
-        <div key={cat} className='tag-section'>
-          <button
+    <div className='flex gap-2 overflow-x-auto py-2'>
+      {unique.map(tag => {
+        const active = activeTags.includes(tag)
+        return (
+          <motion.button
             type='button'
-            className='tag-label'
-            tabIndex={0}
-            onClick={() => setExpanded(e => ({ ...e, [cat]: !e[cat] }))}
-            aria-expanded={expanded[cat]}
+            key={tag}
+            onClick={() => toggle(tag)}
+            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.05 }}
+            className={`whitespace-nowrap rounded-full border px-3 py-1 text-sm backdrop-blur-md ${
+              active ? 'bg-emerald-600/80 text-white shadow-lg' : 'bg-space-dark/70 text-sand'
+            }`}
           >
-            {labelFor(cat)}
-            <motion.span animate={{ rotate: expanded[cat] ? 90 : 0 }} className='ml-1 text-xs'>
-              ▶
-            </motion.span>
-          </button>
-          <AnimatePresence initial={false}>
-            {expanded[cat] && (
-              <motion.div
-                key='content'
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {renderTags(cat)}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ))}
+            {decodeTag(tag)}
+          </motion.button>
+        )
+      })}
     </div>
   )
 }
