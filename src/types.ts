@@ -1,22 +1,11 @@
 export interface Herb {
   id: string
   name: string
+  slug?: string
   scientificName?: string
   category: string
-  effects: string[]
-  preparation: string
-  dosage?: string
-  intensity: string
-  onset: string
-  duration?: string
-  legalStatus: string
-  region: string
-  tags: string[]
-  /**
-   * Normalized high-level categories derived from the raw category field.
-   * At most 3 values ordered by relevance.
-   */
-  normalizedCategories?: string[]
+  effects?: string[]
+  description?: string
   mechanismOfAction?: string
   pharmacokinetics?: string
   therapeuticUses?: string
@@ -25,14 +14,25 @@ export interface Herb {
   drugInteractions?: string
   toxicity?: string
   toxicityLD50?: string
-  description?: string
-  safetyRating?: number
+  preparation?: string
+  dosage?: string
+  onset?: string
+  intensity?: string
+  duration?: string
+  safetyRating?: number | string
+  legalStatus?: string
+  region?: string
+  tags?: string[]
+  sources?: string[]
+  needsReview?: boolean
+  /** Normalized high-level categories derived from the raw category field. */
+  normalizedCategories?: string[]
   sourceRefs?: string[]
   image?: string
   activeConstituents?: {
     name: string
-    type: 'alkaloid' | 'terpenoid' | 'phenethylamine' | 'tryptamine' | string
-    effect: string
+    type?: string
+    effect?: string
   }[]
   affiliateLink?: string
 }

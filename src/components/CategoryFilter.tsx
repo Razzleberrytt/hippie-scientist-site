@@ -1,5 +1,5 @@
 import React from 'react'
-import { herbs } from '../data/herbs'
+import { herbs } from '../../herbsfull'
 import { metaCategory } from '../hooks/useFilteredHerbs'
 
 interface Props {

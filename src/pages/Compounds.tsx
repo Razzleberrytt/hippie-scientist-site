@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import { herbs } from '../data/herbs'
+import { herbs } from '../../herbsfull'
 import baseCompounds, { CompoundInfo } from '../data/compoundData'
 import { FlaskConical, Leaf, Gem, Droplet } from 'lucide-react'
 import { Link } from 'react-router-dom'
