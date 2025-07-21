@@ -71,6 +71,13 @@ export default function HerbCardAccordion({ herb }: Props) {
         animate={expanded ? { opacity: 1, scale: 1.05 } : { opacity: 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       />
+      <InfoTooltip text={`Safety rating: ${rating}`}>
+        <span
+          className={`absolute left-3 top-3 text-${ratingColor}-300 text-lg`}
+        >
+          {ratingIcon}
+        </span>
+      </InfoTooltip>
       <button
         type='button'
         onClick={e => {

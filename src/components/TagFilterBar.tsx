@@ -50,6 +50,17 @@ export default function TagFilterBar({ tags, onChange }: Props) {
           </motion.button>
         )
       })}
+      {activeTags.length > 0 && (
+        <motion.button
+          type='button'
+          onClick={() => setActiveTags([])}
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.08 }}
+          className='tag-pill whitespace-nowrap bg-rose-700/70 text-white'
+        >
+          Clear Filters
+        </motion.button>
+      )}
     </div>
   )
 }
