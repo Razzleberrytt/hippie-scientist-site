@@ -42,9 +42,13 @@ export default function TagFilterBar({ tags, onChange }: Props) {
             onClick={() => toggle(tag)}
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.08 }}
-            animate={active ? { scale: [1, 1.15, 1], boxShadow: '0 0 8px rgba(16,185,129,0.8)' } : { scale: 1, boxShadow: 'none' }}
-            transition={{ type: 'spring', stiffness: 300 }}
-            className={`tag-pill whitespace-nowrap ${active ? 'bg-emerald-700/70 text-white ring-2 ring-emerald-400' : 'bg-space-dark/70 text-sand'}`}
+            animate={
+              active
+                ? { scale: [1, 1.15, 1], boxShadow: '0 0 8px rgba(16,185,129,0.8)' }
+                : { scale: 1, boxShadow: 'none' }
+            }
+            transition={{ type: 'spring', stiffness: 220, damping: 12 }}
+            className={`tag-pill whitespace-nowrap hover-glow ${active ? 'bg-emerald-700/70 text-white ring-2 ring-emerald-400' : 'bg-space-dark/70 text-sand'}`}
           >
             {decodeTag(tag)}
           </motion.button>
@@ -56,7 +60,8 @@ export default function TagFilterBar({ tags, onChange }: Props) {
           onClick={() => setActiveTags([])}
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.08 }}
-          className='tag-pill whitespace-nowrap bg-rose-700/70 text-white'
+          transition={{ type: 'spring', stiffness: 220, damping: 12 }}
+          className='tag-pill whitespace-nowrap hover-glow bg-rose-700/70 text-white'
         >
           Clear Filters
         </motion.button>

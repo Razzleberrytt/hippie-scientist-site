@@ -48,6 +48,7 @@ export default function HerbCardAccordion({ herb }: Props) {
   return (
     <motion.article
       layout
+      layoutTransition={{ type: 'spring', stiffness: 120, damping: 14 }}
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
@@ -73,7 +74,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       />
       <InfoTooltip text={`Safety rating: ${rating}`}>
         <span
-          className={`absolute left-3 top-3 text-${ratingColor}-300 text-lg`}
+          className={`absolute left-3 top-3 text-${ratingColor}-300 text-lg drop-shadow dark:drop-shadow-lg`}
         >
           {ratingIcon}
         </span>
@@ -84,7 +85,7 @@ export default function HerbCardAccordion({ herb }: Props) {
           e.stopPropagation()
           toggle(herb.id)
         }}
-        className='absolute right-3 top-3 rounded-full bg-black/40 p-1 text-sand backdrop-blur-md hover:bg-white/10'
+        className='absolute right-3 top-3 rounded-full bg-black/40 p-1 text-sand hover-glow backdrop-blur-md hover:bg-white/10'
         aria-label='Toggle favorite'
       >
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
@@ -114,7 +115,7 @@ export default function HerbCardAccordion({ herb }: Props) {
             initial='collapsed'
             animate='open'
             exit='collapsed'
-            transition={{ type: 'spring', stiffness: 70, damping: 20 }}
+            transition={{ type: 'spring', stiffness: 120, damping: 14 }}
             className='mt-4 space-y-2 text-sm text-sand'
           >
             <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>

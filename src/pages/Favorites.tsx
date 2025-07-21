@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import HerbList from '../components/HerbList'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
+import { motion } from 'framer-motion'
 
 export default function Favorites() {
   const herbs = useHerbs()
@@ -33,7 +34,13 @@ export default function Favorites() {
         {favoriteHerbs.length ? (
           <HerbList herbs={favoriteHerbs} />
         ) : (
-          <p className='text-center text-sand'>No favorites yet.</p>
+          <motion.p
+            className='text-center text-sand text-xl'
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+          >
+            🌱 No favorites yet!
+          </motion.p>
         )}
       </div>
     </div>
