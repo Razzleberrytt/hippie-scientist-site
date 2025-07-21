@@ -3,10 +3,9 @@ import { Helmet } from 'react-helmet-async'
 import { saveAs } from 'file-saver'
 import jsPDF from 'jspdf'
 import { Herb } from '../types'
-import raw from '../../data/herbs.json?raw'
+import { herbs } from '../data/herbs'
 
-const cleaned = raw.replace(/NaN/g, 'null')
-const allHerbs: Herb[] = JSON.parse(cleaned)
+const allHerbs = herbs
 
 const required: (keyof Herb)[] = [
   'affiliateLink',
@@ -16,11 +15,12 @@ const required: (keyof Herb)[] = [
 ]
 
 function validHerbs(herbs: Herb[]): Herb[] {
-  return herbs.filter(h =>
-    !required.some(k => {
-      const val = (h as any)[k]
-      return val == null || (Array.isArray(val) ? val.length === 0 : val === '')
-    })
+  return herbs.filter(
+    h =>
+      !required.some(k => {
+        const val = (h as any)[k]
+        return val == null || (Array.isArray(val) ? val.length === 0 : val === '')
+      })
   )
 }
 
@@ -36,17 +36,15 @@ const defaultFields: (keyof Herb)[] = [
 export default function Downloads() {
   const [fields, setFields] = React.useState<(keyof Herb)[]>(defaultFields)
 
-  const herbs = React.useMemo(() => validHerbs(allHerbs), [])
+  const filteredHerbs = React.useMemo(() => validHerbs(allHerbs), [])
 
   const toggleField = (f: keyof Herb) => {
-    setFields(prev =>
-      prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f]
-    )
+    setFields(prev => (prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f]))
   }
 
   const exportCSV = () => {
     const csvRows = [fields.join(',')]
-    herbs.forEach(h => {
+    filteredHerbs.forEach(h => {
       const row = fields.map(f => {
         const val = (h as any)[f]
         return `"${Array.isArray(val) ? val.join(' | ') : (val ?? '')}"`
@@ -59,7 +57,7 @@ export default function Downloads() {
   }
 
   const exportJSON = () => {
-    const blob = new Blob([JSON.stringify(herbs, null, 2)], {
+    const blob = new Blob([JSON.stringify(filteredHerbs, null, 2)], {
       type: 'application/json',
     })
     saveAs(blob, `herbs-${Date.now()}.json`)
@@ -69,7 +67,7 @@ export default function Downloads() {
     const doc = new jsPDF()
     let y = 10
     doc.setFontSize(12)
-    herbs.forEach((h, i) => {
+    filteredHerbs.forEach((h, i) => {
       if (i && i % 2 === 0) {
         doc.addPage()
         y = 10
@@ -87,17 +85,12 @@ export default function Downloads() {
     <div className='min-h-screen px-4 pt-20'>
       <Helmet>
         <title>Downloads - The Hippie Scientist</title>
-        <meta
-          name='description'
-          content='Download the herb database in multiple formats.'
-        />
+        <meta name='description' content='Download the herb database in multiple formats.' />
       </Helmet>
       <div className='mx-auto max-w-3xl space-y-6'>
-        <h1 className='text-gradient mb-4 text-center text-5xl font-bold'>
-          Export Herb Data
-        </h1>
+        <h1 className='text-gradient mb-4 text-center text-5xl font-bold'>Export Herb Data</h1>
         <p className='text-center text-sand'>
-          {herbs.length} herbs · Exported {new Date().toLocaleString()}
+          {filteredHerbs.length} herbs · Exported {new Date().toLocaleString()}
         </p>
         <div className='flex flex-wrap justify-center gap-4'>
           <button
@@ -108,7 +101,7 @@ export default function Downloads() {
           </button>
           <button
             onClick={exportJSON}
-            className='rounded-md bg-cosmic-forest px-4 py-2 font-medium text-white hover:bg-emerald-700'
+            className='bg-cosmic-forest rounded-md px-4 py-2 font-medium text-white hover:bg-emerald-700'
           >
             Download JSON
           </button>
