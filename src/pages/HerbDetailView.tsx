@@ -170,7 +170,9 @@ export default function HerbDetailView() {
         <h1 className='text-gradient flex items-center gap-2 text-4xl font-bold'>
           <span>{herb.name}</span>
         </h1>
-        {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
+        {herb.scientificName && (
+          <p className='italic text-gray-600'>{herb.scientificName}</p>
+        )}
         <button
           type='button'
           onClick={copyLink}

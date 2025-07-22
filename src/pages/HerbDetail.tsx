@@ -73,7 +73,9 @@ export default function HerbDetail() {
           ← Back
         </Link>
         <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
-        {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
+        {herb.scientificName && (
+          <p className='italic text-gray-600'>{herb.scientificName}</p>
+        )}
         <div className='space-y-2'>
           {[
             'description',

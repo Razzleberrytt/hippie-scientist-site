@@ -163,13 +163,15 @@ export default function RotatingHerbCard() {
             animate={{ filter: ['hue-rotate(0deg)', 'hue-rotate(360deg)'] }}
             transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
           />
-          <motion.div
-            key={index}
-            className='absolute bottom-0 left-0 h-1 w-full bg-forest-green/40'
-            initial={{ width: 0 }}
-            animate={{ width: '100%' }}
-            transition={{ duration: INTERVAL / 1000, ease: 'linear' }}
-          />
+          <div className='absolute bottom-2 left-2 right-2 h-2 rounded-full bg-gray-300'>
+            <motion.div
+              key={index}
+              className='h-full rounded-full bg-purple-500'
+              initial={{ width: 0 }}
+              animate={{ width: '100%' }}
+              transition={{ duration: INTERVAL / 1000, ease: 'linear' }}
+            />
+          </div>
         </motion.div>
       </AnimatePresence>
     </div>
