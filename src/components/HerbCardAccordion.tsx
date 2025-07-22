@@ -33,9 +33,7 @@ export default function HerbCardAccordion({ herb }: Props) {
   }, [expanded])
   const safeTags = Array.isArray(herb.tags) ? herb.tags : []
   const safeEffects = Array.isArray(herb.effects) ? herb.effects : []
-  const safeCompounds = Array.isArray((herb as any).compounds)
-    ? (herb as any).compounds
-    : []
+  const safeCompounds = Array.isArray((herb as any).compounds) ? (herb as any).compounds : []
   const favorite = isFavorite(herb.id)
 
   const containerVariants = {
@@ -88,26 +86,26 @@ export default function HerbCardAccordion({ herb }: Props) {
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
       </button>
       <div className='flex items-center gap-2'>
-        <span
-          className='text-xl font-bold text-lime-300 transition group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)] group-hover:text-lime-200'
-        >
+        <span className='text-xl font-bold text-lime-300 transition group-hover:text-lime-200 group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)]'>
           {herb.name || 'Unknown Herb'}
         </span>
       </div>
       <p className='text-sm italic text-sand'>{herb.scientificName || 'Unknown species'}</p>
-      {herbBlurbs[herb.name] && (
-        <p className='mt-1 text-sm italic text-gray-300'>
-          {herbBlurbs[herb.name]}
-        </p>
+      {!expanded && herbBlurbs[herb.name] && (
+        <p className='mt-1 text-sm italic text-gray-300'>{herbBlurbs[herb.name]}</p>
       )}
 
-      <div className='mt-2 text-sm text-white'>
-        <strong>Effects:</strong> {safeEffects.length > 0 ? safeEffects.join(', ') : 'Unknown'}
-      </div>
+      {expanded && (
+        <>
+          <div className='mt-2 text-sm text-white'>
+            <strong>Effects:</strong> {safeEffects.length > 0 ? safeEffects.join(', ') : 'Unknown'}
+          </div>
 
-      <div className='mt-2 text-sm text-white'>
-        <strong>Description:</strong> {herb.description || 'No description provided.'}
-      </div>
+          <div className='mt-2 text-sm text-white'>
+            <strong>Description:</strong> {herb.description || herbBlurbs[herb.name] || ''}
+          </div>
+        </>
+      )}
 
       <div className='mt-2 flex max-w-full flex-wrap gap-2'>
         {safeTags.map(tag => (
@@ -186,10 +184,7 @@ export default function HerbCardAccordion({ herb }: Props) {
               </motion.p>
             )}
             {safeCompounds.length > 0 && (
-              <motion.div
-                variants={itemVariants}
-                className='flex flex-wrap items-center gap-1'
-              >
+              <motion.div variants={itemVariants} className='flex flex-wrap items-center gap-1'>
                 <strong className='mr-1'>Active Compounds:</strong>
                 {safeCompounds.map(c => (
                   <CompoundBadge key={c} name={c} />
