@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { herbs } from '../../herbsfull'
+import { herbs } from '../data/herbsfull'
 import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'

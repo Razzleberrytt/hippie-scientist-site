@@ -1,5 +1,5 @@
 import React from 'react'
-import { herbs } from '../../herbsfull'
+import { herbs } from '../data/herbsfull'
 
 const MIN_COUNT = 5
 

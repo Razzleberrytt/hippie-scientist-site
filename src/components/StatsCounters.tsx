@@ -1,6 +1,6 @@
 import React from 'react'
 import CountUp from 'react-countup'
-import { herbs } from '../../herbsfull'
+import { herbs } from '../data/herbsfull'
 import { baseCompounds } from '../data/compoundData'
 
 export default function StatsCounters({ className = '' }: { className?: string }) {

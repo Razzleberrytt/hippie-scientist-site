@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { herbs } from '../../herbsfull'
+import { herbs } from '../data/herbsfull'
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import { ErrorBoundary } from '../components/ErrorBoundary'
 import { slugify } from '../utils/slugify'
