@@ -7,6 +7,7 @@ import InfoTooltip from './InfoTooltip'
 import { decodeTag, tagVariant } from '../utils/format'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { Star } from 'lucide-react'
+import { slugify } from '../utils/slugify'
 
 interface Props {
   herb: Herb
@@ -82,7 +83,11 @@ export default function HerbCardAccordion({ herb }: Props) {
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
       </button>
       <div className='flex items-center gap-2'>
-        <span className='text-xl font-bold text-lime-300'>{herb.name || 'Unknown Herb'}</span>
+        <span
+          className='text-xl font-bold text-lime-300 transition group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)] group-hover:text-lime-200'
+        >
+          {herb.name || 'Unknown Herb'}
+        </span>
       </div>
       <p className='text-sm italic text-sand'>{herb.scientificName || 'Unknown species'}</p>
 
@@ -168,6 +173,19 @@ export default function HerbCardAccordion({ herb }: Props) {
             {herb.intensity && (
               <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
                 <strong>Intensity:</strong> {herb.intensity}
+              </motion.p>
+            )}
+            {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
+              <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                <strong>Active Compounds:</strong>{' '}
+                {herb.activeConstituents.map((c, i) => (
+                  <React.Fragment key={c.name}>
+                    {i > 0 && ', '}
+                    <Link to={`/compounds#${slugify(c.name)}`} className='underline'>
+                      {c.name}
+                    </Link>
+                  </React.Fragment>
+                ))}
               </motion.p>
             )}
             {Array.isArray(herb.sources) && herb.sources.length > 0 && (

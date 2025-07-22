@@ -31,6 +31,14 @@ export default function Compounds() {
 
   const [selectedClasses, setSelectedClasses] = React.useState<string[]>([])
   const [selectedHerbs, setSelectedHerbs] = React.useState<string[]>([])
+  const types = React.useMemo(
+    () =>
+      Array.from(
+        new Set(compoundList.flatMap(c => c.effects.map(e => e.toLowerCase())))
+      ),
+    [compoundList]
+  )
+  const [selectedTypes, setSelectedTypes] = React.useState<string[]>([])
 
   const filtered = React.useMemo(() => {
     let res = compoundList
@@ -38,12 +46,16 @@ export default function Compounds() {
       res = res.filter(c =>
         selectedClasses.every(s => c.class.toLowerCase().includes(s.toLowerCase())),
       )
+    if (selectedTypes.length)
+      res = res.filter(c =>
+        selectedTypes.every(t => c.effects.map(e => e.toLowerCase()).includes(t))
+      )
     if (selectedHerbs.length)
       res = res.filter(c =>
         selectedHerbs.every(h => c.sourceHerbs.includes(h) || c.foundInHerbs?.includes(h)),
       )
     return res
-  }, [compoundList, selectedClasses, selectedHerbs])
+  }, [compoundList, selectedClasses, selectedHerbs, selectedTypes])
 
   return (
     <>
@@ -55,6 +67,7 @@ export default function Compounds() {
           <h1 className='text-gradient mb-6 text-5xl font-bold'>Psychoactive Compounds</h1>
           <p className='mb-8 text-sand'>List of notable active constituents and their source herbs.</p>
           <TagFilterBar tags={classes} onChange={setSelectedClasses} />
+          <TagFilterBar tags={types} onChange={setSelectedTypes} />
           <CompoundTagFilter
             options={herbOptions}
             onChange={vals => setSelectedHerbs(vals)}

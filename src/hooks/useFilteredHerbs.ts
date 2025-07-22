@@ -25,6 +25,13 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const [categories, setCategories] = React.useState<string[]>([])
   const [sort, setSort] = React.useState('')
 
+  const blendScore = React.useCallback((h: Herb) => {
+    const inDesc = h.description?.toLowerCase().includes('blend') || false
+    const inPrep = h.preparation?.toLowerCase().includes('blend') || false
+    const inTags = h.tags?.some(t => t.toLowerCase().includes('blend')) || false
+    return [inDesc, inPrep, inTags].filter(Boolean).length
+  }, [])
+
   const fuse = React.useMemo(
     () =>
       new Fuse(herbs, {
@@ -62,6 +69,12 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
     }
     if (sort === 'name') {
       res = [...res].sort((a, b) => a.name.localeCompare(b.name))
+    } else if (sort === 'category') {
+      res = [...res].sort((a, b) => a.category.localeCompare(b.category))
+    } else if (sort === 'intensity') {
+      res = [...res].sort((a, b) => (a.intensity || '').localeCompare(b.intensity || ''))
+    } else if (sort === 'blend') {
+      res = [...res].sort((a, b) => blendScore(b) - blendScore(a))
     }
     return res
   }, [herbs, query, tags, categories, favoritesOnly, favorites, sort, fuse, matchAll])
