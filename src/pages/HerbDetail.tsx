@@ -97,7 +97,7 @@ export default function HerbDetail() {
             if (!raw) return null
             return (
               <div key={key}>
-                <span className='font-semibold text-lime-300'>
+                <span className='font-semibold text-lime-600 dark:text-lime-300'>
                   {key.replace(/([A-Z])/g, ' $1')}:
                 </span>{' '}
                 {raw}
@@ -106,7 +106,7 @@ export default function HerbDetail() {
           })}
           {safeCompounds.length > 0 && (
             <div className='flex flex-wrap items-center gap-1'>
-              <span className='font-semibold text-lime-300 w-full'>Active Compounds:</span>
+              <span className='font-semibold text-lime-600 dark:text-lime-300 w-full'>Active Compounds:</span>
               {safeCompounds.map(c => (
                 <CompoundBadge key={c} name={c} />
               ))}

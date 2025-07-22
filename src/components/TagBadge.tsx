@@ -18,6 +18,15 @@ const colorMap = {
   red: 'from-rose-600 via-red-500 to-rose-600 shadow-red-500/40',
 }
 
+const textColorMap = {
+  pink: 'text-white',
+  blue: 'text-white',
+  purple: 'text-white',
+  green: 'text-white',
+  yellow: 'text-black',
+  red: 'text-white',
+} as const
+
 export default function TagBadge({ label, variant = 'purple', className }: Props) {
   const cleaned = label.replace(/☠️/g, '').trim()
   const alias = tagAliasMap[cleaned.toLowerCase()]
@@ -30,8 +39,10 @@ export default function TagBadge({ label, variant = 'purple', className }: Props
       whileTap={{ scale: 0.95 }}
       tabIndex={0}
       className={clsx(
-        'hover-glow soft-border-glow text-shadow inline-flex items-center whitespace-pre-wrap break-words rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white/90 shadow ring-1 ring-white/40 backdrop-blur-sm dark:ring-black/40',
+        'hover-glow soft-border-glow text-shadow inline-flex items-center whitespace-pre-wrap break-words rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium shadow ring-1 ring-white/40 backdrop-blur-sm dark:ring-black/40',
         colorMap[variant],
+        textColorMap[variant],
+        'dark:text-white',
         className
       )}
     >

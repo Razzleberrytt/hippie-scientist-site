@@ -43,18 +43,18 @@ export default function HerbDetailView() {
         const eff = Array.isArray(herb.effects) ? herb.effects.join(', ') : herb.effects || ''
         return eff ? (
           <div>
-            <span className='font-semibold text-lime-300'>Effects:</span> {eff}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Effects:</span> {eff}
           </div>
         ) : null
       })()}
       {herb.region && (
         <div>
-          <span className='font-semibold text-lime-300'>Region:</span> {herb.region}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Region:</span> {herb.region}
         </div>
       )}
       {(herb as any).history && (
         <div>
-          <span className='font-semibold text-lime-300'>History:</span> {(herb as any).history}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>History:</span> {(herb as any).history}
         </div>
       )}
       {Array.isArray(herb.tags) && herb.tags.length > 0 && (
@@ -71,7 +71,7 @@ export default function HerbDetailView() {
     <div className='space-y-2'>
       {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
         <div>
-          <span className='font-semibold text-lime-300'>Compounds:</span>{' '}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Compounds:</span>{' '}
           {herb.activeConstituents.map((c, i) => (
             <React.Fragment key={c.name}>
               {i > 0 && ', '}
@@ -84,12 +84,12 @@ export default function HerbDetailView() {
       )}
       {herb.mechanismOfAction && (
         <div>
-          <span className='font-semibold text-lime-300'>Mechanism:</span> {herb.mechanismOfAction}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Mechanism:</span> {herb.mechanismOfAction}
         </div>
       )}
       {herb.toxicityLD50 && (
         <div>
-          <span className='font-semibold text-lime-300'>LD50:</span> {herb.toxicityLD50}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>LD50:</span> {herb.toxicityLD50}
         </div>
       )}
     </div>
@@ -99,17 +99,17 @@ export default function HerbDetailView() {
     <div className='space-y-2'>
       {herb.preparation && (
         <div>
-          <span className='font-semibold text-lime-300'>Prep:</span> {herb.preparation}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Prep:</span> {herb.preparation}
         </div>
       )}
       {herb.intensity && (
         <div>
-          <span className='font-semibold text-lime-300'>Intensity:</span> {herb.intensity}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Intensity:</span> {herb.intensity}
         </div>
       )}
       {herb.dosage && (
         <div>
-          <span className='font-semibold text-lime-300'>Dosage:</span> {herb.dosage}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Dosage:</span> {herb.dosage}
         </div>
       )}
       {herb.affiliateLink && herb.affiliateLink.startsWith('http') ? (

@@ -67,10 +67,10 @@ export default function HerbCardAccordion({ herb }: Props) {
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
-      className='bg-psychedelic-gradient/30 soft-border-glow group relative cursor-pointer overflow-hidden rounded-2xl p-4 text-white shadow-lg backdrop-blur-md transition-all hover:shadow-intense focus:outline-none'
+      className='group relative cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white p-4 text-gray-800 shadow-sm transition-all hover:border-lime-400 hover:shadow-md focus:outline-none dark:bg-psychedelic-gradient/30 dark:text-white dark:soft-border-glow dark:shadow-lg dark:hover:shadow-intense'
     >
       <motion.div
-        className='pointer-events-none absolute inset-0 rounded-2xl border-2 border-fuchsia-500/40'
+        className='pointer-events-none absolute inset-0 rounded-lg border-2 border-fuchsia-500/40 dark:rounded-2xl'
         animate={expanded ? { opacity: 1, scale: 1.05 } : { opacity: 0 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
       />
@@ -86,22 +86,24 @@ export default function HerbCardAccordion({ herb }: Props) {
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
       </button>
       <div className='flex items-center gap-2'>
-        <span className='text-xl font-bold text-lime-300 transition group-hover:text-lime-200 group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)]'>
+        <span className='text-xl font-bold text-lime-600 transition group-hover:text-lime-700 group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)] dark:text-lime-300 dark:group-hover:text-lime-200'>
           {herb.name || 'Unknown Herb'}
         </span>
       </div>
       <p className='text-sm italic text-sand'>{herb.scientificName || 'Unknown species'}</p>
       {!expanded && herbBlurbs[herb.name] && (
-        <p className='mt-1 text-sm italic text-gray-300'>{herbBlurbs[herb.name]}</p>
+        <p className='mt-1 text-sm italic text-gray-800 dark:text-gray-300'>
+          {herbBlurbs[herb.name]}
+        </p>
       )}
 
       {expanded && (
         <>
-          <div className='mt-2 text-sm text-white'>
+          <div className='mt-2 text-sm text-gray-800 dark:text-white'>
             <strong>Effects:</strong> {safeEffects.length > 0 ? safeEffects.join(', ') : 'Unknown'}
           </div>
 
-          <div className='mt-2 text-sm text-white'>
+          <div className='mt-2 text-sm text-gray-800 dark:text-white'>
             <strong>Description:</strong> {herb.description || herbBlurbs[herb.name] || ''}
           </div>
         </>
