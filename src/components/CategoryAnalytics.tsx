@@ -42,9 +42,9 @@ export default function CategoryAnalytics() {
       {display.map(([cat, count]) => (
         <div key={cat} className='flex items-center gap-2'>
           <span className='w-40 text-sm'>{cat}</span>
-          <div className='flex-1 bg-slate-700/50 h-2 rounded'>
+          <div className='flex-1 h-2 rounded bg-gray-200 dark:bg-gray-700 transition-colors duration-300'>
             <div
-              className='h-2 rounded bg-fuchsia-500'
+              className='h-2 rounded bg-pink-500 dark:bg-pink-400 transition-colors duration-300'
               style={{ width: `${(count / max) * 100}%` }}
             />
           </div>

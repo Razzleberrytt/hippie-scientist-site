@@ -22,7 +22,7 @@ export default function CompoundCard({ compound }: { compound: Compound }) {
           <Link
             key={h}
             to={`/database#${slugify(h)}`}
-            className='tag-pill bg-space-dark/70 text-sand hover-glow'
+            className='tag-pill bg-space-dark/70 text-sand hover-glow transition-colors duration-300 dark:bg-gray-800 dark:text-gray-200'
           >
             {h}
           </Link>

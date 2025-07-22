@@ -52,7 +52,7 @@ html {
 }
 /* Animations and extra utilities */
 .tag-pill {
-  @apply text-shadow inline-flex items-center gap-1 rounded-full bg-black/10 px-2 py-0.5 text-xs shadow ring-1 ring-white/20 backdrop-blur-sm hover:bg-black/20 dark:bg-white/10 dark:ring-black/30 dark:hover:bg-white/20;
+  @apply text-shadow inline-flex items-center gap-1 rounded-full bg-black/10 px-2 py-0.5 text-xs shadow ring-1 ring-white/20 backdrop-blur-sm hover:bg-black/20 border border-gray-200 dark:bg-white/10 dark:ring-black/30 dark:hover:bg-white/20 dark:border-gray-800 transition-colors duration-300;
 }
 
 @keyframes gradient-shift {
