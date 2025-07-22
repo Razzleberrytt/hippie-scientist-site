@@ -9,6 +9,7 @@ import { decodeTag, tagVariant } from '../utils/format'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { Star } from 'lucide-react'
 import { slugify } from '../utils/slugify'
+import { herbBlurbs } from '../../blurbs'
 
 interface Props {
   herb: Herb
@@ -94,6 +95,11 @@ export default function HerbCardAccordion({ herb }: Props) {
         </span>
       </div>
       <p className='text-sm italic text-sand'>{herb.scientificName || 'Unknown species'}</p>
+      {herbBlurbs[herb.name] && (
+        <p className='mt-1 text-sm italic text-gray-300'>
+          {herbBlurbs[herb.name]}
+        </p>
+      )}
 
       <div className='mt-2 text-sm text-white'>
         <strong>Effects:</strong> {safeEffects.length > 0 ? safeEffects.join(', ') : 'Unknown'}
