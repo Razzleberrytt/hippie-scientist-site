@@ -21,6 +21,8 @@ export interface Herb {
   duration?: string
   legalStatus?: string
   region?: string
+  /** Array of active psychoactive compounds present in the herb */
+  compounds?: string[]
   tags?: string[]
   sources?: string[]
   needsReview?: boolean

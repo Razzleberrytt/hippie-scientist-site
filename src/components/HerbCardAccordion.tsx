@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Herb } from '../types/Herb'
 import TagBadge from './TagBadge'
 import InfoTooltip from './InfoTooltip'
+import CompoundBadge from './CompoundBadge'
 import { decodeTag, tagVariant } from '../utils/format'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { Star } from 'lucide-react'
@@ -31,6 +32,9 @@ export default function HerbCardAccordion({ herb }: Props) {
   }, [expanded])
   const safeTags = Array.isArray(herb.tags) ? herb.tags : []
   const safeEffects = Array.isArray(herb.effects) ? herb.effects : []
+  const safeCompounds = Array.isArray((herb as any).compounds)
+    ? (herb as any).compounds
+    : []
   const favorite = isFavorite(herb.id)
 
   const containerVariants = {
@@ -175,18 +179,16 @@ export default function HerbCardAccordion({ herb }: Props) {
                 <strong>Intensity:</strong> {herb.intensity}
               </motion.p>
             )}
-            {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
-              <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                <strong>Active Compounds:</strong>{' '}
-                {herb.activeConstituents.map((c, i) => (
-                  <React.Fragment key={c.name}>
-                    {i > 0 && ', '}
-                    <Link to={`/compounds#${slugify(c.name)}`} className='underline'>
-                      {c.name}
-                    </Link>
-                  </React.Fragment>
+            {safeCompounds.length > 0 && (
+              <motion.div
+                variants={itemVariants}
+                className='flex flex-wrap items-center gap-1'
+              >
+                <strong className='mr-1'>Active Compounds:</strong>
+                {safeCompounds.map(c => (
+                  <CompoundBadge key={c} name={c} />
                 ))}
-              </motion.p>
+              </motion.div>
             )}
             {Array.isArray(herb.sources) && herb.sources.length > 0 && (
               <motion.div variants={itemVariants}>
