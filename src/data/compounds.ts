@@ -1,65 +1,180 @@
-export interface Compound {
+export interface CompoundEntry {
   name: string
-  class: string
-  effects: string[]
-  /** Herbs that contain this compound */
-  sourceHerbs: string[]
-  /** Optional extra fields for detailed view */
-  mechanismOfAction?: string
-  psychoactiveEffects?: string[]
-  foundInHerbs?: string[]
-  toxicityWarning?: string
-  notes?: string
+  type: string
+  description: string
+  foundIn: string[]
+  psychoactivity: string
+  mechanismOfAction: string
 }
 
-export const compounds: Compound[] = [
+export const compounds: CompoundEntry[] = [
   {
     name: 'Mescaline',
-    class: 'phenethylamine',
-    effects: ['psychedelic', 'empathogenic'],
-    sourceHerbs: ['lophophora-williamsii'],
-    mechanismOfAction: '5-HT2A agonist',
-    psychoactiveEffects: ['visual enhancement', 'emotional openness'],
-    foundInHerbs: ['lophophora-williamsii'],
-    toxicityWarning: 'High doses may cause nausea and anxiety',
+    type: 'alkaloid',
+    description: 'A psychedelic phenethylamine found in certain cactus species.',
+    foundIn: ['Peyote', 'Echinopsis pachanoi'],
+    psychoactivity: 'strong',
+    mechanismOfAction: '5-HT2A receptor agonist',
   },
   {
-    name: 'Psilocybin',
-    class: 'tryptamine',
-    effects: ['psychedelic'],
-    sourceHerbs: ['psilocybe-cubensis'],
-    notes: 'Converted to psilocin in the body',
-    mechanismOfAction: 'Converted to psilocin; 5-HT2A agonist',
-    psychoactiveEffects: ['visual distortion', 'mystical states'],
-    foundInHerbs: ['psilocybe-cubensis'],
-  },
-  {
-    name: 'Mitragynine',
-    class: 'indole alkaloid',
-    effects: ['stimulant', 'analgesic'],
-    sourceHerbs: ['kratom-hybrids'],
-    mechanismOfAction: 'Partial μ-opioid agonist',
-    psychoactiveEffects: ['energy boost', 'pain relief'],
-    foundInHerbs: ['kratom-hybrids'],
+    name: 'DMT',
+    type: 'tryptamine',
+    description: 'Powerful short-acting psychedelic present in many plants.',
+    foundIn: ['Acacia maidenii', 'Anadenanthera peregrina'],
+    psychoactivity: 'strong',
+    mechanismOfAction: 'Serotonin 5-HT2A receptor agonist',
   },
   {
     name: 'Harmine',
-    class: 'beta-carboline',
-    effects: ['MAOI', 'psychedelic potentiator'],
-    sourceHerbs: ['banisteriopsis-caapi'],
+    type: 'alkaloid',
+    description: 'Beta-carboline MAOI that potentiates tryptamines.',
+    foundIn: ['Banisteriopsis caapi', 'Syrian Rue'],
+    psychoactivity: 'moderate',
     mechanismOfAction: 'Reversible MAO-A inhibitor',
-    psychoactiveEffects: ['potentiates DMT'],
-    foundInHerbs: ['banisteriopsis-caapi'],
+  },
+  {
+    name: 'Ibogaine',
+    type: 'alkaloid',
+    description: 'Psychedelic indole alkaloid used in addiction treatment rituals.',
+    foundIn: ['Tabernanthe iboga'],
+    psychoactivity: 'strong',
+    mechanismOfAction: 'Serotonin and NMDA modulation',
+  },
+  {
+    name: 'Bufotenine',
+    type: 'tryptamine',
+    description: 'Powerful visionary alkaloid found in several snuff seeds.',
+    foundIn: ['Anadenanthera colubrina', 'Anadenanthera peregrina'],
+    psychoactivity: 'strong',
+    mechanismOfAction: '5-HT2A and 5-HT1A receptor agonist',
+  },
+  {
+    name: 'Muscimol',
+    type: 'isoxazole',
+    description: 'Sedative-hypnotic compound in Amanita muscaria.',
+    foundIn: ['Amanita muscaria'],
+    psychoactivity: 'moderate',
+    mechanismOfAction: 'GABA_A receptor agonist',
+  },
+  {
+    name: 'Ibotenic Acid',
+    type: 'isoxazole',
+    description: 'Neuroactive amino acid that converts to muscimol when heated.',
+    foundIn: ['Amanita muscaria'],
+    psychoactivity: 'moderate',
+    mechanismOfAction: 'Glutamate receptor agonist',
+  },
+  {
+    name: 'THC',
+    type: 'cannabinoid',
+    description: 'Primary intoxicating compound in Cannabis.',
+    foundIn: ['Cannabis sativa'],
+    psychoactivity: 'strong',
+    mechanismOfAction: 'CB1 receptor agonist',
+  },
+  {
+    name: 'CBD',
+    type: 'cannabinoid',
+    description: 'Non-intoxicating cannabinoid with broad therapeutic potential.',
+    foundIn: ['Cannabis sativa'],
+    psychoactivity: 'mild',
+    mechanismOfAction: 'Modulates endocannabinoid receptors and serotonin 5-HT1A',
+  },
+  {
+    name: 'Caffeine',
+    type: 'xanthine',
+    description: 'Central nervous system stimulant found in tea and coffee.',
+    foundIn: ['Camellia sinensis'],
+    psychoactivity: 'mild',
+    mechanismOfAction: 'Adenosine receptor antagonist',
+  },
+  {
+    name: 'Ergotamine',
+    type: 'ergoline',
+    description: 'Potent vasoconstrictor alkaloid from ergot fungus.',
+    foundIn: ['Claviceps purpurea'],
+    psychoactivity: 'strong',
+    mechanismOfAction: 'Partial agonist at serotonin and adrenergic receptors',
+  },
+  {
+    name: 'Marmelosin',
+    type: 'coumarin',
+    description: 'Coumarin derivative contributing to Aegle marmelos activity.',
+    foundIn: ['Aegle marmelos'],
+    psychoactivity: 'mild',
+    mechanismOfAction: 'Unclear; mild sedative and digestive aid',
+  },
+  {
+    name: 'Anthocyanins',
+    type: 'flavonoid',
+    description: 'Antioxidant pigments responsible for roselle\'s red color.',
+    foundIn: ['Roselle'],
+    psychoactivity: 'none',
+    mechanismOfAction: 'Antioxidant and vascular modulation',
+  },
+  {
+    name: 'Verbenalin',
+    type: 'glycoside',
+    description: 'Sedative iridoid glycoside from Verbena officinalis.',
+    foundIn: ['Verbena officinalis'],
+    psychoactivity: 'mild',
+    mechanismOfAction: 'GABAergic modulation',
+  },
+  {
+    name: 'Marrubiin',
+    type: 'diterpenoid',
+    description: 'Bitter expectorant compound from horehound.',
+    foundIn: ['Marrubium vulgare'],
+    psychoactivity: 'none',
+    mechanismOfAction: 'Stimulates bronchial secretions',
+  },
+  {
+    name: 'Valeranon',
+    type: 'sesquiterpene',
+    description: 'Calming terpene occurring in valerian species.',
+    foundIn: ['Valeriana jatamansi'],
+    psychoactivity: 'mild',
+    mechanismOfAction: 'May modulate GABA receptors',
+  },
+  {
+    name: 'Gymnemic Acids',
+    type: 'triterpenoid',
+    description: 'Sweetness-suppressing compounds used for blood sugar control.',
+    foundIn: ['Gymnema sylvestre'],
+    psychoactivity: 'none',
+    mechanismOfAction: 'Block sweet receptors and reduce glucose absorption',
+  },
+  {
+    name: 'Catuabine',
+    type: 'alkaloid',
+    description: 'Putative aphrodisiac alkaloid from catuaba bark.',
+    foundIn: ['Erythroxylum catuaba'],
+    psychoactivity: 'mild',
+    mechanismOfAction: 'Dopaminergic modulation',
+  },
+  {
+    name: 'Mesembrine',
+    type: 'alkaloid',
+    description: 'Serotonin reuptake inhibitor found in kanna.',
+    foundIn: ['Sceletium tortuosum'],
+    psychoactivity: 'moderate',
+    mechanismOfAction: 'Serotonin transporter inhibition',
   },
   {
     name: 'Thujone',
-    class: 'monoterpene',
-    effects: ['GABA antagonist'],
-    sourceHerbs: ['salvia-apiana', 'achillea-millefolium'],
+    type: 'terpene',
+    description: 'GABA-blocking monoterpene notable in wormwood and yarrow.',
+    foundIn: ['Yarrow'],
+    psychoactivity: 'mild',
     mechanismOfAction: 'GABA_A receptor antagonist',
-    psychoactiveEffects: ['stimulant', 'convulsant at high dose'],
-    foundInHerbs: ['salvia-apiana', 'achillea-millefolium'],
-    toxicityWarning: 'Convulsant at high doses',
+  },
+  {
+    name: 'Safrole',
+    type: 'phenylpropene',
+    description: 'Aromatic precursor to several psychoactive syntheses.',
+    foundIn: ['Mexican Pepperleaf'],
+    psychoactivity: 'mild',
+    mechanismOfAction: 'Weak interaction with dopamine and serotonin systems',
   },
 ]
 
