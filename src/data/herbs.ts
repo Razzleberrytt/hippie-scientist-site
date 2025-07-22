@@ -21,7 +21,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201345 min (oral w/ MAOI); Duration: 4\u20136 hrs",
     "preparation": "Root bark boiled with MAOI plant (e.g. Syrian Rue) to activate",
     "region": "Taiwan, Philippines, Pacific Islands",
-    "safetyRating": "high",
     "scientificName": "Acacia confusa",
     "sideEffects": "Strong visuals, nausea, anxiety",
     "tags": [
@@ -61,7 +60,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral tea or tincture; slow onset (~1 hr); mild duration (2\u20133 hrs).",
     "preparation": "Tea or chewed",
     "region": "\ud83c\udde8\ud83c\uddf3 East Asia",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Nausea at high doses, possible carcinogenic risk with long-term \u03b2-asarone exposure.",
     "tags": [
@@ -96,7 +94,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: Sleep onset; Duration: dream state",
     "preparation": "Root is soaked and whipped into a frothy tea",
     "region": "South Africa",
-    "safetyRating": "low",
     "scientificName": "Silene capensis",
     "sideEffects": "Mild nausea or grogginess if overdosed",
     "tags": [
@@ -130,7 +127,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 2\u20136 hrs",
     "preparation": "Bark decoction or infused in Ayahuasca",
     "region": "Amazon basin",
-    "safetyRating": "low",
     "scientificName": "Alchornea castaneifolia",
     "sideEffects": "Minimal; bitter taste",
     "tags": [
@@ -163,7 +159,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "When insufflated, bufotenin is rapidly absorbed nasally with onset in 5\u201315\u202fmin and duration around 1\u20132\u202fh [1, 1].",
     "preparation": "South American use",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Prominent cardiovascular changes, nausea, vomiting, and dizziness [1, 0, 1, 1].",
     "tags": [
@@ -194,7 +189,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Smoke, tea, or ritual incense",
     "region": "\ud83c\uddea\ud83c\uddfa Europe",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -229,7 +223,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral preparations (extracts or powder); onset 30\u201360\u202fmin; requires chronic dosing for peak cognitive benefits [0, 5].",
     "preparation": "Tea, capsule",
     "region": "\ud83c\uddee\ud83c\uddf3 India",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Gastrointestinal upset (nausea, increased motility), fatigue, dry mouth [0, 5].",
     "tags": [
@@ -264,7 +257,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral or topical; onset ~30\u201390 mins; effects last 4\u201312 hrs.",
     "preparation": "Highly toxic \u2013 not for casual use",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Dry mouth, hallucinations, delirium, elevated pulse.",
     "tags": [
@@ -296,7 +288,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Chewed with lime and leaf",
     "region": "South and Southeast Asia",
-    "safetyRating": "unknown",
     "scientificName": "Areca catechu",
     "sideEffects": "Addiction, oral cancer with chronic use",
     "tags": [],
@@ -326,7 +317,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201340 min; Duration: 2\u20134 hrs",
     "preparation": "Tea, wine soak, or vaporized",
     "region": "Egypt, India",
-    "safetyRating": "low",
     "scientificName": "Nymphaea caerulea",
     "sideEffects": "Mild drowsiness, vivid dreams",
     "tags": [
@@ -360,7 +350,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Smoked or soaked in wine; onset rapid (5\u201320 min); duration ~1\u20133 hrs.",
     "preparation": "Wine soak, smoke, tea",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Drowsiness, mild dizziness at high doses.",
     "tags": [
@@ -395,7 +384,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 2\u20136 hrs",
     "preparation": "Decoction from bark or leaves in dieta; often macerated",
     "region": "Amazon basin (Peru, Ecuador)",
-    "safetyRating": "low",
     "scientificName": "Calliandra angustifolia",
     "sideEffects": "Drowsiness, mild emotional vulnerability",
     "tags": [
@@ -429,7 +417,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Smoked or brewed (shamanic contexts only)",
     "region": "South America",
-    "safetyRating": "unknown",
     "scientificName": "Brugmansia suaveolens",
     "sideEffects": "Extreme confusion, memory loss, risk of death",
     "tags": [],
@@ -459,7 +446,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Brewed with DMT-containing plants",
     "region": "Amazon basin",
-    "safetyRating": "unknown",
     "scientificName": "Banisteriopsis caapi",
     "sideEffects": "Nausea, purging, dizziness",
     "tags": [],
@@ -489,7 +475,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 4\u20138 hrs",
     "preparation": "Tea from dried leaves or smoked before bed",
     "region": "Mexico, Central America",
-    "safetyRating": "low",
     "scientificName": "Calea ternifolia (zacatechichi)",
     "sideEffects": "Bitterness, mild nausea",
     "tags": [
@@ -522,7 +507,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral (tea or tincture); onset ~30 min; lasts 2\u20133 hrs.",
     "preparation": "Tea, tincture, or extract",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Drowsiness, vivid dreams, dizziness.",
     "tags": [
@@ -557,7 +541,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 45\u201390 min; Duration: 4\u20136 hrs",
     "preparation": "Seeds chewed, oil taken orally, or powdered for tea",
     "region": "India, Sri Lanka, Southeast Asia",
-    "safetyRating": "low",
     "scientificName": "Celastrus paniculatus",
     "sideEffects": "Headache or stimulation at high doses",
     "tags": [
@@ -590,7 +573,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Oil or seeds consumed",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -623,7 +605,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201340 min (with MAOI); Duration: 4\u20136 hrs",
     "preparation": "Boiled with Banisteriopsis caapi in traditional Ayahuasca brews",
     "region": "Amazon basin (Peru, Brazil, Colombia)",
-    "safetyRating": "high",
     "scientificName": "Psychotria viridis",
     "sideEffects": "Intense visuals, vomiting, nausea",
     "tags": [
@@ -656,7 +637,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Traditionally infused or added to ayahuasca; alkaloids absorbed orally; onset ~30\u201360\u202fmin; duration several hours [0, 10].",
     "preparation": "Amazonian brew; not casual use",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Dizziness, nausea, muscle tremors, delirium at high doses [0, 11].",
     "tags": [
@@ -690,7 +670,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 2\u20134 hrs",
     "preparation": "Bark decoction or tincture",
     "region": "Amazon Basin",
-    "safetyRating": "low",
     "scientificName": "Tynanthus panurensis",
     "sideEffects": "Mild hypotension or fatigue",
     "tags": [
@@ -724,7 +703,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Burned as incense",
     "region": "\ud83c\udf10 Global / Ritual",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -758,7 +736,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201340 min; Duration: 2\u20135 hrs",
     "preparation": "Rhizome decoction or powder",
     "region": "Africa, Caribbean, Amazon",
-    "safetyRating": "low",
     "scientificName": "Cyperus articulatus",
     "sideEffects": "Rare; mild sedation",
     "tags": [
@@ -792,7 +769,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201340 min; Duration: 2\u20134 hrs",
     "preparation": "Tea, tincture, smoking blends",
     "region": "Mexico, Texas, Central America",
-    "safetyRating": "low",
     "scientificName": "Turnera diffusa",
     "sideEffects": "Mild headaches or GI discomfort",
     "tags": [
@@ -826,7 +802,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201390 min; Duration: 3\u20136 hrs",
     "preparation": "Infusion of leaves or berries; sometimes smoked",
     "region": "Chile, Colombia, Andes",
-    "safetyRating": "high",
     "scientificName": "Desfontainia spinosa",
     "sideEffects": "Strong nausea, confusion, pupil dilation",
     "tags": [
@@ -859,7 +834,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral onset in 30\u201360 minutes; active glycosides metabolized hepatically.",
     "preparation": "Tea or extract",
     "region": "\ud83c\udde8\ud83c\uddf3 East Asia",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Mild insomnia, irritability, nervousness in high doses.",
     "tags": [
@@ -892,7 +866,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Traditionally consumed as cold water infusion; onset ~1\u20132\u202fh; effects last ~6\u20138\u202fh [0, 11].",
     "preparation": "Seed powder or chew",
     "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Mild GI upset, drowsiness; rare nausea [0, 6].",
     "tags": [
@@ -925,7 +898,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral (tea, extract); onset 30\u201360\u202fmin; duration ~4\u202fh; bioavailability of key alkaloids moderate [2, 3].",
     "preparation": "Tea, tincture",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "High doses may cause residual sedation (\"hangover\"), nausea, dizziness; avoid operating machinery [2, 8, 2, 9].",
     "tags": [
@@ -959,7 +931,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Resin burned",
     "region": "\ud83c\udf10 Global / Ritual",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -991,7 +962,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 15\u201330 min; Duration: 3\u20135 hrs",
     "preparation": "Brewed as tea from dried leaves",
     "region": "Ecuador, Peru, Amazon",
-    "safetyRating": "low",
     "scientificName": "Ilex guayusa",
     "sideEffects": "Restlessness, jitteriness in sensitive individuals",
     "tags": [
@@ -1024,7 +994,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Traditionally fermented sun tea; slow onset 15\u201345\u202fmin; duration ~2\u20133\u202fh [9, 4].",
     "preparation": "Fermented sun tea",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Dry mouth, muscle relaxation, altered hearing [9, 4].",
     "tags": [
@@ -1059,7 +1028,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Historically ritual; dangerous/toxic",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -1091,7 +1059,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral or inhaled; onset ~20\u201340 min; duration ~2\u20134 hrs.",
     "preparation": "Tea or herbal pillow",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Drowsiness, mild headache, possible hormonal effects in large doses.",
     "tags": [
@@ -1125,7 +1092,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 2\u20134 hrs",
     "preparation": "Tea from flowers or stamens; also smoked",
     "region": "India, Southeast Asia",
-    "safetyRating": "low",
     "scientificName": "Nelumbo nucifera",
     "sideEffects": "Drowsiness, dizziness",
     "tags": [
@@ -1159,7 +1125,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 2\u20134 hrs",
     "preparation": "Tincture of fresh or dried plant",
     "region": "Temperate forests of North America and Asia",
-    "safetyRating": "medium",
     "scientificName": "Monotropa uniflora",
     "sideEffects": "Unknown at pharmacological doses; rare usage",
     "tags": [
@@ -1192,7 +1157,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral ingestion onset 45\u2013120\u202fmin; duration 4\u201310\u202fh; hepatic metabolism [0, 5].",
     "preparation": "Seeds ground and cold infused",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Nausea, vasoconstriction, headache [0, 5].",
     "tags": [
@@ -1224,7 +1188,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 15\u201345 min; Duration: 2\u20135 hrs",
     "preparation": "Smoked or made into tea",
     "region": "Amazon basin",
-    "safetyRating": "medium",
     "scientificName": "Justicia pectoralis",
     "sideEffects": "Liver risk in excess due to coumarin",
     "tags": [
@@ -1258,7 +1221,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 15\u201330 min; Duration: 1\u20133 hrs",
     "preparation": "Fermented and dried material chewed, snuffed, or made into tincture",
     "region": "Southern Africa",
-    "safetyRating": "medium",
     "scientificName": "Sceletium tortuosum",
     "sideEffects": "Headache, nausea, serotonin syndrome (in excess or with SSRIs)",
     "tags": [
@@ -1292,7 +1254,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201340 min; Duration: 3\u20136 hrs",
     "preparation": "Pounded root mixed in water and strained",
     "region": "Polynesia, Micronesia, Melanesia",
-    "safetyRating": "medium",
     "scientificName": "Piper methysticum",
     "sideEffects": "Liver strain (rare), drowsiness",
     "tags": [
@@ -1332,7 +1293,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Capsule or tea",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -1367,7 +1327,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 3\u20135 hrs",
     "preparation": "Latex or leaf infusion, tincture, or smoke",
     "region": "North America",
-    "safetyRating": "low",
     "scientificName": "Lactuca canadensis",
     "sideEffects": "Drowsiness, GI upset at high doses",
     "tags": [
@@ -1400,7 +1359,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral or transdermal; slow absorption; long-lasting (6\u201312 hrs).",
     "preparation": "Traditional ceremonial use only",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Dry mouth, confusion, hallucinations, elevated heart rate.",
     "tags": [
@@ -1431,7 +1389,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral onset 30\u201360\u202fmin; active compounds absorbed in GI tract; hepatic metabolism; renal excretion [0, 0].",
     "preparation": "Tea, tincture, or smoke",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Drowsiness; possible allergic reactions; GI upset at high doses [0, 0].",
     "tags": [
@@ -1468,7 +1425,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201340 min (with MAOI); Duration: 4\u20136 hrs",
     "preparation": "Bark decoction brewed with MAOI like Syrian Rue",
     "region": "Brazil, Central America",
-    "safetyRating": "high",
     "scientificName": "Mimosa tenuiflora",
     "sideEffects": "Intense purging, nausea, anxiety",
     "tags": [
@@ -1502,7 +1458,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201340 min; Duration: 2\u20134 hrs",
     "preparation": "Petals steeped in wine, tea, or smoked",
     "region": "India, China, Southeast Asia",
-    "safetyRating": "low",
     "scientificName": "Nelumbo nucifera",
     "sideEffects": "Sedation, mild dizziness",
     "tags": [
@@ -1536,7 +1491,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Tea or smoke",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -1571,7 +1525,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Rapid absorption via oral tea/tincture; hepatic metabolism.",
     "preparation": "Tea or incense",
     "region": "\ud83c\uddee\ud83c\uddf3 India",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "May lower blood sugar, mild sedation, mild nausea.",
     "tags": [
@@ -1607,7 +1560,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 3\u20136 hrs",
     "preparation": "Tea from aerial parts or tincture",
     "region": "Southeastern U.S., Latin America",
-    "safetyRating": "low",
     "scientificName": "Passiflora incarnata",
     "sideEffects": "Drowsiness, dizziness",
     "tags": [
@@ -1647,7 +1599,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Smoked or tea; onset rapid (minutes); duration ~2\u20133\u202fh [2, 0].",
     "preparation": "Smoked or tea",
     "region": "\ud83c\udf0d Africa, \ud83c\uddee\ud83c\uddf3 India",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Drowsiness, dizziness [2, 0].",
     "tags": [
@@ -1681,7 +1632,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral infusion onset ~30\u202fmin; duration ~4\u202fh; metabolites excreted renally [0, 7].",
     "preparation": "Smoked or tea",
     "region": "\ud83c\udf0d Africa",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Rare; possible GI upset [0, 7].",
     "tags": [
@@ -1716,7 +1666,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 4\u20136 hrs",
     "preparation": "Purified root extracts or capsules (PA-free only)",
     "region": "Europe, Asia",
-    "safetyRating": "medium",
     "scientificName": "Petasites hybridus",
     "sideEffects": "Liver toxicity risk from unpurified products",
     "tags": [
@@ -1750,7 +1699,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral infusion or extract onset 30\u201360\u202fmin; hepatic metabolism; renal excretion [0, 11].",
     "preparation": "Tea or culinary use",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "High doses may cause GI upset; safrole is a potential carcinogen [1, 11].",
     "tags": [
@@ -1785,7 +1733,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Absorbed orally; peak plasma ~1-2 hours; active compounds metabolized in liver, excreted renally.",
     "preparation": "Capsule, tincture",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Irritability, dry mouth, dizziness (rare, dose-dependent).",
     "tags": [
@@ -1820,7 +1767,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Insufflated or ingested; onset 20\u201360\u202fmin; duration 4\u20138\u202fh; hepatic metabolism [0, 12].",
     "preparation": "Seeds ground and cold infused",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Nausea, vasoconstriction, dizziness [0, 4].",
     "tags": [
@@ -1851,7 +1797,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Absorbed via oral mucosa, smoking or vaporization; rapid onset (seconds\u2013minutes), short duration (~15\u201330\u202fmin), quickly metabolized to inactive salvinorin B [3, 1].",
     "preparation": "Smoked, intense, short duration",
     "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Tiredness, dizziness, amnesia, potential for transient psychosis in vulnerable individuals [3, 2].",
     "tags": [
@@ -1885,7 +1830,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral onset 20\u201360\u202fmin; duration 2\u20134\u202fh [9, 4].",
     "preparation": "Chew, snuff, extract",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Headache, nausea, mild sedation [9, 4].",
     "tags": [
@@ -1919,7 +1863,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Taken orally; onset ~30 min; effects last ~2\u20134 hrs.",
     "preparation": "Tea or tincture",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Rarely causes liver enzyme elevation or drowsiness.",
     "tags": [
@@ -1953,7 +1896,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 3\u20135 hrs",
     "preparation": "Tea, tincture, capsules",
     "region": "North America",
-    "safetyRating": "low",
     "scientificName": "Scutellaria lateriflora",
     "sideEffects": "Drowsiness, dizziness at high doses",
     "tags": [
@@ -1987,7 +1929,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 6\u20138 hrs",
     "preparation": "Root is powdered and stirred into water until it foams; consumed before bed",
     "region": "South Africa",
-    "safetyRating": "low",
     "scientificName": "Silene capensis",
     "sideEffects": "Mild nausea if taken in excess",
     "tags": [
@@ -2019,7 +1960,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "No longer available but worth note",
     "region": "\ud83c\udf0e Unknown / Global",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -2051,7 +1991,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201390 min; Duration: 4\u20136 hrs",
     "preparation": "Sun-fermented tea from leaves",
     "region": "Mexico, Central America",
-    "safetyRating": "medium",
     "scientificName": "Heimia salicifolia",
     "sideEffects": "Dry mouth, yellow vision, dizziness",
     "tags": [
@@ -2084,7 +2023,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Burned or braided for ceremonies",
     "region": "\ud83c\udf10 Global / Ritual",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -2116,7 +2054,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Consumed as tea or tincture; onset ~20\u201330\u202fmin; duration ~2\u20134\u202fhours [2, 2].",
     "preparation": "Tea, incense, or smoke",
     "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Mild GI upset, potential photosensitivity [2, 3].",
     "tags": [
@@ -2152,7 +2089,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Not well documented",
     "preparation": "Tea",
     "region": "\ud83c\uddea\ud83c\uddfa Europe",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Not well documented",
     "tags": [
@@ -2187,7 +2123,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 8\u201324 hrs",
     "preparation": "Seeds, leaves or flowers ingested or smoked (strongly discouraged)",
     "region": "Americas, Mediterranean",
-    "safetyRating": "unknown",
     "scientificName": "Datura spp.",
     "sideEffects": "Severe hallucinations, amnesia, potential death",
     "tags": [
@@ -2221,7 +2156,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Tea or smoked; onset ~30\u201345\u202fmin; duration ~2\u20134\u202fhours [8, 6].",
     "preparation": "Tea or smoke",
     "region": "Texas, Mexico, Central America",
-    "safetyRating": 1,
     "scientificName": "Turnera diffusa",
     "sideEffects": "Mild headache, insomnia at high doses [8, 6].",
     "tags": [
@@ -2256,7 +2190,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 2\u20134 hrs",
     "preparation": "Tea from dried leaves or tincture",
     "region": "Central and South America",
-    "safetyRating": "low",
     "scientificName": "Turnera ulmifolia",
     "sideEffects": "Mild sedation",
     "tags": [
@@ -2290,7 +2223,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 3\u20136 hrs",
     "preparation": "Dried leaves as tea or extract",
     "region": "Europe, North America, Asia",
-    "safetyRating": "low",
     "scientificName": "Urtica dioica",
     "sideEffects": "Mild stomach upset, skin irritation",
     "tags": [
@@ -2324,7 +2256,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Taken as tea or syrup; onset ~30 min; short duration.",
     "preparation": "Tea or syrup",
     "region": "\ud83c\uddea\ud83c\uddfa Europe",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Very rare; may include mild drowsiness or nausea.",
     "tags": [
@@ -2357,7 +2288,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Insufflated or oral with MAOIs; fast onset if smoked or snuffed.",
     "preparation": "Used in Amazonian snuffs",
     "region": "\ud83c\uddf2\ud83c\uddfd Latin America",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Nausea, intense hallucinations, elevated heart rate.",
     "tags": [
@@ -2389,7 +2319,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 1\u20133 min; Duration: 20\u201360 min",
     "preparation": "Bark resin dried and insufflated as snuff",
     "region": "Amazon (Brazil, Venezuela)",
-    "safetyRating": "high",
     "scientificName": "Virola theiodora",
     "sideEffects": "Nausea, tremors, vomiting",
     "tags": [
@@ -2423,7 +2352,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201390 min; Duration: 6\u201312 hrs",
     "preparation": "Bark decoction or purified alkaloids; high potency",
     "region": "West Africa",
-    "safetyRating": "high",
     "scientificName": "Voacanga africana",
     "sideEffects": "Vomiting, overstimulation, visual distortions",
     "tags": [
@@ -2457,7 +2385,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 20\u201340 min; Duration: 2\u20134 hrs",
     "preparation": "Soaked in wine, steeped as tea, or smoked",
     "region": "Mexico, Central America",
-    "safetyRating": "low",
     "scientificName": "Nymphaea ampla",
     "sideEffects": "Drowsiness, vivid dreams",
     "tags": [
@@ -2491,7 +2418,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Inhaled or topical; rapid local absorption; systemic exposure minimal; metabolites excreted renally [0, 4].",
     "preparation": "Burned as incense",
     "region": "\ud83c\udf10 Global / Ritual",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "Respiratory irritation, asthmatic exacerbation, headaches at high exposure [0, 19].",
     "tags": [
@@ -2526,7 +2452,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 3\u20136 hrs",
     "preparation": "Tincture, dried leaf tea, smoked",
     "region": "Europe, North America",
-    "safetyRating": "medium",
     "scientificName": "Lactuca virosa",
     "sideEffects": "Drowsiness, nausea at high doses",
     "tags": [
@@ -2559,7 +2484,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Oral onset 30\u201360\u202fmin; withanolides bioavailable; hepatic metabolism; renal excretion [0, 17].",
     "preparation": "Tea or capsule",
     "region": "\ud83c\uddee\ud83c\uddf3 India",
-    "safetyRating": 1,
     "scientificName": "Unknown",
     "sideEffects": "GI upset, drowsiness, rare thyroid hormone changes [0, 9].",
     "tags": [
@@ -2595,7 +2519,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 30\u201360 min; Duration: 4\u20136 hrs",
     "preparation": "Tincture, tea, or absinthe-style extract",
     "region": "Europe, Asia, North America",
-    "safetyRating": "medium",
     "scientificName": "Artemisia absinthium",
     "sideEffects": "Headache, nausea, tremors at high doses",
     "tags": [
@@ -2636,7 +2559,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 10\u201330 min; Duration: 3\u20135 hrs",
     "preparation": "Hot infusion or cold-brewed (terer\u00e9)",
     "region": "Argentina, Paraguay, Brazil",
-    "safetyRating": "medium",
     "scientificName": "Ilex paraguariensis",
     "sideEffects": "Jitteriness, insomnia, GI discomfort in sensitive individuals",
     "tags": [
@@ -2670,7 +2592,6 @@ export const herbs: Herb[] = [
     "pharmacokinetics": "Onset: 1\u20135 min; Duration: 30\u201360 min",
     "preparation": "Roasted, ground seeds mixed with alkaline ash and blown nasally",
     "region": "South America (Orinoco, Amazon basin)",
-    "safetyRating": "high",
     "scientificName": "Anadenanthera peregrina",
     "sideEffects": "Intense nausea, disorientation, respiratory irritation",
     "tags": [
@@ -2707,7 +2628,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20138 hrs",
     "region": "Northern Hemisphere, boreal forests",
     "legalStatus": "Legal in most countries",
-    "safetyRating": "medium",
     "preparation": "Traditionally dried or parboiled to convert ibotenic acid to muscimol.",
     "contraindications": "Avoid with sedatives or psychiatric conditions.",
     "sideEffects": "Nausea, ataxia, delirium",
@@ -2740,7 +2660,6 @@ export const herbs: Herb[] = [
     "duration": "4 hrs",
     "region": "Europe, North America",
     "legalStatus": "Legal",
-    "safetyRating": "low",
     "preparation": "Dried root used as tea, tincture, or capsule.",
     "contraindications": "Avoid with other sedatives or during pregnancy.",
     "sideEffects": "Drowsiness, vivid dreams",
@@ -2772,7 +2691,6 @@ export const herbs: Herb[] = [
     "duration": "6\u20138 hrs",
     "region": "China, Southeast Asia",
     "legalStatus": "Legal in most countries",
-    "safetyRating": "medium",
     "preparation": "Standardized extract or whole plant tea.",
     "contraindications": "Bradycardia, cholinergic medications.",
     "sideEffects": "Nausea, sweating, muscle twitching at high doses",
@@ -2805,7 +2723,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20136 hrs",
     "region": "Middle East, Central Asia",
     "legalStatus": "Restricted in some countries",
-    "safetyRating": "medium",
     "preparation": "Seeds ground for tea or extracted.",
     "contraindications": "Avoid with SSRIs, stimulants, or liver disease.",
     "sideEffects": "Nausea, vomiting, weakness",
@@ -2837,7 +2754,6 @@ export const herbs: Herb[] = [
     "duration": "1\u20133 hrs",
     "region": "Southern Africa",
     "legalStatus": "Legal",
-    "safetyRating": "low",
     "preparation": "Dried leaves or flowers smoked or brewed as tea.",
     "contraindications": "Avoid during pregnancy or with heart conditions.",
     "sideEffects": "Dry mouth, slight dizziness",
@@ -2870,7 +2786,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134 hrs",
     "region": "West Africa",
     "legalStatus": "Restricted or prescription in some countries",
-    "safetyRating": "medium",
     "preparation": "Bark extracts or standardized tablets.",
     "contraindications": "Heart disease, anxiety disorders, MAOIs.",
     "sideEffects": "Increased blood pressure, jitteriness, insomnia",
@@ -2903,7 +2818,6 @@ export const herbs: Herb[] = [
     "duration": "3\u20135 hrs",
     "region": "Horn of Africa, Yemen",
     "legalStatus": "Illegal or controlled in many countries",
-    "safetyRating": "medium",
     "preparation": "Fresh leaves chewed slowly.",
     "contraindications": "Heart issues, pregnancy, MAOIs.",
     "sideEffects": "Dry mouth, increased heart rate, insomnia",
@@ -2935,7 +2849,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134 hrs",
     "region": "China, India, worldwide cultivation",
     "legalStatus": "Legal",
-    "safetyRating": "low",
     "preparation": "Leaves steeped in hot water; various fermentations (green, black, oolong).",
     "contraindications": "Heart conditions, pregnancy (high amounts).",
     "sideEffects": "Jitters, insomnia, digestive upset",
@@ -2967,7 +2880,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20136 hrs",
     "region": "China and Central Asia",
     "legalStatus": "Regulated in many countries",
-    "safetyRating": "medium",
     "preparation": "Dried stems brewed as tea or processed into extract.",
     "contraindications": "Heart disease, hypertension, MAOIs.",
     "sideEffects": "Jitters, elevated heart rate, insomnia",
@@ -2999,7 +2911,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134 hrs",
     "region": "Eastern North America",
     "legalStatus": "Restricted as food additive in the U.S.",
-    "safetyRating": "medium",
     "preparation": "Root bark traditionally brewed or distilled into oil of sassafras.",
     "contraindications": "Liver disease, pregnancy.",
     "sideEffects": "Nausea, possible hepatotoxicity",
@@ -3031,7 +2942,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20136 hrs",
     "region": "Amazon basin",
     "legalStatus": "Legal",
-    "safetyRating": "low",
     "preparation": "Roasted seeds ground into powder for drinks or capsules.",
     "contraindications": "Heart problems, pregnancy, sensitivity to caffeine.",
     "sideEffects": "Jitteriness, stomach upset",
@@ -3064,7 +2974,6 @@ export const herbs: Herb[] = [
     "duration": "6\u201310 hrs",
     "region": "India, tropical regions",
     "legalStatus": "Seeds legal in many places; extraction may be controlled",
-    "safetyRating": "medium",
     "preparation": "Seeds scraped and chewed or ground; often cold-water extracted.",
     "contraindications": "Pregnancy, liver issues, MAOIs.",
     "sideEffects": "Nausea, vasoconstriction, sedation",
@@ -3097,7 +3006,6 @@ export const herbs: Herb[] = [
     "duration": "12\u201324 hrs",
     "region": "Central Africa",
     "legalStatus": "Controlled or prescription in many countries",
-    "safetyRating": "low",
     "preparation": "Root bark chewed or made into extracts; used ceremonially.",
     "contraindications": "Heart conditions, psychiatric disorders, MAOIs.",
     "sideEffects": "Nausea, ataxia, prolonged recovery",
@@ -3136,7 +3044,6 @@ export const herbs: Herb[] = [
     "toxicityLD50": ">14 mg/kg (mice, intravenous)",
     "id": "lsd",
     "description": "Semi-synthetic ergoline discovered in 1938; among the most potent psychedelics.",
-    "safetyRating": 2,
     "affiliateLink": "",
     "slug": "lsd"
   },
@@ -3169,7 +3076,6 @@ export const herbs: Herb[] = [
     "toxicityLD50": "285 mg/kg (rats, oral) for psilocybin",
     "id": "psilocybin",
     "description": "Active compound in psychedelic mushrooms producing profound perceptual changes.",
-    "safetyRating": 2,
     "affiliateLink": "",
     "slug": "psilocybin"
   },
@@ -3202,7 +3108,6 @@ export const herbs: Herb[] = [
     "toxicityLD50": ">1,000 mg/kg (rats, oral)",
     "id": "mescaline",
     "description": "Classic phenethylamine psychedelic from peyote and San Pedro cacti.",
-    "safetyRating": 2,
     "affiliateLink": "",
     "slug": "mescaline"
   },
@@ -3230,7 +3135,6 @@ export const herbs: Herb[] = [
     "duration": "15\u202fmin \u2013 6\u202fh depending on route",
     "region": "Native to eastern Australia",
     "legalStatus": "DMT restricted in many countries",
-    "safetyRating": "unknown",
     "preparation": "Root bark traditionally combined with MAOI plants or smoked",
     "contraindications": "Mental illness, MAOI or SSRI medication",
     "sideEffects": "Nausea, anxiety, profound alterations of perception",
@@ -3264,7 +3168,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134\u202fh",
     "region": "Europe, Asia, North America",
     "legalStatus": "Generally legal, though some preparations restricted",
-    "safetyRating": "unknown",
     "preparation": "Dried rhizome chewed or made into tea",
     "contraindications": "Pregnancy, high doses, liver disease",
     "sideEffects": "Nausea, vomiting at large doses",
@@ -3298,7 +3201,6 @@ export const herbs: Herb[] = [
     "duration": "3\u20135\u202fh",
     "region": "Native to Asia, cultivated elsewhere",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Dried bark or flowers taken as teas or tinctures",
     "contraindications": "None known, though caution with sedatives",
     "sideEffects": "Rare drowsiness in sensitive individuals",
@@ -3332,7 +3234,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134\u202fh",
     "region": "Europe and western Asia",
     "legalStatus": "Legal but not widely sold",
-    "safetyRating": "unknown",
     "preparation": "Only dried aerial parts are infused as tea",
     "contraindications": "Pregnancy, open wounds, large doses",
     "sideEffects": "Nausea, stomach irritation if taken fresh",
@@ -3366,7 +3267,6 @@ export const herbs: Herb[] = [
     "duration": "3\u20136\u202fh",
     "region": "Native to tropical America; naturalized worldwide",
     "legalStatus": "Legal but sometimes regulated due to toxicity",
-    "safetyRating": "unknown",
     "preparation": "Dried leaves or latex smoked or brewed sparingly",
     "contraindications": "Liver disorders, pregnancy, high doses",
     "sideEffects": "Headache, stomach upset, potential liver damage",
@@ -3400,7 +3300,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20136\u202fh",
     "region": "Laos, Cambodia, Thailand",
     "legalStatus": "Legal with little regulation",
-    "safetyRating": "unknown",
     "preparation": "Leaves brewed as tea or smoked similar to kratom",
     "contraindications": "Hypertension, heart conditions",
     "sideEffects": "Jitters, insomnia if overused",
@@ -3434,7 +3333,6 @@ export const herbs: Herb[] = [
     "duration": "3\u20135\u202fh",
     "region": "China and East Asia",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Rhizome taken in decoctions or powdered extracts",
     "contraindications": "Pregnancy, liver disease, large doses",
     "sideEffects": "Drowsiness, dizziness",
@@ -3468,7 +3366,6 @@ export const herbs: Herb[] = [
     "duration": "15\u202fmin \u2013 6\u202fh",
     "region": "Central and southern United States",
     "legalStatus": "DMT restricted in many countries",
-    "safetyRating": "unknown",
     "preparation": "Root bark powdered for extraction or brewed with MAOI plant",
     "contraindications": "Mental health issues, MAOI or SSRI medication",
     "sideEffects": "Nausea, anxiety, powerful visions",
@@ -3502,7 +3399,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20136\u202fh",
     "region": "Brazil and neighboring countries",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Bark decoction or tincture consumed before sleep",
     "contraindications": "Pregnancy, combining with strong sedatives",
     "sideEffects": "Drowsiness, lowered blood pressure",
@@ -3536,7 +3432,6 @@ export const herbs: Herb[] = [
     "duration": "3\u20135\u202fh",
     "region": "Mexico",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Flowers or bark steeped as tea",
     "contraindications": "Pregnancy, combining with CNS depressants",
     "sideEffects": "Drowsiness, dizziness",
@@ -3570,7 +3465,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20138\u202fh",
     "region": "Papua New Guinea and northern Australia",
     "legalStatus": "Little formal regulation",
-    "safetyRating": "unknown",
     "preparation": "Bark or leaves boiled into a decoction, sometimes mixed with ginger",
     "contraindications": "Unknown; caution due to potent effects",
     "sideEffects": "Nausea, vertigo, intense dreams",
@@ -3604,7 +3498,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134\u202fh",
     "region": "Indonesia, Thailand, Malaysia",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Rhizome chewed fresh, powdered in capsules, or brewed as tea",
     "contraindications": "Gastric ulcers, anticoagulant medication",
     "sideEffects": "Heartburn or mild agitation at high doses",
@@ -3638,7 +3531,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134\u202fh",
     "region": "Native to Asia, cultivated in the Americas",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Leaves smoked or steeped as tea",
     "contraindications": "None known",
     "sideEffects": "Drowsiness at high doses",
@@ -3672,7 +3564,6 @@ export const herbs: Herb[] = [
     "duration": "3\u20135\u202fh",
     "region": "Central Asia",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Leaves brewed as tea or smoked alone or with other herbs",
     "contraindications": "None documented but caution when operating machinery",
     "sideEffects": "Drowsiness",
@@ -3706,7 +3597,6 @@ export const herbs: Herb[] = [
     "duration": "30\u201360\u202fmin",
     "region": "South America and worldwide cultivation",
     "legalStatus": "Legal but regulated like tobacco",
-    "safetyRating": "unknown",
     "preparation": "Leaves dried and smoked, snuffed, or used in liquid extracts",
     "contraindications": "Heart disease, pregnancy, hypertension",
     "sideEffects": "Nausea, increased heart rate, dizziness",
@@ -3740,7 +3630,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20135\u202fh",
     "region": "Africa and Southeast Asia",
     "legalStatus": "Generally legal",
-    "safetyRating": "unknown",
     "preparation": "Dried flowers steeped as tea or soaked in wine",
     "contraindications": "None known but caution with sedatives",
     "sideEffects": "Drowsiness at high doses",
@@ -3774,7 +3663,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20136\u202fh",
     "region": "Amazon Basin",
     "legalStatus": "DMT restricted in many countries",
-    "safetyRating": "unknown",
     "preparation": "Leaves brewed with MAOI plants to form ayahuasca-style brews",
     "contraindications": "Mental health conditions, MAOI or SSRI medication",
     "sideEffects": "Nausea, intense visions, possible anxiety",
@@ -3808,7 +3696,6 @@ export const herbs: Herb[] = [
     "duration": "4\u20136\u202fh",
     "region": "Tropical Asia and Africa",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Powdered seeds or extract taken in capsules or smoothies",
     "contraindications": "Psychosis, concurrent L\u2011DOPA medication",
     "sideEffects": "Nausea or headache with excessive intake",
@@ -3842,7 +3729,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134\u202fh",
     "region": "Amazon rainforest",
     "legalStatus": "Generally legal",
-    "safetyRating": "unknown",
     "preparation": "Bark strips boiled into a strong caffeinated drink",
     "contraindications": "Heart problems, insomnia, sensitivity to caffeine",
     "sideEffects": "Jitters, rapid heartbeat, sleeplessness",
@@ -3876,7 +3762,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20134\u202fh",
     "region": "Eastern and southern Africa",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Leaves brewed as tea or smoked; also used as incense",
     "contraindications": "Pregnancy, caution with hypotensive drugs",
     "sideEffects": "Dizziness, low blood pressure",
@@ -3910,7 +3795,6 @@ export const herbs: Herb[] = [
     "duration": "2\u20135\u202fh",
     "region": "Western Amazon",
     "legalStatus": "Mostly legal but little researched",
-    "safetyRating": "unknown",
     "preparation": "Bark or root pieces chewed or made into a tea",
     "contraindications": "Heart problems, pregnancy, mental illness",
     "sideEffects": "Nausea, numbness, dizziness",
@@ -3944,7 +3828,6 @@ export const herbs: Herb[] = [
     "duration": "1\u20132\u202fh",
     "region": "Southeast Asia",
     "legalStatus": "Cultivation regulated due to overharvesting but use is legal",
-    "safetyRating": "unknown",
     "preparation": "Resinous wood chips burned as incense or ground and smoked",
     "contraindications": "Respiratory issues when inhaled heavily",
     "sideEffects": "Mild headache if smoke inhaled in excess",
@@ -3978,7 +3861,6 @@ export const herbs: Herb[] = [
     "duration": "6\u20138\u202fh",
     "region": "India and Southeast Asia",
     "legalStatus": "Seeds legal though extraction of LSA may be restricted",
-    "safetyRating": "unknown",
     "preparation": "Seeds ground and ingested after cold\u2011water extraction",
     "contraindications": "Pregnancy, mental health disorders",
     "sideEffects": "Nausea, vasoconstriction, drowsiness",
@@ -4012,7 +3894,6 @@ export const herbs: Herb[] = [
     "duration": "1\u20133\u202fh",
     "region": "Southeastern United States",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Fresh bark chewed or made into tincture",
     "contraindications": "Mouth ulcers or sensitive gums",
     "sideEffects": "Tingling, salivation, mild stomach upset",
@@ -4046,7 +3927,6 @@ export const herbs: Herb[] = [
     "duration": "3\u20134\u202fh",
     "region": "Indian subcontinent",
     "legalStatus": "Legal",
-    "safetyRating": "unknown",
     "preparation": "Leaves brewed as tea or taken as syrup",
     "contraindications": "Pregnancy; high doses may cause vomiting",
     "sideEffects": "Digestive upset at large doses",
@@ -4084,7 +3964,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Varies; unscheduled in many countries",
     "toxicity": "Potentially toxic at high doses",
     "toxicityLD50": "Not well established",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4118,7 +3997,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Varies by jurisdiction",
     "toxicity": "Low physiological toxicity",
     "toxicityLD50": ">1 g/kg THC in animals",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4152,7 +4030,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Controlled in many countries",
     "toxicity": "High; risk of ergotism",
     "toxicityLD50": "~5 mg/kg lysergic acid amide (mouse)",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4186,7 +4063,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Legal",
     "toxicity": "Low",
     "toxicityLD50": "Not established",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4220,7 +4096,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Cactus legal in many areas; mescaline often controlled",
     "toxicity": "Low physiological but intense psychological effects",
     "toxicityLD50": "Not well established",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4254,7 +4129,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Cultivation regulated; cocaine controlled",
     "toxicity": "Low in leaf form; purified alkaloid is addictive",
     "toxicityLD50": "~95 mg/kg (rat, cocaine)",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4288,7 +4162,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Legal",
     "toxicity": "Low",
     "toxicityLD50": ">5 g/kg in animals",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4322,7 +4195,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Legal",
     "toxicity": "Low",
     "toxicityLD50": "Not established",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4356,7 +4228,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Legal",
     "toxicity": "Low to moderate",
     "toxicityLD50": ">2 g/kg in rodents",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4390,7 +4261,6 @@ export const herbs: Herb[] = [
     "legalStatus": "Legal",
     "toxicity": "Low",
     "toxicityLD50": ">1 g/kg caffeine in animals",
-    "safetyRating": "unknown",
     "affiliateLink": "",
     "id": "Unknown",
     "description": "Unknown",
@@ -4424,7 +4294,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Known as gotu kola, used in Ayurvedic medicine to aid cognition.",
-    "safetyRating": 1,
     "id": "centella-asiatica",
     "activeConstituents": [
       {
@@ -4464,7 +4333,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "California poppy with gentle relaxing properties.",
-    "safetyRating": 1,
     "id": "eschscholzia-californica",
     "activeConstituents": [
       {
@@ -4504,7 +4372,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Adaptogenic root improving resilience and energy.",
-    "safetyRating": 1,
     "id": "rhodiola-rosea",
     "activeConstituents": [
       {
@@ -4544,7 +4411,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Ancient tree used to promote memory and brain circulation.",
-    "safetyRating": 1,
     "id": "ginkgo-biloba",
     "activeConstituents": [
       {
@@ -4584,7 +4450,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Also known as St. John's Wort, famous herbal antidepressant.",
-    "safetyRating": 2,
     "id": "hypericum-perforatum",
     "activeConstituents": [
       {
@@ -4624,7 +4489,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Also called Wild Dagga, smoked for gentle euphoric effects.",
-    "safetyRating": 1,
     "id": "leonotis-leonurus",
     "activeConstituents": [
       {
@@ -4663,7 +4527,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Known as Cat's Claw, used in Peruvian medicine.",
-    "safetyRating": 1,
     "id": "uncaria-tomentosa",
     "activeConstituents": [
       {
@@ -4703,7 +4566,6 @@ export const herbs: Herb[] = [
     "toxicity": "Moderate",
     "toxicityLD50": "Ephedrine LD50 ~600 mg/kg (rat)",
     "description": "Potent herbal stimulant historically used in Chinese medicine.",
-    "safetyRating": 3,
     "id": "ephedra-sinica",
     "activeConstituents": [
       {
@@ -4743,7 +4605,6 @@ export const herbs: Herb[] = [
     "toxicity": "High at large doses",
     "toxicityLD50": "Myristicin LD50 ~400 mg/kg (mouse)",
     "description": "Nutmeg seeds can be psychoactive in large amounts.",
-    "safetyRating": 3,
     "id": "myristica-fragrans",
     "activeConstituents": [
       {
@@ -4783,7 +4644,6 @@ export const herbs: Herb[] = [
     "toxicity": "Moderate",
     "toxicityLD50": "Yohimbine LD50 ~50 mg/kg (mouse)",
     "description": "Potent bark traditionally used as an aphrodisiac.",
-    "safetyRating": 3,
     "id": "pausinystalia-yohimbe",
     "activeConstituents": [
       {
@@ -4823,7 +4683,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Also called Siberian ginseng, popular adaptogen.",
-    "safetyRating": 1,
     "id": "eleutherococcus-senticosus",
     "activeConstituents": [
       {
@@ -4863,7 +4722,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Known as Muira puama, used for vitality and libido.",
-    "safetyRating": 1,
     "id": "ptychopetalum-olacoides",
     "activeConstituents": [
       {
@@ -4903,7 +4761,6 @@ export const herbs: Herb[] = [
     "toxicity": "High",
     "toxicityLD50": "Variable; ergotamine LD50 ~1 mg/kg (mouse)",
     "description": "Fungus that produces ergot alkaloids, precursor to LSD.",
-    "safetyRating": 4,
     "id": "claviceps-purpurea",
     "activeConstituents": [
       {
@@ -4943,7 +4800,6 @@ export const herbs: Herb[] = [
     "toxicity": "Moderate",
     "toxicityLD50": "Caffeine LD50 ~192 mg/kg (rat)",
     "description": "Kola nut used in energy drinks and ceremonies.",
-    "safetyRating": 2,
     "id": "cola-nitida",
     "activeConstituents": [
       {
@@ -4983,7 +4839,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Caffeine LD50 ~192 mg/kg (rat)",
     "description": "Leaves brewed worldwide as stimulating tea.",
-    "safetyRating": 1,
     "id": "camellia-sinensis",
     "activeConstituents": [
       {
@@ -5022,7 +4877,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Called Jiaogulan, reputed longevity herb.",
-    "safetyRating": 1,
     "id": "gynostemma-pentaphyllum",
     "activeConstituents": [
       {
@@ -5060,7 +4914,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Milk thistle seeds support liver function.",
-    "safetyRating": 1,
     "id": "silybum-marianum",
     "activeConstituents": [
       {
@@ -5100,7 +4953,6 @@ export const herbs: Herb[] = [
     "toxicity": "Moderate",
     "toxicityLD50": "Kavain LD50 ~920 mg/kg (mouse)",
     "description": "Kava root beverage with calming properties.",
-    "safetyRating": 2,
     "id": "piper-methysticum",
     "activeConstituents": [
       {
@@ -5140,7 +4992,6 @@ export const herbs: Herb[] = [
     "toxicity": "Moderate",
     "toxicityLD50": "LSA LD50 ~50 mg/kg (rat)",
     "description": "Also called Ololiuqui, used by Aztecs for visionary rituals.",
-    "safetyRating": 3,
     "id": "rivea-corymbosa",
     "activeConstituents": [
       {
@@ -5180,7 +5031,6 @@ export const herbs: Herb[] = [
     "toxicity": "Low",
     "toxicityLD50": "Not established",
     "description": "Known as Gou Teng in Chinese medicine.",
-    "safetyRating": 1,
     "id": "uncaria-rhynchophylla",
     "activeConstituents": [
       {
@@ -5212,7 +5062,6 @@ export const herbs: Herb[] = [
     "dosage": "0.1\u20130.3 g dried root",
     "onset": "20\u201360 min",
     "duration": "4\u20138 hrs",
-    "safetyRating": 5,
     "toxicityLD50": "~50 mg/kg (mice, scopolamine)",
     "legalStatus": "Cultivation legal in most regions",
     "region": "Mediterranean",
@@ -5251,7 +5100,6 @@ export const herbs: Herb[] = [
     "dosage": "0.1 g dried leaf equivalent",
     "onset": "30\u201360 min",
     "duration": "6\u201312 hrs",
-    "safetyRating": 5,
     "toxicityLD50": "3 mg/kg (digitoxin, oral)",
     "legalStatus": "Regulated as medicinal",
     "region": "Europe",
@@ -5291,7 +5139,6 @@ export const herbs: Herb[] = [
     "dosage": "0.05\u20130.1 g dried leaf",
     "onset": "15\u201330 min",
     "duration": "4\u20136 hrs",
-    "safetyRating": 5,
     "toxicityLD50": "~50 mg/kg (rats, atropine)",
     "legalStatus": "Often restricted",
     "region": "Europe, Asia",
@@ -5331,7 +5178,6 @@ export const herbs: Herb[] = [
     "dosage": "5\u201315 seeds",
     "onset": "30\u201360 min",
     "duration": "8\u201324 hrs",
-    "safetyRating": 5,
     "toxicityLD50": "~50 mg/kg (atropine)",
     "legalStatus": "Unregulated but dangerous",
     "region": "Worldwide",
@@ -5371,7 +5217,6 @@ export const herbs: Herb[] = [
     "dosage": "10\u201320 mg glaucine",
     "onset": "20\u201340 min",
     "duration": "2\u20134 hrs",
-    "safetyRating": 3,
     "toxicityLD50": ">300 mg/kg (mice)",
     "legalStatus": "Varies",
     "region": "Mediterranean",
@@ -5411,7 +5256,6 @@ export const herbs: Herb[] = [
     "dosage": "5\u201310 drops tincture",
     "onset": "20\u201340 min",
     "duration": "2\u20133 hrs",
-    "safetyRating": 4,
     "toxicityLD50": ">10 mg/kg (mice)",
     "legalStatus": "Ornamental; toxic",
     "region": "Southern USA",
@@ -5450,7 +5294,6 @@ export const herbs: Herb[] = [
     "dosage": "50\u2013200 mg opium",
     "onset": "10\u201330 min",
     "duration": "4\u20136 hrs",
-    "safetyRating": 5,
     "toxicityLD50": "~150 mg/kg (morphine, rats)",
     "legalStatus": "Highly controlled",
     "region": "Worldwide",
@@ -5490,7 +5333,6 @@ export const herbs: Herb[] = [
     "dosage": "50\u2013150 mg caffeine",
     "onset": "10\u201320 min",
     "duration": "2\u20134 hrs",
-    "safetyRating": 2,
     "toxicityLD50": "~192 mg/kg (rats)",
     "legalStatus": "Legal",
     "region": "Worldwide",
@@ -5529,7 +5371,6 @@ export const herbs: Herb[] = [
     "dosage": "1\u20132 g dried root",
     "onset": "30\u201360 min",
     "duration": "6\u20138 hrs",
-    "safetyRating": 2,
     "toxicityLD50": ">2000 mg/kg (rats)",
     "legalStatus": "Legal",
     "region": "Asia",
@@ -5568,7 +5409,6 @@ export const herbs: Herb[] = [
     "dosage": "1\u20133 g dried root",
     "onset": "30\u201360 min",
     "duration": "4\u20136 hrs",
-    "safetyRating": 2,
     "toxicityLD50": ">2000 mg/kg (rats)",
     "legalStatus": "Legal",
     "region": "North America",
@@ -5608,7 +5448,6 @@ export const herbs: Herb[] = [
     "dosage": "2\u20135 g leaf powder",
     "onset": "10\u201330 min",
     "duration": "3\u20136 hrs",
-    "safetyRating": 3,
     "toxicityLD50": ">400 mg/kg (rats)",
     "legalStatus": "Varies by country",
     "region": "Southeast Asia",
@@ -5648,7 +5487,6 @@ export const herbs: Herb[] = [
     "dosage": "20\u201330 cm fresh cactus",
     "onset": "1\u20132 hrs",
     "duration": "8\u201312 hrs",
-    "safetyRating": 3,
     "toxicityLD50": ">1 g/kg (rats)",
     "legalStatus": "Cactus legal; mescaline controlled",
     "region": "Andes",
@@ -5688,7 +5526,6 @@ export const herbs: Herb[] = [
     "dosage": "25\u201350 g leaves",
     "onset": "30\u201360 min",
     "duration": "4\u20136 hrs",
-    "safetyRating": 4,
     "toxicityLD50": "Not established",
     "legalStatus": "DMT restricted in most regions",
     "region": "Amazon",
@@ -5727,7 +5564,6 @@ export const herbs: Herb[] = [
     "dosage": "5\u201310 g dried stems",
     "onset": "15\u201330 min",
     "duration": "1\u20132 hrs",
-    "safetyRating": 2,
     "toxicityLD50": ">500 mg/kg (mice)",
     "legalStatus": "Legal",
     "region": "North America",
@@ -5766,7 +5602,6 @@ export const herbs: Herb[] = [
     "dosage": "1\u20133 g dried leaves",
     "onset": "5\u201310 min",
     "duration": "30\u201360 min",
-    "safetyRating": 4,
     "toxicityLD50": "95 mg/kg (mice)",
     "legalStatus": "Controlled in most countries",
     "region": "Andes",
@@ -5806,7 +5641,6 @@ export const herbs: Herb[] = [
     "dosage": "10\u201320 g root",
     "onset": "30\u201360 min",
     "duration": "4\u20138 hrs",
-    "safetyRating": 3,
     "toxicityLD50": "Not established",
     "legalStatus": "Unregulated",
     "region": "Amazon",
@@ -5845,7 +5679,6 @@ export const herbs: Herb[] = [
     "dosage": "unknown",
     "onset": "20\u201340 min",
     "duration": "6\u201312 hrs",
-    "safetyRating": 5,
     "toxicityLD50": "Unknown",
     "legalStatus": "Unregulated",
     "region": "Mexico",
@@ -5884,7 +5717,6 @@ export const herbs: Herb[] = [
     "dosage": "<5 seeds",
     "onset": "1\u20133 hrs",
     "duration": "12\u201324 hrs",
-    "safetyRating": 5,
     "toxicityLD50": "20 mg/kg (mice)",
     "legalStatus": "Ornamental; toxic",
     "region": "Africa, Asia",
@@ -5922,7 +5754,6 @@ export const herbs: Herb[] = [
     "dosage": "Unknown",
     "onset": "20\u201360 min",
     "duration": "2\u20134 hrs",
-    "safetyRating": 4,
     "toxicityLD50": "Not established",
     "legalStatus": "Invasive species control",
     "region": "Mediterranean, Americas",
@@ -5961,7 +5792,6 @@ export const herbs: Herb[] = [
     "dosage": "20\u201340 cm fresh cactus",
     "onset": "1\u20132 hrs",
     "duration": "8\u201312 hrs",
-    "safetyRating": 3,
     "toxicityLD50": ">1 g/kg (rats)",
     "legalStatus": "Cactus legal; mescaline controlled",
     "region": "Andes",
@@ -6003,7 +5833,6 @@ export const herbs: Herb[] = [
     "dosage": "2-4 g dried herb",
     "onset": "30 min",
     "duration": "2-4 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "~1.3 g/kg (rats, extract)",
     "legalStatus": "Legal",
     "region": "Northern Hemisphere",
@@ -6042,7 +5871,6 @@ export const herbs: Herb[] = [
     "dosage": "1-2 g leaves",
     "onset": "30-45 min",
     "duration": "2-3 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "Not established",
     "legalStatus": "Legal",
     "region": "Mexico",
@@ -6085,7 +5913,6 @@ export const herbs: Herb[] = [
     "dosage": "2-5 g leaf",
     "onset": "15-30 min",
     "duration": "3-5 hrs",
-    "safetyRating": 2,
     "toxicityLD50": ">200 mg/kg (rats, mitragynine)",
     "legalStatus": "Varies by region",
     "region": "Cultivated Southeast Asia",
@@ -6124,7 +5951,6 @@ export const herbs: Herb[] = [
     "dosage": "50-100 g fresh leaves",
     "onset": "20-40 min (with MAOI)",
     "duration": "2-4 hrs",
-    "safetyRating": 2,
     "toxicityLD50": "Not established",
     "legalStatus": "Often legal; DMT controlled",
     "region": "South America",
@@ -6167,7 +5993,6 @@ export const herbs: Herb[] = [
     "dosage": "Smoke small bundle or 1 g in tea",
     "onset": "Immediate when inhaled",
     "duration": "1-2 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "Not well studied",
     "legalStatus": "Legal",
     "region": "Southwestern US",
@@ -6206,7 +6031,6 @@ export const herbs: Herb[] = [
     "dosage": "1-2 g root",
     "onset": "30 min",
     "duration": "4-6 hrs",
-    "safetyRating": 1,
     "toxicityLD50": ">3 g/kg (rats)",
     "legalStatus": "Legal",
     "region": "East Asia",
@@ -6244,7 +6068,6 @@ export const herbs: Herb[] = [
     "dosage": "1-2 cigarettes equivalent",
     "onset": "Seconds",
     "duration": "1-2 hrs",
-    "safetyRating": 2,
     "toxicityLD50": "50 mg/kg (rats)",
     "legalStatus": "Regulated",
     "region": "Worldwide",
@@ -6283,7 +6106,6 @@ export const herbs: Herb[] = [
     "dosage": "1-3 g dried leaf",
     "onset": "20 min",
     "duration": "3-5 hrs",
-    "safetyRating": 2,
     "toxicityLD50": "Not established",
     "legalStatus": "Varies",
     "region": "Tropical regions",
@@ -6322,7 +6144,6 @@ export const herbs: Herb[] = [
     "dosage": "5-10 g dried fruit",
     "onset": "30 min",
     "duration": "2-4 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "Not established",
     "legalStatus": "Legal",
     "region": "South Asia",
@@ -6361,7 +6182,6 @@ export const herbs: Herb[] = [
     "dosage": "2-4 g dried",
     "onset": "15 min",
     "duration": "1-2 hrs",
-    "safetyRating": 1,
     "toxicityLD50": ">5 g/kg (rats)",
     "legalStatus": "Legal",
     "region": "Tropics",
@@ -6399,7 +6219,6 @@ export const herbs: Herb[] = [
     "dosage": "2-3 g dried",
     "onset": "30 min",
     "duration": "1-3 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "Not established",
     "legalStatus": "Legal",
     "region": "Europe",
@@ -6437,7 +6256,6 @@ export const herbs: Herb[] = [
     "dosage": "1-2 g dried leaf",
     "onset": "20 min",
     "duration": "2-4 hrs",
-    "safetyRating": 2,
     "toxicityLD50": ">1 g/kg (oil)",
     "legalStatus": "Legal",
     "region": "Mediterranean",
@@ -6476,7 +6294,6 @@ export const herbs: Herb[] = [
     "dosage": "1-2 g dried",
     "onset": "30 min",
     "duration": "1-2 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "Not established",
     "legalStatus": "Legal",
     "region": "Europe, North Africa",
@@ -6514,7 +6331,6 @@ export const herbs: Herb[] = [
     "dosage": "1 g dried leaf",
     "onset": "20 min",
     "duration": "1-2 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "880 mg/kg (rats, thymol)",
     "legalStatus": "Legal",
     "region": "Mediterranean",
@@ -6552,7 +6368,6 @@ export const herbs: Herb[] = [
     "dosage": "1-2 g dried or few drops oil",
     "onset": "15 min",
     "duration": "1-2 hrs",
-    "safetyRating": 1,
     "toxicityLD50": ">2 g/kg (rats, oil)",
     "legalStatus": "Legal",
     "region": "Mediterranean",
@@ -6590,7 +6405,6 @@ export const herbs: Herb[] = [
     "dosage": "1-2 g dried",
     "onset": "30 min",
     "duration": "1-2 hrs",
-    "safetyRating": 1,
     "toxicityLD50": ">2.5 g/kg (rats)",
     "legalStatus": "Legal",
     "region": "North America",
@@ -6628,7 +6442,6 @@ export const herbs: Herb[] = [
     "dosage": "1-3 g root",
     "onset": "30 min",
     "duration": "4-6 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "Not established",
     "legalStatus": "Legal",
     "region": "India",
@@ -6666,7 +6479,6 @@ export const herbs: Herb[] = [
     "dosage": "1-2 g bark",
     "onset": "30-60 min",
     "duration": "2-4 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "Not well documented",
     "legalStatus": "Legal",
     "region": "Brazil",
@@ -6704,7 +6516,6 @@ export const herbs: Herb[] = [
     "dosage": "3-5 g petals",
     "onset": "30 min",
     "duration": "3-4 hrs",
-    "safetyRating": 1,
     "toxicityLD50": "Not well studied",
     "legalStatus": "Varies",
     "region": "South Asia",
@@ -6742,7 +6553,6 @@ export const herbs: Herb[] = [
     "dosage": "0.5-1 g leaf",
     "onset": "15 min",
     "duration": "2-4 hrs",
-    "safetyRating": 1,
     "toxicityLD50": ">3 g/kg (rats)",
     "legalStatus": "Legal",
     "region": "India",

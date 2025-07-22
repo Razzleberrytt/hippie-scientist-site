@@ -19,7 +19,6 @@ export interface Herb {
   onset?: string
   intensity?: string
   duration?: string
-  safetyRating?: number | string
   legalStatus?: string
   region?: string
   tags?: string[]
