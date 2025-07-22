@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async'
 import { herbs } from '../../herbsfull'
 import { decodeTag, tagVariant } from '../utils/format'
 import TagBadge from '../components/TagBadge'
+import CompoundBadge from '../components/CompoundBadge'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
@@ -40,6 +41,9 @@ export default function HerbDetail() {
   const herb = herbs.find(h => h.id === id)
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [showSimilar, setShowSimilar] = React.useState(false)
+  const safeCompounds = Array.isArray((herb as any)?.compounds)
+    ? ((herb as any).compounds as string[])
+    : []
   if (!herb) {
     return (
       <div className='p-6 text-center'>
@@ -100,16 +104,11 @@ export default function HerbDetail() {
               </div>
             )
           })}
-          {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
-            <div>
-              <span className='font-semibold text-lime-300'>Active Compounds:</span>{' '}
-              {herb.activeConstituents.map((c, i) => (
-                <React.Fragment key={c.name}>
-                  {i > 0 && ', '}
-                  <Link className='text-sky-300 underline' to={`/compounds#${slugify(c.name)}`}>
-                    {c.name}
-                  </Link>
-                </React.Fragment>
+          {safeCompounds.length > 0 && (
+            <div className='flex flex-wrap items-center gap-1'>
+              <span className='font-semibold text-lime-300 w-full'>Active Compounds:</span>
+              {safeCompounds.map(c => (
+                <CompoundBadge key={c} name={c} />
               ))}
             </div>
           )}
