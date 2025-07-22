@@ -8,7 +8,7 @@ interface SearchFilterProps {
   onFilter: (filtered: Herb[]) => void
 }
 
-type SortKey = '' | 'intensity' | 'onset' | 'safetyRating'
+type SortKey = '' | 'intensity' | 'onset'
 
 const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   const [query, setQuery] = React.useState('')
@@ -67,8 +67,6 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
       res = [...res].sort((a, b) => a.intensity.localeCompare(b.intensity))
     } else if (sort === 'onset') {
       res = [...res].sort((a, b) => a.onset.localeCompare(b.onset))
-    } else if (sort === 'safetyRating') {
-      res = [...res].sort((a, b) => (a.safetyRating ?? 0) - (b.safetyRating ?? 0))
     }
 
     return res
@@ -126,7 +124,6 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
           <option value=''>Sort By...</option>
           <option value='intensity'>Intensity</option>
           <option value='onset'>Onset</option>
-          <option value='safetyRating'>Safety</option>
         </select>
         <button
           type='button'

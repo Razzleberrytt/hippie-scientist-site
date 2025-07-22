@@ -7,7 +7,6 @@ import InfoTooltip from './InfoTooltip'
 import { decodeTag, tagVariant } from '../utils/format'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { Star } from 'lucide-react'
-import SafetyIcon from './SafetyIcon'
 
 interface Props {
   herb: Herb
@@ -21,8 +20,6 @@ export default function HerbCardAccordion({ herb }: Props) {
   const safeTags = Array.isArray(herb.tags) ? herb.tags : []
   const safeEffects = Array.isArray(herb.effects) ? herb.effects : []
   const favorite = isFavorite(herb.id)
-
-  const rating = herb.safetyRating
 
   const containerVariants = {
     open: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
@@ -74,7 +71,6 @@ export default function HerbCardAccordion({ herb }: Props) {
       </button>
       <div className='flex items-center gap-2'>
         <span className='text-xl font-bold text-lime-300'>{herb.name || 'Unknown Herb'}</span>
-        {herb.safetyRating && <SafetyIcon safety={String(herb.safetyRating)} />}
       </div>
       <p className='text-sm italic text-sand'>{herb.scientificName || 'Unknown species'}</p>
 
@@ -162,13 +158,6 @@ export default function HerbCardAccordion({ herb }: Props) {
                 <strong>Intensity:</strong> {herb.intensity}
               </motion.p>
             )}
-            <motion.p
-              variants={itemVariants}
-              className='inline-flex items-center gap-1 rounded px-2 py-0.5'
-            >
-              <SafetyIcon safety={String(rating)} />
-              <span>{rating || 'Unknown'}</span>
-            </motion.p>
             {Array.isArray(herb.sources) && herb.sources.length > 0 && (
               <motion.div variants={itemVariants}>
                 <strong>Sources:</strong>

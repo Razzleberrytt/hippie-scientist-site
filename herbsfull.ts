@@ -24,7 +24,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark is typically shredded, dried, and brewed with MAOIs such as Syrian Rue.",
     "onset": "20–60 minutes (oral with MAOI)",
     "intensity": "Strong",
-    "safetyRating": "low",
     "legalStatus": "Illegal in some countries due to DMT content.",
     "region": "Australia",
     "tags": [
@@ -63,7 +62,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried rhizome is chewed, powdered and brewed as tea, or infused in alcohol.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate (↑ with dose)",
-    "safetyRating": "medium",
     "legalStatus": "Restricted or banned in some countries (e.g., US FDA prohibits food additive use).",
     "region": "Asia, North America, Europe",
     "tags": [
@@ -103,7 +101,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried rhizome is chewed, powdered and brewed as tea, or infused in alcohol.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate (↑ with dose)",
-    "safetyRating": "medium",
     "legalStatus": "Restricted or banned in some countries (e.g., US FDA prohibits food additive use).",
     "region": "Asia, North America, Europe",
     "tags": [
@@ -142,7 +139,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried and ground rhizome is brewed as tea or used in decoctions.",
     "onset": "1–2 hours (oral)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal and commonly used in traditional medicine.",
     "region": "China, Japan, Korea, parts of Southeast Asia",
     "tags": [
@@ -180,7 +176,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves are brewed as tea, powdered, or used in syrup formulations.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "medium",
     "legalStatus": "Legal",
     "region": "India, Sri Lanka, Nepal, Pakistan",
     "tags": [
@@ -218,7 +213,6 @@ export const herbs: Herb[] = [
     "preparation": "Ripe fruit eaten raw or juiced. Dried slices boiled for tea. Leaves and bark used in decoctions.",
     "onset": "Varies by preparation (1–2 hours for digestive effects)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "India, Bangladesh, Southeast Asia",
     "tags": [
@@ -256,7 +250,6 @@ export const herbs: Herb[] = [
     "preparation": "Root is powdered and whipped into a frothy drink. Also brewed as tea.",
     "onset": "Typically felt during sleep the following night",
     "intensity": "Moderate (in dream world)",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "South Africa (Eastern Cape)",
     "tags": [
@@ -295,7 +288,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried bark or flowers brewed as tea or extracted. Also taken as capsules or tincture.",
     "onset": "1–2 hours (oral)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "China, Japan, Korea; naturalized globally",
     "tags": [
@@ -333,7 +325,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves and bark brewed in decoction or added to ayahuasca blends.",
     "onset": "30–60 min (oral)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "Amazon Basin (Peru, Brazil, Colombia)",
     "tags": [
@@ -372,7 +363,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh or dried rhizome brewed as tea, chewed, or powdered. Also used in cooking.",
     "onset": "30–60 minutes",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "India, Thailand, Indonesia, Southeast Asia",
     "tags": [
@@ -412,7 +402,6 @@ export const herbs: Herb[] = [
     "preparation": "Typically dried to decarboxylate ibotenic acid → muscimol. Can be brewed into tea or eaten (traditionally parboiled).",
     "onset": "30–90 min (oral)",
     "intensity": "Moderate–Intense (unpredictable)",
-    "safetyRating": "low",
     "legalStatus": "Legal in most countries (except Australia and Louisiana, USA)",
     "region": "Northern Hemisphere: Siberia, Europe, North America",
     "tags": [
@@ -454,7 +443,6 @@ export const herbs: Herb[] = [
     "preparation": "Roasted and ground seeds mixed with ash or lime, then snuffed. Oral use is less effective and may be dangerous.",
     "onset": "2–5 min (snuffed)",
     "intensity": "High",
-    "safetyRating": "low",
     "legalStatus": "Bufotenine is Schedule I in the USA. Tree/seeds legal in some regions.",
     "region": "Amazon Basin, Andean regions of Peru, Brazil, Colombia, Venezuela",
     "tags": [
@@ -495,7 +483,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds are roasted, ground, and mixed with alkaline ash or lime. The powder is blown into the nose using a tube.",
     "onset": "1–3 min (nasal)",
     "intensity": "Very high",
-    "safetyRating": "low",
     "legalStatus": "Bufotenine is Schedule I in the U.S.; plant materials legal in some countries.",
     "region": "Venezuela, Brazil, Caribbean, northern South America",
     "tags": [
@@ -536,7 +523,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds are scraped, crushed, and soaked in water or ethanol. Some users perform cold water extractions to reduce nausea.",
     "onset": "30–90 min (oral)",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal to possess in most countries; LSA may be restricted.",
     "region": "India, Hawaii, tropical regions",
     "tags": [
@@ -575,7 +561,6 @@ export const herbs: Herb[] = [
     "preparation": "Root or seeds are powdered and used in decoctions or mixed with milk. Sometimes taken as part of polyherbal formulations.",
     "onset": "1–2 hours (oral)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "India, Nepal, Southeast Asia",
     "tags": [
@@ -615,7 +600,6 @@ export const herbs: Herb[] = [
     "preparation": "Typically infused into alcohol or taken as a bitter extract. Leaves may also be brewed as tea, though dosage must be controlled.",
     "onset": "15–45 min (oral alcohol extract)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "low",
     "legalStatus": "Thujone content regulated in beverages (e.g. EU and US); plant itself legal",
     "region": "Europe, North Africa, Western Asia",
     "tags": [
@@ -654,7 +638,6 @@ export const herbs: Herb[] = [
     "preparation": "Some experimental use involves root or stem extraction, often for use in ayahuasca analogs. Not traditionally consumed.",
     "onset": "Varies; unclear due to poor oral bioavailability",
     "intensity": "Minimal or none (unless potentiated with MAOIs)",
-    "safetyRating": "low",
     "legalStatus": "Legal as an ornamental and biomass plant; some components (e.g., DMT) may be restricted in purified form.",
     "region": "Mediterranean, Asia, naturalized worldwide",
     "tags": [
@@ -693,7 +676,6 @@ export const herbs: Herb[] = [
     "preparation": "Rhizome is dried, powdered, and used as tea or seasoning. Historically also used fresh in decoctions.",
     "onset": "30–60 min (oral)",
     "intensity": "Mild",
-    "safetyRating": "medium",
     "legalStatus": "Legal; use restricted in commercial food products due to safrole",
     "region": "Eastern North America",
     "tags": [
@@ -732,7 +714,6 @@ export const herbs: Herb[] = [
     "preparation": "Young shoots and buds are edible when boiled thoroughly. Roots and sap were used externally or in decoctions traditionally.",
     "onset": "Varies (30–90 min orally)",
     "intensity": "Mild (subtoxic dose) to Dangerous",
-    "safetyRating": "low",
     "legalStatus": "Legal (not scheduled); some states advise caution with ingestion",
     "region": "Eastern and Central North America",
     "tags": [
@@ -771,7 +752,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried green tops tinctured in alcohol; straw used in infusion or bath. Milky tops best fresh.",
     "onset": "1–2 hours (oral); weeks for tonic effect",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Temperate regions globally (native to Europe and Southwest Asia)",
     "tags": [
@@ -811,7 +791,6 @@ export const herbs: Herb[] = [
     "preparation": "Vine is pounded, shredded, and boiled with DMT-containing plants (e.g. chacruna) to create ayahuasca.",
     "onset": "20–60 min (oral)",
     "intensity": "Moderate to profound (when combined)",
-    "safetyRating": "medium",
     "legalStatus": "Plant is legal in many countries; brews may be scheduled depending on DMT laws",
     "region": "Amazon Basin: Peru, Brazil, Colombia",
     "tags": [
@@ -851,7 +830,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark or root decocted in long-boiled tea, often consumed as part of isolation dietas (spiritual retreats).",
     "onset": "30–90 min (oral)",
     "intensity": "Moderate–Strong",
-    "safetyRating": "low",
     "legalStatus": "Legal; not scheduled internationally",
     "region": "Amazon (Peru, Ecuador, Colombia)",
     "tags": [
@@ -890,7 +868,6 @@ export const herbs: Herb[] = [
     "preparation": "In traditional use, small controlled doses of tea or smoke. Often guided by experienced shamans.",
     "onset": "15–60 min (oral)",
     "intensity": "Severe / Overwhelming",
-    "safetyRating": "very low",
     "legalStatus": "Legal in most countries; some restrictions due to risk",
     "region": "South America; cultivated ornamentally worldwide",
     "tags": [
@@ -929,7 +906,6 @@ export const herbs: Herb[] = [
     "preparation": "Powdered bark or root taken in small doses. Also prepared as decoction or combined in polyherbal formulas.",
     "onset": "30–60 min (oral)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal",
     "region": "Thailand, India, Southeast Asia",
     "tags": [
@@ -967,7 +943,6 @@ export const herbs: Herb[] = [
     "preparation": "Roots and bark are simmered into a decoction. Often consumed daily during ceremonial retreats.",
     "onset": "30–90 min (oral)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "Amazon Basin: Peru, Brazil, Ecuador",
     "tags": [
@@ -1006,7 +981,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves brewed in hot water. Preparation style determines final phytochemical profile (fermented = black, steamed = green, etc.).",
     "onset": "20–45 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Native to China and India; cultivated globally",
     "tags": [
@@ -1045,7 +1019,6 @@ export const herbs: Herb[] = [
     "preparation": "Cold-pressed seed oil used topically. Leaves and flowers sometimes infused in skincare water.",
     "onset": "N/A (topical)",
     "intensity": "N/A",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "Japan, Korea, China; ornamental worldwide",
     "tags": [
@@ -1084,7 +1057,6 @@ export const herbs: Herb[] = [
     "preparation": "Essential oil extracted via steam distillation. Used in diffusers, massage oils, perfumes, and blends.",
     "onset": "5–15 min (inhaled or topical)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "Philippines, Indonesia, Polynesia",
     "tags": [
@@ -1124,7 +1096,6 @@ export const herbs: Herb[] = [
     "preparation": "Smoked, vaporized, infused in oils/butter, tinctured, or extracted (e.g. RSO, dabs). Varieties include THC-dominant, CBD-rich, and balanced strains.",
     "onset": "2–120 min depending on route",
     "intensity": "Mild to Intense (dose-dependent)",
-    "safetyRating": "medium-high",
     "legalStatus": "Legalized or decriminalized in many countries/states; Schedule I in some jurisdictions",
     "region": "Cultivated globally",
     "tags": [
@@ -1164,7 +1135,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh, dried, or powdered fruits used in food and medicine. Extracts used in topical analgesics and pepper sprays.",
     "onset": "Immediate (oral or topical)",
     "intensity": "Mild to Intense (Scoville Heat Units dependent)",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America; cultivated globally",
     "tags": [
@@ -1203,7 +1173,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds are consumed whole, powdered, or infused in oil. Often taken daily for 1–3 months in Ayurvedic practice.",
     "onset": "1–2 hours (oral)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "India, Sri Lanka, Southeast Asia",
     "tags": [
@@ -1243,7 +1212,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaves brewed as tea or smoked before bedtime",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Generally legal",
     "region": "Mexico, Central America",
     "tags": [
@@ -1282,7 +1250,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark decoction simmered 20–30 minutes and consumed over several days or weeks.",
     "onset": "1–2 hours (oral)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal",
     "region": "Amazon Basin (Peru, Brazil, Colombia)",
     "tags": [
@@ -1321,7 +1288,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves brewed as tea or juiced. Seeds eaten raw, dried, or ground. Often taken over 7–10 days for parasite protocols.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "medium",
     "legalStatus": "Legal",
     "region": "Tropics worldwide",
     "tags": [
@@ -1360,7 +1326,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh leaves are chewed slowly over hours. Dried leaves lose most psychoactivity.",
     "onset": "30–45 min (oral mucosa)",
     "intensity": "Moderate",
-    "safetyRating": "low",
     "legalStatus": "Illegal in many countries (Schedule I in US, Class C in UK); legal in some East African nations",
     "region": "Yemen, Ethiopia, Kenya, Somalia",
     "tags": [
@@ -1400,7 +1365,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark decoction, tincture, or powdered extract. Often combined in herbal tonics.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "Brazil, Amazon, South America",
     "tags": [
@@ -1439,7 +1403,6 @@ export const herbs: Herb[] = [
     "preparation": "Consumed fresh, in capsules, or brewed as tea. Also applied as extract in wound creams.",
     "onset": "1–2 hours (oral); 2–4 weeks for tonic effects",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, China, Sri Lanka, Southeast Asia",
     "tags": [
@@ -1478,7 +1441,6 @@ export const herbs: Herb[] = [
     "preparation": "Used strictly for fragrance or ornamental display. Occasionally planted near bedrooms for sleep enhancement (folk practice).",
     "onset": "Immediate (aromatic)",
     "intensity": "Mild–Moderate (olfactory)",
-    "safetyRating": "low",
     "legalStatus": "Legal as ornamental; not for ingestion",
     "region": "India, Southeast Asia, Caribbean, Central America",
     "tags": [
@@ -1518,7 +1480,6 @@ export const herbs: Herb[] = [
     "preparation": "Root dried or roasted for tea/coffee. Leaves eaten as bitter salad greens. Also used in capsules or tinctures.",
     "onset": "30–60 min (digestive); cumulative for microbiome",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Asia, North America",
     "tags": [
@@ -1557,7 +1518,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves or roots decocted or tinctured. Doses vary by tradition — typically used in multi-herb blends.",
     "onset": "1–2 hours (oral)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal",
     "region": "India, South America, Southeast Asia",
     "tags": [
@@ -1597,7 +1557,6 @@ export const herbs: Herb[] = [
     "preparation": "No longer used raw. Modern ergot-derived drugs are tightly controlled. Historically brewed in rye beers or tinctures (dangerous).",
     "onset": "1–3 hours",
     "intensity": "Severe",
-    "safetyRating": "very low",
     "legalStatus": "Controlled in many countries due to LSD precursor risk; pharma use tightly regulated",
     "region": "Worldwide (temperate cereals)",
     "tags": [
@@ -1637,7 +1596,6 @@ export const herbs: Herb[] = [
     "preparation": "Flowers brewed as tea, powdered into capsules, or used in cosmetics. Changes pH-sensitive color from blue to purple with lemon juice.",
     "onset": "20–60 min (oral)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "India, Thailand, Malaysia, tropics worldwide",
     "tags": [
@@ -1677,7 +1635,6 @@ export const herbs: Herb[] = [
     "preparation": "Chewed fresh, or dried and ground into powder or capsules. Traditionally offered during greetings in West African cultures.",
     "onset": "15–45 min",
     "intensity": "Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal",
     "region": "West Africa; cultivated globally",
     "tags": [
@@ -1716,7 +1673,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves brewed into tea or dried and smoked. Occasionally extracted or encapsulated.",
     "onset": "20–45 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Unscheduled; not approved as supplement in many regions",
     "region": "Thailand, Laos, Cambodia",
     "tags": [
@@ -1755,7 +1711,6 @@ export const herbs: Herb[] = [
     "preparation": "Powder, syrup, or decoction. Often combined with Brahmi, Ashwagandha, and Jatamansi in Ayurvedic formulas.",
     "onset": "Cumulative (days–weeks)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Nepal, Southeast Asia",
     "tags": [
@@ -1794,7 +1749,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried tuber decocted in teas or taken as tincture or capsule. Often part of multi-herb TCM formulas.",
     "onset": "30–60 min (oral)",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal (some regions restrict concentrated extracts)",
     "region": "China, Taiwan, East Asia",
     "tags": [
@@ -1833,7 +1787,6 @@ export const herbs: Herb[] = [
     "preparation": "Berries, leaves, and flowers brewed as tea or used in tinctures. Capsules also available.",
     "onset": "Cumulative over days–weeks",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "Europe, North Africa, West Asia",
     "tags": [
@@ -1872,7 +1825,6 @@ export const herbs: Herb[] = [
     "preparation": "Stigmas dried and steeped in warm water, milk, or oil. Used in culinary, tinctures, and capsules.",
     "onset": "30–90 min (oral)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal",
     "region": "Iran, India (Kashmir), Greece, Spain",
     "tags": [
@@ -1912,7 +1864,6 @@ export const herbs: Herb[] = [
     "preparation": "Root dried and powdered into spice or capsules. Often consumed in golden milk, teas, or turmeric paste.",
     "onset": "Cumulative (anti-inflammatory); mild warming in 30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Southeast Asia",
     "tags": [
@@ -1951,7 +1902,6 @@ export const herbs: Herb[] = [
     "preparation": "Flowering tops or twigs brewed as tea (low dose) or tinctured. Rarely used today due to safety risks.",
     "onset": "30–60 min",
     "intensity": "Moderate to Strong (dose-dependent)",
-    "safetyRating": "very low",
     "legalStatus": "Legal in most countries but discouraged or regulated in herbal supplements",
     "region": "Europe, North America (naturalized)",
     "tags": [
@@ -1990,7 +1940,6 @@ export const herbs: Herb[] = [
     "preparation": "Flowers, seeds, or leaves sometimes smoked or infused in folk practices — but strongly discouraged. Historical use in ointments and 'flying salves'.",
     "onset": "30–90 min (oral)",
     "intensity": "Extreme",
-    "safetyRating": "very low",
     "legalStatus": "Legal to grow ornamentally; restricted in some countries for psychoactive use",
     "region": "Southwestern US, Mexico, Central America",
     "tags": [
@@ -2030,7 +1979,6 @@ export const herbs: Herb[] = [
     "preparation": "Root and aerial parts decocted, powdered, or used in classical polyherbal formulations like Dashamoola and Chyawanprash.",
     "onset": "Cumulative (days–weeks)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Nepal, Sri Lanka",
     "tags": [
@@ -2069,7 +2017,6 @@ export const herbs: Herb[] = [
     "preparation": "Crushed root used to stun fish in streams (traditional method). Modern rotenone extracts banned in some countries.",
     "onset": "Rapid (minutes)",
     "intensity": "Severe (if ingested)",
-    "safetyRating": "very low",
     "legalStatus": "Restricted or banned in many regions",
     "region": "Southeast Asia, Pacific Islands",
     "tags": [
@@ -2109,7 +2056,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried root decoction, capsule, or topical cream. Common in female herbal blends.",
     "onset": "1–2 hours (oral); cumulative over weeks",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "North America",
     "tags": [
@@ -2148,7 +2094,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves dried, powdered, and chewed with ash (alkaline base) to improve alkaloid absorption.",
     "onset": "5–15 minutes (buccal)",
     "intensity": "Moderate",
-    "safetyRating": "low-medium",
     "legalStatus": "Legal in Australia (cultural protection); restricted elsewhere due to alkaloid content",
     "region": "Australia (central and northern deserts)",
     "tags": [
@@ -2189,7 +2134,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh or dried cactus sliced and brewed for hours into tea. Traditional preparations often involve fasting and ritual setting.",
     "onset": "1–2 hours",
     "intensity": "Strong",
-    "safetyRating": "medium (spiritually potent)",
     "legalStatus": "Mescaline is Schedule I (U.S.); cactus is legal to grow but not consume in most jurisdictions",
     "region": "Peru, Ecuador, Andes Mountains",
     "tags": [
@@ -2229,7 +2173,6 @@ export const herbs: Herb[] = [
     "preparation": "Root dried and decocted, tinctured, or taken in capsules. Often used in adaptogenic blends.",
     "onset": "Days–weeks (cumulative)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Russia, China, Korea, Northeast Asia",
     "tags": [
@@ -2269,7 +2212,6 @@ export const herbs: Herb[] = [
     "preparation": "Traditionally decocted as a tea. Standardized extracts were formerly used in pills and capsules.",
     "onset": "15–30 min",
     "intensity": "Strong",
-    "safetyRating": "low",
     "legalStatus": "Banned in dietary supplements in many countries (legal in TCM when prescribed)",
     "region": "China, Central Asia",
     "tags": [
@@ -2309,7 +2251,6 @@ export const herbs: Herb[] = [
     "preparation": "Used as tincture, extract, or tea. Often combined with valerian, lemon balm, or passionflower.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide (not regulated like opium poppy)",
     "region": "Western U.S., cultivated worldwide",
     "tags": [
@@ -2349,7 +2290,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark decoction, tincture, or capsules. Traditionally brewed into a bitter calming tea.",
     "onset": "30–60 min",
     "intensity": "Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal",
     "region": "Brazil, Amazon Basin",
     "tags": [
@@ -2389,7 +2329,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves steeped in hot water as tea. Rarely encapsulated or extracted.",
     "onset": "20–40 min",
     "intensity": "Mild",
-    "safetyRating": "high (traditionally used)",
     "legalStatus": "Legal (not widely commercialized)",
     "region": "Colombia, Ecuador, Andean cloud forests",
     "tags": [
@@ -2429,7 +2368,6 @@ export const herbs: Herb[] = [
     "preparation": "Root decoction, extract capsules (often standardized to eurycomanone ~1–2%).",
     "onset": "Daily tonic; effects build over days–weeks",
     "intensity": "Moderate",
-    "safetyRating": "high (if not abused)",
     "legalStatus": "Legal worldwide",
     "region": "Malaysia, Indonesia, Thailand",
     "tags": [
@@ -2469,7 +2407,6 @@ export const herbs: Herb[] = [
     "preparation": "Traditionally brewed as tea. Now available as standardized extract tablets (Galphimine B content standardized in trials).",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal (limited international awareness)",
     "region": "Mexico, Central America",
     "tags": [
@@ -2509,7 +2446,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried rhizome is steamed, sliced, and decocted. Also extracted into granules or capsules in modern use.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "China, Korea, Taiwan, Japan",
     "tags": [
@@ -2549,7 +2485,6 @@ export const herbs: Herb[] = [
     "preparation": "Homeopathic dilutions (e.g., Gelsemium 6C, 30C). No safe DIY prep of raw plant. Root most toxic.",
     "onset": "20–30 min",
     "intensity": "Strong (toxic)",
-    "safetyRating": "very low",
     "legalStatus": "Legal but restricted in some areas",
     "region": "Southeastern U.S., Mexico",
     "tags": [
@@ -2589,7 +2524,6 @@ export const herbs: Herb[] = [
     "preparation": "Unripe fruit juice applied to skin; fruit decocted for rare medicinal use.",
     "onset": "Dye appears within 1–2 hours after oxidation",
     "intensity": "Mild (topical); moderate (oral folk prep)",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal",
     "region": "Amazon Basin, Central & South America",
     "tags": [
@@ -2629,7 +2563,6 @@ export const herbs: Herb[] = [
     "preparation": "Standardized extract in capsules or tinctures. Raw seeds are toxic and not consumed.",
     "onset": "Weeks (cognitive); 1–2 hrs (circulatory)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Native to China; cultivated globally",
     "tags": [
@@ -2669,7 +2602,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh leaf poultices, decoctions, or pastes for skin; rarely used in teas or internal form.",
     "onset": "Topical relief within hours",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium (topical only)",
     "legalStatus": "Legal",
     "region": "Central America, Philippines, tropical zones",
     "tags": [
@@ -2709,7 +2641,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves chewed or used as tea. Common in capsule and extract form (standardized to gymnemic acid content).",
     "onset": "15–60 min (taste); 1–2 weeks (metabolic)",
     "intensity": "Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Southeast Asia",
     "tags": [
@@ -2749,7 +2680,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves fermented in sun tea (solar infusion) for 1–3 days before drinking.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America",
     "tags": [
@@ -2789,7 +2719,6 @@ export const herbs: Herb[] = [
     "preparation": "Extract capsules (standardized), powder, teas, tinctures, or cooked as food.",
     "onset": "Days to weeks (cumulative)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "China, Japan, North America (temperate forests)",
     "tags": [
@@ -2829,7 +2758,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried calyx steeped in hot or cold water. Sweetened with honey or fruit in culinary use.",
     "onset": "30–90 min (tea); cumulative (BP)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Africa, India, Southeast Asia, Caribbean",
     "tags": [
@@ -2870,7 +2798,6 @@ export const herbs: Herb[] = [
     "preparation": "Historically used in ointments or smoked in ritual blends. Not for recreational or internal use today.",
     "onset": "30–90 min",
     "intensity": "Extreme",
-    "safetyRating": "very low",
     "legalStatus": "Legal in some countries, restricted elsewhere",
     "region": "Europe, North Africa, Asia",
     "tags": [
@@ -2911,7 +2838,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves dried and steeped as tea. Traditionally drunk before dawn in group rituals.",
     "onset": "15–30 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Amazon (Ecuador, Peru, Colombia)",
     "tags": [
@@ -2951,7 +2877,6 @@ export const herbs: Herb[] = [
     "preparation": "Traditionally drunk from a gourd with bombilla straw. Can be hot or cold brewed (tereré).",
     "onset": "15–30 min",
     "intensity": "Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal worldwide",
     "region": "Argentina, Brazil, Paraguay, Uruguay",
     "tags": [
@@ -2991,7 +2916,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves or flowers crushed into poultice or infused into water/alcohol for topical use.",
     "onset": "Within hours (topical)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high (topical only)",
     "legalStatus": "Legal worldwide",
     "region": "South and East Asia",
     "tags": [
@@ -3031,7 +2955,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds are ground and cold-water extracted or chewed (after removal of husks). Traditional use involved spiritual fasting.",
     "onset": "30–90 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "medium (uncoated, low dose)",
     "legalStatus": "Legal to grow; seeds often labeled 'not for consumption'",
     "region": "Mexico, Central America",
     "tags": [
@@ -3071,7 +2994,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried and smoked or brewed as tea. In snuffs, combined with other plants.",
     "onset": "15–45 min",
     "intensity": "Mild",
-    "safetyRating": "medium",
     "legalStatus": "Legal (not regulated)",
     "region": "Amazon Basin, Caribbean, Central America",
     "tags": [
@@ -3111,7 +3033,6 @@ export const herbs: Herb[] = [
     "preparation": "Fermented (‘kougoed’) and chewed traditionally; now often taken as standardized extract capsules or sublingual powder.",
     "onset": "15–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal worldwide (except select EU countries)",
     "region": "South Africa, Namibia",
     "tags": [
@@ -3151,7 +3072,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaves or milky sap are brewed into tea or extracted into tinctures.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America, Asia",
     "tags": [
@@ -3191,7 +3111,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves brewed as tea, extracted, or distilled into essential oil. Capsules for IBS available.",
     "onset": "15–45 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Global cultivation",
     "tags": [
@@ -3231,7 +3150,6 @@ export const herbs: Herb[] = [
     "preparation": "Smoked or brewed as tea. Flower petals and leaves used.",
     "onset": "5–15 min (smoked)",
     "intensity": "Mild",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal worldwide",
     "region": "Southern Africa",
     "tags": [
@@ -3271,7 +3189,6 @@ export const herbs: Herb[] = [
     "preparation": "Aerial parts used in teas, tinctures, or capsules. Often blended with other calming herbs.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America, Asia",
     "tags": [
@@ -3311,7 +3228,6 @@ export const herbs: Herb[] = [
     "preparation": "Tincture, dried herb, or tea in small amounts. Strong taste. Often combined with warming expectorants.",
     "onset": "15–45 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "medium (low dose only)",
     "legalStatus": "Legal with caution",
     "region": "North America",
     "tags": [
@@ -3351,7 +3267,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried ‘buttons’ eaten raw or brewed into tea. Often consumed in ceremony with fasting and prayer.",
     "onset": "1–2 hours",
     "intensity": "Strong",
-    "safetyRating": "medium-high (sacred context)",
     "legalStatus": "Illegal in many countries; ceremonial exemption in U.S. (NAC)",
     "region": "Southwestern U.S., Mexico",
     "tags": [
@@ -3391,7 +3306,6 @@ export const herbs: Herb[] = [
     "preparation": "Spores historically dusted or mixed into homeopathic dilutions. Herb decocted or tinctured.",
     "onset": "Variable (homeopathic)",
     "intensity": "Very mild",
-    "safetyRating": "high (when used properly)",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America, Eurasia",
     "tags": [
@@ -3431,7 +3345,6 @@ export const herbs: Herb[] = [
     "preparation": "Traditionally sun-dried and boiled. Modern forms: raw powder, capsules, or gelatinized extracts.",
     "onset": "1–7 days (cumulative)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Peru, Andes Mountains",
     "tags": [
@@ -3471,7 +3384,6 @@ export const herbs: Herb[] = [
     "preparation": "Roots once extracted or used topically (flying ointments). Now primarily symbolic or mythic.",
     "onset": "30–90 min",
     "intensity": "Extreme",
-    "safetyRating": "very low",
     "legalStatus": "Restricted or regulated in some countries",
     "region": "Mediterranean, Europe, Near East",
     "tags": [
@@ -3511,7 +3423,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaves and flowers brewed into tea, decoctions, or syrups. Often sweetened due to bitterness.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high (short-term)",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North Africa, North America",
     "tags": [
@@ -3551,7 +3462,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried flowers brewed into tea, extracted into tinctures, or distilled for essential oil. Also used topically.",
     "onset": "15–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North Africa, Western Asia (now global)",
     "tags": [
@@ -3591,7 +3501,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh or dried leaves brewed as tea, extracted into alcohol or glycerin tinctures, or used in aromatherapy.",
     "onset": "30–90 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Mediterranean, now global",
     "tags": [
@@ -3631,7 +3540,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds powdered into capsules or added to smoothies. Root and leaf used in decoctions or tinctures.",
     "onset": "1–3 days (digestive); 2+ weeks (full parasite cleanse)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal worldwide",
     "region": "South America, Southeast Asia, India",
     "tags": [
@@ -3671,7 +3579,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves dried and brewed into tea or powdered and taken in capsules.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal in most regions",
     "region": "Thailand, Southeast Asia",
     "tags": [
@@ -3711,7 +3618,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves are chewed fresh, dried and brewed, or consumed as powder/capsules. Tinctures and extracts are stronger.",
     "onset": "30–60 min",
     "intensity": "Mild–Strong (dose-dependent)",
-    "safetyRating": "medium (context-dependent)",
     "legalStatus": "Legal in some regions; banned or restricted in others (e.g. Thailand, Australia, some U.S. states)",
     "region": "Thailand, Indonesia, Malaysia",
     "tags": [
@@ -3751,7 +3657,6 @@ export const herbs: Herb[] = [
     "preparation": "Roasted powder, capsule, or Ayurvedic jam. Raw beans cause itching and are toxic.",
     "onset": "1–2 hours",
     "intensity": "Moderate–Strong",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "India, Africa, Caribbean",
     "tags": [
@@ -3791,7 +3696,6 @@ export const herbs: Herb[] = [
     "preparation": "Ground and consumed orally; sometimes extracted. Effects only at high doses (5g+).",
     "onset": "3–6 hrs (slow!)",
     "intensity": "Mild (culinary) to Strong (psychoactive)",
-    "safetyRating": "low (at psychoactive doses)",
     "legalStatus": "Legal worldwide",
     "region": "Indonesia, Caribbean, India",
     "tags": [
@@ -3831,7 +3735,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried petals brewed as tea, smoked, or soaked in wine (traditional Egyptian method).",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal worldwide (restricted in some US states for sale)",
     "region": "Nile Valley, India, Southeast Asia",
     "tags": [
@@ -3871,7 +3774,6 @@ export const herbs: Herb[] = [
     "preparation": "Flowers steeped in tea or infused into wine. Seeds and rhizomes also consumed in soups and powders.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, China, Southeast Asia",
     "tags": [
@@ -3911,7 +3813,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried flowers brewed as tea, soaked in wine, or smoked. May be mixed with other sacred herbs.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Central America, Caribbean",
     "tags": [
@@ -3951,7 +3852,6 @@ export const herbs: Herb[] = [
     "preparation": "Flowers steeped in tea or infused in wine. Seeds and roots also edible and nutritious.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "North America",
     "tags": [
@@ -3991,7 +3891,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried or fresh flowers steeped in tea, soaked in wine, or smoked. Can also be tinctured.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium-high",
     "legalStatus": "Legal worldwide",
     "region": "India, Sri Lanka, Southeast Asia",
     "tags": [
@@ -4031,7 +3930,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaves and flowers brewed as tea, smoked, or tinctured. Sometimes mixed with valerian or skullcap.",
     "onset": "20–40 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America",
     "tags": [
@@ -4071,7 +3969,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea, tincture, capsule, or fresh leaf. Often used in daily rituals or combined with ghee or honey.",
     "onset": "30–60 min (acute); 1–2 weeks (adaptogenic)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Southeast Asia",
     "tags": [
@@ -4111,7 +4008,6 @@ export const herbs: Herb[] = [
     "preparation": "Roasted and ground seeds brewed, encapsulated, or added to tonics and energy drinks.",
     "onset": "30–45 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Brazil, Amazon rainforest",
     "tags": [
@@ -4151,7 +4047,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried aerial parts steeped as tea or extracted into tinctures and capsules. Often blended with valerian or hops.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "North America, Central America",
     "tags": [
@@ -4191,7 +4086,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds brewed into tea or extracted. Traditional dosing between 1–4g seeds or equivalent alkaloid extract.",
     "onset": "30–90 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "low–medium (context-dependent)",
     "legalStatus": "Legal in most countries; restricted in some due to MAOI activity",
     "region": "Middle East, North Africa, Central Asia",
     "tags": [
@@ -4231,7 +4125,6 @@ export const herbs: Herb[] = [
     "preparation": "Roots ground and kneaded in cold water or coconut milk. Also found as tinctures, capsules, and instant powder.",
     "onset": "20–40 min",
     "intensity": "Moderate",
-    "safetyRating": "medium-high (traditional); medium (extracts)",
     "legalStatus": "Legal in most countries; restricted in some due to liver safety debates",
     "region": "Polynesia, Melanesia, Micronesia",
     "tags": [
@@ -4271,7 +4164,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves used fresh or dried in tamales, soups, and teas. Extracts used rarely.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "medium-high (culinary)",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America",
     "tags": [
@@ -4311,7 +4203,6 @@ export const herbs: Herb[] = [
     "preparation": "Roots ground and kneaded in cold water or coconut milk. Also found as tinctures, capsules, and instant powder.",
     "onset": "20–40 min",
     "intensity": "Moderate",
-    "safetyRating": "medium-high (traditional); medium (extracts)",
     "legalStatus": "Legal in most countries; restricted in some due to liver safety debates",
     "region": "Polynesia, Melanesia, Micronesia",
     "tags": [
@@ -4351,7 +4242,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves used fresh or dried in tamales, soups, and teas. Extracts used rarely.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "medium-high (culinary)",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America",
     "tags": [
@@ -4391,7 +4281,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds or bark are dried and powdered, sometimes extracted with alcohol. Rarely used in traditional Western herbalism.",
     "onset": "60–120 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "low–medium (depending on dose and preparation)",
     "legalStatus": "Legal in most regions; watched for precursor potential",
     "region": "West and Central Africa",
     "tags": [
@@ -4430,7 +4319,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves are often fermented in water to create a tea, traditionally sun-fermented for enhanced effects.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "High at traditional doses",
     "legalStatus": "Legal in most countries",
     "region": "Central and South America",
     "tags": [
@@ -4468,7 +4356,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaf tea, tincture, or smoked. Sometimes infused into liqueur or chocolate.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high (in common use)",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Texas, Central America",
     "tags": [
@@ -4508,7 +4395,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaves and flowers are smoked or made into tea. Often blended with other herbs like damiana or blue lotus.",
     "onset": "5–15 min (smoked), 30–45 min (oral)",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "South Africa",
     "tags": [
@@ -4548,7 +4434,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaf tea, tincture, or latex extract. Can be smoked or vaporized for quicker onset.",
     "onset": "30–60 min",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America",
     "tags": [
@@ -4588,7 +4473,6 @@ export const herbs: Herb[] = [
     "preparation": "Tincture, capsule, or bitter tea. Often paired with skullcap, valerian, or passionflower.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high (non-pregnant use)",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Asia, North America",
     "tags": [
@@ -4628,7 +4512,6 @@ export const herbs: Herb[] = [
     "preparation": "Tinctures in tiny doses; historically smoked or chewed. Rarely used today except in specific herbal traditions.",
     "onset": "10–30 min",
     "intensity": "Moderate–Strong (dose-dependent)",
-    "safetyRating": "low–medium",
     "legalStatus": "Legal in most regions (regulated in some due to emetic potency)",
     "region": "Eastern North America",
     "tags": [
@@ -4668,7 +4551,6 @@ export const herbs: Herb[] = [
     "preparation": "Root bark powdered for entheogenic brews, or used in tinctures and poultices for wounds. Also made into soap.",
     "onset": "Varies by use (smoked: seconds; oral with MAOI: 30–60 min)",
     "intensity": "Strong (only when active)",
-    "safetyRating": "medium-high (topical); medium-low (psychedelic)",
     "legalStatus": "Restricted in some countries due to DMT",
     "region": "Brazil, Mexico",
     "tags": [
@@ -4708,7 +4590,6 @@ export const herbs: Herb[] = [
     "preparation": "Grated seed used in food and herbal formulas. Historically eaten raw, brewed, or extracted in oil.",
     "onset": "3–6 hrs",
     "intensity": "Moderate–Strong (at high doses)",
-    "safetyRating": "high (culinary); low (recreational)",
     "legalStatus": "Legal worldwide",
     "region": "Indonesia, Caribbean, India",
     "tags": [
@@ -4748,7 +4629,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried flowers steeped in tea, wine, or tincture. Also smoked or vaporized.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal in most regions (banned in some US states)",
     "region": "Egypt, Nile Valley, India",
     "tags": [
@@ -4788,7 +4668,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds are scraped, ground, and swallowed directly or sublingually. Some extract alkaloids into alcohol. Traditional use may involve spiritual fasting.",
     "onset": "1–2 hrs",
     "intensity": "Moderate–Strong",
-    "safetyRating": "medium (dose-dependent)",
     "legalStatus": "Legal in many countries (seeds legal, extraction may be regulated)",
     "region": "India, Hawaii, Southeast Asia",
     "tags": [
@@ -4828,7 +4707,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried root chewed, tinctured, or brewed. Some use as incense or powder.",
     "onset": "20–45 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium (strain-dependent)",
     "legalStatus": "Banned as food additive in U.S. (β-asarone); otherwise legal",
     "region": "India, North America, Europe",
     "tags": [
@@ -4868,7 +4746,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds are toasted, powdered, and mixed with lime or ash. Snuffed using reed or blown via pipe (tepi).",
     "onset": "Immediate–5 min",
     "intensity": "Strong",
-    "safetyRating": "low–medium (context-dependent)",
     "legalStatus": "Illegal in some countries due to DMT/bufotenine content",
     "region": "Venezuela, Colombia, Brazil",
     "tags": [
@@ -4908,7 +4785,6 @@ export const herbs: Herb[] = [
     "preparation": "Cold infusion, syrup, powder, or tincture. Also used in lozenges and teas.",
     "onset": "20–40 min",
     "intensity": "Mild",
-    "safetyRating": "very high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Middle East, North America",
     "tags": [
@@ -4948,7 +4824,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves steeped in tea (cold or warm), capsules, or tincture. Often combined with corn silk or marshmallow.",
     "onset": "1–2 hrs",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium (short-term)",
     "legalStatus": "Legal worldwide",
     "region": "Northern Hemisphere (cool climates)",
     "tags": [
@@ -4988,7 +4863,6 @@ export const herbs: Herb[] = [
     "preparation": "Tincture, dry herb, or as component of absinthe. Traditionally used in dream pillows or smoke blends.",
     "onset": "20–60 min",
     "intensity": "Moderate",
-    "safetyRating": "medium (low dose)",
     "legalStatus": "Restricted in some regions; allowed with low thujone content",
     "region": "Europe, Central Asia",
     "tags": [
@@ -5028,7 +4902,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh or dried rhizome chewed, brewed in tea, or powdered. Often used in small ceremonial doses.",
     "onset": "15–30 min",
     "intensity": "Mild",
-    "safetyRating": "medium-low (short-term traditional use only)",
     "legalStatus": "Legal worldwide",
     "region": "Eastern North America",
     "tags": [
@@ -5068,7 +4941,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea, tincture, incense, or smoked. Also used in salves or baths for ritual cleansing.",
     "onset": "20–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide (restricted in some for thujone)",
     "region": "Europe, North America, Asia",
     "tags": [
@@ -5108,7 +4980,6 @@ export const herbs: Herb[] = [
     "preparation": "Roasted, ground seed powder made into tea or included in capsules, tablets, or drinks.",
     "onset": "30–60 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "high (in moderate use)",
     "legalStatus": "Legal worldwide",
     "region": "Amazon (Brazil, Venezuela)",
     "tags": [
@@ -5148,7 +5019,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea, tincture, capsule, or fresh extract. Often combined with valerian, hops, or lemon balm.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Southeastern U.S., Central America",
     "tags": [
@@ -5188,7 +5058,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds ground and steeped in water. Sometimes extracted into vinegar or ethanol. Dose typically 2–5g orally.",
     "onset": "30–90 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "low–medium (with care)",
     "legalStatus": "Restricted in some countries (due to harmala alkaloids)",
     "region": "Middle East, Central Asia, North Africa",
     "tags": [
@@ -5228,7 +5097,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves are boiled for hours with Banisteriopsis caapi vine. Not active alone unless smoked or extracted.",
     "onset": "30–60 min (oral with MAOI), ~5 min (smoked)",
     "intensity": "Strong",
-    "safetyRating": "medium (context-dependent)",
     "legalStatus": "Restricted in many countries due to DMT",
     "region": "Amazon basin (Peru, Brazil, Colombia)",
     "tags": [
@@ -5268,7 +5136,6 @@ export const herbs: Herb[] = [
     "preparation": "Traditional: powdered root mixed in water and strained. Modern: capsules, tinctures, standardized kavalactone extracts.",
     "onset": "20–40 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high (aqueous only)",
     "legalStatus": "Regulated in some countries; legal in U.S.",
     "region": "Polynesia, Micronesia, Melanesia",
     "tags": [
@@ -5308,7 +5175,6 @@ export const herbs: Herb[] = [
     "preparation": "Root bark is scraped and chewed or made into a paste or decoction. Clinic use involves purified ibogaine hydrochloride.",
     "onset": "1–2 hrs",
     "intensity": "Very strong",
-    "safetyRating": "low (medical context only)",
     "legalStatus": "Controlled in many countries; legal/unscheduled in others (e.g. Gabon)",
     "region": "Central West Africa (Gabon, Cameroon, Congo)",
     "tags": [
@@ -5348,7 +5214,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves brewed as tea, tinctured, or smoked. Sometimes added to liqueurs or incense.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America, Caribbean",
     "tags": [
@@ -5388,7 +5253,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried root used in teas, tinctures, capsules, or extracts. Often blended with hops, lemon balm, or passionflower.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Western Asia, North America (cultivated)",
     "tags": [
@@ -5428,7 +5292,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds or bark powdered and taken orally, sometimes extracted into teas or alcohol tinctures.",
     "onset": "45–90 min",
     "intensity": "Mild–Strong (dose-dependent)",
-    "safetyRating": "medium",
     "legalStatus": "Legal in most regions (unscheduled); monitored in some EU countries",
     "region": "West and Central Africa",
     "tags": [
@@ -5468,7 +5331,6 @@ export const herbs: Herb[] = [
     "preparation": "Root powder taken as capsules, teas, or mixed into milk. Extracts often standardized to withanolides.",
     "onset": "1–2 weeks (chronic); mild calm within 1–2 hrs (acute)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Middle East, North Africa",
     "tags": [
@@ -5508,7 +5370,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark used in decoctions or alcohol extracts. Also sold as standardized yohimbine HCl in supplements or pharmaceuticals.",
     "onset": "30–60 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "low (unless well-dosed)",
     "legalStatus": "Regulated in some countries; available OTC or by prescription in others",
     "region": "West Africa (Cameroon, Nigeria, Gabon)",
     "tags": [
@@ -5548,7 +5409,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark or berries chewed fresh or powdered. Also used in tinctures and poultices.",
     "onset": "Immediate (local)",
     "intensity": "Mild–Moderate (localized)",
-    "safetyRating": "high (topical)",
     "legalStatus": "Legal worldwide",
     "region": "Southeastern U.S.",
     "tags": [
@@ -5588,7 +5448,6 @@ export const herbs: Herb[] = [
     "preparation": "Used fresh in cooking (mole, tamales), teas, or poultices. Leaves also smoked or chewed in folk practices.",
     "onset": "10–30 min",
     "intensity": "Mild",
-    "safetyRating": "medium (culinary-safe)",
     "legalStatus": "Legal in most regions; safrole-regulated for extraction in some",
     "region": "Mexico, Central America, Caribbean",
     "tags": [
@@ -5628,7 +5487,6 @@ export const herbs: Herb[] = [
     "preparation": "Standardized extracts (3% rosavins, 1% salidroside), teas, tinctures, or raw root powder.",
     "onset": "1–2 hrs (acute), ~1 week (adaptogenic)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Russia, Scandinavia, Arctic Asia",
     "tags": [
@@ -5668,7 +5526,6 @@ export const herbs: Herb[] = [
     "preparation": "Root is powdered and whipped with water into foam. Taken early morning before fasting. Also used as tea or tincture.",
     "onset": "During sleep cycle",
     "intensity": "Mild–Moderate (dream-state)",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "South Africa (Eastern Cape)",
     "tags": [
@@ -5708,7 +5565,6 @@ export const herbs: Herb[] = [
     "preparation": "Root used dried in decoctions, tinctures, or powders. Rarely used today due to stronger modern anthelmintics.",
     "onset": "30–60 min",
     "intensity": "Moderate–Strong (dose-dependent)",
-    "safetyRating": "low–medium",
     "legalStatus": "Legal worldwide",
     "region": "Southeastern United States",
     "tags": [
@@ -5748,7 +5604,6 @@ export const herbs: Herb[] = [
     "preparation": "Flowers brewed as tea, taken as tincture, or included in herbal sleep blends. Often combined with lemon balm or chamomile.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Western Asia, North America (ornamental)",
     "tags": [
@@ -5788,7 +5643,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves brewed into tea, smoked in blends, or used as a spice substitute for tarragon.",
     "onset": "30–60 min (oral)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America",
     "tags": [
@@ -5828,7 +5682,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves and flowers used in teas, syrups, or infusions. PA-free versions recommended for internal use.",
     "onset": "15–30 min",
     "intensity": "Mild",
-    "safetyRating": "medium–low (traditional short-term use only)",
     "legalStatus": "Regulated or banned in some countries for internal use",
     "region": "Europe, Western Asia, North America",
     "tags": [
@@ -5868,7 +5721,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea from leaves, tincture, or infusion. Sometimes smoked with other herbs.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Caribbean, Central America, northern South America",
     "tags": [
@@ -5908,7 +5760,6 @@ export const herbs: Herb[] = [
     "preparation": "Infusion or tincture of flowering tops. Sometimes smoked or used in spiritual baths.",
     "onset": "20–45 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Western Asia, North Africa",
     "tags": [
@@ -5948,7 +5799,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea of flowers or leaves; syrups for cough; compresses for skin. Occasionally tinctured.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Western Asia, North Africa",
     "tags": [
@@ -5988,7 +5838,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh or dried corn silk brewed into tea or decoction. Can be tinctured or included in bladder blends.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Worldwide (where corn is cultivated)",
     "tags": [
@@ -6028,7 +5877,6 @@ export const herbs: Herb[] = [
     "preparation": "Fresh or dried root used in teas, tinctures, capsules, or cooking. Often paired with honey and lemon.",
     "onset": "15–30 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Tropical Asia, cultivated globally",
     "tags": [
@@ -6068,7 +5916,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried root or rhizome used in powders, decoctions, or Ayurvedic compounds. Often mixed with Brahmi or Ashwagandha.",
     "onset": "30–60 min",
     "intensity": "Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "India, Himalayas, Nepal",
     "tags": [
@@ -6108,7 +5955,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaves in tea, soup, powder, or tincture. Root also used for prostate support. Topical application for arthritis.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Asia, North America",
     "tags": [
@@ -6148,7 +5994,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried berries as capsules, tincture, or tea. Often standardized to agnuside content.",
     "onset": "Varies (days to weeks)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "Mediterranean, Western Asia",
     "tags": [
@@ -6188,7 +6033,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark or root decocted in tea or taken as tincture/capsule. Common in herbal immune protocols.",
     "onset": "Days–weeks (cumulative)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "Amazon Rainforest (Peru, Brazil, Ecuador)",
     "tags": [
@@ -6228,7 +6072,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves chewed raw, powdered for capsules, or used in low-dose decoctions. Often combined with other expectorants.",
     "onset": "30–90 min",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal in India; regulated in some countries due to emetic effects",
     "region": "India, Sri Lanka, Southeast Asia",
     "tags": [
@@ -6268,7 +6111,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaves brewed as tea, smoked in herbal blends, or tinctured. Common in aphrodisiac formulas.",
     "onset": "20–40 min (oral), ~5 min (smoked)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America, southern U.S.",
     "tags": [
@@ -6308,7 +6150,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried root used in capsules, teas, tinctures, and standardized extracts. Often combined with hops or lemon balm.",
     "onset": "30–60 min",
     "intensity": "Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, cultivated globally",
     "tags": [
@@ -6348,7 +6189,6 @@ export const herbs: Herb[] = [
     "preparation": "Root powder, capsules, teas, or standardized extracts (KSM-66, Sensoril). Often combined with Shatavari or Brahmi.",
     "onset": "Days–weeks (cumulative)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Nepal, Middle East, Africa",
     "tags": [
@@ -6388,7 +6228,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark or berries chewed fresh, decocted, or tinctured. Sometimes used in liniments or herbal tooth powders.",
     "onset": "Immediate (topical/chewed)",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "North America (Northern U.S., Canada)",
     "tags": [
@@ -6428,7 +6267,6 @@ export const herbs: Herb[] = [
     "preparation": "Fruits smoked, crushed, or boiled in decoctions or stews. Sometimes added to snuff or topical blends.",
     "onset": "15–45 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "West Africa, Caribbean",
     "tags": [
@@ -6468,7 +6306,6 @@ export const herbs: Herb[] = [
     "preparation": "Infusion, tincture, poultice, sitz bath, or salve. Dried flowers and leaves used.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America, temperate Asia",
     "tags": [
@@ -6508,7 +6345,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark brewed in decoction or used in standardized yohimbine extract (Rx or supplement). Traditional doses are lower than commercial ones.",
     "onset": "30–60 min",
     "intensity": "Strong",
-    "safetyRating": "low–medium",
     "legalStatus": "Restricted or banned in some countries; supplement status varies",
     "region": "West–Central Africa",
     "tags": [
@@ -6548,7 +6384,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaves, resin, or extracts used in teas, capsules, or smoked. Traditional use favored fresh plant latex (lactucarium).",
     "onset": "20–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North Africa, North America",
     "tags": [
@@ -6588,7 +6423,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried aerial parts steeped in tea or tincture. Also used in alcohol extraction or incense.",
     "onset": "20–60 min",
     "intensity": "Moderate",
-    "safetyRating": "medium–low (dose-dependent)",
     "legalStatus": "Regulated in some countries for thujone content",
     "region": "Europe, North Africa, West Asia",
     "tags": [
@@ -6628,7 +6462,6 @@ export const herbs: Herb[] = [
     "preparation": "Infusion or tincture of aerial parts; poultice or salve for topical use.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, naturalized elsewhere",
     "tags": [
@@ -6668,7 +6501,6 @@ export const herbs: Herb[] = [
     "preparation": "Leaf tea or tincture (low dose); vinpocetine derived from vincamine via chemical modification.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Regulated or restricted in some regions due to alkaloid content",
     "region": "Europe, cultivated globally",
     "tags": [
@@ -6708,7 +6540,6 @@ export const herbs: Herb[] = [
     "preparation": "Extracts used in standardized injectable cancer therapies (e.g., Iscador). Traditional tea/tincture use with caution.",
     "onset": "Days–weeks",
     "intensity": "Moderate",
-    "safetyRating": "medium–low",
     "legalStatus": "Legal but regulated in some countries",
     "region": "Europe, Western Asia",
     "tags": [
@@ -6748,7 +6579,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds ground and boiled, or taken whole. Bark tinctured or used in ritual decoctions. Traditional dosing highly cautious.",
     "onset": "1–3 hrs",
     "intensity": "Strong",
-    "safetyRating": "low–medium",
     "legalStatus": "Unscheduled in most countries; restricted in some",
     "region": "West and Central Africa",
     "tags": [
@@ -6788,7 +6618,6 @@ export const herbs: Herb[] = [
     "preparation": "Flowers steeped as tea or infused into oils. Aromatic pods also used. Often combined with rose or sandalwood.",
     "onset": "15–30 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Tropical Americas, Asia, Australia",
     "tags": [
@@ -6828,7 +6657,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried bark in decoction or tincture form. Often used in uterine calming formulas with black haw.",
     "onset": "30–45 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America",
     "tags": [
@@ -6868,7 +6696,6 @@ export const herbs: Herb[] = [
     "preparation": "Infusion of flowers or leaves, syrup, tincture, or infused oil. Common in children's formulas.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Asia, naturalized in North America",
     "tags": [
@@ -6908,7 +6735,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried berries as tincture or capsule. Used in long-term protocols for hormonal support.",
     "onset": "Weeks",
     "intensity": "Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "Mediterranean, cultivated globally",
     "tags": [
@@ -6948,7 +6774,6 @@ export const herbs: Herb[] = [
     "preparation": "Standardized extract (usually 95% OPCs) in capsule or powder. Not psychoactive, but highly bioactive.",
     "onset": "2–6 hrs",
     "intensity": "Mild–Moderate (non-psychoactive)",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Mediterranean, global cultivation",
     "tags": [
@@ -6988,7 +6813,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea, tincture, food (sautéed leaves), or capsules. Root used for prostate support; leaves as mineral tonic.",
     "onset": "~1 hr",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America, temperate Asia",
     "tags": [
@@ -7028,7 +6852,6 @@ export const herbs: Herb[] = [
     "preparation": "Decoction of inner bark, capsules, or tinctures. Best used long-term under guidance.",
     "onset": "1–2 hrs",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Amazon Basin (Peru, Brazil, Colombia)",
     "tags": [
@@ -7068,7 +6891,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried leaves brewed as tea, smoked, or tinctured. Also found in aphrodisiac blends and herbal liqueurs.",
     "onset": "15–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America, Caribbean",
     "tags": [
@@ -7108,7 +6930,6 @@ export const herbs: Herb[] = [
     "preparation": "Infusion of dried flowers is most common. Also used as tincture or in herbal blends.",
     "onset": "20–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, temperate Asia",
     "tags": [
@@ -7147,7 +6968,6 @@ export const herbs: Herb[] = [
     "preparation": "Used in flower essence therapy, or mild infusions. Symbolic use more common than pharmacological.",
     "onset": "Varies (energetic)",
     "intensity": "Mild (emotional)",
-    "safetyRating": "high (in flower essence doses)",
     "legalStatus": "Legal worldwide",
     "region": "Western Europe, naturalized elsewhere",
     "tags": [
@@ -7187,7 +7007,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea or tincture of aerial parts; sometimes used in ritual baths or smudge blends.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North Africa, temperate Asia",
     "tags": [
@@ -7227,7 +7046,6 @@ export const herbs: Herb[] = [
     "preparation": "Tincture, capsule, or tea of dried root. Often used as bedtime supplement.",
     "onset": "30–90 min",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Asia, North America (cultivated)",
     "tags": [
@@ -7267,7 +7085,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea from dried leaves/flowers, infused oil, or smoked in respiratory blends. Strain well to remove tiny hairs.",
     "onset": "20–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, naturalized in Americas and Asia",
     "tags": [
@@ -7307,7 +7124,6 @@ export const herbs: Herb[] = [
     "preparation": "Used in powder, capsule, or decoction form. Often mixed with ashwagandha or brahmi.",
     "onset": "30–60 min",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Himalayas, India, Nepal, Bhutan",
     "tags": [
@@ -7347,7 +7163,6 @@ export const herbs: Herb[] = [
     "preparation": "Decoction, leaf poultice, seed oil, or standardized extract. Common in polyherbal formulas.",
     "onset": "1–2 hrs",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "India, Southeast Asia",
     "tags": [
@@ -7387,7 +7202,6 @@ export const herbs: Herb[] = [
     "preparation": "Root powder, decoction, or tincture. Often blended with ashwagandha or jatamansi.",
     "onset": "45–90 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "Himalayas, Nepal, India",
     "tags": [
@@ -7427,7 +7241,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark decoction, powder, or gargle. Gum resin also used as demulcent.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal worldwide",
     "region": "Africa, Middle East, Indian Subcontinent",
     "tags": [
@@ -7467,7 +7280,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried herb as infusion or capsule. Also used topically as salve or wash. Homeopathic tincture common.",
     "onset": "20–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America",
     "tags": [
@@ -7507,7 +7319,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea or tincture of aerial parts, often combined with skullcap or lemon balm.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "North America",
     "tags": [
@@ -7547,7 +7358,6 @@ export const herbs: Herb[] = [
     "preparation": "Powdered root (churna), capsules, or tincture. Often taken with milk or ghee.",
     "onset": "Days to weeks",
     "intensity": "Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Middle East, Africa",
     "tags": [
@@ -7587,7 +7397,6 @@ export const herbs: Herb[] = [
     "preparation": "Bark tincture, chew sticks, or topical poultice. Often blended with ginger or cayenne.",
     "onset": "5–15 min (topical), 30–60 min (oral)",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal in most regions",
     "region": "Southeastern United States",
     "tags": [
@@ -7627,7 +7436,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea, capsules, tincture, fresh juice, or powder. Common in herb-spice blends.",
     "onset": "15–30 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Southeast Asia, globally cultivated",
     "tags": [
@@ -7667,7 +7475,6 @@ export const herbs: Herb[] = [
     "preparation": "Fruit eaten raw, dried, or in decoctions. Also used in syrups and extracts.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "China, Middle East, Mediterranean",
     "tags": [
@@ -7707,7 +7514,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried silk brewed into tea or decoction. Also available in capsules or extracts.",
     "onset": "30–60 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Americas, cultivated worldwide",
     "tags": [
@@ -7747,7 +7553,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried seed husks used in decoctions, spice blends, or infused oils. Sometimes extracted for sanshool.",
     "onset": "5–15 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "China, East Asia",
     "tags": [
@@ -7787,7 +7592,6 @@ export const herbs: Herb[] = [
     "preparation": "Roasted or raw seed powder, decoction, or pill form. Often used in combination with other calming herbs.",
     "onset": "45–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "China, Korea, Japan",
     "tags": [
@@ -7827,7 +7631,6 @@ export const herbs: Herb[] = [
     "preparation": "Pressed juice from cones for hair/scalp. Rhizome used in teas, decoctions, or fermented pastes.",
     "onset": "15–45 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Hawaii, Southeast Asia, Pacific Islands",
     "tags": [
@@ -7867,7 +7670,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried aerial parts smoked, brewed, or used in blends. Often mixed with other calming herbs.",
     "onset": "5–30 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium–high",
     "legalStatus": "Legal in most regions",
     "region": "Brazil, Paraguay, South America",
     "tags": [
@@ -7907,7 +7709,6 @@ export const herbs: Herb[] = [
     "preparation": "Chewed bark, tincture, or decoction. Also applied as poultice or liniment.",
     "onset": "5–20 min",
     "intensity": "Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal worldwide",
     "region": "North America (northeast, Great Lakes, Appalachia)",
     "tags": [
@@ -7947,7 +7748,6 @@ export const herbs: Herb[] = [
     "preparation": "Smoked, brewed as tea, or used in ritual incense. Often combined with damiana, wild dagga, or blue lotus.",
     "onset": "10–30 min",
     "intensity": "Mild",
-    "safetyRating": "medium",
     "legalStatus": "Legal in most regions",
     "region": "South America, Caribbean",
     "tags": [
@@ -7987,7 +7787,6 @@ export const herbs: Herb[] = [
     "preparation": "Chewed fresh flower buds, tincture, teas, or topical ointments.",
     "onset": "1–5 min",
     "intensity": "Moderate–Strong (topical), Mild (systemic)",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "South America, widely cultivated",
     "tags": [
@@ -8027,7 +7826,6 @@ export const herbs: Herb[] = [
     "preparation": "Dried fruit powder, infusion, or decoction. Also used in Ayurvedic jams and tonics.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "India, Southeast Asia",
     "tags": [
@@ -8067,7 +7865,6 @@ export const herbs: Herb[] = [
     "preparation": "Roasted and powdered seeds mixed with lime or ash. Blown into nose using pipes or tubes.",
     "onset": "1–5 min",
     "intensity": "Strong–Extreme",
-    "safetyRating": "low–medium",
     "legalStatus": "Restricted in many countries (due to DMT/5-MeO-DMT content)",
     "region": "South America, Caribbean (Orinoco basin, Brazil, Venezuela)",
     "tags": [
@@ -8107,7 +7904,6 @@ export const herbs: Herb[] = [
     "preparation": "Seeds scraped/peeled and chewed or ground and extracted. Often taken with anti-nausea herbs.",
     "onset": "1–2 hrs",
     "intensity": "Moderate–Strong",
-    "safetyRating": "medium",
     "legalStatus": "Legal in most countries (restricted in some due to LSA)",
     "region": "India, Hawaii, South Asia",
     "tags": [
@@ -8147,7 +7943,6 @@ export const herbs: Herb[] = [
     "preparation": "Infusions, tinctures, absinthe liqueur, smoking blends. Often mixed with calming herbs to balance effect.",
     "onset": "30–60 min",
     "intensity": "Moderate–Strong",
-    "safetyRating": "medium–low",
     "legalStatus": "Legal with restrictions on thujone content",
     "region": "Europe, Middle East, North America",
     "tags": [
@@ -8187,7 +7982,6 @@ export const herbs: Herb[] = [
     "preparation": "Cold infusion, decoction, capsules, or syrup. Roots preferred, but leaves used too.",
     "onset": "5–30 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Western Asia",
     "tags": [
@@ -8227,7 +8021,6 @@ export const herbs: Herb[] = [
     "preparation": "Root tincture, cold infusion, or powder. Traditional use in low doses.",
     "onset": "15–30 min",
     "intensity": "Mild",
-    "safetyRating": "medium",
     "legalStatus": "Legal (caution advised)",
     "region": "North America",
     "tags": [
@@ -8267,7 +8060,6 @@ export const herbs: Herb[] = [
     "preparation": "Infusion of dried aerial parts, tincture, or capsules. Often part of nourishing tonics.",
     "onset": "30–90 min",
     "intensity": "Mild",
-    "safetyRating": "high",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America, cultivated globally",
     "tags": [
@@ -8307,7 +8099,6 @@ export const herbs: Herb[] = [
     "preparation": "Tea, tincture, incense, smoke, dream pillows, or topical oil. Often combined with other herbs in ritual blends.",
     "onset": "30–90 min",
     "intensity": "Mild–Moderate",
-    "safetyRating": "medium",
     "legalStatus": "Legal in most countries (restrictions on thujone apply in some regions)",
     "region": "Europe, Asia, North America",
     "tags": [

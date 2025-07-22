@@ -86,7 +86,6 @@ export default function HerbDetail() {
             'intensity',
             'region',
             'legalStatus',
-            'safetyRating',
             'toxicity',
             'toxicityLD50',
           ].map(key => {

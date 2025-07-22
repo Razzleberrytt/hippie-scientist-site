@@ -8,7 +8,6 @@ import { decodeTag, tagVariant } from '../utils/format'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import TabContainer from '../components/TabContainer'
-import SafetyIcon from '../components/SafetyIcon'
 
 export default function HerbDetailView() {
   const { id } = useParams<{ id: string }>()
@@ -170,7 +169,6 @@ export default function HerbDetailView() {
         </Link>
         <h1 className='text-gradient flex items-center gap-2 text-4xl font-bold'>
           <span>{herb.name}</span>
-          {herb.safetyRating && <SafetyIcon safety={String(herb.safetyRating)} />}
         </h1>
         {herb.scientificName && <p className='italic'>{herb.scientificName}</p>}
         <button
