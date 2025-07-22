@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import type { Compound } from '../data/compoundsIndex'
+import type { Compound } from '../data/compounds/compoundsIndex'
 import TagBadge from './TagBadge'
 import { slugify } from '../utils/slugify'
 

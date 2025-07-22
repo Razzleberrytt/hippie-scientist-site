@@ -1,5 +1,5 @@
 const fs = require('fs');
-const herbs = JSON.parse(fs.readFileSync('data/herbs.json', 'utf8'));
+const herbs = JSON.parse(fs.readFileSync('src/data/herbs/herbs.json', 'utf8'));
 
 const required = ['affiliateLink', 'activeConstituents', 'mechanismOfAction', 'legalStatus'];
 let missing = [];

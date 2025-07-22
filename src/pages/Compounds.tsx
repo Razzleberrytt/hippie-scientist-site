@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { compounds, Compound } from '../data/compoundsIndex'
+import { compounds, Compound } from '../data/compounds/compoundsIndex'
 import CompoundCard from '../components/CompoundCard'
 
 export default function CompoundsPage() {

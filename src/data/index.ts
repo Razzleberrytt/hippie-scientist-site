@@ -1,4 +1,4 @@
-export { default as herbsData } from "./herbs.json";
-export { herbs } from "./herbsfull";
-export { herbBlurbs } from "./blurbs";
-export { compounds } from "./compounds";
+export { default as herbsData } from "./herbs/herbs.json";
+export { herbs } from "./herbs/herbsfull";
+export { herbBlurbs } from "./herbs/blurbs";
+export { compounds } from "./compounds/compounds";

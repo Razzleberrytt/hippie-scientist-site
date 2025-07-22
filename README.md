@@ -42,7 +42,7 @@ Source files live in `src/`. Pages are under `src/pages` and reusable components
 This repository includes a variety of learning materials:
 
 - Over twenty short articles in `src/data/posts.ts` on topics like neuroscience, cultural traditions and field research.
-- A detailed herb database in `src/data/herbsData.ts` with pharmacology notes and images.
+- A detailed herb database in `src/data/herbs/herbsData.ts` with pharmacology notes and images.
 - Modular lessons and tutorials on the Learn page (`src/pages/Learn.tsx`).
 
 ## Potential Upgrades

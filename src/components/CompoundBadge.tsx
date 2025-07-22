@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import TagBadge from './TagBadge'
 import InfoTooltip from './InfoTooltip'
 import { slugify } from '../utils/slugify'
-import { compounds as compoundList } from '../data/compounds'
+import { compounds as compoundList } from '../data/compounds/compounds'
 
 export default function CompoundBadge({ name }: { name: string }) {
   const info = compoundList.find(

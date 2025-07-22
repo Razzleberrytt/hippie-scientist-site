@@ -1,6 +1,6 @@
 import React from 'react'
-import { compounds, Compound } from '../data/compounds'
-import { herbs } from '../data/herbsfull'
+import { compounds, Compound } from '../data/compounds/compounds'
+import { herbs } from '../data/herbs/herbsfull'
 
 export function useCompounds(): Compound[] {
   const [list] = React.useState<Compound[]>(compounds)
