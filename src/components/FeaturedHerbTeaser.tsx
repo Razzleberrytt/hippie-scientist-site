@@ -46,10 +46,14 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
         return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
       })()}
       <Link
-        to={`/herbs/${herb.id}`}
+        to={
+          herb.slug
+            ? `/herb/${herb.slug}`
+            : `/database#${herb.name.replace(/\s+/g, '-').toLowerCase()}`
+        }
         className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
       >
-        Learn More
+        More Info
       </Link>
     </motion.div>
   )
