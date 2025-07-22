@@ -89,7 +89,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
       />
       <div className='flex flex-wrap items-center gap-2 gap-y-2'>
         {selectedTags.map(tag => (
-          <button type='button' key={tag} onClick={() => removeTag(tag)} className='tag-pill'>
+          <button type='button' key={tag} onClick={() => removeTag(tag)} className='tag-pill transition-colors duration-300 dark:bg-gray-800 dark:text-gray-200'>
             {decodeTag(tag)}
           </button>
         ))}

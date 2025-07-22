@@ -3,7 +3,13 @@ import type { Herb } from '../types'
 import { herbs } from '../data/herbsfull'
 
 export function useHerbs(): Herb[] {
-  const [herbList] = React.useState<Herb[]>(herbs)
+  const [herbList] = React.useState<Herb[]>(() => {
+    const map = new Map<string, Herb>()
+    herbs.forEach(h => {
+      if (!map.has(h.id)) map.set(h.id, h)
+    })
+    return Array.from(map.values())
+  })
 
   React.useEffect(() => {
     if (!import.meta.env.DEV) return
