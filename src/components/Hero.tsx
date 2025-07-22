@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import HeroBackground from './HeroBackground'
 import ParticlesBackground from './ParticlesBackground'
 import FloatingElements from './FloatingElements'
-import HeroFeaturedHerb from './HeroFeaturedHerb'
+import RotatingHerbHero from './RotatingHerbHero'
 import StatsCounters from './StatsCounters'
 
 export default function Hero() {
@@ -33,7 +33,7 @@ export default function Hero() {
           </motion.div>
 
           <div className='mt-2 flex justify-center'>
-            <HeroFeaturedHerb />
+            <RotatingHerbHero />
           </div>
         </div>
 
