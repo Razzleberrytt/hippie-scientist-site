@@ -67,7 +67,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
-      className='group relative cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white p-4 text-gray-800 shadow-sm transition-all hover:border-lime-400 hover:shadow-md focus:outline-none dark:bg-psychedelic-gradient/30 dark:text-white dark:soft-border-glow dark:shadow-lg dark:hover:shadow-intense'
+        className='group relative cursor-pointer overflow-hidden rounded-lg border border-gray-200 bg-white p-4 text-gray-800 shadow-sm transition-all duration-150 hover:border-lime-400 hover:shadow-md focus:outline-none dark:bg-psychedelic-gradient/30 dark:text-white dark:soft-border-glow dark:shadow-lg dark:hover:shadow-intense'
     >
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-lg border-2 border-fuchsia-500/40 dark:rounded-2xl'
@@ -90,7 +90,7 @@ export default function HerbCardAccordion({ herb }: Props) {
           {herb.name || 'Unknown Herb'}
         </span>
       </div>
-      <p className='text-sm italic text-sand'>{herb.scientificName || 'Unknown species'}</p>
+      <p className='text-sm italic text-gray-600'>{herb.scientificName || 'Unknown species'}</p>
       {!expanded && herbBlurbs[herb.name] && (
         <p className='mt-1 text-sm italic text-gray-800 dark:text-gray-300'>
           {herbBlurbs[herb.name]}
