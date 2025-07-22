@@ -1,39 +1,34 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { decodeTag } from '../utils/format'
-import { canonicalTag } from '../utils/tagUtils'
-import { herbs } from '../../herbsfull'
 
 interface Props {
   /**
-   * Optional list of tags to display. If omitted the tags will
-   * be generated from the global herbs dataset.
+   * List of all unique tags available for filtering.
    */
-  tags?: string[]
-  onChange?: (tags: string[]) => void
+  allTags: string[]
+  /**
+   * Currently active tags used for filtering.
+   */
+  activeTags: string[]
+  /**
+   * Toggle a tag on/off in the parent state.
+   */
+  onToggleTag: (tag: string) => void
 }
 
-export default function TagFilterBar({ tags, onChange }: Props) {
-  const unique = useMemo(() => {
-    if (tags && tags.length) return Array.from(new Set(tags))
-    const all = herbs.flatMap(h => h.tags ?? [])
-    return Array.from(new Set(all.map(canonicalTag)))
-  }, [tags])
-  const [activeTags, setActiveTags] = useState<string[]>([])
-
+export default function TagFilterBar({ allTags, activeTags, onToggleTag }: Props) {
   const toggle = (tag: string) => {
-    setActiveTags(prev =>
-      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-    )
+    onToggleTag(tag)
   }
 
-  useEffect(() => {
-    onChange?.(activeTags)
-  }, [activeTags, onChange])
+  const clearAll = () => {
+    activeTags.forEach(t => onToggleTag(t))
+  }
 
   return (
-    <div className='flex gap-2 overflow-x-auto py-2 no-scrollbar'>
-      {unique.map(tag => {
+    <div className='no-scrollbar flex gap-2 overflow-x-auto py-2'>
+      {allTags.map(tag => {
         const active = activeTags.includes(tag)
         return (
           <motion.button
@@ -48,7 +43,7 @@ export default function TagFilterBar({ tags, onChange }: Props) {
                 : { scale: 1, boxShadow: 'none' }
             }
             transition={{ type: 'spring', stiffness: 220, damping: 12 }}
-            className={`tag-pill whitespace-nowrap hover-glow ${active ? 'bg-emerald-700/70 text-white ring-2 ring-emerald-400' : 'bg-space-dark/70 text-sand'}`}
+            className={`tag-pill hover-glow whitespace-nowrap ${active ? 'bg-emerald-700/70 text-white ring-2 ring-emerald-400' : 'bg-space-dark/70 text-sand'}`}
           >
             {decodeTag(tag)}
           </motion.button>
@@ -57,11 +52,11 @@ export default function TagFilterBar({ tags, onChange }: Props) {
       {activeTags.length > 0 && (
         <motion.button
           type='button'
-          onClick={() => setActiveTags([])}
+          onClick={clearAll}
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.08 }}
           transition={{ type: 'spring', stiffness: 220, damping: 12 }}
-          className='tag-pill whitespace-nowrap hover-glow bg-rose-700/70 text-white'
+          className='tag-pill hover-glow whitespace-nowrap bg-rose-700/70 text-white'
         >
           Clear Filters
         </motion.button>

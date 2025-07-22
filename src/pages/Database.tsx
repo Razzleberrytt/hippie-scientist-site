@@ -79,6 +79,12 @@ export default function Database() {
     return { total: herbs.length, affiliates, moaCount }
   }, [herbs])
 
+  const toggleTag = React.useCallback(
+    (tag: string) =>
+      setFilteredTags(prev => (prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag])),
+    [setFilteredTags]
+  )
+
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
 
@@ -198,7 +204,7 @@ export default function Database() {
 
           <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
             <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />
-            <TagFilterBar tags={allTags} onChange={setFilteredTags} />
+            <TagFilterBar allTags={allTags} activeTags={filteredTags} onToggleTag={toggleTag} />
           </div>
           {relatedTags.length > 0 && (
             <div className='mb-4 flex flex-wrap items-center gap-2'>
