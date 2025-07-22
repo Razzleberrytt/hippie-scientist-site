@@ -79,10 +79,14 @@ export default function RotatingHerbCard() {
             ) : null
           })()}
           <Link
-            to={`/herbs/${herb.id}`}
+            to={
+              herb.slug
+                ? `/herb/${herb.slug}`
+                : `/database#${herb.name.replace(/\s+/g, '-').toLowerCase()}`
+            }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >
-            Learn More
+            More Info
           </Link>
         </div>
       </div>
@@ -143,10 +147,14 @@ export default function RotatingHerbCard() {
             ) : null
           })()}
           <Link
-            to={`/herbs/${herb.id}`}
+            to={
+              herb.slug
+                ? `/herb/${herb.slug}`
+                : `/database#${herb.name.replace(/\s+/g, '-').toLowerCase()}`
+            }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >
-            Learn More
+            More Info
           </Link>
           <motion.div
             className='pointer-events-none absolute inset-0 rounded-xl ring-2 ring-psychedelic-pink/40 drop-shadow-[0_0_8px_#ff00ff]'
