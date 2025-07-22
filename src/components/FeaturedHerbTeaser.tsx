@@ -5,6 +5,7 @@ import { herbs } from '../../herbsfull'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
 import { slugify } from '../utils/slugify'
+import { decodeTag, tagVariant } from '../utils/format'
 
 interface Props {
   fixedId?: string
@@ -26,44 +27,45 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
 
   if (!herb) return null
 
+  const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, 3) : []
+
   return (
     <motion.div
       id='featured-herb'
-      className='glass-card mx-auto mt-6 max-w-sm rounded-xl p-4 shadow-lg'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      className='mx-auto mt-8 max-w-xs sm:max-w-sm'
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
     >
-      {herb.image && (
-        <img
-          src={herb.image}
-          alt={herb.name}
-          className='h-32 w-full rounded-md object-cover'
-        />
-      )}
-      <h3 className='mt-3 font-herb text-2xl'>{herb.name}</h3>
-      {herb.tags && (
-        <div className='mt-1 flex flex-wrap justify-center gap-1'>
-          {herb.tags.slice(0, 2).map(tag => (
-            <TagBadge key={tag} label={tag} className='text-xs' />
-          ))}
-        </div>
-      )}
-      {(() => {
-        const effects = Array.isArray(herb.effects)
-          ? herb.effects.slice(0, 3).join(', ')
-          : (herb.effects || '')
-        return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
-      })()}
-      <Link
-        to={
-          herb.slug
-            ? `/herb/${herb.slug}`
-            : `/database#${slugify(herb.name)}`
-        }
-        className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
-      >
-        More Info
-      </Link>
+      <article className='bg-psychedelic-gradient/30 soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'>
+        {herb.image && (
+          <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
+        )}
+        <h3 className='mt-3 font-herb text-2xl text-lime-300'>{herb.name}</h3>
+        {tags.length > 0 && (
+          <div className='mt-1 flex flex-wrap justify-center gap-1'>
+            {tags.map(tag => (
+              <TagBadge
+                key={tag}
+                label={decodeTag(tag)}
+                variant={tagVariant(tag)}
+                className='text-xs'
+              />
+            ))}
+          </div>
+        )}
+        {(() => {
+          const effects = Array.isArray(herb.effects)
+            ? herb.effects.slice(0, 3).join(', ')
+            : herb.effects || ''
+          return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
+        })()}
+        <Link
+          to={`/database#${slugify(herb.name)}`}
+          className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:bg-black/40'
+        >
+          More Info
+        </Link>
+      </article>
     </motion.div>
   )
 }
