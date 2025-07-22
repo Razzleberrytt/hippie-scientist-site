@@ -2,7 +2,6 @@ import React from 'react'
 import Hero from '../components/Hero'
 import StarfieldBackground from '../components/StarfieldBackground'
 import MouseTrail from '../components/MouseTrail'
-import FeaturedHerbTeaser from '../components/FeaturedHerbTeaser'
 
 export default function Home() {
   return (
@@ -14,7 +13,6 @@ export default function Home() {
       <StarfieldBackground />
       <MouseTrail />
       <Hero />
-      <FeaturedHerbTeaser />
     </main>
   )
 }
