@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { herbs } from '../../herbsfull'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
+import { slugify } from '../utils/slugify'
 
 interface Props {
   fixedId?: string
@@ -57,7 +58,7 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
         to={
           herb.slug
             ? `/herb/${herb.slug}`
-            : `/database#${herb.name.replace(/\s+/g, '-').toLowerCase()}`
+            : `/database#${slugify(herb.name)}`
         }
         className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
       >

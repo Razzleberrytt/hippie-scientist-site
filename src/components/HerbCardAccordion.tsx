@@ -60,7 +60,7 @@ export default function HerbCardAccordion({ herb }: Props) {
           toggleExpanded()
         }
       }}
-      id={`herb-${herb.id}`}
+      id={slugify(herb.name)}
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
