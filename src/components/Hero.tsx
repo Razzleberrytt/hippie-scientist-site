@@ -32,7 +32,7 @@ export default function Hero() {
             <p className='text-opal text-base sm:text-lg md:text-xl'>Psychedelic Botany &amp; Conscious Exploration</p>
           </motion.div>
 
-          <div className='mt-2'>
+          <div className='mt-2 flex justify-center'>
             <HeroFeaturedHerb />
           </div>
         </div>
