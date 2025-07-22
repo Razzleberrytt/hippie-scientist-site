@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { herbs } from '../../herbsfull'
 import type { Herb } from '../types'
+import TagBadge from './TagBadge'
 
 interface Props {
   fixedId?: string
@@ -39,6 +40,13 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
         />
       )}
       <h3 className='mt-3 font-herb text-2xl'>{herb.name}</h3>
+      {herb.tags && (
+        <div className='mt-1 flex flex-wrap justify-center gap-1'>
+          {herb.tags.slice(0, 2).map(tag => (
+            <TagBadge key={tag} label={tag} className='text-xs' />
+          ))}
+        </div>
+      )}
       {(() => {
         const effects = Array.isArray(herb.effects)
           ? herb.effects.slice(0, 3).join(', ')
