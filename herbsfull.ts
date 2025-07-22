@@ -26,6 +26,7 @@ export const herbs: Herb[] = [
     "intensity": "Strong",
     "legalStatus": "Illegal in some countries due to DMT content.",
     "region": "Australia",
+    "compounds": ["DMT"],
     "tags": [
       "🌿 Tryptamine",
       "🌀 Visionary",
@@ -215,6 +216,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild",
     "legalStatus": "Legal",
     "region": "India, Bangladesh, Southeast Asia",
+    "compounds": ["Marmelosin"],
     "tags": [
       "🍈 Fruit",
       "🌿 Digestive",
@@ -404,6 +406,7 @@ export const herbs: Herb[] = [
     "intensity": "Moderate–Intense (unpredictable)",
     "legalStatus": "Legal in most countries (except Australia and Louisiana, USA)",
     "region": "Northern Hemisphere: Siberia, Europe, North America",
+    "compounds": ["Muscimol", "Ibotenic Acid"],
     "tags": [
       "🍄 Mushroom",
       "🧠 GABAergic",
@@ -445,6 +448,7 @@ export const herbs: Herb[] = [
     "intensity": "High",
     "legalStatus": "Bufotenine is Schedule I in the USA. Tree/seeds legal in some regions.",
     "region": "Amazon Basin, Andean regions of Peru, Brazil, Colombia, Venezuela",
+    "compounds": ["Bufotenine"],
     "tags": [
       "🌿 Entheogen",
       "🌬️ Snuff",
@@ -485,6 +489,7 @@ export const herbs: Herb[] = [
     "intensity": "Very high",
     "legalStatus": "Bufotenine is Schedule I in the U.S.; plant materials legal in some countries.",
     "region": "Venezuela, Brazil, Caribbean, northern South America",
+    "compounds": ["Bufotenine"],
     "tags": [
       "🌬️ Snuff",
       "🌀 Visionary",
@@ -793,6 +798,7 @@ export const herbs: Herb[] = [
     "intensity": "Moderate to profound (when combined)",
     "legalStatus": "Plant is legal in many countries; brews may be scheduled depending on DMT laws",
     "region": "Amazon Basin: Peru, Brazil, Colombia",
+    "compounds": ["Harmine"],
     "tags": [
       "🌿 Vine",
       "🧠 MAOI",
@@ -983,6 +989,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Native to China and India; cultivated globally",
+    "compounds": ["Caffeine"],
     "tags": [
       "🍵 Tea",
       "🧠 Focus",
@@ -1098,6 +1105,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild to Intense (dose-dependent)",
     "legalStatus": "Legalized or decriminalized in many countries/states; Schedule I in some jurisdictions",
     "region": "Cultivated globally",
+    "compounds": ["THC", "CBD"],
     "tags": [
       "🌿 Cannabinoid",
       "🔥 Inhalant",
@@ -1367,6 +1375,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal",
     "region": "Brazil, Amazon, South America",
+    "compounds": ["Catuabine"],
     "tags": [
       "🔥 Aphrodisiac",
       "🧠 Nootropic",
@@ -1559,6 +1568,7 @@ export const herbs: Herb[] = [
     "intensity": "Severe",
     "legalStatus": "Controlled in many countries due to LSD precursor risk; pharma use tightly regulated",
     "region": "Worldwide (temperate cereals)",
+    "compounds": ["Ergotamine"],
     "tags": [
       "🍄 Fungal",
       "⚠️ Toxic",
@@ -2136,6 +2146,7 @@ export const herbs: Herb[] = [
     "intensity": "Strong",
     "legalStatus": "Mescaline is Schedule I (U.S.); cactus is legal to grow but not consume in most jurisdictions",
     "region": "Peru, Ecuador, Andes Mountains",
+    "compounds": ["Mescaline"],
     "tags": [
       "🌵 Visionary",
       "🧠 Psychedelic",
@@ -2643,6 +2654,7 @@ export const herbs: Herb[] = [
     "intensity": "Moderate",
     "legalStatus": "Legal worldwide",
     "region": "India, Southeast Asia",
+    "compounds": ["Gymnemic Acids"],
     "tags": [
       "🩸 Antidiabetic",
       "🍬 Sweet blocker",
@@ -2760,6 +2772,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Africa, India, Southeast Asia, Caribbean",
+    "compounds": ["Anthocyanins"],
     "tags": [
       "💧 Cooling",
       "🩸 BP support",
@@ -3035,6 +3048,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide (except select EU countries)",
     "region": "South Africa, Namibia",
+    "compounds": ["Mesembrine"],
     "tags": [
       "🧠 Serotonin",
       "🧘 Mood booster",
@@ -3269,6 +3283,7 @@ export const herbs: Herb[] = [
     "intensity": "Strong",
     "legalStatus": "Illegal in many countries; ceremonial exemption in U.S. (NAC)",
     "region": "Southwestern U.S., Mexico",
+    "compounds": ["Mescaline"],
     "tags": [
       "🌵 Psychedelic",
       "🌀 Visionary",
@@ -3425,6 +3440,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North Africa, North America",
+    "compounds": ["Marrubiin"],
     "tags": [
       "🌬️ Expectorant",
       "🪻 Bitter herb",
@@ -4088,6 +4104,7 @@ export const herbs: Herb[] = [
     "intensity": "Moderate–Strong",
     "legalStatus": "Legal in most countries; restricted in some due to MAOI activity",
     "region": "Middle East, North Africa, Central Asia",
+    "compounds": ["Harmine"],
     "tags": [
       "🧠 MAOI",
       "🌌 Entheogen",
@@ -4166,6 +4183,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America",
+    "compounds": ["Safrole"],
     "tags": [
       "🌿 Digestive",
       "🌮 Culinary",
@@ -5177,6 +5195,7 @@ export const herbs: Herb[] = [
     "intensity": "Very strong",
     "legalStatus": "Controlled in many countries; legal/unscheduled in others (e.g. Gabon)",
     "region": "Central West Africa (Gabon, Cameroon, Congo)",
+    "compounds": ["Ibogaine"],
     "tags": [
       "🌀 Entheogen",
       "💊 Anti-addiction",
@@ -5762,6 +5781,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Western Asia, North Africa",
+    "compounds": ["Verbenalin"],
     "tags": [
       "🧘 Nervine",
       "🌿 Folk magic",
@@ -5918,6 +5938,7 @@ export const herbs: Herb[] = [
     "intensity": "Moderate",
     "legalStatus": "Legal worldwide",
     "region": "India, Himalayas, Nepal",
+    "compounds": ["Valeranon"],
     "tags": [
       "💤 Sleep",
       "🧘 Calm",
@@ -6308,6 +6329,7 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America, temperate Asia",
+    "compounds": ["Thujone"],
     "tags": [
       "🩸 Astringent",
       "🌿 Wound care",
