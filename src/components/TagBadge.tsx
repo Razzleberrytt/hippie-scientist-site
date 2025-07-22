@@ -23,11 +23,14 @@ export default function TagBadge({ label, variant = 'purple', className }: Props
   const alias = tagAliasMap[cleaned.toLowerCase()]
   const content = (
     <motion.span
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 20 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       tabIndex={0}
       className={clsx(
-        'hover-glow text-shadow inline-flex items-center whitespace-nowrap rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white/90 shadow ring-1 ring-white/40 backdrop-blur-sm dark:ring-black/40',
+        'hover-glow text-shadow inline-flex items-center whitespace-pre-wrap break-words rounded-full bg-gradient-to-br px-2 py-0.5 text-xs font-medium text-white/90 shadow ring-1 ring-white/40 backdrop-blur-sm dark:ring-black/40',
         colorMap[variant],
         className
       )}
