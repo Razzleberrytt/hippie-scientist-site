@@ -107,6 +107,26 @@ html {
   @apply transition-shadow hover:shadow-intense hover:ring-2 hover:ring-psychedelic-pink/60;
 }
 
+.soft-border-glow {
+  position: relative;
+}
+.soft-border-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow:
+    0 0 8px rgba(236, 72, 153, 0.4),
+    0 0 16px rgba(236, 72, 153, 0.3);
+  transition: opacity 0.3s ease;
+}
+.soft-border-glow:hover::after,
+.soft-border-glow:focus-visible::after {
+  opacity: 1;
+}
+
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;

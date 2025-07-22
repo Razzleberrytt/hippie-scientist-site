@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Herb } from '../types/Herb'
@@ -14,27 +14,39 @@ interface Props {
 
 export default function HerbCardAccordion({ herb }: Props) {
   const [expanded, setExpanded] = useState(false)
+  const cardRef = useRef<HTMLDivElement>(null)
   const { toggle, isFavorite } = useHerbFavorites()
 
   const toggleExpanded = () => setExpanded(prev => !prev)
+
+  useEffect(() => {
+    if (expanded && cardRef.current) {
+      const rect = cardRef.current.getBoundingClientRect()
+      const viewH = window.innerHeight || document.documentElement.clientHeight
+      if (rect.bottom > viewH || rect.top < 0) {
+        cardRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+      }
+    }
+  }, [expanded])
   const safeTags = Array.isArray(herb.tags) ? herb.tags : []
   const safeEffects = Array.isArray(herb.effects) ? herb.effects : []
   const favorite = isFavorite(herb.id)
 
   const containerVariants = {
-    open: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
-    collapsed: {},
+    open: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
+    collapsed: { transition: { staggerDirection: -1, staggerChildren: 0.05 } },
   }
 
   const itemVariants = {
-    open: { opacity: 1, y: 0 },
-    collapsed: { opacity: 0, y: -4 },
+    open: { opacity: 1, y: 0, scale: 1 },
+    collapsed: { opacity: 0, y: -8, scale: 0.95 },
   }
 
   return (
     <motion.article
+      ref={cardRef}
       layout
-      layoutTransition={{ type: 'spring', stiffness: 120, damping: 14 }}
+      transition={{ layout: { type: 'spring', stiffness: 200, damping: 20 } }}
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
@@ -51,12 +63,12 @@ export default function HerbCardAccordion({ herb }: Props) {
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
-      className='bg-psychedelic-gradient/30 relative cursor-pointer overflow-hidden rounded-2xl p-4 text-white shadow-lg backdrop-blur-md transition-all hover:shadow-intense focus:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-500'
+      className='bg-psychedelic-gradient/30 soft-border-glow group relative cursor-pointer overflow-hidden rounded-2xl p-4 text-white shadow-lg backdrop-blur-md transition-all hover:shadow-intense focus:outline-none'
     >
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-2xl border-2 border-fuchsia-500/40'
         animate={expanded ? { opacity: 1, scale: 1.05 } : { opacity: 0 }}
-        transition={{ duration: 0.6, ease: 'easeInOut' }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
       />
       <button
         type='button'
@@ -82,7 +94,7 @@ export default function HerbCardAccordion({ herb }: Props) {
         <strong>Description:</strong> {herb.description || 'No description provided.'}
       </div>
 
-      <div className='mt-2 flex flex-wrap gap-2'>
+      <div className='mt-2 flex max-w-full flex-wrap gap-2'>
         {safeTags.map(tag => (
           <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
         ))}
@@ -96,7 +108,7 @@ export default function HerbCardAccordion({ herb }: Props) {
             initial='collapsed'
             animate='open'
             exit='collapsed'
-            transition={{ type: 'spring', stiffness: 120, damping: 14 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 24 }}
             className='mt-4 space-y-2 text-sm text-sand'
           >
             <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
