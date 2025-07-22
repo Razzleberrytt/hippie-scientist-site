@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { herbs } from '../../herbsfull'
+import { slugify } from '../utils/slugify'
 
 function pickFeatured() {
   const psychedelic = herbs.filter(h => h.category.includes('Psychedelic'))
@@ -50,7 +51,7 @@ export default function FeaturedHerbCarousel() {
             to={
               herb.slug
                 ? `/herb/${herb.slug}`
-                : `/database#${herb.name.replace(/\s+/g, '-').toLowerCase()}`
+                : `/database#${slugify(herb.name)}`
             }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >

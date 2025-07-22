@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { herbs } from '../../herbsfull'
+import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'
 
 function shuffle<T>(arr: T[]): T[] {
@@ -82,7 +83,7 @@ export default function RotatingHerbCard() {
             to={
               herb.slug
                 ? `/herb/${herb.slug}`
-                : `/database#${herb.name.replace(/\s+/g, '-').toLowerCase()}`
+                : `/database#${slugify(herb.name)}`
             }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >
@@ -150,7 +151,7 @@ export default function RotatingHerbCard() {
             to={
               herb.slug
                 ? `/herb/${herb.slug}`
-                : `/database#${herb.name.replace(/\s+/g, '-').toLowerCase()}`
+                : `/database#${slugify(herb.name)}`
             }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >
