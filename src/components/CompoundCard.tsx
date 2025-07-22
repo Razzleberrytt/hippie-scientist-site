@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import InfoTooltip from './InfoTooltip'
 import TagBadge from './TagBadge'
 import { Compound } from '../data/compounds'
+import { slugify } from '../utils/slugify'
 
 const classColors: Record<string, string> = {
   alkaloid: 'purple',
@@ -21,6 +22,7 @@ export default function CompoundCard({ compound }: { compound: Compound }) {
   const variant = colorKey ? classColors[colorKey] : 'purple'
   return (
     <motion.article
+      id={slugify(compound.name)}
       layout
       onClick={() => setExpanded(e => !e)}
       whileHover={{ scale: 1.05 }}
@@ -36,6 +38,19 @@ export default function CompoundCard({ compound }: { compound: Compound }) {
         <p className='mt-1 text-sm text-sand'>Effects: {compound.effects.join(', ')}</p>
       )}
       {compound.notes && <p className='mt-1 text-xs italic text-sand'>{compound.notes}</p>}
+      {compound.sourceHerbs.length > 0 && !expanded && (
+        <p className='mt-1 text-sm text-sand'>
+          Source:{' '}
+          {compound.sourceHerbs.map((h, i) => (
+            <React.Fragment key={h}>
+              {i > 0 && ', '}
+              <Link to={`/herbs/${h}`} className='underline'>
+                {h.replace(/-/g, ' ')}
+              </Link>
+            </React.Fragment>
+          ))}
+        </p>
+      )}
       {compound.toxicityWarning && (
         <InfoTooltip text={compound.toxicityWarning}>
           <span className='mt-1 inline-flex items-center text-red-400'>☣️</span>

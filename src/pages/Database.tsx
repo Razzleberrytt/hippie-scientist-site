@@ -33,6 +33,8 @@ export default function Database() {
     setCategories: setFilteredCategories,
     favoritesOnly,
     setFavoritesOnly,
+    sort,
+    setSort,
     fuse,
   } = useFilteredHerbs(herbs, { favorites })
 
@@ -167,6 +169,17 @@ export default function Database() {
             >
               {matchAll ? 'Match ALL' : 'Match ANY'}
             </button>
+            <select
+              value={sort}
+              onChange={e => setSort(e.target.value)}
+              className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+            >
+              <option value=''>Sort By...</option>
+              <option value='name'>Alphabetical (A–Z)</option>
+              <option value='category'>Category</option>
+              <option value='intensity'>Psychoactive Intensity</option>
+              <option value='blend'>Blend-Friendliness</option>
+            </select>
             <Link
               to='/downloads'
               className='rounded-md bg-space-dark/70 p-2 text-sand backdrop-blur-md hover:bg-white/10'
