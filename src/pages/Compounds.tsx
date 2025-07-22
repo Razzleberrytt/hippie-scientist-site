@@ -1,34 +1,63 @@
 import React, { useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { compounds, Compound } from '../data/compounds/compoundsIndex'
+import { compounds, type CompoundEntry } from '../data/compounds/compounds'
+import { herbs } from '../data/herbs/herbsfull'
 import CompoundCard from '../components/CompoundCard'
+import CompoundTagFilter, { Option } from '../components/CompoundTagFilter'
+import { metaCategory } from '../hooks/useFilteredHerbs'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export default function CompoundsPage() {
   const [search, setSearch] = useState('')
-  const [typeFilter, setTypeFilter] = useState('')
-  const [classFilter, setClassFilter] = useState('')
+  const [classFilter, setClassFilter] = useState<string[]>([])
 
-  const types = useMemo(
-    () => Array.from(new Set(compounds.map(c => c.type))).sort(),
-    []
-  )
-  const classes = useMemo(
-    () => Array.from(new Set(compounds.map(c => c.effectClass))).sort(),
-    []
+  const herbMap = useMemo(() => {
+    const m = new Map<string, { slug?: string; category: string }>()
+    herbs.forEach(h => {
+      m.set(h.name.toLowerCase(), { slug: h.slug, category: h.category })
+    })
+    return m
+  }, [])
+
+  const enriched = useMemo(() => {
+    return compounds.map(c => {
+      const herbsFound = c.foundIn.map(name => {
+        const info = herbMap.get(name.toLowerCase())
+        return { name, slug: info?.slug, category: info?.category }
+      })
+      const effSet = new Set(
+        herbsFound
+          .map(h => (h.category ? metaCategory(h.category) : undefined))
+          .filter(Boolean)
+      ) as Set<string>
+      return {
+        ...c,
+        herbsFound,
+        effectClass: Array.from(effSet).join(', '),
+      }
+    })
+  }, [herbMap])
+
+  const classOptions: Option[] = useMemo(
+    () =>
+      Array.from(new Set(enriched.map(c => c.type)))
+        .sort()
+        .map(c => ({ label: c, value: c })),
+    [enriched]
   )
 
   const filtered = useMemo(() => {
-    return compounds.filter(c => {
+    return enriched.filter(c => {
       const q = search.trim().toLowerCase()
       const matchesSearch =
         !q ||
         c.name.toLowerCase().includes(q) ||
-        c.sourceHerbs.some(h => h.toLowerCase().includes(q))
-      const matchesType = !typeFilter || c.type === typeFilter
-      const matchesClass = !classFilter || c.effectClass === classFilter
-      return matchesSearch && matchesType && matchesClass
+        c.herbsFound.some(h => h.name.toLowerCase().includes(q))
+      const matchesClass =
+        classFilter.length === 0 || classFilter.includes(c.type)
+      return matchesSearch && matchesClass
     })
-  }, [search, typeFilter, classFilter])
+  }, [search, classFilter, enriched])
 
   return (
     <>
@@ -39,7 +68,7 @@ export default function CompoundsPage() {
         <div className='mx-auto max-w-5xl text-center'>
           <h1 className='text-gradient mb-2 text-4xl font-bold'>Psychoactive Compounds Index</h1>
           <p className='mb-6 text-sand'>Explore the active ingredients behind each herb’s effects</p>
-          <div className='mb-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center'>
+          <div className='mb-4 flex flex-col items-center gap-4'>
             <input
               type='text'
               placeholder='Search compounds or herbs...'
@@ -47,36 +76,23 @@ export default function CompoundsPage() {
               onChange={e => setSearch(e.target.value)}
               className='w-full rounded-md bg-space-dark/70 px-3 py-2 text-white backdrop-blur-md focus:outline-none sm:w-72'
             />
-            <select
-              value={typeFilter}
-              onChange={e => setTypeFilter(e.target.value)}
-              className='w-full rounded-md bg-space-dark/70 px-3 py-2 text-white backdrop-blur-md focus:outline-none sm:w-52'
-            >
-              <option value=''>All Types</option>
-              {types.map(t => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
-            <select
-              value={classFilter}
-              onChange={e => setClassFilter(e.target.value)}
-              className='w-full rounded-md bg-space-dark/70 px-3 py-2 text-white backdrop-blur-md focus:outline-none sm:w-56'
-            >
-              <option value=''>All Classes</option>
-              {classes.map(c => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
+            <CompoundTagFilter options={classOptions} onChange={setClassFilter} />
           </div>
-          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-            {filtered.map(c => (
-              <CompoundCard key={c.name} compound={c} />
-            ))}
-          </div>
+          <motion.div layout className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+            <AnimatePresence>
+              {filtered.map(c => (
+                <motion.div
+                  key={c.name}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                >
+                  <CompoundCard compound={c} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </div>
     </>
