@@ -9,7 +9,7 @@ import { decodeTag, tagVariant } from '../utils/format'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { Star } from 'lucide-react'
 import { slugify } from '../utils/slugify'
-import { herbBlurbs } from '../data/blurbs'
+import { herbBlurbs } from '../data/herbs/blurbs'
 
 interface Props {
   herb: Herb

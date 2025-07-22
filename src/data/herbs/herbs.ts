@@ -1,4 +1,4 @@
-import { Herb } from './types';
+import { Herb } from '../../types';
 
 export const herbs: Herb[] = [
   {

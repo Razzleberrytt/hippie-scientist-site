@@ -2,8 +2,8 @@ const fs = require('fs')
 const path = require('path')
 
 const inputPath = 'Full200.json'
-const dataDir = 'data'
-if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir)
+const dataDir = 'src/data/herbs'
+if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true })
 const outputPath = path.join(dataDir, 'herbs.json')
 const cleanedPath = path.join(dataDir, 'herbs.cleaned.json')
 const backupPath = path.join(dataDir, 'herbs.backup.json')
