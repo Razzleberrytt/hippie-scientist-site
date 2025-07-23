@@ -3,11 +3,15 @@ import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import PanelWrapper from '../components/PanelWrapper'
 import LearnTabs from '../components/LearnTabs'
+import StarfieldBackground from '../components/StarfieldBackground'
+import FloatingParticles from '../components/FloatingParticles'
 import { learnSections } from '../data/learnContent.enrichedXL'
 
 export default function Learn() {
   return (
-    <div className='min-h-screen px-4 pt-20'>
+    <div className='relative min-h-screen px-4 pt-20'>
+      <StarfieldBackground />
+      <FloatingParticles />
       <div className='mx-auto max-w-5xl'>
         <Helmet>
           <title>Learn - The Hippie Scientist</title>

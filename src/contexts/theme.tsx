@@ -25,12 +25,19 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })
 
+  // apply theme immediately on mount
+  useEffect(() => {
+    applyTheme(theme)
+  }, [])
+
   // Function to apply theme class
   const applyTheme = useCallback((theme: Theme) => {
     document.documentElement.classList.remove('light', 'dark')
     document.body.classList.remove('light', 'dark')
     document.documentElement.classList.add(theme)
     document.body.classList.add(theme)
+    // ensure psychedelic gradient background is always applied
+    document.body.classList.add('psychedelic-bg')
   }, [])
 
   // Update DOM and localStorage on theme change

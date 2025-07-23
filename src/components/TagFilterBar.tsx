@@ -26,12 +26,28 @@ export default function TagFilterBar({ allTags, activeTags, onToggleTag }: Props
     activeTags.forEach(t => onToggleTag(t))
   }
 
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.05 } },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
+  }
+
   return (
-    <div className='no-scrollbar flex gap-2 overflow-x-auto py-2'>
+    <motion.div
+      variants={containerVariants}
+      initial='hidden'
+      animate='visible'
+      className='no-scrollbar flex gap-2 overflow-x-auto py-2'
+    >
       {allTags.map(tag => {
         const active = activeTags.includes(tag)
         return (
           <motion.button
+            variants={itemVariants}
             type='button'
             key={tag}
             onClick={() => toggle(tag)}
@@ -61,6 +77,6 @@ export default function TagFilterBar({ allTags, activeTags, onToggleTag }: Props
           Clear Filters
         </motion.button>
       )}
-    </div>
+    </motion.div>
   )
 }
