@@ -1,0 +1,1 @@
+import{R as s,h as n}from"./main-d9723ccb.js";function u(){const[a]=s.useState(()=>{const r=new Map;return n.filter(e=>"slug"in e).forEach(e=>{const t={id:e.id??e.slug,category:e.category??"Unknown",...e};r.has(t.id)||r.set(t.id,t)}),Array.from(r.values())});return s.useEffect(()=>{},[]),a}export{u};
