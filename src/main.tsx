@@ -17,6 +17,11 @@ if (redirect) {
 
 registerSW({ immediate: true })
 
+// Store the current path so 404.html can redirect after refresh
+window.addEventListener('beforeunload', () => {
+  sessionStorage.redirectTo = window.location.pathname
+})
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HelmetProvider>
