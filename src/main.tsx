@@ -1,12 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App'
 import { ThemeProvider } from './contexts/theme'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import './index.css'
 import { registerSW } from 'virtual:pwa-register'
+
+const params = new URLSearchParams(window.location.search)
+const redirect = params.get('redirect')
+if (redirect) {
+  const url = decodeURIComponent(redirect)
+  window.history.replaceState(null, '', url)
+}
 
 registerSW({ immediate: true })
 
@@ -15,9 +22,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <HelmetProvider>
       <ErrorBoundary>
         <ThemeProvider>
-          <HashRouter>
+          <BrowserRouter>
             <App />
-          </HashRouter>
+          </BrowserRouter>
         </ThemeProvider>
       </ErrorBoundary>
     </HelmetProvider>

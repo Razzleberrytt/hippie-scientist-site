@@ -176,11 +176,11 @@ html {
 
 /* Learn page typography */
 .learn-section {
-  @apply my-10 rounded-lg border border-comet/30 bg-white/60 p-8 shadow-glow backdrop-blur-md dark:bg-black/40;
+  @apply my-8 rounded-xl border border-comet/20 bg-white/70 p-6 shadow-glow backdrop-blur-md dark:border-comet/40 dark:bg-midnight-blue/60;
 }
 
 .learn-title {
-  @apply mb-6 flex items-center gap-2 text-left text-4xl font-bold tracking-tight drop-shadow-glow md:text-5xl;
+  @apply mb-6 flex items-center gap-3 text-left text-3xl font-bold tracking-tight text-gradient drop-shadow-glow md:text-4xl;
 }
 
 .learn-prose h3,
@@ -215,10 +215,10 @@ html {
 
 /* Accordion styling for Learn page */
 .learn-accordion summary {
-  @apply flex cursor-pointer items-center justify-between py-2 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-purple;
+  @apply flex cursor-pointer items-center justify-between rounded-md bg-white/40 px-4 py-3 font-semibold shadow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-purple dark:bg-midnight-blue/40 dark:text-sand dark:shadow-md;
 }
 .learn-accordion[open] summary {
-  @apply text-psychedelic-purple;
+  @apply text-psychedelic-purple bg-white/60 dark:bg-midnight-blue/60;
 }
 .accordion-summary::after {
   content: '▾';
