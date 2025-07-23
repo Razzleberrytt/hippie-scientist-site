@@ -67,7 +67,7 @@ html {
 }
 /* Animations and extra utilities */
 .tag-pill {
-  @apply text-shadow inline-flex items-center gap-1 rounded-full bg-black/10 px-2 py-0.5 text-xs shadow ring-1 ring-white/20 backdrop-blur-sm hover:bg-black/20 border border-gray-200 dark:bg-white/10 dark:ring-black/30 dark:hover:bg-white/20 dark:border-gray-800 transition-colors duration-300;
+  @apply text-shadow inline-flex items-center gap-1 rounded-full border border-gray-200 bg-black/10 px-2 py-0.5 text-xs shadow ring-1 ring-white/20 backdrop-blur-sm transition-colors duration-300 hover:bg-black/20 dark:border-gray-800 dark:bg-white/10 dark:ring-black/30 dark:hover:bg-white/20;
 }
 
 @keyframes gradient-shift {
@@ -191,7 +191,7 @@ html {
 }
 
 .learn-prose p {
-  @apply text-sand/90 leading-relaxed md:text-lg;
+  @apply leading-relaxed text-sand/90 md:text-lg;
 }
 
 .learn-prose ul,
@@ -201,4 +201,19 @@ html {
 
 .learn-prose li {
   @apply leading-relaxed;
+}
+
+/* Accordion styling for Learn page */
+.learn-accordion summary {
+  @apply flex cursor-pointer items-center justify-between py-2 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-purple;
+}
+.learn-accordion[open] summary {
+  @apply text-psychedelic-purple;
+}
+.accordion-summary::after {
+  content: '▾';
+  @apply ml-2 transition-transform duration-300 ease-in-out;
+}
+.learn-accordion[open] .accordion-summary::after {
+  transform: rotate(-180deg);
 }
