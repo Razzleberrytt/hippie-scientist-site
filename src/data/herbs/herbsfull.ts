@@ -26,7 +26,9 @@ export const herbs: Herb[] = [
     "intensity": "Strong",
     "legalStatus": "Illegal in some countries due to DMT content.",
     "region": "Australia",
-    "compounds": ["DMT"],
+    "compounds": [
+      "DMT"
+    ],
     "tags": [
       "🌿 Tryptamine",
       "🌀 Visionary",
@@ -216,7 +218,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild",
     "legalStatus": "Legal",
     "region": "India, Bangladesh, Southeast Asia",
-    "compounds": ["Marmelosin"],
+    "compounds": [
+      "Marmelosin"
+    ],
     "tags": [
       "🍈 Fruit",
       "🌿 Digestive",
@@ -406,7 +410,10 @@ export const herbs: Herb[] = [
     "intensity": "Moderate–Intense (unpredictable)",
     "legalStatus": "Legal in most countries (except Australia and Louisiana, USA)",
     "region": "Northern Hemisphere: Siberia, Europe, North America",
-    "compounds": ["Muscimol", "Ibotenic Acid"],
+    "compounds": [
+      "Muscimol",
+      "Ibotenic Acid"
+    ],
     "tags": [
       "🍄 Mushroom",
       "🧠 GABAergic",
@@ -448,7 +455,9 @@ export const herbs: Herb[] = [
     "intensity": "High",
     "legalStatus": "Bufotenine is Schedule I in the USA. Tree/seeds legal in some regions.",
     "region": "Amazon Basin, Andean regions of Peru, Brazil, Colombia, Venezuela",
-    "compounds": ["Bufotenine"],
+    "compounds": [
+      "Bufotenine"
+    ],
     "tags": [
       "🌿 Entheogen",
       "🌬️ Snuff",
@@ -489,7 +498,9 @@ export const herbs: Herb[] = [
     "intensity": "Very high",
     "legalStatus": "Bufotenine is Schedule I in the U.S.; plant materials legal in some countries.",
     "region": "Venezuela, Brazil, Caribbean, northern South America",
-    "compounds": ["Bufotenine"],
+    "compounds": [
+      "Bufotenine"
+    ],
     "tags": [
       "🌬️ Snuff",
       "🌀 Visionary",
@@ -798,7 +809,9 @@ export const herbs: Herb[] = [
     "intensity": "Moderate to profound (when combined)",
     "legalStatus": "Plant is legal in many countries; brews may be scheduled depending on DMT laws",
     "region": "Amazon Basin: Peru, Brazil, Colombia",
-    "compounds": ["Harmine"],
+    "compounds": [
+      "Harmine"
+    ],
     "tags": [
       "🌿 Vine",
       "🧠 MAOI",
@@ -989,7 +1002,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Native to China and India; cultivated globally",
-    "compounds": ["Caffeine"],
+    "compounds": [
+      "Caffeine"
+    ],
     "tags": [
       "🍵 Tea",
       "🧠 Focus",
@@ -1105,7 +1120,10 @@ export const herbs: Herb[] = [
     "intensity": "Mild to Intense (dose-dependent)",
     "legalStatus": "Legalized or decriminalized in many countries/states; Schedule I in some jurisdictions",
     "region": "Cultivated globally",
-    "compounds": ["THC", "CBD"],
+    "compounds": [
+      "THC",
+      "CBD"
+    ],
     "tags": [
       "🌿 Cannabinoid",
       "🔥 Inhalant",
@@ -1375,7 +1393,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal",
     "region": "Brazil, Amazon, South America",
-    "compounds": ["Catuabine"],
+    "compounds": [
+      "Catuabine"
+    ],
     "tags": [
       "🔥 Aphrodisiac",
       "🧠 Nootropic",
@@ -1568,7 +1588,9 @@ export const herbs: Herb[] = [
     "intensity": "Severe",
     "legalStatus": "Controlled in many countries due to LSD precursor risk; pharma use tightly regulated",
     "region": "Worldwide (temperate cereals)",
-    "compounds": ["Ergotamine"],
+    "compounds": [
+      "Ergotamine"
+    ],
     "tags": [
       "🍄 Fungal",
       "⚠️ Toxic",
@@ -2146,7 +2168,9 @@ export const herbs: Herb[] = [
     "intensity": "Strong",
     "legalStatus": "Mescaline is Schedule I (U.S.); cactus is legal to grow but not consume in most jurisdictions",
     "region": "Peru, Ecuador, Andes Mountains",
-    "compounds": ["Mescaline"],
+    "compounds": [
+      "Mescaline"
+    ],
     "tags": [
       "🌵 Visionary",
       "🧠 Psychedelic",
@@ -2654,7 +2678,9 @@ export const herbs: Herb[] = [
     "intensity": "Moderate",
     "legalStatus": "Legal worldwide",
     "region": "India, Southeast Asia",
-    "compounds": ["Gymnemic Acids"],
+    "compounds": [
+      "Gymnemic Acids"
+    ],
     "tags": [
       "🩸 Antidiabetic",
       "🍬 Sweet blocker",
@@ -2772,7 +2798,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Africa, India, Southeast Asia, Caribbean",
-    "compounds": ["Anthocyanins"],
+    "compounds": [
+      "Anthocyanins"
+    ],
     "tags": [
       "💧 Cooling",
       "🩸 BP support",
@@ -3048,7 +3076,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide (except select EU countries)",
     "region": "South Africa, Namibia",
-    "compounds": ["Mesembrine"],
+    "compounds": [
+      "Mesembrine"
+    ],
     "tags": [
       "🧠 Serotonin",
       "🧘 Mood booster",
@@ -3283,7 +3313,9 @@ export const herbs: Herb[] = [
     "intensity": "Strong",
     "legalStatus": "Illegal in many countries; ceremonial exemption in U.S. (NAC)",
     "region": "Southwestern U.S., Mexico",
-    "compounds": ["Mescaline"],
+    "compounds": [
+      "Mescaline"
+    ],
     "tags": [
       "🌵 Psychedelic",
       "🌀 Visionary",
@@ -3440,7 +3472,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North Africa, North America",
-    "compounds": ["Marrubiin"],
+    "compounds": [
+      "Marrubiin"
+    ],
     "tags": [
       "🌬️ Expectorant",
       "🪻 Bitter herb",
@@ -4104,7 +4138,9 @@ export const herbs: Herb[] = [
     "intensity": "Moderate–Strong",
     "legalStatus": "Legal in most countries; restricted in some due to MAOI activity",
     "region": "Middle East, North Africa, Central Asia",
-    "compounds": ["Harmine"],
+    "compounds": [
+      "Harmine"
+    ],
     "tags": [
       "🧠 MAOI",
       "🌌 Entheogen",
@@ -4183,7 +4219,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild",
     "legalStatus": "Legal worldwide",
     "region": "Mexico, Central America",
-    "compounds": ["Safrole"],
+    "compounds": [
+      "Safrole"
+    ],
     "tags": [
       "🌿 Digestive",
       "🌮 Culinary",
@@ -5195,7 +5233,9 @@ export const herbs: Herb[] = [
     "intensity": "Very strong",
     "legalStatus": "Controlled in many countries; legal/unscheduled in others (e.g. Gabon)",
     "region": "Central West Africa (Gabon, Cameroon, Congo)",
-    "compounds": ["Ibogaine"],
+    "compounds": [
+      "Ibogaine"
+    ],
     "tags": [
       "🌀 Entheogen",
       "💊 Anti-addiction",
@@ -5781,7 +5821,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Europe, Western Asia, North Africa",
-    "compounds": ["Verbenalin"],
+    "compounds": [
+      "Verbenalin"
+    ],
     "tags": [
       "🧘 Nervine",
       "🌿 Folk magic",
@@ -5938,7 +5980,9 @@ export const herbs: Herb[] = [
     "intensity": "Moderate",
     "legalStatus": "Legal worldwide",
     "region": "India, Himalayas, Nepal",
-    "compounds": ["Valeranon"],
+    "compounds": [
+      "Valeranon"
+    ],
     "tags": [
       "💤 Sleep",
       "🧘 Calm",
@@ -6329,7 +6373,9 @@ export const herbs: Herb[] = [
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
     "region": "Europe, North America, temperate Asia",
-    "compounds": ["Thujone"],
+    "compounds": [
+      "Thujone"
+    ],
     "tags": [
       "🩸 Astringent",
       "🌿 Wound care",
@@ -8133,6 +8179,736 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1118713/",
       "Plants of the Gods – Rätsch",
       "The Green Witch Herbal – Murphy"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "leonurus-sibiricus",
+    "name": "Leonurus sibiricus",
+    "slug": "leonurus-sibiricus",
+    "scientificName": "Leonurus sibiricus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "relaxation",
+      "mood lift",
+      "aphrodisiac"
+    ],
+    "description": "Known as Siberian Motherwort, this herb is a relaxing nervine used in Asian medicine with mild psychoactive and aphrodisiac effects.",
+    "mechanismOfAction": "Dopaminergic modulation",
+    "region": "Siberia, China",
+    "compounds": [
+      "Leonurine"
+    ],
+    "tags": [
+      "aphrodisiac",
+      "nervine",
+      "calming"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "dysphania-ambrosioides",
+    "name": "Dysphania ambrosioides",
+    "slug": "dysphania-ambrosioides",
+    "scientificName": "Dysphania ambrosioides",
+    "category": "Ethnobotanical",
+    "effects": [
+      "dreamlike",
+      "stimulant"
+    ],
+    "description": "Also known as Epazote, used in Mesoamerican rituals. Contains CNS-stimulating compounds but is toxic at high doses.",
+    "mechanismOfAction": "CNS excitation at high doses",
+    "region": "Mexico",
+    "compounds": [
+      "Ascaridole",
+      "p-Cymene"
+    ],
+    "tags": [
+      "ritual",
+      "visionary",
+      "potentially toxic"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "casimiroa-edulis",
+    "name": "Casimiroa edulis",
+    "slug": "casimiroa-edulis",
+    "scientificName": "Casimiroa edulis",
+    "category": "Ethnobotanical",
+    "effects": [
+      "sedative",
+      "sleep aid"
+    ],
+    "description": "The fruit of the White Sapote tree is used as a sedative in traditional Mexican herbal medicine.",
+    "mechanismOfAction": "Possible GABAergic activity",
+    "region": "Central America",
+    "compounds": [
+      "Zapotin"
+    ],
+    "tags": [
+      "sedative",
+      "fruit",
+      "folk medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "mitchella-repens",
+    "name": "Mitchella repens",
+    "slug": "mitchella-repens",
+    "scientificName": "Mitchella repens",
+    "category": "Ethnobotanical",
+    "effects": [
+      "relaxation",
+      "nervine"
+    ],
+    "description": "Known as Partridgeberry, used as a uterine tonic and mild relaxing agent in North American herbalism.",
+    "mechanismOfAction": "Smooth muscle relaxant",
+    "region": "North America",
+    "compounds": [
+      "Saponins",
+      "Iridoids"
+    ],
+    "tags": [
+      "calming",
+      "uterine",
+      "folk remedy"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "perilla-frutescens",
+    "name": "Perilla frutescens",
+    "slug": "perilla-frutescens",
+    "scientificName": "Perilla frutescens",
+    "category": "Ethnobotanical",
+    "effects": [
+      "uplifting",
+      "calm clarity"
+    ],
+    "description": "Used in East Asian cuisine and medicine, this leaf contains mild mood-elevating and cognitive enhancing properties.",
+    "mechanismOfAction": "Cholinergic + antioxidant effects",
+    "region": "East Asia",
+    "compounds": [
+      "Perillaldehyde",
+      "Rosmarinic Acid"
+    ],
+    "tags": [
+      "mild nootropic",
+      "culinary",
+      "relaxing"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "turnera-diffusa-aphrodisiaca",
+    "name": "Turnera diffusa var. aphrodisiaca",
+    "slug": "turnera-diffusa-aphrodisiaca",
+    "scientificName": "Turnera diffusa var. aphrodisiaca",
+    "category": "Ethnobotanical",
+    "effects": [
+      "aphrodisiac",
+      "mood enhancer"
+    ],
+    "description": "A variant of Damiana known for its aphrodisiac and mood-brightening properties. Traditionally used as a tonic.",
+    "mechanismOfAction": "Dopaminergic and GABAergic synergy",
+    "region": "Mexico",
+    "compounds": [
+      "Damianin",
+      "Flavonoids"
+    ],
+    "tags": [
+      "aphrodisiac",
+      "tonic",
+      "euphoric"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "thymus-vulgaris",
+    "name": "Thymus vulgaris",
+    "slug": "thymus-vulgaris",
+    "scientificName": "Thymus vulgaris",
+    "category": "Ethnobotanical",
+    "effects": [
+      "clarity",
+      "alertness"
+    ],
+    "description": "Common thyme is a culinary herb with mild neurostimulant properties, thanks to its essential oils like thymol.",
+    "mechanismOfAction": "AChE inhibition, antioxidant",
+    "region": "Europe",
+    "compounds": [
+      "Thymol"
+    ],
+    "tags": [
+      "culinary",
+      "clarity",
+      "aromatic"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "helichrysum-odoratissimum",
+    "name": "Helichrysum odoratissimum",
+    "slug": "helichrysum-odoratissimum",
+    "scientificName": "Helichrysum odoratissimum",
+    "category": "Ethnobotanical",
+    "effects": [
+      "visionary",
+      "trance",
+      "spiritual"
+    ],
+    "description": "Known as Imphepho in South African ritual use, this herb induces visions and is burned to invoke ancestors.",
+    "mechanismOfAction": "Possibly serotonergic/GABAergic",
+    "region": "Southern Africa",
+    "compounds": [
+      "Essential oils",
+      "Flavonoids"
+    ],
+    "tags": [
+      "dream herb",
+      "ritual",
+      "african traditional medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "tilia-tomentosa",
+    "name": "Tilia tomentosa",
+    "slug": "tilia-tomentosa",
+    "scientificName": "Tilia tomentosa",
+    "category": "Ethnobotanical",
+    "effects": [
+      "calming",
+      "sleep aid",
+      "nervine"
+    ],
+    "description": "Silver Linden, used as a calming tea in Europe. Shows sedative and anti-anxiety effects.",
+    "mechanismOfAction": "GABAergic, anti-inflammatory",
+    "region": "Europe",
+    "compounds": [
+      "Quercetin",
+      "Volatile oils"
+    ],
+    "tags": [
+      "relaxing",
+      "tea",
+      "folk medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "entada-rheedii",
+    "name": "Entada rheedii",
+    "slug": "entada-rheedii",
+    "scientificName": "Entada rheedii",
+    "category": "Ethnobotanical",
+    "effects": [
+      "dream enhancement",
+      "spiritual connection"
+    ],
+    "description": "African Dream Bean, used to access ancestor spirits in dreams; seeds are large and traditionally worn as talismans.",
+    "mechanismOfAction": "Unknown",
+    "region": "Africa",
+    "compounds": [
+      "Saponins"
+    ],
+    "tags": [
+      "dream",
+      "ethnobotanical",
+      "ritual"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "acorus-americanus",
+    "name": "Acorus americanus",
+    "slug": "acorus-americanus",
+    "scientificName": "Acorus americanus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "alertness",
+      "mental clarity",
+      "mild euphoria"
+    ],
+    "description": "American Sweet Flag, native to North America, used by indigenous groups for its psychoactive and stimulant properties.",
+    "mechanismOfAction": "Cholinergic + dopaminergic modulation",
+    "region": "North America",
+    "compounds": [
+      "Alpha-asarone"
+    ],
+    "tags": [
+      "native medicine",
+      "calamus species",
+      "uplifting"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "virola-theiodora",
+    "name": "Virola theiodora",
+    "slug": "virola-theiodora",
+    "scientificName": "Virola theiodora",
+    "category": "Ethnobotanical",
+    "effects": [
+      "visionary",
+      "intense euphoria",
+      "dissociation"
+    ],
+    "description": "A South American tree whose resin contains potent tryptamines. Used in snuffs by Amazonian tribes.",
+    "mechanismOfAction": "Serotonin receptor agonist (5-HT2A)",
+    "region": "Amazon Basin",
+    "compounds": [
+      "DMT",
+      "5-MeO-DMT"
+    ],
+    "tags": [
+      "snuff",
+      "shamanic",
+      "tryptamine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "ruta-graveolens",
+    "name": "Ruta graveolens",
+    "slug": "ruta-graveolens",
+    "scientificName": "Ruta graveolens",
+    "category": "Ethnobotanical",
+    "effects": [
+      "relaxation",
+      "hypnotic",
+      "mystical"
+    ],
+    "description": "Common Rue, used historically as a sedative, an abortifacient, and for spiritual protection.",
+    "mechanismOfAction": "GABA-A modulation, alkaloid effects",
+    "region": "Mediterranean",
+    "compounds": [
+      "Rutarin",
+      "Graveoline"
+    ],
+    "tags": [
+      "ritual",
+      "bitter",
+      "traditional medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "sophora-secundiflora",
+    "name": "Sophora secundiflora",
+    "slug": "sophora-secundiflora",
+    "scientificName": "Sophora secundiflora",
+    "category": "Ethnobotanical",
+    "effects": [
+      "delirium",
+      "visions",
+      "dizziness"
+    ],
+    "description": "Mescal bean, used ceremonially by Native American tribes. Highly toxic, formerly used as an ordeal poison.",
+    "mechanismOfAction": "Nicotinic receptor agonist",
+    "region": "Southwestern US, Mexico",
+    "compounds": [
+      "Cytisine"
+    ],
+    "tags": [
+      "ceremonial",
+      "toxic",
+      "visionary"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "acorus-calamus-angustatus",
+    "name": "Acorus calamus var. angustatus",
+    "slug": "acorus-calamus-angustatus",
+    "scientificName": "Acorus calamus var. angustatus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "trance",
+      "mental clarity",
+      "light hallucinations"
+    ],
+    "description": "A rare calamus variant high in beta-asarone, used in Tibetan medicine and ritual incense.",
+    "mechanismOfAction": "GABAergic + cholinergic",
+    "region": "Himalayas",
+    "compounds": [
+      "Beta-asarone"
+    ],
+    "tags": [
+      "ritual",
+      "variant",
+      "aromatic stimulant"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "convolvulus-arvensis",
+    "name": "Convolvulus arvensis",
+    "slug": "convolvulus-arvensis",
+    "scientificName": "Convolvulus arvensis",
+    "category": "Ethnobotanical",
+    "effects": [
+      "light euphoria",
+      "subtle visual shifts"
+    ],
+    "description": "Bindweed, a relative of morning glory, contains ergoline alkaloids and is under investigation for mild entheogenic potential.",
+    "mechanismOfAction": "5-HT2A agonist (potential)",
+    "region": "Europe, North America",
+    "compounds": [
+      "Ergoline alkaloids (trace)"
+    ],
+    "tags": [
+      "entheogen",
+      "ergoline",
+      "wild plant"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "salvia-sclarea",
+    "name": "Salvia sclarea",
+    "slug": "salvia-sclarea",
+    "scientificName": "Salvia sclarea",
+    "category": "Ethnobotanical",
+    "effects": [
+      "clarity",
+      "relief",
+      "uplifting"
+    ],
+    "description": "Clary Sage, used aromatically and medicinally for mild euphoria, hormonal balancing, and clarity.",
+    "mechanismOfAction": "GABA-A modulation, estrogenic activity",
+    "region": "Mediterranean",
+    "compounds": [
+      "Linalyl acetate",
+      "Sclareol"
+    ],
+    "tags": [
+      "aromatic",
+      "elevating",
+      "folk remedy"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "pimenta-dioica",
+    "name": "Pimenta dioica",
+    "slug": "pimenta-dioica",
+    "scientificName": "Pimenta dioica",
+    "category": "Ethnobotanical",
+    "effects": [
+      "stimulant",
+      "aromatic euphoria",
+      "warming"
+    ],
+    "description": "Also known as Allspice, this Caribbean plant has mild uplifting and warming effects, sometimes used in ritual incense.",
+    "mechanismOfAction": "GABAergic + serotonergic",
+    "region": "Caribbean, Central America",
+    "compounds": [
+      "Eugenol",
+      "Quercetin"
+    ],
+    "tags": [
+      "aromatic",
+      "ritual",
+      "mild stimulant"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "peumus-boldus",
+    "name": "Peumus boldus",
+    "slug": "peumus-boldus",
+    "scientificName": "Peumus boldus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "calming",
+      "digestive aid",
+      "dreamy"
+    ],
+    "description": "Boldo is a South American medicinal herb with liver-supportive and mild hypnotic properties.",
+    "mechanismOfAction": "Cholinergic + serotonergic",
+    "region": "Chile",
+    "compounds": [
+      "Boldine",
+      "Ascaridole"
+    ],
+    "tags": [
+      "digestive",
+      "sleep aid",
+      "folk medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "amorpha-fruticosa",
+    "name": "Amorpha fruticosa",
+    "slug": "amorpha-fruticosa",
+    "scientificName": "Amorpha fruticosa",
+    "category": "Ethnobotanical",
+    "effects": [
+      "relaxation",
+      "mental softening",
+      "trance"
+    ],
+    "description": "False Indigo Bush, native to North America, was historically smoked for relaxation and vision-induction.",
+    "mechanismOfAction": "Likely GABAergic",
+    "region": "North America",
+    "compounds": [
+      "Amorphigenin"
+    ],
+    "tags": [
+      "folk",
+      "smokable",
+      "visionary"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-abrotanum",
+    "name": "Artemisia abrotanum",
+    "slug": "artemisia-abrotanum",
+    "scientificName": "Artemisia abrotanum",
+    "category": "Ethnobotanical",
+    "effects": [
+      "mental clarity",
+      "dream enhancement",
+      "stimulant"
+    ],
+    "description": "Southernwood is a fragrant herb used traditionally as a stimulant, memory aid, and dream enhancer.",
+    "mechanismOfAction": "GABAergic + cholinergic modulation",
+    "region": "Mediterranean, Europe",
+    "compounds": [
+      "Camphor",
+      "Thujone"
+    ],
+    "tags": [
+      "aromatic",
+      "folk remedy",
+      "uplifting"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "bacopa-monnieri",
+    "name": "Bacopa monnieri",
+    "slug": "bacopa-monnieri",
+    "scientificName": "Bacopa monnieri",
+    "category": "Ethnobotanical",
+    "effects": [
+      "memory enhancement",
+      "calm focus",
+      "adaptogen"
+    ],
+    "description": "Brahmi is an Ayurvedic nootropic herb that improves memory, learning, and mental clarity.",
+    "mechanismOfAction": "Cholinergic + antioxidant",
+    "region": "India, Southeast Asia",
+    "compounds": [
+      "Bacosides A and B"
+    ],
+    "tags": [
+      "nootropic",
+      "ayurvedic",
+      "mental clarity"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "huperzia-serrata",
+    "name": "Huperzia serrata",
+    "slug": "huperzia-serrata",
+    "scientificName": "Huperzia serrata",
+    "category": "Ethnobotanical",
+    "effects": [
+      "focus",
+      "memory boost",
+      "lucid dreaming"
+    ],
+    "description": "A moss rich in Huperzine A, used for memory enhancement and neuroprotection.",
+    "mechanismOfAction": "Acetylcholinesterase inhibition",
+    "region": "China, Southeast Asia",
+    "compounds": [
+      "Huperzine A"
+    ],
+    "tags": [
+      "nootropic",
+      "lucidity",
+      "memory"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "justicia-adhatoda",
+    "name": "Justicia adhatoda",
+    "slug": "justicia-adhatoda",
+    "scientificName": "Justicia adhatoda",
+    "category": "Ethnobotanical",
+    "effects": [
+      "calming",
+      "respiratory clearing",
+      "mild sedation"
+    ],
+    "description": "Also called Malabar Nut, this herb has traditional uses as a respiratory aid and mild sedative.",
+    "mechanismOfAction": "Bronchodilation + GABAergic",
+    "region": "India, Sri Lanka",
+    "compounds": [
+      "Vasicine",
+      "Vasicinone"
+    ],
+    "tags": [
+      "sedative",
+      "respiratory",
+      "ayurvedic"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "pogostemon-cablin",
+    "name": "Pogostemon cablin",
+    "slug": "pogostemon-cablin",
+    "scientificName": "Pogostemon cablin",
+    "category": "Ethnobotanical",
+    "effects": [
+      "sensory enhancement",
+      "calm focus",
+      "uplifted mood"
+    ],
+    "description": "Patchouli, while mainly aromatic, has mild psychoactive effects in traditional incense rituals.",
+    "mechanismOfAction": "Aromatherapeutic + serotonergic",
+    "region": "Asia",
+    "compounds": [
+      "Patchoulol",
+      "Alpha-bulnesene"
+    ],
+    "tags": [
+      "aromatic",
+      "ritual",
+      "uplifting"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "aloysia-citrodora",
+    "name": "Aloysia citrodora",
+    "slug": "aloysia-citrodora",
+    "scientificName": "Aloysia citrodora",
+    "category": "Ethnobotanical",
+    "effects": [
+      "calm",
+      "relaxation",
+      "light euphoria"
+    ],
+    "description": "Lemon Verbena, a gentle herbal tea with calming and mood-lifting effects.",
+    "mechanismOfAction": "GABAergic + serotonergic",
+    "region": "South America",
+    "compounds": [
+      "Citral",
+      "Verbascoside"
+    ],
+    "tags": [
+      "tea",
+      "folk remedy",
+      "calming"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-ludoviciana",
+    "name": "Artemisia ludoviciana",
+    "slug": "artemisia-ludoviciana",
+    "scientificName": "Artemisia ludoviciana",
+    "category": "Ethnobotanical",
+    "effects": [
+      "mild sedation",
+      "visionary",
+      "cleansing"
+    ],
+    "description": "Also known as white sagebrush, used by Native American tribes for cleansing, dreams, and mild sedation.",
+    "mechanismOfAction": "GABAergic + anticholinergic",
+    "region": "North America",
+    "compounds": [
+      "Thujone",
+      "Camphor"
+    ],
+    "tags": [
+      "ritual",
+      "dream",
+      "folk medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "petasites-hybridus",
+    "name": "Petasites hybridus",
+    "slug": "petasites-hybridus",
+    "scientificName": "Petasites hybridus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "anti-anxiety",
+      "vasodilation",
+      "headache relief"
+    ],
+    "description": "Butterbur, once used for headaches and anxiety. Contains pyrrolizidine alkaloids — caution advised.",
+    "mechanismOfAction": "Smooth muscle relaxant + serotonergic",
+    "region": "Europe",
+    "compounds": [
+      "Petasin",
+      "Isopetasin"
+    ],
+    "tags": [
+      "nervine",
+      "headache",
+      "caution"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "betula-lenta",
+    "name": "Betula lenta",
+    "slug": "betula-lenta",
+    "scientificName": "Betula lenta",
+    "category": "Ethnobotanical",
+    "effects": [
+      "uplifting",
+      "mental clarity",
+      "aromatic"
+    ],
+    "description": "Sweet Birch, aromatic and uplifting; contains methyl salicylate, offering mild euphoria and clarity.",
+    "mechanismOfAction": "Anti-inflammatory + mild serotonergic",
+    "region": "North America",
+    "compounds": [
+      "Methyl salicylate"
+    ],
+    "tags": [
+      "tea",
+      "uplifting",
+      "aromatic"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "scutellaria-lateriflora",
+    "name": "Scutellaria lateriflora",
+    "slug": "scutellaria-lateriflora",
+    "scientificName": "Scutellaria lateriflora",
+    "category": "Ethnobotanical",
+    "effects": [
+      "sedation",
+      "calm",
+      "anxiety relief"
+    ],
+    "description": "American Skullcap is a revered nervine herb promoting relaxation, calm, and sleep.",
+    "mechanismOfAction": "GABAergic",
+    "region": "North America",
+    "compounds": [
+      "Baicalin",
+      "Scutellarin"
+    ],
+    "tags": [
+      "nervine",
+      "folk remedy",
+      "sleep aid"
     ],
     "needsReview": false
   }
