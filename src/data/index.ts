@@ -1,5 +1,5 @@
-export { default as herbData } from './herbData'
-export { herbBlurbs } from './herbs/blurbs'
-export const herbs = herbData.filter(h => 'slug' in h)
-export const compounds = herbData.filter(h => 'foundIn' in h)
+export { default as herbsData } from "./herbs/herbs.json";
+export { herbs } from "./herbs/herbsfull";
+export { herbBlurbs } from "./herbs/blurbs";
+export { compounds } from "./compounds/compounds";
 export { learnSections } from "./learnContent.enrichedXL";
