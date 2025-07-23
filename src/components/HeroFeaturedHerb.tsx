@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import herbData from '../data/herbData'
-const herbs = herbData.filter(h => 'slug' in h) as any[]
+import { herbs } from '../data/herbs/herbsfull'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
 import { slugify } from '../utils/slugify'

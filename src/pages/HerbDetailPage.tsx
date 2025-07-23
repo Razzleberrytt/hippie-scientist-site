@@ -2,8 +2,7 @@
 // src/pages/HerbDetailPage.tsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import herbData from '../data/herbData'; // Adjust path if needed
-const herbs = herbData.filter(h => 'slug' in h) as any[]
+import { herbs } from '../data/herbs/herbsfull'; // Adjust path if needed
 import HerbCardAccordion from '../components/HerbCardAccordion';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 

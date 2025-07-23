@@ -1,19 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import herbData from '../data/herbData'
-
-export interface CompoundEntry {
-  name: string
-  type: string
-  description: string
-  foundIn: string[]
-  psychoactivity: string
-  mechanismOfAction: string
-  [key: string]: any
-}
-
-const herbs = herbData.filter(h => 'slug' in h) as any[]
-const compounds: CompoundEntry[] = herbData.filter(h => 'foundIn' in h) as CompoundEntry[]
+import { compounds, type CompoundEntry } from '../data/compounds/compounds'
+import { herbs } from '../data/herbs/herbsfull'
 import CompoundCard from '../components/CompoundCard'
 import CompoundTagFilter, { Option } from '../components/CompoundTagFilter'
 import { metaCategory } from '../hooks/useFilteredHerbs'

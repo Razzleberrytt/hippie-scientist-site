@@ -3,9 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { saveAs } from 'file-saver'
 import jsPDF from 'jspdf'
 import { Herb } from '../types'
-import herbData from '../data/herbData'
-
-const herbs = herbData.filter(h => 'slug' in h) as any[]
+import { herbs } from '../data/herbs/herbsfull'
 
 const allHerbs = herbs
 
