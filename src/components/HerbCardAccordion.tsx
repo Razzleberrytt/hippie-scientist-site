@@ -67,7 +67,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
-      className='neon-card soft-border-glow group relative cursor-pointer overflow-hidden p-4 text-gray-800 hover:shadow-glow dark:text-gray-100'
+      className='neon-card soft-border-glow group relative cursor-pointer overflow-hidden p-4 text-gray-800 dark:text-gray-100'
     >
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-lg border-2 border-fuchsia-500/40 dark:rounded-2xl'
@@ -90,11 +90,9 @@ export default function HerbCardAccordion({ herb }: Props) {
           {herb.name || 'Unknown Herb'}
         </span>
       </div>
-      <p className='text-sm italic text-gray-700 transition-colors duration-300 dark:text-gray-300'>
-        {herb.scientificName || 'Unknown species'}
-      </p>
+      <p className='text-sm italic text-gray-700 dark:text-gray-300 transition-colors duration-300'>{herb.scientificName || 'Unknown species'}</p>
       {!expanded && herbBlurbs[herb.name] && (
-        <p className='mt-1 text-sm italic text-gray-800 transition-colors duration-300 dark:text-gray-100'>
+        <p className='mt-1 text-sm italic text-gray-800 dark:text-gray-100 transition-colors duration-300'>
           {herbBlurbs[herb.name]}
         </p>
       )}
@@ -105,7 +103,7 @@ export default function HerbCardAccordion({ herb }: Props) {
             <strong>Effects:</strong> {safeEffects.length > 0 ? safeEffects.join(', ') : 'Unknown'}
           </div>
 
-          <div className='mt-2 text-sm text-gray-700 transition-colors duration-300 dark:text-gray-300'>
+          <div className='mt-2 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300'>
             <strong>Description:</strong> {herb.description || herbBlurbs[herb.name] || ''}
           </div>
         </>
@@ -126,7 +124,7 @@ export default function HerbCardAccordion({ herb }: Props) {
             animate='open'
             exit='collapsed'
             transition={{ type: 'spring', stiffness: 200, damping: 24 }}
-            className='mt-4 space-y-2 rounded-md bg-black/30 p-3 text-sm text-sand backdrop-blur-md'
+            className='mt-4 space-y-2 text-sm text-sand'
           >
             <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
               <span role='img' aria-label='Mechanism'>
