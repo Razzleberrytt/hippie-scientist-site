@@ -219,14 +219,14 @@ html {
 
 /* Accordion styling for Learn page */
 .learn-accordion summary {
-  @apply flex cursor-pointer items-center justify-between rounded-md bg-white/40 px-4 py-3 font-semibold shadow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-purple dark:bg-midnight-blue/40 dark:text-sand dark:shadow-md;
+  @apply flex cursor-pointer items-center justify-between rounded-md bg-white/40 px-4 py-3 font-semibold shadow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-psychedelic-purple dark:bg-midnight-blue/40 dark:text-sand dark:shadow-md soft-border-glow;
 }
 .learn-accordion[open] summary {
-  @apply text-psychedelic-purple bg-white/60 dark:bg-midnight-blue/60;
+  @apply text-psychedelic-purple bg-white/60 dark:bg-midnight-blue/60 soft-border-glow;
 }
 .accordion-summary::after {
   content: '▾';
-  @apply ml-2 transition-transform duration-300 ease-in-out;
+  @apply ml-2 text-psychedelic-pink drop-shadow-glow transition-transform duration-300 ease-in-out;
 }
 .learn-accordion[open] .accordion-summary::after {
   transform: rotate(-180deg);
@@ -268,4 +268,11 @@ body {
 }
 .bounce {
   animation: float-bounce 3s ease-in-out infinite;
+}
+
+/* Fog overlay */
+.fog-layer {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  backdrop-filter: blur(50px);
+  mix-blend-mode: overlay;
 }
