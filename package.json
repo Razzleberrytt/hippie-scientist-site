@@ -11,6 +11,7 @@
     "validate-herbs": "node scripts/validateHerbs.js"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "autoprefixer": "^10.4.19",
