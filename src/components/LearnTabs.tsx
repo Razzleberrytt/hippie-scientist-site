@@ -1,6 +1,7 @@
 import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 
 export interface LearnSection {
   id: string
@@ -49,7 +50,7 @@ export default function LearnTabs({ sections }: Props) {
     >
       <h2 className='learn-title'>{sections[active].title}</h2>
       <div className='prose learn-prose prose-lg max-w-[80ch]'>
-        <ReactMarkdown>{sections[active].content}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{sections[active].content}</ReactMarkdown>
       </div>
     </motion.article>
   )
@@ -76,7 +77,7 @@ export default function LearnTabs({ sections }: Props) {
               transition={{ duration: 0.3 }}
               className='mt-4'
             >
-              <ReactMarkdown className='prose learn-prose prose-base max-w-[80ch]'>
+              <ReactMarkdown className='prose learn-prose prose-base max-w-[80ch]' rehypePlugins={[rehypeRaw]}>
                 {s.content}
               </ReactMarkdown>
             </motion.div>
