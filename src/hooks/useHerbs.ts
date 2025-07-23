@@ -1,20 +1,27 @@
 import React from 'react'
 import type { Herb } from '../types'
-import { herbs } from '../data/herbs/herbsfull'
+import herbData from '../data/herbData'
 
 export function useHerbs(): Herb[] {
   const [herbList] = React.useState<Herb[]>(() => {
     const map = new Map<string, Herb>()
-    herbs.forEach(h => {
-      if (!map.has(h.id)) map.set(h.id, h)
-    })
+    herbData
+      .filter((e: any) => 'slug' in e)
+      .forEach((h: any) => {
+        const entry: Herb = {
+          id: h.id ?? h.slug,
+          category: h.category ?? 'Unknown',
+          ...h,
+        }
+        if (!map.has(entry.id)) map.set(entry.id, entry)
+      })
     return Array.from(map.values())
   })
 
   React.useEffect(() => {
     if (!import.meta.env.DEV) return
 
-    herbs.forEach(h => {
+    herbList.forEach(h => {
       const missing: string[] = []
       if (!h.affiliateLink) missing.push('affiliateLink')
       if (!h.activeConstituents?.length) missing.push('activeConstituents')

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { herbs } from '../data/herbs/herbsfull'
+import herbData from '../data/herbData'
+const herbs = herbData.filter(h => 'slug' in h) as any[]
 import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'
 
