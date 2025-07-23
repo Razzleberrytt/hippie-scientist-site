@@ -27,7 +27,7 @@ export default function LearnTabs({ sections }: Props) {
   // handle deep linking on mount
   React.useEffect(() => {
     const hash = window.location.hash.slice(1)
-    const index = sections.findIndex((s) => s.id === hash)
+    const index = sections.findIndex(s => s.id === hash)
     if (index >= 0) setActive(index)
   }, [sections])
 
@@ -41,15 +41,16 @@ export default function LearnTabs({ sections }: Props) {
   const content = (
     <motion.article
       key={sections[active].id}
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.3 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.4 }}
       id={sections[active].id}
-      className='learn-section'
+      className='learn-section mx-auto'
     >
       <h2 className='learn-title'>{sections[active].title}</h2>
-      <div className='prose learn-prose prose-lg max-w-[80ch]'>
+      <div className='learn-prose prose prose-lg max-w-none'>
         <ReactMarkdown rehypePlugins={[rehypeRaw]}>{sections[active].content}</ReactMarkdown>
       </div>
     </motion.article>
@@ -63,13 +64,11 @@ export default function LearnTabs({ sections }: Props) {
             key={s.id}
             open={i === active}
             onClick={() => setActive(i)}
-            className='learn-section'
+            className='learn-section learn-accordion mx-auto'
             id={s.id}
           >
-            <summary className='cursor-pointer font-semibold'>
-              <span className='flex items-center gap-2 text-xl md:text-2xl'>
-                {s.title}
-              </span>
+            <summary className='accordion-summary'>
+              <span className='flex items-center gap-2 text-xl md:text-2xl'>{s.title}</span>
             </summary>
             <motion.div
               initial={{ opacity: 0 }}
@@ -77,7 +76,10 @@ export default function LearnTabs({ sections }: Props) {
               transition={{ duration: 0.3 }}
               className='mt-4'
             >
-              <ReactMarkdown className='prose learn-prose prose-base max-w-[80ch]' rehypePlugins={[rehypeRaw]}>
+              <ReactMarkdown
+                className='learn-prose prose prose-base max-w-none'
+                rehypePlugins={[rehypeRaw]}
+              >
                 {s.content}
               </ReactMarkdown>
             </motion.div>
