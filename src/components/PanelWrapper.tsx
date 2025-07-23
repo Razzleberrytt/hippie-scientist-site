@@ -11,7 +11,7 @@ const PanelWrapper: React.FC<Props> = ({ children, className }) => (
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className={`neon-card relative my-12 overflow-hidden rounded-xl p-6 ${className ?? ''}`}
+    className={`neon-card soft-border-glow relative my-12 overflow-hidden rounded-xl p-6 ${className ?? ''}`}
   >
     <div className='absolute inset-x-0 top-0 h-px animate-pulse bg-gradient-to-r from-transparent via-lichen/30 to-transparent' />
     {children}

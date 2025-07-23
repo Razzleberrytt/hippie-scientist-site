@@ -67,7 +67,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
-      className='neon-card group relative cursor-pointer overflow-hidden p-4 text-gray-800 dark:text-gray-100'
+      className='neon-card soft-border-glow group relative cursor-pointer overflow-hidden p-4 text-gray-800 dark:text-gray-100'
     >
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-lg border-2 border-fuchsia-500/40 dark:rounded-2xl'

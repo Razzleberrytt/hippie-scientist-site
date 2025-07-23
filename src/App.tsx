@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MouseTrail from './components/MouseTrail'
 import ScrollToTopButton from './components/ScrollToTopButton'
+import FogOverlay from './components/FogOverlay'
 const Home = React.lazy(() => import('./pages/Home'))
 const HerbCardPage = React.lazy(() => import('./pages/HerbCardPage'))
 const HerbDetailView = React.lazy(() => import('./pages/HerbDetailView'))
@@ -26,6 +27,7 @@ function App() {
     <>
       <Navbar />
       <MouseTrail />
+      <FogOverlay />
       <main className='space-y-24 pt-16'>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
