@@ -90,7 +90,6 @@ Like any mind-altering tool, psychoactive herbs are best approached with:
 
 These herbs are not just chemicals — they’re **living teachers**. Used wisely, they can help reconnect us to dreams, emotions, and ancestral plant wisdom.`
 },
-,
 {
   id: "tag-glossary",
   title: "Herb Tag Glossary",
@@ -211,7 +210,6 @@ These herbs are not just chemicals — they’re **living teachers**. Used wisel
 
 > Many herbs have multiple tags depending on dose, preparation, and tradition. These tags are starting points — always read full profiles before use.`
 },
-,
 {
   id: "mechanisms",
   title: "Mechanisms of Action",
@@ -307,7 +305,6 @@ This synergy can be helpful — or overwhelming — depending on dosage and comb
 
 Understanding the mechanism is just one part of the picture — tradition, dosage, and intention also matter deeply.`
 },
-,
 {
   id: "effects",
   title: "Understanding Herbal Effects",
@@ -406,7 +403,6 @@ Understanding these common effect categories helps you:
 
 Some effects are dose-dependent — a low dose may be nootropic, while a high dose may be sedative or visionary. Always research, start low, and journal your experience.`
 },
-,
 {
   id: "preparation",
   title: "Herb Preparation Methods",
@@ -514,7 +510,6 @@ Some effects are dose-dependent — a low dose may be nootropic, while a high do
 
 The herb’s power lives in its preparation. Choose with care, experiment with awareness, and consider the ritual as part of the medicine.`
 },
-,
 {
   id: "safety",
   title: "Safety Guidelines & Responsible Use",
@@ -612,7 +607,6 @@ Helps refine future sessions and detect patterns.
 
 Respect doesn’t mean fear — it means relationship. Listen to your body, trust your intuition, and let each herb introduce itself in its own time.`
 },
-,
 {
   id: "legality",
   title: "Legal Overview of Psychoactive Herbs",
@@ -698,7 +692,6 @@ Regulations shift constantly. To stay informed:
 
 Stay aware, stay respectful, and support legal reform where it serves education, sovereignty, and access.`
 },
-,
 {
   id: "getting-started",
   title: "How to Choose a Starting Herb",
@@ -802,7 +795,6 @@ Over time, this will become your **personal herbal map**.
 
 Everyone's body is different. What relaxes one person may energize another. Start small, build a relationship with each herb, and let curiosity — not urgency — lead you.`
 },
-,
 {
   id: "dosing",
   title: "Microdosing vs. Macrodosing: A Guide to Herbal Dosage",
@@ -893,7 +885,6 @@ Macrodosing involves taking a **standard or high dose** — enough to fully acti
 
 Your optimal dose isn’t on a chart — it’s discovered through slow experimentation, reflection, and respect.`
 },
-,
 {
   id: "history",
   title: "A Global History of Psychoactive Plants",
