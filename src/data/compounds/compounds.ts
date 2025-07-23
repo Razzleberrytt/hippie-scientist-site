@@ -5,9 +5,10 @@ export interface CompoundEntry {
   foundIn: string[]
   psychoactivity: string
   mechanismOfAction: string
+  effects?: string[]
 }
 
-export const compounds: CompoundEntry[] = [
+const rawCompounds: Partial<CompoundEntry>[] = [
   {
     "name": "5-MeO-DMT",
     "type": "tryptamine",
@@ -1293,5 +1294,15 @@ export const compounds: CompoundEntry[] = [
     "mechanismOfAction": "Possibly GABAergic"
   }
 ]
+
+export const compounds: CompoundEntry[] = rawCompounds.map(c => ({
+  name: c.name ?? 'Unknown',
+  type: c.type ?? 'Unknown',
+  description: c.description ?? 'Unknown',
+  foundIn: c.foundIn ?? [],
+  psychoactivity: c.psychoactivity ?? 'Unknown',
+  mechanismOfAction: c.mechanismOfAction ?? 'Unknown',
+  effects: c.effects ?? [],
+}))
 
 export default compounds
