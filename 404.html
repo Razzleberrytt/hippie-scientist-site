@@ -2,20 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Not Found - The Hippie Scientist</title>
-    <script type="module" crossorigin src="/assets/main-7684a809.js"></script>
-    <link rel="stylesheet" href="/assets/main-2c5a704d.css">
-  <link rel="manifest" href="/manifest.webmanifest"></head>
-  <body>
-    <div id="root"></div>
+    <title>Redirecting...</title>
     <script>
-      if (!window.location.hash) {
-        const path = window.location.pathname + window.location.search
-        window.location.replace('/#' + path)
-      }
+      (function () {
+        var path = window.location.pathname + window.location.search + window.location.hash;
+        var url = '/?redirect=' + encodeURIComponent(path);
+        window.location.replace(url);
+      })();
     </script>
-    
-  </body>
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+  <body></body>
 </html>
