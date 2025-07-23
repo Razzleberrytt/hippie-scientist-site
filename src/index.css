@@ -36,6 +36,21 @@ html {
   @apply border border-black/10 bg-white/60 text-black shadow-lg backdrop-blur-xl transition-shadow duration-300 hover:ring-2 hover:ring-fuchsia-500/50 dark:border-white/10 dark:bg-space-dark/60 dark:text-sand;
 }
 
+/* Prose overrides */
+.prose table {
+  @apply w-full table-auto border-collapse;
+}
+.prose thead {
+  @apply bg-comet/20;
+}
+.prose tbody tr:nth-child(even) {
+  @apply bg-black/10 dark:bg-white/10;
+}
+.prose th,
+.prose td {
+  @apply border border-comet/30 px-2 py-1;
+}
+
 .ring-comet {
   @apply ring-1 ring-comet/50;
 }
