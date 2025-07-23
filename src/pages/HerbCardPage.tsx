@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { herbs } from '../data/herbs/herbsfull'
+import herbData from '../data/herbData'
+const herbs = herbData.filter(h => 'slug' in h) as any[]
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import { ErrorBoundary } from '../components/ErrorBoundary'
 import { slugify } from '../utils/slugify'
