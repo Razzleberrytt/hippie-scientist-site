@@ -1,5 +1,7 @@
 import React from 'react'
-import { herbs } from '../data/herbs/herbsfull'
+import herbData from '../data/herbData'
+
+const herbs = herbData.filter(h => 'slug' in h) as any[]
 
 const MIN_COUNT = 5
 
