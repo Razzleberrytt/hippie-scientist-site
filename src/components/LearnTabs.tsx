@@ -71,10 +71,11 @@ export default function LearnTabs({ sections }: Props) {
               <span className='flex items-center gap-2 text-xl md:text-2xl'>{s.title}</span>
             </summary>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className='mt-4'
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className='accordion-content mt-4 overflow-hidden'
             >
               <ReactMarkdown
                 className='learn-prose prose prose-base max-w-none'
