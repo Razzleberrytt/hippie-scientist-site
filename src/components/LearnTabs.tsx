@@ -38,17 +38,20 @@ export default function LearnTabs({ sections }: Props) {
   }, [active, sections])
 
   const content = (
-    <motion.div
+    <motion.article
       key={sections[active].id}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3 }}
       id={sections[active].id}
-      className='prose prose-lg max-w-[80ch]'
+      className='learn-section'
     >
-      <ReactMarkdown>{sections[active].content}</ReactMarkdown>
-    </motion.div>
+      <h2 className='learn-title'>{sections[active].title}</h2>
+      <div className='prose learn-prose prose-lg max-w-[80ch]'>
+        <ReactMarkdown>{sections[active].content}</ReactMarkdown>
+      </div>
+    </motion.article>
   )
 
   if (mobile) {
@@ -59,17 +62,21 @@ export default function LearnTabs({ sections }: Props) {
             key={s.id}
             open={i === active}
             onClick={() => setActive(i)}
-            className='rounded-md bg-black/20 p-2'
+            className='learn-section'
             id={s.id}
           >
-            <summary className='cursor-pointer font-semibold'>{s.title}</summary>
+            <summary className='cursor-pointer font-semibold'>
+              <span className='flex items-center gap-2 text-xl md:text-2xl'>
+                {s.title}
+              </span>
+            </summary>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className='mt-2'
+              className='mt-4'
             >
-              <ReactMarkdown className='prose prose-lg max-w-[80ch]'>
+              <ReactMarkdown className='prose learn-prose prose-base max-w-[80ch]'>
                 {s.content}
               </ReactMarkdown>
             </motion.div>

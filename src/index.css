@@ -167,3 +167,38 @@ html {
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+/* Learn page typography */
+.learn-section {
+  @apply my-8 rounded-lg border border-comet/20 bg-white/50 p-6 backdrop-blur-md dark:bg-black/30;
+}
+
+.learn-title {
+  @apply mb-6 flex items-center gap-2 text-3xl font-bold tracking-tight md:text-4xl;
+}
+
+.learn-prose h3,
+.learn-prose h4 {
+  @apply flex items-center gap-2;
+}
+
+.learn-prose h3 {
+  @apply text-2xl font-semibold md:text-3xl;
+}
+
+.learn-prose h4 {
+  @apply text-xl font-medium md:text-2xl;
+}
+
+.learn-prose p {
+  @apply text-sand/90 leading-relaxed md:text-lg;
+}
+
+.learn-prose ul,
+.learn-prose ol {
+  @apply my-4 list-disc space-y-1 pl-6;
+}
+
+.learn-prose li {
+  @apply leading-relaxed;
+}
