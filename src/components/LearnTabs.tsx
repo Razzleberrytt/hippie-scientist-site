@@ -1,5 +1,6 @@
 import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 
@@ -67,8 +68,15 @@ export default function LearnTabs({ sections }: Props) {
             className='learn-section learn-accordion mx-auto'
             id={s.id}
           >
-            <summary className='accordion-summary'>
+            <summary className='accordion-summary flex items-center justify-between'>
               <span className='flex items-center gap-2 text-xl md:text-2xl'>{s.title}</span>
+              <motion.span
+                initial={false}
+                animate={{ rotate: i === active ? 180 : 0 }}
+                className='ml-2 text-psychedelic-purple'
+              >
+                <ChevronDown size={20} />
+              </motion.span>
             </summary>
             <motion.div
               initial={{ height: 0, opacity: 0 }}

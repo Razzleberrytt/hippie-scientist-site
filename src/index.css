@@ -52,6 +52,10 @@ html {
   @apply border border-comet/30 px-2 py-1;
 }
 
+.table-card {
+  @apply overflow-x-auto rounded-lg border border-comet/30 bg-white/60 shadow-glow backdrop-blur-md dark:bg-midnight-blue/50;
+}
+
 .ring-comet {
   @apply ring-1 ring-comet/50;
 }
@@ -230,4 +234,38 @@ html {
 
 .accordion-content {
   @apply overflow-hidden transition-all duration-500;
+}
+/* Psychedelic background and scrollbars */
+.psychedelic-bg {
+  @apply bg-gradient-to-br from-deep-indigo via-space-dark to-black bg-fixed;
+}
+
+body {
+  scrollbar-color: theme('colors.psychedelic-purple') transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, theme('colors.psychedelic-pink'), theme('colors.psychedelic-purple'));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Neon glass card */
+.neon-card {
+  @apply glass-card ring-1 ring-psychedelic-purple/30 hover:ring-psychedelic-pink/60 backdrop-blur-lg;
+}
+
+/* Bounce animation */
+@keyframes float-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.bounce {
+  animation: float-bounce 3s ease-in-out infinite;
 }
