@@ -1,15 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-export interface CompoundEntry {
-  name: string
-  type: string
-  description: string
-  foundIn: string[]
-  psychoactivity: string
-  mechanismOfAction: string
-  [key: string]: any
-}
+import type { CompoundEntry } from '../data/compounds/compounds'
 import TagBadge from './TagBadge'
 
 interface HerbRef {
