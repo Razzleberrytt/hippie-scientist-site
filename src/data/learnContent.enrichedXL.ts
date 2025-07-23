@@ -8,7 +8,7 @@ export const learnSections = [
 
 ### 🌿 What Makes a Herb “Psychoactive”?
 
-To be considered psychoactive, an herb must **interact with the central nervous system** and **alter brain function**. This includes changes in:
+To be considered psychoactive, an herb must **<span class='highlight'>interact with the central nervous system</span>** and **alter brain function**. This includes changes in:
 
 - Mood (e.g., relaxation, euphoria, clarity)
 - Cognition (e.g., focus, memory, mental energy)
@@ -108,7 +108,7 @@ Like any mind-altering tool, psychoactive herbs are best approached with:
 - **Education** (what does it do and how?)
 - **Respect** (especially with sacred/traditional plants)
 
-These herbs are not just chemicals — they’re **living teachers**. Used wisely, they can help reconnect us to dreams, emotions, and ancestral plant wisdom.`
+These herbs are not just chemicals — they’re **<span class='highlight'>living teachers</span>**. Used wisely, they can help reconnect us to dreams, emotions, and ancestral plant wisdom.`
 },
 {
   id: "tag-glossary",

@@ -33,7 +33,7 @@ html {
 }
 
 .glass-card {
-  @apply border border-black/10 bg-white/60 text-black shadow-lg backdrop-blur-xl transition-shadow duration-300 hover:ring-2 hover:ring-fuchsia-500/50 dark:border-white/10 dark:bg-space-dark/60 dark:text-sand;
+  @apply border border-black/10 bg-gradient-to-br from-white/40 via-white/60 to-white/80 text-black shadow-lg backdrop-blur-xl transition-shadow duration-300 hover:ring-2 hover:ring-fuchsia-500/50 dark:border-white/10 dark:from-white/10 dark:via-space-dark/50 dark:to-space-dark/80 dark:text-sand;
 }
 
 /* Prose overrides */
@@ -170,11 +170,11 @@ html {
 
 /* Learn page typography */
 .learn-section {
-  @apply my-8 rounded-lg border border-comet/20 bg-white/50 p-6 backdrop-blur-md dark:bg-black/30;
+  @apply my-10 rounded-lg border border-comet/30 bg-white/60 p-8 shadow-glow backdrop-blur-md dark:bg-black/40;
 }
 
 .learn-title {
-  @apply mb-6 flex items-center gap-2 text-3xl font-bold tracking-tight md:text-4xl;
+  @apply mb-6 flex items-center gap-2 text-left text-4xl font-bold tracking-tight drop-shadow-glow md:text-5xl;
 }
 
 .learn-prose h3,
@@ -191,16 +191,20 @@ html {
 }
 
 .learn-prose p {
-  @apply leading-relaxed text-sand/90 md:text-lg;
+  @apply leading-relaxed text-justify text-sand/90 md:text-lg;
 }
 
 .learn-prose ul,
 .learn-prose ol {
-  @apply my-4 list-disc space-y-1 pl-6;
+  @apply my-4 list-disc space-y-1 pl-6 md:pl-8;
 }
 
 .learn-prose li {
   @apply leading-relaxed;
+}
+
+.highlight {
+  @apply font-semibold text-psychedelic-pink drop-shadow-glow;
 }
 
 /* Accordion styling for Learn page */
@@ -216,4 +220,8 @@ html {
 }
 .learn-accordion[open] .accordion-summary::after {
   transform: rotate(-180deg);
+}
+
+.accordion-content {
+  @apply overflow-hidden transition-all duration-500;
 }
