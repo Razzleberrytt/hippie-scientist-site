@@ -1,0 +1,61 @@
+# Merge Summary
+
+Herbs added: 18
+- Desfontainia spinosa
+- Calea zacatechichi
+- Tropaeolum majus
+- Salvia apiana
+- Tynanthus panurensis
+- Byrsonima crassifolia
+- Rhododendron anthopogon
+- Elaeagnus angustifolia
+- Galbulimima belgraveana
+- Ficus religiosa
+- Rubus idaeus
+- Desmodium adscendens
+- Silene undulata
+- Elsholtzia ciliata
+- Tamarindus indica
+- Tabernaemontana undulata
+- Datura metel
+- Nicotiana rustica
+
+Compounds added: 38
+- Nuciferine
+- Benzyl isothiocyanate
+- Desfontainin
+- LSA (Lysergic Acid Amide)
+- Isopetasin
+- Cineole
+- Pareirine
+- Cissamine
+- Tynanthin
+- Tetrahydropalmatine (THP)
+- Catechins
+- Volatile oils (Anthopogon)
+- Lyfoline
+- Neferine
+- Combretol
+- Combretin
+- Elaeagnin
+- Himbacine
+- Galbulimimine
+- Casimiroin
+- Stachydrine
+- Furanocoumarins
+- Chlorogenic acid
+- Farnesol
+- Kaempferol
+- Fragarine
+- Scutellarin
+- Elsholtzia ketone
+- Tartaric acid
+- Lupeol
+- Alchorneine
+- Voacangine
+- Scopolamine
+- Atropine
+- Pellitorine
+- Sanshools
+- Nicotine
+- Harmala alkaloids
