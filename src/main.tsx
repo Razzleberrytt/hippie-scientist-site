@@ -8,13 +8,6 @@ import { ErrorBoundary } from './components/ErrorBoundary'
 import './index.css'
 import { registerSW } from 'virtual:pwa-register'
 
-const params = new URLSearchParams(window.location.search)
-const redirect = params.get('redirect')
-if (redirect) {
-  const url = decodeURIComponent(redirect)
-  window.history.replaceState(null, '', url)
-}
-
 registerSW({ immediate: true })
 
 // Store the current path so 404.html can redirect after refresh
