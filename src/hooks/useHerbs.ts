@@ -7,16 +7,18 @@ export function useHerbs(): {
   loading: boolean
   error: string | null
 } {
+  // Start with an empty list so consuming components never receive `undefined`
   const [herbList, setHerbList] = React.useState<Herb[]>([])
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState<string | null>(null)
 
   React.useEffect(() => {
+    let active = true
     async function load() {
       try {
         const res = await fetch('/database.json')
         if (!res.ok) throw new Error(`status ${res.status}`)
-        const data = await res.json()
+        const data: unknown = await res.json()
         if (!Array.isArray(data)) throw new Error('invalid format')
         const map = new Map<string, Herb>()
         data
@@ -24,20 +26,26 @@ export function useHerbs(): {
           .forEach((h: Herb) => {
             if (h.id && !map.has(h.id)) map.set(h.id, h)
           })
-        setHerbList(Array.from(map.values()))
+        if (active) setHerbList(Array.from(map.values()))
       } catch (err) {
         console.error('Failed to fetch database', err)
-        setError((err as Error).message)
-        const map = new Map<string, Herb>()
-        fallback.forEach(h => {
-          if (!map.has(h.id)) map.set(h.id, h)
-        })
-        setHerbList(Array.from(map.values()))
+        if (active) {
+          setError((err as Error).message)
+          // Fallback to the bundled data so the app still works offline
+          const map = new Map<string, Herb>()
+          fallback.forEach(h => {
+            if (!map.has(h.id)) map.set(h.id, h)
+          })
+          setHerbList(Array.from(map.values()))
+        }
       } finally {
-        setLoading(false)
+        if (active) setLoading(false)
       }
     }
     load()
+    return () => {
+      active = false
+    }
   }, [])
 
   React.useEffect(() => {

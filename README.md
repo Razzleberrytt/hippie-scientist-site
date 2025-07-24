@@ -30,6 +30,13 @@ Additional scripts are available:
 
 Source files live in `src/`. Pages are under `src/pages` and reusable components are in `src/components`. Production assets are generated into `dist/` during the build process.
 
+## Data Source
+
+Herb entries are loaded from `public/database.json`. When running under Vite or
+Create React App this file is served statically from the `public` folder. If you
+deploy the front‑end behind a custom backend make sure this JSON file is served
+at the site root (`/database.json`).
+
 ## Features
 
 - **Database** – interactive herbal index with tag filtering
