@@ -18,7 +18,7 @@ export default function Hero() {
       <HeroBackground />
       <FloatingElements />
 
-      <div className='relative z-10 mx-auto mt-6 w-full max-w-xl rounded-xl border border-lime-400/30 bg-white/10 p-6 shadow-xl backdrop-blur soft-border-glow'>
+      <div className='soft-border-glow relative z-10 mx-auto mt-6 w-full max-w-xl rounded-xl border border-lime-400/30 bg-white/10 p-6 shadow-xl backdrop-blur'>
         <div className='flex flex-col items-center justify-center gap-4'>
           <motion.div
             className='mx-auto max-w-2xl space-y-1'
@@ -26,10 +26,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
           >
-            <h1 className='text-gradient font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl'>
+            <h1
+              id='site-title'
+              className='text-gradient font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl'
+            >
               The Hippie Scientist
             </h1>
-            <p className='text-opal text-base sm:text-lg md:text-xl'>Psychedelic Botany &amp; Conscious Exploration</p>
+            <p className='text-base text-opal sm:text-lg md:text-xl'>
+              Psychedelic Botany &amp; Conscious Exploration
+            </p>
           </motion.div>
 
           <div className='mt-2 flex justify-center'>
@@ -42,13 +47,13 @@ export default function Hero() {
           <div className='flex flex-wrap items-center justify-center gap-4'>
             <Link
               to='/database'
-              className='hover-glow rounded-md bg-black/30 px-6 py-3 text-white transition hover:shadow-glow backdrop-blur'
+              className='hover-glow rounded-md bg-black/30 px-6 py-3 text-white backdrop-blur transition hover:shadow-glow'
             >
               🌿 Browse Herbs
             </Link>
             <Link
               to='/blend'
-              className='hover-glow rounded-md bg-black/30 px-6 py-3 text-white transition hover:shadow-glow backdrop-blur'
+              className='hover-glow rounded-md bg-black/30 px-6 py-3 text-white backdrop-blur transition hover:shadow-glow'
             >
               🧪 Build a Blend
             </Link>
