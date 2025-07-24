@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { saveAs } from 'file-saver'
 import jsPDF from 'jspdf'
 import { Herb } from '../types'
-import { herbs } from '../data/herbs/herbsfull'
+import { herbs } from '../data/masterList'
 
 const allHerbs = herbs
 
