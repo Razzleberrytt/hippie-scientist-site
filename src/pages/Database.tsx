@@ -20,17 +20,20 @@ import { getLocal, setLocal } from '../utils/localStorage'
 
 export default function Database() {
   const herbs = useHerbs()
-  const safeHerbs = React.useMemo(
-    () =>
-      herbs.filter(
-        h =>
-          h &&
-          typeof h.name === 'string' &&
-          typeof h.slug === 'string' &&
-          Array.isArray(h.effects)
-      ),
-    [herbs]
-  )
+  const safeHerbs = React.useMemo(() => {
+    const isValid = (h: any) =>
+      h &&
+      typeof h.name === 'string' &&
+      typeof h.slug === 'string' &&
+      Array.isArray(h.tags) &&
+      Array.isArray(h.effects)
+
+    const invalid = herbs.filter(h => !isValid(h))
+    if (invalid.length) {
+      console.error('Filtered invalid herb entries:', invalid)
+    }
+    return herbs.filter(isValid)
+  }, [herbs])
   const { favorites } = useHerbFavorites()
   const {
     filtered,
@@ -98,17 +101,19 @@ export default function Database() {
     [setFilteredTags]
   )
 
+  const invalidCount = herbs.length - safeHerbs.length
+
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
 
   React.useEffect(() => {
-    let last = window.scrollY
+    const last = { current: window.scrollY }
     const onScroll = () => {
       const cur = window.scrollY
-      setShowBar(cur < last || cur < 100)
-      last = cur
+      setShowBar(cur < last.current || cur < 100)
+      last.current = cur
     }
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -116,8 +121,8 @@ export default function Database() {
     const close = () => {
       if (window.scrollY > 150) setFiltersOpen(false)
     }
-    window.addEventListener('scroll', close)
-    window.addEventListener('touchmove', close)
+    window.addEventListener('scroll', close, { passive: true })
+    window.addEventListener('touchmove', close, { passive: true })
     return () => {
       window.removeEventListener('scroll', close)
       window.removeEventListener('touchmove', close)
@@ -235,6 +240,11 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
+          {invalidCount > 0 && (
+            <p className='mb-2 rounded-md border border-red-500/40 bg-red-500/10 p-2 text-center text-sm text-red-300'>
+              {invalidCount} entries contained errors and were hidden. Please report this issue.
+            </p>
+          )}
           {(() => {
             try {
               return <HerbList herbs={filtered} highlightQuery={query} />

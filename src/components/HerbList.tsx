@@ -18,10 +18,22 @@ interface Props {
   highlightQuery?: string
   batchSize?: number
 }
+
+const isValidHerb = (h: any): h is Herb =>
+  h && typeof h.name === 'string' && typeof h.id === 'string' && Array.isArray(h.effects)
+
 const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 }) => {
   const [visible, setVisible] = React.useState(batchSize)
 
   const showMore = () => setVisible(v => Math.min(v + batchSize, herbs.length))
+
+  const invalid = React.useMemo(() => herbs.filter(h => !isValidHerb(h)), [herbs])
+  if (invalid.length) {
+    console.error('Invalid herb data passed to HerbList:', invalid)
+    return (
+      <p className='text-center text-red-500'>Error loading herb entries.</p>
+    )
+  }
 
   if (herbs.length === 0) {
     return <p className='text-center text-sand/80'>No herbs match your search.</p>
