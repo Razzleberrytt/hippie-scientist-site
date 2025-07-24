@@ -2,7 +2,7 @@
 // src/pages/HerbDetailPage.tsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { herbs } from '../data/herbs/herbsfull'; // Adjust path if needed
+import { herbs } from '../data/masterList'; // Adjust path if needed
 import HerbCardAccordion from '../components/HerbCardAccordion';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 

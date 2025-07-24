@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Herb } from '../types'
-import { herbs } from '../data/herbs/herbsfull'
+import { herbs } from '../data/masterList'
 
 export function useHerbs(): Herb[] {
   const [herbList] = React.useState<Herb[]>(() => {
