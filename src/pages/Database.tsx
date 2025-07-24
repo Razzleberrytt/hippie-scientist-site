@@ -17,9 +17,17 @@ import { Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
+import { LoadingScreen } from '../components/LoadingScreen'
 
 export default function Database() {
-  const herbs = useHerbs()
+  const { herbs, loading, error } = useHerbs()
+  if (loading) return <LoadingScreen />
+  if (error)
+    return (
+      <div className='min-h-screen px-4 pt-20 text-center'>
+        <p className='text-red-500'>Failed to load herb data.</p>
+      </div>
+    )
   const safeHerbs = React.useMemo(() => {
     const isValid = (h: any) =>
       h &&
