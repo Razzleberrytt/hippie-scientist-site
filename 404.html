@@ -3,8 +3,11 @@
   <head>
     <meta http-equiv="refresh" content="0; url=/" />
     <script>
-      const redirectTo = sessionStorage.redirectTo || '/';
-      window.location.replace(redirectTo);
+      const target =
+        sessionStorage.redirectTo ||
+        window.location.pathname + window.location.search + window.location.hash;
+      const url = '/?redirect=' + encodeURIComponent(target);
+      window.location.replace(url);
     </script>
   <link rel="manifest" href="/manifest.webmanifest"></head>
 </html>
