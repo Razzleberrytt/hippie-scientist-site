@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/learn', label: 'Learn' },
-    { path: '/database', label: 'Database' },
+    { path: '/herbs', label: 'Herbs' },
     { path: '/blend', label: '🧪 Blend Builder', icon: FlaskConical },
     { path: '/research', label: 'Research' },
     { path: '/favorites', label: 'Favorites', icon: Star },
