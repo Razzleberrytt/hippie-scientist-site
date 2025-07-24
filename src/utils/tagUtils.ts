@@ -34,7 +34,8 @@ export const tagAliasMap: Record<string, string> = {
   nootropic: 'stimulant',
 }
 
-export function canonicalTag(tag: string): string {
+export function canonicalTag(tag?: string): string {
+  if (typeof tag !== 'string') return ''
   const decoded = decodeTag(tag).toLowerCase().trim()
   return tagAliasMap[decoded] || decoded
 }

@@ -7,7 +7,8 @@ export default function CategoryAnalytics() {
   const counts = React.useMemo(() => {
     const c: Record<string, number> = {}
     herbs.forEach(h => {
-      const main = h.category.split('/')[0].trim()
+      const raw = typeof h.category === 'string' ? h.category : 'Unknown'
+      const main = raw.split('/')[0].trim()
       c[main] = (c[main] || 0) + 1
     })
     return c

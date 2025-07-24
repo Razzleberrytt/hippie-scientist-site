@@ -6,12 +6,21 @@ import HerbCardAccordion from '../components/HerbCardAccordion'
 import TagBadge from '../components/TagBadge'
 import { useHerbs } from '../hooks/useHerbs'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import { LoadingScreen } from '../components/LoadingScreen'
 
 export default function HerbBlender() {
-  const herbs = useHerbs()
+  const { herbs, loading, error } = useHerbs()
   const [input, setInput] = React.useState('')
   const [selected, setSelected] = React.useState<string[]>([])
   const [saved, setSaved] = useLocalStorage<string[][]>('savedBlends', [])
+
+  if (loading) return <LoadingScreen />
+  if (error)
+    return (
+      <div className='min-h-screen px-4 pt-20 text-center'>
+        <p className='text-red-500'>Failed to load herb data.</p>
+      </div>
+    )
 
   const addHerb = () => {
     const h = herbs.find(
