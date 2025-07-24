@@ -1,6 +1,8 @@
 # The Hippie Scientist
 
-this shit is always broke. This project is a Vite + React + TypeScript site exploring herbal and psychedelic education. It uses Tailwind CSS for styling and framer-motion for animations.
+This project is a Vite + React + TypeScript site exploring herbal and psychedelic education. It uses Tailwind CSS for styling and framer-motion for animations.
+
+Robust data validation scripts and runtime checks help prevent malformed entries from crashing the site. If validation fails during CI the build will stop, ensuring only clean data is deployed.
 
 Recent updates introduced an expanded Learn section, a dedicated About page and a placeholder Store for future merchandise. The navigation bar was rebuilt for better responsiveness and easier access to these pages.
 
@@ -21,7 +23,8 @@ Additional scripts are available:
 - `npm run build` – build the site for production
 - `npm run preview` – preview the production build
 - `npm run deploy` – publish the `dist/` folder to GitHub Pages
-- `npm test` – placeholder script
+- `npm test` – run the vitest suite
+- `npm run validate-herbs` – verify herb data integrity
 
 ## Project Structure
 
