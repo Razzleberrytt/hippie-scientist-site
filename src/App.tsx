@@ -1,6 +1,6 @@
 import React from 'react'
 import HerbDetailPage from './pages/HerbDetailPage';
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { Suspense } from 'react'
 import { LoadingScreen } from './components/LoadingScreen'
 import Navbar from './components/Navbar'
@@ -15,7 +15,6 @@ const NotFound = React.lazy(() => import('./pages/NotFound'))
 const Learn = React.lazy(() => import('./pages/Learn'))
 const Lesson = React.lazy(() => import('./pages/Lesson'))
 const About = React.lazy(() => import('./pages/About'))
-const Herbs = React.lazy(() => import('./pages/Herbs'))
 const Database = React.lazy(() => import('./pages/Database'))
 const Store = React.lazy(() => import('./pages/Store'))
 const Research = React.lazy(() => import('./pages/Research'))
@@ -37,8 +36,7 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/learn' element={<Learn />} />
             <Route path='/learn/:slug' element={<Lesson />} />
-              <Route path='/database' element={<Navigate to='/herbs' replace />} />
-              <Route path='/herbs' element={<Herbs />} />
+            <Route path='/database' element={<Database />} />
             <Route path='/favorites' element={<Favorites />} />
             <Route path='/research' element={<Research />} />
             <Route path='/herbs/:herbId' element={<HerbCardPage />} />
