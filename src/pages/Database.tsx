@@ -20,6 +20,17 @@ import { getLocal, setLocal } from '../utils/localStorage'
 
 export default function Database() {
   const herbs = useHerbs()
+  const safeHerbs = React.useMemo(
+    () =>
+      herbs.filter(
+        h =>
+          h &&
+          typeof h.name === 'string' &&
+          typeof h.slug === 'string' &&
+          Array.isArray(h.effects)
+      ),
+    [herbs]
+  )
   const { favorites } = useHerbFavorites()
   const {
     filtered,
@@ -36,7 +47,7 @@ export default function Database() {
     sort,
     setSort,
     fuse,
-  } = useFilteredHerbs(herbs, { favorites })
+  } = useFilteredHerbs(safeHerbs, { favorites })
 
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -67,17 +78,19 @@ export default function Database() {
   }, [])
 
   const allTags = React.useMemo(() => {
-    const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
+    const t = safeHerbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
     return Array.from(new Set(t.map(canonicalTag)))
-  }, [herbs])
+  }, [safeHerbs])
 
   const summary = React.useMemo(() => {
-    const affiliates = herbs.filter(
+    const affiliates = safeHerbs.filter(
       h => h.affiliateLink && h.affiliateLink.startsWith('http')
     ).length
-    const moaCount = herbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
-    return { total: herbs.length, affiliates, moaCount }
-  }, [herbs])
+    const moaCount = safeHerbs.filter(
+      h => h.mechanismOfAction && h.mechanismOfAction.trim()
+    ).length
+    return { total: safeHerbs.length, affiliates, moaCount }
+  }, [safeHerbs])
 
   const toggleTag = React.useCallback(
     (tag: string) =>
@@ -222,7 +235,18 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          <HerbList herbs={filtered} highlightQuery={query} />
+          {(() => {
+            try {
+              return <HerbList herbs={filtered} highlightQuery={query} />
+            } catch (err) {
+              console.error('Failed to render herb list', err)
+              return (
+                <p className='text-center text-red-500'>
+                  Error loading herb entries.
+                </p>
+              )
+            }
+          })()}
           <footer className='mt-4 text-center text-sm text-moss'>
             Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
             {summary.moaCount} · Updated: {new Date(__BUILD_TIME__).toLocaleDateString()}
