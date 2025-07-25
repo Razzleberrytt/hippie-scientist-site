@@ -30,6 +30,7 @@ export default function Hero() {
               The Hippie Scientist
             </h1>
             <p className='text-opal text-base sm:text-lg md:text-xl'>Psychedelic Botany &amp; Conscious Exploration</p>
+            <p className='text-sand text-sm sm:text-base md:text-lg'>Dive into a growing library of herbs, research and DIY blend guides.</p>
           </motion.div>
 
           <div className='mt-2 flex justify-center'>
