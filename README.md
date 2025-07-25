@@ -23,6 +23,7 @@ Additional scripts are available:
 - `npm run build` – build the site for production
 - `npm run preview` – preview the production build
 - `npm run deploy` – publish the `dist/` folder to GitHub Pages
+- Make sure `404.html` is deployed as well so direct links like `/database` work.
 - `npm test` – run the vitest suite
 - `npm run validate-herbs` – verify herb data integrity
 
