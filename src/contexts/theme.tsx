@@ -36,8 +36,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     document.body.classList.remove('light', 'dark')
     document.documentElement.classList.add(theme)
     document.body.classList.add(theme)
-    // ensure psychedelic gradient background is always applied
-    document.body.classList.add('psychedelic-bg')
+    if (theme === 'dark') {
+      document.body.classList.add('psychedelic-bg')
+    } else {
+      document.body.classList.remove('psychedelic-bg')
+    }
   }, [])
 
   // Update DOM and localStorage on theme change
