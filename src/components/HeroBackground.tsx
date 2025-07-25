@@ -50,7 +50,7 @@ const HeroBackground: React.FC = () => {
         />
       ))}
       <motion.div
-        className='bg-sunset-gradient animate-gradient absolute inset-0'
+        className='bg-cosmic-forest animate-gradient absolute inset-0'
         style={{ x: parallaxX, y: parallaxY }}
       />
     </motion.div>
