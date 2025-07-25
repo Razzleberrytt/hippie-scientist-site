@@ -1,8 +1,6 @@
 # The Hippie Scientist
 
-This project is a Vite + React + TypeScript site exploring herbal and psychedelic education. It uses Tailwind CSS for styling and framer-motion for animations.
-
-Robust data validation scripts and runtime checks help prevent malformed entries from crashing the site. If validation fails during CI the build will stop, ensuring only clean data is deployed.
+this shit is always broke. This project is a Vite + React + TypeScript site exploring herbal and psychedelic education. It uses Tailwind CSS for styling and framer-motion for animations.
 
 Recent updates introduced an expanded Learn section, a dedicated About page and a placeholder Store for future merchandise. The navigation bar was rebuilt for better responsiveness and easier access to these pages.
 
@@ -23,20 +21,11 @@ Additional scripts are available:
 - `npm run build` – build the site for production
 - `npm run preview` – preview the production build
 - `npm run deploy` – publish the `dist/` folder to GitHub Pages
-- Make sure `404.html` is deployed as well so direct links like `/database` work.
-- `npm test` – run the vitest suite
-- `npm run validate-herbs` – verify herb data integrity
+- `npm test` – placeholder script
 
 ## Project Structure
 
 Source files live in `src/`. Pages are under `src/pages` and reusable components are in `src/components`. Production assets are generated into `dist/` during the build process.
-
-## Data Source
-
-Herb entries are loaded from `public/database.json`. When running under Vite or
-Create React App this file is served statically from the `public` folder. If you
-deploy the front‑end behind a custom backend make sure this JSON file is served
-at the site root (`/database.json`).
 
 ## Features
 

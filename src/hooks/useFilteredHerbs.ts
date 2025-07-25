@@ -7,8 +7,7 @@ interface Options {
   favorites?: string[]
 }
 
-export function metaCategory(cat?: string): string {
-  if (typeof cat !== 'string') return 'Other'
+export function metaCategory(cat: string): string {
   const c = cat.toLowerCase()
   if (/(empathogen|euphoriant)/.test(c)) return 'Empathogen'
   if (/(psychedelic|visionary)/.test(c)) return 'Psychedelic'

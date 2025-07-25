@@ -11,20 +11,9 @@ export default function ScrollToTopButton() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    const title = document.getElementById('site-title')
-    if (title) {
-      title.animate(
-        [{ transform: 'scale(1)' }, { transform: 'scale(1.1)' }, { transform: 'scale(1)' }],
-        { duration: 600, easing: 'ease-out' }
-      )
-    }
-  }
-
   return (
     <motion.button
-      onClick={handleClick}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       initial={{ opacity: 0 }}
       animate={{ opacity: visible ? 1 : 0 }}
       className='bounce fixed bottom-6 right-6 z-40 rounded-full bg-psychedelic-purple p-3 text-white shadow-lg hover:scale-105'

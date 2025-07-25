@@ -9,10 +9,8 @@ interface Props {
 
 function generateName(herbs: Herb[]): string {
   if (herbs.length === 0) return 'Your Custom Blend'
-  const parts = herbs
-    .map(h => (h.name || '').split(' ')[0])
-    .filter(Boolean)
-  return parts.length ? parts.join(' ') + ' Fusion' : 'Your Custom Blend'
+  const parts = herbs.map(h => h.name.split(' ')[0])
+  return parts.join(' ') + ' Fusion'
 }
 
 function generateSummary(herbs: Herb[]): string {

@@ -14,48 +14,23 @@ const itemVariants = {
 }
 
 interface Props {
-  herbs?: Herb[] | null
+  herbs: Herb[]
   highlightQuery?: string
   batchSize?: number
 }
-
-const isValidHerb = (h: any): h is Herb =>
-  h && typeof h.name === 'string' && typeof h.id === 'string' && Array.isArray(h.effects)
-
 const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 }) => {
-  const list = React.useMemo(() => {
-    if (!Array.isArray(herbs)) return [] as Herb[]
-    return herbs.filter(isValidHerb)
-  }, [herbs])
-
-  const invalid = React.useMemo(() => {
-    if (!Array.isArray(herbs)) return [] as Herb[]
-    return herbs.filter(h => !isValidHerb(h))
-  }, [herbs])
-
   const [visible, setVisible] = React.useState(batchSize)
 
-  const showMore = () => setVisible(v => Math.min(v + batchSize, list.length))
+  const showMore = () => setVisible(v => Math.min(v + batchSize, herbs.length))
 
-  if (!Array.isArray(herbs)) {
-    return <p className='text-center text-red-500'>Herb data unavailable.</p>
-  }
-
-  if (invalid.length) {
-    console.error('Invalid herb data passed to HerbList:', invalid)
-    return (
-      <p className='text-center text-red-500'>Error loading herb entries.</p>
-    )
-  }
-
-  if (list.length === 0) {
+  if (herbs.length === 0) {
     return <p className='text-center text-sand/80'>No herbs match your search.</p>
   }
 
   return (
     <>
       <motion.div
-        key={list.map(h => h.id).join('-')}
+        key={herbs.map(h => h.id).join('-')}
         layout
         variants={containerVariants}
         initial='hidden'
@@ -63,14 +38,14 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
         className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
       >
         <AnimatePresence>
-          {list.slice(0, visible).map(h => (
+          {herbs.slice(0, visible).map(h => (
             <motion.div key={h.id || h.name} variants={itemVariants} layout>
               <HerbCardAccordion herb={h} highlight={highlightQuery} />
             </motion.div>
           ))}
         </AnimatePresence>
       </motion.div>
-      {visible < list.length && (
+      {visible < herbs.length && (
         <div className='mt-6 text-center'>
           <button
             type='button'

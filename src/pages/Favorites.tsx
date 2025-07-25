@@ -3,21 +3,12 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import HerbList from '../components/HerbList'
 import { useHerbs } from '../hooks/useHerbs'
-import { LoadingScreen } from '../components/LoadingScreen'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { motion } from 'framer-motion'
 
 export default function Favorites() {
-  const { herbs, loading, error } = useHerbs()
+  const herbs = useHerbs()
   const { favorites } = useHerbFavorites()
-
-  if (loading) return <LoadingScreen />
-  if (error)
-    return (
-      <div className='min-h-screen px-4 pt-20 text-center'>
-        <p className='text-red-500'>Failed to load herb data.</p>
-      </div>
-    )
 
   const favoriteHerbs = React.useMemo(
     () => herbs.filter(h => favorites.includes(h.id)),

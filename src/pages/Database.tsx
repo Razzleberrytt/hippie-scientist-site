@@ -17,31 +17,9 @@ import { Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
-import { LoadingScreen } from '../components/LoadingScreen'
 
 export default function Database() {
-  const { herbs, loading, error } = useHerbs()
-  if (loading) return <LoadingScreen />
-  if (error)
-    return (
-      <div className='min-h-screen px-4 pt-20 text-center'>
-        <p className='text-red-500'>Failed to load herb data.</p>
-      </div>
-    )
-  const safeHerbs = React.useMemo(() => {
-    const isValid = (h: any) =>
-      h &&
-      typeof h.name === 'string' &&
-      typeof h.slug === 'string' &&
-      Array.isArray(h.tags) &&
-      Array.isArray(h.effects)
-
-    const invalid = herbs.filter(h => !isValid(h))
-    if (invalid.length) {
-      console.error('Filtered invalid herb entries:', invalid)
-    }
-    return herbs.filter(isValid)
-  }, [herbs])
+  const herbs = useHerbs()
   const { favorites } = useHerbFavorites()
   const {
     filtered,
@@ -58,7 +36,7 @@ export default function Database() {
     sort,
     setSort,
     fuse,
-  } = useFilteredHerbs(safeHerbs, { favorites })
+  } = useFilteredHerbs(herbs, { favorites })
 
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -89,19 +67,17 @@ export default function Database() {
   }, [])
 
   const allTags = React.useMemo(() => {
-    const t = safeHerbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
+    const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
     return Array.from(new Set(t.map(canonicalTag)))
-  }, [safeHerbs])
+  }, [herbs])
 
   const summary = React.useMemo(() => {
-    const affiliates = safeHerbs.filter(
+    const affiliates = herbs.filter(
       h => h.affiliateLink && h.affiliateLink.startsWith('http')
     ).length
-    const moaCount = safeHerbs.filter(
-      h => h.mechanismOfAction && h.mechanismOfAction.trim()
-    ).length
-    return { total: safeHerbs.length, affiliates, moaCount }
-  }, [safeHerbs])
+    const moaCount = herbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
+    return { total: herbs.length, affiliates, moaCount }
+  }, [herbs])
 
   const toggleTag = React.useCallback(
     (tag: string) =>
@@ -109,19 +85,17 @@ export default function Database() {
     [setFilteredTags]
   )
 
-  const invalidCount = herbs.length - safeHerbs.length
-
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
 
   React.useEffect(() => {
-    const last = { current: window.scrollY }
+    let last = window.scrollY
     const onScroll = () => {
       const cur = window.scrollY
-      setShowBar(cur < last.current || cur < 100)
-      last.current = cur
+      setShowBar(cur < last || cur < 100)
+      last = cur
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -129,8 +103,8 @@ export default function Database() {
     const close = () => {
       if (window.scrollY > 150) setFiltersOpen(false)
     }
-    window.addEventListener('scroll', close, { passive: true })
-    window.addEventListener('touchmove', close, { passive: true })
+    window.addEventListener('scroll', close)
+    window.addEventListener('touchmove', close)
     return () => {
       window.removeEventListener('scroll', close)
       window.removeEventListener('touchmove', close)
@@ -248,23 +222,7 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          {invalidCount > 0 && (
-            <p className='mb-2 rounded-md border border-red-500/40 bg-red-500/10 p-2 text-center text-sm text-red-300'>
-              {invalidCount} entries contained errors and were hidden. Please report this issue.
-            </p>
-          )}
-          {(() => {
-            try {
-              return <HerbList herbs={filtered} highlightQuery={query} />
-            } catch (err) {
-              console.error('Failed to render herb list', err)
-              return (
-                <p className='text-center text-red-500'>
-                  Error loading herb entries.
-                </p>
-              )
-            }
-          })()}
+          <HerbList herbs={filtered} highlightQuery={query} />
           <footer className='mt-4 text-center text-sm text-moss'>
             Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
             {summary.moaCount} · Updated: {new Date(__BUILD_TIME__).toLocaleDateString()}

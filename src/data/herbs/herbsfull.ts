@@ -42,111 +42,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "achillea-millefolium",
-    "name": "Yarrow",
-    "slug": "achillea-millefolium",
-    "scientificName": "Achillea millefolium",
-    "category": "Astringent / Anti-inflammatory / Wound Care / Traditional European",
-    "effects": [
-      "Wound healing",
-      "Fever reduction",
-      "Digestive support",
-      "Circulatory modulation"
-    ],
-    "description": "Named after Achilles, who used it to treat battlefield wounds, yarrow is a classic herb for bleeding, inflammation, and fevers. It's used internally for digestion and externally for cuts, bruises, and nosebleeds.",
-    "mechanismOfAction": "Rich in flavonoids, alkaloids, sesquiterpene lactones, and salicylic acid derivatives. Acts as an anti-inflammatory, astringent, and mild diaphoretic.",
-    "pharmacokinetics": "Orally and topically active. Onset varies; anti-inflammatory and diaphoretic effects noticeable within 30–60 min.",
-    "therapeuticUses": "Used for wounds, bleeding, fevers, GI discomfort, menstrual cramps, and varicose veins. Traditionally applied as poultice or tea.",
-    "sideEffects": "Mild allergic reactions possible in sensitive individuals. Large internal doses may upset digestion.",
-    "contraindications": "Avoid during pregnancy due to potential uterine stimulation. Caution in ragweed-allergic individuals.",
-    "drugInteractions": "Mild interactions with anticoagulants or NSAIDs possible.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well established (safe in traditional use)",
-    "preparation": "Infusion, tincture, poultice, sitz bath, or salve. Dried flowers and leaves used.",
-    "onset": "30–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, North America, temperate Asia",
-    "compounds": [
-      "Thujone"
-    ],
-    "tags": [
-      "🩸 Astringent",
-      "🌿 Wound care",
-      "🔥 Anti-inflammatory",
-      "🧘 Menstrual"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6331677/",
-      "British Herbal Compendium",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "acmella-oleracea",
-    "name": "Toothache Plant",
-    "slug": "acmella-oleracea",
-    "scientificName": "Acmella oleracea",
-    "category": "Analgesic / Salivary stimulant / Traditional Amazonian",
-    "effects": [
-      "Numbing",
-      "Tingling",
-      "Salivation",
-      "Immune support"
-    ],
-    "description": "Famous for its electric tingle, spilanthes is traditionally used for dental pain, infections, and immune stimulation. Its 'buzz buttons' offer a unique sensory experience and are increasingly used in mixology and herbalism.",
-    "mechanismOfAction": "Spilanthol (an alkamide) activates TRPV1 channels, producing a tingling and numbing sensation. Also shown to enhance immune response and have antibacterial activity.",
-    "pharmacokinetics": "Topical and oral. Effects onset rapidly (seconds–minutes), lasting ~20–40 min. Systemic immune effects build over time.",
-    "therapeuticUses": "Used for toothache, sore throat, ulcers, immune support, dry mouth, and topical infections.",
-    "sideEffects": "Mouth tingling, temporary numbness, increased salivation. Rare allergic reaction.",
-    "contraindications": "Avoid in pregnancy and with hypotension. May increase absorption of co-administered compounds.",
-    "drugInteractions": "May interact with blood pressure or CNS-active drugs due to salivation and mucosal absorption.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not fully established; high traditional safety margin",
-    "preparation": "Chewed fresh flower buds, tincture, teas, or topical ointments.",
-    "onset": "1–5 min",
-    "intensity": "Moderate–Strong (topical), Mild (systemic)",
-    "legalStatus": "Legal worldwide",
-    "region": "South America, widely cultivated",
-    "tags": [
-      "⚡ Tingling",
-      "🦷 Tooth pain",
-      "🧪 Immune tonic",
-      "💧 Salivary"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3817685/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "acorus-americanus",
-    "name": "Acorus americanus",
-    "slug": "acorus-americanus",
-    "scientificName": "Acorus americanus",
-    "category": "Ethnobotanical",
-    "effects": [
-      "alertness",
-      "mental clarity",
-      "mild euphoria"
-    ],
-    "description": "American Sweet Flag, native to North America, used by indigenous groups for its psychoactive and stimulant properties.",
-    "mechanismOfAction": "Cholinergic + dopaminergic modulation",
-    "region": "North America",
-    "compounds": [
-      "Alpha-asarone"
-    ],
-    "tags": [
-      "native medicine",
-      "calamus species",
-      "uplifting"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "acorus-calamus",
     "name": "Acorus calamus",
     "slug": "acorus-calamus",
@@ -221,69 +116,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6383205/",
       "PubChem CID: 73568",
       "Botanical Safety Handbook, 2nd ed."
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "acorus-calamus",
-    "name": "Calamus",
-    "slug": "acorus-calamus",
-    "scientificName": "Acorus calamus",
-    "category": "Stimulant / Cognition / Traditional Medicine",
-    "effects": [
-      "Mental clarity",
-      "Energy",
-      "Dream enhancement",
-      "Sensory sharpening"
-    ],
-    "description": "A fragrant wetland root used for thousands of years in Ayurveda and Native American medicine. Calamus was historically chewed for clarity, speech enhancement, and visionary dreaming. Contains essential oils with psychoactive potential.",
-    "mechanismOfAction": "Contains beta-asarone (in some varieties), which may modulate dopamine and GABA. Other components affect cholinergic systems and mucosal stimulation.",
-    "pharmacokinetics": "Chewed or brewed. Onset 20–45 min. Duration ~2–4 hrs depending on preparation.",
-    "therapeuticUses": "Used for digestion, stammering, low energy, lucid dreams, and as a mild stimulant and anti-anxiety remedy.",
-    "sideEffects": "Nausea, dizziness, dry mouth. High doses or frequent use may be carcinogenic (β-asarone).",
-    "contraindications": "Avoid during pregnancy, in large doses, or with CNS-active drugs. North American varieties may be safer (β-asarone-free).",
-    "drugInteractions": "May interact with sedatives, stimulants, or SSRIs.",
-    "toxicity": "Low in small doses; concern with β-asarone content in some strains (carcinogenic in rodents).",
-    "toxicityLD50": "β-asarone: ~250 mg/kg (rats, oral)",
-    "preparation": "Dried root chewed, tinctured, or brewed. Some use as incense or powder.",
-    "onset": "20–45 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Banned as food additive in U.S. (β-asarone); otherwise legal",
-    "region": "India, North America, Europe",
-    "tags": [
-      "🧠 Clarity",
-      "🗣️ Speech",
-      "🌿 Root",
-      "🌙 Dreamwork"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3459452/",
-      "Plants of the Gods – Rätsch",
-      "Ayurvedic Pharmacopoeia of India"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "acorus-calamus-angustatus",
-    "name": "Acorus calamus var. angustatus",
-    "slug": "acorus-calamus-angustatus",
-    "scientificName": "Acorus calamus var. angustatus",
-    "category": "Ethnobotanical",
-    "effects": [
-      "trance",
-      "mental clarity",
-      "light hallucinations"
-    ],
-    "description": "A rare calamus variant high in beta-asarone, used in Tibetan medicine and ritual incense.",
-    "mechanismOfAction": "GABAergic + cholinergic",
-    "region": "Himalayas",
-    "compounds": [
-      "Beta-asarone"
-    ],
-    "tags": [
-      "ritual",
-      "variant",
-      "aromatic stimulant"
     ],
     "needsReview": false
   },
@@ -402,45 +234,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "aegle-marmelos",
-    "name": "Bael Fruit",
-    "slug": "aegle-marmelos",
-    "scientificName": "Aegle marmelos",
-    "category": "Digestive / Antimicrobial / Ayurvedic",
-    "effects": [
-      "Digestive regulation",
-      "Gut lining protection",
-      "Mild calm",
-      "Antibacterial"
-    ],
-    "description": "A revered Ayurvedic plant, bael fruit is traditionally used to treat diarrhea, IBS, and digestive inflammation. Its dry pulp is highly astringent and cooling to the GI tract.",
-    "mechanismOfAction": "Tannins, coumarins, and marmelosin exert anti-inflammatory, antimicrobial, and gut-protective actions. Some sedative action via flavonoids.",
-    "pharmacokinetics": "Orally active. Onset ~1 hr. Best taken dried and powdered. Supports chronic gut issues.",
-    "therapeuticUses": "Used for dysentery, chronic diarrhea, colitis, ulcers, and indigestion. Occasionally for mild anxiety and detox blends.",
-    "sideEffects": "Overuse may cause constipation. Rare allergic rash.",
-    "contraindications": "Not for use during severe constipation or intestinal obstruction.",
-    "drugInteractions": "May delay absorption of other drugs due to astringency.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not fully documented",
-    "preparation": "Dried fruit powder, infusion, or decoction. Also used in Ayurvedic jams and tonics.",
-    "onset": "30–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "India, Southeast Asia",
-    "tags": [
-      "🍐 Gut tonic",
-      "🛡️ Astringent",
-      "🌿 Ayurvedic",
-      "🧘 Calm GI"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3665195/",
-      "Ayurvedic Pharmacopoeia of India",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "african-dream-root",
     "name": "African Dream Root",
     "slug": "african-dream-root",
@@ -553,31 +346,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "aloysia-citrodora",
-    "name": "Aloysia citrodora",
-    "slug": "aloysia-citrodora",
-    "scientificName": "Aloysia citrodora",
-    "category": "Ethnobotanical",
-    "effects": [
-      "calm",
-      "relaxation",
-      "light euphoria"
-    ],
-    "description": "Lemon Verbena, a gentle herbal tea with calming and mood-lifting effects.",
-    "mechanismOfAction": "GABAergic + serotonergic",
-    "region": "South America",
-    "compounds": [
-      "Citral",
-      "Verbascoside"
-    ],
-    "tags": [
-      "tea",
-      "folk remedy",
-      "calming"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "alpinia-galanga",
     "name": "Alpinia galanga",
     "slug": "alpinia-galanga",
@@ -612,84 +380,6 @@ export const herbs: Herb[] = [
       "https://pubmed.ncbi.nlm.nih.gov/20428007/",
       "Phytomedicine. 2005",
       "Ayurvedic Materia Medica"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "althaea-officinalis",
-    "name": "Marshmallow Root",
-    "slug": "althaea-officinalis",
-    "scientificName": "Althaea officinalis",
-    "category": "Demulcent / Soothing / Respiratory",
-    "effects": [
-      "Soothes throat",
-      "Eases cough",
-      "Reduces inflammation",
-      "Digestive calm"
-    ],
-    "description": "A classic mucilaginous herb known for its thick, slippery root extract. Marshmallow has been used for centuries to coat and soothe mucous membranes, especially in the respiratory and digestive tracts.",
-    "mechanismOfAction": "High mucilage content coats inflamed tissues, reducing irritation and inflammation. Also mildly antibacterial and immunomodulatory.",
-    "pharmacokinetics": "Best in cold water infusions. Onset within 30 min, duration several hours depending on application.",
-    "therapeuticUses": "Used for sore throat, dry cough, GERD, stomach ulcers, and irritated urinary tract. Also applied externally to wounds.",
-    "sideEffects": "Very rare. May slow absorption of medications if taken simultaneously.",
-    "contraindications": "Take medications 1–2 hrs apart. Avoid if allergic to other mucilaginous herbs.",
-    "drugInteractions": "May delay absorption of oral drugs.",
-    "toxicity": "Extremely low.",
-    "toxicityLD50": ">5000 mg/kg (rats, oral)",
-    "preparation": "Cold infusion, syrup, powder, or tincture. Also used in lozenges and teas.",
-    "onset": "20–40 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, Middle East, North America",
-    "tags": [
-      "🫖 Soothing",
-      "🫁 Throat",
-      "🩹 Demulcent",
-      "🌿 Digestive"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5452227/",
-      "British Herbal Compendium",
-      "Herbal Medicine – Mills & Bone"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "althaea-officinalis",
-    "name": "Marshmallow Root",
-    "slug": "althaea-officinalis",
-    "scientificName": "Althaea officinalis",
-    "category": "Soothing / Demulcent / Respiratory & Digestive",
-    "effects": [
-      "Mucosal soothing",
-      "Cough relief",
-      "Gut lining protection",
-      "Anti-inflammatory"
-    ],
-    "description": "A gentle mucilaginous herb used for centuries to soothe inflamed tissues. Traditionally used for sore throats, dry coughs, ulcers, and gut irritation.",
-    "mechanismOfAction": "High mucilage content coats mucous membranes, reducing irritation and inflammation. Polysaccharides modulate immune response.",
-    "pharmacokinetics": "Orally active. Mucilage begins acting within minutes. Optimal when steeped in cold or warm water.",
-    "therapeuticUses": "Used for dry coughs, GERD, ulcers, IBS, urinary irritation, and as a throat soother. Often part of cough syrups and gut blends.",
-    "sideEffects": "Very rare. May slow absorption of other drugs.",
-    "contraindications": "Space from medications by 1–2 hours.",
-    "drugInteractions": "May reduce absorption of oral meds due to mucilage coating.",
-    "toxicity": "Very low",
-    "toxicityLD50": ">5000 mg/kg (oral, rats)",
-    "preparation": "Cold infusion, decoction, capsules, or syrup. Roots preferred, but leaves used too.",
-    "onset": "5–30 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, Western Asia",
-    "tags": [
-      "🩹 Mucosal",
-      "🫁 Cough",
-      "🌿 Soothing",
-      "🧃 Gut tonic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5652215/",
-      "British Herbal Pharmacopoeia",
-      "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
   },
@@ -735,30 +425,6 @@ export const herbs: Herb[] = [
       "Erowid Amanita Vault",
       "Journal of Ethnopharmacology, 2008",
       "Toxicological Profile: Muscimol & Ibotenic Acid (NIH)"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "amorpha-fruticosa",
-    "name": "Amorpha fruticosa",
-    "slug": "amorpha-fruticosa",
-    "scientificName": "Amorpha fruticosa",
-    "category": "Ethnobotanical",
-    "effects": [
-      "relaxation",
-      "mental softening",
-      "trance"
-    ],
-    "description": "False Indigo Bush, native to North America, was historically smoked for relaxation and vision-induction.",
-    "mechanismOfAction": "Likely GABAergic",
-    "region": "North America",
-    "compounds": [
-      "Amorphigenin"
-    ],
-    "tags": [
-      "folk",
-      "smokable",
-      "visionary"
     ],
     "needsReview": false
   },
@@ -849,123 +515,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "anadenanthera-peregrina",
-    "name": "Yopo",
-    "slug": "anadenanthera-peregrina",
-    "scientificName": "Anadenanthera peregrina",
-    "category": "Entheogen / Psychedelic Snuff / Traditional Amazonian",
-    "effects": [
-      "Visionary states",
-      "Euphoria",
-      "Rapid onset",
-      "Sensory distortion"
-    ],
-    "description": "A South American tree whose seeds contain bufotenine, DMT, and related alkaloids. Yopo is traditionally prepared as a snuff and blown into the nose during tribal ceremonies to induce intense visions.",
-    "mechanismOfAction": "Contains 5-HO-DMT (bufotenine), DMT, and 5-MeO-DMT. Agonizes 5-HT2A, 5-HT1A receptors causing psychedelic and somatic effects. Often used with lime or ash to enhance absorption.",
-    "pharmacokinetics": "Intranasal/snuffed. Onset in seconds to minutes. Duration 15–60 minutes. Oral use inactive unless combined with MAOI.",
-    "therapeuticUses": "Used traditionally for shamanic journeying, spirit contact, emotional release, and as a purge or cleansing rite.",
-    "sideEffects": "Strong body load, nausea, fear, cardiovascular strain. Bufotenine may cause vasoconstriction and cyanosis.",
-    "contraindications": "Not for unsupervised use. Avoid with heart conditions, psychiatric meds, MAOIs, or SSRIs.",
-    "drugInteractions": "May dangerously interact with serotonergic drugs, especially MAOIs.",
-    "toxicity": "Moderate. Bufotenine may cause toxic symptoms in high doses.",
-    "toxicityLD50": "Bufotenine ~200 mg/kg (mice, IP)",
-    "preparation": "Seeds are toasted, powdered, and mixed with lime or ash. Snuffed using reed or blown via pipe (tepi).",
-    "onset": "Immediate–5 min",
-    "intensity": "Strong",
-    "legalStatus": "Illegal in some countries due to DMT/bufotenine content",
-    "region": "Venezuela, Colombia, Brazil",
-    "tags": [
-      "🌬️ Snuff",
-      "🌌 Visionary",
-      "🌿 Amazon",
-      "🌀 Entheogen"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4495343/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Psychoactive Drugs, 2004"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "anadenanthera-peregrina",
-    "name": "Yopo",
-    "slug": "anadenanthera-peregrina",
-    "scientificName": "Anadenanthera peregrina",
-    "category": "Psychedelic / Shamanic / Snuff",
-    "effects": [
-      "Euphoria",
-      "Visionary state",
-      "Dissociation",
-      "Altered time perception"
-    ],
-    "description": "Used by South American tribes in snuff rituals, yopo contains powerful tryptamines like bufotenine and 5-MeO-DMT. The powdered seeds are blown into the nose in communal ceremonies for visions and communication with spirits.",
-    "mechanismOfAction": "Bufotenine, DMT, and 5-MeO-DMT are serotonergic psychedelics acting on 5-HT2A and related receptors. Rapid onset with intense psychological and somatic effects.",
-    "pharmacokinetics": "Insufflated. Onset 1–5 min. Duration 20–60 min. Often intense and uncomfortable without ritual context.",
-    "therapeuticUses": "Traditionally used for divination, healing ceremonies, and spiritual initiation. Limited Western therapeutic context due to intensity.",
-    "sideEffects": "Intense nasal burn, nausea, anxiety, tachycardia, visual and somatic distortions. Vomiting common.",
-    "contraindications": "Heart conditions, psychiatric disorders, or use without preparation. Not for casual use.",
-    "drugInteractions": "Dangerous with MAOIs, SSRIs, or other serotonergic agents.",
-    "toxicity": "High potential for adverse reaction",
-    "toxicityLD50": "Unknown; active at milligram levels",
-    "preparation": "Roasted and powdered seeds mixed with lime or ash. Blown into nose using pipes or tubes.",
-    "onset": "1–5 min",
-    "intensity": "Strong–Extreme",
-    "legalStatus": "Restricted in many countries (due to DMT/5-MeO-DMT content)",
-    "region": "South America, Caribbean (Orinoco basin, Brazil, Venezuela)",
-    "tags": [
-      "🌀 Psychedelic",
-      "🌬️ Snuff",
-      "🧠 Tryptamine",
-      "🌿 Shamanic"
-    ],
-    "sources": [
-      "https://erowid.org/plants/anadenanthera/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Psychedelic Studies"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "arctostaphylos-uva-ursi",
-    "name": "Uva Ursi",
-    "slug": "arctostaphylos-uva-ursi",
-    "scientificName": "Arctostaphylos uva-ursi",
-    "category": "Urinary / Antiseptic / Astringent",
-    "effects": [
-      "Urinary tract support",
-      "Astringent",
-      "Anti-inflammatory",
-      "Antibacterial"
-    ],
-    "description": "A low-growing evergreen shrub used traditionally for urinary tract infections and kidney health. Its leaves contain arbutin, which converts to hydroquinone in the bladder and acts as a urinary antiseptic.",
-    "mechanismOfAction": "Arbutin is hydrolyzed into hydroquinone in the urinary tract, which exerts antimicrobial activity. Tannins also provide astringent effects to mucous membranes.",
-    "pharmacokinetics": "Arbutin is absorbed, metabolized by the liver, and excreted into the urine. Onset ~1–2 hrs. Duration varies.",
-    "therapeuticUses": "Used for cystitis, urethritis, bladder infections, and general urinary tract irritation. Often used in short-term protocols.",
-    "sideEffects": "Mild nausea or GI discomfort. Prolonged use may irritate the liver or kidneys due to hydroquinone.",
-    "contraindications": "Avoid during pregnancy, in children, or for long-term use. Not with kidney disease.",
-    "drugInteractions": "May interact with diuretics, NSAIDs, or acidic drugs. Requires alkaline urine for efficacy.",
-    "toxicity": "Low to moderate. Hydroquinone may be toxic in high doses or long-term use.",
-    "toxicityLD50": "Hydroquinone ~300 mg/kg (rat, oral)",
-    "preparation": "Leaves steeped in tea (cold or warm), capsules, or tincture. Often combined with corn silk or marshmallow.",
-    "onset": "1–2 hrs",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Northern Hemisphere (cool climates)",
-    "tags": [
-      "🧴 Antiseptic",
-      "🧽 Astringent",
-      "🧠 Urinary",
-      "🌿 Traditional"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6204622/",
-      "Herbal Medicine – Mills & Bone",
-      "ESCOP Monographs"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "argyreia-nervosa",
     "name": "Argyreia nervosa",
     "slug": "argyreia-nervosa",
@@ -1001,84 +550,6 @@ export const herbs: Herb[] = [
       "https://erowid.org/plants/hbw/",
       "TiHKAL by Alexander Shulgin",
       "Journal of Ethnopharmacology, 1996"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "argyreia-nervosa",
-    "name": "Hawaiian Baby Woodrose",
-    "slug": "argyreia-nervosa",
-    "scientificName": "Argyreia nervosa",
-    "category": "Psychedelic / Visionary / Traditional Ayurvedic",
-    "effects": [
-      "Psychedelic visuals",
-      "Introspection",
-      "Euphoria",
-      "Altered perception"
-    ],
-    "description": "A tropical climbing vine with beautiful heart-shaped leaves and potent psychedelic seeds. Related to morning glories, its seeds contain LSA (d-lysergic acid amide), a precursor to LSD. Used traditionally in Ayurveda and entheogenic rituals.",
-    "mechanismOfAction": "LSA (ergine) is a serotonin receptor agonist, particularly 5-HT2A. Effects are similar to LSD but more sedative and dreamlike. Also contains other ergoline alkaloids.",
-    "pharmacokinetics": "Orally active. Onset 1–2 hrs. Duration 6–10 hrs. Effects may be delayed by nausea or vasoconstriction.",
-    "therapeuticUses": "Historically used in Ayurveda for nervous system balance, fertility, and longevity. Entheogenically used for visions, introspection, and dream states.",
-    "sideEffects": "Nausea, vasoconstriction, lethargy, body load. Higher doses may cause paranoia, stomach upset, or confusion.",
-    "contraindications": "Avoid with psychiatric meds, SSRIs, MAOIs, and during pregnancy. Not for individuals with heart or mental health conditions.",
-    "drugInteractions": "May interact dangerously with serotonergic drugs. Do not combine with other psychedelics or CNS depressants.",
-    "toxicity": "Moderate at high doses. Some concern over cyanogenic glycosides in seed coating (often scraped off).",
-    "toxicityLD50": "Not fully established; LSA considered less toxic than LSD but has a narrow window for comfort.",
-    "preparation": "Seeds are scraped, ground, and swallowed directly or sublingually. Some extract alkaloids into alcohol. Traditional use may involve spiritual fasting.",
-    "onset": "1–2 hrs",
-    "intensity": "Moderate–Strong",
-    "legalStatus": "Legal in many countries (seeds legal, extraction may be regulated)",
-    "region": "India, Hawaii, Southeast Asia",
-    "tags": [
-      "🌺 Psychedelic",
-      "🌌 Dreamy",
-      "🌿 Ayurvedic",
-      "🌀 Visionary"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5376420/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology, 1998"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "argyreia-nervosa",
-    "name": "Hawaiian Baby Woodrose",
-    "slug": "argyreia-nervosa",
-    "scientificName": "Argyreia nervosa",
-    "category": "Psychedelic / Sedative / Traditional Ayurvedic",
-    "effects": [
-      "Psychedelic visions",
-      "Sedation",
-      "Time distortion",
-      "Dream enhancement"
-    ],
-    "description": "A powerful plant whose seeds contain LSA, a psychedelic similar to LSD. Used traditionally in Ayurvedic medicine for nervous conditions and vitality, but also known recreationally for its psychoactive effects.",
-    "mechanismOfAction": "LSA (d-lysergic acid amide) is a serotonergic psychedelic acting primarily on 5-HT2A receptors. Other alkaloids contribute to sedative and nausea-inducing effects.",
-    "pharmacokinetics": "Oral. Onset 1–2 hrs. Duration 6–10 hrs. Peak 3–6 hrs.",
-    "therapeuticUses": "Traditional use includes treatment of nervous system disorders, insomnia, sexual weakness, and fatigue. Modern use mostly recreational or shamanic.",
-    "sideEffects": "Nausea, lethargy, muscle heaviness, confusion, vasoconstriction. Can be overwhelming or unpleasant in large doses.",
-    "contraindications": "Not for use with SSRIs, antipsychotics, or heart conditions. Avoid during pregnancy or lactation.",
-    "drugInteractions": "Dangerous with MAOIs or serotonergic drugs. May potentiate vasoconstrictors.",
-    "toxicity": "Medium",
-    "toxicityLD50": "Not precisely known; active dose is ~3–10 seeds",
-    "preparation": "Seeds scraped/peeled and chewed or ground and extracted. Often taken with anti-nausea herbs.",
-    "onset": "1–2 hrs",
-    "intensity": "Moderate–Strong",
-    "legalStatus": "Legal in most countries (restricted in some due to LSA)",
-    "region": "India, Hawaii, South Asia",
-    "tags": [
-      "🌀 Psychedelic",
-      "🧘 Sedative",
-      "🌿 Ayurvedic",
-      "🌺 Vision plant"
-    ],
-    "sources": [
-      "https://www.erowid.org/plants/hbw/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology"
     ],
     "needsReview": false
   },
@@ -1122,31 +593,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "artemisia-abrotanum",
-    "name": "Artemisia abrotanum",
-    "slug": "artemisia-abrotanum",
-    "scientificName": "Artemisia abrotanum",
-    "category": "Ethnobotanical",
-    "effects": [
-      "mental clarity",
-      "dream enhancement",
-      "stimulant"
-    ],
-    "description": "Southernwood is a fragrant herb used traditionally as a stimulant, memory aid, and dream enhancer.",
-    "mechanismOfAction": "GABAergic + cholinergic modulation",
-    "region": "Mediterranean, Europe",
-    "compounds": [
-      "Camphor",
-      "Thujone"
-    ],
-    "tags": [
-      "aromatic",
-      "folk remedy",
-      "uplifting"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "artemisia-absinthium",
     "name": "Artemisia absinthium",
     "slug": "artemisia-absinthium",
@@ -1182,226 +628,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3265070/",
       "Herbal Medicine: Biomolecular and Clinical Aspects, 2nd ed.",
       "Journal of Ethnopharmacology, 2003"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "artemisia-absinthium",
-    "name": "Wormwood",
-    "slug": "artemisia-absinthium",
-    "scientificName": "Artemisia absinthium",
-    "category": "Digestive / Nervine / Hallucinogenic (Traditional)",
-    "effects": [
-      "Digestive stimulation",
-      "Lucid dreaming",
-      "Bitterness",
-      "Euphoria (in extract)"
-    ],
-    "description": "A legendary herb used in absinthe, wormwood is highly aromatic and bitter. Traditionally used as a digestive tonic and vermifuge, its thujone content gives it mild psychoactive properties at high doses.",
-    "mechanismOfAction": "Thujone acts as a GABA-A antagonist and can be neurostimulant in large amounts. Bitter compounds stimulate bile and digestive secretions.",
-    "pharmacokinetics": "Absorbed via digestive tract or alcohol tincture. Thujone is rapidly absorbed and crosses the blood–brain barrier.",
-    "therapeuticUses": "Used for loss of appetite, indigestion, intestinal parasites, and to promote lucid dreaming and mental clarity.",
-    "sideEffects": "High doses may cause nausea, dizziness, confusion, or tremors. Prolonged use linked to neurotoxicity (in high-thujone extracts).",
-    "contraindications": "Avoid during pregnancy, epilepsy, or with CNS disorders. Thujone banned in high concentrations in some countries.",
-    "drugInteractions": "May interact with antiepileptics, alcohol, or CNS-active drugs.",
-    "toxicity": "Moderate. Thujone is toxic at high doses.",
-    "toxicityLD50": "Thujone ~45 mg/kg (rats, oral)",
-    "preparation": "Tincture, dry herb, or as component of absinthe. Traditionally used in dream pillows or smoke blends.",
-    "onset": "20–60 min",
-    "intensity": "Moderate",
-    "legalStatus": "Restricted in some regions; allowed with low thujone content",
-    "region": "Europe, Central Asia",
-    "tags": [
-      "🌿 Bitter",
-      "🧠 Lucid dreaming",
-      "🍸 Absinthe",
-      "⚠️ Thujone"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4606322/",
-      "Plants of the Gods – Rätsch",
-      "ESCOP Monographs"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "artemisia-absinthium",
-    "name": "Wormwood",
-    "slug": "artemisia-absinthium",
-    "scientificName": "Artemisia absinthium",
-    "category": "Bitter Tonic / Digestive / Oneirogen / Psychoactive",
-    "effects": [
-      "Dream enhancement",
-      "Digestive stimulation",
-      "Mild euphoria",
-      "Antiparasitic"
-    ],
-    "description": "A bitter herb best known for its role in absinthe, wormwood has a long history in folk medicine and ritual use. It can enhance dreams, stimulate digestion, and was once feared for its thujone content.",
-    "mechanismOfAction": "Thujone acts as a GABA-A receptor antagonist and modulates acetylcholine; can be neurotoxic in high doses. Bitter compounds stimulate bile and digestive secretions.",
-    "pharmacokinetics": "Orally active. Onset ~20–60 min. Duration 2–6 hrs depending on preparation. Volatile oil absorbed rapidly.",
-    "therapeuticUses": "Used for poor digestion, intestinal parasites, melancholy, and ritual dream enhancement. Also included in liqueurs like absinthe and vermouth.",
-    "sideEffects": "Nausea, dizziness, neurotoxicity in high doses or prolonged use. Thujone can cause seizures in overdose.",
-    "contraindications": "Avoid during pregnancy, epilepsy, or liver disease. Not advised for extended high-dose use.",
-    "drugInteractions": "May antagonize GABAergic drugs. Possible liver enzyme interactions.",
-    "toxicity": "Moderate–high (due to thujone)",
-    "toxicityLD50": "Thujone: ~45 mg/kg (rats, oral)",
-    "preparation": "Dried aerial parts steeped in tea or tincture. Also used in alcohol extraction or incense.",
-    "onset": "20–60 min",
-    "intensity": "Moderate",
-    "legalStatus": "Regulated in some countries for thujone content",
-    "region": "Europe, North Africa, West Asia",
-    "tags": [
-      "🌿 Bitter",
-      "🌙 Dream herb",
-      "🧠 Psychoactive",
-      "⚠️ Thujone"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6797966/",
-      "Plants of the Gods – Rätsch",
-      "European Medicines Agency Monograph"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "artemisia-absinthium",
-    "name": "Wormwood",
-    "slug": "artemisia-absinthium",
-    "scientificName": "Artemisia absinthium",
-    "category": "Digestive / Bitter tonic / Psychoactive",
-    "effects": [
-      "Digestive stimulation",
-      "Lucid dreams",
-      "Mental clarity",
-      "Deliriant (high dose)"
-    ],
-    "description": "A pungent, silvery herb best known as the source of thujone — the compound in absinthe. Used traditionally as a bitter digestive, vermifuge, and visionary herb.",
-    "mechanismOfAction": "Thujone interacts with GABA-A and 5-HT3 receptors, acting as a CNS stimulant and potential neurotoxin in high doses. Bitter principles activate digestive enzymes and bile.",
-    "pharmacokinetics": "Oral or inhaled. Onset 20–60 min. Duration varies. Psychoactive effects in high doses or alcohol extracts.",
-    "therapeuticUses": "Used for poor appetite, parasites, depression, and in traditional absinthe for altered states. Also part of dream and trance blends.",
-    "sideEffects": "Neurotoxicity at high doses. Can cause nausea, anxiety, seizures, and confusion.",
-    "contraindications": "Avoid in epilepsy, pregnancy, or prolonged use. Not for use with CNS stimulants or depressants.",
-    "drugInteractions": "Potentially dangerous with GABAergic or serotonergic agents.",
-    "toxicity": "High (thujone)",
-    "toxicityLD50": "~45 mg/kg (thujone, oral, rats)",
-    "preparation": "Infusions, tinctures, absinthe liqueur, smoking blends. Often mixed with calming herbs to balance effect.",
-    "onset": "30–60 min",
-    "intensity": "Moderate–Strong",
-    "legalStatus": "Legal with restrictions on thujone content",
-    "region": "Europe, Middle East, North America",
-    "tags": [
-      "🌿 Bitter",
-      "🧠 Dream herb",
-      "🧪 Psychoactive",
-      "🍸 Absinthe"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5920492/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Herbal Medicine"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "artemisia-ludoviciana",
-    "name": "Artemisia ludoviciana",
-    "slug": "artemisia-ludoviciana",
-    "scientificName": "Artemisia ludoviciana",
-    "category": "Ethnobotanical",
-    "effects": [
-      "mild sedation",
-      "visionary",
-      "cleansing"
-    ],
-    "description": "Also known as white sagebrush, used by Native American tribes for cleansing, dreams, and mild sedation.",
-    "mechanismOfAction": "GABAergic + anticholinergic",
-    "region": "North America",
-    "compounds": [
-      "Thujone",
-      "Camphor"
-    ],
-    "tags": [
-      "ritual",
-      "dream",
-      "folk medicine"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "artemisia-vulgaris",
-    "name": "Mugwort",
-    "slug": "artemisia-vulgaris",
-    "scientificName": "Artemisia vulgaris",
-    "category": "Dream Herb / Digestive / Traditional Witchcraft",
-    "effects": [
-      "Lucid dreaming",
-      "Menstrual regulation",
-      "Mild sedation",
-      "Bitter tonic"
-    ],
-    "description": "A classic European herb of the witches and dreamers. Mugwort is used for enhancing dreams, calming digestion, and connecting to inner visions. Often burned or used in dream pillows or teas.",
-    "mechanismOfAction": "Contains thujone, camphor, and cineole — which mildly affect GABA receptors and CNS function. Also acts as a bitter digestive and mild uterine tonic.",
-    "pharmacokinetics": "Orally, smoked, or inhaled. Onset 20–60 min. Duration 2–4 hrs depending on route.",
-    "therapeuticUses": "Used for dreamwork, menstruation regulation, cramping, bloating, and spiritual practices.",
-    "sideEffects": "May cause nausea or dizziness. Thujone-related toxicity at high doses or in essential oil form.",
-    "contraindications": "Avoid during pregnancy. Caution with epilepsy or thujone sensitivity.",
-    "drugInteractions": "May interact with sedatives, antiepileptics, or other bitter herbs.",
-    "toxicity": "Low at traditional use levels. Essential oil is toxic if ingested.",
-    "toxicityLD50": "~120 mg/kg (thujone, rats)",
-    "preparation": "Tea, tincture, incense, or smoked. Also used in salves or baths for ritual cleansing.",
-    "onset": "20–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide (restricted in some for thujone)",
-    "region": "Europe, North America, Asia",
-    "tags": [
-      "🌙 Dream herb",
-      "🩸 Menstrual",
-      "🫖 Bitter tonic",
-      "🔥 Ritual"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5313054/",
-      "Plants of the Gods – Rätsch",
-      "British Herbal Pharmacopoeia"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "artemisia-vulgaris",
-    "name": "Mugwort",
-    "slug": "artemisia-vulgaris",
-    "scientificName": "Artemisia vulgaris",
-    "category": "Psychoactive / Digestive / Dream & Ritual",
-    "effects": [
-      "Lucid dreaming",
-      "Digestive stimulation",
-      "Mild euphoria",
-      "Menstrual support"
-    ],
-    "description": "A potent aromatic herb associated with the moon, intuition, and dreams. Used for divination, lucid dreaming, digestive complaints, and women's health. Long revered in European, Chinese, and Indigenous traditions.",
-    "mechanismOfAction": "Contains volatile oils (thujone, camphor, cineole), flavonoids, and sesquiterpenes that act on the nervous and digestive systems. Thujone is mildly psychoactive and may modulate GABA.",
-    "pharmacokinetics": "Oral, smoked, or as a dream pillow. Onset 30–90 min. Effects subtle but build with regular use.",
-    "therapeuticUses": "Used for promoting vivid dreams, easing menstrual cramps, relieving indigestion, calming nerves, and spiritual cleansing. Key herb in moxibustion (TCM).",
-    "sideEffects": "Mild GI upset or dizziness in sensitive individuals. Potential neurotoxicity at high doses.",
-    "contraindications": "Avoid in pregnancy due to emmenagogue effects. Not for use with epilepsy or in high doses.",
-    "drugInteractions": "May interact with sedatives, CNS stimulants, or seizure medications.",
-    "toxicity": "Medium (due to thujone content)",
-    "toxicityLD50": "Not well established",
-    "preparation": "Tea, tincture, incense, smoke, dream pillows, or topical oil. Often combined with other herbs in ritual blends.",
-    "onset": "30–90 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal in most countries (restrictions on thujone apply in some regions)",
-    "region": "Europe, Asia, North America",
-    "tags": [
-      "🌙 Dream herb",
-      "🧘 Ritual",
-      "🌿 Bitter tonic",
-      "🔥 Moxibustion"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1118713/",
-      "Plants of the Gods – Rätsch",
-      "The Green Witch Herbal – Murphy"
     ],
     "needsReview": false
   },
@@ -1482,84 +708,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "asarum-canadense",
-    "name": "Wild Ginger",
-    "slug": "asarum-canadense",
-    "scientificName": "Asarum canadense",
-    "category": "Aromatic / Digestive / Traditional Native American",
-    "effects": [
-      "Digestive stimulation",
-      "Warming",
-      "Antimicrobial",
-      "Mild euphoria"
-    ],
-    "description": "A North American woodland plant with aromatic rhizomes historically used by Indigenous tribes as a warming, stimulating herb. Not botanically related to culinary ginger, but used similarly.",
-    "mechanismOfAction": "Essential oils act as aromatic carminatives and mild analgesics. Contains small amounts of aristolochic acid, a known nephrotoxin, though in much smaller amounts than its Asian relatives.",
-    "pharmacokinetics": "Orally active. Onset ~15–30 min. Effects short-acting, ~1–2 hrs.",
-    "therapeuticUses": "Used for nausea, cold digestion, colds, headaches, and historically as a ceremonial herb. Also used to mask taste of medicines.",
-    "sideEffects": "Potential for kidney toxicity if overused due to aristolochic acid. Mild irritation or allergic response possible.",
-    "contraindications": "Avoid long-term use or large doses. Not recommended in pregnancy or kidney disease.",
-    "drugInteractions": "May interact with nephrotoxic or aromatic herbs.",
-    "toxicity": "Low in short-term use; moderate concern with long-term intake.",
-    "toxicityLD50": "Not established",
-    "preparation": "Fresh or dried rhizome chewed, brewed in tea, or powdered. Often used in small ceremonial doses.",
-    "onset": "15–30 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Eastern North America",
-    "tags": [
-      "🌿 Warming",
-      "🫖 Aromatic",
-      "⚠️ Aristolochic acid",
-      "🍂 Native herbalism"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1127078/",
-      "Native American Ethnobotany – Moerman",
-      "Herbal Medicine – Mills & Bone"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "asarum-canadense",
-    "name": "Wild Ginger",
-    "slug": "asarum-canadense",
-    "scientificName": "Asarum canadense",
-    "category": "Aromatic / Digestive / Traditional American",
-    "effects": [
-      "Warming",
-      "Carminative",
-      "Stimulating",
-      "Expectorant"
-    ],
-    "description": "A native woodland plant with aromatic roots used by Indigenous peoples and early American herbalists for digestion, cold symptoms, and to mask the taste of other herbs.",
-    "mechanismOfAction": "Contains volatile oils and methyl eugenol with stimulating and carminative effects. Historically used for respiratory and digestive complaints.",
-    "pharmacokinetics": "Oral or topical. Rapid absorption of volatile oils. Short duration (~1–2 hrs).",
-    "therapeuticUses": "Used for indigestion, colds, sore throat, and menstrual cramps. Formerly used in tooth powders and tonics.",
-    "sideEffects": "Large doses may cause nausea or mucosal irritation. Contains trace aristolochic acid (controversial).",
-    "contraindications": "Avoid long-term use or high doses due to nephrotoxicity concerns with aristolochic acid. Not recommended during pregnancy.",
-    "drugInteractions": "Avoid with nephrotoxic drugs or diuretics.",
-    "toxicity": "Medium (with overuse)",
-    "toxicityLD50": "Not well established",
-    "preparation": "Root tincture, cold infusion, or powder. Traditional use in low doses.",
-    "onset": "15–30 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal (caution advised)",
-    "region": "North America",
-    "tags": [
-      "🌿 Carminative",
-      "🌬️ Expectorant",
-      "🧪 Aromatic",
-      "🌾 Woodland herb"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7374170/",
-      "American Herbal Pharmacopoeia",
-      "Native American Ethnobotany – Moerman"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "asclepias-syriaca",
     "name": "Asclepias syriaca",
     "slug": "asclepias-syriaca",
@@ -1636,69 +784,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "avena-sativa",
-    "name": "Oatstraw",
-    "slug": "avena-sativa",
-    "scientificName": "Avena sativa",
-    "category": "Nervine / Endocrine / Nutritional",
-    "effects": [
-      "Stress relief",
-      "Mood stabilization",
-      "Endocrine tonic",
-      "Nutrient replenishment"
-    ],
-    "description": "A deeply nourishing and gentle nervine, oatstraw is made from the green tops of oats. Traditionally used for fatigue, burnout, nervous exhaustion, and endocrine balance.",
-    "mechanismOfAction": "B-complex vitamins, avenanthramides, and minerals modulate GABA receptors and nourish the nervous system. Possible dopamine modulation.",
-    "pharmacokinetics": "Orally active. Onset ~30–90 min. Cumulative benefits over days or weeks.",
-    "therapeuticUses": "Used for nervous tension, adrenal fatigue, sleep imbalance, and post-illness recovery. Also supports libido and emotional wellbeing.",
-    "sideEffects": "Very rare; mild headache or loose stool in very large doses.",
-    "contraindications": "Celiac sensitivity in extreme cases if gluten is present.",
-    "drugInteractions": "None significant.",
-    "toxicity": "Very low",
-    "toxicityLD50": ">5000 mg/kg (rats)",
-    "preparation": "Infusion of dried aerial parts, tincture, or capsules. Often part of nourishing tonics.",
-    "onset": "30–90 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, North America, cultivated globally",
-    "tags": [
-      "🧘 Nervine",
-      "🌾 Nutrient tonic",
-      "🧠 Mood",
-      "🌿 Rebuilding"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6461154/",
-      "David Hoffmann – Medical Herbalism",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "bacopa-monnieri",
-    "name": "Bacopa monnieri",
-    "slug": "bacopa-monnieri",
-    "scientificName": "Bacopa monnieri",
-    "category": "Ethnobotanical",
-    "effects": [
-      "memory enhancement",
-      "calm focus",
-      "adaptogen"
-    ],
-    "description": "Brahmi is an Ayurvedic nootropic herb that improves memory, learning, and mental clarity.",
-    "mechanismOfAction": "Cholinergic + antioxidant",
-    "region": "India, Southeast Asia",
-    "compounds": [
-      "Bacosides A and B"
-    ],
-    "tags": [
-      "nootropic",
-      "ayurvedic",
-      "mental clarity"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "banisteriopsis-caapi",
     "name": "Banisteriopsis caapi",
     "slug": "banisteriopsis-caapi",
@@ -1741,26 +826,40 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "betula-lenta",
-    "name": "Betula lenta",
-    "slug": "betula-lenta",
-    "scientificName": "Betula lenta",
-    "category": "Ethnobotanical",
+    "id": "brunfelsia-grandiflora",
+    "name": "Brunfelsia grandiflora",
+    "slug": "brunfelsia-grandiflora",
+    "scientificName": "Brunfelsia grandiflora",
+    "category": "Shamanic / Tropane-like",
     "effects": [
-      "uplifting",
-      "mental clarity",
-      "aromatic"
+      "Altered perception",
+      "Hallucinations",
+      "Sedation",
+      "Purging"
     ],
-    "description": "Sweet Birch, aromatic and uplifting; contains methyl salicylate, offering mild euphoria and clarity.",
-    "mechanismOfAction": "Anti-inflammatory + mild serotonergic",
-    "region": "North America",
-    "compounds": [
-      "Methyl salicylate"
-    ],
+    "description": "A powerful and rare plant used in Amazonian diets and initiations. Sometimes used in conjunction with ayahuasca. It contains alkaloids structurally similar to tropanes but with unique visionary effects.",
+    "mechanismOfAction": "Believed to contain scopoletin, brunfelsamidine, and possibly tropane-like alkaloids. Effects include CNS sedation and GABAergic modulation, with visionary experiences at high doses.",
+    "pharmacokinetics": "Active orally. Root and bark decoctions used in dietas. Effects build gradually and may last several hours.",
+    "therapeuticUses": "Used for energetic cleansing, dream incubation, and emotional healing in vegetalismo traditions. No clinical use.",
+    "sideEffects": "Strong purge, nausea, confusion, tremors, and temporary disorientation. Possibly neurotoxic at high doses.",
+    "contraindications": "Avoid with other CNS depressants, anticholinergics, or in pregnancy. Not for casual or recreational use.",
+    "drugInteractions": "Dangerous with deliriants or GABAergic drugs. May interfere with MAOIs or SSRIs.",
+    "toxicity": "Potential neurotoxicity from tropane-like compounds. Improper use can lead to hospitalization.",
+    "toxicityLD50": "Not established; presumed low threshold for toxicity",
+    "preparation": "Bark or root decocted in long-boiled tea, often consumed as part of isolation dietas (spiritual retreats).",
+    "onset": "30–90 min (oral)",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Legal; not scheduled internationally",
+    "region": "Amazon (Peru, Ecuador, Colombia)",
     "tags": [
-      "tea",
-      "uplifting",
-      "aromatic"
+      "🌀 Dreamwork",
+      "⚠️ Tropane risk",
+      "🌳 Ayahuasca dieta"
+    ],
+    "sources": [
+      "Journal of Ethnopharmacology, 2007",
+      "Plants of the Gods – Schultes, Hofmann",
+      "Ayahuasca.com: Chiric Sanango Field Reports"
     ],
     "needsReview": false
   },
@@ -1804,68 +903,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "brunfelsia-grandiflora",
-    "name": "Brunfelsia grandiflora",
-    "slug": "brunfelsia-grandiflora",
-    "scientificName": "Brunfelsia grandiflora",
-    "category": "Shamanic / Tropane-like",
-    "effects": [
-      "Altered perception",
-      "Hallucinations",
-      "Sedation",
-      "Purging"
-    ],
-    "description": "A powerful and rare plant used in Amazonian diets and initiations. Sometimes used in conjunction with ayahuasca. It contains alkaloids structurally similar to tropanes but with unique visionary effects.",
-    "mechanismOfAction": "Believed to contain scopoletin, brunfelsamidine, and possibly tropane-like alkaloids. Effects include CNS sedation and GABAergic modulation, with visionary experiences at high doses.",
-    "pharmacokinetics": "Active orally. Root and bark decoctions used in dietas. Effects build gradually and may last several hours.",
-    "therapeuticUses": "Used for energetic cleansing, dream incubation, and emotional healing in vegetalismo traditions. No clinical use.",
-    "sideEffects": "Strong purge, nausea, confusion, tremors, and temporary disorientation. Possibly neurotoxic at high doses.",
-    "contraindications": "Avoid with other CNS depressants, anticholinergics, or in pregnancy. Not for casual or recreational use.",
-    "drugInteractions": "Dangerous with deliriants or GABAergic drugs. May interfere with MAOIs or SSRIs.",
-    "toxicity": "Potential neurotoxicity from tropane-like compounds. Improper use can lead to hospitalization.",
-    "toxicityLD50": "Not established; presumed low threshold for toxicity",
-    "preparation": "Bark or root decocted in long-boiled tea, often consumed as part of isolation dietas (spiritual retreats).",
-    "onset": "30–90 min (oral)",
-    "intensity": "Moderate–Strong",
-    "legalStatus": "Legal; not scheduled internationally",
-    "region": "Amazon (Peru, Ecuador, Colombia)",
-    "tags": [
-      "🌀 Dreamwork",
-      "⚠️ Tropane risk",
-      "🌳 Ayahuasca dieta"
-    ],
-    "sources": [
-      "Journal of Ethnopharmacology, 2007",
-      "Plants of the Gods – Schultes, Hofmann",
-      "Ayahuasca.com: Chiric Sanango Field Reports"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Byrsonima crassifolia",
-    "slug": "byrsonima-crassifolia",
-    "commonNames": [
-      "Nance"
-    ],
-    "region": "Central and South America",
-    "effects": [
-      "mild sedative",
-      "calming",
-      "tonic"
-    ],
-    "activeCompounds": [
-      "Catechins",
-      "Quercetin"
-    ],
-    "mechanismOfAction": "Flavonoid antioxidant and neuroprotective action",
-    "traditionalUse": "Used in folk medicine to promote calm and wellness.",
-    "tags": [
-      "sedative",
-      "folk",
-      "antioxidant"
-    ]
-  },
-  {
     "id": "caesalpinia-sepiaria",
     "name": "Caesalpinia sepiaria",
     "slug": "caesalpinia-sepiaria",
@@ -1903,68 +940,6 @@ export const herbs: Herb[] = [
     "needsReview": true
   },
   {
-    "id": "calea-ternifolia",
-    "name": "Calea ternifolia",
-    "slug": "calea-ternifolia",
-    "scientificName": "Calea ternifolia",
-    "category": "Oneirogen / Bitter Tonic",
-    "effects": [
-      "Lucid dreaming",
-      "Vivid dreams",
-      "Mild sedation",
-      "Dream recall"
-    ],
-    "description": "Calea is a traditional Mexican dream herb used by the Chontal people to enhance dream clarity and lucidity. Often consumed as a tea or smoked before sleep.",
-    "mechanismOfAction": "Contains calein and germacranolides that may influence GABAergic and cholinergic systems related to REM sleep modulation.",
-    "pharmacokinetics": "Typically brewed as tea or smoked. Onset 30–60 min; duration 4–8 hrs.",
-    "therapeuticUses": "Dream induction and clarity",
-    "sideEffects": "Bitterness, mild nausea, vivid dreams",
-    "contraindications": "Avoid in pregnancy and with sedatives",
-    "drugInteractions": "May interact with CNS depressants",
-    "toxicity": "Low to moderate",
-    "toxicityLD50": "Not well established",
-    "preparation": "Dried leaves brewed as tea or smoked before bedtime",
-    "onset": "30–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Generally legal",
-    "region": "Mexico, Central America",
-    "tags": [
-      "🌿 Dream",
-      "😴 Sleep",
-      "🧘 Oneirogen"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3158962/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology, 1986"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Calea zacatechichi",
-    "slug": "calea-zacatechichi",
-    "commonNames": [
-      "Dream Herb",
-      "Mexican Calea"
-    ],
-    "region": "Mexico, Central America",
-    "effects": [
-      "lucid dreaming",
-      "relaxation",
-      "dream recall"
-    ],
-    "activeCompounds": [
-      "Germacranolides"
-    ],
-    "mechanismOfAction": "Unclear; possibly cholinergic or GABAergic",
-    "traditionalUse": "Used by Chontal shamans to induce vivid dreams and visions.",
-    "tags": [
-      "dream",
-      "visionary",
-      "traditional-use"
-    ]
-  },
-  {
     "id": "calliandra-angustifolia",
     "name": "Calliandra angustifolia",
     "slug": "calliandra-angustifolia",
@@ -1998,43 +973,6 @@ export const herbs: Herb[] = [
       "https://rainforest-database.org/plants/bobinsana",
       "Journal of Amazonian Ethnobotany, 2009",
       "Plants of the Gods – Schultes & Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "camellia-japonica",
-    "name": "Camellia japonica",
-    "slug": "camellia-japonica",
-    "scientificName": "Camellia japonica",
-    "category": "Medicinal / Cosmetic",
-    "effects": [
-      "Skin soothing",
-      "Antioxidant",
-      "Mild anti-inflammatory"
-    ],
-    "description": "A flowering plant native to East Asia, best known for its oil-rich seeds. Unlike Camellia sinensis, it is not caffeinated, but valued for its emollient and skin-protective properties.",
-    "mechanismOfAction": "Rich in oleic acid, tocopherols (Vitamin E), and polyphenols. These compounds hydrate the skin and reduce oxidative damage.",
-    "pharmacokinetics": "Primarily topical use. Minimal systemic absorption; orally consumed oil is digested like olive oil.",
-    "therapeuticUses": "Used in traditional Korean and Japanese medicine for dry skin, burns, hair conditioning, and inflammation.",
-    "sideEffects": "Rare. May cause mild allergic skin reactions in sensitive individuals.",
-    "contraindications": "Topical only; not suitable for injection or open wounds. Monitor for contact dermatitis.",
-    "drugInteractions": "None significant reported.",
-    "toxicity": "Very low. Used widely in cosmetics and culinary oils.",
-    "toxicityLD50": "Not established; similar to olive oil in safety",
-    "preparation": "Cold-pressed seed oil used topically. Leaves and flowers sometimes infused in skincare water.",
-    "onset": "N/A (topical)",
-    "intensity": "N/A",
-    "legalStatus": "Legal",
-    "region": "Japan, Korea, China; ornamental worldwide",
-    "tags": [
-      "💧 Emollient",
-      "🌸 Skincare",
-      "🌿 Traditional beauty"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3586833/",
-      "Journal of Ethnopharmacology, 2014",
-      "Asian Botanical Dermatology Manual"
     ],
     "needsReview": false
   },
@@ -2081,40 +1019,39 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "campsiandra-angustifolia",
-    "name": "Campsiandra angustifolia",
-    "slug": "campsiandra-angustifolia",
-    "scientificName": "Campsiandra angustifolia",
-    "category": "Shamanic / Tonic / Adaptogen",
+    "id": "camellia-japonica",
+    "name": "Camellia japonica",
+    "slug": "camellia-japonica",
+    "scientificName": "Camellia japonica",
+    "category": "Medicinal / Cosmetic",
     "effects": [
-      "Anti-inflammatory",
-      "Aphrodisiac",
-      "Tonic",
-      "Mild stimulation"
+      "Skin soothing",
+      "Antioxidant",
+      "Mild anti-inflammatory"
     ],
-    "description": "A powerful Amazonian tree used as a general tonic and aphrodisiac. Often added to ayahuasca brews for stamina, libido, and protection. Bark decoctions are the primary preparation.",
-    "mechanismOfAction": "Contains triterpenes, alkaloids, and flavonoids with antioxidant and potential hormonal activity. Exact pharmacodynamics not fully mapped.",
-    "pharmacokinetics": "Orally active as decoction. Long-term tonic effects build gradually over weeks.",
-    "therapeuticUses": "Used for arthritis, sexual debility, digestive issues, fatigue, and spiritual protection.",
-    "sideEffects": "Mild nausea or overstimulation possible with high doses. Rare allergic reactions.",
-    "contraindications": "Caution in pregnancy or with autoimmune disorders. Limited data on immunomodulatory effects.",
-    "drugInteractions": "Theoretical interactions with hormone therapies or strong anti-inflammatories.",
-    "toxicity": "Low in traditional dosing. Bark is the safest part; seeds unstudied.",
-    "toxicityLD50": "Not established",
-    "preparation": "Bark decoction simmered 20–30 minutes and consumed over several days or weeks.",
-    "onset": "1–2 hours (oral)",
-    "intensity": "Mild–Moderate",
+    "description": "A flowering plant native to East Asia, best known for its oil-rich seeds. Unlike Camellia sinensis, it is not caffeinated, but valued for its emollient and skin-protective properties.",
+    "mechanismOfAction": "Rich in oleic acid, tocopherols (Vitamin E), and polyphenols. These compounds hydrate the skin and reduce oxidative damage.",
+    "pharmacokinetics": "Primarily topical use. Minimal systemic absorption; orally consumed oil is digested like olive oil.",
+    "therapeuticUses": "Used in traditional Korean and Japanese medicine for dry skin, burns, hair conditioning, and inflammation.",
+    "sideEffects": "Rare. May cause mild allergic skin reactions in sensitive individuals.",
+    "contraindications": "Topical only; not suitable for injection or open wounds. Monitor for contact dermatitis.",
+    "drugInteractions": "None significant reported.",
+    "toxicity": "Very low. Used widely in cosmetics and culinary oils.",
+    "toxicityLD50": "Not established; similar to olive oil in safety",
+    "preparation": "Cold-pressed seed oil used topically. Leaves and flowers sometimes infused in skincare water.",
+    "onset": "N/A (topical)",
+    "intensity": "N/A",
     "legalStatus": "Legal",
-    "region": "Amazon Basin (Peru, Brazil, Colombia)",
+    "region": "Japan, Korea, China; ornamental worldwide",
     "tags": [
-      "🌳 Tonic tree",
-      "💪 Aphrodisiac",
-      "🌿 Ayahuasca admixture"
+      "💧 Emollient",
+      "🌸 Skincare",
+      "🌿 Traditional beauty"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6603680/",
-      "Plants of the Gods – Rätsch",
-      "Rainforest Database: Chuchuhuasi Monograph"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3586833/",
+      "Journal of Ethnopharmacology, 2014",
+      "Asian Botanical Dermatology Manual"
     ],
     "needsReview": false
   },
@@ -2239,6 +1176,121 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
+    "id": "celastrus-paniculatus",
+    "name": "Celastrus paniculatus",
+    "slug": "celastrus-paniculatus",
+    "scientificName": "Celastrus paniculatus",
+    "category": "Nootropic / Ayurvedic",
+    "effects": [
+      "Memory enhancement",
+      "Mental clarity",
+      "Mild stimulation",
+      "Anxiolysis"
+    ],
+    "description": "Known as the 'elixir of life' in Ayurveda, this climbing shrub produces seeds that have been used for centuries to enhance cognition, calm anxiety, and rejuvenate the mind. Sometimes called the ‘intellect tree.’",
+    "mechanismOfAction": "Contains celastrine, paniculatine, and polyunsaturated fatty acids. These may modulate acetylcholine levels and reduce oxidative stress in neurons.",
+    "pharmacokinetics": "Orally active. Oil is absorbed via digestion; seed powder digests slowly. Long-term use shows cumulative nootropic effects.",
+    "therapeuticUses": "Traditionally used for cognitive disorders, fatigue, epilepsy, anxiety, and memory loss.",
+    "sideEffects": "Rare. May cause slight GI upset or dizziness in high doses. No known long-term toxicity.",
+    "contraindications": "Avoid during pregnancy or if prone to seizures. Mild cholinergic effects may interact with Alzheimer's medications.",
+    "drugInteractions": "May mildly potentiate cholinergics. No major interactions known.",
+    "toxicity": "Low. Considered safe in traditional dosing. Overdoses are rare and reversible.",
+    "toxicityLD50": "Not established in humans",
+    "preparation": "Seeds are consumed whole, powdered, or infused in oil. Often taken daily for 1–3 months in Ayurvedic practice.",
+    "onset": "1–2 hours (oral)",
+    "intensity": "Mild",
+    "legalStatus": "Legal",
+    "region": "India, Sri Lanka, Southeast Asia",
+    "tags": [
+      "🧠 Nootropic",
+      "🌿 Adaptogen",
+      "📚 Memory-enhancing",
+      "🪷 Ayurvedic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3612440/",
+      "Journal of Ayurveda and Integrative Medicine, 2011",
+      "Indian Materia Medica – Nadkarni"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "calea-ternifolia",
+    "name": "Calea ternifolia",
+    "slug": "calea-ternifolia",
+    "scientificName": "Calea ternifolia",
+    "category": "Oneirogen / Bitter Tonic",
+    "effects": [
+      "Lucid dreaming",
+      "Vivid dreams",
+      "Mild sedation",
+      "Dream recall"
+    ],
+    "description": "Calea is a traditional Mexican dream herb used by the Chontal people to enhance dream clarity and lucidity. Often consumed as a tea or smoked before sleep.",
+    "mechanismOfAction": "Contains calein and germacranolides that may influence GABAergic and cholinergic systems related to REM sleep modulation.",
+    "pharmacokinetics": "Typically brewed as tea or smoked. Onset 30–60 min; duration 4–8 hrs.",
+    "therapeuticUses": "Dream induction and clarity",
+    "sideEffects": "Bitterness, mild nausea, vivid dreams",
+    "contraindications": "Avoid in pregnancy and with sedatives",
+    "drugInteractions": "May interact with CNS depressants",
+    "toxicity": "Low to moderate",
+    "toxicityLD50": "Not well established",
+    "preparation": "Dried leaves brewed as tea or smoked before bedtime",
+    "onset": "30–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Generally legal",
+    "region": "Mexico, Central America",
+    "tags": [
+      "🌿 Dream",
+      "😴 Sleep",
+      "🧘 Oneirogen"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3158962/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology, 1986"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "campsiandra-angustifolia",
+    "name": "Campsiandra angustifolia",
+    "slug": "campsiandra-angustifolia",
+    "scientificName": "Campsiandra angustifolia",
+    "category": "Shamanic / Tonic / Adaptogen",
+    "effects": [
+      "Anti-inflammatory",
+      "Aphrodisiac",
+      "Tonic",
+      "Mild stimulation"
+    ],
+    "description": "A powerful Amazonian tree used as a general tonic and aphrodisiac. Often added to ayahuasca brews for stamina, libido, and protection. Bark decoctions are the primary preparation.",
+    "mechanismOfAction": "Contains triterpenes, alkaloids, and flavonoids with antioxidant and potential hormonal activity. Exact pharmacodynamics not fully mapped.",
+    "pharmacokinetics": "Orally active as decoction. Long-term tonic effects build gradually over weeks.",
+    "therapeuticUses": "Used for arthritis, sexual debility, digestive issues, fatigue, and spiritual protection.",
+    "sideEffects": "Mild nausea or overstimulation possible with high doses. Rare allergic reactions.",
+    "contraindications": "Caution in pregnancy or with autoimmune disorders. Limited data on immunomodulatory effects.",
+    "drugInteractions": "Theoretical interactions with hormone therapies or strong anti-inflammatories.",
+    "toxicity": "Low in traditional dosing. Bark is the safest part; seeds unstudied.",
+    "toxicityLD50": "Not established",
+    "preparation": "Bark decoction simmered 20–30 minutes and consumed over several days or weeks.",
+    "onset": "1–2 hours (oral)",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal",
+    "region": "Amazon Basin (Peru, Brazil, Colombia)",
+    "tags": [
+      "🌳 Tonic tree",
+      "💪 Aphrodisiac",
+      "🌿 Ayahuasca admixture"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6603680/",
+      "Plants of the Gods – Rätsch",
+      "Rainforest Database: Chuchuhuasi Monograph"
+    ],
+    "needsReview": false
+  },
+  {
     "id": "carica-papaya",
     "name": "Carica papaya",
     "slug": "carica-papaya",
@@ -2273,29 +1325,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6204662/",
       "Journal of Medicinal Plants, 2015",
       "Ethnobotany of Tropical Plants – CRC Press"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "casimiroa-edulis",
-    "name": "Casimiroa edulis",
-    "slug": "casimiroa-edulis",
-    "scientificName": "Casimiroa edulis",
-    "category": "Ethnobotanical",
-    "effects": [
-      "sedative",
-      "sleep aid"
-    ],
-    "description": "The fruit of the White Sapote tree is used as a sedative in traditional Mexican herbal medicine.",
-    "mechanismOfAction": "Possible GABAergic activity",
-    "region": "Central America",
-    "compounds": [
-      "Zapotin"
-    ],
-    "tags": [
-      "sedative",
-      "fruit",
-      "folk medicine"
     ],
     "needsReview": false
   },
@@ -2376,45 +1405,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5937011/",
       "Brazilian Journal of Pharmacognosy, 2005",
       "The Healing Power of Rainforest Herbs – Leslie Taylor"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "celastrus-paniculatus",
-    "name": "Celastrus paniculatus",
-    "slug": "celastrus-paniculatus",
-    "scientificName": "Celastrus paniculatus",
-    "category": "Nootropic / Ayurvedic",
-    "effects": [
-      "Memory enhancement",
-      "Mental clarity",
-      "Mild stimulation",
-      "Anxiolysis"
-    ],
-    "description": "Known as the 'elixir of life' in Ayurveda, this climbing shrub produces seeds that have been used for centuries to enhance cognition, calm anxiety, and rejuvenate the mind. Sometimes called the ‘intellect tree.’",
-    "mechanismOfAction": "Contains celastrine, paniculatine, and polyunsaturated fatty acids. These may modulate acetylcholine levels and reduce oxidative stress in neurons.",
-    "pharmacokinetics": "Orally active. Oil is absorbed via digestion; seed powder digests slowly. Long-term use shows cumulative nootropic effects.",
-    "therapeuticUses": "Traditionally used for cognitive disorders, fatigue, epilepsy, anxiety, and memory loss.",
-    "sideEffects": "Rare. May cause slight GI upset or dizziness in high doses. No known long-term toxicity.",
-    "contraindications": "Avoid during pregnancy or if prone to seizures. Mild cholinergic effects may interact with Alzheimer's medications.",
-    "drugInteractions": "May mildly potentiate cholinergics. No major interactions known.",
-    "toxicity": "Low. Considered safe in traditional dosing. Overdoses are rare and reversible.",
-    "toxicityLD50": "Not established in humans",
-    "preparation": "Seeds are consumed whole, powdered, or infused in oil. Often taken daily for 1–3 months in Ayurvedic practice.",
-    "onset": "1–2 hours (oral)",
-    "intensity": "Mild",
-    "legalStatus": "Legal",
-    "region": "India, Sri Lanka, Southeast Asia",
-    "tags": [
-      "🧠 Nootropic",
-      "🌿 Adaptogen",
-      "📚 Memory-enhancing",
-      "🪷 Ayurvedic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3612440/",
-      "Journal of Ayurveda and Integrative Medicine, 2011",
-      "Indian Materia Medica – Nadkarni"
     ],
     "needsReview": false
   },
@@ -2730,29 +1720,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "convolvulus-arvensis",
-    "name": "Convolvulus arvensis",
-    "slug": "convolvulus-arvensis",
-    "scientificName": "Convolvulus arvensis",
-    "category": "Ethnobotanical",
-    "effects": [
-      "light euphoria",
-      "subtle visual shifts"
-    ],
-    "description": "Bindweed, a relative of morning glory, contains ergoline alkaloids and is under investigation for mild entheogenic potential.",
-    "mechanismOfAction": "5-HT2A agonist (potential)",
-    "region": "Europe, North America",
-    "compounds": [
-      "Ergoline alkaloids (trace)"
-    ],
-    "tags": [
-      "entheogen",
-      "ergoline",
-      "wild plant"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "convolvulus-pluricaulis",
     "name": "Shankhpushpi",
     "slug": "convolvulus-pluricaulis",
@@ -3021,29 +1988,43 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "name": "Datura metel",
-    "slug": "datura-metel",
-    "commonNames": [
-      "Devil's Trumpet",
-      "Metel"
-    ],
-    "region": "Asia, Africa",
+    "id": "desmodium-gangeticum",
+    "name": "Desmodium gangeticum",
+    "slug": "desmodium-gangeticum",
+    "scientificName": "Desmodium gangeticum",
+    "category": "Ayurvedic / Tonic / Anti-inflammatory",
     "effects": [
-      "hallucinogenic",
-      "deliriant",
-      "anticholinergic"
+      "Nervine support",
+      "Anti-inflammatory",
+      "Rejuvenation",
+      "Mild sedation"
     ],
-    "activeCompounds": [
-      "Scopolamine",
-      "Atropine"
-    ],
-    "mechanismOfAction": "Antagonist of muscarinic acetylcholine receptors",
-    "traditionalUse": "Used in rituals but also associated with danger and toxicity.",
+    "description": "An Ayurvedic herb used in Dashamoola and other classical formulas. Known for its rejuvenating, nervine, and anti-inflammatory actions, Salparni is often used for Vata balancing and in convalescence.",
+    "mechanismOfAction": "Contains alkaloids (gangetin), flavonoids, and isoflavones with CNS modulating and antioxidant properties. Shows immunomodulatory and anti-inflammatory effects.",
+    "pharmacokinetics": "Orally absorbed in decoction or powder. Cumulative effect over weeks for chronic ailments.",
+    "therapeuticUses": "Used for asthma, arthritis, fever, low immunity, fatigue, and neurological weakness. Common in Rasayana therapy.",
+    "sideEffects": "Rare. Mild GI discomfort in high doses.",
+    "contraindications": "None known. Traditionally safe even in pediatrics.",
+    "drugInteractions": "May mildly potentiate immune-modulators or anti-inflammatories.",
+    "toxicity": "Very low.",
+    "toxicityLD50": ">2000 mg/kg (rats, oral extract)",
+    "preparation": "Root and aerial parts decocted, powdered, or used in classical polyherbal formulations like Dashamoola and Chyawanprash.",
+    "onset": "Cumulative (days–weeks)",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "India, Nepal, Sri Lanka",
     "tags": [
-      "hallucinogen",
-      "deliriant",
-      "toxic"
-    ]
+      "🌿 Rasayana",
+      "🧘 Nervine",
+      "🔥 Anti-inflammatory",
+      "🪷 Vata pacifying"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3470461/",
+      "Ayurvedic Pharmacopoeia of India",
+      "Journal of Ethnopharmacology, 2006"
+    ],
+    "needsReview": false
   },
   {
     "id": "derris-elliptica",
@@ -3080,94 +2061,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1241859/",
       "WHO Pesticide Evaluation Report – Rotenone",
       "Traditional Plant Lore of Southeast Asia – 2010"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Desfontainia spinosa",
-    "slug": "desfontainia-spinosa",
-    "commonNames": [
-      "Chilean holly",
-      "Taique"
-    ],
-    "region": "South America (Chile, Colombia)",
-    "effects": [
-      "hallucinogenic",
-      "sedative",
-      "deliriant"
-    ],
-    "activeCompounds": [
-      "Desfontainin"
-    ],
-    "mechanismOfAction": "Unclear; believed to affect muscarinic acetylcholine receptors.",
-    "traditionalUse": "Used by Mapuche shamans in ritual ceremonies.",
-    "tags": [
-      "hallucinogen",
-      "traditional-use",
-      "rare"
-    ]
-  },
-  {
-    "name": "Desmodium adscendens",
-    "slug": "desmodium-adscendens",
-    "commonNames": [
-      "Desmodium",
-      "Amor Seco"
-    ],
-    "region": "West Africa, South America",
-    "effects": [
-      "bronchodilator",
-      "liver support",
-      "anti-allergic"
-    ],
-    "activeCompounds": [
-      "Desmodin",
-      "Astragalin"
-    ],
-    "mechanismOfAction": "Smooth muscle relaxation and anti-inflammatory flavonoid activity",
-    "traditionalUse": "Used to treat asthma, allergies, and liver issues in folk medicine.",
-    "tags": [
-      "bronchodilator",
-      "folk",
-      "detox"
-    ]
-  },
-  {
-    "id": "desmodium-gangeticum",
-    "name": "Desmodium gangeticum",
-    "slug": "desmodium-gangeticum",
-    "scientificName": "Desmodium gangeticum",
-    "category": "Ayurvedic / Tonic / Anti-inflammatory",
-    "effects": [
-      "Nervine support",
-      "Anti-inflammatory",
-      "Rejuvenation",
-      "Mild sedation"
-    ],
-    "description": "An Ayurvedic herb used in Dashamoola and other classical formulas. Known for its rejuvenating, nervine, and anti-inflammatory actions, Salparni is often used for Vata balancing and in convalescence.",
-    "mechanismOfAction": "Contains alkaloids (gangetin), flavonoids, and isoflavones with CNS modulating and antioxidant properties. Shows immunomodulatory and anti-inflammatory effects.",
-    "pharmacokinetics": "Orally absorbed in decoction or powder. Cumulative effect over weeks for chronic ailments.",
-    "therapeuticUses": "Used for asthma, arthritis, fever, low immunity, fatigue, and neurological weakness. Common in Rasayana therapy.",
-    "sideEffects": "Rare. Mild GI discomfort in high doses.",
-    "contraindications": "None known. Traditionally safe even in pediatrics.",
-    "drugInteractions": "May mildly potentiate immune-modulators or anti-inflammatories.",
-    "toxicity": "Very low.",
-    "toxicityLD50": ">2000 mg/kg (rats, oral extract)",
-    "preparation": "Root and aerial parts decocted, powdered, or used in classical polyherbal formulations like Dashamoola and Chyawanprash.",
-    "onset": "Cumulative (days–weeks)",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "India, Nepal, Sri Lanka",
-    "tags": [
-      "🌿 Rasayana",
-      "🧘 Nervine",
-      "🔥 Anti-inflammatory",
-      "🪷 Vata pacifying"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3470461/",
-      "Ayurvedic Pharmacopoeia of India",
-      "Journal of Ethnopharmacology, 2006"
     ],
     "needsReview": false
   },
@@ -3249,30 +2142,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "dysphania-ambrosioides",
-    "name": "Dysphania ambrosioides",
-    "slug": "dysphania-ambrosioides",
-    "scientificName": "Dysphania ambrosioides",
-    "category": "Ethnobotanical",
-    "effects": [
-      "dreamlike",
-      "stimulant"
-    ],
-    "description": "Also known as Epazote, used in Mesoamerican rituals. Contains CNS-stimulating compounds but is toxic at high doses.",
-    "mechanismOfAction": "CNS excitation at high doses",
-    "region": "Mexico",
-    "compounds": [
-      "Ascaridole",
-      "p-Cymene"
-    ],
-    "tags": [
-      "ritual",
-      "visionary",
-      "potentially toxic"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "echinopsis-pachanoi",
     "name": "Echinopsis pachanoi",
     "slug": "echinopsis-pachanoi",
@@ -3316,30 +2185,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "name": "Elaeagnus angustifolia",
-    "slug": "elaeagnus-angustifolia",
-    "commonNames": [
-      "Russian Olive"
-    ],
-    "region": "Central Asia, Middle East, Europe",
-    "effects": [
-      "anxiolytic",
-      "sedative",
-      "pain-relieving"
-    ],
-    "activeCompounds": [
-      "Elaeagnin",
-      "Flavonoids"
-    ],
-    "mechanismOfAction": "GABAergic effects and antioxidant pathways",
-    "traditionalUse": "Used traditionally to relieve pain, stress, and inflammation.",
-    "tags": [
-      "sedative",
-      "analgesic",
-      "folk"
-    ]
-  },
-  {
     "id": "eleutherococcus-senticosus",
     "name": "Siberian Ginseng",
     "slug": "eleutherococcus-senticosus",
@@ -3375,52 +2220,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3659614/",
       "Phytomedicine, 2010",
       "WHO Monographs on Selected Medicinal Plants"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Elsholtzia ciliata",
-    "slug": "elsholtzia-ciliata",
-    "commonNames": [
-      "Vietnamese Balm"
-    ],
-    "region": "East and Southeast Asia",
-    "effects": [
-      "uplifting",
-      "digestive aid",
-      "mental clarity"
-    ],
-    "activeCompounds": [
-      "Elsholtzia ketone"
-    ],
-    "mechanismOfAction": "Stimulates gastrointestinal and olfactory receptors",
-    "traditionalUse": "Used in Vietnamese herbal teas for alertness and wellness.",
-    "tags": [
-      "stimulant",
-      "folk",
-      "clarity"
-    ]
-  },
-  {
-    "id": "entada-rheedii",
-    "name": "Entada rheedii",
-    "slug": "entada-rheedii",
-    "scientificName": "Entada rheedii",
-    "category": "Ethnobotanical",
-    "effects": [
-      "dream enhancement",
-      "spiritual connection"
-    ],
-    "description": "African Dream Bean, used to access ancestor spirits in dreams; seeds are large and traditionally worn as talismans.",
-    "mechanismOfAction": "Unknown",
-    "region": "Africa",
-    "compounds": [
-      "Saponins"
-    ],
-    "tags": [
-      "dream",
-      "ethnobotanical",
-      "ritual"
     ],
     "needsReview": false
   },
@@ -3464,45 +2263,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "erythrina-mulungu",
-    "name": "Erythrina mulungu",
-    "slug": "erythrina-mulungu",
-    "scientificName": "Erythrina mulungu",
-    "category": "Sedative / Anxiolytic / Amazonian",
-    "effects": [
-      "Anxiety relief",
-      "Sedation",
-      "Muscle relaxation",
-      "Emotional balancing"
-    ],
-    "description": "A red-flowering Amazonian tree used in Brazilian herbal medicine for calming the nervous system and treating insomnia, trauma, and high blood pressure. Known as a natural tranquilizer and emotional reset.",
-    "mechanismOfAction": "Contains erythravine and other tetrahydroisoquinoline alkaloids that act as GABAergic agents and inhibit nicotinic receptors, producing sedative and anxiolytic effects.",
-    "pharmacokinetics": "Orally active. Effects within ~30–60 minutes; duration ~4–6 hours. Mild cumulative effect over repeated use.",
-    "therapeuticUses": "Used for PTSD, anxiety, restlessness, insomnia, and withdrawal from stimulants. Traditionally used to calm overactive thoughts and regulate heart rate.",
-    "sideEffects": "Drowsiness, reduced mental clarity, dry mouth. Not typically habit-forming but should not be overused.",
-    "contraindications": "Avoid with antidepressants, sedatives, or blood pressure medication. Not recommended during pregnancy.",
-    "drugInteractions": "May potentiate benzodiazepines, barbiturates, or antihypertensives.",
-    "toxicity": "Moderate–low in traditional doses. High doses may cause excessive CNS depression.",
-    "toxicityLD50": "Not well established; traditional use suggests moderate safety margin",
-    "preparation": "Bark decoction, tincture, or capsules. Traditionally brewed into a bitter calming tea.",
-    "onset": "30–60 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal",
-    "region": "Brazil, Amazon Basin",
-    "tags": [
-      "🌳 Amazonian",
-      "🛏️ Sedative",
-      "💧 Emotional reset",
-      "⚖️ Nervous system"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4770635/",
-      "Journal of Ethnopharmacology, 2007",
-      "Rainforest Remedies – Taylor, 2003"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "eschscholzia-californica",
     "name": "California Poppy",
     "slug": "eschscholzia-californica",
@@ -3538,6 +2298,45 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3358986/",
       "American Herbal Pharmacopoeia – Eschscholzia",
       "Journal of Natural Medicines, 2011"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "erythrina-mulungu",
+    "name": "Erythrina mulungu",
+    "slug": "erythrina-mulungu",
+    "scientificName": "Erythrina mulungu",
+    "category": "Sedative / Anxiolytic / Amazonian",
+    "effects": [
+      "Anxiety relief",
+      "Sedation",
+      "Muscle relaxation",
+      "Emotional balancing"
+    ],
+    "description": "A red-flowering Amazonian tree used in Brazilian herbal medicine for calming the nervous system and treating insomnia, trauma, and high blood pressure. Known as a natural tranquilizer and emotional reset.",
+    "mechanismOfAction": "Contains erythravine and other tetrahydroisoquinoline alkaloids that act as GABAergic agents and inhibit nicotinic receptors, producing sedative and anxiolytic effects.",
+    "pharmacokinetics": "Orally active. Effects within ~30–60 minutes; duration ~4–6 hours. Mild cumulative effect over repeated use.",
+    "therapeuticUses": "Used for PTSD, anxiety, restlessness, insomnia, and withdrawal from stimulants. Traditionally used to calm overactive thoughts and regulate heart rate.",
+    "sideEffects": "Drowsiness, reduced mental clarity, dry mouth. Not typically habit-forming but should not be overused.",
+    "contraindications": "Avoid with antidepressants, sedatives, or blood pressure medication. Not recommended during pregnancy.",
+    "drugInteractions": "May potentiate benzodiazepines, barbiturates, or antihypertensives.",
+    "toxicity": "Moderate–low in traditional doses. High doses may cause excessive CNS depression.",
+    "toxicityLD50": "Not well established; traditional use suggests moderate safety margin",
+    "preparation": "Bark decoction, tincture, or capsules. Traditionally brewed into a bitter calming tea.",
+    "onset": "30–60 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal",
+    "region": "Brazil, Amazon Basin",
+    "tags": [
+      "🌳 Amazonian",
+      "🛏️ Sedative",
+      "💧 Emotional reset",
+      "⚖️ Nervous system"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4770635/",
+      "Journal of Ethnopharmacology, 2007",
+      "Rainforest Remedies – Taylor, 2003"
     ],
     "needsReview": false
   },
@@ -3618,56 +2417,6 @@ export const herbs: Herb[] = [
       "Malaysian Herbal Monographs"
     ],
     "needsReview": false
-  },
-  {
-    "name": "Ficus religiosa",
-    "slug": "ficus-religiosa",
-    "commonNames": [
-      "Sacred Fig",
-      "Bodhi Tree"
-    ],
-    "region": "India, Southeast Asia",
-    "effects": [
-      "calming",
-      "mood-balancing",
-      "mild sedative"
-    ],
-    "activeCompounds": [
-      "Furanocoumarins",
-      "Tannins"
-    ],
-    "mechanismOfAction": "Neuroprotective antioxidant and serotonin modulation",
-    "traditionalUse": "Used in Ayurveda and spiritual practice for mindfulness and peace.",
-    "tags": [
-      "spiritual",
-      "sedative",
-      "folk"
-    ]
-  },
-  {
-    "name": "Galbulimima belgraveana",
-    "slug": "galbulimima-belgraveana",
-    "commonNames": [
-      "Galbulimima",
-      "Agara"
-    ],
-    "region": "Papua New Guinea, Northern Australia",
-    "effects": [
-      "hallucinogenic",
-      "dreamy",
-      "disorienting"
-    ],
-    "activeCompounds": [
-      "Himbacine",
-      "Galbulimimine"
-    ],
-    "mechanismOfAction": "Muscarinic acetylcholine receptor antagonism",
-    "traditionalUse": "Used with Homalomena in psychoactive brews by Papuan tribes.",
-    "tags": [
-      "hallucinogen",
-      "rare",
-      "traditional-use"
-    ]
   },
   {
     "id": "galphimia-glauca",
@@ -3985,67 +2734,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "heimia-salicifolia",
-    "name": "Sinicuichi",
-    "slug": "heimia-salicifolia",
-    "scientificName": "Heimia salicifolia",
-    "category": "Psychoactive / Oneirogenic",
-    "effects": [
-      "Euphoria",
-      "Auditory hallucinations",
-      "Memory enhancement",
-      "Relaxation"
-    ],
-    "description": "A flowering shrub native to the Americas, traditionally used by indigenous cultures for its mood-lifting and dream-enhancing properties.",
-    "mechanismOfAction": "Contains unique alkaloids (such as vertine) that may influence neurotransmitter activity, leading to auditory and visual changes.",
-    "pharmacokinetics": "Orally active. Effects typically start within 30–60 minutes and can last for several hours.",
-    "therapeuticUses": "Used traditionally for relaxation, enhancing dreams, and improving mood. Some anecdotal reports of memory enhancement.",
-    "sideEffects": "Mild drowsiness, altered perception of sound, possible mild nausea.",
-    "contraindications": "Avoid in pregnancy and with other psychoactive substances.",
-    "drugInteractions": "May interact with sedatives or other herbs that affect the central nervous system.",
-    "toxicity": "Low toxicity at traditional doses.",
-    "preparation": "Leaves are often fermented in water to create a tea, traditionally sun-fermented for enhanced effects.",
-    "onset": "30–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal in most countries",
-    "region": "Central and South America",
-    "tags": [
-      "🌿 Oneirogen",
-      "🎶 Auditory effects",
-      "🌞 Traditional"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1234567/",
-      "Ethnobotany of the Americas – 2010"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "helichrysum-odoratissimum",
-    "name": "Helichrysum odoratissimum",
-    "slug": "helichrysum-odoratissimum",
-    "scientificName": "Helichrysum odoratissimum",
-    "category": "Ethnobotanical",
-    "effects": [
-      "visionary",
-      "trance",
-      "spiritual"
-    ],
-    "description": "Known as Imphepho in South African ritual use, this herb induces visions and is burned to invoke ancestors.",
-    "mechanismOfAction": "Possibly serotonergic/GABAergic",
-    "region": "Southern Africa",
-    "compounds": [
-      "Essential oils",
-      "Flavonoids"
-    ],
-    "tags": [
-      "dream herb",
-      "ritual",
-      "african traditional medicine"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "hericium-erinaceus",
     "name": "Lion’s Mane",
     "slug": "hericium-erinaceus",
@@ -4123,30 +2811,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC529416/",
       "Journal of Human Hypertension, 2008",
       "African Herbal Pharmacopoeia"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "huperzia-serrata",
-    "name": "Huperzia serrata",
-    "slug": "huperzia-serrata",
-    "scientificName": "Huperzia serrata",
-    "category": "Ethnobotanical",
-    "effects": [
-      "focus",
-      "memory boost",
-      "lucid dreaming"
-    ],
-    "description": "A moss rich in Huperzine A, used for memory enhancement and neuroprotection.",
-    "mechanismOfAction": "Acetylcholinesterase inhibition",
-    "region": "China, Southeast Asia",
-    "compounds": [
-      "Huperzine A"
-    ],
-    "tags": [
-      "nootropic",
-      "lucidity",
-      "memory"
     ],
     "needsReview": false
   },
@@ -4348,31 +3012,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "justicia-adhatoda",
-    "name": "Justicia adhatoda",
-    "slug": "justicia-adhatoda",
-    "scientificName": "Justicia adhatoda",
-    "category": "Ethnobotanical",
-    "effects": [
-      "calming",
-      "respiratory clearing",
-      "mild sedation"
-    ],
-    "description": "Also called Malabar Nut, this herb has traditional uses as a respiratory aid and mild sedative.",
-    "mechanismOfAction": "Bronchodilation + GABAergic",
-    "region": "India, Sri Lanka",
-    "compounds": [
-      "Vasicine",
-      "Vasicinone"
-    ],
-    "tags": [
-      "sedative",
-      "respiratory",
-      "ayurvedic"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "justicia-pectoralis",
     "name": "Justicia pectoralis",
     "slug": "justicia-pectoralis",
@@ -4408,6 +3047,48 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7820446/",
       "Journal of Ethnopharmacology, 1999",
       "Shamanic Pharmacopoeia – Amazonian Plants"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "sceletium-tortuosum",
+    "name": "Kanna",
+    "slug": "sceletium-tortuosum",
+    "scientificName": "Sceletium tortuosum",
+    "category": "Mood Enhancer / Traditional / SSRI-like",
+    "effects": [
+      "Euphoria",
+      "Reduced anxiety",
+      "Social enhancement",
+      "Emotional softening"
+    ],
+    "description": "A succulent plant native to South Africa, kanna has been chewed, snuffed, and brewed for centuries by Khoisan peoples to ease stress, elevate mood, and promote social connection. It’s now gaining modern popularity as a legal natural serotonin booster.",
+    "mechanismOfAction": "Contains mesembrine alkaloids that act as selective serotonin reuptake inhibitors (SSRI), PDE4 inhibitors, and mild serotonin releasing agents (SRA). Also mildly acts on dopamine.",
+    "pharmacokinetics": "Sublingual, smoked, or oral delivery. Onset ~15–60 min depending on form. Duration ~4–6 hrs. Peak effects felt within first 90 minutes.",
+    "therapeuticUses": "Used for anxiety, mild depression, public speaking stress, trauma relief, and social disconnection. Studied for antidepressant properties.",
+    "sideEffects": "Rare. May include dry mouth, slight sedation, or overstimulation if combined with caffeine. Excessive doses may cause emotional blunting or nausea.",
+    "contraindications": "Do not combine with SSRIs, MAOIs, or serotonergic drugs (risk of serotonin syndrome). Avoid during pregnancy or with bipolar disorder.",
+    "drugInteractions": "Potentially dangerous with other serotonergic substances (e.g., MDMA, SSRIs, St. John's Wort).",
+    "toxicity": "Low in traditional or moderate modern doses. No known fatalities or organ toxicity.",
+    "toxicityLD50": ">5000 mg/kg (rats, oral extract)",
+    "preparation": "Fermented (‘kougoed’) and chewed traditionally; now often taken as standardized extract capsules or sublingual powder.",
+    "onset": "15–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide (except select EU countries)",
+    "region": "South Africa, Namibia",
+    "compounds": [
+      "Mesembrine"
+    ],
+    "tags": [
+      "🧠 Serotonin",
+      "🧘 Mood booster",
+      "💬 Social",
+      "🌿 Traditional African"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5386632/",
+      "Journal of Ethnopharmacology, 2013",
+      "South African Herbal Compendium"
     ],
     "needsReview": false
   },
@@ -4451,80 +3132,41 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "lactuca-virosa",
-    "name": "Wild Lettuce",
-    "slug": "lactuca-virosa",
-    "scientificName": "Lactuca virosa",
-    "category": "Sedative / Analgesic / Nervine",
+    "id": "mentha-piperita",
+    "name": "Peppermint",
+    "slug": "mentha-piperita",
+    "scientificName": "Mentha piperita",
+    "category": "Digestive / Stimulant / Antispasmodic",
     "effects": [
-      "Pain relief",
-      "Sedation",
-      "Mild euphoria",
-      "Muscle relaxation"
+      "Soothes digestion",
+      "Stimulates focus",
+      "Relieves cramps",
+      "Cools"
     ],
-    "description": "Known as 'lettuce opium,' Wild Lettuce is a tall, bitter plant used historically for pain, insomnia, and anxiety. Though not an opiate, its latex (lactucarium) produces similar calming and analgesic effects.",
-    "mechanismOfAction": "Contains lactucin and lactucopicrin, sesquiterpene lactones that act as GABAergic agonists and possibly modulate opioid receptors.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Effects last ~2–4 hrs. Latex extracts often more potent than tea.",
-    "therapeuticUses": "Used as a sedative, cough suppressant, sleep aid, and mild analgesic. Historically used in tinctures and syrups.",
-    "sideEffects": "Mild nausea, dizziness, grogginess, or headache. Bitter taste may cause aversion.",
-    "contraindications": "Avoid in pregnancy, with sedatives, or during driving. May increase drowsiness.",
-    "drugInteractions": "Potentiates sedatives, opioids, alcohol, and benzodiazepines.",
-    "toxicity": "Low to moderate. Overuse can lead to CNS depression.",
-    "toxicityLD50": "Not fully established; assumed >2g/kg (rodents, oral)",
-    "preparation": "Dried leaf tea, tincture, or latex extract. Can be smoked or vaporized for quicker onset.",
-    "onset": "30–60 min",
-    "intensity": "Moderate",
+    "description": "A cooling, aromatic herb widely used for digestive and nervous system support. Common in teas, extracts, and aromatherapy. Historically used in European, Middle Eastern, and Asian herbalism.",
+    "mechanismOfAction": "Menthol and other essential oils act as calcium channel blockers in smooth muscle and desensitize cold receptors (TRPM8), producing cooling and antispasmodic effects.",
+    "pharmacokinetics": "Rapid oral and topical absorption. Peak effects 1–2 hours. Metabolized in liver.",
+    "therapeuticUses": "Used for IBS, nausea, headache, muscle cramps, and focus. May be used topically for tension or inhaled for alertness.",
+    "sideEffects": "May cause heartburn or skin sensitivity. Excess can cause nausea.",
+    "contraindications": "Avoid in GERD, gallstones, or infants (risk of respiratory spasm).",
+    "drugInteractions": "May interact with antacids, cyclosporine, or calcium channel drugs.",
+    "toxicity": "Low. Essential oil can be toxic in large doses.",
+    "toxicityLD50": "Menthol LD50 ~3300 mg/kg (rats, oral)",
+    "preparation": "Leaves brewed as tea, extracted, or distilled into essential oil. Capsules for IBS available.",
+    "onset": "15–45 min",
+    "intensity": "Mild",
     "legalStatus": "Legal worldwide",
-    "region": "Europe, North America",
+    "region": "Global cultivation",
     "tags": [
-      "🌿 Sedative",
-      "💤 Sleep",
-      "🧠 Analgesic",
-      "🌙 Dreamy"
+      "🌱 Digestive",
+      "❄️ Cooling",
+      "🧠 Focus",
+      "🪻 Aromatic"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4437214/",
-      "British Herbal Pharmacopoeia",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "lactuca-virosa",
-    "name": "Wild Lettuce",
-    "slug": "lactuca-virosa",
-    "scientificName": "Lactuca virosa",
-    "category": "Analgesic / Sedative / Folk Painkiller",
-    "effects": [
-      "Pain relief",
-      "Sedation",
-      "Muscle relaxation",
-      "Dream potentiation"
-    ],
-    "description": "Known as 'opium lettuce' for its historical use as a mild sedative and pain reliever, wild lettuce produces a white sap called lactucarium that was once used as a legal alternative to opiates.",
-    "mechanismOfAction": "Lactucopicrin and lactucin are sesquiterpene lactones believed to act on opioid receptors and modulate GABA pathways. Mild antispasmodic and analgesic activity.",
-    "pharmacokinetics": "Orally and smoked. Onset ~20–60 min depending on form. Duration 2–4 hrs. Effects are mild but cumulative with regular use.",
-    "therapeuticUses": "Used for headaches, joint pain, anxiety, sleep disturbances, and as a dream herb.",
-    "sideEffects": "Drowsiness, dizziness, bitter taste, mild nausea. High doses may cause confusion or restlessness.",
-    "contraindications": "Avoid during pregnancy or with sedative drugs. Not advised for prolonged use at high doses.",
-    "drugInteractions": "May potentiate other CNS depressants or opioids.",
-    "toxicity": "Moderate at high doses",
-    "toxicityLD50": "Not fully established; estimated safe below 2g dried latex",
-    "preparation": "Dried leaves, resin, or extracts used in teas, capsules, or smoked. Traditional use favored fresh plant latex (lactucarium).",
-    "onset": "20–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, North Africa, North America",
-    "tags": [
-      "💤 Sedative",
-      "🩹 Analgesic",
-      "🌿 Legal opiate alt",
-      "🌙 Oneirogen"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9054862/",
-      "Plants of the Gods – Rätsch",
-      "European Medicines Agency Monograph"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4103722/",
+      "ESCOP Monographs",
+      "Herbal Medicine – New Oxford Textbook"
     ],
     "needsReview": false
   },
@@ -4568,45 +3210,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "leonotis-leonurus",
-    "name": "Wild Dagga",
-    "slug": "leonotis-leonurus",
-    "scientificName": "Leonotis leonurus",
-    "category": "Euphoric / Calming / Smokeable",
-    "effects": [
-      "Mild euphoria",
-      "Relaxation",
-      "Tranquility",
-      "Mild visuals (high doses)"
-    ],
-    "description": "An African shrub with vibrant orange flowers, Wild Dagga is often used as a cannabis substitute due to its relaxing and euphoric properties. Traditionally smoked or brewed in teas by the Khoikhoi people.",
-    "mechanismOfAction": "Contains leonurine and related alkaloids. Likely acts on serotonin and cannabinoid-like pathways with mild CNS depressant effects.",
-    "pharmacokinetics": "Smoked or brewed. Effects onset in 5–15 min (smoked), 30–45 min (tea). Lasts ~2–3 hrs.",
-    "therapeuticUses": "Used for tension, mild depression, muscle pain, cough, and as a recreational calming herb. Sometimes used for spiritual or tribal rituals.",
-    "sideEffects": "Mild dizziness, sedation, or dry mouth. No major toxicity reported.",
-    "contraindications": "Avoid in pregnancy or with CNS depressants. High doses may impair coordination.",
-    "drugInteractions": "Possible synergy with sedatives or cannabis.",
-    "toxicity": "Low at traditional doses.",
-    "toxicityLD50": "Not established",
-    "preparation": "Dried leaves and flowers are smoked or made into tea. Often blended with other herbs like damiana or blue lotus.",
-    "onset": "5–15 min (smoked), 30–45 min (oral)",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "South Africa",
-    "tags": [
-      "🦁 Lion’s herb",
-      "🌿 Euphoric",
-      "🫖 Relaxant",
-      "🚬 Smokeable"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887314/",
-      "Ethnobotany of Southern Africa – 2011",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "leonurus-cardiaca",
     "name": "Motherwort",
     "slug": "leonurus-cardiaca",
@@ -4646,108 +3249,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "leonurus-cardiaca",
-    "name": "Motherwort",
-    "slug": "leonurus-cardiaca",
-    "scientificName": "Leonurus cardiaca",
-    "category": "Cardiac / Nervine / Hormonal",
-    "effects": [
-      "Heart regulation",
-      "Menstrual balance",
-      "Anxiety relief",
-      "Mild sedation"
-    ],
-    "description": "An herb named for its historical use in calming mothers and hearts, Motherwort is a classic nervine used for anxiety, PMS, and heart palpitations. It has a bitter taste and gentle calming presence.",
-    "mechanismOfAction": "Contains leonurine and stachydrine — alkaloids with uterotonic, cardiotonic, and nervine effects. Also mildly GABAergic.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration ~2–4 hrs.",
-    "therapeuticUses": "Used for PMS, menopause, palpitations, anxiety, nervous tension, and postpartum recovery.",
-    "sideEffects": "Mild nausea or uterine cramping in sensitive individuals.",
-    "contraindications": "Avoid during pregnancy (uterine stimulant). Use cautiously with hypotension or bradycardia.",
-    "drugInteractions": "May enhance sedatives or blood pressure medications.",
-    "toxicity": "Low at standard doses.",
-    "toxicityLD50": ">3000 mg/kg (rodents, oral)",
-    "preparation": "Tincture, capsule, or bitter tea. Often paired with skullcap, valerian, or passionflower.",
-    "onset": "30–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, Asia, North America",
-    "tags": [
-      "💗 Heart herb",
-      "🌿 Hormonal",
-      "🧘 Nervine",
-      "🌙 PMS"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6572321/",
-      "Herbal Medicine – Mills & Bone",
-      "British Herbal Pharmacopoeia"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "leonurus-sibiricus",
-    "name": "Leonurus sibiricus",
-    "slug": "leonurus-sibiricus",
-    "scientificName": "Leonurus sibiricus",
-    "category": "Ethnobotanical",
-    "effects": [
-      "relaxation",
-      "mood lift",
-      "aphrodisiac"
-    ],
-    "description": "Known as Siberian Motherwort, this herb is a relaxing nervine used in Asian medicine with mild psychoactive and aphrodisiac effects.",
-    "mechanismOfAction": "Dopaminergic modulation",
-    "region": "Siberia, China",
-    "compounds": [
-      "Leonurine"
-    ],
-    "tags": [
-      "aphrodisiac",
-      "nervine",
-      "calming"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "lepidium-meyenii",
-    "name": "Maca",
-    "slug": "lepidium-meyenii",
-    "scientificName": "Lepidium meyenii",
-    "category": "Adaptogen / Hormonal / Nutritional",
-    "effects": [
-      "Hormone balancing",
-      "Energy boost",
-      "Libido enhancement",
-      "Mood support"
-    ],
-    "description": "A Peruvian root vegetable and superfood traditionally consumed to increase energy, stamina, fertility, and hormonal resilience. Grown high in the Andes, maca is revered as a nutritional tonic and endocrine modulator.",
-    "mechanismOfAction": "Contains macamides, macaenes, and glucosinolates. These influence the hypothalamic-pituitary axis, modulate neurotransmitters, and support hormonal balance without introducing phytohormones.",
-    "pharmacokinetics": "Absorbed orally. Peak activity depends on preparation (gelatinized vs raw). Benefits seen within days to weeks.",
-    "therapeuticUses": "Used for fatigue, low libido, PMS, menopause, mood swings, and athletic endurance.",
-    "sideEffects": "May cause gas, thyroid suppression (in high doses/raw), or overstimulation in some.",
-    "contraindications": "Caution in thyroid disorders due to goitrogens. Not advised in hormonal cancers without consultation.",
-    "drugInteractions": "May interact with hormone therapies. Mild hypoglycemic synergy.",
-    "toxicity": "Low. Widely used as food.",
-    "toxicityLD50": ">15 g/kg (rats, oral)",
-    "preparation": "Traditionally sun-dried and boiled. Modern forms: raw powder, capsules, or gelatinized extracts.",
-    "onset": "1–7 days (cumulative)",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Peru, Andes Mountains",
-    "tags": [
-      "🏋️ Energy",
-      "🧬 Endocrine",
-      "🌿 Adaptogen",
-      "💞 Libido"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3184420/",
-      "Journal of Ethnopharmacology, 2009",
-      "Peruvian Herbal Compendium"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "lobelia-inflata",
     "name": "Lobelia inflata",
     "slug": "lobelia-inflata",
@@ -4783,45 +3284,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4119142/",
       "American Herbal Pharmacopoeia – Lobelia",
       "Materia Medica – Eclectic School"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "lobelia-inflata",
-    "name": "Indian Tobacco",
-    "slug": "lobelia-inflata",
-    "scientificName": "Lobelia inflata",
-    "category": "Respiratory / Nervine / Emesis (Traditional)",
-    "effects": [
-      "Bronchodilation",
-      "Spasm relief",
-      "Nausea (high doses)",
-      "Sedation"
-    ],
-    "description": "A potent North American herb historically used for asthma, spasms, and to induce vomiting in toxic exposures. Contains lobeline, a nicotinic receptor agonist with stimulant-sedative duality.",
-    "mechanismOfAction": "Lobeline acts on nicotinic acetylcholine receptors, similar to nicotine but with differing receptor affinity. Also has mild beta-adrenergic stimulation and depressant effects at higher doses.",
-    "pharmacokinetics": "Rapid onset (10–30 min). Duration ~2–3 hrs. Smoked or tinctured forms most common historically.",
-    "therapeuticUses": "Used for asthma, cough, muscle spasm, and as an emetic. Small doses can relieve tension and bronchial constriction.",
-    "sideEffects": "Nausea, vomiting, salivation, headache, dizziness. Overdose may lead to respiratory distress.",
-    "contraindications": "Avoid in pregnancy, with heart disease, or at high doses. Not for chronic use.",
-    "drugInteractions": "May interact with nicotine, stimulants, or parasympathomimetic drugs.",
-    "toxicity": "Moderate. Narrow therapeutic index.",
-    "toxicityLD50": "~100 mg/kg (mice, oral)",
-    "preparation": "Tinctures in tiny doses; historically smoked or chewed. Rarely used today except in specific herbal traditions.",
-    "onset": "10–30 min",
-    "intensity": "Moderate–Strong (dose-dependent)",
-    "legalStatus": "Legal in most regions (regulated in some due to emetic potency)",
-    "region": "Eastern North America",
-    "tags": [
-      "🌬️ Lung support",
-      "🧠 Stimulant-sedative",
-      "⚠️ Emetic",
-      "🌿 Folk remedy"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6784517/",
-      "Herbal Medicine – Mills & Bone",
-      "American Herbal Pharmacopoeia – Lobelia"
     ],
     "needsReview": false
   },
@@ -4903,6 +3365,45 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1070629/",
       "Homeopathic Materia Medica – Boericke",
       "Phytotherapy Research, 2002"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "lepidium-meyenii",
+    "name": "Maca",
+    "slug": "lepidium-meyenii",
+    "scientificName": "Lepidium meyenii",
+    "category": "Adaptogen / Hormonal / Nutritional",
+    "effects": [
+      "Hormone balancing",
+      "Energy boost",
+      "Libido enhancement",
+      "Mood support"
+    ],
+    "description": "A Peruvian root vegetable and superfood traditionally consumed to increase energy, stamina, fertility, and hormonal resilience. Grown high in the Andes, maca is revered as a nutritional tonic and endocrine modulator.",
+    "mechanismOfAction": "Contains macamides, macaenes, and glucosinolates. These influence the hypothalamic-pituitary axis, modulate neurotransmitters, and support hormonal balance without introducing phytohormones.",
+    "pharmacokinetics": "Absorbed orally. Peak activity depends on preparation (gelatinized vs raw). Benefits seen within days to weeks.",
+    "therapeuticUses": "Used for fatigue, low libido, PMS, menopause, mood swings, and athletic endurance.",
+    "sideEffects": "May cause gas, thyroid suppression (in high doses/raw), or overstimulation in some.",
+    "contraindications": "Caution in thyroid disorders due to goitrogens. Not advised in hormonal cancers without consultation.",
+    "drugInteractions": "May interact with hormone therapies. Mild hypoglycemic synergy.",
+    "toxicity": "Low. Widely used as food.",
+    "toxicityLD50": ">15 g/kg (rats, oral)",
+    "preparation": "Traditionally sun-dried and boiled. Modern forms: raw powder, capsules, or gelatinized extracts.",
+    "onset": "1–7 days (cumulative)",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Peru, Andes Mountains",
+    "tags": [
+      "🏋️ Energy",
+      "🧬 Endocrine",
+      "🌿 Adaptogen",
+      "💞 Libido"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3184420/",
+      "Journal of Ethnopharmacology, 2009",
+      "Peruvian Herbal Compendium"
     ],
     "needsReview": false
   },
@@ -5066,84 +3567,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "mentha-piperita",
-    "name": "Peppermint",
-    "slug": "mentha-piperita",
-    "scientificName": "Mentha piperita",
-    "category": "Digestive / Stimulant / Antispasmodic",
-    "effects": [
-      "Soothes digestion",
-      "Stimulates focus",
-      "Relieves cramps",
-      "Cools"
-    ],
-    "description": "A cooling, aromatic herb widely used for digestive and nervous system support. Common in teas, extracts, and aromatherapy. Historically used in European, Middle Eastern, and Asian herbalism.",
-    "mechanismOfAction": "Menthol and other essential oils act as calcium channel blockers in smooth muscle and desensitize cold receptors (TRPM8), producing cooling and antispasmodic effects.",
-    "pharmacokinetics": "Rapid oral and topical absorption. Peak effects 1–2 hours. Metabolized in liver.",
-    "therapeuticUses": "Used for IBS, nausea, headache, muscle cramps, and focus. May be used topically for tension or inhaled for alertness.",
-    "sideEffects": "May cause heartburn or skin sensitivity. Excess can cause nausea.",
-    "contraindications": "Avoid in GERD, gallstones, or infants (risk of respiratory spasm).",
-    "drugInteractions": "May interact with antacids, cyclosporine, or calcium channel drugs.",
-    "toxicity": "Low. Essential oil can be toxic in large doses.",
-    "toxicityLD50": "Menthol LD50 ~3300 mg/kg (rats, oral)",
-    "preparation": "Leaves brewed as tea, extracted, or distilled into essential oil. Capsules for IBS available.",
-    "onset": "15–45 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Global cultivation",
-    "tags": [
-      "🌱 Digestive",
-      "❄️ Cooling",
-      "🧠 Focus",
-      "🪻 Aromatic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4103722/",
-      "ESCOP Monographs",
-      "Herbal Medicine – New Oxford Textbook"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "mimosa-hostilis",
-    "name": "Mimosa hostilis",
-    "slug": "mimosa-hostilis",
-    "scientificName": "Mimosa tenuiflora (syn. hostilis)",
-    "category": "Entheogen / Traditional Medicine / Skin Healing",
-    "effects": [
-      "Vivid dreams",
-      "Entheogenic visions (with MAOI)",
-      "Wound healing",
-      "Antimicrobial"
-    ],
-    "description": "A sacred tree native to Brazil and Mexico, known for its root bark rich in DMT and traditional use in healing wounds and spiritual ceremonies (Jurema cults). Non-psychoactive on its own unless combined with MAOIs.",
-    "mechanismOfAction": "Root bark contains up to 1% N,N-DMT. Orally active only with MAOIs (e.g., Peganum harmala). Bark also rich in tannins, xanthones, and flavonoids with antimicrobial and regenerative effects.",
-    "pharmacokinetics": "DMT is inactive orally without MAOI. Topically, tannins act as astringents. Inhaled or injected DMT has rapid onset.",
-    "therapeuticUses": "Used for spiritual vision (ayahuasca analogs), skin regeneration, burn healing, and as a protective wash in shamanic practices.",
-    "sideEffects": "None from topical or tea use. Psychedelic use may cause anxiety, nausea, or confusion (if MAOIs are used).",
-    "contraindications": "Not to be combined with MAOIs without guidance. Avoid in pregnancy. Topical use is generally safe.",
-    "drugInteractions": "DMT may interact dangerously with SSRIs, MAOIs, or psychiatric medications.",
-    "toxicity": "Low externally. DMT overdose possible via other routes.",
-    "toxicityLD50": "DMT ~110 mg/kg (rats, IP)",
-    "preparation": "Root bark powdered for entheogenic brews, or used in tinctures and poultices for wounds. Also made into soap.",
-    "onset": "Varies by use (smoked: seconds; oral with MAOI: 30–60 min)",
-    "intensity": "Strong (only when active)",
-    "legalStatus": "Restricted in some countries due to DMT",
-    "region": "Brazil, Mexico",
-    "tags": [
-      "🌳 Sacred tree",
-      "🌀 DMT source",
-      "🧴 Skin healing",
-      "🌌 Entheogen"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6334226/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology, 1993"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "mimosa-pudica",
     "name": "Mimosa pudica",
     "slug": "mimosa-pudica",
@@ -5179,30 +3602,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4027290/",
       "Ayurvedic Pharmacopeia – India",
       "Journal of Parasitology Research, 2017"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "mitchella-repens",
-    "name": "Mitchella repens",
-    "slug": "mitchella-repens",
-    "scientificName": "Mitchella repens",
-    "category": "Ethnobotanical",
-    "effects": [
-      "relaxation",
-      "nervine"
-    ],
-    "description": "Known as Partridgeberry, used as a uterine tonic and mild relaxing agent in North American herbalism.",
-    "mechanismOfAction": "Smooth muscle relaxant",
-    "region": "North America",
-    "compounds": [
-      "Saponins",
-      "Iridoids"
-    ],
-    "tags": [
-      "calming",
-      "uterine",
-      "folk remedy"
     ],
     "needsReview": false
   },
@@ -5363,80 +3762,41 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "myristica-fragrans",
-    "name": "Nutmeg",
-    "slug": "myristica-fragrans",
-    "scientificName": "Myristica fragrans",
-    "category": "Culinary / Deliriant / Nervine",
+    "id": "nymphaea-caerulea",
+    "name": "Blue Lotus",
+    "slug": "nymphaea-caerulea",
+    "scientificName": "Nymphaea caerulea",
+    "category": "Euphoric / Sedative / Sacred",
     "effects": [
-      "Sedation",
       "Euphoria",
-      "Hallucinations (high dose)",
-      "Aphrodisiac"
-    ],
-    "description": "A common spice with a dark secret — nutmeg has mild psychoactive properties at high doses due to its essential oils. Historically used as both medicine and deliriant, but often unpleasant at strong doses.",
-    "mechanismOfAction": "Myristicin and elemicin are metabolized into psychoactive amphetamine-like compounds. Also contains safrole, affecting dopamine and serotonin. Mild MAOI activity may be involved.",
-    "pharmacokinetics": "Orally active. Onset 3–6 hrs, with effects lasting 12–48 hrs. Metabolized slowly by liver enzymes.",
-    "therapeuticUses": "Used in low doses for digestion, bloating, nausea, and mild insomnia. Large doses historically used for visions or aphrodisiac effect, but rarely recommended.",
-    "sideEffects": "Dry mouth, nausea, dizziness, delirium, paranoia. Very high doses may cause toxicity, confusion, or psychosis.",
-    "contraindications": "Avoid large doses. Do not combine with SSRIs, MAOIs, or during pregnancy. Risk of liver stress.",
-    "drugInteractions": "Possible serotonin or dopamine interaction. Inhibits CYP enzymes mildly.",
-    "toxicity": "Moderate. Toxic in doses >15g. Essential oil much more dangerous.",
-    "toxicityLD50": "~5600 mg/kg (rats, oral)",
-    "preparation": "Grated seed used in food and herbal formulas. Historically eaten raw, brewed, or extracted in oil.",
-    "onset": "3–6 hrs",
-    "intensity": "Moderate–Strong (at high doses)",
-    "legalStatus": "Legal worldwide",
-    "region": "Indonesia, Caribbean, India",
-    "tags": [
-      "🍽️ Culinary",
-      "🌀 Deliriant",
-      "🫖 Digestive",
-      "⚠️ Dose-sensitive"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3612440/",
-      "Plants of the Gods – Rätsch",
-      "Toxicology Letters, 2007"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "nelumbo-lutea",
-    "name": "American Yellow Lotus",
-    "slug": "nelumbo-lutea",
-    "scientificName": "Nelumbo lutea",
-    "category": "Nervine / Sacred / Hormonal",
-    "effects": [
       "Tranquility",
-      "Heart-opening",
-      "Sensual awareness",
-      "Lucid dreaming"
+      "Mild visuals",
+      "Dream enhancement"
     ],
-    "description": "A North American relative of the sacred lotus, Nelumbo lutea has similar calming, euphoric properties. It has been used by Native American groups for its edible seeds and roots, and possibly ceremonial effects when brewed from the flower.",
-    "mechanismOfAction": "Contains alkaloids such as nuciferine and neferine, modulating dopamine and serotonin receptors. Mildly sedative and possibly aphrodisiac.",
-    "pharmacokinetics": "Orally active. Onset 30–60 min. Duration ~2–4 hours depending on preparation.",
-    "therapeuticUses": "Used traditionally for calming the mind, balancing hormones, dreamwork, and as a meditative herb.",
-    "sideEffects": "Drowsiness, lowered blood pressure, dry mouth in sensitive users.",
-    "contraindications": "Avoid with sedatives or hypotension. Safety during pregnancy not well studied.",
-    "drugInteractions": "May potentiate sedatives or antihypertensives.",
-    "toxicity": "Low at traditional doses.",
-    "toxicityLD50": "Not established",
-    "preparation": "Flowers steeped in tea or infused in wine. Seeds and roots also edible and nutritious.",
+    "description": "A sacred Egyptian flower revered for inducing relaxed, blissful states. Often soaked in wine or tea, blue lotus produces a dreamy calm and has been symbolically associated with rebirth, the sun, and divine union.",
+    "mechanismOfAction": "Contains aporphine alkaloids (especially nuciferine) which act as dopamine receptor agonists and serotonin receptor modulators. Also binds GABA receptors slightly.",
+    "pharmacokinetics": "Orally or sublingually active. Onset ~20–60 min. Lasts ~2–4 hrs.",
+    "therapeuticUses": "Used traditionally for anxiety, libido enhancement, meditation, lucid dreaming, and as a ceremonial aphrodisiac.",
+    "sideEffects": "Mild dry mouth, drowsiness, nausea in high doses. Can cause lethargy or vivid dreams.",
+    "contraindications": "Avoid with sedatives or psychiatric conditions. Unknown effects in pregnancy.",
+    "drugInteractions": "Potentiates sedatives, alcohol, and MAOIs. Caution advised with SSRIs.",
+    "toxicity": "Low in moderate doses. Safe historically but limited modern study.",
+    "toxicityLD50": "Not well established; assumed low",
+    "preparation": "Dried petals brewed as tea, smoked, or soaked in wine (traditional Egyptian method).",
     "onset": "30–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "North America",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide (restricted in some US states for sale)",
+    "region": "Nile Valley, India, Southeast Asia",
     "tags": [
-      "🪷 Sacred",
-      "🌿 Native American",
-      "🌙 Dream",
-      "💖 Hormonal"
+      "🌸 Sacred flower",
+      "🧘 Euphoria",
+      "🌙 Dreamwork",
+      "🌿 Aphrodisiac"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3991026/",
-      "Ethnobotany of North American Indians – 1993",
-      "Plants of the Gods – Rätsch"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504522/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Psychoactive Herbs – 2009"
     ],
     "needsReview": false
   },
@@ -5480,70 +3840,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "nepeta-cataria",
-    "name": "Catnip",
-    "slug": "nepeta-cataria",
-    "scientificName": "Nepeta cataria",
-    "category": "Nervine / Mild Sedative / Folk Remedy",
-    "effects": [
-      "Relaxation",
-      "Mild euphoria",
-      "Digestive aid",
-      "Sleep support"
-    ],
-    "description": "Best known for its effects on cats, catnip is also a gentle human nervine herb traditionally used for digestion, colds, and sleep. It has a subtle calming effect and is often included in herbal teas.",
-    "mechanismOfAction": "Nepetalactone interacts with GABAergic and opioid pathways in humans. Also antispasmodic and diaphoretic.",
-    "pharmacokinetics": "Orally or smoked. Onset ~20–40 min. Duration 1–2 hrs.",
-    "therapeuticUses": "Used for anxiety, insomnia, indigestion, fever, and colic. Also a mild menstrual relaxant.",
-    "sideEffects": "Mild drowsiness or stomach upset. Rare allergic reaction.",
-    "contraindications": "Avoid during pregnancy (stimulates uterus). Not recommended before operating machinery.",
-    "drugInteractions": "May interact with sedatives or barbiturates.",
-    "toxicity": "Very low. Safe in tea form at moderate doses.",
-    "toxicityLD50": ">3000 mg/kg (rats, oral)",
-    "preparation": "Dried leaves and flowers brewed as tea, smoked, or tinctured. Sometimes mixed with valerian or skullcap.",
-    "onset": "20–40 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, North America",
-    "tags": [
-      "🐱 Cat herb",
-      "🧘 Calm",
-      "🫖 Tea",
-      "🌿 Folk medicine"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3612440/",
-      "Herbal Medicine – Mills & Bone",
-      "Materia Medica – David Hoffman"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Nicotiana rustica",
-    "slug": "nicotiana-rustica",
-    "commonNames": [
-      "Aztec Tobacco",
-      "Mapacho"
-    ],
-    "region": "South America, Central America",
-    "effects": [
-      "stimulant",
-      "grounding",
-      "psychoactive"
-    ],
-    "activeCompounds": [
-      "Nicotine",
-      "Harmala alkaloids"
-    ],
-    "mechanismOfAction": "Nicotinic acetylcholine receptor agonism + MAOI activity",
-    "traditionalUse": "Used in shamanic rituals for grounding and spirit communication.",
-    "tags": [
-      "psychoactive",
-      "traditional-use",
-      "tobacco"
-    ]
-  },
-  {
     "id": "nymphaea-ampla",
     "name": "White Lotus",
     "slug": "nymphaea-ampla",
@@ -5583,80 +3879,41 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "nymphaea-caerulea",
-    "name": "Blue Lotus",
-    "slug": "nymphaea-caerulea",
-    "scientificName": "Nymphaea caerulea",
-    "category": "Euphoric / Sedative / Sacred",
+    "id": "nelumbo-lutea",
+    "name": "American Yellow Lotus",
+    "slug": "nelumbo-lutea",
+    "scientificName": "Nelumbo lutea",
+    "category": "Nervine / Sacred / Hormonal",
     "effects": [
-      "Euphoria",
       "Tranquility",
-      "Mild visuals",
-      "Dream enhancement"
+      "Heart-opening",
+      "Sensual awareness",
+      "Lucid dreaming"
     ],
-    "description": "A sacred Egyptian flower revered for inducing relaxed, blissful states. Often soaked in wine or tea, blue lotus produces a dreamy calm and has been symbolically associated with rebirth, the sun, and divine union.",
-    "mechanismOfAction": "Contains aporphine alkaloids (especially nuciferine) which act as dopamine receptor agonists and serotonin receptor modulators. Also binds GABA receptors slightly.",
-    "pharmacokinetics": "Orally or sublingually active. Onset ~20–60 min. Lasts ~2–4 hrs.",
-    "therapeuticUses": "Used traditionally for anxiety, libido enhancement, meditation, lucid dreaming, and as a ceremonial aphrodisiac.",
-    "sideEffects": "Mild dry mouth, drowsiness, nausea in high doses. Can cause lethargy or vivid dreams.",
-    "contraindications": "Avoid with sedatives or psychiatric conditions. Unknown effects in pregnancy.",
-    "drugInteractions": "Potentiates sedatives, alcohol, and MAOIs. Caution advised with SSRIs.",
-    "toxicity": "Low in moderate doses. Safe historically but limited modern study.",
-    "toxicityLD50": "Not well established; assumed low",
-    "preparation": "Dried petals brewed as tea, smoked, or soaked in wine (traditional Egyptian method).",
+    "description": "A North American relative of the sacred lotus, Nelumbo lutea has similar calming, euphoric properties. It has been used by Native American groups for its edible seeds and roots, and possibly ceremonial effects when brewed from the flower.",
+    "mechanismOfAction": "Contains alkaloids such as nuciferine and neferine, modulating dopamine and serotonin receptors. Mildly sedative and possibly aphrodisiac.",
+    "pharmacokinetics": "Orally active. Onset 30–60 min. Duration ~2–4 hours depending on preparation.",
+    "therapeuticUses": "Used traditionally for calming the mind, balancing hormones, dreamwork, and as a meditative herb.",
+    "sideEffects": "Drowsiness, lowered blood pressure, dry mouth in sensitive users.",
+    "contraindications": "Avoid with sedatives or hypotension. Safety during pregnancy not well studied.",
+    "drugInteractions": "May potentiate sedatives or antihypertensives.",
+    "toxicity": "Low at traditional doses.",
+    "toxicityLD50": "Not established",
+    "preparation": "Flowers steeped in tea or infused in wine. Seeds and roots also edible and nutritious.",
     "onset": "30–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide (restricted in some US states for sale)",
-    "region": "Nile Valley, India, Southeast Asia",
-    "tags": [
-      "🌸 Sacred flower",
-      "🧘 Euphoria",
-      "🌙 Dreamwork",
-      "🌿 Aphrodisiac"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3504522/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Psychoactive Herbs – 2009"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "nymphaea-caerulea",
-    "name": "Blue Lotus",
-    "slug": "nymphaea-caerulea",
-    "scientificName": "Nymphaea caerulea",
-    "category": "Sacred / Euphoric / Relaxant",
-    "effects": [
-      "Euphoria",
-      "Relaxation",
-      "Lucid dreams",
-      "Sensual awareness"
-    ],
-    "description": "The iconic flower of ancient Egypt, Blue Lotus was revered for its trance-inducing, blissful properties. Used in sacred rituals, art, and aphrodisiac brews, it offers subtle psychoactivity and dream enhancement.",
-    "mechanismOfAction": "Contains aporphine and nuciferine — dopamine agonists with mild sedative and euphoric effects. Also mildly antispasmodic.",
-    "pharmacokinetics": "Orally or sublingually active. Onset ~30–90 min. Effects last 2–4 hrs.",
-    "therapeuticUses": "Used for anxiety, sleep, sensual stimulation, and emotional balance. Traditionally steeped in wine.",
-    "sideEffects": "Dry mouth, mild sedation, vivid dreams. Rare nausea at high doses.",
-    "contraindications": "Avoid with other sedatives, pregnancy, or MAOIs.",
-    "drugInteractions": "Potentiates alcohol, sedatives, and SSRIs.",
-    "toxicity": "Very low at common doses. Large doses may increase sedation dangerously.",
-    "toxicityLD50": "Not established; traditional usage considered safe",
-    "preparation": "Dried flowers steeped in tea, wine, or tincture. Also smoked or vaporized.",
-    "onset": "30–90 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal in most regions (banned in some US states)",
-    "region": "Egypt, Nile Valley, India",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "North America",
     "tags": [
       "🪷 Sacred",
+      "🌿 Native American",
       "🌙 Dream",
-      "💖 Aphrodisiac",
-      "🧘 Calm"
+      "💖 Hormonal"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3708387/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology, 2010"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3991026/",
+      "Ethnobotany of North American Indians – 1993",
+      "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
   },
@@ -5700,6 +3957,45 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
+    "id": "nepeta-cataria",
+    "name": "Catnip",
+    "slug": "nepeta-cataria",
+    "scientificName": "Nepeta cataria",
+    "category": "Nervine / Mild Sedative / Folk Remedy",
+    "effects": [
+      "Relaxation",
+      "Mild euphoria",
+      "Digestive aid",
+      "Sleep support"
+    ],
+    "description": "Best known for its effects on cats, catnip is also a gentle human nervine herb traditionally used for digestion, colds, and sleep. It has a subtle calming effect and is often included in herbal teas.",
+    "mechanismOfAction": "Nepetalactone interacts with GABAergic and opioid pathways in humans. Also antispasmodic and diaphoretic.",
+    "pharmacokinetics": "Orally or smoked. Onset ~20–40 min. Duration 1–2 hrs.",
+    "therapeuticUses": "Used for anxiety, insomnia, indigestion, fever, and colic. Also a mild menstrual relaxant.",
+    "sideEffects": "Mild drowsiness or stomach upset. Rare allergic reaction.",
+    "contraindications": "Avoid during pregnancy (stimulates uterus). Not recommended before operating machinery.",
+    "drugInteractions": "May interact with sedatives or barbiturates.",
+    "toxicity": "Very low. Safe in tea form at moderate doses.",
+    "toxicityLD50": ">3000 mg/kg (rats, oral)",
+    "preparation": "Dried leaves and flowers brewed as tea, smoked, or tinctured. Sometimes mixed with valerian or skullcap.",
+    "onset": "20–40 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North America",
+    "tags": [
+      "🐱 Cat herb",
+      "🧘 Calm",
+      "🫖 Tea",
+      "🌿 Folk medicine"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3612440/",
+      "Herbal Medicine – Mills & Bone",
+      "Materia Medica – David Hoffman"
+    ],
+    "needsReview": false
+  },
+  {
     "id": "ocimum-sanctum",
     "name": "Holy Basil",
     "slug": "ocimum-sanctum",
@@ -5735,84 +4031,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5376420/",
       "Ayurvedic Materia Medica",
       "Journal of Ayurveda and Integrative Medicine"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "passiflora-incarnata",
-    "name": "Passionflower",
-    "slug": "passiflora-incarnata",
-    "scientificName": "Passiflora incarnata",
-    "category": "Nervine / Anxiolytic / Sleep",
-    "effects": [
-      "Anxiety relief",
-      "Mild sedation",
-      "Muscle relaxation",
-      "Sleep support"
-    ],
-    "description": "A beautiful climbing flower used to calm restlessness, anxiety, and insomnia. Native to the southeastern U.S., passionflower is valued for its non-habit-forming, gently sedative qualities.",
-    "mechanismOfAction": "Rich in flavonoids like chrysin and vitexin that modulate GABA-A receptors. Also may inhibit MAO and reduce neuronal excitability.",
-    "pharmacokinetics": "Orally active. Onset ~30–90 min. Duration ~4 hrs depending on dose and form.",
-    "therapeuticUses": "Used for anxiety, sleep difficulty, muscle spasms, withdrawal symptoms, and nervous GI issues.",
-    "sideEffects": "Drowsiness, vivid dreams, or mild nausea. Rare allergic reactions.",
-    "contraindications": "Avoid with strong sedatives, barbiturates, or pregnancy (uterine relaxant).",
-    "drugInteractions": "May potentiate benzodiazepines, opioids, and alcohol.",
-    "toxicity": "Very low. Safe in therapeutic range.",
-    "toxicityLD50": ">3000 mg/kg (mice, oral)",
-    "preparation": "Dried aerial parts steeped as tea or extracted into tinctures and capsules. Often blended with valerian or hops.",
-    "onset": "30–90 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "North America, Central America",
-    "tags": [
-      "🛌 Sleep",
-      "🧘 Anti-anxiety",
-      "🌸 Sedative",
-      "🌿 Nervine"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4271694/",
-      "ESCOP Monograph – Passiflora",
-      "Herbal Medicine – Mills & Bone"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "passiflora-incarnata",
-    "name": "Passionflower",
-    "slug": "passiflora-incarnata",
-    "scientificName": "Passiflora incarnata",
-    "category": "Nervine / Anxiolytic / Sleep Aid",
-    "effects": [
-      "Calm",
-      "Anxiety reduction",
-      "Sleep support",
-      "Mild euphoria"
-    ],
-    "description": "A flowering vine known for its intricate blossoms and gentle sedative properties. Used in herbalism for anxiety, insomnia, and emotional restlessness.",
-    "mechanismOfAction": "Contains flavonoids (apigenin, chrysin) and alkaloids that modulate GABA receptors, contributing to calming effects. May also have mild MAO-inhibiting activity.",
-    "pharmacokinetics": "Orally active. Onset ~30–90 min. Effects last 2–6 hrs depending on dose and preparation.",
-    "therapeuticUses": "Used for nervousness, panic, insomnia, menopause-related anxiety, and restlessness.",
-    "sideEffects": "Drowsiness, vivid dreams, headache (rare), or slight dizziness. Safe for most with proper dosing.",
-    "contraindications": "Avoid combining with sedatives, alcohol, or MAOIs. Caution with driving.",
-    "drugInteractions": "May enhance effects of benzodiazepines, SSRIs, or barbiturates.",
-    "toxicity": "Very low.",
-    "toxicityLD50": ">4000 mg/kg (mice, oral)",
-    "preparation": "Tea, tincture, capsule, or fresh extract. Often combined with valerian, hops, or lemon balm.",
-    "onset": "30–90 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Southeastern U.S., Central America",
-    "tags": [
-      "🧘 Calm",
-      "💤 Sleep",
-      "🌸 Floral",
-      "🌿 Herbal sedative"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133468/",
-      "Herbal Medicine – Mills & Bone",
-      "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
   },
@@ -5856,119 +4074,41 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "paullinia-cupana",
-    "name": "Guarana",
-    "slug": "paullinia-cupana",
-    "scientificName": "Paullinia cupana",
-    "category": "Stimulant / Cognitive Enhancer / Metabolic",
+    "id": "passiflora-incarnata",
+    "name": "Passionflower",
+    "slug": "passiflora-incarnata",
+    "scientificName": "Passiflora incarnata",
+    "category": "Nervine / Anxiolytic / Sleep",
     "effects": [
-      "Stimulation",
-      "Increased alertness",
-      "Mood boost",
-      "Appetite suppression"
+      "Anxiety relief",
+      "Mild sedation",
+      "Muscle relaxation",
+      "Sleep support"
     ],
-    "description": "A climbing shrub native to the Amazon basin, Guarana’s seeds are rich in caffeine and used as a traditional stimulant by Indigenous peoples. Now widely found in energy drinks and supplements.",
-    "mechanismOfAction": "Primarily acts via caffeine (2–6% by weight), a central nervous system stimulant that blocks adenosine receptors and enhances dopamine and norepinephrine activity.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Peak 1–2 hrs. Duration ~4–6 hrs. Slower release than coffee due to tannins.",
-    "therapeuticUses": "Used for fatigue, cognitive enhancement, athletic performance, and weight management.",
-    "sideEffects": "Insomnia, jitteriness, elevated heart rate, anxiety, GI upset (especially in large doses).",
-    "contraindications": "Avoid in pregnancy, heart conditions, anxiety disorders, and with MAOIs or other stimulants.",
-    "drugInteractions": "May amplify effects of stimulants, caffeine, or sympathomimetics. Can interfere with sedatives or antipsychotics.",
-    "toxicity": "Low to moderate depending on dose. Caffeine toxicity possible in overdose.",
-    "toxicityLD50": "Caffeine ~190 mg/kg (rats, oral)",
-    "preparation": "Roasted, ground seed powder made into tea or included in capsules, tablets, or drinks.",
-    "onset": "30–60 min",
-    "intensity": "Moderate–Strong",
+    "description": "A beautiful climbing flower used to calm restlessness, anxiety, and insomnia. Native to the southeastern U.S., passionflower is valued for its non-habit-forming, gently sedative qualities.",
+    "mechanismOfAction": "Rich in flavonoids like chrysin and vitexin that modulate GABA-A receptors. Also may inhibit MAO and reduce neuronal excitability.",
+    "pharmacokinetics": "Orally active. Onset ~30–90 min. Duration ~4 hrs depending on dose and form.",
+    "therapeuticUses": "Used for anxiety, sleep difficulty, muscle spasms, withdrawal symptoms, and nervous GI issues.",
+    "sideEffects": "Drowsiness, vivid dreams, or mild nausea. Rare allergic reactions.",
+    "contraindications": "Avoid with strong sedatives, barbiturates, or pregnancy (uterine relaxant).",
+    "drugInteractions": "May potentiate benzodiazepines, opioids, and alcohol.",
+    "toxicity": "Very low. Safe in therapeutic range.",
+    "toxicityLD50": ">3000 mg/kg (mice, oral)",
+    "preparation": "Dried aerial parts steeped as tea or extracted into tinctures and capsules. Often blended with valerian or hops.",
+    "onset": "30–90 min",
+    "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
-    "region": "Amazon (Brazil, Venezuela)",
+    "region": "North America, Central America",
     "tags": [
-      "⚡ Stimulant",
-      "🧠 Nootropic",
-      "🥤 Energy drink",
-      "🌿 Amazonian"
+      "🛌 Sleep",
+      "🧘 Anti-anxiety",
+      "🌸 Sedative",
+      "🌿 Nervine"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677009/",
-      "Phytotherapy Research, 2013",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "pausinystalia-johimbe",
-    "name": "Yohimbe",
-    "slug": "pausinystalia-johimbe",
-    "scientificName": "Pausinystalia johimbe",
-    "category": "Stimulant / Aphrodisiac / Vasodilator",
-    "effects": [
-      "Increased libido",
-      "Stimulation",
-      "Increased blood flow",
-      "Alertness"
-    ],
-    "description": "An African tree bark used as a traditional male aphrodisiac and stimulant. Contains yohimbine, an alkaloid used in pharmaceuticals for erectile dysfunction and athletic performance.",
-    "mechanismOfAction": "Yohimbine is an alpha-2 adrenergic receptor antagonist, increasing norepinephrine release and blood flow. Also affects serotonin and dopamine.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 2–4 hrs. Metabolized in liver; crosses blood-brain barrier.",
-    "therapeuticUses": "Used for sexual dysfunction, athletic enhancement, weight loss, and sometimes as a stimulant. Traditional use includes ceremonial energizing purposes.",
-    "sideEffects": "Anxiety, increased heart rate, elevated blood pressure, tremors, irritability. High doses can cause panic or heart issues.",
-    "contraindications": "Avoid in heart conditions, anxiety, schizophrenia, or with stimulants. Not for use in pregnancy.",
-    "drugInteractions": "Dangerous with SSRIs, MAOIs, stimulants, or antihypertensives.",
-    "toxicity": "Moderate to high. Narrow therapeutic index.",
-    "toxicityLD50": "~50 mg/kg (rats, oral)",
-    "preparation": "Bark used in decoctions or alcohol extracts. Also sold as standardized yohimbine HCl in supplements or pharmaceuticals.",
-    "onset": "30–60 min",
-    "intensity": "Moderate–Strong",
-    "legalStatus": "Regulated in some countries; available OTC or by prescription in others",
-    "region": "West Africa (Cameroon, Nigeria, Gabon)",
-    "tags": [
-      "🔥 Aphrodisiac",
-      "⚠️ Stimulant",
-      "🫀 Blood flow",
-      "🌿 Traditional African"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3777290/",
-      "Plants of the Gods – Rätsch",
-      "International Journal of Impotence Research, 2002"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "pausinystalia-johimbe",
-    "name": "Yohimbe",
-    "slug": "pausinystalia-johimbe",
-    "scientificName": "Pausinystalia johimbe",
-    "category": "Stimulant / Aphrodisiac / Alkaloid-Based",
-    "effects": [
-      "Sexual stimulation",
-      "Increased arousal",
-      "Central nervous stimulation",
-      "Sympathetic activation"
-    ],
-    "description": "An African tree bark used as a traditional male aphrodisiac and stimulant. Yohimbe's effects are strong and potentially risky due to its potent alkaloid content, especially yohimbine.",
-    "mechanismOfAction": "Yohimbine is an α2-adrenergic receptor antagonist that increases norepinephrine release, enhancing blood flow and sympathetic activity.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 2–4 hrs. High bioavailability. Crosses blood-brain barrier. Half-life: ~1–2 hrs.",
-    "therapeuticUses": "Used for erectile dysfunction, low libido, fatigue, and sometimes in fat-loss formulas. Was once prescription-only in the U.S.",
-    "sideEffects": "Anxiety, rapid heartbeat, high blood pressure, dizziness, insomnia, panic attacks at high doses.",
-    "contraindications": "Avoid with anxiety disorders, hypertension, heart issues, antidepressants, or MAOIs.",
-    "drugInteractions": "Dangerous interactions with antidepressants, stimulants, or other vasodilators.",
-    "toxicity": "Moderate–high; narrow therapeutic window",
-    "toxicityLD50": "~50 mg/kg (mice, oral)",
-    "preparation": "Bark brewed in decoction or used in standardized yohimbine extract (Rx or supplement). Traditional doses are lower than commercial ones.",
-    "onset": "30–60 min",
-    "intensity": "Strong",
-    "legalStatus": "Restricted or banned in some countries; supplement status varies",
-    "region": "West–Central Africa",
-    "tags": [
-      "💘 Aphrodisiac",
-      "⚡ Stimulant",
-      "⚠️ Narrow margin",
-      "🌍 African traditional"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7917120/",
-      "Journal of Ethnopharmacology",
-      "Plants of the Gods – Rätsch"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4271694/",
+      "ESCOP Monograph – Passiflora",
+      "Herbal Medicine – Mills & Bone"
     ],
     "needsReview": false
   },
@@ -6015,140 +4155,41 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "peganum-harmala",
-    "name": "Syrian Rue",
-    "slug": "peganum-harmala",
-    "scientificName": "Peganum harmala",
-    "category": "MAOI / Entheogen / Traditional Medicine",
+    "id": "piper-methysticum",
+    "name": "Kava",
+    "slug": "piper-methysticum",
+    "scientificName": "Piper methysticum",
+    "category": "Anxiolytic / Sedative / Social Euphoric",
     "effects": [
-      "MAOI activity",
-      "Psychedelic potentiation",
-      "Meditative calm",
-      "Dream enhancement"
+      "Anxiety reduction",
+      "Sociability",
+      "Muscle relaxation",
+      "Mild euphoria"
     ],
-    "description": "A hardy desert plant with ancient ritual and medicinal use, Syrian Rue contains powerful MAO-inhibiting alkaloids (harmine, harmaline, tetrahydroharmine). Often used to activate DMT orally in ayahuasca analogs, it also has psychoactive properties on its own.",
-    "mechanismOfAction": "Reversible inhibitor of monoamine oxidase-A (RIMA) due to β-carbolines (harmine, harmaline). These alkaloids also affect serotonin and dopamine pathways, and may enhance neuroplasticity.",
-    "pharmacokinetics": "Orally active. Onset ~30–90 min. Duration ~4–8 hrs. MAOI effects persist for several hours.",
-    "therapeuticUses": "Used traditionally for worm infestations, menstrual pain, and spiritual vision. Modern use includes DMT potentiation and dreamwork.",
-    "sideEffects": "Nausea, dizziness, vomiting, tremors, agitation. High doses may cause serotonin syndrome if combined with other psychoactives.",
-    "contraindications": "Do not combine with SSRIs, stimulants, antidepressants, tyramine-rich foods, or serotonergic substances. Avoid during pregnancy.",
-    "drugInteractions": "Dangerous with MAO-sensitive compounds. Strongly potentiates tryptamines (DMT, psilocybin, etc.).",
-    "toxicity": "Moderate–high. Narrow therapeutic window. Overdose risk with improper use.",
-    "toxicityLD50": "Harmaline ~30–100 mg/kg (mice, IP)",
-    "preparation": "Seeds ground and steeped in water. Sometimes extracted into vinegar or ethanol. Dose typically 2–5g orally.",
-    "onset": "30–90 min",
-    "intensity": "Moderate–Strong",
-    "legalStatus": "Restricted in some countries (due to harmala alkaloids)",
-    "region": "Middle East, Central Asia, North Africa",
+    "description": "A ceremonial root from the South Pacific used to induce calm, sociability, and deep relaxation. Traditionally consumed in communal gatherings for its mood-enhancing and anxiolytic properties.",
+    "mechanismOfAction": "Kavalactones interact with GABA-A receptors, sodium and calcium ion channels, and modulate monoamine transmission. Some reverse tolerance reported.",
+    "pharmacokinetics": "Orally active. Onset 20–40 min. Duration 2–5 hrs. Best absorbed when emulsified in fat.",
+    "therapeuticUses": "Used for anxiety, muscle tension, sleep, alcohol withdrawal, and social discomfort. Often seen as a safer alternative to benzodiazepines.",
+    "sideEffects": "Drowsiness, ataxia, vivid dreams. Heavy use may cause dermopathy ('kava skin'). Rare hepatotoxicity concern.",
+    "contraindications": "Avoid with alcohol, sedatives, or liver disease. Caution during pregnancy.",
+    "drugInteractions": "Potentiates sedatives, antidepressants, alcohol, antiepileptics.",
+    "toxicity": "Low in traditional aqueous preparations. Extracts may pose liver risks.",
+    "toxicityLD50": ">6000 mg/kg (rats, oral)",
+    "preparation": "Roots ground and kneaded in cold water or coconut milk. Also found as tinctures, capsules, and instant powder.",
+    "onset": "20–40 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal in most countries; restricted in some due to liver safety debates",
+    "region": "Polynesia, Melanesia, Micronesia",
     "tags": [
-      "🧠 MAOI",
-      "🌌 Entheogen",
-      "⚠️ Dangerous combos",
-      "🌿 Ritual"
+      "🌺 Relaxation",
+      "🗣️ Sociability",
+      "🛌 Anxiolytic",
+      "🌿 Ceremonial"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3897104/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology, 2008"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "perilla-frutescens",
-    "name": "Perilla frutescens",
-    "slug": "perilla-frutescens",
-    "scientificName": "Perilla frutescens",
-    "category": "Ethnobotanical",
-    "effects": [
-      "uplifting",
-      "calm clarity"
-    ],
-    "description": "Used in East Asian cuisine and medicine, this leaf contains mild mood-elevating and cognitive enhancing properties.",
-    "mechanismOfAction": "Cholinergic + antioxidant effects",
-    "region": "East Asia",
-    "compounds": [
-      "Perillaldehyde",
-      "Rosmarinic Acid"
-    ],
-    "tags": [
-      "mild nootropic",
-      "culinary",
-      "relaxing"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "petasites-hybridus",
-    "name": "Petasites hybridus",
-    "slug": "petasites-hybridus",
-    "scientificName": "Petasites hybridus",
-    "category": "Ethnobotanical",
-    "effects": [
-      "anti-anxiety",
-      "vasodilation",
-      "headache relief"
-    ],
-    "description": "Butterbur, once used for headaches and anxiety. Contains pyrrolizidine alkaloids — caution advised.",
-    "mechanismOfAction": "Smooth muscle relaxant + serotonergic",
-    "region": "Europe",
-    "compounds": [
-      "Petasin",
-      "Isopetasin"
-    ],
-    "tags": [
-      "nervine",
-      "headache",
-      "caution"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "peumus-boldus",
-    "name": "Peumus boldus",
-    "slug": "peumus-boldus",
-    "scientificName": "Peumus boldus",
-    "category": "Ethnobotanical",
-    "effects": [
-      "calming",
-      "digestive aid",
-      "dreamy"
-    ],
-    "description": "Boldo is a South American medicinal herb with liver-supportive and mild hypnotic properties.",
-    "mechanismOfAction": "Cholinergic + serotonergic",
-    "region": "Chile",
-    "compounds": [
-      "Boldine",
-      "Ascaridole"
-    ],
-    "tags": [
-      "digestive",
-      "sleep aid",
-      "folk medicine"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "pimenta-dioica",
-    "name": "Pimenta dioica",
-    "slug": "pimenta-dioica",
-    "scientificName": "Pimenta dioica",
-    "category": "Ethnobotanical",
-    "effects": [
-      "stimulant",
-      "aromatic euphoria",
-      "warming"
-    ],
-    "description": "Also known as Allspice, this Caribbean plant has mild uplifting and warming effects, sometimes used in ritual incense.",
-    "mechanismOfAction": "GABAergic + serotonergic",
-    "region": "Caribbean, Central America",
-    "compounds": [
-      "Eugenol",
-      "Quercetin"
-    ],
-    "tags": [
-      "aromatic",
-      "ritual",
-      "mild stimulant"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4385482/",
+      "ESCOP Monograph – Kava",
+      "Journal of Clinical Psychopharmacology, 2013"
     ],
     "needsReview": false
   },
@@ -6195,6 +4236,45 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
+    "id": "piper-methysticum",
+    "name": "Kava",
+    "slug": "piper-methysticum",
+    "scientificName": "Piper methysticum",
+    "category": "Anxiolytic / Sedative / Social Euphoric",
+    "effects": [
+      "Anxiety reduction",
+      "Sociability",
+      "Muscle relaxation",
+      "Mild euphoria"
+    ],
+    "description": "A ceremonial root from the South Pacific used to induce calm, sociability, and deep relaxation. Traditionally consumed in communal gatherings for its mood-enhancing and anxiolytic properties.",
+    "mechanismOfAction": "Kavalactones interact with GABA-A receptors, sodium and calcium ion channels, and modulate monoamine transmission. Some reverse tolerance reported.",
+    "pharmacokinetics": "Orally active. Onset 20–40 min. Duration 2–5 hrs. Best absorbed when emulsified in fat.",
+    "therapeuticUses": "Used for anxiety, muscle tension, sleep, alcohol withdrawal, and social discomfort. Often seen as a safer alternative to benzodiazepines.",
+    "sideEffects": "Drowsiness, ataxia, vivid dreams. Heavy use may cause dermopathy ('kava skin'). Rare hepatotoxicity concern.",
+    "contraindications": "Avoid with alcohol, sedatives, or liver disease. Caution during pregnancy.",
+    "drugInteractions": "Potentiates sedatives, antidepressants, alcohol, antiepileptics.",
+    "toxicity": "Low in traditional aqueous preparations. Extracts may pose liver risks.",
+    "toxicityLD50": ">6000 mg/kg (rats, oral)",
+    "preparation": "Roots ground and kneaded in cold water or coconut milk. Also found as tinctures, capsules, and instant powder.",
+    "onset": "20–40 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal in most countries; restricted in some due to liver safety debates",
+    "region": "Polynesia, Melanesia, Micronesia",
+    "tags": [
+      "🌺 Relaxation",
+      "🗣️ Sociability",
+      "🛌 Anxiolytic",
+      "🌿 Ceremonial"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4385482/",
+      "ESCOP Monograph – Kava",
+      "Journal of Clinical Psychopharmacology, 2013"
+    ],
+    "needsReview": false
+  },
+  {
     "id": "piper-auritum",
     "name": "Mexican Pepperleaf",
     "slug": "piper-auritum",
@@ -6234,183 +4314,818 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "piper-auritum",
-    "name": "Root Beer Plant",
-    "slug": "piper-auritum",
-    "scientificName": "Piper auritum",
-    "category": "Aromatic / Culinary / Digestive",
+    "id": "voacanga-africana",
+    "name": "Voacanga africana",
+    "slug": "voacanga-africana",
+    "scientificName": "Voacanga africana",
+    "category": "Entheogen / Alkaloid source / Traditional African medicine",
     "effects": [
-      "Calming",
-      "Digestive aid",
-      "Appetite stimulation",
-      "Aromatic elevation"
+      "Stimulation",
+      "Mild psychedelic effects",
+      "Dream enhancement",
+      "Energy"
     ],
-    "description": "An aromatic tropical herb with large, glossy leaves and a root beer–like flavor. Used in Mexican cuisine as a seasoning, its essential oil safrole gives it a psychoaromatic depth.",
-    "mechanismOfAction": "Contains safrole (a phenylpropene also found in sassafras) which has aromatic and mild stimulant effects. In large doses, safrole is hepatotoxic and carcinogenic in rodents.",
-    "pharmacokinetics": "Aromatic effects via inhalation or ingestion. Safrole is absorbed orally and metabolized in the liver.",
-    "therapeuticUses": "Traditionally used to flavor food, promote digestion, and reduce bloating. Used ceremonially and in herbal wraps.",
-    "sideEffects": "Generally safe in culinary amounts. High or chronic doses of safrole linked to liver cancer in animals.",
-    "contraindications": "Avoid excessive use. Not for use during pregnancy or with liver conditions.",
-    "drugInteractions": "May induce liver enzymes (CYP450); theoretical interactions with hepatically metabolized drugs.",
-    "toxicity": "Low at normal doses. Chronic safrole exposure is a carcinogen in rodents.",
-    "toxicityLD50": "Safrole ~1950 mg/kg (rat, oral)",
-    "preparation": "Used fresh in cooking (mole, tamales), teas, or poultices. Leaves also smoked or chewed in folk practices.",
-    "onset": "10–30 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal in most regions; safrole-regulated for extraction in some",
-    "region": "Mexico, Central America, Caribbean",
+    "description": "A West African tree traditionally used by shamans and healers for vision quests, protection, and strength. Its bark and seeds contain powerful indole alkaloids related to ibogaine and are sometimes used in pharmaceutical precursor production.",
+    "mechanismOfAction": "Contains voacangine and other iboga-type alkaloids. These act on serotonin and dopamine transporters and may modulate NMDA and sigma receptors.",
+    "pharmacokinetics": "Orally active, but bitter and emetic. Effects begin in 1–2 hours. Some alkaloids are metabolized into ibogaine analogs.",
+    "therapeuticUses": "Used traditionally for spiritual rituals, fatigue, aphrodisiac purposes, and as a base for pharmaceutical synthesis.",
+    "sideEffects": "Nausea, dizziness, overstimulation. Toxic in high doses. Purified alkaloids may induce convulsions.",
+    "contraindications": "Avoid with psychiatric meds, cardiovascular issues, or other entheogens. Not for unsupervised use.",
+    "drugInteractions": "Possible synergy or conflict with serotonergic or stimulant drugs. Risk with MAOIs.",
+    "toxicity": "Moderate to high at concentrated doses.",
+    "toxicityLD50": "Not well established; voacangine is active at 10–100 mg in animals.",
+    "preparation": "Seeds or bark are dried and powdered, sometimes extracted with alcohol. Rarely used in traditional Western herbalism.",
+    "onset": "60–120 min",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Legal in most regions; watched for precursor potential",
+    "region": "West and Central Africa",
     "tags": [
-      "🌿 Culinary",
-      "🫖 Aromatic",
-      "🫚 Root beer",
-      "🧠 Digestive"
+      "🌍 African entheogen",
+      "💊 Alkaloids",
+      "🌿 Traditional",
+      "🧠 Visionary"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5829475/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4181566/",
       "Plants of the Gods – Rätsch",
-      "Journal of Food Composition and Analysis, 2004"
+      "Voacanga africana: Ethnobotany and Chemistry – J Ethnopharmacol, 2014"
     ],
     "needsReview": false
   },
   {
-    "id": "piper-methysticum",
-    "name": "Kava",
-    "slug": "piper-methysticum",
-    "scientificName": "Piper methysticum",
-    "category": "Anxiolytic / Sedative / Social Euphoric",
+    "id": "heimia-salicifolia",
+    "name": "Sinicuichi",
+    "slug": "heimia-salicifolia",
+    "scientificName": "Heimia salicifolia",
+    "category": "Psychoactive / Oneirogenic",
     "effects": [
-      "Anxiety reduction",
-      "Sociability",
-      "Muscle relaxation",
-      "Mild euphoria"
-    ],
-    "description": "A ceremonial root from the South Pacific used to induce calm, sociability, and deep relaxation. Traditionally consumed in communal gatherings for its mood-enhancing and anxiolytic properties.",
-    "mechanismOfAction": "Kavalactones interact with GABA-A receptors, sodium and calcium ion channels, and modulate monoamine transmission. Some reverse tolerance reported.",
-    "pharmacokinetics": "Orally active. Onset 20–40 min. Duration 2–5 hrs. Best absorbed when emulsified in fat.",
-    "therapeuticUses": "Used for anxiety, muscle tension, sleep, alcohol withdrawal, and social discomfort. Often seen as a safer alternative to benzodiazepines.",
-    "sideEffects": "Drowsiness, ataxia, vivid dreams. Heavy use may cause dermopathy ('kava skin'). Rare hepatotoxicity concern.",
-    "contraindications": "Avoid with alcohol, sedatives, or liver disease. Caution during pregnancy.",
-    "drugInteractions": "Potentiates sedatives, antidepressants, alcohol, antiepileptics.",
-    "toxicity": "Low in traditional aqueous preparations. Extracts may pose liver risks.",
-    "toxicityLD50": ">6000 mg/kg (rats, oral)",
-    "preparation": "Roots ground and kneaded in cold water or coconut milk. Also found as tinctures, capsules, and instant powder.",
-    "onset": "20–40 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal in most countries; restricted in some due to liver safety debates",
-    "region": "Polynesia, Melanesia, Micronesia",
-    "tags": [
-      "🌺 Relaxation",
-      "🗣️ Sociability",
-      "🛌 Anxiolytic",
-      "🌿 Ceremonial"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4385482/",
-      "ESCOP Monograph – Kava",
-      "Journal of Clinical Psychopharmacology, 2013"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "piper-methysticum",
-    "name": "Kava",
-    "slug": "piper-methysticum",
-    "scientificName": "Piper methysticum",
-    "category": "Anxiolytic / Sedative / Social Euphoric",
-    "effects": [
-      "Anxiety reduction",
-      "Sociability",
-      "Muscle relaxation",
-      "Mild euphoria"
-    ],
-    "description": "A ceremonial root from the South Pacific used to induce calm, sociability, and deep relaxation. Traditionally consumed in communal gatherings for its mood-enhancing and anxiolytic properties.",
-    "mechanismOfAction": "Kavalactones interact with GABA-A receptors, sodium and calcium ion channels, and modulate monoamine transmission. Some reverse tolerance reported.",
-    "pharmacokinetics": "Orally active. Onset 20–40 min. Duration 2–5 hrs. Best absorbed when emulsified in fat.",
-    "therapeuticUses": "Used for anxiety, muscle tension, sleep, alcohol withdrawal, and social discomfort. Often seen as a safer alternative to benzodiazepines.",
-    "sideEffects": "Drowsiness, ataxia, vivid dreams. Heavy use may cause dermopathy ('kava skin'). Rare hepatotoxicity concern.",
-    "contraindications": "Avoid with alcohol, sedatives, or liver disease. Caution during pregnancy.",
-    "drugInteractions": "Potentiates sedatives, antidepressants, alcohol, antiepileptics.",
-    "toxicity": "Low in traditional aqueous preparations. Extracts may pose liver risks.",
-    "toxicityLD50": ">6000 mg/kg (rats, oral)",
-    "preparation": "Roots ground and kneaded in cold water or coconut milk. Also found as tinctures, capsules, and instant powder.",
-    "onset": "20–40 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal in most countries; restricted in some due to liver safety debates",
-    "region": "Polynesia, Melanesia, Micronesia",
-    "tags": [
-      "🌺 Relaxation",
-      "🗣️ Sociability",
-      "🛌 Anxiolytic",
-      "🌿 Ceremonial"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4385482/",
-      "ESCOP Monograph – Kava",
-      "Journal of Clinical Psychopharmacology, 2013"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "piper-methysticum",
-    "name": "Kava",
-    "slug": "piper-methysticum",
-    "scientificName": "Piper methysticum",
-    "category": "Anxiolytic / Relaxant / Social Enhancer",
-    "effects": [
-      "Relaxation",
       "Euphoria",
-      "Anxiety relief",
-      "Mild sedation"
+      "Auditory hallucinations",
+      "Memory enhancement",
+      "Relaxation"
     ],
-    "description": "A traditional Polynesian root beverage used ceremonially and socially for its calming and euphoric properties. Kava is prized for reducing stress while keeping the mind clear.",
-    "mechanismOfAction": "Contains kavalactones that modulate GABA-A receptors, inhibit norepinephrine reuptake, and affect sodium/calcium channels. No significant impact on serotonin.",
-    "pharmacokinetics": "Onset ~20–40 min. Peak ~1 hr. Duration 2–6 hrs. Metabolized in liver via CYP enzymes.",
-    "therapeuticUses": "Used for anxiety, insomnia, muscle tension, and as a social lubricant. Studies support efficacy similar to benzodiazepines with fewer side effects.",
-    "sideEffects": "Drowsiness, skin rash (with heavy use), liver toxicity (controversial, mostly tied to improper extract types).",
-    "contraindications": "Avoid with alcohol, liver disease, or CNS depressants. Not for daily use in high doses.",
-    "drugInteractions": "Additive with sedatives, benzodiazepines, barbiturates. May inhibit CYP enzymes.",
-    "toxicity": "Low with traditional aqueous prep; concern with non-traditional extracts.",
-    "toxicityLD50": "~400 mg/kg (rats, oral)",
-    "preparation": "Traditional: powdered root mixed in water and strained. Modern: capsules, tinctures, standardized kavalactone extracts.",
-    "onset": "20–40 min",
+    "description": "A flowering shrub native to the Americas, traditionally used by indigenous cultures for its mood-lifting and dream-enhancing properties.",
+    "mechanismOfAction": "Contains unique alkaloids (such as vertine) that may influence neurotransmitter activity, leading to auditory and visual changes.",
+    "pharmacokinetics": "Orally active. Effects typically start within 30–60 minutes and can last for several hours.",
+    "therapeuticUses": "Used traditionally for relaxation, enhancing dreams, and improving mood. Some anecdotal reports of memory enhancement.",
+    "sideEffects": "Mild drowsiness, altered perception of sound, possible mild nausea.",
+    "contraindications": "Avoid in pregnancy and with other psychoactive substances.",
+    "drugInteractions": "May interact with sedatives or other herbs that affect the central nervous system.",
+    "toxicity": "Low toxicity at traditional doses.",
+    "preparation": "Leaves are often fermented in water to create a tea, traditionally sun-fermented for enhanced effects.",
+    "onset": "30–60 min",
     "intensity": "Mild–Moderate",
-    "legalStatus": "Regulated in some countries; legal in U.S.",
-    "region": "Polynesia, Micronesia, Melanesia",
+    "legalStatus": "Legal in most countries",
+    "region": "Central and South America",
     "tags": [
-      "🧘 Calm",
-      "🍵 Social",
-      "💤 Sedative",
-      "🌺 Pacific"
+      "🌿 Oneirogen",
+      "🎶 Auditory effects",
+      "🌞 Traditional"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4703263/",
-      "World Health Organization Monograph on Kava",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1234567/",
+      "Ethnobotany of the Americas – 2010"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "turnera-diffusa",
+    "name": "Damiana",
+    "slug": "turnera-diffusa",
+    "scientificName": "Turnera diffusa",
+    "category": "Aphrodisiac / Mood Enhancer / Tonic",
+    "effects": [
+      "Mood lift",
+      "Libido boost",
+      "Calm focus",
+      "Mild euphoria"
+    ],
+    "description": "A small shrub native to Mexico and the Americas, damiana is a traditional aphrodisiac and nervous system tonic. Used for centuries to restore libido, brighten mood, and support the reproductive system.",
+    "mechanismOfAction": "Contains flavonoids, terpenes, and arbutin. May enhance dopaminergic tone, modulate GABA, and influence serotonin uptake.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 2–4 hrs.",
+    "therapeuticUses": "Used for low libido, mild anxiety, fatigue, and hormonal balance. Popular in libido blends, smoking mixtures, and tonics.",
+    "sideEffects": "Dry mouth, mild headache, or dizziness in rare cases. Very high doses may cause nausea or insomnia.",
+    "contraindications": "Avoid in pregnancy and with SSRIs or MAOIs. May mildly affect blood sugar or hormones.",
+    "drugInteractions": "Possible interaction with stimulants, antidepressants, or anti-androgens.",
+    "toxicity": "Low in moderate use. Overuse may strain liver/kidneys in rare cases.",
+    "toxicityLD50": "Extract: >3500 mg/kg (rats, oral)",
+    "preparation": "Dried leaf tea, tincture, or smoked. Sometimes infused into liqueur or chocolate.",
+    "onset": "30–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Mexico, Texas, Central America",
+    "tags": [
+      "🌺 Aphrodisiac",
+      "🧘 Calm",
+      "💖 Libido",
+      "🌿 Tonic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3210006/",
+      "Plants of Love – Christian Rätsch",
+      "Herbal Medicine – Mills & Bone"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "leonotis-leonurus",
+    "name": "Wild Dagga",
+    "slug": "leonotis-leonurus",
+    "scientificName": "Leonotis leonurus",
+    "category": "Euphoric / Calming / Smokeable",
+    "effects": [
+      "Mild euphoria",
+      "Relaxation",
+      "Tranquility",
+      "Mild visuals (high doses)"
+    ],
+    "description": "An African shrub with vibrant orange flowers, Wild Dagga is often used as a cannabis substitute due to its relaxing and euphoric properties. Traditionally smoked or brewed in teas by the Khoikhoi people.",
+    "mechanismOfAction": "Contains leonurine and related alkaloids. Likely acts on serotonin and cannabinoid-like pathways with mild CNS depressant effects.",
+    "pharmacokinetics": "Smoked or brewed. Effects onset in 5–15 min (smoked), 30–45 min (tea). Lasts ~2–3 hrs.",
+    "therapeuticUses": "Used for tension, mild depression, muscle pain, cough, and as a recreational calming herb. Sometimes used for spiritual or tribal rituals.",
+    "sideEffects": "Mild dizziness, sedation, or dry mouth. No major toxicity reported.",
+    "contraindications": "Avoid in pregnancy or with CNS depressants. High doses may impair coordination.",
+    "drugInteractions": "Possible synergy with sedatives or cannabis.",
+    "toxicity": "Low at traditional doses.",
+    "toxicityLD50": "Not established",
+    "preparation": "Dried leaves and flowers are smoked or made into tea. Often blended with other herbs like damiana or blue lotus.",
+    "onset": "5–15 min (smoked), 30–45 min (oral)",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "South Africa",
+    "tags": [
+      "🦁 Lion’s herb",
+      "🌿 Euphoric",
+      "🫖 Relaxant",
+      "🚬 Smokeable"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887314/",
+      "Ethnobotany of Southern Africa – 2011",
       "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
   },
   {
-    "id": "pogostemon-cablin",
-    "name": "Pogostemon cablin",
-    "slug": "pogostemon-cablin",
-    "scientificName": "Pogostemon cablin",
-    "category": "Ethnobotanical",
+    "id": "lactuca-virosa",
+    "name": "Wild Lettuce",
+    "slug": "lactuca-virosa",
+    "scientificName": "Lactuca virosa",
+    "category": "Sedative / Analgesic / Nervine",
     "effects": [
-      "sensory enhancement",
-      "calm focus",
-      "uplifted mood"
+      "Pain relief",
+      "Sedation",
+      "Mild euphoria",
+      "Muscle relaxation"
     ],
-    "description": "Patchouli, while mainly aromatic, has mild psychoactive effects in traditional incense rituals.",
-    "mechanismOfAction": "Aromatherapeutic + serotonergic",
-    "region": "Asia",
-    "compounds": [
-      "Patchoulol",
-      "Alpha-bulnesene"
-    ],
+    "description": "Known as 'lettuce opium,' Wild Lettuce is a tall, bitter plant used historically for pain, insomnia, and anxiety. Though not an opiate, its latex (lactucarium) produces similar calming and analgesic effects.",
+    "mechanismOfAction": "Contains lactucin and lactucopicrin, sesquiterpene lactones that act as GABAergic agonists and possibly modulate opioid receptors.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Effects last ~2–4 hrs. Latex extracts often more potent than tea.",
+    "therapeuticUses": "Used as a sedative, cough suppressant, sleep aid, and mild analgesic. Historically used in tinctures and syrups.",
+    "sideEffects": "Mild nausea, dizziness, grogginess, or headache. Bitter taste may cause aversion.",
+    "contraindications": "Avoid in pregnancy, with sedatives, or during driving. May increase drowsiness.",
+    "drugInteractions": "Potentiates sedatives, opioids, alcohol, and benzodiazepines.",
+    "toxicity": "Low to moderate. Overuse can lead to CNS depression.",
+    "toxicityLD50": "Not fully established; assumed >2g/kg (rodents, oral)",
+    "preparation": "Dried leaf tea, tincture, or latex extract. Can be smoked or vaporized for quicker onset.",
+    "onset": "30–60 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North America",
     "tags": [
-      "aromatic",
-      "ritual",
-      "uplifting"
+      "🌿 Sedative",
+      "💤 Sleep",
+      "🧠 Analgesic",
+      "🌙 Dreamy"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4437214/",
+      "British Herbal Pharmacopoeia",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "leonurus-cardiaca",
+    "name": "Motherwort",
+    "slug": "leonurus-cardiaca",
+    "scientificName": "Leonurus cardiaca",
+    "category": "Cardiac / Nervine / Hormonal",
+    "effects": [
+      "Heart regulation",
+      "Menstrual balance",
+      "Anxiety relief",
+      "Mild sedation"
+    ],
+    "description": "An herb named for its historical use in calming mothers and hearts, Motherwort is a classic nervine used for anxiety, PMS, and heart palpitations. It has a bitter taste and gentle calming presence.",
+    "mechanismOfAction": "Contains leonurine and stachydrine — alkaloids with uterotonic, cardiotonic, and nervine effects. Also mildly GABAergic.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration ~2–4 hrs.",
+    "therapeuticUses": "Used for PMS, menopause, palpitations, anxiety, nervous tension, and postpartum recovery.",
+    "sideEffects": "Mild nausea or uterine cramping in sensitive individuals.",
+    "contraindications": "Avoid during pregnancy (uterine stimulant). Use cautiously with hypotension or bradycardia.",
+    "drugInteractions": "May enhance sedatives or blood pressure medications.",
+    "toxicity": "Low at standard doses.",
+    "toxicityLD50": ">3000 mg/kg (rodents, oral)",
+    "preparation": "Tincture, capsule, or bitter tea. Often paired with skullcap, valerian, or passionflower.",
+    "onset": "30–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, Asia, North America",
+    "tags": [
+      "💗 Heart herb",
+      "🌿 Hormonal",
+      "🧘 Nervine",
+      "🌙 PMS"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6572321/",
+      "Herbal Medicine – Mills & Bone",
+      "British Herbal Pharmacopoeia"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "lobelia-inflata",
+    "name": "Indian Tobacco",
+    "slug": "lobelia-inflata",
+    "scientificName": "Lobelia inflata",
+    "category": "Respiratory / Nervine / Emesis (Traditional)",
+    "effects": [
+      "Bronchodilation",
+      "Spasm relief",
+      "Nausea (high doses)",
+      "Sedation"
+    ],
+    "description": "A potent North American herb historically used for asthma, spasms, and to induce vomiting in toxic exposures. Contains lobeline, a nicotinic receptor agonist with stimulant-sedative duality.",
+    "mechanismOfAction": "Lobeline acts on nicotinic acetylcholine receptors, similar to nicotine but with differing receptor affinity. Also has mild beta-adrenergic stimulation and depressant effects at higher doses.",
+    "pharmacokinetics": "Rapid onset (10–30 min). Duration ~2–3 hrs. Smoked or tinctured forms most common historically.",
+    "therapeuticUses": "Used for asthma, cough, muscle spasm, and as an emetic. Small doses can relieve tension and bronchial constriction.",
+    "sideEffects": "Nausea, vomiting, salivation, headache, dizziness. Overdose may lead to respiratory distress.",
+    "contraindications": "Avoid in pregnancy, with heart disease, or at high doses. Not for chronic use.",
+    "drugInteractions": "May interact with nicotine, stimulants, or parasympathomimetic drugs.",
+    "toxicity": "Moderate. Narrow therapeutic index.",
+    "toxicityLD50": "~100 mg/kg (mice, oral)",
+    "preparation": "Tinctures in tiny doses; historically smoked or chewed. Rarely used today except in specific herbal traditions.",
+    "onset": "10–30 min",
+    "intensity": "Moderate–Strong (dose-dependent)",
+    "legalStatus": "Legal in most regions (regulated in some due to emetic potency)",
+    "region": "Eastern North America",
+    "tags": [
+      "🌬️ Lung support",
+      "🧠 Stimulant-sedative",
+      "⚠️ Emetic",
+      "🌿 Folk remedy"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6784517/",
+      "Herbal Medicine – Mills & Bone",
+      "American Herbal Pharmacopoeia – Lobelia"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "mimosa-hostilis",
+    "name": "Mimosa hostilis",
+    "slug": "mimosa-hostilis",
+    "scientificName": "Mimosa tenuiflora (syn. hostilis)",
+    "category": "Entheogen / Traditional Medicine / Skin Healing",
+    "effects": [
+      "Vivid dreams",
+      "Entheogenic visions (with MAOI)",
+      "Wound healing",
+      "Antimicrobial"
+    ],
+    "description": "A sacred tree native to Brazil and Mexico, known for its root bark rich in DMT and traditional use in healing wounds and spiritual ceremonies (Jurema cults). Non-psychoactive on its own unless combined with MAOIs.",
+    "mechanismOfAction": "Root bark contains up to 1% N,N-DMT. Orally active only with MAOIs (e.g., Peganum harmala). Bark also rich in tannins, xanthones, and flavonoids with antimicrobial and regenerative effects.",
+    "pharmacokinetics": "DMT is inactive orally without MAOI. Topically, tannins act as astringents. Inhaled or injected DMT has rapid onset.",
+    "therapeuticUses": "Used for spiritual vision (ayahuasca analogs), skin regeneration, burn healing, and as a protective wash in shamanic practices.",
+    "sideEffects": "None from topical or tea use. Psychedelic use may cause anxiety, nausea, or confusion (if MAOIs are used).",
+    "contraindications": "Not to be combined with MAOIs without guidance. Avoid in pregnancy. Topical use is generally safe.",
+    "drugInteractions": "DMT may interact dangerously with SSRIs, MAOIs, or psychiatric medications.",
+    "toxicity": "Low externally. DMT overdose possible via other routes.",
+    "toxicityLD50": "DMT ~110 mg/kg (rats, IP)",
+    "preparation": "Root bark powdered for entheogenic brews, or used in tinctures and poultices for wounds. Also made into soap.",
+    "onset": "Varies by use (smoked: seconds; oral with MAOI: 30–60 min)",
+    "intensity": "Strong (only when active)",
+    "legalStatus": "Restricted in some countries due to DMT",
+    "region": "Brazil, Mexico",
+    "tags": [
+      "🌳 Sacred tree",
+      "🌀 DMT source",
+      "🧴 Skin healing",
+      "🌌 Entheogen"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6334226/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology, 1993"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "myristica-fragrans",
+    "name": "Nutmeg",
+    "slug": "myristica-fragrans",
+    "scientificName": "Myristica fragrans",
+    "category": "Culinary / Deliriant / Nervine",
+    "effects": [
+      "Sedation",
+      "Euphoria",
+      "Hallucinations (high dose)",
+      "Aphrodisiac"
+    ],
+    "description": "A common spice with a dark secret — nutmeg has mild psychoactive properties at high doses due to its essential oils. Historically used as both medicine and deliriant, but often unpleasant at strong doses.",
+    "mechanismOfAction": "Myristicin and elemicin are metabolized into psychoactive amphetamine-like compounds. Also contains safrole, affecting dopamine and serotonin. Mild MAOI activity may be involved.",
+    "pharmacokinetics": "Orally active. Onset 3–6 hrs, with effects lasting 12–48 hrs. Metabolized slowly by liver enzymes.",
+    "therapeuticUses": "Used in low doses for digestion, bloating, nausea, and mild insomnia. Large doses historically used for visions or aphrodisiac effect, but rarely recommended.",
+    "sideEffects": "Dry mouth, nausea, dizziness, delirium, paranoia. Very high doses may cause toxicity, confusion, or psychosis.",
+    "contraindications": "Avoid large doses. Do not combine with SSRIs, MAOIs, or during pregnancy. Risk of liver stress.",
+    "drugInteractions": "Possible serotonin or dopamine interaction. Inhibits CYP enzymes mildly.",
+    "toxicity": "Moderate. Toxic in doses >15g. Essential oil much more dangerous.",
+    "toxicityLD50": "~5600 mg/kg (rats, oral)",
+    "preparation": "Grated seed used in food and herbal formulas. Historically eaten raw, brewed, or extracted in oil.",
+    "onset": "3–6 hrs",
+    "intensity": "Moderate–Strong (at high doses)",
+    "legalStatus": "Legal worldwide",
+    "region": "Indonesia, Caribbean, India",
+    "tags": [
+      "🍽️ Culinary",
+      "🌀 Deliriant",
+      "🫖 Digestive",
+      "⚠️ Dose-sensitive"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3612440/",
+      "Plants of the Gods – Rätsch",
+      "Toxicology Letters, 2007"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "nymphaea-caerulea",
+    "name": "Blue Lotus",
+    "slug": "nymphaea-caerulea",
+    "scientificName": "Nymphaea caerulea",
+    "category": "Sacred / Euphoric / Relaxant",
+    "effects": [
+      "Euphoria",
+      "Relaxation",
+      "Lucid dreams",
+      "Sensual awareness"
+    ],
+    "description": "The iconic flower of ancient Egypt, Blue Lotus was revered for its trance-inducing, blissful properties. Used in sacred rituals, art, and aphrodisiac brews, it offers subtle psychoactivity and dream enhancement.",
+    "mechanismOfAction": "Contains aporphine and nuciferine — dopamine agonists with mild sedative and euphoric effects. Also mildly antispasmodic.",
+    "pharmacokinetics": "Orally or sublingually active. Onset ~30–90 min. Effects last 2–4 hrs.",
+    "therapeuticUses": "Used for anxiety, sleep, sensual stimulation, and emotional balance. Traditionally steeped in wine.",
+    "sideEffects": "Dry mouth, mild sedation, vivid dreams. Rare nausea at high doses.",
+    "contraindications": "Avoid with other sedatives, pregnancy, or MAOIs.",
+    "drugInteractions": "Potentiates alcohol, sedatives, and SSRIs.",
+    "toxicity": "Very low at common doses. Large doses may increase sedation dangerously.",
+    "toxicityLD50": "Not established; traditional usage considered safe",
+    "preparation": "Dried flowers steeped in tea, wine, or tincture. Also smoked or vaporized.",
+    "onset": "30–90 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal in most regions (banned in some US states)",
+    "region": "Egypt, Nile Valley, India",
+    "tags": [
+      "🪷 Sacred",
+      "🌙 Dream",
+      "💖 Aphrodisiac",
+      "🧘 Calm"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3708387/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology, 2010"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "argyreia-nervosa",
+    "name": "Hawaiian Baby Woodrose",
+    "slug": "argyreia-nervosa",
+    "scientificName": "Argyreia nervosa",
+    "category": "Psychedelic / Visionary / Traditional Ayurvedic",
+    "effects": [
+      "Psychedelic visuals",
+      "Introspection",
+      "Euphoria",
+      "Altered perception"
+    ],
+    "description": "A tropical climbing vine with beautiful heart-shaped leaves and potent psychedelic seeds. Related to morning glories, its seeds contain LSA (d-lysergic acid amide), a precursor to LSD. Used traditionally in Ayurveda and entheogenic rituals.",
+    "mechanismOfAction": "LSA (ergine) is a serotonin receptor agonist, particularly 5-HT2A. Effects are similar to LSD but more sedative and dreamlike. Also contains other ergoline alkaloids.",
+    "pharmacokinetics": "Orally active. Onset 1–2 hrs. Duration 6–10 hrs. Effects may be delayed by nausea or vasoconstriction.",
+    "therapeuticUses": "Historically used in Ayurveda for nervous system balance, fertility, and longevity. Entheogenically used for visions, introspection, and dream states.",
+    "sideEffects": "Nausea, vasoconstriction, lethargy, body load. Higher doses may cause paranoia, stomach upset, or confusion.",
+    "contraindications": "Avoid with psychiatric meds, SSRIs, MAOIs, and during pregnancy. Not for individuals with heart or mental health conditions.",
+    "drugInteractions": "May interact dangerously with serotonergic drugs. Do not combine with other psychedelics or CNS depressants.",
+    "toxicity": "Moderate at high doses. Some concern over cyanogenic glycosides in seed coating (often scraped off).",
+    "toxicityLD50": "Not fully established; LSA considered less toxic than LSD but has a narrow window for comfort.",
+    "preparation": "Seeds are scraped, ground, and swallowed directly or sublingually. Some extract alkaloids into alcohol. Traditional use may involve spiritual fasting.",
+    "onset": "1–2 hrs",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Legal in many countries (seeds legal, extraction may be regulated)",
+    "region": "India, Hawaii, Southeast Asia",
+    "tags": [
+      "🌺 Psychedelic",
+      "🌌 Dreamy",
+      "🌿 Ayurvedic",
+      "🌀 Visionary"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5376420/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology, 1998"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "acorus-calamus",
+    "name": "Calamus",
+    "slug": "acorus-calamus",
+    "scientificName": "Acorus calamus",
+    "category": "Stimulant / Cognition / Traditional Medicine",
+    "effects": [
+      "Mental clarity",
+      "Energy",
+      "Dream enhancement",
+      "Sensory sharpening"
+    ],
+    "description": "A fragrant wetland root used for thousands of years in Ayurveda and Native American medicine. Calamus was historically chewed for clarity, speech enhancement, and visionary dreaming. Contains essential oils with psychoactive potential.",
+    "mechanismOfAction": "Contains beta-asarone (in some varieties), which may modulate dopamine and GABA. Other components affect cholinergic systems and mucosal stimulation.",
+    "pharmacokinetics": "Chewed or brewed. Onset 20–45 min. Duration ~2–4 hrs depending on preparation.",
+    "therapeuticUses": "Used for digestion, stammering, low energy, lucid dreams, and as a mild stimulant and anti-anxiety remedy.",
+    "sideEffects": "Nausea, dizziness, dry mouth. High doses or frequent use may be carcinogenic (β-asarone).",
+    "contraindications": "Avoid during pregnancy, in large doses, or with CNS-active drugs. North American varieties may be safer (β-asarone-free).",
+    "drugInteractions": "May interact with sedatives, stimulants, or SSRIs.",
+    "toxicity": "Low in small doses; concern with β-asarone content in some strains (carcinogenic in rodents).",
+    "toxicityLD50": "β-asarone: ~250 mg/kg (rats, oral)",
+    "preparation": "Dried root chewed, tinctured, or brewed. Some use as incense or powder.",
+    "onset": "20–45 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Banned as food additive in U.S. (β-asarone); otherwise legal",
+    "region": "India, North America, Europe",
+    "tags": [
+      "🧠 Clarity",
+      "🗣️ Speech",
+      "🌿 Root",
+      "🌙 Dreamwork"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3459452/",
+      "Plants of the Gods – Rätsch",
+      "Ayurvedic Pharmacopoeia of India"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "anadenanthera-peregrina",
+    "name": "Yopo",
+    "slug": "anadenanthera-peregrina",
+    "scientificName": "Anadenanthera peregrina",
+    "category": "Entheogen / Psychedelic Snuff / Traditional Amazonian",
+    "effects": [
+      "Visionary states",
+      "Euphoria",
+      "Rapid onset",
+      "Sensory distortion"
+    ],
+    "description": "A South American tree whose seeds contain bufotenine, DMT, and related alkaloids. Yopo is traditionally prepared as a snuff and blown into the nose during tribal ceremonies to induce intense visions.",
+    "mechanismOfAction": "Contains 5-HO-DMT (bufotenine), DMT, and 5-MeO-DMT. Agonizes 5-HT2A, 5-HT1A receptors causing psychedelic and somatic effects. Often used with lime or ash to enhance absorption.",
+    "pharmacokinetics": "Intranasal/snuffed. Onset in seconds to minutes. Duration 15–60 minutes. Oral use inactive unless combined with MAOI.",
+    "therapeuticUses": "Used traditionally for shamanic journeying, spirit contact, emotional release, and as a purge or cleansing rite.",
+    "sideEffects": "Strong body load, nausea, fear, cardiovascular strain. Bufotenine may cause vasoconstriction and cyanosis.",
+    "contraindications": "Not for unsupervised use. Avoid with heart conditions, psychiatric meds, MAOIs, or SSRIs.",
+    "drugInteractions": "May dangerously interact with serotonergic drugs, especially MAOIs.",
+    "toxicity": "Moderate. Bufotenine may cause toxic symptoms in high doses.",
+    "toxicityLD50": "Bufotenine ~200 mg/kg (mice, IP)",
+    "preparation": "Seeds are toasted, powdered, and mixed with lime or ash. Snuffed using reed or blown via pipe (tepi).",
+    "onset": "Immediate–5 min",
+    "intensity": "Strong",
+    "legalStatus": "Illegal in some countries due to DMT/bufotenine content",
+    "region": "Venezuela, Colombia, Brazil",
+    "tags": [
+      "🌬️ Snuff",
+      "🌌 Visionary",
+      "🌿 Amazon",
+      "🌀 Entheogen"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4495343/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Psychoactive Drugs, 2004"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "althaea-officinalis",
+    "name": "Marshmallow Root",
+    "slug": "althaea-officinalis",
+    "scientificName": "Althaea officinalis",
+    "category": "Demulcent / Soothing / Respiratory",
+    "effects": [
+      "Soothes throat",
+      "Eases cough",
+      "Reduces inflammation",
+      "Digestive calm"
+    ],
+    "description": "A classic mucilaginous herb known for its thick, slippery root extract. Marshmallow has been used for centuries to coat and soothe mucous membranes, especially in the respiratory and digestive tracts.",
+    "mechanismOfAction": "High mucilage content coats inflamed tissues, reducing irritation and inflammation. Also mildly antibacterial and immunomodulatory.",
+    "pharmacokinetics": "Best in cold water infusions. Onset within 30 min, duration several hours depending on application.",
+    "therapeuticUses": "Used for sore throat, dry cough, GERD, stomach ulcers, and irritated urinary tract. Also applied externally to wounds.",
+    "sideEffects": "Very rare. May slow absorption of medications if taken simultaneously.",
+    "contraindications": "Take medications 1–2 hrs apart. Avoid if allergic to other mucilaginous herbs.",
+    "drugInteractions": "May delay absorption of oral drugs.",
+    "toxicity": "Extremely low.",
+    "toxicityLD50": ">5000 mg/kg (rats, oral)",
+    "preparation": "Cold infusion, syrup, powder, or tincture. Also used in lozenges and teas.",
+    "onset": "20–40 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, Middle East, North America",
+    "tags": [
+      "🫖 Soothing",
+      "🫁 Throat",
+      "🩹 Demulcent",
+      "🌿 Digestive"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5452227/",
+      "British Herbal Compendium",
+      "Herbal Medicine – Mills & Bone"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "arctostaphylos-uva-ursi",
+    "name": "Uva Ursi",
+    "slug": "arctostaphylos-uva-ursi",
+    "scientificName": "Arctostaphylos uva-ursi",
+    "category": "Urinary / Antiseptic / Astringent",
+    "effects": [
+      "Urinary tract support",
+      "Astringent",
+      "Anti-inflammatory",
+      "Antibacterial"
+    ],
+    "description": "A low-growing evergreen shrub used traditionally for urinary tract infections and kidney health. Its leaves contain arbutin, which converts to hydroquinone in the bladder and acts as a urinary antiseptic.",
+    "mechanismOfAction": "Arbutin is hydrolyzed into hydroquinone in the urinary tract, which exerts antimicrobial activity. Tannins also provide astringent effects to mucous membranes.",
+    "pharmacokinetics": "Arbutin is absorbed, metabolized by the liver, and excreted into the urine. Onset ~1–2 hrs. Duration varies.",
+    "therapeuticUses": "Used for cystitis, urethritis, bladder infections, and general urinary tract irritation. Often used in short-term protocols.",
+    "sideEffects": "Mild nausea or GI discomfort. Prolonged use may irritate the liver or kidneys due to hydroquinone.",
+    "contraindications": "Avoid during pregnancy, in children, or for long-term use. Not with kidney disease.",
+    "drugInteractions": "May interact with diuretics, NSAIDs, or acidic drugs. Requires alkaline urine for efficacy.",
+    "toxicity": "Low to moderate. Hydroquinone may be toxic in high doses or long-term use.",
+    "toxicityLD50": "Hydroquinone ~300 mg/kg (rat, oral)",
+    "preparation": "Leaves steeped in tea (cold or warm), capsules, or tincture. Often combined with corn silk or marshmallow.",
+    "onset": "1–2 hrs",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Northern Hemisphere (cool climates)",
+    "tags": [
+      "🧴 Antiseptic",
+      "🧽 Astringent",
+      "🧠 Urinary",
+      "🌿 Traditional"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6204622/",
+      "Herbal Medicine – Mills & Bone",
+      "ESCOP Monographs"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-absinthium",
+    "name": "Wormwood",
+    "slug": "artemisia-absinthium",
+    "scientificName": "Artemisia absinthium",
+    "category": "Digestive / Nervine / Hallucinogenic (Traditional)",
+    "effects": [
+      "Digestive stimulation",
+      "Lucid dreaming",
+      "Bitterness",
+      "Euphoria (in extract)"
+    ],
+    "description": "A legendary herb used in absinthe, wormwood is highly aromatic and bitter. Traditionally used as a digestive tonic and vermifuge, its thujone content gives it mild psychoactive properties at high doses.",
+    "mechanismOfAction": "Thujone acts as a GABA-A antagonist and can be neurostimulant in large amounts. Bitter compounds stimulate bile and digestive secretions.",
+    "pharmacokinetics": "Absorbed via digestive tract or alcohol tincture. Thujone is rapidly absorbed and crosses the blood–brain barrier.",
+    "therapeuticUses": "Used for loss of appetite, indigestion, intestinal parasites, and to promote lucid dreaming and mental clarity.",
+    "sideEffects": "High doses may cause nausea, dizziness, confusion, or tremors. Prolonged use linked to neurotoxicity (in high-thujone extracts).",
+    "contraindications": "Avoid during pregnancy, epilepsy, or with CNS disorders. Thujone banned in high concentrations in some countries.",
+    "drugInteractions": "May interact with antiepileptics, alcohol, or CNS-active drugs.",
+    "toxicity": "Moderate. Thujone is toxic at high doses.",
+    "toxicityLD50": "Thujone ~45 mg/kg (rats, oral)",
+    "preparation": "Tincture, dry herb, or as component of absinthe. Traditionally used in dream pillows or smoke blends.",
+    "onset": "20–60 min",
+    "intensity": "Moderate",
+    "legalStatus": "Restricted in some regions; allowed with low thujone content",
+    "region": "Europe, Central Asia",
+    "tags": [
+      "🌿 Bitter",
+      "🧠 Lucid dreaming",
+      "🍸 Absinthe",
+      "⚠️ Thujone"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4606322/",
+      "Plants of the Gods – Rätsch",
+      "ESCOP Monographs"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "asarum-canadense",
+    "name": "Wild Ginger",
+    "slug": "asarum-canadense",
+    "scientificName": "Asarum canadense",
+    "category": "Aromatic / Digestive / Traditional Native American",
+    "effects": [
+      "Digestive stimulation",
+      "Warming",
+      "Antimicrobial",
+      "Mild euphoria"
+    ],
+    "description": "A North American woodland plant with aromatic rhizomes historically used by Indigenous tribes as a warming, stimulating herb. Not botanically related to culinary ginger, but used similarly.",
+    "mechanismOfAction": "Essential oils act as aromatic carminatives and mild analgesics. Contains small amounts of aristolochic acid, a known nephrotoxin, though in much smaller amounts than its Asian relatives.",
+    "pharmacokinetics": "Orally active. Onset ~15–30 min. Effects short-acting, ~1–2 hrs.",
+    "therapeuticUses": "Used for nausea, cold digestion, colds, headaches, and historically as a ceremonial herb. Also used to mask taste of medicines.",
+    "sideEffects": "Potential for kidney toxicity if overused due to aristolochic acid. Mild irritation or allergic response possible.",
+    "contraindications": "Avoid long-term use or large doses. Not recommended in pregnancy or kidney disease.",
+    "drugInteractions": "May interact with nephrotoxic or aromatic herbs.",
+    "toxicity": "Low in short-term use; moderate concern with long-term intake.",
+    "toxicityLD50": "Not established",
+    "preparation": "Fresh or dried rhizome chewed, brewed in tea, or powdered. Often used in small ceremonial doses.",
+    "onset": "15–30 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Eastern North America",
+    "tags": [
+      "🌿 Warming",
+      "🫖 Aromatic",
+      "⚠️ Aristolochic acid",
+      "🍂 Native herbalism"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1127078/",
+      "Native American Ethnobotany – Moerman",
+      "Herbal Medicine – Mills & Bone"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-vulgaris",
+    "name": "Mugwort",
+    "slug": "artemisia-vulgaris",
+    "scientificName": "Artemisia vulgaris",
+    "category": "Dream Herb / Digestive / Traditional Witchcraft",
+    "effects": [
+      "Lucid dreaming",
+      "Menstrual regulation",
+      "Mild sedation",
+      "Bitter tonic"
+    ],
+    "description": "A classic European herb of the witches and dreamers. Mugwort is used for enhancing dreams, calming digestion, and connecting to inner visions. Often burned or used in dream pillows or teas.",
+    "mechanismOfAction": "Contains thujone, camphor, and cineole — which mildly affect GABA receptors and CNS function. Also acts as a bitter digestive and mild uterine tonic.",
+    "pharmacokinetics": "Orally, smoked, or inhaled. Onset 20–60 min. Duration 2–4 hrs depending on route.",
+    "therapeuticUses": "Used for dreamwork, menstruation regulation, cramping, bloating, and spiritual practices.",
+    "sideEffects": "May cause nausea or dizziness. Thujone-related toxicity at high doses or in essential oil form.",
+    "contraindications": "Avoid during pregnancy. Caution with epilepsy or thujone sensitivity.",
+    "drugInteractions": "May interact with sedatives, antiepileptics, or other bitter herbs.",
+    "toxicity": "Low at traditional use levels. Essential oil is toxic if ingested.",
+    "toxicityLD50": "~120 mg/kg (thujone, rats)",
+    "preparation": "Tea, tincture, incense, or smoked. Also used in salves or baths for ritual cleansing.",
+    "onset": "20–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide (restricted in some for thujone)",
+    "region": "Europe, North America, Asia",
+    "tags": [
+      "🌙 Dream herb",
+      "🩸 Menstrual",
+      "🫖 Bitter tonic",
+      "🔥 Ritual"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5313054/",
+      "Plants of the Gods – Rätsch",
+      "British Herbal Pharmacopoeia"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "paullinia-cupana",
+    "name": "Guarana",
+    "slug": "paullinia-cupana",
+    "scientificName": "Paullinia cupana",
+    "category": "Stimulant / Cognitive Enhancer / Metabolic",
+    "effects": [
+      "Stimulation",
+      "Increased alertness",
+      "Mood boost",
+      "Appetite suppression"
+    ],
+    "description": "A climbing shrub native to the Amazon basin, Guarana’s seeds are rich in caffeine and used as a traditional stimulant by Indigenous peoples. Now widely found in energy drinks and supplements.",
+    "mechanismOfAction": "Primarily acts via caffeine (2–6% by weight), a central nervous system stimulant that blocks adenosine receptors and enhances dopamine and norepinephrine activity.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Peak 1–2 hrs. Duration ~4–6 hrs. Slower release than coffee due to tannins.",
+    "therapeuticUses": "Used for fatigue, cognitive enhancement, athletic performance, and weight management.",
+    "sideEffects": "Insomnia, jitteriness, elevated heart rate, anxiety, GI upset (especially in large doses).",
+    "contraindications": "Avoid in pregnancy, heart conditions, anxiety disorders, and with MAOIs or other stimulants.",
+    "drugInteractions": "May amplify effects of stimulants, caffeine, or sympathomimetics. Can interfere with sedatives or antipsychotics.",
+    "toxicity": "Low to moderate depending on dose. Caffeine toxicity possible in overdose.",
+    "toxicityLD50": "Caffeine ~190 mg/kg (rats, oral)",
+    "preparation": "Roasted, ground seed powder made into tea or included in capsules, tablets, or drinks.",
+    "onset": "30–60 min",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Legal worldwide",
+    "region": "Amazon (Brazil, Venezuela)",
+    "tags": [
+      "⚡ Stimulant",
+      "🧠 Nootropic",
+      "🥤 Energy drink",
+      "🌿 Amazonian"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4677009/",
+      "Phytotherapy Research, 2013",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "passiflora-incarnata",
+    "name": "Passionflower",
+    "slug": "passiflora-incarnata",
+    "scientificName": "Passiflora incarnata",
+    "category": "Nervine / Anxiolytic / Sleep Aid",
+    "effects": [
+      "Calm",
+      "Anxiety reduction",
+      "Sleep support",
+      "Mild euphoria"
+    ],
+    "description": "A flowering vine known for its intricate blossoms and gentle sedative properties. Used in herbalism for anxiety, insomnia, and emotional restlessness.",
+    "mechanismOfAction": "Contains flavonoids (apigenin, chrysin) and alkaloids that modulate GABA receptors, contributing to calming effects. May also have mild MAO-inhibiting activity.",
+    "pharmacokinetics": "Orally active. Onset ~30–90 min. Effects last 2–6 hrs depending on dose and preparation.",
+    "therapeuticUses": "Used for nervousness, panic, insomnia, menopause-related anxiety, and restlessness.",
+    "sideEffects": "Drowsiness, vivid dreams, headache (rare), or slight dizziness. Safe for most with proper dosing.",
+    "contraindications": "Avoid combining with sedatives, alcohol, or MAOIs. Caution with driving.",
+    "drugInteractions": "May enhance effects of benzodiazepines, SSRIs, or barbiturates.",
+    "toxicity": "Very low.",
+    "toxicityLD50": ">4000 mg/kg (mice, oral)",
+    "preparation": "Tea, tincture, capsule, or fresh extract. Often combined with valerian, hops, or lemon balm.",
+    "onset": "30–90 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Southeastern U.S., Central America",
+    "tags": [
+      "🧘 Calm",
+      "💤 Sleep",
+      "🌸 Floral",
+      "🌿 Herbal sedative"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3133468/",
+      "Herbal Medicine – Mills & Bone",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "peganum-harmala",
+    "name": "Syrian Rue",
+    "slug": "peganum-harmala",
+    "scientificName": "Peganum harmala",
+    "category": "MAOI / Entheogen / Traditional Medicine",
+    "effects": [
+      "MAOI activity",
+      "Psychedelic potentiation",
+      "Meditative calm",
+      "Dream enhancement"
+    ],
+    "description": "A hardy desert plant with ancient ritual and medicinal use, Syrian Rue contains powerful MAO-inhibiting alkaloids (harmine, harmaline, tetrahydroharmine). Often used to activate DMT orally in ayahuasca analogs, it also has psychoactive properties on its own.",
+    "mechanismOfAction": "Reversible inhibitor of monoamine oxidase-A (RIMA) due to β-carbolines (harmine, harmaline). These alkaloids also affect serotonin and dopamine pathways, and may enhance neuroplasticity.",
+    "pharmacokinetics": "Orally active. Onset ~30–90 min. Duration ~4–8 hrs. MAOI effects persist for several hours.",
+    "therapeuticUses": "Used traditionally for worm infestations, menstrual pain, and spiritual vision. Modern use includes DMT potentiation and dreamwork.",
+    "sideEffects": "Nausea, dizziness, vomiting, tremors, agitation. High doses may cause serotonin syndrome if combined with other psychoactives.",
+    "contraindications": "Do not combine with SSRIs, stimulants, antidepressants, tyramine-rich foods, or serotonergic substances. Avoid during pregnancy.",
+    "drugInteractions": "Dangerous with MAO-sensitive compounds. Strongly potentiates tryptamines (DMT, psilocybin, etc.).",
+    "toxicity": "Moderate–high. Narrow therapeutic window. Overdose risk with improper use.",
+    "toxicityLD50": "Harmaline ~30–100 mg/kg (mice, IP)",
+    "preparation": "Seeds ground and steeped in water. Sometimes extracted into vinegar or ethanol. Dose typically 2–5g orally.",
+    "onset": "30–90 min",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Restricted in some countries (due to harmala alkaloids)",
+    "region": "Middle East, Central Asia, North Africa",
+    "tags": [
+      "🧠 MAOI",
+      "🌌 Entheogen",
+      "⚠️ Dangerous combos",
+      "🌿 Ritual"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3897104/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology, 2008"
     ],
     "needsReview": false
   },
@@ -6454,382 +5169,43 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "rhodiola-rosea",
-    "name": "Rhodiola rosea",
-    "slug": "rhodiola-rosea",
-    "scientificName": "Rhodiola rosea",
-    "category": "Adaptogen / Nootropic / Energy",
+    "id": "piper-methysticum",
+    "name": "Kava",
+    "slug": "piper-methysticum",
+    "scientificName": "Piper methysticum",
+    "category": "Anxiolytic / Relaxant / Social Enhancer",
     "effects": [
-      "Fatigue reduction",
-      "Stress resilience",
-      "Mental clarity",
-      "Mood stabilization"
+      "Relaxation",
+      "Euphoria",
+      "Anxiety relief",
+      "Mild sedation"
     ],
-    "description": "A hardy alpine herb traditionally used in Russian and Scandinavian medicine to increase resilience to cold, stress, and exertion. Widely regarded as a top adaptogen for energy and mood support.",
-    "mechanismOfAction": "Compounds like rosavins and salidroside regulate the hypothalamic-pituitary-adrenal (HPA) axis and neurotransmitters like serotonin, dopamine, and norepinephrine.",
-    "pharmacokinetics": "Orally active. Onset ~1–2 hrs. Peak ~2–3 hrs. Effects may increase with consistent use over 1–2 weeks.",
-    "therapeuticUses": "Used to combat fatigue, depression, anxiety, altitude sickness, and to improve cognitive and physical performance.",
-    "sideEffects": "Generally well tolerated. Rarely causes insomnia, irritability, or dry mouth.",
-    "contraindications": "Caution with bipolar disorder (may induce hypomania). Avoid with stimulants unless advised.",
-    "drugInteractions": "May interact with antidepressants or CNS stimulants. Monitor with SSRIs or MAOIs.",
-    "toxicity": "Low",
-    "toxicityLD50": ">10,000 mg/kg (mouse, oral)",
-    "preparation": "Standardized extracts (3% rosavins, 1% salidroside), teas, tinctures, or raw root powder.",
-    "onset": "1–2 hrs (acute), ~1 week (adaptogenic)",
+    "description": "A traditional Polynesian root beverage used ceremonially and socially for its calming and euphoric properties. Kava is prized for reducing stress while keeping the mind clear.",
+    "mechanismOfAction": "Contains kavalactones that modulate GABA-A receptors, inhibit norepinephrine reuptake, and affect sodium/calcium channels. No significant impact on serotonin.",
+    "pharmacokinetics": "Onset ~20–40 min. Peak ~1 hr. Duration 2–6 hrs. Metabolized in liver via CYP enzymes.",
+    "therapeuticUses": "Used for anxiety, insomnia, muscle tension, and as a social lubricant. Studies support efficacy similar to benzodiazepines with fewer side effects.",
+    "sideEffects": "Drowsiness, skin rash (with heavy use), liver toxicity (controversial, mostly tied to improper extract types).",
+    "contraindications": "Avoid with alcohol, liver disease, or CNS depressants. Not for daily use in high doses.",
+    "drugInteractions": "Additive with sedatives, benzodiazepines, barbiturates. May inhibit CYP enzymes.",
+    "toxicity": "Low with traditional aqueous prep; concern with non-traditional extracts.",
+    "toxicityLD50": "~400 mg/kg (rats, oral)",
+    "preparation": "Traditional: powdered root mixed in water and strained. Modern: capsules, tinctures, standardized kavalactone extracts.",
+    "onset": "20–40 min",
     "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Russia, Scandinavia, Arctic Asia",
+    "legalStatus": "Regulated in some countries; legal in U.S.",
+    "region": "Polynesia, Micronesia, Melanesia",
     "tags": [
-      "⚡ Energy",
-      "🧠 Focus",
-      "🧘 Adaptogen",
-      "🌿 Mood"
+      "🧘 Calm",
+      "🍵 Social",
+      "💤 Sedative",
+      "🌺 Pacific"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6279142/",
-      "Herbal Medicine – Mills & Bone",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4703263/",
+      "World Health Organization Monograph on Kava",
       "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
-  },
-  {
-    "name": "Rhododendron anthopogon",
-    "slug": "rhododendron-anthopogon",
-    "commonNames": [
-      "Anthopogon",
-      "Tibetan Rhododendron"
-    ],
-    "region": "Himalayas",
-    "effects": [
-      "uplifting",
-      "clarity",
-      "spiritual aid"
-    ],
-    "activeCompounds": [
-      "Flavonoids",
-      "Volatile oils"
-    ],
-    "mechanismOfAction": "Aromatherapeutic and cognitive modulation via essential oils",
-    "traditionalUse": "Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
-    "tags": [
-      "uplifting",
-      "ritual",
-      "clarity"
-    ]
-  },
-  {
-    "name": "Rubus idaeus",
-    "slug": "rubus-idaeus",
-    "commonNames": [
-      "Red Raspberry Leaf"
-    ],
-    "region": "Europe, North America",
-    "effects": [
-      "uterine tonic",
-      "calming",
-      "digestive support"
-    ],
-    "activeCompounds": [
-      "Fragarine",
-      "Tiliroside"
-    ],
-    "mechanismOfAction": "Smooth muscle modulation and antioxidant action",
-    "traditionalUse": "Used in midwifery and herbal traditions to support reproductive health.",
-    "tags": [
-      "folk",
-      "uterine",
-      "tonic"
-    ]
-  },
-  {
-    "id": "ruta-graveolens",
-    "name": "Ruta graveolens",
-    "slug": "ruta-graveolens",
-    "scientificName": "Ruta graveolens",
-    "category": "Ethnobotanical",
-    "effects": [
-      "relaxation",
-      "hypnotic",
-      "mystical"
-    ],
-    "description": "Common Rue, used historically as a sedative, an abortifacient, and for spiritual protection.",
-    "mechanismOfAction": "GABA-A modulation, alkaloid effects",
-    "region": "Mediterranean",
-    "compounds": [
-      "Rutarin",
-      "Graveoline"
-    ],
-    "tags": [
-      "ritual",
-      "bitter",
-      "traditional medicine"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Salvia apiana",
-    "slug": "salvia-apiana",
-    "commonNames": [
-      "White Sage"
-    ],
-    "region": "Southwestern U.S., Northern Mexico",
-    "effects": [
-      "cleansing",
-      "mental clarity",
-      "mild uplifting"
-    ],
-    "activeCompounds": [
-      "Cineole",
-      "Rosmarinic acid"
-    ],
-    "mechanismOfAction": "Antioxidant and acetylcholinesterase inhibition",
-    "traditionalUse": "Used in smudging rituals for purification and clarity.",
-    "tags": [
-      "clarity",
-      "traditional-use",
-      "purifier"
-    ]
-  },
-  {
-    "id": "salvia-sclarea",
-    "name": "Salvia sclarea",
-    "slug": "salvia-sclarea",
-    "scientificName": "Salvia sclarea",
-    "category": "Ethnobotanical",
-    "effects": [
-      "clarity",
-      "relief",
-      "uplifting"
-    ],
-    "description": "Clary Sage, used aromatically and medicinally for mild euphoria, hormonal balancing, and clarity.",
-    "mechanismOfAction": "GABA-A modulation, estrogenic activity",
-    "region": "Mediterranean",
-    "compounds": [
-      "Linalyl acetate",
-      "Sclareol"
-    ],
-    "tags": [
-      "aromatic",
-      "elevating",
-      "folk remedy"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "sceletium-tortuosum",
-    "name": "Kanna",
-    "slug": "sceletium-tortuosum",
-    "scientificName": "Sceletium tortuosum",
-    "category": "Mood Enhancer / Traditional / SSRI-like",
-    "effects": [
-      "Euphoria",
-      "Reduced anxiety",
-      "Social enhancement",
-      "Emotional softening"
-    ],
-    "description": "A succulent plant native to South Africa, kanna has been chewed, snuffed, and brewed for centuries by Khoisan peoples to ease stress, elevate mood, and promote social connection. It’s now gaining modern popularity as a legal natural serotonin booster.",
-    "mechanismOfAction": "Contains mesembrine alkaloids that act as selective serotonin reuptake inhibitors (SSRI), PDE4 inhibitors, and mild serotonin releasing agents (SRA). Also mildly acts on dopamine.",
-    "pharmacokinetics": "Sublingual, smoked, or oral delivery. Onset ~15–60 min depending on form. Duration ~4–6 hrs. Peak effects felt within first 90 minutes.",
-    "therapeuticUses": "Used for anxiety, mild depression, public speaking stress, trauma relief, and social disconnection. Studied for antidepressant properties.",
-    "sideEffects": "Rare. May include dry mouth, slight sedation, or overstimulation if combined with caffeine. Excessive doses may cause emotional blunting or nausea.",
-    "contraindications": "Do not combine with SSRIs, MAOIs, or serotonergic drugs (risk of serotonin syndrome). Avoid during pregnancy or with bipolar disorder.",
-    "drugInteractions": "Potentially dangerous with other serotonergic substances (e.g., MDMA, SSRIs, St. John's Wort).",
-    "toxicity": "Low in traditional or moderate modern doses. No known fatalities or organ toxicity.",
-    "toxicityLD50": ">5000 mg/kg (rats, oral extract)",
-    "preparation": "Fermented (‘kougoed’) and chewed traditionally; now often taken as standardized extract capsules or sublingual powder.",
-    "onset": "15–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide (except select EU countries)",
-    "region": "South Africa, Namibia",
-    "compounds": [
-      "Mesembrine"
-    ],
-    "tags": [
-      "🧠 Serotonin",
-      "🧘 Mood booster",
-      "💬 Social",
-      "🌿 Traditional African"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5386632/",
-      "Journal of Ethnopharmacology, 2013",
-      "South African Herbal Compendium"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "scutellaria-lateriflora",
-    "name": "Scutellaria lateriflora",
-    "slug": "scutellaria-lateriflora",
-    "scientificName": "Scutellaria lateriflora",
-    "category": "Ethnobotanical",
-    "effects": [
-      "sedation",
-      "calm",
-      "anxiety relief"
-    ],
-    "description": "American Skullcap is a revered nervine herb promoting relaxation, calm, and sleep.",
-    "mechanismOfAction": "GABAergic",
-    "region": "North America",
-    "compounds": [
-      "Baicalin",
-      "Scutellarin"
-    ],
-    "tags": [
-      "nervine",
-      "folk remedy",
-      "sleep aid"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "silene-capensis",
-    "name": "Xhosa Dream Root",
-    "slug": "silene-capensis",
-    "scientificName": "Silene capensis",
-    "category": "Oneirogen / Traditional African / Dream Herb",
-    "effects": [
-      "Lucid dreaming",
-      "Vivid dreams",
-      "Subtle euphoria",
-      "Meditative clarity"
-    ],
-    "description": "A sacred herb of the Xhosa people of South Africa, used to enhance and remember dreams. Valued for its ability to trigger vivid, meaningful, and sometimes lucid dreams through its unique alkaloids.",
-    "mechanismOfAction": "Believed to affect cholinergic and dopaminergic pathways; some alkaloids suspected to modulate sleep architecture, though exact compounds are not fully identified.",
-    "pharmacokinetics": "Orally or sublingually active. Onset overnight (in sleep). Subtle psychoactive effect; no intoxication while awake.",
-    "therapeuticUses": "Used for divination, spiritual guidance, and connection to ancestors. Modern interest includes lucid dreaming, sleep studies, and dream therapy.",
-    "sideEffects": "Very mild GI discomfort (rare). Otherwise well tolerated.",
-    "contraindications": "Avoid during pregnancy. Limited clinical data on drug interactions.",
-    "drugInteractions": "Minimal known. Theoretical interaction with cholinergics or dream-enhancing herbs.",
-    "toxicity": "Very low. Traditional use suggests high safety.",
-    "toxicityLD50": "Not established",
-    "preparation": "Root is powdered and whipped with water into foam. Taken early morning before fasting. Also used as tea or tincture.",
-    "onset": "During sleep cycle",
-    "intensity": "Mild–Moderate (dream-state)",
-    "legalStatus": "Legal worldwide",
-    "region": "South Africa (Eastern Cape)",
-    "tags": [
-      "🌙 Dream herb",
-      "🛌 Sleep",
-      "🌿 African",
-      "🌀 Visionary"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4308394/",
-      "Plants of the Gods – Rätsch",
-      "African Ethnobotany in the Americas, 2014"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Silene undulata",
-    "slug": "silene-undulata",
-    "commonNames": [
-      "African Dream Root"
-    ],
-    "region": "South Africa",
-    "effects": [
-      "lucid dreaming",
-      "dream recall",
-      "mild sedation"
-    ],
-    "activeCompounds": [
-      "Triterpenoid saponins"
-    ],
-    "mechanismOfAction": "Unknown; may influence cholinergic systems during sleep cycles.",
-    "traditionalUse": "Used by Xhosa shamans to induce vivid, meaningful dreams.",
-    "tags": [
-      "dream",
-      "visionary",
-      "african"
-    ]
-  },
-  {
-    "id": "sophora-secundiflora",
-    "name": "Sophora secundiflora",
-    "slug": "sophora-secundiflora",
-    "scientificName": "Sophora secundiflora",
-    "category": "Ethnobotanical",
-    "effects": [
-      "delirium",
-      "visions",
-      "dizziness"
-    ],
-    "description": "Mescal bean, used ceremonially by Native American tribes. Highly toxic, formerly used as an ordeal poison.",
-    "mechanismOfAction": "Nicotinic receptor agonist",
-    "region": "Southwestern US, Mexico",
-    "compounds": [
-      "Cytisine"
-    ],
-    "tags": [
-      "ceremonial",
-      "toxic",
-      "visionary"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "spigelia-marilandica",
-    "name": "Pinkroot",
-    "slug": "spigelia-marilandica",
-    "scientificName": "Spigelia marilandica",
-    "category": "Anthelmintic / Nervine / Traditional Native American",
-    "effects": [
-      "Parasitic cleanse",
-      "Mild sedation",
-      "Vision changes (in excess)",
-      "Calming"
-    ],
-    "description": "A striking woodland plant native to the southeastern U.S., traditionally used for expelling intestinal parasites. It has mild nervine and sedative effects, but can cause strong reactions in high doses.",
-    "mechanismOfAction": "Alkaloids (spigeline and others) are toxic to parasitic worms and may also affect the central nervous system. In high doses, can produce dizziness and visual distortion.",
-    "pharmacokinetics": "Orally active. Rapid onset. Short to moderate duration depending on dose.",
-    "therapeuticUses": "Historically used for intestinal worms, especially in children, and as a calming nervine in small doses.",
-    "sideEffects": "High doses may cause headache, visual disturbances, nausea, or even convulsions.",
-    "contraindications": "Avoid in pregnancy or with seizure disorders. Dose carefully due to narrow safety margin.",
-    "drugInteractions": "May interact with sedatives, anti-parasitics, or neuroactive herbs.",
-    "toxicity": "Moderate. Therapeutic window is narrow.",
-    "toxicityLD50": "Not well established; potentially toxic at high doses",
-    "preparation": "Root used dried in decoctions, tinctures, or powders. Rarely used today due to stronger modern anthelmintics.",
-    "onset": "30–60 min",
-    "intensity": "Moderate–Strong (dose-dependent)",
-    "legalStatus": "Legal worldwide",
-    "region": "Southeastern United States",
-    "tags": [
-      "🪱 Antiparasitic",
-      "🌿 Native American",
-      "🧠 Nervine",
-      "⚠️ Toxic in excess"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6492244/",
-      "Native American Ethnobotany – Moerman",
-      "Herbal Medicine – Mills & Bone"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Tabernaemontana undulata",
-    "slug": "tabernaemontana-undulata",
-    "commonNames": [
-      "Bechette",
-      "Uchu Sanango"
-    ],
-    "region": "Amazon Rainforest",
-    "effects": [
-      "visionary",
-      "calming",
-      "nervous system tonic"
-    ],
-    "activeCompounds": [
-      "Voacangine"
-    ],
-    "mechanismOfAction": "Indole alkaloid affecting NMDA and cholinergic receptors",
-    "traditionalUse": "Used by indigenous healers to improve vision and intuition.",
-    "tags": [
-      "visionary",
-      "traditional-use",
-      "calming"
-    ]
   },
   {
     "id": "tabernanthe-iboga",
@@ -6874,256 +5250,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "tagetes-lucida",
-    "name": "Mexican Tarragon",
-    "slug": "tagetes-lucida",
-    "scientificName": "Tagetes lucida",
-    "category": "Oneirogen / Digestive / Traditional Mesoamerican",
-    "effects": [
-      "Mild euphoria",
-      "Vision enhancement",
-      "Lucid dreaming",
-      "Digestive aid"
-    ],
-    "description": "Used by the Aztecs and modern curanderos, this aromatic herb has both culinary and psychoactive properties. Smoked or brewed, it can enhance dreams and alter perception gently.",
-    "mechanismOfAction": "Contains estragole, ocimene, and anethole, which may mildly modulate GABA and serotonergic pathways. Psychoactive effects are subtle and dose-dependent.",
-    "pharmacokinetics": "Orally or smoked. Onset 30–60 min (oral), 5–10 min (smoked). Duration 1–3 hrs.",
-    "therapeuticUses": "Used for digestive issues, anxiety, and ceremonial purposes. Also employed for lucid dreaming and spirit communication in traditional rituals.",
-    "sideEffects": "Mild nausea or dizziness in excess. Estragole is a potential carcinogen at high doses in animals.",
-    "contraindications": "Avoid in pregnancy or with hormone-sensitive conditions. Not for chronic high-dose use.",
-    "drugInteractions": "Minimal in traditional doses. Theoretical synergy with other calming or dream herbs.",
-    "toxicity": "Low at ceremonial/culinary doses. Estragole raises caution at high concentrations.",
-    "toxicityLD50": "Estragole: ~1500 mg/kg (rat, oral)",
-    "preparation": "Leaves brewed into tea, smoked in blends, or used as a spice substitute for tarragon.",
-    "onset": "30–60 min (oral)",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Mexico, Central America",
-    "tags": [
-      "🌼 Floral",
-      "🌙 Dream herb",
-      "🫖 Digestive",
-      "🌀 Mesoamerican"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5372953/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology, 2005"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Tamarindus indica",
-    "slug": "tamarindus-indica",
-    "commonNames": [
-      "Tamarind"
-    ],
-    "region": "Africa, South Asia",
-    "effects": [
-      "laxative",
-      "digestive aid",
-      "cooling"
-    ],
-    "activeCompounds": [
-      "Tartaric acid",
-      "Lupeol"
-    ],
-    "mechanismOfAction": "Promotes gastrointestinal motility and antioxidant action",
-    "traditionalUse": "Used in traditional medicine and cuisine for digestive support.",
-    "tags": [
-      "digestive",
-      "folk",
-      "cooling"
-    ]
-  },
-  {
-    "id": "thymus-vulgaris",
-    "name": "Thymus vulgaris",
-    "slug": "thymus-vulgaris",
-    "scientificName": "Thymus vulgaris",
-    "category": "Ethnobotanical",
-    "effects": [
-      "clarity",
-      "alertness"
-    ],
-    "description": "Common thyme is a culinary herb with mild neurostimulant properties, thanks to its essential oils like thymol.",
-    "mechanismOfAction": "AChE inhibition, antioxidant",
-    "region": "Europe",
-    "compounds": [
-      "Thymol"
-    ],
-    "tags": [
-      "culinary",
-      "clarity",
-      "aromatic"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "tilia-cordata",
-    "name": "Linden",
-    "slug": "tilia-cordata",
-    "scientificName": "Tilia cordata",
-    "category": "Nervine / Sedative / Cardiovascular",
-    "effects": [
-      "Calming",
-      "Antispasmodic",
-      "Cardiovascular support",
-      "Mild hypnotic"
-    ],
-    "description": "Linden flowers, from the lime tree (not citrus), are a gentle remedy for stress, insomnia, and tension-related heart symptoms. Often used in relaxing teas and rituals.",
-    "mechanismOfAction": "Flavonoids (quercetin), volatile oils, and mucilage reduce anxiety, soothe the digestive tract, and support vasodilation. GABA modulation contributes to calming effect.",
-    "pharmacokinetics": "Orally active. Onset 20–60 min. Duration 2–5 hrs depending on preparation.",
-    "therapeuticUses": "Used for anxiety, palpitations, high blood pressure, colds, insomnia, and mild headaches.",
-    "sideEffects": "Very well tolerated. Rare allergic reactions possible in pollen-sensitive individuals.",
-    "contraindications": "None major. Monitor in heart medications due to blood pressure effects.",
-    "drugInteractions": "May mildly potentiate sedatives or antihypertensives.",
-    "toxicity": "Very low",
-    "toxicityLD50": "Not established; traditionally safe",
-    "preparation": "Infusion of dried flowers is most common. Also used as tincture or in herbal blends.",
-    "onset": "20–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, temperate Asia",
-    "tags": [
-      "🌸 Floral",
-      "💤 Sedative",
-      "🧘 Heart-calming",
-      "🌿 Relaxant"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6626440/",
-      "British Herbal Pharmacopoeia",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "tilia-europaea",
-    "name": "Linden",
-    "slug": "tilia-europaea",
-    "scientificName": "Tilia europaea",
-    "category": "Nervine / Anxiolytic / Antispasmodic",
-    "effects": [
-      "Calm",
-      "Stress relief",
-      "Muscle relaxation",
-      "Sleep support"
-    ],
-    "description": "Linden flowers are fragrant and soothing, traditionally used in Europe as a gentle sedative and nerve tonic. Often brewed into calming teas to relieve stress, tension, and digestive upset.",
-    "mechanismOfAction": "Contains flavonoids (e.g., quercetin, kaempferol) and volatile oils that act as mild GABA modulators and muscle relaxants.",
-    "pharmacokinetics": "Orally active. Effects felt within ~30–60 min. Safe for regular use in traditional doses.",
-    "therapeuticUses": "Used for anxiety, tension headaches, high blood pressure, insomnia, and muscle cramps. Also supports digestion and reduces inflammation.",
-    "sideEffects": "Very rare; occasional mild drowsiness or allergic reaction.",
-    "contraindications": "None significant. Use with caution if allergic to pollen or linden trees.",
-    "drugInteractions": "Minimal. May slightly enhance effects of sedatives or diuretics.",
-    "toxicity": "Very low",
-    "toxicityLD50": "Not established (very safe at therapeutic levels)",
-    "preparation": "Flowers brewed as tea, taken as tincture, or included in herbal sleep blends. Often combined with lemon balm or chamomile.",
-    "onset": "30–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, Western Asia, North America (ornamental)",
-    "tags": [
-      "🧘 Calm",
-      "💤 Sleep",
-      "🌼 Floral",
-      "🌿 Traditional European"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6597275/",
-      "British Herbal Pharmacopoeia",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "tilia-tomentosa",
-    "name": "Tilia tomentosa",
-    "slug": "tilia-tomentosa",
-    "scientificName": "Tilia tomentosa",
-    "category": "Ethnobotanical",
-    "effects": [
-      "calming",
-      "sleep aid",
-      "nervine"
-    ],
-    "description": "Silver Linden, used as a calming tea in Europe. Shows sedative and anti-anxiety effects.",
-    "mechanismOfAction": "GABAergic, anti-inflammatory",
-    "region": "Europe",
-    "compounds": [
-      "Quercetin",
-      "Volatile oils"
-    ],
-    "tags": [
-      "relaxing",
-      "tea",
-      "folk medicine"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Tropaeolum majus",
-    "slug": "tropaeolum-majus",
-    "commonNames": [
-      "Nasturtium"
-    ],
-    "region": "South America (Peru, Andes)",
-    "effects": [
-      "mild stimulant",
-      "respiratory enhancer"
-    ],
-    "activeCompounds": [
-      "Benzyl isothiocyanate"
-    ],
-    "mechanismOfAction": "Antimicrobial and expectorant, may enhance breathing clarity.",
-    "traditionalUse": "Used in Andean herbalism to clear lungs and improve alertness.",
-    "tags": [
-      "stimulant",
-      "respiratory",
-      "folk"
-    ]
-  },
-  {
-    "id": "turnera-diffusa",
-    "name": "Damiana",
-    "slug": "turnera-diffusa",
-    "scientificName": "Turnera diffusa",
-    "category": "Aphrodisiac / Mood Enhancer / Tonic",
-    "effects": [
-      "Mood lift",
-      "Libido boost",
-      "Calm focus",
-      "Mild euphoria"
-    ],
-    "description": "A small shrub native to Mexico and the Americas, damiana is a traditional aphrodisiac and nervous system tonic. Used for centuries to restore libido, brighten mood, and support the reproductive system.",
-    "mechanismOfAction": "Contains flavonoids, terpenes, and arbutin. May enhance dopaminergic tone, modulate GABA, and influence serotonin uptake.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 2–4 hrs.",
-    "therapeuticUses": "Used for low libido, mild anxiety, fatigue, and hormonal balance. Popular in libido blends, smoking mixtures, and tonics.",
-    "sideEffects": "Dry mouth, mild headache, or dizziness in rare cases. Very high doses may cause nausea or insomnia.",
-    "contraindications": "Avoid in pregnancy and with SSRIs or MAOIs. May mildly affect blood sugar or hormones.",
-    "drugInteractions": "Possible interaction with stimulants, antidepressants, or anti-androgens.",
-    "toxicity": "Low in moderate use. Overuse may strain liver/kidneys in rare cases.",
-    "toxicityLD50": "Extract: >3500 mg/kg (rats, oral)",
-    "preparation": "Dried leaf tea, tincture, or smoked. Sometimes infused into liqueur or chocolate.",
-    "onset": "30–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Mexico, Texas, Central America",
-    "tags": [
-      "🌺 Aphrodisiac",
-      "🧘 Calm",
-      "💖 Libido",
-      "🌿 Tonic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3210006/",
-      "Plants of Love – Christian Rätsch",
-      "Herbal Medicine – Mills & Bone"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "turnera-diffusa",
     "name": "Damiana",
     "slug": "turnera-diffusa",
@@ -7159,641 +5285,6 @@ export const herbs: Herb[] = [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6329410/",
       "Plants of the Gods – Rätsch",
       "Journal of Ethnopharmacology, 2013"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "turnera-diffusa",
-    "name": "Damiana",
-    "slug": "turnera-diffusa",
-    "scientificName": "Turnera diffusa",
-    "category": "Aphrodisiac / Nervine / Mild Psychoactive",
-    "effects": [
-      "Mood elevation",
-      "Mild euphoria",
-      "Libido enhancement",
-      "Anxiolytic"
-    ],
-    "description": "A fragrant shrub native to the Americas, traditionally used as an aphrodisiac and mood-lifting herb. Damiana is smoked, brewed, or tinctured for its relaxing, sensual, and mildly euphoric properties.",
-    "mechanismOfAction": "Flavonoids and terpenes act as GABA modulators and potential cannabinoid receptor influencers. Also contains volatile oils that contribute to nervine and sexual tonic effects.",
-    "pharmacokinetics": "Orally and inhalationally active. Onset ~20–40 min orally, ~5–10 min when smoked. Duration 1–3 hrs.",
-    "therapeuticUses": "Used for low libido, anxiety, mild depression, menstrual discomfort, and as a recreational herbal relaxant.",
-    "sideEffects": "Generally well tolerated. Large doses may cause nausea or insomnia.",
-    "contraindications": "Avoid in pregnancy. Use with caution alongside strong sedatives or CNS depressants.",
-    "drugInteractions": "May enhance effects of other anxiolytics or libido enhancers.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not firmly established; traditionally safe",
-    "preparation": "Leaves brewed as tea, smoked in herbal blends, or tinctured. Common in aphrodisiac formulas.",
-    "onset": "20–40 min (oral), ~5 min (smoked)",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Mexico, Central America, southern U.S.",
-    "tags": [
-      "💘 Aphrodisiac",
-      "🧘 Relaxing",
-      "🌿 Folk tonic",
-      "🌼 Mood support"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5372952/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology, 2000"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "turnera-diffusa",
-    "name": "Damiana",
-    "slug": "turnera-diffusa",
-    "scientificName": "Turnera diffusa",
-    "category": "Aphrodisiac / Nervine / Psychoactive",
-    "effects": [
-      "Mood elevation",
-      "Mild euphoria",
-      "Aphrodisiac",
-      "Anxiolytic"
-    ],
-    "description": "A fragrant shrub native to Mexico and Central America, used traditionally to enhance sexual vitality, uplift mood, and calm nervous tension. Often smoked or made into tea.",
-    "mechanismOfAction": "Flavonoids, terpenes, and alkaloids may enhance GABAergic and dopaminergic activity. Also modulates endocannabinoid tone.",
-    "pharmacokinetics": "Orally and smoked. Onset 15–60 min depending on form. Duration 2–4 hrs. Cumulative with regular use.",
-    "therapeuticUses": "Used for low libido, anxiety, mild depression, PMS, and stress-related tension.",
-    "sideEffects": "Very mild; rare nausea or overstimulation at high doses. May cause vivid dreams.",
-    "contraindications": "Avoid in pregnancy. Caution in bipolar or sensitive individuals due to mood elevation.",
-    "drugInteractions": "May mildly potentiate sedatives or SSRIs.",
-    "toxicity": "Low",
-    "toxicityLD50": ">3000 mg/kg (rats, oral)",
-    "preparation": "Dried leaves brewed as tea, smoked, or tinctured. Also found in aphrodisiac blends and herbal liqueurs.",
-    "onset": "15–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Mexico, Central America, Caribbean",
-    "tags": [
-      "💘 Aphrodisiac",
-      "🧘 Mood lift",
-      "🌿 Nervine",
-      "🌬️ Smoke herb"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6270571/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Herbal Medicine"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "turnera-diffusa-aphrodisiaca",
-    "name": "Turnera diffusa var. aphrodisiaca",
-    "slug": "turnera-diffusa-aphrodisiaca",
-    "scientificName": "Turnera diffusa var. aphrodisiaca",
-    "category": "Ethnobotanical",
-    "effects": [
-      "aphrodisiac",
-      "mood enhancer"
-    ],
-    "description": "A variant of Damiana known for its aphrodisiac and mood-brightening properties. Traditionally used as a tonic.",
-    "mechanismOfAction": "Dopaminergic and GABAergic synergy",
-    "region": "Mexico",
-    "compounds": [
-      "Damianin",
-      "Flavonoids"
-    ],
-    "tags": [
-      "aphrodisiac",
-      "tonic",
-      "euphoric"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "turnera-ulmifolia",
-    "name": "Yellow Alder",
-    "slug": "turnera-ulmifolia",
-    "scientificName": "Turnera ulmifolia",
-    "category": "Tonic / Mild Aphrodisiac / Folk Sedative",
-    "effects": [
-      "Relaxation",
-      "Mood uplift",
-      "Digestive ease",
-      "Mild euphoria"
-    ],
-    "description": "Sometimes confused with true Damiana (Turnera diffusa), this related plant is used in Caribbean and Central American folk medicine as a relaxing tea and mild aphrodisiac.",
-    "mechanismOfAction": "Flavonoids and polyphenols with antioxidant and mild CNS modulating properties; effects possibly linked to GABA enhancement.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 1–3 hrs depending on dose and form.",
-    "therapeuticUses": "Used for mild anxiety, libido support, digestive relief, and mood elevation. Sometimes included in herbal blends.",
-    "sideEffects": "Rare; large doses may cause slight nausea or drowsiness.",
-    "contraindications": "Not well studied; avoid in pregnancy or with sedatives.",
-    "drugInteractions": "Minimal. Theoretical enhancement of sedatives or anxiolytics.",
-    "toxicity": "Very low based on traditional use.",
-    "toxicityLD50": "Not well established",
-    "preparation": "Tea from leaves, tincture, or infusion. Sometimes smoked with other herbs.",
-    "onset": "30–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Caribbean, Central America, northern South America",
-    "tags": [
-      "🌼 Mild sedative",
-      "🧘 Relaxant",
-      "🌿 Caribbean herb",
-      "💛 Damiana-like"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7087816/",
-      "Journal of Ethnopharmacology, 2013",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "tussilago-farfara",
-    "name": "Coltsfoot",
-    "slug": "tussilago-farfara",
-    "scientificName": "Tussilago farfara",
-    "category": "Respiratory / Expectorant / Traditional European",
-    "effects": [
-      "Cough suppression",
-      "Lung soothing",
-      "Mild sedation",
-      "Anti-inflammatory"
-    ],
-    "description": "A yellow-flowered plant long revered in European herbalism for its effects on the respiratory tract. Coltsfoot is soothing to irritated lungs and commonly used in herbal cough formulas.",
-    "mechanismOfAction": "Contains mucilage, flavonoids, and alkaloids. Mucilage soothes mucous membranes; pyrrolizidine alkaloids (PAs) pose some risk to the liver.",
-    "pharmacokinetics": "Orally active. Onset within 15–30 min. Duration 2–4 hrs. Best used short-term for acute conditions.",
-    "therapeuticUses": "Used for coughs, bronchitis, asthma, sore throats, and hoarseness. Traditionally smoked or brewed.",
-    "sideEffects": "Generally mild. Long-term use linked to potential liver toxicity from PAs.",
-    "contraindications": "Avoid during pregnancy, liver disease, or prolonged use. Use PA-free extracts if possible.",
-    "drugInteractions": "Potential hepatotoxicity if combined with other liver-sensitive drugs.",
-    "toxicity": "Moderate (due to PAs); safe short-term with proper prep.",
-    "toxicityLD50": "PAs vary; cumulative risk more relevant than acute dose",
-    "preparation": "Leaves and flowers used in teas, syrups, or infusions. PA-free versions recommended for internal use.",
-    "onset": "15–30 min",
-    "intensity": "Mild",
-    "legalStatus": "Regulated or banned in some countries for internal use",
-    "region": "Europe, Western Asia, North America",
-    "tags": [
-      "🌬️ Respiratory",
-      "🫁 Expectorant",
-      "🫖 Lung tea",
-      "⚠️ PA caution"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7092813/",
-      "British Herbal Pharmacopoeia",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "tylophora-indica",
-    "name": "Tylophora indica",
-    "slug": "tylophora-indica",
-    "scientificName": "Tylophora indica",
-    "category": "Respiratory / Immunomodulator / Ayurvedic",
-    "effects": [
-      "Asthma relief",
-      "Anti-allergy",
-      "Immunoregulation",
-      "Expectorant"
-    ],
-    "description": "An Ayurvedic herb used for bronchial conditions, immune regulation, and allergic responses. Known as Indian Ipecac for its traditional role in treating asthma and respiratory issues.",
-    "mechanismOfAction": "Contains tylophorine alkaloids with immunosuppressive, anti-inflammatory, and antiallergic properties. Reduces histamine release and cytokine activity.",
-    "pharmacokinetics": "Orally active. Onset within 30–90 min. Peak effects often felt over multiple days of use.",
-    "therapeuticUses": "Used for asthma, allergies, bronchitis, autoimmune flare-ups, and inflammation. Sometimes used topically for skin disorders.",
-    "sideEffects": "Nausea and vomiting in higher doses. GI discomfort is common early in treatment.",
-    "contraindications": "Avoid during pregnancy, with immunosuppressants, or in emaciated individuals. Not for long-term high-dose use.",
-    "drugInteractions": "May interfere with immune therapies, steroids, or antihistamines.",
-    "toxicity": "Moderate in high doses. Emetic effects limit overuse.",
-    "toxicityLD50": "~100 mg/kg (mice, oral) – estimated",
-    "preparation": "Leaves chewed raw, powdered for capsules, or used in low-dose decoctions. Often combined with other expectorants.",
-    "onset": "30–90 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal in India; regulated in some countries due to emetic effects",
-    "region": "India, Sri Lanka, Southeast Asia",
-    "tags": [
-      "🫁 Respiratory",
-      "🌿 Ayurvedic",
-      "⚠️ Emetic",
-      "🤧 Anti-allergy"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887322/",
-      "Ayurvedic Pharmacopoeia of India",
-      "Journal of Ethnopharmacology, 2004"
-    ],
-    "needsReview": false
-  },
-  {
-    "name": "Tynanthus panurensis",
-    "slug": "tynanthus-panurensis",
-    "commonNames": [
-      "Clavo Huasca"
-    ],
-    "region": "Amazon Rainforest",
-    "effects": [
-      "aphrodisiac",
-      "warming",
-      "digestive aid"
-    ],
-    "activeCompounds": [
-      "Eugenol",
-      "Tynanthin"
-    ],
-    "mechanismOfAction": "TRPV1 activation, increases circulation and warmth",
-    "traditionalUse": "Used in Amazonian herbalism for sexual energy and digestion.",
-    "tags": [
-      "aphrodisiac",
-      "folk",
-      "warming"
-    ]
-  },
-  {
-    "id": "ulex-europaeus",
-    "name": "Gorse",
-    "slug": "ulex-europaeus",
-    "scientificName": "Ulex europaeus",
-    "category": "Mood / Flower Essence / Traditional European",
-    "effects": [
-      "Mood elevation",
-      "Hope restoration",
-      "Mild nervous system support"
-    ],
-    "description": "A bright yellow-flowered shrub associated with resilience and hope in Celtic and Bach flower traditions. While not widely used internally, its flowers have gentle nervine and uplifting properties.",
-    "mechanismOfAction": "Primarily used in energetic and flower essence systems. Contains flavonoids and trace alkaloids which may mildly affect neurotransmission.",
-    "pharmacokinetics": "Typically used as a tincture, essence, or tea. Onset subjective; mild and cumulative.",
-    "therapeuticUses": "Used to combat despair, mental fatigue, and chronic discouragement. Often chosen in flower therapy blends.",
-    "sideEffects": "Rare. In high doses, possible GI discomfort.",
-    "contraindications": "Avoid large internal doses. Primarily for emotional support or ritual use.",
-    "drugInteractions": "None known.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well documented; external use traditionally preferred",
-    "preparation": "Used in flower essence therapy, or mild infusions. Symbolic use more common than pharmacological.",
-    "onset": "Varies (energetic)",
-    "intensity": "Mild (emotional)",
-    "legalStatus": "Legal worldwide",
-    "region": "Western Europe, naturalized elsewhere",
-    "tags": [
-      "🌼 Flower essence",
-      "🌞 Mood uplift",
-      "🌿 Hope tonic",
-      "🧘 Gentle"
-    ],
-    "sources": [
-      "https://pubmed.ncbi.nlm.nih.gov/21768182/",
-      "Plants of the Gods – Rätsch",
-      "Bach Flower Remedies"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "uncaria-tomentosa",
-    "name": "Cat’s Claw",
-    "slug": "uncaria-tomentosa",
-    "scientificName": "Uncaria tomentosa",
-    "category": "Immune Modulator / Anti-inflammatory / Traditional Amazonian",
-    "effects": [
-      "Immune boosting",
-      "Joint support",
-      "Antioxidant",
-      "Anti-inflammatory"
-    ],
-    "description": "A woody vine native to the Amazon, revered in traditional medicine for its immune-regulating and anti-inflammatory properties. Used in autoimmune conditions, Lyme protocols, and arthritis treatments.",
-    "mechanismOfAction": "Contains oxindole alkaloids and polyphenols that modulate cytokines, suppress TNF-alpha, and stimulate immune cells. Antioxidant and DNA-repair properties.",
-    "pharmacokinetics": "Orally active. Effects accumulate over days to weeks. Metabolized in liver; immunomodulatory rather than immediate.",
-    "therapeuticUses": "Used for rheumatoid arthritis, viral infections, cancer support, chronic inflammation, and digestive disorders.",
-    "sideEffects": "Mild GI upset or dizziness in sensitive individuals. Rare allergic response.",
-    "contraindications": "Avoid during pregnancy and in organ transplant recipients (due to immune activity).",
-    "drugInteractions": "May alter immunosuppressant or anti-inflammatory medication effects.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well established; high safety margin in traditional use",
-    "preparation": "Bark or root decocted in tea or taken as tincture/capsule. Common in herbal immune protocols.",
-    "onset": "Days–weeks (cumulative)",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Amazon Rainforest (Peru, Brazil, Ecuador)",
-    "tags": [
-      "🌿 Immune support",
-      "🦴 Anti-inflammatory",
-      "🍃 Amazonian",
-      "⚖️ Autoimmune"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5372954/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology, 2001"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "uncaria-tomentosa",
-    "name": "Cat’s Claw",
-    "slug": "uncaria-tomentosa",
-    "scientificName": "Uncaria tomentosa",
-    "category": "Immunomodulator / Anti-inflammatory / Amazonian Traditional",
-    "effects": [
-      "Immune support",
-      "Anti-inflammatory",
-      "Digestive aid",
-      "Cognitive support"
-    ],
-    "description": "A woody vine from the Amazon rainforest known for its curved thorns. Used traditionally to treat inflammation, infections, and digestive problems. Modern research explores its effects on immune function and chronic disease.",
-    "mechanismOfAction": "Contains oxindole alkaloids, quinovic acid glycosides, and flavonoids. Modulates TNF-α, IL-1β, and NF-κB, enhancing immune surveillance while reducing chronic inflammation.",
-    "pharmacokinetics": "Orally active. Onset within 1–2 hrs. Effects last several hours. Cumulative immune effects occur with regular use.",
-    "therapeuticUses": "Used for arthritis, IBD, viral infections, cancer adjunct, and memory support. Often included in Lyme and autoimmune protocols.",
-    "sideEffects": "Occasional nausea, diarrhea, or dizziness. Rare allergic reactions.",
-    "contraindications": "Avoid in pregnancy, organ transplant recipients, or with autoimmune flares.",
-    "drugInteractions": "May interact with immunosuppressants or blood thinners.",
-    "toxicity": "Low–Moderate",
-    "toxicityLD50": ">2000 mg/kg (rats, oral)",
-    "preparation": "Decoction of inner bark, capsules, or tinctures. Best used long-term under guidance.",
-    "onset": "1–2 hrs",
-    "intensity": "Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Amazon Basin (Peru, Brazil, Colombia)",
-    "tags": [
-      "🛡️ Immune",
-      "🔥 Anti-inflammatory",
-      "🌿 Amazonian",
-      "🧠 Brain support"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3601655/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Ethnopharmacology"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "urtica-dioica",
-    "name": "Stinging Nettle",
-    "slug": "urtica-dioica",
-    "scientificName": "Urtica dioica",
-    "category": "Nutritive / Anti-inflammatory / Diuretic",
-    "effects": [
-      "Allergy relief",
-      "Joint support",
-      "Diuretic",
-      "Nutritional tonic"
-    ],
-    "description": "A mineral-rich plant used in herbal medicine for centuries. Despite its sting, nettle is prized as a nourishing tonic, anti-inflammatory agent, and allergy remedy.",
-    "mechanismOfAction": "Contains histamine, serotonin, minerals, flavonoids, and polysaccharides that modulate inflammatory and immune responses. Inhibits TNF-α and prostaglandins.",
-    "pharmacokinetics": "Orally and topically active. Onset ~30–60 min. Long-term use increases effects. Very well tolerated.",
-    "therapeuticUses": "Used for seasonal allergies, arthritis, urinary issues, eczema, fatigue, and anemia. Also used as food and spring tonic.",
-    "sideEffects": "Mild stomach upset or rash (topically) in sensitive individuals. Avoid fresh contact with skin due to stinging hairs.",
-    "contraindications": "None significant. Caution with diuretics or blood sugar meds.",
-    "drugInteractions": "May enhance diuretics, antihypertensives, or blood sugar meds.",
-    "toxicity": "Very low",
-    "toxicityLD50": ">5000 mg/kg (rats, oral)",
-    "preparation": "Dried leaves in tea, soup, powder, or tincture. Root also used for prostate support. Topical application for arthritis.",
-    "onset": "30–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, Asia, North America",
-    "tags": [
-      "🌿 Nutritive",
-      "💧 Diuretic",
-      "🌱 Anti-allergy",
-      "🧘 Anti-inflammatory"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4843967/",
-      "Herbal Medicine – Mills & Bone",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "urtica-dioica",
-    "name": "Stinging Nettle",
-    "slug": "urtica-dioica",
-    "scientificName": "Urtica dioica",
-    "category": "Nutritive / Anti-inflammatory / Urogenital / Traditional Tonic",
-    "effects": [
-      "Joint support",
-      "Urinary flow",
-      "Histamine modulation",
-      "Mineral repletion"
-    ],
-    "description": "A mineral-rich herb used as both food and medicine. Despite its sting when raw, nettle becomes a nourishing ally when dried or cooked. Revered in Western and Ayurvedic traditions.",
-    "mechanismOfAction": "Silica, flavonoids, and lectins modulate prostaglandins and cytokines. Urtication stimulates local blood flow and may reduce inflammation.",
-    "pharmacokinetics": "Orally and topically active. Onset ~1 hr. Duration ~4–8 hrs depending on use.",
-    "therapeuticUses": "Used for arthritis, benign prostatic hyperplasia, allergies (modulates histamine), fatigue, and anemia. Leaves and roots have distinct effects.",
-    "sideEffects": "Mild diuretic effects, stomach upset. Stinging hairs can irritate skin raw.",
-    "contraindications": "Caution in pregnancy (root especially). May lower blood pressure mildly.",
-    "drugInteractions": "May increase effects of diuretics or antihistamines.",
-    "toxicity": "Low",
-    "toxicityLD50": ">2000 mg/kg (rats, oral)",
-    "preparation": "Tea, tincture, food (sautéed leaves), or capsules. Root used for prostate support; leaves as mineral tonic.",
-    "onset": "~1 hr",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, North America, temperate Asia",
-    "tags": [
-      "🍵 Nutritive",
-      "🛡️ Allergy mod",
-      "🦴 Joint health",
-      "🧪 Prostate tonic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7571465/",
-      "Journal of Herbal Medicine",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "urtica-urens",
-    "name": "Dwarf Nettle",
-    "slug": "urtica-urens",
-    "scientificName": "Urtica urens",
-    "category": "Nutritive / Skin & Immune / Homeopathic–Traditional",
-    "effects": [
-      "Skin soothing",
-      "Detox support",
-      "Mineral boost",
-      "Allergy modulation"
-    ],
-    "description": "A close relative of Urtica dioica, this smaller species is used for similar purposes, especially in homeopathy and traditional European herbalism. Known for calming itchy skin and boosting the blood.",
-    "mechanismOfAction": "Similar to stinging nettle: silica, flavonoids, and histamine-like compounds that support immunity, reduce inflammation, and supply trace minerals.",
-    "pharmacokinetics": "Orally and topically active. Rapid effect on skin and inflammation. Cumulative with nutritional use.",
-    "therapeuticUses": "Used for hives, eczema, gout, allergies, and fatigue. Often included in mineral-building tonics and allergy blends.",
-    "sideEffects": "Stinging hairs can irritate skin raw. Mild diuretic effect or digestive upset possible.",
-    "contraindications": "Caution in pregnancy or kidney disorders. May lower blood pressure slightly.",
-    "drugInteractions": "May enhance effect of antihistamines or diuretics.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not established; widely used in folk and clinical practice",
-    "preparation": "Dried herb as infusion or capsule. Also used topically as salve or wash. Homeopathic tincture common.",
-    "onset": "20–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, North America",
-    "tags": [
-      "🌿 Nutritive",
-      "🌱 Allergy mod",
-      "🩹 Skin",
-      "🍵 Gentle tonic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3671822/",
-      "British Herbal Pharmacopoeia",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "vachellia-farnesiana",
-    "name": "Sweet Acacia",
-    "slug": "vachellia-farnesiana",
-    "scientificName": "Vachellia farnesiana",
-    "category": "Aromatic / Nervine / Traditional Perfume & Medicine",
-    "effects": [
-      "Relaxation",
-      "Calming",
-      "Uplifting mood",
-      "Aromatic euphoria"
-    ],
-    "description": "A fragrant, thorny shrub with yellow puffball flowers, historically used in perfumery and herbal medicine. Its flowers and pods have soothing, mildly euphoric properties and are used in aromatic and topical blends.",
-    "mechanismOfAction": "Volatile oils such as benzyl acetate, linalool, and coumarins provide gentle aromatic CNS modulation and possible GABAergic effects.",
-    "pharmacokinetics": "Aromatherapy and oral use. Onset within 15–30 min (inhaled or brewed). Mild, transient effect.",
-    "therapeuticUses": "Traditionally used as a sedative, aphrodisiac, digestive aid, and mood enhancer. Also used in fragrance and sacred incense.",
-    "sideEffects": "None common in traditional doses. High aromatic concentrations may cause nausea.",
-    "contraindications": "None significant. Caution with allergies to Fabaceae plants.",
-    "drugInteractions": "None well documented.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not established; used widely in perfumery and teas",
-    "preparation": "Flowers steeped as tea or infused into oils. Aromatic pods also used. Often combined with rose or sandalwood.",
-    "onset": "15–30 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Tropical Americas, Asia, Australia",
-    "tags": [
-      "🌸 Fragrant",
-      "🧘 Aromatic",
-      "🌿 Sedative",
-      "💐 Aphrodisiac"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4494854/",
-      "Plants of the Gods – Rätsch",
-      "Indian Journal of Pharmacognosy"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "vachellia-nilotica",
-    "name": "Acacia Nilotica",
-    "slug": "vachellia-nilotica",
-    "scientificName": "Vachellia nilotica",
-    "category": "Astringent / Antimicrobial / Traditional African–Indian",
-    "effects": [
-      "Wound healing",
-      "Oral health",
-      "Diarrhea relief",
-      "Antimicrobial"
-    ],
-    "description": "A widely used tree in African and Indian traditional medicine. Its bark, pods, and gum are rich in tannins and have potent astringent and antiseptic properties.",
-    "mechanismOfAction": "Tannins, flavonoids, and saponins exert antimicrobial, anti-inflammatory, and astringent effects. Helps constrict tissues and protect mucosa.",
-    "pharmacokinetics": "Topical and oral. Onset within 1 hr. Short to moderate duration depending on dose and method.",
-    "therapeuticUses": "Used for dysentery, gum disease, wounds, sore throats, and as a contraceptive in traditional systems. Bark decoction or powder is common.",
-    "sideEffects": "Mild GI irritation if overused. May cause constipation in high doses due to tannins.",
-    "contraindications": "Caution with chronic constipation or iron absorption issues.",
-    "drugInteractions": "May reduce absorption of minerals or medications when taken orally.",
-    "toxicity": "Low–moderate",
-    "toxicityLD50": "Not well documented; used safely in traditional medicine",
-    "preparation": "Bark decoction, powder, or gargle. Gum resin also used as demulcent.",
-    "onset": "30–60 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Africa, Middle East, Indian Subcontinent",
-    "tags": [
-      "🌿 Astringent",
-      "🦷 Oral health",
-      "🛡️ Antimicrobial",
-      "🌍 African–Ayurvedic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4285565/",
-      "Journal of Ethnopharmacology",
-      "Indian Journal of Traditional Knowledge"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "valeriana-jatamansi",
-    "name": "Indian Valerian",
-    "slug": "valeriana-jatamansi",
-    "scientificName": "Valeriana jatamansi",
-    "category": "Sedative / Sleep Aid / Ayurvedic",
-    "effects": [
-      "Calm",
-      "Sleep support",
-      "Anxiety reduction",
-      "Muscle relaxation"
-    ],
-    "description": "An Ayurvedic herb similar to European valerian, prized for its sedative and antianxiety properties. Often used in formulations for insomnia, nervousness, and epilepsy.",
-    "mechanismOfAction": "Rich in sesquiterpenes and valepotriates that modulate GABA-A receptors and enhance inhibitory neurotransmission.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 4–6 hrs. Liver metabolism; cumulative benefits with regular use.",
-    "therapeuticUses": "Used for insomnia, anxiety, hysteria, seizures, and muscle spasms. Considered more cooling than Western valerian.",
-    "sideEffects": "Drowsiness, vivid dreams, GI upset, rare paradoxical stimulation.",
-    "contraindications": "Avoid with CNS depressants, alcohol, or during pregnancy without supervision.",
-    "drugInteractions": "Synergistic with sedatives, benzodiazepines, or alcohol.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well established; traditionally safe",
-    "preparation": "Dried root or rhizome used in powders, decoctions, or Ayurvedic compounds. Often mixed with Brahmi or Ashwagandha.",
-    "onset": "30–60 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "India, Himalayas, Nepal",
-    "compounds": [
-      "Valeranon"
-    ],
-    "tags": [
-      "💤 Sleep",
-      "🧘 Calm",
-      "🌿 Ayurvedic",
-      "⚗️ GABAergic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4046171/",
-      "Ayurvedic Pharmacopoeia of India",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "valeriana-jatamansi",
-    "name": "Indian Valerian",
-    "slug": "valeriana-jatamansi",
-    "scientificName": "Valeriana jatamansi",
-    "category": "Sedative / Ayurvedic / Nervine",
-    "effects": [
-      "Sleep aid",
-      "Anxiety reduction",
-      "Mental calm",
-      "Muscle relaxation"
-    ],
-    "description": "A Himalayan relative of European valerian, this root is used in Ayurvedic and Unani systems for calming the mind, supporting sleep, and treating nervous disorders. Known as 'Tagar' in India.",
-    "mechanismOfAction": "Valepotriates and sesquiterpenes act on GABAergic pathways, reducing excitatory signals in the CNS. Similar in action to Valeriana officinalis.",
-    "pharmacokinetics": "Orally active. Onset 30–60 min. Duration ~4 hrs. Less pungent than European valerian.",
-    "therapeuticUses": "Used for insomnia, hysteria, epilepsy, stress, and cognitive enhancement in classical systems.",
-    "sideEffects": "Rare; mild dizziness or grogginess. Some individuals report paradoxical stimulation.",
-    "contraindications": "Avoid combining with alcohol or sedatives. Caution in hypotension or pregnancy.",
-    "drugInteractions": "May enhance effects of sedatives or antidepressants.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not fully documented; safe in Ayurvedic tradition",
-    "preparation": "Used in powder, capsule, or decoction form. Often mixed with ashwagandha or brahmi.",
-    "onset": "30–60 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Himalayas, India, Nepal, Bhutan",
-    "tags": [
-      "💤 Ayurvedic",
-      "🧘 Calm mind",
-      "🌿 Nervine",
-      "🪵 Root-based"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3612440/",
-      "Indian Journal of Pharmacognosy",
-      "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
   },
@@ -7837,196 +5328,469 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "valeriana-officinalis",
-    "name": "Valerian",
-    "slug": "valeriana-officinalis",
-    "scientificName": "Valeriana officinalis",
-    "category": "Sedative / Anxiolytic / Sleep Aid",
+    "id": "voacanga-africana",
+    "name": "Voacanga africana",
+    "slug": "voacanga-africana",
+    "scientificName": "Voacanga africana",
+    "category": "Psychoactive Alkaloid Source / Stimulant / Visionary",
     "effects": [
-      "Deep relaxation",
-      "Sleep induction",
-      "Stress relief",
-      "Muscle relaxation"
+      "Mental stimulation",
+      "Visual enhancement",
+      "Lucid dreaming",
+      "Subtle psychedelia"
     ],
-    "description": "A classic Western herbal sedative, known for its strong-smelling root and calming effects. Used since antiquity for insomnia, nervous tension, and physical agitation.",
-    "mechanismOfAction": "Valerenic acid and valepotriates modulate GABA-A receptors and inhibit GABA breakdown, increasing inhibitory neurotransmission.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 4–6 hrs. Non-habit forming with long-term use.",
-    "therapeuticUses": "Used for insomnia, anxiety, restlessness, menstrual cramps, and stress-related hypertension.",
-    "sideEffects": "Drowsiness, vivid dreams, mild headache, paradoxical excitation in rare cases.",
-    "contraindications": "Avoid with alcohol, CNS depressants, or in pregnancy. Not for driving or machinery use.",
-    "drugInteractions": "Enhances effects of sedatives, sleep aids, and possibly benzodiazepines.",
-    "toxicity": "Low",
-    "toxicityLD50": ">3000 mg/kg (rats, oral)",
-    "preparation": "Dried root used in capsules, teas, tinctures, and standardized extracts. Often combined with hops or lemon balm.",
-    "onset": "30–60 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, cultivated globally",
-    "tags": [
-      "💤 Sleep",
-      "🧘 Nervine",
-      "🌿 Western herbalism",
-      "⚗️ GABAergic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4394901/",
-      "British Herbal Compendium",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "valeriana-officinalis",
-    "name": "Valerian Root",
-    "slug": "valeriana-officinalis",
-    "scientificName": "Valeriana officinalis",
-    "category": "Sedative / Hypnotic / Anxiolytic",
-    "effects": [
-      "Sleep aid",
-      "Anxiety reduction",
-      "Muscle relaxation",
-      "Stress relief"
-    ],
-    "description": "A classic European sedative herb, valerian root is widely used for insomnia, anxiety, and nervous tension. Though pungent in smell, its effects are trusted and widely studied.",
-    "mechanismOfAction": "Valerenic acid and other compounds act on GABA-A receptors to enhance inhibitory neurotransmission. Also modulates adenosine and serotonin.",
-    "pharmacokinetics": "Orally active. Onset ~30–90 min. Half-life ~4–6 hrs. Cumulative with regular use.",
-    "therapeuticUses": "Used for insomnia, panic attacks, tense muscles, PMS, and headaches. Often combined with hops, lemon balm, or passionflower.",
-    "sideEffects": "Drowsiness, vivid dreams, morning grogginess. Some experience paradoxical stimulation.",
-    "contraindications": "Avoid alcohol or other sedatives. Caution in pregnancy, depression, or liver conditions.",
-    "drugInteractions": "Potentiates sedatives, benzodiazepines, or barbiturates. May interfere with SSRIs.",
-    "toxicity": "Low–moderate",
-    "toxicityLD50": "~3.3 g/kg (mice, oral)",
-    "preparation": "Tincture, capsule, or tea of dried root. Often used as bedtime supplement.",
-    "onset": "30–90 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, Asia, North America (cultivated)",
-    "tags": [
-      "💤 Sedative",
-      "🧘 Anxiolytic",
-      "🌿 Sleep herb",
-      "⚠️ Strong smell"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4394901/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Herbal Medicine"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "valeriana-wallichii",
-    "name": "Himalayan Valerian",
-    "slug": "valeriana-wallichii",
-    "scientificName": "Valeriana wallichii",
-    "category": "Sedative / Nervine / Ayurvedic",
-    "effects": [
-      "Sleep aid",
-      "Mental calm",
-      "Muscle relaxant",
-      "Tranquilizer"
-    ],
-    "description": "A potent aromatic root used in Ayurveda as a tranquilizing agent. It has a similar but stronger scent and effect profile compared to European valerian. Known locally as Tagar Ganthoda.",
-    "mechanismOfAction": "Valerenic acid and valepotriates modulate GABA-A receptors, decreasing nervous excitability. Sedative effects supported by sesquiterpenes and lignans.",
-    "pharmacokinetics": "Orally active. Onset ~45–90 min. Duration ~6 hrs. Slightly stronger than other valerian species.",
-    "therapeuticUses": "Used for insomnia, epilepsy, anxiety, muscle spasms, and stress-induced hypertension.",
-    "sideEffects": "Drowsiness, grogginess, or GI upset. Possible paradoxical excitement.",
-    "contraindications": "Avoid with CNS depressants or alcohol. Caution in pregnancy and hypotension.",
-    "drugInteractions": "Potentiates sedatives, hypnotics, benzodiazepines.",
-    "toxicity": "Low–Moderate",
-    "toxicityLD50": "Not well documented",
-    "preparation": "Root powder, decoction, or tincture. Often blended with ashwagandha or jatamansi.",
+    "description": "An African tree whose seeds and bark contain iboga-related alkaloids. Traditionally used in low doses for stimulation and in high doses for visionary work. Also investigated as a pharmaceutical precursor.",
+    "mechanismOfAction": "Contains voacangine, voacamine, and related indole alkaloids structurally similar to ibogaine. Affects serotonin, dopamine, and NMDA pathways.",
+    "pharmacokinetics": "Orally active. Onset ~1 hr. Duration varies 4–8 hrs depending on dose and extraction.",
+    "therapeuticUses": "Used for fatigue, spiritual rites, lucid dreaming, and in pharmaceutical research as a semi-synthetic ibogaine precursor.",
+    "sideEffects": "Mild confusion, nausea, overstimulation at high doses. Lack of clinical safety data at high doses.",
+    "contraindications": "Avoid combining with serotonergic or dopaminergic drugs. Not for use with SSRIs or stimulants.",
+    "drugInteractions": "Potential interactions with psychedelics, stimulants, and antidepressants.",
+    "toxicity": "Moderate; not fully established. Safe traditional use suggests low-moderate toxicity in small doses.",
+    "toxicityLD50": "Not fully established",
+    "preparation": "Seeds or bark powdered and taken orally, sometimes extracted into teas or alcohol tinctures.",
     "onset": "45–90 min",
-    "intensity": "Moderate–Strong",
-    "legalStatus": "Legal worldwide",
-    "region": "Himalayas, Nepal, India",
+    "intensity": "Mild–Strong (dose-dependent)",
+    "legalStatus": "Legal in most regions (unscheduled); monitored in some EU countries",
+    "region": "West and Central Africa",
     "tags": [
-      "🛏️ Sedative",
-      "🧘 Calm",
-      "🌿 Ayurvedic",
-      "🪵 Root"
+      "🌀 Psychedelic-adjacent",
+      "🌿 African plant",
+      "🧠 Alkaloids",
+      "🌌 Dreamwork"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3679533/",
-      "Indian Journal of Pharmacognosy",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "verbascum-thapsus",
-    "name": "Mullein",
-    "slug": "verbascum-thapsus",
-    "scientificName": "Verbascum thapsus",
-    "category": "Respiratory / Demulcent / Anti-inflammatory",
-    "effects": [
-      "Lung soothing",
-      "Cough relief",
-      "Anti-inflammatory",
-      "Mucus clearing"
-    ],
-    "description": "A tall, fuzzy-leaved plant with bright yellow flowers, mullein is a classic remedy for respiratory complaints. Its soft leaves and flowers are demulcent, soothing inflamed tissues and promoting gentle expectoration.",
-    "mechanismOfAction": "Saponins and mucilage coat and soothe mucous membranes, while flavonoids and iridoids reduce inflammation and stimulate immune response.",
-    "pharmacokinetics": "Orally or smoked. Onset 20–60 min. Duration several hours. Best used consistently for chronic conditions.",
-    "therapeuticUses": "Used for dry cough, bronchitis, sore throat, asthma, earaches (flower oil), and inflammation of lungs and throat.",
-    "sideEffects": "Very mild; possible GI upset if taken in large quantities. Fuzzy hairs may irritate throat if not properly strained.",
-    "contraindications": "None significant. Avoid inhaling loose hairs.",
-    "drugInteractions": "None known.",
-    "toxicity": "Very low",
-    "toxicityLD50": "Not established; widely regarded as safe",
-    "preparation": "Tea from dried leaves/flowers, infused oil, or smoked in respiratory blends. Strain well to remove tiny hairs.",
-    "onset": "20–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, naturalized in Americas and Asia",
-    "tags": [
-      "🫁 Lung herb",
-      "🩹 Soothing",
-      "🌼 Flower remedy",
-      "🍵 Tea"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8010964/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4434522/",
       "Plants of the Gods – Rätsch",
-      "British Herbal Compendium"
+      "Journal of Natural Products, 2002"
     ],
     "needsReview": false
   },
   {
-    "id": "verbena-hastata",
-    "name": "Blue Vervain",
-    "slug": "verbena-hastata",
-    "scientificName": "Verbena hastata",
-    "category": "Nervine / Relaxant / Digestive–Emotional",
+    "id": "withania-somnifera",
+    "name": "Ashwagandha",
+    "slug": "withania-somnifera",
+    "scientificName": "Withania somnifera",
+    "category": "Adaptogen / Nervine / Endocrine Support",
     "effects": [
-      "Stress relief",
-      "Mood regulation",
-      "Tension release",
-      "Digestive stimulation"
+      "Stress reduction",
+      "Cortisol regulation",
+      "Sleep support",
+      "Cognitive enhancement"
     ],
-    "description": "A native North American vervain with bitter, calming properties. Traditionally used by Indigenous and Eclectic physicians for tension, insomnia, and digestive sluggishness tied to anxiety.",
-    "mechanismOfAction": "Iridoid glycosides (verbenalin) and bitter principles act as mild GABA modulators and cholagogues, relaxing the nervous system while aiding digestion.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Best effects with consistent use over days or weeks.",
-    "therapeuticUses": "Used for nervous tension, stress headaches, insomnia, grief, indigestion, and menstrual discomfort. Especially useful for 'overthinkers'.",
-    "sideEffects": "Possible nausea due to bitterness. Rare allergic reaction.",
-    "contraindications": "Avoid during pregnancy due to potential uterine stimulation.",
-    "drugInteractions": "May enhance effects of sedatives or antispasmodics.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well established; widely regarded as safe",
-    "preparation": "Tea or tincture of aerial parts, often combined with skullcap or lemon balm.",
-    "onset": "30–60 min",
+    "description": "One of the most revered herbs in Ayurveda, Ashwagandha is a potent adaptogen used to reduce stress, improve sleep, and balance the nervous and endocrine systems. Often called 'Indian Ginseng'.",
+    "mechanismOfAction": "Withanolides modulate the hypothalamic-pituitary-adrenal (HPA) axis, lower cortisol, reduce oxidative stress, and improve GABAergic signaling.",
+    "pharmacokinetics": "Orally active. Onset within days to weeks for full adaptogenic effects. Peak plasma levels ~1–2 hrs after ingestion.",
+    "therapeuticUses": "Used for anxiety, fatigue, insomnia, adrenal support, libido, thyroid balance, and immune modulation.",
+    "sideEffects": "Mild GI upset or drowsiness. Rare headaches or allergic reactions.",
+    "contraindications": "Avoid with hyperthyroidism, sedative medications, or during pregnancy without supervision.",
+    "drugInteractions": "May enhance effects of sedatives, thyroid meds, or immunosuppressants.",
+    "toxicity": "Very low. High doses may affect thyroid hormone levels.",
+    "toxicityLD50": ">5000 mg/kg (rats, oral)",
+    "preparation": "Root powder taken as capsules, teas, or mixed into milk. Extracts often standardized to withanolides.",
+    "onset": "1–2 weeks (chronic); mild calm within 1–2 hrs (acute)",
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
-    "region": "North America",
+    "region": "India, Middle East, North Africa",
     "tags": [
-      "🧘 Nervine",
-      "🌿 Bitter",
-      "💤 Sedative",
-      "🌾 Native American"
+      "🧘 Adaptogen",
+      "💤 Sleep",
+      "🧠 Brain support",
+      "🌿 Ayurvedic"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8052706/",
-      "Eclectic Materia Medica – Felter",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6979308/",
+      "Herbal Medicine – Mills & Bone",
+      "Indian Journal of Psychological Medicine, 2012"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "pausinystalia-johimbe",
+    "name": "Yohimbe",
+    "slug": "pausinystalia-johimbe",
+    "scientificName": "Pausinystalia johimbe",
+    "category": "Stimulant / Aphrodisiac / Vasodilator",
+    "effects": [
+      "Increased libido",
+      "Stimulation",
+      "Increased blood flow",
+      "Alertness"
+    ],
+    "description": "An African tree bark used as a traditional male aphrodisiac and stimulant. Contains yohimbine, an alkaloid used in pharmaceuticals for erectile dysfunction and athletic performance.",
+    "mechanismOfAction": "Yohimbine is an alpha-2 adrenergic receptor antagonist, increasing norepinephrine release and blood flow. Also affects serotonin and dopamine.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 2–4 hrs. Metabolized in liver; crosses blood-brain barrier.",
+    "therapeuticUses": "Used for sexual dysfunction, athletic enhancement, weight loss, and sometimes as a stimulant. Traditional use includes ceremonial energizing purposes.",
+    "sideEffects": "Anxiety, increased heart rate, elevated blood pressure, tremors, irritability. High doses can cause panic or heart issues.",
+    "contraindications": "Avoid in heart conditions, anxiety, schizophrenia, or with stimulants. Not for use in pregnancy.",
+    "drugInteractions": "Dangerous with SSRIs, MAOIs, stimulants, or antihypertensives.",
+    "toxicity": "Moderate to high. Narrow therapeutic index.",
+    "toxicityLD50": "~50 mg/kg (rats, oral)",
+    "preparation": "Bark used in decoctions or alcohol extracts. Also sold as standardized yohimbine HCl in supplements or pharmaceuticals.",
+    "onset": "30–60 min",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Regulated in some countries; available OTC or by prescription in others",
+    "region": "West Africa (Cameroon, Nigeria, Gabon)",
+    "tags": [
+      "🔥 Aphrodisiac",
+      "⚠️ Stimulant",
+      "🫀 Blood flow",
+      "🌿 Traditional African"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3777290/",
+      "Plants of the Gods – Rätsch",
+      "International Journal of Impotence Research, 2002"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "zanthoxylum-clava-herculis",
+    "name": "Toothache Tree",
+    "slug": "zanthoxylum-clava-herculis",
+    "scientificName": "Zanthoxylum clava-herculis",
+    "category": "Analgesic / Local Numbing / Traditional Native American",
+    "effects": [
+      "Mouth numbing",
+      "Tingling",
+      "Pain relief",
+      "Salivation"
+    ],
+    "description": "Known as the Toothache Tree, this thorny bark was chewed by Native Americans and early settlers for numbing oral pain. Related to Sichuan pepper, it causes a tingling or buzzing effect on mucous membranes.",
+    "mechanismOfAction": "Contains alkylamides (e.g. sanshools) which activate TRPA1 and TRPV1 receptors, causing a numbing and tingling effect by altering ion channel activity in sensory neurons.",
+    "pharmacokinetics": "Local onset within seconds when chewed or applied. Short-acting unless taken as extract.",
+    "therapeuticUses": "Used traditionally for toothache, sore throat, digestive issues, and as a topical analgesic. Modern interest in sanshool-containing herbs for oral and topical analgesia.",
+    "sideEffects": "Mild tingling, numbness, drooling. Rare allergic reaction if sensitive to citrus relatives.",
+    "contraindications": "Avoid open wounds or with mucosal damage. Not advised internally in high doses.",
+    "drugInteractions": "Minimal; may enhance salivation or local blood flow.",
+    "toxicity": "Very low in topical use.",
+    "toxicityLD50": "Not established",
+    "preparation": "Bark or berries chewed fresh or powdered. Also used in tinctures and poultices.",
+    "onset": "Immediate (local)",
+    "intensity": "Mild–Moderate (localized)",
+    "legalStatus": "Legal worldwide",
+    "region": "Southeastern U.S.",
+    "tags": [
+      "😮‍💨 Numbing",
+      "🌿 Native American",
+      "🦷 Oral care",
+      "🫦 Tingling"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5656514/",
+      "Native American Ethnobotany – Moerman",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "piper-auritum",
+    "name": "Root Beer Plant",
+    "slug": "piper-auritum",
+    "scientificName": "Piper auritum",
+    "category": "Aromatic / Culinary / Digestive",
+    "effects": [
+      "Calming",
+      "Digestive aid",
+      "Appetite stimulation",
+      "Aromatic elevation"
+    ],
+    "description": "An aromatic tropical herb with large, glossy leaves and a root beer–like flavor. Used in Mexican cuisine as a seasoning, its essential oil safrole gives it a psychoaromatic depth.",
+    "mechanismOfAction": "Contains safrole (a phenylpropene also found in sassafras) which has aromatic and mild stimulant effects. In large doses, safrole is hepatotoxic and carcinogenic in rodents.",
+    "pharmacokinetics": "Aromatic effects via inhalation or ingestion. Safrole is absorbed orally and metabolized in the liver.",
+    "therapeuticUses": "Traditionally used to flavor food, promote digestion, and reduce bloating. Used ceremonially and in herbal wraps.",
+    "sideEffects": "Generally safe in culinary amounts. High or chronic doses of safrole linked to liver cancer in animals.",
+    "contraindications": "Avoid excessive use. Not for use during pregnancy or with liver conditions.",
+    "drugInteractions": "May induce liver enzymes (CYP450); theoretical interactions with hepatically metabolized drugs.",
+    "toxicity": "Low at normal doses. Chronic safrole exposure is a carcinogen in rodents.",
+    "toxicityLD50": "Safrole ~1950 mg/kg (rat, oral)",
+    "preparation": "Used fresh in cooking (mole, tamales), teas, or poultices. Leaves also smoked or chewed in folk practices.",
+    "onset": "10–30 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal in most regions; safrole-regulated for extraction in some",
+    "region": "Mexico, Central America, Caribbean",
+    "tags": [
+      "🌿 Culinary",
+      "🫖 Aromatic",
+      "🫚 Root beer",
+      "🧠 Digestive"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5829475/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Food Composition and Analysis, 2004"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "rhodiola-rosea",
+    "name": "Rhodiola rosea",
+    "slug": "rhodiola-rosea",
+    "scientificName": "Rhodiola rosea",
+    "category": "Adaptogen / Nootropic / Energy",
+    "effects": [
+      "Fatigue reduction",
+      "Stress resilience",
+      "Mental clarity",
+      "Mood stabilization"
+    ],
+    "description": "A hardy alpine herb traditionally used in Russian and Scandinavian medicine to increase resilience to cold, stress, and exertion. Widely regarded as a top adaptogen for energy and mood support.",
+    "mechanismOfAction": "Compounds like rosavins and salidroside regulate the hypothalamic-pituitary-adrenal (HPA) axis and neurotransmitters like serotonin, dopamine, and norepinephrine.",
+    "pharmacokinetics": "Orally active. Onset ~1–2 hrs. Peak ~2–3 hrs. Effects may increase with consistent use over 1–2 weeks.",
+    "therapeuticUses": "Used to combat fatigue, depression, anxiety, altitude sickness, and to improve cognitive and physical performance.",
+    "sideEffects": "Generally well tolerated. Rarely causes insomnia, irritability, or dry mouth.",
+    "contraindications": "Caution with bipolar disorder (may induce hypomania). Avoid with stimulants unless advised.",
+    "drugInteractions": "May interact with antidepressants or CNS stimulants. Monitor with SSRIs or MAOIs.",
+    "toxicity": "Low",
+    "toxicityLD50": ">10,000 mg/kg (mouse, oral)",
+    "preparation": "Standardized extracts (3% rosavins, 1% salidroside), teas, tinctures, or raw root powder.",
+    "onset": "1–2 hrs (acute), ~1 week (adaptogenic)",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Russia, Scandinavia, Arctic Asia",
+    "tags": [
+      "⚡ Energy",
+      "🧠 Focus",
+      "🧘 Adaptogen",
+      "🌿 Mood"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6279142/",
+      "Herbal Medicine – Mills & Bone",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "silene-capensis",
+    "name": "Xhosa Dream Root",
+    "slug": "silene-capensis",
+    "scientificName": "Silene capensis",
+    "category": "Oneirogen / Traditional African / Dream Herb",
+    "effects": [
+      "Lucid dreaming",
+      "Vivid dreams",
+      "Subtle euphoria",
+      "Meditative clarity"
+    ],
+    "description": "A sacred herb of the Xhosa people of South Africa, used to enhance and remember dreams. Valued for its ability to trigger vivid, meaningful, and sometimes lucid dreams through its unique alkaloids.",
+    "mechanismOfAction": "Believed to affect cholinergic and dopaminergic pathways; some alkaloids suspected to modulate sleep architecture, though exact compounds are not fully identified.",
+    "pharmacokinetics": "Orally or sublingually active. Onset overnight (in sleep). Subtle psychoactive effect; no intoxication while awake.",
+    "therapeuticUses": "Used for divination, spiritual guidance, and connection to ancestors. Modern interest includes lucid dreaming, sleep studies, and dream therapy.",
+    "sideEffects": "Very mild GI discomfort (rare). Otherwise well tolerated.",
+    "contraindications": "Avoid during pregnancy. Limited clinical data on drug interactions.",
+    "drugInteractions": "Minimal known. Theoretical interaction with cholinergics or dream-enhancing herbs.",
+    "toxicity": "Very low. Traditional use suggests high safety.",
+    "toxicityLD50": "Not established",
+    "preparation": "Root is powdered and whipped with water into foam. Taken early morning before fasting. Also used as tea or tincture.",
+    "onset": "During sleep cycle",
+    "intensity": "Mild–Moderate (dream-state)",
+    "legalStatus": "Legal worldwide",
+    "region": "South Africa (Eastern Cape)",
+    "tags": [
+      "🌙 Dream herb",
+      "🛌 Sleep",
+      "🌿 African",
+      "🌀 Visionary"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4308394/",
+      "Plants of the Gods – Rätsch",
+      "African Ethnobotany in the Americas, 2014"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "spigelia-marilandica",
+    "name": "Pinkroot",
+    "slug": "spigelia-marilandica",
+    "scientificName": "Spigelia marilandica",
+    "category": "Anthelmintic / Nervine / Traditional Native American",
+    "effects": [
+      "Parasitic cleanse",
+      "Mild sedation",
+      "Vision changes (in excess)",
+      "Calming"
+    ],
+    "description": "A striking woodland plant native to the southeastern U.S., traditionally used for expelling intestinal parasites. It has mild nervine and sedative effects, but can cause strong reactions in high doses.",
+    "mechanismOfAction": "Alkaloids (spigeline and others) are toxic to parasitic worms and may also affect the central nervous system. In high doses, can produce dizziness and visual distortion.",
+    "pharmacokinetics": "Orally active. Rapid onset. Short to moderate duration depending on dose.",
+    "therapeuticUses": "Historically used for intestinal worms, especially in children, and as a calming nervine in small doses.",
+    "sideEffects": "High doses may cause headache, visual disturbances, nausea, or even convulsions.",
+    "contraindications": "Avoid in pregnancy or with seizure disorders. Dose carefully due to narrow safety margin.",
+    "drugInteractions": "May interact with sedatives, anti-parasitics, or neuroactive herbs.",
+    "toxicity": "Moderate. Therapeutic window is narrow.",
+    "toxicityLD50": "Not well established; potentially toxic at high doses",
+    "preparation": "Root used dried in decoctions, tinctures, or powders. Rarely used today due to stronger modern anthelmintics.",
+    "onset": "30–60 min",
+    "intensity": "Moderate–Strong (dose-dependent)",
+    "legalStatus": "Legal worldwide",
+    "region": "Southeastern United States",
+    "tags": [
+      "🪱 Antiparasitic",
+      "🌿 Native American",
+      "🧠 Nervine",
+      "⚠️ Toxic in excess"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6492244/",
+      "Native American Ethnobotany – Moerman",
+      "Herbal Medicine – Mills & Bone"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "tilia-europaea",
+    "name": "Linden",
+    "slug": "tilia-europaea",
+    "scientificName": "Tilia europaea",
+    "category": "Nervine / Anxiolytic / Antispasmodic",
+    "effects": [
+      "Calm",
+      "Stress relief",
+      "Muscle relaxation",
+      "Sleep support"
+    ],
+    "description": "Linden flowers are fragrant and soothing, traditionally used in Europe as a gentle sedative and nerve tonic. Often brewed into calming teas to relieve stress, tension, and digestive upset.",
+    "mechanismOfAction": "Contains flavonoids (e.g., quercetin, kaempferol) and volatile oils that act as mild GABA modulators and muscle relaxants.",
+    "pharmacokinetics": "Orally active. Effects felt within ~30–60 min. Safe for regular use in traditional doses.",
+    "therapeuticUses": "Used for anxiety, tension headaches, high blood pressure, insomnia, and muscle cramps. Also supports digestion and reduces inflammation.",
+    "sideEffects": "Very rare; occasional mild drowsiness or allergic reaction.",
+    "contraindications": "None significant. Use with caution if allergic to pollen or linden trees.",
+    "drugInteractions": "Minimal. May slightly enhance effects of sedatives or diuretics.",
+    "toxicity": "Very low",
+    "toxicityLD50": "Not established (very safe at therapeutic levels)",
+    "preparation": "Flowers brewed as tea, taken as tincture, or included in herbal sleep blends. Often combined with lemon balm or chamomile.",
+    "onset": "30–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, Western Asia, North America (ornamental)",
+    "tags": [
+      "🧘 Calm",
+      "💤 Sleep",
+      "🌼 Floral",
+      "🌿 Traditional European"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6597275/",
+      "British Herbal Pharmacopoeia",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "tagetes-lucida",
+    "name": "Mexican Tarragon",
+    "slug": "tagetes-lucida",
+    "scientificName": "Tagetes lucida",
+    "category": "Oneirogen / Digestive / Traditional Mesoamerican",
+    "effects": [
+      "Mild euphoria",
+      "Vision enhancement",
+      "Lucid dreaming",
+      "Digestive aid"
+    ],
+    "description": "Used by the Aztecs and modern curanderos, this aromatic herb has both culinary and psychoactive properties. Smoked or brewed, it can enhance dreams and alter perception gently.",
+    "mechanismOfAction": "Contains estragole, ocimene, and anethole, which may mildly modulate GABA and serotonergic pathways. Psychoactive effects are subtle and dose-dependent.",
+    "pharmacokinetics": "Orally or smoked. Onset 30–60 min (oral), 5–10 min (smoked). Duration 1–3 hrs.",
+    "therapeuticUses": "Used for digestive issues, anxiety, and ceremonial purposes. Also employed for lucid dreaming and spirit communication in traditional rituals.",
+    "sideEffects": "Mild nausea or dizziness in excess. Estragole is a potential carcinogen at high doses in animals.",
+    "contraindications": "Avoid in pregnancy or with hormone-sensitive conditions. Not for chronic high-dose use.",
+    "drugInteractions": "Minimal in traditional doses. Theoretical synergy with other calming or dream herbs.",
+    "toxicity": "Low at ceremonial/culinary doses. Estragole raises caution at high concentrations.",
+    "toxicityLD50": "Estragole: ~1500 mg/kg (rat, oral)",
+    "preparation": "Leaves brewed into tea, smoked in blends, or used as a spice substitute for tarragon.",
+    "onset": "30–60 min (oral)",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Mexico, Central America",
+    "tags": [
+      "🌼 Floral",
+      "🌙 Dream herb",
+      "🫖 Digestive",
+      "🌀 Mesoamerican"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5372953/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology, 2005"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "tussilago-farfara",
+    "name": "Coltsfoot",
+    "slug": "tussilago-farfara",
+    "scientificName": "Tussilago farfara",
+    "category": "Respiratory / Expectorant / Traditional European",
+    "effects": [
+      "Cough suppression",
+      "Lung soothing",
+      "Mild sedation",
+      "Anti-inflammatory"
+    ],
+    "description": "A yellow-flowered plant long revered in European herbalism for its effects on the respiratory tract. Coltsfoot is soothing to irritated lungs and commonly used in herbal cough formulas.",
+    "mechanismOfAction": "Contains mucilage, flavonoids, and alkaloids. Mucilage soothes mucous membranes; pyrrolizidine alkaloids (PAs) pose some risk to the liver.",
+    "pharmacokinetics": "Orally active. Onset within 15–30 min. Duration 2–4 hrs. Best used short-term for acute conditions.",
+    "therapeuticUses": "Used for coughs, bronchitis, asthma, sore throats, and hoarseness. Traditionally smoked or brewed.",
+    "sideEffects": "Generally mild. Long-term use linked to potential liver toxicity from PAs.",
+    "contraindications": "Avoid during pregnancy, liver disease, or prolonged use. Use PA-free extracts if possible.",
+    "drugInteractions": "Potential hepatotoxicity if combined with other liver-sensitive drugs.",
+    "toxicity": "Moderate (due to PAs); safe short-term with proper prep.",
+    "toxicityLD50": "PAs vary; cumulative risk more relevant than acute dose",
+    "preparation": "Leaves and flowers used in teas, syrups, or infusions. PA-free versions recommended for internal use.",
+    "onset": "15–30 min",
+    "intensity": "Mild",
+    "legalStatus": "Regulated or banned in some countries for internal use",
+    "region": "Europe, Western Asia, North America",
+    "tags": [
+      "🌬️ Respiratory",
+      "🫁 Expectorant",
+      "🫖 Lung tea",
+      "⚠️ PA caution"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7092813/",
+      "British Herbal Pharmacopoeia",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "turnera-ulmifolia",
+    "name": "Yellow Alder",
+    "slug": "turnera-ulmifolia",
+    "scientificName": "Turnera ulmifolia",
+    "category": "Tonic / Mild Aphrodisiac / Folk Sedative",
+    "effects": [
+      "Relaxation",
+      "Mood uplift",
+      "Digestive ease",
+      "Mild euphoria"
+    ],
+    "description": "Sometimes confused with true Damiana (Turnera diffusa), this related plant is used in Caribbean and Central American folk medicine as a relaxing tea and mild aphrodisiac.",
+    "mechanismOfAction": "Flavonoids and polyphenols with antioxidant and mild CNS modulating properties; effects possibly linked to GABA enhancement.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 1–3 hrs depending on dose and form.",
+    "therapeuticUses": "Used for mild anxiety, libido support, digestive relief, and mood elevation. Sometimes included in herbal blends.",
+    "sideEffects": "Rare; large doses may cause slight nausea or drowsiness.",
+    "contraindications": "Not well studied; avoid in pregnancy or with sedatives.",
+    "drugInteractions": "Minimal. Theoretical enhancement of sedatives or anxiolytics.",
+    "toxicity": "Very low based on traditional use.",
+    "toxicityLD50": "Not well established",
+    "preparation": "Tea from leaves, tincture, or infusion. Sometimes smoked with other herbs.",
+    "onset": "30–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Caribbean, Central America, northern South America",
+    "tags": [
+      "🌼 Mild sedative",
+      "🧘 Relaxant",
+      "🌿 Caribbean herb",
+      "💛 Damiana-like"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7087816/",
+      "Journal of Ethnopharmacology, 2013",
       "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
@@ -8074,78 +5838,708 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "verbena-officinalis",
-    "name": "Vervain",
-    "slug": "verbena-officinalis",
-    "scientificName": "Verbena officinalis",
-    "category": "Nervine / Antispasmodic / Digestive",
+    "id": "viola-odorata",
+    "name": "Sweet Violet",
+    "slug": "viola-odorata",
+    "scientificName": "Viola odorata",
+    "category": "Respiratory / Nervine / Floral Sedative",
     "effects": [
-      "Stress relief",
-      "Menstrual support",
-      "Digestive calming",
-      "Mild sedation"
+      "Soothing",
+      "Anti-inflammatory",
+      "Sleep support",
+      "Cough relief"
     ],
-    "description": "A sacred herb of Druids and Romans, vervain is a bitter-tasting nervine tonic used for calming stress, aiding digestion, and regulating menstrual flow. Known as a magical and protective herb in many traditions.",
-    "mechanismOfAction": "Iridoid glycosides (e.g. verbenalin), flavonoids, and tannins contribute to antispasmodic, sedative, and cholagogue actions. Likely modulates GABA and serotonin pathways.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 3–5 hrs depending on form.",
-    "therapeuticUses": "Used for nervous exhaustion, tension headaches, digestive upset, irregular menses, and insomnia. Also used in herbal magical rituals.",
-    "sideEffects": "Mild GI discomfort in some; bitter taste may cause nausea. Rare allergic reaction.",
-    "contraindications": "Avoid during pregnancy due to uterine stimulation. May interfere with iron absorption.",
-    "drugInteractions": "May potentiate sedatives. Theoretical interaction with SSRIs or antispasmodics.",
+    "description": "A fragrant violet flower traditionally used for respiratory and emotional conditions. Offers calming, anti-inflammatory, and mucilaginous support, often in teas or syrups.",
+    "mechanismOfAction": "Contains salicylic acid derivatives, mucilage, and volatile oils. Gently modulates GABA and prostaglandins. Mild expectorant and anti-inflammatory activity.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 2–4 hrs.",
+    "therapeuticUses": "Used for sore throats, coughs, grief, insomnia, and skin irritation. Can be taken internally or applied topically.",
+    "sideEffects": "Mild; possible skin reaction or GI upset with large doses.",
+    "contraindications": "None known in normal doses. Use caution in salicylate-sensitive individuals.",
+    "drugInteractions": "Mild anticoagulant effects. May enhance other sedatives slightly.",
+    "toxicity": "Very low",
+    "toxicityLD50": "Not established (safe in folk medicine)",
+    "preparation": "Tea of flowers or leaves; syrups for cough; compresses for skin. Occasionally tinctured.",
+    "onset": "30–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, Western Asia, North Africa",
+    "tags": [
+      "🌸 Floral",
+      "🧘 Nervine",
+      "🫁 Respiratory",
+      "💤 Calming"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7533724/",
+      "British Herbal Pharmacopoeia",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "zea-mays-stigma",
+    "name": "Corn Silk",
+    "slug": "zea-mays-stigma",
+    "scientificName": "Zea mays (stigma)",
+    "category": "Diuretic / Urinary Tract / Soothing",
+    "effects": [
+      "Urine flow increase",
+      "Soothing",
+      "Kidney support",
+      "Anti-inflammatory"
+    ],
+    "description": "The long threads of corn (called silk) are a gentle herbal remedy for urinary tract issues, swelling, and kidney function. Used in teas for centuries in both Native American and Chinese traditions.",
+    "mechanismOfAction": "Contains flavonoids, saponins, and potassium that increase urine output, reduce inflammation, and soothe irritated tissues.",
+    "pharmacokinetics": "Orally active. Onset 30–60 min. Duration ~2–6 hrs depending on fluid intake.",
+    "therapeuticUses": "Used for UTIs, bladder inflammation, bedwetting, kidney stones, and fluid retention. Also mildly calming.",
+    "sideEffects": "Rare. May cause mild electrolyte loss or allergic reaction in corn-sensitive individuals.",
+    "contraindications": "Avoid with diuretic medications or in cases of severe kidney disease unless supervised.",
+    "drugInteractions": "May enhance diuretics or alter potassium levels. Mild blood pressure effects.",
+    "toxicity": "Very low",
+    "toxicityLD50": "Not established; extremely safe at traditional doses",
+    "preparation": "Fresh or dried corn silk brewed into tea or decoction. Can be tinctured or included in bladder blends.",
+    "onset": "30–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Worldwide (where corn is cultivated)",
+    "tags": [
+      "🌾 Kidney support",
+      "💧 Diuretic",
+      "🫖 Soothing",
+      "🌿 Folk remedy"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7121893/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Medicinal Plants Research, 2011"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "zingiber-officinale",
+    "name": "Ginger",
+    "slug": "zingiber-officinale",
+    "scientificName": "Zingiber officinale",
+    "category": "Digestive / Anti-inflammatory / Stimulant",
+    "effects": [
+      "Digestive support",
+      "Anti-nausea",
+      "Circulation boost",
+      "Mild stimulation"
+    ],
+    "description": "A pungent rhizome widely used for its warming, carminative, and anti-inflammatory effects. Revered in Ayurvedic and traditional Chinese medicine for treating nausea, coldness, and sluggish digestion.",
+    "mechanismOfAction": "Contains gingerols and shogaols that modulate prostaglandins, TRP ion channels, and serotonin receptors involved in nausea.",
+    "pharmacokinetics": "Orally active. Onset ~15–30 min. Duration 2–4 hrs. Absorbed in the GI tract; metabolized by liver.",
+    "therapeuticUses": "Used for nausea, morning sickness, motion sickness, colds, pain, and poor circulation. Also a culinary spice and tea staple.",
+    "sideEffects": "Heartburn, stomach upset in large doses. Rare allergic reactions.",
+    "contraindications": "Caution with anticoagulants, gallstones, or gastritis in high doses.",
+    "drugInteractions": "May interact with blood thinners or diabetes meds. Synergistic with anti-nausea agents.",
+    "toxicity": "Very low",
+    "toxicityLD50": ">5000 mg/kg (rats, oral)",
+    "preparation": "Fresh or dried root used in teas, tinctures, capsules, or cooking. Often paired with honey and lemon.",
+    "onset": "15–30 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Tropical Asia, cultivated globally",
+    "tags": [
+      "🌶️ Warming",
+      "🫖 Anti-nausea",
+      "🫁 Circulation",
+      "🌿 Culinary"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3665023/",
+      "Herbal Medicine – Mills & Bone",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "valeriana-jatamansi",
+    "name": "Indian Valerian",
+    "slug": "valeriana-jatamansi",
+    "scientificName": "Valeriana jatamansi",
+    "category": "Sedative / Sleep Aid / Ayurvedic",
+    "effects": [
+      "Calm",
+      "Sleep support",
+      "Anxiety reduction",
+      "Muscle relaxation"
+    ],
+    "description": "An Ayurvedic herb similar to European valerian, prized for its sedative and antianxiety properties. Often used in formulations for insomnia, nervousness, and epilepsy.",
+    "mechanismOfAction": "Rich in sesquiterpenes and valepotriates that modulate GABA-A receptors and enhance inhibitory neurotransmission.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 4–6 hrs. Liver metabolism; cumulative benefits with regular use.",
+    "therapeuticUses": "Used for insomnia, anxiety, hysteria, seizures, and muscle spasms. Considered more cooling than Western valerian.",
+    "sideEffects": "Drowsiness, vivid dreams, GI upset, rare paradoxical stimulation.",
+    "contraindications": "Avoid with CNS depressants, alcohol, or during pregnancy without supervision.",
+    "drugInteractions": "Synergistic with sedatives, benzodiazepines, or alcohol.",
     "toxicity": "Low",
-    "toxicityLD50": "Not fully established; safe in traditional use",
-    "preparation": "Tea or tincture of aerial parts; sometimes used in ritual baths or smudge blends.",
+    "toxicityLD50": "Not well established; traditionally safe",
+    "preparation": "Dried root or rhizome used in powders, decoctions, or Ayurvedic compounds. Often mixed with Brahmi or Ashwagandha.",
+    "onset": "30–60 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "India, Himalayas, Nepal",
+    "compounds": [
+      "Valeranon"
+    ],
+    "tags": [
+      "💤 Sleep",
+      "🧘 Calm",
+      "🌿 Ayurvedic",
+      "⚗️ GABAergic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4046171/",
+      "Ayurvedic Pharmacopoeia of India",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "urtica-dioica",
+    "name": "Stinging Nettle",
+    "slug": "urtica-dioica",
+    "scientificName": "Urtica dioica",
+    "category": "Nutritive / Anti-inflammatory / Diuretic",
+    "effects": [
+      "Allergy relief",
+      "Joint support",
+      "Diuretic",
+      "Nutritional tonic"
+    ],
+    "description": "A mineral-rich plant used in herbal medicine for centuries. Despite its sting, nettle is prized as a nourishing tonic, anti-inflammatory agent, and allergy remedy.",
+    "mechanismOfAction": "Contains histamine, serotonin, minerals, flavonoids, and polysaccharides that modulate inflammatory and immune responses. Inhibits TNF-α and prostaglandins.",
+    "pharmacokinetics": "Orally and topically active. Onset ~30–60 min. Long-term use increases effects. Very well tolerated.",
+    "therapeuticUses": "Used for seasonal allergies, arthritis, urinary issues, eczema, fatigue, and anemia. Also used as food and spring tonic.",
+    "sideEffects": "Mild stomach upset or rash (topically) in sensitive individuals. Avoid fresh contact with skin due to stinging hairs.",
+    "contraindications": "None significant. Caution with diuretics or blood sugar meds.",
+    "drugInteractions": "May enhance diuretics, antihypertensives, or blood sugar meds.",
+    "toxicity": "Very low",
+    "toxicityLD50": ">5000 mg/kg (rats, oral)",
+    "preparation": "Dried leaves in tea, soup, powder, or tincture. Root also used for prostate support. Topical application for arthritis.",
     "onset": "30–60 min",
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
-    "region": "Europe, North Africa, temperate Asia",
+    "region": "Europe, Asia, North America",
     "tags": [
-      "🧘 Nervine",
-      "🩸 Menstrual",
-      "🌿 Digestive",
-      "🔮 Ritual herb"
+      "🌿 Nutritive",
+      "💧 Diuretic",
+      "🌱 Anti-allergy",
+      "🧘 Anti-inflammatory"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7318829/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4843967/",
+      "Herbal Medicine – Mills & Bone",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "vitex-agnus-castus",
+    "name": "Chaste Tree",
+    "slug": "vitex-agnus-castus",
+    "scientificName": "Vitex agnus-castus",
+    "category": "Endocrine / Hormonal / Reproductive",
+    "effects": [
+      "Hormone regulation",
+      "Menstrual cycle balancing",
+      "Mood support",
+      "Fertility enhancement"
+    ],
+    "description": "A Mediterranean shrub used traditionally to balance female hormones, regulate menstrual cycles, and support fertility. Also known as Monk’s Pepper due to its historical use in suppressing libido.",
+    "mechanismOfAction": "Acts on dopamine D2 receptors to modulate pituitary prolactin levels. Indirectly balances estrogen and progesterone.",
+    "pharmacokinetics": "Orally active. Onset varies from days to weeks depending on hormonal cycle. Most effective with long-term use.",
+    "therapeuticUses": "Used for PMS, breast tenderness, irregular menstruation, PCOS, fertility support, and mild hormonal acne.",
+    "sideEffects": "Mild GI upset, headache, or rash. May alter menstrual cycle timing.",
+    "contraindications": "Avoid during pregnancy, breastfeeding, or with hormone-sensitive conditions unless guided by a practitioner.",
+    "drugInteractions": "May interact with dopamine-related medications or hormone therapies.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not well established; traditionally safe",
+    "preparation": "Dried berries as capsules, tincture, or tea. Often standardized to agnuside content.",
+    "onset": "Varies (days to weeks)",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Mediterranean, Western Asia",
+    "tags": [
+      "🩸 Hormone balance",
+      "♀️ Reproductive",
+      "🌿 Fertility",
+      "🧘 PMS relief"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6275797/",
       "British Herbal Compendium",
       "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
   },
   {
-    "id": "viburnum-opulus",
-    "name": "Cramp Bark",
-    "slug": "viburnum-opulus",
-    "scientificName": "Viburnum opulus",
-    "category": "Antispasmodic / Uterine Tonic / Nervine",
+    "id": "uncaria-tomentosa",
+    "name": "Cat’s Claw",
+    "slug": "uncaria-tomentosa",
+    "scientificName": "Uncaria tomentosa",
+    "category": "Immune Modulator / Anti-inflammatory / Traditional Amazonian",
     "effects": [
-      "Muscle relaxation",
-      "Menstrual relief",
-      "Sedative",
-      "Uterine support"
+      "Immune boosting",
+      "Joint support",
+      "Antioxidant",
+      "Anti-inflammatory"
     ],
-    "description": "A classic herbal remedy used for centuries to relieve muscular and menstrual cramping. Cramp bark calms smooth muscles, especially in the uterus and digestive tract.",
-    "mechanismOfAction": "Contains viburnin, salicin, and valerenic acid-like compounds that act as antispasmodics and mild sedatives, likely via GABA modulation and smooth muscle relaxation.",
-    "pharmacokinetics": "Orally active. Onset ~30–45 min. Duration ~4–6 hrs. Used as whole bark or tincture.",
-    "therapeuticUses": "Used for dysmenorrhea, muscle spasms, back pain, nervous tension, and sometimes asthma-related tension.",
-    "sideEffects": "Mild drowsiness or GI upset. Rare allergic responses.",
-    "contraindications": "Avoid during pregnancy unless directed by a practitioner. May cause hypotension in sensitive individuals.",
-    "drugInteractions": "May enhance effects of muscle relaxants or sedatives.",
+    "description": "A woody vine native to the Amazon, revered in traditional medicine for its immune-regulating and anti-inflammatory properties. Used in autoimmune conditions, Lyme protocols, and arthritis treatments.",
+    "mechanismOfAction": "Contains oxindole alkaloids and polyphenols that modulate cytokines, suppress TNF-alpha, and stimulate immune cells. Antioxidant and DNA-repair properties.",
+    "pharmacokinetics": "Orally active. Effects accumulate over days to weeks. Metabolized in liver; immunomodulatory rather than immediate.",
+    "therapeuticUses": "Used for rheumatoid arthritis, viral infections, cancer support, chronic inflammation, and digestive disorders.",
+    "sideEffects": "Mild GI upset or dizziness in sensitive individuals. Rare allergic response.",
+    "contraindications": "Avoid during pregnancy and in organ transplant recipients (due to immune activity).",
+    "drugInteractions": "May alter immunosuppressant or anti-inflammatory medication effects.",
     "toxicity": "Low",
-    "toxicityLD50": "Not well established; safe in traditional doses",
-    "preparation": "Dried bark in decoction or tincture form. Often used in uterine calming formulas with black haw.",
-    "onset": "30–45 min",
+    "toxicityLD50": "Not well established; high safety margin in traditional use",
+    "preparation": "Bark or root decocted in tea or taken as tincture/capsule. Common in herbal immune protocols.",
+    "onset": "Days–weeks (cumulative)",
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
-    "region": "Europe, North America",
+    "region": "Amazon Rainforest (Peru, Brazil, Ecuador)",
     "tags": [
-      "🩸 Menstrual",
-      "🧘 Nervine",
-      "🪵 Bark remedy",
-      "💤 Sedative"
+      "🌿 Immune support",
+      "🦴 Anti-inflammatory",
+      "🍃 Amazonian",
+      "⚖️ Autoimmune"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5487595/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5372954/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology, 2001"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "tylophora-indica",
+    "name": "Tylophora indica",
+    "slug": "tylophora-indica",
+    "scientificName": "Tylophora indica",
+    "category": "Respiratory / Immunomodulator / Ayurvedic",
+    "effects": [
+      "Asthma relief",
+      "Anti-allergy",
+      "Immunoregulation",
+      "Expectorant"
+    ],
+    "description": "An Ayurvedic herb used for bronchial conditions, immune regulation, and allergic responses. Known as Indian Ipecac for its traditional role in treating asthma and respiratory issues.",
+    "mechanismOfAction": "Contains tylophorine alkaloids with immunosuppressive, anti-inflammatory, and antiallergic properties. Reduces histamine release and cytokine activity.",
+    "pharmacokinetics": "Orally active. Onset within 30–90 min. Peak effects often felt over multiple days of use.",
+    "therapeuticUses": "Used for asthma, allergies, bronchitis, autoimmune flare-ups, and inflammation. Sometimes used topically for skin disorders.",
+    "sideEffects": "Nausea and vomiting in higher doses. GI discomfort is common early in treatment.",
+    "contraindications": "Avoid during pregnancy, with immunosuppressants, or in emaciated individuals. Not for long-term high-dose use.",
+    "drugInteractions": "May interfere with immune therapies, steroids, or antihistamines.",
+    "toxicity": "Moderate in high doses. Emetic effects limit overuse.",
+    "toxicityLD50": "~100 mg/kg (mice, oral) – estimated",
+    "preparation": "Leaves chewed raw, powdered for capsules, or used in low-dose decoctions. Often combined with other expectorants.",
+    "onset": "30–90 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal in India; regulated in some countries due to emetic effects",
+    "region": "India, Sri Lanka, Southeast Asia",
+    "tags": [
+      "🫁 Respiratory",
+      "🌿 Ayurvedic",
+      "⚠️ Emetic",
+      "🤧 Anti-allergy"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887322/",
+      "Ayurvedic Pharmacopoeia of India",
+      "Journal of Ethnopharmacology, 2004"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "turnera-diffusa",
+    "name": "Damiana",
+    "slug": "turnera-diffusa",
+    "scientificName": "Turnera diffusa",
+    "category": "Aphrodisiac / Nervine / Mild Psychoactive",
+    "effects": [
+      "Mood elevation",
+      "Mild euphoria",
+      "Libido enhancement",
+      "Anxiolytic"
+    ],
+    "description": "A fragrant shrub native to the Americas, traditionally used as an aphrodisiac and mood-lifting herb. Damiana is smoked, brewed, or tinctured for its relaxing, sensual, and mildly euphoric properties.",
+    "mechanismOfAction": "Flavonoids and terpenes act as GABA modulators and potential cannabinoid receptor influencers. Also contains volatile oils that contribute to nervine and sexual tonic effects.",
+    "pharmacokinetics": "Orally and inhalationally active. Onset ~20–40 min orally, ~5–10 min when smoked. Duration 1–3 hrs.",
+    "therapeuticUses": "Used for low libido, anxiety, mild depression, menstrual discomfort, and as a recreational herbal relaxant.",
+    "sideEffects": "Generally well tolerated. Large doses may cause nausea or insomnia.",
+    "contraindications": "Avoid in pregnancy. Use with caution alongside strong sedatives or CNS depressants.",
+    "drugInteractions": "May enhance effects of other anxiolytics or libido enhancers.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not firmly established; traditionally safe",
+    "preparation": "Leaves brewed as tea, smoked in herbal blends, or tinctured. Common in aphrodisiac formulas.",
+    "onset": "20–40 min (oral), ~5 min (smoked)",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Mexico, Central America, southern U.S.",
+    "tags": [
+      "💘 Aphrodisiac",
+      "🧘 Relaxing",
+      "🌿 Folk tonic",
+      "🌼 Mood support"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5372952/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology, 2000"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "valeriana-officinalis",
+    "name": "Valerian",
+    "slug": "valeriana-officinalis",
+    "scientificName": "Valeriana officinalis",
+    "category": "Sedative / Anxiolytic / Sleep Aid",
+    "effects": [
+      "Deep relaxation",
+      "Sleep induction",
+      "Stress relief",
+      "Muscle relaxation"
+    ],
+    "description": "A classic Western herbal sedative, known for its strong-smelling root and calming effects. Used since antiquity for insomnia, nervous tension, and physical agitation.",
+    "mechanismOfAction": "Valerenic acid and valepotriates modulate GABA-A receptors and inhibit GABA breakdown, increasing inhibitory neurotransmission.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 4–6 hrs. Non-habit forming with long-term use.",
+    "therapeuticUses": "Used for insomnia, anxiety, restlessness, menstrual cramps, and stress-related hypertension.",
+    "sideEffects": "Drowsiness, vivid dreams, mild headache, paradoxical excitation in rare cases.",
+    "contraindications": "Avoid with alcohol, CNS depressants, or in pregnancy. Not for driving or machinery use.",
+    "drugInteractions": "Enhances effects of sedatives, sleep aids, and possibly benzodiazepines.",
+    "toxicity": "Low",
+    "toxicityLD50": ">3000 mg/kg (rats, oral)",
+    "preparation": "Dried root used in capsules, teas, tinctures, and standardized extracts. Often combined with hops or lemon balm.",
+    "onset": "30–60 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, cultivated globally",
+    "tags": [
+      "💤 Sleep",
+      "🧘 Nervine",
+      "🌿 Western herbalism",
+      "⚗️ GABAergic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4394901/",
+      "British Herbal Compendium",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "withania-somnifera",
+    "name": "Ashwagandha",
+    "slug": "withania-somnifera",
+    "scientificName": "Withania somnifera",
+    "category": "Adaptogen / Nervine / Ayurvedic Tonic",
+    "effects": [
+      "Stress reduction",
+      "Cortisol modulation",
+      "Vitality boost",
+      "Cognitive support"
+    ],
+    "description": "One of the cornerstone herbs of Ayurveda, ashwagandha is a powerful adaptogen that reduces stress, improves resilience, and supports energy, sleep, and hormonal health. The name means 'smell of horse,' referencing its traditional reputation for enhancing strength and virility.",
+    "mechanismOfAction": "Withanolides (steroidal lactones) modulate HPA axis, reduce cortisol, and enhance GABAergic signaling. Also impacts thyroid and reproductive hormone levels.",
+    "pharmacokinetics": "Orally active. Onset ~1 week for baseline effects; stronger results after 2–4 weeks. Metabolized in liver, broad systemic action.",
+    "therapeuticUses": "Used for stress, fatigue, anxiety, hypothyroidism, libido, muscle recovery, and insomnia.",
+    "sideEffects": "Mild GI upset, vivid dreams, or drowsiness. Rare paradoxical stimulation.",
+    "contraindications": "Avoid in hyperthyroidism, pregnancy, or with strong sedatives unless guided.",
+    "drugInteractions": "May interact with sedatives, thyroid meds, or immunosuppressants.",
+    "toxicity": "Low",
+    "toxicityLD50": ">2000 mg/kg (oral, rat)",
+    "preparation": "Root powder, capsules, teas, or standardized extracts (KSM-66, Sensoril). Often combined with Shatavari or Brahmi.",
+    "onset": "Days–weeks (cumulative)",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "India, Nepal, Middle East, Africa",
+    "tags": [
+      "🧘 Stress",
+      "💪 Strength",
+      "🧠 Focus",
+      "🌿 Adaptogen"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4270108/",
+      "Ayurvedic Pharmacopoeia of India",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "zanthoxylum-americanum",
+    "name": "Prickly Ash",
+    "slug": "zanthoxylum-americanum",
+    "scientificName": "Zanthoxylum americanum",
+    "category": "Analgesic / Circulatory Stimulant / Traditional Native American",
+    "effects": [
+      "Tingling",
+      "Local analgesia",
+      "Salivation",
+      "Circulation boost"
+    ],
+    "description": "Northern relative of Zanthoxylum clava-herculis, this species was widely used by Native Americans for toothaches, cold limbs, and digestion. Like its southern cousin, it produces a numbing and buzzing sensation when chewed.",
+    "mechanismOfAction": "Sanshools (alkylamides) modulate TRPV1 and TRPA1 channels on nerve endings, producing a buzzing, tingling analgesic effect. Also stimulates saliva and gastric secretions.",
+    "pharmacokinetics": "Local onset within seconds. Very fast-acting. Short duration unless used in extract form.",
+    "therapeuticUses": "Used topically or chewed for oral pain, indigestion, sluggish circulation, or nerve support. Historically used in decoctions or salves.",
+    "sideEffects": "Local irritation or tingling. Mild drooling or numbing. Rare allergic reactions.",
+    "contraindications": "Avoid in broken oral tissue or wounds. Caution with hot spices or ulcers.",
+    "drugInteractions": "Minimal. Theoretical interaction with oral analgesics or vasodilators.",
+    "toxicity": "Low in traditional use",
+    "toxicityLD50": "Not established",
+    "preparation": "Bark or berries chewed fresh, decocted, or tinctured. Sometimes used in liniments or herbal tooth powders.",
+    "onset": "Immediate (topical/chewed)",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "North America (Northern U.S., Canada)",
+    "tags": [
+      "🦷 Oral care",
+      "🌿 Native American",
+      "🫦 Tingling",
+      "🔥 Circulatory"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7144794/",
+      "Native American Ethnobotany – Moerman",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "xylopia-aethiopica",
+    "name": "Grains of Selim",
+    "slug": "xylopia-aethiopica",
+    "scientificName": "Xylopia aethiopica",
+    "category": "Spice / Respiratory / Afro-Caribbean Traditional",
+    "effects": [
+      "Warming",
+      "Decongestant",
+      "Digestive aid",
+      "Mild stimulant"
+    ],
+    "description": "A spicy fruit used in West African and Caribbean cuisine and medicine. Traditionally employed to treat respiratory and digestive issues, and as a warming tonic for colds and fatigue.",
+    "mechanismOfAction": "Contains volatile oils (e.g. eugenol, β-pinene) that have antimicrobial, warming, and stimulant actions. May stimulate mucous clearance and circulation.",
+    "pharmacokinetics": "Orally active. Onset within 15–45 min. Effects last several hours depending on dose/form.",
+    "therapeuticUses": "Used for coughs, bronchitis, gas, malaria prevention, postpartum recovery, and flavoring food and medicine.",
+    "sideEffects": "In large doses may cause stomach irritation or overstimulation.",
+    "contraindications": "Avoid in pregnancy unless under traditional guidance due to uterine stimulant effect.",
+    "drugInteractions": "Minimal. May interact with stimulants or other warming agents.",
+    "toxicity": "Low at culinary or traditional doses",
+    "toxicityLD50": "Not well documented",
+    "preparation": "Fruits smoked, crushed, or boiled in decoctions or stews. Sometimes added to snuff or topical blends.",
+    "onset": "15–45 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "West Africa, Caribbean",
+    "tags": [
+      "🌶️ Spice",
+      "🌬️ Decongestant",
+      "🌿 Afro-Caribbean",
+      "🫖 Traditional tonic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8736103/",
+      "Journal of Ethnopharmacology",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "achillea-millefolium",
+    "name": "Yarrow",
+    "slug": "achillea-millefolium",
+    "scientificName": "Achillea millefolium",
+    "category": "Astringent / Anti-inflammatory / Wound Care / Traditional European",
+    "effects": [
+      "Wound healing",
+      "Fever reduction",
+      "Digestive support",
+      "Circulatory modulation"
+    ],
+    "description": "Named after Achilles, who used it to treat battlefield wounds, yarrow is a classic herb for bleeding, inflammation, and fevers. It's used internally for digestion and externally for cuts, bruises, and nosebleeds.",
+    "mechanismOfAction": "Rich in flavonoids, alkaloids, sesquiterpene lactones, and salicylic acid derivatives. Acts as an anti-inflammatory, astringent, and mild diaphoretic.",
+    "pharmacokinetics": "Orally and topically active. Onset varies; anti-inflammatory and diaphoretic effects noticeable within 30–60 min.",
+    "therapeuticUses": "Used for wounds, bleeding, fevers, GI discomfort, menstrual cramps, and varicose veins. Traditionally applied as poultice or tea.",
+    "sideEffects": "Mild allergic reactions possible in sensitive individuals. Large internal doses may upset digestion.",
+    "contraindications": "Avoid during pregnancy due to potential uterine stimulation. Caution in ragweed-allergic individuals.",
+    "drugInteractions": "Mild interactions with anticoagulants or NSAIDs possible.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not well established (safe in traditional use)",
+    "preparation": "Infusion, tincture, poultice, sitz bath, or salve. Dried flowers and leaves used.",
+    "onset": "30–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North America, temperate Asia",
+    "compounds": [
+      "Thujone"
+    ],
+    "tags": [
+      "🩸 Astringent",
+      "🌿 Wound care",
+      "🔥 Anti-inflammatory",
+      "🧘 Menstrual"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6331677/",
+      "British Herbal Compendium",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "pausinystalia-johimbe",
+    "name": "Yohimbe",
+    "slug": "pausinystalia-johimbe",
+    "scientificName": "Pausinystalia johimbe",
+    "category": "Stimulant / Aphrodisiac / Alkaloid-Based",
+    "effects": [
+      "Sexual stimulation",
+      "Increased arousal",
+      "Central nervous stimulation",
+      "Sympathetic activation"
+    ],
+    "description": "An African tree bark used as a traditional male aphrodisiac and stimulant. Yohimbe's effects are strong and potentially risky due to its potent alkaloid content, especially yohimbine.",
+    "mechanismOfAction": "Yohimbine is an α2-adrenergic receptor antagonist that increases norepinephrine release, enhancing blood flow and sympathetic activity.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 2–4 hrs. High bioavailability. Crosses blood-brain barrier. Half-life: ~1–2 hrs.",
+    "therapeuticUses": "Used for erectile dysfunction, low libido, fatigue, and sometimes in fat-loss formulas. Was once prescription-only in the U.S.",
+    "sideEffects": "Anxiety, rapid heartbeat, high blood pressure, dizziness, insomnia, panic attacks at high doses.",
+    "contraindications": "Avoid with anxiety disorders, hypertension, heart issues, antidepressants, or MAOIs.",
+    "drugInteractions": "Dangerous interactions with antidepressants, stimulants, or other vasodilators.",
+    "toxicity": "Moderate–high; narrow therapeutic window",
+    "toxicityLD50": "~50 mg/kg (mice, oral)",
+    "preparation": "Bark brewed in decoction or used in standardized yohimbine extract (Rx or supplement). Traditional doses are lower than commercial ones.",
+    "onset": "30–60 min",
+    "intensity": "Strong",
+    "legalStatus": "Restricted or banned in some countries; supplement status varies",
+    "region": "West–Central Africa",
+    "tags": [
+      "💘 Aphrodisiac",
+      "⚡ Stimulant",
+      "⚠️ Narrow margin",
+      "🌍 African traditional"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7917120/",
+      "Journal of Ethnopharmacology",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "lactuca-virosa",
+    "name": "Wild Lettuce",
+    "slug": "lactuca-virosa",
+    "scientificName": "Lactuca virosa",
+    "category": "Analgesic / Sedative / Folk Painkiller",
+    "effects": [
+      "Pain relief",
+      "Sedation",
+      "Muscle relaxation",
+      "Dream potentiation"
+    ],
+    "description": "Known as 'opium lettuce' for its historical use as a mild sedative and pain reliever, wild lettuce produces a white sap called lactucarium that was once used as a legal alternative to opiates.",
+    "mechanismOfAction": "Lactucopicrin and lactucin are sesquiterpene lactones believed to act on opioid receptors and modulate GABA pathways. Mild antispasmodic and analgesic activity.",
+    "pharmacokinetics": "Orally and smoked. Onset ~20–60 min depending on form. Duration 2–4 hrs. Effects are mild but cumulative with regular use.",
+    "therapeuticUses": "Used for headaches, joint pain, anxiety, sleep disturbances, and as a dream herb.",
+    "sideEffects": "Drowsiness, dizziness, bitter taste, mild nausea. High doses may cause confusion or restlessness.",
+    "contraindications": "Avoid during pregnancy or with sedative drugs. Not advised for prolonged use at high doses.",
+    "drugInteractions": "May potentiate other CNS depressants or opioids.",
+    "toxicity": "Moderate at high doses",
+    "toxicityLD50": "Not fully established; estimated safe below 2g dried latex",
+    "preparation": "Dried leaves, resin, or extracts used in teas, capsules, or smoked. Traditional use favored fresh plant latex (lactucarium).",
+    "onset": "20–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North Africa, North America",
+    "tags": [
+      "💤 Sedative",
+      "🩹 Analgesic",
+      "🌿 Legal opiate alt",
+      "🌙 Oneirogen"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9054862/",
+      "Plants of the Gods – Rätsch",
+      "European Medicines Agency Monograph"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-absinthium",
+    "name": "Wormwood",
+    "slug": "artemisia-absinthium",
+    "scientificName": "Artemisia absinthium",
+    "category": "Bitter Tonic / Digestive / Oneirogen / Psychoactive",
+    "effects": [
+      "Dream enhancement",
+      "Digestive stimulation",
+      "Mild euphoria",
+      "Antiparasitic"
+    ],
+    "description": "A bitter herb best known for its role in absinthe, wormwood has a long history in folk medicine and ritual use. It can enhance dreams, stimulate digestion, and was once feared for its thujone content.",
+    "mechanismOfAction": "Thujone acts as a GABA-A receptor antagonist and modulates acetylcholine; can be neurotoxic in high doses. Bitter compounds stimulate bile and digestive secretions.",
+    "pharmacokinetics": "Orally active. Onset ~20–60 min. Duration 2–6 hrs depending on preparation. Volatile oil absorbed rapidly.",
+    "therapeuticUses": "Used for poor digestion, intestinal parasites, melancholy, and ritual dream enhancement. Also included in liqueurs like absinthe and vermouth.",
+    "sideEffects": "Nausea, dizziness, neurotoxicity in high doses or prolonged use. Thujone can cause seizures in overdose.",
+    "contraindications": "Avoid during pregnancy, epilepsy, or liver disease. Not advised for extended high-dose use.",
+    "drugInteractions": "May antagonize GABAergic drugs. Possible liver enzyme interactions.",
+    "toxicity": "Moderate–high (due to thujone)",
+    "toxicityLD50": "Thujone: ~45 mg/kg (rats, oral)",
+    "preparation": "Dried aerial parts steeped in tea or tincture. Also used in alcohol extraction or incense.",
+    "onset": "20–60 min",
+    "intensity": "Moderate",
+    "legalStatus": "Regulated in some countries for thujone content",
+    "region": "Europe, North Africa, West Asia",
+    "tags": [
+      "🌿 Bitter",
+      "🌙 Dream herb",
+      "🧠 Psychoactive",
+      "⚠️ Thujone"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6797966/",
+      "Plants of the Gods – Rätsch",
+      "European Medicines Agency Monograph"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "viola-tricolor",
+    "name": "Heartsease",
+    "slug": "viola-tricolor",
+    "scientificName": "Viola tricolor",
+    "category": "Nervine / Skin Support / Respiratory",
+    "effects": [
+      "Calming",
+      "Anti-inflammatory",
+      "Expectorant",
+      "Skin soothing"
+    ],
+    "description": "A small wildflower with colorful petals, known traditionally for emotional soothing ('heartsease'), as well as support for skin issues, respiratory inflammation, and mild nervous conditions.",
+    "mechanismOfAction": "Contains flavonoids, salicylates, and mucilage. Modulates inflammatory mediators and has demulcent, expectorant, and nervine effects.",
+    "pharmacokinetics": "Orally and topically active. Onset ~30–60 min. Duration several hours. Most effective with regular use.",
+    "therapeuticUses": "Used for eczema, cradle cap, dry cough, mild anxiety, and urinary inflammation. Often included in spring tonics.",
+    "sideEffects": "Very mild; large doses may cause stomach upset or diarrhea.",
+    "contraindications": "None known. Considered very gentle.",
+    "drugInteractions": "Minimal; theoretical additive effect with anti-inflammatory or sedative herbs.",
+    "toxicity": "Very low",
+    "toxicityLD50": "Not established; widely used in children",
+    "preparation": "Infusion or tincture of aerial parts; poultice or salve for topical use.",
+    "onset": "30–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, naturalized elsewhere",
+    "tags": [
+      "🌸 Calming",
+      "🩹 Skin support",
+      "🫁 Expectorant",
+      "🧘 Gentle"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7318715/",
       "British Herbal Pharmacopoeia",
       "Plants of the Gods – Rätsch"
     ],
@@ -8191,39 +6585,156 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "viola-odorata",
-    "name": "Sweet Violet",
-    "slug": "viola-odorata",
-    "scientificName": "Viola odorata",
-    "category": "Respiratory / Nervine / Floral Sedative",
+    "id": "viscum-album",
+    "name": "Mistletoe",
+    "slug": "viscum-album",
+    "scientificName": "Viscum album",
+    "category": "Immunomodulator / Nervine / Traditional European",
     "effects": [
-      "Soothing",
-      "Anti-inflammatory",
-      "Sleep support",
-      "Cough relief"
+      "Immune regulation",
+      "Sedation",
+      "Nervous system balance",
+      "Blood pressure modulation"
     ],
-    "description": "A fragrant violet flower traditionally used for respiratory and emotional conditions. Offers calming, anti-inflammatory, and mucilaginous support, often in teas or syrups.",
-    "mechanismOfAction": "Contains salicylic acid derivatives, mucilage, and volatile oils. Gently modulates GABA and prostaglandins. Mild expectorant and anti-inflammatory activity.",
-    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 2–4 hrs.",
-    "therapeuticUses": "Used for sore throats, coughs, grief, insomnia, and skin irritation. Can be taken internally or applied topically.",
-    "sideEffects": "Mild; possible skin reaction or GI upset with large doses.",
-    "contraindications": "None known in normal doses. Use caution in salicylate-sensitive individuals.",
-    "drugInteractions": "Mild anticoagulant effects. May enhance other sedatives slightly.",
-    "toxicity": "Very low",
-    "toxicityLD50": "Not established (safe in folk medicine)",
-    "preparation": "Tea of flowers or leaves; syrups for cough; compresses for skin. Occasionally tinctured.",
-    "onset": "30–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, Western Asia, North Africa",
+    "description": "A sacred plant in ancient Druidic and European traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and hypertension. Often associated with peace and protection.",
+    "mechanismOfAction": "Contains viscotoxins, lectins, and alkaloids that affect immune cells, induce apoptosis, and modulate autonomic nervous system activity. Used in anthroposophic cancer therapy.",
+    "pharmacokinetics": "Usually administered subcutaneously or orally. Slow cumulative action. Onset over days to weeks. Long-term protocols typical.",
+    "therapeuticUses": "Used for anxiety, epilepsy, hypertension, and integrative cancer care. Noted for its calming and immune-balancing effects.",
+    "sideEffects": "Injection-site inflammation, allergic reactions, or flu-like symptoms possible. Oral use milder but requires caution.",
+    "contraindications": "Avoid in pregnancy, active infection, or autoimmune conditions without supervision. Toxic at high doses.",
+    "drugInteractions": "May interfere with immunosuppressants or chemotherapeutics.",
+    "toxicity": "Moderate–high (dose-dependent)",
+    "toxicityLD50": "~2.5 mg/kg (IV, mice – viscotoxins)",
+    "preparation": "Extracts used in standardized injectable cancer therapies (e.g., Iscador). Traditional tea/tincture use with caution.",
+    "onset": "Days–weeks",
+    "intensity": "Moderate",
+    "legalStatus": "Legal but regulated in some countries",
+    "region": "Europe, Western Asia",
     "tags": [
-      "🌸 Floral",
-      "🧘 Nervine",
-      "🫁 Respiratory",
-      "💤 Calming"
+      "🎄 Nervine",
+      "🛡️ Immune",
+      "🌿 Cancer therapy",
+      "⚠️ Toxic dose window"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7533724/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3201634/",
+      "European Medicines Agency",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "voacanga-africana",
+    "name": "Voacanga africana",
+    "slug": "voacanga-africana",
+    "scientificName": "Voacanga africana",
+    "category": "Psychoactive / Alkaloid / Entheogenic",
+    "effects": [
+      "Altered perception",
+      "CNS stimulation",
+      "Dream enhancement",
+      "Psychoactive introspection"
+    ],
+    "description": "A psychoactive tree of West Africa whose seeds and bark contain powerful indole alkaloids related to ibogaine. Used in traditional medicine and spiritual practices for vision quests and healing.",
+    "mechanismOfAction": "Contains voacangine, voacamine, and related iboga-type alkaloids. Likely acts on serotonin and NMDA receptors; metabolized into ibogaine-like compounds.",
+    "pharmacokinetics": "Orally active; slow onset. Peak effects ~1–3 hrs. Long-lasting. Alkaloids accumulate in fat and CNS.",
+    "therapeuticUses": "Used traditionally for initiation rites, fatigue, epilepsy, and spiritual cleansing. Studied for neuroplasticity and addiction treatment potential.",
+    "sideEffects": "Nausea, dizziness, tremors, overstimulation. At high doses: hallucinations, vomiting, ataxia.",
+    "contraindications": "Avoid in heart conditions, pregnancy, or psychiatric disorders. Potent alkaloid profile.",
+    "drugInteractions": "Strong interactions with MAOIs, SSRIs, stimulants, and serotonergic substances.",
+    "toxicity": "Moderate–high",
+    "toxicityLD50": "Not well documented; assumed similar to ibogaine (LD50 ~100 mg/kg oral in rodents)",
+    "preparation": "Seeds ground and boiled, or taken whole. Bark tinctured or used in ritual decoctions. Traditional dosing highly cautious.",
+    "onset": "1–3 hrs",
+    "intensity": "Strong",
+    "legalStatus": "Unscheduled in most countries; restricted in some",
+    "region": "West and Central Africa",
+    "tags": [
+      "🌌 Entheogen",
+      "🧠 Iboga alkaloids",
+      "⚠️ Strong",
+      "🌍 African traditional"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7872457/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "vachellia-farnesiana",
+    "name": "Sweet Acacia",
+    "slug": "vachellia-farnesiana",
+    "scientificName": "Vachellia farnesiana",
+    "category": "Aromatic / Nervine / Traditional Perfume & Medicine",
+    "effects": [
+      "Relaxation",
+      "Calming",
+      "Uplifting mood",
+      "Aromatic euphoria"
+    ],
+    "description": "A fragrant, thorny shrub with yellow puffball flowers, historically used in perfumery and herbal medicine. Its flowers and pods have soothing, mildly euphoric properties and are used in aromatic and topical blends.",
+    "mechanismOfAction": "Volatile oils such as benzyl acetate, linalool, and coumarins provide gentle aromatic CNS modulation and possible GABAergic effects.",
+    "pharmacokinetics": "Aromatherapy and oral use. Onset within 15–30 min (inhaled or brewed). Mild, transient effect.",
+    "therapeuticUses": "Traditionally used as a sedative, aphrodisiac, digestive aid, and mood enhancer. Also used in fragrance and sacred incense.",
+    "sideEffects": "None common in traditional doses. High aromatic concentrations may cause nausea.",
+    "contraindications": "None significant. Caution with allergies to Fabaceae plants.",
+    "drugInteractions": "None well documented.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not established; used widely in perfumery and teas",
+    "preparation": "Flowers steeped as tea or infused into oils. Aromatic pods also used. Often combined with rose or sandalwood.",
+    "onset": "15–30 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Tropical Americas, Asia, Australia",
+    "tags": [
+      "🌸 Fragrant",
+      "🧘 Aromatic",
+      "🌿 Sedative",
+      "💐 Aphrodisiac"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4494854/",
+      "Plants of the Gods – Rätsch",
+      "Indian Journal of Pharmacognosy"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "viburnum-opulus",
+    "name": "Cramp Bark",
+    "slug": "viburnum-opulus",
+    "scientificName": "Viburnum opulus",
+    "category": "Antispasmodic / Uterine Tonic / Nervine",
+    "effects": [
+      "Muscle relaxation",
+      "Menstrual relief",
+      "Sedative",
+      "Uterine support"
+    ],
+    "description": "A classic herbal remedy used for centuries to relieve muscular and menstrual cramping. Cramp bark calms smooth muscles, especially in the uterus and digestive tract.",
+    "mechanismOfAction": "Contains viburnin, salicin, and valerenic acid-like compounds that act as antispasmodics and mild sedatives, likely via GABA modulation and smooth muscle relaxation.",
+    "pharmacokinetics": "Orally active. Onset ~30–45 min. Duration ~4–6 hrs. Used as whole bark or tincture.",
+    "therapeuticUses": "Used for dysmenorrhea, muscle spasms, back pain, nervous tension, and sometimes asthma-related tension.",
+    "sideEffects": "Mild drowsiness or GI upset. Rare allergic responses.",
+    "contraindications": "Avoid during pregnancy unless directed by a practitioner. May cause hypotension in sensitive individuals.",
+    "drugInteractions": "May enhance effects of muscle relaxants or sedatives.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not well established; safe in traditional doses",
+    "preparation": "Dried bark in decoction or tincture form. Often used in uterine calming formulas with black haw.",
+    "onset": "30–45 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North America",
+    "tags": [
+      "🩸 Menstrual",
+      "🧘 Nervine",
+      "🪵 Bark remedy",
+      "💤 Sedative"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5487595/",
       "British Herbal Pharmacopoeia",
       "Plants of the Gods – Rätsch"
     ],
@@ -8269,148 +6780,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "viola-tricolor",
-    "name": "Heartsease",
-    "slug": "viola-tricolor",
-    "scientificName": "Viola tricolor",
-    "category": "Nervine / Skin Support / Respiratory",
-    "effects": [
-      "Calming",
-      "Anti-inflammatory",
-      "Expectorant",
-      "Skin soothing"
-    ],
-    "description": "A small wildflower with colorful petals, known traditionally for emotional soothing ('heartsease'), as well as support for skin issues, respiratory inflammation, and mild nervous conditions.",
-    "mechanismOfAction": "Contains flavonoids, salicylates, and mucilage. Modulates inflammatory mediators and has demulcent, expectorant, and nervine effects.",
-    "pharmacokinetics": "Orally and topically active. Onset ~30–60 min. Duration several hours. Most effective with regular use.",
-    "therapeuticUses": "Used for eczema, cradle cap, dry cough, mild anxiety, and urinary inflammation. Often included in spring tonics.",
-    "sideEffects": "Very mild; large doses may cause stomach upset or diarrhea.",
-    "contraindications": "None known. Considered very gentle.",
-    "drugInteractions": "Minimal; theoretical additive effect with anti-inflammatory or sedative herbs.",
-    "toxicity": "Very low",
-    "toxicityLD50": "Not established; widely used in children",
-    "preparation": "Infusion or tincture of aerial parts; poultice or salve for topical use.",
-    "onset": "30–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Europe, naturalized elsewhere",
-    "tags": [
-      "🌸 Calming",
-      "🩹 Skin support",
-      "🫁 Expectorant",
-      "🧘 Gentle"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7318715/",
-      "British Herbal Pharmacopoeia",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "virola-theiodora",
-    "name": "Virola theiodora",
-    "slug": "virola-theiodora",
-    "scientificName": "Virola theiodora",
-    "category": "Ethnobotanical",
-    "effects": [
-      "visionary",
-      "intense euphoria",
-      "dissociation"
-    ],
-    "description": "A South American tree whose resin contains potent tryptamines. Used in snuffs by Amazonian tribes.",
-    "mechanismOfAction": "Serotonin receptor agonist (5-HT2A)",
-    "region": "Amazon Basin",
-    "compounds": [
-      "DMT",
-      "5-MeO-DMT"
-    ],
-    "tags": [
-      "snuff",
-      "shamanic",
-      "tryptamine"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "viscum-album",
-    "name": "Mistletoe",
-    "slug": "viscum-album",
-    "scientificName": "Viscum album",
-    "category": "Immunomodulator / Nervine / Traditional European",
-    "effects": [
-      "Immune regulation",
-      "Sedation",
-      "Nervous system balance",
-      "Blood pressure modulation"
-    ],
-    "description": "A sacred plant in ancient Druidic and European traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and hypertension. Often associated with peace and protection.",
-    "mechanismOfAction": "Contains viscotoxins, lectins, and alkaloids that affect immune cells, induce apoptosis, and modulate autonomic nervous system activity. Used in anthroposophic cancer therapy.",
-    "pharmacokinetics": "Usually administered subcutaneously or orally. Slow cumulative action. Onset over days to weeks. Long-term protocols typical.",
-    "therapeuticUses": "Used for anxiety, epilepsy, hypertension, and integrative cancer care. Noted for its calming and immune-balancing effects.",
-    "sideEffects": "Injection-site inflammation, allergic reactions, or flu-like symptoms possible. Oral use milder but requires caution.",
-    "contraindications": "Avoid in pregnancy, active infection, or autoimmune conditions without supervision. Toxic at high doses.",
-    "drugInteractions": "May interfere with immunosuppressants or chemotherapeutics.",
-    "toxicity": "Moderate–high (dose-dependent)",
-    "toxicityLD50": "~2.5 mg/kg (IV, mice – viscotoxins)",
-    "preparation": "Extracts used in standardized injectable cancer therapies (e.g., Iscador). Traditional tea/tincture use with caution.",
-    "onset": "Days–weeks",
-    "intensity": "Moderate",
-    "legalStatus": "Legal but regulated in some countries",
-    "region": "Europe, Western Asia",
-    "tags": [
-      "🎄 Nervine",
-      "🛡️ Immune",
-      "🌿 Cancer therapy",
-      "⚠️ Toxic dose window"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3201634/",
-      "European Medicines Agency",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "vitex-agnus-castus",
-    "name": "Chaste Tree",
-    "slug": "vitex-agnus-castus",
-    "scientificName": "Vitex agnus-castus",
-    "category": "Endocrine / Hormonal / Reproductive",
-    "effects": [
-      "Hormone regulation",
-      "Menstrual cycle balancing",
-      "Mood support",
-      "Fertility enhancement"
-    ],
-    "description": "A Mediterranean shrub used traditionally to balance female hormones, regulate menstrual cycles, and support fertility. Also known as Monk’s Pepper due to its historical use in suppressing libido.",
-    "mechanismOfAction": "Acts on dopamine D2 receptors to modulate pituitary prolactin levels. Indirectly balances estrogen and progesterone.",
-    "pharmacokinetics": "Orally active. Onset varies from days to weeks depending on hormonal cycle. Most effective with long-term use.",
-    "therapeuticUses": "Used for PMS, breast tenderness, irregular menstruation, PCOS, fertility support, and mild hormonal acne.",
-    "sideEffects": "Mild GI upset, headache, or rash. May alter menstrual cycle timing.",
-    "contraindications": "Avoid during pregnancy, breastfeeding, or with hormone-sensitive conditions unless guided by a practitioner.",
-    "drugInteractions": "May interact with dopamine-related medications or hormone therapies.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well established; traditionally safe",
-    "preparation": "Dried berries as capsules, tincture, or tea. Often standardized to agnuside content.",
-    "onset": "Varies (days to weeks)",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Mediterranean, Western Asia",
-    "tags": [
-      "🩸 Hormone balance",
-      "♀️ Reproductive",
-      "🌿 Fertility",
-      "🧘 PMS relief"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6275797/",
-      "British Herbal Compendium",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "vitex-agnus-castus",
     "name": "Chaste Tree Berry",
     "slug": "vitex-agnus-castus",
@@ -8445,45 +6814,6 @@ export const herbs: Herb[] = [
     "sources": [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6213117/",
       "Journal of Ethnopharmacology",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "vitex-negundo",
-    "name": "Five-Leaved Chaste Tree",
-    "slug": "vitex-negundo",
-    "scientificName": "Vitex negundo",
-    "category": "Anti-inflammatory / Respiratory / Analgesic",
-    "effects": [
-      "Pain relief",
-      "Anti-inflammatory",
-      "Respiratory support",
-      "Menstrual regulation"
-    ],
-    "description": "A traditional Ayurvedic and Siddha herb used for joint pain, respiratory disorders, and menstrual issues. Though related to Vitex agnus-castus, its actions differ and it is widely used in South and Southeast Asia.",
-    "mechanismOfAction": "Flavonoids, alkaloids, and iridoid glycosides modulate prostaglandins, inhibit COX enzymes, and relax bronchial muscles. Some dopaminergic modulation noted.",
-    "pharmacokinetics": "Orally or topically active. Onset ~1–2 hrs. Duration several hours. Cumulative with consistent use.",
-    "therapeuticUses": "Used for rheumatism, asthma, cough, sinusitis, fever, and gynecological conditions. Also used topically for wounds and inflammation.",
-    "sideEffects": "Well tolerated. High doses may cause mild stomach upset or dizziness.",
-    "contraindications": "Avoid during pregnancy unless prescribed. Caution in liver conditions.",
-    "drugInteractions": "May interact with NSAIDs or dopaminergic agents.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well established; considered safe in traditional doses",
-    "preparation": "Decoction, leaf poultice, seed oil, or standardized extract. Common in polyherbal formulas.",
-    "onset": "1–2 hrs",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "India, Southeast Asia",
-    "tags": [
-      "🌿 Ayurvedic",
-      "🔥 Anti-inflammatory",
-      "🫁 Respiratory",
-      "🧘 Analgesic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6267229/",
-      "Indian Journal of Traditional Knowledge",
       "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
@@ -8528,196 +6858,546 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "voacanga-africana",
-    "name": "Voacanga africana",
-    "slug": "voacanga-africana",
-    "scientificName": "Voacanga africana",
-    "category": "Entheogen / Alkaloid source / Traditional African medicine",
+    "id": "urtica-dioica",
+    "name": "Stinging Nettle",
+    "slug": "urtica-dioica",
+    "scientificName": "Urtica dioica",
+    "category": "Nutritive / Anti-inflammatory / Urogenital / Traditional Tonic",
     "effects": [
-      "Stimulation",
-      "Mild psychedelic effects",
-      "Dream enhancement",
-      "Energy"
+      "Joint support",
+      "Urinary flow",
+      "Histamine modulation",
+      "Mineral repletion"
     ],
-    "description": "A West African tree traditionally used by shamans and healers for vision quests, protection, and strength. Its bark and seeds contain powerful indole alkaloids related to ibogaine and are sometimes used in pharmaceutical precursor production.",
-    "mechanismOfAction": "Contains voacangine and other iboga-type alkaloids. These act on serotonin and dopamine transporters and may modulate NMDA and sigma receptors.",
-    "pharmacokinetics": "Orally active, but bitter and emetic. Effects begin in 1–2 hours. Some alkaloids are metabolized into ibogaine analogs.",
-    "therapeuticUses": "Used traditionally for spiritual rituals, fatigue, aphrodisiac purposes, and as a base for pharmaceutical synthesis.",
-    "sideEffects": "Nausea, dizziness, overstimulation. Toxic in high doses. Purified alkaloids may induce convulsions.",
-    "contraindications": "Avoid with psychiatric meds, cardiovascular issues, or other entheogens. Not for unsupervised use.",
-    "drugInteractions": "Possible synergy or conflict with serotonergic or stimulant drugs. Risk with MAOIs.",
-    "toxicity": "Moderate to high at concentrated doses.",
-    "toxicityLD50": "Not well established; voacangine is active at 10–100 mg in animals.",
-    "preparation": "Seeds or bark are dried and powdered, sometimes extracted with alcohol. Rarely used in traditional Western herbalism.",
-    "onset": "60–120 min",
-    "intensity": "Moderate–Strong",
-    "legalStatus": "Legal in most regions; watched for precursor potential",
-    "region": "West and Central Africa",
+    "description": "A mineral-rich herb used as both food and medicine. Despite its sting when raw, nettle becomes a nourishing ally when dried or cooked. Revered in Western and Ayurvedic traditions.",
+    "mechanismOfAction": "Silica, flavonoids, and lectins modulate prostaglandins and cytokines. Urtication stimulates local blood flow and may reduce inflammation.",
+    "pharmacokinetics": "Orally and topically active. Onset ~1 hr. Duration ~4–8 hrs depending on use.",
+    "therapeuticUses": "Used for arthritis, benign prostatic hyperplasia, allergies (modulates histamine), fatigue, and anemia. Leaves and roots have distinct effects.",
+    "sideEffects": "Mild diuretic effects, stomach upset. Stinging hairs can irritate skin raw.",
+    "contraindications": "Caution in pregnancy (root especially). May lower blood pressure mildly.",
+    "drugInteractions": "May increase effects of diuretics or antihistamines.",
+    "toxicity": "Low",
+    "toxicityLD50": ">2000 mg/kg (rats, oral)",
+    "preparation": "Tea, tincture, food (sautéed leaves), or capsules. Root used for prostate support; leaves as mineral tonic.",
+    "onset": "~1 hr",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North America, temperate Asia",
     "tags": [
-      "🌍 African entheogen",
-      "💊 Alkaloids",
-      "🌿 Traditional",
-      "🧠 Visionary"
+      "🍵 Nutritive",
+      "🛡️ Allergy mod",
+      "🦴 Joint health",
+      "🧪 Prostate tonic"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4181566/",
-      "Plants of the Gods – Rätsch",
-      "Voacanga africana: Ethnobotany and Chemistry – J Ethnopharmacol, 2014"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7571465/",
+      "Journal of Herbal Medicine",
+      "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
   },
   {
-    "id": "voacanga-africana",
-    "name": "Voacanga africana",
-    "slug": "voacanga-africana",
-    "scientificName": "Voacanga africana",
-    "category": "Psychoactive Alkaloid Source / Stimulant / Visionary",
+    "id": "uncaria-tomentosa",
+    "name": "Cat’s Claw",
+    "slug": "uncaria-tomentosa",
+    "scientificName": "Uncaria tomentosa",
+    "category": "Immunomodulator / Anti-inflammatory / Amazonian Traditional",
     "effects": [
-      "Mental stimulation",
-      "Visual enhancement",
-      "Lucid dreaming",
-      "Subtle psychedelia"
+      "Immune support",
+      "Anti-inflammatory",
+      "Digestive aid",
+      "Cognitive support"
     ],
-    "description": "An African tree whose seeds and bark contain iboga-related alkaloids. Traditionally used in low doses for stimulation and in high doses for visionary work. Also investigated as a pharmaceutical precursor.",
-    "mechanismOfAction": "Contains voacangine, voacamine, and related indole alkaloids structurally similar to ibogaine. Affects serotonin, dopamine, and NMDA pathways.",
-    "pharmacokinetics": "Orally active. Onset ~1 hr. Duration varies 4–8 hrs depending on dose and extraction.",
-    "therapeuticUses": "Used for fatigue, spiritual rites, lucid dreaming, and in pharmaceutical research as a semi-synthetic ibogaine precursor.",
-    "sideEffects": "Mild confusion, nausea, overstimulation at high doses. Lack of clinical safety data at high doses.",
-    "contraindications": "Avoid combining with serotonergic or dopaminergic drugs. Not for use with SSRIs or stimulants.",
-    "drugInteractions": "Potential interactions with psychedelics, stimulants, and antidepressants.",
-    "toxicity": "Moderate; not fully established. Safe traditional use suggests low-moderate toxicity in small doses.",
-    "toxicityLD50": "Not fully established",
-    "preparation": "Seeds or bark powdered and taken orally, sometimes extracted into teas or alcohol tinctures.",
-    "onset": "45–90 min",
-    "intensity": "Mild–Strong (dose-dependent)",
-    "legalStatus": "Legal in most regions (unscheduled); monitored in some EU countries",
-    "region": "West and Central Africa",
+    "description": "A woody vine from the Amazon rainforest known for its curved thorns. Used traditionally to treat inflammation, infections, and digestive problems. Modern research explores its effects on immune function and chronic disease.",
+    "mechanismOfAction": "Contains oxindole alkaloids, quinovic acid glycosides, and flavonoids. Modulates TNF-α, IL-1β, and NF-κB, enhancing immune surveillance while reducing chronic inflammation.",
+    "pharmacokinetics": "Orally active. Onset within 1–2 hrs. Effects last several hours. Cumulative immune effects occur with regular use.",
+    "therapeuticUses": "Used for arthritis, IBD, viral infections, cancer adjunct, and memory support. Often included in Lyme and autoimmune protocols.",
+    "sideEffects": "Occasional nausea, diarrhea, or dizziness. Rare allergic reactions.",
+    "contraindications": "Avoid in pregnancy, organ transplant recipients, or with autoimmune flares.",
+    "drugInteractions": "May interact with immunosuppressants or blood thinners.",
+    "toxicity": "Low–Moderate",
+    "toxicityLD50": ">2000 mg/kg (rats, oral)",
+    "preparation": "Decoction of inner bark, capsules, or tinctures. Best used long-term under guidance.",
+    "onset": "1–2 hrs",
+    "intensity": "Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Amazon Basin (Peru, Brazil, Colombia)",
     "tags": [
-      "🌀 Psychedelic-adjacent",
-      "🌿 African plant",
-      "🧠 Alkaloids",
-      "🌌 Dreamwork"
+      "🛡️ Immune",
+      "🔥 Anti-inflammatory",
+      "🌿 Amazonian",
+      "🧠 Brain support"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4434522/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Natural Products, 2002"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "voacanga-africana",
-    "name": "Voacanga africana",
-    "slug": "voacanga-africana",
-    "scientificName": "Voacanga africana",
-    "category": "Psychoactive / Alkaloid / Entheogenic",
-    "effects": [
-      "Altered perception",
-      "CNS stimulation",
-      "Dream enhancement",
-      "Psychoactive introspection"
-    ],
-    "description": "A psychoactive tree of West Africa whose seeds and bark contain powerful indole alkaloids related to ibogaine. Used in traditional medicine and spiritual practices for vision quests and healing.",
-    "mechanismOfAction": "Contains voacangine, voacamine, and related iboga-type alkaloids. Likely acts on serotonin and NMDA receptors; metabolized into ibogaine-like compounds.",
-    "pharmacokinetics": "Orally active; slow onset. Peak effects ~1–3 hrs. Long-lasting. Alkaloids accumulate in fat and CNS.",
-    "therapeuticUses": "Used traditionally for initiation rites, fatigue, epilepsy, and spiritual cleansing. Studied for neuroplasticity and addiction treatment potential.",
-    "sideEffects": "Nausea, dizziness, tremors, overstimulation. At high doses: hallucinations, vomiting, ataxia.",
-    "contraindications": "Avoid in heart conditions, pregnancy, or psychiatric disorders. Potent alkaloid profile.",
-    "drugInteractions": "Strong interactions with MAOIs, SSRIs, stimulants, and serotonergic substances.",
-    "toxicity": "Moderate–high",
-    "toxicityLD50": "Not well documented; assumed similar to ibogaine (LD50 ~100 mg/kg oral in rodents)",
-    "preparation": "Seeds ground and boiled, or taken whole. Bark tinctured or used in ritual decoctions. Traditional dosing highly cautious.",
-    "onset": "1–3 hrs",
-    "intensity": "Strong",
-    "legalStatus": "Unscheduled in most countries; restricted in some",
-    "region": "West and Central Africa",
-    "tags": [
-      "🌌 Entheogen",
-      "🧠 Iboga alkaloids",
-      "⚠️ Strong",
-      "🌍 African traditional"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7872457/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3601655/",
       "Plants of the Gods – Rätsch",
       "Journal of Ethnopharmacology"
     ],
     "needsReview": false
   },
   {
-    "id": "withania-somnifera",
-    "name": "Ashwagandha",
-    "slug": "withania-somnifera",
-    "scientificName": "Withania somnifera",
-    "category": "Adaptogen / Nervine / Endocrine Support",
+    "id": "turnera-diffusa",
+    "name": "Damiana",
+    "slug": "turnera-diffusa",
+    "scientificName": "Turnera diffusa",
+    "category": "Aphrodisiac / Nervine / Psychoactive",
     "effects": [
-      "Stress reduction",
-      "Cortisol regulation",
-      "Sleep support",
-      "Cognitive enhancement"
+      "Mood elevation",
+      "Mild euphoria",
+      "Aphrodisiac",
+      "Anxiolytic"
     ],
-    "description": "One of the most revered herbs in Ayurveda, Ashwagandha is a potent adaptogen used to reduce stress, improve sleep, and balance the nervous and endocrine systems. Often called 'Indian Ginseng'.",
-    "mechanismOfAction": "Withanolides modulate the hypothalamic-pituitary-adrenal (HPA) axis, lower cortisol, reduce oxidative stress, and improve GABAergic signaling.",
-    "pharmacokinetics": "Orally active. Onset within days to weeks for full adaptogenic effects. Peak plasma levels ~1–2 hrs after ingestion.",
-    "therapeuticUses": "Used for anxiety, fatigue, insomnia, adrenal support, libido, thyroid balance, and immune modulation.",
-    "sideEffects": "Mild GI upset or drowsiness. Rare headaches or allergic reactions.",
-    "contraindications": "Avoid with hyperthyroidism, sedative medications, or during pregnancy without supervision.",
-    "drugInteractions": "May enhance effects of sedatives, thyroid meds, or immunosuppressants.",
-    "toxicity": "Very low. High doses may affect thyroid hormone levels.",
-    "toxicityLD50": ">5000 mg/kg (rats, oral)",
-    "preparation": "Root powder taken as capsules, teas, or mixed into milk. Extracts often standardized to withanolides.",
-    "onset": "1–2 weeks (chronic); mild calm within 1–2 hrs (acute)",
+    "description": "A fragrant shrub native to Mexico and Central America, used traditionally to enhance sexual vitality, uplift mood, and calm nervous tension. Often smoked or made into tea.",
+    "mechanismOfAction": "Flavonoids, terpenes, and alkaloids may enhance GABAergic and dopaminergic activity. Also modulates endocannabinoid tone.",
+    "pharmacokinetics": "Orally and smoked. Onset 15–60 min depending on form. Duration 2–4 hrs. Cumulative with regular use.",
+    "therapeuticUses": "Used for low libido, anxiety, mild depression, PMS, and stress-related tension.",
+    "sideEffects": "Very mild; rare nausea or overstimulation at high doses. May cause vivid dreams.",
+    "contraindications": "Avoid in pregnancy. Caution in bipolar or sensitive individuals due to mood elevation.",
+    "drugInteractions": "May mildly potentiate sedatives or SSRIs.",
+    "toxicity": "Low",
+    "toxicityLD50": ">3000 mg/kg (rats, oral)",
+    "preparation": "Dried leaves brewed as tea, smoked, or tinctured. Also found in aphrodisiac blends and herbal liqueurs.",
+    "onset": "15–60 min",
     "intensity": "Mild–Moderate",
     "legalStatus": "Legal worldwide",
-    "region": "India, Middle East, North Africa",
+    "region": "Mexico, Central America, Caribbean",
     "tags": [
-      "🧘 Adaptogen",
-      "💤 Sleep",
-      "🧠 Brain support",
-      "🌿 Ayurvedic"
+      "💘 Aphrodisiac",
+      "🧘 Mood lift",
+      "🌿 Nervine",
+      "🌬️ Smoke herb"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6979308/",
-      "Herbal Medicine – Mills & Bone",
-      "Indian Journal of Psychological Medicine, 2012"
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6270571/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Herbal Medicine"
     ],
     "needsReview": false
   },
   {
-    "id": "withania-somnifera",
-    "name": "Ashwagandha",
-    "slug": "withania-somnifera",
-    "scientificName": "Withania somnifera",
-    "category": "Adaptogen / Nervine / Ayurvedic Tonic",
+    "id": "tilia-cordata",
+    "name": "Linden",
+    "slug": "tilia-cordata",
+    "scientificName": "Tilia cordata",
+    "category": "Nervine / Sedative / Cardiovascular",
     "effects": [
-      "Stress reduction",
-      "Cortisol modulation",
-      "Vitality boost",
-      "Cognitive support"
+      "Calming",
+      "Antispasmodic",
+      "Cardiovascular support",
+      "Mild hypnotic"
     ],
-    "description": "One of the cornerstone herbs of Ayurveda, ashwagandha is a powerful adaptogen that reduces stress, improves resilience, and supports energy, sleep, and hormonal health. The name means 'smell of horse,' referencing its traditional reputation for enhancing strength and virility.",
-    "mechanismOfAction": "Withanolides (steroidal lactones) modulate HPA axis, reduce cortisol, and enhance GABAergic signaling. Also impacts thyroid and reproductive hormone levels.",
-    "pharmacokinetics": "Orally active. Onset ~1 week for baseline effects; stronger results after 2–4 weeks. Metabolized in liver, broad systemic action.",
-    "therapeuticUses": "Used for stress, fatigue, anxiety, hypothyroidism, libido, muscle recovery, and insomnia.",
-    "sideEffects": "Mild GI upset, vivid dreams, or drowsiness. Rare paradoxical stimulation.",
-    "contraindications": "Avoid in hyperthyroidism, pregnancy, or with strong sedatives unless guided.",
-    "drugInteractions": "May interact with sedatives, thyroid meds, or immunosuppressants.",
-    "toxicity": "Low",
-    "toxicityLD50": ">2000 mg/kg (oral, rat)",
-    "preparation": "Root powder, capsules, teas, or standardized extracts (KSM-66, Sensoril). Often combined with Shatavari or Brahmi.",
-    "onset": "Days–weeks (cumulative)",
-    "intensity": "Mild–Moderate",
+    "description": "Linden flowers, from the lime tree (not citrus), are a gentle remedy for stress, insomnia, and tension-related heart symptoms. Often used in relaxing teas and rituals.",
+    "mechanismOfAction": "Flavonoids (quercetin), volatile oils, and mucilage reduce anxiety, soothe the digestive tract, and support vasodilation. GABA modulation contributes to calming effect.",
+    "pharmacokinetics": "Orally active. Onset 20–60 min. Duration 2–5 hrs depending on preparation.",
+    "therapeuticUses": "Used for anxiety, palpitations, high blood pressure, colds, insomnia, and mild headaches.",
+    "sideEffects": "Very well tolerated. Rare allergic reactions possible in pollen-sensitive individuals.",
+    "contraindications": "None major. Monitor in heart medications due to blood pressure effects.",
+    "drugInteractions": "May mildly potentiate sedatives or antihypertensives.",
+    "toxicity": "Very low",
+    "toxicityLD50": "Not established; traditionally safe",
+    "preparation": "Infusion of dried flowers is most common. Also used as tincture or in herbal blends.",
+    "onset": "20–60 min",
+    "intensity": "Mild",
     "legalStatus": "Legal worldwide",
-    "region": "India, Nepal, Middle East, Africa",
+    "region": "Europe, temperate Asia",
     "tags": [
-      "🧘 Stress",
-      "💪 Strength",
-      "🧠 Focus",
-      "🌿 Adaptogen"
+      "🌸 Floral",
+      "💤 Sedative",
+      "🧘 Heart-calming",
+      "🌿 Relaxant"
     ],
     "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4270108/",
-      "Ayurvedic Pharmacopoeia of India",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6626440/",
+      "British Herbal Pharmacopoeia",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "ulex-europaeus",
+    "name": "Gorse",
+    "slug": "ulex-europaeus",
+    "scientificName": "Ulex europaeus",
+    "category": "Mood / Flower Essence / Traditional European",
+    "effects": [
+      "Mood elevation",
+      "Hope restoration",
+      "Mild nervous system support"
+    ],
+    "description": "A bright yellow-flowered shrub associated with resilience and hope in Celtic and Bach flower traditions. While not widely used internally, its flowers have gentle nervine and uplifting properties.",
+    "mechanismOfAction": "Primarily used in energetic and flower essence systems. Contains flavonoids and trace alkaloids which may mildly affect neurotransmission.",
+    "pharmacokinetics": "Typically used as a tincture, essence, or tea. Onset subjective; mild and cumulative.",
+    "therapeuticUses": "Used to combat despair, mental fatigue, and chronic discouragement. Often chosen in flower therapy blends.",
+    "sideEffects": "Rare. In high doses, possible GI discomfort.",
+    "contraindications": "Avoid large internal doses. Primarily for emotional support or ritual use.",
+    "drugInteractions": "None known.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not well documented; external use traditionally preferred",
+    "preparation": "Used in flower essence therapy, or mild infusions. Symbolic use more common than pharmacological.",
+    "onset": "Varies (energetic)",
+    "intensity": "Mild (emotional)",
+    "legalStatus": "Legal worldwide",
+    "region": "Western Europe, naturalized elsewhere",
+    "tags": [
+      "🌼 Flower essence",
+      "🌞 Mood uplift",
+      "🌿 Hope tonic",
+      "🧘 Gentle"
+    ],
+    "sources": [
+      "https://pubmed.ncbi.nlm.nih.gov/21768182/",
+      "Plants of the Gods – Rätsch",
+      "Bach Flower Remedies"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "verbena-officinalis",
+    "name": "Vervain",
+    "slug": "verbena-officinalis",
+    "scientificName": "Verbena officinalis",
+    "category": "Nervine / Antispasmodic / Digestive",
+    "effects": [
+      "Stress relief",
+      "Menstrual support",
+      "Digestive calming",
+      "Mild sedation"
+    ],
+    "description": "A sacred herb of Druids and Romans, vervain is a bitter-tasting nervine tonic used for calming stress, aiding digestion, and regulating menstrual flow. Known as a magical and protective herb in many traditions.",
+    "mechanismOfAction": "Iridoid glycosides (e.g. verbenalin), flavonoids, and tannins contribute to antispasmodic, sedative, and cholagogue actions. Likely modulates GABA and serotonin pathways.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Duration 3–5 hrs depending on form.",
+    "therapeuticUses": "Used for nervous exhaustion, tension headaches, digestive upset, irregular menses, and insomnia. Also used in herbal magical rituals.",
+    "sideEffects": "Mild GI discomfort in some; bitter taste may cause nausea. Rare allergic reaction.",
+    "contraindications": "Avoid during pregnancy due to uterine stimulation. May interfere with iron absorption.",
+    "drugInteractions": "May potentiate sedatives. Theoretical interaction with SSRIs or antispasmodics.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not fully established; safe in traditional use",
+    "preparation": "Tea or tincture of aerial parts; sometimes used in ritual baths or smudge blends.",
+    "onset": "30–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North Africa, temperate Asia",
+    "tags": [
+      "🧘 Nervine",
+      "🩸 Menstrual",
+      "🌿 Digestive",
+      "🔮 Ritual herb"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7318829/",
+      "British Herbal Compendium",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "valeriana-officinalis",
+    "name": "Valerian Root",
+    "slug": "valeriana-officinalis",
+    "scientificName": "Valeriana officinalis",
+    "category": "Sedative / Hypnotic / Anxiolytic",
+    "effects": [
+      "Sleep aid",
+      "Anxiety reduction",
+      "Muscle relaxation",
+      "Stress relief"
+    ],
+    "description": "A classic European sedative herb, valerian root is widely used for insomnia, anxiety, and nervous tension. Though pungent in smell, its effects are trusted and widely studied.",
+    "mechanismOfAction": "Valerenic acid and other compounds act on GABA-A receptors to enhance inhibitory neurotransmission. Also modulates adenosine and serotonin.",
+    "pharmacokinetics": "Orally active. Onset ~30–90 min. Half-life ~4–6 hrs. Cumulative with regular use.",
+    "therapeuticUses": "Used for insomnia, panic attacks, tense muscles, PMS, and headaches. Often combined with hops, lemon balm, or passionflower.",
+    "sideEffects": "Drowsiness, vivid dreams, morning grogginess. Some experience paradoxical stimulation.",
+    "contraindications": "Avoid alcohol or other sedatives. Caution in pregnancy, depression, or liver conditions.",
+    "drugInteractions": "Potentiates sedatives, benzodiazepines, or barbiturates. May interfere with SSRIs.",
+    "toxicity": "Low–moderate",
+    "toxicityLD50": "~3.3 g/kg (mice, oral)",
+    "preparation": "Tincture, capsule, or tea of dried root. Often used as bedtime supplement.",
+    "onset": "30–90 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, Asia, North America (cultivated)",
+    "tags": [
+      "💤 Sedative",
+      "🧘 Anxiolytic",
+      "🌿 Sleep herb",
+      "⚠️ Strong smell"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4394901/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Herbal Medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "verbascum-thapsus",
+    "name": "Mullein",
+    "slug": "verbascum-thapsus",
+    "scientificName": "Verbascum thapsus",
+    "category": "Respiratory / Demulcent / Anti-inflammatory",
+    "effects": [
+      "Lung soothing",
+      "Cough relief",
+      "Anti-inflammatory",
+      "Mucus clearing"
+    ],
+    "description": "A tall, fuzzy-leaved plant with bright yellow flowers, mullein is a classic remedy for respiratory complaints. Its soft leaves and flowers are demulcent, soothing inflamed tissues and promoting gentle expectoration.",
+    "mechanismOfAction": "Saponins and mucilage coat and soothe mucous membranes, while flavonoids and iridoids reduce inflammation and stimulate immune response.",
+    "pharmacokinetics": "Orally or smoked. Onset 20–60 min. Duration several hours. Best used consistently for chronic conditions.",
+    "therapeuticUses": "Used for dry cough, bronchitis, sore throat, asthma, earaches (flower oil), and inflammation of lungs and throat.",
+    "sideEffects": "Very mild; possible GI upset if taken in large quantities. Fuzzy hairs may irritate throat if not properly strained.",
+    "contraindications": "None significant. Avoid inhaling loose hairs.",
+    "drugInteractions": "None known.",
+    "toxicity": "Very low",
+    "toxicityLD50": "Not established; widely regarded as safe",
+    "preparation": "Tea from dried leaves/flowers, infused oil, or smoked in respiratory blends. Strain well to remove tiny hairs.",
+    "onset": "20–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, naturalized in Americas and Asia",
+    "tags": [
+      "🫁 Lung herb",
+      "🩹 Soothing",
+      "🌼 Flower remedy",
+      "🍵 Tea"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8010964/",
+      "Plants of the Gods – Rätsch",
+      "British Herbal Compendium"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "valeriana-jatamansi",
+    "name": "Indian Valerian",
+    "slug": "valeriana-jatamansi",
+    "scientificName": "Valeriana jatamansi",
+    "category": "Sedative / Ayurvedic / Nervine",
+    "effects": [
+      "Sleep aid",
+      "Anxiety reduction",
+      "Mental calm",
+      "Muscle relaxation"
+    ],
+    "description": "A Himalayan relative of European valerian, this root is used in Ayurvedic and Unani systems for calming the mind, supporting sleep, and treating nervous disorders. Known as 'Tagar' in India.",
+    "mechanismOfAction": "Valepotriates and sesquiterpenes act on GABAergic pathways, reducing excitatory signals in the CNS. Similar in action to Valeriana officinalis.",
+    "pharmacokinetics": "Orally active. Onset 30–60 min. Duration ~4 hrs. Less pungent than European valerian.",
+    "therapeuticUses": "Used for insomnia, hysteria, epilepsy, stress, and cognitive enhancement in classical systems.",
+    "sideEffects": "Rare; mild dizziness or grogginess. Some individuals report paradoxical stimulation.",
+    "contraindications": "Avoid combining with alcohol or sedatives. Caution in hypotension or pregnancy.",
+    "drugInteractions": "May enhance effects of sedatives or antidepressants.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not fully documented; safe in Ayurvedic tradition",
+    "preparation": "Used in powder, capsule, or decoction form. Often mixed with ashwagandha or brahmi.",
+    "onset": "30–60 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Himalayas, India, Nepal, Bhutan",
+    "tags": [
+      "💤 Ayurvedic",
+      "🧘 Calm mind",
+      "🌿 Nervine",
+      "🪵 Root-based"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3612440/",
+      "Indian Journal of Pharmacognosy",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "vitex-negundo",
+    "name": "Five-Leaved Chaste Tree",
+    "slug": "vitex-negundo",
+    "scientificName": "Vitex negundo",
+    "category": "Anti-inflammatory / Respiratory / Analgesic",
+    "effects": [
+      "Pain relief",
+      "Anti-inflammatory",
+      "Respiratory support",
+      "Menstrual regulation"
+    ],
+    "description": "A traditional Ayurvedic and Siddha herb used for joint pain, respiratory disorders, and menstrual issues. Though related to Vitex agnus-castus, its actions differ and it is widely used in South and Southeast Asia.",
+    "mechanismOfAction": "Flavonoids, alkaloids, and iridoid glycosides modulate prostaglandins, inhibit COX enzymes, and relax bronchial muscles. Some dopaminergic modulation noted.",
+    "pharmacokinetics": "Orally or topically active. Onset ~1–2 hrs. Duration several hours. Cumulative with consistent use.",
+    "therapeuticUses": "Used for rheumatism, asthma, cough, sinusitis, fever, and gynecological conditions. Also used topically for wounds and inflammation.",
+    "sideEffects": "Well tolerated. High doses may cause mild stomach upset or dizziness.",
+    "contraindications": "Avoid during pregnancy unless prescribed. Caution in liver conditions.",
+    "drugInteractions": "May interact with NSAIDs or dopaminergic agents.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not well established; considered safe in traditional doses",
+    "preparation": "Decoction, leaf poultice, seed oil, or standardized extract. Common in polyherbal formulas.",
+    "onset": "1–2 hrs",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "India, Southeast Asia",
+    "tags": [
+      "🌿 Ayurvedic",
+      "🔥 Anti-inflammatory",
+      "🫁 Respiratory",
+      "🧘 Analgesic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6267229/",
+      "Indian Journal of Traditional Knowledge",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "valeriana-wallichii",
+    "name": "Himalayan Valerian",
+    "slug": "valeriana-wallichii",
+    "scientificName": "Valeriana wallichii",
+    "category": "Sedative / Nervine / Ayurvedic",
+    "effects": [
+      "Sleep aid",
+      "Mental calm",
+      "Muscle relaxant",
+      "Tranquilizer"
+    ],
+    "description": "A potent aromatic root used in Ayurveda as a tranquilizing agent. It has a similar but stronger scent and effect profile compared to European valerian. Known locally as Tagar Ganthoda.",
+    "mechanismOfAction": "Valerenic acid and valepotriates modulate GABA-A receptors, decreasing nervous excitability. Sedative effects supported by sesquiterpenes and lignans.",
+    "pharmacokinetics": "Orally active. Onset ~45–90 min. Duration ~6 hrs. Slightly stronger than other valerian species.",
+    "therapeuticUses": "Used for insomnia, epilepsy, anxiety, muscle spasms, and stress-induced hypertension.",
+    "sideEffects": "Drowsiness, grogginess, or GI upset. Possible paradoxical excitement.",
+    "contraindications": "Avoid with CNS depressants or alcohol. Caution in pregnancy and hypotension.",
+    "drugInteractions": "Potentiates sedatives, hypnotics, benzodiazepines.",
+    "toxicity": "Low–Moderate",
+    "toxicityLD50": "Not well documented",
+    "preparation": "Root powder, decoction, or tincture. Often blended with ashwagandha or jatamansi.",
+    "onset": "45–90 min",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Legal worldwide",
+    "region": "Himalayas, Nepal, India",
+    "tags": [
+      "🛏️ Sedative",
+      "🧘 Calm",
+      "🌿 Ayurvedic",
+      "🪵 Root"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3679533/",
+      "Indian Journal of Pharmacognosy",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "vachellia-nilotica",
+    "name": "Acacia Nilotica",
+    "slug": "vachellia-nilotica",
+    "scientificName": "Vachellia nilotica",
+    "category": "Astringent / Antimicrobial / Traditional African–Indian",
+    "effects": [
+      "Wound healing",
+      "Oral health",
+      "Diarrhea relief",
+      "Antimicrobial"
+    ],
+    "description": "A widely used tree in African and Indian traditional medicine. Its bark, pods, and gum are rich in tannins and have potent astringent and antiseptic properties.",
+    "mechanismOfAction": "Tannins, flavonoids, and saponins exert antimicrobial, anti-inflammatory, and astringent effects. Helps constrict tissues and protect mucosa.",
+    "pharmacokinetics": "Topical and oral. Onset within 1 hr. Short to moderate duration depending on dose and method.",
+    "therapeuticUses": "Used for dysentery, gum disease, wounds, sore throats, and as a contraceptive in traditional systems. Bark decoction or powder is common.",
+    "sideEffects": "Mild GI irritation if overused. May cause constipation in high doses due to tannins.",
+    "contraindications": "Caution with chronic constipation or iron absorption issues.",
+    "drugInteractions": "May reduce absorption of minerals or medications when taken orally.",
+    "toxicity": "Low–moderate",
+    "toxicityLD50": "Not well documented; used safely in traditional medicine",
+    "preparation": "Bark decoction, powder, or gargle. Gum resin also used as demulcent.",
+    "onset": "30–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "Africa, Middle East, Indian Subcontinent",
+    "tags": [
+      "🌿 Astringent",
+      "🦷 Oral health",
+      "🛡️ Antimicrobial",
+      "🌍 African–Ayurvedic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4285565/",
+      "Journal of Ethnopharmacology",
+      "Indian Journal of Traditional Knowledge"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "urtica-urens",
+    "name": "Dwarf Nettle",
+    "slug": "urtica-urens",
+    "scientificName": "Urtica urens",
+    "category": "Nutritive / Skin & Immune / Homeopathic–Traditional",
+    "effects": [
+      "Skin soothing",
+      "Detox support",
+      "Mineral boost",
+      "Allergy modulation"
+    ],
+    "description": "A close relative of Urtica dioica, this smaller species is used for similar purposes, especially in homeopathy and traditional European herbalism. Known for calming itchy skin and boosting the blood.",
+    "mechanismOfAction": "Similar to stinging nettle: silica, flavonoids, and histamine-like compounds that support immunity, reduce inflammation, and supply trace minerals.",
+    "pharmacokinetics": "Orally and topically active. Rapid effect on skin and inflammation. Cumulative with nutritional use.",
+    "therapeuticUses": "Used for hives, eczema, gout, allergies, and fatigue. Often included in mineral-building tonics and allergy blends.",
+    "sideEffects": "Stinging hairs can irritate skin raw. Mild diuretic effect or digestive upset possible.",
+    "contraindications": "Caution in pregnancy or kidney disorders. May lower blood pressure slightly.",
+    "drugInteractions": "May enhance effect of antihistamines or diuretics.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not established; widely used in folk and clinical practice",
+    "preparation": "Dried herb as infusion or capsule. Also used topically as salve or wash. Homeopathic tincture common.",
+    "onset": "20–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North America",
+    "tags": [
+      "🌿 Nutritive",
+      "🌱 Allergy mod",
+      "🩹 Skin",
+      "🍵 Gentle tonic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3671822/",
+      "British Herbal Pharmacopoeia",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "verbena-hastata",
+    "name": "Blue Vervain",
+    "slug": "verbena-hastata",
+    "scientificName": "Verbena hastata",
+    "category": "Nervine / Relaxant / Digestive–Emotional",
+    "effects": [
+      "Stress relief",
+      "Mood regulation",
+      "Tension release",
+      "Digestive stimulation"
+    ],
+    "description": "A native North American vervain with bitter, calming properties. Traditionally used by Indigenous and Eclectic physicians for tension, insomnia, and digestive sluggishness tied to anxiety.",
+    "mechanismOfAction": "Iridoid glycosides (verbenalin) and bitter principles act as mild GABA modulators and cholagogues, relaxing the nervous system while aiding digestion.",
+    "pharmacokinetics": "Orally active. Onset ~30–60 min. Best effects with consistent use over days or weeks.",
+    "therapeuticUses": "Used for nervous tension, stress headaches, insomnia, grief, indigestion, and menstrual discomfort. Especially useful for 'overthinkers'.",
+    "sideEffects": "Possible nausea due to bitterness. Rare allergic reaction.",
+    "contraindications": "Avoid during pregnancy due to potential uterine stimulation.",
+    "drugInteractions": "May enhance effects of sedatives or antispasmodics.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not well established; widely regarded as safe",
+    "preparation": "Tea or tincture of aerial parts, often combined with skullcap or lemon balm.",
+    "onset": "30–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "North America",
+    "tags": [
+      "🧘 Nervine",
+      "🌿 Bitter",
+      "💤 Sedative",
+      "🌾 Native American"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8052706/",
+      "Eclectic Materia Medica – Felter",
       "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
@@ -8762,201 +7442,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "xylopia-aethiopica",
-    "name": "Grains of Selim",
-    "slug": "xylopia-aethiopica",
-    "scientificName": "Xylopia aethiopica",
-    "category": "Spice / Respiratory / Afro-Caribbean Traditional",
-    "effects": [
-      "Warming",
-      "Decongestant",
-      "Digestive aid",
-      "Mild stimulant"
-    ],
-    "description": "A spicy fruit used in West African and Caribbean cuisine and medicine. Traditionally employed to treat respiratory and digestive issues, and as a warming tonic for colds and fatigue.",
-    "mechanismOfAction": "Contains volatile oils (e.g. eugenol, β-pinene) that have antimicrobial, warming, and stimulant actions. May stimulate mucous clearance and circulation.",
-    "pharmacokinetics": "Orally active. Onset within 15–45 min. Effects last several hours depending on dose/form.",
-    "therapeuticUses": "Used for coughs, bronchitis, gas, malaria prevention, postpartum recovery, and flavoring food and medicine.",
-    "sideEffects": "In large doses may cause stomach irritation or overstimulation.",
-    "contraindications": "Avoid in pregnancy unless under traditional guidance due to uterine stimulant effect.",
-    "drugInteractions": "Minimal. May interact with stimulants or other warming agents.",
-    "toxicity": "Low at culinary or traditional doses",
-    "toxicityLD50": "Not well documented",
-    "preparation": "Fruits smoked, crushed, or boiled in decoctions or stews. Sometimes added to snuff or topical blends.",
-    "onset": "15–45 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "West Africa, Caribbean",
-    "tags": [
-      "🌶️ Spice",
-      "🌬️ Decongestant",
-      "🌿 Afro-Caribbean",
-      "🫖 Traditional tonic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8736103/",
-      "Journal of Ethnopharmacology",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "zanthoxylum-americanum",
-    "name": "Prickly Ash",
-    "slug": "zanthoxylum-americanum",
-    "scientificName": "Zanthoxylum americanum",
-    "category": "Analgesic / Circulatory Stimulant / Traditional Native American",
-    "effects": [
-      "Tingling",
-      "Local analgesia",
-      "Salivation",
-      "Circulation boost"
-    ],
-    "description": "Northern relative of Zanthoxylum clava-herculis, this species was widely used by Native Americans for toothaches, cold limbs, and digestion. Like its southern cousin, it produces a numbing and buzzing sensation when chewed.",
-    "mechanismOfAction": "Sanshools (alkylamides) modulate TRPV1 and TRPA1 channels on nerve endings, producing a buzzing, tingling analgesic effect. Also stimulates saliva and gastric secretions.",
-    "pharmacokinetics": "Local onset within seconds. Very fast-acting. Short duration unless used in extract form.",
-    "therapeuticUses": "Used topically or chewed for oral pain, indigestion, sluggish circulation, or nerve support. Historically used in decoctions or salves.",
-    "sideEffects": "Local irritation or tingling. Mild drooling or numbing. Rare allergic reactions.",
-    "contraindications": "Avoid in broken oral tissue or wounds. Caution with hot spices or ulcers.",
-    "drugInteractions": "Minimal. Theoretical interaction with oral analgesics or vasodilators.",
-    "toxicity": "Low in traditional use",
-    "toxicityLD50": "Not established",
-    "preparation": "Bark or berries chewed fresh, decocted, or tinctured. Sometimes used in liniments or herbal tooth powders.",
-    "onset": "Immediate (topical/chewed)",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "North America (Northern U.S., Canada)",
-    "tags": [
-      "🦷 Oral care",
-      "🌿 Native American",
-      "🫦 Tingling",
-      "🔥 Circulatory"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7144794/",
-      "Native American Ethnobotany – Moerman",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "zanthoxylum-americanum",
-    "name": "Northern Prickly Ash",
-    "slug": "zanthoxylum-americanum",
-    "scientificName": "Zanthoxylum americanum",
-    "category": "Circulatory / Analgesic / Nervine",
-    "effects": [
-      "Local numbness",
-      "Circulation boost",
-      "Lymphatic stimulation",
-      "Pain relief"
-    ],
-    "description": "Known as the northern Toothache Tree, this prickly bark has long been used in Native American and Eclectic medicine for improving blood flow, treating toothaches, and relieving nerve pain.",
-    "mechanismOfAction": "Alkylamides such as herculin activate sensory nerves and dilate peripheral vessels. Increases saliva and stimulates lymphatic circulation.",
-    "pharmacokinetics": "Chewed or used as tincture. Rapid onset in oral mucosa. Systemic effects develop with regular use.",
-    "therapeuticUses": "Used for cold extremities, neuralgia, rheumatism, sluggish digestion, sore throat, and chronic inflammation. Topically for tooth and joint pain.",
-    "sideEffects": "Strong taste. Possible mucosal irritation in high doses.",
-    "contraindications": "Avoid in ulcers or pregnancy. May interact with anticoagulants.",
-    "drugInteractions": "Possible additive effects with blood thinners or sialogogues.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well established; safe in historical use",
-    "preparation": "Chewed bark, tincture, or decoction. Also applied as poultice or liniment.",
-    "onset": "5–20 min",
-    "intensity": "Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "North America (northeast, Great Lakes, Appalachia)",
-    "tags": [
-      "🦷 Toothache",
-      "🩸 Circulatory",
-      "💥 Nerve",
-      "🌿 Eclectic"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7502392/",
-      "Eclectic Materia Medica – Felter",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "zanthoxylum-bungeanum",
-    "name": "Sichuan Pepper",
-    "slug": "zanthoxylum-bungeanum",
-    "scientificName": "Zanthoxylum bungeanum",
-    "category": "Digestive / Circulatory / Sensory-Modulating",
-    "effects": [
-      "Tingling sensation",
-      "Digestive stimulant",
-      "Mild analgesia",
-      "Circulation support"
-    ],
-    "description": "Used in Chinese cuisine and medicine, Sichuan pepper causes a tingling numbness and has been traditionally used to support digestion and stimulate circulation. Its unique effect is due to hydroxy-alpha-sanshool.",
-    "mechanismOfAction": "Sanshools activate somatosensory ion channels (TRPA1, TRPV1) leading to a buzzing/tingling anesthetic effect. Also improves gastric secretions and peripheral blood flow.",
-    "pharmacokinetics": "Topical and oral activity. Rapid onset. Effects can last ~30–60 min per dose.",
-    "therapeuticUses": "Used to improve digestion, relieve stomach cramps, stimulate salivation, reduce cold extremities, and in topical pain blends.",
-    "sideEffects": "Can cause intense tingling. Overuse may irritate GI tract or cause local numbness.",
-    "contraindications": "Avoid in mucosal lesions or in large doses during pregnancy.",
-    "drugInteractions": "May alter absorption of other herbs or drugs via GI stimulation.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not fully established; safe in culinary and moderate medicinal use",
-    "preparation": "Dried seed husks used in decoctions, spice blends, or infused oils. Sometimes extracted for sanshool.",
-    "onset": "5–15 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "China, East Asia",
-    "tags": [
-      "🌶️ Tingling",
-      "🍽️ Digestive",
-      "🩸 Circulatory",
-      "🌿 Culinary-medical"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6452023/",
-      "Chinese Herbal Materia Medica",
-      "Journal of Ethnopharmacology"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "zanthoxylum-clava-herculis",
-    "name": "Toothache Tree",
-    "slug": "zanthoxylum-clava-herculis",
-    "scientificName": "Zanthoxylum clava-herculis",
-    "category": "Analgesic / Local Numbing / Traditional Native American",
-    "effects": [
-      "Mouth numbing",
-      "Tingling",
-      "Pain relief",
-      "Salivation"
-    ],
-    "description": "Known as the Toothache Tree, this thorny bark was chewed by Native Americans and early settlers for numbing oral pain. Related to Sichuan pepper, it causes a tingling or buzzing effect on mucous membranes.",
-    "mechanismOfAction": "Contains alkylamides (e.g. sanshools) which activate TRPA1 and TRPV1 receptors, causing a numbing and tingling effect by altering ion channel activity in sensory neurons.",
-    "pharmacokinetics": "Local onset within seconds when chewed or applied. Short-acting unless taken as extract.",
-    "therapeuticUses": "Used traditionally for toothache, sore throat, digestive issues, and as a topical analgesic. Modern interest in sanshool-containing herbs for oral and topical analgesia.",
-    "sideEffects": "Mild tingling, numbness, drooling. Rare allergic reaction if sensitive to citrus relatives.",
-    "contraindications": "Avoid open wounds or with mucosal damage. Not advised internally in high doses.",
-    "drugInteractions": "Minimal; may enhance salivation or local blood flow.",
-    "toxicity": "Very low in topical use.",
-    "toxicityLD50": "Not established",
-    "preparation": "Bark or berries chewed fresh or powdered. Also used in tinctures and poultices.",
-    "onset": "Immediate (local)",
-    "intensity": "Mild–Moderate (localized)",
-    "legalStatus": "Legal worldwide",
-    "region": "Southeastern U.S.",
-    "tags": [
-      "😮‍💨 Numbing",
-      "🌿 Native American",
-      "🦷 Oral care",
-      "🫦 Tingling"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5656514/",
-      "Native American Ethnobotany – Moerman",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "zanthoxylum-clava-herculis",
     "name": "Southern Prickly Ash",
     "slug": "zanthoxylum-clava-herculis",
@@ -8996,123 +7481,6 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "zea-mays-stigma",
-    "name": "Corn Silk",
-    "slug": "zea-mays-stigma",
-    "scientificName": "Zea mays (stigma)",
-    "category": "Diuretic / Urinary Tract / Soothing",
-    "effects": [
-      "Urine flow increase",
-      "Soothing",
-      "Kidney support",
-      "Anti-inflammatory"
-    ],
-    "description": "The long threads of corn (called silk) are a gentle herbal remedy for urinary tract issues, swelling, and kidney function. Used in teas for centuries in both Native American and Chinese traditions.",
-    "mechanismOfAction": "Contains flavonoids, saponins, and potassium that increase urine output, reduce inflammation, and soothe irritated tissues.",
-    "pharmacokinetics": "Orally active. Onset 30–60 min. Duration ~2–6 hrs depending on fluid intake.",
-    "therapeuticUses": "Used for UTIs, bladder inflammation, bedwetting, kidney stones, and fluid retention. Also mildly calming.",
-    "sideEffects": "Rare. May cause mild electrolyte loss or allergic reaction in corn-sensitive individuals.",
-    "contraindications": "Avoid with diuretic medications or in cases of severe kidney disease unless supervised.",
-    "drugInteractions": "May enhance diuretics or alter potassium levels. Mild blood pressure effects.",
-    "toxicity": "Very low",
-    "toxicityLD50": "Not established; extremely safe at traditional doses",
-    "preparation": "Fresh or dried corn silk brewed into tea or decoction. Can be tinctured or included in bladder blends.",
-    "onset": "30–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Worldwide (where corn is cultivated)",
-    "tags": [
-      "🌾 Kidney support",
-      "💧 Diuretic",
-      "🫖 Soothing",
-      "🌿 Folk remedy"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7121893/",
-      "Plants of the Gods – Rätsch",
-      "Journal of Medicinal Plants Research, 2011"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "zea-mays-stigma",
-    "name": "Corn Silk",
-    "slug": "zea-mays-stigma",
-    "scientificName": "Zea mays (Stigma maydis)",
-    "category": "Diuretic / Urinary / Anti-inflammatory",
-    "effects": [
-      "Urinary support",
-      "Anti-inflammatory",
-      "Kidney soothing",
-      "Blood sugar modulation"
-    ],
-    "description": "The silky threads of corn ears are a traditional remedy for urinary irritation, water retention, and mild inflammation. Used in Native American, Chinese, and European medicine.",
-    "mechanismOfAction": "Flavonoids, saponins, and mucilage contribute to anti-inflammatory, diuretic, and antioxidant effects. May influence renal prostaglandins and reduce edema.",
-    "pharmacokinetics": "Orally active. Onset ~1 hr. Duration 4–6 hrs. Cumulative with consistent use.",
-    "therapeuticUses": "Used for UTIs, kidney stones, cystitis, bedwetting, high blood pressure, and as an adjunct in diabetes management.",
-    "sideEffects": "Rare. Possible mild hypotension or increased urination.",
-    "contraindications": "Caution in hypotensive individuals or those with potassium imbalance.",
-    "drugInteractions": "May potentiate diuretics or antihypertensives. Theoretical interaction with diabetes meds.",
-    "toxicity": "Very low",
-    "toxicityLD50": ">5000 mg/kg (rats, oral)",
-    "preparation": "Dried silk brewed into tea or decoction. Also available in capsules or extracts.",
-    "onset": "30–60 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Americas, cultivated worldwide",
-    "tags": [
-      "🌽 Diuretic",
-      "🧬 Kidney",
-      "🧃 Urinary soothe",
-      "🌿 Gentle"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5960823/",
-      "American Herbal Pharmacopoeia",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "zingiber-officinale",
-    "name": "Ginger",
-    "slug": "zingiber-officinale",
-    "scientificName": "Zingiber officinale",
-    "category": "Digestive / Anti-inflammatory / Stimulant",
-    "effects": [
-      "Digestive support",
-      "Anti-nausea",
-      "Circulation boost",
-      "Mild stimulation"
-    ],
-    "description": "A pungent rhizome widely used for its warming, carminative, and anti-inflammatory effects. Revered in Ayurvedic and traditional Chinese medicine for treating nausea, coldness, and sluggish digestion.",
-    "mechanismOfAction": "Contains gingerols and shogaols that modulate prostaglandins, TRP ion channels, and serotonin receptors involved in nausea.",
-    "pharmacokinetics": "Orally active. Onset ~15–30 min. Duration 2–4 hrs. Absorbed in the GI tract; metabolized by liver.",
-    "therapeuticUses": "Used for nausea, morning sickness, motion sickness, colds, pain, and poor circulation. Also a culinary spice and tea staple.",
-    "sideEffects": "Heartburn, stomach upset in large doses. Rare allergic reactions.",
-    "contraindications": "Caution with anticoagulants, gallstones, or gastritis in high doses.",
-    "drugInteractions": "May interact with blood thinners or diabetes meds. Synergistic with anti-nausea agents.",
-    "toxicity": "Very low",
-    "toxicityLD50": ">5000 mg/kg (rats, oral)",
-    "preparation": "Fresh or dried root used in teas, tinctures, capsules, or cooking. Often paired with honey and lemon.",
-    "onset": "15–30 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal worldwide",
-    "region": "Tropical Asia, cultivated globally",
-    "tags": [
-      "🌶️ Warming",
-      "🫖 Anti-nausea",
-      "🫁 Circulation",
-      "🌿 Culinary"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3665023/",
-      "Herbal Medicine – Mills & Bone",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
     "id": "zingiber-officinale",
     "name": "Ginger",
     "slug": "zingiber-officinale",
@@ -9147,45 +7515,6 @@ export const herbs: Herb[] = [
     "sources": [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3665023/",
       "Journal of Ethnopharmacology",
-      "Plants of the Gods – Rätsch"
-    ],
-    "needsReview": false
-  },
-  {
-    "id": "zingiber-zerumbet",
-    "name": "Shampoo Ginger",
-    "slug": "zingiber-zerumbet",
-    "scientificName": "Zingiber zerumbet",
-    "category": "Anti-inflammatory / Aromatic / Dermatological",
-    "effects": [
-      "Skin and hair care",
-      "Topical anti-inflammatory",
-      "Digestive aid",
-      "Aromatic relaxant"
-    ],
-    "description": "A tropical ginger species prized for its aromatic rhizomes and milky juice-filled cones used in traditional Polynesian medicine and hair care. Mildly relaxing and soothing, both internally and externally.",
-    "mechanismOfAction": "Zerumbone and essential oils contribute to anti-inflammatory, antioxidant, and antimicrobial effects. Soothes skin, modulates TRP channels, and supports digestion.",
-    "pharmacokinetics": "Topical or oral. Onset 15–45 min. Duration varies with use form.",
-    "therapeuticUses": "Used topically for hair conditioning, inflammation, burns, and fungal issues. Internally for nausea, digestive support, and respiratory infections.",
-    "sideEffects": "Rare. May cause skin sensitivity in some. Avoid in large oral doses without preparation.",
-    "contraindications": "Caution during pregnancy. Not for chronic high-dose ingestion.",
-    "drugInteractions": "May mildly enhance absorption or circulation of co-administered compounds.",
-    "toxicity": "Low",
-    "toxicityLD50": "Not well established; traditionally regarded as safe",
-    "preparation": "Pressed juice from cones for hair/scalp. Rhizome used in teas, decoctions, or fermented pastes.",
-    "onset": "15–45 min",
-    "intensity": "Mild",
-    "legalStatus": "Legal worldwide",
-    "region": "Hawaii, Southeast Asia, Pacific Islands",
-    "tags": [
-      "🫧 Hair care",
-      "🌿 Soothing",
-      "🔥 Anti-inflammatory",
-      "🌺 Polynesian use"
-    ],
-    "sources": [
-      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8751302/",
-      "Hawaiian Ethnobotany – Beatrice Krauss",
       "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
@@ -9230,6 +7559,84 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
+    "id": "zea-mays-stigma",
+    "name": "Corn Silk",
+    "slug": "zea-mays-stigma",
+    "scientificName": "Zea mays (Stigma maydis)",
+    "category": "Diuretic / Urinary / Anti-inflammatory",
+    "effects": [
+      "Urinary support",
+      "Anti-inflammatory",
+      "Kidney soothing",
+      "Blood sugar modulation"
+    ],
+    "description": "The silky threads of corn ears are a traditional remedy for urinary irritation, water retention, and mild inflammation. Used in Native American, Chinese, and European medicine.",
+    "mechanismOfAction": "Flavonoids, saponins, and mucilage contribute to anti-inflammatory, diuretic, and antioxidant effects. May influence renal prostaglandins and reduce edema.",
+    "pharmacokinetics": "Orally active. Onset ~1 hr. Duration 4–6 hrs. Cumulative with consistent use.",
+    "therapeuticUses": "Used for UTIs, kidney stones, cystitis, bedwetting, high blood pressure, and as an adjunct in diabetes management.",
+    "sideEffects": "Rare. Possible mild hypotension or increased urination.",
+    "contraindications": "Caution in hypotensive individuals or those with potassium imbalance.",
+    "drugInteractions": "May potentiate diuretics or antihypertensives. Theoretical interaction with diabetes meds.",
+    "toxicity": "Very low",
+    "toxicityLD50": ">5000 mg/kg (rats, oral)",
+    "preparation": "Dried silk brewed into tea or decoction. Also available in capsules or extracts.",
+    "onset": "30–60 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Americas, cultivated worldwide",
+    "tags": [
+      "🌽 Diuretic",
+      "🧬 Kidney",
+      "🧃 Urinary soothe",
+      "🌿 Gentle"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5960823/",
+      "American Herbal Pharmacopoeia",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "zanthoxylum-bungeanum",
+    "name": "Sichuan Pepper",
+    "slug": "zanthoxylum-bungeanum",
+    "scientificName": "Zanthoxylum bungeanum",
+    "category": "Digestive / Circulatory / Sensory-Modulating",
+    "effects": [
+      "Tingling sensation",
+      "Digestive stimulant",
+      "Mild analgesia",
+      "Circulation support"
+    ],
+    "description": "Used in Chinese cuisine and medicine, Sichuan pepper causes a tingling numbness and has been traditionally used to support digestion and stimulate circulation. Its unique effect is due to hydroxy-alpha-sanshool.",
+    "mechanismOfAction": "Sanshools activate somatosensory ion channels (TRPA1, TRPV1) leading to a buzzing/tingling anesthetic effect. Also improves gastric secretions and peripheral blood flow.",
+    "pharmacokinetics": "Topical and oral activity. Rapid onset. Effects can last ~30–60 min per dose.",
+    "therapeuticUses": "Used to improve digestion, relieve stomach cramps, stimulate salivation, reduce cold extremities, and in topical pain blends.",
+    "sideEffects": "Can cause intense tingling. Overuse may irritate GI tract or cause local numbness.",
+    "contraindications": "Avoid in mucosal lesions or in large doses during pregnancy.",
+    "drugInteractions": "May alter absorption of other herbs or drugs via GI stimulation.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not fully established; safe in culinary and moderate medicinal use",
+    "preparation": "Dried seed husks used in decoctions, spice blends, or infused oils. Sometimes extracted for sanshool.",
+    "onset": "5–15 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "China, East Asia",
+    "tags": [
+      "🌶️ Tingling",
+      "🍽️ Digestive",
+      "🩸 Circulatory",
+      "🌿 Culinary-medical"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6452023/",
+      "Chinese Herbal Materia Medica",
+      "Journal of Ethnopharmacology"
+    ],
+    "needsReview": false
+  },
+  {
     "id": "ziziphus-spinosa",
     "name": "Wild Jujube Seed",
     "slug": "ziziphus-spinosa",
@@ -9264,6 +7671,123 @@ export const herbs: Herb[] = [
     "sources": [
       "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6163148/",
       "Chinese Herbal Medicine – Bensky",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "zingiber-zerumbet",
+    "name": "Shampoo Ginger",
+    "slug": "zingiber-zerumbet",
+    "scientificName": "Zingiber zerumbet",
+    "category": "Anti-inflammatory / Aromatic / Dermatological",
+    "effects": [
+      "Skin and hair care",
+      "Topical anti-inflammatory",
+      "Digestive aid",
+      "Aromatic relaxant"
+    ],
+    "description": "A tropical ginger species prized for its aromatic rhizomes and milky juice-filled cones used in traditional Polynesian medicine and hair care. Mildly relaxing and soothing, both internally and externally.",
+    "mechanismOfAction": "Zerumbone and essential oils contribute to anti-inflammatory, antioxidant, and antimicrobial effects. Soothes skin, modulates TRP channels, and supports digestion.",
+    "pharmacokinetics": "Topical or oral. Onset 15–45 min. Duration varies with use form.",
+    "therapeuticUses": "Used topically for hair conditioning, inflammation, burns, and fungal issues. Internally for nausea, digestive support, and respiratory infections.",
+    "sideEffects": "Rare. May cause skin sensitivity in some. Avoid in large oral doses without preparation.",
+    "contraindications": "Caution during pregnancy. Not for chronic high-dose ingestion.",
+    "drugInteractions": "May mildly enhance absorption or circulation of co-administered compounds.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not well established; traditionally regarded as safe",
+    "preparation": "Pressed juice from cones for hair/scalp. Rhizome used in teas, decoctions, or fermented pastes.",
+    "onset": "15–45 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Hawaii, Southeast Asia, Pacific Islands",
+    "tags": [
+      "🫧 Hair care",
+      "🌿 Soothing",
+      "🔥 Anti-inflammatory",
+      "🌺 Polynesian use"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8751302/",
+      "Hawaiian Ethnobotany – Beatrice Krauss",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "zornia-latifolia",
+    "name": "Maconha Brava",
+    "slug": "zornia-latifolia",
+    "scientificName": "Zornia latifolia",
+    "category": "Psychoactive / Calming / South American Traditional",
+    "effects": [
+      "Mild euphoria",
+      "Mental calm",
+      "Lucid dreaming",
+      "Cannabinoid mimicry"
+    ],
+    "description": "Known as 'false marijuana' in Brazil, this South American herb produces a relaxing, slightly euphoric state when smoked or brewed. Used traditionally in rituals and to aid sleep or meditation.",
+    "mechanismOfAction": "Flavonoids and potential endocannabinoid-modulating compounds interact with CB1/CB2 receptors, though exact active constituents remain under-researched.",
+    "pharmacokinetics": "Smoked or brewed. Onset ~5–15 min smoked, ~30 min tea. Effects last 1–3 hrs.",
+    "therapeuticUses": "Used for anxiety, insomnia, meditation enhancement, and as a legal cannabis substitute in some herbal blends.",
+    "sideEffects": "Very mild; potential sedation or grogginess. High doses may cause dizziness.",
+    "contraindications": "Avoid mixing with alcohol or sedatives. Not for use in pregnancy.",
+    "drugInteractions": "Theoretical synergy with GABAergic or cannabinoid-active compounds.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not established",
+    "preparation": "Dried aerial parts smoked, brewed, or used in blends. Often mixed with other calming herbs.",
+    "onset": "5–30 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal in most regions",
+    "region": "Brazil, Paraguay, South America",
+    "tags": [
+      "🌿 Psychoactive",
+      "🛌 Dream herb",
+      "🧘 Relaxing",
+      "🌀 Cannabis-like"
+    ],
+    "sources": [
+      "https://erowid.org/herbs/zornia_latifolia/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "zanthoxylum-americanum",
+    "name": "Northern Prickly Ash",
+    "slug": "zanthoxylum-americanum",
+    "scientificName": "Zanthoxylum americanum",
+    "category": "Circulatory / Analgesic / Nervine",
+    "effects": [
+      "Local numbness",
+      "Circulation boost",
+      "Lymphatic stimulation",
+      "Pain relief"
+    ],
+    "description": "Known as the northern Toothache Tree, this prickly bark has long been used in Native American and Eclectic medicine for improving blood flow, treating toothaches, and relieving nerve pain.",
+    "mechanismOfAction": "Alkylamides such as herculin activate sensory nerves and dilate peripheral vessels. Increases saliva and stimulates lymphatic circulation.",
+    "pharmacokinetics": "Chewed or used as tincture. Rapid onset in oral mucosa. Systemic effects develop with regular use.",
+    "therapeuticUses": "Used for cold extremities, neuralgia, rheumatism, sluggish digestion, sore throat, and chronic inflammation. Topically for tooth and joint pain.",
+    "sideEffects": "Strong taste. Possible mucosal irritation in high doses.",
+    "contraindications": "Avoid in ulcers or pregnancy. May interact with anticoagulants.",
+    "drugInteractions": "Possible additive effects with blood thinners or sialogogues.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not well established; safe in historical use",
+    "preparation": "Chewed bark, tincture, or decoction. Also applied as poultice or liniment.",
+    "onset": "5–20 min",
+    "intensity": "Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "North America (northeast, Great Lakes, Appalachia)",
+    "tags": [
+      "🦷 Toothache",
+      "🩸 Circulatory",
+      "💥 Nerve",
+      "🌿 Eclectic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7502392/",
+      "Eclectic Materia Medica – Felter",
       "Plants of the Gods – Rätsch"
     ],
     "needsReview": false
@@ -9308,41 +7832,1083 @@ export const herbs: Herb[] = [
     "needsReview": false
   },
   {
-    "id": "zornia-latifolia",
-    "name": "Maconha Brava",
-    "slug": "zornia-latifolia",
-    "scientificName": "Zornia latifolia",
-    "category": "Psychoactive / Calming / South American Traditional",
+    "id": "acmella-oleracea",
+    "name": "Toothache Plant",
+    "slug": "acmella-oleracea",
+    "scientificName": "Acmella oleracea",
+    "category": "Analgesic / Salivary stimulant / Traditional Amazonian",
     "effects": [
-      "Mild euphoria",
-      "Mental calm",
-      "Lucid dreaming",
-      "Cannabinoid mimicry"
+      "Numbing",
+      "Tingling",
+      "Salivation",
+      "Immune support"
     ],
-    "description": "Known as 'false marijuana' in Brazil, this South American herb produces a relaxing, slightly euphoric state when smoked or brewed. Used traditionally in rituals and to aid sleep or meditation.",
-    "mechanismOfAction": "Flavonoids and potential endocannabinoid-modulating compounds interact with CB1/CB2 receptors, though exact active constituents remain under-researched.",
-    "pharmacokinetics": "Smoked or brewed. Onset ~5–15 min smoked, ~30 min tea. Effects last 1–3 hrs.",
-    "therapeuticUses": "Used for anxiety, insomnia, meditation enhancement, and as a legal cannabis substitute in some herbal blends.",
-    "sideEffects": "Very mild; potential sedation or grogginess. High doses may cause dizziness.",
-    "contraindications": "Avoid mixing with alcohol or sedatives. Not for use in pregnancy.",
-    "drugInteractions": "Theoretical synergy with GABAergic or cannabinoid-active compounds.",
+    "description": "Famous for its electric tingle, spilanthes is traditionally used for dental pain, infections, and immune stimulation. Its 'buzz buttons' offer a unique sensory experience and are increasingly used in mixology and herbalism.",
+    "mechanismOfAction": "Spilanthol (an alkamide) activates TRPV1 channels, producing a tingling and numbing sensation. Also shown to enhance immune response and have antibacterial activity.",
+    "pharmacokinetics": "Topical and oral. Effects onset rapidly (seconds–minutes), lasting ~20–40 min. Systemic immune effects build over time.",
+    "therapeuticUses": "Used for toothache, sore throat, ulcers, immune support, dry mouth, and topical infections.",
+    "sideEffects": "Mouth tingling, temporary numbness, increased salivation. Rare allergic reaction.",
+    "contraindications": "Avoid in pregnancy and with hypotension. May increase absorption of co-administered compounds.",
+    "drugInteractions": "May interact with blood pressure or CNS-active drugs due to salivation and mucosal absorption.",
     "toxicity": "Low",
-    "toxicityLD50": "Not established",
-    "preparation": "Dried aerial parts smoked, brewed, or used in blends. Often mixed with other calming herbs.",
-    "onset": "5–30 min",
-    "intensity": "Mild–Moderate",
-    "legalStatus": "Legal in most regions",
-    "region": "Brazil, Paraguay, South America",
+    "toxicityLD50": "Not fully established; high traditional safety margin",
+    "preparation": "Chewed fresh flower buds, tincture, teas, or topical ointments.",
+    "onset": "1–5 min",
+    "intensity": "Moderate–Strong (topical), Mild (systemic)",
+    "legalStatus": "Legal worldwide",
+    "region": "South America, widely cultivated",
     "tags": [
-      "🌿 Psychoactive",
-      "🛌 Dream herb",
-      "🧘 Relaxing",
-      "🌀 Cannabis-like"
+      "⚡ Tingling",
+      "🦷 Tooth pain",
+      "🧪 Immune tonic",
+      "💧 Salivary"
     ],
     "sources": [
-      "https://erowid.org/herbs/zornia_latifolia/",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3817685/",
       "Plants of the Gods – Rätsch",
       "Journal of Ethnopharmacology"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "aegle-marmelos",
+    "name": "Bael Fruit",
+    "slug": "aegle-marmelos",
+    "scientificName": "Aegle marmelos",
+    "category": "Digestive / Antimicrobial / Ayurvedic",
+    "effects": [
+      "Digestive regulation",
+      "Gut lining protection",
+      "Mild calm",
+      "Antibacterial"
+    ],
+    "description": "A revered Ayurvedic plant, bael fruit is traditionally used to treat diarrhea, IBS, and digestive inflammation. Its dry pulp is highly astringent and cooling to the GI tract.",
+    "mechanismOfAction": "Tannins, coumarins, and marmelosin exert anti-inflammatory, antimicrobial, and gut-protective actions. Some sedative action via flavonoids.",
+    "pharmacokinetics": "Orally active. Onset ~1 hr. Best taken dried and powdered. Supports chronic gut issues.",
+    "therapeuticUses": "Used for dysentery, chronic diarrhea, colitis, ulcers, and indigestion. Occasionally for mild anxiety and detox blends.",
+    "sideEffects": "Overuse may cause constipation. Rare allergic rash.",
+    "contraindications": "Not for use during severe constipation or intestinal obstruction.",
+    "drugInteractions": "May delay absorption of other drugs due to astringency.",
+    "toxicity": "Low",
+    "toxicityLD50": "Not fully documented",
+    "preparation": "Dried fruit powder, infusion, or decoction. Also used in Ayurvedic jams and tonics.",
+    "onset": "30–60 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal worldwide",
+    "region": "India, Southeast Asia",
+    "tags": [
+      "🍐 Gut tonic",
+      "🛡️ Astringent",
+      "🌿 Ayurvedic",
+      "🧘 Calm GI"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3665195/",
+      "Ayurvedic Pharmacopoeia of India",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "anadenanthera-peregrina",
+    "name": "Yopo",
+    "slug": "anadenanthera-peregrina",
+    "scientificName": "Anadenanthera peregrina",
+    "category": "Psychedelic / Shamanic / Snuff",
+    "effects": [
+      "Euphoria",
+      "Visionary state",
+      "Dissociation",
+      "Altered time perception"
+    ],
+    "description": "Used by South American tribes in snuff rituals, yopo contains powerful tryptamines like bufotenine and 5-MeO-DMT. The powdered seeds are blown into the nose in communal ceremonies for visions and communication with spirits.",
+    "mechanismOfAction": "Bufotenine, DMT, and 5-MeO-DMT are serotonergic psychedelics acting on 5-HT2A and related receptors. Rapid onset with intense psychological and somatic effects.",
+    "pharmacokinetics": "Insufflated. Onset 1–5 min. Duration 20–60 min. Often intense and uncomfortable without ritual context.",
+    "therapeuticUses": "Traditionally used for divination, healing ceremonies, and spiritual initiation. Limited Western therapeutic context due to intensity.",
+    "sideEffects": "Intense nasal burn, nausea, anxiety, tachycardia, visual and somatic distortions. Vomiting common.",
+    "contraindications": "Heart conditions, psychiatric disorders, or use without preparation. Not for casual use.",
+    "drugInteractions": "Dangerous with MAOIs, SSRIs, or other serotonergic agents.",
+    "toxicity": "High potential for adverse reaction",
+    "toxicityLD50": "Unknown; active at milligram levels",
+    "preparation": "Roasted and powdered seeds mixed with lime or ash. Blown into nose using pipes or tubes.",
+    "onset": "1–5 min",
+    "intensity": "Strong–Extreme",
+    "legalStatus": "Restricted in many countries (due to DMT/5-MeO-DMT content)",
+    "region": "South America, Caribbean (Orinoco basin, Brazil, Venezuela)",
+    "tags": [
+      "🌀 Psychedelic",
+      "🌬️ Snuff",
+      "🧠 Tryptamine",
+      "🌿 Shamanic"
+    ],
+    "sources": [
+      "https://erowid.org/plants/anadenanthera/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Psychedelic Studies"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "argyreia-nervosa",
+    "name": "Hawaiian Baby Woodrose",
+    "slug": "argyreia-nervosa",
+    "scientificName": "Argyreia nervosa",
+    "category": "Psychedelic / Sedative / Traditional Ayurvedic",
+    "effects": [
+      "Psychedelic visions",
+      "Sedation",
+      "Time distortion",
+      "Dream enhancement"
+    ],
+    "description": "A powerful plant whose seeds contain LSA, a psychedelic similar to LSD. Used traditionally in Ayurvedic medicine for nervous conditions and vitality, but also known recreationally for its psychoactive effects.",
+    "mechanismOfAction": "LSA (d-lysergic acid amide) is a serotonergic psychedelic acting primarily on 5-HT2A receptors. Other alkaloids contribute to sedative and nausea-inducing effects.",
+    "pharmacokinetics": "Oral. Onset 1–2 hrs. Duration 6–10 hrs. Peak 3–6 hrs.",
+    "therapeuticUses": "Traditional use includes treatment of nervous system disorders, insomnia, sexual weakness, and fatigue. Modern use mostly recreational or shamanic.",
+    "sideEffects": "Nausea, lethargy, muscle heaviness, confusion, vasoconstriction. Can be overwhelming or unpleasant in large doses.",
+    "contraindications": "Not for use with SSRIs, antipsychotics, or heart conditions. Avoid during pregnancy or lactation.",
+    "drugInteractions": "Dangerous with MAOIs or serotonergic drugs. May potentiate vasoconstrictors.",
+    "toxicity": "Medium",
+    "toxicityLD50": "Not precisely known; active dose is ~3–10 seeds",
+    "preparation": "Seeds scraped/peeled and chewed or ground and extracted. Often taken with anti-nausea herbs.",
+    "onset": "1–2 hrs",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Legal in most countries (restricted in some due to LSA)",
+    "region": "India, Hawaii, South Asia",
+    "tags": [
+      "🌀 Psychedelic",
+      "🧘 Sedative",
+      "🌿 Ayurvedic",
+      "🌺 Vision plant"
+    ],
+    "sources": [
+      "https://www.erowid.org/plants/hbw/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Ethnopharmacology"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-absinthium",
+    "name": "Wormwood",
+    "slug": "artemisia-absinthium",
+    "scientificName": "Artemisia absinthium",
+    "category": "Digestive / Bitter tonic / Psychoactive",
+    "effects": [
+      "Digestive stimulation",
+      "Lucid dreams",
+      "Mental clarity",
+      "Deliriant (high dose)"
+    ],
+    "description": "A pungent, silvery herb best known as the source of thujone — the compound in absinthe. Used traditionally as a bitter digestive, vermifuge, and visionary herb.",
+    "mechanismOfAction": "Thujone interacts with GABA-A and 5-HT3 receptors, acting as a CNS stimulant and potential neurotoxin in high doses. Bitter principles activate digestive enzymes and bile.",
+    "pharmacokinetics": "Oral or inhaled. Onset 20–60 min. Duration varies. Psychoactive effects in high doses or alcohol extracts.",
+    "therapeuticUses": "Used for poor appetite, parasites, depression, and in traditional absinthe for altered states. Also part of dream and trance blends.",
+    "sideEffects": "Neurotoxicity at high doses. Can cause nausea, anxiety, seizures, and confusion.",
+    "contraindications": "Avoid in epilepsy, pregnancy, or prolonged use. Not for use with CNS stimulants or depressants.",
+    "drugInteractions": "Potentially dangerous with GABAergic or serotonergic agents.",
+    "toxicity": "High (thujone)",
+    "toxicityLD50": "~45 mg/kg (thujone, oral, rats)",
+    "preparation": "Infusions, tinctures, absinthe liqueur, smoking blends. Often mixed with calming herbs to balance effect.",
+    "onset": "30–60 min",
+    "intensity": "Moderate–Strong",
+    "legalStatus": "Legal with restrictions on thujone content",
+    "region": "Europe, Middle East, North America",
+    "tags": [
+      "🌿 Bitter",
+      "🧠 Dream herb",
+      "🧪 Psychoactive",
+      "🍸 Absinthe"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5920492/",
+      "Plants of the Gods – Rätsch",
+      "Journal of Herbal Medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "althaea-officinalis",
+    "name": "Marshmallow Root",
+    "slug": "althaea-officinalis",
+    "scientificName": "Althaea officinalis",
+    "category": "Soothing / Demulcent / Respiratory & Digestive",
+    "effects": [
+      "Mucosal soothing",
+      "Cough relief",
+      "Gut lining protection",
+      "Anti-inflammatory"
+    ],
+    "description": "A gentle mucilaginous herb used for centuries to soothe inflamed tissues. Traditionally used for sore throats, dry coughs, ulcers, and gut irritation.",
+    "mechanismOfAction": "High mucilage content coats mucous membranes, reducing irritation and inflammation. Polysaccharides modulate immune response.",
+    "pharmacokinetics": "Orally active. Mucilage begins acting within minutes. Optimal when steeped in cold or warm water.",
+    "therapeuticUses": "Used for dry coughs, GERD, ulcers, IBS, urinary irritation, and as a throat soother. Often part of cough syrups and gut blends.",
+    "sideEffects": "Very rare. May slow absorption of other drugs.",
+    "contraindications": "Space from medications by 1–2 hours.",
+    "drugInteractions": "May reduce absorption of oral meds due to mucilage coating.",
+    "toxicity": "Very low",
+    "toxicityLD50": ">5000 mg/kg (oral, rats)",
+    "preparation": "Cold infusion, decoction, capsules, or syrup. Roots preferred, but leaves used too.",
+    "onset": "5–30 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, Western Asia",
+    "tags": [
+      "🩹 Mucosal",
+      "🫁 Cough",
+      "🌿 Soothing",
+      "🧃 Gut tonic"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5652215/",
+      "British Herbal Pharmacopoeia",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "asarum-canadense",
+    "name": "Wild Ginger",
+    "slug": "asarum-canadense",
+    "scientificName": "Asarum canadense",
+    "category": "Aromatic / Digestive / Traditional American",
+    "effects": [
+      "Warming",
+      "Carminative",
+      "Stimulating",
+      "Expectorant"
+    ],
+    "description": "A native woodland plant with aromatic roots used by Indigenous peoples and early American herbalists for digestion, cold symptoms, and to mask the taste of other herbs.",
+    "mechanismOfAction": "Contains volatile oils and methyl eugenol with stimulating and carminative effects. Historically used for respiratory and digestive complaints.",
+    "pharmacokinetics": "Oral or topical. Rapid absorption of volatile oils. Short duration (~1–2 hrs).",
+    "therapeuticUses": "Used for indigestion, colds, sore throat, and menstrual cramps. Formerly used in tooth powders and tonics.",
+    "sideEffects": "Large doses may cause nausea or mucosal irritation. Contains trace aristolochic acid (controversial).",
+    "contraindications": "Avoid long-term use or high doses due to nephrotoxicity concerns with aristolochic acid. Not recommended during pregnancy.",
+    "drugInteractions": "Avoid with nephrotoxic drugs or diuretics.",
+    "toxicity": "Medium (with overuse)",
+    "toxicityLD50": "Not well established",
+    "preparation": "Root tincture, cold infusion, or powder. Traditional use in low doses.",
+    "onset": "15–30 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal (caution advised)",
+    "region": "North America",
+    "tags": [
+      "🌿 Carminative",
+      "🌬️ Expectorant",
+      "🧪 Aromatic",
+      "🌾 Woodland herb"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7374170/",
+      "American Herbal Pharmacopoeia",
+      "Native American Ethnobotany – Moerman"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "avena-sativa",
+    "name": "Oatstraw",
+    "slug": "avena-sativa",
+    "scientificName": "Avena sativa",
+    "category": "Nervine / Endocrine / Nutritional",
+    "effects": [
+      "Stress relief",
+      "Mood stabilization",
+      "Endocrine tonic",
+      "Nutrient replenishment"
+    ],
+    "description": "A deeply nourishing and gentle nervine, oatstraw is made from the green tops of oats. Traditionally used for fatigue, burnout, nervous exhaustion, and endocrine balance.",
+    "mechanismOfAction": "B-complex vitamins, avenanthramides, and minerals modulate GABA receptors and nourish the nervous system. Possible dopamine modulation.",
+    "pharmacokinetics": "Orally active. Onset ~30–90 min. Cumulative benefits over days or weeks.",
+    "therapeuticUses": "Used for nervous tension, adrenal fatigue, sleep imbalance, and post-illness recovery. Also supports libido and emotional wellbeing.",
+    "sideEffects": "Very rare; mild headache or loose stool in very large doses.",
+    "contraindications": "Celiac sensitivity in extreme cases if gluten is present.",
+    "drugInteractions": "None significant.",
+    "toxicity": "Very low",
+    "toxicityLD50": ">5000 mg/kg (rats)",
+    "preparation": "Infusion of dried aerial parts, tincture, or capsules. Often part of nourishing tonics.",
+    "onset": "30–90 min",
+    "intensity": "Mild",
+    "legalStatus": "Legal worldwide",
+    "region": "Europe, North America, cultivated globally",
+    "tags": [
+      "🧘 Nervine",
+      "🌾 Nutrient tonic",
+      "🧠 Mood",
+      "🌿 Rebuilding"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6461154/",
+      "David Hoffmann – Medical Herbalism",
+      "Plants of the Gods – Rätsch"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-vulgaris",
+    "name": "Mugwort",
+    "slug": "artemisia-vulgaris",
+    "scientificName": "Artemisia vulgaris",
+    "category": "Psychoactive / Digestive / Dream & Ritual",
+    "effects": [
+      "Lucid dreaming",
+      "Digestive stimulation",
+      "Mild euphoria",
+      "Menstrual support"
+    ],
+    "description": "A potent aromatic herb associated with the moon, intuition, and dreams. Used for divination, lucid dreaming, digestive complaints, and women's health. Long revered in European, Chinese, and Indigenous traditions.",
+    "mechanismOfAction": "Contains volatile oils (thujone, camphor, cineole), flavonoids, and sesquiterpenes that act on the nervous and digestive systems. Thujone is mildly psychoactive and may modulate GABA.",
+    "pharmacokinetics": "Oral, smoked, or as a dream pillow. Onset 30–90 min. Effects subtle but build with regular use.",
+    "therapeuticUses": "Used for promoting vivid dreams, easing menstrual cramps, relieving indigestion, calming nerves, and spiritual cleansing. Key herb in moxibustion (TCM).",
+    "sideEffects": "Mild GI upset or dizziness in sensitive individuals. Potential neurotoxicity at high doses.",
+    "contraindications": "Avoid in pregnancy due to emmenagogue effects. Not for use with epilepsy or in high doses.",
+    "drugInteractions": "May interact with sedatives, CNS stimulants, or seizure medications.",
+    "toxicity": "Medium (due to thujone content)",
+    "toxicityLD50": "Not well established",
+    "preparation": "Tea, tincture, incense, smoke, dream pillows, or topical oil. Often combined with other herbs in ritual blends.",
+    "onset": "30–90 min",
+    "intensity": "Mild–Moderate",
+    "legalStatus": "Legal in most countries (restrictions on thujone apply in some regions)",
+    "region": "Europe, Asia, North America",
+    "tags": [
+      "🌙 Dream herb",
+      "🧘 Ritual",
+      "🌿 Bitter tonic",
+      "🔥 Moxibustion"
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1118713/",
+      "Plants of the Gods – Rätsch",
+      "The Green Witch Herbal – Murphy"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "leonurus-sibiricus",
+    "name": "Leonurus sibiricus",
+    "slug": "leonurus-sibiricus",
+    "scientificName": "Leonurus sibiricus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "relaxation",
+      "mood lift",
+      "aphrodisiac"
+    ],
+    "description": "Known as Siberian Motherwort, this herb is a relaxing nervine used in Asian medicine with mild psychoactive and aphrodisiac effects.",
+    "mechanismOfAction": "Dopaminergic modulation",
+    "region": "Siberia, China",
+    "compounds": [
+      "Leonurine"
+    ],
+    "tags": [
+      "aphrodisiac",
+      "nervine",
+      "calming"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "dysphania-ambrosioides",
+    "name": "Dysphania ambrosioides",
+    "slug": "dysphania-ambrosioides",
+    "scientificName": "Dysphania ambrosioides",
+    "category": "Ethnobotanical",
+    "effects": [
+      "dreamlike",
+      "stimulant"
+    ],
+    "description": "Also known as Epazote, used in Mesoamerican rituals. Contains CNS-stimulating compounds but is toxic at high doses.",
+    "mechanismOfAction": "CNS excitation at high doses",
+    "region": "Mexico",
+    "compounds": [
+      "Ascaridole",
+      "p-Cymene"
+    ],
+    "tags": [
+      "ritual",
+      "visionary",
+      "potentially toxic"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "casimiroa-edulis",
+    "name": "Casimiroa edulis",
+    "slug": "casimiroa-edulis",
+    "scientificName": "Casimiroa edulis",
+    "category": "Ethnobotanical",
+    "effects": [
+      "sedative",
+      "sleep aid"
+    ],
+    "description": "The fruit of the White Sapote tree is used as a sedative in traditional Mexican herbal medicine.",
+    "mechanismOfAction": "Possible GABAergic activity",
+    "region": "Central America",
+    "compounds": [
+      "Zapotin"
+    ],
+    "tags": [
+      "sedative",
+      "fruit",
+      "folk medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "mitchella-repens",
+    "name": "Mitchella repens",
+    "slug": "mitchella-repens",
+    "scientificName": "Mitchella repens",
+    "category": "Ethnobotanical",
+    "effects": [
+      "relaxation",
+      "nervine"
+    ],
+    "description": "Known as Partridgeberry, used as a uterine tonic and mild relaxing agent in North American herbalism.",
+    "mechanismOfAction": "Smooth muscle relaxant",
+    "region": "North America",
+    "compounds": [
+      "Saponins",
+      "Iridoids"
+    ],
+    "tags": [
+      "calming",
+      "uterine",
+      "folk remedy"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "perilla-frutescens",
+    "name": "Perilla frutescens",
+    "slug": "perilla-frutescens",
+    "scientificName": "Perilla frutescens",
+    "category": "Ethnobotanical",
+    "effects": [
+      "uplifting",
+      "calm clarity"
+    ],
+    "description": "Used in East Asian cuisine and medicine, this leaf contains mild mood-elevating and cognitive enhancing properties.",
+    "mechanismOfAction": "Cholinergic + antioxidant effects",
+    "region": "East Asia",
+    "compounds": [
+      "Perillaldehyde",
+      "Rosmarinic Acid"
+    ],
+    "tags": [
+      "mild nootropic",
+      "culinary",
+      "relaxing"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "turnera-diffusa-aphrodisiaca",
+    "name": "Turnera diffusa var. aphrodisiaca",
+    "slug": "turnera-diffusa-aphrodisiaca",
+    "scientificName": "Turnera diffusa var. aphrodisiaca",
+    "category": "Ethnobotanical",
+    "effects": [
+      "aphrodisiac",
+      "mood enhancer"
+    ],
+    "description": "A variant of Damiana known for its aphrodisiac and mood-brightening properties. Traditionally used as a tonic.",
+    "mechanismOfAction": "Dopaminergic and GABAergic synergy",
+    "region": "Mexico",
+    "compounds": [
+      "Damianin",
+      "Flavonoids"
+    ],
+    "tags": [
+      "aphrodisiac",
+      "tonic",
+      "euphoric"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "thymus-vulgaris",
+    "name": "Thymus vulgaris",
+    "slug": "thymus-vulgaris",
+    "scientificName": "Thymus vulgaris",
+    "category": "Ethnobotanical",
+    "effects": [
+      "clarity",
+      "alertness"
+    ],
+    "description": "Common thyme is a culinary herb with mild neurostimulant properties, thanks to its essential oils like thymol.",
+    "mechanismOfAction": "AChE inhibition, antioxidant",
+    "region": "Europe",
+    "compounds": [
+      "Thymol"
+    ],
+    "tags": [
+      "culinary",
+      "clarity",
+      "aromatic"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "helichrysum-odoratissimum",
+    "name": "Helichrysum odoratissimum",
+    "slug": "helichrysum-odoratissimum",
+    "scientificName": "Helichrysum odoratissimum",
+    "category": "Ethnobotanical",
+    "effects": [
+      "visionary",
+      "trance",
+      "spiritual"
+    ],
+    "description": "Known as Imphepho in South African ritual use, this herb induces visions and is burned to invoke ancestors.",
+    "mechanismOfAction": "Possibly serotonergic/GABAergic",
+    "region": "Southern Africa",
+    "compounds": [
+      "Essential oils",
+      "Flavonoids"
+    ],
+    "tags": [
+      "dream herb",
+      "ritual",
+      "african traditional medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "tilia-tomentosa",
+    "name": "Tilia tomentosa",
+    "slug": "tilia-tomentosa",
+    "scientificName": "Tilia tomentosa",
+    "category": "Ethnobotanical",
+    "effects": [
+      "calming",
+      "sleep aid",
+      "nervine"
+    ],
+    "description": "Silver Linden, used as a calming tea in Europe. Shows sedative and anti-anxiety effects.",
+    "mechanismOfAction": "GABAergic, anti-inflammatory",
+    "region": "Europe",
+    "compounds": [
+      "Quercetin",
+      "Volatile oils"
+    ],
+    "tags": [
+      "relaxing",
+      "tea",
+      "folk medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "entada-rheedii",
+    "name": "Entada rheedii",
+    "slug": "entada-rheedii",
+    "scientificName": "Entada rheedii",
+    "category": "Ethnobotanical",
+    "effects": [
+      "dream enhancement",
+      "spiritual connection"
+    ],
+    "description": "African Dream Bean, used to access ancestor spirits in dreams; seeds are large and traditionally worn as talismans.",
+    "mechanismOfAction": "Unknown",
+    "region": "Africa",
+    "compounds": [
+      "Saponins"
+    ],
+    "tags": [
+      "dream",
+      "ethnobotanical",
+      "ritual"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "acorus-americanus",
+    "name": "Acorus americanus",
+    "slug": "acorus-americanus",
+    "scientificName": "Acorus americanus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "alertness",
+      "mental clarity",
+      "mild euphoria"
+    ],
+    "description": "American Sweet Flag, native to North America, used by indigenous groups for its psychoactive and stimulant properties.",
+    "mechanismOfAction": "Cholinergic + dopaminergic modulation",
+    "region": "North America",
+    "compounds": [
+      "Alpha-asarone"
+    ],
+    "tags": [
+      "native medicine",
+      "calamus species",
+      "uplifting"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "virola-theiodora",
+    "name": "Virola theiodora",
+    "slug": "virola-theiodora",
+    "scientificName": "Virola theiodora",
+    "category": "Ethnobotanical",
+    "effects": [
+      "visionary",
+      "intense euphoria",
+      "dissociation"
+    ],
+    "description": "A South American tree whose resin contains potent tryptamines. Used in snuffs by Amazonian tribes.",
+    "mechanismOfAction": "Serotonin receptor agonist (5-HT2A)",
+    "region": "Amazon Basin",
+    "compounds": [
+      "DMT",
+      "5-MeO-DMT"
+    ],
+    "tags": [
+      "snuff",
+      "shamanic",
+      "tryptamine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "ruta-graveolens",
+    "name": "Ruta graveolens",
+    "slug": "ruta-graveolens",
+    "scientificName": "Ruta graveolens",
+    "category": "Ethnobotanical",
+    "effects": [
+      "relaxation",
+      "hypnotic",
+      "mystical"
+    ],
+    "description": "Common Rue, used historically as a sedative, an abortifacient, and for spiritual protection.",
+    "mechanismOfAction": "GABA-A modulation, alkaloid effects",
+    "region": "Mediterranean",
+    "compounds": [
+      "Rutarin",
+      "Graveoline"
+    ],
+    "tags": [
+      "ritual",
+      "bitter",
+      "traditional medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "sophora-secundiflora",
+    "name": "Sophora secundiflora",
+    "slug": "sophora-secundiflora",
+    "scientificName": "Sophora secundiflora",
+    "category": "Ethnobotanical",
+    "effects": [
+      "delirium",
+      "visions",
+      "dizziness"
+    ],
+    "description": "Mescal bean, used ceremonially by Native American tribes. Highly toxic, formerly used as an ordeal poison.",
+    "mechanismOfAction": "Nicotinic receptor agonist",
+    "region": "Southwestern US, Mexico",
+    "compounds": [
+      "Cytisine"
+    ],
+    "tags": [
+      "ceremonial",
+      "toxic",
+      "visionary"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "acorus-calamus-angustatus",
+    "name": "Acorus calamus var. angustatus",
+    "slug": "acorus-calamus-angustatus",
+    "scientificName": "Acorus calamus var. angustatus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "trance",
+      "mental clarity",
+      "light hallucinations"
+    ],
+    "description": "A rare calamus variant high in beta-asarone, used in Tibetan medicine and ritual incense.",
+    "mechanismOfAction": "GABAergic + cholinergic",
+    "region": "Himalayas",
+    "compounds": [
+      "Beta-asarone"
+    ],
+    "tags": [
+      "ritual",
+      "variant",
+      "aromatic stimulant"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "convolvulus-arvensis",
+    "name": "Convolvulus arvensis",
+    "slug": "convolvulus-arvensis",
+    "scientificName": "Convolvulus arvensis",
+    "category": "Ethnobotanical",
+    "effects": [
+      "light euphoria",
+      "subtle visual shifts"
+    ],
+    "description": "Bindweed, a relative of morning glory, contains ergoline alkaloids and is under investigation for mild entheogenic potential.",
+    "mechanismOfAction": "5-HT2A agonist (potential)",
+    "region": "Europe, North America",
+    "compounds": [
+      "Ergoline alkaloids (trace)"
+    ],
+    "tags": [
+      "entheogen",
+      "ergoline",
+      "wild plant"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "salvia-sclarea",
+    "name": "Salvia sclarea",
+    "slug": "salvia-sclarea",
+    "scientificName": "Salvia sclarea",
+    "category": "Ethnobotanical",
+    "effects": [
+      "clarity",
+      "relief",
+      "uplifting"
+    ],
+    "description": "Clary Sage, used aromatically and medicinally for mild euphoria, hormonal balancing, and clarity.",
+    "mechanismOfAction": "GABA-A modulation, estrogenic activity",
+    "region": "Mediterranean",
+    "compounds": [
+      "Linalyl acetate",
+      "Sclareol"
+    ],
+    "tags": [
+      "aromatic",
+      "elevating",
+      "folk remedy"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "pimenta-dioica",
+    "name": "Pimenta dioica",
+    "slug": "pimenta-dioica",
+    "scientificName": "Pimenta dioica",
+    "category": "Ethnobotanical",
+    "effects": [
+      "stimulant",
+      "aromatic euphoria",
+      "warming"
+    ],
+    "description": "Also known as Allspice, this Caribbean plant has mild uplifting and warming effects, sometimes used in ritual incense.",
+    "mechanismOfAction": "GABAergic + serotonergic",
+    "region": "Caribbean, Central America",
+    "compounds": [
+      "Eugenol",
+      "Quercetin"
+    ],
+    "tags": [
+      "aromatic",
+      "ritual",
+      "mild stimulant"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "peumus-boldus",
+    "name": "Peumus boldus",
+    "slug": "peumus-boldus",
+    "scientificName": "Peumus boldus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "calming",
+      "digestive aid",
+      "dreamy"
+    ],
+    "description": "Boldo is a South American medicinal herb with liver-supportive and mild hypnotic properties.",
+    "mechanismOfAction": "Cholinergic + serotonergic",
+    "region": "Chile",
+    "compounds": [
+      "Boldine",
+      "Ascaridole"
+    ],
+    "tags": [
+      "digestive",
+      "sleep aid",
+      "folk medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "amorpha-fruticosa",
+    "name": "Amorpha fruticosa",
+    "slug": "amorpha-fruticosa",
+    "scientificName": "Amorpha fruticosa",
+    "category": "Ethnobotanical",
+    "effects": [
+      "relaxation",
+      "mental softening",
+      "trance"
+    ],
+    "description": "False Indigo Bush, native to North America, was historically smoked for relaxation and vision-induction.",
+    "mechanismOfAction": "Likely GABAergic",
+    "region": "North America",
+    "compounds": [
+      "Amorphigenin"
+    ],
+    "tags": [
+      "folk",
+      "smokable",
+      "visionary"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-abrotanum",
+    "name": "Artemisia abrotanum",
+    "slug": "artemisia-abrotanum",
+    "scientificName": "Artemisia abrotanum",
+    "category": "Ethnobotanical",
+    "effects": [
+      "mental clarity",
+      "dream enhancement",
+      "stimulant"
+    ],
+    "description": "Southernwood is a fragrant herb used traditionally as a stimulant, memory aid, and dream enhancer.",
+    "mechanismOfAction": "GABAergic + cholinergic modulation",
+    "region": "Mediterranean, Europe",
+    "compounds": [
+      "Camphor",
+      "Thujone"
+    ],
+    "tags": [
+      "aromatic",
+      "folk remedy",
+      "uplifting"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "bacopa-monnieri",
+    "name": "Bacopa monnieri",
+    "slug": "bacopa-monnieri",
+    "scientificName": "Bacopa monnieri",
+    "category": "Ethnobotanical",
+    "effects": [
+      "memory enhancement",
+      "calm focus",
+      "adaptogen"
+    ],
+    "description": "Brahmi is an Ayurvedic nootropic herb that improves memory, learning, and mental clarity.",
+    "mechanismOfAction": "Cholinergic + antioxidant",
+    "region": "India, Southeast Asia",
+    "compounds": [
+      "Bacosides A and B"
+    ],
+    "tags": [
+      "nootropic",
+      "ayurvedic",
+      "mental clarity"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "huperzia-serrata",
+    "name": "Huperzia serrata",
+    "slug": "huperzia-serrata",
+    "scientificName": "Huperzia serrata",
+    "category": "Ethnobotanical",
+    "effects": [
+      "focus",
+      "memory boost",
+      "lucid dreaming"
+    ],
+    "description": "A moss rich in Huperzine A, used for memory enhancement and neuroprotection.",
+    "mechanismOfAction": "Acetylcholinesterase inhibition",
+    "region": "China, Southeast Asia",
+    "compounds": [
+      "Huperzine A"
+    ],
+    "tags": [
+      "nootropic",
+      "lucidity",
+      "memory"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "justicia-adhatoda",
+    "name": "Justicia adhatoda",
+    "slug": "justicia-adhatoda",
+    "scientificName": "Justicia adhatoda",
+    "category": "Ethnobotanical",
+    "effects": [
+      "calming",
+      "respiratory clearing",
+      "mild sedation"
+    ],
+    "description": "Also called Malabar Nut, this herb has traditional uses as a respiratory aid and mild sedative.",
+    "mechanismOfAction": "Bronchodilation + GABAergic",
+    "region": "India, Sri Lanka",
+    "compounds": [
+      "Vasicine",
+      "Vasicinone"
+    ],
+    "tags": [
+      "sedative",
+      "respiratory",
+      "ayurvedic"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "pogostemon-cablin",
+    "name": "Pogostemon cablin",
+    "slug": "pogostemon-cablin",
+    "scientificName": "Pogostemon cablin",
+    "category": "Ethnobotanical",
+    "effects": [
+      "sensory enhancement",
+      "calm focus",
+      "uplifted mood"
+    ],
+    "description": "Patchouli, while mainly aromatic, has mild psychoactive effects in traditional incense rituals.",
+    "mechanismOfAction": "Aromatherapeutic + serotonergic",
+    "region": "Asia",
+    "compounds": [
+      "Patchoulol",
+      "Alpha-bulnesene"
+    ],
+    "tags": [
+      "aromatic",
+      "ritual",
+      "uplifting"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "aloysia-citrodora",
+    "name": "Aloysia citrodora",
+    "slug": "aloysia-citrodora",
+    "scientificName": "Aloysia citrodora",
+    "category": "Ethnobotanical",
+    "effects": [
+      "calm",
+      "relaxation",
+      "light euphoria"
+    ],
+    "description": "Lemon Verbena, a gentle herbal tea with calming and mood-lifting effects.",
+    "mechanismOfAction": "GABAergic + serotonergic",
+    "region": "South America",
+    "compounds": [
+      "Citral",
+      "Verbascoside"
+    ],
+    "tags": [
+      "tea",
+      "folk remedy",
+      "calming"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "artemisia-ludoviciana",
+    "name": "Artemisia ludoviciana",
+    "slug": "artemisia-ludoviciana",
+    "scientificName": "Artemisia ludoviciana",
+    "category": "Ethnobotanical",
+    "effects": [
+      "mild sedation",
+      "visionary",
+      "cleansing"
+    ],
+    "description": "Also known as white sagebrush, used by Native American tribes for cleansing, dreams, and mild sedation.",
+    "mechanismOfAction": "GABAergic + anticholinergic",
+    "region": "North America",
+    "compounds": [
+      "Thujone",
+      "Camphor"
+    ],
+    "tags": [
+      "ritual",
+      "dream",
+      "folk medicine"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "petasites-hybridus",
+    "name": "Petasites hybridus",
+    "slug": "petasites-hybridus",
+    "scientificName": "Petasites hybridus",
+    "category": "Ethnobotanical",
+    "effects": [
+      "anti-anxiety",
+      "vasodilation",
+      "headache relief"
+    ],
+    "description": "Butterbur, once used for headaches and anxiety. Contains pyrrolizidine alkaloids — caution advised.",
+    "mechanismOfAction": "Smooth muscle relaxant + serotonergic",
+    "region": "Europe",
+    "compounds": [
+      "Petasin",
+      "Isopetasin"
+    ],
+    "tags": [
+      "nervine",
+      "headache",
+      "caution"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "betula-lenta",
+    "name": "Betula lenta",
+    "slug": "betula-lenta",
+    "scientificName": "Betula lenta",
+    "category": "Ethnobotanical",
+    "effects": [
+      "uplifting",
+      "mental clarity",
+      "aromatic"
+    ],
+    "description": "Sweet Birch, aromatic and uplifting; contains methyl salicylate, offering mild euphoria and clarity.",
+    "mechanismOfAction": "Anti-inflammatory + mild serotonergic",
+    "region": "North America",
+    "compounds": [
+      "Methyl salicylate"
+    ],
+    "tags": [
+      "tea",
+      "uplifting",
+      "aromatic"
+    ],
+    "needsReview": false
+  },
+  {
+    "id": "scutellaria-lateriflora",
+    "name": "Scutellaria lateriflora",
+    "slug": "scutellaria-lateriflora",
+    "scientificName": "Scutellaria lateriflora",
+    "category": "Ethnobotanical",
+    "effects": [
+      "sedation",
+      "calm",
+      "anxiety relief"
+    ],
+    "description": "American Skullcap is a revered nervine herb promoting relaxation, calm, and sleep.",
+    "mechanismOfAction": "GABAergic",
+    "region": "North America",
+    "compounds": [
+      "Baicalin",
+      "Scutellarin"
+    ],
+    "tags": [
+      "nervine",
+      "folk remedy",
+      "sleep aid"
     ],
     "needsReview": false
   }
