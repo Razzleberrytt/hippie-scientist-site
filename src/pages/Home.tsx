@@ -8,7 +8,7 @@ export default function Home() {
     <main
       id='home'
       aria-label='Site introduction'
-      className='relative min-h-screen overflow-hidden bg-gradient-to-br from-light-beige via-white to-light-beige animate-gradient pt-16 text-midnight dark:from-space-night dark:via-black dark:to-space-night dark:text-sand'
+      className='relative min-h-screen overflow-hidden bg-sunset-gradient animate-gradient pt-16 text-midnight dark:bg-space-night dark:text-sand'
     >
       <StarfieldBackground />
       <MouseTrail />
