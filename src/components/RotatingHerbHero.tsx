@@ -86,14 +86,6 @@ export default function RotatingHerbHero() {
               : herb.effects || ''
             return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
           })()}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              to={`/herb/${herb.slug || herb.id || slugify(herb.name)}`}
-              className='animate-pulse rounded-md border border-emerald-500 bg-white/10 px-4 py-2 text-sand backdrop-blur-md hover:bg-white/20'
-            >
-              More Info
-            </Link>
-          </motion.div>
           <motion.div
             className='pointer-events-none absolute inset-0 rounded-2xl border-2 border-fuchsia-500/40'
             animate={{ opacity: [0.6, 0.2, 0.6] }}
