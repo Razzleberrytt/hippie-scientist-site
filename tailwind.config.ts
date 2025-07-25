@@ -25,6 +25,8 @@ export default {
         'space-dark': '#0f172a',
         'space-night': '#0c0c1a',
         'cosmic-purple': '#7e22ce',
+        'space-gray': '#1e293b',
+        'light-beige': '#faf9f5',
       },
       boxShadow: {
         glow: '0 0 12px rgba(136, 192, 87, 0.5)',

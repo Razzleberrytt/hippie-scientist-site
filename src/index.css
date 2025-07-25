@@ -13,11 +13,11 @@ body {
 }
 
 body.light {
-  @apply bg-white text-black;
+  @apply bg-light-beige text-midnight;
 }
 
 body.dark {
-  @apply bg-black text-sand;
+  @apply bg-space-night text-sand;
 }
 
 html {
@@ -25,6 +25,10 @@ html {
   transition:
     background-color 0.5s ease,
     color 0.5s ease;
+}
+
+a {
+  @apply text-cosmic-purple underline-offset-4 transition-colors hover:text-psychedelic-pink;
 }
 
 /* Custom utility classes */
