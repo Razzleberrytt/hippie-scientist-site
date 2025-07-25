@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import MouseTrail from './components/MouseTrail'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import FogOverlay from './components/FogOverlay'
+import Container from './components/Container'
 const Home = React.lazy(() => import('./pages/Home'))
 const HerbCardPage = React.lazy(() => import('./pages/HerbCardPage'))
 const HerbDetailView = React.lazy(() => import('./pages/HerbDetailView'))
@@ -28,9 +29,10 @@ function App() {
       <Navbar />
       <MouseTrail />
       <FogOverlay />
-      <main className='space-y-24 pt-16'>
-        <Suspense fallback={<LoadingScreen />}>
-          <Routes>
+      <main className='pt-16'>
+        <Container className='space-y-24'>
+          <Suspense fallback={<LoadingScreen />}>
+            <Routes>
             <Route path="/herbs/:herbId" element={<HerbDetailPage />} />
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
@@ -46,8 +48,9 @@ function App() {
             <Route path='/downloads' element={<Downloads />} />
             <Route path='/blend' element={<HerbBlender />} />
             <Route path='*' element={<NotFound />} />
-          </Routes>
-        </Suspense>
+            </Routes>
+          </Suspense>
+        </Container>
       </main>
       <Footer />
       <ScrollToTopButton />
