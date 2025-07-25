@@ -3,6 +3,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
+import Container from '../components/Container'
+import FadeInSection from '../components/FadeInSection'
 import HerbList from '../components/HerbList'
 import TagFilterBar from '../components/TagFilterBar'
 import CategoryAnalytics from '../components/CategoryAnalytics'
@@ -88,6 +90,7 @@ export default function Database() {
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
   const [viewMode, setViewMode] = React.useState<'grid' | 'list'>('grid')
+  const [showAnalytics, setShowAnalytics] = React.useState(false)
 
   React.useEffect(() => {
     let last = window.scrollY
@@ -143,18 +146,19 @@ export default function Database() {
 
       <div className='relative min-h-screen px-4 pt-20'>
         <StarfieldBackground />
-        <div className='relative mx-auto max-w-6xl'>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className='mb-8 text-center'
-          >
-            <h1 className='text-gradient mb-6 text-5xl font-bold'>Herb Database</h1>
-            <p className='mx-auto max-w-4xl text-xl text-sand'>
-              Explore our collection of herbs. Click any entry to see detailed information.
-            </p>
-          </motion.div>
+        <Container className='relative lg:flex lg:items-start lg:gap-8'>
+          <div className='flex-1'>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className='mb-8 text-center'
+            >
+              <h1 className='text-gradient mb-6 text-5xl font-bold'>Herb Database</h1>
+              <p className='mx-auto max-w-4xl text-xl text-sand'>
+                Explore our collection of herbs. Click any entry to see detailed information.
+              </p>
+            </motion.div>
 
           <motion.div
             className='sticky top-2 z-20 mb-4 flex flex-wrap items-center gap-2'
@@ -230,13 +234,27 @@ export default function Database() {
               ))}
             </div>
           )}
-          <CategoryAnalytics />
-          <HerbList herbs={filtered} highlightQuery={query} view={viewMode} />
+          <button
+            type='button'
+            onClick={() => setShowAnalytics(a => !a)}
+            className='mb-4 rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10 lg:hidden'
+          >
+            {showAnalytics ? 'Hide Stats' : 'Show Stats'}
+          </button>
+          <FadeInSection>
+            <HerbList herbs={filtered} highlightQuery={query} view={viewMode} />
+          </FadeInSection>
           <footer className='mt-4 text-center text-sm text-moss'>
-            Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
+            Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented{' '}
             {summary.moaCount} · Updated: {new Date(__BUILD_TIME__).toLocaleDateString()}
           </footer>
         </div>
+        <aside
+          className={`mt-6 lg:mt-0 lg:w-72 lg:sticky lg:top-24 ${showAnalytics ? '' : 'hidden lg:block'}`}
+        >
+          <CategoryAnalytics />
+        </aside>
+        </Container>
       </div>
     </>
   )

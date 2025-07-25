@@ -6,6 +6,8 @@ import CompoundCard from '../components/CompoundCard'
 import CompoundTagFilter, { Option } from '../components/CompoundTagFilter'
 import { metaCategory } from '../hooks/useFilteredHerbs'
 import { AnimatePresence, motion } from 'framer-motion'
+import Container from '../components/Container'
+import FadeInSection from '../components/FadeInSection'
 
 export default function CompoundsPage() {
   const [search, setSearch] = useState('')
@@ -65,10 +67,10 @@ export default function CompoundsPage() {
         <title>Psychoactive Compounds Index - The Hippie Scientist</title>
       </Helmet>
       <div className='min-h-screen px-4 pb-12 pt-20'>
-        <div className='mx-auto max-w-5xl text-center'>
-          <h1 className='text-gradient mb-2 text-4xl font-bold'>Psychoactive Compounds Index</h1>
-          <p className='mb-6 text-sand'>Explore the active ingredients behind each herb’s effects</p>
-          <div className='mb-4 flex flex-col items-center gap-4'>
+        <Container className='text-center space-y-6'>
+          <h1 className='text-gradient text-4xl font-bold'>Psychoactive Compounds Index</h1>
+          <p className='text-sand'>Explore the active ingredients behind each herb’s effects</p>
+          <div className='flex flex-col items-center gap-4'>
             <input
               type='text'
               placeholder='Search compounds or herbs...'
@@ -78,22 +80,24 @@ export default function CompoundsPage() {
             />
             <CompoundTagFilter options={classOptions} onChange={setClassFilter} />
           </div>
-          <motion.div layout className='grid max-h-[70vh] grid-cols-1 gap-4 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3'>
-            <AnimatePresence>
-              {filtered.map(c => (
-                <motion.div
-                  key={c.name}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                >
-                  <CompoundCard compound={c} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
+          <FadeInSection>
+            <motion.div layout className='grid max-h-[70vh] grid-cols-1 gap-4 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3'>
+              <AnimatePresence>
+                {filtered.map(c => (
+                  <motion.div
+                    key={c.name}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                  >
+                    <CompoundCard compound={c} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          </FadeInSection>
+        </Container>
       </div>
     </>
   )
