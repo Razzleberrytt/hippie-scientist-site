@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
+import NeuroHerbGraph from '../components/NeuroHerbGraph'
 
 const Research: React.FC = () => {
   return (
@@ -38,6 +39,9 @@ const Research: React.FC = () => {
               This list highlights a few ongoing areas of investigation. Check back regularly for
               detailed summaries and links to published papers.
             </p>
+            <div className='mt-8'>
+              <NeuroHerbGraph />
+            </div>
           </div>
         </div>
       </div>

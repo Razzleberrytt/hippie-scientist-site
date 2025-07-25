@@ -36,8 +36,8 @@ export default {
         glow: '0 0 10px rgba(255, 255, 255, 0.4)',
       },
       fontFamily: {
-        display: ['"Syne"', '"Righteous"', 'cursive'],
-        sans: ['"Inter"', 'sans-serif'],
+        display: ['"Unbounded"', '"Major Mono Display"', 'cursive'],
+        sans: ['"Inter"', '"Manrope"', 'sans-serif'],
         herb: ['"Comfortaa"', '"Orbitron"', 'cursive'],
       },
       minHeight: {

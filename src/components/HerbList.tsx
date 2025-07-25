@@ -17,8 +17,9 @@ interface Props {
   herbs: Herb[]
   highlightQuery?: string
   batchSize?: number
+  view?: 'grid' | 'list'
 }
-const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 }) => {
+const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24, view = 'grid' }) => {
   const [visible, setVisible] = React.useState(batchSize)
 
   const showMore = () => setVisible(v => Math.min(v + batchSize, herbs.length))
@@ -35,7 +36,12 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24 
         variants={containerVariants}
         initial='hidden'
         animate='visible'
-        className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
+        viewport={{ once: true, amount: 0.2 }}
+        className={
+          view === 'grid'
+            ? 'grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
+            : 'flex flex-col gap-4'
+        }
       >
         <AnimatePresence>
           {herbs.slice(0, visible).map(h => (

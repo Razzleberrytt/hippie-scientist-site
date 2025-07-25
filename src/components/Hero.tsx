@@ -18,20 +18,38 @@ export default function Hero() {
       <HeroBackground />
       <FloatingElements />
 
-      <div className='relative z-10 mx-auto mt-6 w-full max-w-xl rounded-xl border border-lime-400/30 bg-white/10 p-6 shadow-xl backdrop-blur soft-border-glow'>
+      <div className='relative z-10 mx-auto mt-6 w-full max-w-xl rounded-xl border border-emerald-500/40 bg-white/10 p-6 shadow-xl backdrop-blur soft-border-glow'>
+        <motion.div
+          className='absolute inset-0 -z-10 rounded-xl bg-gradient-to-br from-emerald-500/30 via-emerald-600/20 to-transparent animate-gradient'
+          aria-hidden='true'
+        />
         <div className='flex flex-col items-center justify-center gap-4'>
-          <motion.div
-            className='mx-auto max-w-2xl space-y-1'
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
-          >
-            <h1 className='text-gradient font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl'>
+          <div className='mx-auto max-w-2xl space-y-1'>
+            <motion.h1
+              className='text-gradient font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl'
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               The Hippie Scientist
-            </h1>
-            <p className='text-opal text-base sm:text-lg md:text-xl'>Psychedelic Botany &amp; Conscious Exploration</p>
-            <p className='text-sand text-sm sm:text-base md:text-lg'>Dive into a growing library of herbs, research and DIY blend guides.</p>
-          </motion.div>
+            </motion.h1>
+            <motion.p
+              className='text-opal text-base sm:text-lg md:text-xl'
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              Psychedelic Botany &amp; Conscious Exploration
+            </motion.p>
+            <motion.p
+              className='text-sand text-sm sm:text-base md:text-lg'
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Dive into a growing library of herbs, research and DIY blend guides.
+            </motion.p>
+          </div>
 
           <div className='mt-2 flex justify-center'>
             <RotatingHerbHero />
