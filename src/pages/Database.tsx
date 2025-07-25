@@ -13,7 +13,7 @@ import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import SearchBar from '../components/SearchBar'
-import { Download } from 'lucide-react'
+import { Download, LayoutGrid, List } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
@@ -87,6 +87,7 @@ export default function Database() {
 
   const [filtersOpen, setFiltersOpen] = React.useState(false)
   const [showBar, setShowBar] = React.useState(true)
+  const [viewMode, setViewMode] = React.useState<'grid' | 'list'>('grid')
 
   React.useEffect(() => {
     let last = window.scrollY
@@ -163,6 +164,14 @@ export default function Database() {
             <SearchBar query={query} setQuery={setQuery} fuse={fuse} />
             <button
               type='button'
+              onClick={() => setViewMode(v => (v === 'grid' ? 'list' : 'grid'))}
+              className='rounded-md bg-space-dark/70 p-2 text-sand backdrop-blur-md hover:bg-white/10'
+              aria-label='Toggle view'
+            >
+              {viewMode === 'grid' ? <List size={18} /> : <LayoutGrid size={18} />}
+            </button>
+            <button
+              type='button'
               onClick={() => setFavoritesOnly(f => !f)}
               className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-yellow-300 backdrop-blur-md hover:bg-white/10'
             >
@@ -222,7 +231,7 @@ export default function Database() {
             </div>
           )}
           <CategoryAnalytics />
-          <HerbList herbs={filtered} highlightQuery={query} />
+          <HerbList herbs={filtered} highlightQuery={query} view={viewMode} />
           <footer className='mt-4 text-center text-sm text-moss'>
             Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
             {summary.moaCount} · Updated: {new Date(__BUILD_TIME__).toLocaleDateString()}

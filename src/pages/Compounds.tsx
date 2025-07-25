@@ -78,7 +78,7 @@ export default function CompoundsPage() {
             />
             <CompoundTagFilter options={classOptions} onChange={setClassFilter} />
           </div>
-          <motion.div layout className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          <motion.div layout className='grid max-h-[70vh] grid-cols-1 gap-4 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3'>
             <AnimatePresence>
               {filtered.map(c => (
                 <motion.div

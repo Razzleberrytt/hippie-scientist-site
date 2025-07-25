@@ -18,9 +18,10 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
   return (
     <motion.article
       whileHover={{ scale: 1.03 }}
-      className='hover-glow flex flex-col rounded-lg border border-gray-200 bg-white p-4 text-left dark:border-gray-700 dark:bg-gray-900'
+      title={compound.herbsFound.map(h => h.name).join(', ')}
+      className='glassmorphic-card hover-glow flex flex-col rounded-lg border border-emerald-600/40 p-4 text-left'
     >
-      <h2 className='mb-1 text-lg font-bold text-gray-900 dark:text-gray-100'>{compound.name}</h2>
+      <h2 className='mb-1 text-lg font-bold text-emerald-300 drop-shadow-glow'>{compound.name}</h2>
       <div className='mb-2 flex flex-wrap gap-2'>
         <TagBadge label={compound.type} />
         {compound.effectClass && <TagBadge label={compound.effectClass} variant='blue' />}

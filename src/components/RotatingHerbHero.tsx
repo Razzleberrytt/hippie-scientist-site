@@ -23,7 +23,7 @@ export default function RotatingHerbHero() {
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   const scheduleNext = () => {
-    const delay = 6000 + Math.random() * 2000
+    const delay = 8000 + Math.random() * 2000
     timerRef.current = setTimeout(() => {
       setIndex(i => (i + 1) % items.length)
     }, delay)
@@ -89,7 +89,7 @@ export default function RotatingHerbHero() {
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               to={`/herb/${herb.slug || herb.id || slugify(herb.name)}`}
-              className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:bg-black/40'
+              className='animate-pulse rounded-md border border-emerald-500 bg-white/10 px-4 py-2 text-sand backdrop-blur-md hover:bg-white/20'
             >
               More Info
             </Link>
