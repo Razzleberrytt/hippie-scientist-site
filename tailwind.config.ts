@@ -1,6 +1,7 @@
 /* eslint-env node */
 /** @type {import('tailwindcss').Config} */
 export default {
+  // Enable dark mode using the `class` strategy so ThemeToggle works
   darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
