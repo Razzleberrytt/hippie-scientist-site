@@ -1,7 +1,8 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import { herbs } from '../data/herbs/herbsfull'
 
-const MIN_COUNT = 5
+const TOP_N = 5
 
 export default function CategoryAnalytics() {
   const counts = React.useMemo(() => {
@@ -13,49 +14,43 @@ export default function CategoryAnalytics() {
     return c
   }, [])
 
-  const entries = React.useMemo(
-    () => Object.entries(counts).sort((a, b) => b[1] - a[1]),
-    [counts]
-  )
+  const entries = React.useMemo(() => Object.entries(counts).sort((a, b) => b[1] - a[1]), [counts])
 
-  const [showAll, setShowAll] = React.useState(false)
+  const [expanded, setExpanded] = React.useState(false)
 
   const display = React.useMemo(
-    () =>
-      showAll ? entries : entries.filter(([, count]) => count >= MIN_COUNT),
-    [entries, showAll]
+    () => (expanded ? entries : entries.slice(0, TOP_N)),
+    [entries, expanded]
   )
 
-  const hasMore = React.useMemo(
-    () => entries.some(([, count]) => count < MIN_COUNT),
-    [entries]
-  )
+  const hasMore = entries.length > TOP_N
 
   const max = Math.max(...entries.map(([, c]) => c))
 
   return (
-    <div
-      className='relative space-y-2'
-      onMouseEnter={() => setShowAll(true)}
-      onMouseLeave={() => setShowAll(false)}
-    >
+    <motion.div layout className='space-y-2'>
       {display.map(([cat, count]) => (
-        <div key={cat} className='flex items-center gap-2'>
+        <motion.div key={cat} layout className='flex items-center gap-2'>
           <span className='w-40 text-sm'>{cat}</span>
-          <div className='flex-1 h-2 rounded bg-gray-200 dark:bg-gray-700 transition-colors duration-300'>
+          <div className='h-2 flex-1 rounded bg-gray-200 transition-colors duration-300 dark:bg-gray-700'>
             <div
-              className='h-2 rounded bg-pink-500 dark:bg-pink-400 transition-colors duration-300'
+              className='h-2 rounded bg-pink-500 transition-colors duration-300 dark:bg-pink-400'
               style={{ width: `${(count / max) * 100}%` }}
             />
           </div>
           <span className='text-sm'>{count}</span>
-        </div>
+        </motion.div>
       ))}
-      {hasMore && !showAll && (
-        <div className='pointer-events-none text-center text-xs text-moss'>
-          Hover to show more
-        </div>
+      {hasMore && (
+        <motion.button
+          layout
+          type='button'
+          onClick={() => setExpanded(e => !e)}
+          className='mx-auto block text-xs text-moss hover:underline'
+        >
+          {expanded ? 'Show Less' : 'Show More'}
+        </motion.button>
       )}
-    </div>
+    </motion.div>
   )
 }
