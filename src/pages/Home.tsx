@@ -3,14 +3,13 @@ import SEO from '../components/SEO'
 import Hero from '../components/Hero'
 import StarfieldBackground from '../components/StarfieldBackground'
 import NewsletterSignup from '../components/NewsletterSignup'
-import FadeInSection from '../components/FadeInSection'
 
 export default function Home() {
   return (
     <main
       id='home'
       aria-label='Site introduction'
-      className='bg-cosmic-forest animate-gradient relative min-h-screen overflow-hidden pt-16 pb-20 text-midnight dark:bg-space-night dark:text-sand'
+      className='bg-cosmic-forest animate-gradient relative min-h-screen overflow-hidden pt-16 text-midnight dark:bg-space-night dark:text-sand'
     >
       <SEO
         title='The Hippie Scientist - Psychedelic Botany'
@@ -19,9 +18,7 @@ export default function Home() {
       />
       <StarfieldBackground />
       <Hero />
-      <FadeInSection>
-        <NewsletterSignup />
-      </FadeInSection>
+      <NewsletterSignup />
     </main>
   )
 }

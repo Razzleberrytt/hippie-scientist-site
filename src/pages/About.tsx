@@ -1,7 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
-import Container from '../components/Container'
 
 export default function About() {
   return (
@@ -15,7 +14,7 @@ export default function About() {
       </Helmet>
 
       <div className='min-h-screen px-4 pt-20'>
-        <Container className='space-y-8'>
+        <div className='mx-auto max-w-3xl space-y-8'>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,7 +62,7 @@ export default function About() {
             If you have suggestions or wish to collaborate, please reach out through our contact
             links.
           </motion.p>
-        </Container>
+        </div>
       </div>
     </>
   )
