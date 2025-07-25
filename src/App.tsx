@@ -3,8 +3,7 @@ import HerbDetailPage from './pages/HerbDetailPage';
 import { Routes, Route } from 'react-router-dom'
 import { Suspense } from 'react'
 import { LoadingScreen } from './components/LoadingScreen'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import Layout from './components/Layout'
 import MouseTrail from './components/MouseTrail'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import FogOverlay from './components/FogOverlay'
@@ -24,11 +23,10 @@ const Favorites = React.lazy(() => import('./pages/Favorites'))
 const HerbBlender = React.lazy(() => import('./pages/HerbBlender'))
 function App() {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <MouseTrail />
       <FogOverlay />
-      <main className='space-y-24 pt-16'>
+      <div className='space-y-24 pt-16'>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
             <Route path="/herbs/:herbId" element={<HerbDetailPage />} />
@@ -48,10 +46,9 @@ function App() {
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Suspense>
-      </main>
-      <Footer />
+      </div>
       <ScrollToTopButton />
-    </>
+    </Layout>
   )
 }
 
