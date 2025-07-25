@@ -25,30 +25,36 @@ const Navbar: React.FC = () => {
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
 
   return (
-    <nav className='fixed left-0 right-0 top-0 z-50 bg-light-beige/80 backdrop-blur dark:bg-space-gray/80'>
+    <nav
+      className='fixed left-0 right-0 top-0 z-50 bg-light-beige/80 backdrop-blur dark:bg-space-gray/80'
+      role='navigation'
+      aria-label='Primary'
+    >
       <div className='mx-auto flex h-16 max-w-7xl items-center justify-between px-4'>
         <Link to='/' className='flex items-center space-x-2'>
-          <Atom className='drop-shadow-glow h-8 w-8 text-lichen' aria-hidden='true' />
+          <Atom className='h-8 w-8 text-lichen drop-shadow-glow' aria-hidden='true' />
           <span className='text-gradient text-xl font-bold'>Hippie Scientist</span>
         </Link>
 
         <div className='flex items-center md:hidden'>
           <button
+            id='mobile-menu-button'
             onClick={() => setIsOpen(!isOpen)}
-            className='p-2'
+            className='p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cosmic-purple'
             aria-label='Toggle navigation menu'
             aria-expanded={isOpen}
+            aria-controls='primary-navigation'
           >
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
 
-        <ul className='hidden items-center space-x-6 md:flex'>
+        <ul id='primary-navigation' className='hidden items-center space-x-6 md:flex'>
           {navItems.map(({ path, label, icon: Icon }) => (
             <li key={path}>
               <Link
                 to={path}
-                className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cosmic-purple ${
                   isActive(path)
                     ? 'bg-cosmic-forest text-white shadow-glow'
                     : 'text-gray-800 hover:text-cosmic-purple dark:text-sand/80'
@@ -68,6 +74,7 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.ul
+            id='primary-navigation'
             initial={{ height: 0 }}
             animate={{ height: 'auto' }}
             exit={{ height: 0 }}
@@ -78,7 +85,7 @@ const Navbar: React.FC = () => {
                 <Link
                   to={path}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center gap-1 rounded-md px-4 py-2 text-base font-medium transition-colors ${
+                  className={`flex items-center gap-1 rounded-md px-4 py-2 text-base font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cosmic-purple ${
                     isActive(path)
                       ? 'bg-cosmic-forest text-white shadow-glow'
                       : 'text-gray-800 hover:text-cosmic-purple dark:text-sand/80'
