@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/" />
+    <meta http-equiv="refresh" content="0; url=./" />
     <script>
       // Save the original path for the SPA
       const target =
         sessionStorage.redirectTo ||
         window.location.pathname + window.location.search + window.location.hash;
-      const url = '/' + '?redirect=' + encodeURIComponent(target);
+      const url = './?redirect=' + encodeURIComponent(target);
       window.location.replace(url);
     </script>
   </head>
