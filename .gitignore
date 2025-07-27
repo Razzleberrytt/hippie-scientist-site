@@ -2,3 +2,9 @@ node_modules
 /dist/
 /src/**/*.js
 
+
+# Ignore intermediate data and old site
+cleanedData/
+newHerbs/
+simple-site/
+hippie-scientist-site-main_consolidated.zip
