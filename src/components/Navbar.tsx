@@ -7,6 +7,7 @@ export default function Navbar() {
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/database">Database</Link></li>
+        <li><Link to="/blend">Build a Blend</Link></li>
         <li><Link to="/favorites">Favorites</Link></li>
         <li><Link to="/about">About</Link></li>
         {/* Add more navigation links as needed */}
