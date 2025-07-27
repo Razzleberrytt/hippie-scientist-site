@@ -1,27 +1,12 @@
-import React from 'react'
-import HerbDetailPage from './pages/HerbDetailPage';
+import React, { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Suspense } from 'react'
-import { LoadingScreen } from './components/LoadingScreen'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import MouseTrail from './components/MouseTrail'
 import ScrollToTopButton from './components/ScrollToTopButton'
 import FogOverlay from './components/FogOverlay'
-const Home = React.lazy(() => import('./pages/Home'))
-const HerbCardPage = React.lazy(() => import('./pages/HerbCardPage'))
-const HerbDetailView = React.lazy(() => import('./pages/HerbDetailView'))
-const NotFound = React.lazy(() => import('./pages/NotFound'))
-const Learn = React.lazy(() => import('./pages/Learn'))
-const Lesson = React.lazy(() => import('./pages/Lesson'))
-const About = React.lazy(() => import('./pages/About'))
-const Database = React.lazy(() => import('./pages/Database'))
-const Store = React.lazy(() => import('./pages/Store'))
-const Research = React.lazy(() => import('./pages/Research'))
-const Compounds = React.lazy(() => import('./pages/Compounds'))
-const Downloads = React.lazy(() => import('./pages/Downloads'))
-const Favorites = React.lazy(() => import('./pages/Favorites'))
-const HerbBlender = React.lazy(() => import('./pages/HerbBlender'))
+import { LoadingScreen } from './components/LoadingScreen'
+import { routes } from './routes'
 function App() {
   return (
     <>
@@ -31,21 +16,9 @@ function App() {
       <main className='space-y-24 pt-16'>
         <Suspense fallback={<LoadingScreen />}>
           <Routes>
-            <Route path="/herbs/:herbId" element={<HerbDetailPage />} />
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/learn' element={<Learn />} />
-            <Route path='/learn/:slug' element={<Lesson />} />
-            <Route path='/database' element={<Database />} />
-            <Route path='/favorites' element={<Favorites />} />
-            <Route path='/research' element={<Research />} />
-            <Route path='/herbs/:herbId' element={<HerbCardPage />} />
-            <Route path='/herb/:id' element={<HerbDetailView />} />
-            <Route path='/compounds' element={<Compounds />} />
-            <Route path='/store' element={<Store />} />
-            <Route path='/downloads' element={<Downloads />} />
-            <Route path='/blend' element={<HerbBlender />} />
-            <Route path='*' element={<NotFound />} />
+            {routes.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+            ))}
           </Routes>
         </Suspense>
       </main>

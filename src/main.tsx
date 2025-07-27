@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+// HashRouter keeps URLs after a '#' so GitHub Pages can serve the SPA without 404s
 import { HashRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import App from './App'
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <HelmetProvider>
       <ErrorBoundary>
         <ThemeProvider>
+          {/* Hash-based routing avoids server-side routing issues on GitHub Pages */}
           <HashRouter>
             <App />
           </HashRouter>

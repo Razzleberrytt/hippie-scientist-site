@@ -1,5 +1,6 @@
 import React from 'react'
 import type { Herb } from '../types'
+// Load the full herb dataset once for use across pages
 import { herbs } from '../data/herbs/herbsfull'
 
 export function useHerbs(): Herb[] {
