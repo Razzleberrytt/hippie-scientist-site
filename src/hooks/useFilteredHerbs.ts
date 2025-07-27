@@ -51,15 +51,12 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
       res = fuse.search(q).map(r => r.item)
     }
     if (tags.length) {
-      res = res.filter(h =>
-        matchAll
-          ? tags.every(t =>
-              h.tags.some(ht => canonicalTag(ht) === canonicalTag(t))
-            )
-          : tags.some(t =>
-              h.tags.some(ht => canonicalTag(ht) === canonicalTag(t))
-            )
-      )
+      res = res.filter(h => {
+        const hs = h.tags ?? []
+        return matchAll
+          ? tags.every(t => hs.some(ht => canonicalTag(ht) === canonicalTag(t)))
+          : tags.some(t => hs.some(ht => canonicalTag(ht) === canonicalTag(t)))
+      })
     }
     if (categories.length) {
       res = res.filter(h => categories.includes(metaCategory(h.category)))
