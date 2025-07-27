@@ -1,4 +1,3 @@
-
 // src/components/ErrorBoundary.tsx
 import React from 'react';
 
@@ -6,7 +5,7 @@ interface State {
   hasError: boolean;
 }
 
-export class ErrorBoundary extends React.Component<React.PropsWithChildren<{}>, State> {
+export default class ErrorBoundary extends React.Component<React.PropsWithChildren<{}>, State> {
   constructor(props: any) {
     super(props);
     this.state = { hasError: false };
