@@ -1,39 +1,38 @@
 export interface Herb {
   id: string
-  name: string
-  slug?: string
-  scientificName?: string
   category: string
-  effects?: string[]
-  description?: string
-  mechanismOfAction?: string
-  pharmacokinetics?: string
-  therapeuticUses?: string
-  sideEffects?: string
-  contraindications?: string
-  drugInteractions?: string
-  toxicity?: string
-  toxicityLD50?: string
-  preparation?: string
-  dosage?: string
-  onset?: string
-  intensity?: string
-  duration?: string
-  legalStatus?: string
-  region?: string
-  /** Array of active psychoactive compounds present in the herb */
-  compounds?: string[]
-  tags?: string[]
-  sources?: string[]
-  needsReview?: boolean
-  /** Normalized high-level categories derived from the raw category field. */
-  normalizedCategories?: string[]
-  sourceRefs?: string[]
-  image?: string
-  activeConstituents?: {
-    name: string
-    type?: string
-    effect?: string
-  }[]
-  affiliateLink?: string
+  contraindications?: string | null
+  description?: string | null
+  druginteractions?: string | null
+  duration?: string | null
+  effects?: string | null
+  intensity?: string | null
+  legalstatus?: string | null
+  mechanismofaction?: string | null
+  onset?: string | null
+  pharmacokinetics?: string | null
+  preparation?: string | null
+  region?: string | null
+  scientificname?: string | null
+  sideeffects?: string | null
+  tags?: string | null
+  therapeuticuses?: string | null
+  toxicity?: string | null
+  toxicityld50?: string | null
+  activeconstituents?: any
+  affiliatelink?: string | null
+  slug?: string | null
+  compounds?: any
+  sources?: any
+  needsreview?: boolean | null
+  image?: string | null
+  safetyrating?: string | null
+  dosage?: string | null
+  commonnames?: string | null
+  activecompounds?: string | null
+  traditionaluse?: string | null
+  nameNorm?: string | null
+  intensityClean?: string | null
+  legalstatusClean?: string | null
+  compoundsDetailed?: any
 }

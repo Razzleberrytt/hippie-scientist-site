@@ -6,6 +6,7 @@ import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
 import { decodeTag, tagVariant } from '../utils/format'
+import { herbName, splitField } from '../utils/herb'
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -49,7 +50,7 @@ export default function RotatingHerbHero() {
   }
 
   const herb = items[index]
-  const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, 3) : []
+  const tags = splitField(herb.tags).slice(0, 3)
 
   return (
     <div className='relative mx-auto mt-8 flex max-w-xs justify-center sm:max-w-sm'>
@@ -63,10 +64,10 @@ export default function RotatingHerbHero() {
           className='bg-psychedelic-gradient/30 soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'
         >
           {herb.image && (
-            <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
+            <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
           )}
           <h3 className='mt-3 font-herb text-2xl text-lime-300 drop-shadow-[0_0_6px_rgba(163,255,134,0.8)]'>
-            {herb.name}
+            {herbName(herb)}
           </h3>
           {tags.length > 0 && (
             <div className='mt-1 flex flex-wrap justify-center gap-1'>
@@ -81,9 +82,7 @@ export default function RotatingHerbHero() {
             </div>
           )}
           {(() => {
-            const effects = Array.isArray(herb.effects)
-              ? herb.effects.slice(0, 3).join(', ')
-              : herb.effects || ''
+            const effects = splitField(herb.effects).slice(0, 3).join(', ')
             return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
           })()}
           <motion.div

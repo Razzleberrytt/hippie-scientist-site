@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
+import { herbName, splitField } from '../utils/herb'
 
 interface Props {
   herbs: Herb[]
@@ -9,15 +10,15 @@ interface Props {
 
 function generateName(herbs: Herb[]): string {
   if (herbs.length === 0) return 'Your Custom Blend'
-  const parts = herbs.map(h => h.name.split(' ')[0])
+  const parts = herbs.map(h => herbName(h).split(' ')[0])
   return parts.join(' ') + ' Fusion'
 }
 
 function generateSummary(herbs: Herb[]): string {
   if (!herbs.length) return 'Select herbs to see a summary of the blend.'
-  const names = herbs.map(h => h.name).join(', ')
+  const names = herbs.map(h => herbName(h)).join(', ')
   const effects = Array.from(
-    new Set(herbs.flatMap(h => h.effects || []))
+    new Set(herbs.flatMap(h => splitField(h.effects)))
   ).join(', ')
   return `Combines ${names} for effects including ${effects}.`
 }
@@ -26,7 +27,7 @@ export default function BlendSummaryCard({ herbs, onSave }: Props) {
   const name = React.useMemo(() => generateName(herbs), [herbs])
   const summary = React.useMemo(() => generateSummary(herbs), [herbs])
   const tags = React.useMemo(() => {
-    return Array.from(new Set(herbs.flatMap(h => h.tags || [])))
+    return Array.from(new Set(herbs.flatMap(h => splitField(h.tags))))
   }, [herbs])
 
   return (

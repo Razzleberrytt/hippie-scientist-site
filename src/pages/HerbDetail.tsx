@@ -8,23 +8,24 @@ import TagBadge from '../components/TagBadge'
 import CompoundBadge from '../components/CompoundBadge'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import { herbName, splitField } from '../utils/herb'
 
 function findSimilar(current: any) {
   const scores = herbs.map(h => {
     if (h.id === current.id) return { h, score: -1 }
     let score = 0
-    const tags = new Set(h.tags)
-    const effects = new Set(h.effects || [])
-    current.tags.forEach((t: string) => {
+    const tags = new Set(splitField(h.tags))
+    const effects = new Set(splitField(h.effects))
+    splitField(current.tags).forEach(t => {
       if (tags.has(t)) score += 2
     })
-    ;(current.effects || []).forEach((e: string) => {
+    splitField(current.effects).forEach(e => {
       if (effects.has(e)) score += 1
     })
     if (
-      current.mechanismOfAction &&
-      h.mechanismOfAction &&
-      current.mechanismOfAction === h.mechanismOfAction
+      current.mechanismofaction &&
+      h.mechanismofaction &&
+      current.mechanismofaction === h.mechanismofaction
     )
       score += 2
     return { h, score }
@@ -55,11 +56,11 @@ export default function HerbDetail() {
     )
   }
   const similar = React.useMemo(() => findSimilar(herb), [herb])
-  const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${(herb.effects || []).join(', ')}.`
+  const summary = `${herbName(herb)} is classified as ${herb.category}. Known effects include ${splitField(herb.effects).join(', ')}.`
   return (
     <>
       <Helmet>
-        <title>{herb.name} - The Hippie Scientist</title>
+        <title>{herbName(herb)} - The Hippie Scientist</title>
         {herb.description && (
           <meta name='description' content={herb.description} />
         )}
@@ -72,18 +73,18 @@ export default function HerbDetail() {
         <Link to='/database' className='text-comet underline'>
           ← Back
         </Link>
-        <h1 className='text-gradient text-4xl font-bold'>{herb.name}</h1>
-        {herb.scientificName && (
-          <p className='italic text-gray-600'>{herb.scientificName}</p>
+        <h1 className='text-gradient text-4xl font-bold'>{herbName(herb)}</h1>
+        {herb.scientificname && (
+          <p className='italic text-gray-600'>{herb.scientificname}</p>
         )}
         <div className='space-y-2'>
           {[
             'description',
-            'mechanismOfAction',
-            'therapeuticUses',
-            'sideEffects',
+            'mechanismofaction',
+            'therapeuticuses',
+            'sideeffects',
             'contraindications',
-            'drugInteractions',
+            'druginteractions',
             'preparation',
             'dosage',
             'pharmacokinetics',
@@ -91,9 +92,9 @@ export default function HerbDetail() {
             'duration',
             'intensity',
             'region',
-            'legalStatus',
+            'legalstatus',
             'toxicity',
-            'toxicityLD50',
+            'toxicityld50',
           ].map(key => {
             const raw = (herb as any)[key]
             if (!raw) return null
@@ -114,9 +115,9 @@ export default function HerbDetail() {
               ))}
             </div>
           )}
-          {herb.affiliateLink && herb.affiliateLink.startsWith('http') && (
+          {herb.affiliatelink && herb.affiliatelink.startsWith('http') && (
             <a
-              href={herb.affiliateLink}
+              href={herb.affiliatelink}
               target='_blank'
               rel='noopener noreferrer'
               className='text-sky-300 underline'
@@ -124,9 +125,9 @@ export default function HerbDetail() {
               Buy Online
             </a>
           )}
-          {Array.isArray(herb.tags) && (
+          {splitField(herb.tags).length > 0 && (
             <div className='flex flex-wrap gap-2 pt-2'>
-              {herb.tags.map(tag => (
+              {splitField(herb.tags).map(tag => (
                 <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
               ))}
             </div>
@@ -167,9 +168,9 @@ export default function HerbDetail() {
           <p className='mt-2'>{summary}</p>
         </details>
       </motion.div>
-      {herb.affiliateLink && herb.affiliateLink.startsWith('http') && (
+      {herb.affiliatelink && herb.affiliatelink.startsWith('http') && (
         <a
-          href={herb.affiliateLink}
+          href={herb.affiliatelink}
           target='_blank'
           rel='noopener noreferrer'
           className='fixed bottom-4 right-4 z-20 rounded-full bg-gradient-to-r from-violet-600 to-sky-600 px-4 py-3 text-white shadow-lg hover:shadow-xl'

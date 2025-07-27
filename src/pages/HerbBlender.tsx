@@ -6,6 +6,7 @@ import HerbCardAccordion from '../components/HerbCardAccordion'
 import TagBadge from '../components/TagBadge'
 import { useHerbs } from '../hooks/useHerbs'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import { herbName, splitField } from '../utils/herb'
 
 export default function HerbBlender() {
   const herbs = useHerbs()
@@ -15,7 +16,7 @@ export default function HerbBlender() {
 
   const addHerb = () => {
     const h = herbs.find(
-      x => x.name.toLowerCase() === input.toLowerCase() || x.id === input
+      x => herbName(x).toLowerCase() === input.toLowerCase() || x.id === input
     )
     if (h && !selected.includes(h.id) && selected.length < 5) {
       setSelected(s => [...s, h.id])
@@ -46,12 +47,12 @@ export default function HerbBlender() {
   const combinedEffects = React.useMemo(
     () =>
       Array.from(
-        new Set(selectedHerbs.flatMap(h => h.effects || []))
+        new Set(selectedHerbs.flatMap(h => splitField(h.effects)))
       ),
     [selectedHerbs]
   )
   const combinedTags = React.useMemo(
-    () => Array.from(new Set(selectedHerbs.flatMap(h => h.tags || []))),
+    () => Array.from(new Set(selectedHerbs.flatMap(h => splitField(h.tags)))),
     [selectedHerbs]
   )
   const categories = React.useMemo(
@@ -91,7 +92,7 @@ export default function HerbBlender() {
           />
           <datalist id='herb-list'>
             {herbs.map(h => (
-              <option key={h.id} value={h.name} />
+              <option key={h.id} value={herbName(h)} />
             ))}
           </datalist>
           <button
@@ -124,7 +125,7 @@ export default function HerbBlender() {
               onClick={() => removeHerb(h.id)}
               className='tag-pill ring-2 ring-emerald-400'
             >
-              {h.name}
+              {herbName(h)}
             </button>
           ))}
         </div>

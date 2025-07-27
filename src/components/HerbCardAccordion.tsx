@@ -10,6 +10,7 @@ import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { Star } from 'lucide-react'
 import { slugify } from '../utils/slugify'
 import { herbBlurbs } from '../data/herbs/blurbs'
+import { herbName, splitField } from '../utils/herb'
 
 interface Props {
   herb: Herb
@@ -31,8 +32,8 @@ export default function HerbCardAccordion({ herb }: Props) {
       }
     }
   }, [expanded])
-  const safeTags = Array.isArray(herb.tags) ? herb.tags : []
-  const safeEffects = Array.isArray(herb.effects) ? herb.effects : []
+  const safeTags = splitField(herb.tags)
+  const safeEffects = splitField(herb.effects)
   const safeCompounds = Array.isArray((herb as any).compounds) ? (herb as any).compounds : []
   const favorite = isFavorite(herb.id)
 
@@ -63,7 +64,7 @@ export default function HerbCardAccordion({ herb }: Props) {
           toggleExpanded()
         }
       }}
-      id={slugify(herb.name)}
+      id={slugify(herbName(herb))}
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
@@ -87,13 +88,13 @@ export default function HerbCardAccordion({ herb }: Props) {
       </button>
       <div className='flex items-center gap-2'>
         <span className='text-xl font-bold text-lime-600 transition group-hover:text-lime-700 group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)] dark:text-lime-300 dark:group-hover:text-lime-200'>
-          {herb.name || 'Unknown Herb'}
+          {herbName(herb) || 'Unknown Herb'}
         </span>
       </div>
-      <p className='text-sm italic text-gray-700 dark:text-gray-300 transition-colors duration-300'>{herb.scientificName || 'Unknown species'}</p>
-      {!expanded && herbBlurbs[herb.name] && (
+      <p className='text-sm italic text-gray-700 dark:text-gray-300 transition-colors duration-300'>{herb.scientificname || 'Unknown species'}</p>
+      {!expanded && herbBlurbs[herbName(herb)] && (
         <p className='mt-1 text-sm italic text-gray-800 dark:text-gray-100 transition-colors duration-300'>
-          {herbBlurbs[herb.name]}
+          {herbBlurbs[herbName(herb)]}
         </p>
       )}
 
@@ -104,7 +105,7 @@ export default function HerbCardAccordion({ herb }: Props) {
           </div>
 
           <div className='mt-2 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300'>
-            <strong>Description:</strong> {herb.description || herbBlurbs[herb.name] || ''}
+            <strong>Description:</strong> {herb.description || herbBlurbs[herbName(herb)] || ''}
           </div>
         </>
       )}

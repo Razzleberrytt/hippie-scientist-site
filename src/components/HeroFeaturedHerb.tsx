@@ -6,6 +6,7 @@ import type { Herb } from '../types'
 import TagBadge from './TagBadge'
 import { slugify } from '../utils/slugify'
 import { decodeTag, tagVariant } from '../utils/format'
+import { herbName, splitField } from '../utils/herb'
 
 interface Props {
   fixedId?: string
@@ -33,7 +34,7 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
     )
   }
 
-  const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, 3) : []
+  const tags = splitField(herb.tags).slice(0, 3)
 
   return (
     <motion.div
@@ -47,9 +48,9 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
         className='bg-psychedelic-gradient/30 soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'
       >
         {herb.image && (
-          <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
+          <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
         )}
-        <h3 className='mt-3 font-herb text-2xl text-lime-300'>{herb.name}</h3>
+        <h3 className='mt-3 font-herb text-2xl text-lime-300'>{herbName(herb)}</h3>
         {tags.length > 0 && (
           <div className='mt-1 flex flex-wrap justify-center gap-1'>
             {tags.map(tag => (
@@ -63,14 +64,12 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
           </div>
         )}
         {(() => {
-          const effects = Array.isArray(herb.effects)
-            ? herb.effects.slice(0, 3).join(', ')
-            : herb.effects || ''
+          const effects = splitField(herb.effects).slice(0, 3).join(', ')
           return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
         })()}
         <motion.div whileTap={{ scale: 0.95 }}>
           <Link
-            to={`/herb/${herb.slug || herb.id || slugify(herb.name)}`}
+            to={`/herb/${herb.slug || herb.id || slugify(herbName(herb))}`}
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:bg-black/40'
           >
             More Info

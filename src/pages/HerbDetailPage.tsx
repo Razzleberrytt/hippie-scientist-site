@@ -10,10 +10,10 @@ export default function HerbDetailPage() {
   const { herbId } = useParams();
 
   const herb = herbs.find(h =>
-    h.slug === herbId || h.name?.toLowerCase().replace(/\s+/g, '-') === herbId
+    h.slug === herbId || h.nameNorm?.toLowerCase().replace(/\s+/g, '-') === herbId
   );
 
-  const isValid = herb && typeof herb === 'object' && herb.name;
+  const isValid = herb && typeof herb === 'object';
 
   return (
     <div className="p-4 max-w-3xl mx-auto">
