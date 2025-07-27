@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { herbs } from '../data/herbs/herbsfull'
 import HerbCardAccordion from '../components/HerbCardAccordion'
-import { ErrorBoundary } from '../components/ErrorBoundary'
+import ErrorBoundary from '../components/ErrorBoundary'
 import { slugify } from '../utils/slugify'
 
 export default function HerbCardPage() {
