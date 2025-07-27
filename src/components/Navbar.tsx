@@ -1,94 +1,17 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Atom } from 'lucide-react'
-import ThemeToggle from './ThemeToggle'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const location = useLocation()
-
-  const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/learn', label: 'Learn' },
-    { path: '/database', label: 'Database' },
-    { path: '/blend', label: 'Build a Blend' },
-    { path: '/favorites', label: 'Favorites' },
-    { path: '/about', label: 'About' },
-  ]
-
-  const isActive = (path: string) =>
-    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
-
   return (
-    <nav className='fixed left-0 right-0 top-0 z-50 bg-space-dark/70 backdrop-blur'>
-      <div className='mx-auto flex h-16 max-w-7xl items-center justify-between px-4'>
-        <Link to='/' className='flex items-center space-x-2'>
-          <Atom className='drop-shadow-glow h-8 w-8 text-lichen' aria-hidden='true' />
-          <span className='text-gradient text-xl font-bold'>Hippie Scientist</span>
-        </Link>
-
-        <div className='flex items-center md:hidden'>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className='p-2'
-            aria-label='Toggle navigation menu'
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-
-        <ul className='hidden items-center space-x-6 md:flex'>
-          {navItems.map(({ path, label }) => (
-            <li key={path}>
-              <Link
-                to={path}
-                className={`rounded-md px-3 py-2 text-sm font-medium transition-shadow ${
-                  isActive(path)
-                    ? 'bg-cosmic-forest text-white shadow-glow'
-                    : 'text-gray-300 hover:shadow-glow'
-                }`}
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <ThemeToggle />
-          </li>
-        </ul>
-      </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.ul
-            initial={{ height: 0 }}
-            animate={{ height: 'auto' }}
-            exit={{ height: 0 }}
-            className='flex flex-col space-y-2 overflow-hidden bg-space-dark/90 px-4 py-4 md:hidden'
-          >
-            {navItems.map(({ path, label }) => (
-              <li key={path}>
-                <Link
-                  to={path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block rounded-md px-4 py-2 text-base font-medium transition-shadow ${
-                    isActive(path)
-                      ? 'bg-cosmic-forest text-white shadow-glow'
-                      : 'text-gray-300 hover:shadow-glow'
-                  }`}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-            <li className='flex justify-center'>
-              <ThemeToggle />
-            </li>
-          </motion.ul>
-        )}
-      </AnimatePresence>
+    <nav className="navbar">
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/database">Database</Link></li>
+        <li><Link to="/blend">Build a Blend</Link></li>
+        <li><Link to="/favorites">Favorites</Link></li>
+        <li><Link to="/about">About</Link></li>
+        {/* Add more navigation links as needed */}
+      </ul>
     </nav>
-  )
+  );
 }
