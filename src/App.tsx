@@ -7,11 +7,13 @@ import Favorites from './pages/Favorites';
 import HerbBlender from './pages/HerbBlender';
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
+import { RedirectHandler } from './RedirectHandler';
 // Import other pages as needed
 
 export default function App() {
   return (
     <>
+      <RedirectHandler />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
