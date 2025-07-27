@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import { ThemeProvider } from './contexts/theme';
 import ErrorBoundary from './components/ErrorBoundary';
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
