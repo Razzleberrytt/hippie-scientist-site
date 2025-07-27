@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { herbs } from '../data/herbs/herbsfull'
 import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'
+import { herbName, splitField } from '../utils/herb'
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -62,14 +63,14 @@ export default function RotatingHerbCard() {
           style={{ position: 'absolute', top: 0, left: 0 }}
         >
           {herb.image && (
-            <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
+            <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
           )}
           <h3
             className={`mt-3 font-herb ${
-              herb.name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
+              herbName(herb).length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
             }`}
           >
-            {herb.name}
+            {herbName(herb)}
           </h3>
           {(() => {
             const effects = Array.isArray(herb.effects)
@@ -83,7 +84,7 @@ export default function RotatingHerbCard() {
             to={
               herb.slug
                 ? `/herb/${herb.slug}`
-                : `/database#${slugify(herb.name)}`
+                : `/database#${slugify(herbName(herb))}`
             }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >
@@ -114,10 +115,10 @@ export default function RotatingHerbCard() {
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key={herb.id}
-          aria-label={`Herb preview: ${herb.name}${(() => {
-            const eff = Array.isArray(herb.effects)
-              ? herb.effects.slice(0, 2).join(', ')
-              : (herb.effects || '')
+          aria-label={`Herb preview: ${herbName(herb)}${(() => {
+            const eff = splitField(herb.effects)
+              .slice(0, 2)
+              .join(', ')
             return eff ? ` – ${eff}` : ''
           })()}`}
           className='glass-card hover-glow inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
@@ -130,19 +131,17 @@ export default function RotatingHerbCard() {
           whileTap={{ scale: 0.98 }}
         >
           {herb.image && (
-            <img src={herb.image} alt={herb.name} className='h-32 w-full rounded-md object-cover' />
+            <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
           )}
           <h3
             className={`mt-3 font-herb ${
-              herb.name.length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
+              herbName(herb).length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
             }`}
           >
-            {herb.name}
+            {herbName(herb)}
           </h3>
           {(() => {
-            const effects = Array.isArray(herb.effects)
-              ? herb.effects.slice(0, 3).join(', ')
-              : (herb.effects || '')
+            const effects = splitField(herb.effects).slice(0, 3).join(', ')
             return effects ? (
               <p className='mt-1 text-sm text-sand'>{effects}</p>
             ) : null
@@ -151,7 +150,7 @@ export default function RotatingHerbCard() {
             to={
               herb.slug
                 ? `/herb/${herb.slug}`
-                : `/database#${slugify(herb.name)}`
+                : `/database#${slugify(herbName(herb))}`
             }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >

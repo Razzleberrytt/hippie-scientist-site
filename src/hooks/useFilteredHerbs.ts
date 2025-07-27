@@ -2,6 +2,7 @@ import React from 'react'
 import Fuse from 'fuse.js'
 import type { Herb } from '../types'
 import { canonicalTag } from '../utils/tagUtils'
+import { herbName, splitField } from '../utils/herb'
 
 interface Options {
   favorites?: string[]
@@ -28,14 +29,14 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const blendScore = React.useCallback((h: Herb) => {
     const inDesc = h.description?.toLowerCase().includes('blend') || false
     const inPrep = h.preparation?.toLowerCase().includes('blend') || false
-    const inTags = h.tags?.some(t => t.toLowerCase().includes('blend')) || false
+    const inTags = splitField(h.tags).some(t => t.toLowerCase().includes('blend'))
     return [inDesc, inPrep, inTags].filter(Boolean).length
   }, [])
 
   const fuse = React.useMemo(
     () =>
       new Fuse(herbs, {
-        keys: ['name', 'altNames', 'scientificName', 'effects', 'tags'],
+        keys: ['nameNorm', 'commonnames', 'scientificname', 'effects', 'tags'],
         threshold: 0.4,
         includeMatches: true,
         isCaseSensitive: false,
@@ -51,15 +52,16 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
       res = fuse.search(q).map(r => r.item)
     }
     if (tags.length) {
-      res = res.filter(h =>
-        matchAll
+      res = res.filter(h => {
+        const herbTags = splitField(h.tags)
+        return matchAll
           ? tags.every(t =>
-              h.tags.some(ht => canonicalTag(ht) === canonicalTag(t))
+              herbTags.some(ht => canonicalTag(ht) === canonicalTag(t))
             )
           : tags.some(t =>
-              h.tags.some(ht => canonicalTag(ht) === canonicalTag(t))
+              herbTags.some(ht => canonicalTag(ht) === canonicalTag(t))
             )
-      )
+      })
     }
     if (categories.length) {
       res = res.filter(h => categories.includes(metaCategory(h.category)))
@@ -68,7 +70,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
       res = res.filter(h => favorites.includes(h.id))
     }
     if (sort === 'name') {
-      res = [...res].sort((a, b) => a.name.localeCompare(b.name))
+      res = [...res].sort((a, b) => herbName(a).localeCompare(herbName(b)))
     } else if (sort === 'category') {
       res = [...res].sort((a, b) => a.category.localeCompare(b.category))
     } else if (sort === 'intensity') {

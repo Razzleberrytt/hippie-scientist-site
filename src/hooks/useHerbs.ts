@@ -1,6 +1,7 @@
-import React from 'react';
-import type { Herb } from '../types';
-import { herbs } from '../data/herbs/herbsfull'; // Import full herb list here
+import React from 'react'
+import type { Herb } from '../types'
+import { herbs } from '../data/herbs/herbsfull'
+import { herbName } from '../utils/herb'
 
 export function useHerbs(): Herb[] {
   const [herbList] = React.useState<Herb[]>(() => {
@@ -17,14 +18,15 @@ export function useHerbs(): Herb[] {
     if (!import.meta.env.DEV) return;
 
     herbs.forEach(h => {
-      const missing: string[] = [];
-      if (!h.affiliateLink) missing.push('affiliateLink');
-      if (!h.activeConstituents?.length) missing.push('activeConstituents');
-      if (!h.mechanismOfAction) missing.push('mechanismOfAction');
+      const missing: string[] = []
+      if (!h.affiliatelink) missing.push('affiliatelink')
+      if (!(Array.isArray(h.activeconstituents) && h.activeconstituents.length))
+        missing.push('activeconstituents')
+      if (!h.mechanismofaction) missing.push('mechanismofaction')
       if (missing.length) {
-        console.warn(`${h.name} missing: ${missing.join(', ')}`);
+        console.warn(`${herbName(h)} missing: ${missing.join(', ')}`)
       }
-    });
+    })
   }, []);
 
   return herbList;

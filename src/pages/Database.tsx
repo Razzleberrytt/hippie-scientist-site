@@ -13,6 +13,7 @@ import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import SearchBar from '../components/SearchBar'
+import { splitField } from '../utils/herb'
 import { Download, LayoutGrid, List } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
@@ -69,15 +70,17 @@ export default function Database() {
   }, [])
 
   const allTags = React.useMemo(() => {
-    const t = herbs.reduce<string[]>((acc, h) => acc.concat(h.tags), [])
+    const t = herbs.reduce<string[]>((acc, h) => acc.concat(splitField(h.tags)), [])
     return Array.from(new Set(t.map(canonicalTag)))
   }, [herbs])
 
   const summary = React.useMemo(() => {
     const affiliates = herbs.filter(
-      h => h.affiliateLink && h.affiliateLink.startsWith('http')
+      h => typeof h.affiliatelink === 'string' && h.affiliatelink.startsWith('http')
     ).length
-    const moaCount = herbs.filter(h => h.mechanismOfAction && h.mechanismOfAction.trim()).length
+    const moaCount = herbs.filter(
+      h => h.mechanismofaction && h.mechanismofaction.trim()
+    ).length
     return { total: herbs.length, affiliates, moaCount }
   }, [herbs])
 
@@ -118,8 +121,9 @@ export default function Database() {
     if (filteredTags.length === 0) return [] as string[]
     const counts: Record<string, number> = {}
     herbs.forEach(h => {
-      if (filteredTags.every(t => h.tags.some(ht => canonicalTag(ht) === canonicalTag(t)))) {
-        h.tags.forEach(t => {
+      const herbTags = splitField(h.tags)
+      if (filteredTags.every(t => herbTags.some(ht => canonicalTag(ht) === canonicalTag(t)))) {
+        herbTags.forEach(t => {
           const canon = canonicalTag(t)
           if (!filteredTags.some(ft => canonicalTag(ft) === canon)) {
             counts[canon] = (counts[canon] || 0) + 1

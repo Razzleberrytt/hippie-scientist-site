@@ -7,6 +7,7 @@ import TagBadge from '../components/TagBadge'
 import { decodeTag, tagVariant } from '../utils/format'
 import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import { herbName, splitField } from '../utils/herb'
 import TabContainer from '../components/TabContainer'
 
 export default function HerbDetailView() {
@@ -40,7 +41,7 @@ export default function HerbDetailView() {
   const overview = (
     <div className='space-y-2'>
       {(() => {
-        const eff = Array.isArray(herb.effects) ? herb.effects.join(', ') : herb.effects || ''
+        const eff = splitField(herb.effects).join(', ')
         return eff ? (
           <div>
             <span className='font-semibold text-lime-600 dark:text-lime-300'>Effects:</span> {eff}
@@ -57,9 +58,9 @@ export default function HerbDetailView() {
             <span className='font-semibold text-lime-600 dark:text-lime-300'>History:</span> {(herb as any).history}
         </div>
       )}
-      {Array.isArray(herb.tags) && herb.tags.length > 0 && (
+      {splitField(herb.tags).length > 0 && (
         <div className='flex flex-wrap gap-2 pt-2'>
-          {herb.tags.map(tag => (
+          {splitField(herb.tags).map(tag => (
             <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
           ))}
         </div>
@@ -82,14 +83,14 @@ export default function HerbDetailView() {
           ))}
         </div>
       )}
-      {herb.mechanismOfAction && (
+      {herb.mechanismofaction && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Mechanism:</span> {herb.mechanismOfAction}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Mechanism:</span> {herb.mechanismofaction}
         </div>
       )}
-      {herb.toxicityLD50 && (
+      {herb.toxicityld50 && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>LD50:</span> {herb.toxicityLD50}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>LD50:</span> {herb.toxicityld50}
         </div>
       )}
     </div>
@@ -112,9 +113,9 @@ export default function HerbDetailView() {
             <span className='font-semibold text-lime-600 dark:text-lime-300'>Dosage:</span> {herb.dosage}
         </div>
       )}
-      {herb.affiliateLink && herb.affiliateLink.startsWith('http') ? (
+      {herb.affiliatelink && herb.affiliatelink.startsWith('http') ? (
         <a
-          href={herb.affiliateLink}
+          href={herb.affiliatelink}
           target='_blank'
           rel='noopener noreferrer'
           className='text-sky-300 underline'
@@ -150,13 +151,13 @@ export default function HerbDetailView() {
     { id: 'usage', label: 'Usage', content: usage },
   ]
 
-  const effectsSummary = Array.isArray(herb.effects) ? herb.effects.join(', ') : herb.effects || ''
-  const summary = `${herb.name} is classified as ${herb.category}. Known effects include ${effectsSummary}.`
+  const effectsSummary = splitField(herb.effects).join(', ')
+  const summary = `${herbName(herb)} is classified as ${herb.category}. Known effects include ${effectsSummary}.`
 
   return (
     <>
       <Helmet>
-        <title>{herb.name} - The Hippie Scientist</title>
+        <title>{herbName(herb)} - The Hippie Scientist</title>
         {herb.description && <meta name='description' content={herb.description} />}
       </Helmet>
       <motion.div
@@ -168,10 +169,10 @@ export default function HerbDetailView() {
           ← Back
         </Link>
         <h1 className='text-gradient flex items-center gap-2 text-4xl font-bold'>
-          <span>{herb.name}</span>
+          <span>{herbName(herb)}</span>
         </h1>
-        {herb.scientificName && (
-          <p className='italic text-gray-600'>{herb.scientificName}</p>
+        {herb.scientificname && (
+          <p className='italic text-gray-600'>{herb.scientificname}</p>
         )}
         <button
           type='button'

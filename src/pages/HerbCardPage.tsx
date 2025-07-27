@@ -10,13 +10,13 @@ export default function HerbCardPage() {
   const id = herbId?.toLowerCase() || ''
   const herb = React.useMemo(() => {
     return herbs.find(h => {
-      const nameSlug = h.name?.toLowerCase().replaceAll(' ', '-')
+      const nameSlug = h.nameNorm?.toLowerCase().replaceAll(' ', '-')
       const slug = (h as any).slug?.toLowerCase()
       return (
         h.id?.toLowerCase() === id ||
         slug === id ||
         nameSlug === id ||
-        slugify(h.name).toLowerCase() === id
+        slugify(h.nameNorm || h.id).toLowerCase() === id
       )
     })
   }, [id])
@@ -31,7 +31,7 @@ export default function HerbCardPage() {
   )
 
   const content =
-    herb && typeof herb === 'object' && herb.name ? (
+    herb && typeof herb === 'object' ? (
       <ErrorBoundary fallback={notFound}>
         <HerbCardAccordion herb={herb} />
       </ErrorBoundary>
