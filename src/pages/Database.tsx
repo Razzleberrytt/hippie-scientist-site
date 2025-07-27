@@ -19,10 +19,19 @@ import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
 import ErrorBoundary from '../components/ErrorBoundary'
 
+// Debug toggles - set to false to disable components while isolating issues
+const SHOW_TAG_FILTER = false
+const SHOW_CATEGORY_ANALYTICS = true
+
 export default function Database() {
+  console.log('Rendering Database page')
+
   const herbs = useHerbs()
   const { favorites } = useHerbFavorites()
-  const buildTime = typeof __BUILD_TIME__ === 'string' ? __BUILD_TIME__ : new Date().toISOString()
+  const buildTime =
+    typeof __BUILD_TIME__ !== 'undefined' && typeof __BUILD_TIME__ === 'string'
+      ? __BUILD_TIME__
+      : new Date().toISOString()
   const {
     filtered,
     query,
@@ -165,6 +174,7 @@ export default function Database() {
               animate={{ y: showBar ? 0 : -60, opacity: showBar ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             >
+              {console.log('Render SearchBar')}
               <SearchBar query={query} setQuery={setQuery} fuse={fuse} />
               <button
                 type='button'
@@ -216,8 +226,15 @@ export default function Database() {
             </motion.div>
 
             <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
+              {console.log('Render CategoryFilter')}
               <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />
-              <TagFilterBar allTags={allTags} activeTags={filteredTags} onToggleTag={toggleTag} />
+              {/* Debug: TagFilterBar disabled while investigating render issues */}
+              {SHOW_TAG_FILTER && (
+                <>
+                  {console.log('Render TagFilterBar')}
+                  <TagFilterBar allTags={allTags} activeTags={filteredTags} onToggleTag={toggleTag} />
+                </>
+              )}
             </div>
             {relatedTags.length > 0 && (
               <div className='mb-4 flex flex-wrap items-center gap-2'>
@@ -234,8 +251,18 @@ export default function Database() {
                 ))}
               </div>
             )}
-            <CategoryAnalytics />
-            <HerbList herbs={filtered} highlightQuery={query} view={viewMode} />
+            {SHOW_CATEGORY_ANALYTICS && (
+              <>
+                {console.log('Render CategoryAnalytics')}
+                <CategoryAnalytics />
+              </>
+            )}
+            {console.log('Render HerbList with', filtered.length, 'items')}
+            {filtered.length === 0 ? (
+              <p className='mt-4 text-center text-sand'>No herbs to display.</p>
+            ) : (
+              <HerbList herbs={filtered} highlightQuery={query} view={viewMode} />
+            )}
             <footer className='mt-4 text-center text-sm text-moss'>
               Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
               {summary.moaCount} · Updated: {new Date(buildTime).toLocaleDateString()}
