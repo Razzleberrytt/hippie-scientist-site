@@ -42,9 +42,10 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-7DFJL2FC6F');
+      gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true });
+      gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
     </script>
-    <script type="module" crossorigin src="/assets/main-98403ec4.js"></script>
+    <script type="module" crossorigin src="/assets/main-63a35234.js"></script>
     <link rel="stylesheet" href="/assets/index-2a64630b.css">
   <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
   <body>
