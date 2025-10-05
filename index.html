@@ -42,7 +42,8 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-7DFJL2FC6F');
+      gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true });
+      gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
     </script>
   </head>
   <body>
