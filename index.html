@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="The Hippie Scientist RSS"
+      href="/feed.xml"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -36,6 +42,25 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@400;700&family=Unbounded:wght@400;700&family=Major+Mono+Display&display=swap"
       rel="stylesheet"
     />
+    <style>
+      .site-entry-nav {
+        text-align: center;
+        margin: 2rem auto;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 0.95rem;
+        color: #202020;
+      }
+      .site-entry-nav nav {
+        margin-bottom: 0.5rem;
+      }
+      .site-entry-nav a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .site-entry-nav a:hover {
+        text-decoration: underline;
+      }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DFJL2FC6F"></script>
     <script>
@@ -48,6 +73,17 @@
   </head>
   <body>
     <div id="root"></div>
+    <footer class="site-entry-nav">
+      <nav>
+        <a href="/herb-index">Herb Index</a> ·
+        <a href="/blog/">Blog</a> ·
+        <a href="/about">About</a> ·
+        <a href="/disclaimer">Disclaimer</a> ·
+        <a href="/privacy-policy">Privacy</a> ·
+        <a href="/contact">Contact</a>
+      </nav>
+      <small>© 2025 The Hippie Scientist</small>
+    </footer>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
