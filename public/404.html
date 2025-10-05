@@ -2,6 +2,15 @@
 <html>
   <head>
     <meta http-equiv="refresh" content="0; url=./" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DFJL2FC6F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true });
+      gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
+    </script>
     <script>
       // Save the original path for the SPA
       const target =
