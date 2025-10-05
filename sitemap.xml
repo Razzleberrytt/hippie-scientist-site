@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://thehippiescientist.net/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/herb-index</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url><loc>https://thehippiescientist.net/about</loc></url>
+  <url><loc>https://thehippiescientist.net/disclaimer</loc></url>
+  <url><loc>https://thehippiescientist.net/privacy-policy</loc></url>
+  <url><loc>https://thehippiescientist.net/contact</loc></url>
+</urlset>
