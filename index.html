@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="The Hippie Scientist RSS"
+      href="data:application/xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHJzcyB2ZXJzaW9uPSIyLjAiPgogIDxjaGFubmVsPgogICAgPHRpdGxlPlRoZSBIaXBwaWUgU2NpZW50aXN0PC90aXRsZT4KICAgIDxsaW5rPmh0dHBzOi8vdGhlaGlwcGllc2NpZW50aXN0Lm5ldC88L2xpbms+CiAgICA8ZGVzY3JpcHRpb24+SW5kZXBlbmRlbnQgcmVzZWFyY2ggb24gcHN5Y2hvYWN0aXZlIGhlcmJzLCBlbnRoZW9nZW5zLCBhbmQgbmF0dXJhbCBuZXVyb2NoZW1pc3RyeS48L2Rlc2NyaXB0aW9uPgogICAgPGxhbmd1YWdlPmVuPC9sYW5ndWFnZT4KICAgIDxsYXN0QnVpbGREYXRlPlN1biwgMDUgT2N0IDIwMjUgMTk6NTc6MzIgKzAwMDA8L2xhc3RCdWlsZERhdGU+CiAgICA8aXRlbT4KICAgICAgPHRpdGxlPldoYXQgSXMgYSBQc3ljaG9hY3RpdmUgSGVyYj88L3RpdGxlPgogICAgICA8bGluaz5odHRwczovL3RoZWhpcHBpZXNjaWVudGlzdC5uZXQvYmxvZy93aGF0LWlzLWEtcHN5Y2hvYWN0aXZlLWhlcmIvPC9saW5rPgogICAgICA8Z3VpZD5odHRwczovL3RoZWhpcHBpZXNjaWVudGlzdC5uZXQvYmxvZy93aGF0LWlzLWEtcHN5Y2hvYWN0aXZlLWhlcmIvPC9ndWlkPgogICAgICA8ZGVzY3JpcHRpb24+RGVmaW5lIHBzeWNob2FjdGl2ZSBoZXJicywgZXhwbG9yZSBob3cgcGxhbnQgY29tcG91bmRzIGludGVyYWN0IHdpdGggaHVtYW4gbmV1cm9jaGVtaXN0cnksIGFuZCBsZWFybiBob3cgdG8gYXBwcm9hY2ggdGhlbSByZXNwb25zaWJseS48L2Rlc2NyaXB0aW9uPgogICAgICA8cHViRGF0ZT5XZWQsIDE1IEphbiAyMDI1IDAwOjAwOjAwICswMDAwPC9wdWJEYXRlPgogICAgPC9pdGVtPgogICAgPGl0ZW0+CiAgICAgIDx0aXRsZT5Ib3cgdG8gUmVhZCBIZXJiYWwgUmVzZWFyY2g8L3RpdGxlPgogICAgICA8bGluaz5odHRwczovL3RoZWhpcHBpZXNjaWVudGlzdC5uZXQvYmxvZy9ob3ctdG8tcmVhZC1oZXJiYWwtcmVzZWFyY2gvPC9saW5rPgogICAgICA8Z3VpZD5odHRwczovL3RoZWhpcHBpZXNjaWVudGlzdC5uZXQvYmxvZy9ob3ctdG8tcmVhZC1oZXJiYWwtcmVzZWFyY2gvPC9ndWlkPgogICAgICA8ZGVzY3JpcHRpb24+U3RlcC1ieS1zdGVwIHdhbGt0aHJvdWdoIGZvciBldmFsdWF0aW5nIGhlcmJhbCByZXNlYXJjaCBwYXBlcnMsIHVuZGVyc3RhbmRpbmcgc3R1ZHkgZGVzaWduLCBhbmQgdHJhbnNsYXRpbmcgZmluZGluZ3MgaW50byBzYWZlIHByYWN0aWNlLjwvZGVzY3JpcHRpb24+CiAgICAgIDxwdWJEYXRlPldlZCwgMjIgSmFuIDIwMjUgMDA6MDA6MDAgKzAwMDA8L3B1YkRhdGU+CiAgICA8L2l0ZW0+CiAgPC9jaGFubmVsPgo8L3Jzcz4K"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -36,6 +42,25 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@400;700&family=Unbounded:wght@400;700&family=Major+Mono+Display&display=swap"
       rel="stylesheet"
     />
+    <style>
+      .site-entry-nav {
+        text-align: center;
+        margin: 2rem auto;
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 0.95rem;
+        color: #202020;
+      }
+      .site-entry-nav nav {
+        margin-bottom: 0.5rem;
+      }
+      .site-entry-nav a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .site-entry-nav a:hover {
+        text-decoration: underline;
+      }
+    </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DFJL2FC6F"></script>
     <script>
@@ -45,11 +70,22 @@
       gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true });
       gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
     </script>
-    <script type="module" crossorigin src="/assets/main-a62d031f.js"></script>
+    <script type="module" crossorigin src="/assets/main-962b652d.js"></script>
     <link rel="stylesheet" href="/assets/index-2a64630b.css">
   <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
+    <footer class="site-entry-nav">
+      <nav>
+        <a href="/herb-index">Herb Index</a> ·
+        <a href="/blog/">Blog</a> ·
+        <a href="/about">About</a> ·
+        <a href="/disclaimer">Disclaimer</a> ·
+        <a href="/privacy-policy">Privacy</a> ·
+        <a href="/contact">Contact</a>
+      </nav>
+      <small>© 2025 The Hippie Scientist</small>
+    </footer>
     
   </body>
 </html>
