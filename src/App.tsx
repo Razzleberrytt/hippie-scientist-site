@@ -8,9 +8,13 @@ import HerbBlender from './pages/HerbBlender';
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import { RedirectHandler } from './RedirectHandler';
+import { useGA } from './lib/useGA';
+import HerbIndex from './pages/HerbIndex';
+import HerbDetail from './pages/HerbDetail';
 // Import other pages as needed
 
 export default function App() {
+  useGA();
   return (
     <>
       <RedirectHandler />
@@ -22,6 +26,8 @@ export default function App() {
         <Route path="/blend" element={<HerbBlender />} />
         <Route path="/favorites" element={<Favorites />} />
         {/* Add other routes here */}
+        <Route path="/herb-index" element={<HerbIndex />} />
+        <Route path="/herb/:slug" element={<HerbDetail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

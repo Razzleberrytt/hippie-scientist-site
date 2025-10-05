@@ -1,183 +1,25 @@
-import React from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Helmet } from 'react-helmet-async'
-import { herbs } from '../data/herbs/herbsfull'
-import { decodeTag, tagVariant } from '../utils/format'
-import TagBadge from '../components/TagBadge'
-import CompoundBadge from '../components/CompoundBadge'
-import { slugify } from '../utils/slugify'
-import { useLocalStorage } from '../hooks/useLocalStorage'
-import { herbName, splitField } from '../utils/herb'
-
-function findSimilar(current: any) {
-  const scores = herbs.map(h => {
-    if (h.id === current.id) return { h, score: -1 }
-    let score = 0
-    const tags = new Set(splitField(h.tags))
-    const effects = new Set(splitField(h.effects))
-    splitField(current.tags).forEach(t => {
-      if (tags.has(t)) score += 2
-    })
-    splitField(current.effects).forEach(e => {
-      if (effects.has(e)) score += 1
-    })
-    if (
-      current.mechanismofaction &&
-      h.mechanismofaction &&
-      current.mechanismofaction === h.mechanismofaction
-    )
-      score += 2
-    return { h, score }
-  })
-  return scores
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 5)
-    .filter(x => x.score > 0)
-    .map(x => x.h)
-}
-
+import React, { useMemo } from "react";
+import { useParams, Link } from "react-router-dom";
+import { SEED_HERBS } from "../data/seedHerbs";
+import { slugify } from "../lib/slug";
 export default function HerbDetail() {
-  const { id } = useParams<{ id: string }>()
-  const herb = herbs.find(h => h.id === id)
-  const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
-  const [showSimilar, setShowSimilar] = React.useState(false)
-  const safeCompounds = Array.isArray((herb as any)?.compounds)
-    ? ((herb as any).compounds as string[])
-    : []
-  if (!herb) {
-    return (
-      <div className='p-6 text-center'>
-        <p>Herb not found.</p>
-        <Link to='/database' className='text-comet underline'>
-          Back to database
-        </Link>
-      </div>
-    )
-  }
-  const similar = React.useMemo(() => findSimilar(herb), [herb])
-  const summary = `${herbName(herb)} is classified as ${herb.category}. Known effects include ${splitField(herb.effects).join(', ')}.`
+  const { slug } = useParams();
+  const herb = useMemo(() => SEED_HERBS.find(h => slugify(h.commonName) === slug), [slug]);
+  if (!herb) return <main className="mx-auto max-w-3xl px-4 py-8"><h1>Not found</h1><p><Link className="underline" to="/herb-index">← Back</Link></p></main>;
   return (
-    <>
-      <Helmet>
-        <title>{herbName(herb)} - The Hippie Scientist</title>
-        {herb.description && (
-          <meta name='description' content={herb.description} />
-        )}
-      </Helmet>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className='mx-auto max-w-3xl space-y-6 px-6 py-12'
-      >
-        <Link to='/database' className='text-comet underline'>
-          ← Back
-        </Link>
-        <h1 className='text-gradient text-4xl font-bold'>{herbName(herb)}</h1>
-        {herb.scientificname && (
-          <p className='italic text-gray-600'>{herb.scientificname}</p>
-        )}
-        <div className='space-y-2'>
-          {[
-            'description',
-            'mechanismofaction',
-            'therapeuticuses',
-            'sideeffects',
-            'contraindications',
-            'druginteractions',
-            'preparation',
-            'dosage',
-            'pharmacokinetics',
-            'onset',
-            'duration',
-            'intensity',
-            'region',
-            'legalstatus',
-            'toxicity',
-            'toxicityld50',
-          ].map(key => {
-            const raw = (herb as any)[key]
-            if (!raw) return null
-            return (
-              <div key={key}>
-                <span className='font-semibold text-lime-600 dark:text-lime-300'>
-                  {key.replace(/([A-Z])/g, ' $1')}:
-                </span>{' '}
-                {raw}
-              </div>
-            )
-          })}
-          {safeCompounds.length > 0 && (
-            <div className='flex flex-wrap items-center gap-1'>
-              <span className='font-semibold text-lime-600 dark:text-lime-300 w-full'>Active Compounds:</span>
-              {safeCompounds.map(c => (
-                <CompoundBadge key={c} name={c} />
-              ))}
-            </div>
-          )}
-          {herb.affiliatelink && herb.affiliatelink.startsWith('http') && (
-            <a
-              href={herb.affiliatelink}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-sky-300 underline'
-            >
-              Buy Online
-            </a>
-          )}
-          {splitField(herb.tags).length > 0 && (
-            <div className='flex flex-wrap gap-2 pt-2'>
-              {splitField(herb.tags).map(tag => (
-                <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
-              ))}
-            </div>
-          )}
-        </div>
-        <button
-          type='button'
-          className='rounded-md bg-gradient-to-r from-violet-900 to-sky-900 px-3 py-2 text-white hover:opacity-90'
-          onClick={() => setShowSimilar(s => !s)}
-        >
-          🧠 Smart Explore
-        </button>
-        {showSimilar && similar.length > 0 && (
-          <div className='space-y-2'>
-            <h2 className='mt-4 text-2xl font-bold text-sky-300'>Similar Herbs</h2>
-            <ul className='list-inside list-disc'>
-              {similar.map(h => (
-                <li key={h.id}>
-                  <Link className='text-comet underline' to={`/herbs/${h.id}`}>
-                    {h.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <div>
-          <h2 className='text-2xl font-bold text-sky-300'>Your Notes</h2>
-          <textarea
-            value={notes}
-            onChange={e => setNotes(e.target.value)}
-            className='mt-2 w-full rounded-md bg-black/20 p-2 text-white'
-            rows={5}
-          />
-        </div>
-        <details className='rounded-md bg-slate-800/40 p-4'>
-          <summary className='cursor-pointer text-sky-300'>🧬 Summarize This Herb</summary>
-          <p className='mt-2'>{summary}</p>
-        </details>
-      </motion.div>
-      {herb.affiliatelink && herb.affiliatelink.startsWith('http') && (
-        <a
-          href={herb.affiliatelink}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='fixed bottom-4 right-4 z-20 rounded-full bg-gradient-to-r from-violet-600 to-sky-600 px-4 py-3 text-white shadow-lg hover:shadow-xl'
-        >
-          Buy Online
-        </a>
-      )}
-    </>
-  )
+    <main className="mx-auto max-w-3xl px-4 py-8">
+      <p><Link className="underline" to="/herb-index">← Back to Herb Index</Link></p>
+      <h1 className="mt-3 text-3xl font-bold">{herb.commonName} <span className="text-lg italic opacity-70">({herb.latinName})</span></h1>
+      {herb.mechanism && <section className="mt-6"><h2 className="text-xl font-semibold">Mechanism</h2><p className="mt-2">{herb.mechanism}</p></section>}
+      {herb.compounds && <section className="mt-6"><h2 className="text-xl font-semibold">Key Compounds</h2><ul className="list-disc pl-5 mt-2">{herb.compounds.map(c => <li key={c}>{c}</li>)}</ul></section>}
+      {herb.traditionalUses && <section className="mt-6"><h2 className="text-xl font-semibold">Traditional Uses</h2><p className="mt-2">{herb.traditionalUses}</p></section>}
+      {herb.safety && <section className="mt-6"><h2 className="text-xl font-semibold">Safety & Interactions</h2><p className="mt-2">{herb.safety}</p></section>}
+      {herb.legal && <section className="mt-6"><h2 className="text-xl font-semibold">Legal & Availability</h2><p className="mt-2">{herb.legal}</p></section>}
+      <section className="mt-6"><h2 className="text-xl font-semibold">Related</h2>
+        <p className="mt-2">
+          {herb.commonName === "Kanna" ? <Link className="underline" to="/herb/blue-lotus">Blue Lotus</Link> : <Link className="underline" to="/herb/kanna">Kanna</Link>}
+        </p>
+      </section>
+    </main>
+  );
 }
