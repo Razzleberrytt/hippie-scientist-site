@@ -1,7 +1,7 @@
 // src/pages/Database.tsx
 
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { motion } from 'framer-motion'
 import HerbList from '../components/HerbList'
 import TagFilterBar from '../components/TagFilterBar'
@@ -140,14 +140,11 @@ export default function Database() {
   return (
     <ErrorBoundary>
       <>
-        <Helmet>
-          <title>Database - The Hippie Scientist</title>
-          <meta
-            name='description'
-            content='Browse herbal entries and expand each to learn more about their effects and usage.'
-          />
-        </Helmet>
-
+        <SEO
+          title='Herb Database | The Hippie Scientist'
+          description='Browse psychoactive herb profiles with scientific and cultural context.'
+          canonical='https://thehippiescientist.net/database'
+        />
         <div className='relative min-h-screen px-4 pt-20'>
           <StarfieldBackground />
           <div className='relative mx-auto max-w-6xl'>

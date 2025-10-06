@@ -6,19 +6,21 @@ import NewsletterSignup from '../components/NewsletterSignup'
 
 export default function Home() {
   return (
-    <main
-      id='home'
-      aria-label='Site introduction'
-      className='bg-cosmic-forest animate-gradient relative min-h-screen overflow-hidden pt-16 text-midnight dark:bg-space-night dark:text-sand'
-    >
+    <>
       <SEO
-        title='The Hippie Scientist - Psychedelic Botany'
-        description='Explore visionary botanicals, cognitive enhancers and research insights.'
-        keywords={['psychedelics', 'herbs', 'consciousness']}
+        title='The Hippie Scientist — Mindful Exploration of Psychoactive Herbs'
+        description='Independent research on psychoactive herbs, entheogens, and natural neurochemistry.'
+        canonical='https://thehippiescientist.net/'
       />
-      <StarfieldBackground />
-      <Hero />
-      <NewsletterSignup />
-    </main>
+      <main
+        id='home'
+        aria-label='Site introduction'
+        className='bg-cosmic-forest animate-gradient relative min-h-screen overflow-hidden pt-16 text-midnight dark:bg-space-night dark:text-sand'
+      >
+        <StarfieldBackground />
+        <Hero />
+        <NewsletterSignup />
+      </main>
+    </>
   )
 }

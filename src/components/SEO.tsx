@@ -1,23 +1,24 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 
-interface SEOProps {
+type Props = {
   title: string
-  description: string
-  keywords?: string[]
-  jsonLd?: Record<string, unknown>
+  description?: string
+  canonical?: string
+  ogImage?: string
 }
 
-/**
- * Reusable component for injecting SEO meta tags and structured data.
- */
-export default function SEO({ title, description, keywords = [], jsonLd }: SEOProps) {
+export default function SEO({ title, description, canonical, ogImage = '/ogimage.jpg' }: Props) {
   return (
     <Helmet>
       <title>{title}</title>
-      <meta name='description' content={description} />
-      {keywords.length > 0 && <meta name='keywords' content={keywords.join(', ')} />}
-      {jsonLd && <script type='application/ld+json'>{JSON.stringify(jsonLd)}</script>}
+      {description && <meta name='description' content={description} />}
+      {canonical && <link rel='canonical' href={canonical} />}
+      <meta property='og:title' content={title} />
+      {description && <meta property='og:description' content={description} />}
+      <meta property='og:type' content='website' />
+      {canonical && <meta property='og:url' content={canonical} />}
+      <meta property='og:image' content={ogImage} />
     </Helmet>
   )
 }

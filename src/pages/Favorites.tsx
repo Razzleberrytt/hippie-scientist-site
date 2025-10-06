@@ -1,10 +1,10 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import HerbList from '../components/HerbList'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 
 export default function Favorites() {
   const herbs = useHerbs()
@@ -17,13 +17,11 @@ export default function Favorites() {
 
   return (
     <div className='relative min-h-screen px-4 pt-20'>
-      <Helmet>
-        <title>My Herbs - The Hippie Scientist</title>
-        <meta
-          name='description'
-          content='View herbs you have starred as favorites.'
-        />
-      </Helmet>
+      <SEO
+        title='Favorite Herbs | The Hippie Scientist'
+        description='Review the psychoactive herbs you have starred for quick reference.'
+        canonical='https://thehippiescientist.net/favorites'
+      />
       <div className='mx-auto max-w-6xl'>
         <div className='mb-4'>
           <Link to='/database' className='text-comet underline'>
