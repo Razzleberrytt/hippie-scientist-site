@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { Herb } from '../types'
 import { has, list, bullets, urlish } from '../lib/format'
+import { useFavorites } from '../lib/useFavorites'
 import { herbName, splitField } from '../utils/herb'
 
 interface Props {
@@ -16,11 +17,29 @@ export function DatabaseHerbCard({ herb }: Props) {
   const legalStatus = herb.legalstatus?.trim()
   const effectsList = splitField(herb.effects)
   const effectsText = list(effectsList)
+  const { favs, toggle, has } = useFavorites()
+  const isFavorite = has(herb.slug)
 
   return (
-    <article className='glassmorphic-card soft-border-glow relative flex h-full flex-col gap-2 p-4 text-sand'>
+    <article
+      className='glassmorphic-card soft-border-glow relative flex h-full flex-col gap-2 p-4 text-sand'
+      data-favorites-count={favs.length}
+    >
       <header>
-        <h2 className='text-xl font-semibold text-lime-300'>{title}</h2>
+        <div className='flex items-center'>
+          <h2 className='text-xl font-semibold text-lime-300'>{title}</h2>
+          <button
+            onClick={event => {
+              event.stopPropagation()
+              toggle(herb.slug)
+            }}
+            className={`ml-2 text-xl ${isFavorite ? 'text-yellow-400' : 'text-gray-400'}`}
+            title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            aria-pressed={isFavorite}
+          >
+            ★
+          </button>
+        </div>
         {has(scientific) && <p className='text-sm italic text-sand/70'>{scientific}</p>}
         {has(intensity) && (
           <p className='mt-1 inline-flex items-center rounded-full bg-white/10 px-2 py-1 text-xs uppercase tracking-wide text-sand/80'>
