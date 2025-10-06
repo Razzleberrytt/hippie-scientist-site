@@ -19,6 +19,16 @@ export default function Database() {
   const [category, setCategory] = useState('')
   const [legal, setLegal] = useState('')
   const [page, setPage] = useState(1)
+  const [selected, setSelected] = useState<string[]>([])
+  function toggleSelect(slug: string) {
+    setSelected(prev => {
+      const exists = prev.includes(slug)
+      if (exists) return prev.filter(s => s !== slug)
+      if (prev.length >= 3) return prev
+      return [...prev, slug]
+    })
+  }
+  const compareHref = selected.length ? `/compare?ids=${selected.join(',')}` : ''
   const pageSize = 30
 
   const categories = useMemo(
@@ -166,6 +176,30 @@ export default function Database() {
               </option>
             ))}
           </select>
+          <div className='flex items-center gap-2'>
+            <button
+              type='button'
+              disabled={!selected.length}
+              onClick={() => {
+                if (compareHref) {
+                  window.location.href = compareHref
+                }
+              }}
+              className={`rounded-md px-3 py-1 ${selected.length ? 'bg-gray-900 text-white' : 'cursor-not-allowed bg-gray-300 text-gray-600'}`}
+              title='Select up to 3 and compare'
+            >
+              Compare ({selected.length}/3)
+            </button>
+            {selected.length > 0 && (
+              <button
+                type='button'
+                onClick={() => setSelected([])}
+                className='rounded-md border px-2 py-1'
+              >
+                Clear
+              </button>
+            )}
+          </div>
         </div>
 
         <div className='mt-6 flex flex-wrap items-center justify-between gap-2 text-sm text-sand/70'>
@@ -192,7 +226,19 @@ export default function Database() {
         {paginated.length > 0 ? (
           <div className='mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
             {paginated.map(herb => (
-              <HerbCardAccordion key={herb.id} herb={herb} />
+              <div key={herb.id} className='space-y-2'>
+                <div className='flex justify-end'>
+                  <label className='flex items-center gap-2 text-xs text-sand/80'>
+                    <input
+                      type='checkbox'
+                      checked={selected.includes(herb.slug)}
+                      onChange={() => toggleSelect(herb.slug)}
+                    />
+                    Compare
+                  </label>
+                </div>
+                <HerbCardAccordion herb={herb} />
+              </div>
             ))}
           </div>
         ) : (
