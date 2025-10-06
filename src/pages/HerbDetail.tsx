@@ -181,14 +181,6 @@ export default function HerbDetail() {
             <p className='mt-3 text-sand/90'>{effectsText}</p>
           </section>
         )}
-
-        {has(mechanismText) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Mechanism</h2>
-            <p className='mt-3 text-sand/90'>{mechanismText}</p>
-          </section>
-        )}
-
         {has(compounds) && (
           <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Key Compounds</h2>
@@ -197,31 +189,6 @@ export default function HerbDetail() {
                 <li key={compound}>{compound}</li>
               ))}
             </ul>
-          </section>
-        )}
-
-        {has(preparations) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Preparations</h2>
-            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
-              {preparations.map(item => (
-                <li key={`prep-${item}`}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {has(dosageText) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Dosage</h2>
-            <p className='mt-3 text-sand/90'>{dosageText}</p>
-          </section>
-        )}
-
-        {has(therapeuticText) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Therapeutic Uses</h2>
-            <p className='mt-3 text-sand/90'>{therapeuticText}</p>
           </section>
         )}
 
@@ -247,21 +214,53 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {has(sideEffects) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Side Effects</h2>
-            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
+        {has(mechanismText) && (
+          <section className='mt-6'>
+            <h2 className='text-lg font-semibold'>Mechanism of Action</h2>
+            <p className='text-sm'>{mechanismText}</p>
+          </section>
+        )}
+
+        {preparations.length > 0 && (
+          <section className='mt-6'>
+            <h2 className='text-lg font-semibold'>Common Preparations</h2>
+            <ul className='list-disc pl-5 text-sm'>
+              {preparations.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {has(dosageText) && (
+          <section className='mt-6'>
+            <h2 className='text-lg font-semibold'>Dosage / Administration</h2>
+            <p className='text-sm'>{dosageText}</p>
+          </section>
+        )}
+
+        {has(therapeuticText) && (
+          <section className='mt-6'>
+            <h2 className='text-lg font-semibold'>Therapeutic / Traditional Uses</h2>
+            <p className='text-sm'>{therapeuticText}</p>
+          </section>
+        )}
+
+        {sideEffects.length > 0 && (
+          <section className='mt-6'>
+            <h2 className='text-lg font-semibold'>Side Effects</h2>
+            <ul className='list-disc pl-5 text-sm'>
               {sideEffects.map(item => (
-                <li key={`side-${item}`}>{item}</li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </section>
         )}
 
         {has(safetyText) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Safety</h2>
-            <p className='mt-3 text-sand/90'>{safetyText}</p>
+          <section className='mt-6'>
+            <h2 className='text-lg font-semibold'>Safety Notes</h2>
+            <p className='text-sm'>{safetyText}</p>
           </section>
         )}
 

@@ -91,16 +91,36 @@ const out = rows
       "mechanismofaction",
       "mechanism",
       "moa",
+      "mechanism_of_action",
+      "action",
     ]);
 
     const compounds = splitList(
       pick(r, ["compound", "compounds", "keycompounds", "actives", "constituents"])
     );
     const preparations = splitList(
-      pick(r, ["preparations", "preparation", "forms", "dosage_forms"])
+      pick(r, [
+        "preparations",
+        "preparation",
+        "method",
+        "forms",
+        "formulations",
+      ])
     );
-    const dosage = pick(r, ["dosage", "dose", "dosing"]);
-    const therapeutic = pick(r, ["therapeutic", "uses", "applications"]);
+    const dosage = pick(r, [
+      "dosage",
+      "dose",
+      "dosing",
+      "dosage_and_administration",
+      "administration",
+    ]);
+    const therapeutic = pick(r, [
+      "therapeutic",
+      "uses",
+      "applications",
+      "benefits",
+      "traditional_uses",
+    ]);
     const interactions = splitList(
       pick(r, ["interactions", "drug_interactions", "mixing"])
     );
@@ -108,9 +128,19 @@ const out = rows
       pick(r, ["contraindications", "contradictions", "cautions"])
     );
     const sideeffects = splitList(
-      pick(r, ["sideeffects", "side_effects", "adverse_effects"])
+      pick(r, [
+        "sideeffects",
+        "side_effects",
+        "adverse_effects",
+        "unwanted_effects",
+      ])
     );
-    const safety = pick(r, ["safety", "warnings", "precautions"]);
+    const safety = pick(r, [
+      "safety",
+      "warnings",
+      "precautions",
+      "risk_profile",
+    ]);
     const toxicity = pick(r, ["toxicity", "tox_profile"]);
     const toxicityLD50 = pick(r, ["toxicity_ld50", "toxicityld50", "ld50"]);
 
