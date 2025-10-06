@@ -112,7 +112,10 @@ export default function Database() {
         <StarfieldBackground />
         <div className='relative mx-auto max-w-6xl pb-12'>
         <header className='mb-10 text-center'>
-          <h1 className='text-gradient mb-4 text-5xl font-bold'>Herb Database</h1>
+          <h1 className='text-gradient mb-4 text-5xl font-bold'>
+            Herb Database
+            <span className='ml-2 text-sm opacity-70'>({herbs.length} items)</span>
+          </h1>
           <p className='mx-auto max-w-3xl text-lg text-sand/80'>
             Explore our collection of psychoactive herbs. Use the search and filters below to quickly find herbs by
             name, compounds, or legal status.
