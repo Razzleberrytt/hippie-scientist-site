@@ -125,14 +125,16 @@ export default function Database() {
         {topHerbs.length > 0 && (
           <div className='mb-8 overflow-x-auto pb-2'>
             <div className='flex min-w-full gap-4'>
-              {topHerbs.map(herb => (
+              {topHerbs.map(herb => {
+                const sci = (herb.scientific || herb.scientificname || '').trim()
+                return (
                 <div
                   key={herb.id}
                   className='min-w-[14rem] rounded-xl bg-black/40 p-4 text-left shadow-lg backdrop-blur-md transition hover:bg-black/50'
                 >
                   <p className='text-xs uppercase tracking-wide text-sand/60'>Top Herb</p>
                   <h2 className='mt-1 text-xl font-semibold text-lime-300'>{herb.common || herb.name}</h2>
-                  <p className='text-sm italic text-sand/70'>{herb.scientific || herb.scientificname || 'Unknown'}</p>
+                  {sci && <p className='text-sm italic text-sand/70'>{sci}</p>}
                   {herb.category && (
                     <p className='mt-2 text-sm text-sand/80'>Category: {formatLabel(herb.category)}</p>
                   )}
@@ -140,7 +142,8 @@ export default function Database() {
                     <p className='text-sm text-sand/80'>Legal: {formatLabel(herb.legalstatus)}</p>
                   )}
                 </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         )}

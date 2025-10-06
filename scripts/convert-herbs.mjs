@@ -12,21 +12,43 @@ function slugify(s) {
     .replace(/^-+|-+$/g, "");
 }
 function splitList(v) {
-  if (!v) return [];
+  if (v == null) return [];
   return String(v)
     .split(/[,;|]/)
     .map((s) => s.trim())
     .filter(Boolean);
 }
-function pick(obj, keys) {
+const NULLY = new Set([
+  "",
+  "na",
+  "n/a",
+  "none",
+  "null",
+  "undefined",
+  "unknown",
+  "unk",
+  "?",
+  "-",
+]);
+function norm(v) {
+  if (v == null) return "";
+  const s = String(v).trim();
+  if (NULLY.has(s.toLowerCase())) return "";
+  return s;
+}
+function pick(row, aliases) {
   const lower = Object.fromEntries(
-    Object.keys(obj).map((k) => [k.toLowerCase(), k])
+    Object.keys(row).map((k) => [k.toLowerCase(), k])
   );
-  for (const key of keys) {
+  for (const key of aliases) {
     const hit = lower[key.toLowerCase()];
-    if (hit) return obj[hit];
+    if (hit) return norm(row[hit]);
   }
   return "";
+}
+function boolish(v) {
+  const s = String(v || "").toLowerCase();
+  return s === "true" || s === "1" || s === "yes";
 }
 
 const csv = fs.readFileSync(SRC, "utf-8");
@@ -44,38 +66,108 @@ const rows = (parsed.data || []).filter((r) => Object.keys(r).length);
 const out = rows
   .map((r) => {
     const common = pick(r, ["common", "commonname", "name"]);
-    const scientific = pick(r, ["scientific", "scientificname", "latin", "latinname"]);
+    const scientific = pick(r, [
+      "scientific",
+      "scientificname",
+      "latin",
+      "latinname",
+      "binomial",
+    ]);
     const slug = slugify(common || scientific);
 
+    const category = pick(r, [
+      "category",
+      "categoryprimary",
+      "primarycategory",
+      "group",
+    ]);
+    const intensity = pick(r, ["intensity", "potency", "strength"]);
+    const region = pick(r, ["region", "origin", "geography"]);
+    const legalstatus = pick(r, ["legalstatus", "legal_status", "status"]);
+    const description = pick(r, ["description", "summary", "overview"]);
+    const effects = pick(r, ["effects", "effect"]);
+    const mechanism = pick(r, [
+      "mechanismofaction",
+      "mechanism",
+      "moa",
+    ]);
+    const compounds = splitList(
+      pick(r, ["compound", "compounds", "keycompounds", "actives", "constituents"])
+    );
+    const interactions = splitList(
+      pick(r, ["interactions", "drug_interactions", "mixing"])
+    );
+    const contraind = splitList(
+      pick(r, ["contraindications", "contradictions", "cautions"])
+    );
+    const dosage = pick(r, ["dosage", "dose", "dosing"]);
+    const therapeutic = pick(r, ["therapeutic", "uses", "applications"]);
+    const safety = pick(r, ["safety", "warnings", "precautions"]);
+    const sideeffects = pick(r, [
+      "sideeffects",
+      "side_effects",
+      "adverse_effects",
+    ]);
+    const toxicity = pick(r, ["toxicity", "tox_profile"]);
+    const toxicityLD50 = pick(r, ["toxicity_ld50", "toxicityld50", "ld50"]);
+    const isControlled = boolish(
+      pick(r, ["is_controlled_substance", "controlled", "scheduled"])
+    );
+    const tags = splitList(pick(r, ["tags", "labels", "keywords"]));
+    const sources = splitList(pick(r, ["sources", "refs", "references"]));
+    const image = pick(r, ["image", "imageurl", "img", "photo"]);
+
+    const catFromTags =
+      tags.find((t) =>
+        /stimulant|sedative|nootropic|adaptogen|entheogen|tonic/i.test(t)
+      ) || "";
+    const finalCategory = category || catFromTags;
+
     return {
-      id: r.id || slug,
+      id: pick(r, ["id", "uuid"]) || slug,
       slug,
       common,
       scientific,
-      category: pick(r, ["category"]),
-      intensity: pick(r, ["intensity"]),
-      region: pick(r, ["region"]),
-      legalstatus: pick(r, ["legalstatus", "legal_status"]),
-      description: pick(r, ["description", "summary"]),
-      effects: pick(r, ["effects"]),
-      mechanism: pick(r, ["mechanismofaction", "mechanism"]),
-      compounds: splitList(pick(r, ["compound", "compounds", "keycompounds"])),
-      interactions: splitList(pick(r, ["interactions"])),
-      contraindications: splitList(pick(r, ["contraindications"])),
-      dosage: pick(r, ["dosage"]),
-      therapeutic: pick(r, ["therapeutic"]),
-      safety: pick(r, ["safety"]),
-      sideeffects: pick(r, ["sideeffects", "side_effects"]),
-      toxicity: pick(r, ["toxicity"]),
-      toxicity_ld50: pick(r, ["toxicity_ld50", "toxicityld50"]),
-      is_controlled_substance:
-        String(pick(r, ["is_controlled_substance"])).toLowerCase() === "true",
-      tags: splitList(pick(r, ["tags"])),
-      sources: splitList(pick(r, ["sources"])),
-      image: pick(r, ["image", "imageurl"]),
+      category: finalCategory,
+      intensity,
+      region,
+      legalstatus,
+      description,
+      effects,
+      mechanism,
+      compounds,
+      interactions,
+      contraindications: contraind,
+      dosage,
+      therapeutic,
+      safety,
+      sideeffects,
+      toxicity,
+      toxicity_ld50: toxicityLD50,
+      is_controlled_substance: isControlled,
+      tags,
+      sources,
+      image,
     };
   })
   .filter((x) => x.slug);
+
+const coverage = (key) =>
+  out.filter((r) => (Array.isArray(r[key]) ? r[key].length : !!r[key])).length;
+console.log(
+  "[coverage] common/scientific:",
+  coverage("common"),
+  "/",
+  coverage("scientific")
+);
+console.log(
+  "[coverage] category:",
+  coverage("category"),
+  "mechanism:",
+  coverage("mechanism"),
+  "compounds:",
+  coverage("compounds")
+);
 
 if (out.length < 200) {
   const firstRow = rows[0] || {};
