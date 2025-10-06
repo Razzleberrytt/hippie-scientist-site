@@ -311,7 +311,7 @@ export default function Database() {
 
         {paginated.length > 0 ? (
           <div className='mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-            {paginated.map(herb => (
+            {paginated.map((herb, index) => (
               <div key={herb.id} className='space-y-2'>
                 <div className='flex justify-end'>
                   <label className='flex items-center gap-2 text-xs text-sand/80'>
@@ -323,7 +323,7 @@ export default function Database() {
                     Compare
                   </label>
                 </div>
-                <DatabaseHerbCard herb={herb} />
+                <DatabaseHerbCard herb={herb} index={index} />
               </div>
             ))}
           </div>
