@@ -1,7 +1,6 @@
 node_modules
 /dist/
 /src/**/*.js
-src/data/herbs/herbs.normalized.json
 
 
 # Ignore intermediate data and old site
