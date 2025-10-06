@@ -11,13 +11,7 @@ function slugify(s) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
-function splitList(v) {
-  if (v == null) return [];
-  return String(v)
-    .split(/[,;|]/)
-    .map((s) => s.trim())
-    .filter(Boolean);
-}
+
 const NULLY = new Set([
   "",
   "na",
@@ -30,12 +24,21 @@ const NULLY = new Set([
   "?",
   "-",
 ]);
+
 function norm(v) {
   if (v == null) return "";
   const s = String(v).trim();
-  if (NULLY.has(s.toLowerCase())) return "";
-  return s;
+  return NULLY.has(s.toLowerCase()) ? "" : s;
 }
+
+function splitList(v) {
+  if (v == null) return [];
+  return String(v)
+    .split(/[,;|]/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 function pick(row, aliases) {
   const lower = Object.fromEntries(
     Object.keys(row).map((k) => [k.toLowerCase(), k])
@@ -45,10 +48,6 @@ function pick(row, aliases) {
     if (hit) return norm(row[hit]);
   }
   return "";
-}
-function boolish(v) {
-  const s = String(v || "").toLowerCase();
-  return s === "true" || s === "1" || s === "yes";
 }
 
 const csv = fs.readFileSync(SRC, "utf-8");
@@ -81,9 +80,11 @@ const out = rows
       "primarycategory",
       "group",
     ]);
+    const subcategory = pick(r, ["subcategory", "secondarycategory"]);
     const intensity = pick(r, ["intensity", "potency", "strength"]);
-    const region = pick(r, ["region", "origin", "geography"]);
+    const region = pick(r, ["region", "origin", "geography", "distribution"]);
     const legalstatus = pick(r, ["legalstatus", "legal_status", "status"]);
+    const schedule = pick(r, ["schedule", "controlled_schedule"]);
     const description = pick(r, ["description", "summary", "overview"]);
     const effects = pick(r, ["effects", "effect"]);
     const mechanism = pick(r, [
@@ -91,35 +92,40 @@ const out = rows
       "mechanism",
       "moa",
     ]);
+
     const compounds = splitList(
       pick(r, ["compound", "compounds", "keycompounds", "actives", "constituents"])
     );
+    const preparations = splitList(
+      pick(r, ["preparations", "preparation", "forms", "dosage_forms"])
+    );
+    const dosage = pick(r, ["dosage", "dose", "dosing"]);
+    const therapeutic = pick(r, ["therapeutic", "uses", "applications"]);
     const interactions = splitList(
       pick(r, ["interactions", "drug_interactions", "mixing"])
     );
     const contraind = splitList(
       pick(r, ["contraindications", "contradictions", "cautions"])
     );
-    const dosage = pick(r, ["dosage", "dose", "dosing"]);
-    const therapeutic = pick(r, ["therapeutic", "uses", "applications"]);
+    const sideeffects = splitList(
+      pick(r, ["sideeffects", "side_effects", "adverse_effects"])
+    );
     const safety = pick(r, ["safety", "warnings", "precautions"]);
-    const sideeffects = pick(r, [
-      "sideeffects",
-      "side_effects",
-      "adverse_effects",
-    ]);
     const toxicity = pick(r, ["toxicity", "tox_profile"]);
     const toxicityLD50 = pick(r, ["toxicity_ld50", "toxicityld50", "ld50"]);
-    const isControlled = boolish(
-      pick(r, ["is_controlled_substance", "controlled", "scheduled"])
-    );
+
     const tags = splitList(pick(r, ["tags", "labels", "keywords"]));
-    const sources = splitList(pick(r, ["sources", "refs", "references"]));
+    const regiontags = splitList(pick(r, ["region_tags", "regions"]));
+    const legalnotes = pick(r, ["legalnotes", "legal_notes"]);
     const image = pick(r, ["image", "imageurl", "img", "photo"]);
+    const sourcesStr = pick(r, ["sources", "refs", "references"]);
+    const sources = splitList(sourcesStr);
 
     const catFromTags =
       tags.find((t) =>
-        /stimulant|sedative|nootropic|adaptogen|entheogen|tonic/i.test(t)
+        /stimulant|sedative|nootropic|adaptogen|entheogen|tonic|anxiolytic|analgesic/i.test(
+          t
+        )
       ) || "";
     const finalCategory = category || catFromTags;
 
@@ -129,44 +135,43 @@ const out = rows
       common,
       scientific,
       category: finalCategory,
+      subcategory,
       intensity,
       region,
       legalstatus,
+      schedule,
       description,
       effects,
       mechanism,
       compounds,
-      interactions,
-      contraindications: contraind,
+      preparations,
       dosage,
       therapeutic,
-      safety,
+      interactions,
+      contraindications: contraind,
       sideeffects,
+      safety,
       toxicity,
       toxicity_ld50: toxicityLD50,
-      is_controlled_substance: isControlled,
       tags,
-      sources,
+      regiontags,
+      legalnotes,
       image,
+      sources,
     };
   })
   .filter((x) => x.slug);
 
-const coverage = (key) =>
-  out.filter((r) => (Array.isArray(r[key]) ? r[key].length : !!r[key])).length;
+const coverage = (k) =>
+  out.filter((r) => (Array.isArray(r[k]) ? r[k].length : !!r[k])).length;
+console.log("[coverage] common:", coverage("common"), "scientific:", coverage("scientific"));
 console.log(
-  "[coverage] common/scientific:",
-  coverage("common"),
-  "/",
-  coverage("scientific")
-);
-console.log(
-  "[coverage] category:",
-  coverage("category"),
-  "mechanism:",
+  "[coverage] mechanism:",
   coverage("mechanism"),
   "compounds:",
-  coverage("compounds")
+  coverage("compounds"),
+  "interactions:",
+  coverage("interactions")
 );
 
 if (out.length < 200) {

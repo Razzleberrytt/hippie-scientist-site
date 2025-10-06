@@ -4,25 +4,29 @@ export interface Herb {
   common: string
   scientific: string
   category: string
+  subcategory: string
   category_label?: string
   intensity: string
   intensity_label?: string
   region: string
   legalstatus: string
+  schedule: string
   description: string
   effects: string
   mechanism: string
   compounds: string[]
+  preparations: string[]
   interactions: string[]
   contraindications: string[]
   dosage: string
   therapeutic: string
+  sideeffects: string[]
   safety: string
-  sideeffects: string
   toxicity: string
   toxicity_ld50: string
-  is_controlled_substance: boolean
   tags: string[]
+  regiontags: string[]
+  legalnotes: string
   sources: string[]
   image: string
   // Derived/legacy compatibility fields
@@ -43,6 +47,7 @@ export interface Herb {
   activeConstituents?: { name: string }[]
   contraindicationsText?: string
   interactionsText?: string
+  preparationsText?: string
   tagsRaw?: string
   duration?: string | null
   onset?: string | null

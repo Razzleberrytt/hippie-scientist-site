@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import Fuse from 'fuse.js'
 import SEO from '../components/SEO'
 import StarfieldBackground from '../components/StarfieldBackground'
-import HerbCardAccordion from '../components/HerbCardAccordion'
+import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import ErrorBoundary from '../components/ErrorBoundary'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
@@ -243,7 +243,7 @@ export default function Database() {
                     Compare
                   </label>
                 </div>
-                <HerbCardAccordion herb={herb} />
+                <DatabaseHerbCard herb={herb} />
               </div>
             ))}
           </div>

@@ -16,18 +16,14 @@ function toStringArray(value: unknown): string[] {
   return []
 }
 
-function boolFrom(value: unknown): boolean {
-  if (typeof value === 'boolean') return value
-  if (typeof value === 'string') return value.toLowerCase() === 'true'
-  if (typeof value === 'number') return value !== 0
-  return false
-}
-
 const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
   const compounds = toStringArray(raw.compounds)
   const tags = toStringArray(raw.tags)
   const interactions = toStringArray(raw.interactions)
   const contraindications = toStringArray(raw.contraindications)
+  const sideeffects = toStringArray(raw.sideeffects)
+  const preparations = toStringArray(raw.preparations)
+  const regiontags = toStringArray(raw.regiontags)
   const sources = toStringArray(raw.sources)
 
   const common = typeof raw.common === 'string' ? raw.common : ''
@@ -44,7 +40,10 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
 
   const legalstatus = typeof raw.legalstatus === 'string' ? raw.legalstatus : ''
   const therapeutic = typeof raw.therapeutic === 'string' ? raw.therapeutic : ''
-  const sideeffects = typeof raw.sideeffects === 'string' ? raw.sideeffects : ''
+  const safety = typeof raw.safety === 'string' ? raw.safety : ''
+  const legalnotes = typeof raw.legalnotes === 'string' ? raw.legalnotes : ''
+  const schedule = typeof raw.schedule === 'string' ? raw.schedule : ''
+  const subcategory = typeof raw.subcategory === 'string' ? raw.subcategory : ''
 
   const herb: Herb = {
     id,
@@ -52,6 +51,7 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
     common,
     scientific,
     category: typeof raw.category === 'string' ? raw.category : '',
+    subcategory,
     category_label:
       typeof raw.category_label === 'string' && raw.category_label
         ? raw.category_label
@@ -67,20 +67,23 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
           : '',
     region: typeof raw.region === 'string' ? raw.region : '',
     legalstatus,
+    schedule,
     description: typeof raw.description === 'string' ? raw.description : '',
     effects: typeof raw.effects === 'string' ? raw.effects : '',
     mechanism,
     compounds,
+    preparations,
     interactions,
     contraindications,
     dosage: typeof raw.dosage === 'string' ? raw.dosage : '',
     therapeutic,
-    safety: typeof raw.safety === 'string' ? raw.safety : '',
+    safety,
     sideeffects,
     toxicity: typeof raw.toxicity === 'string' ? raw.toxicity : '',
     toxicity_ld50: typeof raw.toxicity_ld50 === 'string' ? raw.toxicity_ld50 : '',
-    is_controlled_substance: boolFrom(raw.is_controlled_substance),
     tags,
+    regiontags,
+    legalnotes,
     sources,
     image: typeof raw.image === 'string' ? raw.image : '',
     name:
@@ -100,7 +103,8 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
     legalStatus: typeof raw.legalStatus === 'string' ? raw.legalStatus : legalstatus,
     therapeuticUses:
       typeof raw.therapeuticUses === 'string' ? raw.therapeuticUses : therapeutic,
-    sideEffects: typeof raw.sideEffects === 'string' ? raw.sideEffects : sideeffects,
+    sideEffects:
+      typeof raw.sideEffects === 'string' ? raw.sideEffects : sideeffects.join('; '),
     drugInteractions:
       typeof raw.drugInteractions === 'string' && raw.drugInteractions
         ? raw.drugInteractions
@@ -122,6 +126,10 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
       typeof raw.interactionsText === 'string' && raw.interactionsText
         ? raw.interactionsText
         : interactions.join('; '),
+    preparationsText:
+      typeof raw.preparationsText === 'string' && raw.preparationsText
+        ? raw.preparationsText
+        : preparations.join('; '),
     tagsRaw: typeof raw.tagsRaw === 'string' && raw.tagsRaw ? raw.tagsRaw : tags.join('; '),
     duration: (raw.duration ?? null) as string | null,
     onset: (raw.onset ?? null) as string | null,
