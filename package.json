@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npm run prebuild:data && vite",
+    "prebuild:data": "node scripts/convert-herbs.mjs",
+    "build": "npm run prebuild:data && vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",

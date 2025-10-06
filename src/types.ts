@@ -1,38 +1,60 @@
 export interface Herb {
   id: string
+  slug: string
+  common: string
+  scientific: string
   category: string
-  contraindications?: string | null
-  description?: string | null
-  druginteractions?: string | null
+  category_label?: string
+  intensity: string
+  intensity_label?: string
+  region: string
+  legalstatus: string
+  description: string
+  effects: string
+  mechanism: string
+  compounds: string[]
+  interactions: string[]
+  contraindications: string[]
+  dosage: string
+  therapeutic: string
+  safety: string
+  sideeffects: string
+  toxicity: string
+  toxicity_ld50: string
+  is_controlled_substance: boolean
+  tags: string[]
+  sources: string[]
+  image: string
+  // Derived/legacy compatibility fields
+  name?: string
+  nameNorm?: string
+  commonnames?: string
+  scientificname?: string
+  mechanismofaction?: string
+  mechanismOfAction?: string
+  legalStatus?: string
+  therapeuticUses?: string
+  sideEffects?: string
+  drugInteractions?: string
+  toxicityld50?: string
+  toxicityLD50?: string
+  compoundsDetailed?: string[]
+  activeconstituents?: string[]
+  activeConstituents?: { name: string }[]
+  contraindicationsText?: string
+  interactionsText?: string
+  tagsRaw?: string
   duration?: string | null
-  effects?: string | null
-  intensity?: string | null
-  legalstatus?: string | null
-  mechanismofaction?: string | null
   onset?: string | null
   pharmacokinetics?: string | null
   preparation?: string | null
-  region?: string | null
-  scientificname?: string | null
-  sideeffects?: string | null
-  tags?: string | null
-  therapeuticuses?: string | null
-  toxicity?: string | null
-  toxicityld50?: string | null
-  activeconstituents?: any
-  affiliatelink?: string | null
-  slug?: string | null
-  compounds?: any
-  sources?: any
-  needsreview?: boolean | null
-  image?: string | null
+  regionNotes?: string | null
   safetyrating?: string | null
-  dosage?: string | null
-  commonnames?: string | null
-  activecompounds?: string | null
-  traditionaluse?: string | null
-  nameNorm?: string | null
-  intensityClean?: string | null
+  dosage_notes?: string | null
   legalstatusClean?: string | null
-  compoundsDetailed?: any
+  intensityClean?: string | null
+  effectsSummary?: string | null
+  affiliatelink?: string | null
+  imageCredit?: string | null
+  [key: string]: unknown
 }
