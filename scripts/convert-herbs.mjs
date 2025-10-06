@@ -192,8 +192,63 @@ const out = rows
   })
   .filter((x) => x.slug);
 
+function canonSci(s){ return String(s||"").toLowerCase().replace(/\s+/g," ").trim(); }
+function mergeArrays(a,b){
+  const set = new Set([...(a||[]), ...(b||[])] .map(v=>String(v).trim()).filter(Boolean));
+  return Array.from(set);
+}
+function prefer(a,b){
+  const A = (a??"").trim(), B=(b??"").trim();
+  if (A && !B) return A;
+  if (!A && B) return B;
+  return A.length >= B.length ? A : B;
+}
+const byKey = new Map();
+for (const r of out){
+  const key = canonSci(r.scientific) || r.slug;
+  if (!byKey.has(key)){ byKey.set(key, r); continue; }
+  const prev = byKey.get(key);
+  byKey.set(key, {
+    ...prev,
+    id: prev.id || r.id,
+    slug: prev.slug, // keep first slug stable
+    common: prefer(prev.common, r.common),
+    scientific: prefer(prev.scientific, r.scientific),
+    category: prefer(prev.category, r.category),
+    subcategory: prefer(prev.subcategory, r.subcategory),
+    intensity: prefer(prev.intensity, r.intensity),
+    region: prefer(prev.region, r.region),
+    legalstatus: prefer(prev.legalstatus, r.legalstatus),
+    schedule: prefer(prev.schedule, r.schedule),
+    description: prefer(prev.description, r.description),
+    effects: prefer(prev.effects, r.effects),
+    mechanism: prefer(prev.mechanism, r.mechanism),
+    dosage: prefer(prev.dosage, r.dosage),
+    therapeutic: prefer(prev.therapeutic, r.therapeutic),
+    safety: prefer(prev.safety, r.safety),
+    toxicity: prefer(prev.toxicity, r.toxicity),
+    toxicity_ld50: prefer(prev.toxicity_ld50, r.toxicity_ld50),
+    legalnotes: prefer(prev.legalnotes, r.legalnotes),
+    image: prefer(prev.image, r.image),
+    compounds: mergeArrays(prev.compounds, r.compounds),
+    preparations: mergeArrays(prev.preparations, r.preparations),
+    interactions: mergeArrays(prev.interactions, r.interactions),
+    contraindications: mergeArrays(prev.contraindications, r.contraindications),
+    sideeffects: mergeArrays(prev.sideeffects, r.sideeffects),
+    tags: mergeArrays(prev.tags, r.tags),
+    regiontags: mergeArrays(prev.regiontags, r.regiontags),
+    sources: mergeArrays(prev.sources, r.sources),
+  });
+}
+const merged = Array.from(byKey.values());
+
+// optional: sort merged by common name for stable output
+merged.sort((a,b)=>String(a.common||a.scientific).localeCompare(String(b.common||b.scientific)));
+
+console.log(`[dedupe] in: ${out.length} → out: ${merged.length}`);
+
 const coverage = (k) =>
-  out.filter((r) => (Array.isArray(r[k]) ? r[k].length : !!r[k])).length;
+  merged.filter((r) => (Array.isArray(r[k]) ? r[k].length : !!r[k])).length;
 console.log("[coverage] common:", coverage("common"), "scientific:", coverage("scientific"));
 console.log(
   "[coverage] mechanism:",
@@ -204,14 +259,14 @@ console.log(
   coverage("interactions")
 );
 
-if (out.length < 200) {
+if (merged.length < 200) {
   const firstRow = rows[0] || {};
   console.error("Column keys (sample row):", Object.keys(firstRow));
   throw new Error(
-    `Converter sanity check failed: only ${out.length} rows emitted. Check column names/CSV formatting.`
+    `Converter sanity check failed: only ${merged.length} rows emitted. Check column names/CSV formatting.`
   );
 }
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
-fs.writeFileSync(OUT, JSON.stringify(out, null, 2), "utf-8");
-console.log(`Wrote ${OUT} (${out.length} rows)`);
+fs.writeFileSync(OUT, JSON.stringify(merged, null, 2), "utf-8");
+console.log(`Wrote ${OUT} (${merged.length} rows)`);

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Fuse from 'fuse.js'
 import SEO from '../components/SEO'
 import StarfieldBackground from '../components/StarfieldBackground'
@@ -6,6 +6,7 @@ import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import ErrorBoundary from '../components/ErrorBoundary'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
+import { useSearchParams } from 'react-router-dom'
 
 const formatLabel = (value: string) =>
   value
@@ -13,12 +14,26 @@ const formatLabel = (value: string) =>
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 
+const INTENSITY_ORDER = [
+  'micro',
+  'very mild',
+  'mild',
+  'mild–moderate',
+  'moderate',
+  'moderate–strong',
+  'strong',
+  'very strong',
+].map(s => s.toLowerCase())
+
 export default function Database() {
   const herbs = herbsData as Herb[]
-  const [query, setQuery] = useState('')
-  const [category, setCategory] = useState('')
-  const [legal, setLegal] = useState('')
-  const [page, setPage] = useState(1)
+  const [sp, setSp] = useSearchParams()
+  const [query, setQuery] = useState(sp.get('q') || '')
+  const [category, setCategory] = useState(sp.get('cat') || '')
+  const [legal, setLegal] = useState(sp.get('legal') || '')
+  const [sort, setSort] = useState(sp.get('sort') || 'name')
+  const initialPage = Number(sp.get('p') || 1)
+  const [page, setPage] = useState(Number.isFinite(initialPage) && initialPage > 0 ? initialPage : 1)
   const [selected, setSelected] = useState<string[]>([])
   function toggleSelect(slug: string) {
     setSelected(prev => {
@@ -65,6 +80,53 @@ export default function Database() {
     [herbs]
   )
 
+  useEffect(() => {
+    const nextQuery = sp.get('q') || ''
+    setQuery(prev => (prev === nextQuery ? prev : nextQuery))
+    const nextCategory = sp.get('cat') || ''
+    setCategory(prev => (prev === nextCategory ? prev : nextCategory))
+    const nextLegal = sp.get('legal') || ''
+    setLegal(prev => (prev === nextLegal ? prev : nextLegal))
+    const nextSort = sp.get('sort') || 'name'
+    setSort(prev => (prev === nextSort ? prev : nextSort))
+    const rawPage = Number(sp.get('p') || 1)
+    const nextPage = Number.isFinite(rawPage) && rawPage > 0 ? rawPage : 1
+    setPage(prev => (prev === nextPage ? prev : nextPage))
+  }, [sp])
+
+  useEffect(() => {
+    const prevStr = sp.toString()
+    const next = new URLSearchParams(sp)
+    query ? next.set('q', query) : next.delete('q')
+    category ? next.set('cat', category) : next.delete('cat')
+    legal ? next.set('legal', legal) : next.delete('legal')
+    sort ? next.set('sort', sort) : next.delete('sort')
+    page > 1 ? next.set('p', String(page)) : next.delete('p')
+    const nextStr = next.toString()
+    if (nextStr !== prevStr) {
+      setSp(next, { replace: true })
+    }
+  }, [query, category, legal, sort, page, sp, setSp])
+
+  const sortItems = (arr: Herb[]) => {
+    if (sort === 'name') {
+      return [...arr].sort((a, b) =>
+        String(a.common || a.scientific).localeCompare(String(b.common || b.scientific))
+      )
+    }
+    if (sort === 'intensity') {
+      return [...arr].sort((a, b) => {
+        const ai = INTENSITY_ORDER.indexOf(String(a.intensity || '').toLowerCase())
+        const bi = INTENSITY_ORDER.indexOf(String(b.intensity || '').toLowerCase())
+        return (ai < 0 ? 1 : 0) - (bi < 0 ? 1 : 0) || ai - bi
+      })
+    }
+    if (sort === 'region') {
+      return [...arr].sort((a, b) => String(a.region || '').localeCompare(String(b.region || '')))
+    }
+    return arr
+  }
+
   const filtered = useMemo(() => {
     let results: Herb[] = query.trim() ? fuse.search(query).map(r => r.item) : herbs
 
@@ -76,8 +138,8 @@ export default function Database() {
       results = results.filter(herb => herb.legalstatus === legal)
     }
 
-    return results
-  }, [query, category, legal, fuse, herbs])
+    return sortItems(results)
+  }, [query, category, legal, fuse, herbs, sort])
 
   const paginated = useMemo(
     () => filtered.slice(0, page * pageSize),
@@ -181,6 +243,18 @@ export default function Database() {
                 {formatLabel(value)}
               </option>
             ))}
+          </select>
+          <select
+            value={sort}
+            onChange={e => {
+              setSort(e.target.value)
+              setPage(1)
+            }}
+            className='w-full rounded-md border border-white/10 bg-black/40 px-3 py-2 text-sm text-sand focus:border-lime-400 focus:outline-none focus:ring-1 focus:ring-lime-400 sm:w-auto'
+          >
+            <option value='name'>Sort: Name (A→Z)</option>
+            <option value='intensity'>Sort: Intensity</option>
+            <option value='region'>Sort: Region</option>
           </select>
           <div className='flex items-center gap-2'>
             <button
