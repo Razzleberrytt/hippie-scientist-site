@@ -25,6 +25,7 @@
     "gray-matter": "^4.0.3",
     "jspdf": "^3.0.1",
     "lucide-react": "^0.298.0",
+    "papaparse": "^5.5.3",
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
