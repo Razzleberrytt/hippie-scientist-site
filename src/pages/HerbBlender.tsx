@@ -1,5 +1,4 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion, AnimatePresence } from 'framer-motion'
 import BlendSummaryCard from '../components/BlendSummaryCard'
 import HerbCardAccordion from '../components/HerbCardAccordion'
@@ -7,6 +6,7 @@ import TagBadge from '../components/TagBadge'
 import { useHerbs } from '../hooks/useHerbs'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { herbName, splitField } from '../utils/herb'
+import SEO from '../components/SEO'
 
 export default function HerbBlender() {
   const herbs = useHerbs()
@@ -70,10 +70,11 @@ export default function HerbBlender() {
 
   return (
     <div className='relative min-h-screen px-4 pt-20'>
-      <Helmet>
-        <title>Blend Builder - The Hippie Scientist</title>
-        <meta name='description' content='Create custom herbal blends.' />
-      </Helmet>
+      <SEO
+        title='Herb Blend Builder | The Hippie Scientist'
+        description='Combine herbs to explore synergies and craft mindful blends.'
+        canonical='https://thehippiescientist.net/blend'
+      />
       <div className='mx-auto max-w-6xl space-y-6'>
         <motion.h1
           className='text-gradient text-center text-5xl font-bold'

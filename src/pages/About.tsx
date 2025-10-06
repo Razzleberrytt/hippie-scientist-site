@@ -1,18 +1,15 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO'
 import { motion } from 'framer-motion'
 
 export default function About() {
   return (
     <>
-      <Helmet>
-        <title>About - The Hippie Scientist</title>
-        <meta
-          name='description'
-          content='Learn more about the mission behind The Hippie Scientist.'
-        />
-      </Helmet>
-
+      <SEO
+        title='About | The Hippie Scientist'
+        description='Independent site exploring psychoactive herbs with scientific rigor and cultural context.'
+        canonical='https://thehippiescientist.net/about'
+      />
       <div className='min-h-screen px-4 pt-20'>
         <div className='mx-auto max-w-3xl space-y-8'>
           <motion.h1
