@@ -6,19 +6,24 @@ import { motion } from 'framer-motion'
 import HerbList from '../components/HerbList'
 import TagFilterBar from '../components/TagFilterBar'
 import CategoryAnalytics from '../components/CategoryAnalytics'
-import CategoryFilter from '../components/CategoryFilter'
 import { decodeTag } from '../utils/format'
 import { canonicalTag } from '../utils/tagUtils'
 import StarfieldBackground from '../components/StarfieldBackground'
 import { useHerbs } from '../hooks/useHerbs'
 import { useHerbFavorites } from '../hooks/useHerbFavorites'
 import SearchBar from '../components/SearchBar'
-import { splitField } from '../utils/herb'
-import { Download, LayoutGrid, List } from 'lucide-react'
+import { splitField, herbName } from '../utils/herb'
+import { Download, LayoutGrid, List, RotateCcw } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useFilteredHerbs } from '../hooks/useFilteredHerbs'
 import { getLocal, setLocal } from '../utils/localStorage'
 import ErrorBoundary from '../components/ErrorBoundary'
+
+const formatLabel = (value: string) =>
+  value
+    .split(/\s+/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 
 export default function Database() {
   const herbs = useHerbs()
@@ -32,14 +37,21 @@ export default function Database() {
     setTags: setFilteredTags,
     matchAll,
     setMatchAll,
-    categories: filteredCategories,
-    setCategories: setFilteredCategories,
     favoritesOnly,
     setFavoritesOnly,
     sort,
     setSort,
     fuse,
   } = useFilteredHerbs(herbs, { favorites })
+
+  const [filtersOpen, setFiltersOpen] = React.useState(false)
+  const [showBar, setShowBar] = React.useState(true)
+  const [viewMode, setViewMode] = React.useState<'grid' | 'list'>('grid')
+
+  const [categoryFilter, setCategoryFilter] = React.useState('')
+  const [intensityFilter, setIntensityFilter] = React.useState('')
+  const [legalStatusFilter, setLegalStatusFilter] = React.useState('')
+  const [regionFilter, setRegionFilter] = React.useState('')
 
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -78,9 +90,7 @@ export default function Database() {
     const affiliates = herbs.filter(
       h => typeof h.affiliatelink === 'string' && h.affiliatelink.startsWith('http')
     ).length
-    const moaCount = herbs.filter(
-      h => h.mechanismofaction && h.mechanismofaction.trim()
-    ).length
+    const moaCount = herbs.filter(h => (h.mechanism || h.mechanismofaction || '').trim()).length
     return { total: herbs.length, affiliates, moaCount }
   }, [herbs])
 
@@ -89,10 +99,6 @@ export default function Database() {
       setFilteredTags(prev => (prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag])),
     [setFilteredTags]
   )
-
-  const [filtersOpen, setFiltersOpen] = React.useState(false)
-  const [showBar, setShowBar] = React.useState(true)
-  const [viewMode, setViewMode] = React.useState<'grid' | 'list'>('grid')
 
   React.useEffect(() => {
     let last = window.scrollY
@@ -136,6 +142,99 @@ export default function Database() {
       .slice(0, 5)
       .map(([t]) => t)
   }, [filteredTags, herbs])
+
+  const categories = React.useMemo(() => {
+    const map = new Map<string, string>()
+    herbs.forEach(h => {
+      const value = (h.category || '').trim()
+      if (!value) return
+      const key = value.toLowerCase()
+      if (!map.has(key)) {
+        const label = (h.category_label || value).trim() || value
+        map.set(key, formatLabel(label))
+      }
+    })
+    return Array.from(map.entries()).sort((a, b) => a[1].localeCompare(b[1]))
+  }, [herbs])
+
+  const intensities = React.useMemo(() => {
+    const map = new Map<string, string>()
+    herbs.forEach(h => {
+      const value = (h.intensity || '').trim()
+      if (!value) return
+      const key = value.toLowerCase()
+      if (!map.has(key)) {
+        const label = (h.intensity_label || value).trim() || value
+        map.set(key, formatLabel(label))
+      }
+    })
+    return Array.from(map.entries()).sort((a, b) => a[1].localeCompare(b[1]))
+  }, [herbs])
+
+  const legalStatuses = React.useMemo(() => {
+    const map = new Map<string, string>()
+    herbs.forEach(h => {
+      const value = (h.legalstatus || '').trim()
+      if (!value) return
+      const key = value.toLowerCase()
+      if (!map.has(key)) map.set(key, formatLabel(value))
+    })
+    return Array.from(map.entries()).sort((a, b) => a[1].localeCompare(b[1]))
+  }, [herbs])
+
+  const regions = React.useMemo(() => {
+    const map = new Map<string, string>()
+    herbs.forEach(h => {
+      splitField(h.region).forEach(regionValue => {
+        const value = regionValue.trim()
+        if (!value) return
+        const key = value.toLowerCase()
+        if (!map.has(key)) map.set(key, value)
+      })
+    })
+    return Array.from(map.entries()).sort((a, b) => a[1].localeCompare(b[1]))
+  }, [herbs])
+
+  const clearSelectFilters = React.useCallback(() => {
+    setCategoryFilter('')
+    setIntensityFilter('')
+    setLegalStatusFilter('')
+    setRegionFilter('')
+  }, [])
+
+  const displayHerbs = React.useMemo(() => {
+    const bySelects = filtered.filter(h => {
+      if (categoryFilter) {
+        const cat = (h.category || '').toLowerCase()
+        const catLabel = (h.category_label || '').toLowerCase()
+        if (cat !== categoryFilter && catLabel !== categoryFilter) return false
+      }
+      if (intensityFilter) {
+        const intensity = (h.intensity || '').toLowerCase()
+        const intensityLabel = (h.intensity_label || '').toLowerCase()
+        if (intensity !== intensityFilter && intensityLabel !== intensityFilter) return false
+      }
+      if (legalStatusFilter) {
+        const legal = (h.legalstatus || '').toLowerCase()
+        if (legal !== legalStatusFilter) return false
+      }
+      if (regionFilter) {
+        const regionsLower = splitField(h.region).map(r => r.toLowerCase())
+        if (!regionsLower.includes(regionFilter)) return false
+      }
+      return true
+    })
+
+    return [...bySelects].sort((a, b) => {
+      const left = (herbName(a) || a.id).toLowerCase()
+      const right = (herbName(b) || b.id).toLowerCase()
+      return left.localeCompare(right)
+    })
+  }, [filtered, categoryFilter, intensityFilter, legalStatusFilter, regionFilter])
+
+  const hasActiveSelectFilters = Boolean(
+    categoryFilter || intensityFilter || legalStatusFilter || regionFilter
+  )
 
   return (
     <ErrorBoundary>
@@ -193,7 +292,6 @@ export default function Database() {
                 onChange={e => setSort(e.target.value)}
                 className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
               >
-                <option value=''>Sort By...</option>
                 <option value='name'>Alphabetical (A–Z)</option>
                 <option value='category'>Category</option>
                 <option value='intensity'>Psychoactive Intensity</option>
@@ -216,9 +314,80 @@ export default function Database() {
             </motion.div>
 
             <div className={`mb-4 space-y-4 ${filtersOpen ? '' : 'hidden sm:block'}`}>
-              <CategoryFilter selected={filteredCategories} onChange={setFilteredCategories} />
+              <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-4'>
+                <label className='flex flex-col text-sm text-sand'>
+                  <span className='mb-1 font-semibold uppercase tracking-wide text-xs text-sand/70'>Category</span>
+                  <select
+                    value={categoryFilter}
+                    onChange={e => setCategoryFilter(e.target.value)}
+                    className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+                  >
+                    <option value=''>All</option>
+                    {categories.map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className='flex flex-col text-sm text-sand'>
+                  <span className='mb-1 font-semibold uppercase tracking-wide text-xs text-sand/70'>Intensity</span>
+                  <select
+                    value={intensityFilter}
+                    onChange={e => setIntensityFilter(e.target.value)}
+                    className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+                  >
+                    <option value=''>All</option>
+                    {intensities.map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className='flex flex-col text-sm text-sand'>
+                  <span className='mb-1 font-semibold uppercase tracking-wide text-xs text-sand/70'>Legal Status</span>
+                  <select
+                    value={legalStatusFilter}
+                    onChange={e => setLegalStatusFilter(e.target.value)}
+                    className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+                  >
+                    <option value=''>All</option>
+                    {legalStatuses.map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label className='flex flex-col text-sm text-sand'>
+                  <span className='mb-1 font-semibold uppercase tracking-wide text-xs text-sand/70'>Region</span>
+                  <select
+                    value={regionFilter}
+                    onChange={e => setRegionFilter(e.target.value)}
+                    className='rounded-md bg-space-dark/70 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+                  >
+                    <option value=''>All</option>
+                    {regions.map(([value, label]) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              {hasActiveSelectFilters && (
+                <button
+                  type='button'
+                  onClick={clearSelectFilters}
+                  className='flex items-center gap-1 text-sm text-sand/80 hover:text-sand'
+                >
+                  <RotateCcw size={14} /> Reset filters
+                </button>
+              )}
               <TagFilterBar allTags={allTags} activeTags={filteredTags} onToggleTag={toggleTag} />
             </div>
+
             {relatedTags.length > 0 && (
               <div className='mb-4 flex flex-wrap items-center gap-2'>
                 <span className='text-sm text-moss'>Related tags:</span>
@@ -234,8 +403,9 @@ export default function Database() {
                 ))}
               </div>
             )}
+
             <CategoryAnalytics />
-            <HerbList herbs={filtered} highlightQuery={query} view={viewMode} />
+            <HerbList herbs={displayHerbs} highlightQuery={query} view={viewMode} />
             <footer className='mt-4 text-center text-sm text-moss'>
               Total herbs: {summary.total} · Affiliate links: {summary.affiliates} · MOA documented:{' '}
               {summary.moaCount} · Updated: {new Date(buildTime).toLocaleDateString()}

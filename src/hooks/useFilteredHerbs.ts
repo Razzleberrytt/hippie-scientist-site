@@ -24,7 +24,7 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const [matchAll, setMatchAll] = React.useState(true)
   const [favoritesOnly, setFavoritesOnly] = React.useState(false)
   const [categories, setCategories] = React.useState<string[]>([])
-  const [sort, setSort] = React.useState('')
+  const [sort, setSort] = React.useState('name')
 
   const blendScore = React.useCallback((h: Herb) => {
     const inDesc = h.description?.toLowerCase().includes('blend') || false
@@ -36,11 +36,19 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const fuse = React.useMemo(
     () =>
       new Fuse(herbs, {
-        keys: ['nameNorm', 'commonnames', 'scientificname', 'effects', 'tags'],
-        threshold: 0.4,
+        keys: [
+          { name: 'common', weight: 0.8 },
+          { name: 'nameNorm', weight: 0.7 },
+          { name: 'scientific', weight: 0.7 },
+          { name: 'scientificname', weight: 0.6 },
+          { name: 'compounds', weight: 0.5 },
+          { name: 'tags', weight: 0.4 },
+        ],
+        threshold: 0.35,
         includeMatches: true,
         isCaseSensitive: false,
         ignoreLocation: true,
+        minMatchCharLength: 2,
       }),
     [herbs]
   )
