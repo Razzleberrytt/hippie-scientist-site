@@ -19,6 +19,9 @@ export function DatabaseHerbCard({ herb }: Props) {
   const effectsText = list(effectsList)
   const { favs, toggle, has } = useFavorites()
   const isFavorite = has(herb.slug)
+  const sourcesList = bullets(herb.sources)
+    .map(source => source.trim().replace(/[.;,]\s*$/, ''))
+    .filter(Boolean)
 
   return (
     <article
@@ -83,11 +86,11 @@ export function DatabaseHerbCard({ herb }: Props) {
         </p>
       )}
 
-      {has(herb.sources) && (
+      {sourcesList.length > 0 && (
         <div className='mt-2 text-sm text-sand/90'>
           <strong>Sources:</strong>
           <ul className='mt-1 list-disc pl-5'>
-            {bullets(herb.sources).map((source, index) => (
+            {sourcesList.map((source, index) => (
               <li key={`${herb.slug}-source-${index}`}>
                 {urlish(source) ? (
                   <a className='underline' href={source} target='_blank' rel='noreferrer'>
