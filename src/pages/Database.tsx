@@ -282,6 +282,12 @@ export default function Database() {
           </div>
         </div>
 
+        {import.meta.env.MODE !== 'production' && (
+          <p className='mt-2 text-xs opacity-60'>
+            debug: items={herbs.length} visible={filtered.length}
+          </p>
+        )}
+
         <div className='mt-6 flex flex-wrap items-center justify-between gap-2 text-sm text-sand/70'>
           <p>
             Showing <span className='font-semibold text-sand'>{paginated.length}</span> of{' '}
