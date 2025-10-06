@@ -47,17 +47,30 @@ export default function HerbDetail() {
   }
 
   const imageSrc = herb.image || `/images/herbs/${herb.slug}.jpg`
-  const compounds = Array.isArray(herb.compounds) ? herb.compounds : splitField(herb.compounds)
-  const interactions = Array.isArray(herb.interactions)
+  const compounds = (Array.isArray(herb.compounds) ? herb.compounds : splitField(herb.compounds)).filter(Boolean)
+  const interactions = (Array.isArray(herb.interactions)
     ? herb.interactions
     : splitField(herb.interactions)
-  const contraindications = Array.isArray(herb.contraindications)
+  ).filter(Boolean)
+  const contraindications = (Array.isArray(herb.contraindications)
     ? herb.contraindications
     : splitField(herb.contraindications)
-  const sources = Array.isArray(herb.sources) ? herb.sources : splitField(herb.sources)
+  ).filter(Boolean)
+  const sources = (Array.isArray(herb.sources) ? herb.sources : splitField(herb.sources)).filter(Boolean)
 
-  const hasSafety = Boolean(herb.safety || herb.sideeffects || herb.therapeutic)
-  const hasMechanism = Boolean((herb.mechanism || herb.mechanismofaction || '').trim())
+  const mechanismText = (herb.mechanism || herb.mechanismofaction || '').trim()
+  const therapeuticText = (herb.therapeutic || '').trim()
+  const safetyText = (herb.safety || '').trim()
+  const sideEffectsText = (herb.sideeffects || '').trim()
+
+  const hasMechanism = Boolean(mechanismText)
+  const hasSafety = Boolean(therapeuticText || safetyText || sideEffectsText)
+  const hasCompounds = compounds.length > 0
+  const hasInteractions = interactions.length > 0
+  const hasContraindications = contraindications.length > 0
+  const hasSources = sources.length > 0
+  const hasExtraSections =
+    hasMechanism || hasCompounds || hasInteractions || hasContraindications || hasSafety || hasSources
 
   return (
     <>
@@ -140,11 +153,11 @@ export default function HerbDetail() {
         {hasMechanism && (
           <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Mechanism</h2>
-            <p className='mt-3 text-sand/90'>{herb.mechanism || herb.mechanismofaction}</p>
+            <p className='mt-3 text-sand/90'>{mechanismText}</p>
           </section>
         )}
 
-        {compounds.length > 0 && (
+        {hasCompounds && (
           <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Key Compounds</h2>
             <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
@@ -155,10 +168,10 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {(interactions.length > 0 || contraindications.length > 0) && (
+        {(hasInteractions || hasContraindications) && (
           <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Interactions &amp; Contraindications</h2>
-            {interactions.length > 0 && (
+            {hasInteractions && (
               <div className='mt-3'>
                 <h3 className='text-lg font-semibold text-sand'>Interactions</h3>
                 <ul className='mt-2 list-disc space-y-2 pl-6 text-sand/90'>
@@ -168,7 +181,7 @@ export default function HerbDetail() {
                 </ul>
               </div>
             )}
-            {contraindications.length > 0 && (
+            {hasContraindications && (
               <div className='mt-4'>
                 <h3 className='text-lg font-semibold text-sand'>Contraindications</h3>
                 <ul className='mt-2 list-disc space-y-2 pl-6 text-sand/90'>
@@ -185,26 +198,26 @@ export default function HerbDetail() {
           <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Therapeutic &amp; Safety Notes</h2>
             <div className='mt-3 space-y-3 text-sand/90'>
-              {herb.therapeutic && (
+              {therapeuticText && (
                 <p>
-                  <strong className='text-sand'>Therapeutic Use:</strong> {herb.therapeutic}
+                  <strong className='text-sand'>Therapeutic Use:</strong> {therapeuticText}
                 </p>
               )}
-              {herb.safety && (
+              {safetyText && (
                 <p>
-                  <strong className='text-sand'>Safety:</strong> {herb.safety}
+                  <strong className='text-sand'>Safety:</strong> {safetyText}
                 </p>
               )}
-              {herb.sideeffects && (
+              {sideEffectsText && (
                 <p>
-                  <strong className='text-sand'>Side Effects:</strong> {herb.sideeffects}
+                  <strong className='text-sand'>Side Effects:</strong> {sideEffectsText}
                 </p>
               )}
             </div>
           </section>
         )}
 
-        {sources.length > 0 && (
+        {hasSources && (
           <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Sources &amp; References</h2>
             <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
@@ -221,6 +234,10 @@ export default function HerbDetail() {
               ))}
             </ul>
           </section>
+        )}
+
+        {!hasExtraSections && (
+          <p className='mt-10 text-sm opacity-70'>No additional information available for this section yet.</p>
         )}
 
         <p className='mt-12 text-sm text-sand/60'>{DISCLAIMER_TEXT}</p>

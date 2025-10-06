@@ -34,8 +34,56 @@ export default function HerbCardAccordion({ herb }: Props) {
   }, [expanded])
   const safeTags = splitField(herb.tags)
   const safeEffects = splitField(herb.effects)
-  const safeCompounds = Array.isArray((herb as any).compounds) ? (herb as any).compounds : []
+  const rawCompounds = (herb as any).compounds
+  const safeCompounds = Array.isArray(rawCompounds)
+    ? rawCompounds.filter(Boolean)
+    : splitField(rawCompounds)
+  const rawSources = (herb as any).sources
+  const sources = Array.isArray(rawSources) ? rawSources.filter(Boolean) : splitField(rawSources)
   const favorite = isFavorite(herb.id)
+
+  const scientificName = (herb.scientificname || (herb as any).scientific || '').trim()
+  const mechanism = (herb as any).mechanismOfAction
+    ? String((herb as any).mechanismOfAction).trim()
+    : ''
+  const pharmacokinetics = (herb as any).pharmacokinetics
+    ? String((herb as any).pharmacokinetics).trim()
+    : ''
+  const toxicityInfo = ((herb as any).toxicityLD50 || (herb as any).toxicity || '').toString().trim()
+  const region = (herb as any).region ? String((herb as any).region).trim() : ''
+  const therapeutic = (herb as any).therapeuticUses
+    ? String((herb as any).therapeuticUses).trim()
+    : ''
+  const sideEffects = (herb as any).sideEffects ? String((herb as any).sideEffects).trim() : ''
+  const contraindications = (herb as any).contraindications
+    ? String((herb as any).contraindications).trim()
+    : ''
+  const drugInteractions = (herb as any).drugInteractions
+    ? String((herb as any).drugInteractions).trim()
+    : ''
+  const legalStatus = (herb as any).legalStatus ? String((herb as any).legalStatus).trim() : ''
+  const dosage = (herb as any).dosage ? String((herb as any).dosage).trim() : ''
+  const onset = (herb as any).onset ? String((herb as any).onset).trim() : ''
+  const duration = (herb as any).duration ? String((herb as any).duration).trim() : ''
+  const intensity = (herb as any).intensity ? String((herb as any).intensity).trim() : ''
+  const descriptionText = (herb.description || herbBlurbs[herbName(herb)] || '').trim()
+  const hasInfo = Boolean(
+    mechanism ||
+      pharmacokinetics ||
+      toxicityInfo ||
+      region ||
+      therapeutic ||
+      sideEffects ||
+      contraindications ||
+      drugInteractions ||
+      legalStatus ||
+      dosage ||
+      onset ||
+      duration ||
+      intensity ||
+      safeCompounds.length > 0 ||
+      sources.length > 0
+  )
 
   const containerVariants = {
     open: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
@@ -88,10 +136,12 @@ export default function HerbCardAccordion({ herb }: Props) {
       </button>
       <div className='flex items-center gap-2'>
         <span className='text-xl font-bold text-lime-600 transition group-hover:text-lime-700 group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)] dark:text-lime-300 dark:group-hover:text-lime-200'>
-          {herbName(herb) || 'Unknown Herb'}
+          {herbName(herb) || herb.slug || 'Herb'}
         </span>
       </div>
-      <p className='text-sm italic text-gray-700 dark:text-gray-300 transition-colors duration-300'>{herb.scientificname || 'Unknown species'}</p>
+      {scientificName && (
+        <p className='text-sm italic text-gray-700 dark:text-gray-300 transition-colors duration-300'>{scientificName}</p>
+      )}
       {!expanded && herbBlurbs[herbName(herb)] && (
         <p className='mt-1 text-sm italic text-gray-800 dark:text-gray-100 transition-colors duration-300'>
           {herbBlurbs[herbName(herb)]}
@@ -100,13 +150,17 @@ export default function HerbCardAccordion({ herb }: Props) {
 
       {expanded && (
         <>
-          <div className='mt-2 text-sm text-gray-800 dark:text-white'>
-            <strong>Effects:</strong> {safeEffects.length > 0 ? safeEffects.join(', ') : 'Unknown'}
-          </div>
+          {safeEffects.length > 0 && (
+            <div className='mt-2 text-sm text-gray-800 dark:text-white'>
+              <strong>Effects:</strong> {safeEffects.join(', ')}
+            </div>
+          )}
 
-          <div className='mt-2 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300'>
-            <strong>Description:</strong> {herb.description || herbBlurbs[herbName(herb)] || ''}
-          </div>
+          {descriptionText && (
+            <div className='mt-2 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300'>
+              <strong>Description:</strong> {descriptionText}
+            </div>
+          )}
         </>
       )}
 
@@ -127,95 +181,121 @@ export default function HerbCardAccordion({ herb }: Props) {
             transition={{ type: 'spring', stiffness: 200, damping: 24 }}
             className='mt-4 space-y-2 text-sm text-sand'
           >
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <span role='img' aria-label='Mechanism'>
-                🧠
-              </span>{' '}
-              {herb.mechanismOfAction || 'Unknown'}
-            </motion.p>
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <span role='img' aria-label='Pharmacokinetics'>
-                ⏳
-              </span>{' '}
-              {herb.pharmacokinetics || 'Unknown'}
-            </motion.p>
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <span role='img' aria-label='Toxicity'>
-                🧪
-              </span>{' '}
-              {herb.toxicityLD50 || herb.toxicity || 'Unknown'}
-            </motion.p>
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <span role='img' aria-label='Region'>
-                🌎
-              </span>{' '}
-              {herb.region || 'Unknown'}
-            </motion.p>
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <strong>Therapeutic Uses:</strong> {herb.therapeuticUses || 'Unknown'}
-            </motion.p>
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <strong>Side Effects:</strong> {herb.sideEffects || 'Unknown'}
-            </motion.p>
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <strong>Contraindications:</strong> {herb.contraindications || 'Unknown'}
-            </motion.p>
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <strong>Drug Interactions:</strong> {herb.drugInteractions || 'Unknown'}
-            </motion.p>
-            <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-              <strong>Legal Status:</strong> {herb.legalStatus || 'Unknown'}
-            </motion.p>
-            {herb.dosage && (
-              <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                <strong>Dosage:</strong> {herb.dosage}
+            {hasInfo ? (
+              <>
+                {mechanism && (
+                  <motion.p key='mechanism' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <span role='img' aria-label='Mechanism'>
+                      🧠
+                    </span>{' '}
+                    {mechanism}
+                  </motion.p>
+                )}
+                {pharmacokinetics && (
+                  <motion.p key='pharmacokinetics' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <span role='img' aria-label='Pharmacokinetics'>
+                      ⏳
+                    </span>{' '}
+                    {pharmacokinetics}
+                  </motion.p>
+                )}
+                {toxicityInfo && (
+                  <motion.p key='toxicity' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <span role='img' aria-label='Toxicity'>
+                      🧪
+                    </span>{' '}
+                    {toxicityInfo}
+                  </motion.p>
+                )}
+                {region && (
+                  <motion.p key='region' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <span role='img' aria-label='Region'>
+                      🌎
+                    </span>{' '}
+                    {region}
+                  </motion.p>
+                )}
+                {therapeutic && (
+                  <motion.p key='therapeutic' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Therapeutic Uses:</strong> {therapeutic}
+                  </motion.p>
+                )}
+                {sideEffects && (
+                  <motion.p key='sideeffects' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Side Effects:</strong> {sideEffects}
+                  </motion.p>
+                )}
+                {contraindications && (
+                  <motion.p key='contraindications' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Contraindications:</strong> {contraindications}
+                  </motion.p>
+                )}
+                {drugInteractions && (
+                  <motion.p key='interactions' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Drug Interactions:</strong> {drugInteractions}
+                  </motion.p>
+                )}
+                {legalStatus && (
+                  <motion.p key='legal' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Legal Status:</strong> {legalStatus}
+                  </motion.p>
+                )}
+                {dosage && (
+                  <motion.p key='dosage' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Dosage:</strong> {dosage}
+                  </motion.p>
+                )}
+                {onset && (
+                  <motion.p key='onset' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Onset:</strong> {onset}
+                  </motion.p>
+                )}
+                {duration && (
+                  <motion.p key='duration' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Duration:</strong> {duration}
+                  </motion.p>
+                )}
+                {intensity && (
+                  <motion.p key='intensity' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Intensity:</strong> {intensity}
+                  </motion.p>
+                )}
+                {safeCompounds.length > 0 && (
+                  <motion.div key='compounds' variants={itemVariants} className='flex flex-wrap items-center gap-1'>
+                    <strong className='mr-1'>Active Compounds:</strong>
+                    {safeCompounds.map(c => (
+                      <CompoundBadge key={c} name={c} />
+                    ))}
+                  </motion.div>
+                )}
+                {sources.length > 0 && (
+                  <motion.div key='sources' variants={itemVariants}>
+                    <strong>Sources:</strong>
+                    <ul className='list-inside list-disc space-y-1 pl-4'>
+                      {sources.map(src => (
+                        <li key={src} className='whitespace-pre-wrap break-words'>
+                          {src.startsWith('http') ? (
+                            <a
+                              href={src}
+                              target='_blank'
+                              rel='noopener noreferrer'
+                              className='text-sky-300 underline'
+                            >
+                              {src}
+                            </a>
+                          ) : (
+                            src
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </>
+            ) : (
+              <motion.p variants={itemVariants} className='text-sm opacity-70'>
+                No additional information available for this section yet.
               </motion.p>
-            )}
-            {herb.onset && (
-              <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                <strong>Onset:</strong> {herb.onset}
-              </motion.p>
-            )}
-            {herb.duration && (
-              <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                <strong>Duration:</strong> {herb.duration}
-              </motion.p>
-            )}
-            {herb.intensity && (
-              <motion.p variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                <strong>Intensity:</strong> {herb.intensity}
-              </motion.p>
-            )}
-            {safeCompounds.length > 0 && (
-              <motion.div variants={itemVariants} className='flex flex-wrap items-center gap-1'>
-                <strong className='mr-1'>Active Compounds:</strong>
-                {safeCompounds.map(c => (
-                  <CompoundBadge key={c} name={c} />
-                ))}
-              </motion.div>
-            )}
-            {Array.isArray(herb.sources) && herb.sources.length > 0 && (
-              <motion.div variants={itemVariants}>
-                <strong>Sources:</strong>
-                <ul className='list-inside list-disc space-y-1 pl-4'>
-                  {herb.sources.map(src => (
-                    <li key={src} className='whitespace-pre-wrap break-words'>
-                      {src.startsWith('http') ? (
-                        <a
-                          href={src}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='text-sky-300 underline'
-                        >
-                          {src}
-                        </a>
-                      ) : (
-                        src
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
             )}
             {herb.slug && (
               <motion.div variants={itemVariants}>
