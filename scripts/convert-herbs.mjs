@@ -247,8 +247,14 @@ merged.sort((a,b)=>String(a.common||a.scientific).localeCompare(String(b.common|
 
 console.log(`[dedupe] in: ${out.length} → out: ${merged.length}`);
 
-const coverage = (k) =>
-  merged.filter((r) => (Array.isArray(r[k]) ? r[k].length : !!r[k])).length;
+const coverage = (key) =>
+  merged.filter((r) => {
+    const v = r[key];
+    return Array.isArray(v)
+      ? v.filter(Boolean).length > 0
+      : !!String(v ?? "").trim();
+  }).length;
+
 console.log("[coverage] common:", coverage("common"), "scientific:", coverage("scientific"));
 console.log(
   "[coverage] mechanism:",
@@ -258,6 +264,22 @@ console.log(
   "interactions:",
   coverage("interactions")
 );
+console.log(
+  "[coverage] effects:",
+  coverage("effects"),
+  "description:",
+  coverage("description"),
+  "tags:",
+  coverage("tags"),
+  "compounds:",
+  coverage("compounds"),
+  "contra:",
+  coverage("contraindications")
+);
+
+if (merged.length >= 200 && coverage("effects") < 50 && coverage("description") < 50) {
+  throw new Error("Sanity check: too many empty key fields — mapping likely broke.");
+}
 
 if (merged.length < 200) {
   const firstRow = rows[0] || {};
