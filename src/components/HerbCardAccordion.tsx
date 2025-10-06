@@ -32,58 +32,111 @@ export default function HerbCardAccordion({ herb }: Props) {
       }
     }
   }, [expanded])
-  const safeTags = splitField(herb.tags)
+  const pickString = (...values: unknown[]): string => {
+    for (const value of values) {
+      if (typeof value === 'string') {
+        const trimmed = value.trim()
+        if (trimmed) return trimmed
+      }
+    }
+    return ''
+  }
+  const joinList = (list: string[]): string => list.join('; ')
+
+  const safeTags = splitField((herb as any).tags ?? herb.tags)
   const safeEffects = splitField(herb.effects)
-  const rawCompounds = (herb as any).compounds
-  const safeCompounds = Array.isArray(rawCompounds)
-    ? rawCompounds.filter(Boolean)
-    : splitField(rawCompounds)
-  const rawSources = (herb as any).sources
-  const sources = Array.isArray(rawSources) ? rawSources.filter(Boolean) : splitField(rawSources)
+  const safeCompounds = splitField((herb as any).compounds ?? herb.compounds)
+  const sources = splitField((herb as any).sources ?? herb.sources)
+  const prepList = splitField((herb as any).preparations ?? herb.preparations)
+  const interactionsList = splitField((herb as any).interactions ?? herb.interactions)
+  const contraindicationsList = splitField((herb as any).contraindications ?? herb.contraindications)
+  const sideEffectsList = splitField(
+    (herb as any).sideeffects ?? (herb as any).sideEffects ?? herb.sideeffects
+  )
+  const regionTags = splitField(
+    (herb as any).regiontags ?? (herb as any).regionTags ?? herb.regiontags
+  )
   const favorite = isFavorite(herb.id)
 
-  const scientificName = (herb.scientificname || (herb as any).scientific || '').trim()
-  const mechanism = (herb as any).mechanismOfAction
-    ? String((herb as any).mechanismOfAction).trim()
-    : ''
-  const pharmacokinetics = (herb as any).pharmacokinetics
-    ? String((herb as any).pharmacokinetics).trim()
-    : ''
-  const toxicityInfo = ((herb as any).toxicityLD50 || (herb as any).toxicity || '').toString().trim()
-  const region = (herb as any).region ? String((herb as any).region).trim() : ''
-  const therapeutic = (herb as any).therapeuticUses
-    ? String((herb as any).therapeuticUses).trim()
-    : ''
-  const sideEffects = (herb as any).sideEffects ? String((herb as any).sideEffects).trim() : ''
-  const contraindications = (herb as any).contraindications
-    ? String((herb as any).contraindications).trim()
-    : ''
-  const drugInteractions = (herb as any).drugInteractions
-    ? String((herb as any).drugInteractions).trim()
-    : ''
-  const legalStatus = (herb as any).legalStatus ? String((herb as any).legalStatus).trim() : ''
-  const dosage = (herb as any).dosage ? String((herb as any).dosage).trim() : ''
-  const onset = (herb as any).onset ? String((herb as any).onset).trim() : ''
-  const duration = (herb as any).duration ? String((herb as any).duration).trim() : ''
-  const intensity = (herb as any).intensity ? String((herb as any).intensity).trim() : ''
-  const descriptionText = (herb.description || herbBlurbs[herbName(herb)] || '').trim()
+  const scientificName = pickString(
+    herb.scientific,
+    (herb as any).scientificname,
+    (herb as any).scientificName
+  )
+  const mechanism = pickString(
+    herb.mechanism,
+    (herb as any).mechanismOfAction,
+    (herb as any).mechanismofaction
+  )
+  const pharmacokinetics = pickString((herb as any).pharmacokinetics)
+  const region = pickString(herb.region, (herb as any).regionNotes)
+  const therapeutic = pickString(herb.therapeutic, (herb as any).therapeuticUses)
+  const safety = pickString(herb.safety, (herb as any).safetyrating)
+  const legalStatus = pickString(
+    herb.legalstatus,
+    (herb as any).legalStatus,
+    (herb as any).legalstatusClean
+  )
+  const scheduleText = pickString(
+    herb.schedule,
+    (herb as any).schedule_text,
+    (herb as any).scheduleText
+  )
+  const legalNotes = pickString(herb.legalnotes, (herb as any).legalNotes)
+  const dosage = pickString(herb.dosage, (herb as any).dosage_notes)
+  const onset = pickString((herb as any).onset)
+  const duration = pickString((herb as any).duration)
+  const intensity = pickString(
+    (herb as any).intensity_label,
+    herb.intensity,
+    (herb as any).intensityClean
+  )
+  const categoryLabel = pickString(
+    (herb as any).category_label,
+    herb.category
+  )
+  const subcategory = pickString(herb.subcategory)
+  const toxicityNotes = pickString(herb.toxicity)
+  const toxicityLD50 = pickString(
+    herb.toxicity_ld50,
+    (herb as any).toxicityLD50,
+    (herb as any).toxicityld50
+  )
+  const descriptionText = pickString(herb.description, herbBlurbs[herbName(herb)])
+  const summaryBlurb = pickString(herbBlurbs[herbName(herb)])
+
+  const preparationsText = joinList(prepList)
+  const sideEffectsText = joinList(sideEffectsList)
+  const contraindicationsText = joinList(contraindicationsList)
+  const interactionsText = joinList(interactionsList)
+
   const hasInfo = Boolean(
     mechanism ||
       pharmacokinetics ||
-      toxicityInfo ||
+      toxicityNotes ||
+      toxicityLD50 ||
       region ||
       therapeutic ||
-      sideEffects ||
-      contraindications ||
-      drugInteractions ||
+      safety ||
+      sideEffectsText ||
+      contraindicationsText ||
+      interactionsText ||
       legalStatus ||
+      scheduleText ||
+      legalNotes ||
       dosage ||
       onset ||
       duration ||
       intensity ||
+      preparationsText ||
       safeCompounds.length > 0 ||
-      sources.length > 0
+      sources.length > 0 ||
+      regionTags.length > 0
   )
+
+  const metaLineParts = [categoryLabel, subcategory, intensity].filter(Boolean)
+  const metaLine = metaLineParts.join(' • ')
+  const legalLine = [legalStatus, scheduleText].filter(Boolean).join(' • ')
 
   const containerVariants = {
     open: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
@@ -142,9 +195,27 @@ export default function HerbCardAccordion({ herb }: Props) {
       {scientificName && (
         <p className='text-sm italic text-gray-700 dark:text-gray-300 transition-colors duration-300'>{scientificName}</p>
       )}
-      {!expanded && herbBlurbs[herbName(herb)] && (
+      {metaLine && (
+        <p className='mt-1 text-xs uppercase tracking-wide text-gray-600 dark:text-gray-400'>{metaLine}</p>
+      )}
+      {legalLine && (
+        <p className='mt-0.5 text-xs text-gray-600 dark:text-gray-400'>{legalLine}</p>
+      )}
+      {regionTags.length > 0 && (
+        <div className='mt-1 flex flex-wrap gap-1 text-[0.65rem] uppercase tracking-wide text-emerald-900 dark:text-emerald-200'>
+          {regionTags.map(tag => (
+            <span
+              key={tag}
+              className='rounded-full bg-emerald-400/30 px-2 py-0.5 font-semibold dark:bg-emerald-300/20'
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+      {!expanded && summaryBlurb && (
         <p className='mt-1 text-sm italic text-gray-800 dark:text-gray-100 transition-colors duration-300'>
-          {herbBlurbs[herbName(herb)]}
+          {summaryBlurb}
         </p>
       )}
 
@@ -199,12 +270,20 @@ export default function HerbCardAccordion({ herb }: Props) {
                     {pharmacokinetics}
                   </motion.p>
                 )}
-                {toxicityInfo && (
-                  <motion.p key='toxicity' variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                    <span role='img' aria-label='Toxicity'>
+                {toxicityNotes && (
+                  <motion.p key='toxicity-notes' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <span role='img' aria-label='Toxicity Notes'>
                       🧪
                     </span>{' '}
-                    {toxicityInfo}
+                    {toxicityNotes}
+                  </motion.p>
+                )}
+                {toxicityLD50 && (
+                  <motion.p key='toxicity-ld50' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <span role='img' aria-label='LD50'>
+                      📉
+                    </span>{' '}
+                    LD50: {toxicityLD50}
                   </motion.p>
                 )}
                 {region && (
@@ -220,24 +299,44 @@ export default function HerbCardAccordion({ herb }: Props) {
                     <strong>Therapeutic Uses:</strong> {therapeutic}
                   </motion.p>
                 )}
-                {sideEffects && (
+                {safety && (
+                  <motion.p key='safety' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Safety:</strong> {safety}
+                  </motion.p>
+                )}
+                {preparationsText && (
+                  <motion.p key='preparations' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Preparations:</strong> {preparationsText}
+                  </motion.p>
+                )}
+                {sideEffectsText && (
                   <motion.p key='sideeffects' variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                    <strong>Side Effects:</strong> {sideEffects}
+                    <strong>Side Effects:</strong> {sideEffectsText}
                   </motion.p>
                 )}
-                {contraindications && (
+                {contraindicationsText && (
                   <motion.p key='contraindications' variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                    <strong>Contraindications:</strong> {contraindications}
+                    <strong>Contraindications:</strong> {contraindicationsText}
                   </motion.p>
                 )}
-                {drugInteractions && (
+                {interactionsText && (
                   <motion.p key='interactions' variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                    <strong>Drug Interactions:</strong> {drugInteractions}
+                    <strong>Interactions:</strong> {interactionsText}
                   </motion.p>
                 )}
                 {legalStatus && (
                   <motion.p key='legal' variants={itemVariants} className='whitespace-pre-wrap break-words'>
                     <strong>Legal Status:</strong> {legalStatus}
+                  </motion.p>
+                )}
+                {scheduleText && (
+                  <motion.p key='schedule' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Schedule:</strong> {scheduleText}
+                  </motion.p>
+                )}
+                {legalNotes && (
+                  <motion.p key='legalnotes' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Legal Notes:</strong> {legalNotes}
                   </motion.p>
                 )}
                 {dosage && (
