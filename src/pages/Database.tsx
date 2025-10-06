@@ -5,7 +5,7 @@ import StarfieldBackground from '../components/StarfieldBackground'
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import ErrorBoundary from '../components/ErrorBoundary'
 import type { Herb } from '../types'
-import data from '../data/herbs/herbs.normalized.json'
+import herbsData from '../data/herbs/herbs.normalized.json'
 
 const formatLabel = (value: string) =>
   value
@@ -14,7 +14,7 @@ const formatLabel = (value: string) =>
     .join(' ')
 
 export default function Database() {
-  const herbs = data as Herb[]
+  const herbs = herbsData as Herb[]
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('')
   const [legal, setLegal] = useState('')

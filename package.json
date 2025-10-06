@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "npm run prebuild:data && vite",
+    "dev": "npm run dev:data && vite",
+    "dev:data": "node scripts/convert-herbs.mjs",
     "prebuild:data": "node scripts/convert-herbs.mjs",
     "build": "npm run prebuild:data && vite build",
     "preview": "vite preview",

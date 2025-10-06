@@ -1,0 +1,212 @@
+[
+  {
+    "id": "ashwagandha",
+    "slug": "ashwagandha",
+    "common": "Ashwagandha",
+    "scientific": "Withania somnifera",
+    "category": "adaptogen",
+    "category_label": "adaptogen",
+    "intensity": "moderate",
+    "intensity_label": "moderate",
+    "region": "India;Middle East",
+    "legalstatus": "legal",
+    "description": "Traditional herb for stress relief.",
+    "effects": "May reduce cortisol levels.",
+    "mechanism": "Modulates stress pathways",
+    "compounds": [
+      "withanolides",
+      "alkaloids"
+    ],
+    "interactions": [
+      "May interact with sedatives"
+    ],
+    "contraindications": [
+      "Avoid in hyperthyroidism"
+    ],
+    "dosage": "500-1000 mg root powder daily",
+    "therapeutic": "Supports stress resilience",
+    "safety": "Generally well tolerated",
+    "sideeffects": "Mild drowsiness",
+    "toxicity": "Low toxicity",
+    "toxicity_ld50": ">2 g/kg (rat)",
+    "is_controlled_substance": false,
+    "tags": [
+      "stress",
+      "adaptogen"
+    ],
+    "sources": [
+      "Ayurvedic texts",
+      "Modern clinical trials"
+    ],
+    "image": "",
+    "name": "Ashwagandha",
+    "nameNorm": "Ashwagandha",
+    "commonnames": "Ashwagandha",
+    "scientificname": "Withania somnifera",
+    "mechanismofaction": "Modulates stress pathways",
+    "mechanismOfAction": "Modulates stress pathways",
+    "legalStatus": "legal",
+    "therapeuticUses": "Supports stress resilience",
+    "sideEffects": "Mild drowsiness",
+    "drugInteractions": "May interact with sedatives",
+    "toxicityld50": ">2 g/kg (rat)",
+    "toxicityLD50": ">2 g/kg (rat)",
+    "compoundsDetailed": [
+      "withanolides",
+      "alkaloids"
+    ],
+    "activeconstituents": [
+      "withanolides",
+      "alkaloids"
+    ],
+    "activeConstituents": [
+      {
+        "name": "withanolides"
+      },
+      {
+        "name": "alkaloids"
+      }
+    ],
+    "contraindicationsText": "Avoid in hyperthyroidism",
+    "interactionsText": "May interact with sedatives",
+    "tagsRaw": "stress; adaptogen"
+  },
+  {
+    "id": "kava",
+    "slug": "kava",
+    "common": "Kava",
+    "scientific": "Kava kava",
+    "category": "relaxant",
+    "category_label": "relaxant",
+    "intensity": "strong",
+    "intensity_label": "strong",
+    "region": "South Pacific",
+    "legalstatus": "restricted",
+    "description": "Used ceremonially for relaxation.",
+    "effects": "Produces calming effects.",
+    "mechanism": "GABA receptor modulation",
+    "compounds": [
+      "kavalactones"
+    ],
+    "interactions": [
+      "Potentiates CNS depressants"
+    ],
+    "contraindications": [
+      "Avoid in liver disease"
+    ],
+    "dosage": "150-300 mg kavalactones",
+    "therapeutic": "Anxiety relief",
+    "safety": "Monitor liver function",
+    "sideeffects": "Dizziness;GI upset",
+    "toxicity": "Rare hepatotoxicity",
+    "toxicity_ld50": ">0.5 g/kg (mouse)",
+    "is_controlled_substance": true,
+    "tags": [
+      "relaxation",
+      "sedative"
+    ],
+    "sources": [
+      "WHO monograph",
+      "Herbal pharmacopeia"
+    ],
+    "image": "",
+    "name": "Kava",
+    "nameNorm": "Kava",
+    "commonnames": "Kava",
+    "scientificname": "Kava kava",
+    "mechanismofaction": "GABA receptor modulation",
+    "mechanismOfAction": "GABA receptor modulation",
+    "legalStatus": "restricted",
+    "therapeuticUses": "Anxiety relief",
+    "sideEffects": "Dizziness;GI upset",
+    "drugInteractions": "Potentiates CNS depressants",
+    "toxicityld50": ">0.5 g/kg (mouse)",
+    "toxicityLD50": ">0.5 g/kg (mouse)",
+    "compoundsDetailed": [
+      "kavalactones"
+    ],
+    "activeconstituents": [
+      "kavalactones"
+    ],
+    "activeConstituents": [
+      {
+        "name": "kavalactones"
+      }
+    ],
+    "contraindicationsText": "Avoid in liver disease",
+    "interactionsText": "Potentiates CNS depressants",
+    "tagsRaw": "relaxation; sedative"
+  },
+  {
+    "id": "reishi",
+    "slug": "reishi",
+    "common": "Reishi",
+    "scientific": "Ganoderma lucidum",
+    "category": "immune support",
+    "category_label": "immune support",
+    "intensity": "low",
+    "intensity_label": "low",
+    "region": "East Asia",
+    "legalstatus": "legal",
+    "description": "Mushroom used in TCM.",
+    "effects": "Immune modulation and vitality.",
+    "mechanism": "Beta-glucan mediated immune support",
+    "compounds": [
+      "beta-glucans",
+      "triterpenes"
+    ],
+    "interactions": [
+      "May enhance anticoagulants"
+    ],
+    "contraindications": [
+      "Avoid before surgeries"
+    ],
+    "dosage": "1-3 g dried mushroom",
+    "therapeutic": "Immune support",
+    "safety": "Consider allergies",
+    "sideeffects": "Dry mouth",
+    "toxicity": "Low",
+    "toxicity_ld50": "Not established",
+    "is_controlled_substance": false,
+    "tags": [
+      "immune",
+      "longevity"
+    ],
+    "sources": [
+      "TCM materia medica",
+      "Modern reviews"
+    ],
+    "image": "",
+    "name": "Reishi",
+    "nameNorm": "Reishi",
+    "commonnames": "Reishi",
+    "scientificname": "Ganoderma lucidum",
+    "mechanismofaction": "Beta-glucan mediated immune support",
+    "mechanismOfAction": "Beta-glucan mediated immune support",
+    "legalStatus": "legal",
+    "therapeuticUses": "Immune support",
+    "sideEffects": "Dry mouth",
+    "drugInteractions": "May enhance anticoagulants",
+    "toxicityld50": "Not established",
+    "toxicityLD50": "Not established",
+    "compoundsDetailed": [
+      "beta-glucans",
+      "triterpenes"
+    ],
+    "activeconstituents": [
+      "beta-glucans",
+      "triterpenes"
+    ],
+    "activeConstituents": [
+      {
+        "name": "beta-glucans"
+      },
+      {
+        "name": "triterpenes"
+      }
+    ],
+    "contraindicationsText": "Avoid before surgeries",
+    "interactionsText": "May enhance anticoagulants",
+    "tagsRaw": "immune; longevity"
+  }
+]
