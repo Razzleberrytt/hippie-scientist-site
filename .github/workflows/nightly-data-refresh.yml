@@ -1,8 +1,8 @@
-name: Nightly Data Refresh
+name: Nightly Data Refresh & Deploy
 
 on:
   schedule:
-    - cron: "17 5 * * *"   # 05:17 UTC daily (1:17am ET)
+    - cron: "17 5 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -27,21 +27,49 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Run data pipeline (convert → autofill → validate → audit → report)
+      - name: Run data pipeline
+        id: pipeline
         run: npm run data:checkup
 
-      - name: Collect coverage artifacts
-        if: always()
+      - name: Parse coverage result
+        id: parse
         run: |
-          mkdir -p scripts/out
-          echo "Artifacts in scripts/out:"
-          ls -la scripts/out || true
+          COV=$(grep -A5 "Key fields coverage" scripts/out/coverage.md || true)
+          echo "coverage_summary<<EOF" >> $GITHUB_OUTPUT
+          echo "$COV" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          # extract % numbers for quick thresholds
+          FX=$(grep "effects" scripts/out/coverage.md | grep -oE "[0-9]+\\.[0-9]+%" | head -1 | tr -d '%')
+          DX=$(grep "description" scripts/out/coverage.md | grep -oE "[0-9]+\\.[0-9]+%" | head -1 | tr -d '%')
+          LX=$(grep "legalstatus" scripts/out/coverage.md | grep -oE "[0-9]+\\.[0-9]+%" | head -1 | tr -d '%')
+          echo "effects=$FX" >> $GITHUB_OUTPUT
+          echo "description=$DX" >> $GITHUB_OUTPUT
+          echo "legalstatus=$LX" >> $GITHUB_OUTPUT
 
-      - name: Save git changes (dry check)
-        id: diff
+      - name: Verify thresholds
+        id: check
         run: |
-          git status --porcelain
-          echo "changed=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+          FX=${{ steps.parse.outputs.effects }}
+          DX=${{ steps.parse.outputs.description }}
+          LX=${{ steps.parse.outputs.legalstatus }}
+          echo "effects=$FX, description=$DX, legalstatus=$LX"
+          FAIL=0
+          for VAL in $FX $DX $LX; do
+            if [ -z "$VAL" ]; then
+              echo "Missing coverage metric, treating as failure."
+              FAIL=1
+            elif [ "$(echo "$VAL < 90" | bc -l)" -eq 1 ]; then
+              FAIL=1
+            fi
+          done
+          if [ "$FAIL" -eq 1 ]; then
+            echo "Coverage below 90% — skipping auto-merge."
+            echo "can_merge=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          echo "✅ Coverage ≥90% for all key fields, safe to merge."
+          echo "can_merge=true" >> $GITHUB_OUTPUT
+        shell: bash
 
       - name: Compute PR body
         id: prbody
@@ -51,21 +79,36 @@ jobs:
         shell: bash
 
       - name: Create or update PR
-        if: steps.diff.outputs.changed != '0'
+        id: pr
+        if: always()
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore(data): nightly refresh & coverage artifacts"
+          commit-message: "chore(data): nightly refresh"
           title: "chore(data): nightly refresh — $(date -u +'%Y-%m-%d')"
           body: ${{ steps.prbody.outputs.pr_body }}
           branch: ci/nightly-data-refresh-auto
-          labels: |
-            data
-            automated
-            nightly
+          labels: data, automated, nightly
           add-paths: |
             src/data/herbs/herbs.normalized.json
             scripts/out/**
+
+      - name: Enable auto-merge (if coverage OK)
+        if: steps.check.outputs.can_merge == 'true' && steps.pr.outputs.pull-request-number != ''
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request-number: ${{ steps.pr.outputs.pull-request-number }}
+          merge-method: squash
+
+      - name: Deploy (if merged)
+        if: steps.check.outputs.can_merge == 'true' && steps.pr.outputs.pull-request-number != ''
+        run: |
+          echo "🚀 Deploying..."
+          npm run build
+          # Example for Netlify CLI (or adapt for Vercel)
+          # npm i -g netlify-cli
+          # netlify deploy --prod --dir=dist --message "Nightly auto-deploy $(date -u +'%Y-%m-%d')"
 
       - name: Upload coverage artifact
         if: always()
@@ -73,3 +116,4 @@ jobs:
         with:
           name: herb-data-coverage
           path: scripts/out/
+root@d14f7f738408:/workspace/hippie-scientist-site#
