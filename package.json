@@ -22,7 +22,8 @@
     "data:merge+refresh": "node scripts/merge-herbs.mjs && npm run data:refresh",
     "data:merge+build": "node scripts/merge-herbs.mjs && npm run data:refresh+build",
     "data:report": "node scripts/report-herbs.mjs",
-    "data:checkup": "npm run data:refresh && npm run data:report"
+    "data:checkup": "npm run data:refresh && npm run data:report",
+    "data:watch": "node scripts/watch-herbs.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
@@ -45,6 +46,7 @@
     "react-markdown": "^10.1.0",
     "react-router-dom": "^6.22.3",
     "react-tooltip": "^5.20.0",
+    "chokidar": "^3.5.3",
     "rehype-raw": "^7.0.0",
     "tailwindcss": "^3.4.3",
     "tsparticles": "^3.8.1",
