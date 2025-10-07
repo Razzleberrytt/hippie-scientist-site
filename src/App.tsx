@@ -12,6 +12,7 @@ import { useGA } from './lib/useGA';
 import HerbIndex from './pages/HerbIndex';
 import HerbDetail from './pages/HerbDetail';
 import Compare from './pages/Compare';
+import DataReport from './pages/DataReport';
 // Import other pages as needed
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/herb-index" element={<HerbIndex />} />
         <Route path="/herb/:slug" element={<HerbDetail />} />
         <Route path="/compare" element={<Compare />} />
+        <Route path="/data-report" element={<DataReport />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
