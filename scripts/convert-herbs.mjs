@@ -229,6 +229,50 @@ async function main() {
   }
   out = Array.from(byKey.values());
 
+  // secondary dedupe: ensure slug uniqueness
+  const bySlug = new Map();
+  for (const r of out) {
+    const key = r.slug || r.id;
+    if (!key) continue;
+    if (!bySlug.has(key)) {
+      bySlug.set(key, r);
+      continue;
+    }
+    const prev = bySlug.get(key);
+    bySlug.set(key, {
+      ...prev,
+      id: prev.id || r.id,
+      slug: prev.slug || r.slug,
+      common: prefer(prev.common, r.common),
+      scientific: prefer(prev.scientific, r.scientific),
+      category: prefer(prev.category, r.category),
+      subcategory: prefer(prev.subcategory, r.subcategory),
+      intensity: prefer(prev.intensity, r.intensity),
+      region: prefer(prev.region, r.region),
+      regiontags: mergeArrays(prev.regiontags, r.regiontags),
+      legalstatus: prefer(prev.legalstatus, r.legalstatus),
+      schedule: prefer(prev.schedule, r.schedule),
+      legalnotes: prefer(prev.legalnotes, r.legalnotes),
+      description: prefer(prev.description, r.description),
+      effects: prefer(prev.effects, r.effects),
+      mechanism: prefer(prev.mechanism, r.mechanism),
+      compounds: mergeArrays(prev.compounds, r.compounds),
+      preparations: mergeArrays(prev.preparations, r.preparations),
+      dosage: prefer(prev.dosage, r.dosage),
+      therapeutic: prefer(prev.therapeutic, r.therapeutic),
+      interactions: mergeArrays(prev.interactions, r.interactions),
+      contraindications: mergeArrays(prev.contraindications, r.contraindications),
+      sideeffects: mergeArrays(prev.sideeffects, r.sideeffects),
+      safety: prefer(prev.safety, r.safety),
+      toxicity: prefer(prev.toxicity, r.toxicity),
+      toxicity_ld50: prefer(prev.toxicity_ld50, r.toxicity_ld50),
+      tags: mergeArrays(prev.tags, r.tags),
+      sources: mergeArrays(prev.sources, r.sources),
+      image: prefer(prev.image, r.image),
+    });
+  }
+  out = Array.from(bySlug.values());
+
   // optional: sort merged by common name for stable output
   out.sort((a, b) =>
     String(a.common || a.scientific).localeCompare(String(b.common || b.scientific))
