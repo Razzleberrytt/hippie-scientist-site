@@ -24,13 +24,16 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   const detailHref = `/herb/${herb.slug}`
   const effects = cleanText(pick.effects(herb))
   const description = cleanText(pick.description(herb))
-  const region = cleanText(pick.region(herb))
-  const intensityValue = cleanText(herb.intensity_label ?? pick.intensity(herb))
-  const intensity = titleCase(intensityValue.toLowerCase())
+  const intensityRaw = String(herb.intensity || herb.intensity_label || pick.intensity(herb) || '')
+  const intensity = intensityRaw.toLowerCase()
   const legal = cleanText(pick.legalstatus(herb))
   const compounds = cleanItems(pick.compounds(herb))
   const contraind = cleanItems(pick.contraind(herb))
   const tags = cleanItems(pick.tags(herb)).slice(0, 6)
+  const regionText = cleanText(pick.region(herb) || (herb as any).region || '')
+  const regionTags = Array.isArray((herb as any).regiontags)
+    ? (herb as any).regiontags.filter(tag => hasVal(tag)).map(tag => cleanLine(String(tag)))
+    : []
   const sources = pick
     .sources(herb)
     .map(source => source.replace(/[.;,]\s*$/, '').trim())
@@ -39,8 +42,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   const showEffects = hasVal(effects)
   const showDescription = hasVal(description)
   const showLegal = hasVal(legal) && !/^legal$/i.test(legal)
-  const showRegion = hasVal(region)
-  const showIntensity = hasVal(intensity)
+  const showRegion = hasVal(regionText) || regionTags.length > 0
   const showCompounds = compounds.length > 0
   const showContraind = contraind.length > 0
   const canToggle = showEffects || showDescription || showLegal || showCompounds || showContraind || sources.length > 0
@@ -48,13 +50,21 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   const isFavorite = has(herb.slug)
   const [open, setOpen] = useState(false)
 
+  const intensityClass = intensity.includes('strong')
+    ? 'bg-red-600/30 text-red-200'
+    : intensity.includes('moderate')
+      ? 'bg-yellow-600/30 text-yellow-100'
+      : intensity.includes('mild')
+        ? 'bg-green-700/30 text-green-200'
+        : 'bg-white/10 text-white/80'
+
   if (import.meta.env.MODE !== 'production' && herb && index === 0) {
     // eslint-disable-next-line no-console
     console.log('card item keys:', Object.keys(herb))
   }
   return (
     <article
-      className='glassmorphic-card herb-card-surface soft-border-glow relative flex h-full flex-col gap-2 rounded-xl border border-white/10 p-4 text-sand'
+      className='card relative flex h-full flex-col border border-white/10 bg-gradient-to-br from-slate-950/80 via-slate-900/70 to-slate-900/60 p-5 text-sand shadow-lg'
       data-favorites-count={favs.length}
     >
       <header>
@@ -72,40 +82,38 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
             ★
           </button>
         </div>
-        {hasVal(scientific) && <p className='text-sm italic text-sand/70'>{scientific}</p>}
-        {showIntensity && (
-          <p className='mt-1'>
-            <span className='inline-block rounded-full bg-gray-700/60 px-2 py-1 text-xs tracking-wide'>
-              INTENSITY: {intensity}
-            </span>
-          </p>
+        {hasVal(scientific) && <p className='meta text-sm italic text-sand/70'>{scientific}</p>}
+        {hasVal(intensity) && (
+          <span className={`inline-block mt-2 text-xs px-2 py-1 rounded-full ${intensityClass}`}>
+            INTENSITY: {titleCase(intensity)}
+          </span>
         )}
       </header>
-      <section className='mt-2 space-y-3 text-sm text-sand/90'>
+      <section className='section space-y-3 text-sm text-sand/90'>
         {showEffects && (
           <div>
-            <span className='font-semibold'>Effects:</span>{' '}
+            <span className='label font-semibold'>Effects:</span>{' '}
             <span className={`${open ? '' : 'clamp-3'} block`}>{effects}</span>
           </div>
         )}
 
         {showDescription && (
           <div className='text-sand/80'>
-            <span className='font-semibold'>Description:</span>{' '}
+            <span className='label font-semibold'>Description:</span>{' '}
             <span className={`${open ? '' : 'clamp-3'} block`}>{description}</span>
           </div>
         )}
 
         {showLegal && (
           <div>
-            <span className='font-semibold'>Legal:</span>{' '}
+            <span className='label font-semibold'>Legal:</span>{' '}
             <span className={`${open ? '' : 'clamp-2'} block`}>{legal}</span>
           </div>
         )}
       </section>
 
       {tags.length > 0 && (
-        <div className='mt-2 flex flex-wrap gap-2'>
+        <div className='section flex flex-wrap gap-2'>
           {tags.map(tag => (
             <span key={tag} className='rounded-full bg-purple-700/40 px-2 py-1 text-xs'>
               {tag}
@@ -114,23 +122,17 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
         </div>
       )}
 
-      {showRegion && <p className='mt-2 text-sm text-sand/80'>🌍 {region}</p>}
-
-      {canToggle && (
-        <button
-          type='button'
-          onClick={event => {
-            event.stopPropagation()
-            setOpen(v => !v)
-          }}
-          className='mt-2 text-left text-sm toggle-link transition hover:opacity-100'
-        >
-          {open ? 'Show less' : 'Show more'}
-        </button>
+      {showRegion && (
+        <div className='section flex items-center gap-2 text-sm text-sand/85'>
+          <span aria-hidden>🌍</span>
+          <span className='opacity-90'>
+            {regionText || joinList(regionTags)}
+          </span>
+        </div>
       )}
 
       {open && (
-        <div className='mt-2 space-y-2 text-sm text-sand/90'>
+        <div className='section space-y-2 text-sm text-sand/90'>
           {showCompounds && (
             <p>
               <strong>Active Compounds:</strong> {joinList(compounds)}
@@ -141,7 +143,6 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
               <strong>Contraindications:</strong> {joinList(contraind)}
             </p>
           )}
-          {showLegal && <p className='text-xs opacity-70'>Legal: {legal}</p>}
           {sources.length > 0 && (
             <div>
               <strong>Sources:</strong>
@@ -163,9 +164,20 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
         </div>
       )}
 
-      <div className='mt-auto flex items-center justify-between pt-2 text-xs text-sand/60'>
-        {showLegal && !open && <span>Legal: {legal}</span>}
-        <Link to={detailHref} className='text-sky-300 underline'>
+      <div className='mt-3 flex items-center justify-between'>
+        {canToggle && (
+          <button
+            type='button'
+            onClick={event => {
+              event.stopPropagation()
+              setOpen(v => !v)
+            }}
+            className='toggle-link text-sm'
+          >
+            {open ? 'Show less' : 'Show more'}
+          </button>
+        )}
+        <Link to={detailHref} className='underline text-sm opacity-90'>
           View details
         </Link>
       </div>

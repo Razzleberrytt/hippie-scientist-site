@@ -1,3 +1,8 @@
 .clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .toggle-link { text-decoration: underline; opacity: .8; }
+.card { border-radius: 18px; }
+.card h3 { letter-spacing: 0.1px; }
+.card .label { opacity: .92; }
+.card .meta { opacity: .85; font-size: .9rem; }
+.card .section { margin-top: .6rem; }
