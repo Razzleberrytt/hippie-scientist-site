@@ -56,3 +56,8 @@ This repository includes a variety of learning materials:
 ## Contributing
 
 Pull requests and issue reports are welcome. Please open an issue first if you would like to discuss a major change.
+
+### Data maintenance
+
+- Refresh + validate dataset locally: `npm run data:refresh`
+- Refresh + validate + build: `npm run data:refresh+build`
