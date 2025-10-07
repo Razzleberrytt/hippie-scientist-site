@@ -17,7 +17,9 @@
     "verify:data": "npm run autofill:data && npm run audit:data",
     "audit:data": "node scripts/audit-herbs.mjs",
     "data:refresh": "npm run prebuild:data && npm run autofill:data && npm run prebuild:validate && npm run audit:data",
-    "data:refresh+build": "npm run data:refresh && vite build"
+    "data:refresh+build": "npm run data:refresh && vite build",
+    "data:report": "node scripts/report-herbs.mjs",
+    "data:checkup": "npm run data:refresh && npm run data:report"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
