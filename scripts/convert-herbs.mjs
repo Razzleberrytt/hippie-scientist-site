@@ -2,66 +2,37 @@ import fs from "node:fs";
 import path from "node:path";
 import Papa from "papaparse";
 
-const SRC = "src/data/herbs/deep_audited_subset_updated_v1.28.csv";
+const SRC_CANDIDATES = [
+  "src/data/herbs/herb_index_master_v1.28.csv",
+  "src/data/herbs/deep_audited_subset_updated_v1.28.csv",
+];
+const SRC = SRC_CANDIDATES.find((file) => fs.existsSync(file));
+if (!SRC) {
+  throw new Error(`No herb CSV found (looked for: ${SRC_CANDIDATES.join(", ")})`);
+}
 const OUT = "src/data/herbs/herbs.normalized.json";
 
 async function main() {
-  let ALIASES;
-  try {
-    ({ ALIASES } = await import("../src/data/schema.ts"));
-  } catch (err) {
-    console.warn("[convert-herbs] Falling back to local aliases map", err?.message);
-    ALIASES = {
-      common: ["common", "commonname", "name"],
-      scientific: ["scientific", "scientificname", "latin", "latinname", "binomial"],
-      slug: ["slug"],
-      category: ["category", "categoryprimary", "primarycategory", "group"],
-      subcategory: ["subcategory", "secondarycategory"],
-      intensity: ["intensity", "potency", "strength"],
-      region: ["region", "origin", "geography", "distribution"],
-      regiontags: ["region_tags", "regions"],
-      legalstatus: ["legalstatus", "legal_status", "status"],
-      schedule: ["schedule", "controlled_schedule"],
-      legalnotes: ["legalnotes", "legal_notes"],
-      description: ["description", "summary", "overview", "desc"],
-      effects: ["effects", "effect"],
-      mechanism: ["mechanismofaction", "mechanism", "moa", "mechanism_of_action", "action"],
-      compounds: ["compounds", "compound", "keycompounds", "actives", "constituents"],
-      preparations: ["preparations", "preparation", "method", "forms", "formulations"],
-      dosage: ["dosage", "dose", "dosing", "dosage_and_administration", "administration"],
-      therapeutic: ["therapeutic", "uses", "applications", "benefits", "traditional_uses"],
-      interactions: ["interactions", "drug_interactions", "mixing"],
-      contraindications: ["contraindications", "contradictions", "cautions"],
-      sideeffects: ["sideeffects", "side_effects", "adverse_effects", "unwanted_effects"],
-      safety: ["safety", "warnings", "precautions", "risk_profile"],
-      toxicity: ["toxicity", "tox_profile"],
-      toxicity_ld50: ["toxicity_ld50", "toxicityld50", "ld50"],
-      tags: ["tags", "labels", "keywords"],
-      sources: ["sources", "refs", "references"],
-      image: ["image", "imageurl", "img", "photo"],
-    };
-  }
-
   const NULLY = new Set(["", "na", "n/a", "none", "null", "undefined", "unknown", "unk", "?", "-"]);
-  const text = (v) => {
-    const s = String(v ?? "").trim();
-    return NULLY.has(s.toLowerCase()) ? "" : s;
+  const cleanString = (value) => {
+    const s = String(value ?? "").trim();
+    return s && !NULLY.has(s.toLowerCase()) ? s : "";
   };
-  const list = (v) => {
-    if (Array.isArray(v)) return v.map(String).map((s) => s.trim()).filter(Boolean);
-    const s = text(v);
-    if (!s) return [];
-    return s.split(/[,;|]/).map((x) => x.trim()).filter(Boolean);
-  };
-  const pick = (row, keys) => {
-    const map = Object.fromEntries(Object.keys(row).map((k) => [k.toLowerCase(), k]));
+  const cleanList = (value) =>
+    list(value)
+      .map((v) => cleanString(v))
+      .filter(Boolean);
+  const list = (v) => Array.isArray(v) ? v : String(v || "").split(/[,;|]/).map((s) => s.trim()).filter(Boolean);
+  const pick = (r, keys) => {
+    const map = Object.fromEntries(Object.keys(r).map((k) => [k.toLowerCase(), k]));
     for (const key of keys) {
       const hit = map[key.toLowerCase()];
-      if (hit) return text(row[hit]);
+      if (hit && r[hit]) return String(r[hit]).trim();
     }
     return "";
   };
-  const pickList = (row, keys) => list(pick(row, keys));
+  const getField = (r, aliases) => pick(r, aliases);
+  const getList = (r, aliases) => list(pick(r, aliases));
   const slugify = (s) =>
     String(s || "")
       .toLowerCase()
@@ -82,40 +53,113 @@ async function main() {
   const rows = (parsed.data || []).filter((r) => Object.keys(r).length);
   let out = rows
     .map((r) => {
-      const common = pick(r, ALIASES.common);
-      const scientific = pick(r, ALIASES.scientific);
-      const slug = slugify(common || scientific);
-
-      const obj = {
-        id: pick(r, ["id", "uuid"]) || slug,
-        slug,
-        common,
-        scientific,
-        category: pick(r, ALIASES.category),
-        subcategory: pick(r, ALIASES.subcategory),
-        intensity: pick(r, ALIASES.intensity),
-        region: pick(r, ALIASES.region),
-        regiontags: pickList(r, ALIASES.regiontags),
-        legalstatus: pick(r, ALIASES.legalstatus),
-        schedule: pick(r, ALIASES.schedule),
-        legalnotes: pick(r, ALIASES.legalnotes),
-        description: pick(r, ALIASES.description),
-        effects: pick(r, ALIASES.effects),
-        mechanism: pick(r, ALIASES.mechanism),
-        compounds: pickList(r, ALIASES.compounds),
-        preparations: pickList(r, ALIASES.preparations),
-        dosage: pick(r, ALIASES.dosage),
-        therapeutic: pick(r, ALIASES.therapeutic),
-        interactions: pickList(r, ALIASES.interactions),
-        contraindications: pickList(r, ALIASES.contraindications),
-        sideeffects: pickList(r, ALIASES.sideeffects),
-        safety: pick(r, ALIASES.safety),
-        toxicity: pick(r, ALIASES.toxicity),
-        toxicity_ld50: pick(r, ALIASES.toxicity_ld50),
-        tags: pickList(r, ALIASES.tags),
-        sources: pickList(r, ALIASES.sources),
-        image: pick(r, ALIASES.image),
+      const herb = {
+        id: pick(r, ["id"]),
+        slug: slugify(pick(r, ["common", "scientific"])),
+        common: pick(r, ["common"]),
+        scientific: pick(r, ["scientific"]),
+        category: pick(r, ["category"]),
+        description: pick(r, ["description"]),
+        effects: pick(r, ["effects"]),
+        intensity: pick(r, ["intensity"]),
+        region: pick(r, ["region"]),
+        duration: pick(r, ["duration"]),
+        onset: pick(r, ["onset"]),
+        legalstatus: pick(r, ["legalstatus", "is_controlled_substance"]),
+        mechanism: pick(r, ["mechanism", "mechanismofaction"]),
+        pharmacology: pick(r, ["pharmacology", "pharmacokinetics"]),
+        preparations: getList(r, ["preparation", "preparations"]),
+        compounds: getList(r, ["compound", "compounds"]),
+        toxicity_ld50: pick(r, ["toxicityld50", "toxicity_ld50", "toxicityId5"]),
+        safety: pick(r, ["safety"]),
+        sideeffects: getList(r, ["sideeffects"]),
+        contraindications: getList(r, ["contraindications"]),
+        therapeutic: pick(r, ["therapeutic"]),
+        tags: getList(r, ["tags"]),
+        sources: getList(r, ["sources"]),
       };
+
+      const obj = { ...herb };
+
+      const stringKeys = [
+        "id",
+        "slug",
+        "common",
+        "scientific",
+        "category",
+        "description",
+        "effects",
+        "intensity",
+        "region",
+        "duration",
+        "onset",
+        "legalstatus",
+        "mechanism",
+        "pharmacology",
+        "toxicity_ld50",
+        "safety",
+        "therapeutic",
+      ];
+      const listKeys = [
+        "preparations",
+        "compounds",
+        "sideeffects",
+        "contraindications",
+        "tags",
+        "sources",
+      ];
+      for (const key of stringKeys) obj[key] = cleanString(obj[key]);
+      for (const key of listKeys) obj[key] = cleanList(obj[key]);
+
+      const fillIfEmpty = (key, value) => {
+        const val = cleanString(value);
+        if (!obj[key] && val) obj[key] = val;
+      };
+      const fillListIfEmpty = (key, value) => {
+        const val = cleanList(value);
+        if ((!obj[key] || obj[key].length === 0) && val.length) obj[key] = val;
+      };
+
+      fillIfEmpty("id", getField(r, ["uuid", "slug", "name"]));
+      fillIfEmpty("common", getField(r, ["name", "commonname", "common_name"]));
+      fillIfEmpty("scientific", getField(r, ["scientificname", "latin", "latinname", "binomial"]));
+      fillIfEmpty("category", getField(r, ["primarycategory", "categoryprimary", "group"]));
+      fillIfEmpty("description", getField(r, ["summary", "overview", "desc"]));
+      fillIfEmpty("effects", getField(r, ["effect", "effectsdescription"]));
+      fillIfEmpty("intensity", getField(r, ["potency", "strength"]));
+      fillIfEmpty("region", getField(r, ["origin", "geography", "distribution"]));
+      fillIfEmpty("duration", getField(r, ["durationofeffects", "length"]));
+      fillIfEmpty("onset", getField(r, ["onsettime", "start"]));
+      fillIfEmpty("legalstatus", getField(r, ["legal_status", "status"]));
+      fillIfEmpty("mechanism", getField(r, ["mechanism_of_action", "moa", "action"]));
+      fillIfEmpty("pharmacology", getField(r, ["pharmacodynamics"]));
+      fillIfEmpty("toxicity_ld50", getField(r, ["ld50"]));
+      fillIfEmpty("safety", getField(r, ["warnings", "precautions", "risk_profile"]));
+      fillIfEmpty("therapeutic", getField(r, ["uses", "applications", "benefits", "traditional_uses"]));
+      fillListIfEmpty("preparations", getList(r, ["preparations", "method", "forms", "formulations"]));
+      fillListIfEmpty("compounds", getList(r, ["compounds", "keycompounds", "actives", "constituents"]));
+      fillListIfEmpty("sideeffects", getList(r, ["side_effects", "adverse_effects", "unwanted_effects"]));
+      fillListIfEmpty("contraindications", getList(r, ["contradictions", "cautions"]));
+      fillListIfEmpty("tags", getList(r, ["labels", "keywords"]));
+      fillListIfEmpty("sources", getList(r, ["refs", "references"]));
+
+      const slugSource = obj.slug || slugify(getField(r, ["slug", "common", "scientific", "name", "scientificname"]));
+      const derivedSlug = slugSource || slugify(obj.common || obj.scientific || obj.id);
+      obj.slug = cleanString(derivedSlug);
+      if (!obj.slug) obj.slug = slugify(obj.common || obj.scientific || obj.id);
+
+      obj.id = cleanString(obj.id) || obj.slug;
+
+      obj.subcategory = cleanString(getField(r, ["subcategory", "secondarycategory"]));
+      obj.regiontags = cleanList(getList(r, ["regiontags", "region_tags", "regions"]));
+      obj.schedule = cleanString(getField(r, ["schedule", "controlled_schedule"]));
+      obj.legalnotes = cleanString(getField(r, ["legalnotes", "legal_notes"]));
+      obj.dosage = cleanString(getField(r, ["dosage", "dose", "dosing", "dosage_and_administration", "administration"]));
+      obj.interactions = cleanList(
+        getList(r, ["interactions", "drug_interactions", "mixing"])
+      );
+      obj.toxicity = cleanString(getField(r, ["toxicity", "tox_profile"]));
+      obj.image = cleanString(getField(r, ["image", "imageurl", "img", "photo"]));
 
       // derive category from tags if empty
       if (!obj.category) {
@@ -124,9 +168,10 @@ async function main() {
         );
         if (t) obj.category = t;
       }
+
       return obj;
     })
-    .filter((x) => x.slug);
+    .filter((x) => x && x.slug);
 
   function canonSci(s) {
     return String(s || "").toLowerCase().replace(/\s+/g, " ").trim();
