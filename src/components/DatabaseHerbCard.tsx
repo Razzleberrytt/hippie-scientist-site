@@ -4,7 +4,8 @@ import type { Herb } from '../types'
 import { getText } from '../lib/fields'
 import { useFavorites } from '../lib/useFavorites'
 import { herbName } from '../utils/herb'
-import { pick, isNonEmpty, tidy, formatList, urlish } from '../lib/present'
+import { pick, tidy, urlish } from '../lib/present'
+import { cleanLine, hasVal, joinList, titleCase } from '../lib/pretty'
 
 interface Props {
   herb: Herb
@@ -13,22 +14,36 @@ interface Props {
 
 export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   const title = herbName(herb)
-  const scientific = tidy(getText(herb, 'scientific', ['botanical', 'latin', 'latinname']))
+  const cleanText = (value: any) => cleanLine(tidy(value ?? ''))
+  const cleanItems = (values: string[]) =>
+    values
+      .map(item => cleanText(item))
+      .filter(item => hasVal(item))
+
+  const scientific = cleanText(getText(herb, 'scientific', ['botanical', 'latin', 'latinname']))
   const detailHref = `/herb/${herb.slug}`
-  const effects = tidy(pick.effects(herb))
-  const description = tidy(pick.description(herb))
-  const region = tidy(pick.region(herb))
-  const intensity = tidy(pick.intensity(herb))
-  const legal = tidy(pick.legalstatus(herb))
-  const compounds = pick.compounds(herb).map(tidy).filter(Boolean)
-  const contraind = pick.contraind(herb).map(tidy).filter(Boolean)
-  const tags = pick.tags(herb).map(tidy).filter(Boolean).slice(0, 6)
+  const effects = cleanText(pick.effects(herb))
+  const description = cleanText(pick.description(herb))
+  const region = cleanText(pick.region(herb))
+  const intensityValue = cleanText(herb.intensity_label ?? pick.intensity(herb))
+  const intensity = titleCase(intensityValue.toLowerCase())
+  const legal = cleanText(pick.legalstatus(herb))
+  const compounds = cleanItems(pick.compounds(herb))
+  const contraind = cleanItems(pick.contraind(herb))
+  const tags = cleanItems(pick.tags(herb)).slice(0, 6)
   const sources = pick
     .sources(herb)
     .map(source => source.replace(/[.;,]\s*$/, '').trim())
-    .map(source => (urlish(source) ? source : tidy(source)))
-    .filter(Boolean)
-  const showLegal = isNonEmpty(legal) && !/^legal$/i.test(legal)
+    .map(source => (urlish(source) ? source : cleanText(source)))
+    .filter(source => hasVal(source))
+  const showEffects = hasVal(effects)
+  const showDescription = hasVal(description)
+  const showLegal = hasVal(legal) && !/^legal$/i.test(legal)
+  const showRegion = hasVal(region)
+  const showIntensity = hasVal(intensity)
+  const showCompounds = compounds.length > 0
+  const showContraind = contraind.length > 0
+  const canToggle = showEffects || showDescription || showLegal || showCompounds || showContraind || sources.length > 0
   const { favs, toggle, has } = useFavorites()
   const isFavorite = has(herb.slug)
   const [open, setOpen] = useState(false)
@@ -57,25 +72,37 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
             ★
           </button>
         </div>
-        {isNonEmpty(scientific) && <p className='text-sm italic text-sand/70'>{scientific}</p>}
-        {isNonEmpty(intensity) && (
+        {hasVal(scientific) && <p className='text-sm italic text-sand/70'>{scientific}</p>}
+        {showIntensity && (
           <p className='mt-1'>
             <span className='inline-block rounded-full bg-gray-700/60 px-2 py-1 text-xs tracking-wide'>
-              INTENSITY: {intensity.toUpperCase()}
+              INTENSITY: {intensity}
             </span>
           </p>
         )}
       </header>
-      {isNonEmpty(effects) && (
-        <p className='mt-2 line-clamp-2 text-sm text-sand/90'>
-          <strong>Effects:</strong> {effects}
-        </p>
-      )}
-      {isNonEmpty(description) && (
-        <p className='mt-2 line-clamp-3 text-sm text-sand/80'>
-          <strong>Description:</strong> {description}
-        </p>
-      )}
+      <section className='mt-2 space-y-3 text-sm text-sand/90'>
+        {showEffects && (
+          <div>
+            <span className='font-semibold'>Effects:</span>{' '}
+            <span className={`${open ? '' : 'clamp-3'} block`}>{effects}</span>
+          </div>
+        )}
+
+        {showDescription && (
+          <div className='text-sand/80'>
+            <span className='font-semibold'>Description:</span>{' '}
+            <span className={`${open ? '' : 'clamp-3'} block`}>{description}</span>
+          </div>
+        )}
+
+        {showLegal && (
+          <div>
+            <span className='font-semibold'>Legal:</span>{' '}
+            <span className={`${open ? '' : 'clamp-2'} block`}>{legal}</span>
+          </div>
+        )}
+      </section>
 
       {tags.length > 0 && (
         <div className='mt-2 flex flex-wrap gap-2'>
@@ -87,29 +114,31 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
         </div>
       )}
 
-      {isNonEmpty(region) && <p className='mt-2 text-sm text-sand/80'>🌍 {region}</p>}
+      {showRegion && <p className='mt-2 text-sm text-sand/80'>🌍 {region}</p>}
 
-      <button
-        type='button'
-        onClick={event => {
-          event.stopPropagation()
-          setOpen(v => !v)
-        }}
-        className='mt-2 text-left text-sm underline opacity-80 transition hover:opacity-100'
-      >
-        {open ? 'Hide summary' : 'Show more'}
-      </button>
+      {canToggle && (
+        <button
+          type='button'
+          onClick={event => {
+            event.stopPropagation()
+            setOpen(v => !v)
+          }}
+          className='mt-2 text-left text-sm toggle-link transition hover:opacity-100'
+        >
+          {open ? 'Show less' : 'Show more'}
+        </button>
+      )}
 
       {open && (
         <div className='mt-2 space-y-2 text-sm text-sand/90'>
-          {compounds.length > 0 && (
+          {showCompounds && (
             <p>
-              <strong>Active Compounds:</strong> {formatList(compounds, 3)}
+              <strong>Active Compounds:</strong> {joinList(compounds)}
             </p>
           )}
-          {contraind.length > 0 && (
+          {showContraind && (
             <p>
-              <strong>Contraindications:</strong> {formatList(contraind)}
+              <strong>Contraindications:</strong> {joinList(contraind)}
             </p>
           )}
           {showLegal && <p className='text-xs opacity-70'>Legal: {legal}</p>}
