@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
-    "validate-herbs": "node scripts/validateHerbs.js"
+    "validate-herbs": "node scripts/validateHerbs.js",
+    "audit:data": "node scripts/audit-herbs.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
