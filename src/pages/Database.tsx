@@ -26,6 +26,24 @@ const INTENSITY_ORDER = [
   'very strong',
 ].map(s => s.toLowerCase())
 
+const SORTS = [
+  { id: 'relevance', label: 'Relevance' },
+  { id: 'az', label: 'A → Z' },
+  { id: 'za', label: 'Z → A' },
+  { id: 'strong', label: 'Intensity: Strong → Mild' },
+  { id: 'mild', label: 'Intensity: Mild → Strong' },
+]
+
+const nameOf = (herb: Herb) => String(herb.common || herb.scientific || '').toLowerCase()
+
+const intensityRank = (herb: Herb) => {
+  const value = String(herb.intensity || '').toLowerCase()
+  if (value.includes('strong')) return 3
+  if (value.includes('moderate')) return 2
+  if (value.includes('mild')) return 1
+  return 0
+}
+
 type FilterKey = 'categories' | 'intensities' | 'regions' | 'compounds'
 
 type FilterState = Record<FilterKey, string[]>
@@ -41,6 +59,7 @@ export default function Database() {
     regions: [],
     compounds: [],
   })
+  const [sortBy, setSortBy] = useState('relevance')
   const deferredQuery = useDeferredValue(query)
 
   const topHerbs = useMemo(() => herbs.slice(0, 4), [herbs])
@@ -164,6 +183,33 @@ export default function Database() {
     })
   }, [deferredQuery, filters, fuse, herbs])
 
+  const sortedHerbs = useMemo(() => {
+    const results = [...filteredHerbs]
+    switch (sortBy) {
+      case 'az':
+        results.sort((a, b) => nameOf(a).localeCompare(nameOf(b)))
+        break
+      case 'za':
+        results.sort((a, b) => nameOf(b).localeCompare(nameOf(a)))
+        break
+      case 'strong':
+        results.sort((a, b) => {
+          const delta = intensityRank(b) - intensityRank(a)
+          return delta !== 0 ? delta : nameOf(a).localeCompare(nameOf(b))
+        })
+        break
+      case 'mild':
+        results.sort((a, b) => {
+          const delta = intensityRank(a) - intensityRank(b)
+          return delta !== 0 ? delta : nameOf(a).localeCompare(nameOf(b))
+        })
+        break
+      default:
+        break
+    }
+    return results
+  }, [filteredHerbs, sortBy])
+
   const hasActiveFilters =
     Boolean(query.trim()) ||
     filters.categories.length > 0 ||
@@ -280,10 +326,24 @@ export default function Database() {
             </div>
 
             <div className='flex flex-wrap items-center justify-between gap-3 text-sm text-sand/70'>
-              <p>
-                Showing <span className='font-semibold text-sand'>{filteredHerbs.length}</span> of{' '}
-                <span className='font-semibold text-sand'>{herbs.length}</span> herbs
-              </p>
+              <div className='opacity-75 text-sm'>
+                {sortedHerbs.length} results{' '}
+                <span className='text-xs text-sand/60'>({herbs.length} total)</span>
+              </div>
+              <label className='flex items-center gap-2 text-sm'>
+                <span className='opacity-75'>Sort</span>
+                <select
+                  value={sortBy}
+                  onChange={event => setSortBy(event.target.value)}
+                  className='bg-white/10 border border-white/10 rounded-md px-2 py-1 text-sm'
+                >
+                  {SORTS.map(sort => (
+                    <option key={sort.id} value={sort.id}>
+                      {sort.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
             </div>
           </section>
 
@@ -293,7 +353,7 @@ export default function Database() {
             transition={{ duration: 0.25, ease: 'easeInOut' }}
           >
             <AnimatePresence initial={false} mode='popLayout'>
-              {filteredHerbs.map(herb => (
+              {sortedHerbs.map(herb => (
                 <motion.div
                   key={herb.id}
                   layout
@@ -308,7 +368,7 @@ export default function Database() {
             </AnimatePresence>
           </motion.section>
 
-          {filteredHerbs.length === 0 && (
+          {sortedHerbs.length === 0 && (
             <div className='col-span-full mt-10 text-center text-sand/60'>
               No herbs found. Try adjusting your filters.
             </div>
