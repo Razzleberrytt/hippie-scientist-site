@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Herb } from '../types'
-import { getText, getList, isNonEmpty, urlish } from '../lib/fields'
+import { getText } from '../lib/fields'
 import { useFavorites } from '../lib/useFavorites'
 import { herbName } from '../utils/herb'
+import { pick, isNonEmpty, tidy, formatList, urlish } from '../lib/present'
 
 interface Props {
   herb: Herb
@@ -11,22 +13,25 @@ interface Props {
 
 export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   const title = herbName(herb)
-  const scientific = getText(herb, 'scientific', ['botanical', 'latin', 'latinname'])
+  const scientific = tidy(getText(herb, 'scientific', ['botanical', 'latin', 'latinname']))
   const detailHref = `/herb/${herb.slug}`
-  const intensity = getText(herb, 'intensity', ['potency', 'strength'])
-  const region = getText(herb, 'region', ['regions', 'origin', 'geography'])
-  const legalStatus = getText(herb, 'legalstatus', ['legal_status', 'status'])
-  const showLegal = isNonEmpty(legalStatus) && !/^legal$/i.test(legalStatus)
+  const effects = tidy(pick.effects(herb))
+  const description = tidy(pick.description(herb))
+  const region = tidy(pick.region(herb))
+  const intensity = tidy(pick.intensity(herb))
+  const legal = tidy(pick.legalstatus(herb))
+  const compounds = pick.compounds(herb).map(tidy).filter(Boolean)
+  const contraind = pick.contraind(herb).map(tidy).filter(Boolean)
+  const tags = pick.tags(herb).map(tidy).filter(Boolean).slice(0, 6)
+  const sources = pick
+    .sources(herb)
+    .map(source => source.replace(/[.;,]\s*$/, '').trim())
+    .map(source => (urlish(source) ? source : tidy(source)))
+    .filter(Boolean)
+  const showLegal = isNonEmpty(legal) && !/^legal$/i.test(legal)
   const { favs, toggle, has } = useFavorites()
   const isFavorite = has(herb.slug)
-
-  // Robust lookups (cover both old and new keys)
-  const effects = getText(herb, 'effects', ['effect'])
-  const description = getText(herb, 'description', ['summary', 'overview', 'desc'])
-  const tags = getList(herb, 'tags', ['labels', 'keywords'])
-  const compounds = getList(herb, 'compounds', ['compound', 'keycompounds', 'actives', 'constituents'])
-  const contraindications = getList(herb, 'contraindications', ['contradictions', 'cautions'])
-  const sources = getList(herb, 'sources', ['refs', 'references'])
+  const [open, setOpen] = useState(false)
 
   if (import.meta.env.MODE !== 'production' && herb && index === 0) {
     // eslint-disable-next-line no-console
@@ -34,7 +39,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   }
   return (
     <article
-      className='glassmorphic-card soft-border-glow relative flex h-full flex-col gap-2 p-4 text-sand'
+      className='glassmorphic-card soft-border-glow relative flex h-full flex-col gap-2 rounded-xl border border-white/10 p-4 text-sand'
       data-favorites-count={favs.length}
     >
       <header>
@@ -54,26 +59,27 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
         </div>
         {isNonEmpty(scientific) && <p className='text-sm italic text-sand/70'>{scientific}</p>}
         {isNonEmpty(intensity) && (
-          <p className='mt-1 inline-flex items-center rounded-full bg-white/10 px-2 py-1 text-xs uppercase tracking-wide text-sand/80'>
-            Intensity: {intensity}
+          <p className='mt-1'>
+            <span className='inline-block rounded-full bg-gray-700/60 px-2 py-1 text-xs tracking-wide'>
+              INTENSITY: {intensity.toUpperCase()}
+            </span>
           </p>
         )}
       </header>
-
       {isNonEmpty(effects) && (
-        <p className='text-sm text-sand/90'>
+        <p className='mt-2 line-clamp-2 text-sm text-sand/90'>
           <strong>Effects:</strong> {effects}
         </p>
       )}
       {isNonEmpty(description) && (
-        <p className='text-sm text-sand/80'>
+        <p className='mt-2 line-clamp-3 text-sm text-sand/80'>
           <strong>Description:</strong> {description}
         </p>
       )}
 
       {tags.length > 0 && (
-        <div className='mt-1 flex flex-wrap gap-2'>
-          {tags.slice(0, 6).map(tag => (
+        <div className='mt-2 flex flex-wrap gap-2'>
+          {tags.map(tag => (
             <span key={tag} className='rounded-full bg-purple-700/40 px-2 py-1 text-xs'>
               {tag}
             </span>
@@ -81,41 +87,55 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
         </div>
       )}
 
-      {isNonEmpty(region) && <p className='mt-1 text-sm text-sand/80'>🌍 {region}</p>}
+      {isNonEmpty(region) && <p className='mt-2 text-sm text-sand/80'>🌍 {region}</p>}
 
-      {compounds.length > 0 && (
-        <p className='mt-1 text-sm text-sand/90'>
-          <strong>Active Compounds:</strong> {compounds.slice(0, 3).join(', ')}
-        </p>
-      )}
+      <button
+        type='button'
+        onClick={event => {
+          event.stopPropagation()
+          setOpen(v => !v)
+        }}
+        className='mt-2 text-left text-sm underline opacity-80 transition hover:opacity-100'
+      >
+        {open ? 'Hide summary' : 'Show more'}
+      </button>
 
-      {contraindications.length > 0 && (
-        <p className='mt-1 text-sm text-sand/90'>
-          <strong>Contraindications:</strong> {contraindications.join(', ')}
-        </p>
-      )}
-
-      {sources.length > 0 && (
-        <div className='mt-2 text-sm text-sand/90'>
-          <strong>Sources:</strong>
-          <ul className='mt-1 list-disc pl-5'>
-            {sources.map((source, index) => (
-              <li key={`${herb.slug}-source-${index}`}>
-                {urlish(source) ? (
-                  <a className='underline' href={source} target='_blank' rel='noreferrer'>
-                    {source}
-                  </a>
-                ) : (
-                  source
-                )}
-              </li>
-            ))}
-          </ul>
+      {open && (
+        <div className='mt-2 space-y-2 text-sm text-sand/90'>
+          {compounds.length > 0 && (
+            <p>
+              <strong>Active Compounds:</strong> {formatList(compounds, 3)}
+            </p>
+          )}
+          {contraind.length > 0 && (
+            <p>
+              <strong>Contraindications:</strong> {formatList(contraind)}
+            </p>
+          )}
+          {showLegal && <p className='text-xs opacity-70'>Legal: {legal}</p>}
+          {sources.length > 0 && (
+            <div>
+              <strong>Sources:</strong>
+              <ul className='list-disc pl-5'>
+                {sources.map((source, sourceIndex) => (
+                  <li key={`${herb.slug}-source-${sourceIndex}`}>
+                    {urlish(source) ? (
+                      <a className='underline' href={source} target='_blank' rel='noreferrer'>
+                        {source}
+                      </a>
+                    ) : (
+                      source
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       )}
 
       <div className='mt-auto flex items-center justify-between pt-2 text-xs text-sand/60'>
-        {showLegal && <span>Legal: {legalStatus}</span>}
+        {showLegal && !open && <span>Legal: {legal}</span>}
         <Link to={detailHref} className='text-sky-300 underline'>
           View details
         </Link>

@@ -3,8 +3,8 @@ import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { herbs } from '../data/herbs/herbsfull'
 import { herbName } from '../utils/herb'
-import { has, bullets, urlish } from '../lib/format'
-import { getList, getText } from '../lib/fields'
+import { getText } from '../lib/fields'
+import { pick, tidy, formatList, isNonEmpty, urlish } from '../lib/present'
 import { ALIASES } from '../data/schema'
 
 const DISCLAIMER_TEXT =
@@ -50,48 +50,59 @@ export default function HerbDetail() {
   }
 
   const imageSrc = herb.image || `/images/herbs/${herb.slug}.jpg`
-  const compounds = bullets(getList(herb, 'compounds', ALIASES.compounds))
-  const preparations = bullets(getList(herb, 'preparations', ALIASES.preparations))
-  const interactions = bullets(getList(herb, 'interactions', ALIASES.interactions))
-  const contraindications = bullets(getList(herb, 'contraindications', ALIASES.contraindications))
-  const sideEffects = bullets(getList(herb, 'sideeffects', ALIASES.sideeffects))
-  const sources = bullets(getList(herb, 'sources', ALIASES.sources))
+  const scientific = tidy(getText(herb, 'scientific', ['botanical', 'latin', 'latinname']))
+  const effects = tidy(pick.effects(herb))
+  const description = tidy(pick.description(herb))
+  const mechanism = tidy(pick.mechanism(herb))
+  const preparations = pick.preparations(herb).map(tidy).filter(Boolean)
+  const dosage = tidy(pick.dosage(herb))
+  const therapeutic = tidy(pick.therapeutic(herb))
+  const interactions = pick.interactions(herb).map(tidy).filter(Boolean)
+  const contraindications = pick.contraind(herb).map(tidy).filter(Boolean)
+  const sideEffects = pick.sideeffects(herb).map(tidy).filter(Boolean)
+  const safety = tidy(pick.safety(herb))
+  const toxicity = tidy(pick.toxicity(herb))
+  const toxicityLD50 = tidy(pick.toxicity_ld50(herb))
+  const legalStatus = tidy(pick.legalstatus(herb))
+  const schedule = tidy(pick.schedule(herb))
+  const legalNotes = tidy(pick.legalnotes(herb))
+  const compounds = pick.compounds(herb).map(tidy).filter(Boolean)
+  const region = tidy(pick.region(herb))
+  const regionTags = pick.regiontags(herb).map(tidy).filter(Boolean)
+  const sources = pick
+    .sources(herb)
+    .map(src => src.replace(/[.;,]\s*$/, '').trim())
+    .map(src => (urlish(src) ? src : tidy(src)))
+    .filter(Boolean)
 
-  const descriptionText = getText(herb, 'description', ALIASES.description)
-  const categoryText = getText(herb, 'category', ALIASES.category)
-  const subcategoryText = getText(herb, 'subcategory', ALIASES.subcategory)
-  const intensityText = getText(herb, 'intensity', ALIASES.intensity)
-  const regionText = getText(herb, 'region', ALIASES.region)
-  const effectsText = getText(herb, 'effects', ALIASES.effects)
-  const mechanismText = getText(herb, 'mechanism', ALIASES.mechanism)
-  const therapeuticText = getText(herb, 'therapeutic', ALIASES.therapeutic)
-  const dosageText = getText(herb, 'dosage', ALIASES.dosage)
-  const safetyText = getText(herb, 'safety', ALIASES.safety)
-  const toxicityText = getText(herb, 'toxicity', ALIASES.toxicity)
-  const toxicityLD50 = getText(herb, 'toxicity_ld50', ALIASES.toxicity_ld50)
-  const legalStatusText = getText(herb, 'legalstatus', ALIASES.legalstatus)
-  const scheduleText = getText(herb, 'schedule', ALIASES.schedule)
-  const legalNotesText = getText(herb, 'legalnotes', ALIASES.legalnotes)
+  const intensityRaw = herb.intensity_label ?? pick.intensity(herb)
+  const intensityText = tidy(intensityRaw ?? '')
+  const categoryRaw = herb.category_label ?? getText(herb, 'category', ALIASES.category)
+  const categoryText = tidy(categoryRaw ?? '')
+  const subcategoryRaw = herb.subcategory ?? getText(herb, 'subcategory', ALIASES.subcategory)
+  const subcategoryText = tidy(subcategoryRaw ?? '')
 
-  const legalStatusClean = /^legal$/i.test(legalStatusText) ? '' : legalStatusText
+  const showLegal = isNonEmpty(legalStatus) && !/^legal$/i.test(legalStatus)
+  const showSchedule = isNonEmpty(schedule)
+  const showLegalNotes = isNonEmpty(legalNotes)
 
-  const hasExtraSections =
-    has(effectsText) ||
-    has(mechanismText) ||
-    has(compounds) ||
-    has(preparations) ||
-    has(dosageText) ||
-    has(therapeuticText) ||
-    has(interactions) ||
-    has(contraindications) ||
-    has(sideEffects) ||
-    has(safetyText) ||
-    has(toxicityText) ||
-    has(toxicityLD50) ||
-    has(legalStatusClean) ||
-    has(scheduleText) ||
-    has(legalNotesText) ||
-    has(sources)
+  const hasSections = [
+    isNonEmpty(effects),
+    isNonEmpty(description),
+    isNonEmpty(mechanism),
+    preparations.length > 0,
+    isNonEmpty(dosage),
+    isNonEmpty(therapeutic),
+    interactions.length > 0,
+    contraindications.length > 0,
+    sideEffects.length > 0,
+    isNonEmpty(safety),
+    isNonEmpty(toxicity) || isNonEmpty(toxicityLD50),
+    showLegal || showSchedule || showLegalNotes,
+    compounds.length > 0,
+    isNonEmpty(region) || regionTags.length > 0,
+    sources.length > 0,
+  ].some(Boolean)
 
   return (
     <>
@@ -113,63 +124,44 @@ export default function HerbDetail() {
         <header className='mt-6 flex flex-col gap-4 md:flex-row md:items-center'>
           <div className='flex-1'>
             <h1 className='text-gradient text-4xl font-bold'>{herbName(herb)}</h1>
-            {herb.scientific && (
-              <p className='mt-1 text-lg italic text-sand/80'>{herb.scientific}</p>
+            {isNonEmpty(scientific) && (
+              <p className='mt-1 text-lg italic text-sand/80'>{scientific}</p>
             )}
-            {has(descriptionText) && <p className='mt-4 text-sand/90'>{descriptionText}</p>}
             <dl className='mt-4 grid gap-3 text-sm text-sand/80 sm:grid-cols-2'>
-              {has(categoryText) && (
+              {isNonEmpty(categoryText) && (
                 <div>
                   <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Category</dt>
-                  <dd>{herb.category_label ? herb.category_label : herb.category}</dd>
+                  <dd>{categoryText}</dd>
                 </div>
               )}
-              {has(subcategoryText) && (
+              {isNonEmpty(subcategoryText) && (
                 <div>
                   <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Subcategory</dt>
-                  <dd>{herb.subcategory}</dd>
+                  <dd>{subcategoryText}</dd>
                 </div>
               )}
-              {has(intensityText) && (
+              {isNonEmpty(intensityText) && (
                 <div>
                   <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Intensity</dt>
-                  <dd>{herb.intensity_label ? herb.intensity_label : herb.intensity}</dd>
+                  <dd>{intensityText}</dd>
                 </div>
               )}
-              {has(legalStatusClean) && (
+              {showLegal && (
                 <div>
                   <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Legal Status</dt>
-                  <dd>{legalStatusClean}</dd>
+                  <dd>{legalStatus}</dd>
                 </div>
               )}
-              {has(scheduleText) && (
+              {showSchedule && (
                 <div>
                   <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Schedule</dt>
-                  <dd>{scheduleText}</dd>
+                  <dd>{schedule}</dd>
                 </div>
               )}
-              {has(regionText) && (
+              {isNonEmpty(region) && (
                 <div>
                   <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Region</dt>
-                  <dd>{herb.region}</dd>
-                </div>
-              )}
-              {has(dosageText) && (
-                <div>
-                  <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Dosage</dt>
-                  <dd>{dosageText}</dd>
-                </div>
-              )}
-              {has(toxicityText) && (
-                <div>
-                  <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Toxicity</dt>
-                  <dd>{toxicityText}</dd>
-                </div>
-              )}
-              {has(toxicityLD50) && (
-                <div>
-                  <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>LD50</dt>
-                  <dd>{toxicityLD50}</dd>
+                  <dd>{region}</dd>
                 </div>
               )}
             </dl>
@@ -188,120 +180,153 @@ export default function HerbDetail() {
             />
           </div>
         </header>
-
-        {has(effectsText) && (
+        {(isNonEmpty(effects) || isNonEmpty(description)) && (
           <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Effects</h2>
-            <p className='mt-3 text-sand/90'>{effectsText}</p>
-          </section>
-        )}
-        {has(compounds) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Key Compounds</h2>
-            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
-              {compounds.map(compound => (
-                <li key={compound}>{compound}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {has(interactions) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Interactions</h2>
-            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
-              {interactions.map(item => (
-                <li key={`interaction-${item}`}>{item}</li>
-              ))}
-            </ul>
+            {isNonEmpty(effects) && (
+              <>
+                <h2 className='text-2xl font-semibold text-lime-300'>Effects</h2>
+                <p className='mt-3 text-sand/90'>{effects}</p>
+              </>
+            )}
+            {isNonEmpty(description) && (
+              <>
+                <h2 className={`text-2xl font-semibold text-lime-300 ${isNonEmpty(effects) ? 'mt-6' : ''}`}>
+                  Description
+                </h2>
+                <p className='mt-3 text-sand/90'>{description}</p>
+              </>
+            )}
           </section>
         )}
 
-        {has(contraindications) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Contraindications</h2>
-            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
-              {contraindications.map(item => (
-                <li key={`contra-${item}`}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        {has(mechanismText) && (
-          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+        {isNonEmpty(mechanism) && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Mechanism of Action</h2>
-            <p className='mt-3 text-sand/90'>{mechanismText}</p>
+            <p className='mt-3 text-sand/90'>{mechanism}</p>
           </section>
         )}
 
         {preparations.length > 0 && (
-          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Common Preparations</h2>
-            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
-              {preparations.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Preparations</h2>
+            <p className='mt-3 text-sand/90'>{formatList(preparations)}</p>
           </section>
         )}
 
-        {has(dosageText) && (
-          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+        {isNonEmpty(dosage) && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Dosage / Administration</h2>
-            <p className='mt-3 text-sand/90'>{dosageText}</p>
+            <p className='mt-3 text-sand/90'>{dosage}</p>
           </section>
         )}
 
-        {has(therapeuticText) && (
-          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+        {isNonEmpty(therapeutic) && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Therapeutic / Traditional Uses</h2>
-            <p className='mt-3 text-sand/90'>{therapeuticText}</p>
+            <p className='mt-3 text-sand/90'>{therapeutic}</p>
+          </section>
+        )}
+
+        {interactions.length > 0 && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Interactions</h2>
+            <p className='mt-3 text-sand/90'>{formatList(interactions)}</p>
+          </section>
+        )}
+
+        {contraindications.length > 0 && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Contraindications</h2>
+            <p className='mt-3 text-sand/90'>{formatList(contraindications)}</p>
           </section>
         )}
 
         {sideEffects.length > 0 && (
-          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Side Effects</h2>
-            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
-              {sideEffects.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <p className='mt-3 text-sand/90'>{formatList(sideEffects)}</p>
           </section>
         )}
 
-        {has(safetyText) && (
-          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+        {isNonEmpty(safety) && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Safety Notes</h2>
-            <p className='mt-3 text-sand/90'>{safetyText}</p>
+            <p className='mt-3 text-sand/90'>{safety}</p>
           </section>
         )}
 
-        {has(toxicityText) && (
-          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Toxicity</h2>
-            <p className='mt-3 text-sand/90'>{toxicityText}</p>
-          </section>
-        )}
-
-        {(has(legalStatusClean) || has(scheduleText) || has(legalNotesText)) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
-            <h2 className='text-2xl font-semibold text-lime-300'>Legal Notes</h2>
+        {(isNonEmpty(toxicity) || isNonEmpty(toxicityLD50)) && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Toxicity &amp; LD50</h2>
             <div className='mt-3 space-y-2 text-sand/90'>
-              {has(legalStatusClean) && <p><strong>Legal Status:</strong> {legalStatusClean}</p>}
-              {has(scheduleText) && <p><strong>Schedule:</strong> {scheduleText}</p>}
-              {has(legalNotesText) && <p><strong>Notes:</strong> {legalNotesText}</p>}
+              {isNonEmpty(toxicity) && (
+                <p>
+                  <strong>Toxicity:</strong> {toxicity}
+                </p>
+              )}
+              {isNonEmpty(toxicityLD50) && (
+                <p>
+                  <strong>LD50:</strong> {toxicityLD50}
+                </p>
+              )}
             </div>
           </section>
         )}
 
-        {has(sources) && (
-          <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+        {(showLegal || showSchedule || showLegalNotes) && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Legal Status</h2>
+            <div className='mt-3 space-y-2 text-sand/90'>
+              {showLegal && (
+                <p>
+                  <strong>Status:</strong> {legalStatus}
+                </p>
+              )}
+              {showSchedule && (
+                <p>
+                  <strong>Schedule:</strong> {schedule}
+                </p>
+              )}
+              {showLegalNotes && (
+                <p>
+                  <strong>Notes:</strong> {legalNotes}
+                </p>
+              )}
+            </div>
+          </section>
+        )}
+
+        {compounds.length > 0 && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Active Compounds</h2>
+            <p className='mt-3 text-sand/90'>{formatList(compounds)}</p>
+          </section>
+        )}
+
+        {(isNonEmpty(region) || regionTags.length > 0) && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Region &amp; Distribution</h2>
+            <div className='mt-3 space-y-2 text-sand/90'>
+              {isNonEmpty(region) && (
+                <p>
+                  <strong>Region:</strong> {region}
+                </p>
+              )}
+              {regionTags.length > 0 && (
+                <p>
+                  <strong>Region Tags:</strong> {formatList(regionTags)}
+                </p>
+              )}
+            </div>
+          </section>
+        )}
+
+        {sources.length > 0 && (
+          <section className='mt-8 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Sources &amp; References</h2>
             <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
-              {sources.map(src => (
-                <li key={src}>
+              {sources.map((src, index) => (
+                <li key={`${herb.slug}-source-${index}`}>
                   {urlish(src) ? (
                     <a href={src} target='_blank' rel='noopener noreferrer' className='text-sky-300 underline'>
                       {src}
@@ -315,8 +340,8 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {!hasExtraSections && (
-          <p className='mt-10 text-sm opacity-70'>No additional information available for this section yet.</p>
+        {!hasSections && (
+          <p className='mt-10 text-sm opacity-70'>No additional information available for this herb yet.</p>
         )}
 
         <p className='mt-12 text-sm text-sand/60'>{DISCLAIMER_TEXT}</p>
