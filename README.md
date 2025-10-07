@@ -61,3 +61,25 @@ Pull requests and issue reports are welcome. Please open an issue first if you w
 
 - Refresh + validate dataset locally: `npm run data:refresh`
 - Refresh + validate + build: `npm run data:refresh+build`
+
+### Merging a patched dataset
+
+- Download JSON from /data-report (Quick-Fill): `herbs_patched.json`
+- Merge + validate:
+
+  ```bash
+  npm run data:merge -- herbs_patched.json
+  npm run data:refresh
+  ```
+
+- One-liner (merge → convert/autofill/validate/audit):
+
+  ```bash
+  npm run data:merge+refresh -- herbs_patched.json
+  ```
+
+- Full rebuild after merge:
+
+  ```bash
+  npm run data:merge+build -- herbs_patched.json
+  ```
