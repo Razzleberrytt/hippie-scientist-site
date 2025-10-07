@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import QuickFillModal from '../components/QuickFillModal'
 import data from '../data/herbs/herbs.normalized.json'
 import type { Herb } from '../types'
 
@@ -115,10 +116,14 @@ export default function DataReport() {
   const [missing, setMissing] = useState<Herb[]>([])
   const [total, setTotal] = useState(0)
   const [showMissingOf, setShowMissingOf] = useState<string[]>([])
-  const [filtered, setFiltered] = useState<any[]>([])
+  const [filtered, setFiltered] = useState<Herb[]>([])
+  const [editRow, setEditRow] = useState<Herb | null>(null)
+  const [showModal, setShowModal] = useState(false)
+  const [patchedData, setPatchedData] = useState<Herb[] | null>(null)
+  const currentData = useMemo(() => (patchedData ?? (data as Herb[])), [patchedData])
 
   useEffect(() => {
-    const rows = data as Herb[]
+    const rows = currentData
     const n = rows.length
     setTotal(n)
 
@@ -136,16 +141,16 @@ export default function DataReport() {
     )
 
     setMissing(missingRows)
-  }, [])
+  }, [currentData])
 
   useEffect(() => {
-    const rows = data as Herb[]
+    const rows = currentData
     if (showMissingOf.length === 0) {
       setFiltered([])
     } else {
       setFiltered(rows.filter(r => showMissingOf.every(k => !hasVal((r as any)[k]))))
     }
-  }, [showMissingOf])
+  }, [showMissingOf, currentData])
 
   const sortedOptionalFields = useMemo(
     () =>
@@ -160,6 +165,60 @@ export default function DataReport() {
     if (!total) return '-'
     const count = coverage[key] ?? 0
     return `${((count / total) * 100).toFixed(1)}%`
+  }
+
+  const openQuickFill = (row: Herb) => {
+    setEditRow(row)
+    setShowModal(true)
+  }
+
+  const closeModal = () => {
+    setShowModal(false)
+    setEditRow(null)
+  }
+
+  const applyPatch = (patch: Record<string, string>) => {
+    if (!editRow) return
+    const sourceData = patchedData ?? (data as Herb[])
+    let changed = false
+    const newData = sourceData.map(r => {
+      if (r.slug !== editRow.slug) return r
+      const updated = { ...r }
+      let rowChanged = false
+      for (const [key, value] of Object.entries(patch)) {
+        const trimmed = value.trim()
+        if (trimmed) {
+          (updated as any)[key] = trimmed
+          rowChanged = true
+        }
+      }
+      if (rowChanged) {
+        changed = true
+        return updated
+      }
+      return r
+    })
+
+    if (changed) {
+      setPatchedData(newData)
+    }
+
+    closeModal()
+  }
+
+  const exportJSON = () => {
+    const rowsToExport = patchedData ?? (data as Herb[])
+    const blob = new Blob([JSON.stringify(rowsToExport, null, 2)], {
+      type: 'application/json',
+    })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'herbs_patched.json'
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    URL.revokeObjectURL(url)
   }
 
   return (
@@ -293,8 +352,16 @@ export default function DataReport() {
                       <td className='p-2 border'>{r.slug}</td>
                       <td className='p-2 border'>{r.common}</td>
                       <td className='p-2 border'>{miss.join(', ')}</td>
-                      <td className='p-2 border'>
-                        <Link to={`/herb/${r.slug}`} className='underline'>Details →</Link>
+                      <td className='p-2 border flex gap-2'>
+                        <Link to={`/herb/${r.slug}`} className='underline'>
+                          Details →
+                        </Link>
+                        <button
+                          onClick={() => openQuickFill(r)}
+                          className='text-xs underline text-green-400 hover:text-green-300'
+                        >
+                          Quick-fill
+                        </button>
                       </td>
                     </tr>
                   )
@@ -304,6 +371,26 @@ export default function DataReport() {
           </div>
         )}
       </section>
+
+      {patchedData && (
+        <div className='mt-8 flex justify-end'>
+          <button
+            onClick={exportJSON}
+            className='px-4 py-2 bg-green-700 hover:bg-green-600 rounded-lg'
+          >
+            💾 Download Patched herbs.normalized.json
+          </button>
+        </div>
+      )}
+
+      {showModal && editRow && (
+        <QuickFillModal
+          row={editRow}
+          missing={KEY_FIELDS.filter(key => !hasVal((editRow as any)[key]))}
+          onSave={applyPatch}
+          onCancel={closeModal}
+        />
+      )}
 
       <footer className='mt-12 text-sm text-sand/70'>
         <Link to='/database' className='text-sky-300 underline-offset-4 hover:underline'>
