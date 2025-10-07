@@ -2,8 +2,10 @@ import React, { useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { herbs } from '../data/herbs/herbsfull'
-import { herbName, splitField } from '../utils/herb'
+import { herbName } from '../utils/herb'
 import { has, bullets, urlish } from '../lib/format'
+import { getList, getText } from '../lib/fields'
+import { ALIASES } from '../data/schema'
 
 const DISCLAIMER_TEXT =
   'The information on this site is for educational purposes only. It is not medical advice and should not be used to diagnose, treat, cure, or prevent any disease. Always consult a qualified healthcare professional before using any herbal products or supplements.'
@@ -48,27 +50,30 @@ export default function HerbDetail() {
   }
 
   const imageSrc = herb.image || `/images/herbs/${herb.slug}.jpg`
-  const compounds = bullets(splitField(herb.compounds))
-  const preparations = bullets(splitField(herb.preparations))
-  const interactions = bullets(splitField(herb.interactions))
-  const contraindications = bullets(splitField(herb.contraindications))
-  const sideEffects = bullets(splitField(herb.sideeffects))
-  const sources = bullets(splitField(herb.sources))
+  const compounds = bullets(getList(herb, 'compounds', ALIASES.compounds))
+  const preparations = bullets(getList(herb, 'preparations', ALIASES.preparations))
+  const interactions = bullets(getList(herb, 'interactions', ALIASES.interactions))
+  const contraindications = bullets(getList(herb, 'contraindications', ALIASES.contraindications))
+  const sideEffects = bullets(getList(herb, 'sideeffects', ALIASES.sideeffects))
+  const sources = bullets(getList(herb, 'sources', ALIASES.sources))
 
-  const descriptionText = herb.description?.trim() || ''
-  const categoryText = herb.category?.trim() || ''
-  const subcategoryText = herb.subcategory?.trim() || ''
-  const intensityText = herb.intensity?.trim() || ''
-  const regionText = herb.region?.trim() || ''
-  const effectsText = herb.effects?.trim() || ''
-  const mechanismText = herb.mechanism?.trim() || ''
-  const therapeuticText = herb.therapeutic?.trim() || ''
-  const dosageText = herb.dosage?.trim() || ''
-  const safetyText = herb.safety?.trim() || ''
-  const legalStatusText = herb.legalstatus?.trim() || ''
-  const scheduleText = herb.schedule?.trim() || ''
-  const legalNotesText = herb.legalnotes?.trim() || ''
-  const toxicityLD50 = herb.toxicity_ld50?.trim() || ''
+  const descriptionText = getText(herb, 'description', ALIASES.description)
+  const categoryText = getText(herb, 'category', ALIASES.category)
+  const subcategoryText = getText(herb, 'subcategory', ALIASES.subcategory)
+  const intensityText = getText(herb, 'intensity', ALIASES.intensity)
+  const regionText = getText(herb, 'region', ALIASES.region)
+  const effectsText = getText(herb, 'effects', ALIASES.effects)
+  const mechanismText = getText(herb, 'mechanism', ALIASES.mechanism)
+  const therapeuticText = getText(herb, 'therapeutic', ALIASES.therapeutic)
+  const dosageText = getText(herb, 'dosage', ALIASES.dosage)
+  const safetyText = getText(herb, 'safety', ALIASES.safety)
+  const toxicityText = getText(herb, 'toxicity', ALIASES.toxicity)
+  const toxicityLD50 = getText(herb, 'toxicity_ld50', ALIASES.toxicity_ld50)
+  const legalStatusText = getText(herb, 'legalstatus', ALIASES.legalstatus)
+  const scheduleText = getText(herb, 'schedule', ALIASES.schedule)
+  const legalNotesText = getText(herb, 'legalnotes', ALIASES.legalnotes)
+
+  const legalStatusClean = /^legal$/i.test(legalStatusText) ? '' : legalStatusText
 
   const hasExtraSections =
     has(effectsText) ||
@@ -81,8 +86,11 @@ export default function HerbDetail() {
     has(contraindications) ||
     has(sideEffects) ||
     has(safetyText) ||
-    has(legalStatusText) ||
+    has(toxicityText) ||
+    has(toxicityLD50) ||
+    has(legalStatusClean) ||
     has(scheduleText) ||
+    has(legalNotesText) ||
     has(sources)
 
   return (
@@ -128,10 +136,10 @@ export default function HerbDetail() {
                   <dd>{herb.intensity_label ? herb.intensity_label : herb.intensity}</dd>
                 </div>
               )}
-              {has(legalStatusText) && (
+              {has(legalStatusClean) && (
                 <div>
                   <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Legal Status</dt>
-                  <dd>{legalStatusText}</dd>
+                  <dd>{legalStatusClean}</dd>
                 </div>
               )}
               {has(scheduleText) && (
@@ -150,6 +158,12 @@ export default function HerbDetail() {
                 <div>
                   <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Dosage</dt>
                   <dd>{dosageText}</dd>
+                </div>
+              )}
+              {has(toxicityText) && (
+                <div>
+                  <dt className='font-semibold uppercase tracking-wide text-xs text-sand/60'>Toxicity</dt>
+                  <dd>{toxicityText}</dd>
                 </div>
               )}
               {has(toxicityLD50) && (
@@ -215,16 +229,16 @@ export default function HerbDetail() {
         )}
 
         {has(mechanismText) && (
-          <section className='mt-6'>
-            <h2 className='text-lg font-semibold'>Mechanism of Action</h2>
-            <p className='text-sm'>{mechanismText}</p>
+          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Mechanism of Action</h2>
+            <p className='mt-3 text-sand/90'>{mechanismText}</p>
           </section>
         )}
 
         {preparations.length > 0 && (
-          <section className='mt-6'>
-            <h2 className='text-lg font-semibold'>Common Preparations</h2>
-            <ul className='list-disc pl-5 text-sm'>
+          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Common Preparations</h2>
+            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
               {preparations.map(item => (
                 <li key={item}>{item}</li>
               ))}
@@ -233,23 +247,23 @@ export default function HerbDetail() {
         )}
 
         {has(dosageText) && (
-          <section className='mt-6'>
-            <h2 className='text-lg font-semibold'>Dosage / Administration</h2>
-            <p className='text-sm'>{dosageText}</p>
+          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Dosage / Administration</h2>
+            <p className='mt-3 text-sand/90'>{dosageText}</p>
           </section>
         )}
 
         {has(therapeuticText) && (
-          <section className='mt-6'>
-            <h2 className='text-lg font-semibold'>Therapeutic / Traditional Uses</h2>
-            <p className='text-sm'>{therapeuticText}</p>
+          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Therapeutic / Traditional Uses</h2>
+            <p className='mt-3 text-sand/90'>{therapeuticText}</p>
           </section>
         )}
 
         {sideEffects.length > 0 && (
-          <section className='mt-6'>
-            <h2 className='text-lg font-semibold'>Side Effects</h2>
-            <ul className='list-disc pl-5 text-sm'>
+          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Side Effects</h2>
+            <ul className='mt-3 list-disc space-y-2 pl-6 text-sand/90'>
               {sideEffects.map(item => (
                 <li key={item}>{item}</li>
               ))}
@@ -258,17 +272,24 @@ export default function HerbDetail() {
         )}
 
         {has(safetyText) && (
-          <section className='mt-6'>
-            <h2 className='text-lg font-semibold'>Safety Notes</h2>
-            <p className='text-sm'>{safetyText}</p>
+          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Safety Notes</h2>
+            <p className='mt-3 text-sand/90'>{safetyText}</p>
           </section>
         )}
 
-        {(has(legalStatusText) || has(scheduleText) || has(legalNotesText)) && (
+        {has(toxicityText) && (
+          <section className='mt-6 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
+            <h2 className='text-2xl font-semibold text-lime-300'>Toxicity</h2>
+            <p className='mt-3 text-sand/90'>{toxicityText}</p>
+          </section>
+        )}
+
+        {(has(legalStatusClean) || has(scheduleText) || has(legalNotesText)) && (
           <section className='mt-10 rounded-2xl bg-white/5 p-6 shadow-lg backdrop-blur'>
             <h2 className='text-2xl font-semibold text-lime-300'>Legal Notes</h2>
             <div className='mt-3 space-y-2 text-sand/90'>
-              {has(legalStatusText) && <p><strong>Legal Status:</strong> {legalStatusText}</p>}
+              {has(legalStatusClean) && <p><strong>Legal Status:</strong> {legalStatusClean}</p>}
               {has(scheduleText) && <p><strong>Schedule:</strong> {scheduleText}</p>}
               {has(legalNotesText) && <p><strong>Notes:</strong> {legalNotesText}</p>}
             </div>

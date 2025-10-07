@@ -16,6 +16,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   const intensity = getText(herb, 'intensity', ['potency', 'strength'])
   const region = getText(herb, 'region', ['regions', 'origin', 'geography'])
   const legalStatus = getText(herb, 'legalstatus', ['legal_status', 'status'])
+  const showLegal = isNonEmpty(legalStatus) && !/^legal$/i.test(legalStatus)
   const { favs, toggle, has } = useFavorites()
   const isFavorite = has(herb.slug)
 
@@ -114,7 +115,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
       )}
 
       <div className='mt-auto flex items-center justify-between pt-2 text-xs text-sand/60'>
-        {isNonEmpty(legalStatus) && <span>Legal: {legalStatus}</span>}
+        {showLegal && <span>Legal: {legalStatus}</span>}
         <Link to={detailHref} className='text-sky-300 underline'>
           View details
         </Link>
