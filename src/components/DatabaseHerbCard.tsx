@@ -54,7 +54,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   }
   return (
     <article
-      className='glassmorphic-card soft-border-glow relative flex h-full flex-col gap-2 rounded-xl border border-white/10 p-4 text-sand'
+      className='glassmorphic-card herb-card-surface soft-border-glow relative flex h-full flex-col gap-2 rounded-xl border border-white/10 p-4 text-sand'
       data-favorites-count={favs.length}
     >
       <header>

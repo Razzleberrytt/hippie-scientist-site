@@ -32,60 +32,96 @@ const clean = (s) => {
   return NULLY.has(t.toLowerCase()) ? "" : t;
 };
 
-const STOP_WORDS = /\b(?:nan|none|null|undefined|n\/a|unknown)\b/gi;
+// phrases we never want to ship
+const STRIP_PATTERNS = [
+  /\bcontextual inference\b[:]?/gi,
+  /\bno direct (intensity|region|legal) data\b[.:]?/gi,
+  /\bpossible\b/gi,
+  /\bunclear\b/gi,
+  /\b(,|\.)\s*(,|\.)+/g
+];
 
-function sentenceSplit(s) {
-  // Split on ., !, ? and semicolons; keep order
-  return String(s||"")
-    .replace(/\s+/g, " ")
-    .split(/(?<=[.!?;])\s+/)
-    .map(x => x.trim().replace(/[;]+$/,"."))
-    .filter(Boolean);
-}
+function normalizeSpaces(s){ return s.replace(/\s{2,}/g," ").trim(); }
 
-function normalizeClause(s) {
-  // remove noise, normalize punctuation/case
-  let x = String(s||"")
-    .replace(STOP_WORDS, "")
-    .replace(/\s{2,}/g, " ")
-    .replace(/\s*[,.;:]\s*/g, m => m.trim().endsWith(",") ? ", " : m.trim() + " ") // spacing around punctuation
-    .replace(/\s+[,.]/g, m => m.trim()); // no space before comma/period
-
-  x = x.replace(/\s{2,}/g, " ").trim();
-  if (!x) return "";
-
-  // capitalize first letter, lower-case ALLCAPS mistakes
-  const head = x[0].toUpperCase() + x.slice(1);
-  return head.replace(/\b([A-Z]{2,})\b/g, m => m.toUpperCase()); // keep acronyms
-}
-
-function cleanTextBlock(input, {maxSentences=3, maxChars=420} = {}) {
-  if (!input) return "";
-  // explode → normalize → dedupe → limit
-  const seen = new Set();
-  const out = [];
-  for (const raw of sentenceSplit(input)) {
-    const clause = normalizeClause(raw)
-      .replace(/\b(NaN|Undefined|Null|None)\b/gi, "")
-      .replace(/\s{2,}/g, " ")
-      .trim()
-      .replace(/[.]{2,}$/, ".");
-    if (!clause) continue;
-    const key = clause.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    out.push(clause.endsWith(".") ? clause : clause + ".");
-    if (out.length >= maxSentences) break;
-  }
-  let text = out.join(" ");
-  if (text.length > maxChars) {
-    text = text.slice(0, maxChars).replace(/\s+\S*$/, "") + "…";
-  }
-  // tidy ellipses/punct
-  return text
+function cleanPunctuation(s){
+  return s
     .replace(/\s+[,.]/g, m => m.trim())
+    .replace(/\s*([;:])\s*/g, "$1 ")
+    .replace(/[;:]\./g, ".")
+    .replace(/\.{2,}/g, ".")
+    .replace(/,\s*,+/g, ", ")
     .replace(/\s{2,}/g, " ")
     .trim();
+}
+
+function stripBoilerplate(s){
+  let x = String(s||"");
+  x = x.replace(/\b(nan|none|null|undefined|n\/a|unknown)\b/gi, "");
+  for (const pat of STRIP_PATTERNS) x = x.replace(pat, "");
+  return cleanPunctuation(normalizeSpaces(x));
+}
+
+// near-duplicate removal by token overlap
+function dedupeNear(text){
+  const clauses = String(text||"")
+    .split(/(?<=[.!?;])\s+/)
+    .map(t => stripBoilerplate(t).replace(/[;]+$/,"."))
+    .map(t => t && (t[0].toUpperCase()+t.slice(1)))
+    .filter(Boolean);
+
+  const out = [];
+  const seen = [];
+
+  const sim = (a,b)=>{
+    const A = new Set(a.toLowerCase().replace(/[^a-z0-9\s]/g,"").split(/\s+/).filter(Boolean));
+    const B = new Set(b.toLowerCase().replace(/[^a-z0-9\s]/g,"").split(/\s+/).filter(Boolean));
+    const inter = [...A].filter(x=>B.has(x)).length;
+    const union = new Set([...A,...B]).size || 1;
+    return inter/union;
+  };
+
+  for (const c of clauses){
+    const cleaned = cleanPunctuation(c);
+    const normalized = cleaned.replace(/[.!?…]+$/,"" ).trim();
+    if (!normalized) continue;
+
+    let dupIndex = -1;
+    for (let i = 0; i < seen.length; i++){
+      if (sim(normalized, seen[i].normalized) >= 0.8) { dupIndex = i; break; }
+    }
+
+    const clause = /[.!?…]$/.test(cleaned) ? cleaned : `${cleaned}.`;
+
+    if (dupIndex >= 0){
+      if (normalized.length > seen[dupIndex].normalized.length) {
+        seen[dupIndex] = { normalized, clause };
+        out[dupIndex] = clause;
+      }
+      continue;
+    }
+
+    seen.push({ normalized, clause });
+    out.push(clause);
+  }
+
+  return out;
+}
+
+const STOP_WORDS = /\b(?:nan|none|null|undefined|n\/a|unknown)\b/gi;
+
+function cleanTextBlock(input, {maxSentences=3, maxChars=420, ensurePeriod=true} = {}) {
+  if (!input) return "";
+  const clauses = dedupeNear(input);
+  if (!clauses.length) return "";
+
+  let text = clauses.slice(0, maxSentences).join(" ");
+  if (text.length > maxChars) {
+    text = text.slice(0, maxChars).replace(/\s+\S*$/, "");
+  }
+  text = stripBoilerplate(text);
+  if (!text) return "";
+  if (ensurePeriod && !/[.!?…]$/.test(text)) text = `${text}.`;
+  return text;
 }
 
 function isStopWord(value) {
@@ -98,16 +134,17 @@ function purifyArray(a) {
   return Array.from(
     new Set(
       (a || [])
-        .map((x) => String(x ?? "").trim())
+        .map((x) => stripBoilerplate(String(x ?? "")))
+        .map((x) => x.replace(/[.,;:]+$/,"" ).trim())
         .filter((x) => x && !isStopWord(x))
     )
   );
 }
 const toArr = (v) => {
-  if (Array.isArray(v)) return v.map(x=>String(x).trim()).filter(Boolean);
+  if (Array.isArray(v)) return v.map(x=>stripBoilerplate(String(x))).map(x=>x.trim()).filter(Boolean);
   const s = String(v ?? "").trim();
   if (!s) return [];
-  return s.split(/[,;|]/).map(x=>x.trim()).filter(Boolean);
+  return s.split(/[,;|]/).map(x=>stripBoilerplate(x)).map(x=>x.trim()).filter(Boolean);
 };
 const uniq = (a) => Array.from(new Set(a.filter(Boolean)));
 const slugify = (s) => String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
@@ -215,8 +252,8 @@ const prelim = rows.map((r) => {
 
     category: tidy(pick(r, A.category)),
     subcategory: tidy(pick(r, A.subcategory)),
-    intensity: tidy(pick(r, A.intensity)),
-    region: tidy(pick(r, A.region)),
+    intensity: cleanTextBlock(tidy(pick(r, A.intensity)), {maxSentences: 1, maxChars: 80, ensurePeriod: false}),
+    region: cleanTextBlock(tidy(pick(r, A.region)), {maxSentences: 1, maxChars: 160, ensurePeriod: false}),
     regiontags: pickList(r, A.regiontags),
 
     description: cleanTextBlock(tidy(pick(r, A.description)), {maxSentences: 2, maxChars: 320}),
@@ -225,10 +262,10 @@ const prelim = rows.map((r) => {
     pharmacology: cleanTextBlock(tidy(pick(r, A.pharmacology)), {maxSentences: 2, maxChars: 240}),
 
     preparations: pickList(r, A.preparations),
-    dosage: tidy(pick(r, A.dosage)),
-    duration: tidy(pick(r, A.duration)),
-    onset: tidy(pick(r, A.onset)),
-    therapeutic: tidy(pick(r, A.therapeutic)),
+    dosage: cleanTextBlock(tidy(pick(r, A.dosage)), {maxSentences: 1, maxChars: 160}),
+    duration: cleanTextBlock(tidy(pick(r, A.duration)), {maxSentences: 1, maxChars: 160}),
+    onset: cleanTextBlock(tidy(pick(r, A.onset)), {maxSentences: 1, maxChars: 160}),
+    therapeutic: cleanTextBlock(tidy(pick(r, A.therapeutic)), {maxSentences: 2, maxChars: 220}),
 
     compounds: pickList(r, A.compounds),
     interactions: pickList(r, A.interactions),
@@ -236,8 +273,8 @@ const prelim = rows.map((r) => {
     sideeffects: pickList(r, A.sideeffects),
     safety: cleanTextBlock(tidy(pick(r, A.safety)), {maxSentences: 2, maxChars: 240}),
 
-    toxicity: tidy(pick(r, A.toxicity)),
-    toxicity_ld50: tidy(pick(r, A.toxicity_ld50)),
+    toxicity: cleanTextBlock(tidy(pick(r, A.toxicity)), {maxSentences: 2, maxChars: 200}),
+    toxicity_ld50: cleanTextBlock(tidy(pick(r, A.toxicity_ld50)), {maxSentences: 1, maxChars: 160}),
 
     legalstatus: cleanTextBlock(tidy(pick(r, A.legalstatus)), {maxSentences: 1, maxChars: 140}),
     schedule: tidy(pick(r, A.schedule)),
@@ -337,11 +374,7 @@ for (const row of merged) {
   }
   for (const k of Object.keys(row)) {
     if (typeof row[k] === "string") {
-      row[k] = row[k]
-        .replace(STOP_WORDS, "")
-        .replace(/\s{2,}/g, " ")
-        .replace(/\s+[,.]$/,".")
-        .trim();
+      row[k] = stripBoilerplate(row[k]);
     }
   }
 }
