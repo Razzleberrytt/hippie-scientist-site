@@ -1,0 +1,36 @@
+name: Herb Data Audit
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  data-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Refresh herb data
+        run: npm run data:refresh
+
+      - run: npm run data:report
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: herb-data-coverage
+          path: scripts/out/

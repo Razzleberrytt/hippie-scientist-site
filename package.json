@@ -15,7 +15,10 @@
     "test": "echo \"No tests specified\" && exit 0",
     "validate-herbs": "node scripts/validateHerbs.js",
     "verify:data": "npm run autofill:data && npm run audit:data",
-    "audit:data": "node scripts/audit-herbs.mjs"
+    "audit:data": "node scripts/audit-herbs.mjs",
+    "data:refresh": "npm run prebuild:data && npm run autofill:data && npm run prebuild:validate && npm run audit:data",
+    "data:report": "node scripts/report-herbs.mjs",
+    "data:checkup": "npm run data:refresh && npm run data:report"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
