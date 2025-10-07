@@ -13,6 +13,7 @@ import HerbIndex from './pages/HerbIndex';
 import HerbDetail from './pages/HerbDetail';
 import Compare from './pages/Compare';
 import DataReport from './pages/DataReport';
+import DataFix from './pages/DataFix';
 // Import other pages as needed
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/herb/:slug" element={<HerbDetail />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/data-report" element={<DataReport />} />
+        <Route path="/data-fix" element={<DataFix />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

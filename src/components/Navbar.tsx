@@ -11,11 +11,18 @@ export default function Navbar() {
         <li><Link to="/favorites">Favorites</Link></li>
         <li><Link to="/about">About</Link></li>
         {import.meta.env.MODE !== 'production' && (
-          <li>
-            <Link to="/data-report" className='opacity-80 hover:underline'>
-              Data Report
-            </Link>
-          </li>
+          <>
+            <li>
+              <Link to="/data-report" className='opacity-80 hover:underline'>
+                Data Report
+              </Link>
+            </li>
+            <li>
+              <Link to="/data-fix" className='opacity-80 hover:underline'>
+                Data Fix
+              </Link>
+            </li>
+          </>
         )}
         {/* Add more navigation links as needed */}
       </ul>
