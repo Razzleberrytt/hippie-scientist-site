@@ -64,7 +64,7 @@ export default function Database() {
         new Set(
           herbs
             .map(herb => herb.legalstatus?.trim())
-            .filter((value): value is string => Boolean(value))
+            .filter((value): value is string => Boolean(value) && !/^legal$/i.test(value))
         )
       ).sort((a, b) => formatLabel(a).localeCompare(formatLabel(b))),
     [herbs]
@@ -200,9 +200,12 @@ export default function Database() {
                   {herb.category && (
                     <p className='mt-2 text-sm text-sand/80'>Category: {formatLabel(herb.category)}</p>
                   )}
-                  {herb.legalstatus && (
-                    <p className='text-sm text-sand/80'>Legal: {formatLabel(herb.legalstatus)}</p>
-                  )}
+                  {(() => {
+                    const legal = formatLabel((herb.legalstatus || '').trim())
+                    return legal && !/^legal$/i.test(legal) ? (
+                      <p className='text-sm text-sand/80'>Legal: {legal}</p>
+                    ) : null
+                  })()}
                 </div>
                 )
               })}
