@@ -7,15 +7,17 @@
     "dev:data": "node scripts/convert-herbs.mjs",
     "prebuild:data": "node scripts/convert-herbs.mjs",
     "autofill:data": "node scripts/autofill-herbs.mjs",
-    "prebuild:validate": "npm run validate-herbs",
-    "rebuild:data": "npm run prebuild:data && npm run autofill:data && npm run prebuild:validate",
-    "build": "npm run rebuild:data && vite build",
+    "prebuild:validate": "node scripts/validate-herbs.mjs",
+    "rebuild:data": "npm run data:refresh",
+    "build": "npm run data:refresh+build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
     "validate-herbs": "node scripts/validateHerbs.js",
     "verify:data": "npm run autofill:data && npm run audit:data",
-    "audit:data": "node scripts/audit-herbs.mjs"
+    "audit:data": "node scripts/audit-herbs.mjs",
+    "data:refresh": "npm run prebuild:data && npm run autofill:data && npm run prebuild:validate && npm run audit:data",
+    "data:refresh+build": "npm run data:refresh && vite build"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
