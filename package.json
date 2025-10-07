@@ -6,11 +6,15 @@
     "dev": "npm run dev:data && vite",
     "dev:data": "node scripts/convert-herbs.mjs",
     "prebuild:data": "node scripts/convert-herbs.mjs",
-    "build": "npm run prebuild:data && vite build",
+    "autofill:data": "node scripts/autofill-herbs.mjs",
+    "prebuild:validate": "npm run validate-herbs",
+    "rebuild:data": "npm run prebuild:data && npm run autofill:data && npm run prebuild:validate",
+    "build": "npm run rebuild:data && vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
     "validate-herbs": "node scripts/validateHerbs.js",
+    "verify:data": "npm run autofill:data && npm run audit:data",
     "audit:data": "node scripts/audit-herbs.mjs"
   },
   "dependencies": {
