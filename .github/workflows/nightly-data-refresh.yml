@@ -1,0 +1,75 @@
+name: Nightly Data Refresh
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # 05:17 UTC daily (1:17am ET)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Run data pipeline (convert → autofill → validate → audit → report)
+        run: npm run data:checkup
+
+      - name: Collect coverage artifacts
+        if: always()
+        run: |
+          mkdir -p scripts/out
+          echo "Artifacts in scripts/out:"
+          ls -la scripts/out || true
+
+      - name: Save git changes (dry check)
+        id: diff
+        run: |
+          git status --porcelain
+          echo "changed=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+
+      - name: Compute PR body
+        id: prbody
+        run: |
+          CHANGED=$(git diff --name-only)
+          node scripts/ci-prepare-pr.mjs $CHANGED
+        shell: bash
+
+      - name: Create or update PR
+        if: steps.diff.outputs.changed != '0'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(data): nightly refresh & coverage artifacts"
+          title: "chore(data): nightly refresh — $(date -u +'%Y-%m-%d')"
+          body: ${{ steps.prbody.outputs.pr_body }}
+          branch: ci/nightly-data-refresh-auto
+          labels: |
+            data
+            automated
+            nightly
+          add-paths: |
+            src/data/herbs/herbs.normalized.json
+            scripts/out/**
+
+      - name: Upload coverage artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: herb-data-coverage
+          path: scripts/out/
