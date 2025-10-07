@@ -158,6 +158,31 @@ a {
   opacity: 1;
 }
 
+.herb-card-surface {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.herb-card-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(140% 140% at 0% 0%, rgba(56, 189, 248, 0.18), transparent 60%),
+    radial-gradient(120% 120% at 100% 0%, rgba(192, 132, 252, 0.16), transparent 60%),
+    linear-gradient(135deg, rgba(15, 118, 110, 0.45), rgba(2, 6, 23, 0.85));
+  pointer-events: none;
+  opacity: 0.9;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.herb-card-surface:hover::before,
+.herb-card-surface:focus-within::before {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
