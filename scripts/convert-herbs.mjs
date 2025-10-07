@@ -31,6 +31,78 @@ const clean = (s) => {
   const t = String(s ?? "").trim();
   return NULLY.has(t.toLowerCase()) ? "" : t;
 };
+
+const STOP_WORDS = /\b(?:nan|none|null|undefined|n\/a|unknown)\b/gi;
+
+function sentenceSplit(s) {
+  // Split on ., !, ? and semicolons; keep order
+  return String(s||"")
+    .replace(/\s+/g, " ")
+    .split(/(?<=[.!?;])\s+/)
+    .map(x => x.trim().replace(/[;]+$/,"."))
+    .filter(Boolean);
+}
+
+function normalizeClause(s) {
+  // remove noise, normalize punctuation/case
+  let x = String(s||"")
+    .replace(STOP_WORDS, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s*[,.;:]\s*/g, m => m.trim().endsWith(",") ? ", " : m.trim() + " ") // spacing around punctuation
+    .replace(/\s+[,.]/g, m => m.trim()); // no space before comma/period
+
+  x = x.replace(/\s{2,}/g, " ").trim();
+  if (!x) return "";
+
+  // capitalize first letter, lower-case ALLCAPS mistakes
+  const head = x[0].toUpperCase() + x.slice(1);
+  return head.replace(/\b([A-Z]{2,})\b/g, m => m.toUpperCase()); // keep acronyms
+}
+
+function cleanTextBlock(input, {maxSentences=3, maxChars=420} = {}) {
+  if (!input) return "";
+  // explode → normalize → dedupe → limit
+  const seen = new Set();
+  const out = [];
+  for (const raw of sentenceSplit(input)) {
+    const clause = normalizeClause(raw)
+      .replace(/\b(NaN|Undefined|Null|None)\b/gi, "")
+      .replace(/\s{2,}/g, " ")
+      .trim()
+      .replace(/[.]{2,}$/, ".");
+    if (!clause) continue;
+    const key = clause.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(clause.endsWith(".") ? clause : clause + ".");
+    if (out.length >= maxSentences) break;
+  }
+  let text = out.join(" ");
+  if (text.length > maxChars) {
+    text = text.slice(0, maxChars).replace(/\s+\S*$/, "") + "…";
+  }
+  // tidy ellipses/punct
+  return text
+    .replace(/\s+[,.]/g, m => m.trim())
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+function isStopWord(value) {
+  if (!value) return false;
+  STOP_WORDS.lastIndex = 0;
+  return STOP_WORDS.test(String(value).toLowerCase());
+}
+
+function purifyArray(a) {
+  return Array.from(
+    new Set(
+      (a || [])
+        .map((x) => String(x ?? "").trim())
+        .filter((x) => x && !isStopWord(x))
+    )
+  );
+}
 const toArr = (v) => {
   if (Array.isArray(v)) return v.map(x=>String(x).trim()).filter(Boolean);
   const s = String(v ?? "").trim();
@@ -147,10 +219,10 @@ const prelim = rows.map((r) => {
     region: tidy(pick(r, A.region)),
     regiontags: pickList(r, A.regiontags),
 
-    description: tidy(pick(r, A.description)),
-    effects: tidy(pick(r, A.effects)),
-    mechanism: tidy(pick(r, A.mechanism)),
-    pharmacology: tidy(pick(r, A.pharmacology)),
+    description: cleanTextBlock(tidy(pick(r, A.description)), {maxSentences: 2, maxChars: 320}),
+    effects: cleanTextBlock(tidy(pick(r, A.effects)), {maxSentences: 2, maxChars: 280}),
+    mechanism: cleanTextBlock(tidy(pick(r, A.mechanism)), {maxSentences: 2, maxChars: 240}),
+    pharmacology: cleanTextBlock(tidy(pick(r, A.pharmacology)), {maxSentences: 2, maxChars: 240}),
 
     preparations: pickList(r, A.preparations),
     dosage: tidy(pick(r, A.dosage)),
@@ -162,12 +234,12 @@ const prelim = rows.map((r) => {
     interactions: pickList(r, A.interactions),
     contraindications: pickList(r, A.contraindications),
     sideeffects: pickList(r, A.sideeffects),
-    safety: tidy(pick(r, A.safety)),
+    safety: cleanTextBlock(tidy(pick(r, A.safety)), {maxSentences: 2, maxChars: 240}),
 
     toxicity: tidy(pick(r, A.toxicity)),
     toxicity_ld50: tidy(pick(r, A.toxicity_ld50)),
 
-    legalstatus: tidy(pick(r, A.legalstatus)),
+    legalstatus: cleanTextBlock(tidy(pick(r, A.legalstatus)), {maxSentences: 1, maxChars: 140}),
     schedule: tidy(pick(r, A.schedule)),
     legalnotes: tidy(pick(r, A.legalnotes)),
 
@@ -253,6 +325,32 @@ for (const r of prelim){
 }
 
 const merged = Array.from(byKey.values()).sort((a,b)=>String(a.common||a.scientific).localeCompare(String(b.common||b.scientific)));
+
+for (const row of merged) {
+  for (const k of ["effects","description","legalstatus","safety","mechanism","pharmacology"]) {
+    if (row[k]) {
+      row[k] = cleanTextBlock(row[k], {
+        maxSentences: k === "description" ? 2 : (k === "legalstatus" ? 1 : 2),
+        maxChars: k === "description" ? 320 : (k === "legalstatus" ? 140 : 280)
+      });
+    }
+  }
+  for (const k of Object.keys(row)) {
+    if (typeof row[k] === "string") {
+      row[k] = row[k]
+        .replace(STOP_WORDS, "")
+        .replace(/\s{2,}/g, " ")
+        .replace(/\s+[,.]$/,".")
+        .trim();
+    }
+  }
+}
+
+for (const row of merged) {
+  for (const k of ["compounds","preparations","interactions","contraindications","sideeffects","tags","regiontags","sources"]) {
+    row[k] = purifyArray(row[k]);
+  }
+}
 
 // AFTER coverage
 const after = Object.fromEntries(fieldsToCheck.map(k => [k, covOfArray(merged, k)]));
