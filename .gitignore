@@ -10,3 +10,4 @@ simple-site/
 hippie-scientist-site-main_consolidated.zip
 
 scripts/audit_missing_key_fields.csv
+scripts/out/

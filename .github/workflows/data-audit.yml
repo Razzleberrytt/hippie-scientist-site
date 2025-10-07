@@ -17,5 +17,11 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run data:refresh
+      - run: npm run data:report
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: herb-data-coverage
+          path: scripts/out/
       # If you want to build on CI too, uncomment:
       # - run: npm run data:refresh+build
