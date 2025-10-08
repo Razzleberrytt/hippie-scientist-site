@@ -2,10 +2,12 @@ import { useDeferredValue, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Fuse from 'fuse.js'
 import SEO from '../components/SEO'
-import StarfieldBackground from '../components/StarfieldBackground'
-import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import ErrorBoundary from '../components/ErrorBoundary'
-import Chip from '../components/ui/Chip'
+import HerbCard from '../components/HerbCard'
+import Toolbar from '../components/ui/Toolbar'
+import Card from '../components/ui/Card'
+import Badge from '../components/ui/Badge'
+import { Button } from '../components/ui/Button'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 
@@ -61,8 +63,6 @@ export default function Database() {
   })
   const [sortBy, setSortBy] = useState('relevance')
   const deferredQuery = useDeferredValue(query)
-
-  const topHerbs = useMemo(() => herbs.slice(0, 4), [herbs])
 
   const categoryOptions = useMemo(() => {
     const set = new Set(
@@ -231,111 +231,58 @@ export default function Database() {
 
   return (
     <ErrorBoundary>
-      <div className='relative min-h-screen bg-space-dark/90 px-4 pt-20 text-sand'>
-        <SEO
-          title='Herb Database | The Hippie Scientist'
-          description='Browse psychoactive herb profiles with scientific and cultural context.'
-          canonical='https://thehippiescientist.net/database'
-        />
-        <StarfieldBackground />
-        <div className='relative mx-auto max-w-6xl pb-12'>
-          <header className='mb-8 text-center'>
-            <h1 className='text-gradient mb-3 text-4xl font-bold md:text-5xl'>Herb Database</h1>
-            <p className='mx-auto max-w-3xl text-base text-sand/80 md:text-lg'>
-              Explore our collection of psychoactive herbs. Use the smart search and quick filter chips below to find herbs by
-              category, intensity, compound, or region.
-            </p>
-          </header>
+      <SEO
+        title='Herb Database | The Hippie Scientist'
+        description='Browse psychoactive herb profiles with scientific and cultural context.'
+        canonical='https://thehippiescientist.net/database'
+      />
+      <main className='container space-y-6 py-8'>
+        <header className='space-y-2'>
+          <p className='text-xs uppercase tracking-[0.3em] text-sub'>Explorer</p>
+          <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>Herb Database</h1>
+          <p className='max-w-2xl text-sub'>Explore, filter, and compare psychoactive herbs with rich descriptions and context.</p>
+        </header>
 
-          {topHerbs.length > 0 && (
-            <div className='mb-8 overflow-x-auto pb-2'>
-              <div className='flex min-w-full gap-4'>
-                {topHerbs.map(herb => {
-                  const sci = (herb.scientific || herb.scientificname || '').trim()
-                  return (
-                    <div
-                      key={herb.id}
-                      className='min-w-[14rem] rounded-xl bg-black/40 p-4 text-left shadow-lg backdrop-blur-md transition hover:bg-black/50'
-                    >
-                      <p className='text-xs uppercase tracking-wide text-sand/60'>Featured</p>
-                      <h2 className='mt-1 text-xl font-semibold text-lime-300'>{herb.common || herb.name}</h2>
-                      {sci && <p className='text-sm italic text-sand/70'>{sci}</p>}
-                      {herb.category && (
-                        <p className='mt-2 text-sm text-sand/80'>Category: {formatLabel(herb.category)}</p>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-
-          <section className='mb-6 space-y-4 rounded-2xl bg-black/30 p-5 backdrop-blur-md'>
-            <div className='flex flex-col gap-3 md:flex-row md:items-center'>
+        <motion.div
+          initial='hidden'
+          animate='visible'
+          variants={{
+            hidden: { opacity: 0, y: 12 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.05, delayChildren: 0.05 },
+            },
+          }}
+        >
+          <Toolbar>
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }} className='flex min-w-[220px] flex-1 items-center gap-2'>
               <label className='sr-only' htmlFor='herb-search-input'>Search herbs</label>
               <input
                 id='herb-search-input'
                 value={query}
                 onChange={event => setQuery(event.target.value)}
                 placeholder='Search herbs, compounds, effects...'
-                className='w-full rounded-lg border border-white/10 bg-black/40 px-4 py-2 text-sm text-sand placeholder-white/50 focus:border-lime-400 focus:outline-none focus:ring-1 focus:ring-lime-400 md:flex-1'
+                className='w-full rounded-lg border border-border bg-panel px-3 py-2 text-sm text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:outline-none focus:ring-2 focus:ring-brand-lime/20'
               />
-              <button
-                type='button'
-                onClick={clearAllFilters}
-                disabled={!hasActiveFilters}
-                className='inline-flex items-center justify-center rounded-full border border-white/10 px-4 py-2 text-sm transition disabled:cursor-not-allowed disabled:opacity-50 md:w-auto'
-              >
-                Clear All Filters
-              </button>
-            </div>
+              {query && (
+                <button
+                  type='button'
+                  onClick={() => setQuery('')}
+                  className='text-xs text-sub transition hover:text-text'
+                >
+                  Clear
+                </button>
+              )}
+            </motion.div>
 
-            {activeFilterChips.length > 0 && (
-              <div className='flex flex-wrap gap-2 border-t border-white/5 pt-3'>
-                {activeFilterChips.map(text => (
-                  <Chip key={text}>{text}</Chip>
-                ))}
-              </div>
-            )}
-
-            <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
-              <FilterGroup
-                title='Category'
-                options={categoryOptions}
-                selected={filters.categories}
-                onToggle={value => toggleFilter('categories', value)}
-              />
-              <FilterGroup
-                title='Intensity'
-                options={intensityOptions}
-                selected={filters.intensities}
-                onToggle={value => toggleFilter('intensities', value)}
-              />
-              <FilterGroup
-                title='Region'
-                options={regionOptions}
-                selected={filters.regions}
-                onToggle={value => toggleFilter('regions', value)}
-              />
-              <FilterGroup
-                title='Compound'
-                options={compoundOptions}
-                selected={filters.compounds}
-                onToggle={value => toggleFilter('compounds', value)}
-              />
-            </div>
-
-            <div className='flex flex-wrap items-center justify-between gap-3 text-sm text-sand/70'>
-              <div className='opacity-75 text-sm'>
-                {sortedHerbs.length} results{' '}
-                <span className='text-xs text-sand/60'>({herbs.length} total)</span>
-              </div>
-              <label className='flex items-center gap-2 text-sm'>
-                <span className='opacity-75'>Sort</span>
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }} className='flex items-center gap-3'>
+              <label className='flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-sub'>
+                Sort
                 <select
                   value={sortBy}
                   onChange={event => setSortBy(event.target.value)}
-                  className='bg-white/10 border border-white/10 rounded-md px-2 py-1 text-sm'
+                  className='rounded-md border border-border bg-panel px-2 py-1 text-sm text-text focus:border-brand-lime/60 focus:outline-none focus:ring-1 focus:ring-brand-lime/30'
                 >
                   {SORTS.map(sort => (
                     <option key={sort.id} value={sort.id}>
@@ -344,37 +291,87 @@ export default function Database() {
                   ))}
                 </select>
               </label>
-            </div>
-          </section>
+            </motion.div>
 
-          <motion.section
-            layout
-            className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-          >
-            <AnimatePresence initial={false} mode='popLayout'>
-              {sortedHerbs.map(herb => (
-                <motion.div
-                  key={herb.id}
-                  layout
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.2, ease: 'easeOut' }}
-                >
-                  <DatabaseHerbCard herb={herb} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.section>
+            <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}>
+              <Button
+                type='button'
+                onClick={clearAllFilters}
+                disabled={!hasActiveFilters}
+                className='disabled:opacity-50'
+              >
+                Clear all
+              </Button>
+            </motion.div>
+          </Toolbar>
+        </motion.div>
 
-          {sortedHerbs.length === 0 && (
-            <div className='col-span-full mt-10 text-center text-sand/60'>
-              No herbs found. Try adjusting your filters.
-            </div>
-          )}
+        {activeFilterChips.length > 0 && (
+          <div className='flex flex-wrap gap-2'>
+            {activeFilterChips.map(text => (
+              <Badge key={text}>{text}</Badge>
+            ))}
+          </div>
+        )}
+
+        <section className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
+          <FilterGroup
+            title='Category'
+            options={categoryOptions}
+            selected={filters.categories}
+            onToggle={value => toggleFilter('categories', value)}
+          />
+          <FilterGroup
+            title='Intensity'
+            options={intensityOptions}
+            selected={filters.intensities}
+            onToggle={value => toggleFilter('intensities', value)}
+          />
+          <FilterGroup
+            title='Region'
+            options={regionOptions}
+            selected={filters.regions}
+            onToggle={value => toggleFilter('regions', value)}
+          />
+          <FilterGroup
+            title='Compound'
+            options={compoundOptions}
+            selected={filters.compounds}
+            onToggle={value => toggleFilter('compounds', value)}
+          />
+        </section>
+
+        <div className='flex flex-wrap items-center justify-between gap-3 text-sm text-sub'>
+          <span>
+            {sortedHerbs.length} results <span className='text-xs text-sub/70'>({herbs.length} total)</span>
+          </span>
         </div>
-      </div>
+
+        <motion.section
+          layout
+          className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
+          transition={{ duration: 0.25, ease: 'easeInOut' }}
+        >
+          <AnimatePresence initial={false} mode='popLayout'>
+            {sortedHerbs.map((herb, index) => (
+              <motion.div
+                key={herb.id}
+                layout
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+              >
+                <HerbCard herb={herb} index={index} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.section>
+
+        {sortedHerbs.length === 0 && (
+          <Card className='p-6 text-center text-sub'>No herbs found. Try adjusting your filters.</Card>
+        )}
+      </main>
     </ErrorBoundary>
   )
 }
@@ -388,8 +385,11 @@ type FilterGroupProps = {
 
 function FilterGroup({ title, options, selected, onToggle }: FilterGroupProps) {
   return (
-    <div className='rounded-xl border border-white/5 bg-black/20 p-3'>
-      <h3 className='mb-2 text-xs font-semibold uppercase tracking-wide text-sand/60'>{title}</h3>
+    <Card className='flex flex-col gap-3 p-4'>
+      <div className='flex items-center justify-between'>
+        <h3 className='text-xs font-semibold uppercase tracking-wide text-sub'>{title}</h3>
+        <span className='text-xs text-sub/70'>{selected.length}</span>
+      </div>
       <div className='flex max-h-32 flex-wrap gap-2 overflow-y-auto pr-1'>
         {options.map(option => {
           const isActive = selected.includes(option.value)
@@ -397,10 +397,10 @@ function FilterGroup({ title, options, selected, onToggle }: FilterGroupProps) {
             <button
               key={option.value}
               onClick={() => onToggle(option.value)}
-              className={`rounded-full px-3 py-1 text-xs transition focus:outline-none focus-visible:ring-2 focus-visible:ring-lime-400 ${
+              className={`rounded-full px-3 py-1 text-xs transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-lime/40 ${
                 isActive
-                  ? 'bg-lime-400/40 text-white shadow-inner'
-                  : 'bg-white/10 text-sand/80 hover:bg-white/20'
+                  ? 'border border-brand-lime/40 bg-brand-lime/20 text-text'
+                  : 'border border-white/10 bg-white/5 text-sub hover:border-white/20 hover:bg-white/10'
               }`}
               type='button'
             >
@@ -408,8 +408,8 @@ function FilterGroup({ title, options, selected, onToggle }: FilterGroupProps) {
             </button>
           )
         })}
-        {options.length === 0 && <p className='text-xs text-sand/60'>No options available.</p>}
+        {options.length === 0 && <p className='text-xs text-sub/70'>No options available.</p>}
       </div>
-    </div>
+    </Card>
   )
 }
