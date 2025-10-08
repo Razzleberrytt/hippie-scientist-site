@@ -1,4 +1,4 @@
-import { useDeferredValue, useMemo, useState } from 'react'
+import { useDeferredValue, useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Fuse from 'fuse.js'
 import SEO from '../components/SEO'
@@ -8,6 +8,7 @@ import Toolbar from '../components/ui/Toolbar'
 import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
 import { Button } from '../components/ui/Button'
+import Skeleton from '../components/ui/Skeleton'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 
@@ -63,6 +64,22 @@ export default function Database() {
   })
   const [sortBy, setSortBy] = useState('relevance')
   const deferredQuery = useDeferredValue(query)
+  const [dataLoaded, setDataLoaded] = useState(false)
+
+  useEffect(() => {
+    setDataLoaded(false)
+    const timeout = setTimeout(() => setDataLoaded(true), 240)
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [
+    deferredQuery,
+    sortBy,
+    filters.categories,
+    filters.intensities,
+    filters.regions,
+    filters.compounds,
+  ])
 
   const categoryOptions = useMemo(() => {
     const set = new Set(
@@ -347,28 +364,38 @@ export default function Database() {
           </span>
         </div>
 
-        <motion.section
-          layout
-          className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
-          transition={{ duration: 0.25, ease: 'easeInOut' }}
-        >
-          <AnimatePresence initial={false} mode='popLayout'>
-            {sortedHerbs.map((herb, index) => (
-              <motion.div
-                key={herb.id}
-                layout
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.25, ease: 'easeOut' }}
-              >
-                <HerbCard herb={herb} index={index} />
-              </motion.div>
+        {!dataLoaded && (
+          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+            {Array.from({ length: 9 }).map((_, index) => (
+              <Skeleton key={index} className='h-40' />
             ))}
-          </AnimatePresence>
-        </motion.section>
+          </div>
+        )}
 
-        {sortedHerbs.length === 0 && (
+        {dataLoaded && (
+          <motion.section
+            layout
+            className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+          >
+            <AnimatePresence initial={false} mode='popLayout'>
+              {sortedHerbs.map((herb, index) => (
+                <motion.div
+                  key={herb.id}
+                  layout
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.25, ease: 'easeOut' }}
+                >
+                  <HerbCard herb={herb} index={index} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.section>
+        )}
+
+        {dataLoaded && sortedHerbs.length === 0 && (
           <Card className='p-6 text-center text-sub'>No herbs found. Try adjusting your filters.</Card>
         )}
       </main>

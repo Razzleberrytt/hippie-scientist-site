@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { toast } from "sonner";
 import data from "../data/herbs/herbs.normalized.json";
 import Collapse from "../components/ui/Collapse";
 import Card from "../components/ui/Card";
@@ -55,10 +56,24 @@ export default function HerbDetail() {
           </header>
 
           <div className="flex flex-wrap gap-2 text-sm text-sub">
-            <Button variant="ghost" data-fav={herb.slug} className="px-3 py-1 text-sub hover:text-text">
+            <Button
+              variant="ghost"
+              data-fav={herb.slug}
+              className="px-3 py-1 text-sub hover:text-text"
+              onClick={() => {
+                toast("Added to favorites ❤️");
+              }}
+            >
               ★ Favorite
             </Button>
-            <Button variant="ghost" data-compare={herb.slug} className="px-3 py-1 text-sub hover:text-text">
+            <Button
+              variant="ghost"
+              data-compare={herb.slug}
+              className="px-3 py-1 text-sub hover:text-text"
+              onClick={() => {
+                toast("Added to compare list 🔄");
+              }}
+            >
               ⇄ Compare
             </Button>
             <Button
