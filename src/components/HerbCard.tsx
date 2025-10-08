@@ -27,11 +27,12 @@ export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 16, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.3, delay: index * 0.02 }}
-      whileHover={{ translateY: -4 }}
+      transition={{ type: 'spring', stiffness: 250, damping: 15, delay: index * 0.02 }}
+      whileHover={{ scale: 1.015, y: -2 }}
+      whileTap={{ scale: 0.985 }}
       className="h-full"
     >
-      <Card className="flex h-full flex-col gap-4 p-4 md:p-5 transition duration-200 hover:shadow-glow">
+      <Card className="flex h-full flex-col gap-4 p-4 md:p-5 transition-shadow duration-200 hover:shadow-glow">
         <header className="space-y-1">
           <h3 className="text-xl font-semibold text-brand-lime/90">
             {herb.common || herb.scientific || herb.name}

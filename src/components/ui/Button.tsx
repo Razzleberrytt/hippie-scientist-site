@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
 const variantClasses: Record<'default' | 'primary' | 'ghost', string> = {
   default: 'btn',
@@ -12,10 +13,17 @@ type ButtonProps = {
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
+const MotionButton = motion.button;
+
 export function Button({ children, variant = 'default', className = '', ...props }: ButtonProps) {
   return (
-    <button className={`${variantClasses[variant]} ${className}`.trim()} {...props}>
+    <MotionButton
+      whileTap={{ scale: 0.96 }}
+      whileHover={{ scale: 1.02 }}
+      className={`${variantClasses[variant]} ${className}`.trim()}
+      {...props}
+    >
       {children}
-    </button>
+    </MotionButton>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import Home from './pages/Home';
 import About from './pages/About';
 import Database from './pages/Database';
@@ -15,6 +16,7 @@ import DataReport from './pages/DataReport';
 import DataFix from './pages/DataFix';
 import SiteHeader from './components/SiteHeader';
 import Footer from './components/Footer';
+import AppToaster from './components/ui/Toaster';
 // Import other pages as needed
 
 export default function App() {
@@ -43,13 +45,26 @@ export default function App() {
 }
 
 function RootLayout() {
+  const location = useLocation();
+
   return (
     <div className="min-h-screen bg-bg text-text">
       <SiteHeader />
       <div className="pb-16">
-        <Outlet />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </div>
       <Footer />
+      <AppToaster />
     </div>
   );
 }

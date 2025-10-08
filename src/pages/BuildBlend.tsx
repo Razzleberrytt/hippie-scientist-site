@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { toast } from "sonner";
 import data from "../data/herbs/herbs.normalized.json";
 import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
@@ -370,6 +371,7 @@ export default function BuildBlend() {
       } else {
         await navigator.clipboard.writeText(serialised);
         setCopyState("copied");
+        toast.success("Blend formula copied to clipboard!");
       }
     } catch (error) {
       console.error("Clipboard copy failed", error);
@@ -395,6 +397,7 @@ export default function BuildBlend() {
     const updated = [...favorites.filter((fav) => fav.id !== id), entry];
     setFavorites(updated);
     window.localStorage.setItem("savedBlends", JSON.stringify(updated));
+    toast.success("Blend saved locally!");
   };
 
   const loadFavorite = (saved: SavedBlend) => {
