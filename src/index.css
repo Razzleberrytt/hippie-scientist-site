@@ -208,6 +208,16 @@ body { font-size: var(--fs-1); }
   backdrop-filter: blur(6px);
 }
 
+.hero-section h1::before,
+.hero-section h1::after {
+  content: none !important;
+}
+
+.hero-section h1 {
+  word-break: normal;
+  white-space: normal;
+}
+
 /* Density controls */
 .density-comfy  { --pad-card: 1rem;  --gap-grid: 1rem; }
 .density-compact{ --pad-card: .65rem; --gap-grid: .65rem; }
