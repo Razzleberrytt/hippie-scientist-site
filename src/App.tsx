@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Database from './pages/Database';
 import Favorites from './pages/Favorites';
-import HerbBlender from './pages/HerbBlender';
+import BuildBlend from './pages/BuildBlend';
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import { RedirectHandler } from './RedirectHandler';
@@ -26,7 +26,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/database" element={<Database />} />
-        <Route path="/blend" element={<HerbBlender />} />
+        <Route path="/blend" element={<BuildBlend />} />
         <Route path="/favorites" element={<Favorites />} />
         {/* Add other routes here */}
         <Route path="/herb-index" element={<HerbIndex />} />
