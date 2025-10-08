@@ -50,7 +50,7 @@ function RootLayout() {
   return (
     <div className="min-h-screen bg-bg text-text">
       <SiteHeader />
-      <div className="pb-16">
+      <main className="pt-2 md:pt-3 pb-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -62,7 +62,7 @@ function RootLayout() {
             <Outlet />
           </motion.div>
         </AnimatePresence>
-      </div>
+      </main>
       <Footer />
       <AppToaster />
     </div>
