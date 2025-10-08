@@ -254,10 +254,11 @@ export default function Database() {
         canonical='https://thehippiescientist.net/database'
       />
       <main className='container space-y-6 py-8'>
-        <header className='space-y-2'>
-          <p className='text-xs uppercase tracking-[0.3em] text-sub'>Explorer</p>
-          <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>Herb Database</h1>
-          <p className='max-w-2xl text-sub'>Explore, filter, and compare psychoactive herbs with rich descriptions and context.</p>
+        <header className='pt-2'>
+          <h1 className='h1 bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-transparent'>
+            Herb Database
+          </h1>
+          <p className='small text-white/70'>Search, filter, and explore.</p>
         </header>
 
         <motion.div
@@ -360,7 +361,7 @@ export default function Database() {
 
         <div className='flex flex-wrap items-center justify-between gap-3 text-sm text-sub'>
           <span>
-            {sortedHerbs.length} results <span className='text-xs text-sub/70'>({herbs.length} total)</span>
+            <span className='small text-white/65 whitespace-nowrap'>{sortedHerbs.length} results</span>
           </span>
         </div>
 
