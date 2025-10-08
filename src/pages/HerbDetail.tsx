@@ -3,8 +3,8 @@ import { toast } from "sonner";
 import data from "../data/herbs/herbs.normalized.json";
 import Collapse from "../components/ui/Collapse";
 import Card from "../components/ui/Card";
-import Badge from "../components/ui/Badge";
 import { Button } from "../components/ui/Button";
+import { chipClassFor } from "../lib/tags";
 
 const hasVal = (v: any) =>
   Array.isArray(v) ? v.filter(Boolean).length > 0 : !!String(v ?? "").trim();
@@ -24,34 +24,22 @@ export default function HerbDetail() {
 
   const intensity = String(herb.intensity || "").toLowerCase();
   const intensityClass = intensity.includes("strong")
-    ? "bg-red-600/20 text-red-200"
+    ? "chip chip--warn font-semibold uppercase tracking-wide"
     : intensity.includes("moderate")
-    ? "bg-yellow-600/20 text-yellow-100"
+    ? "chip chip--stim font-semibold uppercase tracking-wide"
     : intensity.includes("mild")
-    ? "bg-green-700/20 text-green-200"
-    : "bg-white/10 text-white/80";
-
-  const chips = (arr?: string[]) =>
-    (arr || [])
-      .filter(Boolean)
-      .map((x, i) => (
-        <Badge key={i}>{x}</Badge>
-      ));
+    ? "chip chip--adapt font-semibold uppercase tracking-wide"
+    : "";
 
   return (
     <main className="container py-6">
       <div className="mx-auto flex max-w-3xl flex-col gap-4 md:gap-6">
         <Card className="relative space-y-4 p-5 md:p-6">
-          <header className="space-y-2">
-            <p className="text-xs uppercase tracking-[0.3em] text-sub">Profile</p>
-            <h1 className="text-3xl font-semibold text-brand-lime/90 md:text-4xl">
-              {herb.common || herb.scientific}
-            </h1>
-            {hasVal(herb.scientific) && <p className="italic text-sub">{herb.scientific}</p>}
+          <header className="stack">
+            <h1 className="h1 text-lime-300">{herb.common || herb.scientific}</h1>
+            {hasVal(herb.scientific) && <p className="italic small text-white/65">{herb.scientific}</p>}
             {hasVal(intensity) && (
-              <span className={`inline-block rounded-full px-2 py-1 text-xs font-semibold ${intensityClass}`}>
-                INTENSITY: {titleCase(intensity)}
-              </span>
+              <span className={intensityClass || "chip"}>INTENSITY: {titleCase(intensity)}</span>
             )}
           </header>
 
@@ -124,24 +112,44 @@ export default function HerbDetail() {
 
         {(hasVal(herb.compounds) || hasVal(herb.tags) || hasVal(herb.preparations)) && (
           <Card className="space-y-4 p-5">
-            {hasVal(herb.compounds) && (
-              <div className="space-y-2">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-sub">Active Compounds</h3>
-                <div className="flex flex-wrap gap-1.5">{chips(herb.compounds)}</div>
-              </div>
-            )}
-            {hasVal(herb.preparations) && (
-              <div className="space-y-2">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-sub">Preparations</h3>
-                <div className="flex flex-wrap gap-1.5">{chips(herb.preparations)}</div>
-              </div>
-            )}
-            {hasVal(herb.tags) && (
-              <div className="space-y-2">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-sub">Tags</h3>
-                <div className="flex flex-wrap gap-1.5">{chips(herb.tags)}</div>
-              </div>
-            )}
+            <div className="stack">
+              {hasVal(herb.compounds) && (
+                <div>
+                  <div className="section-title mb-1">Active Compounds</div>
+                  <div className="cluster">
+                    {(herb.compounds || []).filter(Boolean).map((c, i) => (
+                      <span key={i} className="chip">
+                        {c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {hasVal(herb.preparations) && (
+                <div>
+                  <div className="section-title mb-1">Preparations</div>
+                  <div className="cluster">
+                    {(herb.preparations || []).filter(Boolean).map((p, i) => (
+                      <span key={i} className="chip">
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {hasVal(herb.tags) && (
+                <div>
+                  <div className="section-title mb-1">Tags</div>
+                  <div className="cluster">
+                    {(herb.tags || []).filter(Boolean).map((t, i) => (
+                      <span key={i} className={chipClassFor(t)}>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </Card>
         )}
 

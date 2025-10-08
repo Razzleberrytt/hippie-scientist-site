@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Card from './ui/Card';
-import Badge from './ui/Badge';
 import { cleanLine, hasVal, titleCase } from '../lib/pretty';
+import { chipClassFor } from '../lib/tags';
 
 interface HerbCardProps {
   herb: Record<string, any>;
@@ -14,14 +14,15 @@ export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
   const [expanded, setExpanded] = useState(false);
   const intensity = String(herb.intensity || '').toLowerCase();
   const intensityClass = intensity.includes('strong')
-    ? 'bg-red-500/20 border-red-500/20 text-red-200'
+    ? 'chip chip--warn font-semibold uppercase tracking-wide'
     : intensity.includes('moderate')
-    ? 'bg-yellow-500/20 border-yellow-500/20 text-yellow-100'
+    ? 'chip chip--stim font-semibold uppercase tracking-wide'
     : intensity.includes('mild')
-    ? 'bg-green-500/20 border-green-500/20 text-green-200'
-    : 'bg-white/10 border-white/10 text-white/80';
+    ? 'chip chip--adapt font-semibold uppercase tracking-wide'
+    : '';
 
-  const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 6) : [];
+  const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : [];
+  const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, 6) : [];
 
   return (
     <motion.div
@@ -32,44 +33,44 @@ export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
       whileTap={{ scale: 0.985 }}
       className="h-full"
     >
-      <Card className="flex h-full flex-col gap-4 p-4 md:p-5 transition-shadow duration-200 hover:shadow-glow">
-        <header className="space-y-1">
-          <h3 className="text-xl font-semibold text-brand-lime/90">
-            {herb.common || herb.scientific || herb.name}
-          </h3>
-          {hasVal(herb.scientific) && <p className="italic text-sub">{herb.scientific}</p>}
+      <Card className="flex h-full flex-col gap-4 p-4 transition-shadow duration-200 hover:shadow-glow md:p-5">
+        <header className="stack">
+          <h2 className="h2 text-lime-300">{herb.common || herb.scientific || herb.name}</h2>
+          {hasVal(herb.scientific) && <p className="italic small text-white/65">{herb.scientific}</p>}
           {hasVal(intensity) && (
-            <span className={`inline-block rounded-full px-2 py-1 text-xs font-semibold ${intensityClass}`}>
-              INTENSITY: {titleCase(intensity)}
-            </span>
+            <span className={intensityClass || 'chip'}>INTENSITY: {titleCase(intensity)}</span>
           )}
         </header>
 
-        <section className="space-y-3 text-sm leading-relaxed text-sub">
+        <section className="stack text-white/80">
           {hasVal(herb.description) && (
-            <p>
-              <span className="font-semibold text-text">Description:</span>{' '}
-              <span className={expanded ? '' : 'clamp-3'}>{cleanLine(herb.description)}</span>
+            <p className={`small text-white/85 ${expanded ? '' : 'line-clamp-3'}`}>
+              {cleanLine(herb.description)}
             </p>
           )}
           {hasVal(herb.effects) && (
-            <p>
-              <span className="font-semibold text-text">Effects:</span>{' '}
-              <span className={expanded ? '' : 'clamp-3'}>{cleanLine(herb.effects)}</span>
+            <p className={`small text-white/70 ${expanded ? '' : 'line-clamp-3'}`}>
+              <span className="text-white/85">Effects:</span> {cleanLine(herb.effects)}
             </p>
           )}
           {hasVal(herb.legalstatus) && (
-            <p className="clamp-2">
-              <span className="font-semibold text-text">Legal:</span>{' '}
-              <span>{cleanLine(herb.legalstatus)}</span>
+            <p className="small text-white/60">
+              <span className="text-white/75">Legal:</span> {cleanLine(herb.legalstatus)}
             </p>
           )}
-          {compounds.length > 0 && (
-            <div className="flex flex-wrap gap-1.5">
-              {compounds.map((compound: string, id: number) => (
-                <Badge key={id}>{compound}</Badge>
+          {tags.length > 0 && (
+            <div className="cluster">
+              {tags.map((t: string, i: number) => (
+                <span key={i} className={chipClassFor(t)}>
+                  {t}
+                </span>
               ))}
             </div>
+          )}
+          {compounds.length > 0 && (
+            <p className="small text-cyan-200">
+              Active Compounds: {compounds.join(', ')}
+            </p>
           )}
         </section>
 
