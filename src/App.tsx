@@ -48,9 +48,9 @@ function RootLayout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-bg text-text">
+    <div className="flex min-h-screen flex-col bg-bg text-text">
       <SiteHeader />
-      <main className="pt-2 md:pt-4 pb-10">
+      <main className="flex-1 pb-10 pt-2 md:pt-4">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
