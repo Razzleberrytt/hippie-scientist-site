@@ -15,7 +15,7 @@ import Compare from './pages/Compare';
 import DataReport from './pages/DataReport';
 import DataFix from './pages/DataFix';
 import SiteHeader from './components/SiteHeader';
-import Footer from './components/Footer';
+import SiteFooter from './components/SiteFooter';
 import AppToaster from './components/ui/Toaster';
 // Import other pages as needed
 
@@ -48,9 +48,9 @@ function RootLayout() {
   const location = useLocation();
 
   return (
-    <div className="flex min-h-screen flex-col bg-bg text-text">
+    <div className="min-h-screen flex flex-col bg-bg text-text">
       <SiteHeader />
-      <main className="flex-1 pb-10 pt-2 md:pt-4">
+      <main className="flex-grow pt-2 md:pt-4 pb-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -63,7 +63,7 @@ function RootLayout() {
           </motion.div>
         </AnimatePresence>
       </main>
-      <Footer />
+      <SiteFooter />
       <AppToaster />
     </div>
   );
