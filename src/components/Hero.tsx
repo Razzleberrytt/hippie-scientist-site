@@ -9,7 +9,7 @@ import StatsCounters from './StatsCounters'
 export default function Hero() {
   return (
     <motion.section
-      className='hero-section pb-safe'
+      className='hero-section relative mx-auto w-full max-w-6xl px-4 pt-6 pb-10 sm:pt-8 pb-safe'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -24,9 +24,9 @@ export default function Hero() {
           aria-hidden='true'
         />
         <div className='flex flex-col items-center justify-center gap-4'>
-          <div className='mx-auto max-w-2xl space-y-1'>
+          <div className='mx-auto max-w-2xl space-y-1 text-center'>
             <motion.h1
-              className='text-gradient font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl'
+              className='text-gradient font-display text-4xl leading-tight sm:text-5xl md:text-6xl lg:text-7xl'
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -51,7 +51,7 @@ export default function Hero() {
             </motion.p>
           </div>
 
-          <div className='mt-2 flex justify-center'>
+          <div className='mt-4 flex justify-center'>
             <RotatingHerbHero />
           </div>
         </div>
