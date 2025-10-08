@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import data from "../data/herbs/herbs.normalized.json";
+import Card from "../components/ui/Card";
+import Badge from "../components/ui/Badge";
+import { Button } from "../components/ui/Button";
 
 type Herb = {
   id?: string;
@@ -415,70 +418,62 @@ export default function BuildBlend() {
   };
 
   return (
-    <main className="mx-auto max-w-6xl space-y-6 px-4 py-6 md:space-y-8 md:px-6">
-      <header className="space-y-2">
-        <p className="inline-flex items-center gap-2 rounded-full bg-lime-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-lime-200">
-          Experimental Mixer
-        </p>
-        <h1 className="bg-gradient-to-r from-lime-300 via-emerald-200 to-cyan-300 bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
-          Build a Blend
-        </h1>
-        <p className="max-w-2xl text-sm text-white/70 md:text-base">
+    <main className="container space-y-6 py-8">
+      <header className="space-y-3">
+        <p className="text-xs uppercase tracking-[0.3em] text-sub">Experimental Mixer</p>
+        <h1 className="h1-grad text-3xl font-semibold md:text-4xl">Build a Blend</h1>
+        <p className="max-w-2xl text-sub">
           Curate herbs, adjust their ratios in percentages or grams, and watch potency and mood predictions update instantly.
         </p>
       </header>
 
       <section className="grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-start">
         <div className="space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap gap-2">
-              {Object.keys(PRESETS).map((preset) => (
-                <button
-                  key={preset}
-                  onClick={() => applyPreset(preset)}
-                  className={`rounded-full border border-white/10 px-3 py-1 text-xs font-medium transition ${
-                    activePreset === preset ? "bg-lime-500/30 text-lime-50" : "bg-white/5 hover:bg-white/10"
-                  }`}
-                >
-                  {preset}
-                </button>
-              ))}
-              {!!blend.length && (
-                <button
-                  onClick={resetBlend}
-                  className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-white/70 hover:bg-white/10"
-                >
-                  Clear
-                </button>
-              )}
+          <Card className="flex flex-col gap-4 p-5">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap gap-2">
+                {Object.keys(PRESETS).map((preset) => (
+                  <Button
+                    key={preset}
+                    onClick={() => applyPreset(preset)}
+                    variant={activePreset === preset ? "primary" : "default"}
+                    className={`px-3 py-1 text-xs ${activePreset === preset ? "text-brand-lime" : "text-sub"}`}
+                  >
+                    {preset}
+                  </Button>
+                ))}
+                {!!blend.length && (
+                  <Button onClick={resetBlend} variant="ghost" className="px-3 py-1 text-xs text-sub hover:text-text">
+                    Clear blend
+                  </Button>
+                )}
+              </div>
+              <div className="flex items-center gap-2 rounded-full border border-border bg-panel p-1 text-xs font-medium text-sub">
+                {(Object.keys(RATIO_SETTINGS) as RatioMode[]).map((mode) => (
+                  <button
+                    key={mode}
+                    onClick={() => setRatioMode(mode)}
+                    className={`rounded-full px-3 py-1 transition ${
+                      ratioMode === mode ? "bg-brand-lime/25 text-text" : "hover:bg-white/10"
+                    }`}
+                  >
+                    {mode === "percent" ? "% ratios" : "Grams"}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1 text-xs font-medium">
-              {(Object.keys(RATIO_SETTINGS) as RatioMode[]).map((mode) => (
-                <button
-                  key={mode}
-                  onClick={() => setRatioMode(mode)}
-                  className={`rounded-full px-3 py-1 transition ${
-                    ratioMode === mode ? "bg-lime-500/40 text-slate-950" : "text-white/70"
-                  }`}
-                >
-                  {mode === "percent" ? "% ratios" : "Grams"}
-                </button>
-              ))}
-            </div>
-          </div>
 
-          <div className="space-y-4">
             <div className="relative">
               <input
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search herbs by name, effects, or vibe"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-lime-400 focus:outline-none focus:ring-2 focus:ring-lime-400/40"
+                className="w-full rounded-xl border border-border bg-panel px-4 py-3 text-sm text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:outline-none focus:ring-2 focus:ring-brand-lime/20"
               />
               {query && (
                 <button
                   onClick={() => setQuery("")}
-                  className="absolute inset-y-0 right-3 flex items-center text-xs text-white/60 hover:text-white"
+                  className="absolute inset-y-0 right-3 flex items-center text-xs text-sub transition hover:text-text"
                 >
                   Clear
                 </button>
@@ -491,45 +486,50 @@ export default function BuildBlend() {
                   <button
                     key={getHerbKey(herb)}
                     onClick={() => addHerbToBlend(herb)}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80 transition hover:border-lime-300 hover:bg-lime-400/30 hover:text-white"
+                    className="badge hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text"
                   >
                     {getHerbName(herb)}
                   </button>
                 ))}
               </div>
             )}
-          </div>
+          </Card>
 
           <section className="space-y-4">
             {!blend.length && (
-              <div className="rounded-2xl border border-dashed border-white/10 bg-white/5 p-6 text-center text-sm text-white/60">
+              <Card className="border-dashed p-6 text-center text-sm text-sub">
                 Use search or presets to start building your signature blend.
-              </div>
+              </Card>
             )}
             {blend.map((herb) => {
               const settings = RATIO_SETTINGS[ratioMode];
               const value = Number(herb.ratios[ratioMode].toFixed(ratioMode === "percent" ? 0 : 2));
               return (
-                <div
-                  key={herb.key}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/10 backdrop-blur"
-                >
+                <Card key={herb.key} className="space-y-4 p-5">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <div className="space-y-1">
-                      <div className="text-sm font-semibold text-white">
-                        {herb.displayName}
-                      </div>
-                      {herb.intensity && <p className="text-xs text-white/50">{herb.intensity}</p>}
-                      {herb.effects && <p className="text-xs text-white/60">{herb.effects}</p>}
+                    <div className="space-y-2">
+                      <p className="text-xs uppercase tracking-wide text-sub">Herb</p>
+                      <h2 className="text-lg font-semibold text-text">{herb.displayName}</h2>
+                      {herb.intensity && <Badge className="text-xs">{herb.intensity}</Badge>}
+                      {herb.effects && (
+                        <p className="text-xs text-sub">
+                          {herb.effects.substring(0, 160)}
+                          {herb.effects.length > 160 ? "…" : ""}
+                        </p>
+                      )}
                     </div>
-                    <button
-                      onClick={() => removeHerb(herb.key)}
-                      className="self-start rounded-full border border-white/10 px-2 py-1 text-xs text-white/60 transition hover:border-red-400 hover:text-red-300"
-                    >
-                      Remove
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <Badge className="text-xs">{settings.label}</Badge>
+                      <Button
+                        variant="ghost"
+                        onClick={() => removeHerb(herb.key)}
+                        className="px-3 py-1 text-xs text-sub hover:text-text"
+                      >
+                        Remove
+                      </Button>
+                    </div>
                   </div>
-                  <div className="mt-4 space-y-3">
+                  <div className="space-y-3">
                     <input
                       type="range"
                       min={settings.min}
@@ -537,45 +537,45 @@ export default function BuildBlend() {
                       step={settings.step}
                       value={value}
                       onChange={(event) => updateRatio(herb.key, Number(event.target.value))}
-                      className="w-full accent-lime-400"
+                      className="w-full accent-brand-lime"
                     />
-                    <div className="flex items-center justify-between text-xs text-white/70">
-                      <div>
+                    <div className="flex items-center justify-between text-xs text-sub">
+                      <span>
                         {settings.min}
                         {settings.label}
-                      </div>
+                      </span>
                       <div className="flex items-center gap-2">
                         <input
                           type="number"
                           value={value}
                           onChange={(event) => updateRatio(herb.key, Number(event.target.value))}
-                          className="w-16 rounded-lg border border-white/10 bg-white/10 px-2 py-1 text-right text-xs text-white focus:border-lime-300 focus:outline-none"
+                          className="w-16 rounded-lg border border-border bg-panel px-2 py-1 text-right text-xs text-text focus:border-brand-lime/60 focus:outline-none"
                         />
-                        <span className="font-medium text-white">{settings.label}</span>
+                        <span className="font-semibold text-text">{settings.label}</span>
                       </div>
-                      <div>
+                      <span>
                         {settings.max}
                         {settings.label}
-                      </div>
+                      </span>
                     </div>
                   </div>
-                </div>
+                </Card>
               );
             })}
           </section>
         </div>
 
         <aside className="space-y-6">
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-5 shadow-lg shadow-black/20">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-white/70">Blend telemetry</h2>
-            <div className="mt-4 space-y-3 text-sm text-white/80">
+          <Card className="space-y-4 p-5">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-sub">Blend telemetry</h2>
+            <div className="space-y-3 text-sm text-sub">
               <div className="flex items-center justify-between">
                 <span>Total herbs</span>
-                <span className="font-semibold text-white">{blend.length}</span>
+                <span className="font-semibold text-text">{blend.length}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span>Total {ratioMode === "percent" ? "ratio" : "weight"}</span>
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-text">
                   {ratioMode === "percent"
                     ? `${totalAmount.toFixed(0)}%`
                     : `${totalAmount.toFixed(1)} g`}
@@ -583,62 +583,64 @@ export default function BuildBlend() {
               </div>
               <div className="flex items-center justify-between">
                 <span>Potency score</span>
-                <span className="font-semibold text-white">{potencyScore.toFixed(1)}</span>
+                <span className="font-semibold text-text">{potencyScore.toFixed(1)}</span>
               </div>
             </div>
-            <div className="mt-5 rounded-xl bg-white/5 p-4 text-sm text-white/80">
-              <p className="text-xs uppercase tracking-wide text-white/50">Mood projection</p>
-              <p className="mt-1 text-base font-semibold text-white">{moodInsight.headline}</p>
-              <p className="mt-1 text-xs text-white/60">{moodInsight.breakdown}</p>
+            <div className="rounded-xl border border-border bg-panel p-4 text-sm text-sub">
+              <p className="text-xs uppercase tracking-wide text-sub/70">Mood projection</p>
+              <p className="mt-1 text-base font-semibold text-text">{moodInsight.headline}</p>
+              <p className="mt-1 text-xs text-sub">{moodInsight.breakdown}</p>
             </div>
-            <div className="mt-5 flex flex-wrap gap-3 text-sm">
-              <button
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Button
                 onClick={copyFormula}
-                className="flex-1 rounded-full border border-white/10 bg-white/10 px-3 py-2 font-medium text-white transition hover:border-lime-400 hover:bg-lime-400/30 hover:text-white"
+                className="flex-1 justify-center"
                 disabled={!blend.length}
               >
                 {copyState === "copied" ? "Copied!" : "Copy formula"}
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={saveBlend}
-                className="flex-1 rounded-full border border-white/10 bg-lime-500/30 px-3 py-2 font-medium text-white transition hover:bg-lime-400/50"
+                variant="primary"
+                className="flex-1 justify-center"
                 disabled={!blend.length}
               >
                 Save to favorites
-              </button>
+              </Button>
             </div>
-          </div>
+          </Card>
 
           {!!favorites.length && (
-            <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-white/70">
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-white/70">Favorites</h2>
+            <Card className="space-y-4 p-5 text-sm text-sub">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-sub">Favorites</h2>
               <ul className="space-y-3">
                 {favorites.map((fav) => (
-                  <li key={fav.id} className="rounded-xl border border-white/10 bg-white/5 p-3">
+                  <li key={fav.id} className="rounded-xl border border-border bg-panel p-3">
                     <div className="flex items-center justify-between gap-2">
                       <div>
-                        <p className="font-semibold text-white">{fav.name}</p>
-                        <p className="text-xs text-white/50">
+                        <p className="font-semibold text-text">{fav.name}</p>
+                        <p className="text-xs text-sub/70">
                           {new Date(fav.createdAt).toLocaleDateString(undefined, {
                             month: "short",
                             day: "numeric",
                           })}
                         </p>
                       </div>
-                      <button
+                      <Button
                         onClick={() => loadFavorite(fav)}
-                        className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-white transition hover:border-lime-300 hover:bg-lime-400/30"
+                        variant="ghost"
+                        className="px-3 py-1 text-xs text-sub hover:text-text"
                       >
                         Load
-                      </button>
+                      </Button>
                     </div>
-                    <p className="mt-2 text-xs text-white/60">
+                    <p className="mt-2 text-xs text-sub">
                       {fav.items.length} herbs · {ratioMode === "percent" ? "%" : "g"} ready
                     </p>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
           )}
         </aside>
       </section>

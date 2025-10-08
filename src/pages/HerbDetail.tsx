@@ -1,7 +1,9 @@
 import { useParams, Link } from "react-router-dom";
 import data from "../data/herbs/herbs.normalized.json";
 import Collapse from "../components/ui/Collapse";
-import Chip from "../components/ui/Chip";
+import Card from "../components/ui/Card";
+import Badge from "../components/ui/Badge";
+import { Button } from "../components/ui/Button";
 
 const hasVal = (v: any) =>
   Array.isArray(v) ? v.filter(Boolean).length > 0 : !!String(v ?? "").trim();
@@ -17,7 +19,7 @@ export default function HerbDetail() {
   const { slug } = useParams<Param>();
   const herb = data.find((h: Herb) => h.slug === slug);
 
-  if (!herb) return <main className="p-6">Not found.</main>;
+  if (!herb) return <main className="container py-6">Not found.</main>;
 
   const intensity = String(herb.intensity || "").toLowerCase();
   const intensityClass = intensity.includes("strong")
@@ -32,167 +34,168 @@ export default function HerbDetail() {
     (arr || [])
       .filter(Boolean)
       .map((x, i) => (
-        <Chip key={i}>{x}</Chip>
+        <Badge key={i}>{x}</Badge>
       ));
 
   return (
-    <main className="max-w-3xl mx-auto p-4 md:p-6 space-y-4">
-      {/* Header */}
-      <header className="bg-black/30 border border-white/10 rounded-2xl p-4 md:p-5 relative">
-        <h1 className="text-2xl md:text-3xl font-bold text-lime-300">
-          {herb.common || herb.scientific}
-        </h1>
-        {hasVal(herb.scientific) && (
-          <p className="italic opacity-80">{herb.scientific}</p>
+    <main className="container py-6">
+      <div className="mx-auto flex max-w-3xl flex-col gap-4 md:gap-6">
+        <Card className="relative space-y-4 p-5 md:p-6">
+          <header className="space-y-2">
+            <p className="text-xs uppercase tracking-[0.3em] text-sub">Profile</p>
+            <h1 className="text-3xl font-semibold text-brand-lime/90 md:text-4xl">
+              {herb.common || herb.scientific}
+            </h1>
+            {hasVal(herb.scientific) && <p className="italic text-sub">{herb.scientific}</p>}
+            {hasVal(intensity) && (
+              <span className={`inline-block rounded-full px-2 py-1 text-xs font-semibold ${intensityClass}`}>
+                INTENSITY: {titleCase(intensity)}
+              </span>
+            )}
+          </header>
+
+          <div className="flex flex-wrap gap-2 text-sm text-sub">
+            <Button variant="ghost" data-fav={herb.slug} className="px-3 py-1 text-sub hover:text-text">
+              ★ Favorite
+            </Button>
+            <Button variant="ghost" data-compare={herb.slug} className="px-3 py-1 text-sub hover:text-text">
+              ⇄ Compare
+            </Button>
+            <Button
+              variant="ghost"
+              className="px-3 py-1 text-sub hover:text-text"
+              onClick={() =>
+                navigator.share?.({
+                  title: herb.common || herb.scientific,
+                  url: typeof window !== "undefined" ? window.location.href : undefined,
+                })
+              }
+            >
+              ↗ Share
+            </Button>
+          </div>
+        </Card>
+
+        {hasVal(herb.legalstatus) && (
+          <Card className="space-y-2 p-5">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-sub">Legal</h2>
+            <p className="text-sm text-text/90">{herb.legalstatus}</p>
+            {hasVal(herb.legalnotes) && <p className="text-xs text-sub/80">{herb.legalnotes}</p>}
+          </Card>
         )}
-        {hasVal(intensity) && (
-          <span
-            className={`mt-3 inline-block text-xs px-2 py-1 rounded-full ${intensityClass}`}
-          >
-            INTENSITY: {titleCase(intensity)}
-          </span>
+
+        {(hasVal(herb.region) || hasVal(herb.regiontags)) && (
+          <Card className="space-y-2 p-5">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-sub">Region</h2>
+            <p className="text-sm text-text/90">{herb.region ? herb.region : (herb.regiontags || []).join(", ")}</p>
+          </Card>
         )}
 
-        {/* Quick actions */}
-        <div className="mt-3 flex flex-wrap gap-3 sticky top-3 z-10 bg-black/40 backdrop-blur-sm px-3 py-2 rounded-xl md:static md:bg-transparent md:backdrop-blur-0 md:px-0 md:py-0 md:rounded-none">
-          <button data-fav={herb.slug} className="underline opacity-90">
-            ★ Favorite
-          </button>
-          <button data-compare={herb.slug} className="underline opacity-90">
-            ⇄ Compare
-          </button>
-          <button
-            onClick={() =>
-              navigator.share?.({
-                title: herb.common || herb.scientific,
-                url:
-                  typeof window !== "undefined" ? window.location.href : undefined,
-              })
-            }
-            className="underline opacity-90"
-          >
-            ↗ Share
-          </button>
-        </div>
-      </header>
+        {hasVal(herb.description) && (
+          <Card className="p-5">
+            <Collapse title="Description" defaultOpen>
+              <p className="leading-relaxed text-sub">{herb.description}</p>
+            </Collapse>
+          </Card>
+        )}
 
-      {/* Legal banner */}
-      {hasVal(herb.legalstatus) && (
-        <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-          <div className="font-semibold mb-1">Legal</div>
-          <p className="opacity-90">{herb.legalstatus}</p>
-          {hasVal(herb.legalnotes) && (
-            <p className="mt-1 text-sm opacity-75">{herb.legalnotes}</p>
-          )}
-        </div>
-      )}
+        {hasVal(herb.effects) && (
+          <Card className="p-5">
+            <Collapse title="Effects" defaultOpen>
+              <p className="leading-relaxed text-sub">{herb.effects}</p>
+            </Collapse>
+          </Card>
+        )}
 
-      {/* Region */}
-      {(hasVal(herb.region) || hasVal(herb.regiontags)) && (
-        <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-          <div className="font-semibold mb-1">Region</div>
-          <p className="opacity-90">
-            {herb.region ? herb.region : (herb.regiontags || []).join(", ")}
-          </p>
-        </div>
-      )}
+        {(hasVal(herb.compounds) || hasVal(herb.tags) || hasVal(herb.preparations)) && (
+          <Card className="space-y-4 p-5">
+            {hasVal(herb.compounds) && (
+              <div className="space-y-2">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-sub">Active Compounds</h3>
+                <div className="flex flex-wrap gap-1.5">{chips(herb.compounds)}</div>
+              </div>
+            )}
+            {hasVal(herb.preparations) && (
+              <div className="space-y-2">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-sub">Preparations</h3>
+                <div className="flex flex-wrap gap-1.5">{chips(herb.preparations)}</div>
+              </div>
+            )}
+            {hasVal(herb.tags) && (
+              <div className="space-y-2">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-sub">Tags</h3>
+                <div className="flex flex-wrap gap-1.5">{chips(herb.tags)}</div>
+              </div>
+            )}
+          </Card>
+        )}
 
-      {/* Description / Effects */}
-      {hasVal(herb.description) && (
-        <Collapse title="Description" defaultOpen>
-          <p className="leading-relaxed">{herb.description}</p>
-        </Collapse>
-      )}
-      {hasVal(herb.effects) && (
-        <Collapse title="Effects" defaultOpen>
-          <p className="leading-relaxed">{herb.effects}</p>
-        </Collapse>
-      )}
-
-      {/* Compounds / Tags / Preparations */}
-      {(hasVal(herb.compounds) || hasVal(herb.tags) || hasVal(herb.preparations)) && (
-        <section className="grid gap-3">
-          {hasVal(herb.compounds) && (
-            <div>
-              <div className="font-semibold mb-1">Active Compounds</div>
-              <div>{chips(herb.compounds)}</div>
-            </div>
-          )}
-          {hasVal(herb.preparations) && (
-            <div>
-              <div className="font-semibold mb-1">Preparations</div>
-              <div>{chips(herb.preparations)}</div>
-            </div>
-          )}
-          {hasVal(herb.tags) && (
-            <div>
-              <div className="font-semibold mb-1">Tags</div>
-              <div>{chips(herb.tags)}</div>
-            </div>
-          )}
-        </section>
-      )}
-
-      {/* Safety / Contraindications / Interactions */}
-      {(hasVal(herb.safety) ||
-        hasVal(herb.contraindications) ||
-        hasVal(herb.interactions)) && (
-        <Collapse title="Safety & Contraindications">
-          {hasVal(herb.safety) && <p className="mb-2">{herb.safety}</p>}
-          {hasVal(herb.contraindications) && (
-            <div className="mb-2">
-              <div className="font-semibold">Contraindications</div>
-              <ul className="list-disc list-inside opacity-90">
-                {(herb.contraindications || []).map((x: string, i: number) => (
-                  <li key={i}>{x}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {hasVal(herb.interactions) && (
-            <div>
-              <div className="font-semibold">Interactions</div>
-              <ul className="list-disc list-inside opacity-90">
-                {(herb.interactions || []).map((x: string, i: number) => (
-                  <li key={i}>{x}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </Collapse>
-      )}
-
-      {/* Mechanism / Pharmacology (optional) */}
-      {(hasVal(herb.mechanism) || hasVal(herb.pharmacology)) && (
-        <Collapse title="Mechanism & Pharmacology">
-          {hasVal(herb.mechanism) && <p className="mb-2">{herb.mechanism}</p>}
-          {hasVal(herb.pharmacology) && <p>{herb.pharmacology}</p>}
-        </Collapse>
-      )}
-
-      {/* Sources */}
-      {hasVal(herb.sources) && (
-        <Collapse title="Sources">
-          <ul className="list-disc list-inside">
-            {(herb.sources || []).map((s: string, i: number) => (
-              <li key={i}>
-                {/^(https?:\/\/)/i.test(s) ? (
-                  <a className="underline" href={s} target="_blank" rel="noreferrer">
-                    {s}
-                  </a>
-                ) : (
-                  s
+        {(hasVal(herb.safety) || hasVal(herb.contraindications) || hasVal(herb.interactions)) && (
+          <Card className="p-5">
+            <Collapse title="Safety & Contraindications">
+              <div className="space-y-4 text-sub">
+                {hasVal(herb.safety) && <p>{herb.safety}</p>}
+                {hasVal(herb.contraindications) && (
+                  <div>
+                    <h4 className="text-sm font-semibold text-text">Contraindications</h4>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                      {(herb.contraindications || []).map((x: string, i: number) => (
+                        <li key={i}>{x}</li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
-              </li>
-            ))}
-          </ul>
-        </Collapse>
-      )}
+                {hasVal(herb.interactions) && (
+                  <div>
+                    <h4 className="text-sm font-semibold text-text">Interactions</h4>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">
+                      {(herb.interactions || []).map((x: string, i: number) => (
+                        <li key={i}>{x}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </Collapse>
+          </Card>
+        )}
 
-      <div className="opacity-70 text-sm">
-        <Link to="/database" className="underline">
-          ← Back to Database
-        </Link>
+        {(hasVal(herb.mechanism) || hasVal(herb.pharmacology)) && (
+          <Card className="p-5">
+            <Collapse title="Mechanism & Pharmacology">
+              <div className="space-y-3 text-sub">
+                {hasVal(herb.mechanism) && <p>{herb.mechanism}</p>}
+                {hasVal(herb.pharmacology) && <p>{herb.pharmacology}</p>}
+              </div>
+            </Collapse>
+          </Card>
+        )}
+
+        {hasVal(herb.sources) && (
+          <Card className="p-5">
+            <Collapse title="Sources">
+              <ul className="list-disc space-y-1 pl-5 text-sub">
+                {(herb.sources || []).map((s: string, i: number) => (
+                  <li key={i}>
+                    {/^(https?:\/\/)/i.test(s) ? (
+                      <a className="underline decoration-dotted underline-offset-4" href={s} target="_blank" rel="noreferrer">
+                        {s}
+                      </a>
+                    ) : (
+                      s
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </Collapse>
+          </Card>
+        )}
+
+        <div className="text-sm text-sub">
+          <Link to="/database" className="underline decoration-dotted underline-offset-4">
+            ← Back to Database
+          </Link>
+        </div>
       </div>
     </main>
   );
