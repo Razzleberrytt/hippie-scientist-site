@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
+import logo from '/logo.svg';
 
 const links = [
   { to: '/database', label: 'Database' },
@@ -8,11 +9,12 @@ const links = [
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-20 backdrop-blur">
+    <div className="sticky top-0 z-30 bg-[color:var(--bg)]/80 backdrop-blur">
       <div className="container">
-        <div className="flex flex-wrap items-center justify-between gap-4 py-4">
-          <Link to="/" className="h1-grad text-2xl font-bold tracking-tight">
-            The Hippie Scientist
+        <div className="flex items-center justify-between py-3">
+          <Link to="/" className="flex items-center gap-3">
+            <img src={logo} alt="The Hippie Scientist" className="h-8 w-auto" />
+            <span className="h1-grad text-xl font-bold">The Hippie Scientist</span>
           </Link>
           <nav className="flex flex-wrap items-center gap-3 text-sm text-sub">
             {links.map(link => (
@@ -30,8 +32,7 @@ export default function SiteHeader() {
             ))}
           </nav>
         </div>
-        <div className="hr" />
       </div>
-    </header>
+    </div>
   );
 }
