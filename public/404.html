@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K9MGMJZS');</script>
-    <!-- End Google Tag Manager -->
-    <meta http-equiv="refresh" content="0; url=./" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DFJL2FC6F"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true });
-      gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
-    </script>
-    <script>
-      // Save the original path for the SPA
-      const target =
-        sessionStorage.redirectTo ||
-        window.location.pathname + window.location.search + window.location.hash;
-      const url = './?redirect=' + encodeURIComponent(target);
-      window.location.replace(url);
-    </script>
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9MGMJZS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <h1>Redirecting...</h1>
-  </body>
-</html>
+<!doctype html><meta charset="utf-8">
+<script>
+  // /foo?x#y  →  /#/foo?x#y  (preserve everything)
+  var p = location.pathname + location.search + location.hash;
+  location.replace("/#" + p.replace(/^\//, ""));
+</script>
+<p>Not found. <a href="/">Go home</a>.</p>
