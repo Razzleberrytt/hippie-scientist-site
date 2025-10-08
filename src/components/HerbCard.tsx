@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Card from './ui/Card';
@@ -8,9 +8,10 @@ import { chipClassFor } from '../lib/tags';
 interface HerbCardProps {
   herb: Record<string, any>;
   index?: number;
+  compact?: boolean;
 }
 
-export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
+function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   const [expanded, setExpanded] = useState(false);
   const intensity = String(herb.intensity || '').toLowerCase();
   const intensityClass = intensity.includes('strong')
@@ -22,7 +23,13 @@ export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
     : '';
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : [];
-  const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, 6) : [];
+  const tagLimit = compact ? 3 : 6;
+  const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, tagLimit) : [];
+  const showDescription = !compact && hasVal(herb.description);
+  const showEffects = !compact && hasVal(herb.effects);
+  const showLegal = !compact && hasVal(herb.legalstatus);
+  const showCompounds = !compact && compounds.length > 0;
+  const showShowMore = !compact && (hasVal(herb.effects) || hasVal(herb.description));
 
   return (
     <motion.div
@@ -33,27 +40,37 @@ export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
       whileTap={{ scale: 0.985 }}
       className="h-full"
     >
-      <Card className="flex h-full flex-col gap-4 p-4 transition-shadow duration-200 hover:shadow-glow md:p-5">
+      <Card
+        className={`flex h-full flex-col ${compact ? 'gap-3 mini-card' : 'gap-4'} card-pad transition-shadow duration-200 hover:shadow-glow`}
+      >
         <header className="stack">
-          <h2 className="h2 text-lime-300">{herb.common || herb.scientific || herb.name}</h2>
-          {hasVal(herb.scientific) && <p className="italic small text-white/65">{herb.scientific}</p>}
+          {compact ? (
+            <h3 className="text-lime-300 font-semibold">{herb.common || herb.scientific || herb.name}</h3>
+          ) : (
+            <h2 className="h2 text-lime-300">{herb.common || herb.scientific || herb.name}</h2>
+          )}
+          {hasVal(herb.scientific) && (
+            <p className="italic small text-white/65">{herb.scientific}</p>
+          )}
           {hasVal(intensity) && (
-            <span className={intensityClass || 'chip'}>INTENSITY: {titleCase(intensity)}</span>
+            <span className={`${intensityClass || 'chip'} ${compact ? 'int' : ''}`}>
+              INTENSITY: {titleCase(intensity)}
+            </span>
           )}
         </header>
 
         <section className="stack text-white/80">
-          {hasVal(herb.description) && (
+          {showDescription && (
             <p className={`small text-white/85 ${expanded ? '' : 'line-clamp-3'}`}>
               {cleanLine(herb.description)}
             </p>
           )}
-          {hasVal(herb.effects) && (
+          {showEffects && (
             <p className={`small text-white/70 ${expanded ? '' : 'line-clamp-3'}`}>
               <span className="text-white/85">Effects:</span> {cleanLine(herb.effects)}
             </p>
           )}
-          {hasVal(herb.legalstatus) && (
+          {showLegal && (
             <p className="small text-white/60">
               <span className="text-white/75">Legal:</span> {cleanLine(herb.legalstatus)}
             </p>
@@ -67,15 +84,15 @@ export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
               ))}
             </div>
           )}
-          {compounds.length > 0 && (
+          {showCompounds && (
             <p className="small text-cyan-200">
               Active Compounds: {compounds.join(', ')}
             </p>
           )}
         </section>
 
-        <footer className="mt-auto flex items-center justify-between text-sm">
-          {(hasVal(herb.effects) || hasVal(herb.description)) && (
+        <footer className={`mt-auto flex items-center justify-between text-sm ${compact ? 'pt-1' : ''}`}>
+          {showShowMore && (
             <button
               type="button"
               className="text-sub underline decoration-dotted underline-offset-4 transition hover:text-text"
@@ -84,10 +101,7 @@ export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
               {expanded ? 'Show less' : 'Show more'}
             </button>
           )}
-          <Link
-            to={`/herb/${herb.slug ?? ''}`}
-            className="text-sub underline underline-offset-4 transition hover:text-text"
-          >
+          <Link to={`/herb/${herb.slug ?? ''}`} className="text-sub underline underline-offset-4 transition hover:text-text">
             View details
           </Link>
         </footer>
@@ -95,3 +109,5 @@ export default function HerbCard({ herb, index = 0 }: HerbCardProps) {
     </motion.div>
   );
 }
+
+export default memo(HerbCard);

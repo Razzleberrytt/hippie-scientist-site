@@ -65,6 +65,8 @@ export default function Database() {
   const [sortBy, setSortBy] = useState('relevance')
   const deferredQuery = useDeferredValue(query)
   const [dataLoaded, setDataLoaded] = useState(false)
+  const [density, setDensity] = useState<'comfy' | 'compact'>('comfy')
+  const compact = density === 'compact'
 
   useEffect(() => {
     setDataLoaded(false)
@@ -253,12 +255,32 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         canonical='https://thehippiescientist.net/database'
       />
-      <main className='container space-y-6 py-8'>
-        <header className='pt-2'>
-          <h1 className='h1 bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-transparent'>
-            Herb Database
-          </h1>
-          <p className='small text-white/70'>Search, filter, and explore.</p>
+      <main className={`container space-y-6 py-8 ${compact ? 'density-compact' : 'density-comfy'}`}>
+        <header className='pt-2 section-hero'>
+          <div className='flex items-center justify-between gap-3'>
+            <div>
+              <h1 className='h1 bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-transparent'>
+                Herb Database
+              </h1>
+              <p className='small text-white/70'>Search, filter, and explore.</p>
+            </div>
+            <div className='flex items-center gap-2'>
+              <button
+                className={`btn small ${density === 'comfy' ? 'btn-primary' : ''}`}
+                onClick={() => setDensity('comfy')}
+                type='button'
+              >
+                Comfortable
+              </button>
+              <button
+                className={`btn small ${density === 'compact' ? 'btn-primary' : ''}`}
+                onClick={() => setDensity('compact')}
+                type='button'
+              >
+                Compact
+              </button>
+            </div>
+          </div>
         </header>
 
         <motion.div
@@ -332,7 +354,7 @@ export default function Database() {
           </div>
         )}
 
-        <section className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
+        <section className='grid grid-cols-1 grid-gap md:grid-cols-2 lg:grid-cols-4'>
           <FilterGroup
             title='Category'
             options={categoryOptions}
@@ -366,7 +388,7 @@ export default function Database() {
         </div>
 
         {!dataLoaded && (
-          <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          <div className='grid grid-cols-1 grid-gap sm:grid-cols-2 lg:grid-cols-3'>
             {Array.from({ length: 9 }).map((_, index) => (
               <Skeleton key={index} className='h-40' />
             ))}
@@ -376,7 +398,7 @@ export default function Database() {
         {dataLoaded && (
           <motion.section
             layout
-            className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'
+            className={`grid grid-cols-1 grid-gap sm:grid-cols-2 ${compact ? 'md:grid-cols-3 lg:grid-cols-4' : 'md:grid-cols-2 lg:grid-cols-3'}`}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
           >
             <AnimatePresence initial={false} mode='popLayout'>
@@ -389,7 +411,7 @@ export default function Database() {
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.25, ease: 'easeOut' }}
                 >
-                  <HerbCard herb={herb} index={index} />
+                  <HerbCard herb={herb} index={index} compact={compact} />
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -397,7 +419,7 @@ export default function Database() {
         )}
 
         {dataLoaded && sortedHerbs.length === 0 && (
-          <Card className='p-6 text-center text-sub'>No herbs found. Try adjusting your filters.</Card>
+          <Card className='card-pad text-center text-sub'>No herbs found. Try adjusting your filters.</Card>
         )}
       </main>
     </ErrorBoundary>
@@ -413,7 +435,7 @@ type FilterGroupProps = {
 
 function FilterGroup({ title, options, selected, onToggle }: FilterGroupProps) {
   return (
-    <Card className='flex flex-col gap-3 p-4'>
+    <Card className='flex flex-col gap-3 card-pad'>
       <div className='flex items-center justify-between'>
         <h3 className='text-xs font-semibold uppercase tracking-wide text-sub'>{title}</h3>
         <span className='text-xs text-sub/70'>{selected.length}</span>

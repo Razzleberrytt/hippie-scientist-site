@@ -79,6 +79,10 @@ export default function HerbDetail() {
           </div>
         </Card>
 
+        <section className="section-hero">
+          <h2 className="h2">Overview</h2>
+        </section>
+
         {hasVal(herb.legalstatus) && (
           <Card className="space-y-2 p-5">
             <h2 className="text-sm font-semibold uppercase tracking-wide text-sub">Legal</h2>

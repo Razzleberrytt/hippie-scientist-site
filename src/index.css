@@ -195,3 +195,32 @@ body { font-size: var(--fs-1); }
 
 /* Subtle section headings */
 .section-title{ text-transform:uppercase; letter-spacing:.06em; opacity:.8; font-size:var(--fs-0); }
+
+/* Gradient section headers */
+.section-hero {
+  padding: .75rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(100% 140% at 100% 0%, rgba(82,225,255,.10), transparent 60%),
+    radial-gradient(120% 120% at 0% 100%, rgba(199,255,87,.10), transparent 60%),
+    rgba(255,255,255,.04);
+  backdrop-filter: blur(6px);
+}
+
+/* Density controls */
+.density-comfy  { --pad-card: 1rem;  --gap-grid: 1rem; }
+.density-compact{ --pad-card: .65rem; --gap-grid: .65rem; }
+.card-pad { padding: var(--pad-card); }
+.grid-gap { gap: var(--gap-grid); }
+
+/* Mini-card */
+.mini-card h3 { font-size: var(--fs-1); }
+.mini-card .sub { font-size: var(--fs-0); opacity:.7 }
+.mini-card .int { font-size: 10.5px; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
