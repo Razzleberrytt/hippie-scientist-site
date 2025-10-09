@@ -26,6 +26,21 @@ export default function SiteFooter() {
           </a>
         </nav>
 
+        <nav className="flex flex-wrap items-center gap-4 text-white/60">
+          <a href="/privacy" className="hover:text-cyan-300">
+            Privacy Policy
+          </a>
+          <a href="/disclaimer" className="hover:text-cyan-300">
+            Disclaimer
+          </a>
+          <a href="/contact" className="hover:text-cyan-300">
+            Contact
+          </a>
+          <a href="/sitemap" className="hover:text-cyan-300">
+            Sitemap
+          </a>
+        </nav>
+
         <div className="flex items-center gap-4 text-white/60">
           <a
             href="https://github.com/razzleberrytt"
