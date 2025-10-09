@@ -1,66 +1,118 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { Home, ArrowLeft } from 'lucide-react'
-import Meta from '../components/Meta'
+import React, { useMemo, useState } from "react";
+import Meta from "../components/Meta";
+import data from "../data/herbs/herbs.normalized.json";
 
-const NotFound: React.FC = () => {
+export default function NotFound() {
+  const [q, setQ] = useState("");
+  const popular = useMemo(() => {
+    const arr = (data || []).slice(0, 6);
+    return arr.map((h) => ({
+      slug:
+        h.slug ||
+        (h.common || h.scientific || "")
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, ""),
+      title: h.common || h.scientific,
+    }));
+  }, []);
+
+  const results = useMemo(() => {
+    const s = q.trim().toLowerCase();
+    if (!s) return [];
+    return (data || [])
+      .filter((h) => {
+        const hay = [
+          h.common,
+          h.scientific,
+          h.effects,
+          (h.tags || []).join(" "),
+          (h.compounds || []).join(" "),
+        ]
+          .join(" ")
+          .toLowerCase();
+        return hay.includes(s);
+      })
+      .slice(0, 10)
+      .map((h) => ({
+        slug:
+          h.slug ||
+          (h.common || h.scientific || "")
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/(^-|-$)/g, ""),
+        title: h.common || h.scientific,
+      }));
+  }, [q]);
+
   return (
     <>
       <Meta
-        title='404 - Page Not Found | The Hippie Scientist'
-        description="The page you're looking for doesn't exist."
-        path='/404'
+        title="Page Not Found — The Hippie Scientist"
+        description="That page does not exist. Try searching the herb index."
+        path="/404"
         noindex
       />
+      <main className="container mx-auto px-4 py-10 space-y-6">
+        <header className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-6">
+          <h1 className="text-3xl font-extrabold bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-transparent">
+            Page not found
+          </h1>
+          <p className="text-white/75 mt-2">
+            Let’s get you to the right herb or article.
+          </p>
 
-      <div className='flex min-h-screen items-center justify-center px-4 pt-20'>
-        <div className='mx-auto max-w-2xl text-center'>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className='glass-card p-12'
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className='mb-8'
-            >
-              <h1 className='text-gradient mb-4 text-8xl font-bold'>404</h1>
-              <h2 className='mb-4 text-3xl font-bold text-white'>Page Not Found</h2>
-              <p className='mb-8 text-xl text-sand'>
-                Looks like this page got lost in the cosmic void. Let's get you back on track!
-              </p>
-            </motion.div>
+          <div className="mt-4 flex items-center gap-2">
+            <input
+              className="w-full max-w-md rounded-lg px-3 py-2 bg-white/10 border border-white/10 placeholder-white/50"
+              placeholder="Search herbs, compounds, effects…"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              autoFocus
+            />
+          </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className='flex flex-col justify-center gap-4 sm:flex-row'
-            >
-              <Link
-                to='/'
-                className='glass-button flex items-center justify-center space-x-2 rounded-lg px-8 py-4 font-medium text-white transition-all hover:scale-105'
+          {!!results.length && (
+            <ul className="mt-3 grid sm:grid-cols-2 gap-2">
+              {results.map((r, i) => (
+                <li key={i}>
+                  <a className="underline" href={`/herb/${r.slug}`}>
+                    {r.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </header>
+
+        <section>
+          <h2 className="text-white/85 font-semibold mb-2">Popular herbs</h2>
+          <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {popular.map((p, i) => (
+              <li
+                key={i}
+                className="rounded-xl border border-white/10 bg-white/[0.04] p-3"
               >
-                <Home className='h-5 w-5' />
-                <span>Go Home</span>
-              </Link>
-              <button
-                onClick={() => window.history.back()}
-                className='glass-button flex items-center justify-center space-x-2 rounded-lg px-8 py-4 font-medium text-white transition-all hover:scale-105'
-              >
-                <ArrowLeft className='h-5 w-5' />
-                <span>Go Back</span>
-              </button>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
+                <a className="underline" href={`/herb/${p.slug}`}>
+                  {p.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <nav className="text-white/70">
+          <a className="underline mr-4" href="/database">
+            Browse database
+          </a>
+          <a className="underline mr-4" href="/blog">
+            Read the blog
+          </a>
+          <a className="underline" href="/">
+            Go home
+          </a>
+        </nav>
+      </main>
     </>
-  )
+  );
 }
-
-export default NotFound
