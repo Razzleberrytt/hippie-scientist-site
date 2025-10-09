@@ -10,6 +10,8 @@
     "prebuild:validate": "node scripts/validate-herbs.mjs",
     "rebuild:data": "npm run data:refresh",
     "build": "npm run data:refresh+build",
+    "sitemap": "node scripts/generate-sitemap.mjs dist",
+    "prebuild": "node scripts/generate-sitemap.mjs public",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
