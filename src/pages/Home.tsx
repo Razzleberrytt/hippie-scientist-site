@@ -1,5 +1,5 @@
 import React from 'react'
-import SEO from '../components/SEO'
+import Meta from '../components/Meta'
 import Hero from '../components/Hero'
 import StarfieldBackground from '../components/StarfieldBackground'
 import NewsletterSignup from '../components/NewsletterSignup'
@@ -7,10 +7,11 @@ import NewsletterSignup from '../components/NewsletterSignup'
 export default function Home() {
   return (
     <>
-      <SEO
+      <Meta
         title='The Hippie Scientist — Mindful Exploration of Psychoactive Herbs'
         description='Independent research on psychoactive herbs, entheogens, and natural neurochemistry.'
-        canonical='https://thehippiescientist.net/'
+        path='/'
+        pageType='website'
       />
       <main
         id='home'

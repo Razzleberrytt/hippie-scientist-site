@@ -1,14 +1,14 @@
 import React from 'react'
-import SEO from '../components/SEO'
+import Meta from '../components/Meta'
 import { motion } from 'framer-motion'
 
 export default function About() {
   return (
     <>
-      <SEO
+      <Meta
         title='About | The Hippie Scientist'
         description='Independent site exploring psychoactive herbs with scientific rigor and cultural context.'
-        canonical='https://thehippiescientist.net/about'
+        path='/about'
       />
       <div className='min-h-screen px-4 pt-20'>
         <div className='mx-auto max-w-3xl space-y-8'>

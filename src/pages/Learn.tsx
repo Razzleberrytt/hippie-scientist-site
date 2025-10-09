@@ -1,11 +1,11 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import PanelWrapper from '../components/PanelWrapper'
 import LearnTabs from '../components/LearnTabs'
 import StarfieldBackground from '../components/StarfieldBackground'
 import FloatingParticles from '../components/FloatingParticles'
 import { learnSections } from '../data/learnContent.enrichedXL'
+import Meta from '../components/Meta'
 
 export default function Learn() {
   return (
@@ -13,13 +13,11 @@ export default function Learn() {
       <StarfieldBackground />
       <FloatingParticles />
       <div className='mx-auto max-w-5xl'>
-        <Helmet>
-          <title>Learn - The Hippie Scientist</title>
-          <meta
-            name='description'
-            content='Educational resources on psychoactive herbs and practices.'
-          />
-        </Helmet>
+        <Meta
+          title='Learn - The Hippie Scientist'
+          description='Educational resources on psychoactive herbs and practices.'
+          path='/learn'
+        />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -1,18 +1,16 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import NeuroHerbGraph from '../components/NeuroHerbGraph'
+import Meta from '../components/Meta'
 
 const Research: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <title>Research - The Hippie Scientist</title>
-        <meta
-          name='description'
-          content='Latest research in psychedelic science and consciousness studies.'
-        />
-      </Helmet>
+      <Meta
+        title='Research - The Hippie Scientist'
+        description='Latest research in psychedelic science and consciousness studies.'
+        path='/research'
+      />
 
       <div className='min-h-screen px-4 pt-20'>
         <div className='mx-auto max-w-7xl'>
