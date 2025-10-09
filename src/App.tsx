@@ -14,6 +14,7 @@ import HerbDetail from './pages/HerbDetail';
 import Compare from './pages/Compare';
 import DataReport from './pages/DataReport';
 import DataFix from './pages/DataFix';
+import Sitemap from './pages/Sitemap';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import AppToaster from './components/ui/Toaster';
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/compare" element={<Compare />} />
           <Route path="/data-report" element={<DataReport />} />
           <Route path="/data-fix" element={<DataFix />} />
+          <Route path="/sitemap" element={<Sitemap />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
