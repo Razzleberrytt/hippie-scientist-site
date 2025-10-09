@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /private/
-Disallow: /admin/
-
 Sitemap: https://thehippiescientist.net/sitemap.xml
