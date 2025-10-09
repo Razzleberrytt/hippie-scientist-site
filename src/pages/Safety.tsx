@@ -1,18 +1,16 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Shield, AlertTriangle, Heart, Phone } from 'lucide-react'
+import Meta from '../components/Meta'
 
 const Safety: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <title>Safety - The Hippie Scientist</title>
-        <meta
-          name='description'
-          content='Essential harm reduction resources and safety information.'
-        />
-      </Helmet>
+      <Meta
+        title='Safety - The Hippie Scientist'
+        description='Essential harm reduction resources and safety information.'
+        path='/safety'
+      />
 
       <div className='min-h-screen px-4 pt-20'>
         <div className='mx-auto max-w-7xl'>

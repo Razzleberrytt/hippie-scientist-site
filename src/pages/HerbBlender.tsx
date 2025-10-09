@@ -6,7 +6,7 @@ import TagBadge from '../components/TagBadge'
 import { useHerbs } from '../hooks/useHerbs'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { herbName, splitField } from '../utils/herb'
-import SEO from '../components/SEO'
+import Meta from '../components/Meta'
 
 export default function HerbBlender() {
   const herbs = useHerbs()
@@ -70,10 +70,10 @@ export default function HerbBlender() {
 
   return (
     <div className='relative min-h-screen px-4 pt-20'>
-      <SEO
+      <Meta
         title='Herb Blend Builder | The Hippie Scientist'
         description='Combine herbs to explore synergies and craft mindful blends.'
-        canonical='https://thehippiescientist.net/blend'
+        path='/blend'
       />
       <div className='mx-auto max-w-6xl space-y-6'>
         <motion.h1

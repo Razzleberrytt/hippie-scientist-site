@@ -1,14 +1,15 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
+import Meta from '../components/Meta'
 
 export default function Store() {
   return (
     <>
-      <Helmet>
-        <title>Store - The Hippie Scientist</title>
-        <meta name='description' content='Merchandise and resources coming soon.' />
-      </Helmet>
+      <Meta
+        title='Store - The Hippie Scientist'
+        description='Merchandise and resources coming soon.'
+        path='/store'
+      />
 
       <div className='min-h-screen px-4 pt-20'>
         <div className='mx-auto max-w-2xl text-center'>

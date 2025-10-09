@@ -1,9 +1,9 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { saveAs } from 'file-saver'
 import jsPDF from 'jspdf'
 import { Herb } from '../types'
 import { herbs } from '../data/herbs/herbsfull'
+import Meta from '../components/Meta'
 
 const allHerbs = herbs
 
@@ -83,10 +83,11 @@ export default function Downloads() {
 
   return (
     <div className='min-h-screen px-4 pt-20'>
-      <Helmet>
-        <title>Downloads - The Hippie Scientist</title>
-        <meta name='description' content='Download the herb database in multiple formats.' />
-      </Helmet>
+      <Meta
+        title='Downloads - The Hippie Scientist'
+        description='Download the herb database in multiple formats.'
+        path='/downloads'
+      />
       <div className='mx-auto max-w-3xl space-y-6'>
         <h1 className='text-gradient mb-4 text-center text-5xl font-bold'>Export Herb Data</h1>
         <p className='text-center text-sand'>

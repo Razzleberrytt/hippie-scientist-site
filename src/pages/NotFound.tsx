@@ -1,16 +1,18 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Home, ArrowLeft } from 'lucide-react'
+import Meta from '../components/Meta'
 
 const NotFound: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <title>404 - Page Not Found | The Hippie Scientist</title>
-        <meta name='description' content="The page you're looking for doesn't exist." />
-      </Helmet>
+      <Meta
+        title='404 - Page Not Found | The Hippie Scientist'
+        description="The page you're looking for doesn't exist."
+        path='/404'
+        noindex
+      />
 
       <div className='flex min-h-screen items-center justify-center px-4 pt-20'>
         <div className='mx-auto max-w-2xl text-center'>

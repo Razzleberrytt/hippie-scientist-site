@@ -1,18 +1,16 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Users, MessageCircle, Calendar, Book } from 'lucide-react'
+import Meta from '../components/Meta'
 
 const Community: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <title>Community - The Hippie Scientist</title>
-        <meta
-          name='description'
-          content='Connect with fellow consciousness explorers and researchers.'
-        />
-      </Helmet>
+      <Meta
+        title='Community - The Hippie Scientist'
+        description='Connect with fellow consciousness explorers and researchers.'
+        path='/community'
+      />
 
       <div className='min-h-screen px-4 pt-20'>
         <div className='mx-auto max-w-7xl'>

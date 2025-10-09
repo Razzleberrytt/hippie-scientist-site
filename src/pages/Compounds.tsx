@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { Helmet } from 'react-helmet-async'
+import Meta from '../components/Meta'
 import { compounds, type CompoundEntry } from '../data/compounds/compounds'
 import { herbs } from '../data/herbs/herbsfull'
 import CompoundCard from '../components/CompoundCard'
@@ -61,9 +61,11 @@ export default function CompoundsPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Psychoactive Compounds Index - The Hippie Scientist</title>
-      </Helmet>
+      <Meta
+        title='Psychoactive Compounds Index - The Hippie Scientist'
+        description='Explore the active ingredients behind each herb’s effects.'
+        path='/compounds'
+      />
       <div className='min-h-screen px-4 pb-12 pt-20'>
         <div className='mx-auto max-w-5xl text-center'>
           <h1 className='text-gradient mb-2 text-4xl font-bold'>Psychoactive Compounds Index</h1>

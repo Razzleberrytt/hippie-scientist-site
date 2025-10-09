@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import SEO from '../components/SEO'
+import Meta from '../components/Meta'
 import ErrorBoundary from '../components/ErrorBoundary'
 import HerbCard from '../components/HerbCard'
 import type { Herb } from '../types'
@@ -32,10 +32,10 @@ export default function Database() {
 
   return (
     <ErrorBoundary>
-      <SEO
-        title="Herb Database | The Hippie Scientist"
-        description="Browse psychoactive herb profiles with scientific and cultural context."
-        canonical="https://thehippiescientist.net/database"
+      <Meta
+        title='Herb Database | The Hippie Scientist'
+        description='Browse psychoactive herb profiles with scientific and cultural context.'
+        path='/database'
       />
       <main className="container space-y-4 py-6">
         <header className="pt-2">

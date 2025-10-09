@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Helmet } from 'react-helmet-async'
 import { herbs } from '../data/herbs/herbsfull'
 import TagBadge from '../components/TagBadge'
 import { decodeTag, tagVariant } from '../utils/format'
@@ -9,6 +8,7 @@ import { slugify } from '../utils/slugify'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { herbName, splitField } from '../utils/herb'
 import TabContainer from '../components/TabContainer'
+import Meta from '../components/Meta'
 
 export default function HerbDetailView() {
   const { id } = useParams<{ id: string }>()
@@ -153,13 +153,18 @@ export default function HerbDetailView() {
 
   const effectsSummary = splitField(herb.effects).join(', ')
   const summary = `${herbName(herb)} is classified as ${herb.category}. Known effects include ${effectsSummary}.`
+  const metaDescription =
+    herb.description ||
+    `${herbName(herb)} herb profile with effects, chemistry, usage notes, and safety considerations.`
 
   return (
     <>
-      <Helmet>
-        <title>{herbName(herb)} - The Hippie Scientist</title>
-        {herb.description && <meta name='description' content={herb.description} />}
-      </Helmet>
+      <Meta
+        title={`${herbName(herb)} - The Hippie Scientist`}
+        description={metaDescription}
+        path={`/herb/${id}`}
+        pageType='article'
+      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
