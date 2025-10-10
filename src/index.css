@@ -141,6 +141,15 @@ a:hover {
 .prose td {
   @apply border border-white/10 px-3 py-2;
 }
+
+.prose.prose-invert p {
+  margin: 0 0 1rem;
+}
+
+.prose.prose-invert h2,
+.prose.prose-invert h3 {
+  margin-top: 1.5rem;
+}
 :root{
   --bg:#0a0d10; --panel:rgba(255,255,255,0.04); --border:rgba(255,255,255,0.10);
   --text:#e8ecf2; --sub:#aab3c0; --lime:#c7ff57; --cyan:#52e1ff; --magenta:#ff7adf;

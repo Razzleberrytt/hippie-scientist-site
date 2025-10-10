@@ -43,3 +43,49 @@ export function buildMeta({
     image: imageUrl,
   }
 }
+
+type BlogJsonLdPost = {
+  title: string
+  slug: string
+  date: string
+  updated?: string
+  description?: string
+  excerpt?: string
+  image?: string
+}
+
+export function blogJsonLd(post: BlogJsonLdPost, path: string) {
+  const canonicalPath = withLeadingSlash(path)
+  const url = new URL(canonicalPath, SITE_URL).toString()
+
+  const description = post.description || post.excerpt || ''
+  const published = new Date(post.date).toISOString()
+  const modified = post.updated ? new Date(post.updated).toISOString() : published
+
+  const imageUrl = post.image
+    ? isAbsoluteUrl(post.image)
+      ? post.image
+      : new URL(withLeadingSlash(post.image), SITE_URL).toString()
+    : undefined
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description,
+    datePublished: published,
+    dateModified: modified,
+    mainEntityOfPage: url,
+    url,
+    image: imageUrl,
+    publisher: {
+      '@type': 'Organization',
+      name: 'The Hippie Scientist',
+      url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: new URL('/logo.svg', SITE_URL).toString(),
+      },
+    },
+  }
+}
