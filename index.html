@@ -54,6 +54,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      (function(){
+        var status = 'denied';
+        try {
+          var raw = localStorage.getItem('consent.v1');
+          if (raw) {
+            var parsed = JSON.parse(raw);
+            if (parsed && parsed.status === 'granted') {
+              status = 'granted';
+            }
+          } else {
+            var nav = typeof navigator !== 'undefined' ? navigator : {};
+            var win = typeof window !== 'undefined' ? window : {};
+            var dnt = nav.doNotTrack || win.doNotTrack || nav.msDoNotTrack;
+            var gpc = nav.globalPrivacyControl;
+            if (dnt == '1' || dnt === 1 || gpc === true) {
+              status = 'denied';
+            }
+          }
+        } catch (e) {}
+        var granted = status === 'granted';
+        gtag('consent', 'default', {
+          ad_user_data: granted ? 'granted' : 'denied',
+          ad_personalization: granted ? 'granted' : 'denied',
+          ad_storage: granted ? 'granted' : 'denied',
+          analytics_storage: granted ? 'granted' : 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted'
+        });
+      })();
       gtag('js', new Date());
       gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true });
       gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
@@ -80,8 +109,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     </script>
     <link rel="alternate" type="application/rss+xml" title="The Hippie Scientist RSS" href="/feed.xml" />
-    <script type="module" crossorigin src="/assets/main-c40faca8.js"></script>
-    <link rel="stylesheet" href="/assets/index-58167114.css">
+    <script type="module" crossorigin src="/assets/main-051a94a4.js"></script>
+    <link rel="stylesheet" href="/assets/index-e8db9858.css">
   <link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
   <body>
     <!-- Google Tag Manager (noscript) -->
