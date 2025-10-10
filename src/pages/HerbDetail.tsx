@@ -32,16 +32,21 @@ function RelatedPosts({ slug }: { slug?: string }) {
   if (!posts.length) return null;
 
   return (
-    <section className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
-      <h2 className="text-lg font-semibold text-white/90">Related Posts</h2>
+    <section
+      className="card p-5 backdrop-blur"
+      style={{ background: "color-mix(in oklab, var(--surface-c) 92%, transparent 8%)" }}
+    >
+      <h2 className="text-lg font-semibold" style={{ color: "var(--text-c)" }}>
+        Related Posts
+      </h2>
       <ul className="mt-3 space-y-3">
         {posts.map(p => (
-          <li key={p.slug} className="text-sm text-white/80">
-            <a href={`/blog/${p.slug}`} className="link text-[rgb(var(--accent))]">
+          <li key={p.slug} className="text-sm" style={{ color: "var(--muted-c)" }}>
+            <a href={`/blog/${p.slug}`} className="link" style={{ color: "var(--accent)" }}>
               {p.title}
             </a>
             {p.date && (
-              <p className="text-xs text-white/50">
+              <p className="text-xs" style={{ color: "color-mix(in oklab, var(--muted-c) 75%, transparent 25%)" }}>
                 {new Date(p.date).toLocaleDateString(undefined, {
                   year: "numeric",
                   month: "short",
@@ -49,12 +54,16 @@ function RelatedPosts({ slug }: { slug?: string }) {
                 })}
               </p>
             )}
-            {p.description && <p className="text-xs text-white/60">{p.description}</p>}
+            {p.description && (
+              <p className="text-xs" style={{ color: "color-mix(in oklab, var(--muted-c) 85%, transparent 15%)" }}>
+                {p.description}
+              </p>
+            )}
           </li>
         ))}
       </ul>
       <div className="mt-4 text-sm">
-        <a href="/blog" className="link text-[rgb(var(--accent))]">
+        <a href="/blog" className="link" style={{ color: "var(--accent)" }}>
           View all posts →
         </a>
       </div>
@@ -74,13 +83,31 @@ export default function HerbDetail() {
     herb.intensity ?? herb.intensity_label ?? pick.intensity(herb) ?? ""
   ).toLowerCase();
   const intensityLabel = intensityRaw ? titleCase(intensityRaw) : "";
-  const intensityTone = intensityRaw.includes("strong")
-    ? "border-rose-400/40 bg-rose-500/15 text-rose-100"
-    : intensityRaw.includes("moderate")
-      ? "border-[rgb(var(--accent))]/40 bg-[rgb(var(--accent))]/15 text-[rgb(var(--fg))]"
-      : intensityRaw.includes("mild")
-        ? "border-emerald-400/40 bg-emerald-500/15 text-emerald-100"
-        : "border-white/15 bg-white/10 text-white/70";
+  const intensityStyle = intensityLabel
+    ? intensityRaw.includes("strong")
+      ? {
+          background: "rgba(244, 63, 94, 0.12)",
+          border: "1px solid rgba(248, 113, 113, 0.45)",
+          color: "#ffdada",
+        }
+      : intensityRaw.includes("moderate")
+        ? {
+            background: "color-mix(in oklab, var(--accent) 18%, var(--surface-c) 82%)",
+            border: "1px solid color-mix(in oklab, var(--accent), white 25%)",
+            color: "color-mix(in oklab, var(--accent) 20%, var(--text-c) 80%)",
+          }
+        : intensityRaw.includes("mild")
+          ? {
+              background: "rgba(34, 197, 94, 0.15)",
+              border: "1px solid rgba(52, 211, 153, 0.45)",
+              color: "#defce7",
+            }
+          : {
+              background: "color-mix(in oklab, var(--surface-c) 92%, transparent 8%)",
+              border: "1px solid color-mix(in oklab, var(--border-c) 80%, transparent 20%)",
+              color: "var(--muted-c)",
+            }
+    : undefined;
 
   const safety = cleanLine(herb.safety || pick.safety(herb));
   const therapeutic = cleanLine(herb.therapeutic || pick.therapeutic(herb));
@@ -117,26 +144,35 @@ export default function HerbDetail() {
       />
       <main className="container py-6">
         <div className="mx-auto flex max-w-3xl flex-col gap-6">
-          <article className="rounded-3xl border border-white/10 bg-[rgb(var(--card))]/95 p-6 shadow-lg shadow-black/30 backdrop-blur">
-            <header className="flex flex-col gap-2 border-b border-white/10 pb-4">
-              <h1 className="text-3xl font-semibold text-[rgb(var(--accent))]">
+          <article
+            className="card p-6 shadow-[0_30px_80px_rgba(0,0,0,.25)] backdrop-blur"
+            style={{ background: "color-mix(in oklab, var(--surface-c) 94%, transparent 6%)" }}
+          >
+            <header className="flex flex-col gap-2 pb-4" style={{ borderBottom: "1px solid var(--border-c)" }}>
+              <h1 className="text-3xl font-semibold" style={{ color: "var(--accent)" }}>
                 {herb.common || herb.scientific}
               </h1>
               {hasVal(herb.scientific) && (
-                <p className="italic text-white/70">{herb.scientific}</p>
+                <p className="italic" style={{ color: "var(--muted-c)" }}>
+                  {herb.scientific}
+                </p>
               )}
               {intensityLabel && (
-                <span className={`mt-1 inline-flex items-center rounded-full px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] ${intensityTone}`}>
+                <span
+                  className="chip mt-1 inline-flex items-center px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em]"
+                  style={intensityStyle}
+                >
                   Intensity: {intensityLabel}
                 </span>
               )}
             </header>
 
-            <div className="mt-4 flex flex-wrap gap-2 text-sm text-white/70">
+            <div className="mt-4 flex flex-wrap gap-2 text-sm" style={{ color: "var(--muted-c)" }}>
               <Button
                 variant="ghost"
                 data-fav={herb.slug}
-                className="px-3 py-1 text-white/70 hover:text-white"
+                className="px-3 py-1"
+                style={{ color: "inherit" }}
                 onClick={() => {
                   toast("Added to favorites ❤️");
                 }}
@@ -146,7 +182,8 @@ export default function HerbDetail() {
               <Button
                 variant="ghost"
                 data-compare={herb.slug}
-                className="px-3 py-1 text-white/70 hover:text-white"
+                className="px-3 py-1"
+                style={{ color: "inherit" }}
                 onClick={() => {
                   toast("Added to compare list 🔄");
                 }}
@@ -155,7 +192,8 @@ export default function HerbDetail() {
               </Button>
               <Button
                 variant="ghost"
-                className="px-3 py-1 text-white/70 hover:text-white"
+                className="px-3 py-1"
+                style={{ color: "inherit" }}
                 onClick={() =>
                   navigator.share?.({
                     title: herb.common || herb.scientific,
@@ -167,24 +205,29 @@ export default function HerbDetail() {
               </Button>
             </div>
 
-            <div className="mt-6 space-y-5">
+            <div className="mt-6 space-y-5" style={{ color: "var(--text-c)" }}>
               <HerbDetails herb={herb} />
             </div>
           </article>
 
           {hasSafetyExtras && (
-            <section className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm shadow-sm">
-              <h2 className="text-lg font-semibold text-white/90">Safety Notes</h2>
-              <div className="mt-3 space-y-3 text-sm text-white/80">
+            <section
+              className="card p-5 backdrop-blur-sm shadow-sm"
+              style={{ background: "color-mix(in oklab, var(--surface-c) 92%, transparent 8%)" }}
+            >
+              <h2 className="text-lg font-semibold" style={{ color: "var(--text-c)" }}>
+                Safety Notes
+              </h2>
+              <div className="mt-3 space-y-3 text-sm" style={{ color: "var(--muted-c)" }}>
                 {safety && <p>{safety}</p>}
                 {therapeutic && (
                   <p>
-                    <strong className="text-white">Therapeutic uses:</strong> {therapeutic}
+                    <strong style={{ color: "var(--text-c)" }}>Therapeutic uses:</strong> {therapeutic}
                   </p>
                 )}
                 {sideEffects && sideEffects.length > 0 && (
                   <div>
-                    <strong className="text-white">Side effects:</strong>
+                    <strong style={{ color: "var(--text-c)" }}>Side effects:</strong>
                     <ul className="mt-1 list-disc space-y-1 pl-5">
                       {sideEffects.map((effect, index) => (
                         <li key={`effect-${index}`}>{effect}</li>
@@ -194,12 +237,12 @@ export default function HerbDetail() {
                 )}
                 {toxicity && (
                   <p>
-                    <strong className="text-white">Toxicity:</strong> {toxicity}
+                    <strong style={{ color: "var(--text-c)" }}>Toxicity:</strong> {toxicity}
                   </p>
                 )}
                 {toxicityLd50 && (
                   <p>
-                    <strong className="text-white">LD50:</strong> {toxicityLd50}
+                    <strong style={{ color: "var(--text-c)" }}>LD50:</strong> {toxicityLd50}
                   </p>
                 )}
               </div>
@@ -207,19 +250,28 @@ export default function HerbDetail() {
           )}
 
           {hasMechanism && (
-            <section className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm shadow-sm">
-              <h2 className="text-lg font-semibold text-white/90">Mechanism &amp; Pharmacology</h2>
-              <div className="mt-3 space-y-3 text-sm text-white/80">
+            <section
+              className="card p-5 backdrop-blur-sm shadow-sm"
+              style={{ background: "color-mix(in oklab, var(--surface-c) 92%, transparent 8%)" }}
+            >
+              <h2 className="text-lg font-semibold" style={{ color: "var(--text-c)" }}>
+                Mechanism &amp; Pharmacology
+              </h2>
+              <div className="mt-3 space-y-3 text-sm" style={{ color: "var(--muted-c)" }}>
                 {mechanism && <p>{mechanism}</p>}
-                {pharmacology && <p>{pharmacology}</p>}
+                {pharmacology && (
+                  <p>
+                    <strong style={{ color: "var(--text-c)" }}>Pharmacology:</strong> {pharmacology}
+                  </p>
+                )}
               </div>
             </section>
           )}
 
           <RelatedPosts slug={herb.slug} />
 
-          <div className="text-sm text-white/70">
-            <Link to="/database" className="link">
+          <div className="text-sm" style={{ color: "var(--muted-c)" }}>
+            <Link to="/database" className="link" style={{ color: "var(--accent)" }}>
               ← Back to Database
             </Link>
           </div>

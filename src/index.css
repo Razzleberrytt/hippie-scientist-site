@@ -1,85 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import './styles/theme.css';
 @import './styles/tags.css';
+@import './styles/clamp.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .chip {
-    @apply inline-flex items-center rounded-full border border-white/15 bg-white/10 px-2 py-1 text-xs text-white/80;
-  }
-
-  .link {
-    @apply underline underline-offset-4 hover:text-[rgb(var(--accent))];
-  }
-}
-
 :root,
 html,
 body {
   scroll-behavior: smooth;
-}
-
-:root {
-  /* Light theme defaults */
-  --bg: 246 247 252;
-  --fg: 24 28 36;
-  --card: 255 255 255;
-  --border: 214 218 230;
-  --accent: 100 200 255;
-  --muted: 118 126 148;
-
-  --panel: color-mix(in srgb, rgb(var(--card)) 90%, rgb(var(--bg)) 10%);
-  --text: rgb(var(--fg));
-  --sub: color-mix(in srgb, rgb(var(--fg)) 70%, rgb(var(--bg)) 30%);
-  --lime: rgb(190 255 120);
-  --cyan: rgb(100 200 255);
-  --pink: rgb(255 160 224);
-  --magenta: rgb(255 160 224);
-}
-
-:root[data-theme='dark'] {
-  --bg: 10 10 12;
-  --fg: 230 236 244;
-  --card: 20 20 25;
-  --border: 70 74 90;
-  --accent: 100 200 255;
-  --muted: 158 166 188;
-
-  --panel: color-mix(in srgb, rgb(var(--card)) 75%, rgb(var(--bg)) 25%);
-  --text: rgb(var(--fg));
-  --sub: color-mix(in srgb, rgb(var(--fg)) 68%, rgb(var(--bg)) 32%);
-}
-
-:root[data-accent='cyan'] {
-  --accent: 100 200 255;
-}
-
-:root[data-accent='lime'] {
-  --accent: 190 255 120;
-}
-
-:root[data-accent='pink'] {
-  --accent: 255 160 224;
-}
-
-/* Helper utilities */
-.bg-surface {
-  background-color: rgb(var(--bg));
-}
-
-.text-body {
-  color: rgb(var(--fg));
-}
-
-.card {
-  background-color: rgb(var(--card));
-  border: 1px solid rgb(var(--border));
-}
-
-.border-1 {
-  border: 1px solid rgb(var(--border));
 }
 
 html,
@@ -91,301 +22,87 @@ body,
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
-  color: rgb(var(--fg));
-  background:
-    radial-gradient(120% 80% at 80% 0%, color-mix(in oklab, rgb(var(--accent)) 14%, transparent)),
-    radial-gradient(80% 60% at 10% 100%, color-mix(in oklab, rgb(var(--accent)) 10%, transparent)),
-    rgb(var(--bg));
-  line-height: 1.65;
+  background: var(--bg-c);
+  color: var(--text-c);
+  line-height: 1.6;
   letter-spacing: -0.01em;
 }
 
-.container {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.hr {
-  height: 1px;
-  background: var(--border);
-}
-
 a {
-  color: #98e2ff;
+  color: var(--accent);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
+  color: color-mix(in oklab, var(--accent) 70%, white 30%);
   text-decoration: underline;
 }
 
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.2em;
+  color: inherit;
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
 .blur-panel {
-  background: var(--panel);
-  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface-c) 85%, transparent 15%);
+  border: 1px solid var(--border-c);
   backdrop-filter: blur(10px);
-  border-radius: 16px;
+  border-radius: 1.25rem;
 }
 
 .h1-grad {
-  background: linear-gradient(90deg, #c7ff57, #52e1ff);
+  background: linear-gradient(90deg, #c4f64e, #6ee7ff, #f0a4ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.btn {
-  @apply inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-[var(--text)] transition duration-200;
-}
-
-.btn:hover {
-  @apply border-white/20 bg-white/10;
-}
-
-.btn-primary {
-  @apply border-brand-lime/40 bg-brand-lime/20 text-brand-lime;
-}
-
-.btn-primary:hover {
-  @apply bg-brand-lime/25;
+.hr {
+  height: 1px;
+  background: var(--border-c);
 }
 
 .badge {
-  @apply inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/10 px-2 py-1 text-xs font-medium text-sub;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-c);
+  background: color-mix(in oklab, var(--surface-c) 92%, transparent 8%);
+  padding: 0.35rem 0.6rem;
+  font-size: 0.7rem;
+  color: var(--muted-c);
 }
 
-.clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.glass-panel {
+  background: color-mix(in oklab, var(--surface-c) 82%, transparent 18%);
+  border: 1px solid color-mix(in oklab, var(--border-c) 85%, transparent 15%);
+  backdrop-filter: blur(14px);
+  border-radius: 1.4rem;
 }
 
-.clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--accent) 30%, transparent) transparent;
 }
 
-.text-gradient {
-  @apply bg-gradient-to-r from-brand-lime via-brand-cyan to-brand-pink bg-clip-text text-transparent;
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.glass-card {
-  @apply border border-white/10 bg-white/10 shadow-soft backdrop-blur;
+*::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.glassmorphic-card {
-  @apply border border-white/5 bg-white/5 shadow-soft backdrop-blur;
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--accent) 25%, transparent);
+  border-radius: 999px;
 }
-
-.tag-pill {
-  @apply inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/10 px-2 py-0.5 text-xs text-sub;
-}
-
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.prose table {
-  @apply w-full table-auto border-collapse text-left text-sm;
-}
-
-.prose thead {
-  background-color: color-mix(in srgb, rgb(var(--card)) 85%, transparent);
-  color: rgb(var(--muted));
-}
-
-.prose tbody tr:nth-child(even) {
-  background-color: color-mix(in srgb, rgb(var(--card)) 75%, transparent);
-}
-
-.prose th,
-.prose td {
-  border: 1px solid rgb(var(--border));
-  @apply px-3 py-2;
-}
-
-.prose.prose-invert p {
-  margin: 0 0 1rem;
-}
-
-.prose.prose-invert h2,
-.prose.prose-invert h3 {
-  margin-top: 1.5rem;
-}
-
-.blur-panel {
-  background: color-mix(in srgb, rgb(var(--card)) 8%, transparent);
-  border: 1px solid rgb(var(--border));
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-}
-
-.h1-grad {
-  background: linear-gradient(90deg, var(--lime), var(--cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Responsive type scale */
-:root {
-  --fs-0: clamp(0.88rem, 0.20vw + 0.82rem, 0.96rem);
-  --fs-1: clamp(1.00rem, 0.35vw + 0.92rem, 1.12rem);
-  --fs-2: clamp(1.20rem, 0.55vw + 1.00rem, 1.35rem);
-  --fs-3: clamp(1.45rem, 0.85vw + 1.10rem, 1.70rem);
-  --fs-4: clamp(1.80rem, 1.10vw + 1.20rem, 2.10rem);
-}
-
-body {
-  font-size: var(--fs-1);
-}
-
-.h0 {
-  font-size: var(--fs-4);
-  font-weight: 800;
-  line-height: 1.08;
-}
-
-.h1 {
-  font-size: var(--fs-3);
-  font-weight: 700;
-  line-height: 1.12;
-}
-
-.h2 {
-  font-size: var(--fs-2);
-  font-weight: 600;
-  line-height: 1.18;
-}
-
-.small {
-  font-size: var(--fs-0);
-}
-
-/* Accessible focus ring */
-:where(button, a, input, select, textarea) {
-  outline: none;
-}
-
-:where(button, a, input, select, textarea):focus-visible {
-  box-shadow:
-    0 0 0 2px color-mix(in oklab, rgb(var(--accent)) 65%, transparent),
-    0 0 0 6px color-mix(in oklab, rgb(var(--accent)) 18%, transparent);
-  border-radius: 10px;
-}
-
-/* Utility spacing */
-.stack > * + * {
-  margin-top: 0.6rem;
-}
-
-.cluster {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-
-.chip--psy {
-  background: color-mix(in oklab, rgb(255 122 223) 22%, transparent);
-  border-color: color-mix(in srgb, rgb(255 122 223) 35%, transparent);
-  color: rgb(255 238 248);
-}
-
-.chip--adapt {
-  background: color-mix(in oklab, rgb(199 255 87) 22%, transparent);
-  border-color: color-mix(in srgb, rgb(199 255 87) 35%, transparent);
-  color: rgb(230 255 210);
-}
-
-.chip--stim {
-  background: color-mix(in oklab, rgb(255 200 87) 22%, transparent);
-  border-color: color-mix(in srgb, rgb(255 200 87) 35%, transparent);
-  color: rgb(255 240 204);
-}
-
-.chip--sed {
-  background: color-mix(in oklab, rgb(147 197 253) 18%, transparent);
-  border-color: color-mix(in srgb, rgb(147 197 253) 30%, transparent);
-  color: rgb(232 243 255);
-}
-
-.chip--dream {
-  background: color-mix(in oklab, rgb(178 123 255) 20%, transparent);
-  border-color: color-mix(in srgb, rgb(178 123 255) 32%, transparent);
-  color: rgb(239 228 255);
-}
-
-.chip--vision {
-  background: color-mix(in oklab, rgb(82 225 255) 18%, transparent);
-  border-color: color-mix(in srgb, rgb(82 225 255) 30%, transparent);
-  color: rgb(216 248 255);
-}
-
-.chip--warn {
-  background: color-mix(in oklab, rgb(255 107 107) 22%, transparent);
-  border-color: color-mix(in srgb, rgb(255 107 107) 35%, transparent);
-  color: rgb(255 226 226);
-}
-
-/* Subtle section headings */
-.section-title{ text-transform:uppercase; letter-spacing:.06em; opacity:.8; font-size:var(--fs-0); }
-
-/* Gradient section headers */
-.section-hero {
-  padding: .75rem 1rem;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.10);
-  background:
-    radial-gradient(100% 140% at 100% 0%, rgba(82,225,255,.10), transparent 60%),
-    radial-gradient(120% 120% at 0% 100%, rgba(199,255,87,.10), transparent 60%),
-    rgba(255,255,255,.04);
-  backdrop-filter: blur(6px);
-}
-
-.hero-section h1::before,
-.hero-section h1::after {
-  content: none !important;
-}
-
-.hero-section h1 {
-  word-break: normal;
-  white-space: normal;
-}
-
-/* Density controls */
-.density-comfy  { --pad-card: 1rem;  --gap-grid: 1rem; }
-.density-compact{ --pad-card: .65rem; --gap-grid: .65rem; }
-.card-pad { padding: var(--pad-card); }
-.grid-gap { gap: var(--gap-grid); }
-
-/* Mini-card */
-.mini-card h3 { font-size: var(--fs-1); }
-.mini-card .sub { font-size: var(--fs-0); opacity:.7 }
-.mini-card .int { font-size: 10.5px; }
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-}
-
-
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;clip:rect(0,0,0,0);white-space:nowrap;border:0;overflow:hidden}
-
-footer a { transition: color .15s ease; }
-footer a:hover { text-decoration: none; }
