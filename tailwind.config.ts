@@ -2,21 +2,18 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
-        bg: '#0a0d10',
-        panel: 'rgba(255,255,255,0.04)',
-        border: 'rgba(255,255,255,0.1)',
-        text: '#e8ecf2',
-        sub: '#aab3c0',
-        base: {
-          bg: '#0a0d10',
-          panel: 'rgba(255,255,255,0.04)',
-          border: 'rgba(255,255,255,0.1)',
-          text: '#e8ecf2',
-          sub: '#aab3c0',
-        },
+        bg: 'rgb(var(--bg) / <alpha-value>)',
+        fg: 'rgb(var(--fg) / <alpha-value>)',
+        card: 'rgb(var(--card) / <alpha-value>)',
+        border: 'rgb(var(--border) / <alpha-value>)',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        panel: 'rgb(var(--card) / <alpha-value>)',
+        text: 'rgb(var(--fg) / <alpha-value>)',
+        sub: 'rgb(var(--muted) / <alpha-value>)',
         brand: {
           lime: '#c7ff57',
           cyan: '#52e1ff',
