@@ -1,5 +1,13 @@
+import { useEffect, useState } from "react";
+import ConsentManager from "./ConsentManager";
+import { onOpenConsent } from "../lib/consentBus";
+
 export default function SiteFooter() {
+  const [open, setOpen] = useState(false);
   const year = new Date().getFullYear();
+
+  useEffect(() => onOpenConsent(() => setOpen(true)), []);
+
   return (
     <footer className="mt-10 border-t border-white/10 bg-black/70 text-sm text-white/70 backdrop-blur">
       <div className="container mx-auto flex flex-col gap-6 px-4 py-8 md:flex-row md:items-center md:justify-between">
@@ -42,6 +50,13 @@ export default function SiteFooter() {
           <a href="/sitemap" className="hover:text-cyan-300">
             Sitemap
           </a>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="underline hover:text-lime-300"
+          >
+            Privacy settings
+          </button>
         </nav>
 
         <div className="flex items-center gap-4 text-white/60">
@@ -60,7 +75,7 @@ export default function SiteFooter() {
             className="transition hover:text-cyan-300"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.19 4.19 0 0 0 1.84-2.32 8.39 8.39 0 0 1-2.66 1.02 4.18 4.18 0 0 0-7.12 3.81A11.88 11.88 0 0 1 3.1 4.67a4.17 4.17 0 0 0 1.3 5.57 4.14 4.14 0 0 1-1.9-.53v.05a4.19 4.19 0 0 0 3.35 4.1 4.19 4.19 0 0 1-1.89.07 4.19 4.19 0 0 0 3.9 2.9A8.39 8.39 0 0 1 2 19.54 11.85 11.85 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.35-.02-.53A8.33 8.33 0 0 0 22.46 6z" />
+              <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.19 4.19 0 0 0 1.84-2.32 8.39 8.39 0 0 1-2.66 1.02 4.18 4.18 0 0 0-7.123.81A11.88 11.88 0 0 1 3.1 4.67a4.17 4.17 0 0 0 1.3 5.57 4.14 4.14 0 0 1-1.9-.53v.05a4.19 4.19 0 0 0 3.35 4.1 4.19 4.19 0 0 1-1.89.07 4.19 4.19 0 0 0 3.9 2.9A8.39 8.39 0 0 1 2 19.54 11.85 11.85 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.35-.02-.53A8.33 8.33 0 0 0 22.46 6z" />
             </svg>
           </a>
         </div>
@@ -69,6 +84,8 @@ export default function SiteFooter() {
       <div className="border-t border-white/10 py-3 text-center text-xs text-white/50">
         © {year} The Hippie Scientist — All Rights Reserved
       </div>
+
+      <ConsentManager open={open} onClose={() => setOpen(false)} />
     </footer>
   );
 }
