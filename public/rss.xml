@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>The Hippie Scientist</title>
+    <link>https://thehippiescientist.net/</link>
+    <description>Independent research on psychoactive herbs, entheogens, and natural neurochemistry.</description>
+    <language>en</language>
+    <lastBuildDate>Sun, 05 Oct 2025 19:57:32 +0000</lastBuildDate>
+    <item>
+      <title>What Is a Psychoactive Herb?</title>
+      <link>https://thehippiescientist.net/blog/what-is-a-psychoactive-herb/</link>
+      <guid>https://thehippiescientist.net/blog/what-is-a-psychoactive-herb/</guid>
+      <description>Define psychoactive herbs, explore how plant compounds interact with human neurochemistry, and learn how to approach them responsibly.</description>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>How to Read Herbal Research</title>
+      <link>https://thehippiescientist.net/blog/how-to-read-herbal-research/</link>
+      <guid>https://thehippiescientist.net/blog/how-to-read-herbal-research/</guid>
+      <description>Step-by-step walkthrough for evaluating herbal research papers, understanding study design, and translating findings into safe practice.</description>
+      <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

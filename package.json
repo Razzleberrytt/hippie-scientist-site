@@ -11,7 +11,7 @@
     "rebuild:data": "npm run data:refresh",
     "build": "npm run data:refresh+build",
     "sitemap": "node scripts/generate-sitemap.mjs dist",
-    "prebuild": "node scripts/generate-sitemap.mjs public && npm run og",
+    "prebuild": "node scripts/generate-sitemap.mjs public && node scripts/generate-rss.mjs && npm run og",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
@@ -27,7 +27,7 @@
     "data:checkup": "npm run data:refresh && npm run data:report",
     "data:watch": "node scripts/watch-herbs.mjs",
     "og": "node scripts/gen-og.mjs",
-    "postbuild": "node scripts/generate-sitemap.mjs dist"
+    "postbuild": "node scripts/generate-sitemap.mjs dist && node -e \"const fs=require('fs');fs.copyFileSync('public/rss.xml','dist/rss.xml');\""
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
