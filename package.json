@@ -28,7 +28,9 @@
     "data:report": "node scripts/report-herbs.mjs",
     "data:checkup": "npm run data:refresh && npm run data:report",
     "data:watch": "node scripts/watch-herbs.mjs",
-    "og": "node scripts/gen-og.mjs",
+    "og": "node scripts/generate-og.mjs",
+    "og:fallback": "node scripts/generate-og-fallback.mjs",
+    "og:prune": "node scripts/generate-og.mjs --prune || node scripts/generate-og-fallback.mjs --prune",
     "rss": "node scripts/generate-rss.mjs",
     "postbuild": "node scripts/generate-sitemap.mjs dist"
   },
@@ -73,6 +75,7 @@
     "postcss": "^8.4.31",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
+    "puppeteer": "^22.0.0",
     "satori": "^0.10.13",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
