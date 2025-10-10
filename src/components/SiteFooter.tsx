@@ -21,6 +21,9 @@ export default function SiteFooter() {
           <a href="/build" className="hover:text-cyan-300">
             Build a Blend
           </a>
+          <a href="/newsletter" className="hover:text-lime-300">
+            Newsletter
+          </a>
           <a href="/about" className="hover:text-pink-300">
             About
           </a>
