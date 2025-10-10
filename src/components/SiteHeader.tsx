@@ -15,7 +15,7 @@ export default function SiteHeader() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="fixed inset-x-0 top-0 z-40 h-[60px] border-b border-white/10 backdrop-blur-xl bg-[linear-gradient(to_right,rgba(10,12,18,0.7),rgba(8,10,16,0.55))]"
+      className="header--sticky sticky inset-x-0 top-0 z-50 h-[var(--header-h)] border-b border-white/10 bg-black/40 backdrop-blur"
     >
       <div className="container flex h-full items-center justify-between gap-4">
         <Link to="/" className="text-xl font-semibold gradient-text">
