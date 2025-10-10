@@ -6,9 +6,11 @@
 
   --accent-h: 200;
   --accent-s: 85%;
-  --accent-l: 65%;
+  --accent-l: 60%;
   --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
   --accent-rgb: 90 191 242;
+
+  --header-h: 60px;
 
   --bg: 7 11 18;
   --surface: 24 32 45;
@@ -86,6 +88,14 @@ body::before {
   pointer-events: none;
   z-index: 0;
   transition: background 0.15s ease;
+}
+
+main {
+  padding-top: var(--header-h);
+}
+
+.focus-visible\:ring-accent\/60:focus-visible {
+  box-shadow: 0 0 0 2px hsl(var(--accent-h) var(--accent-s) var(--accent-l) / .6);
 }
 
 @media (pointer: coarse) {

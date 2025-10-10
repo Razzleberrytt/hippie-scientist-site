@@ -66,7 +66,7 @@ function RootLayout() {
     <div className="min-h-screen flex flex-col">
       <div className="app-aurora" aria-hidden />
       <SiteHeader />
-      <main id="main" className="flex-grow pt-2 md:pt-4 pb-10">
+      <main id="main" className="flex-grow pb-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

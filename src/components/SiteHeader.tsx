@@ -1,11 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import NavLink from "./NavLink";
 import ThemeMenu from "./ThemeMenu";
 
 const navLinks = [
-  { href: "/database", label: "Browse" },
-  { href: "/blend", label: "Build" },
-  { href: "/blog", label: "Blog" },
+  { to: "/database", label: "Browse" },
+  { to: "/blend", label: "Build" },
+  { to: "/blog", label: "Blog" },
 ];
 
 export default function SiteHeader() {
@@ -14,30 +15,15 @@ export default function SiteHeader() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="fixed top-0 left-0 z-40 w-full border-b border-white/10 backdrop-blur-xl"
-      style={{
-        background: "linear-gradient(to right, rgba(12,12,20,0.65), rgba(8,8,16,0.3))",
-      }}
+      className="fixed inset-x-0 top-0 z-40 h-[60px] border-b border-white/10 backdrop-blur-xl bg-[linear-gradient(to_right,rgba(10,12,18,0.7),rgba(8,10,16,0.55))]"
     >
-      <div className="container flex h-[60px] items-center justify-between">
-        <NavLink to="/" className="text-xl font-bold gradient-text">
+      <div className="container flex h-full items-center justify-between gap-4">
+        <Link to="/" className="text-xl font-semibold gradient-text">
           The Hippie Scientist
-        </NavLink>
-        <nav className="flex items-center gap-3">
+        </Link>
+        <nav className="flex items-center gap-2">
           {navLinks.map(link => (
-            <NavLink
-              key={link.href}
-              to={link.href}
-              className={({ isActive }) =>
-                [
-                  "rounded-xl px-4 py-1.5 text-sm font-medium transition-all",
-                  "text-white/80 hover:bg-white/10 hover:text-white",
-                  isActive ? "bg-white/10 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08)]" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")
-              }
-            >
+            <NavLink key={link.to} to={link.to}>
               {link.label}
             </NavLink>
           ))}
