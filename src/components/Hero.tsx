@@ -9,9 +9,9 @@ import StatsCounters from './StatsCounters'
 export default function Hero() {
   return (
     <motion.section
-      className='relative isolate'
+      className='relative isolate after:pointer-events-none after:absolute after:-bottom-14 after:left-0 after:h-16 after:w-full after:bg-gradient-to-b after:from-black/60 after:to-transparent'
       style={{ paddingTop: 'var(--space-hero-y)', paddingBottom: 'var(--space-hero-y)' }}
-      aria-labelledby='site-title'
+      aria-labelledby='hero-title'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -24,8 +24,8 @@ export default function Hero() {
 
       <div className='relative z-10 mx-auto flex max-w-screen-lg flex-col items-center px-4 text-center sm:px-6'>
         <motion.h1
-          id='site-title'
-          className='text-5xl font-semibold leading-tight text-white sm:text-6xl'
+          id='hero-title'
+          className='text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight text-balance gradient-text-animated'
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
