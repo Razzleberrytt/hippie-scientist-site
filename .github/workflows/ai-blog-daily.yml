@@ -1,0 +1,54 @@
+name: AI Blog (Daily)
+
+on:
+  schedule:
+    - cron: "15 8 * * *"   # 08:15 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # Generate one post
+      - name: Generate MDX post via LLM
+        run: node scripts/ai-generate-post.mjs
+        env:
+          LLM_API_URL: ${{ secrets.LLM_API_URL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL:   ${{ secrets.LLM_MODEL }}
+
+      # Rebuild posts.json from MDX
+      - name: Build blog dataset
+        run: node scripts/build-blog.mjs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: "ai/daily-post"
+          commit-message: "chore(blog): add daily AI post"
+          title: "AI: Daily blog post for $(date -u +%Y-%m-%d)"
+          body: |
+            Automated MDX post via LLM.
+            - Source: queue or herb dataset
+            - Safety: no dosages, no medical advice
+            - MDX validated by build step
+            - Log:
+            ${{ github.workspace }}/.ai-blog-log
+          add-paths: |
+            src/content/blog/**
+            src/data/blog/posts.json
+            .ai-blog-log
