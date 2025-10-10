@@ -1,32 +1,11 @@
-import { motion } from 'framer-motion'
-
-export default function NewsletterSignup() {
+export default function NewsletterSignup({compact=false}:{compact?:boolean}) {
   return (
-    <motion.section
-      className='mx-auto mt-12 max-w-md rounded-md bg-white/10 p-4 text-center backdrop-blur'
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.1 }}
-    >
-      <h2 className='mb-2 text-lg font-semibold text-sand dark:text-sand'>Join our Newsletter</h2>
-      <form className='flex flex-col gap-2'>
-        <label htmlFor='email' className='sr-only'>
-          Email address
-        </label>
-        <input
-          id='email'
-          type='email'
-          required
-          className='rounded-md px-3 py-2 text-midnight focus:outline-none focus:ring-2 focus:ring-cosmic-purple'
-          placeholder='you@example.com'
-        />
-        <button
-          type='submit'
-          className='bg-cosmic-forest rounded-md px-4 py-2 text-white transition hover:bg-cosmic-purple focus:outline-none focus-visible:ring-2 focus-visible:ring-cosmic-purple'
-        >
-          Subscribe
-        </button>
-      </form>
-    </motion.section>
-  )
+    <form className={compact ? "flex gap-2" : "card p-4 grid gap-3"}>
+      {!compact && <h3 className="text-lg font-semibold">Join our Newsletter</h3>}
+      <div className="flex gap-2">
+        <input className="input flex-1" placeholder="you@example.com" type="email" required />
+        <button className="btn primary" type="submit">Subscribe</button>
+      </div>
+    </form>
+  );
 }
