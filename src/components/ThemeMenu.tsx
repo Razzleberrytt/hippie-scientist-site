@@ -63,7 +63,7 @@ export default function ThemeMenu() {
     <div className="relative" ref={wrapperRef}>
       <button
         type="button"
-        className="btn hover-glow focus-glow"
+        className="rounded-xl px-4 py-1.5 text-sm font-medium text-white/80 transition-all hover:bg-white/10 hover:text-white"
         onClick={() => setOpen(value => !value)}
         aria-haspopup="true"
         aria-expanded={open}
@@ -77,8 +77,7 @@ export default function ThemeMenu() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute right-0 mt-2 w-64 card space-y-4 p-4"
-            style={{ background: "color-mix(in oklab, var(--surface-c) 94%, transparent 6%)" }}
+            className="absolute right-0 mt-2 w-64 space-y-4 rounded-2xl border border-white/10 bg-white/10 p-4 text-white/80 shadow-[0_20px_45px_-25px_rgba(0,0,0,0.7)] backdrop-blur-xl"
           >
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--muted-c)" }}>

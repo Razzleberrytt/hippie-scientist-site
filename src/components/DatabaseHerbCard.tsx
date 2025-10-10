@@ -1,122 +1,163 @@
-import { useId, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import HerbDetails, { normalizeHerbDetails } from "./HerbDetails";
+import { useMemo, useState, type ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type { Herb } from "../types";
 import { herbName } from "../utils/herb";
 import { cleanLine, titleCase } from "../lib/pretty";
 import { getText } from "../lib/fields";
 import { pick } from "../lib/present";
-import { useFavorites } from "../lib/useFavorites";
-import { intensityHue } from "../lib/ambient";
+import { normalizeHerbDetails } from "./HerbDetails";
 
 export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
-  const [open, setOpen] = useState(false);
-  const panelId = useId();
+  const [expanded, setExpanded] = useState(false);
   const normalized = useMemo(() => normalizeHerbDetails(herb), [herb]);
-  const summary = normalized.description || normalized.effects || herb.description || "";
-  const preview = summary ? cleanLine(summary) : "";
+
   const title = herbName(herb);
   const scientific = cleanLine(
     herb.scientific || getText(herb, "scientific", ["botanical", "latin", "latinname", "botanical_name"])
   );
+
   const intensityRaw = String(
     herb.intensity ?? herb.intensity_label ?? pick.intensity(herb) ?? ""
   ).toLowerCase();
   const intensityLabel = intensityRaw ? titleCase(intensityRaw) : "";
-  const detailHref = `/herb/${herb.slug}`;
-  const { toggle, has } = useFavorites();
-  const isFavorite = has(herb.slug);
 
-  const hue = intensityHue(herb.intensity);
+  const summarySource =
+    normalized.description || normalized.effects || herb.description || herb.effects || "";
+  const summary = cleanLine(summarySource);
+  const preview = summary
+    ? `${summary.slice(0, 120)}${summary.length > 120 ? "…" : ""}`
+    : "";
+
+  const mechanism = cleanLine((herb as any).mechanism ?? (herb as any).mechanism_of_action ?? "");
+
+  const detailSections: Array<{ label: string; content: ReactNode }> = [];
+
+  if (normalized.tags.length) {
+    detailSections.push({
+      label: "Tags",
+      content: (
+        <div className="flex flex-wrap gap-2">
+          {normalized.tags.map((tag, index) => (
+            <span
+              key={`${herb.slug}-tag-${index}`}
+              className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      ),
+    });
+  }
+
+  if (normalized.region) {
+    detailSections.push({ label: "Region", content: normalized.region });
+  }
+
+  if (normalized.active_compounds.length) {
+    detailSections.push({
+      label: "Active Compounds",
+      content: normalized.active_compounds.join(", "),
+    });
+  }
+
+  if (normalized.preparation) {
+    detailSections.push({ label: "Preparation", content: normalized.preparation });
+  }
+
+  if (normalized.dosage) {
+    detailSections.push({ label: "Dosage", content: normalized.dosage });
+  }
+
+  if (normalized.contraindications) {
+    detailSections.push({ label: "Contraindications", content: normalized.contraindications });
+  }
+
+  if (normalized.interactions) {
+    detailSections.push({ label: "Interactions", content: normalized.interactions });
+  }
+
+  if (normalized.legal) {
+    detailSections.push({ label: "Legal", content: normalized.legal });
+  }
+
+  if (mechanism) {
+    detailSections.push({ label: "Mechanism", content: mechanism });
+  }
+
+  if (normalized.sources.length) {
+    detailSections.push({
+      label: "Sources",
+      content: (
+        <ul className="ml-5 list-disc space-y-1">
+          {normalized.sources.map((source, index) => (
+            <li key={`${herb.slug}-source-${index}`} className="text-white/70">
+              {/^(https?:)/i.test(source) ? (
+                <a className="text-white/80 underline decoration-white/30 underline-offset-4 transition hover:text-white" href={source} target="_blank" rel="noreferrer">
+                  {source}
+                </a>
+              ) : (
+                source
+              )}
+            </li>
+          ))}
+        </ul>
+      ),
+    });
+  }
 
   return (
     <motion.article
       layout
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
-      whileHover={{
-        scale: 1.015,
-        boxShadow: `0 0 0 1px rgba(255,255,255,0.08), 0 18px 48px -12px rgba(0,0,0,0.5), 0 0 25px hsl(${hue} 80% 60% / .35)`,
-      }}
-      className="card transition-all"
-      style={{
-        ["--amb-h" as any]: hue,
-        background: "color-mix(in oklab, var(--card-c) 90%, black 10%)",
-        borderRadius: "1rem",
-        border: "1px solid var(--border-c)",
-        overflow: "hidden",
-        boxShadow: "0 0 0 1px rgba(255,255,255,0.03), 0 12px 40px -8px rgba(0,0,0,.45)",
-      }}
+      transition={{ layout: { duration: 0.4, ease: "easeOut" } }}
+      className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-all hover:bg-white/10"
     >
-      <div className="p-4 flex flex-col gap-3">
-        <header className="flex items-start justify-between gap-3">
-          <div>
-            <h3 className="text-lg font-semibold" style={{ color: "var(--text-c)" }}>
-              {title}
-            </h3>
-            {scientific && (
-              <p className="text-sm italic" style={{ color: "var(--muted-c)" }}>
-                {scientific}
-              </p>
-            )}
-          </div>
-          <button
-            type="button"
-            onClick={event => {
-              event.stopPropagation();
-              toggle(herb.slug);
-            }}
-            className="btn hover-glow focus-glow"
-            aria-pressed={isFavorite}
-            title={isFavorite ? "Remove from favorites" : "Add to favorites"}
-            style={{
-              paddingInline: "0.65rem",
-              paddingBlock: "0.35rem",
-              background: isFavorite
-                ? "color-mix(in oklab, var(--accent) 25%, var(--surface-c) 75%)"
-                : undefined,
-            }}
-          >
-            <span aria-hidden>★</span>
-            <span className="sr-only">Toggle favorite</span>
-          </button>
-        </header>
+      <h3 className="text-lg font-semibold text-white/90">{title}</h3>
+      {scientific && <p className="mb-3 text-sm italic text-white/60">{scientific}</p>}
 
-        {intensityLabel && <span className="chip hover-glow focus-glow">INTENSITY: {intensityLabel}</span>}
+      {intensityLabel && (
+        <span className="mb-3 inline-block rounded-md bg-white/10 px-2 py-1 text-xs text-white/80">
+          {intensityLabel}
+        </span>
+      )}
 
-        {preview && (
-          <p className={`text-sm ${open ? "" : "clamp-3"}`} style={{ color: "var(--text-c)" }}>
-            {preview}
-          </p>
-        )}
-      </div>
+      {summary && (
+        <p className="text-sm text-white/80">{expanded ? summary : preview}</p>
+      )}
 
-      <div className="px-4 pb-4 flex flex-wrap gap-2 justify-between text-sm">
-        <button
-          className="btn hover-glow focus-glow"
-          onClick={() => setOpen(v => !v)}
-          aria-expanded={open}
-          aria-controls={panelId}
-        >
-          {open ? "Show less" : "Show more"}
-        </button>
-        <Link className="btn hover-glow focus-glow" to={detailHref}>
-          View details
-        </Link>
-      </div>
-
-      <div
-        id={panelId}
-        className={`grid transition-[grid-template-rows] duration-300 ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-        aria-hidden={!open}
+      <button
+        type="button"
+        onClick={() => setExpanded(value => !value)}
+        className="mt-3 rounded-md bg-accent/20 px-3 py-1 text-xs font-medium text-white transition-all hover:bg-accent/40"
       >
-        <div className="min-h-0 overflow-hidden px-4 pb-5 border-t" style={{ borderColor: "var(--border-c)" }}>
-          <HerbDetails herb={herb} />
-        </div>
-      </div>
+        {expanded ? "Show less" : "Show more"}
+      </button>
+
+      <AnimatePresence initial={false}>
+        {expanded && (
+          <motion.div
+            key="details"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.25 }}
+            className="mt-4 space-y-3 text-xs text-white/70"
+          >
+            {normalized.effects && (
+              <p className="leading-relaxed text-white/75">{normalized.effects}</p>
+            )}
+
+            {detailSections.map(section => (
+              <div key={section.label} className="space-y-1">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-white/50">
+                  {section.label}
+                </p>
+                <div className="leading-relaxed text-white/80">{section.content}</div>
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.article>
   );
 }
