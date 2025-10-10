@@ -11,7 +11,8 @@
     "rebuild:data": "npm run data:refresh",
     "build": "npm run data:refresh+build",
     "sitemap": "node scripts/generate-sitemap.mjs dist",
-    "prebuild": "node scripts/generate-sitemap.mjs public && node scripts/generate-rss.mjs && npm run og",
+    "build:blog": "node scripts/build-blog.mjs",
+    "prebuild": "npm run build:blog && node scripts/generate-sitemap.mjs public && npm run og && npm run rss",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
@@ -27,7 +28,8 @@
     "data:checkup": "npm run data:refresh && npm run data:report",
     "data:watch": "node scripts/watch-herbs.mjs",
     "og": "node scripts/gen-og.mjs",
-    "postbuild": "node scripts/generate-sitemap.mjs dist && node -e \"const fs=require('fs');fs.copyFileSync('public/rss.xml','dist/rss.xml');\""
+    "rss": "node scripts/generate-rss.mjs",
+    "postbuild": "node scripts/generate-sitemap.mjs dist"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
@@ -40,7 +42,6 @@
     "framer-motion": "^10.18.0",
     "fuse.js": "^7.1.0",
     "gh-pages": "^6.3.0",
-    "gray-matter": "^4.0.3",
     "jspdf": "^3.0.1",
     "lucide-react": "^0.298.0",
     "papaparse": "^5.5.3",
@@ -70,6 +71,8 @@
     "satori": "^0.10.13",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
-    "vite": "^4.5.14"
+    "vite": "^4.5.14",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.12"
   }
 }
