@@ -119,6 +119,13 @@ main {
   }
 }
 
+/* keep animations subtle for motion-sensitive users */
+@media (prefers-reduced-motion: reduce) {
+  .logo-glow {
+    filter: none !important;
+  }
+}
+
 h1,
 h2,
 h3,

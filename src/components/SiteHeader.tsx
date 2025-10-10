@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import NavLink from "./NavLink";
 import ThemeMenu from "./ThemeMenu";
+import Logo from "./Logo";
 
 const navLinks = [
   { to: "/database", label: "Browse" },
@@ -43,21 +44,14 @@ export default function SiteHeader() {
           className="group flex items-center gap-2 rounded-full px-2 py-1 transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           aria-label="Go to The Hippie Scientist homepage"
         >
-          <span
-            aria-hidden="true"
-            className={`inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-teal-400 via-sky-400 to-purple-500 transition-all duration-300 ${
+          <Logo
+            size={32}
+            className={`logo-glow transition-all duration-300 ${
               scrolled
-                ? "shadow-[0_0_16px_rgba(126,249,255,0.55)] brightness-110"
+                ? "drop-shadow-[0_0_6px_rgba(100,180,255,.35)]"
                 : "opacity-80 group-hover:opacity-100"
             }`}
           />
-          <span
-            className={`text-sm font-semibold uppercase tracking-[0.45em] text-white transition-colors duration-300 ${
-              scrolled ? "text-white/90" : "text-white/70 group-hover:text-white"
-            }`}
-          >
-            THS
-          </span>
           <span className="sr-only">The Hippie Scientist</span>
         </Link>
         <nav className="flex items-center gap-2">
