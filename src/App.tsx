@@ -19,6 +19,7 @@ import Newsletter from './pages/Newsletter';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import AppToaster from './components/ui/Toaster';
+import ConsentBanner from './components/ConsentBanner';
 // Import other pages as needed
 
 export default function App() {
@@ -68,6 +69,7 @@ function RootLayout() {
         </AnimatePresence>
       </main>
       <SiteFooter />
+      <ConsentBanner />
       <AppToaster />
     </div>
   );
