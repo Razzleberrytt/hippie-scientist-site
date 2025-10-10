@@ -10,7 +10,7 @@ const config: Config = {
         fg: 'rgb(var(--fg) / <alpha-value>)',
         card: 'rgb(var(--card) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
-        accent: 'rgb(var(--accent) / <alpha-value>)',
+        accent: 'rgb(var(--accent-rgb) / <alpha-value>)',
         panel: 'rgb(var(--card) / <alpha-value>)',
         text: 'rgb(var(--fg) / <alpha-value>)',
         sub: 'rgb(var(--muted) / <alpha-value>)',
