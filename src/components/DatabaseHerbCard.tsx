@@ -1,5 +1,6 @@
 import { useId, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import HerbDetails, { normalizeHerbDetails } from "./HerbDetails";
 import type { Herb } from "../types";
 import { herbName } from "../utils/herb";
@@ -30,10 +31,23 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const hue = intensityHue(herb.intensity);
 
   return (
-    <article
-      className="card transition-all hover:shadow-[0_8px_32px_rgba(0,0,0,.35)]"
+    <motion.article
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+      whileHover={{
+        scale: 1.015,
+        boxShadow: `0 0 0 1px rgba(255,255,255,0.08), 0 18px 48px -12px rgba(0,0,0,0.5), 0 0 25px hsl(${hue} 80% 60% / .35)`,
+      }}
+      className="card transition-all"
       style={{
         ["--amb-h" as any]: hue,
+        background: "color-mix(in oklab, var(--card-c) 90%, black 10%)",
+        borderRadius: "1rem",
+        border: "1px solid var(--border-c)",
+        overflow: "hidden",
         boxShadow: "0 0 0 1px rgba(255,255,255,0.03), 0 12px 40px -8px rgba(0,0,0,.45)",
       }}
     >
@@ -74,7 +88,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         {intensityLabel && <span className="chip hover-glow focus-glow">INTENSITY: {intensityLabel}</span>}
 
         {preview && (
-          <p className={`text-sm ${open ? '' : 'clamp-3'}`} style={{ color: "var(--text-c)" }}>
+          <p className={`text-sm ${open ? "" : "clamp-3"}`} style={{ color: "var(--text-c)" }}>
             {preview}
           </p>
         )}
@@ -103,6 +117,6 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
           <HerbDetails herb={herb} />
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

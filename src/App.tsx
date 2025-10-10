@@ -21,6 +21,7 @@ import SiteHeader from './components/SiteHeader';
 import Footer from './components/Footer';
 import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
+import AmbientCursor from './components/AmbientCursor';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
@@ -31,6 +32,7 @@ export default function App() {
   return (
     <>
       <RedirectHandler />
+      <AmbientCursor />
       <Routes>
         <Route element={<RootLayout />}>
           <Route path="/" element={<Home />} />

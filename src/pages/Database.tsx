@@ -99,7 +99,7 @@ export default function Database() {
         </div>
         <div className="h-2" />
 
-        <section className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+        <section className="grid gap-4 mt-6 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((herb, index) => (
             <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
           ))}
