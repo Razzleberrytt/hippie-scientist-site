@@ -32,6 +32,9 @@ export default function SiteFooter() {
           <a href="/newsletter" className="hover:text-lime-300">
             Newsletter
           </a>
+          <a href="/blog" className="hover:text-cyan-300">
+            Blog
+          </a>
           <a href="/about" className="hover:text-pink-300">
             About
           </a>

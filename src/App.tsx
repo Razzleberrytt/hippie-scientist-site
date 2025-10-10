@@ -21,6 +21,7 @@ import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
+import Blog from './pages/Blog';
 // Import other pages as needed
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add other routes here */}
+          <Route path="/blog" element={<Blog />} />
           <Route path="/herb-index" element={<HerbIndex />} />
           <Route path="/herb/:slug" element={<HerbDetail />} />
           <Route path="/compare" element={<Compare />} />
