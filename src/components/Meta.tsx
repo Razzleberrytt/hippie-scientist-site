@@ -17,7 +17,7 @@ export default function Meta({
   title,
   description,
   path = '/',
-  image = '/og-image.png',
+  image = '/og/default.png',
   jsonLd,
   pageType = 'website',
   noindex = false,

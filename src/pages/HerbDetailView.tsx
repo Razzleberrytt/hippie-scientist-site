@@ -160,10 +160,11 @@ export default function HerbDetailView() {
   return (
     <>
       <Meta
-        title={`${herbName(herb)} - The Hippie Scientist`}
+        title={`${herbName(herb)} — The Hippie Scientist`}
         description={metaDescription}
         path={`/herb/${id}`}
         pageType='article'
+        image={`/og/${id}.png`}
       />
       <motion.div
         initial={{ opacity: 0 }}

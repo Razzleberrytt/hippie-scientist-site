@@ -5,6 +5,7 @@ import Collapse from "../components/ui/Collapse";
 import Card from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { chipClassFor } from "../lib/tags";
+import Meta from "../components/Meta";
 
 const hasVal = (v: any) =>
   Array.isArray(v) ? v.filter(Boolean).length > 0 : !!String(v ?? "").trim();
@@ -22,6 +23,11 @@ export default function HerbDetail() {
 
   if (!herb) return <main className="container py-6">Not found.</main>;
 
+  const description =
+    (herb.description && String(herb.description).trim()) ||
+    (herb.effects && String(herb.effects).trim()) ||
+    "Herb profile";
+
   const intensity = String(herb.intensity || "").toLowerCase();
   const intensityClass = intensity.includes("strong")
     ? "chip chip--warn font-semibold uppercase tracking-wide"
@@ -32,7 +38,15 @@ export default function HerbDetail() {
     : "";
 
   return (
-    <main className="container py-6">
+    <>
+      <Meta
+        title={`${herb.common || herb.scientific} — The Hippie Scientist`}
+        description={description}
+        path={`/herb/${slug}`}
+        pageType="article"
+        image={`/og/${herb.slug || slug}.png`}
+      />
+      <main className="container py-6">
       <div className="mx-auto flex max-w-3xl flex-col gap-4 md:gap-6">
         <Card className="relative space-y-4 p-5 md:p-6">
           <header className="stack">
@@ -224,6 +238,7 @@ export default function HerbDetail() {
           </Link>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }
