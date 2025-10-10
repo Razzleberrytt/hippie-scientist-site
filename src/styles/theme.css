@@ -1,0 +1,91 @@
+:root {
+  /* base HSL for easy theming */
+  --bg: 12 12% 7%;
+  --surface: 215 30% 12%;
+  --card: 215 24% 16%;
+  --text: 210 25% 96%;
+  --muted: 210 15% 75%;
+  --border: 210 16% 22%;
+  --ring: 200 100% 65%;
+
+  /* accent (default = teal/sky blend) */
+  --accent-h: 195;
+  --accent-s: 90%;
+  --accent-l: 62%;
+
+  /* elevation */
+  --shadow-1: 0 1px 2px rgba(0,0,0,.35);
+  --shadow-2: 0 6px 24px rgba(0,0,0,.35);
+}
+
+[data-theme="light"] {
+  --bg: 220 25% 98%;
+  --surface: 210 25% 97%;
+  --card: 210 18% 94%;
+  --text: 220 18% 12%;
+  --muted: 220 10% 38%;
+  --border: 220 12% 86%;
+  --ring: 200 85% 45%;
+}
+
+/* alternate accents (optional) */
+[data-accent="blue"] { --accent-h: 200; --accent-s: 90%; --accent-l: 62%; }
+[data-accent="lime"] { --accent-h: 90;  --accent-s: 85%; --accent-l: 55%; }
+[data-accent="pink"] { --accent-h: 320; --accent-s: 80%; --accent-l: 60%; }
+
+:root {
+  --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
+  --bg-c: hsl(var(--bg));
+  --surface-c: hsl(var(--surface));
+  --card-c: hsl(var(--card));
+  --text-c: hsl(var(--text));
+  --muted-c: hsl(var(--muted));
+  --border-c: hsl(var(--border));
+}
+
+/* base */
+html, body { height: 100%; background: var(--bg-c); color: var(--text-c); }
+* { border-color: var(--border-c); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* aurora background */
+.app-aurora {
+  position: fixed; inset: -10% 0 auto 0; height: 40vh; z-index: -1;
+  background:
+    radial-gradient(60% 50% at 20% 30%, hsl(var(--accent-h) 85% 35% / .18), transparent 60%),
+    radial-gradient(40% 40% at 80% 20%, hsl(270 85% 60% / .12), transparent 60%),
+    radial-gradient(50% 40% at 50% 70%, hsl(140 70% 55% / .10), transparent 60%);
+  filter: blur(40px) saturate(110%);
+}
+
+/* components */
+.container { max-width: 1120px; margin-inline: auto; padding-inline: 1rem; }
+.card {
+  background: color-mix(in oklab, var(--card-c) 92%, black 8%);
+  border: 1px solid var(--border-c);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-1);
+}
+.btn {
+  display:inline-flex; align-items:center; gap:.5rem;
+  padding:.55rem .9rem; border-radius:.75rem; border:1px solid var(--border-c);
+  background: color-mix(in oklab, var(--surface-c) 92%, black 8%);
+  color: var(--text-c);
+  transition: transform .06s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.btn:hover { border-color: color-mix(in oklab, var(--accent), white 35%); box-shadow: var(--shadow-2); }
+.btn.primary { background: var(--accent); color: #03100f; border-color: transparent; }
+.input {
+  width: 100%; background: color-mix(in oklab, var(--surface-c) 88%, black 12%);
+  border:1px solid var(--border-c); color: var(--text-c);
+  padding:.65rem .85rem; border-radius:.9rem;
+}
+.chip { display:inline-flex; align-items:center; padding:.25rem .5rem;
+  border-radius:999px; background: color-mix(in oklab, var(--surface-c) 90%, black 10%);
+  border:1px solid var(--border-c); color: var(--text-c); font-size:.75rem;
+}
+
+/* motion safety */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

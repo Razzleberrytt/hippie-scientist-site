@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import {
-  getTheme,
-  setTheme,
+  applyAccent,
+  applyTheme,
   getAccent,
-  setAccent,
-  type ThemeMode,
-  type Accent,
+  getTheme,
+  type AccentChoice,
+  type ThemeChoice,
 } from '../lib/theme';
 
-const accents: Accent[] = ['cyan', 'lime', 'pink'];
+const accents: AccentChoice[] = ['blue', 'lime', 'pink'];
 
 export default function ThemeToggle() {
-  const [mode, setMode] = useState<ThemeMode>('system');
-  const [accent, setAcc] = useState<Accent>('cyan');
+  const [mode, setMode] = useState<ThemeChoice>('dark');
+  const [accent, setAcc] = useState<AccentChoice>('blue');
 
   useEffect(() => {
     setMode(getTheme());
@@ -20,40 +20,48 @@ export default function ThemeToggle() {
   }, []);
 
   function cycle() {
-    const next = mode === 'system' ? 'dark' : mode === 'dark' ? 'light' : 'system';
+    const next: ThemeChoice = mode === 'dark' ? 'light' : 'dark';
     setMode(next);
-    setTheme(next);
+    applyTheme(next);
   }
 
-  function pick(a: Accent) {
+  function pick(a: AccentChoice) {
     setAcc(a);
-    setAccent(a);
+    applyAccent(a);
   }
-
-  const label = mode === 'system' ? 'System' : mode === 'dark' ? 'Dark' : 'Light';
 
   return (
     <div className="flex items-center gap-2">
       <button
         onClick={cycle}
-        className="px-2.5 py-1.5 rounded-lg border border-[rgb(var(--border))/0.6] bg-[color-mix(in_oklab,rgb(var(--card))_80%,transparent)] text-sm text-[rgb(var(--fg))] transition-colors hover:bg-[color-mix(in_oklab,rgb(var(--card))_65%,transparent)]"
-        title="Theme: System/Dark/Light"
+        className="btn"
+        style={{
+          background: 'color-mix(in oklab, var(--surface-c) 92%, transparent 8%)',
+          color: 'var(--text-c)',
+        }}
+        title="Toggle theme"
         type="button"
       >
-        Theme: {label}
+        Theme: {mode === 'dark' ? 'Dark' : 'Light'}
       </button>
       <div className="flex items-center gap-1" title="Accent color">
         {accents.map(accentName => (
           <button
             key={accentName}
             onClick={() => pick(accentName)}
-            className={`h-6 w-6 rounded-full border border-[rgb(var(--border))/0.6] transition ${
-              accentName === 'cyan'
-                ? 'bg-[rgb(56_189_248)]'
-                : accentName === 'lime'
-                ? 'bg-[rgb(163_230_53)]'
-                : 'bg-[rgb(244_114_182)]'
-            } ${accent === accentName ? 'ring-2 ring-offset-2 ring-[rgb(var(--fg))] ring-offset-[rgb(var(--bg))]' : ''}`}
+            className="h-6 w-6 rounded-full border-2"
+            style={{
+              background:
+                accentName === 'blue'
+                  ? 'linear-gradient(120deg, #1aa8ff, #6ee7ff)'
+                  : accentName === 'lime'
+                    ? 'linear-gradient(120deg, #a3f54f, #5ff477)'
+                    : 'linear-gradient(120deg, #f0a4ff, #ff7dca)',
+              borderColor:
+                accent === accentName
+                  ? 'color-mix(in oklab, var(--accent), white 25%)'
+                  : 'color-mix(in oklab, var(--border-c) 70%, transparent 30%)',
+            }}
             aria-label={`Accent ${accentName}`}
             type="button"
           />

@@ -1,53 +1,47 @@
-const THEME_KEY = 'theme.v1';
-const ACCENT_KEY = 'accent.v1';
+const THEME_KEY = 'ths:theme';
+const ACCENT_KEY = 'ths:accent';
 
-export type ThemeMode = 'light' | 'dark' | 'system';
-export type Accent = 'cyan' | 'lime' | 'pink';
+export type ThemeChoice = 'dark' | 'light';
+export type AccentChoice = 'blue' | 'lime' | 'pink';
 
-function prefersDark(): boolean {
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-}
-
-export function getTheme(): ThemeMode {
+function safeSetItem(key: string, value: string) {
   try {
-    return (localStorage.getItem(THEME_KEY) as ThemeMode) || 'system';
-  } catch {
-    return 'system';
+    localStorage.setItem(key, value);
+  } catch (error) {
+    console.warn('Unable to persist preference', error);
   }
 }
 
-export function setTheme(mode: ThemeMode) {
-  localStorage.setItem(THEME_KEY, mode);
-  applyTheme(mode, getAccent());
-}
-
-export function getAccent(): Accent {
+function safeGetItem(key: string): string | null {
   try {
-    return (localStorage.getItem(ACCENT_KEY) as Accent) || 'cyan';
+    return localStorage.getItem(key);
   } catch {
-    return 'cyan';
+    return null;
   }
 }
 
-export function setAccent(accent: Accent) {
-  localStorage.setItem(ACCENT_KEY, accent);
-  applyTheme(getTheme(), accent);
+export function applyTheme(theme: ThemeChoice) {
+  document.documentElement.setAttribute('data-theme', theme);
+  safeSetItem(THEME_KEY, theme);
 }
 
-export function applyTheme(mode: ThemeMode = getTheme(), accent: Accent = getAccent()) {
-  const root = document.documentElement;
-  const dark = mode === 'dark' || (mode === 'system' && prefersDark());
-  root.setAttribute('data-theme', dark ? 'dark' : 'light');
-  root.setAttribute('data-accent', accent);
+export function applyAccent(accent: AccentChoice) {
+  document.documentElement.setAttribute('data-accent', accent);
+  safeSetItem(ACCENT_KEY, accent);
 }
 
-export function initThemeOnLoad() {
-  applyTheme();
-  const mm = window.matchMedia?.('(prefers-color-scheme: dark)');
-  if (mm) {
-    const cb = () => {
-      if (getTheme() === 'system') applyTheme('system', getAccent());
-    };
-    mm.addEventListener?.('change', cb);
-  }
+export function initTheme() {
+  const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+  const storedTheme = (safeGetItem(THEME_KEY) as ThemeChoice | null) ?? (prefersDark ? 'dark' : 'light');
+  const storedAccent = (safeGetItem(ACCENT_KEY) as AccentChoice | null) ?? 'blue';
+  applyTheme(storedTheme);
+  applyAccent(storedAccent);
+}
+
+export function getTheme(): ThemeChoice {
+  return (safeGetItem(THEME_KEY) as ThemeChoice | null) ?? (document.documentElement.getAttribute('data-theme') as ThemeChoice) ?? 'dark';
+}
+
+export function getAccent(): AccentChoice {
+  return (safeGetItem(ACCENT_KEY) as AccentChoice | null) ?? (document.documentElement.getAttribute('data-accent') as AccentChoice) ?? 'blue';
 }

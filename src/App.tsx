@@ -61,7 +61,8 @@ function RootLayout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col bg-bg text-text">
+    <div className="min-h-screen flex flex-col">
+      <div className="app-aurora" aria-hidden />
       <SiteHeader />
       <main id="main" className="flex-grow pt-2 md:pt-4 pb-10">
         <AnimatePresence mode="wait">

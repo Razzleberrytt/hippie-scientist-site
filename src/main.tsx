@@ -6,11 +6,11 @@ import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
 import { initConsentDefault } from './lib/consent';
 import { loadAnalytics, onConsentChange } from './lib/loadAnalytics';
-import { initThemeOnLoad } from './lib/theme';
+import { initTheme } from './lib/theme';
 import './index.css';
 import './styles/clamp.css';
 
-initThemeOnLoad();
+initTheme();
 initConsentDefault();
 loadAnalytics();
 
