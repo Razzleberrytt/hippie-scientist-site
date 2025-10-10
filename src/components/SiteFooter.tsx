@@ -35,6 +35,9 @@ export default function SiteFooter() {
           <a href="/blog" className="hover:text-cyan-300">
             Blog
           </a>
+          <a href="/graph" className="hover:text-cyan-300">
+            NeuroHerbGraph
+          </a>
           <a href="/about" className="hover:text-pink-300">
             About
           </a>
