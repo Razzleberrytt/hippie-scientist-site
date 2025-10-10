@@ -16,6 +16,7 @@ import DataReport from './pages/DataReport';
 import DataFix from './pages/DataFix';
 import Sitemap from './pages/Sitemap';
 import Newsletter from './pages/Newsletter';
+import Contact from './pages/Contact';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import AppToaster from './components/ui/Toaster';
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/blend" element={<BuildBlend />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/newsletter" element={<Newsletter />} />
+          <Route path="/contact" element={<Contact />} />
           {/* Add other routes here */}
           <Route path="/herb-index" element={<HerbIndex />} />
           <Route path="/herb/:slug" element={<HerbDetail />} />
