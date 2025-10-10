@@ -159,7 +159,7 @@ export default function HerbDetail() {
               )}
               {intensityLabel && (
                 <span
-                  className="chip mt-1 inline-flex items-center px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em]"
+                  className="chip hover-glow focus-glow mt-1 inline-flex items-center px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em]"
                   style={intensityStyle}
                 >
                   Intensity: {intensityLabel}

@@ -46,7 +46,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
               event.stopPropagation();
               toggle(herb.slug);
             }}
-            className="btn"
+            className="btn hover-glow focus-glow"
             aria-pressed={isFavorite}
             title={isFavorite ? "Remove from favorites" : "Add to favorites"}
             style={{
@@ -62,7 +62,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
           </button>
         </header>
 
-        {intensityLabel && <span className="chip">INTENSITY: {intensityLabel}</span>}
+        {intensityLabel && <span className="chip hover-glow focus-glow">INTENSITY: {intensityLabel}</span>}
 
         {preview && (
           <p className={`text-sm ${open ? '' : 'clamp-3'}`} style={{ color: "var(--text-c)" }}>
@@ -72,10 +72,15 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
       </div>
 
       <div className="px-4 pb-4 flex flex-wrap gap-2 justify-between text-sm">
-        <button className="btn" onClick={() => setOpen(v => !v)} aria-expanded={open} aria-controls={panelId}>
+        <button
+          className="btn hover-glow focus-glow"
+          onClick={() => setOpen(v => !v)}
+          aria-expanded={open}
+          aria-controls={panelId}
+        >
           {open ? "Show less" : "Show more"}
         </button>
-        <Link className="btn" to={detailHref}>
+        <Link className="btn hover-glow focus-glow" to={detailHref}>
           View details
         </Link>
       </div>

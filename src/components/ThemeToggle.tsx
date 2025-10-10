@@ -34,7 +34,7 @@ export default function ThemeToggle() {
     <div className="flex items-center gap-2">
       <button
         onClick={cycle}
-        className="btn"
+        className="btn hover-glow focus-glow"
         style={{
           background: 'color-mix(in oklab, var(--surface-c) 92%, transparent 8%)',
           color: 'var(--text-c)',
