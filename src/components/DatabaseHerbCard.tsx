@@ -51,12 +51,12 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   const [open, setOpen] = useState(false)
 
   const intensityClass = intensity.includes('strong')
-    ? 'bg-red-500/20 text-red-200'
+    ? 'border-red-400/40 bg-red-500/15 text-red-200'
     : intensity.includes('moderate')
-      ? 'bg-[color-mix(in_oklab,rgb(var(--accent))_24%,transparent)] text-[rgb(var(--fg))]'
+      ? 'border-[rgb(var(--accent))]/40 bg-[rgb(var(--accent))]/15 text-[rgb(var(--fg))]'
       : intensity.includes('mild')
-        ? 'bg-[color-mix(in_oklab,rgb(var(--accent))_18%,transparent)] text-[rgb(var(--fg))]'
-        : 'bg-[color-mix(in_oklab,rgb(var(--accent))_12%,transparent)] text-[rgb(var(--fg))]'
+        ? 'border-emerald-400/40 bg-emerald-500/15 text-emerald-200'
+        : 'border-white/15 bg-white/5 text-[rgb(var(--fg))] opacity-80'
 
   if (import.meta.env.MODE !== 'production' && herb && index === 0) {
     // eslint-disable-next-line no-console
@@ -64,56 +64,55 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   }
   return (
     <article
-      className='relative flex h-full flex-col gap-4 rounded-2xl border border-[rgb(var(--border))/0.55] bg-[color-mix(in_oklab,rgb(var(--card))_14%,transparent)] p-5 text-[rgb(var(--fg))] shadow-card backdrop-blur'
+      className='relative flex h-full flex-col rounded-2xl border border-white/10 bg-[rgb(var(--card))]/90 backdrop-blur-sm shadow-sm transition-all hover:shadow-[0_0_15px_-5px_rgb(var(--accent))]'
       data-favorites-count={favs.length}
     >
-      <header>
-        <div className='flex items-center'>
-          <h2 className='text-xl font-semibold text-[rgb(var(--fg))]'>{title}</h2>
-          <button
-            onClick={event => {
-              event.stopPropagation()
-              toggle(herb.slug)
-            }}
-            className={`ml-2 text-xl ${isFavorite ? 'text-[rgb(var(--accent))]' : 'text-sub'}`}
-            title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-            aria-pressed={isFavorite}
-          >
-            ★
-          </button>
+      <header className='flex items-start justify-between gap-3 p-4'>
+        <div className='space-y-1'>
+          <h3 className='text-xl font-semibold text-[rgb(var(--accent))]'>{title}</h3>
+          {hasVal(scientific) && <p className='text-sm italic text-[rgb(var(--fg))] opacity-70'>{scientific}</p>}
         </div>
-        {hasVal(scientific) && <p className='meta text-sm italic text-sub/80'>{scientific}</p>}
-        {hasVal(intensity) && (
-          <span className={`mt-2 inline-block rounded-full px-2 py-1 text-xs ${intensityClass}`}>
-            INTENSITY: {titleCase(intensity)}
-          </span>
-        )}
+        <button
+          onClick={event => {
+            event.stopPropagation()
+            toggle(herb.slug)
+          }}
+          className={`text-xl transition ${isFavorite ? 'text-[rgb(var(--accent))]' : 'text-[rgb(var(--fg))] opacity-60 hover:opacity-100'}`}
+          title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+          aria-pressed={isFavorite}
+          type='button'
+        >
+          ★
+        </button>
       </header>
-      <section className='section space-y-3 text-sm text-sub'>
-        {showEffects && (
-          <div>
-            <span className='label font-semibold'>Effects:</span>{' '}
-            <span className={`${open ? '' : 'clamp-3'} block`}>{effects}</span>
-          </div>
-        )}
 
-        {showDescription && (
-          <div className='text-sub/90'>
-            <span className='label font-semibold'>Description:</span>{' '}
-            <span className={`${open ? '' : 'clamp-3'} block`}>{description}</span>
-          </div>
-        )}
+      {hasVal(intensity) && (
+        <div className={`mx-4 mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${intensityClass}`}>
+          <span>Intensity</span>
+          <span>{titleCase(intensity)}</span>
+        </div>
+      )}
 
-        {showLegal && (
-          <div>
-            <span className='label font-semibold'>Legal:</span>{' '}
-            <span className={`${open ? '' : 'clamp-2'} block`}>{legal}</span>
-          </div>
-        )}
-      </section>
+      {(showDescription || showEffects) && (
+        <p
+          className={`px-4 text-sm text-[rgb(var(--fg))] opacity-80 ${open ? '' : 'line-clamp-3'}`}
+        >
+          {showDescription ? (
+            <>
+              <span className='font-semibold text-[rgb(var(--fg))] opacity-90'>Description:</span>{' '}
+              {description}
+            </>
+          ) : (
+            <>
+              <span className='font-semibold text-[rgb(var(--fg))] opacity-90'>Effects:</span>{' '}
+              {effects}
+            </>
+          )}
+        </p>
+      )}
 
       {tags.length > 0 && (
-        <div className='section flex flex-wrap gap-2'>
+        <div className='px-4 pt-3 flex flex-wrap gap-2'>
           {tags.map(tag => (
             <span key={tag} className='chip text-xs'>
               {tag}
@@ -123,16 +122,54 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
       )}
 
       {showRegion && (
-        <div className='section flex items-center gap-2 text-sm text-sub'>
+        <div className='px-4 pt-3 flex items-center gap-2 text-sm text-[rgb(var(--fg))] opacity-70'>
           <span aria-hidden>🌍</span>
-          <span className='opacity-90'>
-            {regionText || joinList(regionTags)}
-          </span>
+          <span>{regionText || joinList(regionTags)}</span>
         </div>
       )}
 
+      <div className='mt-auto px-4 pb-4 pt-6 flex items-center justify-between text-sm text-[rgb(var(--fg))]'>
+        {canToggle ? (
+          <button
+            type='button'
+            onClick={event => {
+              event.stopPropagation()
+              setOpen(v => !v)
+            }}
+            className='underline transition hover:text-[rgb(var(--accent))]'
+          >
+            {open ? 'Show less' : 'Show more'}
+          </button>
+        ) : (
+          <span />
+        )}
+        <Link to={detailHref} className='underline transition hover:text-[rgb(var(--accent))]'>
+          View details
+        </Link>
+      </div>
+
       {open && (
-        <div className='section space-y-2 text-sm text-sub'>
+        <div className='border-t border-white/10 px-4 py-5 text-sm text-[rgb(var(--fg))] opacity-80 space-y-3'>
+          {showEffects && (
+            <p>
+              <strong>Effects:</strong> {effects}
+            </p>
+          )}
+          {showDescription && (
+            <p>
+              <strong>Description:</strong> {description}
+            </p>
+          )}
+          {showLegal && (
+            <p>
+              <strong>Legal:</strong> {legal}
+            </p>
+          )}
+          {showRegion && (
+            <p>
+              <strong>Region:</strong> {regionText || joinList(regionTags)}
+            </p>
+          )}
           {showCompounds && (
             <p>
               <strong>Active Compounds:</strong> {joinList(compounds)}
@@ -146,7 +183,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
           {sources.length > 0 && (
             <div>
               <strong>Sources:</strong>
-              <ul className='list-disc pl-5'>
+              <ul className='mt-1 list-disc pl-5 space-y-1'>
                 {sources.map((source, sourceIndex) => (
                   <li key={`${herb.slug}-source-${sourceIndex}`}>
                     {urlish(source) ? (
@@ -163,24 +200,6 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
           )}
         </div>
       )}
-
-      <div className='mt-3 flex items-center justify-between'>
-        {canToggle && (
-          <button
-            type='button'
-            onClick={event => {
-              event.stopPropagation()
-              setOpen(v => !v)
-            }}
-            className='text-sm text-[rgb(var(--accent))] hover:underline'
-          >
-            {open ? 'Show less' : 'Show more'}
-          </button>
-        )}
-        <Link to={detailHref} className='text-sm text-[rgb(var(--accent))] underline opacity-90'>
-          View details
-        </Link>
-      </div>
     </article>
   )
 }
