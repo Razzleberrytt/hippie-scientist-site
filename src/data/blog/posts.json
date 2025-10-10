@@ -1,20 +1,12 @@
 [
   {
-    "title": "Ashwagandha and Adaptation: A Modern Overview",
-    "slug": "ashwagandha-adaptation",
-    "date": "2025-09-01",
-    "description": "Exploring the adaptogenic profile of Withania somnifera and its evidence base.",
-    "image": "/og/ashwagandha-adaptation.png",
-    "excerpt": "Ashwagandha (Withania somnifera) is often termed an adaptogen...",
-    "body": "Ashwagandha (Withania somnifera) is often termed an adaptogen because it appears to modulate the body's response to stressors rather than pushing in a single direction.\n\nThis post explores the clinical literature on cortisol regulation, sleep effects, and potential contraindications so that readers can situate the root within a modern nervous system toolkit."
-  },
-  {
     "title": "Kava: Calming the Storm — Traditional vs. Modern Use",
-    "slug": "kava-calming-the-storm",
-    "date": "2025-08-18",
+    "slug": "kava-calming-the-storm-traditional-vs-modern-use",
+    "date": "2025-10-08",
     "description": "Comparing noble kava chemotypes, safety data, and preparation differences.",
-    "excerpt": "Kava's reputation for serenity is rooted in Pacific Island traditions...",
-    "bodyHtml": "<p>Kava (<em>Piper methysticum</em>) carries centuries of ceremonial use. In modern contexts, standardization and chemotype selection matter more than ever.</p><p>This preview highlights the differences between noble and tudei cultivars, extraction methods, and safety markers to watch.</p>",
-    "image": "/og/kava-calming-the-storm.png"
+    "image": "/og/kava-calming-the-storm.png",
+    "category": "Relaxation",
+    "excerpt": "Comparing noble kava chemotypes, safety data, and preparation differences.",
+    "bodyHtml": "<p>Kava (<em>Piper methysticum</em>) has a long history across the South Pacific.</p>\n<p>Its <strong>kavalactones</strong> interact with GABAergic systems, producing calm without sedation.</p>\n"
   }
 ]
