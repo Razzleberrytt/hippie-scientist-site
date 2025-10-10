@@ -34,6 +34,9 @@ jobs:
       - name: Build blog dataset
         run: node scripts/build-blog.mjs
 
+      - name: Generate + prune OG images (with fallback)
+        run: npm run og:prune || npm run og:fallback -- --prune
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
