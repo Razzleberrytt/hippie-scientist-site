@@ -1,65 +1,70 @@
-export interface Herb {
-  id: string
-  slug: string
-  common: string
-  scientific: string
-  category: string
-  subcategory: string
-  category_label?: string
-  intensity: string
-  intensity_label?: string
-  region: string
-  legalstatus: string
-  schedule: string
-  description: string
-  effects: string
-  mechanism: string
-  compounds: string[]
-  preparations: string[]
-  interactions: string[]
-  contraindications: string[]
-  dosage: string
-  therapeutic: string
-  sideeffects: string[]
-  safety: string
-  toxicity: string
-  toxicity_ld50: string
-  tags: string[]
-  regiontags: string[]
-  legalnotes: string
-  sources: string[]
-  image: string
-  // Derived/legacy compatibility fields
-  name?: string
-  nameNorm?: string
-  commonnames?: string
-  scientificname?: string
-  mechanismofaction?: string
-  mechanismOfAction?: string
-  legalStatus?: string
-  therapeuticUses?: string
-  sideEffects?: string
-  drugInteractions?: string
-  toxicityld50?: string
-  toxicityLD50?: string
-  compoundsDetailed?: string[]
-  activeconstituents?: string[]
-  activeConstituents?: { name: string }[]
-  contraindicationsText?: string
-  interactionsText?: string
-  preparationsText?: string
-  tagsRaw?: string
-  duration?: string | null
-  onset?: string | null
-  pharmacokinetics?: string | null
-  preparation?: string | null
-  regionNotes?: string | null
-  safetyrating?: string | null
-  dosage_notes?: string | null
-  legalstatusClean?: string | null
-  intensityClean?: string | null
-  effectsSummary?: string | null
-  affiliatelink?: string | null
-  imageCredit?: string | null
-  [key: string]: unknown
-}
+export type Herb = {
+  slug: string;
+  id?: string;
+  common?: string;
+  scientific?: string;
+  category?: string;
+  subcategory?: string;
+  category_label?: string;
+  categories?: string[];
+  intensity?: string;
+  intensity_label?: string;
+  intensityClean?: string | null;
+  region?: string;
+  regionNotes?: string | null;
+  regiontags?: string[];
+  legal?: string;
+  legalstatus?: string;
+  legalStatus?: string;
+  legalnotes?: string;
+  legalstatusClean?: string | null;
+  schedule?: string;
+  description?: string;
+  effects?: string;
+  effectsSummary?: string | null;
+  mechanism?: string;
+  mechanismofaction?: string;
+  mechanismOfAction?: string;
+  compounds?: string[];
+  active_compounds?: string[];
+  compoundsDetailed?: string[];
+  activeconstituents?: string[];
+  activeConstituents?: { name: string }[];
+  preparations?: string[];
+  preparation?: string | null;
+  preparationsText?: string;
+  interactions?: string[] | string;
+  interactionsText?: string;
+  drugInteractions?: string;
+  contraindications?: string[] | string;
+  contraindicationsText?: string;
+  dosage?: string;
+  dosage_notes?: string | null;
+  therapeutic?: string;
+  therapeuticUses?: string;
+  sideeffects?: string[] | string;
+  sideEffects?: string;
+  safety?: string;
+  safetyrating?: string | null;
+  toxicity?: string;
+  toxicity_ld50?: string;
+  toxicityld50?: string;
+  toxicityLD50?: string;
+  tags?: string[];
+  tagsRaw?: string;
+  activeconstituentsText?: string;
+  sources?: string[];
+  image?: string;
+  imageCredit?: string | null;
+  duration?: string | null;
+  onset?: string | null;
+  pharmacokinetics?: string | null;
+  pharmacology?: string | null;
+  dosageNotes?: string | null;
+  name?: string;
+  nameNorm?: string;
+  commonnames?: string;
+  scientificname?: string;
+  affiliatelink?: string | null;
+  [key: string]: unknown;
+};
