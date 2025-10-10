@@ -74,6 +74,7 @@ body {
   line-height: 1.7;
   letter-spacing: 0.01em;
   font-size: 15.5px;
+  scroll-behavior: smooth;
 }
 
 body::before {
@@ -92,6 +93,8 @@ body::before {
 
 main {
   padding-top: var(--header-h);
+  margin: 0 auto;
+  max-width: 1600px;
 }
 
 .focus-visible\:ring-accent\/60:focus-visible {
@@ -145,6 +148,31 @@ h3 { font-size: 1.35rem; }
   0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
   50% { background-position: 10% 5%, -5% 10%, 5% -10%; }
   100% { background-position: -10% -5%, 5% -10%, -5% 10%; }
+}
+
+.aurora-bg {
+  background:
+    radial-gradient(80vh 60vh at 20% 15%, rgba(120, 180, 255, 0.18), transparent 70%),
+    radial-gradient(70vh 56vh at 75% 25%, rgba(255, 120, 220, 0.14), transparent 65%),
+    radial-gradient(90vh 70vh at 50% 80%, rgba(0, 200, 160, 0.14), transparent 60%),
+    linear-gradient(#05080f, #070a13);
+  animation: floatGlow 18s ease-in-out infinite alternate;
+  filter: blur(0.5px) saturate(1.1);
+}
+
+@keyframes floatGlow {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.95;
+  }
 }
 
 /* components */
@@ -244,6 +272,26 @@ h3 { font-size: 1.35rem; }
   filter: drop-shadow(0 0 6px hsl(var(--accent-h) var(--accent-s) calc(var(--accent-l) + 10%) / 0.4));
 }
 
+.gradient-text-animated {
+  background: linear-gradient(100deg, #7ef9ff, #89cff0, #a066ff, #7ef9ff);
+  background-size: 320% 320%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: hueShift 12s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(120, 200, 255, 0.35));
+}
+
+@keyframes hueShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 .hover-glow:hover {
   box-shadow: 0 0 12px -3px hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.6);
 }
@@ -264,6 +312,13 @@ section {
 
 footer {
   padding-block: 3rem;
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .aurora-bg {
+    min-height: 75vh;
+  }
 }
 
 /* motion safety */
