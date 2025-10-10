@@ -1,1 +1,1 @@
-export const ENABLE_ADVANCED_FILTERS = false;
+export const ENABLE_ADVANCED_FILTERS = true;
