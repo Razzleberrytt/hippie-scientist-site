@@ -1,12 +1,25 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { marked } from "marked";
 
 const DIR = path.resolve("src/content/blog");
 const OUT = path.resolve("src/data/blog/posts.json");
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
+
+let renderMarkdown = (value) => value;
+
+try {
+  const mod = await import("marked");
+  const markedModule = mod.marked ?? mod.default ?? mod;
+  if (markedModule) {
+    renderMarkdown = typeof markedModule === "function"
+      ? markedModule
+      : markedModule.parse?.bind(markedModule) ?? renderMarkdown;
+  }
+} catch (error) {
+  console.warn("⚠️  marked not found — skipping markdown build");
+}
 
 function slugify(s) {
   return String(s || "")
@@ -32,7 +45,7 @@ const posts = [];
 for (const file of files) {
   const src = fs.readFileSync(path.join(DIR, file), "utf-8");
   const { data: fm, content } = matter(src);
-  const html = marked.parse(content);
+  const html = renderMarkdown(content);
 
   const title = fm.title || path.basename(file, path.extname(file));
   const slug = fm.slug || slugify(title);
