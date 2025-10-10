@@ -23,6 +23,7 @@ import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import GraphPage from './pages/Graph';
 // Import other pages as needed
 
 export default function App() {
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/data-fix" element={<DataFix />} />
           <Route path="/sitemap" element={<Sitemap />} />
         </Route>
+        <Route path="/graph" element={<GraphPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
