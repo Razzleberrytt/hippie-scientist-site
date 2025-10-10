@@ -18,7 +18,7 @@ import Sitemap from './pages/Sitemap';
 import Newsletter from './pages/Newsletter';
 import Contact from './pages/Contact';
 import SiteHeader from './components/SiteHeader';
-import SiteFooter from './components/SiteFooter';
+import Footer from './components/Footer';
 import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
 import Blog from './pages/Blog';
@@ -77,7 +77,7 @@ function RootLayout() {
           </motion.div>
         </AnimatePresence>
       </main>
-      <SiteFooter />
+      <Footer />
       <ConsentBanner />
       <AppToaster />
     </div>

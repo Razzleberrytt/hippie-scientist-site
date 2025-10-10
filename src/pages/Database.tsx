@@ -72,19 +72,32 @@ export default function Database() {
           )}
         </header>
 
-        <section className="blur-panel sticky top-[3.25rem] z-20 flex items-center gap-3 rounded-2xl p-3">
-          <label className="sr-only" htmlFor="herb-search-input">
-            Search herbs
-          </label>
-          <input
-            id="herb-search-input"
-            className="w-full rounded-lg border border-white/10 bg-white/10 px-3 py-2 placeholder-white/50"
-            placeholder="Search herbs, compounds, effects…"
-            value={query}
-            onChange={event => setQuery(event.target.value)}
-          />
-          <span className="small whitespace-nowrap text-white/65">{results.length} results</span>
-        </section>
+        <div
+          className="sticky z-30"
+          style={{
+            top: "3.25rem",
+            borderBottom: "1px solid var(--border-c)",
+            background: "color-mix(in oklab, var(--bg-c) 85%, transparent 15%)",
+            backdropFilter: "blur(6px)",
+          }}
+        >
+          <div className="container py-3 flex items-center gap-3">
+            <label className="sr-only" htmlFor="herb-search-input">
+              Search herbs
+            </label>
+            <input
+              id="herb-search-input"
+              className="input focus-glow flex-1"
+              placeholder="Search herbs, compounds, effects…"
+              value={query}
+              onChange={event => setQuery(event.target.value)}
+            />
+            <span className="text-sm" style={{ color: "var(--muted-c)" }}>
+              {results.length} results
+            </span>
+          </div>
+        </div>
+        <div className="h-2" />
 
         <section className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {results.map((herb, index) => (

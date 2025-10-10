@@ -7,6 +7,7 @@ import { cleanLine, titleCase } from "../lib/pretty";
 import { getText } from "../lib/fields";
 import { pick } from "../lib/present";
 import { useFavorites } from "../lib/useFavorites";
+import { intensityHue } from "../lib/ambient";
 
 export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const [open, setOpen] = useState(false);
@@ -26,8 +27,16 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const { toggle, has } = useFavorites();
   const isFavorite = has(herb.slug);
 
+  const hue = intensityHue(herb.intensity);
+
   return (
-    <article className="card transition-all hover:shadow-[0_8px_32px_rgba(0,0,0,.35)]">
+    <article
+      className="card transition-all hover:shadow-[0_8px_32px_rgba(0,0,0,.35)]"
+      style={{
+        ["--amb-h" as any]: hue,
+        boxShadow: "0 0 0 1px rgba(255,255,255,0.03), 0 12px 40px -8px rgba(0,0,0,.45)",
+      }}
+    >
       <div className="p-4 flex flex-col gap-3">
         <header className="flex items-start justify-between gap-3">
           <div>
