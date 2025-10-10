@@ -62,7 +62,7 @@ export default function ThemeMenu() {
     <div className="relative" ref={wrapperRef}>
       <button
         type="button"
-        className="btn"
+        className="btn hover-glow focus-glow"
         onClick={() => setOpen(value => !value)}
         aria-haspopup="true"
         aria-expanded={open}
@@ -84,7 +84,7 @@ export default function ThemeMenu() {
                   key={option.value}
                   type="button"
                   onClick={() => handleThemeClick(option.value)}
-                  className="w-full rounded-lg border px-3 py-2 text-left text-sm"
+                  className="w-full rounded-lg border px-3 py-2 text-left text-sm focus-glow"
                   style={{
                     borderColor:
                       theme === option.value
@@ -116,7 +116,7 @@ export default function ThemeMenu() {
                   key={option.value}
                   type="button"
                   onClick={() => handleAccentClick(option.value)}
-                  className="h-8 w-8 rounded-full border-2"
+                  className="h-8 w-8 rounded-full border-2 focus-glow"
                   style={{
                     background:
                       option.value === "blue"

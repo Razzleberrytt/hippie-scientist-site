@@ -10,7 +10,7 @@ const links = [
 export default function SiteHeader() {
   return (
     <header
-      className="sticky top-0 z-40 border-b"
+      className="site-header sticky top-0 z-40 border-b"
       style={{
         backdropFilter: "saturate(120%) blur(10px)",
         background: "color-mix(in oklab, var(--surface-c) 80%, transparent 20%)",
@@ -19,12 +19,7 @@ export default function SiteHeader() {
       <div className="container py-3 flex flex-wrap items-center justify-between gap-3">
         <NavLink
           to="/"
-          className="text-xl font-semibold"
-          style={{
-            backgroundImage: "linear-gradient(90deg,#c4f64e,#6ee7ff,#f0a4ff)",
-            WebkitBackgroundClip: "text",
-            color: "transparent",
-          }}
+          className="gradient-text text-xl font-semibold"
         >
           The Hippie Scientist
         </NavLink>
@@ -33,7 +28,9 @@ export default function SiteHeader() {
             <NavLink
               key={link.href}
               to={link.href}
-              className={({ isActive }) => `btn ${isActive ? "primary" : ""}`.trim()}
+              className={({ isActive }) =>
+                [`btn`, "hover-glow", "focus-glow", isActive ? "primary" : ""].filter(Boolean).join(" ")
+              }
             >
               {link.label}
             </NavLink>

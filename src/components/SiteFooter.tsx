@@ -15,8 +15,13 @@ export default function SiteFooter() {
             Join our Newsletter
           </h3>
           <form className="flex flex-col gap-2 sm:flex-row">
-            <input className="input" placeholder="you@example.com" type="email" aria-label="Email address" />
-            <button className="btn primary" type="submit">
+            <input
+              className="input focus-glow"
+              placeholder="you@example.com"
+              type="email"
+              aria-label="Email address"
+            />
+            <button className="btn primary hover-glow focus-glow" type="submit">
               Subscribe
             </button>
           </form>

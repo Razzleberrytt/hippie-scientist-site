@@ -177,7 +177,7 @@ export default function HerbDetails({ herb }: { herb: Herb }) {
       (
         <div className="flex flex-wrap gap-2">
           {details.tags.map((t, i) => (
-            <span key={i} className="chip">
+            <span key={i} className="chip hover-glow focus-glow">
               {t}
             </span>
           ))}
