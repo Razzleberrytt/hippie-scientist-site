@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import Meta from '../components/Meta'
 import ErrorBoundary from '../components/ErrorBoundary'
-import HerbCard from '../components/HerbCard'
+import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import AdvancedSearch from '../components/AdvancedSearch'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
@@ -72,7 +72,7 @@ export default function Database() {
           )}
         </header>
 
-        <section className="blur-panel sticky top-[56px] z-20 flex items-center gap-3 rounded-2xl p-3">
+        <section className="blur-panel sticky top-[3.25rem] z-20 flex items-center gap-3 rounded-2xl p-3">
           <label className="sr-only" htmlFor="herb-search-input">
             Search herbs
           </label>
@@ -86,9 +86,9 @@ export default function Database() {
           <span className="small whitespace-nowrap text-white/65">{results.length} results</span>
         </section>
 
-        <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <section className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
           {results.map((herb, index) => (
-            <HerbCard key={herb.id ?? index} herb={herb} index={index} />
+            <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
           ))}
           {!results.length && (
             <div className="blur-panel p-6 text-center text-sub col-span-full">
