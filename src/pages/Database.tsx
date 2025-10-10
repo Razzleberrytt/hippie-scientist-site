@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import Meta from '../components/Meta'
 import ErrorBoundary from '../components/ErrorBoundary'
 import HerbCard from '../components/HerbCard'
+import AdvancedSearch from '../components/AdvancedSearch'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 import { ENABLE_ADVANCED_FILTERS } from '../config/ui'
@@ -9,10 +10,14 @@ import { ENABLE_ADVANCED_FILTERS } from '../config/ui'
 export default function Database() {
   const herbs = herbsData as Herb[]
   const [query, setQuery] = useState('')
+  const [advancedOpen, setAdvancedOpen] = useState(false)
+  const [advancedResults, setAdvancedResults] = useState<Herb[] | null>(null)
+
+  const scopedHerbs = useMemo(() => advancedResults ?? herbs, [advancedResults, herbs])
 
   const filtered = useMemo(() => {
     const q = String(query || '').trim().toLowerCase()
-    return herbs.filter(herb => {
+    return scopedHerbs.filter(herb => {
       if (!q) return true
       const haystack = [
         herb.common,
@@ -26,7 +31,7 @@ export default function Database() {
         .toLowerCase()
       return haystack.includes(q)
     })
-  }, [herbs, query])
+  }, [scopedHerbs, query])
 
   const results = filtered
 
@@ -38,32 +43,48 @@ export default function Database() {
         path='/database'
       />
       <main className="container space-y-4 py-6">
-        <header className="pt-2">
-          <h1 className="h1 bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-transparent">
-            Herb Database
-          </h1>
-          <p className="small text-white/70">Search and explore the library.</p>
+        <header className="flex flex-col gap-3 pt-2 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h1 className="h1 bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-transparent">
+              Herb Database
+            </h1>
+            <p className="small text-white/70">Search and explore the library.</p>
+          </div>
+          {ENABLE_ADVANCED_FILTERS && (
+            <div className="flex flex-wrap items-center gap-2">
+              {advancedResults && (
+                <button
+                  type="button"
+                  className="rounded-lg border border-rose-300/30 bg-rose-500/10 px-3 py-2 text-sm text-rose-100 transition hover:bg-rose-500/20"
+                  onClick={() => setAdvancedResults(null)}
+                >
+                  Clear advanced filters
+                </button>
+              )}
+              <button
+                type="button"
+                className="rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm transition hover:bg-white/10"
+                onClick={() => setAdvancedOpen(true)}
+              >
+                Advanced search
+              </button>
+            </div>
+          )}
         </header>
 
-        <section className="blur-panel rounded-2xl p-3 flex items-center gap-3 sticky top-[56px] z-20">
+        <section className="blur-panel sticky top-[56px] z-20 flex items-center gap-3 rounded-2xl p-3">
           <label className="sr-only" htmlFor="herb-search-input">
             Search herbs
           </label>
           <input
             id="herb-search-input"
-            className="w-full rounded-lg px-3 py-2 bg-white/10 border border-white/10 placeholder-white/50"
+            className="w-full rounded-lg border border-white/10 bg-white/10 px-3 py-2 placeholder-white/50"
             placeholder="Search herbs, compounds, effects…"
             value={query}
             onChange={event => setQuery(event.target.value)}
           />
-          <span className="small text-white/65 whitespace-nowrap">{results.length} results</span>
+          <span className="small whitespace-nowrap text-white/65">{results.length} results</span>
         </section>
-
-        {ENABLE_ADVANCED_FILTERS && (
-          <section className="blur-panel rounded-2xl p-3">
-            {/* (old facets UI would render here) */}
-          </section>
-        )}
 
         <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {results.map((herb, index) => (
@@ -75,6 +96,17 @@ export default function Database() {
             </div>
           )}
         </section>
+        {ENABLE_ADVANCED_FILTERS && (
+          <AdvancedSearch
+            open={advancedOpen}
+            onClose={() => setAdvancedOpen(false)}
+            onApply={res => {
+              const next = res as Herb[]
+              setAdvancedResults(next.length === herbs.length ? null : next)
+              setAdvancedOpen(false)
+            }}
+          />
+        )}
       </main>
     </ErrorBoundary>
   )
