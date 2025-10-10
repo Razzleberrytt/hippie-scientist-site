@@ -51,12 +51,12 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   const [open, setOpen] = useState(false)
 
   const intensityClass = intensity.includes('strong')
-    ? 'bg-red-600/30 text-red-200'
+    ? 'bg-red-500/20 text-red-200'
     : intensity.includes('moderate')
-      ? 'bg-yellow-600/30 text-yellow-100'
+      ? 'bg-[color-mix(in_oklab,rgb(var(--accent))_24%,transparent)] text-[rgb(var(--fg))]'
       : intensity.includes('mild')
-        ? 'bg-green-700/30 text-green-200'
-        : 'bg-white/10 text-white/80'
+        ? 'bg-[color-mix(in_oklab,rgb(var(--accent))_18%,transparent)] text-[rgb(var(--fg))]'
+        : 'bg-[color-mix(in_oklab,rgb(var(--accent))_12%,transparent)] text-[rgb(var(--fg))]'
 
   if (import.meta.env.MODE !== 'production' && herb && index === 0) {
     // eslint-disable-next-line no-console
@@ -64,32 +64,32 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
   }
   return (
     <article
-      className='card relative flex h-full flex-col border border-white/10 bg-gradient-to-br from-slate-950/80 via-slate-900/70 to-slate-900/60 p-5 text-sand shadow-lg'
+      className='relative flex h-full flex-col gap-4 rounded-2xl border border-[rgb(var(--border))/0.55] bg-[color-mix(in_oklab,rgb(var(--card))_14%,transparent)] p-5 text-[rgb(var(--fg))] shadow-card backdrop-blur'
       data-favorites-count={favs.length}
     >
       <header>
         <div className='flex items-center'>
-          <h2 className='text-xl font-semibold text-lime-300'>{title}</h2>
+          <h2 className='text-xl font-semibold text-[rgb(var(--fg))]'>{title}</h2>
           <button
             onClick={event => {
               event.stopPropagation()
               toggle(herb.slug)
             }}
-            className={`ml-2 text-xl ${isFavorite ? 'text-yellow-400' : 'text-gray-400'}`}
+            className={`ml-2 text-xl ${isFavorite ? 'text-[rgb(var(--accent))]' : 'text-sub'}`}
             title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
             aria-pressed={isFavorite}
           >
             ★
           </button>
         </div>
-        {hasVal(scientific) && <p className='meta text-sm italic text-sand/70'>{scientific}</p>}
+        {hasVal(scientific) && <p className='meta text-sm italic text-sub/80'>{scientific}</p>}
         {hasVal(intensity) && (
-          <span className={`inline-block mt-2 text-xs px-2 py-1 rounded-full ${intensityClass}`}>
+          <span className={`mt-2 inline-block rounded-full px-2 py-1 text-xs ${intensityClass}`}>
             INTENSITY: {titleCase(intensity)}
           </span>
         )}
       </header>
-      <section className='section space-y-3 text-sm text-sand/90'>
+      <section className='section space-y-3 text-sm text-sub'>
         {showEffects && (
           <div>
             <span className='label font-semibold'>Effects:</span>{' '}
@@ -98,7 +98,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
         )}
 
         {showDescription && (
-          <div className='text-sand/80'>
+          <div className='text-sub/90'>
             <span className='label font-semibold'>Description:</span>{' '}
             <span className={`${open ? '' : 'clamp-3'} block`}>{description}</span>
           </div>
@@ -115,7 +115,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
       {tags.length > 0 && (
         <div className='section flex flex-wrap gap-2'>
           {tags.map(tag => (
-            <span key={tag} className='rounded-full bg-purple-700/40 px-2 py-1 text-xs'>
+            <span key={tag} className='chip text-xs'>
               {tag}
             </span>
           ))}
@@ -123,7 +123,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
       )}
 
       {showRegion && (
-        <div className='section flex items-center gap-2 text-sm text-sand/85'>
+        <div className='section flex items-center gap-2 text-sm text-sub'>
           <span aria-hidden>🌍</span>
           <span className='opacity-90'>
             {regionText || joinList(regionTags)}
@@ -132,7 +132,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
       )}
 
       {open && (
-        <div className='section space-y-2 text-sm text-sand/90'>
+        <div className='section space-y-2 text-sm text-sub'>
           {showCompounds && (
             <p>
               <strong>Active Compounds:</strong> {joinList(compounds)}
@@ -150,7 +150,7 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
                 {sources.map((source, sourceIndex) => (
                   <li key={`${herb.slug}-source-${sourceIndex}`}>
                     {urlish(source) ? (
-                      <a className='underline' href={source} target='_blank' rel='noreferrer'>
+                      <a className='text-[rgb(var(--accent))] underline' href={source} target='_blank' rel='noreferrer'>
                         {source}
                       </a>
                     ) : (
@@ -172,12 +172,12 @@ export function DatabaseHerbCard({ herb, index = 0 }: Props) {
               event.stopPropagation()
               setOpen(v => !v)
             }}
-            className='toggle-link text-sm'
+            className='text-sm text-[rgb(var(--accent))] hover:underline'
           >
             {open ? 'Show less' : 'Show more'}
           </button>
         )}
-        <Link to={detailHref} className='underline text-sm opacity-90'>
+        <Link to={detailHref} className='text-sm text-[rgb(var(--accent))] underline opacity-90'>
           View details
         </Link>
       </div>
