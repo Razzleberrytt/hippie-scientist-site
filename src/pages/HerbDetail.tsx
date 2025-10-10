@@ -1,12 +1,13 @@
 import { useParams, Link } from "react-router-dom";
 import { toast } from "sonner";
 import data from "../data/herbs/herbs.normalized.json";
+import postsData from "../data/blog/posts.json";
 import Collapse from "../components/ui/Collapse";
 import Card from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { chipClassFor } from "../lib/tags";
 import Meta from "../components/Meta";
-import { relatedPostsForHerb } from "../lib/relatedPosts";
+import { relatedPostsByHerbSlug } from "../lib/relevance";
 
 const hasVal = (v: any) =>
   Array.isArray(v) ? v.filter(Boolean).length > 0 : !!String(v ?? "").trim();
@@ -14,20 +15,32 @@ const titleCase = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : "");
 
 type Herb = (typeof data)[number];
 
+type BlogPost = {
+  slug: string;
+  title: string;
+  date?: string;
+  description?: string;
+};
+
+const blogPosts = postsData as BlogPost[];
+
 type Param = {
   slug?: string;
 };
 
-function RelatedPosts({ herb }: { herb: Herb }) {
-  const posts = relatedPostsForHerb(herb);
+function RelatedPosts({ slug }: { slug?: string }) {
+  if (!slug) return null;
+  const posts = relatedPostsByHerbSlug(slug, 3)
+    .map((ref) => blogPosts.find((p) => p.slug === ref?.slug))
+    .filter((p): p is BlogPost => Boolean(p));
   if (!posts.length) return null;
 
   return (
     <section className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-5 mt-8">
       <h2 className="text-lg font-semibold text-white/90 mb-3">Related Posts</h2>
       <ul className="space-y-3">
-        {posts.map((p, i) => (
-          <li key={i}>
+        {posts.map((p) => (
+          <li key={p.slug}>
             <a href={`/blog/${p.slug}`} className="underline text-cyan-300 hover:text-cyan-200">
               {p.title}
             </a>
@@ -268,7 +281,7 @@ export default function HerbDetail() {
           </Card>
         )}
 
-        <RelatedPosts herb={herb} />
+        <RelatedPosts slug={herb.slug} />
 
         <div className="text-sm text-sub">
           <Link to="/database" className="underline decoration-dotted underline-offset-4">

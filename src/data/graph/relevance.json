@@ -1,0 +1,2230 @@
+{
+  "meta": {
+    "generatedAt": "2025-10-10T15:58:16.618Z",
+    "herbs": 381,
+    "posts": 1
+  },
+  "herbs": [
+    {
+      "id": "herb:3-4-5-trimethoxyphenethylamine",
+      "slug": "3-4-5-trimethoxyphenethylamine",
+      "name": "3,4,5-trimethoxyphenethylamine"
+    },
+    {
+      "id": "herb:acacia-phlebophylla",
+      "slug": "acacia-phlebophylla",
+      "name": "Acacia phlebophylla"
+    },
+    {
+      "id": "herb:acmella-oleracea",
+      "slug": "acmella-oleracea",
+      "name": "Acmella oleracea"
+    },
+    {
+      "id": "herb:aconitum-ferox",
+      "slug": "aconitum-ferox",
+      "name": "Aconitum ferox"
+    },
+    {
+      "id": "herb:aconitum-napellus",
+      "slug": "aconitum-napellus",
+      "name": "Aconitum napellus"
+    },
+    {
+      "id": "herb:acorus-calamus",
+      "slug": "acorus-calamus",
+      "name": "Acorus calamus"
+    },
+    {
+      "id": "herb:acorus-tatarinowii",
+      "slug": "acorus-tatarinowii",
+      "name": "Acorus tatarinowii"
+    },
+    {
+      "id": "herb:adenium-obesum",
+      "slug": "adenium-obesum",
+      "name": "Adenium obesum"
+    },
+    {
+      "id": "herb:adenostoma-fasciculatum",
+      "slug": "adenostoma-fasciculatum",
+      "name": "Adenostoma fasciculatum"
+    },
+    {
+      "id": "herb:aerva-lanata",
+      "slug": "aerva-lanata",
+      "name": "Aerva lanata"
+    },
+    {
+      "id": "herb:aesculus-hippocastanum",
+      "slug": "aesculus-hippocastanum",
+      "name": "Aesculus hippocastanum"
+    },
+    {
+      "id": "herb:agastache-foeniculum",
+      "slug": "agastache-foeniculum",
+      "name": "Agastache foeniculum"
+    },
+    {
+      "id": "herb:agrimonia-eupatoria",
+      "slug": "agrimonia-eupatoria",
+      "name": "Agrimonia eupatoria"
+    },
+    {
+      "id": "herb:alangium-salvifolium",
+      "slug": "alangium-salvifolium",
+      "name": "Alangium salvifolium"
+    },
+    {
+      "id": "herb:albizia-lebbeck",
+      "slug": "albizia-lebbeck",
+      "name": "Albizia lebbeck"
+    },
+    {
+      "id": "herb:alchemilla-vulgaris",
+      "slug": "alchemilla-vulgaris",
+      "name": "Alchemilla vulgaris"
+    },
+    {
+      "id": "herb:alchornea-floribunda",
+      "slug": "alchornea-floribunda",
+      "name": "Alchornea floribunda"
+    },
+    {
+      "id": "herb:alectra-sessiliflora",
+      "slug": "alectra-sessiliflora",
+      "name": "Alectra sessiliflora"
+    },
+    {
+      "id": "herb:aletris-farinosa",
+      "slug": "aletris-farinosa",
+      "name": "Aletris farinosa"
+    },
+    {
+      "id": "herb:allium-sativum",
+      "slug": "allium-sativum",
+      "name": "Allium sativum"
+    },
+    {
+      "id": "herb:alnus-rubra",
+      "slug": "alnus-rubra",
+      "name": "Alnus rubra"
+    },
+    {
+      "id": "herb:aloe-vera",
+      "slug": "aloe-vera",
+      "name": "Aloe vera"
+    },
+    {
+      "id": "herb:althaea-officinalis",
+      "slug": "althaea-officinalis",
+      "name": "Althaea officinalis"
+    },
+    {
+      "id": "herb:alyxia-stellata",
+      "slug": "alyxia-stellata",
+      "name": "Alyxia stellata"
+    },
+    {
+      "id": "herb:amanita-muscaria",
+      "slug": "amanita-muscaria",
+      "name": "Amanita muscaria"
+    },
+    {
+      "id": "herb:amphipterygium-adstringens",
+      "slug": "amphipterygium-adstringens",
+      "name": "Amphipterygium adstringens"
+    },
+    {
+      "id": "herb:anacardium-occidentale",
+      "slug": "anacardium-occidentale",
+      "name": "Anacardium occidentale"
+    },
+    {
+      "id": "herb:anemarrhena-asphodeloides",
+      "slug": "anemarrhena-asphodeloides",
+      "name": "Anemarrhena asphodeloides"
+    },
+    {
+      "id": "herb:angelica-archangelica",
+      "slug": "angelica-archangelica",
+      "name": "Angelica archangelica"
+    },
+    {
+      "id": "herb:angelica-sinensis",
+      "slug": "angelica-sinensis",
+      "name": "Angelica sinensis"
+    },
+    {
+      "id": "herb:aniseia-martinicensis",
+      "slug": "aniseia-martinicensis",
+      "name": "Aniseia martinicensis"
+    },
+    {
+      "id": "herb:anisomeles-indica",
+      "slug": "anisomeles-indica",
+      "name": "Anisomeles indica"
+    },
+    {
+      "id": "herb:anisoptera-thurifera",
+      "slug": "anisoptera-thurifera",
+      "name": "Anisoptera thurifera"
+    },
+    {
+      "id": "herb:annona-muricata",
+      "slug": "annona-muricata",
+      "name": "Annona muricata"
+    },
+    {
+      "id": "herb:apium-graveolens",
+      "slug": "apium-graveolens",
+      "name": "Apium graveolens"
+    },
+    {
+      "id": "herb:aquilaria-agallocha",
+      "slug": "aquilaria-agallocha",
+      "name": "Aquilaria agallocha"
+    },
+    {
+      "id": "herb:aquilegia-vulgaris",
+      "slug": "aquilegia-vulgaris",
+      "name": "Aquilegia vulgaris"
+    },
+    {
+      "id": "herb:arctium-lappa",
+      "slug": "arctium-lappa",
+      "name": "Arctium lappa"
+    },
+    {
+      "id": "herb:areca-catechu",
+      "slug": "areca-catechu",
+      "name": "Areca catechu"
+    },
+    {
+      "id": "herb:aristolochia-argentina",
+      "slug": "aristolochia-argentina",
+      "name": "Aristolochia argentina"
+    },
+    {
+      "id": "herb:aristolochia-grandiflora",
+      "slug": "aristolochia-grandiflora",
+      "name": "Aristolochia grandiflora"
+    },
+    {
+      "id": "herb:aristolochia-indica",
+      "slug": "aristolochia-indica",
+      "name": "Aristolochia indica"
+    },
+    {
+      "id": "herb:armoracia-rusticana",
+      "slug": "armoracia-rusticana",
+      "name": "Armoracia rusticana"
+    },
+    {
+      "id": "herb:arnica-montana",
+      "slug": "arnica-montana",
+      "name": "Arnica montana"
+    },
+    {
+      "id": "herb:artemisia-annua",
+      "slug": "artemisia-annua",
+      "name": "Artemisia annua"
+    },
+    {
+      "id": "herb:artemisia-glacialis",
+      "slug": "artemisia-glacialis",
+      "name": "Artemisia glacialis"
+    },
+    {
+      "id": "herb:artemisia-gmelinii",
+      "slug": "artemisia-gmelinii",
+      "name": "Artemisia gmelinii"
+    },
+    {
+      "id": "herb:artemisia-herba-alba",
+      "slug": "artemisia-herba-alba",
+      "name": "Artemisia herba-alba"
+    },
+    {
+      "id": "herb:artemisia-judaica",
+      "slug": "artemisia-judaica",
+      "name": "Artemisia judaica"
+    },
+    {
+      "id": "herb:artemisia-tilesii",
+      "slug": "artemisia-tilesii",
+      "name": "Artemisia tilesii"
+    },
+    {
+      "id": "herb:artemisia-vulgaris",
+      "slug": "artemisia-vulgaris",
+      "name": "Artemisia vulgaris"
+    },
+    {
+      "id": "herb:asclepias-tuberosa",
+      "slug": "asclepias-tuberosa",
+      "name": "Asclepias tuberosa"
+    },
+    {
+      "id": "herb:asparagus-racemosus",
+      "slug": "asparagus-racemosus",
+      "name": "Asparagus racemosus"
+    },
+    {
+      "id": "herb:aspidosperma-quebracho-blanco",
+      "slug": "aspidosperma-quebracho-blanco",
+      "name": "Aspidosperma quebracho-blanco"
+    },
+    {
+      "id": "herb:astragalus-membranaceus",
+      "slug": "astragalus-membranaceus",
+      "name": "Astragalus membranaceus"
+    },
+    {
+      "id": "herb:atractylodes-macrocephala",
+      "slug": "atractylodes-macrocephala",
+      "name": "Atractylodes macrocephala"
+    },
+    {
+      "id": "herb:atropa-belladonna",
+      "slug": "atropa-belladonna",
+      "name": "Atropa belladonna"
+    },
+    {
+      "id": "herb:azadirachta-indica",
+      "slug": "azadirachta-indica",
+      "name": "Azadirachta indica"
+    },
+    {
+      "id": "herb:baptisia-tinctoria",
+      "slug": "baptisia-tinctoria",
+      "name": "Baptisia tinctoria"
+    },
+    {
+      "id": "herb:barringtonia-asiatica",
+      "slug": "barringtonia-asiatica",
+      "name": "Barringtonia asiatica"
+    },
+    {
+      "id": "herb:berberis-vulgaris",
+      "slug": "berberis-vulgaris",
+      "name": "Berberis vulgaris"
+    },
+    {
+      "id": "herb:bidens-pilosa",
+      "slug": "bidens-pilosa",
+      "name": "Bidens pilosa"
+    },
+    {
+      "id": "herb:boerhavia-diffusa",
+      "slug": "boerhavia-diffusa",
+      "name": "Boerhavia diffusa"
+    },
+    {
+      "id": "herb:boesenbergia-rotunda",
+      "slug": "boesenbergia-rotunda",
+      "name": "Boesenbergia rotunda"
+    },
+    {
+      "id": "herb:boophone-disticha",
+      "slug": "boophone-disticha",
+      "name": "Boophone disticha"
+    },
+    {
+      "id": "herb:borago-officinalis",
+      "slug": "borago-officinalis",
+      "name": "Borago officinalis"
+    },
+    {
+      "id": "herb:boswellia-sacra",
+      "slug": "boswellia-sacra",
+      "name": "Boswellia sacra"
+    },
+    {
+      "id": "herb:boswellia-serrata",
+      "slug": "boswellia-serrata",
+      "name": "Boswellia serrata"
+    },
+    {
+      "id": "herb:brugmansia-sanguinea",
+      "slug": "brugmansia-sanguinea",
+      "name": "Brugmansia sanguinea"
+    },
+    {
+      "id": "herb:brunfelsia-americana",
+      "slug": "brunfelsia-americana",
+      "name": "Brunfelsia americana"
+    },
+    {
+      "id": "herb:bryonia-alba",
+      "slug": "bryonia-alba",
+      "name": "Bryonia alba"
+    },
+    {
+      "id": "herb:bupleurum-falcatum",
+      "slug": "bupleurum-falcatum",
+      "name": "Bupleurum falcatum"
+    },
+    {
+      "id": "herb:bursera-graveolens",
+      "slug": "bursera-graveolens",
+      "name": "Bursera graveolens"
+    },
+    {
+      "id": "herb:caesalpinia-bonduc",
+      "slug": "caesalpinia-bonduc",
+      "name": "Caesalpinia bonduc"
+    },
+    {
+      "id": "herb:calea-ternifolia",
+      "slug": "calea-ternifolia",
+      "name": "Calea ternifolia"
+    },
+    {
+      "id": "herb:calendula-officinalis",
+      "slug": "calendula-officinalis",
+      "name": "Calendula officinalis"
+    },
+    {
+      "id": "herb:calliandra-anomala",
+      "slug": "calliandra-anomala",
+      "name": "Calliandra anomala"
+    },
+    {
+      "id": "herb:calliandra-haematocephala",
+      "slug": "calliandra-haematocephala",
+      "name": "Calliandra haematocephala"
+    },
+    {
+      "id": "herb:calliandra-portoricensis",
+      "slug": "calliandra-portoricensis",
+      "name": "Calliandra portoricensis"
+    },
+    {
+      "id": "herb:calotropis-procera",
+      "slug": "calotropis-procera",
+      "name": "Calotropis procera"
+    },
+    {
+      "id": "herb:cannabis-indica",
+      "slug": "cannabis-indica",
+      "name": "Cannabis indica"
+    },
+    {
+      "id": "herb:cannabis-ruderalis",
+      "slug": "cannabis-ruderalis",
+      "name": "Cannabis ruderalis"
+    },
+    {
+      "id": "herb:cannabis-sativa-african-varieties",
+      "slug": "cannabis-sativa-african-varieties",
+      "name": "Cannabis sativa (African varieties)"
+    },
+    {
+      "id": "herb:capparis-erythrocarpos",
+      "slug": "capparis-erythrocarpos",
+      "name": "Capparis erythrocarpos"
+    },
+    {
+      "id": "herb:capparis-spinosa",
+      "slug": "capparis-spinosa",
+      "name": "Capparis spinosa"
+    },
+    {
+      "id": "herb:capraria-biflora",
+      "slug": "capraria-biflora",
+      "name": "Capraria biflora"
+    },
+    {
+      "id": "herb:capsella-bursa-pastoris",
+      "slug": "capsella-bursa-pastoris",
+      "name": "Capsella bursa-pastoris"
+    },
+    {
+      "id": "herb:cassia-alata",
+      "slug": "cassia-alata",
+      "name": "Cassia alata"
+    },
+    {
+      "id": "herb:cassia-occidentalis",
+      "slug": "cassia-occidentalis",
+      "name": "Cassia occidentalis"
+    },
+    {
+      "id": "herb:ceanothus-integerrimus",
+      "slug": "ceanothus-integerrimus",
+      "name": "Ceanothus integerrimus"
+    },
+    {
+      "id": "herb:cecropia-peltata",
+      "slug": "cecropia-peltata",
+      "name": "Cecropia peltata"
+    },
+    {
+      "id": "herb:centaurium-erythraea",
+      "slug": "centaurium-erythraea",
+      "name": "Centaurium erythraea"
+    },
+    {
+      "id": "herb:centella-asiatica",
+      "slug": "centella-asiatica",
+      "name": "Centella asiatica"
+    },
+    {
+      "id": "herb:cephaelis-ipecacuanha",
+      "slug": "cephaelis-ipecacuanha",
+      "name": "Cephaelis ipecacuanha"
+    },
+    {
+      "id": "herb:chelidonium-majus",
+      "slug": "chelidonium-majus",
+      "name": "Chelidonium majus"
+    },
+    {
+      "id": "herb:chimaphila-umbellata",
+      "slug": "chimaphila-umbellata",
+      "name": "Chimaphila umbellata"
+    },
+    {
+      "id": "herb:cinnamomum-verum",
+      "slug": "cinnamomum-verum",
+      "name": "Cinnamomum verum"
+    },
+    {
+      "id": "herb:citrus-aurantium",
+      "slug": "citrus-aurantium",
+      "name": "Citrus aurantium"
+    },
+    {
+      "id": "herb:citrus-limon",
+      "slug": "citrus-limon",
+      "name": "Citrus limon"
+    },
+    {
+      "id": "herb:clematis-vitalba",
+      "slug": "clematis-vitalba",
+      "name": "Clematis vitalba"
+    },
+    {
+      "id": "herb:clerodendrum-glabrum",
+      "slug": "clerodendrum-glabrum",
+      "name": "Clerodendrum glabrum"
+    },
+    {
+      "id": "herb:clinopodium-vulgare",
+      "slug": "clinopodium-vulgare",
+      "name": "Clinopodium vulgare"
+    },
+    {
+      "id": "herb:cnidium-monnieri",
+      "slug": "cnidium-monnieri",
+      "name": "Cnidium monnieri"
+    },
+    {
+      "id": "herb:cocculus-hirsutus",
+      "slug": "cocculus-hirsutus",
+      "name": "Cocculus hirsutus"
+    },
+    {
+      "id": "herb:codiaeum-variegatum",
+      "slug": "codiaeum-variegatum",
+      "name": "Codiaeum variegatum"
+    },
+    {
+      "id": "herb:coffea-arabica",
+      "slug": "coffea-arabica",
+      "name": "Coffea arabica"
+    },
+    {
+      "id": "herb:combretum-micranthum",
+      "slug": "combretum-micranthum",
+      "name": "Combretum micranthum"
+    },
+    {
+      "id": "herb:commiphora-myrrha",
+      "slug": "commiphora-myrrha",
+      "name": "Commiphora myrrha"
+    },
+    {
+      "id": "herb:conium-maculatum",
+      "slug": "conium-maculatum",
+      "name": "Conium maculatum"
+    },
+    {
+      "id": "herb:convallaria-majalis",
+      "slug": "convallaria-majalis",
+      "name": "Convallaria majalis"
+    },
+    {
+      "id": "herb:convolvulus-pluricaulis",
+      "slug": "convolvulus-pluricaulis",
+      "name": "Convolvulus pluricaulis"
+    },
+    {
+      "id": "herb:copaifera-officinalis",
+      "slug": "copaifera-officinalis",
+      "name": "Copaifera officinalis"
+    },
+    {
+      "id": "herb:coptis-chinensis",
+      "slug": "coptis-chinensis",
+      "name": "Coptis chinensis"
+    },
+    {
+      "id": "herb:cordyceps-sinensis",
+      "slug": "cordyceps-sinensis",
+      "name": "Cordyceps sinensis"
+    },
+    {
+      "id": "herb:cordyline-fruticosa",
+      "slug": "cordyline-fruticosa",
+      "name": "Cordyline fruticosa"
+    },
+    {
+      "id": "herb:cornus-officinalis",
+      "slug": "cornus-officinalis",
+      "name": "Cornus officinalis"
+    },
+    {
+      "id": "herb:corydalis-cava",
+      "slug": "corydalis-cava",
+      "name": "Corydalis cava"
+    },
+    {
+      "id": "herb:corymbia-terminalis",
+      "slug": "corymbia-terminalis",
+      "name": "Corymbia terminalis"
+    },
+    {
+      "id": "herb:croton-lechleri",
+      "slug": "croton-lechleri",
+      "name": "Croton lechleri"
+    },
+    {
+      "id": "herb:curcuma-longa",
+      "slug": "curcuma-longa",
+      "name": "Curcuma longa"
+    },
+    {
+      "id": "herb:cymbopogon-citratus",
+      "slug": "cymbopogon-citratus",
+      "name": "Cymbopogon citratus"
+    },
+    {
+      "id": "herb:cynara-scolymus",
+      "slug": "cynara-scolymus",
+      "name": "Cynara scolymus"
+    },
+    {
+      "id": "herb:cynodon-dactylon",
+      "slug": "cynodon-dactylon",
+      "name": "Cynodon dactylon"
+    },
+    {
+      "id": "herb:cyperus-rotundus",
+      "slug": "cyperus-rotundus",
+      "name": "Cyperus rotundus"
+    },
+    {
+      "id": "herb:dactylorhiza-hatagirea",
+      "slug": "dactylorhiza-hatagirea",
+      "name": "Dactylorhiza hatagirea"
+    },
+    {
+      "id": "herb:datura-ferox",
+      "slug": "datura-ferox",
+      "name": "Datura ferox"
+    },
+    {
+      "id": "herb:datura-stramonium",
+      "slug": "datura-stramonium",
+      "name": "Datura stramonium"
+    },
+    {
+      "id": "herb:datura-wrightii",
+      "slug": "datura-wrightii",
+      "name": "Datura wrightii"
+    },
+    {
+      "id": "herb:delosperma-bosseranum",
+      "slug": "delosperma-bosseranum",
+      "name": "Delosperma bosseranum"
+    },
+    {
+      "id": "herb:delosperma-cooperi",
+      "slug": "delosperma-cooperi",
+      "name": "Delosperma cooperi"
+    },
+    {
+      "id": "herb:delphinium-brunonianum",
+      "slug": "delphinium-brunonianum",
+      "name": "Delphinium brunonianum"
+    },
+    {
+      "id": "herb:dendrobium-nobile",
+      "slug": "dendrobium-nobile",
+      "name": "Dendrobium nobile"
+    },
+    {
+      "id": "herb:derris-elliptica",
+      "slug": "derris-elliptica",
+      "name": "Derris elliptica"
+    },
+    {
+      "id": "herb:dichroa-febrifuga",
+      "slug": "dichroa-febrifuga",
+      "name": "Dichroa febrifuga"
+    },
+    {
+      "id": "herb:diplopterys-cabrerana",
+      "slug": "diplopterys-cabrerana",
+      "name": "Diplopterys cabrerana"
+    },
+    {
+      "id": "herb:dodonaea-viscosa",
+      "slug": "dodonaea-viscosa",
+      "name": "Dodonaea viscosa"
+    },
+    {
+      "id": "herb:dracocephalum-moldavica",
+      "slug": "dracocephalum-moldavica",
+      "name": "Dracocephalum moldavica"
+    },
+    {
+      "id": "herb:duboisia-hopwoodii",
+      "slug": "duboisia-hopwoodii",
+      "name": "Duboisia hopwoodii"
+    },
+    {
+      "id": "herb:duboisia-myoporoides",
+      "slug": "duboisia-myoporoides",
+      "name": "Duboisia myoporoides"
+    },
+    {
+      "id": "herb:echinopsis-pachanoi",
+      "slug": "echinopsis-pachanoi",
+      "name": "Echinopsis pachanoi"
+    },
+    {
+      "id": "herb:eclipta-prostrata",
+      "slug": "eclipta-prostrata",
+      "name": "Eclipta prostrata"
+    },
+    {
+      "id": "herb:elaeagnus-umbellata",
+      "slug": "elaeagnus-umbellata",
+      "name": "Elaeagnus umbellata"
+    },
+    {
+      "id": "herb:elephantopus-mollis",
+      "slug": "elephantopus-mollis",
+      "name": "Elephantopus mollis"
+    },
+    {
+      "id": "herb:ephedra-sinica",
+      "slug": "ephedra-sinica",
+      "name": "Ephedra sinica"
+    },
+    {
+      "id": "herb:epimedium-spp",
+      "slug": "epimedium-spp",
+      "name": "Epimedium spp."
+    },
+    {
+      "id": "herb:equisetum-arvense",
+      "slug": "equisetum-arvense",
+      "name": "Equisetum arvense"
+    },
+    {
+      "id": "herb:eremophila-longifolia",
+      "slug": "eremophila-longifolia",
+      "name": "Eremophila longifolia"
+    },
+    {
+      "id": "herb:erigeron-canadensis",
+      "slug": "erigeron-canadensis",
+      "name": "Erigeron canadensis"
+    },
+    {
+      "id": "herb:ervatamia-coronaria",
+      "slug": "ervatamia-coronaria",
+      "name": "Ervatamia coronaria"
+    },
+    {
+      "id": "herb:eryngium-foetidum",
+      "slug": "eryngium-foetidum",
+      "name": "Eryngium foetidum"
+    },
+    {
+      "id": "herb:erythrina-flabelliformis",
+      "slug": "erythrina-flabelliformis",
+      "name": "Erythrina flabelliformis"
+    },
+    {
+      "id": "herb:erythrina-mulungu",
+      "slug": "erythrina-mulungu",
+      "name": "Erythrina mulungu"
+    },
+    {
+      "id": "herb:erythrina-subumbrans",
+      "slug": "erythrina-subumbrans",
+      "name": "Erythrina subumbrans"
+    },
+    {
+      "id": "herb:erythrina-variegata",
+      "slug": "erythrina-variegata",
+      "name": "Erythrina variegata"
+    },
+    {
+      "id": "herb:erythrina-vespertilio",
+      "slug": "erythrina-vespertilio",
+      "name": "Erythrina vespertilio"
+    },
+    {
+      "id": "herb:erythroxylum-novogranatense",
+      "slug": "erythroxylum-novogranatense",
+      "name": "Erythroxylum novogranatense"
+    },
+    {
+      "id": "herb:eucalyptus-globulus",
+      "slug": "eucalyptus-globulus",
+      "name": "Eucalyptus globulus"
+    },
+    {
+      "id": "herb:eupatorium-perfoliatum",
+      "slug": "eupatorium-perfoliatum",
+      "name": "Eupatorium perfoliatum"
+    },
+    {
+      "id": "herb:eurycoma-longifolia",
+      "slug": "eurycoma-longifolia",
+      "name": "Eurycoma longifolia"
+    },
+    {
+      "id": "herb:fagraea-berteroana",
+      "slug": "fagraea-berteroana",
+      "name": "Fagraea berteroana"
+    },
+    {
+      "id": "herb:ferula-assa-foetida",
+      "slug": "ferula-assa-foetida",
+      "name": "Ferula assa-foetida"
+    },
+    {
+      "id": "herb:ferula-communis",
+      "slug": "ferula-communis",
+      "name": "Ferula communis"
+    },
+    {
+      "id": "herb:ficus-tinctoria",
+      "slug": "ficus-tinctoria",
+      "name": "Ficus tinctoria"
+    },
+    {
+      "id": "herb:foeniculum-vulgare",
+      "slug": "foeniculum-vulgare",
+      "name": "Foeniculum vulgare"
+    },
+    {
+      "id": "herb:fucus-vesiculosus",
+      "slug": "fucus-vesiculosus",
+      "name": "Fucus vesiculosus"
+    },
+    {
+      "id": "herb:galium-aparine",
+      "slug": "galium-aparine",
+      "name": "Galium aparine"
+    },
+    {
+      "id": "herb:garcinia-cambogia",
+      "slug": "garcinia-cambogia",
+      "name": "Garcinia cambogia"
+    },
+    {
+      "id": "herb:gardenia-jasminoides",
+      "slug": "gardenia-jasminoides",
+      "name": "Gardenia jasminoides"
+    },
+    {
+      "id": "herb:gentiana-lutea",
+      "slug": "gentiana-lutea",
+      "name": "Gentiana lutea"
+    },
+    {
+      "id": "herb:geranium-robertianum",
+      "slug": "geranium-robertianum",
+      "name": "Geranium robertianum"
+    },
+    {
+      "id": "herb:glechoma-hederacea",
+      "slug": "glechoma-hederacea",
+      "name": "Glechoma hederacea"
+    },
+    {
+      "id": "herb:glycyrrhiza-glabra",
+      "slug": "glycyrrhiza-glabra",
+      "name": "Glycyrrhiza glabra"
+    },
+    {
+      "id": "herb:griffonia-simplicifolia",
+      "slug": "griffonia-simplicifolia",
+      "name": "Griffonia simplicifolia"
+    },
+    {
+      "id": "herb:grindelia-robusta",
+      "slug": "grindelia-robusta",
+      "name": "Grindelia robusta"
+    },
+    {
+      "id": "herb:hamamelis-virginiana",
+      "slug": "hamamelis-virginiana",
+      "name": "Hamamelis virginiana"
+    },
+    {
+      "id": "herb:harpagophytum-procumbens",
+      "slug": "harpagophytum-procumbens",
+      "name": "Harpagophytum procumbens"
+    },
+    {
+      "id": "herb:hedera-helix",
+      "slug": "hedera-helix",
+      "name": "Hedera helix"
+    },
+    {
+      "id": "herb:heimia-salicifolia",
+      "slug": "heimia-salicifolia",
+      "name": "Heimia salicifolia"
+    },
+    {
+      "id": "herb:heimia-spp",
+      "slug": "heimia-spp",
+      "name": "Heimia spp."
+    },
+    {
+      "id": "herb:helinus-integrifolius",
+      "slug": "helinus-integrifolius",
+      "name": "Helinus integrifolius"
+    },
+    {
+      "id": "herb:heliotropium-indicum",
+      "slug": "heliotropium-indicum",
+      "name": "Heliotropium indicum"
+    },
+    {
+      "id": "herb:hibiscus-tiliaceus",
+      "slug": "hibiscus-tiliaceus",
+      "name": "Hibiscus tiliaceus"
+    },
+    {
+      "id": "herb:humulus-lupulus",
+      "slug": "humulus-lupulus",
+      "name": "Humulus lupulus"
+    },
+    {
+      "id": "herb:hydrastis-canadensis",
+      "slug": "hydrastis-canadensis",
+      "name": "Hydrastis canadensis"
+    },
+    {
+      "id": "herb:hyoscyamus-niger",
+      "slug": "hyoscyamus-niger",
+      "name": "Hyoscyamus niger"
+    },
+    {
+      "id": "herb:ilex-guayusa",
+      "slug": "ilex-guayusa",
+      "name": "Ilex guayusa"
+    },
+    {
+      "id": "herb:ilex-paraguariensis",
+      "slug": "ilex-paraguariensis",
+      "name": "Ilex paraguariensis"
+    },
+    {
+      "id": "herb:inonotus-obliquus",
+      "slug": "inonotus-obliquus",
+      "name": "Inonotus obliquus"
+    },
+    {
+      "id": "herb:inula-helenium",
+      "slug": "inula-helenium",
+      "name": "Inula helenium"
+    },
+    {
+      "id": "herb:ipomoea-tricolor",
+      "slug": "ipomoea-tricolor",
+      "name": "Ipomoea tricolor"
+    },
+    {
+      "id": "herb:iresine-herbstii",
+      "slug": "iresine-herbstii",
+      "name": "Iresine herbstii"
+    },
+    {
+      "id": "herb:iris-germanica",
+      "slug": "iris-germanica",
+      "name": "Iris germanica"
+    },
+    {
+      "id": "herb:jatropha-podagrica",
+      "slug": "jatropha-podagrica",
+      "name": "Jatropha podagrica"
+    },
+    {
+      "id": "herb:juglans-nigra",
+      "slug": "juglans-nigra",
+      "name": "Juglans nigra"
+    },
+    {
+      "id": "herb:juniperus-communis",
+      "slug": "juniperus-communis",
+      "name": "Juniperus communis"
+    },
+    {
+      "id": "herb:juniperus-sibirica",
+      "slug": "juniperus-sibirica",
+      "name": "Juniperus sibirica"
+    },
+    {
+      "id": "herb:justicia-secunda",
+      "slug": "justicia-secunda",
+      "name": "Justicia secunda"
+    },
+    {
+      "id": "herb:kaempferia-galanga",
+      "slug": "kaempferia-galanga",
+      "name": "Kaempferia galanga"
+    },
+    {
+      "id": "herb:lactuca-virosa",
+      "slug": "lactuca-virosa",
+      "name": "Lactuca virosa"
+    },
+    {
+      "id": "herb:laminaria-digitata",
+      "slug": "laminaria-digitata",
+      "name": "Laminaria digitata"
+    },
+    {
+      "id": "herb:laurus-nobilis",
+      "slug": "laurus-nobilis",
+      "name": "Laurus nobilis"
+    },
+    {
+      "id": "herb:lavandula-angustifolia",
+      "slug": "lavandula-angustifolia",
+      "name": "Lavandula angustifolia"
+    },
+    {
+      "id": "herb:leonotis-leonurus",
+      "slug": "leonotis-leonurus",
+      "name": "Leonotis leonurus"
+    },
+    {
+      "id": "herb:leonotis-nepetifolia",
+      "slug": "leonotis-nepetifolia",
+      "name": "Leonotis nepetifolia"
+    },
+    {
+      "id": "herb:leonurus-cardiaca",
+      "slug": "leonurus-cardiaca",
+      "name": "Leonurus cardiaca"
+    },
+    {
+      "id": "herb:leonurus-japonicus",
+      "slug": "leonurus-japonicus",
+      "name": "Leonurus japonicus"
+    },
+    {
+      "id": "herb:leonurus-sibiricus",
+      "slug": "leonurus-sibiricus",
+      "name": "Leonurus sibiricus"
+    },
+    {
+      "id": "herb:lepidium-meyenii",
+      "slug": "lepidium-meyenii",
+      "name": "Lepidium meyenii"
+    },
+    {
+      "id": "herb:leptospermum-scoparium",
+      "slug": "leptospermum-scoparium",
+      "name": "Leptospermum scoparium"
+    },
+    {
+      "id": "herb:ligusticum-chuanxiong",
+      "slug": "ligusticum-chuanxiong",
+      "name": "Ligusticum chuanxiong"
+    },
+    {
+      "id": "herb:lilium-candidum",
+      "slug": "lilium-candidum",
+      "name": "Lilium candidum"
+    },
+    {
+      "id": "herb:linum-usitatissimum",
+      "slug": "linum-usitatissimum",
+      "name": "Linum usitatissimum"
+    },
+    {
+      "id": "herb:lippia-alba",
+      "slug": "lippia-alba",
+      "name": "Lippia alba"
+    },
+    {
+      "id": "herb:lobelia-tupa",
+      "slug": "lobelia-tupa",
+      "name": "Lobelia tupa"
+    },
+    {
+      "id": "herb:lomatium-dissectum",
+      "slug": "lomatium-dissectum",
+      "name": "Lomatium dissectum"
+    },
+    {
+      "id": "herb:lonicera-japonica",
+      "slug": "lonicera-japonica",
+      "name": "Lonicera japonica"
+    },
+    {
+      "id": "herb:lophophora-williamsii",
+      "slug": "lophophora-williamsii",
+      "name": "Lophophora williamsii"
+    },
+    {
+      "id": "herb:lycopodium-clavatum",
+      "slug": "lycopodium-clavatum",
+      "name": "Lycopodium clavatum"
+    },
+    {
+      "id": "herb:lycopus-virginicus",
+      "slug": "lycopus-virginicus",
+      "name": "Lycopus virginicus"
+    },
+    {
+      "id": "herb:lysergic-acid-diethylamide",
+      "slug": "lysergic-acid-diethylamide",
+      "name": "Lysergic acid diethylamide"
+    },
+    {
+      "id": "herb:macaranga-tanarius",
+      "slug": "macaranga-tanarius",
+      "name": "Macaranga tanarius"
+    },
+    {
+      "id": "herb:macropiper-excelsum",
+      "slug": "macropiper-excelsum",
+      "name": "Macropiper excelsum"
+    },
+    {
+      "id": "herb:maerua-angolensis",
+      "slug": "maerua-angolensis",
+      "name": "Maerua angolensis"
+    },
+    {
+      "id": "herb:malouetia-tamaquarina",
+      "slug": "malouetia-tamaquarina",
+      "name": "Malouetia tamaquarina"
+    },
+    {
+      "id": "herb:malva-sylvestris",
+      "slug": "malva-sylvestris",
+      "name": "Malva sylvestris"
+    },
+    {
+      "id": "herb:mandragora-officinarum",
+      "slug": "mandragora-officinarum",
+      "name": "Mandragora officinarum"
+    },
+    {
+      "id": "herb:matricaria-chamomilla",
+      "slug": "matricaria-chamomilla",
+      "name": "Matricaria chamomilla"
+    },
+    {
+      "id": "herb:melaleuca-alternifolia",
+      "slug": "melaleuca-alternifolia",
+      "name": "Melaleuca alternifolia"
+    },
+    {
+      "id": "herb:melissa-officinalis",
+      "slug": "melissa-officinalis",
+      "name": "Melissa officinalis"
+    },
+    {
+      "id": "herb:mentha-piperita",
+      "slug": "mentha-piperita",
+      "name": "Mentha piperita"
+    },
+    {
+      "id": "herb:menyanthes-trifoliata",
+      "slug": "menyanthes-trifoliata",
+      "name": "Menyanthes trifoliata"
+    },
+    {
+      "id": "herb:micromelum-minutum",
+      "slug": "micromelum-minutum",
+      "name": "Micromelum minutum"
+    },
+    {
+      "id": "herb:mitragyna-javanica",
+      "slug": "mitragyna-javanica",
+      "name": "Mitragyna javanica"
+    },
+    {
+      "id": "herb:mitragyna-javanica-mitragyna-hirsuta",
+      "slug": "mitragyna-javanica-mitragyna-hirsuta",
+      "name": "Mitragyna javanica / Mitragyna hirsuta"
+    },
+    {
+      "id": "herb:mitragyna-parvifolia",
+      "slug": "mitragyna-parvifolia",
+      "name": "Mitragyna parvifolia"
+    },
+    {
+      "id": "herb:mitragyna-speciosa",
+      "slug": "mitragyna-speciosa",
+      "name": "Mitragyna speciosa"
+    },
+    {
+      "id": "herb:mitragyna-stipulosa",
+      "slug": "mitragyna-stipulosa",
+      "name": "Mitragyna stipulosa"
+    },
+    {
+      "id": "herb:momordica-charantia",
+      "slug": "momordica-charantia",
+      "name": "Momordica charantia"
+    },
+    {
+      "id": "herb:monarda-fistulosa",
+      "slug": "monarda-fistulosa",
+      "name": "Monarda fistulosa"
+    },
+    {
+      "id": "herb:morinda-citrifolia",
+      "slug": "morinda-citrifolia",
+      "name": "Morinda citrifolia"
+    },
+    {
+      "id": "herb:moringa-oleifera",
+      "slug": "moringa-oleifera",
+      "name": "Moringa oleifera"
+    },
+    {
+      "id": "herb:myroxylon-balsamum",
+      "slug": "myroxylon-balsamum",
+      "name": "Myroxylon balsamum"
+    },
+    {
+      "id": "herb:nardostachys-jatamansi",
+      "slug": "nardostachys-jatamansi",
+      "name": "Nardostachys jatamansi"
+    },
+    {
+      "id": "herb:nepeta-cataria",
+      "slug": "nepeta-cataria",
+      "name": "Nepeta cataria"
+    },
+    {
+      "id": "herb:nerium-oleander",
+      "slug": "nerium-oleander",
+      "name": "Nerium oleander"
+    },
+    {
+      "id": "herb:nicotiana-rustica",
+      "slug": "nicotiana-rustica",
+      "name": "Nicotiana rustica"
+    },
+    {
+      "id": "herb:nicotiana-spp-polynesian",
+      "slug": "nicotiana-spp-polynesian",
+      "name": "Nicotiana spp. (Polynesian)"
+    },
+    {
+      "id": "herb:nigella-sativa",
+      "slug": "nigella-sativa",
+      "name": "Nigella sativa"
+    },
+    {
+      "id": "herb:nymphaea-caerulea",
+      "slug": "nymphaea-caerulea",
+      "name": "Nymphaea caerulea"
+    },
+    {
+      "id": "herb:nymphaea-nouchali",
+      "slug": "nymphaea-nouchali",
+      "name": "Nymphaea nouchali"
+    },
+    {
+      "id": "herb:ocimum-sanctum",
+      "slug": "ocimum-sanctum",
+      "name": "Ocimum sanctum"
+    },
+    {
+      "id": "herb:ocimum-tenuiflorum",
+      "slug": "ocimum-tenuiflorum",
+      "name": "Ocimum tenuiflorum"
+    },
+    {
+      "id": "herb:ocimum-tenuiflorum-tulsi",
+      "slug": "ocimum-tenuiflorum-tulsi",
+      "name": "Ocimum tenuiflorum (Tulsi)"
+    },
+    {
+      "id": "herb:oenothera-biennis",
+      "slug": "oenothera-biennis",
+      "name": "Oenothera biennis"
+    },
+    {
+      "id": "herb:ononis-spinosa",
+      "slug": "ononis-spinosa",
+      "name": "Ononis spinosa"
+    },
+    {
+      "id": "herb:origanum-vulgare",
+      "slug": "origanum-vulgare",
+      "name": "Origanum vulgare"
+    },
+    {
+      "id": "herb:panax-ginseng",
+      "slug": "panax-ginseng",
+      "name": "Panax ginseng"
+    },
+    {
+      "id": "herb:panax-quinquefolius",
+      "slug": "panax-quinquefolius",
+      "name": "Panax quinquefolius"
+    },
+    {
+      "id": "herb:pandanus-tectorius",
+      "slug": "pandanus-tectorius",
+      "name": "Pandanus tectorius"
+    },
+    {
+      "id": "herb:papaver-somniferum",
+      "slug": "papaver-somniferum",
+      "name": "Papaver somniferum"
+    },
+    {
+      "id": "herb:passiflora-incarnata",
+      "slug": "passiflora-incarnata",
+      "name": "Passiflora incarnata"
+    },
+    {
+      "id": "herb:paullinia-cupana",
+      "slug": "paullinia-cupana",
+      "name": "Paullinia cupana"
+    },
+    {
+      "id": "herb:paullinia-pinnata",
+      "slug": "paullinia-pinnata",
+      "name": "Paullinia pinnata"
+    },
+    {
+      "id": "herb:pedicularis-densiflora",
+      "slug": "pedicularis-densiflora",
+      "name": "Pedicularis densiflora"
+    },
+    {
+      "id": "herb:peganum-harmala",
+      "slug": "peganum-harmala",
+      "name": "Peganum harmala"
+    },
+    {
+      "id": "herb:pelargonium-sidoides",
+      "slug": "pelargonium-sidoides",
+      "name": "Pelargonium sidoides"
+    },
+    {
+      "id": "herb:peperomia-pellucida",
+      "slug": "peperomia-pellucida",
+      "name": "Peperomia pellucida"
+    },
+    {
+      "id": "herb:petiveria-alliacea",
+      "slug": "petiveria-alliacea",
+      "name": "Petiveria alliacea"
+    },
+    {
+      "id": "herb:phalaris-arundinacea",
+      "slug": "phalaris-arundinacea",
+      "name": "Phalaris arundinacea"
+    },
+    {
+      "id": "herb:phellodendron-amurense",
+      "slug": "phellodendron-amurense",
+      "name": "Phellodendron amurense"
+    },
+    {
+      "id": "herb:picrorhiza-kurroa",
+      "slug": "picrorhiza-kurroa",
+      "name": "Picrorhiza kurroa"
+    },
+    {
+      "id": "herb:pimenta-racemosa",
+      "slug": "pimenta-racemosa",
+      "name": "Pimenta racemosa"
+    },
+    {
+      "id": "herb:pimpinella-anisum",
+      "slug": "pimpinella-anisum",
+      "name": "Pimpinella anisum"
+    },
+    {
+      "id": "herb:piper-auritum",
+      "slug": "piper-auritum",
+      "name": "Piper auritum"
+    },
+    {
+      "id": "herb:piptadenia-peregrina",
+      "slug": "piptadenia-peregrina",
+      "name": "Piptadenia peregrina"
+    },
+    {
+      "id": "herb:pipturus-albidus",
+      "slug": "pipturus-albidus",
+      "name": "Pipturus albidus"
+    },
+    {
+      "id": "herb:plantago-major",
+      "slug": "plantago-major",
+      "name": "Plantago major"
+    },
+    {
+      "id": "herb:plantago-ovata",
+      "slug": "plantago-ovata",
+      "name": "Plantago ovata"
+    },
+    {
+      "id": "herb:podophyllum-peltatum",
+      "slug": "podophyllum-peltatum",
+      "name": "Podophyllum peltatum"
+    },
+    {
+      "id": "herb:polygonum-multiflorum",
+      "slug": "polygonum-multiflorum",
+      "name": "Polygonum multiflorum"
+    },
+    {
+      "id": "herb:poria-cocos",
+      "slug": "poria-cocos",
+      "name": "Poria cocos"
+    },
+    {
+      "id": "herb:prestonia-amazonica",
+      "slug": "prestonia-amazonica",
+      "name": "Prestonia amazonica"
+    },
+    {
+      "id": "herb:primula-veris",
+      "slug": "primula-veris",
+      "name": "Primula veris"
+    },
+    {
+      "id": "herb:prunella-vulgaris",
+      "slug": "prunella-vulgaris",
+      "name": "Prunella vulgaris"
+    },
+    {
+      "id": "herb:psilocybe-mexicana",
+      "slug": "psilocybe-mexicana",
+      "name": "Psilocybe mexicana"
+    },
+    {
+      "id": "herb:psilocybin",
+      "slug": "psilocybin",
+      "name": "Psilocybin"
+    },
+    {
+      "id": "herb:psychotria-viridis",
+      "slug": "psychotria-viridis",
+      "name": "Psychotria viridis"
+    },
+    {
+      "id": "herb:ptychopetalum-olacoides",
+      "slug": "ptychopetalum-olacoides",
+      "name": "Ptychopetalum olacoides"
+    },
+    {
+      "id": "herb:pueraria-mirifica",
+      "slug": "pueraria-mirifica",
+      "name": "Pueraria mirifica"
+    },
+    {
+      "id": "herb:punica-granatum",
+      "slug": "punica-granatum",
+      "name": "Punica granatum"
+    },
+    {
+      "id": "herb:quassia-amara",
+      "slug": "quassia-amara",
+      "name": "Quassia amara"
+    },
+    {
+      "id": "herb:rauvolfia-serpentina",
+      "slug": "rauvolfia-serpentina",
+      "name": "Rauvolfia serpentina"
+    },
+    {
+      "id": "herb:rauvolfia-vomitoria",
+      "slug": "rauvolfia-vomitoria",
+      "name": "Rauvolfia vomitoria"
+    },
+    {
+      "id": "herb:rheum-palmatum",
+      "slug": "rheum-palmatum",
+      "name": "Rheum palmatum"
+    },
+    {
+      "id": "herb:rhizophora-mangle",
+      "slug": "rhizophora-mangle",
+      "name": "Rhizophora mangle"
+    },
+    {
+      "id": "herb:rhizophora-stylosa",
+      "slug": "rhizophora-stylosa",
+      "name": "Rhizophora stylosa"
+    },
+    {
+      "id": "herb:rhodiola-rosea",
+      "slug": "rhodiola-rosea",
+      "name": "Rhodiola rosea"
+    },
+    {
+      "id": "herb:rhododendron-tomentosum",
+      "slug": "rhododendron-tomentosum",
+      "name": "Rhododendron tomentosum"
+    },
+    {
+      "id": "herb:rhynchosia-phaseoloides",
+      "slug": "rhynchosia-phaseoloides",
+      "name": "Rhynchosia phaseoloides"
+    },
+    {
+      "id": "herb:ricinus-communis",
+      "slug": "ricinus-communis",
+      "name": "Ricinus communis"
+    },
+    {
+      "id": "herb:rosa-canina",
+      "slug": "rosa-canina",
+      "name": "Rosa canina"
+    },
+    {
+      "id": "herb:rosmarinus-officinalis",
+      "slug": "rosmarinus-officinalis",
+      "name": "Rosmarinus officinalis"
+    },
+    {
+      "id": "herb:ruta-chalepensis",
+      "slug": "ruta-chalepensis",
+      "name": "Ruta chalepensis"
+    },
+    {
+      "id": "herb:salacia-reticulata",
+      "slug": "salacia-reticulata",
+      "name": "Salacia reticulata"
+    },
+    {
+      "id": "herb:salix-alba",
+      "slug": "salix-alba",
+      "name": "Salix alba"
+    },
+    {
+      "id": "herb:salvia-divinorum",
+      "slug": "salvia-divinorum",
+      "name": "Salvia divinorum"
+    },
+    {
+      "id": "herb:salvia-dorrii",
+      "slug": "salvia-dorrii",
+      "name": "Salvia dorrii"
+    },
+    {
+      "id": "herb:salvia-miltiorrhiza",
+      "slug": "salvia-miltiorrhiza",
+      "name": "Salvia miltiorrhiza"
+    },
+    {
+      "id": "herb:salvia-officinalis",
+      "slug": "salvia-officinalis",
+      "name": "Salvia officinalis"
+    },
+    {
+      "id": "herb:sambucus-nigra",
+      "slug": "sambucus-nigra",
+      "name": "Sambucus nigra"
+    },
+    {
+      "id": "herb:sanguinaria-canadensis",
+      "slug": "sanguinaria-canadensis",
+      "name": "Sanguinaria canadensis"
+    },
+    {
+      "id": "herb:scaevola-taccada",
+      "slug": "scaevola-taccada",
+      "name": "Scaevola taccada"
+    },
+    {
+      "id": "herb:sceletium-expansum",
+      "slug": "sceletium-expansum",
+      "name": "Sceletium expansum"
+    },
+    {
+      "id": "herb:sceletium-tortuosum",
+      "slug": "sceletium-tortuosum",
+      "name": "Sceletium tortuosum"
+    },
+    {
+      "id": "herb:schisandra-chinensis",
+      "slug": "schisandra-chinensis",
+      "name": "Schisandra chinensis"
+    },
+    {
+      "id": "herb:scoparia-dulcis",
+      "slug": "scoparia-dulcis",
+      "name": "Scoparia dulcis"
+    },
+    {
+      "id": "herb:scopolia-carniolica",
+      "slug": "scopolia-carniolica",
+      "name": "Scopolia carniolica"
+    },
+    {
+      "id": "herb:scutellaria-baicalensis",
+      "slug": "scutellaria-baicalensis",
+      "name": "Scutellaria baicalensis"
+    },
+    {
+      "id": "herb:scutellaria-lateriflora",
+      "slug": "scutellaria-lateriflora",
+      "name": "Scutellaria lateriflora"
+    },
+    {
+      "id": "herb:selaginella-tamariscina",
+      "slug": "selaginella-tamariscina",
+      "name": "Selaginella tamariscina"
+    },
+    {
+      "id": "herb:selinum-tenuifolium",
+      "slug": "selinum-tenuifolium",
+      "name": "Selinum tenuifolium"
+    },
+    {
+      "id": "herb:senna-alexandrina",
+      "slug": "senna-alexandrina",
+      "name": "Senna alexandrina"
+    },
+    {
+      "id": "herb:serenoa-repens",
+      "slug": "serenoa-repens",
+      "name": "Serenoa repens"
+    },
+    {
+      "id": "herb:sida-cordifolia",
+      "slug": "sida-cordifolia",
+      "name": "Sida cordifolia"
+    },
+    {
+      "id": "herb:smilax-ornata",
+      "slug": "smilax-ornata",
+      "name": "Smilax ornata"
+    },
+    {
+      "id": "herb:solandra-maxima",
+      "slug": "solandra-maxima",
+      "name": "Solandra maxima"
+    },
+    {
+      "id": "herb:solanum-nigrum",
+      "slug": "solanum-nigrum",
+      "name": "Solanum nigrum"
+    },
+    {
+      "id": "herb:solidago-virgaurea",
+      "slug": "solidago-virgaurea",
+      "name": "Solidago virgaurea"
+    },
+    {
+      "id": "herb:sophora-flavescens",
+      "slug": "sophora-flavescens",
+      "name": "Sophora flavescens"
+    },
+    {
+      "id": "herb:stachytarpheta-cayennensis",
+      "slug": "stachytarpheta-cayennensis",
+      "name": "Stachytarpheta cayennensis"
+    },
+    {
+      "id": "herb:stephania-cepharantha",
+      "slug": "stephania-cepharantha",
+      "name": "Stephania cepharantha"
+    },
+    {
+      "id": "herb:stephania-tetrandra",
+      "slug": "stephania-tetrandra",
+      "name": "Stephania tetrandra"
+    },
+    {
+      "id": "herb:symphytum-officinale",
+      "slug": "symphytum-officinale",
+      "name": "Symphytum officinale"
+    },
+    {
+      "id": "herb:synaptolepis-kirkii",
+      "slug": "synaptolepis-kirkii",
+      "name": "Synaptolepis kirkii"
+    },
+    {
+      "id": "herb:syzygium-aromaticum",
+      "slug": "syzygium-aromaticum",
+      "name": "Syzygium aromaticum"
+    },
+    {
+      "id": "herb:tabebuia-impetiginosa",
+      "slug": "tabebuia-impetiginosa",
+      "name": "Tabebuia impetiginosa"
+    },
+    {
+      "id": "herb:tabernaemontana-africana",
+      "slug": "tabernaemontana-africana",
+      "name": "Tabernaemontana africana"
+    },
+    {
+      "id": "herb:tabernaemontana-divaricata",
+      "slug": "tabernaemontana-divaricata",
+      "name": "Tabernaemontana divaricata"
+    },
+    {
+      "id": "herb:tabernaemontana-sananho",
+      "slug": "tabernaemontana-sananho",
+      "name": "Tabernaemontana sananho"
+    },
+    {
+      "id": "herb:tabernaemontana-spp",
+      "slug": "tabernaemontana-spp",
+      "name": "Tabernaemontana spp."
+    },
+    {
+      "id": "herb:tabernanthe-iboga",
+      "slug": "tabernanthe-iboga",
+      "name": "Tabernanthe iboga"
+    },
+    {
+      "id": "herb:tagetes-lucida",
+      "slug": "tagetes-lucida",
+      "name": "Tagetes lucida"
+    },
+    {
+      "id": "herb:tanaecium-nocturnum",
+      "slug": "tanaecium-nocturnum",
+      "name": "Tanaecium nocturnum"
+    },
+    {
+      "id": "herb:taraxacum-officinale",
+      "slug": "taraxacum-officinale",
+      "name": "Taraxacum officinale"
+    },
+    {
+      "id": "herb:tasmannia-lanceolata",
+      "slug": "tasmannia-lanceolata",
+      "name": "Tasmannia lanceolata"
+    },
+    {
+      "id": "herb:tetradium-ruticarpum",
+      "slug": "tetradium-ruticarpum",
+      "name": "Tetradium ruticarpum"
+    },
+    {
+      "id": "herb:tetrapleura-tetraptera",
+      "slug": "tetrapleura-tetraptera",
+      "name": "Tetrapleura tetraptera"
+    },
+    {
+      "id": "herb:tetrapterys-methystica",
+      "slug": "tetrapterys-methystica",
+      "name": "Tetrapterys methystica"
+    },
+    {
+      "id": "herb:teucrium-chamaedrys",
+      "slug": "teucrium-chamaedrys",
+      "name": "Teucrium chamaedrys"
+    },
+    {
+      "id": "herb:theobroma-bicolor",
+      "slug": "theobroma-bicolor",
+      "name": "Theobroma bicolor"
+    },
+    {
+      "id": "herb:theobroma-cacao",
+      "slug": "theobroma-cacao",
+      "name": "Theobroma cacao"
+    },
+    {
+      "id": "herb:thevetia-peruviana",
+      "slug": "thevetia-peruviana",
+      "name": "Thevetia peruviana"
+    },
+    {
+      "id": "herb:tragia-involucrata",
+      "slug": "tragia-involucrata",
+      "name": "Tragia involucrata"
+    },
+    {
+      "id": "herb:trichilia-catigua",
+      "slug": "trichilia-catigua",
+      "name": "Trichilia catigua"
+    },
+    {
+      "id": "herb:trichilia-emetica",
+      "slug": "trichilia-emetica",
+      "name": "Trichilia emetica"
+    },
+    {
+      "id": "herb:trichocereus-bridgesii",
+      "slug": "trichocereus-bridgesii",
+      "name": "Trichocereus bridgesii"
+    },
+    {
+      "id": "herb:trifolium-pratense",
+      "slug": "trifolium-pratense",
+      "name": "Trifolium pratense"
+    },
+    {
+      "id": "herb:turbina-corymbosa",
+      "slug": "turbina-corymbosa",
+      "name": "Turbina corymbosa"
+    },
+    {
+      "id": "herb:tussilago-farfara",
+      "slug": "tussilago-farfara",
+      "name": "Tussilago farfara"
+    },
+    {
+      "id": "herb:tylophora-indica",
+      "slug": "tylophora-indica",
+      "name": "Tylophora indica"
+    },
+    {
+      "id": "herb:usnea-barbata",
+      "slug": "usnea-barbata",
+      "name": "Usnea barbata"
+    },
+    {
+      "id": "herb:valeriana-officinalis",
+      "slug": "valeriana-officinalis",
+      "name": "Valeriana officinalis"
+    },
+    {
+      "id": "herb:verbascum-thapsus",
+      "slug": "verbascum-thapsus",
+      "name": "Verbascum thapsus"
+    },
+    {
+      "id": "herb:veronicastrum-virginicum",
+      "slug": "veronicastrum-virginicum",
+      "name": "Veronicastrum virginicum"
+    },
+    {
+      "id": "herb:viburnum-opulus",
+      "slug": "viburnum-opulus",
+      "name": "Viburnum opulus"
+    },
+    {
+      "id": "herb:vinca-minor",
+      "slug": "vinca-minor",
+      "name": "Vinca minor"
+    },
+    {
+      "id": "herb:viola-odorata",
+      "slug": "viola-odorata",
+      "name": "Viola odorata"
+    },
+    {
+      "id": "herb:virola-calophylla",
+      "slug": "virola-calophylla",
+      "name": "Virola calophylla"
+    },
+    {
+      "id": "herb:virola-elongata",
+      "slug": "virola-elongata",
+      "name": "Virola elongata"
+    },
+    {
+      "id": "herb:virola-sebifera",
+      "slug": "virola-sebifera",
+      "name": "Virola sebifera"
+    },
+    {
+      "id": "herb:virola-spp",
+      "slug": "virola-spp",
+      "name": "Virola spp."
+    },
+    {
+      "id": "herb:viscum-album",
+      "slug": "viscum-album",
+      "name": "Viscum album"
+    },
+    {
+      "id": "herb:vitex-agnus-castus",
+      "slug": "vitex-agnus-castus",
+      "name": "Vitex agnus-castus"
+    },
+    {
+      "id": "herb:vitex-trifolia",
+      "slug": "vitex-trifolia",
+      "name": "Vitex trifolia"
+    },
+    {
+      "id": "herb:withania-somnifera",
+      "slug": "withania-somnifera",
+      "name": "Withania somnifera"
+    },
+    {
+      "id": "herb:xanthium-strumarium",
+      "slug": "xanthium-strumarium",
+      "name": "Xanthium strumarium"
+    },
+    {
+      "id": "herb:yucca-schidigera",
+      "slug": "yucca-schidigera",
+      "name": "Yucca schidigera"
+    },
+    {
+      "id": "herb:zanthoxylum-capense",
+      "slug": "zanthoxylum-capense",
+      "name": "Zanthoxylum capense"
+    },
+    {
+      "id": "herb:zingiber-officinale",
+      "slug": "zingiber-officinale",
+      "name": "Zingiber officinale"
+    },
+    {
+      "id": "herb:zornia-latifolia",
+      "slug": "zornia-latifolia",
+      "name": "Zornia latifolia"
+    },
+    {
+      "id": "herb:9-tetrahydrocannabinol-from-cannabis-sativa-indica",
+      "slug": "9-tetrahydrocannabinol-from-cannabis-sativa-indica",
+      "name": "Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)"
+    }
+  ],
+  "posts": [
+    {
+      "id": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "slug": "kava-calming-the-storm-traditional-vs-modern-use",
+      "title": "Kava: Calming the Storm — Traditional vs. Modern Use"
+    }
+  ],
+  "edgesHP": [
+    {
+      "from": "herb:acacia-phlebophylla",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:adenostoma-fasciculatum",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:alyxia-stellata",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:amphipterygium-adstringens",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:aquilaria-agallocha",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:artemisia-tilesii",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:barringtonia-asiatica",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:boophone-disticha",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:bursera-graveolens",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:calliandra-portoricensis",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:capparis-erythrocarpos",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:ceanothus-integerrimus",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:clematis-vitalba",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:clerodendrum-glabrum",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:cordyline-fruticosa",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:cymbopogon-citratus",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:delosperma-bosseranum",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:duboisia-hopwoodii",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:erythrina-mulungu",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:erythrina-subumbrans",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:erythrina-variegata",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:erythrina-vespertilio",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:fagraea-berteroana",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:gardenia-jasminoides",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:heimia-salicifolia",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:heimia-spp",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 2
+    },
+    {
+      "from": "herb:helinus-integrifolius",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:hyoscyamus-niger",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:ipomoea-tricolor",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:iris-germanica",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:kaempferia-galanga",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:leonotis-leonurus",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:leonotis-nepetifolia",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:leonurus-sibiricus",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:maerua-angolensis",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:matricaria-chamomilla",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:micromelum-minutum",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:mitragyna-javanica-mitragyna-hirsuta",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:monarda-fistulosa",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:nardostachys-jatamansi",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:nerium-oleander",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:nymphaea-nouchali",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:pedicularis-densiflora",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:piper-auritum",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:poria-cocos",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:rhynchosia-phaseoloides",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:salvia-dorrii",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:selaginella-tamariscina",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:selinum-tenuifolium",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:stachytarpheta-cayennensis",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:synaptolepis-kirkii",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:tabernanthe-iboga",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:tagetes-lucida",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:viscum-album",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    },
+    {
+      "from": "herb:zornia-latifolia",
+      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "w": 1
+    }
+  ],
+  "edgesPH": [
+    {
+      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "to": "herb:heimia-spp",
+      "w": 2
+    },
+    {
+      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "to": "herb:acacia-phlebophylla",
+      "w": 1
+    },
+    {
+      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "to": "herb:adenostoma-fasciculatum",
+      "w": 1
+    },
+    {
+      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "to": "herb:alyxia-stellata",
+      "w": 1
+    },
+    {
+      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "to": "herb:amphipterygium-adstringens",
+      "w": 1
+    },
+    {
+      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "to": "herb:aquilaria-agallocha",
+      "w": 1
+    }
+  ]
+}
