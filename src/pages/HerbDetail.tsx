@@ -6,6 +6,7 @@ import Card from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { chipClassFor } from "../lib/tags";
 import Meta from "../components/Meta";
+import { relatedPostsForHerb } from "../lib/relatedPosts";
 
 const hasVal = (v: any) =>
   Array.isArray(v) ? v.filter(Boolean).length > 0 : !!String(v ?? "").trim();
@@ -16,6 +17,41 @@ type Herb = (typeof data)[number];
 type Param = {
   slug?: string;
 };
+
+function RelatedPosts({ herb }: { herb: Herb }) {
+  const posts = relatedPostsForHerb(herb);
+  if (!posts.length) return null;
+
+  return (
+    <section className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm p-5 mt-8">
+      <h2 className="text-lg font-semibold text-white/90 mb-3">Related Posts</h2>
+      <ul className="space-y-3">
+        {posts.map((p, i) => (
+          <li key={i}>
+            <a href={`/blog/${p.slug}`} className="underline text-cyan-300 hover:text-cyan-200">
+              {p.title}
+            </a>
+            {p.date && (
+              <p className="text-xs text-white/50">
+                {new Date(p.date).toLocaleDateString(undefined, {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </p>
+            )}
+            <p className="text-sm text-white/70 line-clamp-2">{p.description}</p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-3 text-sm">
+        <a href="/blog" className="underline text-cyan-300 hover:text-cyan-200">
+          View all posts →
+        </a>
+      </div>
+    </section>
+  );
+}
 
 export default function HerbDetail() {
   const { slug } = useParams<Param>();
@@ -231,6 +267,8 @@ export default function HerbDetail() {
             </Collapse>
           </Card>
         )}
+
+        <RelatedPosts herb={herb} />
 
         <div className="text-sm text-sub">
           <Link to="/database" className="underline decoration-dotted underline-offset-4">
