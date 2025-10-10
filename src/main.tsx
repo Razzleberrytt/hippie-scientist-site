@@ -5,8 +5,17 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import { ThemeProvider } from './contexts/theme';
 import ErrorBoundary from './components/ErrorBoundary';
+import { initConsentDefault } from './lib/consent';
+import { loadAnalytics, onConsentChange } from './lib/loadAnalytics';
 import './index.css';
 import './styles/clamp.css';
+
+initConsentDefault();
+loadAnalytics();
+
+window.addEventListener('storage', (event: StorageEvent) => {
+  if (event.key === 'consent.v1') onConsentChange();
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

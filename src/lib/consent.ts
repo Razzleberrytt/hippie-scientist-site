@@ -52,3 +52,7 @@ export function applyGaConsent(status: ConsentStatus) {
     });
   } catch {}
 }
+
+export function debugConsent() {
+  console.log('Consent:', getConsent());
+}

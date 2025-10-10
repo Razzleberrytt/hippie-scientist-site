@@ -50,6 +50,7 @@ export default function ConsentBanner() {
               onClick={() => {
                 setConsent('granted');
                 setShow(false);
+                import('../lib/loadAnalytics').then((module) => module.loadAnalytics());
               }}
             >
               Accept
