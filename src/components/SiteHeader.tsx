@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import ThemeMenu from "./ThemeMenu";
 
 const links = [
@@ -9,7 +10,10 @@ const links = [
 
 export default function SiteHeader() {
   return (
-    <header
+    <motion.header
+      initial={{ y: -30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className="site-header sticky top-0 z-40 border-b"
       style={{
         backdropFilter: "saturate(120%) blur(10px)",
@@ -38,6 +42,6 @@ export default function SiteHeader() {
           <ThemeMenu />
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }
