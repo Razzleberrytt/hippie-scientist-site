@@ -67,7 +67,7 @@ function rebuildJSON(){
     const date = fm.date || todayISO();
     const title = fm.title || slug;
     const tags = fm.tags || [];
-    const excerpt = clean(body).slice(0, 220);
+    const excerpt = smartExcerpt(body);
     const html = mdToHtml(body);
     return { slug, date, title, tags, excerpt, html };
   });
@@ -156,34 +156,85 @@ Rules:
 
 function outlinePrompt(topic){
   return `Topic: ${topic}
-Produce a compact outline for a 800–1200 word article about psychedelic botany/herbalism.
-Sections (H2/H3) only; no prose. Include a "Safety & Contraindications" section and "Sources".`;
+Produce a detailed outline for a long-form article (target 1,800–2,600 words) on psychedelic botany/herbalism.
+
+Sections (H2/H3) only; no prose. Include:
+- Abstract (2–4 sentences)
+- Table of Contents (bulleted)
+- Core sections (8–12 H2s) with 1–3 H3s each
+- "Safety & Contraindications"
+- "Interactions & Legal Notes" (if relevant)
+- "Preparation & Dosage" (if relevant; emphasize not medical advice)
+- "FAQs" (5–8 concise Q&A)
+- "Sources" (placeholder)
+Do not write the article yet; outline only.`;
 }
 
 function draftPrompt(topic, outline, contextBlob){
-  return `Write a 800–1200 word Markdown article using this outline.
-Constraints:
-- Cite at least 3 credible sources (PubMed, NIH/ODS, Cochrane, textbooks). Links only.
-- If evidence is weak, say so plainly.
-- Use neutral language; no health claims beyond evidence.
+  return `Write a long-form Markdown article (target 1,800–2,600 words) on: ${topic}
+
+STRICT REQUIREMENTS:
+- Start with a short **Abstract** (2–4 sentences) summarizing key points.
+- Include a **Table of Contents** (bulleted list linking to section headings with markdown anchors).
+- Use clear H2/H3 hierarchy exactly as in the outline; expand each H3 with 2–4 paragraphs where relevant.
+- Include at least two **Sidebars/Callouts** (blockquotes or > **Note:** style) for nuance, controversies, or cautions.
+- Add a **FAQs** section with 5–8 Q&A, answers 2–4 sentences each.
+- Include a **Sources** section with 4–8 credible links (PubMed, NIH/ODS, Cochrane, reputable textbooks/publishers). No blogs/marketing.
+- Maintain neutral tone. Flag weak evidence explicitly. No medical advice.
 - End with: "> **Disclaimer:** Educational content only; not medical advice."
 
-Outline:
-${outline}
-
-Context (may quote/paraphrase cautiously):
+Context (use cautiously; don’t overfit):
 ${contextBlob}
-`;
+
+Outline:
+${outline}`;
 }
 
 function polishPrompt(markdown){
-  return `Polish and fact-scrub this Markdown for clarity and concision.
-- Fix hedging and remove hype.
-- Keep all headings and links.
-- Keep final disclaimer.
+  return `Polish and fact-scrub this Markdown for clarity, cohesion, and correctness.
+- Keep word count within 1,800–2,600 words.
+- Keep all headings, TOC, callouts, FAQs, Sources, and final disclaimer.
+- Tighten language (no hype), fix hedging, ensure citations remain.
 
-Content:
+CONTENT TO POLISH:
 ${markdown}`;
+}
+
+function wordCount(s){ return String(s||"").trim().split(/\s+/).filter(Boolean).length; }
+
+async function extendIfShort(md, topic, contextBlob){
+  if (wordCount(md) >= 1600) return md;
+  const extender = await callOpenAI([
+    { role: "system", content: sys() },
+    { role: "user", content:
+`The article below is under-length. Extend it to reach 1,800–2,600 words while keeping the structure (headings, TOC, FAQs, Sources, Disclaimer).
+- Add depth: mechanisms, historical context, study summaries, limitations, contrasting viewpoints.
+- Do not add fluff; add substance and nuance.
+- Keep neutral tone and safety language.
+
+Topic: ${topic}
+
+Context (optional reference):
+${contextBlob}
+
+Article to extend:
+${md}`
+    }
+  ], { maxTokens: 1800, temperature: 0.25 });
+  return extender;
+}
+
+function smartExcerpt(md, max = 230){
+  const body = md
+    .replace(/^---[\s\S]*?---\n/, "")
+    .replace(/^>.*$/gm, "")
+    .replace(/^#{1,6}\s.*$/gm, "")
+    .replace(/\[(.*?)\]\((.*?)\)/g, "$1");
+  const text = body.replace(/\s+/g," ").trim();
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const lastPeriod = cut.lastIndexOf(".");
+  return (lastPeriod > 80 ? cut.slice(0, lastPeriod+1) : cut) + (lastPeriod>80 ? "" : "…");
 }
 
 function herbContext(topic){
@@ -212,30 +263,32 @@ async function aiArticle(){
   const outline = await callOpenAI([
     { role: "system", content: sys() },
     { role: "user", content: outlinePrompt(topic) }
-  ], { maxTokens: 500, temperature: 0.2 });
+  ], { maxTokens: 900,  temperature: 0.2 });
 
   // 2) Draft
   const contextBlob = herbContext(topic);
   const draft = await callOpenAI([
     { role: "system", content: sys() },
     { role: "user", content: draftPrompt(topic, outline, contextBlob) }
-  ], { maxTokens: 1600, temperature: 0.35 });
+  ], { maxTokens: 3500, temperature: 0.35 });
 
   // 3) Polish
   const finalMd = await callOpenAI([
     { role: "system", content: sys() },
     { role: "user", content: polishPrompt(draft) }
-  ], { maxTokens: 1400, temperature: 0.2 });
+  ], { maxTokens: 2600, temperature: 0.2 });
+
+  let longMd = await extendIfShort(finalMd, topic, contextBlob);
 
   // Extract title (first H1) and excerpt
-  const h1 = finalMd.match(/^#\s+(.+?)\s*$/m)?.[1] || topic;
+  const h1 = longMd.match(/^#\s+(.+?)\s*$/m)?.[1] || topic;
   const slug = `${slugify(h1)}-${hash(date+h1)}`;
-  const excerpt = clean(finalMd.replace(/^>.*$/gm,"").replace(/^#{1,6}\s.*$/gm,"")).slice(0,220);
+  const excerpt = smartExcerpt(longMd);
   const tags = ["ai","daily","herbalism"];
 
   const fm = `---\nslug: ${slug}\ndate: ${date}\ntitle: "${h1.replace(/"/g,'\\"')}"\ntags: [${tags.map(t=>`"${t}"`).join(", ")}]
 ---\n\n`;
-  const markdown = fm + finalMd;
+  const markdown = fm + longMd;
 
   return { slug, date, title: h1, excerpt, tags, markdown };
 }
