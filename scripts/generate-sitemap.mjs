@@ -84,10 +84,15 @@ try {
 }
 
 let blogPosts = [];
+let blogUrls = [];
 try {
-  blogPosts = JSON.parse(
-    fs.readFileSync("src/data/blog/posts.json", "utf-8"),
+  const posts = JSON.parse(
+    fs.readFileSync("public/blogdata/posts.json", "utf-8"),
   );
+  blogPosts = Array.isArray(posts) ? posts : [];
+  blogUrls = blogPosts
+    .filter((post) => post && post.slug)
+    .map((post) => `/blog/${post.slug}`);
   blogPosts
     .filter((post) => post && post.slug)
     .forEach((post) => {
@@ -103,6 +108,7 @@ try {
     console.warn("Skipping blog URLs:", error);
   }
   blogPosts = [];
+  blogUrls = [];
 }
 
 const sortedEntries = Array.from(urlEntries.values()).sort((a, b) =>

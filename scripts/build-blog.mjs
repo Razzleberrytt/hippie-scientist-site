@@ -1,102 +1,49 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { generateOgForBlog, generateDefaultOg } from "./generate-og.mjs";
+import { marked } from "marked";
 
-const DIR = path.resolve("src/content/blog");
-const OUT = path.resolve("src/data/blog/posts.json");
+const SRC = "content/blog";
+const OUT_DIR = "public/blogdata";       // static json/html that the app fetches
+fs.mkdirSync(OUT_DIR, { recursive: true });
 
-fs.mkdirSync(path.dirname(OUT), { recursive: true });
-
-let renderMarkdown = (value) => value;
-
-try {
-  const mod = await import("marked");
-  const markedModule = mod.marked ?? mod.default ?? mod;
-  if (markedModule) {
-    renderMarkdown = typeof markedModule === "function"
-      ? markedModule
-      : markedModule.parse?.bind(markedModule) ?? renderMarkdown;
-  }
-} catch (error) {
-  console.warn("⚠️  marked not found — skipping markdown build");
-}
-
-function slugify(s) {
-  return String(s || "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
-function getExcerpt(markdown) {
-  const stripped = markdown
-    .replace(/[#*_>\-\n`]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-  return stripped.slice(0, 240) + (stripped.length > 240 ? "…" : "");
-}
-
-const files = fs.existsSync(DIR)
-  ? fs.readdirSync(DIR).filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
+/** read all .md posts */
+const files = fs.existsSync(SRC)
+  ? fs.readdirSync(SRC).filter(f => f.endsWith(".md"))
   : [];
 
-const posts = [];
-
-for (const file of files) {
-  const src = fs.readFileSync(path.join(DIR, file), "utf-8");
-  const { data: fm, content } = matter(src);
-  const html = renderMarkdown(content);
-
-  const title = fm.title || path.basename(file, path.extname(file));
-  const slug = fm.slug || slugify(title);
-  const normalizedDate = formatDate(fm.date);
-  const description = fm.description || fm.excerpt || getExcerpt(content);
-  const tags = Array.isArray(fm.tags)
-    ? fm.tags.map((tag) => String(tag))
-    : [];
-
-  const ogPath = `/og/blog/${slug}.png`;
-
-  posts.push({
+const posts = files.map(filename => {
+  const raw = fs.readFileSync(path.join(SRC, filename), "utf-8");
+  const { data, content } = matter(raw);
+  const slug = (data.slug || filename.replace(/\.md$/, "")).toLowerCase();
+  const html = marked.parse(content);
+  const post = {
     slug,
-    title,
-    date: normalizedDate,
-    excerpt: description,
-    tags,
-    html,
-    description,
-    og: ogPath,
-  });
-}
+    title: data.title || slug,
+    date: data.date || new Date().toISOString().slice(0,10),
+    excerpt: data.excerpt || "",
+    tags: Array.isArray(data.tags) ? data.tags : [],
+    html
+  };
+  // write html per post (static)
+  fs.writeFileSync(path.join(OUT_DIR, `${slug}.html`), html, "utf-8");
+  return post;
+}).sort((a,b) => (a.date < b.date ? 1 : -1));
 
+/** fallback welcome if none */
 if (posts.length === 0) {
-  posts.push({
+  const fallback = {
     slug: "welcome",
     title: "Welcome to The Hippie Scientist",
-    date: "2025-10-10",
-    excerpt: "Psychedelic botany & conscious exploration.",
-    tags: ["intro", "philosophy"],
-    html: "<p>Full HTML content here</p>",
-    description: "Psychedelic botany & conscious exploration.",
-  });
+    date: new Date().toISOString().slice(0,10),
+    excerpt: "What we’re building and how to use the herb index.",
+    tags: ["site"],
+    html: "<p>Welcome!</p>"
+  };
+  posts.push(fallback);
+  fs.writeFileSync(path.join(OUT_DIR, "welcome.html"), fallback.html, "utf-8");
 }
 
-posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-await generateDefaultOg();
-await generateOgForBlog(posts);
-
-fs.writeFileSync(OUT, JSON.stringify(posts, null, 2));
-console.log(`Built ${posts.length} posts → ${OUT}`);
-
-// Placeholder for future automation.
-export function generateAIPosts() {
-  // TODO: Implement automated daily blog generation via AI summarization.
-}
-
-function formatDate(value) {
-  const date = value ? new Date(value) : new Date();
-  if (Number.isNaN(date.getTime())) return new Date().toISOString().split("T")[0];
-  return date.toISOString().split("T")[0];
-}
+/** write the list store */
+fs.writeFileSync(path.join(OUT_DIR, "posts.json"), JSON.stringify(posts, null, 2));
+console.log(`Blog: wrote ${posts.length} posts to ${OUT_DIR}`);
