@@ -1,87 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>The Hippie Scientist — Blog</title>
-  <id>https://thehippiescientist.net/blog</id>
-  <link rel="self" href="https://thehippiescientist.net/atom.xml"/>
-  <updated>2025-10-11T14:56:55.520Z</updated>
-  
-  <entry>
-    <title><![CDATA[Rhodiola vs. Ashwagandha: Matching Adaptogens to Your Needs]]></title>
-    <id>https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha</id>
-    <link href="https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha" />
-    <updated>2024-05-20T00:00:00.000Z</updated>
-    <summary><![CDATA[Rhodiola (*Rhodiola rosea*) and ashwagandha (*Withania somnifera*) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis, their personaliti]]></summary>
-  </entry>
+  <feed xmlns="http://www.w3.org/2005/Atom">
+    <title>The Hippie Scientist</title>
+    <link href="https://thehippiescientist.net/atom.xml" rel="self"/>
+    <link href="https://thehippiescientist.net"/>
+    <updated>2025-10-11T16:41:04.414Z</updated>
+    <id>https://thehippiescientist.net</id>
+    
+    <entry>
+      <title>Rhodiola vs. Ashwagandha: Matching Adaptogens to Your Needs</title>
+      <link href="https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha" />
+      <updated>2024-05-20T00:00:00.000Z</updated>
+      <summary>Rhodiola (*Rhodiola rosea*) and ashwagandha (*Withania somnifera*) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis…</summary>
+      <id>https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Kava Safety: Kavalactones, Extraction, and Liver Risk]]></title>
-    <id>https://thehippiescientist.net/blog/kava-safety-kavalactones</id>
-    <link href="https://thehippiescientist.net/blog/kava-safety-kavalactones" />
-    <updated>2024-05-18T00:00:00.000Z</updated>
-    <summary><![CDATA[Kava (*Piper methysticum*) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone chemistry, extractio]]></summary>
-  </entry>
+    <entry>
+      <title>Kava Safety: Kavalactones, Extraction, and Liver Risk</title>
+      <link href="https://thehippiescientist.net/blog/kava-safety-kavalactones" />
+      <updated>2024-05-18T00:00:00.000Z</updated>
+      <summary>Kava (*Piper methysticum*) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone c…</summary>
+      <id>https://thehippiescientist.net/blog/kava-safety-kavalactones</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Cacao and Theobromine: A Gentle Stimulant Profile]]></title>
-    <id>https://thehippiescientist.net/blog/cacao-theobromine-stimulant</id>
-    <link href="https://thehippiescientist.net/blog/cacao-theobromine-stimulant" />
-    <updated>2024-05-15T00:00:00.000Z</updated>
-    <summary><![CDATA[Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart opening, and creative f]]></summary>
-  </entry>
+    <entry>
+      <title>Cacao and Theobromine: A Gentle Stimulant Profile</title>
+      <link href="https://thehippiescientist.net/blog/cacao-theobromine-stimulant" />
+      <updated>2024-05-15T00:00:00.000Z</updated>
+      <summary>Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart open…</summary>
+      <id>https://thehippiescientist.net/blog/cacao-theobromine-stimulant</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Blue Lotus (Nymphaea) and Aporphines for Gentle Sedation]]></title>
-    <id>https://thehippiescientist.net/blog/blue-lotus-aporphines</id>
-    <link href="https://thehippiescientist.net/blog/blue-lotus-aporphines" />
-    <updated>2024-05-14T00:00:00.000Z</updated>
-    <summary><![CDATA[Blue lotus (*Nymphaea caerulea*) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to understanding blue lotu]]></summary>
-  </entry>
+    <entry>
+      <title>Blue Lotus (Nymphaea) and Aporphines for Gentle Sedation</title>
+      <link href="https://thehippiescientist.net/blog/blue-lotus-aporphines" />
+      <updated>2024-05-14T00:00:00.000Z</updated>
+      <summary>Blue lotus (*Nymphaea caerulea*) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to unde…</summary>
+      <id>https://thehippiescientist.net/blog/blue-lotus-aporphines</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Start Here: Building a Simple Nightly Herb Blend]]></title>
-    <id>https://thehippiescientist.net/blog/nightly-blend-guide</id>
-    <link href="https://thehippiescientist.net/blog/nightly-blend-guide" />
-    <updated>2024-05-13T00:00:00.000Z</updated>
-    <summary><![CDATA[Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitution, schedule, and sle]]></summary>
-  </entry>
+    <entry>
+      <title>Start Here: Building a Simple Nightly Herb Blend</title>
+      <link href="https://thehippiescientist.net/blog/nightly-blend-guide" />
+      <updated>2024-05-13T00:00:00.000Z</updated>
+      <summary>Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitution…</summary>
+      <id>https://thehippiescientist.net/blog/nightly-blend-guide</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Lion's Mane and BDNF: What the Evidence Shows]]></title>
-    <id>https://thehippiescientist.net/blog/lions-mane-bdnf</id>
-    <link href="https://thehippiescientist.net/blog/lions-mane-bdnf" />
-    <updated>2024-05-12T00:00:00.000Z</updated>
-    <summary><![CDATA[Lion’s mane mushroom (*Hericium erinaceus*) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein that supports syna]]></summary>
-  </entry>
+    <entry>
+      <title>Lion's Mane and BDNF: What the Evidence Shows</title>
+      <link href="https://thehippiescientist.net/blog/lions-mane-bdnf" />
+      <updated>2024-05-12T00:00:00.000Z</updated>
+      <summary>Lion’s mane mushroom (*Hericium erinaceus*) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein…</summary>
+      <id>https://thehippiescientist.net/blog/lions-mane-bdnf</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Yerba Mate vs. Green Tea: Balancing Caffeine and L-Theanine]]></title>
-    <id>https://thehippiescientist.net/blog/yerba-mate-vs-green-tea</id>
-    <link href="https://thehippiescientist.net/blog/yerba-mate-vs-green-tea" />
-    <updated>2024-05-11T00:00:00.000Z</updated>
-    <summary><![CDATA[Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with precise choreograph]]></summary>
-  </entry>
+    <entry>
+      <title>Yerba Mate vs. Green Tea: Balancing Caffeine and L-Theanine</title>
+      <link href="https://thehippiescientist.net/blog/yerba-mate-vs-green-tea" />
+      <updated>2024-05-11T00:00:00.000Z</updated>
+      <summary>Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with …</summary>
+      <id>https://thehippiescientist.net/blog/yerba-mate-vs-green-tea</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Kanna (Sceletium) for Mood and Focus]]></title>
-    <id>https://thehippiescientist.net/blog/kanna-mood-focus</id>
-    <link href="https://thehippiescientist.net/blog/kanna-mood-focus" />
-    <updated>2024-05-10T00:00:00.000Z</updated>
-    <summary><![CDATA[Kanna, or *Sceletium tortuosum*, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotional buoyancy withou]]></summary>
-  </entry>
+    <entry>
+      <title>Kanna (Sceletium) for Mood and Focus</title>
+      <link href="https://thehippiescientist.net/blog/kanna-mood-focus" />
+      <updated>2024-05-10T00:00:00.000Z</updated>
+      <summary>Kanna, or *Sceletium tortuosum*, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotio…</summary>
+      <id>https://thehippiescientist.net/blog/kanna-mood-focus</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Reishi for Sleep and Immunity: What the Studies Say]]></title>
-    <id>https://thehippiescientist.net/blog/reishi-sleep-immunity</id>
-    <link href="https://thehippiescientist.net/blog/reishi-sleep-immunity" />
-    <updated>2024-05-09T00:00:00.000Z</updated>
-    <summary><![CDATA[Reishi (*Ganoderma lucidum*) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and stress resilience.]]></summary>
-  </entry>
+    <entry>
+      <title>Reishi for Sleep and Immunity: What the Studies Say</title>
+      <link href="https://thehippiescientist.net/blog/reishi-sleep-immunity" />
+      <updated>2024-05-09T00:00:00.000Z</updated>
+      <summary>Reishi (*Ganoderma lucidum*) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and…</summary>
+      <id>https://thehippiescientist.net/blog/reishi-sleep-immunity</id>
+    </entry>
 
-  <entry>
-    <title><![CDATA[Mugwort and Dreaming: Tradition Meets Evidence]]></title>
-    <id>https://thehippiescientist.net/blog/mugwort-dreaming-tradition</id>
-    <link href="https://thehippiescientist.net/blog/mugwort-dreaming-tradition" />
-    <updated>2024-05-08T00:00:00.000Z</updated>
-    <summary><![CDATA[Mugwort (*Artemisia vulgaris*) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate vivid dreams. But ho]]></summary>
-  </entry>
-</feed>
+    <entry>
+      <title>Mugwort and Dreaming: Tradition Meets Evidence</title>
+      <link href="https://thehippiescientist.net/blog/mugwort-dreaming-tradition" />
+      <updated>2024-05-08T00:00:00.000Z</updated>
+      <summary>Mugwort (*Artemisia vulgaris*) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate v…</summary>
+      <id>https://thehippiescientist.net/blog/mugwort-dreaming-tradition</id>
+    </entry>
+  </feed>
