@@ -175,7 +175,7 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
 
   return (
     <article className={clsx(
-      "relative overflow-hidden rounded-2xl border border-white/12 bg-surface/60 p-4 shadow-lg backdrop-blur transition-all sm:p-5",
+      "relative overflow-hidden rounded-2xl border border-white/10 bg-surface/60 p-4 shadow-lg backdrop-blur transition-all sm:p-5",
       "group"
     )}>
       <div
@@ -204,7 +204,7 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
                 {chips.map(chip => (
                   <span
                     key={chip}
-                    className="rounded-full border border-white/12 bg-chip px-2.5 py-1 text-xs font-medium text-emphasis opacity-90"
+                    className="rounded-full border border-white/10 bg-chip px-2.5 py-1 text-xs font-medium text-emphasis opacity-90"
                   >
                     {chip}
                   </span>
