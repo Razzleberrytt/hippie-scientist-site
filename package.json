@@ -33,7 +33,8 @@
     "og:fallback": "node scripts/generate-og-fallback.mjs",
     "og:prune": "node scripts/generate-og.mjs --prune || node scripts/generate-og-fallback.mjs --prune",
     "rss": "node scripts/generate-rss.mjs",
-    "postbuild": "node scripts/generate-sitemap.mjs dist"
+    "postbuild": "node scripts/generate-sitemap.mjs dist",
+    "ai:posts": "node scripts/ai/generate-ai-posts.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
