@@ -15,13 +15,14 @@ function getPrefersReducedMotion(): boolean {
 
 export function TrippyProvider({ children }: { children: ReactNode }) {
   const [prefersReduced, setPrefersReduced] = useState(getPrefersReducedMotion);
-  const [trippy, setTrippyState] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  const [trippy, setTrippyState] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    const prefersReduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     const saved = window.localStorage.getItem("trippy-mode");
-    setTrippyState(saved === "1");
-  }, []);
+    if (saved === "1") return true;
+    if (saved === "0") return false;
+    return !prefersReduced;
+  });
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.matchMedia) return;
@@ -53,7 +54,9 @@ export function TrippyProvider({ children }: { children: ReactNode }) {
     }
     if (typeof window === "undefined") return;
     const saved = window.localStorage.getItem("trippy-mode");
-    setTrippyState(saved === "1");
+    if (saved !== null) {
+      setTrippyState(saved === "1");
+    }
   }, [enabled]);
 
   const setTrippy = useCallback(

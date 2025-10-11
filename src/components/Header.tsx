@@ -1,5 +1,7 @@
 // src/components/Header.tsx
-import React from "react";
+import React, { useEffect } from "react";
+import { Sparkles } from "lucide-react";
+import { useTrippy } from "../lib/trippy";
 
 const links = [
   { label: "Browse", href: "/#/database" },
@@ -7,7 +9,25 @@ const links = [
   { label: "Blog",   href: "/#/blog"      },
 ];
 
-export default function Header({ onOpenThemeMenu }: { onOpenThemeMenu?: () => void }) {
+export default function Header() {
+  const { trippy, setTrippy, enabled } = useTrippy();
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
+        event.preventDefault();
+        if (!enabled) return;
+        setTrippy(!trippy);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [enabled, setTrippy, trippy]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40">
       <div className="container-page flex items-center gap-4 py-3" aria-label="Site">
@@ -31,10 +51,21 @@ export default function Header({ onOpenThemeMenu }: { onOpenThemeMenu?: () => vo
           ))}
           <button
             type="button"
-            onClick={onOpenThemeMenu}
-            className="chip whitespace-nowrap text-white/80 hover:bg-white/10"
+            aria-pressed={trippy}
+            aria-label="Toggle trippy mode"
+            disabled={!enabled}
+            onClick={() => setTrippy(!trippy)}
+            className={`chip relative whitespace-nowrap text-white/80 transition ${
+              enabled ? "hover:bg-white/10" : "cursor-not-allowed opacity-50"
+            } ${trippy ? "ring-1 ring-emerald-400/40" : ""}`}
           >
-            Theme
+            <Sparkles className="mr-1 h-4 w-4" aria-hidden />
+            Trippy {enabled ? (trippy ? "On" : "Off") : ""}
+            <span
+              className={`pointer-events-none absolute -inset-4 -z-10 rounded-full blur-2xl ${
+                trippy ? "bg-emerald-500/10" : "hidden"
+              }`}
+            />
           </button>
         </nav>
       </div>
