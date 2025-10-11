@@ -2,7 +2,8 @@ import React from 'react'
 import Meta from '../components/Meta'
 import Hero from '../components/Hero'
 import StarfieldBackground from '../components/StarfieldBackground'
-import StatsPills from '../components/StatsPills'
+import StatRow from '../components/StatRow'
+import { siteStats } from '../lib/stats'
 
 export default function Home() {
   return (
@@ -13,19 +14,20 @@ export default function Home() {
         path='/'
         pageType='website'
       />
-      <div
+      <section
         id='home'
         aria-label='Site introduction'
-        className='relative overflow-hidden text-midnight dark:bg-space-night dark:text-sand'
+        className='aurora relative isolate overflow-hidden text-text'
       >
-        <div className='aurora absolute inset-0 -z-10' aria-hidden />
         <StarfieldBackground />
         <Hero>
-          <div className='mt-4'>
-            <StatsPills />
-          </div>
+          <StatRow
+            herbs={siteStats.herbs}
+            compounds={siteStats.compounds}
+            posts={siteStats.posts}
+          />
         </Hero>
-      </div>
+      </section>
     </>
   )
 }

@@ -8,17 +8,34 @@ const config: Config = {
     extend: {
       colors: {
         bg: {
-          DEFAULT: "rgb(var(--bg) / <alpha-value>)",
+          DEFAULT: "hsl(var(--bg) / <alpha-value>)",
         },
-        fg: "rgb(var(--fg) / <alpha-value>)",
-        surface: "rgb(var(--surface) / <alpha-value>)",
-        card: "rgb(var(--card) / <alpha-value>)",
-        border: "rgb(var(--border) / <alpha-value>)",
-        accent: "rgb(var(--accent-rgb) / <alpha-value>)",
-        panel: "rgb(var(--card) / <alpha-value>)",
-        text: "rgb(var(--fg) / <alpha-value>)",
-        sub: "rgb(var(--muted) / <alpha-value>)",
+        fg: "hsl(var(--text) / <alpha-value>)",
+        surface: "hsl(var(--surface) / <alpha-value>)",
+        card: {
+          DEFAULT: "hsl(var(--card) / <alpha-value>)",
+        },
+        border: "hsl(var(--border) / <alpha-value>)",
+        accent: "hsl(var(--accent) / <alpha-value>)",
+        panel: "hsl(var(--card) / <alpha-value>)",
+        text: {
+          DEFAULT: "hsl(var(--text) / <alpha-value>)",
+        },
+        sub: "hsl(var(--mute) / <alpha-value>)",
+        mute: {
+          DEFAULT: "hsl(var(--mute) / <alpha-value>)",
+        },
         brand: {
+          50: "#d7fff4",
+          100: "#b6ffe9",
+          200: "#8fffe0",
+          300: "#61fbd7",
+          400: "#3decc9",
+          500: "#23d4b1",
+          600: "#18a992",
+          700: "#147f73",
+          800: "#0f5b55",
+          900: "#0c423f",
           lime: "#c7ff57",
           cyan: "#52e1ff",
           pink: "#ff7adf",
@@ -26,12 +43,13 @@ const config: Config = {
         },
       },
       boxShadow: {
-        soft: "0 6px 24px rgba(0,0,0,0.25)",
+        soft: "0 6px 30px -12px rgba(0,0,0,0.45)",
+        ring: "0 0 0 1px rgba(255,255,255,0.06) inset, 0 8px 40px -12px rgba(0,0,0,0.5)",
         glow: "0 0 0 1px rgba(199,255,87,0.18), 0 8px 32px rgba(199,255,87,0.08)",
         card: "0 8px 30px rgba(0,0,0,0.3)",
       },
       borderRadius: {
-        xl2: "18px",
+        xl2: "1.25rem",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],

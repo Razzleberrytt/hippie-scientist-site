@@ -1,54 +1,58 @@
 :root {
+  color-scheme: dark;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
   --radius: 1rem;
   --space-unit: 0.25rem;
 
-  --accent-h: 200;
-  --accent-s: 85%;
-  --accent-l: 60%;
+  --accent-h: 166;
+  --accent-s: 70%;
+  --accent-l: 52%;
   --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
-  --accent-rgb: 90 191 242;
+  --accent-rgb: 35 212 177;
 
   --header-h: 60px;
   /* hero vertical padding */
   --space-hero-y: clamp(1.25rem, 5vw, 3.5rem);
   --space-hero-gap: clamp(0.5rem, 2vw, 1.25rem);
 
-  --bg: 7 11 18;
-  --surface: 24 32 45;
-  --card: 30 38 52;
-  --text: 228 233 239;
-  --fg: 228 233 239;
-  --muted: 164 174 189;
-  --border: 72 84 104;
-  --ring: 120 180 255;
+  --bg: 220 15% 8%;
+  --surface: 220 14% 11%;
+  --card: 220 14% 13%;
+  --text: 210 10% 96%;
+  --fg: 210 10% 96%;
+  --mute: 210 6% 65%;
+  --muted: 210 6% 65%;
+  --border: 220 12% 22%;
+  --ring: 166 70% 52%;
 
-  --bg-c: #070b12;
-  --surface-c: rgba(255, 255, 255, 0.04);
-  --card-c: rgba(255, 255, 255, 0.07);
-  --text-c: #e4e9ef;
-  --muted-c: rgba(255, 255, 255, 0.65);
-  --border-c: rgba(255, 255, 255, 0.08);
+  --bg-c: hsl(var(--bg));
+  --surface-c: hsla(220, 18%, 20%, 0.68);
+  --card-c: hsla(220, 18%, 22%, 0.78);
+  --text-c: hsl(var(--text));
+  --muted-c: hsla(210, 6%, 72%, 0.85);
+  --border-c: hsla(220, 16%, 28%, 0.55);
 }
 
 [data-theme="light"] {
-  --bg: 245 247 255;
-  --surface: 232 238 252;
-  --card: 224 231 247;
-  --text: 27 35 51;
-  --fg: 27 35 51;
-  --muted: 120 130 150;
-  --border: 196 205 221;
-  --ring: 125 180 255;
+  color-scheme: light;
+  --bg: 210 40% 98%;
+  --surface: 210 30% 96%;
+  --card: 210 25% 95%;
+  --text: 220 20% 18%;
+  --fg: 220 20% 18%;
+  --mute: 215 16% 48%;
+  --muted: 215 16% 48%;
+  --border: 210 25% 82%;
+  --ring: 166 55% 48%;
 
-  --bg-c: #f6f8ff;
-  --surface-c: rgba(255, 255, 255, 0.9);
-  --card-c: rgba(255, 255, 255, 0.85);
-  --text-c: #1b2333;
-  --muted-c: rgba(27, 35, 51, 0.6);
-  --border-c: rgba(27, 35, 51, 0.12);
-  --accent-rgb: 90 191 242;
+  --bg-c: hsl(var(--bg));
+  --surface-c: hsla(210, 32%, 92%, 0.85);
+  --card-c: hsla(210, 30%, 90%, 0.9);
+  --text-c: hsl(var(--text));
+  --muted-c: hsla(215, 16%, 40%, 0.7);
+  --border-c: hsla(210, 25%, 78%, 0.8);
+  --accent-rgb: 35 212 177;
 }
 
 /* alternate accents (optional) */
@@ -78,26 +82,20 @@ body {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--bg-c);
-  background-image: radial-gradient(circle at 30% 20%, #0a101c 0%, #040609 80%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color: var(--text-c);
+  background: hsl(var(--bg));
+  color: hsl(var(--text));
   line-height: 1.7;
   letter-spacing: 0.01em;
   font-size: 15.5px;
   scroll-behavior: smooth;
+  transition: background-color 0.6s ease, color 0.4s ease;
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(
-    200px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
-    hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.15),
-    transparent 70%
-  );
+  background: radial-gradient(200px circle at var(--cursor-x, 50%) var(--cursor-y, 50%), hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.12), transparent 70%);
   pointer-events: none;
   z-index: 0;
   transition: background 0.15s ease;
