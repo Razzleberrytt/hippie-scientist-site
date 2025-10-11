@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 type PostMeta = {
   slug: string;
@@ -41,26 +41,26 @@ export default function BlogPost() {
 
   if (error) {
     return (
-      <main className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
+      <main className="container-page py-8">
         <p className="text-red-400">{error}</p>
-        <Link className="underline" to="/blog">
+        <a className="underline" href="/#/blog">
           ← Back to blog
-        </Link>
+        </a>
       </main>
     );
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
+    <main className="container-page py-8">
       <header className="mb-8">
-        <Link to="/blog" className="text-sm text-zinc-400 hover:text-zinc-200">
+        <a href="/#/blog" className="text-sm text-accent-300 hover:text-accent-200">
           ← Back to Blog
-        </Link>
-        <h1 className="mt-2 text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-100">
+        </a>
+        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-white">
           {meta?.title || "Loading…"}
         </h1>
 
-        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-zinc-400 text-sm">
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/60">
           {meta?.date && <time dateTime={meta.date}>{formatDate(meta.date)}</time>}
           {meta?.readingTime && <span aria-hidden="true">•</span>}
           {meta?.readingTime && <span>{meta.readingTime}</span>}
@@ -71,7 +71,7 @@ export default function BlogPost() {
                 {meta.tags.map((t) => (
                   <li
                     key={t}
-                    className="rounded-full bg-zinc-800/60 px-2 py-0.5 text-xs text-zinc-300 border border-zinc-700/50"
+                    className="chip border-white/15 bg-white/5 px-2 py-0.5 text-xs text-white/70"
                   >
                     {t}
                   </li>
@@ -86,18 +86,17 @@ export default function BlogPost() {
       <article
         className="
           prose prose-invert max-w-none
-          prose-h1:text-zinc-100 prose-h2:text-zinc-100 prose-h3:text-zinc-200
-          prose-a:text-sky-300 hover:prose-a:text-sky-200
-          prose-strong:text-zinc-100 prose-li:marker:text-zinc-500
-          prose-blockquote:text-zinc-300 prose-blockquote:border-l-zinc-700
-          prose-pre:bg-zinc-900/70 prose-code:text-pink-300
-          prose-headings:scroll-mt-20 prose-img:rounded-xl
+          prose-a:text-accent-200 hover:prose-a:text-accent-100
+          prose-strong:text-white prose-li:marker:text-white/50
+          prose-blockquote:text-white/70 prose-blockquote:border-l-white/30
+          prose-pre:bg-black/60 prose-code:text-pink-300
+          prose-headings:scroll-mt-24 prose-img:rounded-xl
         "
         dangerouslySetInnerHTML={{ __html: html }}
       />
 
-      <footer className="mt-10 border-t border-zinc-800/60 pt-6">
-        <p className="text-xs text-zinc-500">
+      <footer className="mt-10 border-t border-white/10 pt-6">
+        <p className="text-xs text-white/50">
           Educational content only. Not medical advice. Consult a qualified professional before use.
         </p>
       </footer>

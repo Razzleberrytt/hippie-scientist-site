@@ -18,7 +18,7 @@ export default function StatRow({
   return (
     <div
       className={clsx(
-        'mt-4 flex flex-wrap items-center gap-3 text-sm sm:gap-4',
+        'mt-6 flex flex-wrap items-center gap-3',
         className,
       )}
     >

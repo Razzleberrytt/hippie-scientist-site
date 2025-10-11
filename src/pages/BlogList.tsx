@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
 
 type PostIndex = {
   slug: string;
@@ -15,6 +15,7 @@ export default function BlogList() {
   const [posts, setPosts] = useState<PostIndex[]>([]);
   const [loading, setLoading] = useState(true);
   const base = (import.meta.env.BASE_URL || "/").replace(/\/+$/, "/");
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     let alive = true;
@@ -38,30 +39,32 @@ export default function BlogList() {
   if (!posts.length) return <div className="p-6 opacity-80">No posts yet.</div>;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6 space-y-6">
-      <h1 className="text-3xl font-bold">Blog</h1>
+    <div className="container-page space-y-6 py-8">
+      <h1 className="text-4xl font-extrabold tracking-tight">Blog</h1>
       {posts.map((p) => (
-        <article
+        <motion.article
           key={p.slug}
-          className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-5 sm:p-6 shadow-sm hover:border-zinc-700 transition"
+          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass p-5 text-white transition hover:translate-y-[-2px] hover:shadow-glow sm:p-6"
         >
-          <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-sky-300">
-            <Link to={`/blog/${p.slug}`} className="hover:underline">
+          <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
+            <a href={`/#/blog/${p.slug}`} className="text-accent-200 hover:text-accent-100">
               {p.title}
-            </Link>
+            </a>
           </h2>
-          <div className="mt-2 text-sm text-zinc-400">
+          <div className="mt-2 text-sm text-white/60">
             <time dateTime={p.date || undefined}>{formatDate(p.date || "")}</time>
-            {p.readingTime && <> · {p.readingTime}</>}
+            {p.readingTime && <> • {p.readingTime}</>}
           </div>
-          <p className="mt-3 text-zinc-300">{p.description}</p>
-          <Link
-            to={`/blog/${p.slug}`}
-            className="mt-4 inline-flex text-sm text-sky-300 hover:text-sky-200"
-          >
-            Read post →
-          </Link>
-        </article>
+          <p className="mt-3 text-white/80">{p.description}</p>
+          <div className="mt-4">
+            <a href={`/#/blog/${p.slug}`} className="btn-primary">
+              Read post
+            </a>
+          </div>
+        </motion.article>
       ))}
     </div>
   );

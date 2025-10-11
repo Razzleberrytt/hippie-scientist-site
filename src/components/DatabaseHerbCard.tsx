@@ -1,4 +1,5 @@
 import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { cleanIntensity, titleCase } from "../lib/text";
 import type { Herb } from "../types";
 import { toHash } from "../lib/routing";
@@ -23,6 +24,7 @@ function firstNonEmpty(...values: Array<string | null | undefined>): string {
 
 export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const [open, setOpen] = React.useState(false);
+  const reduceMotion = useReducedMotion();
 
   const commonName = firstNonEmpty(herb.common, (herb as any).commonName, herb.name);
   const scientificName = firstNonEmpty(herb.scientific, (herb as any).scientificName, (herb as any).binomial);
@@ -73,18 +75,20 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   if (sources.length) sections.push({ label: "Sources", content: sources });
 
   return (
-    <article className="rounded-2xl bg-card/80 p-5 text-text shadow-soft ring-1 ring-white/8 sm:p-6">
+    <motion.article
+      initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="glass p-5 text-text transition will-change-transform hover:translate-y-[-2px] hover:shadow-glow sm:p-6"
+    >
       <header className="space-y-2">
-        <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">{heading}</h2>
-        {secondary && <p className="text-sm italic text-mute">{secondary}</p>}
+        <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">{heading}</h2>
+        {secondary && <p className="text-sm italic text-white/60">{secondary}</p>}
 
         {chips.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-2">
-            {chips.map((chip, index) => (
-              <span
-                key={index}
-                className="rounded-full bg-white/6 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10"
-              >
+            {chips.map((chip) => (
+              <span key={chip} className="chip text-white/80 text-xs">
                 {chip}
               </span>
             ))}
@@ -92,9 +96,8 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         )}
 
         {intensity && (
-          <div className="inline-flex items-center rounded-full border border-amber-300/20 bg-amber-400/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-amber-200">
-            <span className="mr-1 opacity-80">Intensity:</span>
-            {intensity}
+          <div className="mt-3 inline-flex rounded-full border border-yellow-500/25 bg-yellow-500/10 px-3 py-1 text-sm tracking-wide text-yellow-200">
+            INTENSITY: {intensity}
           </div>
         )}
       </header>
@@ -144,18 +147,15 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-text/90 transition hover:border-white/20 hover:bg-white/10"
+          className="btn-ghost"
           aria-expanded={open}
         >
           {open ? 'Show less' : 'Show more'}
         </button>
-        <a
-          href={toHash(detailPath)}
-          className="rounded-full border border-brand-500/30 bg-brand-500/20 px-4 py-2 text-sm font-semibold text-brand-200 transition hover:bg-brand-500/30"
-        >
+        <a href={toHash(detailPath)} className="btn-primary">
           View details
         </a>
       </div>
-    </article>
+    </motion.article>
   );
 }
