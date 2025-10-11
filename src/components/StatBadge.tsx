@@ -10,12 +10,10 @@ export default function StatBadge({
   icon?: ReactNode;
 }) {
   return (
-    <div className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-card/60 px-3 py-1 text-sm text-text/90 shadow-soft ring-1 ring-white/5">
-      <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-xs font-semibold leading-none">
-        {count}
-      </span>
-      <span className="truncate leading-none">{label}</span>
-      {icon}
-    </div>
+    <span className="chip text-white/85">
+      <strong className="font-semibold text-white">{count}</strong>
+      <span className="text-white/70">{label}</span>
+      {icon ? <span className="shrink-0 text-white/80">{icon}</span> : null}
+    </span>
   );
 }

@@ -1,22 +1,37 @@
 import type { ReactNode } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import BackgroundAurora from './BackgroundAurora';
 import { toHash } from '../lib/routing';
 
 type HeroProps = { children?: ReactNode };
 
 export default function Hero({ children }: HeroProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="relative w-full py-10 sm:py-12 lg:py-14">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-10 sm:py-14">
+      <BackgroundAurora />
+      <div className="container-page">
         <div className="max-w-3xl">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <motion.h1
+            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+          >
             The Hippie Scientist
-          </h1>
-          <p className="mt-3 text-base text-white/70 sm:text-lg">
+          </motion.h1>
+          <motion.p
+            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={reduceMotion ? { duration: 0 } : { delay: 0.05 }}
+            className="mt-3 text-base text-white/80 sm:text-lg"
+          >
             Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="mt-5 flex flex-wrap items-center gap-3">
+        <div className="mt-6 flex flex-wrap items-center gap-3">
           <a href={toHash('/database')} className="btn-primary">🌿 Browse Herbs</a>
           <a href={toHash('/build')} className="btn-ghost">🧪 Build a Blend</a>
         </div>

@@ -16,7 +16,19 @@ const config: Config = {
           DEFAULT: "hsl(var(--card) / <alpha-value>)",
         },
         border: "hsl(var(--border) / <alpha-value>)",
-        accent: "hsl(var(--accent) / <alpha-value>)",
+        accent: {
+          DEFAULT: "hsl(var(--accent) / <alpha-value>)",
+          50: "#ECFEFF",
+          100: "#CFFAFE",
+          200: "#A5F3FC",
+          300: "#67E8F9",
+          400: "#22D3EE",
+          500: "#06B6D4",
+          600: "#0891B2",
+          700: "#0E7490",
+          800: "#155E75",
+          900: "#164E63",
+        },
         panel: "hsl(var(--card) / <alpha-value>)",
         text: {
           DEFAULT: "hsl(var(--text) / <alpha-value>)",
@@ -45,8 +57,8 @@ const config: Config = {
       boxShadow: {
         soft: "0 6px 30px -12px rgba(0,0,0,0.45)",
         ring: "0 0 0 1px rgba(255,255,255,0.06) inset, 0 8px 40px -12px rgba(0,0,0,0.5)",
-        glow: "0 0 0 1px rgba(199,255,87,0.18), 0 8px 32px rgba(199,255,87,0.08)",
-        card: "0 8px 30px rgba(0,0,0,0.3)",
+        glow: "0 0 0 2px rgba(34,211,238,.15), 0 10px 30px rgba(34,211,238,.15)",
+        card: "0 6px 24px rgba(0,0,0,.25)",
       },
       borderRadius: {
         xl2: "1.25rem",
@@ -72,6 +84,21 @@ const config: Config = {
       }),
       spacing: {
         13: "3.25rem",
+      },
+      keyframes: {
+        float: {
+          "0%,100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-4px)" },
+        },
+        aurora: {
+          "0%": { transform: "translate3d(-10%, -10%, 0) rotate(0deg)" },
+          "50%": { transform: "translate3d(10%, 5%, 0) rotate(15deg)" },
+          "100%": { transform: "translate3d(-10%, -10%, 0) rotate(0deg)" },
+        },
+      },
+      animation: {
+        float: "float 6s ease-in-out infinite",
+        aurora: "aurora 18s ease-in-out infinite",
       },
     },
   },
