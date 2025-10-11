@@ -19,6 +19,15 @@
   --footerH: 320px;
 }
 
+/* Compact vertical rhythm helpers */
+:root {
+  --thspx-1: .25rem;
+  --thspx-2: .375rem;
+  --thspx-3: .5rem;
+}
+
+.compact-stack > * + * { margin-top: var(--thspx-3); }
+
 @media (min-width: 640px) {
   :root {
     --footerH: 240px;
