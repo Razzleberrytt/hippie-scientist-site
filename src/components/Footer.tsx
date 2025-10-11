@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import ConsentManager from "./ConsentManager";
 import { onOpenConsent } from "../lib/consentBus";
 import NewsletterSignup from "./NewsletterSignup";
 import NonEmpty from "./NonEmpty";
+import { toHash } from "../lib/routing";
 
 const exploreLinks = [
   { href: "/database", label: "Database" },
-  { href: "/blend", label: "Build a Blend" },
+  { href: "/build", label: "Build a Blend" },
   { href: "/blog", label: "Blog" },
   { href: "/graph", label: "NeuroHerbGraph" },
 ];
@@ -40,7 +40,7 @@ export default function Footer({ showSignup = true }: { showSignup?: boolean }) 
               <ul className="space-y-1 text-sm">
                 {exploreLinks.map(link => (
                   <li key={link.href}>
-                    <Link to={link.href}>{link.label}</Link>
+                    <a href={toHash(link.href)}>{link.label}</a>
                   </li>
                 ))}
               </ul>
@@ -54,7 +54,7 @@ export default function Footer({ showSignup = true }: { showSignup?: boolean }) 
               <ul className="space-y-1 text-sm">
                 {legalLinks.map(link => (
                   <li key={link.href}>
-                    <Link to={link.href}>{link.label}</Link>
+                    <a href={toHash(link.href)}>{link.label}</a>
                   </li>
                 ))}
                 <li>

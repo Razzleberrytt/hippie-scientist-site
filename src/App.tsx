@@ -17,7 +17,7 @@ import DataFix from './pages/DataFix';
 import Sitemap from './pages/Sitemap';
 import Newsletter from './pages/Newsletter';
 import Contact from './pages/Contact';
-import SiteHeader from './components/SiteHeader';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
@@ -25,6 +25,7 @@ import AmbientCursor from './components/AmbientCursor';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
+import Theme from './pages/Theme';
 // Import other pages as needed
 
 export default function App() {
@@ -39,12 +40,14 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/database" element={<Database />} />
           <Route path="/blend" element={<BuildBlend />} />
+          <Route path="/build" element={<BuildBlend />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/contact" element={<Contact />} />
           {/* Add other routes here */}
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/theme" element={<Theme />} />
           <Route path="/herb-index" element={<HerbIndex />} />
           <Route path="/herb/:slug" element={<HerbDetail />} />
           <Route path="/compare" element={<Compare />} />
@@ -61,14 +64,13 @@ export default function App() {
 
 function RootLayout() {
   const location = useLocation();
-  const subtleOnHome = location.pathname === "/";
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <SiteHeader subtleOnHome={subtleOnHome} />
+    <div className="flex min-h-screen flex-col bg-zinc-950 text-zinc-100">
+      <Header />
       <main
         id="main"
-        className="flex-1 min-h-[calc(100dvh- var(--headerH)- var(--footerH))]"
+        className="flex-1"
       >
         <AnimatePresence mode="wait">
           <motion.div

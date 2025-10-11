@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { toHash } from '../lib/routing'
 
 type HeroProps = { children?: ReactNode }
 
@@ -21,12 +21,12 @@ export default function Hero({ children }: HeroProps) {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link to="/database" className="rounded-xl px-4 py-2 bg-emerald-600/80 hover:bg-emerald-500 text-white font-medium shadow">
+          <a href={toHash('/database')} className="rounded-xl px-4 py-2 bg-emerald-600/80 hover:bg-emerald-500 text-white font-medium shadow">
             🌿 Browse Herbs
-          </Link>
-          <Link to="/build" className="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/15 text-white font-medium border border-white/15">
+          </a>
+          <a href={toHash('/build')} className="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/15 text-white font-medium border border-white/15">
             🧪 Build a Blend
-          </Link>
+          </a>
         </div>
 
         {children}

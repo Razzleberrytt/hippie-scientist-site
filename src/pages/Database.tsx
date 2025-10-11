@@ -3,7 +3,7 @@ import Meta from '../components/Meta'
 import ErrorBoundary from '../components/ErrorBoundary'
 import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import AdvancedSearch from '../components/AdvancedSearch'
-import Counters from '../components/Counters'
+import StatsPills from '../components/StatsPills'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 import { decorateHerbs } from '../lib/herbs'
@@ -46,65 +46,63 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <div className="pt-6 md:pt-8 pb-10">
-        <section className="mx-auto max-w-6xl px-4 pt-4 md:pt-6 pb-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Herb Database</h1>
-          <p className="text-white/70 mb-4">Search and explore the library.</p>
+      <section className="mx-auto max-w-6xl px-4 pb-20 pt-6 md:pt-10">
+        <header className="space-y-2">
+          <h1 className="text-4xl font-extrabold tracking-tight text-white/90 md:text-5xl">Herb Database</h1>
+          <p className="text-zinc-300/80">Search and explore the library.</p>
+        </header>
 
-          <div className="flex flex-col gap-3">
-            {ENABLE_ADVANCED_FILTERS && (
-              <div className="flex flex-wrap items-center gap-2">
-                {advancedResults && (
-                  <button
-                    type="button"
-                    className="rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm text-white/80 transition hover:bg-white/20"
-                    onClick={() => setAdvancedResults(null)}
-                  >
-                    Clear advanced filters
-                  </button>
-                )}
-                <button
-                  type="button"
-                  className="rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-sm text-white/80 transition hover:bg-white/20"
-                  onClick={() => setAdvancedOpen(true)}
-                >
-                  Advanced search
-                </button>
-              </div>
+        {ENABLE_ADVANCED_FILTERS && (
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            {advancedResults && (
+              <button
+                type="button"
+                className="btn-pill"
+                onClick={() => setAdvancedResults(null)}
+              >
+                Clear advanced filters
+              </button>
             )}
+            <button
+              type="button"
+              className="btn-pill"
+              onClick={() => setAdvancedOpen(true)}
+            >
+              Advanced search
+            </button>
+          </div>
+        )}
 
-            <div className="mb-6">
-              <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-md">
-                <label className="sr-only" htmlFor="herb-search-input">
-                  Search herbs
-                </label>
-                <input
-                  id="herb-search-input"
-                  className="flex-1 rounded-xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/90 placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
-                  placeholder="Search herbs, compounds, effects…"
-                  value={query}
-                  onChange={event => setQuery(event.target.value)}
-                />
-                <span className="text-sm text-white/60">{results.length} results</span>
-              </div>
+        <div className="mt-4 rounded-3xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
+          <label className="sr-only" htmlFor="herb-search-input">
+            Search herbs
+          </label>
+          <div className="flex flex-wrap items-center gap-3">
+            <input
+              id="herb-search-input"
+              className="flex-1 rounded-xl border border-white/10 bg-black/30 px-4 py-2 text-sm text-white/90 placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+              placeholder="Search herbs, compounds, effects…"
+              value={query}
+              onChange={event => setQuery(event.target.value)}
+            />
+            <span className="text-sm text-zinc-300/80">{results.length} results</span>
+          </div>
+        </div>
 
-              <Counters compact className="mt-3" />
+        <div className="mb-6 mt-4">
+          <StatsPills />
+        </div>
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
+          {results.map((herb, index) => (
+            <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
+          ))}
+          {!results.length && (
+            <div className="col-span-full rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-white/60 backdrop-blur-sm">
+              No herbs match that search.
             </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-6xl px-4 pb-10">
-          <div className="grid gap-4 md:gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {results.map((herb, index) => (
-              <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
-            ))}
-            {!results.length && (
-              <div className="col-span-full rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-white/60 backdrop-blur-sm">
-                No herbs match that search.
-              </div>
-            )}
-          </div>
-        </section>
+          )}
+        </div>
 
         {ENABLE_ADVANCED_FILTERS && (
           <AdvancedSearch
@@ -117,7 +115,7 @@ export default function Database() {
             }}
           />
         )}
-      </div>
+      </section>
     </ErrorBoundary>
   )
 }
