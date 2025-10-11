@@ -4,6 +4,13 @@ import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
+// Configure marked to ensure proper spacing and semantic tags
+marked.setOptions({
+  breaks: true,
+  headerIds: true,
+  mangle: false,
+});
+
 const ROOT = process.cwd();
 const BLOG_SRC = path.join(ROOT, "content", "blog");
 const OUT = path.join(ROOT, "public", "blogdata");

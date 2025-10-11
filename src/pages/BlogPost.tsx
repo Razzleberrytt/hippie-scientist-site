@@ -40,7 +40,7 @@ export default function BlogPost() {
 
   if (error) {
     return (
-      <main className="mx-auto max-w-3xl px-4 py-10">
+      <main className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10">
         <p className="text-red-400">{error}</p>
         <Link className="underline" to="/blog">
           ← Back to blog
@@ -83,13 +83,15 @@ export default function BlogPost() {
 
       {/* Markdown HTML */}
       <article
-        className="prose prose-invert prose-zinc max-w-none
-                   prose-headings:scroll-mt-24 prose-h1:text-zinc-100
-                   prose-a:text-sky-300 hover:prose-a:text-sky-200
-                   prose-strong:text-zinc-100 prose-li:marker:text-zinc-400
-                   prose-blockquote:text-zinc-200 prose-blockquote:border-l-zinc-600
-                   prose-pre:bg-zinc-900/70 prose-code:text-pink-300
-                   prose-img:rounded-xl prose-table:text-sm"
+        className="
+          prose prose-invert max-w-none
+          prose-h1:text-zinc-100 prose-h2:text-zinc-100 prose-h3:text-zinc-200
+          prose-a:text-sky-300 hover:prose-a:text-sky-200
+          prose-strong:text-zinc-100 prose-li:marker:text-zinc-500
+          prose-blockquote:text-zinc-300 prose-blockquote:border-l-zinc-700
+          prose-pre:bg-zinc-900/70 prose-code:text-pink-300
+          prose-headings:scroll-mt-20 prose-img:rounded-xl
+        "
         dangerouslySetInnerHTML={{ __html: html }}
       />
 

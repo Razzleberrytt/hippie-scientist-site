@@ -131,3 +131,11 @@ a:hover {
     radial-gradient(900px 600px at 20% 40%, rgba(120, 255, 200, 0.12), transparent 60%),
     #0b0f14;
 }
+
+.prose a {
+  transition: color 0.15s ease-in-out, text-shadow 0.2s ease-in-out;
+}
+
+.prose a:hover {
+  text-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+}
