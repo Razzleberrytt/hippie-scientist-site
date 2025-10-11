@@ -5,7 +5,7 @@
   <link>https://thehippiescientist.net/blog</link>
   <description>Psychoactive botany, safety, and DIY blend guides</description>
   <language>en</language>
-  <lastBuildDate>Sat, 11 Oct 2025 11:11:03 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 11 Oct 2025 11:22:25 GMT</lastBuildDate>
   
     <item>
       <title><![CDATA[Kava: Calming the Storm — Traditional vs. Modern Use]]></title>
@@ -13,6 +13,14 @@
       <guid>https://thehippiescientist.net/blog/kava-calming-the-storm-traditional-vs-modern-use</guid>
       <pubDate>Wed, 08 Oct 2025 00:00:00 GMT</pubDate>
       <description><![CDATA[Comparing noble kava chemotypes, safety data, and preparation differences.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Welcome to The Hippie Scientist]]></title>
+      <link>https://thehippiescientist.net/blog/welcome-to-the-hippie-scientist</link>
+      <guid>https://thehippiescientist.net/blog/welcome-to-the-hippie-scientist</guid>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[What we’re building and how to use the herb index.]]></description>
     </item>
 </channel>
 </rss>
