@@ -12,14 +12,15 @@ export default function Home() {
         path='/'
         pageType='website'
       />
-      <main
+      <div
         id='home'
         aria-label='Site introduction'
-        className='bg-cosmic-forest animate-gradient relative min-h-screen overflow-hidden text-midnight dark:bg-space-night dark:text-sand'
+        className='relative overflow-hidden text-midnight dark:bg-space-night dark:text-sand'
       >
+        <div className='aurora absolute inset-0 -z-10' aria-hidden />
         <StarfieldBackground />
         <Hero />
-      </main>
+      </div>
     </>
   )
 }

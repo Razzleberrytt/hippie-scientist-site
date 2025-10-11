@@ -23,6 +23,7 @@ export default function SiteHeader() {
     const setVar = () => {
       const height = ref.current?.clientHeight ?? 56;
       document.documentElement.style.setProperty("--header-h", `${height}px`);
+      document.documentElement.style.setProperty("--headerH", `${height}px`);
     };
 
     setVar();
