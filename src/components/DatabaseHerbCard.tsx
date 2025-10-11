@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { Herb } from "../types";
 import { slugify } from "../lib/slug";
 import { FavoriteStar } from "./FavoriteStar";
@@ -20,7 +20,7 @@ export const fmtIntensity = (v?: string) =>
     .replace(/^none$/i, "");
 
 export function DatabaseHerbCard({ herb }: { herb: Herb }) {
-  const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const name =
     herb.common?.trim() ||
@@ -63,6 +63,65 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const herbSlug = slugify(slugSource);
   const detailId = `herb-${herbSlug}-details`;
 
+  const effects = listify(herb.effects || (herb as any).effectsSummary);
+  const descriptionDetail = herb.description;
+  const preparations = listify(
+    (herb as any).preparation ||
+      (herb as any).preparations ||
+      (herb as any).forms ||
+      (herb as any).preparationsText
+  );
+  const activeCompounds = listify(
+    herb.compounds || (herb as any).active_compounds
+  );
+  const contraindications = listify(
+    herb.contraindications ||
+      (herb as any).contraindicationsText ||
+      (herb as any).contraindication
+  );
+  const interactions = listify(
+    herb.interactions || (herb as any).drugInteractions
+  );
+  const region = listify(herb.region || (herb as any).regionNotes);
+  const legal =
+    (herb.legal as string | undefined) ||
+    (herb as any).legalstatus ||
+    (herb as any).legalStatus ||
+    (herb as any).legalnotes;
+  const sources = herb.sources || (herb as any).sourcesText;
+
+  const hasExtra = useMemo(
+    () =>
+      Boolean(
+        tags.length ||
+          (Array.isArray(effects) ? effects.length : effects) ||
+          descriptionDetail ||
+          (Array.isArray(preparations) ? preparations.length : preparations) ||
+          (Array.isArray(activeCompounds)
+            ? activeCompounds.length
+            : activeCompounds) ||
+          (Array.isArray(contraindications)
+            ? contraindications.length
+            : contraindications) ||
+          (Array.isArray(interactions) ? interactions.length : interactions) ||
+          (Array.isArray(region) ? region.length : region) ||
+          legal ||
+          (Array.isArray(sources) ? sources.length : sources)
+      ),
+    [
+      activeCompounds,
+      contraindications,
+      descriptionDetail,
+      effects,
+      interactions,
+      legal,
+      preparations,
+      region,
+      sources,
+      tags.length,
+    ]
+  );
+
   return (
     <article className="rounded-2xl border border-white/10 bg-card/70 p-4 shadow-lg backdrop-blur sm:p-5">
       <header className="flex items-start justify-between gap-3">
@@ -81,31 +140,56 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
         </div>
       )}
 
-      {summary && <p className="mt-3 text-base text-body">{summary}</p>}
+      {summary && (
+        <p className="mt-3 text-base text-body line-clamp-3">{summary}</p>
+      )}
 
-      {tags.length > 0 && (
-        <ul className="mt-3 flex flex-wrap gap-2">
-          {tags.map(tag => (
-            <li
-              key={tag}
-              className="rounded-full border border-white/10 bg-surface/70 px-2.5 py-1 text-xs text-subtle"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
+      {hasExtra && (
+        <div
+          id={detailId}
+          aria-hidden={!expanded}
+          className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${
+            expanded ? "mt-4 max-h-[1200px]" : "max-h-0"
+          }`}
+        >
+          <div className="grid gap-4 rounded-xl border border-white/10 bg-surface/60 p-4">
+            {tags.length > 0 && (
+              <ul className="flex flex-wrap gap-2">
+                {tags.map(tag => (
+                  <li
+                    key={tag}
+                    className="rounded-full border border-white/10 bg-surface/70 px-2.5 py-1 text-xs text-subtle"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {section("Effects", effects)}
+            {section("Description", descriptionDetail)}
+            {section("Preparation & Forms", preparations)}
+            {section("Active Compounds", activeCompounds)}
+            {section("Contraindications", contraindications)}
+            {section("Interactions", interactions)}
+            {section("Region", region)}
+            {legalBlock(legal)}
+            {sourcesBlock(sources)}
+          </div>
+        </div>
       )}
 
       <div className="mt-4 flex items-center gap-3">
-        <button
-          type="button"
-          className="btn-secondary"
-          onClick={() => setOpen(value => !value)}
-          aria-expanded={open}
-          aria-controls={detailId}
-        >
-          {open ? "Show less" : "Show more"}
-        </button>
+        {hasExtra && (
+          <button
+            type="button"
+            className="btn-secondary"
+            onClick={() => setExpanded(value => !value)}
+            aria-expanded={expanded}
+            aria-controls={detailId}
+          >
+            {expanded ? "Show less" : "Show more"}
+          </button>
+        )}
         <a
           href={`#/herb/${herbSlug}`}
           className="hidden text-sm text-link sm:inline-block"
@@ -113,48 +197,6 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
           Open page →
         </a>
       </div>
-
-      <section
-        id={detailId}
-        hidden={!open}
-        className="mt-4 grid gap-4 rounded-xl border border-white/10 bg-surface/60 p-4"
-      >
-        {section("Effects", listify(herb.effects || (herb as any).effectsSummary))}
-        {section("Description", herb.description)}
-        {section(
-          "Preparation & Forms",
-          listify(
-            (herb as any).preparation ||
-              (herb as any).preparations ||
-              (herb as any).forms ||
-              (herb as any).preparationsText
-          )
-        )}
-        {section(
-          "Active Compounds",
-          listify(herb.compounds || (herb as any).active_compounds)
-        )}
-        {section(
-          "Contraindications",
-          listify(
-            herb.contraindications ||
-              (herb as any).contraindicationsText ||
-              (herb as any).contraindication
-          )
-        )}
-        {section(
-          "Interactions",
-          listify(herb.interactions || (herb as any).drugInteractions)
-        )}
-        {section("Region", listify(herb.region || (herb as any).regionNotes))}
-        {legalBlock(
-          (herb.legal as string | undefined) ||
-            (herb as any).legalstatus ||
-            (herb as any).legalStatus ||
-            (herb as any).legalnotes
-        )}
-        {sourcesBlock(herb.sources || (herb as any).sourcesText)}
-      </section>
     </article>
   );
 }
