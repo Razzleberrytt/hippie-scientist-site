@@ -51,6 +51,9 @@ for (const file of files) {
   const slug = fm.slug || slugify(title);
   const date = fm.date || new Date().toISOString();
   const description = fm.description || fm.excerpt || getExcerpt(content);
+  const tags = Array.isArray(fm.tags)
+    ? fm.tags.map((tag) => String(tag))
+    : [];
   const image = fm.image || `/og/${slug}.png`;
   const category = fm.category || "General";
 
@@ -62,7 +65,24 @@ for (const file of files) {
     image,
     category,
     excerpt: description,
+    tags,
+    html,
     bodyHtml: html,
+  });
+}
+
+if (!posts.some((post) => post.slug === "welcome-to-the-hippie-scientist")) {
+  posts.push({
+    title: "Welcome to The Hippie Scientist",
+    slug: "welcome-to-the-hippie-scientist",
+    date: "2025-01-01",
+    description: "What we’re building and how to use the herb index.",
+    image: "/og/welcome-to-the-hippie-scientist.png",
+    category: "Site",
+    excerpt: "What we’re building and how to use the herb index.",
+    tags: ["site", "intro"],
+    html: "<p>Hi! This is our first post…</p>",
+    bodyHtml: "<p>Hi! This is our first post…</p>",
   });
 }
 

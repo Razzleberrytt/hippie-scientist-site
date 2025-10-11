@@ -7,6 +7,23 @@
     "image": "/og/kava-calming-the-storm.png",
     "category": "Relaxation",
     "excerpt": "Comparing noble kava chemotypes, safety data, and preparation differences.",
+    "tags": [],
+    "html": "<p>Kava (<em>Piper methysticum</em>) has a long history across the South Pacific.</p>\n<p>Its <strong>kavalactones</strong> interact with GABAergic systems, producing calm without sedation.</p>\n",
     "bodyHtml": "<p>Kava (<em>Piper methysticum</em>) has a long history across the South Pacific.</p>\n<p>Its <strong>kavalactones</strong> interact with GABAergic systems, producing calm without sedation.</p>\n"
+  },
+  {
+    "title": "Welcome to The Hippie Scientist",
+    "slug": "welcome-to-the-hippie-scientist",
+    "date": "2025-01-01",
+    "description": "What we’re building and how to use the herb index.",
+    "image": "/og/welcome-to-the-hippie-scientist.png",
+    "category": "Site",
+    "excerpt": "What we’re building and how to use the herb index.",
+    "tags": [
+      "site",
+      "intro"
+    ],
+    "html": "<p>Hi! This is our first post…</p>",
+    "bodyHtml": "<p>Hi! This is our first post…</p>"
   }
 ]
