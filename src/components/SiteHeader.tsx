@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import clsx from "clsx";
 import NavLink from "./NavLink";
 import ThemeMenu from "./ThemeMenu";
 import Logo from "./Logo";
+import { useIsHome } from "../lib/useIsHome";
 
 const navLinks = [
   { to: "/database", label: "Browse" },
@@ -12,11 +13,39 @@ const navLinks = [
 ];
 
 export default function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
+  const isHome = useIsHome();
+  const ref = useRef<HTMLElement | null>(null);
+  const [condensed, setCondensed] = useState(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const setVar = () => {
+      const height = ref.current?.clientHeight ?? 56;
+      document.documentElement.style.setProperty("--header-h", `${height}px`);
+    };
+
+    setVar();
+
+    let observer: ResizeObserver | null = null;
+    if (ref.current && "ResizeObserver" in window) {
+      observer = new ResizeObserver(() => setVar());
+      observer.observe(ref.current);
+    }
+
+    window.addEventListener("resize", setVar, { passive: true });
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", setVar);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setCondensed(window.scrollY > 48);
     };
 
     handleScroll();
@@ -27,42 +56,67 @@ export default function SiteHeader() {
     };
   }, []);
 
+  const buttonSizing = condensed ? "h-8 px-2.5 text-sm" : "h-9 px-3 text-sm";
+
   return (
-    <motion.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className={`header--sticky sticky inset-x-0 top-0 z-50 h-[var(--header-h)] border-b transition-all duration-300 ${
-        scrolled
-          ? "border-white/15 bg-black/70 backdrop-blur-xl shadow-[0_12px_30px_-20px_rgba(24,32,64,0.65)]"
-          : "border-transparent bg-transparent backdrop-blur-0"
-      }`}
+    <header
+      ref={ref}
+      data-condensed={condensed ? "true" : "false"}
+      className="fixed inset-x-0 top-0 z-40 transition-all"
     >
-      <div className="container flex h-full items-center justify-between gap-4">
+      <div
+        className={clsx(
+          "mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 sm:px-6",
+          condensed
+            ? "border-b border-white/5 bg-surface/80 py-2 shadow-lg backdrop-blur-md sm:py-2.5"
+            : "bg-transparent py-3 sm:py-3.5",
+        )}
+      >
         <Link
           to="/"
-          className="group flex items-center gap-2 rounded-full px-2 py-1 transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
-          aria-label="Go to The Hippie Scientist homepage"
+          className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+          aria-label="The Hippie Scientist"
         >
-          <Logo
-            size={32}
-            className={`logo-glow transition-all duration-300 ${
-              scrolled
-                ? "drop-shadow-[0_0_6px_rgba(100,180,255,.35)]"
-                : "opacity-80 group-hover:opacity-100"
-            }`}
-          />
+          {isHome ? (
+            <>
+              <span
+                aria-hidden
+                className="h-9 w-9 rounded-full bg-gradient-to-br from-emerald-400 via-sky-400 to-fuchsia-500 shadow-[0_10px_30px_-12px_rgba(56,189,248,0.7)]"
+              />
+              <span
+                aria-hidden
+                className="font-semibold tracking-[0.5em] text-sm uppercase text-white/90"
+              >
+                T&nbsp;H&nbsp;S
+              </span>
+            </>
+          ) : (
+            <div className="flex items-center gap-3">
+              <span aria-hidden>
+                <Logo size={32} className="drop-shadow-[0_0_14px_rgba(56,189,248,0.35)]" />
+              </span>
+              <span aria-hidden className="text-lg font-semibold text-white/90">
+                The Hippie Scientist
+              </span>
+            </div>
+          )}
           <span className="sr-only">The Hippie Scientist</span>
         </Link>
         <nav className="flex items-center gap-2">
           {navLinks.map(link => (
-            <NavLink key={link.to} to={link.to}>
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={buttonSizing}
+            >
               {link.label}
             </NavLink>
           ))}
-          <ThemeMenu />
+          <ThemeMenu
+            triggerClassName={buttonSizing}
+          />
         </nav>
       </div>
-    </motion.header>
+    </header>
   );
 }

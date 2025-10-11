@@ -12,13 +12,11 @@ export default function NavLink({ to, children, className }: Props) {
       to={to}
       aria-current={isActive ? "page" : undefined}
       className={clsx(
-        "px-3 py-1.5 rounded-lg text-sm font-medium",
-        "text-white/80 hover:text-white",
-        "border border-white/10 hover:border-white/20",
+        "flex items-center justify-center rounded-xl text-sm font-medium",
+        "border border-white/10 text-white/80 transition-colors hover:border-white/20 hover:text-white",
         "bg-transparent hover:bg-white/5",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-0",
-        "transition-colors",
-        isActive && "text-white border-white/25 bg-white/5",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-0",
+        isActive && "border-white/25 bg-white/5 text-white",
         className,
       )}
     >

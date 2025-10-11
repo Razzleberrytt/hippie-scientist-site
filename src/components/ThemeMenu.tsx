@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { applyAccent, applyTheme, getAccent, getTheme, type AccentChoice, type ThemeChoice } from "../lib/theme";
 
@@ -13,7 +14,11 @@ const accentOptions: { value: AccentChoice; label: string }[] = [
   { value: "pink", label: "Pink" },
 ];
 
-export default function ThemeMenu() {
+type Props = {
+  triggerClassName?: string;
+};
+
+export default function ThemeMenu({ triggerClassName }: Props) {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<ThemeChoice>("dark");
   const [accent, setAccent] = useState<AccentChoice>("blue");
@@ -63,7 +68,12 @@ export default function ThemeMenu() {
     <div className="relative" ref={wrapperRef}>
       <button
         type="button"
-        className="rounded-xl px-4 py-1.5 text-sm font-medium text-white/80 transition-all hover:bg-white/10 hover:text-white"
+        className={clsx(
+          "flex items-center justify-center rounded-xl border border-white/10 text-sm font-medium text-white/80",
+          "transition-colors hover:border-white/20 hover:bg-white/5 hover:text-white",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-0",
+          triggerClassName,
+        )}
         onClick={() => setOpen(value => !value)}
         aria-haspopup="true"
         aria-expanded={open}
