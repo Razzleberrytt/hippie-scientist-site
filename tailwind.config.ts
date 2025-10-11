@@ -1,42 +1,57 @@
-import type { Config } from 'tailwindcss';
-import typography from '@tailwindcss/typography';
+import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
-  darkMode: ['class'],
-  content: ['./index.html', './src/**/*.{ts,tsx,js,jsx,mdx}'],
+  darkMode: "class",
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
         bg: {
-          DEFAULT: 'rgb(var(--bg) / <alpha-value>)',
+          DEFAULT: "rgb(var(--bg) / <alpha-value>)",
         },
-        fg: 'rgb(var(--fg) / <alpha-value>)',
-        surface: 'rgb(var(--surface) / <alpha-value>)',
-        card: 'rgb(var(--card) / <alpha-value>)',
-        border: 'rgb(var(--border) / <alpha-value>)',
-        accent: 'rgb(var(--accent-rgb) / <alpha-value>)',
-        panel: 'rgb(var(--card) / <alpha-value>)',
-        text: 'rgb(var(--fg) / <alpha-value>)',
-        sub: 'rgb(var(--muted) / <alpha-value>)',
+        fg: "rgb(var(--fg) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        card: "rgb(var(--card) / <alpha-value>)",
+        border: "rgb(var(--border) / <alpha-value>)",
+        accent: "rgb(var(--accent-rgb) / <alpha-value>)",
+        panel: "rgb(var(--card) / <alpha-value>)",
+        text: "rgb(var(--fg) / <alpha-value>)",
+        sub: "rgb(var(--muted) / <alpha-value>)",
         brand: {
-          lime: '#c7ff57',
-          cyan: '#52e1ff',
-          pink: '#ff7adf',
-          magenta: '#ff7adf',
+          lime: "#c7ff57",
+          cyan: "#52e1ff",
+          pink: "#ff7adf",
+          magenta: "#ff7adf",
         },
       },
       boxShadow: {
-        soft: '0 6px 24px rgba(0,0,0,0.25)',
-        glow: '0 0 0 1px rgba(199,255,87,0.18), 0 8px 32px rgba(199,255,87,0.08)',
-        card: '0 8px 30px rgba(0,0,0,0.3)',
+        soft: "0 6px 24px rgba(0,0,0,0.25)",
+        glow: "0 0 0 1px rgba(199,255,87,0.18), 0 8px 32px rgba(199,255,87,0.08)",
+        card: "0 8px 30px rgba(0,0,0,0.3)",
       },
       borderRadius: {
-        xl2: '18px',
+        xl2: "18px",
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
-        display: ['"Unbounded"', '"Major Mono Display"', 'cursive'],
+        sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        display: ['"Unbounded"', '"Major Mono Display"', "cursive"],
       },
+      typography: ({ theme }) => ({
+        invert: {
+          css: {
+            "--tw-prose-body": theme("colors.zinc[300]"),
+            "--tw-prose-headings": theme("colors.zinc[100]"),
+            "--tw-prose-links": theme("colors.sky[300]"),
+            "--tw-prose-links-hover": theme("colors.sky[200]"),
+            "--tw-prose-bold": theme("colors.zinc[100]"),
+            "--tw-prose-quotes": theme("colors.zinc[100]"),
+            "--tw-prose-code": theme("colors.pink[300]"),
+            "--tw-prose-pre-code": theme("colors.zinc[100]"),
+            "--tw-prose-pre-bg": theme("colors.zinc[900]"),
+          },
+        },
+      }),
     },
   },
   plugins: [typography],
