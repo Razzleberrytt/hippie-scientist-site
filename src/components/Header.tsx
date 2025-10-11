@@ -1,6 +1,7 @@
 // src/components/Header.tsx
 import React, { useEffect } from "react";
 import { Sparkles } from "lucide-react";
+import clsx from "clsx";
 import { useTrippy } from "../lib/trippy";
 
 const links = [
@@ -55,16 +56,19 @@ export default function Header() {
             aria-label="Toggle trippy mode"
             disabled={!enabled}
             onClick={() => setTrippy(!trippy)}
-            className={`chip relative whitespace-nowrap text-white/80 transition ${
-              enabled ? "hover:bg-white/10" : "cursor-not-allowed opacity-50"
-            } ${trippy ? "ring-1 ring-emerald-400/40" : ""}`}
+            className={clsx(
+              "pill relative whitespace-nowrap",
+              !enabled && "cursor-not-allowed opacity-50",
+              trippy && "ring-1 ring-emerald-400/40",
+            )}
           >
             <Sparkles className="mr-1 h-4 w-4" aria-hidden />
             Trippy {enabled ? (trippy ? "On" : "Off") : ""}
             <span
-              className={`pointer-events-none absolute -inset-4 -z-10 rounded-full blur-2xl ${
-                trippy ? "bg-emerald-500/10" : "hidden"
-              }`}
+              className={clsx(
+                "pointer-events-none absolute -inset-4 -z-10 rounded-full blur-2xl",
+                trippy ? "bg-emerald-500/10" : "hidden",
+              )}
             />
           </button>
         </nav>

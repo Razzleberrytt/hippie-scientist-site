@@ -4,7 +4,8 @@ import { HashRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
-import { TrippyProvider } from './lib/trippy';
+import TrippyEffects from './components/TrippyEffects';
+import { TrippyProvider, useTrippy } from './lib/trippy';
 import { initConsentDefault } from './lib/consent';
 import { loadAnalytics, onConsentChange } from './lib/loadAnalytics';
 import { initTheme } from './lib/theme';
@@ -22,6 +23,17 @@ window.addEventListener('storage', (event: StorageEvent) => {
   if (event.key === 'consent.v1') onConsentChange();
 });
 
+function Shell() {
+  const { trippy } = useTrippy();
+
+  return (
+    <div className="relative min-h-screen overflow-hidden">
+      {trippy && <TrippyEffects />}
+      <App />
+    </div>
+  );
+}
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HelmetProvider>
@@ -29,7 +41,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         {/* HashRouter prevents 404 on refresh by using URL hash for routing */}
         <HashRouter>
           <TrippyProvider>
-            <App />
+            <Shell />
           </TrippyProvider>
         </HashRouter>
       </ErrorBoundary>
