@@ -9,14 +9,13 @@ import StatsCounters from './StatsCounters'
 export default function Hero() {
   return (
     <motion.section
-      className='relative isolate after:pointer-events-none after:absolute after:-bottom-14 after:left-0 after:h-16 after:w-full after:bg-gradient-to-b after:from-black/60 after:to-transparent'
-      style={{ paddingTop: 'var(--space-hero-y)', paddingBottom: 'var(--space-hero-y)' }}
+      className='relative isolate overflow-hidden pt-16 pb-10 sm:pt-24 sm:pb-16 after:pointer-events-none after:absolute after:-bottom-14 after:left-0 after:h-16 after:w-full after:bg-gradient-to-b after:from-black/60 after:to-transparent'
       aria-labelledby='hero-title'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className='absolute inset-0 -z-10'>
+      <div className='absolute inset-0 -z-10 pointer-events-none'>
         <ParticlesBackground />
         <HeroBackground />
         <FloatingElements />
@@ -25,7 +24,7 @@ export default function Hero() {
       <div className='relative z-10 mx-auto flex max-w-screen-lg flex-col items-center px-4 text-center sm:px-6'>
         <motion.h1
           id='hero-title'
-          className='text-5xl sm:text-6xl md:text-7xl font-bold leading-tight tracking-tight text-balance gradient-text-animated'
+          className='mb-3 text-5xl font-bold leading-tight tracking-tight text-balance gradient-text-animated sm:mb-4 sm:text-6xl md:text-7xl'
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -34,7 +33,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className='mt-[var(--space-hero-gap)] max-w-2xl text-base text-white/80 sm:text-lg'
+          className='max-w-2xl text-base text-white/80 sm:text-lg'
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6, ease: 'easeOut' }}

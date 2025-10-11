@@ -9,7 +9,7 @@ export default function Footer(){
   useEffect(() => onOpenConsent(() => setOpen(true)), []);
 
   return (
-    <footer id="site-footer" className="border-t mt-12"
+    <footer id="site-footer" className="border-t mt-16 sm:mt-24"
       style={{background:"color-mix(in oklab, var(--surface-c) 88%, transparent 12%)"}}>
       <div className="container py-10 grid gap-8 sm:grid-cols-2">
         <NewsletterSignup />
