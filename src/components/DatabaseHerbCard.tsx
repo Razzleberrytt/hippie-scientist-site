@@ -1,4 +1,5 @@
 import { pickNames, cleanIntensity, titleCase } from "../lib/text";
+import { hashLink } from "../lib/routes";
 
 type Herb = {
   common?: string; commonName?: string; name?: string;
@@ -28,6 +29,12 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const blurb =
     (herb.summary && String(herb.summary)) ||
     (herb.description && String(herb.description)) || "";
+
+  const slug = encodeURIComponent(
+    (names.common || names.sci || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+  );
 
   return (
     <article className="rounded-3xl bg-white/[0.03] border border-white/10 shadow-sm p-4 md:p-5 compact-stack">
@@ -66,7 +73,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
           Show more
         </button>
         <a
-          href={`/herb/${encodeURIComponent((names.common || names.sci).toLowerCase().replace(/[^a-z0-9]+/g,"-"))}`}
+          href={hashLink(`/herb/${slug}`)}
           className="rounded-xl px-3 py-2 text-sm bg-emerald-600/80 hover:bg-emerald-500 text-white"
         >
           View details

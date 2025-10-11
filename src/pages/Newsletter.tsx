@@ -1,5 +1,6 @@
 import React, { FormEvent, useEffect, useState } from "react";
 import Meta from "../components/Meta";
+import { hashLink } from "../lib/routes";
 
 function encodeForm(data: FormData) {
   const params = new URLSearchParams();
@@ -109,7 +110,18 @@ export default function Newsletter() {
             </button>
 
             <p className="pt-2 text-xs text-white/60">
-              By subscribing, you agree to our <a className="underline" href="/privacy">Privacy Policy</a> and <a className="underline" href="/disclaimer">Disclaimer</a>.
+              By subscribing, you agree to our
+              {" "}
+              <a className="underline" href={hashLink("/privacy")}>
+                Privacy Policy
+              </a>
+              {" "}
+              and
+              {" "}
+              <a className="underline" href={hashLink("/disclaimer")}>
+                Disclaimer
+              </a>
+              .
             </p>
 
             <p className="text-xs text-white/50">
@@ -121,10 +133,10 @@ export default function Newsletter() {
             <h2 className="font-semibold text-lime-300">You're on the list ✦</h2>
             <p className="mt-1 text-white/75">Check your inbox for a confirmation. Welcome aboard.</p>
             <nav className="mt-4 text-sm">
-              <a className="mr-3 underline" href="/database">
+              <a className="mr-3 underline" href={hashLink("/database")}>
                 Browse database
               </a>
-              <a className="underline" href="/blog">
+              <a className="underline" href={hashLink("/blog")}>
                 Read the blog
               </a>
             </nav>
