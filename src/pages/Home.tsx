@@ -15,7 +15,7 @@ export default function Home() {
       <main
         id='home'
         aria-label='Site introduction'
-        className='bg-cosmic-forest animate-gradient relative min-h-screen overflow-hidden pt-16 text-midnight dark:bg-space-night dark:text-sand'
+        className='bg-cosmic-forest animate-gradient relative min-h-screen overflow-hidden text-midnight dark:bg-space-night dark:text-sand'
       >
         <StarfieldBackground />
         <Hero />
