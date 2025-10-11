@@ -60,12 +60,26 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
           ? raw.category
           : '',
     intensity: typeof raw.intensity === 'string' ? raw.intensity : '',
-    intensity_label:
-      typeof raw.intensity_label === 'string' && raw.intensity_label
-        ? raw.intensity_label
-        : typeof raw.intensity === 'string'
-          ? raw.intensity
-          : '',
+    intensityLabel:
+      typeof raw.intensityLabel === 'string' && raw.intensityLabel
+        ? raw.intensityLabel
+        : typeof raw.intensity_label === 'string' && raw.intensity_label
+          ? raw.intensity_label
+          : typeof raw.intensityLevel === 'string' && raw.intensityLevel
+            ? `${raw.intensityLevel.charAt(0).toUpperCase()}${raw.intensityLevel.slice(1)}`
+            : typeof raw.intensity === 'string'
+              ? raw.intensity
+              : '',
+    intensityLevel: (() => {
+      const candidate =
+        (typeof raw.intensityLevel === 'string' && raw.intensityLevel) ||
+        (typeof raw.intensity_level === 'string' && raw.intensity_level) ||
+        ''
+      const normalized = candidate.toLowerCase()
+      return ['mild', 'moderate', 'strong', 'variable', 'unknown'].includes(normalized)
+        ? (normalized as Herb['intensityLevel'])
+        : null
+    })(),
     region: typeof raw.region === 'string' ? raw.region : '',
     legalstatus,
     schedule,

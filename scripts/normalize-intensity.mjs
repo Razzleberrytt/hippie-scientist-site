@@ -3,32 +3,67 @@ import fs from "fs";
 const SRC = "src/data/herbs/herbs.normalized.json";
 const herbs = JSON.parse(fs.readFileSync(SRC, "utf-8"));
 
-function chooseLevel(h) {
-  const f = (h.intensity || h.intensity_level || "").toString().toLowerCase();
-  if (["mild", "moderate", "strong", "toxic"].includes(f)) return f;
+const INTENSITY_ENUM = ["mild", "moderate", "strong", "variable", "unknown"];
+
+function pickIntensityRaw(h) {
+  const direct =
+    h.intensity_level ||
+    h.intensity ||
+    h.effects_intensity ||
+    h.overview_intensity;
+  if (direct) return direct;
 
   const text = [
     h.intensity_text,
     h.intensity_summary,
-    h.description,
     h.effects,
+    h.description,
   ]
     .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
+    .join(" ");
 
-  if (/(^|\b)(highly\s+toxic|extremely\s+toxic|cardiac glycoside|aconit|poison|hepatotoxic)(\b|$)/.test(text)) return "toxic";
-  if (/(^|\b)(very\s+strong|potent|powerful|dmt|ayahuasca|deliriant|anticholinergic)(\b|$)/.test(text)) return "strong";
-  if (/(^|\b)(moderate|notable|psychedelic|sedative)(\b|$)/.test(text)) return "moderate";
-  if (/(^|\b)(mild|gentle|calming|soothing)(\b|$)/.test(text)) return "mild";
+  return text || "";
+}
 
-  return null;
+function parseIntensity(raw) {
+  if (!raw) return "unknown";
+  const s = String(raw).toLowerCase();
+
+  if (INTENSITY_ENUM.includes(s)) return s;
+
+  if (/(\bstrong|\bpotent|\bintense|\bpowerful)/.test(s)) return "strong";
+  if (/(\bmoderate|\bmedium)/.test(s)) return "moderate";
+  if (/(\bmild|\bgentle|\blight)/.test(s)) return "mild";
+  if (/(\bvar(y|iable)|\bmixed|\bdepends|\bcontextual)/.test(s)) return "variable";
+
+  const m = s.match(/intensity[^a-z]*(mild|moderate|strong)/);
+  if (m && m[1]) return m[1];
+
+  return "unknown";
+}
+
+function intensityPretty(level) {
+  switch (level) {
+    case "mild":
+      return "Mild";
+    case "moderate":
+      return "Moderate";
+    case "strong":
+      return "Strong";
+    case "variable":
+      return "Variable";
+    default:
+      return "Unknown";
+  }
 }
 
 for (const h of herbs) {
-  const lvl = chooseLevel(h);
-  h.intensity_level = lvl;
-  h.intensity_label = lvl ? lvl[0].toUpperCase() + lvl.slice(1) : null;
+  const raw = pickIntensityRaw(h);
+  const level = parseIntensity(raw);
+  h.intensityLevel = level;
+  h.intensityLabel = intensityPretty(level);
+  delete h.intensity_level;
+  delete h.intensity_label;
 }
 
 fs.writeFileSync(SRC, JSON.stringify(herbs, null, 2));

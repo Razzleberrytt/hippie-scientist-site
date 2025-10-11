@@ -79,35 +79,44 @@ export default function HerbDetail() {
 
   const details = normalizeHerbDetails(herb);
   const description = details.description || details.effects || "Herb profile";
-  const intensityRaw = String(
-    herb.intensity ?? herb.intensity_label ?? pick.intensity(herb) ?? ""
-  ).toLowerCase();
-  const intensityLabel = intensityRaw ? titleCase(intensityRaw) : "";
-  const intensityStyle = intensityLabel
-    ? intensityRaw.includes("strong")
-      ? {
-          background: "rgba(244, 63, 94, 0.12)",
-          border: "1px solid rgba(248, 113, 113, 0.45)",
-          color: "#ffdada",
-        }
-      : intensityRaw.includes("moderate")
-        ? {
-            background: "color-mix(in oklab, var(--accent) 18%, var(--surface-c) 82%)",
-            border: "1px solid color-mix(in oklab, var(--accent), white 25%)",
-            color: "color-mix(in oklab, var(--accent) 20%, var(--text-c) 80%)",
-          }
-        : intensityRaw.includes("mild")
-          ? {
-              background: "rgba(34, 197, 94, 0.15)",
-              border: "1px solid rgba(52, 211, 153, 0.45)",
-              color: "#defce7",
-            }
-          : {
-              background: "color-mix(in oklab, var(--surface-c) 92%, transparent 8%)",
-              border: "1px solid color-mix(in oklab, var(--border-c) 80%, transparent 20%)",
-              color: "var(--muted-c)",
-            }
-    : undefined;
+  const intensityLevel = herb.intensityLevel || null;
+  const intensityLabel = herb.intensityLabel
+    || (intensityLevel ? titleCase(intensityLevel) : 'Unknown');
+  const intensityStyle = (() => {
+    switch (intensityLevel) {
+      case 'strong':
+        return {
+          background: 'rgba(244, 63, 94, 0.12)',
+          border: '1px solid rgba(248, 113, 113, 0.45)',
+          color: '#ffdada',
+        };
+      case 'moderate':
+        return {
+          background: 'color-mix(in oklab, var(--accent) 18%, var(--surface-c) 82%)',
+          border: '1px solid color-mix(in oklab, var(--accent), white 25%)',
+          color: 'color-mix(in oklab, var(--accent) 20%, var(--text-c) 80%)',
+        };
+      case 'mild':
+        return {
+          background: 'rgba(34, 197, 94, 0.15)',
+          border: '1px solid rgba(52, 211, 153, 0.45)',
+          color: '#defce7',
+        };
+      case 'variable':
+        return {
+          background: 'rgba(56, 189, 248, 0.14)',
+          border: '1px solid rgba(56, 189, 248, 0.35)',
+          color: '#d6f3ff',
+        };
+      case 'unknown':
+      default:
+        return {
+          background: 'color-mix(in oklab, var(--surface-c) 92%, transparent 8%)',
+          border: '1px solid color-mix(in oklab, var(--border-c) 80%, transparent 20%)',
+          color: 'var(--muted-c)',
+        };
+    }
+  })();
 
   const safety = cleanLine(herb.safety || pick.safety(herb));
   const therapeutic = cleanLine(herb.therapeutic || pick.therapeutic(herb));

@@ -10,7 +10,8 @@ export type AdvancedHerb = {
   contraindications?: string[] | string
   interactions?: string[] | string
   intensity?: string | number | null
-  intensity_label?: string | number | null
+  intensityLabel?: string | number | null
+  intensityLevel?: string | null
   intensityClean?: string | number | null
   [key: string]: unknown
 }
@@ -52,7 +53,10 @@ const MAOI_PATTERN = /(maoi|ssri|serotonin|serotonergic)/i
 function getIntensityValue(herb: AdvancedHerb) {
   const candidates = [
     herb.intensity,
-    herb.intensity_label,
+    herb.intensityLabel,
+    herb.intensityLevel,
+    (herb as Record<string, unknown>).intensity_label,
+    (herb as Record<string, unknown>).intensity_level,
     herb.intensityClean,
     (herb as Record<string, unknown>).intensityScore,
   ]
@@ -68,6 +72,7 @@ function getIntensityValue(herb: AdvancedHerb) {
       if (/(strong|potent|high)/.test(lower)) return 8
       if (/(moderate|medium|balanced)/.test(lower)) return 5
       if (/(mild|gentle|light|low)/.test(lower)) return 2
+      if (/variable|varied|depends/.test(lower)) return 4
     }
   }
 
