@@ -34,6 +34,7 @@ export default defineConfig({
   },
   define: {
     __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+    __BUILD_ID__: JSON.stringify(Date.now().toString()),
   },
   build: {
     outDir: 'dist',

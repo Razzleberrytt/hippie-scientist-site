@@ -1,27 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Meta from "../components/Meta";
 
-export default function BlogPost(){
-  const { slug } = useParams<{slug:string}>();
-  const [html,setHtml] = React.useState<string>("");
-  const [err,setErr] = React.useState<string>("");
+export default function BlogPost() {
+  const { slug = "" } = useParams();
+  const [html, setHtml] = useState<string | null>(null);
+  const [title, setTitle] = useState<string>("Loading…");
+  const [err, setErr] = useState<string | null>(null);
 
-  React.useEffect(()=>{
-    if(!slug) return;
-    fetch(`/blogdata/${slug}.html`, { cache: "no-store" })
-      .then(r=> r.ok ? r.text() : Promise.reject(r.statusText))
-      .then(setHtml)
-      .catch(e=> setErr(String(e)));
-  },[slug]);
-
-  if (err) return <div className="container mx-auto p-4">Post not found.</div>;
-  if (!html) return <div className="container mx-auto p-4 opacity-70">Loading…</div>;
+  useEffect(() => {
+    if (!slug) return;
+    setHtml(null);
+    setErr(null);
+    setTitle("Loading…");
+    const url = `/blogdata/${slug}.html?b=${(globalThis as any).__BUILD_ID__ || ""}`;
+    fetch(url, { cache: "no-store" })
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.text();
+      })
+      .then((txt) => {
+        setHtml(txt);
+        const m = txt.match(/<h1[^>]*>([^<]+)<\/h1>/i);
+        setTitle(m ? m[1] : slug.replace(/-/g, " "));
+      })
+      .catch((e: unknown) => setErr(e instanceof Error ? e.message : String(e)));
+  }, [slug]);
 
   return (
-    <div className="container mx-auto p-4 prose prose-invert max-w-none">
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-      <hr className="my-8 opacity-20" />
-      <a className="text-sky-400 hover:underline" href="/blog">← Back to blog</a>
-    </div>
+    <>
+      <Meta title={title} description={title} path={`/blog/${slug}`} pageType="article" />
+      <main id="main" className="container py-8 prose prose-invert max-w-none">
+        {err && <p className="text-red-400">Could not load post: {err}</p>}
+        {!err && !html && <p>Loading…</p>}
+        {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+      </main>
+    </>
   );
 }
