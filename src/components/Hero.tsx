@@ -9,7 +9,8 @@ import StatsCounters from './StatsCounters'
 export default function Hero() {
   return (
     <motion.section
-      className='relative isolate overflow-hidden pt-16 pb-10 sm:pt-24 sm:pb-16 after:pointer-events-none after:absolute after:-bottom-14 after:left-0 after:h-16 after:w-full after:bg-gradient-to-b after:from-black/60 after:to-transparent'
+      className='relative isolate overflow-hidden pb-10 sm:pb-16 after:pointer-events-none after:absolute after:-bottom-14 after:left-0 after:h-16 after:w-full after:bg-gradient-to-b after:from-black/60 after:to-transparent'
+      style={{ paddingTop: 'calc(var(--header-h, 56px) + 12px)' }}
       aria-labelledby='hero-title'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
