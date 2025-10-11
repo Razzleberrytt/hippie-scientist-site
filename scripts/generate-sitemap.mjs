@@ -86,10 +86,11 @@ try {
 let blogPosts = [];
 let blogUrls = [];
 try {
-  const posts = JSON.parse(
-    fs.readFileSync("public/blogdata/posts.json", "utf-8"),
+  const store = JSON.parse(
+    fs.readFileSync("public/blogdata.json", "utf-8"),
   );
-  blogPosts = Array.isArray(posts) ? posts : [];
+  const posts = Array.isArray(store?.posts) ? store.posts : [];
+  blogPosts = posts;
   blogUrls = blogPosts
     .filter((post) => post && post.slug)
     .map((post) => `/blog/${post.slug}`);

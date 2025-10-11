@@ -1,49 +1,91 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import matter from "gray-matter";
 import { marked } from "marked";
 
-const SRC = "content/blog";
-const OUT_DIR = "public/blogdata";       // static json/html that the app fetches
-fs.mkdirSync(OUT_DIR, { recursive: true });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-/** read all .md posts */
-const files = fs.existsSync(SRC)
-  ? fs.readdirSync(SRC).filter(f => f.endsWith(".md"))
-  : [];
+const ROOT = path.resolve(__dirname, "..");
+const CONTENT = path.join(ROOT, "content", "blog");
+const PUBLIC = path.join(ROOT, "public");
+const GEN = path.join(ROOT, "src", "generated");
+const HTML_OUT = path.join(PUBLIC, "blog-html");
+const FEED_OUT = path.join(PUBLIC, "atom.xml");
+const STORE_PUBLIC = path.join(PUBLIC, "blogdata.json");
+const STORE_SRC = path.join(GEN, "blogdata.json");
+const SITE = "https://thehippiescientist.net";
 
-const posts = files.map(filename => {
-  const raw = fs.readFileSync(path.join(SRC, filename), "utf-8");
+fs.mkdirSync(HTML_OUT, { recursive: true });
+fs.mkdirSync(GEN, { recursive: true });
+
+/** load markdown */
+const files = fs.readdirSync(CONTENT)
+  .filter(f => f.endsWith(".md"))
+  .sort();
+
+const posts = [];
+
+for (const file of files) {
+  const raw = fs.readFileSync(path.join(CONTENT, file), "utf-8");
   const { data, content } = matter(raw);
-  const slug = (data.slug || filename.replace(/\.md$/, "")).toLowerCase();
+  const slug = (data.slug || file.replace(/\.md$/, "")).toLowerCase();
+  const title = data.title || slug;
+  const date = data.date ? new Date(data.date).toISOString() : new Date().toISOString();
+  const tags = Array.isArray(data.tags) ? data.tags : [];
   const html = marked.parse(content);
-  const post = {
-    slug,
-    title: data.title || slug,
-    date: data.date || new Date().toISOString().slice(0,10),
-    excerpt: data.excerpt || "",
-    tags: Array.isArray(data.tags) ? data.tags : [],
-    html
-  };
-  // write html per post (static)
-  fs.writeFileSync(path.join(OUT_DIR, `${slug}.html`), html, "utf-8");
-  return post;
-}).sort((a,b) => (a.date < b.date ? 1 : -1));
+  const excerpt = (data.description || content.replace(/\n+/g, " ").slice(0, 220)).trim();
 
-/** fallback welcome if none */
-if (posts.length === 0) {
-  const fallback = {
-    slug: "welcome",
-    title: "Welcome to The Hippie Scientist",
-    date: new Date().toISOString().slice(0,10),
-    excerpt: "What we’re building and how to use the herb index.",
-    tags: ["site"],
-    html: "<p>Welcome!</p>"
-  };
-  posts.push(fallback);
-  fs.writeFileSync(path.join(OUT_DIR, "welcome.html"), fallback.html, "utf-8");
+  // write per-post HTML for /blog/:slug reader
+  fs.writeFileSync(path.join(HTML_OUT, `${slug}.html`), html);
+
+  posts.push({ slug, title, date, excerpt, tags });
 }
 
-/** write the list store */
-fs.writeFileSync(path.join(OUT_DIR, "posts.json"), JSON.stringify(posts, null, 2));
-console.log(`Blog: wrote ${posts.length} posts to ${OUT_DIR}`);
+// newest first
+posts.sort((a,b) => new Date(b.date) - new Date(a.date));
+
+const version = Date.now().toString();
+const store = { version, count: posts.length, posts };
+
+// emit store to public (runtime consumers) and src/generated (bundled import)
+fs.writeFileSync(STORE_PUBLIC, JSON.stringify(store, null, 2));
+fs.writeFileSync(STORE_SRC, JSON.stringify(store));
+
+console.log(`Wrote ${posts.length} posts; version=${version}`);
+
+/** minimal Atom feed */
+const feedItems = posts.map(p => `
+  <entry>
+    <title><![CDATA[${p.title}]]></title>
+    <id>${SITE}/blog/${p.slug}</id>
+    <link href="${SITE}/blog/${p.slug}" />
+    <updated>${p.date}</updated>
+    <summary><![CDATA[${p.excerpt}]]></summary>
+  </entry>`).join("\n");
+
+const feed = `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>The Hippie Scientist — Blog</title>
+  <id>${SITE}/blog</id>
+  <link rel="self" href="${SITE}/atom.xml"/>
+  <updated>${new Date().toISOString()}</updated>
+  ${feedItems}
+</feed>`;
+
+fs.writeFileSync(FEED_OUT, feed);
+
+// optional: append blog routes to sitemap if script/file exists
+try {
+  const sitemapPath = path.join(PUBLIC, "sitemap.xml");
+  if (fs.existsSync(sitemapPath)) {
+    let sm = fs.readFileSync(sitemapPath, "utf-8");
+    // naive append just before closing </urlset>
+    const urls = posts.map(p => `  <url><loc>${SITE}/blog/${p.slug}</loc></url>`).join("\n");
+    sm = sm.replace("</urlset>", `${urls}\n</urlset>`);
+    fs.writeFileSync(sitemapPath, sm);
+  }
+} catch (e) {
+  console.warn("sitemap append skipped:", e.message);
+}
