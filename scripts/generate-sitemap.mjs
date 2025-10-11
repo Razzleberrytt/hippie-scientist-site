@@ -29,7 +29,19 @@ try {
     .map(slug => `/herb/${slug}`);
 } catch (_) { /* ok if not present locally */ }
 
-const pages = Array.from(new Set([...staticPaths, ...herbPaths])).sort();
+let blogPaths = [];
+try {
+  const blogPosts = JSON.parse(
+    fs.readFileSync("src/data/blog/posts.json", "utf-8"),
+  );
+  blogPaths = (Array.isArray(blogPosts) ? blogPosts : [])
+    .map((post) => (post && post.slug ? `/blog/${post.slug}` : null))
+    .filter(Boolean);
+} catch (_) {
+  /* ok if posts missing */
+}
+
+const pages = Array.from(new Set([...staticPaths, ...herbPaths, ...blogPaths])).sort();
 const now = new Date().toISOString();
 
 const body = `<?xml version="1.0" encoding="UTF-8"?>
