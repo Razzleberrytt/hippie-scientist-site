@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { cleanIntensity, titleCase } from "../lib/text";
 import type { Herb } from "../types";
 import { toHash } from "../lib/routing";
+import { getCommonName } from "../lib/herbName";
 
 function toArray(value: unknown): string[] {
   if (!value) return [];
@@ -26,10 +27,21 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const [open, setOpen] = React.useState(false);
   const reduceMotion = useReducedMotion();
 
-  const commonName = firstNonEmpty(herb.common, (herb as any).commonName, herb.name);
-  const scientificName = firstNonEmpty(herb.scientific, (herb as any).scientificName, (herb as any).binomial);
+  const scientificName = firstNonEmpty(
+    herb.scientific,
+    (herb as any).scientificName,
+    (herb as any).binomial,
+    (herb as any).name,
+  );
+  const fallbackCommon = firstNonEmpty(
+    herb.common,
+    (herb as any).displayName,
+    (herb as any).display_name,
+    herb.name,
+  );
+  const commonName = getCommonName(herb) ?? (fallbackCommon ? titleCase(fallbackCommon) : "");
   const heading = commonName || scientificName || "Unknown herb";
-  const secondary = scientificName && scientificName !== commonName
+  const secondary = scientificName && heading !== scientificName
     ? scientificName
     : firstNonEmpty((herb as any).family, (herb as any).category_label, toArray((herb as any).category)[0]);
 

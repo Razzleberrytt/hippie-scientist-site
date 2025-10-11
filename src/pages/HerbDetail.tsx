@@ -8,6 +8,7 @@ import postsData from "../data/blog/posts.json";
 import { relatedPostsByHerbSlug } from "../lib/relevance";
 import { cleanLine, hasVal, titleCase } from "../lib/pretty";
 import { pick } from "../lib/present";
+import { getCommonName } from "../lib/herbName";
 
 type Herb = (typeof data)[number];
 
@@ -82,6 +83,12 @@ export default function HerbDetail() {
   if (!herb) return <main className="container py-6">Not found.</main>;
 
   const details = normalizeHerbDetails(herb);
+  const scientificName = herb.scientific
+    || (herb as any).scientificName
+    || (herb as any).binomial
+    || herb.name;
+  const commonName = getCommonName(herb) ?? (herb.common ? titleCase(String(herb.common)) : undefined);
+  const displayTitle = commonName ?? scientificName ?? "Herb";
   const description = details.description || details.effects || "Herb profile";
   const intensityLevel = herb.intensityLevel || null;
   const intensityLabel = herb.intensityLabel
@@ -149,7 +156,7 @@ export default function HerbDetail() {
   return (
     <>
       <Meta
-        title={`${herb.common || herb.scientific} — The Hippie Scientist`}
+        title={`${displayTitle} — The Hippie Scientist`}
         description={description}
         path={`/herb/${slug}`}
         pageType="article"
@@ -166,11 +173,11 @@ export default function HerbDetail() {
           >
             <header className="flex flex-col gap-2 pb-4" style={{ borderBottom: "1px solid var(--border-c)" }}>
               <h1 className="text-3xl font-semibold" style={{ color: "var(--accent)" }}>
-                {herb.common || herb.scientific}
+                {displayTitle}
               </h1>
-              {hasVal(herb.scientific) && (
+              {hasVal(scientificName) && (
                 <p className="italic" style={{ color: "var(--muted-c)" }}>
-                  {herb.scientific}
+                  {scientificName}
                 </p>
               )}
               {intensityLabel && (
