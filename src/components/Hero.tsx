@@ -1,26 +1,20 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import HeroBackground from './HeroBackground'
-import ParticlesBackground from './ParticlesBackground'
-import FloatingElements from './FloatingElements'
 import RotatingHerbHero from './RotatingHerbHero'
 import StatsCounters from './StatsCounters'
 
 export default function Hero() {
   return (
     <motion.section
-      className='relative z-10 isolate overflow-hidden pb-10 sm:pb-16 after:pointer-events-none after:absolute after:-bottom-14 after:left-0 after:h-16 after:w-full after:bg-gradient-to-b after:from-black/60 after:to-transparent'
-      style={{ paddingTop: 'calc(var(--header-h, 56px) + 8px)' }}
+      className='relative z-0 overflow-hidden pb-12 sm:pb-16'
+      style={{ paddingTop: 'calc(var(--headerH, 64px) + 32px)' }}
       aria-labelledby='hero-title'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className='pointer-events-none absolute inset-0 -z-10'>
-        <ParticlesBackground />
-        <HeroBackground />
-        <FloatingElements />
-      </div>
+      <HeroBackground />
 
       <div className='relative z-10 mx-auto flex max-w-screen-lg flex-col items-center px-4 text-center sm:px-6'>
         <motion.h1

@@ -31,6 +31,17 @@
   }
 }
 
+:root {
+  --headerH: 64px;
+  --footerH: 320px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --footerH: 240px;
+  }
+}
+
 :root,
 html,
 body {
@@ -129,4 +140,11 @@ a:hover {
 *::-webkit-scrollbar-thumb {
   background: color-mix(in oklab, var(--accent) 25%, transparent);
   border-radius: 999px;
+}
+
+.aurora {
+  background:
+    radial-gradient(1200px 800px at 70% 10%, rgba(90, 150, 255, 0.18), transparent 70%),
+    radial-gradient(900px 600px at 20% 40%, rgba(120, 255, 200, 0.12), transparent 60%),
+    #0b0f14;
 }

@@ -63,10 +63,12 @@ function RootLayout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="app-aurora" aria-hidden />
+    <div className="flex min-h-screen flex-col">
       <SiteHeader />
-      <main id="main" className="flex-grow pb-10">
+      <main
+        id="main"
+        className="flex-1 min-h-[calc(100dvh- var(--headerH)- var(--footerH))]"
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
