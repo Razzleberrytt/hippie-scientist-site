@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import Meta from "../components/Meta";
 import data from "../data/herbs/herbs.normalized.json";
-import { hashLink } from "../lib/routes";
 
 export default function NotFound() {
   const [q, setQ] = useState("");
@@ -77,9 +77,9 @@ export default function NotFound() {
             <ul className="mt-3 grid sm:grid-cols-2 gap-2">
               {results.map((r, i) => (
                 <li key={i}>
-                  <a className="underline" href={hashLink(`/herb/${encodeURIComponent(r.slug)}`)}>
+                  <Link className="underline" to={`/herb/${encodeURIComponent(r.slug)}`}>
                     {r.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -94,24 +94,24 @@ export default function NotFound() {
                 key={i}
                 className="rounded-xl border border-white/10 bg-white/[0.04] p-3"
               >
-                <a className="underline" href={hashLink(`/herb/${encodeURIComponent(p.slug)}`)}>
+                <Link className="underline" to={`/herb/${encodeURIComponent(p.slug)}`}>
                   {p.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </section>
 
         <nav className="text-white/70">
-          <a className="underline mr-4" href={hashLink("/database")}>
+          <Link className="underline mr-4" to="/database">
             Browse database
-          </a>
-          <a className="underline mr-4" href={hashLink("/blog")}>
+          </Link>
+          <Link className="underline mr-4" to="/blog">
             Read the blog
-          </a>
-          <a className="underline" href={hashLink("/")}>
+          </Link>
+          <Link className="underline" to="/">
             Go home
-          </a>
+          </Link>
         </nav>
       </main>
     </>

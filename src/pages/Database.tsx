@@ -47,11 +47,11 @@ export default function Database() {
         path='/database'
       />
       <div className="pt-6 md:pt-8 pb-10">
-        <section className="mx-auto max-w-6xl px-4 pt-6 md:pt-8 pb-4">
-          <h1 className="text-3xl md:text-4xl font-bold">Herb Database</h1>
-          <p className="mt-2 text-white/70">Search and explore the library.</p>
+        <section className="mx-auto max-w-6xl px-4 pt-4 md:pt-6 pb-4">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">Herb Database</h1>
+          <p className="text-white/70 mb-4">Search and explore the library.</p>
 
-          <div className="mt-4 flex flex-col gap-3">
+          <div className="flex flex-col gap-3">
             {ENABLE_ADVANCED_FILTERS && (
               <div className="flex flex-wrap items-center gap-2">
                 {advancedResults && (
@@ -73,21 +73,23 @@ export default function Database() {
               </div>
             )}
 
-          <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-md">
-            <label className="sr-only" htmlFor="herb-search-input">
-              Search herbs
-            </label>
-            <input
-                id="herb-search-input"
-                className="flex-1 rounded-xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/90 placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
-                placeholder="Search herbs, compounds, effects…"
-                value={query}
-                onChange={event => setQuery(event.target.value)}
-              />
-              <span className="text-sm text-white/60">{results.length} results</span>
-            </div>
+            <div className="mb-6">
+              <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-md">
+                <label className="sr-only" htmlFor="herb-search-input">
+                  Search herbs
+                </label>
+                <input
+                  id="herb-search-input"
+                  className="flex-1 rounded-xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/90 placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                  placeholder="Search herbs, compounds, effects…"
+                  value={query}
+                  onChange={event => setQuery(event.target.value)}
+                />
+                <span className="text-sm text-white/60">{results.length} results</span>
+              </div>
 
-            <Counters compact className="mt-3" />
+              <Counters compact className="mt-3" />
+            </div>
           </div>
         </section>
 

@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
+import { Link } from "react-router-dom";
 import Meta from "../components/Meta";
 import herbs from "../data/herbs/herbs.normalized.json";
-import { hashLink } from "../lib/routes";
 
 let blogPosts: { title: string; slug: string }[] = [];
 try {
@@ -19,7 +19,7 @@ export default function Sitemap() {
         .replace(/(^-|-$)/g, "");
     return (herbs || []).map((h) => ({
       name: h.common || h.scientific,
-      slug: hashLink(`/herb/${sl(h.common || h.scientific || "")}`),
+      path: `/herb/${sl(h.common || h.scientific || "")}`,
     }));
   }, []);
 
@@ -39,39 +39,39 @@ export default function Sitemap() {
           <h2 className="text-white/85 font-semibold mb-2">Core Pages</h2>
           <ul className="list-disc list-inside text-white/70 space-y-1">
             <li>
-              <a className="underline" href={hashLink("/")}>
+              <Link className="underline" to="/">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="underline" href={hashLink("/database")}>
+              <Link className="underline" to="/database">
                 Herb Database
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="underline" href={hashLink("/blog")}>
+              <Link className="underline" to="/blog">
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="underline" href={hashLink("/about")}>
+              <Link className="underline" to="/about">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="underline" href={hashLink("/privacy")}>
+              <Link className="underline" to="/privacy">
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="underline" href={hashLink("/disclaimer")}>
+              <Link className="underline" to="/disclaimer">
                 Disclaimer
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="underline" href={hashLink("/contact")}>
+              <Link className="underline" to="/contact">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </section>
@@ -82,9 +82,9 @@ export default function Sitemap() {
             <ul className="list-disc list-inside text-white/70 space-y-1">
               {blogPosts.map((p, i) => (
                 <li key={i}>
-                  <a className="underline" href={hashLink(`/blog/${p.slug}`)}>
+                  <Link className="underline" to={`/blog/${p.slug}`}>
                     {p.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -96,9 +96,9 @@ export default function Sitemap() {
           <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-y-1 text-white/70">
             {herbLinks.map((h, i) => (
               <li key={i}>
-                <a className="underline" href={h.slug}>
+                <Link className="underline" to={h.path}>
                   {h.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

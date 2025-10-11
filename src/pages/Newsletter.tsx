@@ -1,6 +1,6 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Meta from "../components/Meta";
-import { hashLink } from "../lib/routes";
 
 function encodeForm(data: FormData) {
   const params = new URLSearchParams();
@@ -112,15 +112,15 @@ export default function Newsletter() {
             <p className="pt-2 text-xs text-white/60">
               By subscribing, you agree to our
               {" "}
-              <a className="underline" href={hashLink("/privacy")}>
+              <Link className="underline" to="/privacy">
                 Privacy Policy
-              </a>
+              </Link>
               {" "}
               and
               {" "}
-              <a className="underline" href={hashLink("/disclaimer")}>
+              <Link className="underline" to="/disclaimer">
                 Disclaimer
-              </a>
+              </Link>
               .
             </p>
 
@@ -133,12 +133,12 @@ export default function Newsletter() {
             <h2 className="font-semibold text-lime-300">You're on the list ✦</h2>
             <p className="mt-1 text-white/75">Check your inbox for a confirmation. Welcome aboard.</p>
             <nav className="mt-4 text-sm">
-              <a className="mr-3 underline" href={hashLink("/database")}>
+              <Link className="mr-3 underline" to="/database">
                 Browse database
-              </a>
-              <a className="underline" href={hashLink("/blog")}>
+              </Link>
+              <Link className="underline" to="/blog">
                 Read the blog
-              </a>
+              </Link>
             </nav>
           </div>
         )}

@@ -1,4 +1,4 @@
-import { hashLink } from '../lib/routes'
+import { Link } from 'react-router-dom'
 
 interface PostPreview {
   slug: string
@@ -19,13 +19,13 @@ export default function BlogList({ posts }: { posts: PostPreview[] }) {
           }}
         >
           <h3 className="text-xl font-semibold" style={{ color: "var(--text-c)" }}>
-            <a
-              href={hashLink(`/blog/${post.slug}`)}
+            <Link
+              to={`/blog/${post.slug}`}
               className="link"
               style={{ color: "var(--accent)" }}
             >
               {post.title}
-            </a>
+            </Link>
           </h3>
           <p style={{ color: "var(--muted-c)" }}>{post.summary}</p>
         </article>

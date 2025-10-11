@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Meta from "../components/Meta";
-import { hashLink } from "../lib/routes";
 
 export default function Contact() {
   return (
@@ -100,13 +100,13 @@ export default function Contact() {
 
           <p className="text-xs text-white/60">
             This form is protected by a spam honeypot. By submitting, you agree to our {" "}
-            <a className="underline" href={hashLink("/privacy")}>
+            <Link className="underline" to="/privacy">
               Privacy Policy
-            </a>{" "}
+            </Link>{" "}
             and {" "}
-            <a className="underline" href={hashLink("/disclaimer")}>
+            <Link className="underline" to="/disclaimer">
               Disclaimer
-            </a>
+            </Link>
             .
           </p>
         </form>
