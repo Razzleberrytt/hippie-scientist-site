@@ -19,7 +19,7 @@ export default function Hero() {
       <div className='relative z-10 mx-auto flex max-w-screen-lg flex-col items-center px-4 text-center sm:px-6'>
         <motion.h1
           id='hero-title'
-          className='mb-3 text-5xl font-bold leading-tight tracking-tight text-balance gradient-text-animated sm:mb-4 sm:text-6xl md:text-7xl'
+          className='mb-3 text-4xl font-extrabold tracking-tight text-balance gradient-text-animated sm:mb-4 sm:text-5xl md:text-6xl'
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -37,7 +37,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          className='mt-6 w-full max-w-2xl sm:mt-8'
+          className='mt-4 w-full max-w-2xl md:mt-5'
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6, ease: 'easeOut' }}
@@ -50,12 +50,12 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className='mt-6 flex w-full flex-col items-center gap-6 sm:mt-8 sm:gap-8'>
+        <div className='mt-6 flex w-full flex-col items-center sm:mt-8'>
           <div className='flex justify-center'>
             <RotatingHerbHero />
           </div>
-          <StatsCounters className='mt-0' />
-          <div className='flex flex-wrap items-center justify-center gap-4'>
+          <StatsCounters />
+          <div className='mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8'>
             <Link
               to='/database'
               className='hover-glow rounded-md bg-black/30 px-6 py-3 text-white transition hover:shadow-glow backdrop-blur'
