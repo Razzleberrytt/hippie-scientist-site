@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { cleanIntensity, titleCase } from "../lib/text";
 import type { Herb } from "../types";
+import { toHash } from "../lib/routing";
 
 function toArray(value: unknown): string[] {
   if (!value) return [];
@@ -149,9 +149,9 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         >
           {open ? "Show less" : "Show more"}
         </button>
-        <Link to={detailPath} className="btn-primary">
+        <a href={toHash(detailPath)} className="btn-primary">
           View details
-        </Link>
+        </a>
       </div>
     </article>
   );
