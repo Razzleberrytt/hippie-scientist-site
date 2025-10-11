@@ -23,12 +23,10 @@ for (const file of files) {
   const raw = fs.readFileSync(path.join(BLOG_SRC, file), "utf-8");
   const { data, content } = matter(raw);
   const html = marked.parse(content);
-  const firstLine = (content || "")
-    .split("\n")
-    .find((l) => l.trim())
-    ?.trim();
-  const excerptSource = (data.description || firstLine || "").trim();
-  const excerpt = excerptSource.slice(0, 220);
+  const firstParagraph = content.split(/\n\s*\n/).find(Boolean) || content;
+  const excerpt = firstParagraph.replace(/\n+/g, " ").slice(0, 220);
+  const words = content.trim().split(/\s+/).length;
+  const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
 
   fs.writeFileSync(path.join(POSTS_OUT, `${slug}.html`), html, "utf-8");
 
@@ -36,9 +34,9 @@ for (const file of files) {
     slug,
     title: data.title || slug,
     date: data.date || new Date().toISOString().slice(0, 10),
-    excerpt,
-    tags: data.tags || [],
     description: data.description || excerpt,
+    tags: data.tags || [],
+    readingTime,
   });
 }
 

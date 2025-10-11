@@ -7,8 +7,8 @@ type PostIndex = {
   date: string | null;
   tags?: string[];
   hero?: string | null;
-  excerpt?: string;
   description?: string;
+  readingTime?: string;
 };
 
 export default function BlogList() {
@@ -43,23 +43,30 @@ export default function BlogList() {
       {posts.map((p) => (
         <article
           key={p.slug}
-          className="rounded-2xl border border-white/10 bg-black/20 p-5"
+          className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-5 sm:p-6 shadow-sm hover:border-zinc-700 transition"
         >
-          <h2 className="text-xl font-semibold text-sky-400">
-            <Link to={`/blog/${p.slug}`}>{p.title}</Link>
-          </h2>
-          <div className="text-sm mt-1 opacity-70">{p.date}</div>
-          <p className="mt-3">{p.excerpt || p.description}</p>
-          <div className="mt-4">
-            <Link
-              to={`/blog/${p.slug}`}
-              className="px-3 py-2 rounded-lg bg-sky-500/20 border border-sky-500/30"
-            >
-              Read post
+          <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-sky-300">
+            <Link to={`/blog/${p.slug}`} className="hover:underline">
+              {p.title}
             </Link>
+          </h2>
+          <div className="mt-2 text-sm text-zinc-400">
+            <time dateTime={p.date || undefined}>{formatDate(p.date || "")}</time>
+            {p.readingTime && <> · {p.readingTime}</>}
           </div>
+          <p className="mt-3 text-zinc-300">{p.description}</p>
+          <Link to={`/blog/${p.slug}`} className="mt-4 inline-flex text-sm text-sky-300 hover:text-sky-200">
+            Read post →
+          </Link>
         </article>
       ))}
     </div>
   );
+}
+
+function formatDate(iso: string) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
 }

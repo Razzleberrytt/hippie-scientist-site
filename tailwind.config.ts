@@ -1,12 +1,15 @@
 import type { Config } from 'tailwindcss';
+import typography from '@tailwindcss/typography';
 
 const config: Config = {
-  content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
-  darkMode: ['class', '[data-theme="dark"]'],
+  darkMode: ['class'],
+  content: ['./index.html', './src/**/*.{ts,tsx,js,jsx,mdx}'],
   theme: {
     extend: {
       colors: {
-        bg: 'rgb(var(--bg) / <alpha-value>)',
+        bg: {
+          DEFAULT: 'rgb(var(--bg) / <alpha-value>)',
+        },
         fg: 'rgb(var(--fg) / <alpha-value>)',
         surface: 'rgb(var(--surface) / <alpha-value>)',
         card: 'rgb(var(--card) / <alpha-value>)',
@@ -36,7 +39,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;
