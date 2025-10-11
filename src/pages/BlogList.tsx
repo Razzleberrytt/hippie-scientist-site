@@ -7,7 +7,8 @@ type PostIndex = {
   date: string | null;
   tags?: string[];
   hero?: string | null;
-  excerpt: string;
+  excerpt?: string;
+  description?: string;
 };
 
 export default function BlogList() {
@@ -48,7 +49,7 @@ export default function BlogList() {
             <Link to={`/blog/${p.slug}`}>{p.title}</Link>
           </h2>
           <div className="text-sm mt-1 opacity-70">{p.date}</div>
-          <p className="mt-3">{p.excerpt}</p>
+          <p className="mt-3">{p.excerpt || p.description}</p>
           <div className="mt-4">
             <Link
               to={`/blog/${p.slug}`}
