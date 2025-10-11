@@ -18,15 +18,13 @@ export default function StatRow({
   return (
     <div
       className={clsx(
-        'mt-4 -mx-1 overflow-x-auto overscroll-x-contain scrollbar-none',
+        'mt-4 flex flex-wrap items-center gap-3 text-sm sm:gap-4',
         className,
       )}
     >
-      <div className="flex flex-nowrap items-center gap-3 px-1 sm:gap-4">
-        <StatBadge count={herbs} label="psychoactive herbs" />
-        <StatBadge count={compounds} label="active compounds" />
-        <StatBadge count={posts} label="articles" />
-      </div>
+      <StatBadge count={herbs} label="psychoactive herbs" />
+      <StatBadge count={compounds} label="active compounds" />
+      <StatBadge count={posts} label="articles" />
     </div>
   );
 }

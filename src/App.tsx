@@ -31,7 +31,7 @@ import Theme from './pages/Theme';
 export default function App() {
   useGA();
   return (
-    <>
+    <div className="min-h-screen overflow-x-hidden bg-bg text-text">
       <RedirectHandler />
       <AmbientCursor />
       <Routes>
@@ -58,7 +58,7 @@ export default function App() {
         <Route path="/graph" element={<GraphPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
@@ -66,7 +66,7 @@ function RootLayout() {
   const location = useLocation();
 
   return (
-    <div className="flex min-h-screen flex-col bg-bg text-text">
+    <div className="flex min-h-screen flex-col">
       <Header />
       <main
         id="main"
