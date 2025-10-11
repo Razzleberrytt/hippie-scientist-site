@@ -10,39 +10,34 @@ const links = [
 export default function Header({ onOpenThemeMenu }: { onOpenThemeMenu?: () => void }) {
   return (
     <header className="sticky top-0 z-50 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/30">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="h-14 flex items-center gap-3 overflow-x-auto no-scrollbar">
-          {/* Brand */}
-          <a href="/#/" className="flex items-center gap-2 shrink-0">
+      <nav className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8" aria-label="Site">
+        <div className="flex flex-wrap items-center gap-2 py-3 sm:gap-3 sm:py-4">
+          <a href="/#/" className="flex shrink-0 items-center gap-2">
             <span className="h-6 w-2.5 rounded-full bg-gradient-to-b from-teal-300 via-sky-400 to-fuchsia-400" />
-            <span className="text-white font-semibold tracking-tight">THS</span>
+            <span className="font-semibold tracking-tight text-white">THS</span>
           </a>
 
-          {/* Nav pills (scroll horizontally on small screens) */}
-          <nav className="min-w-0 flex-1 overflow-x-auto no-scrollbar" aria-label="Main">
-            <div className="flex items-center gap-2">
-              {links.map(l => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="px-3 py-1.5 rounded-xl text-sm bg-white/5 ring-1 ring-white/10 hover:bg-white/10 whitespace-nowrap"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          </nav>
+          <div className="flex w-full min-w-0 flex-1 flex-wrap items-center gap-2 sm:w-auto sm:gap-3">
+            {links.map(link => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="whitespace-nowrap rounded-xl bg-white/5 px-3 py-1.5 text-sm font-medium text-white/90 ring-1 ring-white/10 transition hover:bg-white/10"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
-          {/* Theme button */}
           <button
             type="button"
             onClick={onOpenThemeMenu}
-            className="shrink-0 px-3 py-1.5 rounded-xl text-sm bg-white/5 ring-1 ring-white/10 hover:bg-white/10 whitespace-nowrap"
+            className="shrink-0 whitespace-nowrap rounded-xl bg-white/5 px-3 py-1.5 text-sm font-medium text-white/90 ring-1 ring-white/10 transition hover:bg-white/10"
           >
             Theme
           </button>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

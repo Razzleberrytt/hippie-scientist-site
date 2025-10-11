@@ -47,10 +47,10 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <div className="aurora relative isolate min-h-screen text-text">
-        <section className="relative z-20">
-          <div className="mx-auto max-w-6xl px-4 pb-16 pt-6 sm:pt-8">
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Herb Database</h1>
+      <div className="aurora relative isolate min-h-screen">
+        <section className="relative z-20 w-full py-10 sm:py-12 lg:py-14">
+          <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Herb Database</h1>
             <p className="mt-2 text-white/70">Search and explore the library.</p>
 
             {ENABLE_ADVANCED_FILTERS && (
