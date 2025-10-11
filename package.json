@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/generate-stats.mjs && vite",
     "dev:data": "node scripts/convert-herbs.mjs",
     "prebuild:data": "node scripts/convert-herbs.mjs",
     "autofill:data": "node scripts/autofill-herbs.mjs",
@@ -13,7 +13,7 @@
     "sitemap": "node scripts/generate-sitemap.mjs dist",
     "build:blog": "node scripts/build-blog.mjs",
     "build:graph": "node scripts/build-graph.mjs",
-    "prebuild": "npm run build:blog",
+    "prebuild": "node scripts/generate-stats.mjs && npm run build:blog",
     "preview": "vite preview",
     "lint": "echo 'No lint configured yet' && exit 0",
     "deploy": "gh-pages -d dist",

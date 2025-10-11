@@ -3,6 +3,7 @@ import Meta from '../components/Meta'
 import ErrorBoundary from '../components/ErrorBoundary'
 import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import AdvancedSearch from '../components/AdvancedSearch'
+import Counters from '../components/Counters'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 import { decorateHerbs } from '../lib/herbs'
@@ -72,11 +73,11 @@ export default function Database() {
               </div>
             )}
 
-            <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-md">
-              <label className="sr-only" htmlFor="herb-search-input">
-                Search herbs
-              </label>
-              <input
+          <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-md">
+            <label className="sr-only" htmlFor="herb-search-input">
+              Search herbs
+            </label>
+            <input
                 id="herb-search-input"
                 className="flex-1 rounded-xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/90 placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
                 placeholder="Search herbs, compounds, effects…"
@@ -85,6 +86,8 @@ export default function Database() {
               />
               <span className="text-sm text-white/60">{results.length} results</span>
             </div>
+
+            <Counters compact className="mt-3" />
           </div>
         </section>
 
