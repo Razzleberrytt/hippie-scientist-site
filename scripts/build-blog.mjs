@@ -49,40 +49,32 @@ for (const file of files) {
 
   const title = fm.title || path.basename(file, path.extname(file));
   const slug = fm.slug || slugify(title);
-  const date = fm.date || new Date().toISOString();
+  const normalizedDate = formatDate(fm.date);
   const description = fm.description || fm.excerpt || getExcerpt(content);
   const tags = Array.isArray(fm.tags)
     ? fm.tags.map((tag) => String(tag))
     : [];
-  const image = fm.image || `/og/${slug}.png`;
-  const category = fm.category || "General";
 
   posts.push({
-    title,
     slug,
-    date,
-    description,
-    image,
-    category,
+    title,
+    date: normalizedDate,
     excerpt: description,
     tags,
     html,
-    bodyHtml: html,
+    description,
   });
 }
 
-if (!posts.some((post) => post.slug === "welcome-to-the-hippie-scientist")) {
+if (posts.length === 0) {
   posts.push({
+    slug: "welcome",
     title: "Welcome to The Hippie Scientist",
-    slug: "welcome-to-the-hippie-scientist",
-    date: "2025-01-01",
-    description: "What we’re building and how to use the herb index.",
-    image: "/og/welcome-to-the-hippie-scientist.png",
-    category: "Site",
-    excerpt: "What we’re building and how to use the herb index.",
-    tags: ["site", "intro"],
-    html: "<p>Hi! This is our first post…</p>",
-    bodyHtml: "<p>Hi! This is our first post…</p>",
+    date: "2025-10-10",
+    excerpt: "Psychedelic botany & conscious exploration.",
+    tags: ["intro", "philosophy"],
+    html: "<p>Full HTML content here</p>",
+    description: "Psychedelic botany & conscious exploration.",
   });
 }
 
@@ -90,3 +82,14 @@ posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 fs.writeFileSync(OUT, JSON.stringify(posts, null, 2));
 console.log(`Built ${posts.length} posts → ${OUT}`);
+
+// Placeholder for future automation.
+export function generateAIPosts() {
+  // TODO: Implement automated daily blog generation via AI summarization.
+}
+
+function formatDate(value) {
+  const date = value ? new Date(value) : new Date();
+  if (Number.isNaN(date.getTime())) return new Date().toISOString().split("T")[0];
+  return date.toISOString().split("T")[0];
+}

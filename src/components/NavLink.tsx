@@ -5,7 +5,17 @@ type Props = { to: string; children: React.ReactNode; className?: string };
 
 export default function NavLink({ to, children, className }: Props) {
   const { pathname, hash } = useLocation();
-  const isActive = pathname === to || `#${pathname}` === to || hash === to;
+  const normalizedTo = to.startsWith("#")
+    ? to.replace(/^#/, "") || "/"
+    : to;
+  const matchesPathname =
+    pathname === normalizedTo ||
+    (normalizedTo !== "/" && pathname.startsWith(`${normalizedTo}/`));
+  const matchesHash =
+    hash === to ||
+    hash === `#${normalizedTo}` ||
+    (normalizedTo !== "/" && hash.startsWith(`#${normalizedTo}/`));
+  const isActive = matchesPathname || matchesHash;
 
   return (
     <Link
