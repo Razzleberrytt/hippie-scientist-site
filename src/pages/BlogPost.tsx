@@ -14,6 +14,7 @@ type Post = {
   bodyHtml?: string;
   excerpt?: string;
   description?: string;
+  og?: string;
 };
 
 export default function BlogPost() {
@@ -53,6 +54,13 @@ export default function BlogPost() {
       .trim();
   }, [rawHtml]);
 
+  const ogPath = post.og ?? `/og/blog/${post.slug}.png`;
+  const ogImage = ogPath.startsWith("http")
+    ? ogPath
+    : `https://thehippiescientist.net${ogPath.startsWith("/") ? "" : "/"}${ogPath}`;
+  const ogUrl = `https://thehippiescientist.net/blog/${post.slug}`;
+  const absoluteOgImage = ogImage;
+
   const sanitizedHtml = useMemo(
     () =>
       DOMPurify.sanitize(rawHtml, {
@@ -90,7 +98,7 @@ export default function BlogPost() {
       if (!img.dataset.fallbackApplied) {
         img.dataset.fallbackApplied = "true";
         img.alt = img.alt || `${post.title} illustration`;
-        img.src = `https://thehippiescientist.net/og/blog/${post.slug}.png`;
+        img.src = absoluteOgImage;
       }
     };
 
@@ -106,7 +114,7 @@ export default function BlogPost() {
     return () => {
       images.forEach((img) => img.removeEventListener("error", handleError));
     };
-  }, [sanitizedHtml, post.slug, post.title]);
+  }, [sanitizedHtml, post.slug, post.title, absoluteOgImage]);
 
   const relatedPosts = useMemo(() => {
     const tagSet = new Set((post.tags || []).map((tag) => tag.toLowerCase()));
@@ -137,8 +145,6 @@ export default function BlogPost() {
   }, [post.slug, post.tags]);
 
   const excerpt = post.excerpt || post.description || plainExcerpt.slice(0, 240);
-  const ogImage = `https://thehippiescientist.net/og/blog/${post.slug}.png`;
-  const ogUrl = `https://thehippiescientist.net/blog/${post.slug}`;
   const publishedAt = post.date ? new Date(post.date) : null;
 
   return (
@@ -164,7 +170,7 @@ export default function BlogPost() {
             date: post.date,
             description: excerpt,
             excerpt,
-            image: ogImage,
+            image: ogPath,
           },
           `/blog/${post.slug}`,
         )}

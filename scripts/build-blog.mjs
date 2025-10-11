@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { generateOgForBlog, generateDefaultOg } from "./generate-og.mjs";
 
 const DIR = path.resolve("src/content/blog");
 const OUT = path.resolve("src/data/blog/posts.json");
@@ -55,6 +56,8 @@ for (const file of files) {
     ? fm.tags.map((tag) => String(tag))
     : [];
 
+  const ogPath = `/og/blog/${slug}.png`;
+
   posts.push({
     slug,
     title,
@@ -63,6 +66,7 @@ for (const file of files) {
     tags,
     html,
     description,
+    og: ogPath,
   });
 }
 
@@ -79,6 +83,9 @@ if (posts.length === 0) {
 }
 
 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+await generateDefaultOg();
+await generateOgForBlog(posts);
 
 fs.writeFileSync(OUT, JSON.stringify(posts, null, 2));
 console.log(`Built ${posts.length} posts → ${OUT}`);

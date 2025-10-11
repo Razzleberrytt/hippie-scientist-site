@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import type { Herb } from "../types";
 import { slugify } from "../lib/slug";
 import { FavoriteStar } from "./FavoriteStar";
+import { gradientClassName } from "../lib/classMap";
 
 export const uniqNonEmpty = (arr?: any[]) =>
   [...new Set((arr || []).map(String).map(s => s.trim()).filter(Boolean))];
@@ -141,8 +142,28 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
     [herb.compoundClasses, herb.pharmCategories]
   );
 
+  const accentGradient = gradientClassName(
+    herb.category || herb.category_label || herb.compoundClasses?.[0] || herb.tags?.[0],
+    "psychoactive"
+  );
+
   return (
-    <article className="rounded-2xl border border-white/12 bg-surface/60 p-4 shadow-lg backdrop-blur transition-all sm:p-5">
+    <article className={clsx(
+      "relative overflow-hidden rounded-2xl border border-white/12 bg-surface/60 p-4 shadow-lg backdrop-blur transition-all sm:p-5",
+      "group"
+    )}>
+      <div
+        className={clsx(
+          "pointer-events-none absolute inset-0 -z-10 opacity-60 blur-3xl transition-opacity duration-300 group-hover:opacity-75",
+          accentGradient
+        )}
+      />
+      <div
+        className={clsx(
+          "pointer-events-none absolute inset-x-4 top-3 h-1 rounded-full opacity-80",
+          accentGradient
+        )}
+      />
       <header className="flex items-start justify-between gap-3">
         <div className="flex-1 space-y-1">
           <h3 className="text-lg font-semibold tracking-tight text-title sm:text-xl">

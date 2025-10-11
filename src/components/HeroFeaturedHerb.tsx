@@ -7,6 +7,7 @@ import TagBadge from './TagBadge'
 import { slugify } from '../utils/slugify'
 import { decodeTag, tagVariant } from '../utils/format'
 import { herbName, splitField } from '../utils/herb'
+import { gradientClassName } from '../lib/classMap'
 
 interface Props {
   fixedId?: string
@@ -35,6 +36,10 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
   }
 
   const tags = splitField(herb.tags).slice(0, 3)
+  const accentGradient = gradientClassName(
+    herb.category || herb.compoundClasses?.[0] || tags[0],
+    'psychoactive'
+  )
 
   return (
     <motion.div
@@ -45,8 +50,9 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
     >
       <motion.article
         whileHover={{ scale: 1.02 }}
-        className='bg-psychedelic-gradient/30 soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'
+        className='soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'
       >
+        <div className={`pointer-events-none absolute inset-0 -z-10 opacity-70 blur-2xl ${accentGradient}`} />
         {herb.image && (
           <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
         )}

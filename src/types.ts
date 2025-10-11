@@ -3,6 +3,7 @@ export type Herb = {
   id?: string;
   common?: string;
   scientific?: string;
+  og?: string;
   category?: string;
   subcategory?: string;
   category_label?: string;

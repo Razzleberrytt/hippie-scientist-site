@@ -33,12 +33,51 @@ export default function Meta({
   noindex = false,
   og,
 }: MetaProps) {
-  const meta = buildMeta({ title, description, path, image })
   const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  const slug = normalizedPath
+    .split('/')
+    .filter(Boolean)
+    .pop()
+  const inferredOg =
+    normalizedPath.startsWith('/blog/') && slug
+      ? `/og/blog/${slug}.png`
+      : normalizedPath.startsWith('/herb/') && slug
+        ? `/og/herb/${slug}.png`
+        : '/og/default.png'
+
+  const extractJsonLdImage = (value: unknown): string | undefined => {
+    if (!value) return undefined
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        const found = extractJsonLdImage(item)
+        if (found) return found
+      }
+      return undefined
+    }
+    if (typeof value === 'object') {
+      const record = value as Record<string, unknown>
+      if (record.image) {
+        return extractJsonLdImage(record.image)
+      }
+      if (record['@graph']) {
+        return extractJsonLdImage(record['@graph'])
+      }
+      return undefined
+    }
+    if (typeof value === 'string') return value
+    return undefined
+  }
+
+  const jsonLdImage = extractJsonLdImage(jsonLd)
+  const providedImage = image && image !== '/og/default.png' ? image : undefined
+  const overrideImage = og?.image
+  const preferredImage = overrideImage ?? jsonLdImage ?? providedImage ?? inferredOg
+
+  const meta = buildMeta({ title, description, path, image: preferredImage })
   const shouldNoIndex = noindex || normalizedPath.startsWith('/search')
   const ogTitle = og?.title ?? meta.title
   const ogDescription = og?.description ?? meta.description
-  const ogImage = og?.image ?? meta.image
+  const ogImage = meta.image
   const ogUrl = og?.url ?? meta.url
   const ogType = og?.type ?? pageType
   const articlePublishedTime = og?.articlePublishedTime
