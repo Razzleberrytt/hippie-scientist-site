@@ -1,0 +1,38 @@
+name: Daily AI Posts
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7 9 * * *'   # daily 09:07 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Generate one AI post
+        run: npm run gen:ai-post
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4o-mini
+
+      - name: Rebuild blog store + sitemap
+        run: npm run sync:blog
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "hippie-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add content/blog public/blogdata public/sitemap.xml
+          git diff --cached --quiet && echo "No changes" || git commit -m "chore(blog): daily AI post ($(date -u +'%Y-%m-%d'))"
+          git push
