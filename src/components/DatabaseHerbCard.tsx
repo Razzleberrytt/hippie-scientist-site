@@ -1,163 +1,222 @@
-import { useMemo, useState, type ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import type { Herb } from "../types";
-import { herbName } from "../utils/herb";
-import { cleanLine, titleCase } from "../lib/pretty";
-import { getText } from "../lib/fields";
-import { pick } from "../lib/present";
-import { normalizeHerbDetails } from "./HerbDetails";
+import { slugify } from "../lib/slug";
+import { FavoriteStar } from "./FavoriteStar";
 
-export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
-  const [expanded, setExpanded] = useState(false);
-  const normalized = useMemo(() => normalizeHerbDetails(herb), [herb]);
+export const uniqNonEmpty = (arr?: any[]) =>
+  [...new Set((arr || []).map(String).map(s => s.trim()).filter(Boolean))];
 
-  const title = herbName(herb);
-  const scientific = cleanLine(
-    herb.scientific || getText(herb, "scientific", ["botanical", "latin", "latinname", "botanical_name"])
+export const listify = (v: any) =>
+  Array.isArray(v) ? uniqNonEmpty(v) : typeof v === "string" ? v.trim() : "";
+
+export const clampSentence = (s?: string) =>
+  (s || "").replace(/\s+/g, " ").trim().replace(/\s*[,;]\s*$/, "");
+
+export const fmtIntensity = (v?: string) =>
+  (v || "")
+    .toString()
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(/^none$/i, "");
+
+export function DatabaseHerbCard({ herb }: { herb: Herb }) {
+  const [open, setOpen] = useState(false);
+
+  const name =
+    herb.common?.trim() ||
+    herb.scientific?.trim() ||
+    herb.name?.trim() ||
+    herb.slug?.trim() ||
+    "Unknown herb";
+  const sci = herb.scientific?.trim() || (herb as any).scientificname?.trim();
+  const intensity = fmtIntensity(
+    (herb.intensity ||
+      (herb as any).intensity_label ||
+      (herb as any).intensityClean ||
+      "") as string
+  );
+  const summary = clampSentence(
+    (Array.isArray(herb.description)
+      ? herb.description.join(" ")
+      : herb.description) ||
+      (Array.isArray(herb.effects)
+        ? uniqNonEmpty(herb.effects).join(", ")
+        : (herb.effects as string | undefined)) ||
+      ""
   );
 
-  const intensityRaw = String(
-    herb.intensity ?? herb.intensity_label ?? pick.intensity(herb) ?? ""
-  ).toLowerCase();
-  const intensityLabel = intensityRaw ? titleCase(intensityRaw) : "";
+  const toArray = (value: unknown): string[] => {
+    if (Array.isArray(value)) return uniqNonEmpty(value);
+    if (typeof value === "string") {
+      return uniqNonEmpty(value.split(/[,\n•]+/));
+    }
+    return [];
+  };
 
-  const summarySource =
-    normalized.description || normalized.effects || herb.description || herb.effects || "";
-  const summary = cleanLine(summarySource);
-  const preview = summary
-    ? `${summary.slice(0, 120)}${summary.length > 120 ? "…" : ""}`
-    : "";
+  const tags = uniqNonEmpty([
+    ...toArray(herb.tags),
+    ...toArray(herb.compounds),
+    ...toArray((herb as any).compoundsDetailed),
+  ]).slice(0, 6);
 
-  const mechanism = cleanLine((herb as any).mechanism ?? (herb as any).mechanism_of_action ?? "");
+  const slugSource = herb.slug?.trim() || name;
+  const herbSlug = slugify(slugSource);
+  const detailId = `herb-${herbSlug}-details`;
 
-  const detailSections: Array<{ label: string; content: ReactNode }> = [];
+  return (
+    <article className="rounded-2xl border border-white/10 bg-card/70 p-4 shadow-lg backdrop-blur sm:p-5">
+      <header className="flex items-start justify-between gap-3">
+        <div>
+          <h3 className="text-lg font-semibold text-title">{name}</h3>
+          {sci && <p className="-mt-0.5 text-sm text-subtle">{sci}</p>}
+        </div>
+        <FavoriteStar herbId={herb.id || herb.slug || herbSlug} />
+      </header>
 
-  if (normalized.tags.length) {
-    detailSections.push({
-      label: "Tags",
-      content: (
-        <div className="flex flex-wrap gap-2">
-          {normalized.tags.map((tag, index) => (
-            <span
-              key={`${herb.slug}-tag-${index}`}
-              className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70"
+      {intensity && (
+        <div className="mt-3">
+          <span className="inline-flex items-center rounded-full border border-white/10 bg-surface/80 px-3 py-1 text-xs font-medium text-subtle">
+            INTENSITY: {intensity}
+          </span>
+        </div>
+      )}
+
+      {summary && <p className="mt-3 text-base text-body">{summary}</p>}
+
+      {tags.length > 0 && (
+        <ul className="mt-3 flex flex-wrap gap-2">
+          {tags.map(tag => (
+            <li
+              key={tag}
+              className="rounded-full border border-white/10 bg-surface/70 px-2.5 py-1 text-xs text-subtle"
             >
               {tag}
-            </span>
-          ))}
-        </div>
-      ),
-    });
-  }
-
-  if (normalized.region) {
-    detailSections.push({ label: "Region", content: normalized.region });
-  }
-
-  if (normalized.active_compounds.length) {
-    detailSections.push({
-      label: "Active Compounds",
-      content: normalized.active_compounds.join(", "),
-    });
-  }
-
-  if (normalized.preparation) {
-    detailSections.push({ label: "Preparation", content: normalized.preparation });
-  }
-
-  if (normalized.dosage) {
-    detailSections.push({ label: "Dosage", content: normalized.dosage });
-  }
-
-  if (normalized.contraindications) {
-    detailSections.push({ label: "Contraindications", content: normalized.contraindications });
-  }
-
-  if (normalized.interactions) {
-    detailSections.push({ label: "Interactions", content: normalized.interactions });
-  }
-
-  if (normalized.legal) {
-    detailSections.push({ label: "Legal", content: normalized.legal });
-  }
-
-  if (mechanism) {
-    detailSections.push({ label: "Mechanism", content: mechanism });
-  }
-
-  if (normalized.sources.length) {
-    detailSections.push({
-      label: "Sources",
-      content: (
-        <ul className="ml-5 list-disc space-y-1">
-          {normalized.sources.map((source, index) => (
-            <li key={`${herb.slug}-source-${index}`} className="text-white/70">
-              {/^(https?:)/i.test(source) ? (
-                <a className="text-white/80 underline decoration-white/30 underline-offset-4 transition hover:text-white" href={source} target="_blank" rel="noreferrer">
-                  {source}
-                </a>
-              ) : (
-                source
-              )}
             </li>
           ))}
         </ul>
-      ),
-    });
-  }
-
-  return (
-    <motion.article
-      layout
-      transition={{ layout: { duration: 0.4, ease: "easeOut" } }}
-      className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-all hover:bg-white/10"
-    >
-      <h3 className="text-lg font-semibold text-white/90">{title}</h3>
-      {scientific && <p className="mb-3 text-sm italic text-white/60">{scientific}</p>}
-
-      {intensityLabel && (
-        <span className="mb-3 inline-block rounded-md bg-white/10 px-2 py-1 text-xs text-white/80">
-          {intensityLabel}
-        </span>
       )}
 
-      {summary && (
-        <p className="text-sm text-white/80">{expanded ? summary : preview}</p>
-      )}
+      <div className="mt-4 flex items-center gap-3">
+        <button
+          type="button"
+          className="btn-secondary"
+          onClick={() => setOpen(value => !value)}
+          aria-expanded={open}
+          aria-controls={detailId}
+        >
+          {open ? "Show less" : "Show more"}
+        </button>
+        <a
+          href={`#/herb/${herbSlug}`}
+          className="hidden text-sm text-link sm:inline-block"
+        >
+          Open page →
+        </a>
+      </div>
 
-      <button
-        type="button"
-        onClick={() => setExpanded(value => !value)}
-        className="mt-3 rounded-md bg-accent/20 px-3 py-1 text-xs font-medium text-white transition-all hover:bg-accent/40"
+      <section
+        id={detailId}
+        hidden={!open}
+        className="mt-4 grid gap-4 rounded-xl border border-white/10 bg-surface/60 p-4"
       >
-        {expanded ? "Show less" : "Show more"}
-      </button>
-
-      <AnimatePresence initial={false}>
-        {expanded && (
-          <motion.div
-            key="details"
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.25 }}
-            className="mt-4 space-y-3 text-xs text-white/70"
-          >
-            {normalized.effects && (
-              <p className="leading-relaxed text-white/75">{normalized.effects}</p>
-            )}
-
-            {detailSections.map(section => (
-              <div key={section.label} className="space-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-white/50">
-                  {section.label}
-                </p>
-                <div className="leading-relaxed text-white/80">{section.content}</div>
-              </div>
-            ))}
-          </motion.div>
+        {section("Effects", listify(herb.effects || (herb as any).effectsSummary))}
+        {section("Description", herb.description)}
+        {section(
+          "Preparation & Forms",
+          listify(
+            (herb as any).preparation ||
+              (herb as any).preparations ||
+              (herb as any).forms ||
+              (herb as any).preparationsText
+          )
         )}
-      </AnimatePresence>
-    </motion.article>
+        {section(
+          "Active Compounds",
+          listify(herb.compounds || (herb as any).active_compounds)
+        )}
+        {section(
+          "Contraindications",
+          listify(
+            herb.contraindications ||
+              (herb as any).contraindicationsText ||
+              (herb as any).contraindication
+          )
+        )}
+        {section(
+          "Interactions",
+          listify(herb.interactions || (herb as any).drugInteractions)
+        )}
+        {section("Region", listify(herb.region || (herb as any).regionNotes))}
+        {legalBlock(
+          (herb.legal as string | undefined) ||
+            (herb as any).legalstatus ||
+            (herb as any).legalStatus ||
+            (herb as any).legalnotes
+        )}
+        {sourcesBlock(herb.sources || (herb as any).sourcesText)}
+      </section>
+    </article>
   );
 }
+
+function section(label: string, content: string | string[] | undefined) {
+  const arr = Array.isArray(content) ? content : content ? [content] : [];
+  if (!arr.length) return null;
+  return (
+    <div>
+      <h4 className="mb-1 text-sm font-semibold text-white/90">{label}</h4>
+      {arr.length === 1 ? (
+        <p className="text-sm leading-6 text-body">{arr[0]}</p>
+      ) : (
+        <ul className="list-disc pl-5 text-sm leading-6 text-body">
+          {arr.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+function legalBlock(legal?: string) {
+  if (!legal?.trim()) return null;
+  return (
+    <p className="rounded-lg border border-amber-300/20 bg-amber-300/10 px-3 py-2 text-xs text-amber-300/90">
+      <strong className="font-semibold">Legal:</strong> {legal.trim()}
+    </p>
+  );
+}
+
+function sourcesBlock(sources?: string[] | string) {
+  const arr = Array.isArray(sources)
+    ? uniqNonEmpty(sources)
+    : sources
+    ? uniqNonEmpty(String(sources).split(/\s*[\n•]+?\s*/))
+    : [];
+  if (!arr.length) return null;
+  return (
+    <div>
+      <h4 className="mb-1 text-sm font-semibold text-white/90">Sources</h4>
+      <ul className="list-disc break-words pl-5 text-sm text-body">
+        {arr.map((source, index) => (
+          <li key={index}>
+            {/^(https?:\/\/)/.test(source) ? (
+              <a
+                className="text-link"
+                href={source}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {source}
+              </a>
+            ) : (
+              source
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default DatabaseHerbCard;
