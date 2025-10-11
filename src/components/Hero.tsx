@@ -9,14 +9,14 @@ import StatsCounters from './StatsCounters'
 export default function Hero() {
   return (
     <motion.section
-      className='relative isolate overflow-hidden pb-10 sm:pb-16 after:pointer-events-none after:absolute after:-bottom-14 after:left-0 after:h-16 after:w-full after:bg-gradient-to-b after:from-black/60 after:to-transparent'
-      style={{ paddingTop: 'calc(var(--header-h, 56px) + 12px)' }}
+      className='relative z-10 isolate overflow-hidden pb-10 sm:pb-16 after:pointer-events-none after:absolute after:-bottom-14 after:left-0 after:h-16 after:w-full after:bg-gradient-to-b after:from-black/60 after:to-transparent'
+      style={{ paddingTop: 'calc(var(--header-h, 56px) + 8px)' }}
       aria-labelledby='hero-title'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      <div className='absolute inset-0 -z-10 pointer-events-none'>
+      <div className='pointer-events-none absolute inset-0 -z-10'>
         <ParticlesBackground />
         <HeroBackground />
         <FloatingElements />
@@ -56,7 +56,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className='mt-8 flex w-full flex-col items-center gap-6 sm:mt-10 sm:gap-8'>
+        <div className='mt-6 flex w-full flex-col items-center gap-6 sm:mt-8 sm:gap-8'>
           <div className='flex justify-center'>
             <RotatingHerbHero />
           </div>
