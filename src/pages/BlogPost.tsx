@@ -15,14 +15,24 @@ export default function BlogPost() {
   const { slug = "" } = useParams();
   const [post, setPost] = useState<Post | null>(null);
   const [missing, setMissing] = useState(false);
+  const base = (import.meta.env.BASE_URL || "/").replace(/\/+$/, "/");
 
   useEffect(() => {
+    let alive = true;
     setPost(null);
     setMissing(false);
-    fetch(`/blogdata/posts/${slug}.json`, { cache: "no-store" })
+    const safe = encodeURIComponent(slug || "");
+    fetch(`${base}blogdata/posts/${safe}.json`, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then(setPost)
-      .catch(() => setMissing(true));
+      .then((p) => {
+        if (alive) setPost(p);
+      })
+      .catch(() => {
+        if (alive) setMissing(true);
+      });
+    return () => {
+      alive = false;
+    };
   }, [slug]);
 
   if (missing) {

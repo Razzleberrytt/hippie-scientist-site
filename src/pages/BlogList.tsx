@@ -13,12 +13,24 @@ type PostIndex = {
 export default function BlogList() {
   const [posts, setPosts] = useState<PostIndex[]>([]);
   const [loading, setLoading] = useState(true);
+  const base = (import.meta.env.BASE_URL || "/").replace(/\/+$/, "/");
 
   useEffect(() => {
-    fetch("/blogdata/index.json", { cache: "no-store" })
+    let alive = true;
+    fetch(`${base}blogdata/index.json`, { cache: "no-store" })
       .then((r) => (r.ok ? r.json() : []))
-      .then((data) => setPosts(Array.isArray(data) ? data : []))
-      .finally(() => setLoading(false));
+      .then((data) => {
+        if (alive) setPosts(Array.isArray(data) ? data : []);
+      })
+      .catch(() => {
+        if (alive) setPosts([]);
+      })
+      .finally(() => {
+        if (alive) setLoading(false);
+      });
+    return () => {
+      alive = false;
+    };
   }, []);
 
   if (loading) return <div className="p-6 opacity-80">Loading…</div>;

@@ -10,6 +10,14 @@ import { initTheme } from './lib/theme';
 import './index.css';
 import './styles/clamp.css';
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations?.()
+    .then((rs) => {
+      rs.forEach((r) => r.unregister());
+    })
+    .catch(() => {});
+}
+
 initTheme();
 initConsentDefault();
 loadAnalytics();
