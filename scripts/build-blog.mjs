@@ -2,10 +2,10 @@ import fs from "fs";
 import path from "path";
 
 // Where source markdown lives:
-const SRC = "content/blog";         // .md files
-// Where generated assets go (MUST be under public so deploy picks them up):
-const OUT_DIR = "public/blogdata";  // JSON + HTML
-fs.mkdirSync(OUT_DIR, { recursive: true });
+const SRC = "content/blog"; // .md files
+const outDirArg = process.argv[2] || "public/blogdata";
+const resolvedOutDir = path.resolve(outDirArg);
+fs.mkdirSync(resolvedOutDir, { recursive: true });
 
 /** Very tiny MD -> HTML (headings/paragraphs/links) to avoid extra deps */
 function mdToHtml(md) {
@@ -130,13 +130,13 @@ Tea and tincture...`],
   for (const p of posts) {
     const html = mdToHtml(p.markdown);
     const summary = p.markdown.split("\n").slice(0,3).join(" ").slice(0,200) + "…";
-    fs.writeFileSync(path.join(OUT_DIR, `${p.slug}.html`), html, "utf-8");
-    list.push({ slug:p.slug, title:p.title, date:p.date, tags:p.tags, summary });
+    fs.writeFileSync(path.join(resolvedOutDir, `${p.slug}.html`), html, "utf-8");
+    list.push({ slug: p.slug, title: p.title, date: p.date, tags: p.tags, summary });
   }
 
   // Write index JSON
-  fs.writeFileSync(path.join(OUT_DIR,"index.json"), JSON.stringify({ posts:list },null,2));
-  console.log(`Wrote ${list.length} posts to ${OUT_DIR}`);
+  fs.writeFileSync(path.join(resolvedOutDir, "index.json"), JSON.stringify(list, null, 2));
+  console.log(`Wrote ${list.length} posts to ${outDirArg}`);
 }
 
 readPosts();
