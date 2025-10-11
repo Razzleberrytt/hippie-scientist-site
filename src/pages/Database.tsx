@@ -45,13 +45,12 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <main className="pb-12 pt-20">
-        <section className="container space-y-6">
-          <header className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h1 className="text-3xl font-semibold text-white">Herb Database</h1>
-              <p className="text-sm text-white/60">Search and explore the library.</p>
-            </div>
+      <div className="pt-6 md:pt-8 pb-10">
+        <section className="mx-auto max-w-6xl px-4 pt-6 md:pt-8 pb-4">
+          <h1 className="text-3xl md:text-4xl font-bold">Herb Database</h1>
+          <p className="mt-2 text-white/70">Search and explore the library.</p>
+
+          <div className="mt-4 flex flex-col gap-3">
             {ENABLE_ADVANCED_FILTERS && (
               <div className="flex flex-wrap items-center gap-2">
                 {advancedResults && (
@@ -72,9 +71,7 @@ export default function Database() {
                 </button>
               </div>
             )}
-          </header>
 
-          <div className="sticky top-20 z-30">
             <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-md">
               <label className="sr-only" htmlFor="herb-search-input">
                 Search herbs
@@ -91,16 +88,19 @@ export default function Database() {
           </div>
         </section>
 
-        <div className="container mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {results.map((herb, index) => (
-            <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
-          ))}
-          {!results.length && (
-            <div className="col-span-full rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-white/60 backdrop-blur-sm">
-              No herbs match that search.
-            </div>
-          )}
-        </div>
+        <section className="mx-auto max-w-6xl px-4 pb-10">
+          <div className="grid gap-4 md:gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {results.map((herb, index) => (
+              <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
+            ))}
+            {!results.length && (
+              <div className="col-span-full rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-white/60 backdrop-blur-sm">
+                No herbs match that search.
+              </div>
+            )}
+          </div>
+        </section>
+
         {ENABLE_ADVANCED_FILTERS && (
           <AdvancedSearch
             open={advancedOpen}
@@ -112,7 +112,7 @@ export default function Database() {
             }}
           />
         )}
-      </main>
+      </div>
     </ErrorBoundary>
   )
 }

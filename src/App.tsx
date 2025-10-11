@@ -61,10 +61,11 @@ export default function App() {
 
 function RootLayout() {
   const location = useLocation();
+  const subtleOnHome = location.pathname === "/";
 
   return (
     <div className="flex min-h-screen flex-col">
-      <SiteHeader />
+      <SiteHeader subtleOnHome={subtleOnHome} />
       <main
         id="main"
         className="flex-1 min-h-[calc(100dvh- var(--headerH)- var(--footerH))]"
