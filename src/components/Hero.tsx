@@ -1,17 +1,28 @@
 import type { ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import BackgroundAurora from './BackgroundAurora';
+import Aurora from './effects/Aurora';
+import Floaters from './effects/Floaters';
 import { toHash } from '../lib/routing';
+import { useTrippy } from '../lib/trippy';
 
 type HeroProps = { children?: ReactNode };
 
 export default function Hero({ children }: HeroProps) {
   const reduceMotion = useReducedMotion();
+  const { trippy, enabled } = useTrippy();
 
   return (
-    <section className="relative overflow-hidden py-10 sm:py-14">
+    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/10 via-sky-500/5 to-fuchsia-500/10 py-10 sm:py-14">
       <BackgroundAurora />
-      <div className="container-page">
+      {trippy && enabled && (
+        <>
+          <Aurora />
+          <Floaters />
+          <div className="pointer-events-none absolute inset-0 bg-noisy" aria-hidden />
+        </>
+      )}
+      <div className="container-page relative z-10">
         <div className="max-w-3xl">
           <motion.h1
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
