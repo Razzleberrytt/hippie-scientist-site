@@ -27,7 +27,7 @@ export default function Footer({ showSignup = true }: { showSignup?: boolean }) 
   return (
     <footer
       id="site-footer"
-      className="relative z-0 mt-12 border-t border-white/10 bg-black/60 backdrop-blur-sm sm:mt-16"
+      className="relative z-10 mt-12 border-t border-white/10 bg-black/20 backdrop-blur sm:mt-16"
     >
       {showSignup && (
         <NewsletterSignup className="mx-auto max-w-3xl px-4 py-8 sm:py-10" />

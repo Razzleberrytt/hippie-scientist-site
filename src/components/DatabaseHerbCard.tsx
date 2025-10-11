@@ -73,17 +73,17 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   if (sources.length) sections.push({ label: "Sources", content: sources });
 
   return (
-    <article className="rounded-3xl border border-white/10 bg-white/[0.03] p-4 shadow-sm md:p-5">
+    <article className="rounded-2xl bg-card/80 p-5 text-text shadow-soft ring-1 ring-white/8 sm:p-6">
       <header className="space-y-2">
-        <h2 className="text-2xl font-semibold">{heading}</h2>
-        {secondary && <p className="italic text-white/70">{secondary}</p>}
+        <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">{heading}</h2>
+        {secondary && <p className="text-sm italic text-mute">{secondary}</p>}
 
         {chips.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-1">
+          <div className="mt-3 flex flex-wrap gap-2">
             {chips.map((chip, index) => (
               <span
                 key={index}
-                className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/80"
+                className="rounded-full bg-white/6 px-3 py-1 text-xs text-text/80 ring-1 ring-white/10"
               >
                 {chip}
               </span>
@@ -92,7 +92,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         )}
 
         {intensity && (
-          <div className="inline-flex items-center rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-amber-200">
+          <div className="inline-flex items-center rounded-full border border-amber-300/20 bg-amber-400/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-amber-200">
             <span className="mr-1 opacity-80">Intensity:</span>
             {intensity}
           </div>
@@ -100,18 +100,18 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
       </header>
 
       {summary && (
-        <p className={`mt-3 text-white/80 leading-relaxed ${open ? "" : "line-clamp-3"}`}>
+        <p className={`mt-3 text-sm leading-relaxed text-text/80 sm:text-base ${open ? '' : 'line-clamp-3'}`}>
           {summary}
         </p>
       )}
 
       {open && sections.length > 0 && (
-        <div className="mt-3 space-y-3">
+        <div className="mt-4 space-y-4">
           {sections.map((section, index) => (
             <div key={index}>
-              <p className="text-xs font-semibold uppercase tracking-wide text-white/50">{section.label}</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-mute">{section.label}</p>
               {Array.isArray(section.content) ? (
-                <ul className="mt-1 list-disc list-inside space-y-1 text-sm text-white/75">
+                <ul className="mt-1 list-disc list-inside space-y-1 text-sm text-text/80">
                   {section.content.map((item, i) => {
                     const isUrl = /^https?:\/\//i.test(item);
                     return (
@@ -121,7 +121,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
                             href={item}
                             target="_blank"
                             rel="noreferrer"
-                            className="underline decoration-dotted hover:text-white"
+                            className="underline decoration-dotted underline-offset-2 hover:text-text"
                           >
                             {item}
                           </a>
@@ -133,23 +133,26 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
                   })}
                 </ul>
               ) : (
-                <p className="mt-1 text-sm text-white/75">{section.content}</p>
+                <p className="mt-1 text-sm text-text/80">{section.content}</p>
               )}
             </div>
           ))}
         </div>
       )}
 
-      <div className="mt-4 flex gap-3">
+      <div className="mt-4 flex flex-wrap gap-3">
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="btn-secondary"
+          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-text/90 transition hover:border-white/20 hover:bg-white/10"
           aria-expanded={open}
         >
-          {open ? "Show less" : "Show more"}
+          {open ? 'Show less' : 'Show more'}
         </button>
-        <a href={toHash(detailPath)} className="btn-primary">
+        <a
+          href={toHash(detailPath)}
+          className="rounded-full border border-brand-500/30 bg-brand-500/20 px-4 py-2 text-sm font-semibold text-brand-200 transition hover:bg-brand-500/30"
+        >
           View details
         </a>
       </div>
