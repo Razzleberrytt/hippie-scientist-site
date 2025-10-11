@@ -1,0 +1,35 @@
+@layer components {
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 active:translate-y-[1px];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-transparent px-4 py-2 text-sm font-medium text-muted transition hover:bg-white/10 hover:text-title focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 active:translate-y-[1px];
+  }
+}
+
+@layer utilities {
+  .text-title {
+    @apply text-white;
+  }
+
+  .text-body {
+    @apply text-white/85;
+  }
+
+  .text-subtle {
+    @apply text-white/70;
+  }
+
+  .text-muted {
+    @apply text-white/75;
+  }
+
+  .text-emphasis {
+    @apply text-white;
+  }
+
+  .bg-chip {
+    background: color-mix(in oklab, var(--surface-c) 82%, transparent 18%);
+  }
+}

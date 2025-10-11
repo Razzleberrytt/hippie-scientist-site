@@ -66,5 +66,7 @@ export type Herb = {
   commonnames?: string;
   scientificname?: string;
   affiliatelink?: string | null;
+  compoundClasses?: string[];
+  pharmCategories?: string[];
   [key: string]: unknown;
 };
