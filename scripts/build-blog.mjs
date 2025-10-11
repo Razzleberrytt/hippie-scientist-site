@@ -1,142 +1,79 @@
+// scripts/build-blog.mjs
 import fs from "fs";
+import fsp from "fs/promises";
 import path from "path";
+import matter from "gray-matter";
+import MarkdownIt from "markdown-it";
+import slugify from "slugify";
 
-// Where source markdown lives:
-const SRC = "content/blog"; // .md files
-const outDirArg = process.argv[2] || "public/blogdata";
-const resolvedOutDir = path.resolve(outDirArg);
-fs.mkdirSync(resolvedOutDir, { recursive: true });
+const md = new MarkdownIt({ html: false, linkify: true, breaks: true });
 
-/** Very tiny MD -> HTML (headings/paragraphs/links) to avoid extra deps */
-function mdToHtml(md) {
-  return md
-    .replace(/^### (.*)$/gm, "<h3>$1</h3>")
-    .replace(/^## (.*)$/gm, "<h2>$1</h2>")
-    .replace(/^# (.*)$/gm, "<h1>$1</h1>")
-    .replace(/^>\s?(.*)$/gm, "<blockquote>$1</blockquote>")
-    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*(.+?)\*/g, "<em>$1</em>")
-    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
-    .split(/\n{2,}/)
-    .map(p => {
-      const trimmed = p.trim();
-      if (!trimmed) return "";
-      if (/^<h[1-6]>/.test(trimmed) || /^<blockquote>/.test(trimmed)) return trimmed;
-      return `<p>${trimmed}</p>`;
-    })
-    .filter(Boolean)
-    .join("\n");
-}
+const ROOT = process.cwd();
+const CONTENT_DIR = path.join(ROOT, "content", "blog");
+// Write to /public so Vite will ship it into /dist unchanged
+const OUT_DIR = path.join(ROOT, "public", "blogdata");
+const POSTS_DIR = path.join(OUT_DIR, "posts");
 
-function slugify(s){ return String(s||"")
-  .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""); }
+const toSlug = (s) =>
+  slugify(String(s || ""), { lower: true, strict: true, trim: true });
 
-function readPosts() {
-  if (!fs.existsSync(SRC)) fs.mkdirSync(SRC, { recursive: true });
+const readDirSafe = async (dir) => {
+  try { return await fsp.readdir(dir); } catch { return []; }
+};
 
-  // Seed 10 posts if directory is empty
-  const files = fs.readdirSync(SRC).filter(f => f.endsWith(".md"));
-  if (files.length < 10) {
-    const seeds = [
-      ["kava-chemotypes-safety", "Kava Chemotypes & Safety — Noble vs. Tudei", "2025-01-20",
-       `# Kava Chemotypes & Safety
-Kava (Piper methysticum) contains varying **kavalactone** profiles...
-## Noble vs. Tudei
-Evidence suggests...
-## Preparation & Dose
-Traditional methods...`],
-      ["blue-lotus-aporphines", "Blue Lotus & Aporphines — Myth vs. Data", "2025-01-18",
-       `# Blue Lotus & Aporphines
-Nymphaea caerulea contains aporphine-class alkaloids...
-## Effects & Safety
-Calm, dreamy...`],
-      ["rhodiola-adaptogen", "Rhodiola: Adaptogen for Stress & Fatigue", "2025-01-17",
-       `# Rhodiola Overview
-Rhodiola rosea is an **adaptogen**...
-## Evidence
-Randomized trials indicate...`],
-      ["lion-s-mane-nerve-growth", "Lion’s Mane & NGF — What the Studies Say", "2025-01-15",
-       `# Lion's Mane
-Hericium erinaceus and erinacines...
-## Cognition
-Human data...`],
-      ["cacao-theobromine", "Cacao, Theobromine, and Mood", "2025-01-14",
-       `# Cacao & Theobromine
-Theobromine is a mild stimulant...
-## Dose & Interactions
-Caffeine overlap...`],
-      ["ashwagandha-cortisol", "Ashwagandha & Cortisol — Anxiety Evidence", "2025-01-13",
-       `# Ashwagandha
-Withania somnifera as an **anxiolytic**...
-## Trials
-Meta-analyses show...`],
-      ["valerian-sleep", "Valerian for Sleep — Mixed but Useful?", "2025-01-12",
-       `# Valerian
-Valeriana officinalis and **valerenic acid**...
-## Evidence
-Mixed results...`],
-      ["kratom-alkaloids", "Kratom Alkaloids — Pharmacology & Risks", "2025-01-10",
-       `# Kratom
-Mitragyna speciosa alkaloids...
-## Safety
-Dependence risks...`],
-      ["mugwort-dreaming", "Mugwort for Dreams — Tradition & Reality", "2025-01-09",
-       `# Mugwort
-Artemisia vulgaris in dream lore...
-## Evidence
-Anecdotal...`],
-      ["passionflower-gaba", "Passionflower & GABA — Gentle Anxiolytic", "2025-01-08",
-       `# Passionflower
-Passiflora incarnata may modulate **GABA**...
-## Dose
-Tea and tincture...`],
-    ];
-    for (const [slug, title, date, body] of seeds) {
-      const f = path.join(SRC, `${slug}.md`);
-      if (!fs.existsSync(f)) {
-        fs.writeFileSync(f, `---\ntitle: ${title}\ndate: ${date}\ntags: [herbs]\n---\n\n${body}\n`);
-      }
-    }
+const ensureDir = async (dir) => fsp.mkdir(dir, { recursive: true });
+
+const excerptFromHtml = (html, limit = 220) => {
+  const text = html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return text.length > limit ? text.slice(0, limit).trim() + "…" : text;
+};
+
+const normalizeDate = (v) => {
+  if (!v) return null;
+  const d = new Date(v);
+  return isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+};
+
+(async function build() {
+  const files = (await readDirSafe(CONTENT_DIR)).filter((f) => f.endsWith(".md"));
+
+  if (!files.length) {
+    console.warn(`[blog] No markdown files found in ${CONTENT_DIR}`);
   }
 
-  // Parse files with front-matter (simple)
-  const posts = fs.readdirSync(SRC).filter(f => f.endsWith(".md")).map(f => {
-    const raw = fs.readFileSync(path.join(SRC,f), "utf-8");
-    const fm = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/m.exec(raw);
-    let meta = {}, body = raw;
-    if (fm) {
-      const yaml = fm[1]; body = fm[2];
-      yaml.split("\n").forEach(line=>{
-        const m = /^(\w+):\s*(.*)$/.exec(line.trim());
-        if (m) { const k=m[1]; let v=m[2];
-          if (v.startsWith("[") && v.endsWith("]")) try{ v = JSON.parse(v.replace(/'/g,'"')); }catch {}
-          else if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1,-1);
-          meta[k]=v;
-        }
-      });
-    }
-    const title = meta.title || f.replace(/\.md$/,"");
-    const slug = slugify(meta.slug || title);
-    const date = meta.date || "2025-01-01";
-    const tags = Array.isArray(meta.tags) ? meta.tags : ["herbs"];
-    return { slug, title, date, tags, markdown: body.trim() };
-  });
+  await fsp.rm(OUT_DIR, { recursive: true, force: true });
+  await ensureDir(POSTS_DIR);
 
-  // Sort newest first
-  posts.sort((a,b)=> (a.date<b.date?1:-1));
+  const index = [];
 
-  // Write per-post HTML + summary
-  const list = [];
-  for (const p of posts) {
-    const html = mdToHtml(p.markdown);
-    const summary = p.markdown.split("\n").slice(0,3).join(" ").slice(0,200) + "…";
-    fs.writeFileSync(path.join(resolvedOutDir, `${p.slug}.html`), html, "utf-8");
-    list.push({ slug: p.slug, title: p.title, date: p.date, tags: p.tags, summary });
+  for (const file of files) {
+    const full = path.join(CONTENT_DIR, file);
+    const raw = await fsp.readFile(full, "utf-8");
+    const { data, content } = matter(raw);
+
+    // Front-matter
+    const title = data.title || path.basename(file, ".md");
+    const date = normalizeDate(data.date) || normalizeDate(fs.statSync(full).mtime);
+    const tags = Array.isArray(data.tags) ? data.tags : (data.tags ? [data.tags] : []);
+    const hero = data.image || null;
+    const slug = data.slug ? toSlug(data.slug) : toSlug(title);
+
+    // HTML
+    const html = md.render(content);
+    const excerpt = data.description || excerptFromHtml(html, 220);
+
+    // Per-post JSON
+    const post = { slug, title, date, tags, hero, excerpt, html };
+    await fsp.writeFile(path.join(POSTS_DIR, `${slug}.json`), JSON.stringify(post, null, 2), "utf-8");
+
+    // Index item (no big HTML)
+    index.push({ slug, title, date, tags, hero, excerpt });
   }
 
-  // Write index JSON
-  fs.writeFileSync(path.join(resolvedOutDir, "index.json"), JSON.stringify(list, null, 2));
-  console.log(`Wrote ${list.length} posts to ${outDirArg}`);
-}
+  // sort newest first
+  index.sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
-readPosts();
+  await fsp.writeFile(path.join(OUT_DIR, "index.json"), JSON.stringify(index, null, 2), "utf-8");
+
+  console.log(`[blog] Built ${index.length} posts → /public/blogdata`);
+})();

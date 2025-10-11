@@ -1,45 +1,52 @@
-import React, { useEffect, useState } from "react";
-import Meta from "../components/Meta";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-type PostMeta = { slug: string; title: string; date: string; summary: string; tags?: string[] };
-
-const BLOGDATA_URL = "/blogdata/index.json";
+type PostIndex = {
+  slug: string;
+  title: string;
+  date: string | null;
+  tags?: string[];
+  hero?: string | null;
+  excerpt: string;
+};
 
 export default function BlogList() {
-  const [posts, setPosts] = useState<PostMeta[] | null>(null);
-  const [err, setErr] = useState<string | null>(null);
+  const [posts, setPosts] = useState<PostIndex[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = `${BLOGDATA_URL}?b=${(globalThis as any).__BUILD_ID__ || ""}`;
-    fetch(url, { cache: "no-store" })
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      })
-      .then((data: PostMeta[]) => setPosts(Array.isArray(data) ? data : []))
-      .catch((e: unknown) => setErr(e instanceof Error ? e.message : String(e)));
+    fetch("/blogdata/index.json", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : []))
+      .then((data) => setPosts(Array.isArray(data) ? data : []))
+      .finally(() => setLoading(false));
   }, []);
 
+  if (loading) return <div className="p-6 opacity-80">Loading…</div>;
+  if (!posts.length) return <div className="p-6 opacity-80">No posts yet.</div>;
+
   return (
-    <>
-      <Meta title="Blog" description="Research, essays, and guides." path="/blog" pageType="website" />
-      <main id="main" className="container py-8">
-        <h1 className="text-3xl font-bold mb-6">Blog</h1>
-        {err && <p className="text-red-400">Could not load posts: {err}</p>}
-        {!posts && !err && <p>Loading…</p>}
-        {posts && posts.length === 0 && <p>No posts yet.</p>}
-        {posts &&
-          posts.map((p) => (
-            <article key={p.slug} className="card mb-4">
-              <a href={`/blog/${p.slug}`} className="block no-underline">
-                <h2 className="text-2xl font-semibold">{p.title}</h2>
-                <p className="opacity-70 text-sm">{new Date(p.date).toLocaleDateString()}</p>
-                {p.summary && <p className="mt-2">{p.summary}</p>}
-                <button className="btn mt-3">Read post</button>
-              </a>
-            </article>
-          ))}
-      </main>
-    </>
+    <div className="max-w-3xl mx-auto px-4 py-6 space-y-6">
+      <h1 className="text-3xl font-bold">Blog</h1>
+      {posts.map((p) => (
+        <article
+          key={p.slug}
+          className="rounded-2xl border border-white/10 bg-black/20 p-5"
+        >
+          <h2 className="text-xl font-semibold text-sky-400">
+            <Link to={`/blog/${p.slug}`}>{p.title}</Link>
+          </h2>
+          <div className="text-sm mt-1 opacity-70">{p.date}</div>
+          <p className="mt-3">{p.excerpt}</p>
+          <div className="mt-4">
+            <Link
+              to={`/blog/${p.slug}`}
+              className="px-3 py-2 rounded-lg bg-sky-500/20 border border-sky-500/30"
+            >
+              Read post
+            </Link>
+          </div>
+        </article>
+      ))}
+    </div>
   );
 }

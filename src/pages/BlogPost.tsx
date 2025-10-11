@@ -1,40 +1,54 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Meta from "../components/Meta";
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+
+type Post = {
+  slug: string;
+  title: string;
+  date: string | null;
+  tags?: string[];
+  hero?: string | null;
+  excerpt: string;
+  html: string;
+};
 
 export default function BlogPost() {
   const { slug = "" } = useParams();
-  const [html, setHtml] = useState<string | null>(null);
-  const [title, setTitle] = useState<string>("Loading…");
-  const [err, setErr] = useState<string | null>(null);
+  const [post, setPost] = useState<Post | null>(null);
+  const [missing, setMissing] = useState(false);
 
   useEffect(() => {
-    if (!slug) return;
-    setHtml(null);
-    setErr(null);
-    setTitle("Loading…");
-    const url = `/blogdata/${slug}.html?b=${(globalThis as any).__BUILD_ID__ || ""}`;
-    fetch(url, { cache: "no-store" })
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.text();
-      })
-      .then((txt) => {
-        setHtml(txt);
-        const m = txt.match(/<h1[^>]*>([^<]+)<\/h1>/i);
-        setTitle(m ? m[1] : slug.replace(/-/g, " "));
-      })
-      .catch((e: unknown) => setErr(e instanceof Error ? e.message : String(e)));
+    setPost(null);
+    setMissing(false);
+    fetch(`/blogdata/posts/${slug}.json`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then(setPost)
+      .catch(() => setMissing(true));
   }, [slug]);
 
+  if (missing) {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-10">
+        <h1 className="text-2xl font-semibold mb-3">Post not found</h1>
+        <Link to="/blog" className="underline">
+          Back to blog
+        </Link>
+      </div>
+    );
+  }
+
+  if (!post) return <div className="p-6 opacity-80">Loading…</div>;
+
   return (
-    <>
-      <Meta title={title} description={title} path={`/blog/${slug}`} pageType="article" />
-      <main id="main" className="container py-8 prose prose-invert max-w-none">
-        {err && <p className="text-red-400">Could not load post: {err}</p>}
-        {!err && !html && <p>Loading…</p>}
-        {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
-      </main>
-    </>
+    <article className="max-w-3xl mx-auto px-4 py-10 prose prose-invert">
+      <h1>{post.title}</h1>
+      {post.date && <div className="opacity-70 -mt-3 mb-6">{post.date}</div>}
+      {/* eslint-disable-next-line react/no-danger */}
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className="mt-10">
+        <Link to="/blog" className="underline">
+          ← Back to blog
+        </Link>
+      </div>
+    </article>
   );
 }

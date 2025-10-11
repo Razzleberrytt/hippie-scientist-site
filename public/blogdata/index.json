@@ -8,7 +8,8 @@
       "ashwagandha",
       "adaptogens"
     ],
-    "summary": "Rhodiola (*Rhodiola rosea*) and ashwagandha (*Withania somnifera*) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis…"
+    "hero": null,
+    "excerpt": "Rhodiola ( Rhodiola rosea ) and ashwagandha ( Withania somnifera ) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis, their personalitie…"
   },
   {
     "slug": "kava-safety-kavalactones",
@@ -19,7 +20,8 @@
       "safety",
       "liver"
     ],
-    "summary": "Kava (*Piper methysticum*) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone c…"
+    "hero": null,
+    "excerpt": "Kava ( Piper methysticum ) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone chemistry, extraction…"
   },
   {
     "slug": "cacao-theobromine-stimulant",
@@ -30,7 +32,8 @@
       "theobromine",
       "stimulants"
     ],
-    "summary": "Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart open…"
+    "hero": null,
+    "excerpt": "Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart opening, and creative fl…"
   },
   {
     "slug": "blue-lotus-aporphines",
@@ -41,7 +44,8 @@
       "sedation",
       "sleep"
     ],
-    "summary": "Blue lotus (*Nymphaea caerulea*) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to unde…"
+    "hero": null,
+    "excerpt": "Blue lotus ( Nymphaea caerulea ) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to understanding blue lotus…"
   },
   {
     "slug": "nightly-blend-guide",
@@ -52,16 +56,20 @@
       "herbal blends",
       "rituals"
     ],
-    "summary": "Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitution…"
+    "hero": null,
+    "excerpt": "Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitution, schedule, and slee…"
   },
   {
     "slug": "lions-mane-bdnf",
     "title": "Lion's Mane and BDNF: What the Evidence Shows",
     "date": "2024-05-12",
     "tags": [
-      "herbs"
+      "lion's mane",
+      "bdnf",
+      "neurotrophins"
     ],
-    "summary": "Lion’s mane mushroom (*Hericium erinaceus*) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein…"
+    "hero": null,
+    "excerpt": "Lion’s mane mushroom ( Hericium erinaceus ) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein that supports synap…"
   },
   {
     "slug": "yerba-mate-vs-green-tea",
@@ -72,7 +80,8 @@
       "green tea",
       "caffeine"
     ],
-    "summary": "Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with …"
+    "hero": null,
+    "excerpt": "Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with precise choreography…"
   },
   {
     "slug": "kanna-mood-focus",
@@ -83,7 +92,8 @@
       "mood",
       "focus"
     ],
-    "summary": "Kanna, or *Sceletium tortuosum*, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotio…"
+    "hero": null,
+    "excerpt": "Kanna, or Sceletium tortuosum , has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotional buoyancy without…"
   },
   {
     "slug": "reishi-sleep-immunity",
@@ -94,7 +104,8 @@
       "sleep",
       "immunity"
     ],
-    "summary": "Reishi (*Ganoderma lucidum*) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and…"
+    "hero": null,
+    "excerpt": "Reishi ( Ganoderma lucidum ) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and stress resilience.…"
   },
   {
     "slug": "mugwort-dreaming-tradition",
@@ -105,6 +116,7 @@
       "dreams",
       "sleep"
     ],
-    "summary": "Mugwort (*Artemisia vulgaris*) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate v…"
+    "hero": null,
+    "excerpt": "Mugwort ( Artemisia vulgaris ) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate vivid dreams. But how…"
   }
 ]
