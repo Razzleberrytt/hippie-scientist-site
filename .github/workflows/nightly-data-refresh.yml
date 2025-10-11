@@ -116,4 +116,3 @@ jobs:
         with:
           name: herb-data-coverage
           path: scripts/out/
-root@d14f7f738408:/workspace/hippie-scientist-site#
