@@ -86,9 +86,14 @@ const config: Config = {
         13: "3.25rem",
       },
       keyframes: {
+        gradientShift: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
         float: {
-          "0%,100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-4px)" },
+          "0%,100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-6px)" },
         },
         aurora: {
           "0%": { transform: "translate3d(-10%, -10%, 0) rotate(0deg)" },
@@ -97,8 +102,13 @@ const config: Config = {
         },
       },
       animation: {
+        gradientShift: "gradientShift 18s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
         aurora: "aurora 18s ease-in-out infinite",
+      },
+      backgroundImage: {
+        noisy:
+          "url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22 viewBox=%220 0 180 180%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22 stitchTiles=%22stitch%22/></filter><rect width=%22180%22 height=%22180%22 filter=%22url(%23n)%22 opacity=%220.05%22/></svg>')",
       },
     },
   },

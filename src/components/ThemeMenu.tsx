@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { applyAccent, applyTheme, getAccent, getTheme, type AccentChoice, type ThemeChoice } from "../lib/theme";
+import { useTrippy } from "../lib/trippy";
 
 const themeOptions: { value: ThemeChoice; label: string; description: string }[] = [
   { value: "dark", label: "Dark", description: "Deep contrast for night owls" },
@@ -23,6 +24,7 @@ export default function ThemeMenu({ triggerClassName }: Props) {
   const [theme, setTheme] = useState<ThemeChoice>("dark");
   const [accent, setAccent] = useState<AccentChoice>("blue");
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const { trippy, setTrippy, enabled } = useTrippy();
 
   useEffect(() => {
     setTheme(getTheme());
@@ -153,6 +155,25 @@ export default function ThemeMenu({ triggerClassName }: Props) {
                 ))}
               </div>
             </div>
+
+            <label
+              className={clsx(
+                "flex items-center justify-between rounded-xl border border-white/10 px-3 py-2",
+                enabled ? undefined : "opacity-50",
+              )}
+            >
+              <div>
+                <div className="font-medium text-white">Trippy mode</div>
+                <div className="text-xs text-white/60">Aurora, floaters & micro-glow (respects reduced motion)</div>
+              </div>
+              <input
+                type="checkbox"
+                className="h-5 w-5 accent-emerald-400"
+                disabled={!enabled}
+                checked={trippy}
+                onChange={event => setTrippy(event.target.checked)}
+              />
+            </label>
           </motion.div>
         )}
       </AnimatePresence>

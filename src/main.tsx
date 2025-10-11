@@ -4,6 +4,7 @@ import { HashRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
+import { TrippyProvider } from './lib/trippy';
 import { initConsentDefault } from './lib/consent';
 import { loadAnalytics, onConsentChange } from './lib/loadAnalytics';
 import { initTheme } from './lib/theme';
@@ -27,7 +28,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <ErrorBoundary>
         {/* HashRouter prevents 404 on refresh by using URL hash for routing */}
         <HashRouter>
-          <App />
+          <TrippyProvider>
+            <App />
+          </TrippyProvider>
         </HashRouter>
       </ErrorBoundary>
     </HelmetProvider>
