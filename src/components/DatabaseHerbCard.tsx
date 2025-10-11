@@ -54,17 +54,24 @@ function IntensityChip({ h }: { h: Herb }) {
 export function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const [expanded, setExpanded] = useState(false);
 
-  const name =
+  const baseName = herb.name?.trim() || "";
+  const rawCommon =
+    herb.commonName?.trim() ||
     herb.common?.trim() ||
+    (baseName && baseName.toLowerCase() !== (herb.scientific?.trim() || "").toLowerCase()
+      ? baseName
+      : "");
+  const rawLatin =
+    herb.scientificName?.trim() ||
+    herb.latinName?.trim() ||
     herb.scientific?.trim() ||
-    herb.name?.trim() ||
-    herb.slug?.trim() ||
-    "Unknown herb";
-  const scientificName =
-    herb.scientific?.trim() || (herb as any).scientificname?.trim() || "";
+    (herb as any).scientificname?.trim() ||
+    "";
+  const displayName =
+    rawCommon || baseName || rawLatin || herb.slug?.trim() || "Unknown herb";
   const showScientific =
-    Boolean(scientificName) &&
-    scientificName.toLowerCase() !== (herb.common || "").trim().toLowerCase();
+    Boolean(rawLatin) &&
+    rawLatin.toLowerCase() !== displayName.toLowerCase();
 
   const summary = clampSentence(
     (Array.isArray(herb.description)
@@ -90,7 +97,7 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
     ...toArray((herb as any).compoundsDetailed),
   ]).slice(0, 6);
 
-  const slugSource = herb.slug?.trim() || name;
+  const slugSource = herb.slug?.trim() || displayName;
   const herbSlug = slugify(slugSource);
   const detailId = `herb-${herbSlug}-details`;
 
@@ -175,7 +182,7 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
 
   return (
     <article className={clsx(
-      "relative overflow-hidden rounded-2xl border border-white/10 bg-surface/60 p-4 shadow-lg backdrop-blur transition-all sm:p-5",
+      "relative overflow-hidden rounded-2xl border border-white/10 bg-surface/60 p-4 shadow-lg backdrop-blur transition-all md:p-5",
       "group"
     )}>
       <div
@@ -192,11 +199,11 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
       />
       <header className="flex items-start justify-between gap-3">
         <div className="flex-1 space-y-1">
-          <h3 className="text-lg font-semibold tracking-tight text-title sm:text-xl">
-            {name}
-          </h3>
+          <h2 className="text-lg font-semibold text-zinc-100 sm:text-xl">
+            {displayName}
+          </h2>
           {showScientific && (
-            <p className="text-sm italic text-muted">{scientificName}</p>
+            <p className="text-sm italic text-zinc-400">{rawLatin}</p>
           )}
           {chips.length > 0 && (
             <div className="pt-1">
