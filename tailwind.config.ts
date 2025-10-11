@@ -52,6 +52,9 @@ const config: Config = {
           },
         },
       }),
+      spacing: {
+        13: "3.25rem",
+      },
     },
   },
   plugins: [typography],

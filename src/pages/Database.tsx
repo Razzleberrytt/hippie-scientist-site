@@ -45,8 +45,8 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <main className="pb-16 pt-28">
-        <section className="container space-y-8">
+      <main className="pb-12 pt-20">
+        <section className="container space-y-6">
           <header className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <h1 className="text-3xl font-semibold text-white">Herb Database</h1>
@@ -74,8 +74,8 @@ export default function Database() {
             )}
           </header>
 
-          <div className="sticky top-24 z-30">
-            <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-4 backdrop-blur-md">
+          <div className="sticky top-20 z-30">
+            <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 backdrop-blur-md">
               <label className="sr-only" htmlFor="herb-search-input">
                 Search herbs
               </label>
@@ -91,7 +91,7 @@ export default function Database() {
           </div>
         </section>
 
-        <div className="container mt-28 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="container mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((herb, index) => (
             <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
           ))}
