@@ -513,7 +513,13 @@ export default function BuildBlend() {
                     <div className="space-y-2">
                       <p className="text-xs uppercase tracking-wide text-sub">Herb</p>
                       <h2 className="text-lg font-semibold text-text">{herb.displayName}</h2>
-                      {herb.intensity && <Badge className="text-xs">{herb.intensity}</Badge>}
+                      {(herb.intensityLabel || herb.intensityLevel || herb.intensity) && (
+                        <Badge className="text-xs uppercase tracking-wide">
+                          INTENSITY: {herb.intensityLabel || (typeof herb.intensityLevel === 'string'
+                            ? `${herb.intensityLevel.charAt(0).toUpperCase()}${herb.intensityLevel.slice(1)}`
+                            : 'Unknown')}.
+                        </Badge>
+                      )}
                       {herb.effects && (
                         <p className="text-xs text-sub">
                           {herb.effects.substring(0, 160)}

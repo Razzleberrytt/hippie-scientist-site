@@ -32,6 +32,61 @@ const clean = (s) => {
   return NULLY.has(t.toLowerCase()) ? "" : t;
 };
 
+// --- Intensity normalization helpers ---
+const INTENSITY_ENUM = ["mild", "moderate", "strong", "variable", "unknown"];
+
+function pickIntensityRaw(h) {
+  const direct =
+    h.intensity_level ||
+    h.intensity ||
+    h.effects_intensity ||
+    h.overview_intensity;
+  if (direct) return direct;
+
+  const text = [
+    h.intensity_text,
+    h.intensity_summary,
+    h.effects,
+    h.description,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return text || "";
+}
+
+function parseIntensity(raw) {
+  if (!raw) return "unknown";
+  const s = String(raw).toLowerCase();
+
+  if (INTENSITY_ENUM.includes(s)) return s;
+
+  if (/(\bstrong|\bpotent|\bintense|\bpowerful)/.test(s)) return "strong";
+  if (/(\bmoderate|\bmedium)/.test(s)) return "moderate";
+  if (/(\bmild|\bgentle|\blight)/.test(s)) return "mild";
+  if (/(\bvar(y|iable)|\bmixed|\bdepends|\bcontextual)/.test(s)) return "variable";
+
+  const m = s.match(/intensity[^a-z]*(mild|moderate|strong)/);
+  if (m && m[1]) return m[1];
+
+  return "unknown";
+}
+
+function intensityPretty(level) {
+  switch (level) {
+    case "mild":
+      return "Mild";
+    case "moderate":
+      return "Moderate";
+    case "strong":
+      return "Strong";
+    case "variable":
+      return "Variable";
+    default:
+      return "Unknown";
+  }
+}
+
 // phrases we never want to ship
 const STRIP_PATTERNS = [
   /\bcontextual inference\b[:]?/gi,
@@ -390,6 +445,15 @@ for (const row of merged) {
   if (row.slug) {
     row.og = `/og/herb/${row.slug}.png`;
   }
+}
+
+for (const row of merged) {
+  const raw = pickIntensityRaw(row);
+  const level = parseIntensity(raw);
+  row.intensityLevel = level;
+  row.intensityLabel = intensityPretty(level);
+  delete row.intensity_level;
+  delete row.intensity_label;
 }
 
 // AFTER coverage

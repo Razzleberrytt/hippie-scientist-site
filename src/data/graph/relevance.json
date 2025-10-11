@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2025-10-10T15:58:16.618Z",
+    "generatedAt": "2025-10-11T13:49:21.804Z",
     "herbs": 381,
     "posts": 1
   },
@@ -1920,11 +1920,6 @@
   ],
   "edgesHP": [
     {
-      "from": "herb:acacia-phlebophylla",
-      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "w": 1
-    },
-    {
       "from": "herb:adenostoma-fasciculatum",
       "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "w": 1
@@ -2010,22 +2005,12 @@
       "w": 1
     },
     {
-      "from": "herb:erythrina-mulungu",
-      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "w": 1
-    },
-    {
       "from": "herb:erythrina-subumbrans",
       "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "w": 1
     },
     {
       "from": "herb:erythrina-variegata",
-      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "w": 1
-    },
-    {
-      "from": "herb:erythrina-vespertilio",
       "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "w": 1
     },
@@ -2047,15 +2032,10 @@
     {
       "from": "herb:heimia-spp",
       "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "w": 2
-    },
-    {
-      "from": "herb:helinus-integrifolius",
-      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "w": 1
     },
     {
-      "from": "herb:hyoscyamus-niger",
+      "from": "herb:helinus-integrifolius",
       "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "w": 1
     },
@@ -2105,11 +2085,6 @@
       "w": 1
     },
     {
-      "from": "herb:mitragyna-javanica-mitragyna-hirsuta",
-      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "w": 1
-    },
-    {
       "from": "herb:monarda-fistulosa",
       "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "w": 1
@@ -2131,11 +2106,6 @@
     },
     {
       "from": "herb:pedicularis-densiflora",
-      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "w": 1
-    },
-    {
-      "from": "herb:piper-auritum",
       "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "w": 1
     },
@@ -2175,17 +2145,7 @@
       "w": 1
     },
     {
-      "from": "herb:tabernanthe-iboga",
-      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "w": 1
-    },
-    {
       "from": "herb:tagetes-lucida",
-      "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "w": 1
-    },
-    {
-      "from": "herb:viscum-album",
       "to": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "w": 1
     },
@@ -2196,16 +2156,6 @@
     }
   ],
   "edgesPH": [
-    {
-      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "to": "herb:heimia-spp",
-      "w": 2
-    },
-    {
-      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
-      "to": "herb:acacia-phlebophylla",
-      "w": 1
-    },
     {
       "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "to": "herb:adenostoma-fasciculatum",
@@ -2224,6 +2174,16 @@
     {
       "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
       "to": "herb:aquilaria-agallocha",
+      "w": 1
+    },
+    {
+      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "to": "herb:artemisia-tilesii",
+      "w": 1
+    },
+    {
+      "from": "post:kava-calming-the-storm-traditional-vs-modern-use",
+      "to": "herb:barringtonia-asiatica",
       "w": 1
     }
   ]

@@ -4,6 +4,7 @@ import type { Herb } from "../types";
 import { slugify } from "../lib/slug";
 import { FavoriteStar } from "./FavoriteStar";
 import { gradientClassName } from "../lib/classMap";
+import Badge from "./ui/Badge";
 
 export const uniqNonEmpty = (arr?: any[]) =>
   [...new Set((arr || []).map(String).map(s => s.trim()).filter(Boolean))];
@@ -17,25 +18,36 @@ export const clampSentence = (s?: string) =>
     .trim()
     .replace(/\s*[,;]\s*$/, "");
 
-const levelClass: Record<NonNullable<Herb["intensity_level"]>, string> = {
-  mild: "bg-emerald-900/40 text-emerald-200 ring-1 ring-emerald-400/30",
-  moderate: "bg-amber-900/40 text-amber-200 ring-1 ring-amber-400/30",
-  strong: "bg-orange-900/40 text-orange-200 ring-1 ring-orange-400/30",
-  toxic: "bg-rose-900/50 text-rose-200 ring-1 ring-rose-400/40",
-};
+function intensityClass(level?: Herb["intensityLevel"]) {
+  switch (level) {
+    case "mild":
+      return "bg-emerald-900/40 text-emerald-200 ring-emerald-400/40";
+    case "moderate":
+      return "bg-amber-900/40 text-amber-200 ring-amber-400/40";
+    case "strong":
+      return "bg-rose-900/40 text-rose-200 ring-rose-400/40";
+    case "variable":
+      return "bg-sky-900/40 text-sky-200 ring-sky-400/40";
+    default:
+      return "bg-zinc-800/50 text-zinc-200 ring-zinc-500/40";
+  }
+}
 
 function IntensityChip({ h }: { h: Herb }) {
-  if (!h.intensity_level || !h.intensity_label) return null;
+  const level = h.intensityLevel;
+  const label = h.intensityLabel || "Unknown";
+
   return (
-    <div
+    <Badge
+      aria-label={`Intensity ${label}`}
       className={clsx(
-        "inline-flex max-w-full items-center gap-2 rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap",
-        levelClass[h.intensity_level]
+        "max-w-full whitespace-nowrap text-[0.7rem] font-semibold uppercase tracking-[0.18em]",
+        "px-3 py-1 ring-1",
+        intensityClass(level)
       )}
     >
-      <span className="text-xs uppercase tracking-wide opacity-70">Intensity:</span>
-      <span className="max-w-full truncate">{h.intensity_label}</span>
-    </div>
+      INTENSITY: {label}.
+    </Badge>
   );
 }
 
@@ -155,7 +167,11 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
     "psychoactive"
   );
 
-  const showIntensity = Boolean(herb.intensity_level && herb.intensity_label);
+  const showIntensity = Boolean(
+    herb.intensityLabel ||
+    herb.intensityLevel ||
+    herb.intensity
+  );
 
   return (
     <article className={clsx(
