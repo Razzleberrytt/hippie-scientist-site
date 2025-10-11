@@ -1,3 +1,5 @@
+import Counters from './Counters'
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -22,6 +24,10 @@ export default function Hero() {
           <a href="/build" className="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/15 text-white font-medium border border-white/15">
             🧪 Build a Blend
           </a>
+        </div>
+
+        <div className="mt-5 md:mt-6">
+          <Counters compact className="opacity-90" />
         </div>
       </div>
     </section>
