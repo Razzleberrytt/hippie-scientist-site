@@ -2,34 +2,36 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import InfoTooltip from './InfoTooltip'
 import { tagAliasMap } from '../utils/tagUtils'
+import {
+  gradientClassName,
+  gradientKeyForTag,
+  resolveClassKey,
+  type ClassMapKey,
+} from '../lib/classMap'
 
 interface Props {
   label: string
   variant?: 'pink' | 'blue' | 'purple' | 'green' | 'yellow' | 'red'
+  toneKey?: string
   className?: string
 }
 
-const colorMap = {
-  pink: 'from-pink-600 via-fuchsia-500 to-pink-600 shadow-pink-500/40 dark:bg-pink-800',
-  blue: 'from-sky-600 via-cyan-500 to-sky-600 shadow-cyan-500/40 dark:bg-sky-800',
-  purple: 'from-purple-700 via-violet-600 to-purple-700 shadow-violet-600/40 dark:bg-purple-800',
-  green: 'from-lime-600 via-emerald-500 to-lime-600 shadow-emerald-500/40 dark:bg-green-800',
-  yellow: 'from-amber-600 via-yellow-500 to-amber-600 shadow-amber-500/40 dark:bg-yellow-700',
-  red: 'from-rose-600 via-red-500 to-rose-600 shadow-red-500/40 dark:bg-red-800',
+const VARIANT_TO_CLASS_KEY: Record<NonNullable<Props['variant']>, ClassMapKey> = {
+  pink: 'stimulant',
+  blue: 'sedative',
+  purple: 'psychoactive',
+  green: 'adaptogen',
+  yellow: 'adaptogen',
+  red: 'psychoactive',
 }
 
-const textColorMap = {
-  pink: 'text-white',
-  blue: 'text-white',
-  purple: 'text-white',
-  green: 'text-white',
-  yellow: 'text-black dark:text-white',
-  red: 'text-white',
-} as const
-
-export default function TagBadge({ label, variant = 'purple', className }: Props) {
+export default function TagBadge({ label, variant = 'purple', toneKey, className }: Props) {
   const cleaned = label.replace(/☠️/g, '').trim()
   const alias = tagAliasMap[cleaned.toLowerCase()]
+  const gradientKey = toneKey
+    ? resolveClassKey(toneKey, 'blog')
+    : VARIANT_TO_CLASS_KEY[variant] ?? gradientKeyForTag(cleaned)
+  const gradientClass = gradientClassName(gradientKey, 'blog')
   const content = (
     <motion.span
       initial={{ scale: 0.8, opacity: 0 }}
@@ -39,10 +41,8 @@ export default function TagBadge({ label, variant = 'purple', className }: Props
       whileTap={{ scale: 0.95 }}
       tabIndex={0}
       className={clsx(
-        'hover-glow soft-border-glow text-shadow inline-flex items-center whitespace-pre-wrap break-words rounded-full bg-gradient-to-br px-2 py-1 text-xs font-medium shadow ring-1 ring-white/40 backdrop-blur-sm dark:ring-black/40 transition-colors duration-300',
-        colorMap[variant],
-        textColorMap[variant],
-        'dark:text-white',
+        'hover-glow soft-border-glow text-shadow inline-flex items-center whitespace-pre-wrap break-words rounded-full px-2 py-1 text-xs font-medium shadow ring-1 ring-white/30 backdrop-blur-sm transition-colors duration-300 text-white',
+        gradientClass,
         className
       )}
     >

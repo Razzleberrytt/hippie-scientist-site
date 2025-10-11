@@ -156,6 +156,8 @@ export default function HerbDetailView() {
   const metaDescription =
     herb.description ||
     `${herbName(herb)} herb profile with effects, chemistry, usage notes, and safety considerations.`
+  const canonicalSlug = herb.slug || slugify(herbName(herb))
+  const ogImage = herb.og || (canonicalSlug ? `/og/herb/${canonicalSlug}.png` : '/og/default.png')
 
   return (
     <>
@@ -164,7 +166,10 @@ export default function HerbDetailView() {
         description={metaDescription}
         path={`/herb/${id}`}
         pageType='article'
-        image={`/og/${id}.png`}
+        image={ogImage}
+        og={{
+          image: ogImage,
+        }}
       />
       <motion.div
         initial={{ opacity: 0 }}

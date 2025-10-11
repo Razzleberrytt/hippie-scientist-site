@@ -249,6 +249,7 @@ const prelim = rows.map((r) => {
     slug,
     common: tidy(common),
     scientific: tidy(scientific),
+    og: slug ? `/og/herb/${slug}.png` : undefined,
 
     category: tidy(pick(r, A.category)),
     subcategory: tidy(pick(r, A.subcategory)),
@@ -382,6 +383,12 @@ for (const row of merged) {
 for (const row of merged) {
   for (const k of ["compounds","preparations","interactions","contraindications","sideeffects","tags","regiontags","sources"]) {
     row[k] = purifyArray(row[k]);
+  }
+}
+
+for (const row of merged) {
+  if (row.slug) {
+    row.og = `/og/herb/${row.slug}.png`;
   }
 }
 

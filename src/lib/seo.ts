@@ -26,12 +26,12 @@ export function buildMeta({
   title,
   description,
   path = '/',
-  image = '/og-image.png',
+  image = '/og/default.png',
 }: BuildMetaArgs): NormalizedMeta {
   const canonicalPath = withLeadingSlash(path)
   const url = new URL(canonicalPath, SITE_URL).toString()
 
-  const fallbackImage = image || '/og-image.png'
+  const fallbackImage = image || '/og/default.png'
   const imageUrl = isAbsoluteUrl(fallbackImage)
     ? fallbackImage
     : new URL(withLeadingSlash(fallbackImage), SITE_URL).toString()

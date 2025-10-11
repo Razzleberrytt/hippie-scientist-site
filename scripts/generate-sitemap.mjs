@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { generateAllOgImages } from "./generate-og.mjs";
 
 const SITE = "https://thehippiescientist.net";
 const outDir = process.argv[2] || process.env.OUT_DIR || "public";
@@ -21,21 +22,31 @@ const staticPaths = [
 const urlEntries = new Map();
 const now = new Date();
 
-const addUrl = (urlPath, { lastmod = now, changefreq = "monthly" } = {}) => {
+const addUrl = (
+  urlPath,
+  { lastmod = now, changefreq = "monthly", images = [] } = {},
+) => {
   const canonical = normalizePath(urlPath);
   const entry = urlEntries.get(canonical);
   const normalizedDate = coerceDate(lastmod);
+  const imageUrls = images
+    .map((src) => absoluteUrl(src))
+    .filter(Boolean);
 
   if (entry) {
     const current = coerceDate(entry.lastmod);
     entry.lastmod = current > normalizedDate ? current : normalizedDate;
     entry.changefreq = entry.changefreq || changefreq;
+    entry.images = Array.from(
+      new Set([...(entry.images || []), ...imageUrls]),
+    );
     urlEntries.set(canonical, entry);
   } else {
     urlEntries.set(canonical, {
       path: canonical,
       lastmod: normalizedDate,
       changefreq,
+      images: imageUrls,
     });
   }
 };
@@ -43,20 +54,29 @@ const addUrl = (urlPath, { lastmod = now, changefreq = "monthly" } = {}) => {
 staticPaths.forEach((p) => addUrl(p));
 
 let herbPaths = [];
+let herbEntries = [];
 try {
   const herbs = JSON.parse(
     fs.readFileSync("src/data/herbs/herbs.normalized.json", "utf-8"),
   );
+  herbEntries = herbs;
   const sl = (value) =>
     String(value || "")
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
-  herbPaths = herbs
-    .map((herb) => sl(herb.common || herb.scientific || ""))
-    .filter(Boolean)
-    .map((slug) => `/herb/${slug}`);
-  herbPaths.forEach((p) => addUrl(p));
+  herbPaths = [];
+  for (const herb of herbs) {
+    const slug = sl(herb.common || herb.scientific || "");
+    if (!slug) continue;
+    const route = `/herb/${slug}`;
+    herbPaths.push(route);
+    const image = herb?.og;
+    addUrl(route, {
+      images: image ? [image] : [],
+      changefreq: "monthly",
+    });
+  }
 } catch (error) {
   if (process.env.DEBUG_SITEMAP) {
     console.warn("Skipping herb URLs:", error);
@@ -72,7 +92,11 @@ try {
     .filter((post) => post && post.slug)
     .forEach((post) => {
       const lastmod = post.date ? new Date(post.date) : now;
-      addUrl(`/blog/${post.slug}`, { lastmod, changefreq: "weekly" });
+      addUrl(`/blog/${post.slug}`, {
+        lastmod,
+        changefreq: "weekly",
+        images: post.og ? [post.og] : [],
+      });
     });
 } catch (error) {
   if (process.env.DEBUG_SITEMAP) {
@@ -85,14 +109,19 @@ const sortedEntries = Array.from(urlEntries.values()).sort((a, b) =>
   a.path.localeCompare(b.path),
 );
 
+await generateAllOgImages({ posts: blogPosts, herbs: herbEntries });
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${sortedEntries
   .map(
     (entry) => `  <url>
     <loc>${SITE}${entry.path}</loc>
     <lastmod>${formatDateForSitemap(entry.lastmod)}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
+${(entry.images || [])
+        .map((src) => `    <image:image>\n      <image:loc>${src}</image:loc>\n    </image:image>`)
+        .join("\n")}
   </url>`,
   )
   .join("\n")}
@@ -156,4 +185,12 @@ function coerceDate(value) {
 
 function formatDateForSitemap(date) {
   return coerceDate(date).toISOString().split("T")[0];
+}
+
+function absoluteUrl(value) {
+  if (!value) return undefined;
+  const stringValue = String(value);
+  if (/^https?:\/\//i.test(stringValue)) return stringValue;
+  const normalized = normalizePath(stringValue);
+  return `${SITE}${normalized}`;
 }

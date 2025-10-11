@@ -140,7 +140,10 @@ export default function HerbDetail() {
         description={description}
         path={`/herb/${slug}`}
         pageType="article"
-        image={`/og/${herb.slug || slug}.png`}
+        image={herb.og || (herb.slug ? `/og/herb/${herb.slug}.png` : '/og/default.png')}
+        og={{
+          image: herb.og || (herb.slug ? `/og/herb/${herb.slug}.png` : '/og/default.png'),
+        }}
       />
       <main className="container py-6">
         <div className="mx-auto flex max-w-3xl flex-col gap-6">
