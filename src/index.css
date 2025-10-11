@@ -7,6 +7,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-secondary {
+    @apply inline-flex items-center rounded-xl border border-white/10 bg-surface/70 px-3 py-2 text-sm text-white transition hover:bg-surface/80 active:translate-y-[1px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30;
+  }
+}
+
+@layer utilities {
+  .text-title {
+    @apply text-white;
+  }
+
+  .text-body {
+    @apply text-white/85;
+  }
+
+  .text-subtle {
+    @apply text-white/70;
+  }
+
+  .text-link {
+    @apply text-sky-300 underline decoration-sky-300/40 underline-offset-4 transition hover:text-sky-200;
+  }
+}
+
 :root,
 html,
 body {
