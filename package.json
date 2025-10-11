@@ -13,7 +13,7 @@
     "sitemap": "node scripts/generate-sitemap.mjs dist",
     "build:blog": "node scripts/build-blog.mjs",
     "build:graph": "node scripts/build-graph.mjs",
-    "prebuild": "node scripts/normalize-intensity.mjs && npm run build:blog && npm run build:graph && node scripts/generate-sitemap.mjs public && npm run og && npm run rss",
+    "prebuild": "node scripts/build-blog.mjs && node scripts/generate-sitemap.mjs public",
     "preview": "vite preview",
     "lint": "echo 'No lint configured yet' && exit 0",
     "deploy": "gh-pages -d dist",
@@ -50,7 +50,6 @@
     "gh-pages": "^6.3.0",
     "jspdf": "^3.0.1",
     "lucide-react": "^0.298.0",
-    "marked": "^12.0.2",
     "papaparse": "^5.5.3",
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
@@ -83,6 +82,7 @@
     "satori": "^0.10.13",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
-    "vite": "^4.5.14"
+    "vite": "^4.5.14",
+    "marked": "^12.0.2"
   }
 }
