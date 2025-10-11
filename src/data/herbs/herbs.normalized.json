@@ -50,7 +50,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "acacia-phlebophylla",
@@ -95,7 +97,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "acmella-oleracea",
@@ -140,7 +144,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aconitum-ferox",
@@ -186,7 +192,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "toxic",
+    "intensity_label": "Toxic"
   },
   {
     "id": "aconitum-napellus",
@@ -233,7 +241,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "toxic",
+    "intensity_label": "Toxic"
   },
   {
     "id": "Sweet-flag",
@@ -288,7 +298,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/c/c5/Calamus_aromaticus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-020.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "acorus-tatarinowii",
@@ -336,7 +348,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "adenium-obesum",
@@ -383,7 +397,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "toxic",
+    "intensity_label": "Toxic"
   },
   {
     "id": "adenostoma-fasciculatum",
@@ -430,7 +446,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aerva-lanata",
@@ -474,7 +492,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aesculus-hippocastanum",
@@ -521,7 +541,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "agastache-foeniculum",
@@ -565,7 +587,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "agrimonia-eupatoria",
@@ -608,7 +632,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "alangium-salvifolium",
@@ -656,7 +682,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "albizia-lebbeck",
@@ -704,7 +732,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "alchemilla-vulgaris",
@@ -749,7 +779,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "alchornea-floribunda",
@@ -794,7 +826,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "alectra-sessiliflora",
@@ -837,7 +871,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aletris-farinosa",
@@ -882,7 +918,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "allium-sativum",
@@ -930,7 +968,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "alnus-rubra",
@@ -973,7 +1013,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aloe-vera",
@@ -1019,7 +1061,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "althaea-officinalis",
@@ -1065,7 +1109,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "alyxia-stellata",
@@ -1109,7 +1155,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "amanita-muscaria",
@@ -1156,7 +1204,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "amphipterygium-adstringens",
@@ -1199,7 +1249,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "anacardium-occidentale",
@@ -1247,7 +1299,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "anemarrhena-asphodeloides",
@@ -1296,7 +1350,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "angelica-archangelica",
@@ -1342,7 +1398,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "angelica-sinensis",
@@ -1389,7 +1447,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aniseia-martinicensis",
@@ -1432,7 +1492,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "anisomeles-indica",
@@ -1476,7 +1538,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "anisoptera-thurifera",
@@ -1521,7 +1585,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "annona-muricata",
@@ -1567,7 +1633,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "apium-graveolens",
@@ -1612,7 +1680,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "aquilaria-agallocha",
@@ -1656,7 +1726,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "aquilegia-vulgaris",
@@ -1702,7 +1774,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "arctium-lappa",
@@ -1749,7 +1823,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "areca-catechu",
@@ -1797,7 +1873,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aristolochia-argentina",
@@ -1844,7 +1922,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aristolochia-grandiflora",
@@ -1889,7 +1969,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aristolochia-indica",
@@ -1933,7 +2015,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "armoracia-rusticana",
@@ -1979,7 +2063,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "arnica-montana",
@@ -2026,7 +2112,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "artemisia-annua",
@@ -2071,7 +2159,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "artemisia-glacialis",
@@ -2116,7 +2206,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "artemisia-gmelinii",
@@ -2164,7 +2256,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "artemisia-herba-alba",
@@ -2212,7 +2306,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "artemisia-judaica",
@@ -2260,7 +2356,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "artemisia-tilesii",
@@ -2303,7 +2401,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "artemisia-vulgaris",
@@ -2350,7 +2450,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "asclepias-tuberosa",
@@ -2395,7 +2497,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "asparagus-racemosus",
@@ -2439,7 +2543,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "aspidosperma-quebracho-blanco",
@@ -2485,7 +2591,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "astragalus-membranaceus",
@@ -2531,7 +2639,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "atractylodes-macrocephala",
@@ -2576,7 +2686,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "atropa-belladonna",
@@ -2624,7 +2736,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "azadirachta-indica",
@@ -2672,7 +2786,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "baptisia-tinctoria",
@@ -2718,7 +2834,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "barringtonia-asiatica",
@@ -2763,7 +2881,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "toxic",
+    "intensity_label": "Toxic"
   },
   {
     "id": "berberis-vulgaris",
@@ -2809,7 +2929,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "bidens-pilosa",
@@ -2852,7 +2974,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "boerhavia-diffusa",
@@ -2896,7 +3020,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "boesenbergia-rotunda",
@@ -2945,7 +3071,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "boophone-disticha",
@@ -2992,7 +3120,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "borago-officinalis",
@@ -3037,7 +3167,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "boswellia-sacra",
@@ -3084,7 +3216,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "boswellia-serrata",
@@ -3129,7 +3263,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "brugmansia-sanguinea",
@@ -3177,7 +3313,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "brunfelsia-americana",
@@ -3224,7 +3362,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "bryonia-alba",
@@ -3271,7 +3411,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "bupleurum-falcatum",
@@ -3315,7 +3457,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "bursera-graveolens",
@@ -3360,7 +3504,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "caesalpinia-bonduc",
@@ -3406,7 +3552,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Dream-herb",
@@ -3456,7 +3604,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/e/e6/Calea_zacatechichi.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "calendula-officinalis",
@@ -3502,7 +3652,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "calliandra-anomala",
@@ -3545,7 +3697,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "calliandra-haematocephala",
@@ -3589,7 +3743,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "calliandra-portoricensis",
@@ -3634,7 +3790,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "calotropis-procera",
@@ -3680,7 +3838,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cannabis-indica",
@@ -3729,7 +3889,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "cannabis-ruderalis",
@@ -3778,7 +3940,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "cannabis-sativa-african-varieties",
@@ -3826,7 +3990,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "capparis-erythrocarpos",
@@ -3870,7 +4036,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "capparis-spinosa",
@@ -3917,7 +4085,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "capraria-biflora",
@@ -3964,7 +4134,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "capsella-bursa-pastoris",
@@ -4009,7 +4181,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cassia-alata",
@@ -4056,7 +4230,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cassia-occidentalis",
@@ -4100,7 +4276,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ceanothus-integerrimus",
@@ -4147,7 +4325,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cecropia-peltata",
@@ -4195,7 +4375,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "centaurium-erythraea",
@@ -4238,7 +4420,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Gotu-kola",
@@ -4292,7 +4476,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/b/bc/Centella_asiatica.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cephaelis-ipecacuanha",
@@ -4337,7 +4523,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "chelidonium-majus",
@@ -4382,7 +4570,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "chimaphila-umbellata",
@@ -4426,7 +4616,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cinnamomum-verum",
@@ -4473,7 +4665,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "citrus-aurantium",
@@ -4518,7 +4712,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "citrus-limon",
@@ -4565,7 +4761,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "clematis-vitalba",
@@ -4611,7 +4809,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "clerodendrum-glabrum",
@@ -4659,7 +4859,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "clinopodium-vulgare",
@@ -4702,7 +4904,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cnidium-monnieri",
@@ -4747,7 +4951,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cocculus-hirsutus",
@@ -4793,7 +4999,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "codiaeum-variegatum",
@@ -4838,7 +5046,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "coffea-arabica",
@@ -4884,7 +5094,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "combretum-micranthum",
@@ -4927,7 +5139,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "commiphora-myrrha",
@@ -4974,7 +5188,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "conium-maculatum",
@@ -5021,7 +5237,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "convallaria-majalis",
@@ -5068,7 +5286,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "convolvulus-pluricaulis",
@@ -5116,7 +5336,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "copaifera-officinalis",
@@ -5163,7 +5385,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "coptis-chinensis",
@@ -5212,7 +5436,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cordyceps-sinensis",
@@ -5260,7 +5486,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cordyline-fruticosa",
@@ -5305,7 +5533,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cornus-officinalis",
@@ -5349,7 +5579,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "corydalis-cava",
@@ -5395,7 +5627,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "corymbia-terminalis",
@@ -5440,7 +5674,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "croton-lechleri",
@@ -5489,7 +5725,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "curcuma-longa",
@@ -5535,7 +5773,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cymbopogon-citratus",
@@ -5579,7 +5819,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "cynara-scolymus",
@@ -5623,7 +5865,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cynodon-dactylon",
@@ -5667,7 +5911,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "cyperus-rotundus",
@@ -5713,7 +5959,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "dactylorhiza-hatagirea",
@@ -5761,7 +6009,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "datura-ferox",
@@ -5809,7 +6059,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "datura-stramonium",
@@ -5856,7 +6108,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "datura-wrightii",
@@ -5904,7 +6158,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "delosperma-bosseranum",
@@ -5951,7 +6207,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "delosperma-cooperi",
@@ -5994,7 +6252,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "delphinium-brunonianum",
@@ -6040,7 +6300,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "dendrobium-nobile",
@@ -6084,7 +6346,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Derris-elliptica",
@@ -6138,7 +6402,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "toxic",
+    "intensity_label": "Toxic"
   },
   {
     "id": "dichroa-febrifuga",
@@ -6183,7 +6449,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "diplopterys-cabrerana",
@@ -6231,7 +6499,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "dodonaea-viscosa",
@@ -6282,7 +6552,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "dracocephalum-moldavica",
@@ -6329,7 +6601,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Duboisia-hopwoodii",
@@ -6396,7 +6670,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "duboisia-myoporoides",
@@ -6443,7 +6719,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "San-pedro",
@@ -6495,7 +6773,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/4/4f/Echinopsis_pachanoi.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "eclipta-prostrata",
@@ -6541,7 +6821,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "elaeagnus-umbellata",
@@ -6588,7 +6870,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "elephantopus-mollis",
@@ -6633,7 +6917,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Ephedra",
@@ -6687,7 +6973,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/f/fb/Ephedra_sinica.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Horny-goat-weed",
@@ -6741,7 +7029,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/6/60/Epimedium_grandiflorum1.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "equisetum-arvense",
@@ -6784,7 +7074,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "eremophila-longifolia",
@@ -6831,7 +7123,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "erigeron-canadensis",
@@ -6876,7 +7170,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ervatamia-coronaria",
@@ -6923,7 +7219,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "eryngium-foetidum",
@@ -6967,7 +7265,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "erythrina-flabelliformis",
@@ -7014,7 +7314,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "Mulungu",
@@ -7065,7 +7367,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/4/4e/Erythrina_mulungu.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "erythrina-subumbrans",
@@ -7112,7 +7416,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "erythrina-variegata",
@@ -7171,7 +7477,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/6/6f/Eurycoma_longifolia.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "erythrina-vespertilio",
@@ -7215,7 +7523,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "erythroxylum-novogranatense",
@@ -7262,7 +7572,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "eucalyptus-globulus",
@@ -7308,7 +7620,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "eupatorium-perfoliatum",
@@ -7352,7 +7666,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Tongkat-ali",
@@ -7405,7 +7721,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/e/e6/Eurycoma_longifolia_Jack.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "fagraea-berteroana",
@@ -7450,7 +7768,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ferula-assa-foetida",
@@ -7499,7 +7819,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ferula-communis",
@@ -7546,7 +7868,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ficus-tinctoria",
@@ -7591,7 +7915,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "foeniculum-vulgare",
@@ -7635,7 +7961,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "fucus-vesiculosus",
@@ -7679,7 +8007,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "galium-aparine",
@@ -7722,7 +8052,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "garcinia-cambogia",
@@ -7768,7 +8100,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "gardenia-jasminoides",
@@ -7812,7 +8146,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "gentiana-lutea",
@@ -7858,7 +8194,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "geranium-robertianum",
@@ -7902,7 +8240,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "glechoma-hederacea",
@@ -7946,7 +8286,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "glycyrrhiza-glabra",
@@ -7993,7 +8335,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "griffonia-simplicifolia",
@@ -8040,7 +8384,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "grindelia-robusta",
@@ -8084,7 +8430,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "hamamelis-virginiana",
@@ -8128,7 +8476,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "harpagophytum-procumbens",
@@ -8173,7 +8523,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "hedera-helix",
@@ -8219,7 +8571,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Heimia-salicifolia-sinicuichi",
@@ -8273,7 +8627,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "Heimia",
@@ -8325,7 +8681,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/2/24/Heimia_salicifolia_foliage.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "helinus-integrifolius",
@@ -8370,7 +8728,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "heliotropium-indicum",
@@ -8417,7 +8777,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "hibiscus-tiliaceus",
@@ -8466,7 +8828,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Hops",
@@ -8523,7 +8887,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/6/6f/Humulus_lupulus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-072.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "hydrastis-canadensis",
@@ -8567,7 +8933,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Hyoscyamus-niger",
@@ -8623,7 +8991,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "ilex-guayusa",
@@ -8668,7 +9038,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ilex-paraguariensis",
@@ -8723,7 +9095,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/6/6b/Ilex_paraguariensis_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-068.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "inonotus-obliquus",
@@ -8771,7 +9145,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "inula-helenium",
@@ -8815,7 +9191,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ipomoea-tricolor",
@@ -8862,7 +9240,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "iresine-herbstii",
@@ -8902,7 +9282,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "iris-germanica",
@@ -8947,7 +9329,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "jatropha-podagrica",
@@ -8992,7 +9376,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "juglans-nigra",
@@ -9038,7 +9424,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "juniperus-communis",
@@ -9082,7 +9470,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "juniperus-sibirica",
@@ -9131,7 +9521,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "justicia-secunda",
@@ -9178,7 +9570,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "kaempferia-galanga",
@@ -9222,7 +9616,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "lactuca-virosa",
@@ -9267,7 +9663,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "laminaria-digitata",
@@ -9310,7 +9708,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "laurus-nobilis",
@@ -9353,7 +9753,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Lavender",
@@ -9407,7 +9809,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/1/14/Lavandula_angustifolia_%28Lavender%29.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "Lion-s-tail",
@@ -9459,7 +9863,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/1/14/Leonotis_leonurus_flower.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "Klip-dagga",
@@ -9511,7 +9917,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/e/e2/Leonotis_nepetifolia_flower_3.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "leonurus-cardiaca",
@@ -9556,7 +9964,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "leonurus-japonicus",
@@ -9603,7 +10013,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Siberian-motherwort",
@@ -9657,7 +10069,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/e/e2/Leonurus_sibiricus.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "lepidium-meyenii",
@@ -9711,7 +10125,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/7/74/Maca_roots.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "leptospermum-scoparium",
@@ -9756,7 +10172,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ligusticum-chuanxiong",
@@ -9804,7 +10222,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "lilium-candidum",
@@ -9848,7 +10268,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "linum-usitatissimum",
@@ -9896,7 +10318,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "lippia-alba",
@@ -9943,7 +10367,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "lobelia-tupa",
@@ -9990,7 +10416,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "lomatium-dissectum",
@@ -10035,7 +10463,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "lonicera-japonica",
@@ -10078,7 +10508,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "lophophora-williamsii",
@@ -10138,7 +10570,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/7/75/Lophophora_williamsii_pm.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "lycopodium-clavatum",
@@ -10185,7 +10619,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "lycopus-virginicus",
@@ -10229,7 +10665,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "Lsd",
@@ -10280,7 +10718,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "macaranga-tanarius",
@@ -10325,7 +10765,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "macropiper-excelsum",
@@ -10370,7 +10812,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "maerua-angolensis",
@@ -10416,7 +10860,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "malouetia-tamaquarina",
@@ -10463,7 +10909,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "malva-sylvestris",
@@ -10507,7 +10955,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "mandragora-officinarum",
@@ -10556,7 +11006,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "matricaria-chamomilla",
@@ -10600,7 +11052,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "melaleuca-alternifolia",
@@ -10645,7 +11099,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "melissa-officinalis",
@@ -10692,7 +11148,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "mentha-piperita",
@@ -10739,7 +11197,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "menyanthes-trifoliata",
@@ -10784,7 +11244,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "micromelum-minutum",
@@ -10832,7 +11294,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "mitragyna-javanica",
@@ -10877,7 +11341,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "Kra-thum-na--kok",
@@ -10926,7 +11392,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "mitragyna-parvifolia",
@@ -10970,7 +11438,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "mitragyna-speciosa",
@@ -11018,7 +11488,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "mitragyna-stipulosa",
@@ -11065,7 +11537,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "momordica-charantia",
@@ -11113,7 +11587,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "monarda-fistulosa",
@@ -11157,7 +11633,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "morinda-citrifolia",
@@ -11202,7 +11680,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "moringa-oleifera",
@@ -11250,7 +11730,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "myroxylon-balsamum",
@@ -11297,7 +11779,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "nardostachys-jatamansi",
@@ -11344,7 +11828,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "nepeta-cataria",
@@ -11388,7 +11874,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "nerium-oleander",
@@ -11435,7 +11923,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "toxic",
+    "intensity_label": "Toxic"
   },
   {
     "id": "Mapacho",
@@ -11488,7 +11978,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "nicotiana-spp-polynesian",
@@ -11535,7 +12027,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "nigella-sativa",
@@ -11582,7 +12076,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "nymphaea-caerulea",
@@ -11627,7 +12123,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "nymphaea-nouchali",
@@ -11674,7 +12172,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "ocimum-sanctum",
@@ -11721,7 +12221,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Tulsi",
@@ -11775,7 +12277,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/f/fd/Ocimum_tenuiflorum1.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Sacred-basil",
@@ -11830,7 +12334,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/3/3f/Ocimum_tenuiflorum%2C_%28Holy_basil%29_2.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "oenothera-biennis",
@@ -11875,7 +12381,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ononis-spinosa",
@@ -11919,7 +12427,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "origanum-vulgare",
@@ -11965,7 +12475,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "panax-ginseng",
@@ -12013,7 +12525,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "panax-quinquefolius",
@@ -12058,7 +12572,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "pandanus-tectorius",
@@ -12103,7 +12619,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "papaver-somniferum",
@@ -12150,7 +12668,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "passiflora-incarnata",
@@ -12195,7 +12715,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "paullinia-cupana",
@@ -12242,7 +12764,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "paullinia-pinnata",
@@ -12287,7 +12811,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Indian-warrior",
@@ -12340,7 +12866,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/5/56/Pedicularis_densiflora.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "peganum-harmala",
@@ -12385,7 +12913,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "pelargonium-sidoides",
@@ -12430,7 +12960,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "peperomia-pellucida",
@@ -12479,7 +13011,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "petiveria-alliacea",
@@ -12524,7 +13058,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "phalaris-arundinacea",
@@ -12573,7 +13109,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "phellodendron-amurense",
@@ -12620,7 +13158,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "picrorhiza-kurroa",
@@ -12668,7 +13208,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "pimenta-racemosa",
@@ -12715,7 +13257,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "pimpinella-anisum",
@@ -12762,7 +13306,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "piper-auritum",
@@ -12806,7 +13352,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "piptadenia-peregrina",
@@ -12853,7 +13401,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "pipturus-albidus",
@@ -12898,7 +13448,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "plantago-major",
@@ -12944,7 +13496,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "plantago-ovata",
@@ -12989,7 +13543,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "podophyllum-peltatum",
@@ -13035,7 +13591,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "polygonum-multiflorum",
@@ -13080,7 +13638,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "poria-cocos",
@@ -13124,7 +13684,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "prestonia-amazonica",
@@ -13169,7 +13731,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "primula-veris",
@@ -13213,7 +13777,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "prunella-vulgaris",
@@ -13257,7 +13823,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "psilocybe-mexicana",
@@ -13304,7 +13872,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "Psilocybin",
@@ -13355,7 +13925,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "psychotria-viridis",
@@ -13402,7 +13974,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "Muira-puama",
@@ -13455,7 +14029,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/d/de/Muira_puama_herb.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "pueraria-mirifica",
@@ -13499,7 +14075,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "punica-granatum",
@@ -13544,7 +14122,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "quassia-amara",
@@ -13589,7 +14169,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "rauvolfia-serpentina",
@@ -13636,7 +14218,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "rauvolfia-vomitoria",
@@ -13683,7 +14267,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "rheum-palmatum",
@@ -13729,7 +14315,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "rhizophora-mangle",
@@ -13776,7 +14364,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "rhizophora-stylosa",
@@ -13821,7 +14411,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Rhodiola",
@@ -13874,7 +14466,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/0/0c/Rhodiola_rosea_3.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "rhododendron-tomentosum",
@@ -13927,7 +14521,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "rhynchosia-phaseoloides",
@@ -13971,7 +14567,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ricinus-communis",
@@ -14017,7 +14615,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "rosa-canina",
@@ -14064,7 +14664,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "rosmarinus-officinalis",
@@ -14110,7 +14712,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "ruta-chalepensis",
@@ -14158,7 +14762,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "salacia-reticulata",
@@ -14203,7 +14809,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "salix-alba",
@@ -14249,7 +14857,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Salvia",
@@ -14300,7 +14910,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/b/b3/Salvia_divinorum1.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "salvia-dorrii",
@@ -14343,7 +14955,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "salvia-miltiorrhiza",
@@ -14388,7 +15002,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "salvia-officinalis",
@@ -14437,7 +15053,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "sambucus-nigra",
@@ -14483,7 +15101,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "sanguinaria-canadensis",
@@ -14529,7 +15149,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "scaevola-taccada",
@@ -14574,7 +15196,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "sceletium-expansum",
@@ -14620,7 +15244,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Kana",
@@ -14680,7 +15306,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/b/b4/Sceletium_tortuosum.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "schisandra-chinensis",
@@ -14727,7 +15355,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "scoparia-dulcis",
@@ -14771,7 +15401,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "scopolia-carniolica",
@@ -14817,7 +15449,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "scutellaria-baicalensis",
@@ -14861,7 +15495,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Skullcap",
@@ -14915,7 +15551,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/3/37/Scutellaria_lateriflora.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "selaginella-tamariscina",
@@ -14962,7 +15600,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "selinum-tenuifolium",
@@ -15007,7 +15647,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "senna-alexandrina",
@@ -15053,7 +15695,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "serenoa-repens",
@@ -15098,7 +15742,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "sida-cordifolia",
@@ -15143,7 +15789,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "smilax-ornata",
@@ -15187,7 +15835,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "solandra-maxima",
@@ -15234,7 +15884,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "solanum-nigrum",
@@ -15282,7 +15934,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "solidago-virgaurea",
@@ -15326,7 +15980,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "sophora-flavescens",
@@ -15370,7 +16026,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "stachytarpheta-cayennensis",
@@ -15416,7 +16074,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "stephania-cepharantha",
@@ -15461,7 +16121,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "stephania-tetrandra",
@@ -15508,7 +16170,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "symphytum-officinale",
@@ -15554,7 +16218,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "synaptolepis-kirkii",
@@ -15601,7 +16267,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "syzygium-aromaticum",
@@ -15648,7 +16316,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "tabebuia-impetiginosa",
@@ -15692,7 +16362,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "tabernaemontana-africana",
@@ -15738,7 +16410,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "tabernaemontana-divaricata",
@@ -15786,7 +16460,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "Sananga",
@@ -15839,7 +16515,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/4/44/Tabernaemontana_undulata_-_Pau_Rosa.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "tabernaemontana-spp",
@@ -15885,7 +16563,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "Iboga",
@@ -15939,7 +16619,9 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/2/22/Tabernanthe_iboga.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "tagetes-lucida",
@@ -15983,7 +16665,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "tanaecium-nocturnum",
@@ -16030,7 +16714,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "taraxacum-officinale",
@@ -16079,7 +16765,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "tasmannia-lanceolata",
@@ -16123,7 +16811,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "tetradium-ruticarpum",
@@ -16168,7 +16858,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "tetrapleura-tetraptera",
@@ -16214,7 +16906,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "tetrapterys-methystica",
@@ -16261,7 +16955,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "teucrium-chamaedrys",
@@ -16305,7 +17001,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "theobroma-bicolor",
@@ -16349,7 +17047,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "theobroma-cacao",
@@ -16398,7 +17098,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "thevetia-peruviana",
@@ -16443,7 +17145,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "toxic",
+    "intensity_label": "Toxic"
   },
   {
     "id": "tragia-involucrata",
@@ -16486,7 +17190,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "trichilia-catigua",
@@ -16532,7 +17238,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "trichilia-emetica",
@@ -16580,7 +17288,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "trichocereus-bridgesii",
@@ -16627,7 +17337,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "trifolium-pratense",
@@ -16671,7 +17383,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "turbina-corymbosa",
@@ -16718,7 +17432,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "tussilago-farfara",
@@ -16762,7 +17478,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Tylophora-indica",
@@ -16818,7 +17536,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "usnea-barbata",
@@ -16862,7 +17582,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "valeriana-officinalis",
@@ -16910,7 +17632,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "verbascum-thapsus",
@@ -16954,7 +17678,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "veronicastrum-virginicum",
@@ -16999,7 +17725,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "viburnum-opulus",
@@ -17042,7 +17770,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "vinca-minor",
@@ -17087,7 +17817,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "viola-odorata",
@@ -17133,7 +17865,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "moderate",
+    "intensity_label": "Moderate"
   },
   {
     "id": "virola-calophylla",
@@ -17178,7 +17912,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "virola-elongata",
@@ -17225,7 +17961,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "virola-sebifera",
@@ -17272,7 +18010,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "Virola-spp",
@@ -17322,7 +18062,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "strong",
+    "intensity_label": "Strong"
   },
   {
     "id": "Viscum-album",
@@ -17378,7 +18120,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "vitex-agnus-castus",
@@ -17424,7 +18168,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "vitex-trifolia",
@@ -17472,7 +18218,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "withania-somnifera",
@@ -17520,7 +18268,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "xanthium-strumarium",
@@ -17567,7 +18317,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "yucca-schidigera",
@@ -17611,7 +18363,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "zanthoxylum-capense",
@@ -17660,7 +18414,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "zingiber-officinale",
@@ -17710,7 +18466,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   },
   {
     "id": "zornia-latifolia",
@@ -17755,7 +18513,9 @@
     ],
     "image": "",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": "mild",
+    "intensity_label": "Mild"
   },
   {
     "id": "Thc",
@@ -17812,6 +18572,8 @@
     ],
     "image": "Https: //upload.wikimedia.org/wikipedia/commons/b/bb/Cannabis_flower_sexing.jpg",
     "audit_date": "",
-    "audit_version": ""
+    "audit_version": "",
+    "intensity_level": null,
+    "intensity_label": null
   }
 ]

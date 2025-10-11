@@ -17,12 +17,27 @@ export const clampSentence = (s?: string) =>
     .trim()
     .replace(/\s*[,;]\s*$/, "");
 
-export const fmtIntensity = (v?: string) =>
-  (v || "")
-    .toString()
-    .trim()
-    .replace(/\s+/g, " ")
-    .replace(/^none$/i, "");
+const levelClass: Record<NonNullable<Herb["intensity_level"]>, string> = {
+  mild: "bg-emerald-900/40 text-emerald-200 ring-1 ring-emerald-400/30",
+  moderate: "bg-amber-900/40 text-amber-200 ring-1 ring-amber-400/30",
+  strong: "bg-orange-900/40 text-orange-200 ring-1 ring-orange-400/30",
+  toxic: "bg-rose-900/50 text-rose-200 ring-1 ring-rose-400/40",
+};
+
+function IntensityChip({ h }: { h: Herb }) {
+  if (!h.intensity_level || !h.intensity_label) return null;
+  return (
+    <div
+      className={clsx(
+        "inline-flex max-w-full items-center gap-2 rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap",
+        levelClass[h.intensity_level]
+      )}
+    >
+      <span className="text-xs uppercase tracking-wide opacity-70">Intensity:</span>
+      <span className="max-w-full truncate">{h.intensity_label}</span>
+    </div>
+  );
+}
 
 export function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const [expanded, setExpanded] = useState(false);
@@ -38,13 +53,6 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
   const showScientific =
     Boolean(scientificName) &&
     scientificName.toLowerCase() !== (herb.common || "").trim().toLowerCase();
-
-  const intensity = fmtIntensity(
-    (herb.intensity ||
-      (herb as any).intensity_label ||
-      (herb as any).intensityClean ||
-      "") as string
-  );
 
   const summary = clampSentence(
     (Array.isArray(herb.description)
@@ -147,6 +155,8 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
     "psychoactive"
   );
 
+  const showIntensity = Boolean(herb.intensity_level && herb.intensity_label);
+
   return (
     <article className={clsx(
       "relative overflow-hidden rounded-2xl border border-white/12 bg-surface/60 p-4 shadow-lg backdrop-blur transition-all sm:p-5",
@@ -190,12 +200,9 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
         <FavoriteStar herbId={herb.id || herb.slug || herbSlug} />
       </header>
 
-      {intensity && (
+      {showIntensity && (
         <div className="mt-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted">
-            <span className="text-emphasis opacity-80">Intensity:</span>
-            {intensity}
-          </span>
+          <IntensityChip h={herb} />
         </div>
       )}
 

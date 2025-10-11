@@ -13,7 +13,7 @@
     "sitemap": "node scripts/generate-sitemap.mjs dist",
     "build:blog": "node scripts/build-blog.mjs",
     "build:graph": "node scripts/build-graph.mjs",
-    "prebuild": "npm run build:blog && npm run build:graph && node scripts/generate-sitemap.mjs public && npm run og && npm run rss",
+    "prebuild": "node scripts/normalize-intensity.mjs && npm run build:blog && npm run build:graph && node scripts/generate-sitemap.mjs public && npm run og && npm run rss",
     "preview": "vite preview",
     "lint": "echo 'No lint configured yet' && exit 0",
     "deploy": "gh-pages -d dist",

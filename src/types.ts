@@ -9,7 +9,8 @@ export type Herb = {
   category_label?: string;
   categories?: string[];
   intensity?: string;
-  intensity_label?: string;
+  intensity_label?: string | null;
+  intensity_level?: "mild" | "moderate" | "strong" | "toxic" | null;
   intensityClean?: string | null;
   region?: string;
   regionNotes?: string | null;
