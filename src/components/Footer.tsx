@@ -19,7 +19,12 @@ const legalLinks = [
   { href: "/sitemap", label: "Sitemap" },
 ];
 
+let __renderedOnce = false;
+
 export default function Footer({ showSignup = true }: { showSignup?: boolean }) {
+  if (__renderedOnce) return null;
+  __renderedOnce = true;
+
   const [open, setOpen] = useState(false);
 
   useEffect(() => onOpenConsent(() => setOpen(true)), []);
