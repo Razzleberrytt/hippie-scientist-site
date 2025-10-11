@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 import NavLink from "./NavLink";
-import { useTrippy } from "../lib/trippy";
+import { TRIPPY_LABELS, nextTrippyLevel, useTrippy } from "@/lib/trippy";
 import clsx from "clsx";
 
 const navLinks = [
@@ -14,7 +14,9 @@ type Props = { subtleOnHome?: boolean };
 
 export default function SiteHeader({ subtleOnHome = false }: Props) {
   const buttonClasses = "px-3 py-2 text-sm";
-  const { trippy, setTrippy, enabled } = useTrippy();
+  const { level, setLevel, enabled } = useTrippy();
+  const active = level !== "off";
+  const cycleLevel = () => setLevel(nextTrippyLevel(level));
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/35 bg-black/55 border-b border-white/5">
@@ -38,24 +40,21 @@ export default function SiteHeader({ subtleOnHome = false }: Props) {
           ))}
           <button
             type="button"
-            aria-pressed={trippy}
-            aria-label="Toggle trippy mode"
-            onClick={() => setTrippy(!trippy)}
+            aria-pressed={active}
+            aria-label={`Trippy mode: ${TRIPPY_LABELS[level]}. Tap to change.`}
+            onClick={cycleLevel}
             disabled={!enabled}
             className={clsx(
               "pill relative",
               !enabled && "cursor-not-allowed opacity-50",
-              trippy && "ring-1 ring-emerald-400/40",
+              active && "ring-1 ring-emerald-400/40",
             )}
           >
             <Sparkles className="mr-1 h-4 w-4" aria-hidden />
-            Trippy {trippy ? "On" : "Off"}
-            <span
-              className={clsx(
-                "pointer-events-none absolute -inset-4 rounded-full blur-2xl",
-                trippy ? "bg-emerald-500/10" : "hidden",
-              )}
-            />
+            {TRIPPY_LABELS[level]}
+            {active && (
+              <span className="pointer-events-none absolute -inset-3 rounded-full bg-emerald-400/10 blur-2xl" aria-hidden />
+            )}
           </button>
         </nav>
       </div>

@@ -4,9 +4,6 @@ import ErrorBoundary from '../components/ErrorBoundary'
 import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import AdvancedSearch from '../components/AdvancedSearch'
 import StatRow from '../components/StatRow'
-import Aurora from '../components/effects/Aurora'
-import Floaters from '../components/effects/Floaters'
-import { useTrippy } from '../lib/trippy'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 import { decorateHerbs } from '../lib/herbs'
@@ -20,7 +17,6 @@ export default function Database() {
   const [query, setQuery] = useState('')
   const [advancedOpen, setAdvancedOpen] = useState(false)
   const [advancedResults, setAdvancedResults] = useState<Herb[] | null>(null)
-  const { trippy, enabled } = useTrippy()
 
   const scopedHerbs = useMemo(() => advancedResults ?? herbs, [advancedResults, herbs])
 
@@ -53,13 +49,6 @@ export default function Database() {
       />
       <div className="aurora relative isolate min-h-screen">
         <section className="relative z-20 w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/10 via-sky-500/5 to-fuchsia-500/10 py-10 sm:py-12 lg:py-14">
-          {trippy && enabled && (
-            <>
-              <Aurora />
-              <Floaters />
-              <div className="pointer-events-none absolute inset-0 bg-noisy" aria-hidden />
-            </>
-          )}
           <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Herb Database</h1>
             <p className="mt-2 text-white/70">Search and explore the library.</p>

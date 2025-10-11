@@ -1,10 +1,12 @@
 import Meta from "../components/Meta";
-import { useTrippy } from "../lib/trippy";
+import { TRIPPY_LABELS, nextTrippyLevel, useTrippy } from "@/lib/trippy";
 import { Sparkles } from "lucide-react";
 import clsx from "clsx";
 
 export default function Theme() {
-  const { trippy, setTrippy, enabled } = useTrippy();
+  const { level, setLevel, enabled } = useTrippy();
+  const active = level !== "off";
+  const cycleLevel = () => setLevel(nextTrippyLevel(level));
   return (
     <>
       <Meta title="Theme Lab | The Hippie Scientist" description="Adjust the site appearance to match your vibe." path="/theme" />
@@ -20,28 +22,28 @@ export default function Theme() {
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <button
               type="button"
-              aria-pressed={trippy}
-              aria-label="Toggle trippy mode"
+              aria-pressed={active}
+              aria-label={`Trippy mode: ${TRIPPY_LABELS[level]}. Tap to change.`}
               disabled={!enabled}
-              onClick={() => setTrippy(!trippy)}
+              onClick={cycleLevel}
               className={clsx(
                 "pill relative",
                 !enabled && "cursor-not-allowed opacity-50",
-                trippy && "ring-1 ring-emerald-400/40",
+                active && "ring-1 ring-emerald-400/40",
               )}
             >
               <Sparkles className="mr-1 h-4 w-4" aria-hidden />
-              Trippy {trippy ? "On" : "Off"}
+              {TRIPPY_LABELS[level]}
               <span
                 className={clsx(
                   "pointer-events-none absolute -inset-4 rounded-full blur-2xl",
-                  trippy ? "bg-emerald-500/10" : "hidden",
+                  active ? "bg-emerald-500/10" : "hidden",
                 )}
               />
             </button>
             <p className="text-sm text-zinc-300/80">
               {enabled
-                ? "We remember your choice on this device, so the effects stay just how you like them."
+                ? `Current vibe: ${TRIPPY_LABELS[level]}. We remember your choice on this device, so the effects stay just how you like them.`
                 : "Trippy mode stays off automatically because your device prefers reduced motion."}
             </p>
           </div>
