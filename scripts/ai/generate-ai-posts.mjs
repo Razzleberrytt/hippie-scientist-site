@@ -19,6 +19,70 @@ function readJSON(file, fallback){ try { return JSON.parse(fs.readFileSync(file,
 function pick(arr, n=1){ const c=[...arr]; const out=[]; while(c.length && out.length<n){ out.push(c.splice(Math.floor(Math.random()*c.length),1)[0]); } return out; }
 function clean(text=""){ return String(text).replace(/\s+/g," ").trim(); }
 
+// --- Approved domains for Sources ---
+const APPROVED_DOMAINS = [
+  // primary
+  "pubmed.ncbi.nlm.nih.gov", "ncbi.nlm.nih.gov", "ods.od.nih.gov", "cochranelibrary.com",
+  // big journals/publishers (expand as needed)
+  "nejm.org", "jamanetwork.com", "thelancet.com", "nature.com", "sciencemag.org", "cell.com",
+  "oxfordacademic.com", "cambridge.org", "springer.com", "wiley.com", "tandfonline.com", "bmj.com",
+  "who.int", "ema.europa.eu", "fda.gov", "cdc.gov"
+];
+
+function extractLinks(md){
+  // returns array of {text, url}, and the raw "Sources" block (if any)
+  const linkRe = /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
+  const links = [];
+  let m;
+  while ((m = linkRe.exec(md))) links.push({ text: m[1], url: m[2] });
+  // crude Sources block capture
+  const srcBlock = md.match(/(^|\n)##\s*Sources[\s\S]*?(\n##\s|\n> \*\*Disclaimer|\s*$)/i)?.[0] || "";
+  return { links, srcBlock };
+}
+
+function isApproved(url){
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^www\./, "");
+    return APPROVED_DOMAINS.some(d => host === d || host.endsWith(`.${d}`));
+  } catch { return false; }
+}
+
+function filterSourcesBlock(block){
+  if (!block) return { ok: 0, block: "" };
+  // keep only approved links; preserve Markdown list items
+  const lines = block.split("\n");
+  const kept = [];
+  for (const line of lines){
+    const m = line.match(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/);
+    if (m && isApproved(m[2])) kept.push(line);
+    else if (!m) kept.push(line); // keep headings/plain text
+  }
+  // remove empty bullets
+  const cleaned = kept
+    .join("\n")
+    .replace(/^\s*-\s*$/gm, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  const ok = (cleaned.match(/\((https?:\/\/)/g) || []).length;
+  return { ok, block: cleaned };
+}
+
+function replaceSourcesInMarkdown(md, newBlock){
+  if (!newBlock) return md;
+  const stripped = newBlock
+    .replace(/^\s*##\s*Sources\s*/i, "")
+    .replace(/^\s*\n+/, "")
+    .trim();
+  const payload = stripped ? `${stripped}\n` : "";
+  if (/(^|\n)##\s*Sources\b/i.test(md)){
+    return md.replace(/(^|\n)##\s*Sources[\s\S]*?(\n##\s|\n> \*\*Disclaimer|\s*$)/i,
+      `\n\n## Sources\n${payload}\n$2`);
+  }
+  // If there wasn't a Sources section, append one above the disclaimer
+  return md.replace(/\n> \*\*Disclaimer:[\s\S]*$/i, match => `\n\n## Sources\n${payload}\n${match}`);
+}
+
 ensureDir(POSTS_DIR);
 const herbs = readJSON(HERB_JSON, []);
 const postsJSON = readJSON(OUT_JSON, []);
@@ -200,6 +264,20 @@ CONTENT TO POLISH:
 ${markdown}`;
 }
 
+function sourcesRepairPrompt(topic, md){
+  return `The article below needs a "Sources" section restricted to credible domains only:
+- Allowed domains: ${APPROVED_DOMAINS.join(", ")}
+- Provide 4–8 sources max, in Markdown list format:
+  - [Title](URL) — brief one-line note
+- Replace any non-approved links.
+- Keep the rest of the article unchanged; return ONLY the new Sources list, nothing else.
+
+Topic: ${topic}
+
+ARTICLE (context):
+${md}`;
+}
+
 function wordCount(s){ return String(s||"").trim().split(/\s+/).filter(Boolean).length; }
 
 async function extendIfShort(md, topic, contextBlob){
@@ -280,15 +358,58 @@ async function aiArticle(){
 
   let longMd = await extendIfShort(finalMd, topic, contextBlob);
 
+  // --- Source gating & auto-repair ---
+  let gatedMd = longMd;
+  {
+    const { srcBlock } = extractLinks(gatedMd);
+    let { ok, block } = filterSourcesBlock(srcBlock);
+
+    if (ok < 3) {
+      try {
+        const repaired = await callOpenAI(
+          [{ role: "system", content: sys() },
+           { role: "user", content: sourcesRepairPrompt(topic, gatedMd) }],
+          { maxTokens: 600, temperature: 0.2 }
+        );
+        const { ok: ok2, block: block2 } = filterSourcesBlock(`\n${repaired}\n`);
+        if (ok2 >= Math.max(3, ok)) {
+          gatedMd = replaceSourcesInMarkdown(gatedMd, block2);
+        } else if (ok >= 1) {
+          gatedMd = replaceSourcesInMarkdown(gatedMd, block);
+        } else {
+          const canned = [
+            "- [NIH Office of Dietary Supplements](https://ods.od.nih.gov/) — ingredient fact sheets",
+            "- [PubMed](https://pubmed.ncbi.nlm.nih.gov/) — primary literature",
+            "- [Cochrane Library](https://www.cochranelibrary.com/) — systematic reviews"
+          ].join("\n");
+          gatedMd = replaceSourcesInMarkdown(gatedMd, canned);
+        }
+      } catch {
+        if (ok >= 1) {
+          gatedMd = replaceSourcesInMarkdown(gatedMd, block);
+        } else {
+          const canned = [
+            "- [NIH Office of Dietary Supplements](https://ods.od.nih.gov/)",
+            "- [PubMed](https://pubmed.ncbi.nlm.nih.gov/)",
+            "- [Cochrane Library](https://www.cochranelibrary.com/)"
+          ].join("\n");
+          gatedMd = replaceSourcesInMarkdown(gatedMd, canned);
+        }
+      }
+    } else {
+      gatedMd = replaceSourcesInMarkdown(gatedMd, block);
+    }
+  }
+
   // Extract title (first H1) and excerpt
-  const h1 = longMd.match(/^#\s+(.+?)\s*$/m)?.[1] || topic;
+  const h1 = gatedMd.match(/^#\s+(.+?)\s*$/m)?.[1] || topic;
   const slug = `${slugify(h1)}-${hash(date+h1)}`;
-  const excerpt = smartExcerpt(longMd);
+  const excerpt = smartExcerpt(gatedMd);
   const tags = ["ai","daily","herbalism"];
 
   const fm = `---\nslug: ${slug}\ndate: ${date}\ntitle: "${h1.replace(/"/g,'\\"')}"\ntags: [${tags.map(t=>`"${t}"`).join(", ")}]
 ---\n\n`;
-  const markdown = fm + longMd;
+  const markdown = fm + gatedMd;
 
   return { slug, date, title: h1, excerpt, tags, markdown };
 }
