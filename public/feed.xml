@@ -2,15 +2,87 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>The Hippie Scientist — Blog Feed</title>
   <id>https://thehippiescientist.net/blog</id>
-  <updated>2025-10-08T00:00:00.000Z</updated>
+  <updated>2025-03-10T00:00:00.000Z</updated>
   <link rel="self" href="https://thehippiescientist.net/feed.xml" />
   <link rel="alternate" href="https://thehippiescientist.net/blog" />
     <entry>
-    <title><![CDATA[Kava: Calming the Storm — Traditional vs. Modern Use]]></title>
-    <id>https://thehippiescientist.net/blog/kava-calming-the-storm-traditional-vs-modern-use</id>
-    <link href="https://thehippiescientist.net/blog/kava-calming-the-storm-traditional-vs-modern-use" />
-    <updated>2025-10-08T00:00:00.000Z</updated>
-    <published>2025-10-08T00:00:00.000Z</published>
-    <summary type="html"><![CDATA[Comparing noble kava chemotypes, safety data, and preparation differences.]]></summary>
+    <title><![CDATA[The Chemistry Behind Dream Herbs and REM Memory]]></title>
+    <id>https://thehippiescientist.net/blog/chemistry-dream-herbs-rem-memory</id>
+    <link href="https://thehippiescientist.net/blog/chemistry-dream-herbs-rem-memory" />
+    <updated>2025-03-10T00:00:00.000Z</updated>
+    <published>2025-03-10T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[Exploring how Calea zacatechichi’s molecules might interact with REM sleep and memory consolidation.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[Adaptogens 101: Decoding the Stress Axis]]></title>
+    <id>https://thehippiescientist.net/blog/adaptogens-hpa-non-specific-resistance</id>
+    <link href="https://thehippiescientist.net/blog/adaptogens-hpa-non-specific-resistance" />
+    <updated>2025-03-05T00:00:00.000Z</updated>
+    <published>2025-03-05T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[A primer on how adaptogens interact with the HPA axis and what scientists mean by non-specific resistance.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[Kava in Context: Tradition, Chemistry, and Safety]]></title>
+    <id>https://thehippiescientist.net/blog/kava-tradition-chemistry-safety</id>
+    <link href="https://thehippiescientist.net/blog/kava-tradition-chemistry-safety" />
+    <updated>2025-02-26T00:00:00.000Z</updated>
+    <published>2025-02-26T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[How traditional kava preparation, kavain chemistry, and safety debates intersect in modern research.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[Lion’s Mane and Neuroplasticity: Parsing the Evidence]]></title>
+    <id>https://thehippiescientist.net/blog/lions-mane-neuroplasticity-evidence</id>
+    <link href="https://thehippiescientist.net/blog/lions-mane-neuroplasticity-evidence" />
+    <updated>2025-02-18T00:00:00.000Z</updated>
+    <published>2025-02-18T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[Comparing animal and human studies on Lion’s mane mushroom and its potential influence on neural plasticity.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[Blue Lotus vs. Wild Dagga: Relaxants Across Cultures]]></title>
+    <id>https://thehippiescientist.net/blog/blue-lotus-wild-dagga-relaxants</id>
+    <link href="https://thehippiescientist.net/blog/blue-lotus-wild-dagga-relaxants" />
+    <updated>2025-02-12T00:00:00.000Z</updated>
+    <published>2025-02-12T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[Comparing traditional uses, proposed mechanisms, and cautions for blue lotus and wild dagga.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[Plant Anxiolytics and GABAergic Modulation]]></title>
+    <id>https://thehippiescientist.net/blog/plant-anxiolytics-gaba-modulation</id>
+    <link href="https://thehippiescientist.net/blog/plant-anxiolytics-gaba-modulation" />
+    <updated>2025-01-31T00:00:00.000Z</updated>
+    <published>2025-01-31T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[Examining how botanicals like passionflower and skullcap may influence GABA signaling and anxiety.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[Microdosing Legal Botanicals: Frameworks and Ethics]]></title>
+    <id>https://thehippiescientist.net/blog/microdosing-legal-botanicals-frameworks</id>
+    <link href="https://thehippiescientist.net/blog/microdosing-legal-botanicals-frameworks" />
+    <updated>2025-01-24T00:00:00.000Z</updated>
+    <published>2025-01-24T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[How to design ethical, placebo-aware microdosing experiments with legal botanicals.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[Building a Responsible Herbal Stack]]></title>
+    <id>https://thehippiescientist.net/blog/responsible-herbal-stack-interactions</id>
+    <link href="https://thehippiescientist.net/blog/responsible-herbal-stack-interactions" />
+    <updated>2025-01-15T00:00:00.000Z</updated>
+    <published>2025-01-15T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[Strategies for combining herbs while accounting for synergy, antagonism, and medication interactions.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[Why Entheogenic Plants Still Matter in 2025]]></title>
+    <id>https://thehippiescientist.net/blog/entheogenic-plants-2025-relevance</id>
+    <link href="https://thehippiescientist.net/blog/entheogenic-plants-2025-relevance" />
+    <updated>2025-01-08T00:00:00.000Z</updated>
+    <published>2025-01-08T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[Anthropological insights, set and setting principles, and policy trends keeping entheogenic plants relevant.]]></summary>
+  </entry>
+  <entry>
+    <title><![CDATA[When Two Compounds Are Better Than One]]></title>
+    <id>https://thehippiescientist.net/blog/herbal-synergy-case-studies</id>
+    <link href="https://thehippiescientist.net/blog/herbal-synergy-case-studies" />
+    <updated>2025-01-02T00:00:00.000Z</updated>
+    <published>2025-01-02T00:00:00.000Z</published>
+    <summary type="html"><![CDATA[Exploring herbal synergy examples like L-theanine with caffeine and other complementary pairings.]]></summary>
   </entry>
 </feed>
