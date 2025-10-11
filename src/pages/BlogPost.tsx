@@ -15,16 +15,17 @@ export default function BlogPost() {
   const [meta, setMeta] = useState<PostMeta | null>(null);
   const [html, setHtml] = useState<string>("");
   const [error, setError] = useState<string>("");
+  const base = (import.meta.env.BASE_URL || "/").replace(/\/+$/, "/");
 
   useEffect(() => {
     let alive = true;
     async function load() {
       try {
-        const idx = await fetch("/blogdata/index.json", { cache: "no-cache" }).then((r) => r.json());
+        const idx = await fetch(`${base}blogdata/index.json`, { cache: "no-cache" }).then((r) => r.json());
         const m = idx.find((p: PostMeta) => p.slug === slug) ?? null;
         if (alive) setMeta(m);
 
-        const h = await fetch(`/blogdata/posts/${slug}.html`, { cache: "no-cache" });
+        const h = await fetch(`${base}blogdata/posts/${slug}.html`, { cache: "no-cache" });
         if (!h.ok) throw new Error(`Post HTML not found: ${slug}`);
         const text = await h.text();
         if (alive) setHtml(text);
@@ -36,7 +37,7 @@ export default function BlogPost() {
     return () => {
       alive = false;
     };
-  }, [slug]);
+  }, [slug, base]);
 
   if (error) {
     return (

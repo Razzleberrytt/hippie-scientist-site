@@ -1,17 +1,4 @@
-export function hashLink(path: string): string {
-  const trimmed = path.trim();
-  if (!trimmed) {
-    return "/#/";
-  }
+import { href } from "./paths";
 
-  if (trimmed.startsWith("/#")) {
-    return trimmed;
-  }
-
-  if (trimmed.startsWith("#/")) {
-    return `/${trimmed}`;
-  }
-
-  const normalized = trimmed.startsWith("/") ? trimmed : `/${trimmed}`;
-  return `/#${normalized}`;
-}
+export const hashLink = (path: string) => href(path);
+export { href };

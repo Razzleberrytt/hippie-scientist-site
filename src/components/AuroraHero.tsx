@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { hashLink } from "../lib/routes";
+import { Link } from "react-router-dom";
 
 type AuroraHeroProps = {
   title: string;
@@ -48,18 +48,18 @@ export default function AuroraHero({ title, subtitle }: AuroraHeroProps) {
           transition={{ delay: 0.25, duration: 0.8, ease: "easeOut" }}
           className="flex flex-wrap items-center justify-center gap-3 pt-2"
         >
-          <a
-            href={hashLink("/database")}
+          <Link
+            to="/database"
             className="rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-black shadow-[0_18px_35px_-22px_rgba(80,200,255,0.9)] transition hover:bg-accent/80 hover:text-black sm:text-base"
           >
             Browse Herbs
-          </a>
-          <a
-            href={hashLink("/blend")}
+          </Link>
+          <Link
+            to="/blend"
             className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white/90 backdrop-blur transition hover:border-white/40 hover:bg-white/10 sm:text-base"
           >
             Build a Blend
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

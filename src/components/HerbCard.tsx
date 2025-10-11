@@ -1,9 +1,9 @@
 import { memo, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Card from './ui/Card';
 import { cleanLine, hasVal, titleCase } from '../lib/pretty';
 import { chipClassFor } from '../lib/tags';
-import { hashLink } from '../lib/routes';
 import { slugify } from '../lib/slug';
 
 interface HerbCardProps {
@@ -36,8 +36,8 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
     const slug = hasVal(herb.slug)
       ? String(herb.slug)
       : slugify(String(herb.common || herb.scientific || ''));
-    if (!slug) return hashLink('/herb');
-    return hashLink(`/herb/${encodeURIComponent(slug)}`);
+    if (!slug) return '/herb';
+    return `/herb/${encodeURIComponent(slug)}`;
   }, [herb.common, herb.scientific, herb.slug]);
 
   return (
@@ -111,12 +111,12 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
               {expanded ? 'Show less' : 'Show more'}
             </button>
           )}
-          <a
-            href={detailHref}
+          <Link
+            to={detailHref}
             className="text-sub underline underline-offset-4 transition hover:text-text"
           >
             View details
-          </a>
+          </Link>
         </footer>
       </Card>
     </motion.div>

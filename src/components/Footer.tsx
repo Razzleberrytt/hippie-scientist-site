@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ConsentManager from "./ConsentManager";
 import { onOpenConsent } from "../lib/consentBus";
 import NewsletterSignup from "./NewsletterSignup";
@@ -39,7 +40,7 @@ export default function Footer({ showSignup = true }: { showSignup?: boolean }) 
               <ul className="space-y-1 text-sm">
                 {exploreLinks.map(link => (
                   <li key={link.href}>
-                    <a href={link.href}>{link.label}</a>
+                    <Link to={link.href}>{link.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -53,7 +54,7 @@ export default function Footer({ showSignup = true }: { showSignup?: boolean }) 
               <ul className="space-y-1 text-sm">
                 {legalLinks.map(link => (
                   <li key={link.href}>
-                    <a href={link.href}>{link.label}</a>
+                    <Link to={link.href}>{link.label}</Link>
                   </li>
                 ))}
                 <li>

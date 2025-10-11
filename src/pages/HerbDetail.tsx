@@ -8,7 +8,6 @@ import postsData from "../data/blog/posts.json";
 import { relatedPostsByHerbSlug } from "../lib/relevance";
 import { cleanLine, hasVal, titleCase } from "../lib/pretty";
 import { pick } from "../lib/present";
-import { hashLink } from "../lib/routes";
 
 type Herb = (typeof data)[number];
 
@@ -43,13 +42,13 @@ function RelatedPosts({ slug }: { slug?: string }) {
       <ul className="mt-3 space-y-3">
         {posts.map(p => (
           <li key={p.slug} className="text-sm" style={{ color: "var(--muted-c)" }}>
-            <a
-              href={hashLink(`/blog/${p.slug}`)}
+            <Link
+              to={`/blog/${p.slug}`}
               className="link"
               style={{ color: "var(--accent)" }}
             >
               {p.title}
-            </a>
+            </Link>
             {p.date && (
               <p className="text-xs" style={{ color: "color-mix(in oklab, var(--muted-c) 75%, transparent 25%)" }}>
                 {new Date(p.date).toLocaleDateString(undefined, {
@@ -68,9 +67,9 @@ function RelatedPosts({ slug }: { slug?: string }) {
         ))}
       </ul>
       <div className="mt-4 text-sm">
-        <a href={hashLink("/blog")} className="link" style={{ color: "var(--accent)" }}>
+        <Link to="/blog" className="link" style={{ color: "var(--accent)" }}>
           View all posts →
-        </a>
+        </Link>
       </div>
     </section>
   );

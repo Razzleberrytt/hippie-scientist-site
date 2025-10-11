@@ -1,22 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom'; // Use HashRouter for GitHub Pages compatibility
+import { HashRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
 import { initConsentDefault } from './lib/consent';
 import { loadAnalytics, onConsentChange } from './lib/loadAnalytics';
 import { initTheme } from './lib/theme';
+import { unregisterServiceWorkers } from './sw-unregister';
 import './index.css';
 import './styles/clamp.css';
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations?.()
-    .then((rs) => {
-      rs.forEach((r) => r.unregister());
-    })
-    .catch(() => {});
-}
+unregisterServiceWorkers();
 
 initTheme();
 initConsentDefault();

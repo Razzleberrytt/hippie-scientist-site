@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   getConsent,
   setConsent,
   initConsentDefault,
   getSystemNoTracking,
 } from '../lib/consent';
-import { hashLink } from '../lib/routes';
 
 export default function ConsentBanner() {
   const [show, setShow] = useState(false);
@@ -28,7 +28,7 @@ export default function ConsentBanner() {
             <strong className="font-semibold">Privacy &amp; cookies</strong>
             <p className="text-white/70">
               We use privacy-friendly analytics to understand site usage. No personal data unless you opt in.
-              Read our <a className="underline" href={hashLink('/privacy')}>Privacy Policy</a>.
+              Read our <Link className="underline" to="/privacy">Privacy Policy</Link>.
               {dnt && (
                 <span className="ml-2 text-amber-300">
                   Detected “Do Not Track / GPC”. Defaulting to no tracking.
