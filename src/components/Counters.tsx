@@ -15,10 +15,17 @@ export default function Counters({ className = "", compact = false }:{
   const [stats, setStats] = useState<Stats | null>(null);
 
   useEffect(() => {
+    const fallback: Stats = { herbs: 0, compounds: 0, articles: 0 };
     fetch("/stats.json", { cache: "no-store" })
-      .then(r => r.json())
-      .then(setStats)
-      .catch(() => setStats(null));
+      .then((r) => (r.ok ? r.json() : fallback))
+      .then((data: Partial<Stats>) => {
+        setStats({
+          herbs: typeof data?.herbs === "number" ? data.herbs : fallback.herbs,
+          compounds: typeof data?.compounds === "number" ? data.compounds : fallback.compounds,
+          articles: typeof data?.articles === "number" ? data.articles : fallback.articles,
+        });
+      })
+      .catch(() => setStats(fallback));
   }, []);
 
   const items = [

@@ -1,9 +1,10 @@
-import { memo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { memo, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import Card from './ui/Card';
 import { cleanLine, hasVal, titleCase } from '../lib/pretty';
 import { chipClassFor } from '../lib/tags';
+import { hashLink } from '../lib/routes';
+import { slugify } from '../lib/slug';
 
 interface HerbCardProps {
   herb: Record<string, any>;
@@ -30,6 +31,14 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   const showLegal = !compact && hasVal(herb.legalstatus);
   const showCompounds = !compact && compounds.length > 0;
   const showShowMore = !compact && (hasVal(herb.effects) || hasVal(herb.description));
+
+  const detailHref = useMemo(() => {
+    const slug = hasVal(herb.slug)
+      ? String(herb.slug)
+      : slugify(String(herb.common || herb.scientific || ''));
+    if (!slug) return hashLink('/herb');
+    return hashLink(`/herb/${encodeURIComponent(slug)}`);
+  }, [herb.common, herb.scientific, herb.slug]);
 
   return (
     <motion.div
@@ -96,14 +105,18 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
             <button
               type="button"
               className="text-sub underline decoration-dotted underline-offset-4 transition hover:text-text"
-              onClick={() => setExpanded(value => !value)}
+              onClick={() => setExpanded((value) => !value)}
+              aria-expanded={expanded}
             >
               {expanded ? 'Show less' : 'Show more'}
             </button>
           )}
-          <Link to={`/herb/${herb.slug ?? ''}`} className="text-sub underline underline-offset-4 transition hover:text-text">
+          <a
+            href={detailHref}
+            className="text-sub underline underline-offset-4 transition hover:text-text"
+          >
             View details
-          </Link>
+          </a>
         </footer>
       </Card>
     </motion.div>

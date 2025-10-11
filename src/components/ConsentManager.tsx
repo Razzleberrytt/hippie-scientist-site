@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getConsent, setConsent, getSystemNoTracking } from "../lib/consent";
+import { hashLink } from "../lib/routes";
 
 type Props = { open: boolean; onClose: () => void };
 
@@ -126,7 +127,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           >
             Accept
           </button>
-          <a href="/privacy" className="ml-auto underline text-white/70 hover:text-cyan-300">
+          <a href={hashLink("/privacy")} className="ml-auto underline text-white/70 hover:text-cyan-300">
             Privacy Policy
           </a>
         </div>

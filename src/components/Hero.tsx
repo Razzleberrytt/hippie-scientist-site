@@ -1,4 +1,5 @@
 import Counters from './Counters'
+import { hashLink } from '../lib/routes'
 
 export default function Hero() {
   return (
@@ -18,10 +19,10 @@ export default function Hero() {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <a href="/database" className="rounded-xl px-4 py-2 bg-emerald-600/80 hover:bg-emerald-500 text-white font-medium shadow">
+          <a href={hashLink('/database')} className="rounded-xl px-4 py-2 bg-emerald-600/80 hover:bg-emerald-500 text-white font-medium shadow">
             🌿 Browse Herbs
           </a>
-          <a href="/build" className="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/15 text-white font-medium border border-white/15">
+          <a href={hashLink('/build')} className="rounded-xl px-4 py-2 bg-white/10 hover:bg-white/15 text-white font-medium border border-white/15">
             🧪 Build a Blend
           </a>
         </div>
