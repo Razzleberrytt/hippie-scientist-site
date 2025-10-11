@@ -51,8 +51,6 @@ const addUrl = (
   }
 };
 
-staticPaths.forEach((p) => addUrl(p));
-
 let herbPaths = [];
 let herbEntries = [];
 try {
@@ -84,32 +82,37 @@ try {
 }
 
 let blogPosts = [];
-let blogUrls = [];
+let blogPaths = [];
 try {
   const store = JSON.parse(
-    fs.readFileSync("public/blogdata.json", "utf-8"),
+    fs.readFileSync("public/blogdata/index.json", "utf-8"),
   );
-  const posts = Array.isArray(store?.posts) ? store.posts : [];
-  blogPosts = posts;
-  blogUrls = blogPosts
+  blogPosts = Array.isArray(store?.posts) ? store.posts : [];
+  blogPaths = blogPosts
     .filter((post) => post && post.slug)
     .map((post) => `/blog/${post.slug}`);
-  blogPosts
-    .filter((post) => post && post.slug)
-    .forEach((post) => {
-      const lastmod = post.date ? new Date(post.date) : now;
-      addUrl(`/blog/${post.slug}`, {
-        lastmod,
-        changefreq: "weekly",
-        images: post.og ? [post.og] : [],
-      });
+  for (const post of blogPosts) {
+    if (!post?.slug) continue;
+    const lastmod = post.date ? new Date(post.date) : now;
+    addUrl(`/blog/${post.slug}`, {
+      lastmod,
+      changefreq: "weekly",
     });
+  }
 } catch (error) {
   if (process.env.DEBUG_SITEMAP) {
     console.warn("Skipping blog URLs:", error);
   }
   blogPosts = [];
-  blogUrls = [];
+  blogPaths = [];
+}
+
+const pages = Array.from(new Set([...staticPaths, ...herbPaths, ...blogPaths])).sort();
+for (const route of pages) {
+  const canonical = normalizePath(route);
+  if (!urlEntries.has(canonical)) {
+    addUrl(route);
+  }
 }
 
 const sortedEntries = Array.from(urlEntries.values()).sort((a, b) =>
@@ -156,7 +159,8 @@ if (blogPosts.length > 0) {
     .map((post) => {
       const postUrl = `${SITE}/blog/${post.slug}`;
       const published = post.date ? new Date(post.date) : now;
-      const summary = post.excerpt || post.description || "";
+      const summary =
+        post.summary || post.excerpt || post.description || "";
       return `  <entry>
     <title><![CDATA[${post.title || "Untitled"}]]></title>
     <id>${postUrl}</id>
@@ -176,6 +180,35 @@ if (blogPosts.length > 0) {
   }
   console.log("Wrote", sitemapPath, "with", sortedEntries.length, "URLs");
 }
+
+try {
+  const store = JSON.parse(fs.readFileSync("public/blogdata/index.json", "utf-8"));
+  const SITE = "https://thehippiescientist.net";
+  const items = (store.posts || [])
+    .slice(0, 20)
+    .map(
+      (p) => `
+    <entry>
+      <title>${p.title}</title>
+      <link href="${SITE}/blog/${p.slug}" />
+      <updated>${new Date(p.date).toISOString()}</updated>
+      <summary>${p.summary}</summary>
+      <id>${SITE}/blog/${p.slug}</id>
+    </entry>`,
+    )
+    .join("\n");
+  const feed = `<?xml version="1.0" encoding="utf-8"?>
+  <feed xmlns="http://www.w3.org/2005/Atom">
+    <title>The Hippie Scientist</title>
+    <link href="${SITE}/atom.xml" rel="self"/>
+    <link href="${SITE}"/>
+    <updated>${new Date().toISOString()}</updated>
+    <id>${SITE}</id>
+    ${items}
+  </feed>`;
+  fs.writeFileSync("public/atom.xml", feed);
+  console.log("Wrote public/atom.xml");
+} catch {}
 
 function normalizePath(p) {
   if (!p) return "/";

@@ -1,91 +1,142 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-import matter from "gray-matter";
-import { marked } from "marked";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Where source markdown lives:
+const SRC = "content/blog";         // .md files
+// Where generated assets go (MUST be under public so deploy picks them up):
+const OUT_DIR = "public/blogdata";  // JSON + HTML
+fs.mkdirSync(OUT_DIR, { recursive: true });
 
-const ROOT = path.resolve(__dirname, "..");
-const CONTENT = path.join(ROOT, "content", "blog");
-const PUBLIC = path.join(ROOT, "public");
-const GEN = path.join(ROOT, "src", "generated");
-const HTML_OUT = path.join(PUBLIC, "blog-html");
-const FEED_OUT = path.join(PUBLIC, "atom.xml");
-const STORE_PUBLIC = path.join(PUBLIC, "blogdata.json");
-const STORE_SRC = path.join(GEN, "blogdata.json");
-const SITE = "https://thehippiescientist.net";
-
-fs.mkdirSync(HTML_OUT, { recursive: true });
-fs.mkdirSync(GEN, { recursive: true });
-
-/** load markdown */
-const files = fs.readdirSync(CONTENT)
-  .filter(f => f.endsWith(".md"))
-  .sort();
-
-const posts = [];
-
-for (const file of files) {
-  const raw = fs.readFileSync(path.join(CONTENT, file), "utf-8");
-  const { data, content } = matter(raw);
-  const slug = (data.slug || file.replace(/\.md$/, "")).toLowerCase();
-  const title = data.title || slug;
-  const date = data.date ? new Date(data.date).toISOString() : new Date().toISOString();
-  const tags = Array.isArray(data.tags) ? data.tags : [];
-  const html = marked.parse(content);
-  const excerpt = (data.description || content.replace(/\n+/g, " ").slice(0, 220)).trim();
-
-  // write per-post HTML for /blog/:slug reader
-  fs.writeFileSync(path.join(HTML_OUT, `${slug}.html`), html);
-
-  posts.push({ slug, title, date, excerpt, tags });
+/** Very tiny MD -> HTML (headings/paragraphs/links) to avoid extra deps */
+function mdToHtml(md) {
+  return md
+    .replace(/^### (.*)$/gm, "<h3>$1</h3>")
+    .replace(/^## (.*)$/gm, "<h2>$1</h2>")
+    .replace(/^# (.*)$/gm, "<h1>$1</h1>")
+    .replace(/^>\s?(.*)$/gm, "<blockquote>$1</blockquote>")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+    .split(/\n{2,}/)
+    .map(p => {
+      const trimmed = p.trim();
+      if (!trimmed) return "";
+      if (/^<h[1-6]>/.test(trimmed) || /^<blockquote>/.test(trimmed)) return trimmed;
+      return `<p>${trimmed}</p>`;
+    })
+    .filter(Boolean)
+    .join("\n");
 }
 
-// newest first
-posts.sort((a,b) => new Date(b.date) - new Date(a.date));
+function slugify(s){ return String(s||"")
+  .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""); }
 
-const version = Date.now().toString();
-const store = { version, count: posts.length, posts };
+function readPosts() {
+  if (!fs.existsSync(SRC)) fs.mkdirSync(SRC, { recursive: true });
 
-// emit store to public (runtime consumers) and src/generated (bundled import)
-fs.writeFileSync(STORE_PUBLIC, JSON.stringify(store, null, 2));
-fs.writeFileSync(STORE_SRC, JSON.stringify(store));
-
-console.log(`Wrote ${posts.length} posts; version=${version}`);
-
-/** minimal Atom feed */
-const feedItems = posts.map(p => `
-  <entry>
-    <title><![CDATA[${p.title}]]></title>
-    <id>${SITE}/blog/${p.slug}</id>
-    <link href="${SITE}/blog/${p.slug}" />
-    <updated>${p.date}</updated>
-    <summary><![CDATA[${p.excerpt}]]></summary>
-  </entry>`).join("\n");
-
-const feed = `<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>The Hippie Scientist — Blog</title>
-  <id>${SITE}/blog</id>
-  <link rel="self" href="${SITE}/atom.xml"/>
-  <updated>${new Date().toISOString()}</updated>
-  ${feedItems}
-</feed>`;
-
-fs.writeFileSync(FEED_OUT, feed);
-
-// optional: append blog routes to sitemap if script/file exists
-try {
-  const sitemapPath = path.join(PUBLIC, "sitemap.xml");
-  if (fs.existsSync(sitemapPath)) {
-    let sm = fs.readFileSync(sitemapPath, "utf-8");
-    // naive append just before closing </urlset>
-    const urls = posts.map(p => `  <url><loc>${SITE}/blog/${p.slug}</loc></url>`).join("\n");
-    sm = sm.replace("</urlset>", `${urls}\n</urlset>`);
-    fs.writeFileSync(sitemapPath, sm);
+  // Seed 10 posts if directory is empty
+  const files = fs.readdirSync(SRC).filter(f => f.endsWith(".md"));
+  if (files.length < 10) {
+    const seeds = [
+      ["kava-chemotypes-safety", "Kava Chemotypes & Safety — Noble vs. Tudei", "2025-01-20",
+       `# Kava Chemotypes & Safety
+Kava (Piper methysticum) contains varying **kavalactone** profiles...
+## Noble vs. Tudei
+Evidence suggests...
+## Preparation & Dose
+Traditional methods...`],
+      ["blue-lotus-aporphines", "Blue Lotus & Aporphines — Myth vs. Data", "2025-01-18",
+       `# Blue Lotus & Aporphines
+Nymphaea caerulea contains aporphine-class alkaloids...
+## Effects & Safety
+Calm, dreamy...`],
+      ["rhodiola-adaptogen", "Rhodiola: Adaptogen for Stress & Fatigue", "2025-01-17",
+       `# Rhodiola Overview
+Rhodiola rosea is an **adaptogen**...
+## Evidence
+Randomized trials indicate...`],
+      ["lion-s-mane-nerve-growth", "Lion’s Mane & NGF — What the Studies Say", "2025-01-15",
+       `# Lion's Mane
+Hericium erinaceus and erinacines...
+## Cognition
+Human data...`],
+      ["cacao-theobromine", "Cacao, Theobromine, and Mood", "2025-01-14",
+       `# Cacao & Theobromine
+Theobromine is a mild stimulant...
+## Dose & Interactions
+Caffeine overlap...`],
+      ["ashwagandha-cortisol", "Ashwagandha & Cortisol — Anxiety Evidence", "2025-01-13",
+       `# Ashwagandha
+Withania somnifera as an **anxiolytic**...
+## Trials
+Meta-analyses show...`],
+      ["valerian-sleep", "Valerian for Sleep — Mixed but Useful?", "2025-01-12",
+       `# Valerian
+Valeriana officinalis and **valerenic acid**...
+## Evidence
+Mixed results...`],
+      ["kratom-alkaloids", "Kratom Alkaloids — Pharmacology & Risks", "2025-01-10",
+       `# Kratom
+Mitragyna speciosa alkaloids...
+## Safety
+Dependence risks...`],
+      ["mugwort-dreaming", "Mugwort for Dreams — Tradition & Reality", "2025-01-09",
+       `# Mugwort
+Artemisia vulgaris in dream lore...
+## Evidence
+Anecdotal...`],
+      ["passionflower-gaba", "Passionflower & GABA — Gentle Anxiolytic", "2025-01-08",
+       `# Passionflower
+Passiflora incarnata may modulate **GABA**...
+## Dose
+Tea and tincture...`],
+    ];
+    for (const [slug, title, date, body] of seeds) {
+      const f = path.join(SRC, `${slug}.md`);
+      if (!fs.existsSync(f)) {
+        fs.writeFileSync(f, `---\ntitle: ${title}\ndate: ${date}\ntags: [herbs]\n---\n\n${body}\n`);
+      }
+    }
   }
-} catch (e) {
-  console.warn("sitemap append skipped:", e.message);
+
+  // Parse files with front-matter (simple)
+  const posts = fs.readdirSync(SRC).filter(f => f.endsWith(".md")).map(f => {
+    const raw = fs.readFileSync(path.join(SRC,f), "utf-8");
+    const fm = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/m.exec(raw);
+    let meta = {}, body = raw;
+    if (fm) {
+      const yaml = fm[1]; body = fm[2];
+      yaml.split("\n").forEach(line=>{
+        const m = /^(\w+):\s*(.*)$/.exec(line.trim());
+        if (m) { const k=m[1]; let v=m[2];
+          if (v.startsWith("[") && v.endsWith("]")) try{ v = JSON.parse(v.replace(/'/g,'"')); }catch {}
+          else if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1,-1);
+          meta[k]=v;
+        }
+      });
+    }
+    const title = meta.title || f.replace(/\.md$/,"");
+    const slug = slugify(meta.slug || title);
+    const date = meta.date || "2025-01-01";
+    const tags = Array.isArray(meta.tags) ? meta.tags : ["herbs"];
+    return { slug, title, date, tags, markdown: body.trim() };
+  });
+
+  // Sort newest first
+  posts.sort((a,b)=> (a.date<b.date?1:-1));
+
+  // Write per-post HTML + summary
+  const list = [];
+  for (const p of posts) {
+    const html = mdToHtml(p.markdown);
+    const summary = p.markdown.split("\n").slice(0,3).join(" ").slice(0,200) + "…";
+    fs.writeFileSync(path.join(OUT_DIR, `${p.slug}.html`), html, "utf-8");
+    list.push({ slug:p.slug, title:p.title, date:p.date, tags:p.tags, summary });
+  }
+
+  // Write index JSON
+  fs.writeFileSync(path.join(OUT_DIR,"index.json"), JSON.stringify({ posts:list },null,2));
+  console.log(`Wrote ${list.length} posts to ${OUT_DIR}`);
 }
+
+readPosts();

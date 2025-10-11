@@ -285,7 +285,8 @@ export async function generateOgForBlog(posts = [], options = {}) {
     const gradientKey = post.tags?.length
       ? gradientKeyForTag(post.tags[0])
       : resolveClassKey("blog");
-    const subtitle = post.excerpt || post.description || "Article overview";
+    const subtitle =
+      post.summary || post.excerpt || post.description || "Article overview";
     await renderOg({
       title: post.title || "Field Notes",
       subtitle,
