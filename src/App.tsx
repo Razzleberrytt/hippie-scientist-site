@@ -26,16 +26,17 @@ import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
 import Theme from './pages/Theme';
-import { useTrippy } from './lib/trippy';
+import { useTrippy } from '@/lib/trippy';
 // Import other pages as needed
 
 export default function App() {
   useGA();
-  const { trippy } = useTrippy();
+  const { level } = useTrippy();
+  const trippyActive = level !== "off";
   return (
     <div className="min-h-screen overflow-x-hidden bg-bg text-text">
       <RedirectHandler />
-      {trippy && <AmbientCursor />}
+      {trippyActive && <AmbientCursor />}
       <Routes>
         <Route element={<RootLayout />}>
           <Route path="/" element={<Home />} />

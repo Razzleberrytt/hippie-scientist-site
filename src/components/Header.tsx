@@ -1,8 +1,8 @@
 // src/components/Header.tsx
-import React, { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { Sparkles } from "lucide-react";
 import clsx from "clsx";
-import { useTrippy } from "../lib/trippy";
+import { TRIPPY_LABELS, nextTrippyLevel, useTrippy } from "@/lib/trippy";
 
 const links = [
   { label: "Browse", href: "/#/database" },
@@ -11,7 +11,11 @@ const links = [
 ];
 
 export default function Header() {
-  const { trippy, setTrippy, enabled } = useTrippy();
+  const { level, setLevel, enabled } = useTrippy();
+  const active = level !== "off";
+  const cycleLevel = useCallback(() => {
+    setLevel(nextTrippyLevel(level));
+  }, [level, setLevel]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -19,7 +23,7 @@ export default function Header() {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
         event.preventDefault();
         if (!enabled) return;
-        setTrippy(!trippy);
+        cycleLevel();
       }
     };
 
@@ -27,7 +31,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [enabled, setTrippy, trippy]);
+  }, [cycleLevel, enabled]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40">
@@ -52,24 +56,21 @@ export default function Header() {
           ))}
           <button
             type="button"
-            aria-pressed={trippy}
-            aria-label="Toggle trippy mode"
+            aria-pressed={active}
+            aria-label={`Trippy mode: ${TRIPPY_LABELS[level]}. Tap to change.`}
             disabled={!enabled}
-            onClick={() => setTrippy(!trippy)}
+            onClick={cycleLevel}
             className={clsx(
               "pill relative whitespace-nowrap",
               !enabled && "cursor-not-allowed opacity-50",
-              trippy && "ring-1 ring-emerald-400/40",
+              active && "ring-1 ring-emerald-400/40",
             )}
           >
             <Sparkles className="mr-1 h-4 w-4" aria-hidden />
-            Trippy {enabled ? (trippy ? "On" : "Off") : ""}
-            <span
-              className={clsx(
-                "pointer-events-none absolute -inset-4 -z-10 rounded-full blur-2xl",
-                trippy ? "bg-emerald-500/10" : "hidden",
-              )}
-            />
+            {TRIPPY_LABELS[level]}
+            {active && (
+              <span className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-emerald-500/10 blur-2xl" aria-hidden />
+            )}
           </button>
         </nav>
       </div>

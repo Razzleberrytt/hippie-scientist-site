@@ -4,8 +4,8 @@ import { HashRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
-import TrippyEffects from './components/TrippyEffects';
-import { TrippyProvider, useTrippy } from './lib/trippy';
+import TrippyShader from '@/components/TrippyShader';
+import { TrippyProvider, useTrippy } from '@/lib/trippy';
 import { initConsentDefault } from './lib/consent';
 import { loadAnalytics, onConsentChange } from './lib/loadAnalytics';
 import { initTheme } from './lib/theme';
@@ -24,11 +24,11 @@ window.addEventListener('storage', (event: StorageEvent) => {
 });
 
 function Shell() {
-  const { trippy } = useTrippy();
+  const { level } = useTrippy();
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {trippy && <TrippyEffects />}
+    <div className="relative min-h-screen overflow-hidden bg-bg">
+      {level !== 'off' && <TrippyShader />}
       <App />
     </div>
   );
