@@ -1,4 +1,5 @@
 import type { Herb } from '../../types'
+import { decorateHerbs } from '../../lib/herbs'
 import rawHerbs from './herbs.normalized.json'
 
 function toStringArray(value: unknown): string[] {
@@ -72,6 +73,10 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
     effects: typeof raw.effects === 'string' ? raw.effects : '',
     mechanism,
     compounds,
+    active_compounds:
+      Array.isArray(raw.active_compounds) && raw.active_compounds.length
+        ? toStringArray(raw.active_compounds)
+        : compounds,
     preparations,
     interactions,
     contraindications,
@@ -148,4 +153,4 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
   return herb
 })
 
-export const herbs: Herb[] = normalized
+export const herbs: Herb[] = decorateHerbs(normalized)

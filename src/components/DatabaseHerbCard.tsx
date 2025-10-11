@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useMemo, useState } from "react";
 import type { Herb } from "../types";
 import { slugify } from "../lib/slug";
@@ -10,7 +11,10 @@ export const listify = (v: any) =>
   Array.isArray(v) ? uniqNonEmpty(v) : typeof v === "string" ? v.trim() : "";
 
 export const clampSentence = (s?: string) =>
-  (s || "").replace(/\s+/g, " ").trim().replace(/\s*[,;]\s*$/, "");
+  (s || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\s*[,;]\s*$/, "");
 
 export const fmtIntensity = (v?: string) =>
   (v || "")
@@ -28,13 +32,19 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
     herb.name?.trim() ||
     herb.slug?.trim() ||
     "Unknown herb";
-  const sci = herb.scientific?.trim() || (herb as any).scientificname?.trim();
+  const scientificName =
+    herb.scientific?.trim() || (herb as any).scientificname?.trim() || "";
+  const showScientific =
+    Boolean(scientificName) &&
+    scientificName.toLowerCase() !== (herb.common || "").trim().toLowerCase();
+
   const intensity = fmtIntensity(
     (herb.intensity ||
       (herb as any).intensity_label ||
       (herb as any).intensityClean ||
       "") as string
   );
+
   const summary = clampSentence(
     (Array.isArray(herb.description)
       ? herb.description.join(" ")
@@ -122,63 +132,94 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
     ]
   );
 
+  const chips = useMemo(
+    () =>
+      uniqNonEmpty([
+        ...(herb.compoundClasses || []),
+        ...(herb.pharmCategories || []),
+      ]),
+    [herb.compoundClasses, herb.pharmCategories]
+  );
+
   return (
-    <article className="rounded-2xl border border-white/10 bg-card/70 p-4 shadow-lg backdrop-blur sm:p-5">
+    <article className="rounded-2xl border border-white/12 bg-surface/60 p-4 shadow-lg backdrop-blur transition-all sm:p-5">
       <header className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="text-lg font-semibold text-title">{name}</h3>
-          {sci && <p className="-mt-0.5 text-sm text-subtle">{sci}</p>}
+        <div className="flex-1 space-y-1">
+          <h3 className="text-lg font-semibold tracking-tight text-title sm:text-xl">
+            {name}
+          </h3>
+          {showScientific && (
+            <p className="text-sm italic text-muted">{scientificName}</p>
+          )}
+          {chips.length > 0 && (
+            <div className="pt-1">
+              <div className="flex flex-wrap gap-2">
+                {chips.map(chip => (
+                  <span
+                    key={chip}
+                    className="rounded-full border border-white/12 bg-chip px-2.5 py-1 text-xs font-medium text-emphasis opacity-90"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
         <FavoriteStar herbId={herb.id || herb.slug || herbSlug} />
       </header>
 
       {intensity && (
         <div className="mt-3">
-          <span className="inline-flex items-center rounded-full border border-white/10 bg-surface/80 px-3 py-1 text-xs font-medium text-subtle">
-            INTENSITY: {intensity}
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wide text-muted">
+            <span className="text-emphasis opacity-80">Intensity:</span>
+            {intensity}
           </span>
         </div>
       )}
 
       {summary && (
-        <p className="mt-3 text-base text-body line-clamp-3">{summary}</p>
+        <p className="mt-3 text-[15px] leading-6 text-emphasis sm:text-base">
+          {summary}
+        </p>
       )}
 
       {hasExtra && (
         <div
-          id={detailId}
-          aria-hidden={!expanded}
-          className={`overflow-hidden transition-[max-height] duration-300 ease-in-out ${
-            expanded ? "mt-4 max-h-[1200px]" : "max-h-0"
-          }`}
+          className={clsx(
+            "mt-3 grid transition-[grid-template-rows] duration-300 ease-out",
+            expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          )}
         >
-          <div className="grid gap-4 rounded-xl border border-white/10 bg-surface/60 p-4">
-            {tags.length > 0 && (
-              <ul className="flex flex-wrap gap-2">
-                {tags.map(tag => (
-                  <li
-                    key={tag}
-                    className="rounded-full border border-white/10 bg-surface/70 px-2.5 py-1 text-xs text-subtle"
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            )}
-            {section("Effects", effects)}
-            {section("Description", descriptionDetail)}
-            {section("Preparation & Forms", preparations)}
-            {section("Active Compounds", activeCompounds)}
-            {section("Contraindications", contraindications)}
-            {section("Interactions", interactions)}
-            {section("Region", region)}
-            {legalBlock(legal)}
-            {sourcesBlock(sources)}
+          <div id={detailId} className="overflow-hidden">
+            <div className="space-y-3 pt-3 text-[15px] leading-6 text-muted">
+              {tags.length > 0 && (
+                <ul className="flex flex-wrap gap-2">
+                  {tags.map(tag => (
+                    <li
+                      key={tag}
+                      className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-muted"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {section("Effects", effects)}
+              {section("Description", descriptionDetail)}
+              {section("Preparation & Forms", preparations)}
+              {section("Active Compounds", activeCompounds)}
+              {section("Contraindications", contraindications)}
+              {section("Interactions", interactions)}
+              {section("Region", region)}
+              {legalBlock(legal)}
+              {sourcesBlock(sources)}
+            </div>
           </div>
         </div>
       )}
 
-      <div className="mt-4 flex items-center gap-3">
+      <div className="mt-4 flex flex-wrap gap-3">
         {hasExtra && (
           <button
             type="button"
@@ -192,9 +233,9 @@ export function DatabaseHerbCard({ herb }: { herb: Herb }) {
         )}
         <a
           href={`#/herb/${herbSlug}`}
-          className="hidden text-sm text-link sm:inline-block"
+          className="btn-ghost"
         >
-          Open page →
+          View details
         </a>
       </div>
     </article>
@@ -205,12 +246,14 @@ function section(label: string, content: string | string[] | undefined) {
   const arr = Array.isArray(content) ? content : content ? [content] : [];
   if (!arr.length) return null;
   return (
-    <div>
-      <h4 className="mb-1 text-sm font-semibold text-white/90">{label}</h4>
+    <div className="space-y-1">
+      <h4 className="text-sm font-semibold uppercase tracking-wide text-emphasis opacity-70">
+        {label}
+      </h4>
       {arr.length === 1 ? (
-        <p className="text-sm leading-6 text-body">{arr[0]}</p>
+        <p className="text-[15px] leading-6 text-muted">{arr[0]}</p>
       ) : (
-        <ul className="list-disc pl-5 text-sm leading-6 text-body">
+        <ul className="list-disc space-y-1 pl-5 text-[15px] leading-6 text-muted">
           {arr.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
@@ -223,8 +266,8 @@ function section(label: string, content: string | string[] | undefined) {
 function legalBlock(legal?: string) {
   if (!legal?.trim()) return null;
   return (
-    <p className="rounded-lg border border-amber-300/20 bg-amber-300/10 px-3 py-2 text-xs text-amber-300/90">
-      <strong className="font-semibold">Legal:</strong> {legal.trim()}
+    <p className="rounded-xl border border-amber-400/30 bg-amber-300/10 px-3 py-2 text-xs font-medium uppercase tracking-wide text-amber-200/90">
+      Legal: {legal.trim()}
     </p>
   );
 }
@@ -237,14 +280,16 @@ function sourcesBlock(sources?: string[] | string) {
     : [];
   if (!arr.length) return null;
   return (
-    <div>
-      <h4 className="mb-1 text-sm font-semibold text-white/90">Sources</h4>
-      <ul className="list-disc break-words pl-5 text-sm text-body">
+    <div className="space-y-1">
+      <h4 className="text-sm font-semibold uppercase tracking-wide text-emphasis opacity-70">
+        Sources
+      </h4>
+      <ul className="list-disc space-y-1 break-words pl-5 text-[15px] leading-6 text-muted">
         {arr.map((source, index) => (
           <li key={index}>
             {/^(https?:\/\/)/.test(source) ? (
               <a
-                className="text-link"
+                className="text-emphasis underline decoration-white/20 underline-offset-4 transition hover:text-title"
                 href={source}
                 target="_blank"
                 rel="noopener noreferrer"

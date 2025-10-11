@@ -5,10 +5,13 @@ import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import AdvancedSearch from '../components/AdvancedSearch'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
+import { decorateHerbs } from '../lib/herbs'
 import { ENABLE_ADVANCED_FILTERS } from '../config/ui'
 
+const decoratedHerbs = decorateHerbs(herbsData as Herb[])
+
 export default function Database() {
-  const herbs = herbsData as Herb[]
+  const herbs = decoratedHerbs
   const [query, setQuery] = useState('')
   const [advancedOpen, setAdvancedOpen] = useState(false)
   const [advancedResults, setAdvancedResults] = useState<Herb[] | null>(null)
