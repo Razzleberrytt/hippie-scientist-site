@@ -35,7 +35,11 @@ export default function Footer({ showSignup = true }: { showSignup?: boolean }) 
       className="relative z-10 mt-12 border-t border-white/10 bg-black/20 backdrop-blur sm:mt-16"
     >
       {showSignup && (
-        <NewsletterSignup className="mx-auto max-w-3xl px-4 py-8 sm:py-10" />
+        <div className="mx-auto mt-12 max-w-5xl px-4 sm:px-6">
+          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 sm:p-6">
+            <NewsletterSignup />
+          </div>
+        </div>
       )}
       <div className="container grid gap-8 px-4 pb-10 pt-8 sm:grid-cols-2 sm:px-6 sm:pt-10">
         <NonEmpty>

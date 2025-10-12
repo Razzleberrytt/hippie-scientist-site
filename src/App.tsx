@@ -42,7 +42,6 @@ export default function App() {
       <ShimmerOverlay />
       <div className="relative z-10">
         <RedirectHandler />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/20 via-black/10 to-transparent" />
         {level !== "off" && <AmbientCursor />}
         <Routes>
           <Route element={<RootLayout />}>

@@ -16,13 +16,14 @@ export default function Home() {
       <section
         id='home'
         aria-label='Site introduction'
-        className='aurora relative isolate overflow-hidden text-text'
+        className='relative py-16 sm:py-24'
       >
         <Hero>
           <StatRow
             herbs={siteStats.herbs}
             compounds={siteStats.compounds}
             posts={siteStats.posts}
+            className='mt-10 sm:mt-14'
           />
         </Hero>
       </section>

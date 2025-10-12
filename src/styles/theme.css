@@ -117,23 +117,12 @@ body {
 
 body {
   font-family: var(--font-body);
-  background: transparent;
   color: hsl(var(--text));
   line-height: 1.7;
   letter-spacing: 0.01em;
   font-size: 15.5px;
   scroll-behavior: smooth;
   transition: background-color 0.6s ease, color 0.4s ease;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(200px circle at var(--cursor-x, 50%) var(--cursor-y, 50%), hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.12), transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-  transition: background 0.15s ease;
 }
 
 main {
@@ -144,12 +133,6 @@ main {
 
 .focus-visible\:ring-accent\/60:focus-visible {
   box-shadow: 0 0 0 2px hsl(var(--accent-h) var(--accent-s) var(--accent-l) / .6);
-}
-
-@media (pointer: coarse) {
-  body::before {
-    opacity: 0;
-  }
 }
 
 /* keep animations subtle for motion-sensitive users */

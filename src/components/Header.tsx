@@ -44,7 +44,7 @@ export default function Header() {
         </a>
 
         <nav
-          className="ml-auto flex items-center gap-2 overflow-x-auto overscroll-x-contain scrollbar-none"
+          className="ml-auto flex flex-nowrap items-center gap-2 overflow-x-auto overscroll-x-contain scrollbar-none"
           aria-label="Site"
         >
           {links.map(link => (
