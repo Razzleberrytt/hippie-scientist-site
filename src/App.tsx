@@ -22,7 +22,6 @@ import Footer from './components/Footer';
 import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
 import AmbientCursor from './components/AmbientCursor';
-import TrippyBackground from './components/TrippyBackground';
 import MeltBackground from './components/MeltBackground';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
@@ -34,13 +33,11 @@ import { useTrippy } from '@/lib/trippy';
 export default function App() {
   useGA();
   const { level } = useTrippy();
-  const trippyActive = level !== "off";
   return (
     <div className="relative min-h-screen overflow-x-hidden text-text">
       <RedirectHandler />
       <MeltBackground />
-      {trippyActive && <TrippyBackground />}
-      {trippyActive && <AmbientCursor />}
+      {level !== "off" && <AmbientCursor />}
       <Routes>
         <Route element={<RootLayout />}>
           <Route path="/" element={<Home />} />

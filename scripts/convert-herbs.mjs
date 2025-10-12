@@ -450,8 +450,18 @@ for (const row of merged) {
 for (const row of merged) {
   const raw = pickIntensityRaw(row);
   const level = parseIntensity(raw);
+
+  const benefitsSource = (row.benefits ?? row.intensity ?? '').toString();
+  const benefitsClean = stripBoilerplate(benefitsSource);
+  if (benefitsClean) {
+    row.benefits = cleanPunctuation(normalizeSpaces(benefitsClean));
+  } else {
+    delete row.benefits;
+  }
+
   row.intensityLevel = level;
   row.intensityLabel = intensityPretty(level);
+  row.intensity = row.intensityLabel;
   delete row.intensity_level;
   delete row.intensity_label;
 }

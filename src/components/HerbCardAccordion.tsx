@@ -65,7 +65,22 @@ export default function HerbCardAccordion({ herb }: Props) {
   const dosage = (herb as any).dosage ? String((herb as any).dosage).trim() : ''
   const onset = (herb as any).onset ? String((herb as any).onset).trim() : ''
   const duration = (herb as any).duration ? String((herb as any).duration).trim() : ''
-  const intensity = (herb as any).intensity ? String((herb as any).intensity).trim() : ''
+  const intensityLevel = ((herb as any).intensityLevel || herb.intensityLevel || '').toString().trim().toLowerCase()
+  const intensityLabel = (herb as any).intensityLabel
+    ? String((herb as any).intensityLabel).trim()
+    : intensityLevel
+    ? `${intensityLevel.charAt(0).toUpperCase()}${intensityLevel.slice(1)}`
+    : ''
+  const intensityChipClass = intensityLevel.includes('strong')
+    ? 'chip chip--warn font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('moderate')
+    ? 'chip chip--stim font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('mild')
+    ? 'chip chip--adapt font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('variable')
+    ? 'chip chip--dream font-semibold uppercase tracking-wide'
+    : 'chip'
+  const benefits = (herb as any).benefits ? String((herb as any).benefits).trim() : ''
   const descriptionText = (herb.description || herbBlurbs[herbName(herb)] || '').trim()
   const hasInfo = Boolean(
     mechanism ||
@@ -80,7 +95,8 @@ export default function HerbCardAccordion({ herb }: Props) {
       dosage ||
       onset ||
       duration ||
-      intensity ||
+      intensityLabel ||
+      benefits ||
       safeCompounds.length > 0 ||
       sources.length > 0
   )
@@ -168,6 +184,12 @@ export default function HerbCardAccordion({ herb }: Props) {
         {safeTags.map(tag => (
           <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
         ))}
+        {intensityLabel && (
+          <span className={intensityChipClass}>Intensity: {intensityLabel}</span>
+        )}
+        {benefits && (
+          <span className='chip'>{benefits}</span>
+        )}
       </div>
 
       <AnimatePresence initial={false}>
@@ -255,9 +277,14 @@ export default function HerbCardAccordion({ herb }: Props) {
                     <strong>Duration:</strong> {duration}
                   </motion.p>
                 )}
-                {intensity && (
+                {intensityLabel && (
                   <motion.p key='intensity' variants={itemVariants} className='whitespace-pre-wrap break-words'>
-                    <strong>Intensity:</strong> {intensity}
+                    <strong>Intensity:</strong> {intensityLabel || 'Unknown'}
+                  </motion.p>
+                )}
+                {benefits && (
+                  <motion.p key='benefits' variants={itemVariants} className='whitespace-pre-wrap break-words'>
+                    <strong>Benefits:</strong> {benefits}
                   </motion.p>
                 )}
                 {safeCompounds.length > 0 && (

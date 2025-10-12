@@ -1,7 +1,8 @@
 <!doctype html><meta charset="utf-8">
 <script>
-  // /foo?x#y  →  /#/foo?x#y  (preserve everything)
-  var p = location.pathname + location.search + location.hash;
-  location.replace("/#" + p.replace(/^\//, ""));
+  (function () {
+    var p = location.pathname + location.search + location.hash;
+    location.replace("/#" + p.replace(/^\//, ""));
+  })();
 </script>
 <p>Not found. <a href="/">Go home</a>.</p>
