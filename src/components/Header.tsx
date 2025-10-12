@@ -30,7 +30,7 @@ export default function Header() {
   }, [active, enabled, setLevel]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur supports-[backdrop-filter]:bg-black/30">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/5 backdrop-blur supports-[backdrop-filter]:bg-black/10">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[999] rounded bg-black/70 px-3 py-2 text-sm font-medium text-white"
