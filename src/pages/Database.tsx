@@ -48,9 +48,9 @@ export default function Database() {
         path='/database'
       />
       <div className='mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24'>
-        <section className='glass-card rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.45)] backdrop-blur-xl sm:p-8'>
-          <h1 className='text-4xl font-extrabold tracking-tight text-white'>Herb Database</h1>
-          <p className='mt-2 text-white/70'>Search and explore the library.</p>
+        <section className='glass-card p-6 sm:p-8 md:p-10'>
+          <h1 className='text-4xl sm:text-5xl font-extrabold tracking-tight mb-2'>Herb Database</h1>
+          <p className='text-neutral-100/70'>Search and explore the library.</p>
 
           {ENABLE_ADVANCED_FILTERS && (
             <div className='mt-4 flex flex-wrap items-center gap-2'>
@@ -102,7 +102,7 @@ export default function Database() {
             <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
           ))}
           {!results.length && (
-            <div className='glass-card rounded-3xl border border-white/10 bg-white/5 p-6 text-center text-white/70 backdrop-blur-xl'>
+            <div className='glass-card p-5 text-center text-neutral-100/70 sm:p-6'>
               No herbs match that search.
             </div>
           )}

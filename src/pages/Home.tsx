@@ -18,14 +18,35 @@ export default function Home() {
         aria-label='Site introduction'
         className='relative py-16 sm:py-24'
       >
-        <Hero>
-          <StatRow
-            herbs={siteStats.herbs}
-            compounds={siteStats.compounds}
-            posts={siteStats.posts}
-            className='mt-10 sm:mt-14'
-          />
-        </Hero>
+        <div className='mx-auto max-w-5xl px-4 sm:px-6'>
+          <Hero>
+            <StatRow
+              herbs={siteStats.herbs}
+              compounds={siteStats.compounds}
+              posts={siteStats.posts}
+              className='mt-10 sm:mt-14'
+            />
+          </Hero>
+        </div>
+      </section>
+
+      <section className='mx-auto mt-12 max-w-5xl px-4 sm:px-6' aria-label='Newsletter signup'>
+        <div className='glass-card p-5 sm:p-6'>
+          <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
+            <div>
+              <h2 className='text-2xl font-semibold tracking-tight'>Stay in the loop</h2>
+              <p className='mt-1 text-sm text-neutral-100/70 sm:text-base'>
+                Get field notes on new psychoactive herbs, blends, and research drops.
+              </p>
+            </div>
+            <a
+              className='btn-primary shrink-0'
+              href='/#/newsletter'
+            >
+              Join the newsletter
+            </a>
+          </div>
+        </div>
       </section>
     </>
   )
