@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Magnetic from './Magnetic';
 
 type NewsletterSignupProps = {
   compact?: boolean;
@@ -20,7 +21,9 @@ export default function NewsletterSignup({ compact = false, className }: Newslet
           type='email'
           required
         />
-        <button className='btn-primary whitespace-nowrap' type='submit'>Subscribe</button>
+        <Magnetic strength={12}>
+          <button className='btn-primary whitespace-nowrap' type='submit'>Subscribe</button>
+        </Magnetic>
       </div>
     </form>
   );

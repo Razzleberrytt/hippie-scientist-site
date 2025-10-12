@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import BackgroundAurora from './BackgroundAurora';
+import Magnetic from './Magnetic';
 import { toHash } from '../lib/routing';
 
 type HeroProps = { children?: ReactNode };
@@ -8,11 +9,10 @@ type HeroProps = { children?: ReactNode };
 export default function Hero({ children }: HeroProps) {
   const reduceMotion = useReducedMotion();
   return (
-    <section
-      className="glass relative overflow-hidden p-6 sm:p-8 md:p-10"
-    >
-      <BackgroundAurora />
-      <div className="relative z-10">
+    <section className="animated-border">
+      <div className="glass relative overflow-hidden rounded-[27px] p-6 sm:p-8 md:p-10">
+        <BackgroundAurora />
+        <div className="relative z-10">
         <motion.h1
           initial={reduceMotion ? false : { opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,12 +30,17 @@ export default function Hero({ children }: HeroProps) {
           Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
         </motion.p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          <a href={toHash('/database')} className="btn-primary">🌿 Browse Herbs</a>
-          <a href={toHash('/build')} className="btn-ghost">🧪 Build a Blend</a>
-        </div>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <Magnetic strength={12}>
+              <a href={toHash('/database')} className="btn-primary">🌿 Browse Herbs</a>
+            </Magnetic>
+            <Magnetic strength={12}>
+              <a href={toHash('/build')} className="btn-ghost">🧪 Build a Blend</a>
+            </Magnetic>
+          </div>
 
-        {children}
+          {children}
+        </div>
       </div>
     </section>
   );

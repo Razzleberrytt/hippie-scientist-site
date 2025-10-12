@@ -55,6 +55,14 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
     return `/herb/${encodeURIComponent(slug)}`;
   }, [herb.common, herb.scientific, herb.slug]);
 
+  const resetTilt = (element: HTMLElement) => {
+    element.style.setProperty('--rx', '0deg');
+    element.style.setProperty('--ry', '0deg');
+    element.style.setProperty('--glowX', '50%');
+    element.style.setProperty('--glowY', '50%');
+    element.style.transform = 'perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))';
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 16, scale: 0.98 }}
@@ -64,9 +72,43 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
       whileTap={{ scale: 0.985 }}
       className="h-full"
     >
-      <Card
-        className={`flex h-full flex-col ${compact ? 'gap-3 mini-card' : 'gap-4'} card-pad transition-shadow duration-200 hover:shadow-glow`}
+      <div
+        onPointerMove={(event) => {
+          const element = event.currentTarget as HTMLElement;
+          const rect = element.getBoundingClientRect();
+          const percentX = ((event.clientX - rect.left) / rect.width) * 100;
+          const percentY = ((event.clientY - rect.top) / rect.height) * 100;
+          const tiltX = ((percentY - 50) / -12).toFixed(2);
+          const tiltY = ((percentX - 50) / 12).toFixed(2);
+          element.style.setProperty('--rx', `${tiltX}deg`);
+          element.style.setProperty('--ry', `${tiltY}deg`);
+          element.style.setProperty('--glowX', `${percentX.toFixed(2)}%`);
+          element.style.setProperty('--glowY', `${percentY.toFixed(2)}%`);
+        }}
+        onPointerLeave={(event) => {
+          resetTilt(event.currentTarget as HTMLElement);
+        }}
+        onPointerUp={(event) => {
+          resetTilt(event.currentTarget as HTMLElement);
+        }}
+        onPointerCancel={(event) => {
+          resetTilt(event.currentTarget as HTMLElement);
+        }}
+        className="group relative h-full transition-transform duration-200"
+        style={{
+          transform: 'perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))',
+        }}
       >
+        <div
+          className="pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+          style={{
+            background:
+              'radial-gradient(400px 200px at var(--glowX, 50%) var(--glowY, 50%), rgba(0,255,200,.15), transparent 60%)',
+          }}
+        />
+        <Card
+          className={`relative flex h-full flex-col ${compact ? 'gap-3 mini-card' : 'gap-4'} card-pad transition-shadow duration-200 hover:shadow-glow`}
+        >
         <header className="stack">
           {compact ? (
             <h3 className="text-lime-300 font-semibold">{heading}</h3>
@@ -140,7 +182,8 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
             View details
           </Link>
         </footer>
-      </Card>
+        </Card>
+      </div>
     </motion.div>
   );
 }

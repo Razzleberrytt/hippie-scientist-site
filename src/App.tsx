@@ -22,7 +22,7 @@ import Footer from './components/Footer';
 import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
 import AmbientCursor from './components/AmbientCursor';
-import Layout from '@/components/Layout';
+import SiteLayout from '@/components/SiteLayout';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
@@ -35,7 +35,7 @@ export default function App() {
   const { level } = useTrippy();
   return (
     <div id="app-root">
-      <Layout>
+      <SiteLayout>
         <div className="relative z-10">
           <RedirectHandler />
           {level !== "off" && <AmbientCursor />}
@@ -64,7 +64,7 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
-      </Layout>
+      </SiteLayout>
     </div>
   );
 }

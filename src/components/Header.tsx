@@ -1,7 +1,6 @@
 // src/components/Header.tsx
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MeltToggle from "./MeltToggle";
 import { melt } from "@/state/melt";
 import { useTrippy } from "@/lib/trippy";
 
@@ -61,7 +60,6 @@ export default function Header() {
               </Link>
             );
           })}
-          <MeltToggle />
         </nav>
       </div>
     </header>
