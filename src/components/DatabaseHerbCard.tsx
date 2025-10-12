@@ -91,7 +91,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
       initial={reduceMotion ? false : { opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="glass p-5 text-text will-change-transform transition-all duration-300 hover:-translate-y-0.5 hover:[box-shadow:0_0_40px_theme(colors.emerald.500/0.12)] hover:shadow-2xl/20 sm:p-6"
+      className="glass-elev will-change-transform rounded-3xl p-5 text-text transition-all duration-300 hover:-translate-y-0.5 hover:[box-shadow:0_0_40px_theme(colors.emerald.500/0.12)] hover:shadow-2xl/20 sm:p-6"
     >
       <header className="space-y-2">
         <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">{heading}</h2>

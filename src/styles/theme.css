@@ -11,6 +11,12 @@
   --accent: hsl(var(--accent-h) var(--accent-s) var(--accent-l));
   --accent-rgb: 35 212 177;
 
+  /* glass tokens (tuned for readability on Melt) */
+  --glass-bg: rgba(20, 24, 28, 0.55);
+  --glass-elev: rgba(20, 24, 28, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
   --header-h: 60px;
   /* hero vertical padding */
   --space-hero-y: clamp(1.25rem, 5vw, 3.5rem);
@@ -73,6 +79,35 @@
 .header--compact {
   backdrop-filter: saturate(1.2) blur(8px);
   background: rgba(10, 12, 16, 0.55);
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-elev {
+  background: var(--glass-elev);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 1.25rem;
+}
+
+.glass-soft {
+  background: var(--glass-bg);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+}
+
+@media (max-width: 480px) {
+  :root {
+    --glass-bg: rgba(20, 24, 28, 0.6);
+    --glass-elev: rgba(20, 24, 28, 0.68);
+  }
 }
 
 html,
@@ -261,10 +296,11 @@ h3 { font-size: 1.35rem; }
 .chip {
   display:inline-flex;
   align-items:center;
+  gap:0.35rem;
   padding:.25rem .5rem;
   border-radius:999px;
-  background: color-mix(in oklab, var(--surface-c) 90%, black 10%);
-  border:1px solid color-mix(in oklab, var(--border-c) 70%, transparent 30%);
+  background: rgba(255, 255, 255, 0.16);
+  border:1px solid rgba(255, 255, 255, 0.22);
   color: var(--text-c);
   font-size:.75rem;
   transition: box-shadow .25s ease, transform .25s ease;

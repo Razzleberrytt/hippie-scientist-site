@@ -47,7 +47,7 @@ export default function BlogList() {
           initial={reduceMotion ? false : { opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass p-5 text-white transition hover:translate-y-[-2px] hover:shadow-glow sm:p-6"
+          className="glass-elev rounded-3xl p-5 text-white transition hover:translate-y-[-2px] hover:shadow-glow sm:p-6"
         >
           <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
             <a href={`/#/blog/${p.slug}`} className="text-accent-200 hover:text-accent-100">

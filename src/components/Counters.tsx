@@ -7,8 +7,8 @@ export function Counters({
   articles = 0
 }: { herbs?: number; compounds?: number; articles?: number }) {
   const Item = ({ n, label }: { n: number; label: string }) => (
-    <div className="flex items-center gap-2 px-3 h-9 rounded-2xl bg-white/5 ring-1 ring-white/10 whitespace-nowrap">
-      <span className="grid place-items-center w-7 h-7 rounded-full bg-white/10 font-semibold">{n}</span>
+    <div className="glass-soft flex h-9 items-center gap-2 whitespace-nowrap rounded-full px-3">
+      <span className="grid h-7 w-7 place-items-center rounded-full bg-white/16 font-semibold">{n}</span>
       <span className="text-sm text-white/80">{label}</span>
     </div>
   );
