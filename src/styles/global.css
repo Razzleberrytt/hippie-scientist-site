@@ -1,0 +1,14 @@
+/* Sitewide clamp: prevent sideways scroll caused by sub-pixel transforms */
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+:root {
+  /* iOS transforms can push 1px; use a gutter guard */
+  --viewport-guard: calc(100vw + 1px);
+}
+
+/* Utility to debug if needed */
+/* .debug-outline * { outline: 1px solid red } */

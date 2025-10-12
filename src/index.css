@@ -4,6 +4,7 @@
 @import './styles/tags.css';
 @import './styles/clamp.css';
 @import './styles/melt.css';
+@import './styles/global.css';
 
 @tailwind base;
 @tailwind components;
@@ -251,4 +252,11 @@ svg {
 /* Hide thin horizontal rules/stray footers that sometimes leak in older pages */
 footer .legal-faint {
   opacity: .5;
+}
+
+@supports (-webkit-touch-callout: none) {
+  #app-root,
+  #app-shell {
+    overflow-x: hidden;
+  }
 }

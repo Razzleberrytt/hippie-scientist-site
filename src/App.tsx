@@ -37,36 +37,42 @@ export default function App() {
   useMeltMotion();
   const { level } = useTrippy();
   return (
-    <div className="app-shell relative min-h-screen overflow-x-hidden bg-transparent text-text">
-      <MeltBackground />
-      <ShimmerOverlay />
-      <div className="relative z-10">
-        <RedirectHandler />
-        {level !== "off" && <AmbientCursor />}
-        <Routes>
-          <Route element={<RootLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/database" element={<Database />} />
-            <Route path="/blend" element={<BuildBlend />} />
-            <Route path="/build" element={<BuildBlend />} />
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/newsletter" element={<Newsletter />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* Add other routes here */}
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/theme" element={<Theme />} />
-            <Route path="/herb-index" element={<HerbIndex />} />
-            <Route path="/herb/:slug" element={<HerbDetail />} />
-            <Route path="/compare" element={<Compare />} />
-            <Route path="/data-report" element={<DataReport />} />
-            <Route path="/data-fix" element={<DataFix />} />
-            <Route path="/sitemap" element={<Sitemap />} />
-          </Route>
-          <Route path="/graph" element={<GraphPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+    <div id="app-root" className="min-h-screen" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
+      <div
+        id="app-shell"
+        className="app-shell relative min-h-screen bg-transparent text-text"
+        style={{ position: "relative", isolation: "isolate", overflowX: "hidden", maxWidth: "100vw" }}
+      >
+        <MeltBackground />
+        <ShimmerOverlay />
+        <div className="relative z-10">
+          <RedirectHandler />
+          {level !== "off" && <AmbientCursor />}
+          <Routes>
+            <Route element={<RootLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/database" element={<Database />} />
+              <Route path="/blend" element={<BuildBlend />} />
+              <Route path="/build" element={<BuildBlend />} />
+              <Route path="/favorites" element={<Favorites />} />
+              <Route path="/newsletter" element={<Newsletter />} />
+              <Route path="/contact" element={<Contact />} />
+              {/* Add other routes here */}
+              <Route path="/blog" element={<BlogList />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/theme" element={<Theme />} />
+              <Route path="/herb-index" element={<HerbIndex />} />
+              <Route path="/herb/:slug" element={<HerbDetail />} />
+              <Route path="/compare" element={<Compare />} />
+              <Route path="/data-report" element={<DataReport />} />
+              <Route path="/data-fix" element={<DataFix />} />
+              <Route path="/sitemap" element={<Sitemap />} />
+            </Route>
+            <Route path="/graph" element={<GraphPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );
