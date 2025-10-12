@@ -82,7 +82,7 @@ body {
 
 body {
   font-family: var(--font-body);
-  background: hsl(var(--bg));
+  background: transparent;
   color: hsl(var(--text));
   line-height: 1.7;
   letter-spacing: 0.01em;

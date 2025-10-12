@@ -23,6 +23,7 @@ import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
 import AmbientCursor from './components/AmbientCursor';
 import TrippyBackground from './components/TrippyBackground';
+import MeltBackground from './components/MeltBackground';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
@@ -35,8 +36,9 @@ export default function App() {
   const { level } = useTrippy();
   const trippyActive = level !== "off";
   return (
-    <div className="min-h-screen overflow-x-hidden text-text">
+    <div className="relative min-h-screen overflow-x-hidden text-text">
       <RedirectHandler />
+      <MeltBackground />
       {trippyActive && <TrippyBackground />}
       {trippyActive && <AmbientCursor />}
       <Routes>
@@ -71,11 +73,11 @@ function RootLayout() {
   const location = useLocation();
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="relative flex min-h-screen flex-col">
       <Header />
       <main
         id="main"
-        className="flex-1"
+        className="relative z-0 flex-1"
       >
         <AnimatePresence mode="wait">
           <motion.div
