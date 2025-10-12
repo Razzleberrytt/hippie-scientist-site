@@ -71,15 +71,15 @@ export default function HerbCardAccordion({ herb }: Props) {
     : intensityLevel
     ? `${intensityLevel.charAt(0).toUpperCase()}${intensityLevel.slice(1)}`
     : ''
-  const intensityChipClass = intensityLevel.includes('strong')
-    ? 'chip chip--warn font-semibold uppercase tracking-wide'
+  const intensityTone = intensityLevel.includes('strong')
+    ? 'bg-rose-500/15 text-rose-200'
     : intensityLevel.includes('moderate')
-    ? 'chip chip--stim font-semibold uppercase tracking-wide'
+    ? 'bg-amber-500/15 text-amber-200'
     : intensityLevel.includes('mild')
-    ? 'chip chip--adapt font-semibold uppercase tracking-wide'
+    ? 'bg-emerald-500/15 text-emerald-200'
     : intensityLevel.includes('variable')
-    ? 'chip chip--dream font-semibold uppercase tracking-wide'
-    : 'chip'
+    ? 'bg-sky-500/15 text-sky-200'
+    : 'bg-white/10 text-white/80'
   const benefits = (herb as any).benefits ? String((herb as any).benefits).trim() : ''
   const descriptionText = (herb.description || herbBlurbs[herbName(herb)] || '').trim()
   const hasInfo = Boolean(
@@ -185,10 +185,12 @@ export default function HerbCardAccordion({ herb }: Props) {
           <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
         ))}
         {intensityLabel && (
-          <span className={intensityChipClass}>Intensity: {intensityLabel}</span>
+          <span className={`pill text-[12px] ${intensityTone}`}>
+            <span className='font-semibold uppercase tracking-wide text-[11px] text-white/80'>Intensity:</span>&nbsp;{intensityLabel}
+          </span>
         )}
         {benefits && (
-          <span className='chip'>{benefits}</span>
+          <span className='pill bg-white/10 text-[12px] text-white/80'>{benefits}</span>
         )}
       </div>
 

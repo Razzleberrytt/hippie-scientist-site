@@ -23,6 +23,18 @@ function iso(d) {
   return date.toISOString().slice(0, 10);
 }
 
+function statISO(p) {
+  try {
+    const st = fs.statSync(p);
+    const fallback = st.birthtimeMs || st.mtimeMs;
+    if (fallback) {
+      const formatted = iso(fallback);
+      if (formatted) return formatted;
+    }
+  } catch {}
+  return iso(Date.now()) ?? new Date().toISOString().slice(0, 10);
+}
+
 /**
  * Resolve the post's creation date with this precedence:
  * 1) front-matter 'date'
@@ -41,11 +53,8 @@ function getCreatedDate(fp, fmDate) {
     if (gitDate) return gitDate;
   } catch {}
 
-  try {
-    const st = fs.statSync(fp);
-    const birth = st.birthtime ? iso(st.birthtime) : null;
-    if (birth) return birth;
-  } catch {}
+  const fsDate = statISO(fp);
+  if (fsDate) return fsDate;
 
   return iso(Date.now());
 }

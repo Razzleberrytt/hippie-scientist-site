@@ -71,7 +71,7 @@ export default function BlogPost() {
                 {meta.tags.map((t) => (
                   <li
                     key={t}
-                    className="chip text-xs text-white/70"
+                    className="pill bg-white/10 text-[12px] text-white/70"
                   >
                     {t}
                   </li>

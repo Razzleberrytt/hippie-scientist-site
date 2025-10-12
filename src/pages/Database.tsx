@@ -47,8 +47,8 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <div className='mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24'>
-        <section className='glass-card p-6 sm:p-8 md:p-10'>
+      <div className='container-safe py-16 sm:py-24'>
+        <section className='glass p-6 sm:p-8 md:p-10'>
           <h1 className='text-4xl sm:text-5xl font-extrabold tracking-tight mb-2'>Herb Database</h1>
           <p className='text-neutral-100/70'>Search and explore the library.</p>
 
@@ -57,7 +57,7 @@ export default function Database() {
               {advancedResults && (
                 <button
                   type='button'
-                  className='counter-pill border-white/20 bg-white/10 text-sm text-white/80 hover:bg-white/15'
+                  className='pill border border-white/10 bg-white/10 text-white hover:bg-white/15'
                   onClick={() => setAdvancedResults(null)}
                 >
                   Clear advanced filters
@@ -65,7 +65,7 @@ export default function Database() {
               )}
               <button
                 type='button'
-                className='counter-pill border-white/20 bg-white/10 text-sm text-white hover:bg-white/15'
+                className='pill border border-white/10 bg-white/10 text-white hover:bg-white/15'
                 onClick={() => setAdvancedOpen(true)}
               >
                 Advanced search
@@ -102,7 +102,7 @@ export default function Database() {
             <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
           ))}
           {!results.length && (
-            <div className='glass-card p-5 text-center text-neutral-100/70 sm:p-6'>
+            <div className='glass p-5 text-center text-neutral-100/70 sm:p-6'>
               No herbs match that search.
             </div>
           )}

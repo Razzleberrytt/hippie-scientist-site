@@ -12,6 +12,9 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    env:
+      LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+      LLM_API_URL: ${{ secrets.LLM_API_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,6 +31,13 @@ jobs:
 
       - name: Install
         run: npm ci
+
+      - name: Generate MDX post via LLM
+        if: ${{ env.LLM_API_KEY != '' && env.LLM_API_URL != '' }}
+        run: node scripts/ai-generate-post.mjs
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_URL: ${{ secrets.LLM_API_URL }}
 
       - name: Run data pipeline
         id: pipeline

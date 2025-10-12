@@ -276,28 +276,6 @@ h3 { font-size: 1.35rem; }
   outline-offset: 3px;
   box-shadow: 0 0 0 3px hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.25);
 }
-.chip {
-  display:inline-flex;
-  align-items:center;
-  gap:0.35rem;
-  padding:.25rem .5rem;
-  border-radius:999px;
-  background: rgba(255, 255, 255, 0.22);
-  border:1px solid rgba(255, 255, 255, 0.14);
-  color: var(--text-c);
-  font-size:.75rem;
-  transition: box-shadow .25s ease, transform .25s ease;
-}
-.chip:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px -12px var(--accent);
-}
-.chip:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 3px hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.2);
-}
-
 .gradient-text {
   background: linear-gradient(90deg,
     hsl(var(--accent-h) var(--accent-s) calc(var(--accent-l) + 5%)),

@@ -10,8 +10,8 @@ export default function StatBadge({
   icon?: ReactNode;
 }) {
   return (
-    <span className="chip text-white/85">
-      <strong className="font-semibold text-white">{count}</strong>
+    <span className="pill bg-white/10 text-white/80">
+      <span className="count">{count}</span>
       <span className="text-white/70">{label}</span>
       {icon ? <span className="shrink-0 text-white/80">{icon}</span> : null}
     </span>

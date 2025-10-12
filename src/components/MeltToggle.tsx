@@ -22,10 +22,9 @@ export default function MeltToggle({ className }: MeltToggleProps) {
       disabled={!enabled}
       title={active ? "Disable Melt" : "Enable Melt"}
       className={clsx(
-        "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition",
-        "ring-1 ring-white/10 bg-white/5 hover:bg-white/10 text-white",
-        active && "ring-2 ring-teal-400/60",
-        !enabled && "cursor-not-allowed opacity-50",
+        "pill border border-white/10 bg-white/5 text-white/80 transition hover:bg-white/10",
+        active && "border-teal-200/60 bg-white/10 text-white",
+        !enabled && "cursor-not-allowed opacity-60",
         className,
       )}
     >
