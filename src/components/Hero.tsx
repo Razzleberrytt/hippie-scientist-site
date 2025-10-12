@@ -8,7 +8,7 @@ type HeroProps = { children?: ReactNode };
 export default function Hero({ children }: HeroProps) {
   const reduceMotion = useReducedMotion();
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-emerald-500/10 via-sky-500/5 to-fuchsia-500/10 py-10 sm:py-14">
+    <section className="relative overflow-hidden rounded-3xl bg-white/5 py-10 backdrop-blur-md ring-1 ring-white/10 sm:py-14">
       <BackgroundAurora />
       <div className="container-page relative z-10">
         <div className="max-w-3xl">
@@ -16,7 +16,7 @@ export default function Hero({ children }: HeroProps) {
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            className={`text-4xl font-extrabold tracking-tight text-white ${reduceMotion ? "" : "animate-hue"} sm:text-5xl lg:text-6xl`}
           >
             The Hippie Scientist
           </motion.h1>

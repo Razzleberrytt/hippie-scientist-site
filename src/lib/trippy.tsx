@@ -8,7 +8,7 @@ import {
 } from "react";
 import type { ReactNode } from "react";
 
-export type TrippyLevel = "off" | "calm" | "trippy" | "melt";
+export type TrippyLevel = "off" | "melt";
 
 export type TrippyContextValue = {
   level: TrippyLevel;
@@ -16,10 +16,8 @@ export type TrippyContextValue = {
   enabled: boolean;
 };
 
-const STORAGE_KEY = "trippy-mode";
+const STORAGE_KEY = "melt";
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
-
-const levelOrder: readonly TrippyLevel[] = ["calm", "trippy", "melt", "off"] as const;
 
 const TrippyCtx = createContext<TrippyContextValue>({
   level: "off",
@@ -31,9 +29,11 @@ const isBrowser = typeof window !== "undefined";
 
 const parseStoredLevel = (value: string | null): TrippyLevel | null => {
   if (!value) return null;
-  return levelOrder.includes(value as TrippyLevel) || value === "off"
-    ? (value as TrippyLevel)
-    : null;
+  if (value === "off") return "off";
+  if (value === "on" || value === "melt" || value === "calm" || value === "trippy") {
+    return "melt";
+  }
+  return null;
 };
 
 const prefersReducedMotion = () => {
@@ -45,21 +45,21 @@ const initialLevel = () => {
   if (!isBrowser) return "off";
   const stored = parseStoredLevel(window.localStorage.getItem(STORAGE_KEY));
   if (stored) return stored;
-  return prefersReducedMotion() ? "off" : "trippy";
+  const legacyStored = parseStoredLevel(window.localStorage.getItem("trippy-mode"));
+  if (legacyStored) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, legacyStored === "off" ? "off" : "on");
+    } catch {
+      /* ignore */
+    }
+    return legacyStored;
+  }
+  return prefersReducedMotion() ? "off" : "melt";
 };
 
-export const TRIPPY_LEVELS = levelOrder;
 export const TRIPPY_LABELS: Record<TrippyLevel, string> = {
-  calm: "Calm",
-  trippy: "Trippy",
   melt: "Melt",
   off: "Off",
-};
-
-export const nextTrippyLevel = (level: TrippyLevel) => {
-  const index = levelOrder.indexOf(level);
-  const safeIndex = index === -1 ? 0 : index;
-  return levelOrder[(safeIndex + 1) % levelOrder.length];
 };
 
 export function TrippyProvider({ children }: { children: ReactNode }) {
@@ -70,7 +70,7 @@ export function TrippyProvider({ children }: { children: ReactNode }) {
     setLevelState(value);
     if (!isBrowser) return;
     try {
-      window.localStorage.setItem(STORAGE_KEY, value);
+      window.localStorage.setItem(STORAGE_KEY, value === "off" ? "off" : "on");
     } catch {
       /* ignore */
     }
@@ -90,7 +90,15 @@ export function TrippyProvider({ children }: { children: ReactNode }) {
       const nextEnabled = !event.matches;
       setEnabled(nextEnabled);
       if (!window.localStorage.getItem(STORAGE_KEY)) {
-        setLevel(nextEnabled ? "trippy" : "off");
+        setLevel(nextEnabled ? "melt" : "off");
+      } else if (nextEnabled) {
+        const stored = parseStoredLevel(window.localStorage.getItem(STORAGE_KEY));
+        if (stored) {
+          setLevel(stored);
+        }
+      }
+      if (!nextEnabled) {
+        setLevel("off");
       }
     };
 

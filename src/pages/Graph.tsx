@@ -116,10 +116,10 @@ export default function GraphPage() {
         pageType="website"
         noindex
       />
-      <main className="relative h-screen w-full overflow-hidden bg-black text-white">
+      <main className="relative h-screen w-full overflow-hidden bg-black/40 text-white backdrop-blur">
         <React.Suspense
           fallback={
-            <div className="absolute inset-0 flex items-center justify-center text-sm text-white/60">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/70 text-sm text-white/70">
               Loading graph visualization…
             </div>
           }
@@ -133,7 +133,7 @@ export default function GraphPage() {
               nodeAutoColorBy="group"
               linkColor={() => "rgba(255,255,255,0.1)"}
               linkDirectionalParticles={0}
-              backgroundColor="#000"
+              backgroundColor="rgba(0,0,0,0)"
               onNodeClick={(node: GraphNode) => {
                 if (node.group === "herb") {
                   window.open(`/herb/${node.slug}`, "_blank");
@@ -179,12 +179,12 @@ export default function GraphPage() {
           <span className="ml-2 opacity-75">Click nodes to open pages</span>
         </div>
         {!graphData && !isDataMissing ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-black text-sm text-white/60">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/70 text-sm text-white/70">
             Loading graph data…
           </div>
         ) : null}
         {isDataMissing ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-black text-sm text-white/60">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/70 text-sm text-white/70">
             Graph data unavailable. Check back soon!
           </div>
         ) : null}

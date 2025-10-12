@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { Sparkles } from "lucide-react";
 import NavLink from "./NavLink";
-import { TRIPPY_LABELS, nextTrippyLevel, useTrippy } from "@/lib/trippy";
-import clsx from "clsx";
+import MeltToggle from "./MeltToggle";
 
 const navLinks = [
   { to: "/database", label: "Browse" },
@@ -14,12 +12,9 @@ type Props = { subtleOnHome?: boolean };
 
 export default function SiteHeader({ subtleOnHome = false }: Props) {
   const buttonClasses = "px-3 py-2 text-sm";
-  const { level, setLevel, enabled } = useTrippy();
-  const active = level !== "off";
-  const cycleLevel = () => setLevel(nextTrippyLevel(level));
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/35 bg-black/55 border-b border-white/5">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur supports-[backdrop-filter]:bg-black/30">
       <div className="mx-auto max-w-6xl px-4 py-2 flex items-center gap-3">
         <Link
           to="/"
@@ -38,24 +33,7 @@ export default function SiteHeader({ subtleOnHome = false }: Props) {
               {link.label}
             </NavLink>
           ))}
-          <button
-            type="button"
-            aria-pressed={active}
-            aria-label={`Trippy mode: ${TRIPPY_LABELS[level]}. Tap to change.`}
-            onClick={cycleLevel}
-            disabled={!enabled}
-            className={clsx(
-              "pill relative",
-              !enabled && "cursor-not-allowed opacity-50",
-              active && "ring-1 ring-emerald-400/40",
-            )}
-          >
-            <Sparkles className="mr-1 h-4 w-4" aria-hidden />
-            {TRIPPY_LABELS[level]}
-            {active && (
-              <span className="pointer-events-none absolute -inset-3 rounded-full bg-emerald-400/10 blur-2xl" aria-hidden />
-            )}
-          </button>
+          <MeltToggle className="px-3" />
         </nav>
       </div>
     </header>

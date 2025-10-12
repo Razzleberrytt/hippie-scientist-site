@@ -100,11 +100,16 @@ const config: Config = {
           "50%": { transform: "translate3d(10%, 5%, 0) rotate(15deg)" },
           "100%": { transform: "translate3d(-10%, -10%, 0) rotate(0deg)" },
         },
+        hue: {
+          "0%": { filter: "hue-rotate(0deg)" },
+          "100%": { filter: "hue-rotate(360deg)" },
+        },
       },
       animation: {
         gradientShift: "gradientShift 18s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
         aurora: "aurora 18s ease-in-out infinite",
+        hue: "hue 20s linear infinite",
       },
       backgroundImage: {
         noisy:
