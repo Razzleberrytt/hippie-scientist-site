@@ -13,9 +13,9 @@ export default function Layout({ children }: PropsWithChildren) {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      <div className="relative z-10">{children}</div>
+    <div className="site-shell relative min-h-screen w-full overflow-x-hidden">
       <MeltBackground />
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }
