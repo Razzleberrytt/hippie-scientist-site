@@ -45,7 +45,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="chip whitespace-nowrap text-white/80 hover:bg-white/10"
+              className="chip whitespace-nowrap text-white/80 hover:bg-white/20"
             >
               {link.label}
             </a>

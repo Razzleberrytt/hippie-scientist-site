@@ -52,7 +52,7 @@ export default function BlogPost() {
 
   return (
     <main className="container-page py-8">
-      <header className="mb-8">
+      <header className="glass-elev mb-8 rounded-3xl p-6 sm:p-8">
         <a href="/#/blog" className="text-sm text-accent-300 hover:text-accent-200">
           ← Back to Blog
         </a>
@@ -71,7 +71,7 @@ export default function BlogPost() {
                 {meta.tags.map((t) => (
                   <li
                     key={t}
-                    className="chip border-white/15 bg-white/5 px-2 py-0.5 text-xs text-white/70"
+                    className="chip text-xs text-white/70"
                   >
                     {t}
                   </li>

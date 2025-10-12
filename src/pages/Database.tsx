@@ -48,7 +48,7 @@ export default function Database() {
         path='/database'
       />
       <div className="relative z-0 min-h-screen">
-        <section className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 via-white/3 to-white/0 py-10 backdrop-blur-xl sm:py-12 lg:py-14">
+        <section className="glass-elev relative w-full overflow-hidden rounded-3xl py-10 sm:py-12 lg:py-14">
           <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Herb Database</h1>
             <p className="mt-2 text-white/70">Search and explore the library.</p>
@@ -74,14 +74,14 @@ export default function Database() {
               </div>
             )}
 
-            <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-2 backdrop-blur-lg shadow-ring ring-1 ring-white/10 sm:p-3">
+            <div className="glass-soft mt-4 rounded-2xl p-2 sm:p-3">
               <label className="sr-only" htmlFor="herb-search-input">
                 Search herbs
               </label>
               <div className="flex flex-wrap items-center gap-3">
                 <input
                   id="herb-search-input"
-                  className="flex-1 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-text placeholder:text-text/50 backdrop-blur focus:outline-none focus:ring-2 focus:ring-white/20"
+                  className="flex-1 rounded-full border border-white/20 bg-white/16 px-4 py-2 text-sm text-text placeholder:text-text/50 backdrop-blur focus:outline-none focus:ring-2 focus:ring-white/20"
                   placeholder="Search herbs, compounds, effects…"
                   value={query}
                   onChange={event => setQuery(event.target.value)}
@@ -101,7 +101,7 @@ export default function Database() {
                 <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
               ))}
               {!results.length && (
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-text/70 backdrop-blur-lg shadow-soft">
+                <div className="glass-soft rounded-2xl p-6 text-center text-text/70">
                   No herbs match that search.
                 </div>
               )}

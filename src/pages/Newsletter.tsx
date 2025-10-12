@@ -57,7 +57,7 @@ export default function Newsletter() {
         pageType="website"
       />
       <main className="container mx-auto max-w-2xl space-y-6 px-4 py-10">
-        <header className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm">
+        <header className="glass-soft rounded-2xl p-6">
           <h1 className="bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-3xl font-extrabold text-transparent">
             Join the newsletter
           </h1>
@@ -72,7 +72,7 @@ export default function Newsletter() {
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            className="space-y-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm"
+            className="glass-soft space-y-4 rounded-2xl p-6"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="newsletter" />
@@ -90,7 +90,7 @@ export default function Newsletter() {
                 name="email"
                 autoComplete="email"
                 placeholder="you@example.com"
-                className="mt-1 w-full rounded-lg border border-white/10 bg-white/10 px-3 py-2 placeholder-white/50"
+                className="mt-1 w-full rounded-lg border border-white/20 bg-white/16 px-3 py-2 placeholder-white/50 backdrop-blur"
               />
             </label>
 
@@ -101,7 +101,7 @@ export default function Newsletter() {
                 name="firstName"
                 autoComplete="given-name"
                 placeholder="Will"
-                className="mt-1 w-full rounded-lg border border-white/10 bg-white/10 px-3 py-2 placeholder-white/50"
+                className="mt-1 w-full rounded-lg border border-white/20 bg-white/16 px-3 py-2 placeholder-white/50 backdrop-blur"
               />
             </label>
 
@@ -129,7 +129,7 @@ export default function Newsletter() {
             </p>
           </form>
         ) : (
-          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm">
+          <div className="glass-soft rounded-2xl p-6">
             <h2 className="font-semibold text-lime-300">You're on the list ✦</h2>
             <p className="mt-1 text-white/75">Check your inbox for a confirmation. Welcome aboard.</p>
             <nav className="mt-4 text-sm">
