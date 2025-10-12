@@ -1,12 +1,10 @@
 import Meta from "../components/Meta";
-import { TRIPPY_LABELS, nextTrippyLevel, useTrippy } from "@/lib/trippy";
-import { Sparkles } from "lucide-react";
-import clsx from "clsx";
+import { useTrippy } from "@/lib/trippy";
+import MeltToggle from "@/components/MeltToggle";
 
 export default function Theme() {
-  const { level, setLevel, enabled } = useTrippy();
-  const active = level !== "off";
-  const cycleLevel = () => setLevel(nextTrippyLevel(level));
+  const { level, enabled } = useTrippy();
+  const active = level === "melt";
   return (
     <>
       <Meta title="Theme Lab | The Hippie Scientist" description="Adjust the site appearance to match your vibe." path="/theme" />
@@ -17,34 +15,16 @@ export default function Theme() {
             Experiment with color schemes and appearance settings to personalize The Hippie Scientist.
           </p>
         </header>
-        <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg">
-          <p className="text-sm text-zinc-300/80">Toggle the visual flourishes that give the site its dreamy vibe:</p>
+        <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur">
+          <p className="text-sm text-zinc-300/80">Toggle the Melt background to let the aurora flow across the site:</p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              aria-pressed={active}
-              aria-label={`Trippy mode: ${TRIPPY_LABELS[level]}. Tap to change.`}
-              disabled={!enabled}
-              onClick={cycleLevel}
-              className={clsx(
-                "pill relative",
-                !enabled && "cursor-not-allowed opacity-50",
-                active && "ring-1 ring-emerald-400/40",
-              )}
-            >
-              <Sparkles className="mr-1 h-4 w-4" aria-hidden />
-              {TRIPPY_LABELS[level]}
-              <span
-                className={clsx(
-                  "pointer-events-none absolute -inset-4 rounded-full blur-2xl",
-                  active ? "bg-emerald-500/10" : "hidden",
-                )}
-              />
-            </button>
+            <MeltToggle />
             <p className="text-sm text-zinc-300/80">
               {enabled
-                ? `Current vibe: ${TRIPPY_LABELS[level]}. We remember your choice on this device, so the effects stay just how you like them.`
-                : "Trippy mode stays off automatically because your device prefers reduced motion."}
+                ? active
+                  ? "Melt is on. We’ll remember this choice on this device."
+                  : "Melt is off. Turn it back on anytime for full vibes."
+                : "Melt stays off automatically because your device prefers reduced motion."}
             </p>
           </div>
         </div>

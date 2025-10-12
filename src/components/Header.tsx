@@ -1,8 +1,7 @@
 // src/components/Header.tsx
-import { useCallback, useEffect } from "react";
-import { Sparkles } from "lucide-react";
-import clsx from "clsx";
-import { TRIPPY_LABELS, nextTrippyLevel, useTrippy } from "@/lib/trippy";
+import { useEffect } from "react";
+import MeltToggle from "./MeltToggle";
+import { useTrippy } from "@/lib/trippy";
 
 const links = [
   { label: "Browse", href: "/#/database" },
@@ -11,11 +10,8 @@ const links = [
 ];
 
 export default function Header() {
-  const { level, setLevel, enabled } = useTrippy();
-  const active = level !== "off";
-  const cycleLevel = useCallback(() => {
-    setLevel(nextTrippyLevel(level));
-  }, [level, setLevel]);
+  const { enabled, level, setLevel } = useTrippy();
+  const active = level === "melt";
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -23,7 +19,7 @@ export default function Header() {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
         event.preventDefault();
         if (!enabled) return;
-        cycleLevel();
+        setLevel(active ? "off" : "melt");
       }
     };
 
@@ -31,10 +27,10 @@ export default function Header() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [cycleLevel, enabled]);
+  }, [active, enabled, setLevel]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur supports-[backdrop-filter]:bg-black/30">
       <div className="container-page flex items-center gap-4 py-3" aria-label="Site">
         <a href="/#/" className="flex items-center gap-2 shrink-0">
           <span className="h-6 w-2.5 rounded-full bg-gradient-to-b from-teal-300 via-sky-400 to-fuchsia-400" />
@@ -54,24 +50,7 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <button
-            type="button"
-            aria-pressed={active}
-            aria-label={`Trippy mode: ${TRIPPY_LABELS[level]}. Tap to change.`}
-            disabled={!enabled}
-            onClick={cycleLevel}
-            className={clsx(
-              "pill relative whitespace-nowrap",
-              !enabled && "cursor-not-allowed opacity-50",
-              active && "ring-1 ring-emerald-400/40",
-            )}
-          >
-            <Sparkles className="mr-1 h-4 w-4" aria-hidden />
-            {TRIPPY_LABELS[level]}
-            {active && (
-              <span className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-emerald-500/10 blur-2xl" aria-hidden />
-            )}
-          </button>
+          <MeltToggle />
         </nav>
       </div>
     </header>
