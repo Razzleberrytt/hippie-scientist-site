@@ -47,7 +47,7 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <div className='container-safe py-16 sm:py-24'>
+      <div className='container-safe relative py-16 sm:py-24'>
         <section className='glass p-6 sm:p-8 md:p-10'>
           <h1 className='text-4xl sm:text-5xl font-extrabold tracking-tight mb-2'>Herb Database</h1>
           <p className='text-neutral-100/70'>Search and explore the library.</p>

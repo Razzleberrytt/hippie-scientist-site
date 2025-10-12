@@ -247,3 +247,18 @@ footer .legal-faint {
     overflow-x: hidden;
   }
 }
+
+#melt-canvas {
+  z-index: -1;
+  pointer-events: none;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.glass {
+  @apply backdrop-blur-md ring-1 ring-white/10 bg-white/5 dark:bg-slate-900/30 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.45)];
+}
