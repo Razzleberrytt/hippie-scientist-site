@@ -33,9 +33,6 @@ function AuroraCanvas() {
       const { innerWidth, innerHeight } = window;
       ctx.clearRect(0, 0, innerWidth, innerHeight);
 
-      ctx.fillStyle = "rgba(11,15,18,0.12)";
-      ctx.fillRect(0, 0, innerWidth, innerHeight);
-
       for (let i = 0; i < 6; i += 1) {
         const radius = 220 + 80 * Math.sin(time / 6000 + i);
         const x = innerWidth * (0.5 + 0.45 * Math.sin(time / 4000 + i * 1.3));
@@ -50,14 +47,6 @@ function AuroraCanvas() {
         ctx.arc(x, y, radius, 0, Math.PI * 2);
         ctx.fill();
       }
-
-      ctx.globalCompositeOperation = "screen";
-      for (let y = 0; y < innerHeight; y += 3) {
-        const alpha = 0.02 + 0.02 * Math.sin(time / 1000 + y * 0.01);
-        ctx.fillStyle = `rgba(255,255,255,${alpha})`;
-        ctx.fillRect(0, y, innerWidth, 1);
-      }
-      ctx.globalCompositeOperation = "source-over";
     };
 
     let raf = 0;
@@ -83,7 +72,7 @@ function AuroraCanvas() {
       style={{
         position: "fixed",
         inset: 0,
-        zIndex: 0,
+        zIndex: -30,
         pointerEvents: "none",
       }}
     />
@@ -100,6 +89,15 @@ export default function TrippyBackground() {
 
   if (!mountNode) return null;
 
-  return createPortal(<AuroraCanvas />, mountNode);
+  return createPortal(
+    <>
+      <AuroraCanvas />
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(1200px_600px_at_50%_0%,rgba(255,255,255,0.05),transparent_70%)] mix-blend-screen"
+      />
+    </>,
+    mountNode,
+  );
 }
 

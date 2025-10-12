@@ -8,7 +8,7 @@ type HeroProps = { children?: ReactNode };
 export default function Hero({ children }: HeroProps) {
   const reduceMotion = useReducedMotion();
   return (
-    <section className="relative mx-auto mt-8 max-w-3xl overflow-hidden rounded-3xl bg-gradient-to-b from-white/5 via-white/30 to-transparent p-6 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_50px_rgba(0,0,0,0.2)] sm:p-10">
+    <section className="relative mx-auto mt-8 max-w-3xl overflow-hidden rounded-3xl bg-gradient-to-b from-white/5 via-white/10 to-transparent p-6 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_50px_rgba(0,0,0,0.2)] sm:p-10">
       <BackgroundAurora />
       <div className="relative z-10">
         <motion.h1
