@@ -87,12 +87,16 @@ export default function HerbDetail() {
     || (herb as any).scientificName
     || (herb as any).binomial
     || herb.name;
-  const commonName = getCommonName(herb) ?? (herb.common ? titleCase(String(herb.common)) : undefined);
+  const rawCommon = herb.common ? titleCase(String(herb.common)) : undefined;
+  const normalizedCommon = getCommonName(herb) ?? rawCommon;
+  const commonName = normalizedCommon && scientificName && normalizedCommon.toLowerCase() === scientificName.toLowerCase()
+    ? undefined
+    : normalizedCommon;
   const displayTitle = commonName ?? scientificName ?? "Herb";
   const description = details.description || details.effects || "Herb profile";
   const intensityLevel = herb.intensityLevel || null;
   const intensityLabel = herb.intensityLabel
-    || (intensityLevel ? titleCase(intensityLevel) : 'Unknown');
+    || (intensityLevel ? titleCase(intensityLevel) : '');
   const intensityStyle = (() => {
     switch (intensityLevel) {
       case 'strong':
@@ -128,6 +132,7 @@ export default function HerbDetail() {
         };
     }
   })();
+  const benefits = cleanLine((herb as any).benefits || herb.benefits || '');
 
   const safety = cleanLine(herb.safety || pick.safety(herb));
   const therapeutic = cleanLine(herb.therapeutic || pick.therapeutic(herb));
@@ -180,12 +185,17 @@ export default function HerbDetail() {
                   {scientificName}
                 </p>
               )}
-              {intensityLabel && (
+              {intensityLabel && intensityLevel && intensityLevel !== 'unknown' && (
                 <span
                   className="chip hover-glow focus-glow mt-1 inline-flex items-center px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em]"
                   style={intensityStyle}
                 >
                   Intensity: {intensityLabel}
+                </span>
+              )}
+              {hasVal(benefits) && (
+                <span className="chip hover-glow focus-glow mt-2 inline-flex items-center px-3 py-1 text-[0.7rem] font-medium tracking-[0.08em]">
+                  {benefits}
                 </span>
               )}
             </header>

@@ -8,6 +8,7 @@ export type Herb = {
   subcategory?: string;
   category_label?: string;
   categories?: string[];
+  benefits?: string;
   intensity?: string;
   intensityLabel?: "Mild" | "Moderate" | "Strong" | "Variable" | "Unknown" | null;
   intensityLevel?: "mild" | "moderate" | "strong" | "variable" | "unknown" | null;

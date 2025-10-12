@@ -103,9 +103,15 @@ export default function HerbDetailView() {
             <span className='font-semibold text-lime-600 dark:text-lime-300'>Prep:</span> {herb.preparation}
         </div>
       )}
-      {herb.intensity && (
+      {(herb.intensityLabel || herb.intensityLevel) && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Intensity:</span> {herb.intensity}
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Intensity:</span>{' '}
+            {herb.intensityLabel || (herb.intensityLevel ? `${herb.intensityLevel.charAt(0).toUpperCase()}${herb.intensityLevel.slice(1)}` : 'Unknown')}
+        </div>
+      )}
+      {herb.benefits && (
+        <div>
+            <span className='font-semibold text-lime-600 dark:text-lime-300'>Benefits:</span> {herb.benefits}
         </div>
       )}
       {herb.dosage && (

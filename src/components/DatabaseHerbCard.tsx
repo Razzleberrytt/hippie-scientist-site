@@ -66,9 +66,24 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
     )
   ).slice(0, 3);
 
-  const intensity = cleanIntensity(
-    firstNonEmpty((herb as any).intensityClean, herb.intensityLabel, herb.intensity)
+  const intensityLevel = (herb.intensityLevel || (herb as any).intensityLevel || '').toString().toLowerCase();
+  const intensityLabel = cleanIntensity(
+    firstNonEmpty(
+      (herb as any).intensityClean,
+      herb.intensityLabel,
+      typeof herb.intensity === 'string' ? herb.intensity : '',
+    )
   );
+  const intensityChipClass = intensityLevel.includes('strong')
+    ? 'chip chip--warn font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('moderate')
+    ? 'chip chip--stim font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('mild')
+    ? 'chip chip--adapt font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('variable')
+    ? 'chip chip--dream font-semibold uppercase tracking-wide'
+    : 'chip';
+  const benefits = firstNonEmpty(herb.benefits as string, (herb as any).benefits as string);
 
   const slugSource = firstNonEmpty(herb.slug, heading, scientificName);
   const slug = slugSource
@@ -97,19 +112,19 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">{heading}</h2>
         {secondary && <p className="text-sm italic text-white/60">{secondary}</p>}
 
-        {chips.length > 0 && (
+        {(chips.length > 0 || intensityLabel || benefits) && (
           <div className="mt-3 flex flex-wrap gap-2">
             {chips.map((chip) => (
               <span key={chip} className="chip text-white/80 text-xs">
                 {chip}
               </span>
             ))}
-          </div>
-        )}
-
-        {intensity && (
-          <div className="mt-3 inline-flex rounded-full border border-yellow-500/25 bg-yellow-500/10 px-3 py-1 text-sm tracking-wide text-yellow-200">
-            INTENSITY: {intensity}
+            {intensityLabel && (
+              <span className={`${intensityChipClass} text-xs`}>INTENSITY: {intensityLabel}</span>
+            )}
+            {benefits && (
+              <span className="chip text-white/80 text-xs">{benefits}</span>
+            )}
           </div>
         )}
       </header>

@@ -59,6 +59,7 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
         : typeof raw.category === 'string'
           ? raw.category
           : '',
+    benefits: typeof raw.benefits === 'string' ? raw.benefits : '',
     intensity: typeof raw.intensity === 'string' ? raw.intensity : '',
     intensityLabel:
       typeof raw.intensityLabel === 'string' && raw.intensityLabel

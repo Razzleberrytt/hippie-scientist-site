@@ -14,14 +14,29 @@ interface HerbCardProps {
 
 function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   const [expanded, setExpanded] = useState(false);
-  const intensity = String(herb.intensity || '').toLowerCase();
-  const intensityClass = intensity.includes('strong')
-    ? 'chip chip--warn font-semibold uppercase tracking-wide'
-    : intensity.includes('moderate')
-    ? 'chip chip--stim font-semibold uppercase tracking-wide'
-    : intensity.includes('mild')
-    ? 'chip chip--adapt font-semibold uppercase tracking-wide'
+
+  const scientific = String(herb.scientific ?? '').trim();
+  const common = String(herb.common ?? '').trim();
+  const hasCommon = Boolean(common) && (!scientific || common.toLowerCase() !== scientific.toLowerCase());
+  const heading = hasCommon ? common : (scientific || herb.name || 'Herb');
+  const subheading = hasCommon ? scientific : '';
+
+  const intensityLevel = String(herb.intensityLevel || '').toLowerCase();
+  const intensityLabel = hasVal(herb.intensityLabel)
+    ? String(herb.intensityLabel)
+    : intensityLevel
+    ? titleCase(intensityLevel)
     : '';
+  const intensityClass = intensityLevel.includes('strong')
+    ? 'chip chip--warn font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('moderate')
+    ? 'chip chip--stim font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('mild')
+    ? 'chip chip--adapt font-semibold uppercase tracking-wide'
+    : intensityLevel.includes('variable')
+    ? 'chip chip--dream font-semibold uppercase tracking-wide'
+    : '';
+  const benefits = cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit);
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : [];
   const tagLimit = compact ? 3 : 6;
@@ -54,18 +69,25 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
       >
         <header className="stack">
           {compact ? (
-            <h3 className="text-lime-300 font-semibold">{herb.common || herb.scientific || herb.name}</h3>
+            <h3 className="text-lime-300 font-semibold">{heading}</h3>
           ) : (
-            <h2 className="h2 text-lime-300">{herb.common || herb.scientific || herb.name}</h2>
+            <h2 className="h2 text-lime-300">{heading}</h2>
           )}
-          {hasVal(herb.scientific) && (
-            <p className="italic small text-white/65">{herb.scientific}</p>
+          {hasVal(subheading) && (
+            <p className="italic small text-white/65">{subheading}</p>
           )}
-          {hasVal(intensity) && (
-            <span className={`${intensityClass || 'chip'} ${compact ? 'int' : ''}`}>
-              INTENSITY: {titleCase(intensity)}
-            </span>
-          )}
+          <div className="flex flex-wrap gap-2">
+            {hasVal(intensityLabel) && (
+              <span className={`${intensityClass || 'chip'} ${compact ? 'int' : ''}`}>
+                INTENSITY: {intensityLabel}
+              </span>
+            )}
+            {hasVal(benefits) && (
+              <span className={`chip ${compact ? 'int' : ''}`}>
+                {benefits}
+              </span>
+            )}
+          </div>
         </header>
 
         <section className="stack text-white/80">

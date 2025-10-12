@@ -10,7 +10,10 @@ type Herb = {
   slug?: string;
   common?: string;
   scientific?: string;
+  benefits?: string;
   intensity?: string;
+  intensityLabel?: string;
+  intensityLevel?: string;
   effects?: string;
   tags?: string[];
   [key: string]: unknown;
@@ -69,10 +72,10 @@ const MOOD_KEYWORDS: Record<string, string[]> = {
 };
 
 const potencyRank = (herb: Herb) => {
-  const intensity = String(herb.intensity ?? "").toLowerCase();
-  if (!intensity) return 1;
-  if (intensity.includes("strong")) return 3;
-  if (intensity.includes("moderate")) return 2;
+  const level = String(herb.intensityLevel ?? (herb as any).intensityLevel ?? "").toLowerCase();
+  if (!level) return 1;
+  if (level.includes("strong")) return 3;
+  if (level.includes("moderate")) return 2;
   return 1;
 };
 
@@ -519,6 +522,9 @@ export default function BuildBlend() {
                             ? `${herb.intensityLevel.charAt(0).toUpperCase()}${herb.intensityLevel.slice(1)}`
                             : 'Unknown')}.
                         </Badge>
+                      )}
+                      {herb.benefits && (
+                        <p className="text-xs text-sub">{herb.benefits}</p>
                       )}
                       {herb.effects && (
                         <p className="text-xs text-sub">
