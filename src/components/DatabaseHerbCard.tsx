@@ -76,14 +76,14 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
     )
   );
   const intensityTone = intensityLevel.includes('strong')
-    ? 'bg-rose-500/15 text-rose-200'
+    ? 'bg-rose-500/20 text-rose-100 ring-1 ring-rose-300/40'
     : intensityLevel.includes('moderate')
-    ? 'bg-amber-500/15 text-amber-200'
+    ? 'bg-amber-500/20 text-amber-100 ring-1 ring-amber-300/40'
     : intensityLevel.includes('mild')
-    ? 'bg-emerald-500/15 text-emerald-200'
+    ? 'bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-300/40'
     : intensityLevel.includes('variable')
-    ? 'bg-sky-500/15 text-sky-200'
-    : 'bg-white/10 text-white/80';
+    ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
+    : 'bg-white/6 text-white/90 ring-1 ring-white/15';
   const benefits = firstNonEmpty(herb.benefits as string, (herb as any).benefits as string);
 
   const slugSource = firstNonEmpty(herb.slug, heading, scientificName);
@@ -106,15 +106,15 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
     <div
       className={clsx(
         "w-full max-w-[48rem] mx-auto mb-6 overflow-hidden rounded-3xl",
-        "bg-white/6 dark:bg-white/5 backdrop-blur-md ring-1 ring-white/10",
-        "shadow-[0_10px_40px_-10px_rgba(0,0,0,0.45)]",
+        "bg-white/14 backdrop-blur-xl ring-1 ring-white/12",
+        "shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)]",
       )}
     >
       <motion.article
         initial={reduceMotion ? false : { opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="will-change-transform p-5 text-neutral-100/85 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] sm:p-6"
+        className="will-change-transform p-5 text-neutral-100/90 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.6)] sm:p-6"
       >
         <header className="space-y-2">
           <h2 className="text-xl font-semibold tracking-tight text-neutral-100 sm:text-2xl">{heading}</h2>
@@ -123,7 +123,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         {(chips.length > 0 || intensityLabel || benefits) && (
           <div className="mt-3 flex flex-wrap gap-2">
             {chips.map((chip) => (
-              <span key={chip} className="pill bg-white/10 text-[12px] text-white/80">
+              <span key={chip} className="pill text-[12px]">
                 {chip}
               </span>
             ))}
@@ -133,7 +133,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
               </span>
             )}
             {benefits && (
-              <span className="pill bg-white/10 text-[12px] text-white/80">{benefits}</span>
+              <span className="pill text-[12px]">{benefits}</span>
             )}
           </div>
         )}

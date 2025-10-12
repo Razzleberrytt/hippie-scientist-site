@@ -1,34 +1,25 @@
-import { PropsWithChildren, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Wand2 } from "lucide-react";
-import clsx from "clsx";
-import { MeltCanvas } from "./MeltCanvas";
+import { PropsWithChildren, useCallback, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import MeltToggle from "@/components/MeltToggle";
+import { MeltCanvas } from "@/components/MeltCanvas";
 import ThemeToggle from "./ThemeToggle";
 import { melt, type MeltIntensity, type MeltPalette, type MeltSettings } from "@/state/melt";
+import { useTrippy } from "@/lib/trippy";
 
-const paletteOrder: MeltPalette[] = ["aura", "ocean", "amethyst"];
-const intensityOrder: MeltIntensity[] = ["low", "med", "high"];
-
-const paletteLabels: Record<MeltPalette, string> = {
-  aura: "Aura",
-  ocean: "Ocean",
-  amethyst: "Amethyst",
-};
-
-const intensityLabels: Record<MeltIntensity, string> = {
-  low: "Low",
-  med: "Medium",
-  high: "High",
-};
+const links = [
+  { label: "Browse", to: "/database" },
+  { label: "Build", to: "/build" },
+  { label: "Blog", to: "/blog" },
+];
 
 export default function SiteLayout({ children }: PropsWithChildren) {
+  const location = useLocation();
+  const { enabled: motionEnabled } = useTrippy();
   const [settings, setSettings] = useState<MeltSettings>(() => ({
     enabled: melt.enabled,
     palette: melt.palette,
     intensity: melt.intensity,
   }));
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const longPressTriggeredRef = useRef(false);
-  const longPressTimerRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     return melt.subscribeSettings((next) => {
@@ -37,86 +28,45 @@ export default function SiteLayout({ children }: PropsWithChildren) {
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
-      return;
-    }
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const handleChange = (event: MediaQueryListEvent) => {
-      setPrefersReducedMotion(event.matches);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
+        event.preventDefault();
+        if (!motionEnabled) return;
+        melt.toggle();
+      }
     };
 
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", handleChange);
-      return () => mediaQuery.removeEventListener("change", handleChange);
-    }
-    mediaQuery.addListener(handleChange);
-    return () => mediaQuery.removeListener(handleChange);
-  }, []);
-
-  const cyclePalette = useCallback(() => {
-    const currentIndex = paletteOrder.indexOf(settings.palette);
-    const nextPalette = paletteOrder[(currentIndex + 1) % paletteOrder.length];
-    melt.setPalette(nextPalette);
-  }, [settings.palette]);
-
-  const cycleIntensity = useCallback(() => {
-    const currentIndex = intensityOrder.indexOf(settings.intensity);
-    const nextIntensity = intensityOrder[(currentIndex + 1) % intensityOrder.length];
-    melt.setIntensity(nextIntensity);
-  }, [settings.intensity]);
-
-  const buttonLabel = useMemo(() => {
-    return `Melt — ${paletteLabels[settings.palette]} • ${intensityLabels[settings.intensity]}`;
-  }, [settings.palette, settings.intensity]);
-
-  const handlePointerDown = useCallback(() => {
-    longPressTriggeredRef.current = false;
-    longPressTimerRef.current = window.setTimeout(() => {
-      longPressTriggeredRef.current = true;
-      cycleIntensity();
-      longPressTimerRef.current = undefined;
-    }, 600);
-  }, [cycleIntensity]);
-
-  const clearLongPressTimer = useCallback(() => {
-    if (longPressTimerRef.current) {
-      window.clearTimeout(longPressTimerRef.current);
-      longPressTimerRef.current = undefined;
-    }
-  }, []);
-
-  const handleClick = useCallback(() => {
-    if (longPressTriggeredRef.current) {
-      return;
-    }
-    cyclePalette();
-  }, [cyclePalette]);
-
-  const shouldAnimate = settings.enabled && !prefersReducedMotion;
-
-  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
-      clearLongPressTimer();
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [clearLongPressTimer]);
+  }, [motionEnabled]);
+
+  const onMeltChange = useCallback((palette: MeltPalette, intensity: MeltIntensity) => {
+    setSettings((prev) => ({ ...prev, palette, intensity }));
+    melt.setPalette(palette);
+    melt.setIntensity(intensity);
+  }, []);
+
+  const shouldAnimate = settings.enabled && motionEnabled;
 
   return (
-    <div className="site-shell relative min-h-screen w-full overflow-x-hidden">
-      {shouldAnimate && (
-        <MeltCanvas intensity={settings.intensity} palette={settings.palette} active={shouldAnimate} />
-      )}
-      {!shouldAnimate && (
-        <div
-          className="pointer-events-none fixed inset-0 z-0"
-          style={{
-            background:
-              "radial-gradient(1200px 600px at 20% 20%, rgba(87,164,255,.25), transparent 60%), radial-gradient(1200px 700px at 80% 80%, rgba(255,130,220,.18), transparent 65%), linear-gradient(180deg, #0b0f14 0%, #0a0d12 100%)",
-          }}
-          aria-hidden
-        />
-      )}
+    <div className="relative min-h-screen overflow-x-hidden">
+      <div className="pointer-events-none fixed inset-0 z-0">
+        {shouldAnimate ? (
+          <MeltCanvas palette={settings.palette} intensity={settings.intensity} />
+        ) : (
+          <div
+            className="h-full w-full"
+            style={{
+              background:
+                "radial-gradient(1200px 600px at 20% 20%, rgba(87,164,255,.25), transparent 60%), radial-gradient(1200px 700px at 80% 80%, rgba(255,130,220,.18), transparent 65%), linear-gradient(180deg, #0b0f14 0%, #0a0d12 100%)",
+            }}
+            aria-hidden
+          />
+        )}
+      </div>
+
       <div
         className="pointer-events-none fixed inset-0 z-[1] opacity-[.05] mix-blend-overlay"
         style={{
@@ -125,33 +75,49 @@ export default function SiteLayout({ children }: PropsWithChildren) {
         }}
         aria-hidden
       />
-      <div className="pointer-events-none fixed right-4 top-4 z-20 flex items-center gap-3 sm:right-6 sm:top-6">
-        {!prefersReducedMotion ? (
-          <button
-            type="button"
-            onClick={handleClick}
-            onPointerDown={handlePointerDown}
-            onPointerUp={clearLongPressTimer}
-            onPointerLeave={clearLongPressTimer}
-            onPointerCancel={clearLongPressTimer}
-            className={clsx(
-              "pointer-events-auto flex items-center gap-2 rounded-2xl border border-white/10 bg-black/40 px-4 py-2 text-sm font-medium text-white/80 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.6)] transition",
-              "hover:border-white/30 hover:bg-black/55 hover:text-white",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
-            )}
-            aria-label={`${buttonLabel}. Tap to cycle palette, long-press to change intensity.`}
-          >
-            <Wand2 aria-hidden className="h-4 w-4 text-fuchsia-300" />
-            <span className="whitespace-nowrap">Melt</span>
-            <span className="hidden text-xs font-normal text-white/60 sm:inline">{`${paletteLabels[settings.palette]} • ${intensityLabels[settings.intensity]}`}</span>
-          </button>
+
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[999] rounded bg-black/70 px-3 py-2 text-sm font-medium text-white"
+      >
+        Skip to content
+      </a>
+
+      <header className="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-3">
+        <nav className="flex flex-1 items-center gap-2" aria-label="Site">
+          <Link to="/" className="flex items-center gap-2">
+            <span className="h-6 w-2.5 rounded-full bg-gradient-to-b from-teal-300 via-sky-400 to-fuchsia-400" />
+            <span className="font-semibold tracking-tight text-white">THS</span>
+          </Link>
+          <div className="ml-auto flex items-center gap-2">
+            {links.map((link) => {
+              const active = location.pathname.startsWith(link.to);
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`pill ${active ? "bg-white/9 text-white" : ""}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+        {motionEnabled ? (
+          <MeltToggle
+            key={`${settings.palette}-${settings.intensity}`}
+            onChange={onMeltChange}
+          />
         ) : (
           <div className="pointer-events-auto">
             <ThemeToggle />
           </div>
         )}
-      </div>
-      <div className="relative z-10">{children}</div>
+      </header>
+
+      <main className="relative z-10">{children}</main>
+      <footer className="relative z-10 hidden" aria-hidden />
     </div>
   );
 }

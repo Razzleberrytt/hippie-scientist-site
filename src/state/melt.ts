@@ -1,5 +1,5 @@
 export type MeltIntensity = "low" | "med" | "high";
-export type MeltPalette = "aura" | "ocean" | "amethyst";
+export type MeltPalette = "aura" | "ocean" | "amethyst" | "forest";
 
 export type MeltSettings = {
   enabled: boolean;
@@ -21,14 +21,14 @@ export type MeltState = {
   subscribeSettings: (fn: (settings: MeltSettings) => void) => () => void;
 };
 
-const ENABLED_KEY = "ths:melt";
-const PALETTE_KEY = "ths:melt:palette";
-const INTENSITY_KEY = "ths:melt:intensity";
+const ENABLED_KEY = "melt:enabled";
+const PALETTE_KEY = "melt:palette";
+const INTENSITY_KEY = "melt:intensity";
 
-const defaultPalette: MeltPalette = "amethyst";
+const defaultPalette: MeltPalette = "ocean";
 const defaultIntensity: MeltIntensity = "med";
 
-const paletteOrder: MeltPalette[] = ["aura", "ocean", "amethyst"];
+const paletteOrder: MeltPalette[] = ["ocean", "aura", "amethyst", "forest"];
 const intensityOrder: MeltIntensity[] = ["low", "med", "high"];
 
 const isBrowser = typeof window !== "undefined" && typeof document !== "undefined";

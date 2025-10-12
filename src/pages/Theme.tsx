@@ -31,13 +31,13 @@ export default function Theme() {
             Experiment with color schemes and appearance settings to personalize The Hippie Scientist.
           </p>
         </header>
-        <div className="mt-6 space-y-6 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur">
+        <div className="mt-6 space-y-6 rounded-3xl bg-white/14 p-6 text-white ring-1 ring-white/12 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] backdrop-blur-xl">
           <div className="flex flex-wrap items-center gap-3">
             <button
               type="button"
               onClick={toggle}
               disabled={!motionEnabled}
-              className="rounded-2xl border border-white/10 bg-black/40 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-white/30 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+              className="btn-secondary rounded-2xl px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {settings.enabled ? "Disable Melt" : "Enable Melt"}
             </button>
@@ -53,18 +53,16 @@ export default function Theme() {
           <div className="space-y-2">
             <h2 className="text-base font-semibold text-white">Palette</h2>
             <div className="flex flex-wrap gap-2">
-              {["aura", "ocean", "amethyst"].map((option) => {
-                const label = option === "aura" ? "Aura" : option === "ocean" ? "Ocean" : "Amethyst";
+              {["ocean", "aura", "amethyst", "forest"].map((option) => {
+                const label = option === "ocean" ? "Ocean" : option === "aura" ? "Aura" : option === "amethyst" ? "Amethyst" : "Forest";
                 return (
                   <button
                     key={option}
                     type="button"
                     onClick={() => selectPalette(option as MeltPalette)}
                     disabled={!settings.enabled || !motionEnabled}
-                    className={`rounded-2xl px-3 py-1.5 text-sm transition ${
-                      settings.palette === option
-                        ? "border border-white/30 bg-white/15 text-white"
-                        : "border border-white/10 bg-black/30 text-white/70 hover:border-white/30 hover:text-white"
+                    className={`btn-secondary rounded-2xl px-3 py-1.5 text-sm ${
+                      settings.palette === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
                     } disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     {label}
@@ -85,10 +83,8 @@ export default function Theme() {
                     type="button"
                     onClick={() => selectIntensity(option as MeltIntensity)}
                     disabled={!settings.enabled || !motionEnabled}
-                    className={`rounded-2xl px-3 py-1.5 text-sm transition ${
-                      settings.intensity === option
-                        ? "border border-white/30 bg-white/15 text-white"
-                        : "border border-white/10 bg-black/30 text-white/70 hover:border-white/30 hover:text-white"
+                    className={`btn-secondary rounded-2xl px-3 py-1.5 text-sm ${
+                      settings.intensity === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
                     } disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     {label}

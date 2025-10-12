@@ -17,9 +17,9 @@ export function Counters({
       <ul className="mt-4 flex flex-wrap items-center gap-3 max-w-full overflow-hidden">
         {items.map(({ value, label }) => (
           <li key={label} className="shrink min-w-0">
-            <span className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-white/10 ring-1 ring-white/15 text-white/85 whitespace-nowrap">
-              <strong className="tabular-nums text-base font-semibold">{value}</strong>
-              <span className="truncate text-sm text-white/75">{label}</span>
+            <span className="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-white/6 ring-1 ring-white/15 text-white/90 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] backdrop-blur-xl whitespace-nowrap">
+              <strong className="tabular-nums text-base font-semibold text-white">{value}</strong>
+              <span className="truncate text-sm text-white/90">{label}</span>
             </span>
           </li>
         ))}

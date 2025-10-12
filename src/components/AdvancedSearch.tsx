@@ -154,7 +154,7 @@ export default function AdvancedSearch({
       }}
     >
       <div className='absolute inset-0 bg-black/60 backdrop-blur-sm' />
-      <div className='relative z-10 mx-auto mt-10 w-[min(92vw,780px)] rounded-2xl border border-white/10 bg-black/90 p-5 shadow-2xl shadow-black/60'>
+      <div className='relative z-10 mx-auto mt-10 w-[min(92vw,780px)] rounded-2xl bg-white/14 p-5 text-white ring-1 ring-white/12 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] backdrop-blur-xl'>
         <div className='flex items-start justify-between gap-3'>
           <h2 className='text-lg font-semibold bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-transparent'>
             Advanced search
@@ -163,7 +163,7 @@ export default function AdvancedSearch({
             type='button'
             aria-label='Close'
             onClick={onClose}
-            className='rounded border border-white/10 px-2 py-1 transition hover:bg-white/10'
+            className='rounded-md bg-white/6 px-2 py-1 text-sm text-white/90 ring-1 ring-white/15 transition hover:bg-white/9'
           >
             ✕
           </button>
@@ -171,17 +171,17 @@ export default function AdvancedSearch({
 
         <div className='mt-4 grid gap-4 md:grid-cols-2'>
           <label className='block'>
-            <span className='text-sm text-white/80'>Query</span>
+            <span className='text-sm text-white/85'>Query</span>
             <input
               value={q}
               onChange={event => setQ(event.target.value)}
               placeholder='e.g., sleep, GABA, adaptogen'
-              className='mt-1 w-full rounded-lg border border-white/10 bg-white/10 px-3 py-2 text-white placeholder-white/50'
+              className='mt-1 w-full rounded-lg bg-white/14 px-3 py-2 text-white/90 placeholder-white/50 ring-1 ring-white/12 backdrop-blur-xl'
             />
           </label>
 
           <div>
-            <span className='text-sm text-white/80'>Tags</span>
+            <span className='text-sm text-white/85'>Tags</span>
             <div className='mt-1 flex flex-wrap gap-2'>
               {TAG_CATALOG.map(tag => {
                 const normalized = norm(tag)
@@ -191,8 +191,8 @@ export default function AdvancedSearch({
                     key={tag}
                     type='button'
                     onClick={() => toggleTag(tag)}
-                    className={`pill bg-white/10 text-white/80 transition ${
-                      active ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/15'
+                    className={`pill transition ${
+                      active ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/9'
                     }`}
                   >
                     {tag}
@@ -203,25 +203,25 @@ export default function AdvancedSearch({
           </div>
 
           <div>
-            <span className='text-sm text-white/80'>Pregnancy safety</span>
+            <span className='text-sm text-white/85'>Pregnancy safety</span>
             <div className='mt-1 flex items-center gap-2'>
               <button
                 type='button'
-                className={`pill bg-white/10 text-white/80 ${pregSafe === null ? 'ring-1 ring-white/20' : 'hover:bg-white/15'}`}
+                className={`pill ${pregSafe === null ? 'ring-1 ring-white/20' : 'hover:bg-white/9'}`}
                 onClick={() => setPregSafe(null)}
               >
                 Any
               </button>
               <button
                 type='button'
-                className={`pill bg-white/10 text-white/80 ${pregSafe === true ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/15'}`}
+                className={`pill ${pregSafe === true ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/9'}`}
                 onClick={() => setPregSafe(true)}
               >
                 Explicitly safe
               </button>
               <button
                 type='button'
-                className={`pill bg-white/10 text-white/80 ${pregSafe === false ? 'ring-1 ring-rose-300 text-rose-200' : 'hover:bg-white/15'}`}
+                className={`pill ${pregSafe === false ? 'ring-1 ring-rose-300 text-rose-200' : 'hover:bg-white/9'}`}
                 onClick={() => setPregSafe(false)}
               >
                 Show cautions
@@ -230,25 +230,25 @@ export default function AdvancedSearch({
           </div>
 
           <div>
-            <span className='text-sm text-white/80'>MAOI/SSRI interactions</span>
+            <span className='text-sm text-white/85'>MAOI/SSRI interactions</span>
             <div className='mt-1 flex items-center gap-2'>
               <button
                 type='button'
-                className={`pill bg-white/10 text-white/80 ${maoiSsr === null ? 'ring-1 ring-white/20' : 'hover:bg-white/15'}`}
+                className={`pill ${maoiSsr === null ? 'ring-1 ring-white/20' : 'hover:bg-white/9'}`}
                 onClick={() => setMaoiSsr(null)}
               >
                 Any
               </button>
               <button
                 type='button'
-                className={`pill bg-white/10 text-white/80 ${maoiSsr === true ? 'ring-1 ring-amber-300 text-amber-200' : 'hover:bg-white/15'}`}
+                className={`pill ${maoiSsr === true ? 'ring-1 ring-amber-300 text-amber-200' : 'hover:bg-white/9'}`}
                 onClick={() => setMaoiSsr(true)}
               >
                 Must have caution
               </button>
               <button
                 type='button'
-                className={`pill bg-white/10 text-white/80 ${maoiSsr === false ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/15'}`}
+                className={`pill ${maoiSsr === false ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/9'}`}
                 onClick={() => setMaoiSsr(false)}
               >
                 Exclude cautions
@@ -257,8 +257,8 @@ export default function AdvancedSearch({
           </div>
 
           <div className='md:col-span-2'>
-            <span className='text-sm text-white/80'>Intensity range</span>
-            <div className='mt-2 flex flex-wrap items-center gap-3 text-sm text-white/60'>
+            <span className='text-sm text-white/85'>Intensity range</span>
+            <div className='mt-2 flex flex-wrap items-center gap-3 text-sm text-white/75'>
               <input
                 type='range'
                 min={0}
@@ -286,11 +286,11 @@ export default function AdvancedSearch({
         </div>
 
         <div className='mt-5 flex flex-wrap items-center justify-between gap-3 text-sm'>
-          <div className='text-xs text-white/60'>{filtered.length} results</div>
+          <div className='text-xs text-white/75'>{filtered.length} results</div>
           <div className='flex gap-2'>
             <button
               type='button'
-              className='rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 transition hover:bg-white/10'
+              className='btn-secondary rounded-lg px-3 py-1.5'
               onClick={() => {
                 setQ('')
                 setTags([])
@@ -303,7 +303,7 @@ export default function AdvancedSearch({
             </button>
             <button
               type='button'
-              className='rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/30 to-cyan-400/20 px-3 py-1.5 text-sm font-medium text-lime-200 transition hover:from-lime-400/40 hover:to-cyan-400/30'
+              className='btn-primary rounded-lg px-3 py-1.5'
               onClick={() => {
                 onApply(filtered)
                 onClose()

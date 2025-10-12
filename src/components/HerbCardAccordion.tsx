@@ -72,14 +72,14 @@ export default function HerbCardAccordion({ herb }: Props) {
     ? `${intensityLevel.charAt(0).toUpperCase()}${intensityLevel.slice(1)}`
     : ''
   const intensityTone = intensityLevel.includes('strong')
-    ? 'bg-rose-500/15 text-rose-200'
+    ? 'bg-rose-500/20 text-rose-100 ring-1 ring-rose-300/40'
     : intensityLevel.includes('moderate')
-    ? 'bg-amber-500/15 text-amber-200'
+    ? 'bg-amber-500/20 text-amber-100 ring-1 ring-amber-300/40'
     : intensityLevel.includes('mild')
-    ? 'bg-emerald-500/15 text-emerald-200'
+    ? 'bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-300/40'
     : intensityLevel.includes('variable')
-    ? 'bg-sky-500/15 text-sky-200'
-    : 'bg-white/10 text-white/80'
+    ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
+    : 'bg-white/6 text-white/90 ring-1 ring-white/15'
   const benefits = (herb as any).benefits ? String((herb as any).benefits).trim() : ''
   const descriptionText = (herb.description || herbBlurbs[herbName(herb)] || '').trim()
   const hasInfo = Boolean(
@@ -132,7 +132,7 @@ export default function HerbCardAccordion({ herb }: Props) {
       role='button'
       tabIndex={0}
       aria-expanded={expanded}
-      className='glassmorphic-card herb-card-surface soft-border-glow group relative cursor-pointer overflow-hidden p-4 text-shadow text-gray-100'
+      className='group relative cursor-pointer overflow-hidden rounded-3xl bg-white/14 p-4 text-shadow text-gray-100 ring-1 ring-white/12 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] backdrop-blur-xl'
     >
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-lg border-2 border-fuchsia-500/40 dark:rounded-2xl'
@@ -145,7 +145,7 @@ export default function HerbCardAccordion({ herb }: Props) {
           e.stopPropagation()
           toggle(herb.id)
         }}
-        className='hover-glow absolute right-3 top-3 rounded-full bg-black/40 p-1 text-sand backdrop-blur-md hover:bg-white/10'
+        className='hover-glow absolute right-3 top-3 rounded-full bg-white/6 p-1 text-sand ring-1 ring-white/15 backdrop-blur-xl hover:bg-white/9'
         aria-label='Toggle favorite'
       >
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
@@ -190,7 +190,7 @@ export default function HerbCardAccordion({ herb }: Props) {
           </span>
         )}
         {benefits && (
-          <span className='pill bg-white/10 text-[12px] text-white/80'>{benefits}</span>
+          <span className='pill text-[12px]'>{benefits}</span>
         )}
       </div>
 

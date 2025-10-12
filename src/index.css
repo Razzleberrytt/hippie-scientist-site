@@ -94,10 +94,11 @@ a:hover {
 }
 
 .blur-panel {
-  background: color-mix(in oklab, var(--surface-c) 85%, transparent 15%);
-  border: 1px solid var(--border-c);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(28px);
   border-radius: 1.25rem;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
 }
 
 .h1-grad {
@@ -215,17 +216,56 @@ svg {
   }
 
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 h-9 text-sm text-white/80 transition hover:bg-white/10 hover:text-white;
+    @apply inline-flex items-center gap-2 rounded-full px-3 h-9 text-sm text-white/90 ring-1 ring-white/15 transition;
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .pill:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+    color: rgb(255 255 255 / 1);
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium text-white bg-accent-600 hover:bg-accent-500 active:bg-accent-700 shadow-glow transition;
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium text-white bg-teal-500/90 hover:bg-teal-400 ring-1 ring-white/20 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] transition;
   }
 
-  .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium text-accent-200 border border-accent-600/30 hover:bg-accent-600/10 transition;
+  .btn-ghost,
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium text-white/90 ring-1 ring-white/15 transition;
+    background-color: rgba(255, 255, 255, 0.06);
   }
 
+  .btn-ghost:hover,
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+  }
+
+}
+
+@layer utilities {
+  .bg-white\/6 {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .bg-white\/9 {
+    background-color: rgba(255, 255, 255, 0.09);
+  }
+
+  .bg-white\/14 {
+    background-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .bg-white\/16 {
+    background-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .ring-white\/12 {
+    --tw-ring-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .ring-white\/15 {
+    --tw-ring-color: rgba(255, 255, 255, 0.15);
+  }
 }
 
 /* Respect user motion settings */
@@ -255,7 +295,7 @@ body {
 }
 
 .glass {
-  @apply backdrop-blur-md ring-1 ring-white/10 bg-white/5 dark:bg-slate-900/30 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.45)];
+  @apply backdrop-blur-xl ring-1 ring-white/12 bg-white/14 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)];
 }
 
 @keyframes gradient-border-pan {

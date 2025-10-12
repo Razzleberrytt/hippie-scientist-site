@@ -21,12 +21,14 @@ float fbm(vec2 p){
   return v;
 }
 vec3 palette(int idx, float t){
-  if(idx==0){ // aura
-    return mix(vec3(0.05,0.1,0.2), vec3(0.4,0.8,0.7), t);
-  }else if(idx==1){ // ocean
-    return mix(vec3(0.03,0.08,0.18), vec3(0.2,0.6,0.95), t);
-  } // amethyst
-  return mix(vec3(0.07,0.02,0.12), vec3(0.9,0.5,0.95), t);
+  if(idx==0){
+    return mix(vec3(0.05,0.35,0.30), vec3(0.10,0.75,0.85), t);
+  }else if(idx==1){
+    return mix(vec3(0.02,0.20,0.28), vec3(0.15,0.35,0.95), t);
+  }else if(idx==2){
+    return mix(vec3(0.24,0.10,0.40), vec3(0.95,0.25,0.65), t);
+  }
+  return mix(vec3(0.02,0.10,0.06), vec3(0.20,0.85,0.55), t);
 }
 void main(){
   vec2 uv = (gl_FragCoord.xy / u_res.xy);
@@ -51,6 +53,7 @@ const paletteLookup: Record<MeltPalette, number> = {
   aura: 0,
   ocean: 1,
   amethyst: 2,
+  forest: 3,
 };
 
 const gainLookup: Record<MeltIntensity, number> = {
@@ -60,9 +63,9 @@ const gainLookup: Record<MeltIntensity, number> = {
 };
 
 const speedLookup: Record<MeltIntensity, number> = {
-  low: 0.6,
-  med: 1.0,
-  high: 1.6,
+  low: 0.15,
+  med: 0.28,
+  high: 0.45,
 };
 
 type MeltCanvasProps = {
@@ -73,7 +76,7 @@ type MeltCanvasProps = {
 
 export function MeltCanvas({
   intensity = "med",
-  palette = "aura",
+  palette = "ocean",
   active = true,
 }: MeltCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
