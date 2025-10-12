@@ -1,34 +1,44 @@
-// Minimal, provider-agnostic LLM POST client.
-// Configure via env: LLM_API_URL, LLM_API_KEY, LLM_MODEL
-import fs from "fs";
+import process from "node:process";
 
-export async function llmGenerate({ system, user, json=false }) {
-  const url   = process.env.LLM_API_URL;   // e.g., https://api.openai.com/v1/chat/completions
-  const key   = process.env.LLM_API_KEY;
+export function getAiEnv() {
+  const url = process.env.LLM_API_URL || "";
+  const key = process.env.LLM_API_KEY || "";
   const model = process.env.LLM_MODEL || "gpt-4o-mini";
+  return { url, key, model };
+}
 
-  if (!url || !key) throw new Error("Missing LLM_API_URL or LLM_API_KEY");
+export function haveAiSecrets() {
+  const { url, key } = getAiEnv();
+  return Boolean(url && key);
+}
 
-  const body = url.includes("chat")
-    ? { model, temperature: 0.7, response_format: json ? { type: "json_object" } : undefined,
-        messages: [{ role:"system", content:system }, { role:"user", content:user }] }
-    : { model, input: [{ role:"system", content:system }, { role:"user", content:user }] };
+export async function promptLLM({ system, prompt }) {
+  const { url, key, model } = getAiEnv();
+  if (!url || !key) {
+    throw new Error("LLM disabled: set LLM_API_URL and LLM_API_KEY to enable.");
+  }
 
-  const r = await fetch(url, {
+  const res = await fetch(`${url}/v1/chat/completions`, {
     method: "POST",
-    headers: { "Authorization": `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify(body)
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${key}`
+    },
+    body: JSON.stringify({
+      model,
+      messages: [
+        system ? { role: "system", content: system } : null,
+        { role: "user", content: prompt }
+      ].filter(Boolean),
+      temperature: 0.7
+    })
   });
-  if (!r.ok) throw new Error(`LLM HTTP ${r.status}: ${await r.text()}`);
 
-  const data = await r.json();
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`LLM request failed: ${res.status} ${res.statusText} ${text}`);
+  }
 
-  // Try a few shapes without binding to a specific vendor.
-  const content =
-    data.choices?.[0]?.message?.content ??
-    data.output?.[0]?.content ??
-    data.choices?.[0]?.text ??
-    JSON.stringify(data);
-
-  return content;
+  const json = await res.json();
+  return json.choices?.[0]?.message?.content?.trim() ?? "";
 }

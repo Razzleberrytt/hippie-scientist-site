@@ -1,7 +1,17 @@
 // Generates one MDX blog post and saves to src/content/blog/YYYY-MM-DD-slug.mdx
 import fs from "fs";
 import path from "path";
-import { llmGenerate } from "./ai-client.mjs";
+import { haveAiSecrets, promptLLM } from "./ai-client.mjs";
+
+if (process.env.SKIP_AI_GENERATE === "true") {
+  console.log("⏭  Skipping AI post generation (SKIP_AI_GENERATE=true).");
+  process.exit(0);
+}
+
+if (!haveAiSecrets()) {
+  console.log("⏭  Skipping AI post generation (no LLM secrets present).");
+  process.exit(0);
+}
 
 const HERBS_PATH = "src/data/herbs/herbs.normalized.json";
 const OUT_DIR = "src/content/blog";
@@ -111,7 +121,7 @@ Constraints:
 `;
 
 // Ask the model.
-const content = await llmGenerate({ system, user });
+const content = await promptLLM({ system, prompt: user });
 
 // Validate a bit.
 if (!/^---\s*[\s\S]+?---/.test(content)) {

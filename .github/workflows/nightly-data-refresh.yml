@@ -24,6 +24,8 @@ jobs:
           node-version: "20"
           cache: "npm"
 
+      - run: corepack enable
+
       - name: Install
         run: npm ci
 
@@ -79,7 +81,7 @@ jobs:
         shell: bash
 
       - name: Create or update PR
-        id: pr
+        id: create_pr
         if: always()
         uses: peter-evans/create-pull-request@v6
         with:
@@ -94,21 +96,16 @@ jobs:
             scripts/out/**
 
       - name: Enable auto-merge (if coverage OK)
-        if: steps.check.outputs.can_merge == 'true' && steps.pr.outputs.pull-request-number != ''
+        if: steps.check.outputs.can_merge == 'true' && steps.create_pr.outputs.pull-request-number != ''
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          pull-request-number: ${{ steps.pr.outputs.pull-request-number }}
+          pull-request-number: ${{ steps.create_pr.outputs.pull-request-number }}
           merge-method: squash
 
-      - name: Deploy (if merged)
-        if: steps.check.outputs.can_merge == 'true' && steps.pr.outputs.pull-request-number != ''
-        run: |
-          echo "🚀 Deploying..."
-          npm run build
-          # Example for Netlify CLI (or adapt for Vercel)
-          # npm i -g netlify-cli
-          # netlify deploy --prod --dir=dist --message "Nightly auto-deploy $(date -u +'%Y-%m-%d')"
+      - name: Deploy (optional)
+        if: steps.create_pr.outputs.pull-request-number == ''
+        run: echo "No changes to deploy."
 
       - name: Upload coverage artifact
         if: always()
