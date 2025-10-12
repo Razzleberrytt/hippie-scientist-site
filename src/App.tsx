@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -28,6 +28,7 @@ import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
 import Theme from './pages/Theme';
 import { useTrippy } from '@/lib/trippy';
+import GlobalMelt from '@/components/GlobalMelt';
 // Import other pages as needed
 
 export default function App() {
@@ -35,35 +36,38 @@ export default function App() {
   const { level } = useTrippy();
   const trippyActive = level !== "off";
   return (
-    <div className="min-h-screen overflow-x-hidden text-text">
-      <RedirectHandler />
-      {trippyActive && <TrippyBackground />}
-      {trippyActive && <AmbientCursor />}
-      <Routes>
-        <Route element={<RootLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/database" element={<Database />} />
-          <Route path="/blend" element={<BuildBlend />} />
-          <Route path="/build" element={<BuildBlend />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/newsletter" element={<Newsletter />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* Add other routes here */}
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/theme" element={<Theme />} />
-          <Route path="/herb-index" element={<HerbIndex />} />
-          <Route path="/herb/:slug" element={<HerbDetail />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/data-report" element={<DataReport />} />
-          <Route path="/data-fix" element={<DataFix />} />
-          <Route path="/sitemap" element={<Sitemap />} />
-        </Route>
-        <Route path="/graph" element={<GraphPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    <HashRouter>
+      <GlobalMelt />
+      <div className="relative min-h-screen overflow-x-hidden text-text">
+        <RedirectHandler />
+        {trippyActive && <TrippyBackground />}
+        {trippyActive && <AmbientCursor />}
+        <Routes>
+          <Route element={<RootLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/database" element={<Database />} />
+            <Route path="/blend" element={<BuildBlend />} />
+            <Route path="/build" element={<BuildBlend />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* Add other routes here */}
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/theme" element={<Theme />} />
+            <Route path="/herb-index" element={<HerbIndex />} />
+            <Route path="/herb/:slug" element={<HerbDetail />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/data-report" element={<DataReport />} />
+            <Route path="/data-fix" element={<DataFix />} />
+            <Route path="/sitemap" element={<Sitemap />} />
+          </Route>
+          <Route path="/graph" element={<GraphPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </HashRouter>
   );
 }
 
@@ -75,7 +79,7 @@ function RootLayout() {
       <Header />
       <main
         id="main"
-        className="flex-1"
+        className="relative z-0 flex-1"
       >
         <AnimatePresence mode="wait">
           <motion.div

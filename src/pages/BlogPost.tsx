@@ -42,64 +42,68 @@ export default function BlogPost() {
   if (error) {
     return (
       <main className="container-page py-8">
-        <p className="text-red-400">{error}</p>
-        <a className="underline" href="/#/blog">
-          ← Back to blog
-        </a>
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl sm:p-8">
+          <p className="text-red-400">{error}</p>
+          <a className="underline" href="/#/blog">
+            ← Back to blog
+          </a>
+        </div>
       </main>
     );
   }
 
   return (
     <main className="container-page py-8">
-      <header className="mb-8">
-        <a href="/#/blog" className="text-sm text-accent-300 hover:text-accent-200">
-          ← Back to Blog
-        </a>
-        <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-white">
-          {meta?.title || "Loading…"}
-        </h1>
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl sm:p-8">
+        <header className="mb-8">
+          <a href="/#/blog" className="text-sm text-accent-300 hover:text-accent-200">
+            ← Back to Blog
+          </a>
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-white">
+            {meta?.title || "Loading…"}
+          </h1>
 
-        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/60">
-          {meta?.date && <time dateTime={meta.date}>{formatDate(meta.date)}</time>}
-          {meta?.readingTime && <span aria-hidden="true">•</span>}
-          {meta?.readingTime && <span>{meta.readingTime}</span>}
-          {meta?.tags?.length ? (
-            <>
-              <span aria-hidden="true">•</span>
-              <ul className="flex flex-wrap gap-2">
-                {meta.tags.map((t) => (
-                  <li
-                    key={t}
-                    className="chip border-white/15 bg-white/5 px-2 py-0.5 text-xs text-white/70"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : null}
-        </div>
-      </header>
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/60">
+            {meta?.date && <time dateTime={meta.date}>{formatDate(meta.date)}</time>}
+            {meta?.readingTime && <span aria-hidden="true">•</span>}
+            {meta?.readingTime && <span>{meta.readingTime}</span>}
+            {meta?.tags?.length ? (
+              <>
+                <span aria-hidden="true">•</span>
+                <ul className="flex flex-wrap gap-2">
+                  {meta.tags.map((t) => (
+                    <li
+                      key={t}
+                      className="chip border-white/15 bg-white/5 px-2 py-0.5 text-xs text-white/70"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+          </div>
+        </header>
 
-      {/* Markdown HTML */}
-      <article
-        className="
-          prose prose-invert max-w-none
-          prose-a:text-accent-200 hover:prose-a:text-accent-100
-          prose-strong:text-white prose-li:marker:text-white/50
-          prose-blockquote:text-white/70 prose-blockquote:border-l-white/30
-          prose-pre:bg-black/60 prose-code:text-pink-300
-          prose-headings:scroll-mt-24 prose-img:rounded-xl
-        "
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+        {/* Markdown HTML */}
+        <article
+          className="
+            prose prose-invert max-w-none
+            prose-a:text-accent-200 hover:prose-a:text-accent-100
+            prose-strong:text-white prose-li:marker:text-white/50
+            prose-blockquote:text-white/70 prose-blockquote:border-l-white/30
+            prose-pre:bg-black/60 prose-code:text-pink-300
+            prose-headings:scroll-mt-24 prose-img:rounded-xl
+          "
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
 
-      <footer className="mt-10 border-t border-white/10 pt-6">
-        <p className="text-xs text-white/50">
-          Educational content only. Not medical advice. Consult a qualified professional before use.
-        </p>
-      </footer>
+        <footer className="mt-10 border-t border-white/10 pt-6">
+          <p className="text-xs text-white/50">
+            Educational content only. Not medical advice. Consult a qualified professional before use.
+          </p>
+        </footer>
+      </div>
     </main>
   );
 }

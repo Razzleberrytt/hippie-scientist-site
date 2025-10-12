@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -26,12 +25,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HelmetProvider>
       <ErrorBoundary>
-        {/* HashRouter prevents 404 on refresh by using URL hash for routing */}
-        <HashRouter>
-          <TrippyProvider>
-            <App />
-          </TrippyProvider>
-        </HashRouter>
+        <TrippyProvider>
+          <App />
+        </TrippyProvider>
       </ErrorBoundary>
     </HelmetProvider>
   </React.StrictMode>
