@@ -40,6 +40,9 @@
     "sync:blog": "npm run build:blog && node scripts/generate-sitemap.mjs public",
     "dev:blog:watch": "node -e \"require('chokidar').watch('content/blog').on('all',()=>console.log('[blog] change'),()=>{});\""
   },
+  "engines": {
+    "node": ">=20.19.0 <21"
+  },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "@tsparticles/engine": "^3.8.1",

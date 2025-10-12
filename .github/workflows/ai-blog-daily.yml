@@ -20,15 +20,22 @@ jobs:
           node-version: 20
           cache: npm
 
+      - run: corepack enable
+
       - run: npm ci
 
       # Generate one post
       - name: Generate MDX post via LLM
+        if: ${{ secrets.LLM_API_URL != '' && secrets.LLM_API_KEY != '' }}
         run: node scripts/ai-generate-post.mjs
         env:
           LLM_API_URL: ${{ secrets.LLM_API_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_MODEL:   ${{ secrets.LLM_MODEL }}
+          LLM_MODEL:   ${{ vars.LLM_MODEL }}
+
+      - name: Skip message when secrets are missing
+        if: ${{ !(secrets.LLM_API_URL != '' && secrets.LLM_API_KEY != '') }}
+        run: echo "LLM secrets not configured; skipping AI post generation."
 
       # Rebuild posts.json from MDX
       - name: Build blog dataset
