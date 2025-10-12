@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import NavLink from "./NavLink";
-import MeltToggle from "./MeltToggle";
 
 const navLinks = [
   { to: "/database", label: "Browse" },
@@ -33,7 +32,6 @@ export default function SiteHeader({ subtleOnHome = false }: Props) {
               {link.label}
             </NavLink>
           ))}
-          <MeltToggle className="px-3" />
         </nav>
       </div>
     </header>

@@ -248,11 +248,6 @@ footer .legal-faint {
   }
 }
 
-#melt-canvas {
-  z-index: -1;
-  pointer-events: none;
-}
-
 html,
 body {
   width: 100%;
@@ -261,4 +256,35 @@ body {
 
 .glass {
   @apply backdrop-blur-md ring-1 ring-white/10 bg-white/5 dark:bg-slate-900/30 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.45)];
+}
+
+@keyframes gradient-border-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-border {
+  position: relative;
+  border-radius: 28px;
+  padding: 1px;
+  background: linear-gradient(130deg, rgba(67, 227, 255, 0.6), rgba(173, 123, 255, 0.65), rgba(255, 144, 189, 0.6));
+  background-size: 220% 220%;
+  animation: gradient-border-pan 42s linear infinite;
+}
+
+.animated-border > * {
+  border-radius: 27px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-border {
+    animation: none;
+  }
 }
