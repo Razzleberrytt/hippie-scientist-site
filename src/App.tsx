@@ -34,7 +34,7 @@ export default function App() {
   useGA();
   const { level } = useTrippy();
   return (
-    <div id="app-root" className="min-h-screen" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
+    <div id="app-root">
       <Layout>
         <div className="relative z-10">
           <RedirectHandler />
@@ -75,10 +75,7 @@ function RootLayout() {
   return (
     <div className="relative flex min-h-screen flex-col">
       <Header />
-      <main
-        id="main"
-        className="relative z-10 flex-1"
-      >
+      <main id="main" className="main relative z-10 flex-1">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

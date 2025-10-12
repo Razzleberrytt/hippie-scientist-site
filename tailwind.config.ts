@@ -5,7 +5,14 @@ const config: Config = {
   darkMode: "class",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+    },
     extend: {
+      screens: {
+        "2xl": "1320px",
+      },
       colors: {
         bg: {
           DEFAULT: "hsl(var(--bg) / <alpha-value>)",

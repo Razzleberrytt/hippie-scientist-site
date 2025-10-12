@@ -7,6 +7,15 @@
     max-width: 100%;
     overflow-x: hidden;
   }
+
+  /* Ensure layout shells never exceed the viewport width */
+  .site-shell,
+  .main,
+  .page-wrap {
+    position: relative;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 @layer components {
@@ -33,4 +42,10 @@
   .pill .count {
     @apply inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-white/10 px-2 text-[12px] font-semibold text-white;
   }
+}
+
+/* If some 3rd-party element still bleeds, this keeps it invisible horizontally */
+.no-x-bleed {
+  max-width: 100%;
+  overflow-x: hidden;
 }

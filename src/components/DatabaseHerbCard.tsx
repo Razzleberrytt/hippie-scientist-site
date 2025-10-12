@@ -103,15 +103,22 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   if (sources.length) sections.push({ label: "Sources", content: sources });
 
   return (
-    <motion.article
-      initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="glass will-change-transform overflow-hidden p-5 text-neutral-100/85 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] sm:p-6"
+    <div
+      className={clsx(
+        "w-full max-w-[48rem] mx-auto mb-6 overflow-hidden rounded-3xl",
+        "bg-white/6 dark:bg-white/5 backdrop-blur-md ring-1 ring-white/10",
+        "shadow-[0_10px_40px_-10px_rgba(0,0,0,0.45)]",
+      )}
     >
-      <header className="space-y-2">
-        <h2 className="text-xl font-semibold tracking-tight text-neutral-100 sm:text-2xl">{heading}</h2>
-        {secondary && <p className="text-sm italic text-neutral-100/60">{secondary}</p>}
+      <motion.article
+        initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="will-change-transform p-5 text-neutral-100/85 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] sm:p-6"
+      >
+        <header className="space-y-2">
+          <h2 className="text-xl font-semibold tracking-tight text-neutral-100 sm:text-2xl">{heading}</h2>
+          {secondary && <p className="text-sm italic text-neutral-100/60">{secondary}</p>}
 
         {(chips.length > 0 || intensityLabel || benefits) && (
           <div className="mt-3 flex flex-wrap gap-2">
@@ -187,6 +194,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
           <span className="pointer-events-none absolute -inset-8 rounded-full bg-emerald-400/10 blur-2xl" />
         </a>
       </div>
-    </motion.article>
+      </motion.article>
+    </div>
   );
 }

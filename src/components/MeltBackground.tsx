@@ -69,11 +69,13 @@ export default function MeltBackground() {
   }, []);
 
   return (
-    <canvas
-      ref={ref}
-      id="melt-canvas"
-      className="fixed inset-0 -z-10 pointer-events-none select-none"
+    <div
+      id="melt-bg"
+      className="pointer-events-none fixed inset-0 z-0 h-screen w-screen overflow-hidden"
+      style={{ contain: "strict" }}
       aria-hidden="true"
-    />
+    >
+      <canvas ref={ref} id="melt-canvas" className="h-full w-full select-none" />
+    </div>
   );
 }
