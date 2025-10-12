@@ -15,16 +15,6 @@
     @apply mx-auto w-full max-w-screen-lg px-4 sm:px-6 lg:px-8;
   }
 
-  /* Glass UI – slightly less transparent, stronger edge */
-  .glass {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(18, 22, 28, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    border-radius: 1.5rem;
-  }
-
   .glass-card {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);

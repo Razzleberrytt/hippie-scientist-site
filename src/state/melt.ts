@@ -26,7 +26,9 @@ export const melt: MeltState = {
     try {
       localStorage.setItem(KEY, v ? "1" : "0");
     } catch {}
-    document.documentElement.classList.toggle("melt-on", v);
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.toggle("melt", v);
+    }
     notify();
   },
   toggle() {
@@ -39,5 +41,5 @@ export const melt: MeltState = {
 };
 
 if (typeof document !== "undefined") {
-  document.documentElement.classList.toggle("melt-on", current);
+  document.documentElement.classList.toggle("melt", current);
 }

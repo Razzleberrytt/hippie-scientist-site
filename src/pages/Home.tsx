@@ -3,6 +3,7 @@ import Meta from '../components/Meta'
 import Hero from '../components/Hero'
 import StatRow from '../components/StatRow'
 import { siteStats } from '../lib/stats'
+import NewsletterCard from '@/components/NewsletterCard'
 
 export default function Home() {
   return (
@@ -30,24 +31,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='container-safe mt-12' aria-label='Newsletter signup'>
-        <div className='glass p-5 sm:p-6'>
-          <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
-            <div>
-              <h2 className='text-2xl font-semibold tracking-tight'>Stay in the loop</h2>
-              <p className='mt-1 text-sm text-neutral-100/70 sm:text-base'>
-                Get field notes on new psychoactive herbs, blends, and research drops.
-              </p>
-            </div>
-            <a
-              className='btn-primary shrink-0'
-              href='/#/newsletter'
-            >
-              Join the newsletter
-            </a>
-          </div>
-        </div>
-      </section>
+      <div className='container-safe' aria-label='Newsletter signup'>
+        <NewsletterCard />
+      </div>
     </>
   )
 }
