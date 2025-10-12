@@ -11,5 +11,5 @@ export default function AmbientCursor() {
     return () => window.removeEventListener("pointermove", move);
   }, []);
 
-  return <div className="pointer-events-none fixed inset-0 z-50 mix-blend-overlay" />;
+  return <div className="pointer-events-none fixed inset-0 z-50" />;
 }

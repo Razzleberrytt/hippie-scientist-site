@@ -106,16 +106,16 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
       initial={reduceMotion ? false : { opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="glass-card will-change-transform rounded-3xl border border-white/10 bg-white/5 p-5 text-white/80 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] sm:p-6"
+      className="glass-card will-change-transform p-5 text-neutral-100/80 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] sm:p-6"
     >
       <header className="space-y-2">
-        <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">{heading}</h2>
-        {secondary && <p className="text-sm italic text-white/60">{secondary}</p>}
+        <h2 className="text-xl font-semibold tracking-tight text-neutral-100 sm:text-2xl">{heading}</h2>
+        {secondary && <p className="text-sm italic text-neutral-100/60">{secondary}</p>}
 
         {(chips.length > 0 || intensityLabel || benefits) && (
           <div className="mt-3 flex flex-wrap gap-2">
             {chips.map((chip) => (
-              <span key={chip} className="chip text-white/80 text-xs">
+              <span key={chip} className="chip text-neutral-100/80 text-xs">
                 {chip}
               </span>
             ))}
@@ -123,14 +123,14 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
               <span className={`${intensityChipClass} text-xs`}>INTENSITY: {intensityLabel}</span>
             )}
             {benefits && (
-              <span className="chip text-white/80 text-xs">{benefits}</span>
+              <span className="chip text-neutral-100/80 text-xs">{benefits}</span>
             )}
           </div>
         )}
       </header>
 
       {summary && (
-        <p className={`mt-3 text-sm leading-relaxed text-text/80 sm:text-base ${open ? '' : 'line-clamp-3'}`}>
+        <p className={`mt-3 text-sm leading-relaxed text-neutral-100/70 sm:text-base ${open ? '' : 'line-clamp-3'}`}>
           {summary}
         </p>
       )}
@@ -141,7 +141,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
             <div key={index}>
               <p className="text-xs font-semibold uppercase tracking-wide text-mute">{section.label}</p>
               {Array.isArray(section.content) ? (
-                <ul className="mt-1 list-disc list-inside space-y-1 text-sm text-text/80">
+                <ul className="mt-1 list-inside list-disc space-y-1 text-sm text-neutral-100/70">
                   {section.content.map((item, i) => {
                     const isUrl = /^https?:\/\//i.test(item);
                     return (
@@ -163,7 +163,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
                   })}
                 </ul>
               ) : (
-                <p className="mt-1 text-sm text-text/80">{section.content}</p>
+                <p className="mt-1 text-sm text-neutral-100/70">{section.content}</p>
               )}
             </div>
           ))}
