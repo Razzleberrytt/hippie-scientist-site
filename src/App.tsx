@@ -23,6 +23,7 @@ import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
 import AmbientCursor from './components/AmbientCursor';
 import MeltBackground from '@/components/MeltBackground';
+import ShimmerOverlay from '@/components/ShimmerOverlay';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
@@ -36,6 +37,7 @@ export default function App() {
   return (
     <div className="app-shell relative min-h-screen overflow-x-hidden bg-transparent text-text">
       <MeltBackground />
+      <ShimmerOverlay />
       <div className="relative z-10">
         <RedirectHandler />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/20 via-black/10 to-transparent" />
