@@ -35,6 +35,64 @@ html.melt-on .glass-card {
   box-shadow: 0 0 40px rgba(120, 0, 255, 0.16);
 }
 
+/* ── Melt Harmony (UI depth + glow sync) ───────────────────────────── */
+html.melt-on {
+  --melt-glow: hsl(var(--hue, 240deg), 90%, 70%);
+  --melt-glow-soft: hsl(var(--hue, 240deg), 90%, 80%, 0.2);
+  --melt-glow-border: hsl(var(--hue, 240deg), 90%, 65%, 0.4);
+}
+
+html.melt-on .glass-card,
+html.melt-on .blog-card,
+html.melt-on .herb-card {
+  position: relative;
+  transform: perspective(800px)
+             rotateX(calc(var(--melt-tilt-y, 0deg) * -0.1))
+             rotateY(calc(var(--melt-tilt-x, 0deg) * 0.1))
+             translate(var(--melt-shift-x, 0), var(--melt-shift-y, 0));
+  transition: transform 0.4s ease, box-shadow 1s ease;
+  box-shadow:
+    0 0 25px var(--melt-glow-soft),
+    0 0 40px var(--melt-glow-border);
+  border: 1px solid var(--melt-glow-border);
+}
+
+html.melt-on button,
+html.melt-on .btn-primary {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--hue, 0deg), 90%, 60%) 0%,
+    hsl(calc(var(--hue, 0deg) + 120deg), 90%, 55%) 100%
+  );
+  box-shadow: 0 0 18px var(--melt-glow-border);
+  color: white;
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.6s ease;
+}
+
+html.melt-on button:hover {
+  transform: scale(1.04);
+  filter: brightness(1.1);
+}
+
+html.melt-on button:focus-visible {
+  outline: 2px solid var(--melt-glow);
+  outline-offset: 2px;
+}
+
+html.melt-on h1,
+html.melt-on h2,
+html.melt-on h3 {
+  text-shadow: 0 0 20px var(--melt-glow-soft);
+}
+
+html:not(.melt-on) .glass-card,
+html:not(.melt-on) .blog-card,
+html:not(.melt-on) .herb-card {
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(255,255,255,0.05);
+}
+
 /* ── Shimmer Overlay (Magic Dust) ─────────────────────────────── */
 /* lightweight animated grain + star specks with breathing flicker */
 .shimmer-layer {

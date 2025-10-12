@@ -24,6 +24,7 @@ import ConsentBanner from './components/ConsentBanner';
 import AmbientCursor from './components/AmbientCursor';
 import MeltBackground from '@/components/MeltBackground';
 import ShimmerOverlay from '@/components/ShimmerOverlay';
+import useMeltMotion from '@/hooks/useMeltMotion';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
@@ -33,6 +34,7 @@ import { useTrippy } from '@/lib/trippy';
 
 export default function App() {
   useGA();
+  useMeltMotion();
   const { level } = useTrippy();
   return (
     <div className="app-shell relative min-h-screen overflow-x-hidden bg-transparent text-text">
