@@ -8,27 +8,25 @@ type HeroProps = { children?: ReactNode };
 export default function Hero({ children }: HeroProps) {
   const reduceMotion = useReducedMotion();
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-white/5 py-10 backdrop-blur-md ring-1 ring-white/10 sm:py-14">
+    <section className="relative mx-auto mt-8 max-w-3xl overflow-hidden rounded-3xl bg-gradient-to-b from-white/5 via-white/30 to-transparent p-6 backdrop-blur-xl ring-1 ring-white/10 shadow-[0_0_50px_rgba(0,0,0,0.2)] sm:p-10">
       <BackgroundAurora />
-      <div className="container-page relative z-10">
-        <div className="max-w-3xl">
-          <motion.h1
-            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className={`text-4xl font-extrabold tracking-tight text-white ${reduceMotion ? "" : "animate-hue"} sm:text-5xl lg:text-6xl`}
-          >
-            The Hippie Scientist
-          </motion.h1>
-          <motion.p
-            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={reduceMotion ? { duration: 0 } : { delay: 0.05 }}
-            className="mt-3 text-base text-white/80 sm:text-lg"
-          >
-            Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
-          </motion.p>
-        </div>
+      <div className="relative z-10">
+        <motion.h1
+          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={`text-4xl font-bold text-white drop-shadow-lg sm:text-5xl lg:text-6xl ${reduceMotion ? "" : "animate-hue"}`}
+        >
+          The Hippie Scientist
+        </motion.h1>
+        <motion.p
+          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={reduceMotion ? { duration: 0 } : { delay: 0.05 }}
+          className="mt-3 text-base text-white/80 sm:text-lg"
+        >
+          Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
+        </motion.p>
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <a href={toHash('/database')} className="btn-primary">🌿 Browse Herbs</a>
