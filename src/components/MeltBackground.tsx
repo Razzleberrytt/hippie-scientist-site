@@ -1,4 +1,32 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
+
+const wrapperStyle: CSSProperties = {
+  position: "fixed",
+  inset: "env(safe-area-inset-top) 0 0 0",
+  left: 0,
+  right: 0,
+  bottom: 0,
+  width: "100vw",
+  height: "100vh",
+  overflow: "hidden",
+  pointerEvents: "none",
+  zIndex: 0,
+  WebkitTransform: "translateZ(0)",
+  transform: "translateZ(0)",
+  willChange: "transform, opacity",
+};
+
+const canvasStyle: CSSProperties = {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100vw",
+  height: "100vh",
+  maxWidth: "100vw",
+  maxHeight: "100vh",
+  pointerEvents: "none",
+  display: "block",
+};
 
 export default function MeltBackground() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -9,10 +37,10 @@ export default function MeltBackground() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const resize = () => {
-      c.width = innerWidth * dpr;
-      c.height = innerHeight * dpr;
-      c.style.width = "100%";
-      c.style.height = "100%";
+      c.width = Math.round(window.innerWidth * dpr);
+      c.height = Math.round(window.innerHeight * dpr);
+      c.style.width = "100vw";
+      c.style.height = "100vh";
     };
     resize();
     window.addEventListener("resize", resize);
@@ -56,5 +84,9 @@ export default function MeltBackground() {
     };
   }, []);
 
-  return <canvas ref={ref} className="fixed inset-0 -z-10 pointer-events-none opacity-90" aria-hidden />;
+  return (
+    <div style={wrapperStyle} aria-hidden>
+      <canvas ref={ref} style={canvasStyle} className="opacity-90" />
+    </div>
+  );
 }

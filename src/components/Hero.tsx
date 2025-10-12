@@ -8,7 +8,19 @@ type HeroProps = { children?: ReactNode };
 export default function Hero({ children }: HeroProps) {
   const reduceMotion = useReducedMotion();
   return (
-    <section className="glass-card relative overflow-hidden p-6 sm:p-8 md:p-10">
+    <section
+      className="relative rounded-[28px] backdrop-blur-md p-6 sm:p-8 md:p-10"
+      style={{
+        background: "rgba(20,24,28,0.55)",
+        border: "1px solid rgba(255,255,255,0.08)",
+        boxShadow:
+          "0 10px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06)",
+        overflow: "hidden",
+        maxWidth: "min(100%, 1080px)",
+        margin: "0 auto",
+        contain: "paint",
+      }}
+    >
       <BackgroundAurora />
       <div className="relative z-10">
         <motion.h1
