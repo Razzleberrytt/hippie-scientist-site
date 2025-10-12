@@ -1,6 +1,7 @@
 // src/components/Header.tsx
 import { useEffect } from "react";
 import MeltToggle from "./MeltToggle";
+import { melt } from "@/state/melt";
 import { useTrippy } from "@/lib/trippy";
 
 const links = [
@@ -10,8 +11,7 @@ const links = [
 ];
 
 export default function Header() {
-  const { enabled, level, setLevel } = useTrippy();
-  const active = level === "melt";
+  const { enabled } = useTrippy();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -19,7 +19,7 @@ export default function Header() {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
         event.preventDefault();
         if (!enabled) return;
-        setLevel(active ? "off" : "melt");
+        melt.toggle();
       }
     };
 
@@ -27,7 +27,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [active, enabled, setLevel]);
+  }, [enabled]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/5 backdrop-blur supports-[backdrop-filter]:bg-black/10">

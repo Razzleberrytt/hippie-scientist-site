@@ -3,6 +3,7 @@
 @import './styles/tokens.css';
 @import './styles/tags.css';
 @import './styles/clamp.css';
+@import './styles/melt.css';
 
 @tailwind base;
 @tailwind components;

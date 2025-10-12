@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { Sparkles } from "lucide-react";
+import { melt } from "@/state/melt";
 import { useTrippy } from "@/lib/trippy";
 
 type MeltToggleProps = {
@@ -7,24 +9,22 @@ type MeltToggleProps = {
 };
 
 export default function MeltToggle({ className }: MeltToggleProps) {
-  const { level, setLevel, enabled } = useTrippy();
-  const active = level === "melt";
+  const [active, setActive] = useState(melt.enabled);
+  const { enabled } = useTrippy();
 
-  const toggle = () => {
-    if (!enabled) return;
-    setLevel(active ? "off" : "melt");
-  };
+  useEffect(() => melt.subscribe(setActive), []);
 
   return (
     <button
       type="button"
-      onClick={toggle}
+      onClick={() => melt.toggle()}
       aria-pressed={active}
       disabled={!enabled}
       title={active ? "Disable Melt" : "Enable Melt"}
       className={clsx(
         "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition",
         "ring-1 ring-white/10 bg-white/5 hover:bg-white/10 text-white",
+        active && "ring-2 ring-teal-400/60",
         !enabled && "cursor-not-allowed opacity-50",
         className,
       )}
