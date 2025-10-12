@@ -1,0 +1,29 @@
+/* Mount only when .melt-on exists on <html> */
+html:not(.melt-on) .melt-layer { display: none; }
+
+.melt-layer {
+  opacity: 0;
+  transition: opacity 400ms ease;
+  background:
+    radial-gradient(45vmax 45vmax at var(--melt-x1,50%) var(--melt-y1,50%),
+      hsl(calc(var(--melt-hue,0deg)), 90%, 60%, 0.20),
+      transparent 70%),
+    radial-gradient(50vmax 50vmax at var(--melt-x2,50%) var(--melt-y2,50%),
+      hsl(calc(var(--melt-hue,0deg) + 120deg), 90%, 60%, 0.18),
+      transparent 70%),
+    radial-gradient(120vmax 120vmax at 50% 50%,
+      hsl(calc(var(--melt-hue,0deg) + 240deg), 90%, 50%, 0.10),
+      transparent 70%),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,0.05) 0 1px,
+      transparent 1px 6px
+    );
+  filter: saturate(1.1) blur(24px);
+}
+
+body > #root,
+body > .app-shell {
+  position: relative;
+  z-index: 1;
+}

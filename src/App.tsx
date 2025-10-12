@@ -22,7 +22,7 @@ import Footer from './components/Footer';
 import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
 import AmbientCursor from './components/AmbientCursor';
-import MeltBackground from '@/components/bg/MeltBackground';
+import MeltBackground from '@/components/MeltBackground';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
@@ -34,35 +34,37 @@ export default function App() {
   useGA();
   const { level } = useTrippy();
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-transparent text-text">
-      <RedirectHandler />
+    <div className="app-shell relative min-h-screen overflow-x-hidden bg-transparent text-text">
       <MeltBackground />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/20 via-black/10 to-transparent" />
-      {level !== "off" && <AmbientCursor />}
-      <Routes>
-        <Route element={<RootLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/database" element={<Database />} />
-          <Route path="/blend" element={<BuildBlend />} />
-          <Route path="/build" element={<BuildBlend />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/newsletter" element={<Newsletter />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* Add other routes here */}
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/theme" element={<Theme />} />
-          <Route path="/herb-index" element={<HerbIndex />} />
-          <Route path="/herb/:slug" element={<HerbDetail />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/data-report" element={<DataReport />} />
-          <Route path="/data-fix" element={<DataFix />} />
-          <Route path="/sitemap" element={<Sitemap />} />
-        </Route>
-        <Route path="/graph" element={<GraphPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="relative z-10">
+        <RedirectHandler />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/20 via-black/10 to-transparent" />
+        {level !== "off" && <AmbientCursor />}
+        <Routes>
+          <Route element={<RootLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/database" element={<Database />} />
+            <Route path="/blend" element={<BuildBlend />} />
+            <Route path="/build" element={<BuildBlend />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/newsletter" element={<Newsletter />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* Add other routes here */}
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/theme" element={<Theme />} />
+            <Route path="/herb-index" element={<HerbIndex />} />
+            <Route path="/herb/:slug" element={<HerbDetail />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/data-report" element={<DataReport />} />
+            <Route path="/data-fix" element={<DataFix />} />
+            <Route path="/sitemap" element={<Sitemap />} />
+          </Route>
+          <Route path="/graph" element={<GraphPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </div>
   );
 }
@@ -75,7 +77,7 @@ function RootLayout() {
       <Header />
       <main
         id="main"
-        className="relative z-0 flex-1"
+        className="relative z-10 flex-1"
       >
         <AnimatePresence mode="wait">
           <motion.div

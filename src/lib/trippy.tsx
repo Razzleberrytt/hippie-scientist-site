@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import type { ReactNode } from "react";
+import { melt } from "@/state/melt";
 
 export type TrippyLevel = "off" | "melt";
 
@@ -16,7 +17,6 @@ export type TrippyContextValue = {
   enabled: boolean;
 };
 
-const STORAGE_KEY = "melt";
 const REDUCED_QUERY = "(prefers-reduced-motion: reduce)";
 
 const TrippyCtx = createContext<TrippyContextValue>({
@@ -27,34 +27,9 @@ const TrippyCtx = createContext<TrippyContextValue>({
 
 const isBrowser = typeof window !== "undefined";
 
-const parseStoredLevel = (value: string | null): TrippyLevel | null => {
-  if (!value) return null;
-  if (value === "off") return "off";
-  if (value === "on" || value === "melt" || value === "calm" || value === "trippy") {
-    return "melt";
-  }
-  return null;
-};
-
 const prefersReducedMotion = () => {
   if (!isBrowser || !window.matchMedia) return false;
   return window.matchMedia(REDUCED_QUERY).matches;
-};
-
-const initialLevel = () => {
-  if (!isBrowser) return "off";
-  const stored = parseStoredLevel(window.localStorage.getItem(STORAGE_KEY));
-  if (stored) return stored;
-  const legacyStored = parseStoredLevel(window.localStorage.getItem("trippy-mode"));
-  if (legacyStored) {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, legacyStored === "off" ? "off" : "on");
-    } catch {
-      /* ignore */
-    }
-    return legacyStored;
-  }
-  return prefersReducedMotion() ? "off" : "melt";
 };
 
 export const TRIPPY_LABELS: Record<TrippyLevel, string> = {
@@ -64,23 +39,24 @@ export const TRIPPY_LABELS: Record<TrippyLevel, string> = {
 
 export function TrippyProvider({ children }: { children: ReactNode }) {
   const [enabled, setEnabled] = useState<boolean>(() => !prefersReducedMotion());
-  const [levelState, setLevelState] = useState<TrippyLevel>(initialLevel);
+  const [levelState, setLevelState] = useState<TrippyLevel>(() => (melt.enabled ? "melt" : "off"));
 
   const setLevel = useCallback((value: TrippyLevel) => {
     setLevelState(value);
-    if (!isBrowser) return;
-    try {
-      window.localStorage.setItem(STORAGE_KEY, value === "off" ? "off" : "on");
-    } catch {
-      /* ignore */
-    }
+    melt.set(value !== "off");
   }, []);
 
   useEffect(() => {
-    if (!enabled && levelState !== "off") {
+    return melt.subscribe((value) => {
+      setLevelState(value ? "melt" : "off");
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) {
       setLevel("off");
     }
-  }, [enabled, levelState, setLevel]);
+  }, [enabled, setLevel]);
 
   useEffect(() => {
     if (!isBrowser || !window.matchMedia) return;
@@ -89,18 +65,12 @@ export function TrippyProvider({ children }: { children: ReactNode }) {
     const handleChange = (event: MediaQueryListEvent) => {
       const nextEnabled = !event.matches;
       setEnabled(nextEnabled);
-      if (!window.localStorage.getItem(STORAGE_KEY)) {
-        setLevel(nextEnabled ? "melt" : "off");
-      } else if (nextEnabled) {
-        const stored = parseStoredLevel(window.localStorage.getItem(STORAGE_KEY));
-        if (stored) {
-          setLevel(stored);
-        }
-      }
       if (!nextEnabled) {
         setLevel("off");
       }
     };
+
+    setEnabled(!mediaQuery.matches);
 
     if (typeof mediaQuery.addEventListener === "function") {
       mediaQuery.addEventListener("change", handleChange);
