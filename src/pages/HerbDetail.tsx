@@ -187,14 +187,14 @@ export default function HerbDetail() {
               )}
               {intensityLabel && intensityLevel && intensityLevel !== 'unknown' && (
                 <span
-                  className="chip hover-glow focus-glow mt-1 inline-flex items-center px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em]"
+                  className="pill hover-glow focus-glow mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85"
                   style={intensityStyle}
                 >
                   Intensity: {intensityLabel}
                 </span>
               )}
               {hasVal(benefits) && (
-                <span className="chip hover-glow focus-glow mt-2 inline-flex items-center px-3 py-1 text-[0.7rem] font-medium tracking-[0.08em]">
+                <span className="pill hover-glow focus-glow mt-2 text-[12px] text-white/80">
                   {benefits}
                 </span>
               )}

@@ -1,17 +1,19 @@
 // src/components/Header.tsx
 import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import MeltToggle from "./MeltToggle";
 import { melt } from "@/state/melt";
 import { useTrippy } from "@/lib/trippy";
 
 const links = [
-  { label: "Browse", href: "/#/database" },
-  { label: "Build",  href: "/#/build"     },
-  { label: "Blog",   href: "/#/blog"      },
+  { label: "Browse", to: "/database" },
+  { label: "Build", to: "/build" },
+  { label: "Blog", to: "/blog" },
 ];
 
 export default function Header() {
   const { enabled } = useTrippy();
+  const location = useLocation();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -30,32 +32,35 @@ export default function Header() {
   }, [enabled]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/5 backdrop-blur supports-[backdrop-filter]:bg-black/10">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/30">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[999] rounded bg-black/70 px-3 py-2 text-sm font-medium text-white"
       >
         Skip to content
       </a>
-      <div className="container-page flex items-center gap-4 py-3" aria-label="Site">
-        <a href="/#/" className="flex items-center gap-2 shrink-0">
+      <div className="container-safe flex flex-wrap items-center gap-3 py-3" aria-label="Site">
+        <Link to="/" className="flex items-center gap-2 shrink-0">
           <span className="h-6 w-2.5 rounded-full bg-gradient-to-b from-teal-300 via-sky-400 to-fuchsia-400" />
           <span className="font-semibold tracking-tight text-white">THS</span>
-        </a>
+        </Link>
 
         <nav
-          className="ml-auto flex flex-nowrap items-center gap-2 overflow-x-auto overscroll-x-contain scrollbar-none"
+          className="ml-auto flex flex-wrap items-center gap-2"
           aria-label="Site"
         >
-          {links.map(link => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="chip whitespace-nowrap text-white/80 hover:bg-white/20"
-            >
-              {link.label}
-            </a>
-          ))}
+          {links.map((link) => {
+            const active = location.pathname.startsWith(link.to);
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`pill border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 ${active ? 'bg-white/10 text-white' : ''}`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <MeltToggle />
         </nav>
       </div>

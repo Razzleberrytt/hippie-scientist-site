@@ -15,17 +15,17 @@ export default function StatRow({
   className,
 }: StatRowProps) {
   return (
-    <div className={clsx('counter-row mt-4', className)}>
-      <span className='counter-pill'>
-        <span className='counter-num'>{herbs}</span>
+    <div className={clsx('mt-4 flex flex-wrap gap-3', className)}>
+      <span className='pill'>
+        <span className='count'>{herbs}</span>
         psychoactive herbs
       </span>
-      <span className='counter-pill'>
-        <span className='counter-num'>{compounds}</span>
+      <span className='pill'>
+        <span className='count'>{compounds}</span>
         active compounds
       </span>
-      <span className='counter-pill'>
-        <span className='counter-num'>{posts}</span>
+      <span className='pill'>
+        <span className='count'>{posts}</span>
         articles
       </span>
     </div>

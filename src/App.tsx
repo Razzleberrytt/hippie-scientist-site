@@ -22,9 +22,7 @@ import Footer from './components/Footer';
 import AppToaster from './components/ui/Toaster';
 import ConsentBanner from './components/ConsentBanner';
 import AmbientCursor from './components/AmbientCursor';
-import MeltBackground from '@/components/MeltBackground';
-import ShimmerOverlay from '@/components/ShimmerOverlay';
-import useMeltMotion from '@/hooks/useMeltMotion';
+import Layout from '@/components/Layout';
 import BlogList from './pages/BlogList';
 import BlogPost from './pages/BlogPost';
 import GraphPage from './pages/Graph';
@@ -34,17 +32,10 @@ import { useTrippy } from '@/lib/trippy';
 
 export default function App() {
   useGA();
-  useMeltMotion();
   const { level } = useTrippy();
   return (
     <div id="app-root" className="min-h-screen" style={{ overflowX: "hidden", maxWidth: "100vw" }}>
-      <div
-        id="app-shell"
-        className="app-shell relative min-h-screen bg-transparent text-text"
-        style={{ position: "relative", isolation: "isolate", overflowX: "hidden", maxWidth: "100vw" }}
-      >
-        <MeltBackground />
-        <ShimmerOverlay />
+      <Layout>
         <div className="relative z-10">
           <RedirectHandler />
           {level !== "off" && <AmbientCursor />}
@@ -73,7 +64,7 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
-      </div>
+      </Layout>
     </div>
   );
 }

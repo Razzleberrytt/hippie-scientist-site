@@ -27,15 +27,15 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
     : intensityLevel
     ? titleCase(intensityLevel)
     : '';
-  const intensityClass = intensityLevel.includes('strong')
-    ? 'chip chip--warn font-semibold uppercase tracking-wide'
+  const intensityTone = intensityLevel.includes('strong')
+    ? 'bg-rose-500/15 text-rose-200'
     : intensityLevel.includes('moderate')
-    ? 'chip chip--stim font-semibold uppercase tracking-wide'
+    ? 'bg-amber-500/15 text-amber-200'
     : intensityLevel.includes('mild')
-    ? 'chip chip--adapt font-semibold uppercase tracking-wide'
+    ? 'bg-emerald-500/15 text-emerald-200'
     : intensityLevel.includes('variable')
-    ? 'chip chip--dream font-semibold uppercase tracking-wide'
-    : '';
+    ? 'bg-sky-500/15 text-sky-200'
+    : 'bg-white/10 text-white/80';
   const benefits = cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit);
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : [];
@@ -78,12 +78,12 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
           )}
           <div className="flex flex-wrap gap-2">
             {hasVal(intensityLabel) && (
-              <span className={`${intensityClass || 'chip'} ${compact ? 'int' : ''}`}>
-                INTENSITY: {intensityLabel}
+              <span className={`pill ${intensityTone} text-[12px]`}>
+                <span className="font-semibold tracking-wide text-[11px] uppercase text-white/80">INTENSITY:</span>&nbsp;{intensityLabel}
               </span>
             )}
             {hasVal(benefits) && (
-              <span className={`chip ${compact ? 'int' : ''}`}>
+              <span className="pill bg-white/10 text-[12px] text-white/80">
                 {benefits}
               </span>
             )}
@@ -109,7 +109,7 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
           {tags.length > 0 && (
             <div className="cluster">
               {tags.map((t: string, i: number) => (
-                <span key={i} className={chipClassFor(t)}>
+                <span key={i} className={`${chipClassFor(t)} text-[12px]`}>
                   {t}
                 </span>
               ))}

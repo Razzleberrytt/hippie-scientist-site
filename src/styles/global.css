@@ -1,14 +1,46 @@
-/* Sitewide clamp: prevent sideways scroll caused by sub-pixel transforms */
-html, body {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
+@layer base {
+  /* Prevent horizontal bleed on mobile (root cause of the “slides sideways”). */
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
-:root {
-  /* iOS transforms can push 1px; use a gutter guard */
-  --viewport-guard: calc(100vw + 1px);
-}
+@layer components {
+  /* Safer containers */
+  .container-safe {
+    @apply mx-auto w-full max-w-screen-lg px-4 sm:px-6 lg:px-8;
+  }
 
-/* Utility to debug if needed */
-/* .debug-outline * { outline: 1px solid red } */
+  /* Glass UI – slightly less transparent, stronger edge */
+  .glass {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(18, 22, 28, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+  }
+
+  .glass-card {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(18, 22, 28, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+  }
+
+  /* Compact pill counters (one line; no wrap) */
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[13px] leading-none text-white/80;
+    white-space: nowrap;
+  }
+
+  .pill .count {
+    @apply inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-white/10 px-2 text-[12px] font-semibold text-white;
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { motion, useReducedMotion } from "framer-motion";
 import { cleanIntensity, titleCase } from "../lib/text";
 import type { Herb } from "../types";
@@ -74,15 +75,15 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
       typeof herb.intensity === 'string' ? herb.intensity : '',
     )
   );
-  const intensityChipClass = intensityLevel.includes('strong')
-    ? 'chip chip--warn font-semibold uppercase tracking-wide'
+  const intensityTone = intensityLevel.includes('strong')
+    ? 'bg-rose-500/15 text-rose-200'
     : intensityLevel.includes('moderate')
-    ? 'chip chip--stim font-semibold uppercase tracking-wide'
+    ? 'bg-amber-500/15 text-amber-200'
     : intensityLevel.includes('mild')
-    ? 'chip chip--adapt font-semibold uppercase tracking-wide'
+    ? 'bg-emerald-500/15 text-emerald-200'
     : intensityLevel.includes('variable')
-    ? 'chip chip--dream font-semibold uppercase tracking-wide'
-    : 'chip';
+    ? 'bg-sky-500/15 text-sky-200'
+    : 'bg-white/10 text-white/80';
   const benefits = firstNonEmpty(herb.benefits as string, (herb as any).benefits as string);
 
   const slugSource = firstNonEmpty(herb.slug, heading, scientificName);
@@ -106,7 +107,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
       initial={reduceMotion ? false : { opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="glass-card will-change-transform p-5 text-neutral-100/80 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] sm:p-6"
+      className="glass will-change-transform overflow-hidden p-5 text-neutral-100/85 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.55)] sm:p-6"
     >
       <header className="space-y-2">
         <h2 className="text-xl font-semibold tracking-tight text-neutral-100 sm:text-2xl">{heading}</h2>
@@ -115,15 +116,17 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         {(chips.length > 0 || intensityLabel || benefits) && (
           <div className="mt-3 flex flex-wrap gap-2">
             {chips.map((chip) => (
-              <span key={chip} className="chip text-neutral-100/80 text-xs">
+              <span key={chip} className="pill bg-white/10 text-[12px] text-white/80">
                 {chip}
               </span>
             ))}
             {intensityLabel && (
-              <span className={`${intensityChipClass} text-xs`}>INTENSITY: {intensityLabel}</span>
+              <span className={clsx('pill text-[12px]', intensityTone)}>
+                <span className="font-semibold tracking-wide text-[11px] uppercase text-white/80">INTENSITY:</span>&nbsp;{intensityLabel}
+              </span>
             )}
             {benefits && (
-              <span className="chip text-neutral-100/80 text-xs">{benefits}</span>
+              <span className="pill bg-white/10 text-[12px] text-white/80">{benefits}</span>
             )}
           </div>
         )}

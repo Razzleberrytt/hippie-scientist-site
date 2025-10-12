@@ -191,8 +191,8 @@ export default function AdvancedSearch({
                     key={tag}
                     type='button'
                     onClick={() => toggleTag(tag)}
-                    className={`chip transition ${
-                      active ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/10'
+                    className={`pill bg-white/10 text-white/80 transition ${
+                      active ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/15'
                     }`}
                   >
                     {tag}
@@ -207,21 +207,21 @@ export default function AdvancedSearch({
             <div className='mt-1 flex items-center gap-2'>
               <button
                 type='button'
-                className={`chip ${pregSafe === null ? 'ring-1 ring-white/20' : ''}`}
+                className={`pill bg-white/10 text-white/80 ${pregSafe === null ? 'ring-1 ring-white/20' : 'hover:bg-white/15'}`}
                 onClick={() => setPregSafe(null)}
               >
                 Any
               </button>
               <button
                 type='button'
-                className={`chip ${pregSafe === true ? 'ring-1 ring-lime-300 text-lime-200' : ''}`}
+                className={`pill bg-white/10 text-white/80 ${pregSafe === true ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/15'}`}
                 onClick={() => setPregSafe(true)}
               >
                 Explicitly safe
               </button>
               <button
                 type='button'
-                className={`chip ${pregSafe === false ? 'ring-1 ring-rose-300 text-rose-200' : ''}`}
+                className={`pill bg-white/10 text-white/80 ${pregSafe === false ? 'ring-1 ring-rose-300 text-rose-200' : 'hover:bg-white/15'}`}
                 onClick={() => setPregSafe(false)}
               >
                 Show cautions
@@ -234,21 +234,21 @@ export default function AdvancedSearch({
             <div className='mt-1 flex items-center gap-2'>
               <button
                 type='button'
-                className={`chip ${maoiSsr === null ? 'ring-1 ring-white/20' : ''}`}
+                className={`pill bg-white/10 text-white/80 ${maoiSsr === null ? 'ring-1 ring-white/20' : 'hover:bg-white/15'}`}
                 onClick={() => setMaoiSsr(null)}
               >
                 Any
               </button>
               <button
                 type='button'
-                className={`chip ${maoiSsr === true ? 'ring-1 ring-amber-300 text-amber-200' : ''}`}
+                className={`pill bg-white/10 text-white/80 ${maoiSsr === true ? 'ring-1 ring-amber-300 text-amber-200' : 'hover:bg-white/15'}`}
                 onClick={() => setMaoiSsr(true)}
               >
                 Must have caution
               </button>
               <button
                 type='button'
-                className={`chip ${maoiSsr === false ? 'ring-1 ring-lime-300 text-lime-200' : ''}`}
+                className={`pill bg-white/10 text-white/80 ${maoiSsr === false ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/15'}`}
                 onClick={() => setMaoiSsr(false)}
               >
                 Exclude cautions
