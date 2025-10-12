@@ -1,57 +1,70 @@
-// src/components/MeltBackground.tsx
-import { useEffect, useRef } from "react";
-import { melt } from "@/state/melt";
+import { useEffect, useRef } from 'react';
 
 export default function MeltBackground() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const el = ref.current!;
-    let raf: number;
-    let t = 0;
-    const move = { x: 0, y: 0 };
+    const c = ref.current!;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const ctx = c.getContext('2d')!;
+    let w = (c.width = innerWidth * dpr);
+    let h = (c.height = innerHeight * dpr);
+    c.style.width = '100%';
+    c.style.height = '100%';
 
-    const onMove = (e: MouseEvent | DeviceOrientationEvent) => {
-      if ("gamma" in e) {
-        move.x = (e.gamma || 0) / 45;
-        move.y = (e.beta || 0) / 45;
-      } else {
-        move.x = (e as MouseEvent).clientX / window.innerWidth - 0.5;
-        move.y = (e as MouseEvent).clientY / window.innerHeight - 0.5;
-      }
+    const blobs = Array.from({ length: 3 }).map((_, i) => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: (Math.min(w, h) * (0.25 + i * 0.05)) | 0,
+      a: Math.random() * Math.PI * 2,
+      s: 0.0006 + i * 0.0003,
+    }));
+
+    const colors = [
+      'rgba(105,180,255,0.18)',
+      'rgba(161,132,255,0.16)',
+      'rgba(102,255,204,0.14)',
+    ];
+
+    let raf = 0;
+    const draw = () => {
+      ctx.clearRect(0, 0, w, h);
+      ctx.filter = 'blur(80px)';
+      blobs.forEach((b, i) => {
+        b.a += b.s;
+        const x = b.x + Math.cos(b.a) * 140 * dpr;
+        const y = b.y + Math.sin(b.a) * 120 * dpr;
+        const g = ctx.createRadialGradient(x, y, 0, x, y, b.r);
+        g.addColorStop(0, colors[i]);
+        g.addColorStop(1, 'transparent');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      raf = requestAnimationFrame(draw);
     };
 
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("deviceorientation", onMove);
-
-    const animate = () => {
-      t += 0.002;
-      const hue = (t * 40) % 360;
-
-      el.style.setProperty("--hue", `${hue}deg`);
-      el.style.setProperty("--x1", `${50 + Math.sin(t * 0.8 + move.x * 2) * 40}%`);
-      el.style.setProperty("--y1", `${50 + Math.cos(t * 0.6 + move.y * 2) * 40}%`);
-      el.style.setProperty("--x2", `${50 + Math.sin(t * 0.5) * 40}%`);
-      el.style.setProperty("--y2", `${50 + Math.cos(t * 0.9) * 40}%`);
-      el.style.setProperty("--offset", `${move.x * 4}px ${move.y * 4}px`);
-
-      raf = requestAnimationFrame(animate);
+    const onResize = () => {
+      w = (c.width = innerWidth * dpr);
+      h = (c.height = innerHeight * dpr);
+      c.style.width = '100%';
+      c.style.height = '100%';
     };
 
-    if (melt.enabled) raf = requestAnimationFrame(animate);
-    const unsub = melt.subscribe((v) => {
-      el.style.opacity = v ? "1" : "0";
-      if (v) raf = requestAnimationFrame(animate);
-      else cancelAnimationFrame(raf);
-    });
-
+    window.addEventListener('resize', onResize);
+    raf = requestAnimationFrame(draw);
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("deviceorientation", onMove);
-      unsub();
+      window.removeEventListener('resize', onResize);
     };
   }, []);
 
-  return <div ref={ref} className="melt-layer-2" aria-hidden />;
+  return (
+    <canvas
+      ref={ref}
+      aria-hidden
+      className='pointer-events-none fixed inset-0 -z-10 opacity-90'
+    />
+  );
 }

@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import StatBadge from './StatBadge';
 import { siteStats } from '../lib/stats';
 
 type StatRowProps = {
@@ -16,15 +15,19 @@ export default function StatRow({
   className,
 }: StatRowProps) {
   return (
-    <div
-      className={clsx(
-        'mt-6 flex flex-wrap items-center gap-3',
-        className,
-      )}
-    >
-      <StatBadge count={herbs} label="psychoactive herbs" />
-      <StatBadge count={compounds} label="active compounds" />
-      <StatBadge count={posts} label="articles" />
+    <div className={clsx('counter-row mt-4', className)}>
+      <span className='counter-pill'>
+        <span className='counter-num'>{herbs}</span>
+        psychoactive herbs
+      </span>
+      <span className='counter-pill'>
+        <span className='counter-num'>{compounds}</span>
+        active compounds
+      </span>
+      <span className='counter-pill'>
+        <span className='counter-num'>{posts}</span>
+        articles
+      </span>
     </div>
   );
 }
