@@ -12,12 +12,12 @@ export default function NewsletterCard() {
           <input
             type="email"
             placeholder="you@example.com"
-            className="w-full sm:flex-1 rounded-2xl bg-white/10 ring-1 ring-white/15 px-4 py-3 text-base placeholder-white/50 outline-none focus:ring-white/30"
+            className="w-full sm:flex-1 rounded-2xl bg-white/14 px-4 py-3 text-base text-white/90 placeholder-white/50 backdrop-blur-xl ring-1 ring-white/12 focus:ring-white/30"
           />
           <Magnetic strength={12}>
             <button
               type="submit"
-              className="rounded-2xl px-5 py-3 font-medium bg-teal-500/90 hover:bg-teal-400 active:bg-teal-500 transition-colors ring-1 ring-black/10"
+              className="btn-primary rounded-2xl px-6 py-3"
             >
               Join the newsletter
             </button>

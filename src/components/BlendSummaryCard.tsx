@@ -31,7 +31,7 @@ export default function BlendSummaryCard({ herbs, onSave }: Props) {
   }, [herbs])
 
   return (
-    <div className='soft-border-glow bg-psychedelic-gradient/30 rounded-xl p-4 text-white backdrop-blur-md'>
+    <div className='rounded-2xl bg-white/14 p-4 text-white ring-1 ring-white/12 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] backdrop-blur-xl'>
       <h2 className='mb-2 text-2xl font-bold'>{name}</h2>
       <p className='mb-2 text-sand'>{summary}</p>
       <div className='flex flex-wrap gap-1 mb-2'>
@@ -43,7 +43,7 @@ export default function BlendSummaryCard({ herbs, onSave }: Props) {
         <button
           type='button'
           onClick={onSave}
-          className='rounded-md bg-space-dark/70 px-3 py-1 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+          className='btn-secondary rounded-md px-3 py-1 text-sm text-white'
         >
           Save Blend
         </button>

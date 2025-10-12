@@ -50,13 +50,13 @@ export default function AuroraHero({ title, subtitle }: AuroraHeroProps) {
         >
           <Link
             to="/database"
-            className="rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-black shadow-[0_18px_35px_-22px_rgba(80,200,255,0.9)] transition hover:bg-accent/80 hover:text-black sm:text-base"
+            className="btn-primary rounded-full px-6 py-2.5 text-sm sm:text-base"
           >
             Browse Herbs
           </Link>
           <Link
             to="/blend"
-            className="rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white/90 backdrop-blur transition hover:border-white/40 hover:bg-white/10 sm:text-base"
+            className="btn-secondary rounded-full px-6 py-2.5 text-sm sm:text-base"
           >
             Build a Blend
           </Link>

@@ -28,14 +28,14 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
     ? titleCase(intensityLevel)
     : '';
   const intensityTone = intensityLevel.includes('strong')
-    ? 'bg-rose-500/15 text-rose-200'
+    ? 'bg-rose-500/20 text-rose-100 ring-1 ring-rose-300/40'
     : intensityLevel.includes('moderate')
-    ? 'bg-amber-500/15 text-amber-200'
+    ? 'bg-amber-500/20 text-amber-100 ring-1 ring-amber-300/40'
     : intensityLevel.includes('mild')
-    ? 'bg-emerald-500/15 text-emerald-200'
+    ? 'bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-300/40'
     : intensityLevel.includes('variable')
-    ? 'bg-sky-500/15 text-sky-200'
-    : 'bg-white/10 text-white/80';
+    ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
+    : 'bg-white/6 text-white/90 ring-1 ring-white/15';
   const benefits = cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit);
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : [];
@@ -125,7 +125,7 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
               </span>
             )}
             {hasVal(benefits) && (
-              <span className="pill bg-white/10 text-[12px] text-white/80">
+              <span className="pill text-[12px]">
                 {benefits}
               </span>
             )}
