@@ -1,11 +1,20 @@
 import Meta from "../components/Meta";
 import { useTrippy } from "@/lib/trippy";
-import { useMelt } from "@/melt/useMelt";
-import type { MeltIntensity, MeltPalette } from "@/melt/meltTheme";
+import { useMelt, type MeltIntensity, type MeltPalette } from "@/melt/useMelt";
 
 export default function Theme() {
   const { enabled: motionEnabled } = useTrippy();
-  const { enabled, setEnabled, palette, setPalette, intensity, setIntensity, reduce } = useMelt();
+  const {
+    enabled,
+    setEnabled,
+    palette,
+    setPalette,
+    intensity,
+    setIntensity,
+    prefersReducedMotion,
+  } = useMelt();
+
+  const canAnimate = motionEnabled && !prefersReducedMotion;
 
   const toggle = () => setEnabled(!enabled);
   const selectPalette = (value: MeltPalette) => setPalette(value);
@@ -26,14 +35,16 @@ export default function Theme() {
             <button
               type="button"
               onClick={toggle}
-              disabled={!motionEnabled || reduce}
+              disabled={!canAnimate}
               className="btn-secondary rounded-2xl px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {enabled ? "Disable Melt" : "Enable Melt"}
             </button>
             <p className="text-sm text-zinc-300/80">
-              {!motionEnabled
+              {prefersReducedMotion
                 ? "Melt stays off automatically because your device prefers reduced motion."
+                : !motionEnabled
+                ? "Melt controls are unavailable right now."
                 : enabled
                 ? "Melt is on. Tap to pause the shader background."
                 : "Melt is off. Re-enable it when you want full vibes."}
@@ -50,7 +61,7 @@ export default function Theme() {
                     key={option}
                     type="button"
                     onClick={() => selectPalette(option as MeltPalette)}
-                    disabled={!enabled || !motionEnabled || reduce}
+                    disabled={!enabled || !canAnimate}
                     className={`btn-secondary rounded-2xl px-3 py-1.5 text-sm ${
                       palette === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
                     } disabled:cursor-not-allowed disabled:opacity-50`}
@@ -72,7 +83,7 @@ export default function Theme() {
                     key={option}
                     type="button"
                     onClick={() => selectIntensity(option as MeltIntensity)}
-                    disabled={!enabled || !motionEnabled || reduce}
+                    disabled={!enabled || !canAnimate}
                     className={`btn-secondary rounded-2xl px-3 py-1.5 text-sm ${
                       intensity === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
                     } disabled:cursor-not-allowed disabled:opacity-50`}
