@@ -15,6 +15,12 @@ type PersistedState = Partial<Pick<MeltState, "enabled" | "palette">> & {
   intensity?: string;
 };
 
+const applyIntensity = (value: string) => {
+  if (typeof document !== "undefined") {
+    document.documentElement.style.setProperty("--melt-intensity", value);
+  }
+};
+
 const load = (): PersistedState | null => {
   try {
     const raw = typeof window !== "undefined" ? localStorage.getItem(KEY) : null;
@@ -46,6 +52,8 @@ export const useMelt = create<MeltState>((set) => {
     enabled: initialEnabled,
     palette: saved?.palette ?? "ocean",
   };
+
+  applyIntensity("high");
 
   const persist = (partial: Partial<MeltState>) =>
     set((state) => {

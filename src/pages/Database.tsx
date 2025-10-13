@@ -47,18 +47,21 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <main className='page-wrap relative z-10'>
-        <section className='mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24'>
-          <div className='glass p-6 sm:p-8 md:p-10'>
-            <h1 className='text-4xl sm:text-5xl font-extrabold tracking-tight mb-2'>Herb Database</h1>
-            <p className='text-neutral-100/70'>Search and explore the library.</p>
+      <main className='mx-auto max-w-screen-md w-full px-4 py-6 space-y-6'>
+        <section className='relative overflow-hidden rounded-3xl bg-white/6 backdrop-blur-xl ring-1 ring-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,.25),0_20px_40px_-20px_rgba(0,0,0,.6)]'>
+          <div aria-hidden className='pointer-events-none absolute inset-0 rounded-3xl'>
+            <div className='absolute inset-px rounded-[calc(theme(borderRadius.3xl)-1px)] bg-gradient-to-br from-white/12 via-white/6 to-white/2' />
+          </div>
+          <div className='relative p-6 sm:p-8'>
+            <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>Herb Database</h1>
+            <p className='mt-2 text-white/75'>Search and explore the library.</p>
 
             {ENABLE_ADVANCED_FILTERS && (
               <div className='mt-4 flex flex-wrap items-center gap-2'>
                 {advancedResults && (
                   <button
                     type='button'
-                    className='pill border border-white/10 bg-white/10 text-white hover:bg-white/15'
+                    className='inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white transition hover:bg-white/15'
                     onClick={() => setAdvancedResults(null)}
                   >
                     Clear advanced filters
@@ -66,7 +69,7 @@ export default function Database() {
                 )}
                 <button
                   type='button'
-                  className='pill border border-white/10 bg-white/10 text-white hover:bg-white/15'
+                  className='inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white transition hover:bg-white/15'
                   onClick={() => setAdvancedOpen(true)}
                 >
                   Advanced search
@@ -74,14 +77,14 @@ export default function Database() {
               </div>
             )}
 
-            <div className='mt-4 rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-lg sm:p-4'>
+            <div className='mt-5 rounded-2xl border border-white/12 bg-white/5 p-4 backdrop-blur-xl'>
               <label className='sr-only' htmlFor='herb-search-input'>
                 Search herbs
               </label>
               <div className='flex flex-wrap items-center gap-3'>
                 <input
                   id='herb-search-input'
-                  className='flex-1 rounded-full border border-white/20 bg-black/20 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30'
+                  className='min-w-0 flex-1 rounded-2xl border border-white/15 bg-black/30 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30'
                   placeholder='Search herbs, compounds, effects…'
                   value={query}
                   onChange={event => setQuery(event.target.value)}
@@ -99,17 +102,15 @@ export default function Database() {
           </div>
         </section>
 
-        <section className='mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24'>
-          <div className='mx-auto w-full max-w-screen-xl space-y-6'>
-            {results.map((herb, index) => (
-              <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
-            ))}
-            {!results.length && (
-              <div className='glass p-5 text-center text-neutral-100/70 sm:p-6'>
-                No herbs match that search.
-              </div>
-            )}
-          </div>
+        <section className='space-y-4 pb-8'>
+          {results.map((herb, index) => (
+            <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
+          ))}
+          {!results.length && (
+            <div className='rounded-3xl border border-white/12 bg-white/5 p-6 text-center text-white/75 backdrop-blur-xl'>
+              No herbs match that search.
+            </div>
+          )}
         </section>
       </main>
 

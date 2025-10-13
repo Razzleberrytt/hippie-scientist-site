@@ -14,26 +14,21 @@ export default function Home() {
         path='/'
         pageType='website'
       />
-      <section
-        id='home'
-        aria-label='Site introduction'
-        className='relative py-16 sm:py-24'
-      >
-        <div className='container-safe'>
-          <Hero>
-            <StatRow
-              herbs={siteStats.herbs}
-              compounds={siteStats.compounds}
-              posts={siteStats.posts}
-              className='mt-8 sm:mt-12'
-            />
-          </Hero>
-        </div>
-      </section>
+      <Hero>
+        <StatRow
+          herbs={siteStats.herbs}
+          compounds={siteStats.compounds}
+          posts={siteStats.posts}
+          className='mt-6'
+        />
+      </Hero>
 
-      <div className='container-safe' aria-label='Newsletter signup'>
+      <section
+        aria-label='Newsletter signup'
+        className='mx-auto max-w-screen-md w-full px-4 pb-12'
+      >
         <NewsletterCard />
-      </div>
+      </section>
     </>
   )
 }

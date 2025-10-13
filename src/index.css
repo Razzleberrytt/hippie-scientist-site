@@ -11,7 +11,6 @@ body,
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  background: transparent;
 }
 
 :root {
@@ -79,8 +78,7 @@ body {
   font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
   line-height: 1.6;
   letter-spacing: -0.01em;
-  @apply text-neutral-100 antialiased;
-  background: transparent;
+  @apply antialiased;
   overflow-x: hidden;
 }
 
@@ -250,7 +248,7 @@ svg {
 
 @layer components {
   .container-page {
-    @apply mx-auto max-w-screen-lg px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-screen-md px-4;
   }
 
   .pill {
