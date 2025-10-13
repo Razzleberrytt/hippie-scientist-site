@@ -1,8 +1,8 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MeltButton from "./MeltButton";
+import MeltControls from "./MeltControls";
 import { useTrippy } from "@/lib/trippy";
-import { useMelt } from "@/melt/useMelt";
+import { useMelt, type MeltPalette } from "@/melt/useMelt";
 import MeltBackground from "./MeltBackground";
 
 const links = [
@@ -11,11 +11,20 @@ const links = [
   { label: "Blog", to: "/blog" },
 ];
 
+const paletteOptions: { id: MeltPalette; label: string }[] = [
+  { id: "ocean", label: "Ocean" },
+  { id: "amethyst", label: "Amethyst" },
+  { id: "aura", label: "Aura" },
+  { id: "forest", label: "Forest" },
+  { id: "nebula", label: "Nebula" },
+];
+
 export default function SiteLayout({ children }: PropsWithChildren) {
   const location = useLocation();
   const { level, enabled: trippyEnabled } = useTrippy();
-  const { enabled, setEnabled } = useMelt();
+  const { enabled, setEnabled, palette, setPalette } = useMelt();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [controlsOpen, setControlsOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
@@ -59,6 +68,10 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [level, prefersReducedMotion, setEnabled, trippyEnabled]);
 
+  useEffect(() => {
+    setControlsOpen(false);
+  }, [location.pathname]);
+
   return (
     <div className="relative min-h-svh overflow-x-hidden">
       <MeltBackground />
@@ -70,34 +83,51 @@ export default function SiteLayout({ children }: PropsWithChildren) {
         Skip to content
       </a>
 
-      <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/60">
-        <div className="mx-auto max-w-screen-md w-full px-4">
-          <nav className="flex items-center gap-2 py-3 overflow-x-auto no-scrollbar" aria-label="Site">
-            <Link
-              to="/"
-              className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-semibold transition ${
-                location.pathname === "/" ? "bg-white/15 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
-              }`}
-            >
-              THS
-            </Link>
-            {links.map((link) => {
-              const active = location.pathname.startsWith(link.to);
-              return (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm transition ${
-                    active ? "bg-white/15 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-            <MeltButton />
-          </nav>
-        </div>
+      <header className="header-nav sticky top-0 z-50 bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40">
+        <nav className="nav-row container-safe items-center py-3" aria-label="Site">
+          <Link
+            to="/"
+            className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-semibold transition ${
+              location.pathname === "/" ? "bg-white/15 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+            }`}
+          >
+            THS
+          </Link>
+          {links.map((link) => {
+            const active = location.pathname.startsWith(link.to);
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm transition ${
+                  active ? "bg-white/15 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-expanded={controlsOpen}
+            className={`chip ${controlsOpen ? "chip--active" : ""}`}
+            onClick={() => setControlsOpen((open) => !open)}
+          >
+            ✨ Melt
+          </button>
+        </nav>
+
+        {controlsOpen && (
+          <MeltControls
+            value={palette}
+            palettes={paletteOptions}
+            onChange={(id) => {
+              setPalette(id as MeltPalette);
+            }}
+            onClose={() => setControlsOpen(false)}
+          />
+        )}
       </header>
 
       <main id="main" className="relative z-10 flex-1">

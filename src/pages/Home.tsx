@@ -1,7 +1,7 @@
 import React from 'react'
 import Meta from '../components/Meta'
 import Hero from '../components/Hero'
-import StatRow from '../components/StatRow'
+import Stats from '@/components/Stats'
 import { siteStats } from '../lib/stats'
 import NewsletterCard from '@/components/NewsletterCard'
 
@@ -15,12 +15,15 @@ export default function Home() {
         pageType='website'
       />
       <Hero>
-        <StatRow
-          herbs={siteStats.herbs}
-          compounds={siteStats.compounds}
-          posts={siteStats.posts}
-          className='mt-6'
-        />
+        <div className='mt-6'>
+          <Stats
+            items={[
+              { value: siteStats.herbs, label: 'psychoactive herbs' },
+              { value: siteStats.compounds, label: 'active compounds' },
+              { value: siteStats.posts, label: 'articles' },
+            ]}
+          />
+        </div>
       </Hero>
 
       <section
