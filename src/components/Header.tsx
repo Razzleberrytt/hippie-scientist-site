@@ -44,7 +44,7 @@ export default function Header() {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
         event.preventDefault();
         if (!motionEnabled || prefersReducedMotion) return;
-        setEnabled((value) => !value);
+        setEnabled(!useMelt.getState().enabled);
       }
     };
 

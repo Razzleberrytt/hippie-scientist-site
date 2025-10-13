@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
-import type { MeltPalette, MeltIntensity } from "@/melt/useMelt";
+import { useMelt, type MeltIntensity, type MeltPalette } from "@/melt/useMelt";
 
 /** Palettes as RGB uniforms (0..1) */
 const PALETTES: Record<MeltPalette, [number, number, number][]> = {
-  ocean:    [[0.00, 0.82, 1.00], [0.00, 0.40, 1.00], [0.00, 1.00, 0.65]],
-  amethyst: [[0.70, 0.53, 1.00], [0.54, 0.31, 1.00], [1.00, 0.00, 0.85]],
-  aura:     [[0.00, 1.00, 0.65], [0.20, 0.87, 1.00], [1.00, 0.40, 1.00]],
-  forest:   [[0.49, 0.94, 0.63], [0.12, 0.67, 0.35], [0.00, 1.00, 0.70]],
+  ocean: [[0.0, 0.82, 1.0], [0.0, 0.4, 1.0], [0.0, 1.0, 0.65]],
+  amethyst: [[0.7, 0.53, 1.0], [0.54, 0.31, 1.0], [1.0, 0.0, 0.85]],
+  aura: [[0.0, 1.0, 0.65], [0.2, 0.87, 1.0], [1.0, 0.4, 1.0]],
+  forest: [[0.49, 0.94, 0.63], [0.12, 0.67, 0.35], [0.0, 1.0, 0.7]],
 };
 
 const SPEED: Record<MeltIntensity, number> = { low: 0.35, med: 0.75, high: 1.4 };
@@ -76,95 +76,107 @@ void main(){
 
   // subtle vignette
   float v = smoothstep(0.95, 0.2, length(p)*1.2);
-  col *= v;
+  col *= v * mask;
 
   gl_FragColor = vec4(col, u_alpha);
 }
 `;
 
-export default function MeltGLCanvas({
-  enabled,
-  palette,
-  intensity,
-}: {
-  enabled: boolean;
-  palette: MeltPalette;
-  intensity: MeltIntensity;
-}) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+type Props = {
+  enabled?: boolean;
+  palette?: MeltPalette;
+  intensity?: MeltIntensity;
+};
+
+export default function MeltGLCanvas({ enabled: propEnabled, palette: propPalette, intensity: propIntensity }: Props) {
+  const storeEnabled = useMelt((state) => state.enabled);
+  const storePalette = useMelt((state) => state.palette);
+  const storeIntensity = useMelt((state) => state.intensity);
+
+  const enabled = propEnabled ?? storeEnabled;
+  const palette = propPalette ?? storePalette;
+  const intensity = propIntensity ?? storeIntensity;
+
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const raf = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Try WebGL; if not, fall back to clear canvas (no crash)
     const gl =
-      (canvas.getContext("webgl", { premultipliedAlpha: true, alpha: true }) ||
+      (canvas.getContext("webgl2", { premultipliedAlpha: true, alpha: true }) ||
+        canvas.getContext("webgl", { premultipliedAlpha: true, alpha: true }) ||
         canvas.getContext("experimental-webgl")) as WebGLRenderingContext | null;
 
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
     const fit = () => {
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      canvas.style.width = w + "px";
-      canvas.style.height = h + "px";
-      canvas.width = Math.floor(w * dpr);
-      canvas.height = Math.floor(h * dpr);
+      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      const width = Math.ceil(window.innerWidth * dpr);
+      const height = Math.ceil(window.innerHeight * dpr);
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width;
+        canvas.height = height;
+      }
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
       if (gl) gl.viewport(0, 0, canvas.width, canvas.height);
     };
+
     fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(document.documentElement);
     window.addEventListener("resize", fit);
+    window.addEventListener("orientationchange", fit);
 
     if (!gl) {
-      // graceful fallback
       const ctx = canvas.getContext("2d");
       if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
-      return () => window.removeEventListener("resize", fit);
+      return () => {
+        observer.disconnect();
+        window.removeEventListener("resize", fit);
+        window.removeEventListener("orientationchange", fit);
+      };
     }
 
-    // Compile shader helpers
-    const compile = (type: number, src: string) => {
-      const s = gl.createShader(type)!;
-      gl.shaderSource(s, src);
-      gl.compileShader(s);
-      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
-        console.error("Shader error:", gl.getShaderInfoLog(s));
+    const compile = (type: number, source: string) => {
+      const shader = gl.createShader(type)!;
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error("Shader error:", gl.getShaderInfoLog(shader));
       }
-      return s;
+      return shader;
     };
 
     const vert = compile(gl.VERTEX_SHADER, VERT);
     const frag = compile(gl.FRAGMENT_SHADER, FRAG);
-    const prog = gl.createProgram()!;
-    gl.attachShader(prog, vert);
-    gl.attachShader(prog, frag);
-    gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-      console.error("Link error:", gl.getProgramInfoLog(prog));
+    const program = gl.createProgram()!;
+    gl.attachShader(program, vert);
+    gl.attachShader(program, frag);
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      console.error("Link error:", gl.getProgramInfoLog(program));
     }
-    gl.useProgram(prog);
+    gl.useProgram(program);
 
-    // Quad
-    const buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(
       gl.ARRAY_BUFFER,
       new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
-      gl.STATIC_DRAW
+      gl.STATIC_DRAW,
     );
-    const aPos = gl.getAttribLocation(prog, "a_pos");
+    const aPos = gl.getAttribLocation(program, "a_pos");
     gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(aPos);
 
-    // Uniforms
-    const uRes = gl.getUniformLocation(prog, "u_res");
-    const uTime = gl.getUniformLocation(prog, "u_time");
-    const uSpeed = gl.getUniformLocation(prog, "u_speed");
-    const uC0 = gl.getUniformLocation(prog, "u_c0");
-    const uC1 = gl.getUniformLocation(prog, "u_c1");
-    const uC2 = gl.getUniformLocation(prog, "u_c2");
-    const uAlpha = gl.getUniformLocation(prog, "u_alpha");
+    const uRes = gl.getUniformLocation(program, "u_res");
+    const uTime = gl.getUniformLocation(program, "u_time");
+    const uSpeed = gl.getUniformLocation(program, "u_speed");
+    const uC0 = gl.getUniformLocation(program, "u_c0");
+    const uC1 = gl.getUniformLocation(program, "u_c1");
+    const uC2 = gl.getUniformLocation(program, "u_c2");
+    const uAlpha = gl.getUniformLocation(program, "u_alpha");
 
     const paletteRGB = PALETTES[palette] || PALETTES.ocean;
     const speed = SPEED[intensity];
@@ -178,14 +190,14 @@ export default function MeltGLCanvas({
         return;
       }
 
-      const t = (now - start) / 1000; // seconds
+      const t = (now - start) / 1000;
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, t);
       gl.uniform1f(uSpeed, speed);
       gl.uniform3f(uC0, ...paletteRGB[0]);
       gl.uniform3f(uC1, ...paletteRGB[1]);
       gl.uniform3f(uC2, ...paletteRGB[2]);
-      gl.uniform1f(uAlpha, 0.85); // global opacity
+      gl.uniform1f(uAlpha, 0.85);
 
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       raf.current = requestAnimationFrame(render);
@@ -194,20 +206,23 @@ export default function MeltGLCanvas({
     raf.current = requestAnimationFrame(render);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("resize", fit);
+      window.removeEventListener("orientationchange", fit);
       if (raf.current) cancelAnimationFrame(raf.current);
-      gl.deleteProgram(prog);
-      gl.deleteBuffer(buf);
+      gl.deleteProgram(program);
+      gl.deleteBuffer(buffer);
       gl.deleteShader(vert);
       gl.deleteShader(frag);
     };
-  }, [enabled, palette, intensity]);
+  }, [enabled, intensity, palette]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 pointer-events-none transition-opacity duration-700"
-      style={{ opacity: enabled ? 1 : 0 }}
+      className="pointer-events-none fixed inset-0 -z-10 block h-[100svh] w-[100vw] transition-opacity duration-700"
+      style={{ opacity: enabled ? 1 : 0, background: "transparent" }}
+      aria-hidden="true"
     />
   );
 }

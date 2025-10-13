@@ -1,32 +1,88 @@
-import { useEffect, useState } from "react";
-import { getLS, setLS } from "@/lib/storage";
+import { create } from "zustand";
 
 export type MeltPalette = "ocean" | "amethyst" | "aura" | "forest";
 export type MeltIntensity = "low" | "med" | "high";
 
-export function useMelt() {
-  const reduced =
-    typeof window !== "undefined" &&
-    typeof window.matchMedia === "function" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+type MeltState = {
+  enabled: boolean;
+  palette: MeltPalette;
+  intensity: MeltIntensity;
+  setEnabled: (v: boolean) => void;
+  setPalette: (p: MeltPalette) => void;
+  setIntensity: (i: MeltIntensity) => void;
+};
 
-  const [enabled, setEnabled] = useState<boolean>(true);
-  const [palette, setPalette] = useState<MeltPalette>("ocean");
-  const [intensity, setIntensity] = useState<MeltIntensity>("med");
+const KEY = "ths.melt.v1";
 
-  useEffect(() => {
-    setEnabled(getLS("melt:enabled", true));
-    setPalette(getLS("melt:palette", "ocean"));
-    setIntensity(getLS("melt:intensity", "med"));
-  }, []);
+const load = () => {
+  try {
+    const raw = typeof window !== "undefined" ? localStorage.getItem(KEY) : null;
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+};
 
-  useEffect(() => setLS("melt:enabled", enabled), [enabled]);
-  useEffect(() => setLS("melt:palette", palette), [palette]);
-  useEffect(() => setLS("melt:intensity", intensity), [intensity]);
+const save = (state: Pick<MeltState, "enabled" | "palette" | "intensity">) => {
+  try {
+    if (typeof window !== "undefined") {
+      localStorage.setItem(KEY, JSON.stringify(state));
+    }
+  } catch {
+    /* ignore persistence errors */
+  }
+};
 
-  useEffect(() => {
-    if (reduced) setEnabled(false);
-  }, [reduced]);
+const prefersReducedMotion = () => {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+};
 
-  return { enabled, setEnabled, palette, setPalette, intensity, setIntensity };
-}
+export const useMelt = create<MeltState>((set) => {
+  const saved = typeof window !== "undefined" ? load() : null;
+  const initialEnabled = prefersReducedMotion() ? false : saved?.enabled ?? true;
+  const initial: Pick<MeltState, "enabled" | "palette" | "intensity"> = {
+    enabled: initialEnabled,
+    palette: saved?.palette ?? "ocean",
+    intensity: saved?.intensity ?? "med",
+  };
+
+  const persist = (partial: Partial<MeltState>) =>
+    set((state) => {
+      const next = { ...state, ...partial } as MeltState;
+      save({ enabled: next.enabled, palette: next.palette, intensity: next.intensity });
+      return partial;
+    });
+
+  if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handleChange = (event: MediaQueryListEvent | MediaQueryList) => {
+      const matches = (event as MediaQueryList).matches;
+      if (matches) {
+        persist({ enabled: false });
+      }
+    };
+
+    handleChange(media);
+
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", handleChange);
+    } else if (typeof media.addListener === "function") {
+      media.addListener(handleChange);
+    }
+  }
+
+  return {
+    ...initial,
+    setEnabled: (value) => {
+      const next = prefersReducedMotion() ? false : value;
+      persist({ enabled: next });
+    },
+    setPalette: (palette) => {
+      persist({ palette });
+    },
+    setIntensity: (intensity) => {
+      persist({ intensity });
+    },
+  };
+});
