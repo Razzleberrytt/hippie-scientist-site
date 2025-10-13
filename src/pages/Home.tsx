@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react';
 import Meta from '../components/Meta';
 import NewsletterCard from '@/components/NewsletterCard';
 import BackgroundStage from '@/components/BackgroundStage';
-import MeltControls from '@/components/MeltControls';
+import MeltControl from '@/components/MeltControl';
 import KPIRow from '@/components/KPIRow';
 import { getCounters } from '@/lib/counters';
 import { toHash } from '../lib/routing';
 import { useMelt } from '@/melt/useMelt';
-import type { MeltEffectKey } from '@/lib/melt-effects';
+import type { MeltKey } from '@/lib/melt/effects';
 
 const counters = getCounters();
 
 export default function Home() {
   const { preset, setPreset } = useMelt();
-  const [fx, setFx] = useState<MeltEffectKey>(preset);
+  const [fx, setFx] = useState<MeltKey>(preset);
 
   useEffect(() => {
     setFx(preset);
@@ -21,7 +21,7 @@ export default function Home() {
 
   const { herbCount, compoundCount, articleCount } = counters;
 
-  const handleFxChange = (key: MeltEffectKey) => {
+  const handleFxChange = (key: MeltKey) => {
     setFx(key);
     setPreset(key);
   };
@@ -38,12 +38,12 @@ export default function Home() {
       <div className='relative'>
         <BackgroundStage effect={fx} />
 
-        <div className='container mx-auto px-4 pt-3'>
-          <MeltControls value={fx} onChange={handleFxChange} />
+        <div className='container mx-auto px-4 pt-3 flex justify-end'>
+          <MeltControl value={fx} onChange={handleFxChange} />
         </div>
 
         <section className='container mx-auto px-4 py-10'>
-          <div className='mx-auto max-w-screen-md rounded-[28px] backdrop-glass shadow-[0_18px_60px_-20px_rgba(0,0,0,.6)] ring-1 ring-black/5 p-6 md:p-8'>
+          <div className='mx-auto max-w-screen-md rounded-[28px] border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]'>
             <h1 className='text-4xl md:text-5xl font-extrabold tracking-tight text-white'>The Hippie Scientist</h1>
             <p className='mt-4 text-white/85 leading-relaxed'>
               Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
@@ -64,9 +64,12 @@ export default function Home() {
               </a>
             </div>
 
-            <div className='mt-6'>
-              <KPIRow herbs={herbCount} compounds={compoundCount} articles={articleCount} />
-            </div>
+            <KPIRow
+              className='mt-6'
+              herbs={herbCount}
+              compounds={compoundCount}
+              articles={articleCount}
+            />
           </div>
         </section>
       </div>

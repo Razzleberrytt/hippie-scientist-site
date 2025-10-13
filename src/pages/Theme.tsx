@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Meta from '../components/Meta';
 import { useTrippy } from '@/lib/trippy';
 import { useMelt } from '@/melt/useMelt';
-import MeltControls from '@/components/MeltControls';
+import MeltControl from '@/components/MeltControl';
 
 export default function Theme() {
   const { enabled: motionEnabled } = useTrippy();
@@ -66,9 +66,7 @@ export default function Theme() {
 
           <div className='space-y-2'>
             <h2 className='text-base font-semibold text-white'>Animation presets</h2>
-            <div className='w-full overflow-x-hidden'>
-              <MeltControls value={preset} onChange={setPreset} className='max-w-full' />
-            </div>
+            <MeltControl value={preset} onChange={setPreset} />
             <p className='text-sm text-zinc-300/70'>Choose a preset to instantly recolor the Melt background. Your selection is saved for future visits.</p>
           </div>
         </div>

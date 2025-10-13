@@ -57,6 +57,7 @@
 
 :root {
   --hs-card: 255 255 255;
+  color-scheme: dark;
 }
 
 html,
