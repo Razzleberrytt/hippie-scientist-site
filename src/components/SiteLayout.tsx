@@ -15,13 +15,21 @@ const links = [
 export default function SiteLayout({ children }: PropsWithChildren) {
   const location = useLocation();
   const { enabled: motionEnabled } = useTrippy();
-  const { enabled, setEnabled, palette, setPalette, intensity, setIntensity, reduce } = useMelt();
+  const {
+    enabled,
+    setEnabled,
+    palette,
+    setPalette,
+    intensity,
+    setIntensity,
+    prefersReducedMotion,
+  } = useMelt();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
         event.preventDefault();
-        if (!motionEnabled || reduce) return;
+        if (!motionEnabled || prefersReducedMotion) return;
         setEnabled((value) => !value);
       }
     };
@@ -30,9 +38,9 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [motionEnabled, reduce, setEnabled]);
+  }, [motionEnabled, prefersReducedMotion, setEnabled]);
 
-  const shouldAnimate = motionEnabled && !reduce && enabled;
+  const shouldAnimate = motionEnabled && !prefersReducedMotion && enabled;
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
@@ -76,7 +84,7 @@ export default function SiteLayout({ children }: PropsWithChildren) {
           </div>
         </nav>
         <div className="pointer-events-auto">
-          {motionEnabled && !reduce ? (
+          {motionEnabled && !prefersReducedMotion ? (
             <MeltToggle
               enabled={enabled}
               palette={palette}

@@ -12,7 +12,7 @@ const links = [
 
 export default function Header() {
   const { enabled: motionEnabled } = useTrippy();
-  const { setEnabled, reduce } = useMelt();
+  const { setEnabled, prefersReducedMotion } = useMelt();
   const location = useLocation();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Header() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
         event.preventDefault();
-        if (!motionEnabled || reduce) return;
+        if (!motionEnabled || prefersReducedMotion) return;
         setEnabled((value) => !value);
       }
     };
@@ -29,7 +29,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [motionEnabled, reduce, setEnabled]);
+  }, [motionEnabled, prefersReducedMotion, setEnabled]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/30">
