@@ -1,25 +1,15 @@
-import { useEffect, useState } from "react";
 import Meta from "../components/Meta";
 import { useTrippy } from "@/lib/trippy";
-import { melt, type MeltIntensity, type MeltPalette, type MeltSettings } from "@/state/melt";
+import { useMelt } from "@/melt/useMelt";
+import type { MeltIntensity, MeltPalette } from "@/melt/meltTheme";
 
 export default function Theme() {
   const { enabled: motionEnabled } = useTrippy();
-  const [settings, setSettings] = useState<MeltSettings>(() => ({
-    enabled: melt.enabled,
-    palette: melt.palette,
-    intensity: melt.intensity,
-  }));
+  const { enabled, setEnabled, palette, setPalette, intensity, setIntensity, reduce } = useMelt();
 
-  useEffect(() => {
-    return melt.subscribeSettings((next) => {
-      setSettings(next);
-    });
-  }, []);
-
-  const toggle = () => melt.set(!settings.enabled);
-  const selectPalette = (value: MeltPalette) => melt.setPalette(value);
-  const selectIntensity = (value: MeltIntensity) => melt.setIntensity(value);
+  const toggle = () => setEnabled(!enabled);
+  const selectPalette = (value: MeltPalette) => setPalette(value);
+  const selectIntensity = (value: MeltIntensity) => setIntensity(value);
 
   return (
     <>
@@ -36,15 +26,15 @@ export default function Theme() {
             <button
               type="button"
               onClick={toggle}
-              disabled={!motionEnabled}
+              disabled={!motionEnabled || reduce}
               className="btn-secondary rounded-2xl px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {settings.enabled ? "Disable Melt" : "Enable Melt"}
+              {enabled ? "Disable Melt" : "Enable Melt"}
             </button>
             <p className="text-sm text-zinc-300/80">
               {!motionEnabled
                 ? "Melt stays off automatically because your device prefers reduced motion."
-                : settings.enabled
+                : enabled
                 ? "Melt is on. Tap to pause the shader background."
                 : "Melt is off. Re-enable it when you want full vibes."}
             </p>
@@ -60,9 +50,9 @@ export default function Theme() {
                     key={option}
                     type="button"
                     onClick={() => selectPalette(option as MeltPalette)}
-                    disabled={!settings.enabled || !motionEnabled}
+                    disabled={!enabled || !motionEnabled || reduce}
                     className={`btn-secondary rounded-2xl px-3 py-1.5 text-sm ${
-                      settings.palette === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
+                      palette === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
                     } disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     {label}
@@ -82,9 +72,9 @@ export default function Theme() {
                     key={option}
                     type="button"
                     onClick={() => selectIntensity(option as MeltIntensity)}
-                    disabled={!settings.enabled || !motionEnabled}
+                    disabled={!enabled || !motionEnabled || reduce}
                     className={`btn-secondary rounded-2xl px-3 py-1.5 text-sm ${
-                      settings.intensity === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
+                      intensity === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
                     } disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     {label}

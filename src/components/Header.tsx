@@ -1,8 +1,8 @@
 // src/components/Header.tsx
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { melt } from "@/state/melt";
 import { useTrippy } from "@/lib/trippy";
+import { useMelt } from "@/melt/useMelt";
 
 const links = [
   { label: "Browse", to: "/database" },
@@ -11,7 +11,8 @@ const links = [
 ];
 
 export default function Header() {
-  const { enabled } = useTrippy();
+  const { enabled: motionEnabled } = useTrippy();
+  const { setEnabled, reduce } = useMelt();
   const location = useLocation();
 
   useEffect(() => {
@@ -19,8 +20,8 @@ export default function Header() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
         event.preventDefault();
-        if (!enabled) return;
-        melt.toggle();
+        if (!motionEnabled || reduce) return;
+        setEnabled((value) => !value);
       }
     };
 
@@ -28,7 +29,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [enabled]);
+  }, [motionEnabled, reduce, setEnabled]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/30">

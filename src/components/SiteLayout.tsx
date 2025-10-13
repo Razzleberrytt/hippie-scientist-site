@@ -1,10 +1,10 @@
-import { PropsWithChildren, useCallback, useEffect, useState } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MeltToggle from "@/components/MeltToggle";
-import { MeltCanvas } from "@/components/MeltCanvas";
+import MeltCanvas from "@/components/MeltCanvas";
 import ThemeToggle from "./ThemeToggle";
-import { melt, type MeltIntensity, type MeltPalette, type MeltSettings } from "@/state/melt";
 import { useTrippy } from "@/lib/trippy";
+import { useMelt } from "@/melt/useMelt";
 
 const links = [
   { label: "Browse", to: "/database" },
@@ -15,24 +15,14 @@ const links = [
 export default function SiteLayout({ children }: PropsWithChildren) {
   const location = useLocation();
   const { enabled: motionEnabled } = useTrippy();
-  const [settings, setSettings] = useState<MeltSettings>(() => ({
-    enabled: melt.enabled,
-    palette: melt.palette,
-    intensity: melt.intensity,
-  }));
-
-  useEffect(() => {
-    return melt.subscribeSettings((next) => {
-      setSettings(next);
-    });
-  }, []);
+  const { enabled, setEnabled, palette, setPalette, intensity, setIntensity, reduce } = useMelt();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
         event.preventDefault();
-        if (!motionEnabled) return;
-        melt.toggle();
+        if (!motionEnabled || reduce) return;
+        setEnabled((value) => !value);
       }
     };
 
@@ -40,32 +30,13 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [motionEnabled]);
+  }, [motionEnabled, reduce, setEnabled]);
 
-  const onMeltChange = useCallback((palette: MeltPalette, intensity: MeltIntensity) => {
-    setSettings((prev) => ({ ...prev, palette, intensity }));
-    melt.setPalette(palette);
-    melt.setIntensity(intensity);
-  }, []);
-
-  const shouldAnimate = settings.enabled && motionEnabled;
+  const shouldAnimate = motionEnabled && !reduce && enabled;
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
-      <div className="pointer-events-none fixed inset-0 z-0">
-        {shouldAnimate ? (
-          <MeltCanvas palette={settings.palette} intensity={settings.intensity} />
-        ) : (
-          <div
-            className="h-full w-full"
-            style={{
-              background:
-                "radial-gradient(1200px 600px at 20% 20%, rgba(87,164,255,.25), transparent 60%), radial-gradient(1200px 700px at 80% 80%, rgba(255,130,220,.18), transparent 65%), linear-gradient(180deg, #0b0f14 0%, #0a0d12 100%)",
-            }}
-            aria-hidden
-          />
-        )}
-      </div>
+      <MeltCanvas enabled={shouldAnimate} palette={palette} intensity={intensity} />
 
       <div
         className="pointer-events-none fixed inset-0 z-[1] opacity-[.05] mix-blend-overlay"
@@ -104,16 +75,20 @@ export default function SiteLayout({ children }: PropsWithChildren) {
             })}
           </div>
         </nav>
-        {motionEnabled ? (
-          <MeltToggle
-            key={`${settings.palette}-${settings.intensity}`}
-            onChange={onMeltChange}
-          />
-        ) : (
-          <div className="pointer-events-auto">
+        <div className="pointer-events-auto">
+          {motionEnabled && !reduce ? (
+            <MeltToggle
+              enabled={enabled}
+              palette={palette}
+              intensity={intensity}
+              onEnabled={(value) => setEnabled(value)}
+              onPalette={setPalette}
+              onIntensity={setIntensity}
+            />
+          ) : (
             <ThemeToggle />
-          </div>
-        )}
+          )}
+        </div>
       </header>
 
       <main className="relative z-10">{children}</main>

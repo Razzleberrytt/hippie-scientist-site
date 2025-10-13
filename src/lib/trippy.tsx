@@ -7,7 +7,6 @@ import {
   useState,
 } from "react";
 import type { ReactNode } from "react";
-import { melt } from "@/state/melt";
 
 export type TrippyLevel = "off" | "melt";
 
@@ -39,17 +38,10 @@ export const TRIPPY_LABELS: Record<TrippyLevel, string> = {
 
 export function TrippyProvider({ children }: { children: ReactNode }) {
   const [enabled, setEnabled] = useState<boolean>(() => !prefersReducedMotion());
-  const [levelState, setLevelState] = useState<TrippyLevel>(() => (melt.enabled ? "melt" : "off"));
+  const [levelState, setLevelState] = useState<TrippyLevel>(() => (!prefersReducedMotion() ? "melt" : "off"));
 
   const setLevel = useCallback((value: TrippyLevel) => {
     setLevelState(value);
-    melt.set(value !== "off");
-  }, []);
-
-  useEffect(() => {
-    return melt.subscribe((value) => {
-      setLevelState(value ? "melt" : "off");
-    });
   }, []);
 
   useEffect(() => {
