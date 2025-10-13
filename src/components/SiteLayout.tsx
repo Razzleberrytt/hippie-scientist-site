@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MeltCanvas from "@/components/MeltCanvas";
+import MeltGLCanvas from "@/components/MeltGLCanvas";
 import MeltControls from "@/components/MeltControls";
 import ThemeToggle from "./ThemeToggle";
 import { useTrippy } from "@/lib/trippy";
@@ -59,7 +59,7 @@ export default function SiteLayout({ children }: PropsWithChildren) {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-black text-white">
-      <MeltCanvas enabled={shouldAnimate} palette={palette} intensity={intensity} />
+      <MeltGLCanvas enabled={shouldAnimate} palette={palette} intensity={intensity} />
 
       <div
         className="pointer-events-none fixed inset-0 z-[1] opacity-[.05] mix-blend-overlay"
