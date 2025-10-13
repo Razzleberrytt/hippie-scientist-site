@@ -1,18 +1,30 @@
+import { useEffect, useState } from 'react';
 import Meta from '../components/Meta';
 import NewsletterCard from '@/components/NewsletterCard';
-import Magnetic from '@/components/Magnetic';
-import BackgroundCanvas from '@/components/BackgroundCanvas';
+import BackgroundStage from '@/components/BackgroundStage';
 import MeltControls from '@/components/MeltControls';
 import KPIRow from '@/components/KPIRow';
 import { getCounters } from '@/lib/counters';
 import { toHash } from '../lib/routing';
 import { useMelt } from '@/melt/useMelt';
+import type { MeltEffectKey } from '@/lib/melt-effects';
 
 const counters = getCounters();
 
 export default function Home() {
   const { preset, setPreset } = useMelt();
+  const [fx, setFx] = useState<MeltEffectKey>(preset);
+
+  useEffect(() => {
+    setFx(preset);
+  }, [preset]);
+
   const { herbCount, compoundCount, articleCount } = counters;
+
+  const handleFxChange = (key: MeltEffectKey) => {
+    setFx(key);
+    setPreset(key);
+  };
 
   return (
     <>
@@ -23,57 +35,43 @@ export default function Home() {
         pageType='website'
       />
 
-      <div className='relative isolate'>
-        <BackgroundCanvas preset={preset} className='absolute inset-0 -z-10' />
+      <div className='relative'>
+        <BackgroundStage effect={fx} />
 
-        <div className='container-safe pt-3'>
-          <div className='w-full overflow-x-hidden'>
-            <MeltControls value={preset} onChange={setPreset} className='max-w-full' />
-          </div>
+        <div className='container mx-auto px-4 pt-3'>
+          <MeltControls value={fx} onChange={handleFxChange} />
         </div>
 
-        <section className='mx-auto max-w-screen-md w-full px-4 py-10'>
-          <div className='relative overflow-hidden rounded-[28px] border border-white/18 bg-white/8 backdrop-blur-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,.55)] ring-1 ring-black/5 p-6 md:p-8'>
-            <div className='relative'>
-              <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>The Hippie Scientist</h1>
-              <p className='mt-4 text-base text-white/80 sm:text-lg'>
-                Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
-              </p>
+        <section className='container mx-auto px-4 py-10'>
+          <div className='mx-auto max-w-screen-md rounded-[28px] backdrop-glass shadow-[0_18px_60px_-20px_rgba(0,0,0,.6)] ring-1 ring-black/5 p-6 md:p-8'>
+            <h1 className='text-4xl md:text-5xl font-extrabold tracking-tight text-white'>The Hippie Scientist</h1>
+            <p className='mt-4 text-white/85 leading-relaxed'>
+              Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
+            </p>
 
-              <div className='mt-5 flex flex-wrap gap-3'>
-                <Magnetic strength={12}>
-                  <a
-                    href={toHash('/database')}
-                    className='inline-flex items-center gap-2 rounded-2xl bg-emerald-500/85 px-4 py-2.5 text-sm font-semibold text-black shadow-lg shadow-emerald-900/30 transition hover:bg-emerald-400/90'
-                  >
-                    🌿 Browse Herbs
-                  </a>
-                </Magnetic>
-                <Magnetic strength={12}>
-                  <a
-                    href={toHash('/build')}
-                    className='inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10'
-                  >
-                    🧪 Build a Blend
-                  </a>
-                </Magnetic>
-              </div>
+            <div className='mt-6 flex flex-col sm:flex-row gap-3'>
+              <a
+                href={toHash('/database')}
+                className='glass-pill px-5 py-3 text-white font-medium bg-emerald-500/80 hover:bg-emerald-500 transition-colors border-transparent'
+              >
+                🌿 Browse Herbs
+              </a>
+              <a
+                href={toHash('/build')}
+                className='glass-pill px-5 py-3 text-white/95 font-medium hover:bg-white/10 transition-colors'
+              >
+                🧪 Build a Blend
+              </a>
+            </div>
 
-              <KPIRow
-                herbs={herbCount}
-                compounds={compoundCount}
-                articles={articleCount}
-                className='mt-6'
-              />
+            <div className='mt-6'>
+              <KPIRow herbs={herbCount} compounds={compoundCount} articles={articleCount} />
             </div>
           </div>
         </section>
       </div>
 
-      <section
-        aria-label='Newsletter signup'
-        className='mx-auto max-w-screen-md w-full px-4 pb-12'
-      >
+      <section aria-label='Newsletter signup' className='container mx-auto max-w-screen-md px-4 pb-12'>
         <NewsletterCard />
       </section>
     </>

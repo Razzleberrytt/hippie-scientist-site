@@ -1,51 +1,59 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { DEFAULT_MELT, MELT_PRESETS, type MeltPresetKey } from '@/lib/melt-presets';
+import { EFFECTS, DEFAULT_EFFECT, type MeltEffectKey } from '@/lib/melt-effects';
 import clsx from 'clsx';
 
 type Props = {
-  value?: MeltPresetKey;
-  onChange?: (p: MeltPresetKey) => void;
   className?: string;
+  value?: MeltEffectKey;
+  onChange?: (key: MeltEffectKey) => void;
 };
 
-export default function MeltControls({ value, onChange, className }: Props) {
-  const [preset, setPreset] = useState<MeltPresetKey>(value ?? DEFAULT_MELT);
+export default function MeltControls({ className, value, onChange }: Props) {
+  const [fx, setFx] = useState<MeltEffectKey>(value ?? DEFAULT_EFFECT);
 
   useEffect(() => {
-    if (value && value !== preset) {
-      setPreset(value);
+    if (value && value !== fx) {
+      setFx(value);
     }
-  }, [value, preset]);
+  }, [value, fx]);
 
   useEffect(() => {
-    onChange?.(preset);
-    // persist between navigations
-    try { localStorage.setItem('melt_preset', preset); } catch {}
-  }, [preset]);
-
-  useEffect(() => {
-    // hydrate from storage on first mount
+    onChange?.(fx);
     try {
-      const saved = localStorage.getItem('melt_preset') as MeltPresetKey | null;
-      if (saved && MELT_PRESETS[saved]) setPreset(saved);
-    } catch {}
+      localStorage.setItem('melt_fx', fx);
+    } catch {
+      /* ignore persistence errors */
+    }
+  }, [fx, onChange]);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('melt_fx') as MeltEffectKey | null;
+      if (stored && EFFECTS[stored]) {
+        setFx(stored);
+      }
+    } catch {
+      /* ignore persistence errors */
+    }
   }, []);
 
   return (
     <div className={className}>
-      <div className="flex items-center gap-2 overflow-x-auto snap-x scrollbar-none py-2 -mx-2 px-2">
-        {(Object.keys(MELT_PRESETS) as MeltPresetKey[]).map(k => (
+      <div className="flex gap-2 overflow-x-auto snap-x scrollbar-none py-2 -mx-2 px-2">
+        {Object.values(EFFECTS).map((effect) => (
           <button
-            key={k}
-            onClick={() => setPreset(k)}
-            className={clsx(
-              'snap-start rounded-full px-3 py-1.5 text-sm border bg-white/5 border-white/10 backdrop-blur transition-colors duration-200',
-              preset === k ? 'ring-2 ring-teal-400/60 text-white shadow-[0_0_0_1px_rgba(45,212,191,0.4)]' : 'text-white/80 hover:text-white'
-            )}
+            key={effect.key}
             type="button"
+            onClick={() => setFx(effect.key)}
+            className={clsx(
+              'snap-start rounded-full px-3.5 py-1.5 text-sm border border-white/12 bg-white/6 backdrop-blur transition-colors duration-200',
+              fx === effect.key
+                ? 'ring-2 ring-teal-300/60 text-white'
+                : 'text-white/85 hover:text-white',
+            )}
           >
-            {MELT_PRESETS[k].label}
+            {effect.label}
           </button>
         ))}
       </div>

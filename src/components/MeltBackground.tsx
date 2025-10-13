@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import BackgroundCanvas from './BackgroundCanvas';
+import BackgroundStage from './BackgroundStage';
 import { useTrippy } from '@/lib/trippy';
 import { useMelt } from '@/melt/useMelt';
 
@@ -18,7 +18,7 @@ export default function MeltBackground() {
       aria-hidden
       className="pointer-events-none fixed inset-0 -z-10"
     >
-      <BackgroundCanvas preset={preset} className="absolute inset-0" />
+      <BackgroundStage effect={preset} />
     </div>
   );
 }
