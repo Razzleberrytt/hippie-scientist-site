@@ -2,16 +2,16 @@ import { useEffect, useRef } from "react";
 import type { MeltPalette, MeltIntensity } from "@/melt/useMelt";
 
 const PALETTES: Record<MeltPalette, string[]> = {
-  ocean: ["#00d1ff", "#0066ff", "#002244"],
-  amethyst: ["#caa6ff", "#8a4fff", "#2b0b4f"],
-  aura: ["#00ffaa", "#33ddff", "#003366"],
-  forest: ["#7ef0a0", "#1faa59", "#0b3d2e"],
+  ocean: ["#00d1ff", "#0066ff", "#00ffaa"],
+  amethyst: ["#b388ff", "#8a4fff", "#ff00d9"],
+  aura: ["#00ffaa", "#33ddff", "#ff66ff"],
+  forest: ["#7ef0a0", "#1faa59", "#00ffb2"],
 };
 
 const SPEED: Record<MeltIntensity, number> = {
-  low: 0.15,
-  med: 0.35,
-  high: 0.8,
+  low: 0.2,
+  med: 0.5,
+  high: 1.1,
 };
 
 export default function MeltCanvas({
@@ -23,57 +23,71 @@ export default function MeltCanvas({
   palette: MeltPalette;
   intensity: MeltIntensity;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLCanvasElement>(null);
   const raf = useRef<number | null>(null);
 
   useEffect(() => {
-    const host = ref.current;
-    if (!host) return;
+    const canvas = ref.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    host.innerHTML = "";
-    if (raf.current) cancelAnimationFrame(raf.current);
-    raf.current = null;
-
-    host.style.pointerEvents = "none";
-    host.style.position = "fixed";
-    host.style.inset = "0";
-    host.style.zIndex = "-1";
-
-    if (!enabled) return;
-
-    const colors = PALETTES[palette] ?? PALETTES.ocean;
-    const blobs = Array.from({ length: 3 }).map((_, i) => {
-      const color = colors[i % colors.length];
-      const d = document.createElement("div");
-      d.style.position = "absolute";
-      d.style.width = "120vmax";
-      d.style.height = "120vmax";
-      d.style.left = "50%";
-      d.style.top = "50%";
-      d.style.transform = "translate(-50%, -50%)";
-      d.style.filter = "blur(120px)";
-      d.style.opacity = "0.55";
-      d.style.background = `radial-gradient(closest-side, ${color}80, transparent 70%)`;
-      host.appendChild(d);
-      return d;
-    });
-
-    const sp = SPEED[intensity];
-    let t = 0;
-    const loop = () => {
-      t += sp;
-      blobs[0].style.transform = `translate(calc(-50% + ${Math.sin(t / 47) * 18}vw), calc(-50% + ${Math.cos(t / 53) * 12}vh)) scale(1.05)`;
-      blobs[1].style.transform = `translate(calc(-50% + ${Math.cos(t / 41) * 22}vw), calc(-50% + ${Math.sin(t / 37) * 16}vh)) scale(0.95) rotate(${t / 10}deg)`;
-      blobs[2].style.transform = `translate(calc(-50% + ${Math.sin(t / 59) * 28}vw), calc(-50% + ${Math.cos(t / 61) * 20}vh)) scale(1.12)`;
-      raf.current = requestAnimationFrame(loop);
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+    const resize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
     };
-    raf.current = requestAnimationFrame(loop);
+    window.addEventListener("resize", resize);
+
+    const colors = PALETTES[palette];
+    let t = 0;
+    const sp = SPEED[intensity];
+
+    const draw = () => {
+      t += sp;
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalAlpha = 0.5;
+      const cx = width / 2;
+      const cy = height / 2;
+
+      for (let i = 0; i < colors.length; i++) {
+        const r = (Math.sin(t / (100 + i * 40)) * 0.5 + 0.5) * 300 + 200;
+        const grad = ctx.createRadialGradient(
+          cx + Math.sin(t / (70 + i * 20) + i) * 300,
+          cy + Math.cos(t / (80 + i * 25) + i) * 200,
+          100,
+          cx,
+          cy,
+          r
+        );
+        grad.addColorStop(0, `${colors[i]}AA`);
+        grad.addColorStop(1, `${colors[i]}00`);
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r * 1.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      raf.current = requestAnimationFrame(draw);
+    };
+
+    if (enabled) raf.current = requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, width, height);
 
     return () => {
       if (raf.current) cancelAnimationFrame(raf.current);
-      host.innerHTML = "";
+      window.removeEventListener("resize", resize);
     };
   }, [enabled, palette, intensity]);
 
-  return <div ref={ref} />;
+  return (
+    <canvas
+      ref={ref}
+      className="fixed inset-0 -z-10 pointer-events-none transition-opacity duration-700"
+      style={{
+        opacity: enabled ? 1 : 0,
+        background: "radial-gradient(circle at 50% 50%, #00000000 0%, #000000FF 100%)",
+      }}
+    />
+  );
 }

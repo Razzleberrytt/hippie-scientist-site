@@ -113,7 +113,7 @@ export default function SiteLayout({ children }: PropsWithChildren) {
         </div>
       </header>
 
-      <main id="main" className="relative z-10">
+      <main id="main" className="relative z-10 px-4 py-8">
         {children}
       </main>
     </div>
