@@ -3,12 +3,14 @@ import Meta from '../components/Meta'
 import ErrorBoundary from '../components/ErrorBoundary'
 import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import AdvancedSearch from '../components/AdvancedSearch'
-import Stats from '@/components/Stats'
+import KPIRow from '@/components/KPIRow'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 import { decorateHerbs } from '../lib/herbs'
 import { ENABLE_ADVANCED_FILTERS } from '../config/ui'
-import { siteStats } from '../lib/stats'
+import { getCounters } from '@/lib/counters'
+
+const counters = getCounters()
 
 const decoratedHerbs = decorateHerbs(herbsData as Herb[])
 
@@ -93,15 +95,12 @@ export default function Database() {
               </div>
             </div>
 
-            <div className='mt-6'>
-              <Stats
-                items={[
-                  { value: siteStats.herbs, label: 'psychoactive herbs' },
-                  { value: siteStats.compounds, label: 'active compounds' },
-                  { value: siteStats.posts, label: 'articles' },
-                ]}
-              />
-            </div>
+            <KPIRow
+              herbs={counters.herbCount}
+              compounds={counters.compoundCount}
+              articles={counters.articleCount}
+              className='mt-6'
+            />
           </div>
         </section>
 

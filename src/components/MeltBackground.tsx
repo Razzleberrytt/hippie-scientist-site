@@ -1,11 +1,16 @@
-import MeltGLCanvas from "./MeltGLCanvas";
-import { useTrippy } from "@/lib/trippy";
-import { useMelt } from "@/melt/useMelt";
+import { useLocation } from 'react-router-dom';
+import BackgroundCanvas from './BackgroundCanvas';
+import { useTrippy } from '@/lib/trippy';
+import { useMelt } from '@/melt/useMelt';
 
 export default function MeltBackground() {
+  const location = useLocation();
   const { level, enabled: trippyEnabled } = useTrippy();
-  const { enabled, palette } = useMelt();
-  const shouldAnimate = trippyEnabled && level !== "off" && enabled;
+  const { enabled, preset } = useMelt();
+  const shouldAnimate = trippyEnabled && level !== 'off' && enabled;
+
+  if (location.pathname === '/') return null;
+  if (!shouldAnimate) return null;
 
   return (
     <div
@@ -13,7 +18,7 @@ export default function MeltBackground() {
       aria-hidden
       className="pointer-events-none fixed inset-0 -z-10"
     >
-      <MeltGLCanvas enabled={shouldAnimate} palette={palette} />
+      <BackgroundCanvas preset={preset} className="absolute inset-0" />
     </div>
   );
 }

@@ -1,44 +1,31 @@
-import { create } from "zustand";
-import type { MeltPalette } from "./meltTheme";
-export type { MeltPalette } from "./meltTheme";
+import { create } from 'zustand';
+import { DEFAULT_MELT, type MeltPresetKey } from '@/lib/melt-presets';
+
+export type { MeltPresetKey } from '@/lib/melt-presets';
 
 type MeltState = {
   enabled: boolean;
-  palette: MeltPalette;
+  preset: MeltPresetKey;
   setEnabled: (v: boolean) => void;
-  setPalette: (p: MeltPalette) => void;
+  setPreset: (p: MeltPresetKey) => void;
 };
 
-const KEY = "ths.melt.v1";
+const KEY = 'ths.melt.v2';
 
-type PersistedState = Partial<Pick<MeltState, "enabled" | "palette">> & {
-  intensity?: string;
-};
-
-const applyIntensity = (value: string) => {
-  if (typeof document !== "undefined") {
-    document.documentElement.style.setProperty("--melt-intensity", value);
-  }
-};
-
-const applyPalette = (value: MeltPalette) => {
-  if (typeof document !== "undefined") {
-    document.documentElement.style.setProperty("--melt-palette", value);
-  }
-};
+type PersistedState = Partial<Pick<MeltState, 'enabled' | 'preset'>>;
 
 const load = (): PersistedState | null => {
   try {
-    const raw = typeof window !== "undefined" ? localStorage.getItem(KEY) : null;
+    const raw = typeof window !== 'undefined' ? localStorage.getItem(KEY) : null;
     return raw ? JSON.parse(raw) : null;
   } catch {
     return null;
   }
 };
 
-const save = (state: Pick<MeltState, "enabled" | "palette">) => {
+const save = (state: Pick<MeltState, 'enabled' | 'preset'>) => {
   try {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       localStorage.setItem(KEY, JSON.stringify(state));
     }
   } catch {
@@ -47,30 +34,24 @@ const save = (state: Pick<MeltState, "enabled" | "palette">) => {
 };
 
 const prefersReducedMotion = () => {
-  if (typeof window === "undefined" || typeof window.matchMedia !== "function") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return false;
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 };
 
 export const useMelt = create<MeltState>((set) => {
-  const saved = typeof window !== "undefined" ? load() : null;
+  const saved = typeof window !== 'undefined' ? load() : null;
   const initialEnabled = prefersReducedMotion() ? false : saved?.enabled ?? true;
-  const initial: Pick<MeltState, "enabled" | "palette"> = {
-    enabled: initialEnabled,
-    palette: saved?.palette ?? "ocean",
-  };
-
-  applyIntensity("high");
-  applyPalette(initial.palette);
+  const initialPreset = saved?.preset ?? DEFAULT_MELT;
 
   const persist = (partial: Partial<MeltState>) =>
     set((state) => {
       const next = { ...state, ...partial } as MeltState;
-      save({ enabled: next.enabled, palette: next.palette });
-      return partial;
+      save({ enabled: next.enabled, preset: next.preset });
+      return next;
     });
 
-  if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     const handleChange = (event: MediaQueryListEvent | MediaQueryList) => {
       const matches = (event as MediaQueryList).matches;
       if (matches) {
@@ -80,22 +61,22 @@ export const useMelt = create<MeltState>((set) => {
 
     handleChange(media);
 
-    if (typeof media.addEventListener === "function") {
-      media.addEventListener("change", handleChange);
-    } else if (typeof media.addListener === "function") {
+    if (typeof media.addEventListener === 'function') {
+      media.addEventListener('change', handleChange);
+    } else if (typeof media.addListener === 'function') {
       media.addListener(handleChange);
     }
   }
 
   return {
-    ...initial,
+    enabled: initialEnabled,
+    preset: initialPreset,
     setEnabled: (value) => {
       const next = prefersReducedMotion() ? false : value;
       persist({ enabled: next });
     },
-    setPalette: (palette) => {
-      applyPalette(palette);
-      persist({ palette });
+    setPreset: (preset) => {
+      persist({ preset });
     },
   };
 });

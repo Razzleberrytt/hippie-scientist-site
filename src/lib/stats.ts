@@ -1,28 +1,11 @@
-import herbsData from '../data/herbs/herbs.normalized.json';
-import { compounds as compoundData } from '../data/compounds/compoundsIndex';
-import blogIndex from '../../public/blogdata/index.json';
+import { getCounters } from './counters';
 
-type BlogIndexLike = {
-  items?: Array<unknown>;
-};
-
-const herbCount = Array.isArray(herbsData) ? herbsData.length : 0;
-const compoundCount = Array.isArray(compoundData) ? compoundData.length : 0;
-
-const resolvedPosts = (() => {
-  if (Array.isArray((blogIndex as BlogIndexLike)?.items)) {
-    return (blogIndex as BlogIndexLike).items?.length ?? 0;
-  }
-  if (Array.isArray(blogIndex)) {
-    return blogIndex.length;
-  }
-  return 0;
-})();
+const counters = getCounters();
 
 export const siteStats = {
-  herbs: herbCount,
-  compounds: compoundCount,
-  posts: resolvedPosts,
+  herbs: counters.herbCount,
+  compounds: counters.compoundCount,
+  posts: counters.articleCount,
 };
 
 export function formatKpis({

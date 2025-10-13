@@ -2,7 +2,7 @@ import { PropsWithChildren, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MeltControls from "./MeltControls";
 import { useTrippy } from "@/lib/trippy";
-import { useMelt, type MeltPalette } from "@/melt/useMelt";
+import { useMelt } from "@/melt/useMelt";
 import MeltBackground from "./MeltBackground";
 
 const links = [
@@ -11,18 +11,10 @@ const links = [
   { label: "Blog", to: "/blog" },
 ];
 
-const paletteOptions: { id: MeltPalette; label: string }[] = [
-  { id: "ocean", label: "Ocean" },
-  { id: "amethyst", label: "Amethyst" },
-  { id: "aura", label: "Aura" },
-  { id: "forest", label: "Forest" },
-  { id: "nebula", label: "Nebula" },
-];
-
 export default function SiteLayout({ children }: PropsWithChildren) {
   const location = useLocation();
   const { level, enabled: trippyEnabled } = useTrippy();
-  const { enabled, setEnabled, palette, setPalette } = useMelt();
+  const { enabled, setEnabled, preset, setPreset } = useMelt();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [controlsOpen, setControlsOpen] = useState(false);
 
@@ -119,14 +111,11 @@ export default function SiteLayout({ children }: PropsWithChildren) {
         </nav>
 
         {controlsOpen && (
-          <MeltControls
-            value={palette}
-            palettes={paletteOptions}
-            onChange={(id) => {
-              setPalette(id as MeltPalette);
-            }}
-            onClose={() => setControlsOpen(false)}
-          />
+          <div className="w-full overflow-x-hidden border-t border-white/10 bg-black/40 backdrop-blur">
+            <div className="container-safe">
+              <MeltControls value={preset} onChange={setPreset} className="max-w-full" />
+            </div>
+          </div>
         )}
       </header>
 

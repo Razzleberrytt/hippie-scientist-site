@@ -72,3 +72,12 @@ body {
 .safe {
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+@layer utilities {
+  .bg-white\/6 { background-color: rgba(255, 255, 255, 0.06); }
+  .bg-white\/14 { background-color: rgba(255, 255, 255, 0.14); }
+  .border-white\/14 { border-color: rgba(255, 255, 255, 0.14); }
+  .border-white\/20 { border-color: rgba(255, 255, 255, 0.2); }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+}
