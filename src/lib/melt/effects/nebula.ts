@@ -10,7 +10,7 @@ function clear(ctx: CanvasRenderingContext2D, w: number, h: number) {
 
 export const NebulaEffect: MeltEffect = {
   init(ctx) {
-    ctx.globalCompositeOperation = 'screen';
+    ctx.globalCompositeOperation = 'source-over';
   },
   frame(ctx, w, h, t) {
     clear(ctx, w, h);

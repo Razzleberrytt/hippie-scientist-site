@@ -43,9 +43,9 @@ export default function Home() {
         </div>
 
         <section className='container mx-auto px-4 py-10'>
-          <div className='mx-auto max-w-screen-md rounded-[28px] border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]'>
+          <div className='mx-auto max-w-screen-md rounded-[28px] border border-white/10 bg-white/[0.03] p-6 md:p-8 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]'>
             <h1 className='text-4xl md:text-5xl font-extrabold tracking-tight text-white'>The Hippie Scientist</h1>
-            <p className='mt-4 text-white/85 leading-relaxed'>
+            <p className='mt-4 text-white/90 leading-relaxed'>
               Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
             </p>
 

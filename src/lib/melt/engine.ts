@@ -44,6 +44,8 @@ export class MeltEngine {
       throw new Error('2D context unavailable');
     }
 
+    this.ctx.globalCompositeOperation = 'source-over';
+
     this.dpr = Math.min(window.devicePixelRatio || 1, 2);
     this.current = this.registry[this.key];
     if (!this.current) {

@@ -34,7 +34,7 @@ export default function BackgroundStage({ effect = DEFAULT_EFFECT as MeltKey }: 
     return (
       <div
         aria-hidden
-        className="fixed inset-0 -z-10 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950"
+        className="fixed inset-0 -z-10 bg-gradient-to-br from-indigo-950 via-slate-950 to-black"
       />
     );
   }
