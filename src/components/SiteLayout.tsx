@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MeltControls from "./MeltControls";
+import MeltControl from "./MeltControl";
 import { useTrippy } from "@/lib/trippy";
 import { useMelt } from "@/melt/useMelt";
 import MeltBackground from "./MeltBackground";
@@ -16,7 +16,6 @@ export default function SiteLayout({ children }: PropsWithChildren) {
   const { level, enabled: trippyEnabled } = useTrippy();
   const { enabled, setEnabled, preset, setPreset } = useMelt();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [controlsOpen, setControlsOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
@@ -60,10 +59,6 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [level, prefersReducedMotion, setEnabled, trippyEnabled]);
 
-  useEffect(() => {
-    setControlsOpen(false);
-  }, [location.pathname]);
-
   return (
     <div className="relative min-h-svh overflow-x-hidden">
       <MeltBackground />
@@ -76,7 +71,7 @@ export default function SiteLayout({ children }: PropsWithChildren) {
       </a>
 
       <header className="header-nav sticky top-0 z-50 bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40">
-        <nav className="nav-row container-safe items-center py-3" aria-label="Site">
+        <nav className="nav-row container-safe flex items-center gap-2 py-3" aria-label="Site">
           <Link
             to="/"
             className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-semibold transition ${
@@ -99,24 +94,10 @@ export default function SiteLayout({ children }: PropsWithChildren) {
               </Link>
             );
           })}
-          <button
-            type="button"
-            aria-haspopup="dialog"
-            aria-expanded={controlsOpen}
-            className={`chip ${controlsOpen ? "chip--active" : ""}`}
-            onClick={() => setControlsOpen((open) => !open)}
-          >
-            ✨ Melt
-          </button>
-        </nav>
-
-        {controlsOpen && (
-          <div className="w-full overflow-x-hidden border-t border-white/10 bg-black/40 backdrop-blur">
-            <div className="container-safe">
-              <MeltControls value={preset} onChange={setPreset} className="max-w-full" />
-            </div>
+          <div className="ml-auto">
+            <MeltControl value={preset} onChange={setPreset} />
           </div>
-        )}
+        </nav>
       </header>
 
       <main id="main" className="relative z-10 flex-1">

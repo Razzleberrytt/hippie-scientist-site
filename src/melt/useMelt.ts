@@ -1,13 +1,13 @@
 import { create } from 'zustand';
-import { DEFAULT_EFFECT, type MeltEffectKey } from '@/lib/melt-effects';
+import { DEFAULT_EFFECT, type MeltKey } from '@/lib/melt/effects';
 
-export type { MeltEffectKey } from '@/lib/melt-effects';
+export type { MeltKey } from '@/lib/melt/effects';
 
 type MeltState = {
   enabled: boolean;
-  preset: MeltEffectKey;
+  preset: MeltKey;
   setEnabled: (v: boolean) => void;
-  setPreset: (p: MeltEffectKey) => void;
+  setPreset: (p: MeltKey) => void;
 };
 
 const KEY = 'ths.melt.v2';

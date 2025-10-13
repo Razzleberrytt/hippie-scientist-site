@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import MeltControls from './MeltControls';
+import clsx from 'clsx';
+import { MELT_OPTIONS } from './MeltControl';
 import { useMelt } from '@/melt/useMelt';
 
 type MeltSheetProps = {
@@ -52,8 +53,23 @@ export default function MeltSheet({ open, onClose }: MeltSheetProps) {
             </div>
 
             <div className='mt-3 text-sm text-white/70'>Pick an animation preset to instantly shift the Melt background vibe.</div>
-            <div className='mt-3 w-full overflow-x-hidden'>
-              <MeltControls value={preset} onChange={setPreset} className='max-w-full' />
+            <div className='mt-3 grid grid-cols-2 gap-2'>
+              {MELT_OPTIONS.map((option) => (
+                <button
+                  key={option.key}
+                  type='button'
+                  onClick={() => {
+                    setPreset(option.key);
+                    onClose();
+                  }}
+                  className={clsx(
+                    'rounded-full px-3 py-2 text-sm text-zinc-300 ring-1 ring-white/10 transition hover:text-white hover:ring-white/30',
+                    preset === option.key && 'bg-white/10 text-white',
+                  )}
+                >
+                  {option.label}
+                </button>
+              ))}
             </div>
           </div>
         </div>

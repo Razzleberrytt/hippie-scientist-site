@@ -50,7 +50,7 @@ export default function Database() {
         path='/database'
       />
       <main className='container mx-auto max-w-screen-md px-4 py-6 space-y-6'>
-        <section className='rounded-[28px] backdrop-glass p-6 sm:p-8 shadow-[0_18px_60px_-20px_rgba(0,0,0,.6)] ring-1 ring-black/5'>
+        <section className='rounded-[28px] border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]'>
           <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>Herb Database</h1>
           <p className='mt-2 text-white/75'>Search and explore the library.</p>
 
@@ -91,9 +91,12 @@ export default function Database() {
               </div>
             </div>
 
-          <div className='mt-6'>
-            <KPIRow herbs={counters.herbCount} compounds={counters.compoundCount} articles={counters.articleCount} />
-          </div>
+          <KPIRow
+            className='mt-6'
+            herbs={counters.herbCount}
+            compounds={counters.compoundCount}
+            articles={counters.articleCount}
+          />
         </section>
 
         <section className='space-y-4 pb-8'>

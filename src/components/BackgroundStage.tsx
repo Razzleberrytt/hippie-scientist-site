@@ -1,77 +1,49 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { EFFECTS, DEFAULT_EFFECT, MeltEffectKey } from '@/lib/melt-effects';
+import { MeltEngine } from '@/lib/melt/engine';
+import { EFFECTS, DEFAULT_EFFECT, type MeltKey } from '@/lib/melt/effects';
 
-export default function BackgroundStage({ effect = DEFAULT_EFFECT }: { effect?: MeltEffectKey }) {
-  const ref = useRef<HTMLCanvasElement>(null);
-  const [ok, setOk] = useState(true);
+export default function BackgroundStage({ effect = DEFAULT_EFFECT as MeltKey }: { effect?: MeltKey }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    let raf = 0;
+    setFailed(false);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    let dispose: (() => void) | undefined;
+
     try {
-      const canvas = ref.current!;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d', { alpha: true });
-      if (!ctx) throw new Error('2D context unavailable');
-      const DPR = Math.min(window.devicePixelRatio || 1, 2);
-
-      const resize = () => {
-        const w = window.innerWidth;
-        const h = window.innerHeight;
-        canvas.width = Math.max(1, w * DPR);
-        canvas.height = Math.max(1, h * DPR);
-        canvas.style.width = `${w}px`;
-        canvas.style.height = `${h}px`;
-        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-        EFFECTS?.[effect]?.init?.(ctx, w, h);
-      };
-      resize();
-      window.addEventListener('resize', resize);
-
-      let t = 0;
-      let last = performance.now();
-      const loop = (now: number) => {
-        const dt = now - last;
-        last = now;
-        t += dt * 0.06;
-        try {
-          const w = canvas.width / DPR;
-          const h = canvas.height / DPR;
-          const fx = EFFECTS?.[effect];
-          if (fx?.frame) fx.frame(ctx, w, h, t);
-        } catch (e) {
-          console.error('Melt effect error:', e);
-          setOk(false);
-          cancelAnimationFrame(raf);
-          return;
-        }
-        raf = requestAnimationFrame(loop);
-      };
-      raf = requestAnimationFrame(loop);
-      return () => {
-        cancelAnimationFrame(raf);
-        window.removeEventListener('resize', resize);
-      };
-    } catch (err) {
-      console.error('BackgroundStage init error:', err);
-      setOk(false);
+      const engine = new MeltEngine(EFFECTS, effect, (error) => {
+        console.error('[Melt] effect error', error);
+        setFailed(true);
+        dispose?.();
+        dispose = undefined;
+      });
+      dispose = engine.mount(canvas);
+    } catch (error) {
+      console.error('[Melt] init error', error);
+      setFailed(true);
     }
+
+    return () => dispose?.();
   }, [effect]);
 
-  if (!ok) {
+  if (failed) {
     return (
       <div
-        className="fixed inset-0 -z-10 bg-gradient-to-b from-indigo-900/70 via-cyan-900/70 to-slate-900/70"
         aria-hidden
+        className="fixed inset-0 -z-10 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950"
       />
     );
   }
 
   return (
     <canvas
-      ref={ref}
-      className="fixed inset-0 -z-10 pointer-events-none"
+      ref={canvasRef}
       aria-hidden
+      className="fixed inset-0 -z-10 pointer-events-none"
     />
   );
 }
