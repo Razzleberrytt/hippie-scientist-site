@@ -17,10 +17,10 @@ export const AuraEffect: MeltEffect = {
       h * 0.45,
       Math.max(w, h) * 0.7,
     );
-    gradient.addColorStop(0, 'rgba(56,189,248,0.35)');
-    gradient.addColorStop(0.5, 'rgba(168,85,247,0.22)');
-    gradient.addColorStop(1, 'rgba(2,6,23,0.0)');
-    ctx.globalCompositeOperation = 'lighter';
+    gradient.addColorStop(0, 'rgba(56,189,248,0.25)');
+    gradient.addColorStop(0.5, 'rgba(168,85,247,0.25)');
+    gradient.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.globalCompositeOperation = 'source-over';
   },
   frame(ctx, w, h, t) {
     fade(ctx, w, h);
@@ -36,9 +36,9 @@ export const AuraEffect: MeltEffect = {
       ctx.closePath();
       if (!gradient) {
         gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.max(w, h) * 0.7);
-        gradient.addColorStop(0, 'rgba(56,189,248,0.35)');
-        gradient.addColorStop(0.5, 'rgba(168,85,247,0.22)');
-        gradient.addColorStop(1, 'rgba(2,6,23,0.0)');
+        gradient.addColorStop(0, 'rgba(56,189,248,0.25)');
+        gradient.addColorStop(0.5, 'rgba(168,85,247,0.25)');
+        gradient.addColorStop(1, 'rgba(0,0,0,0)');
       }
       ctx.fillStyle = gradient;
       ctx.fill();
