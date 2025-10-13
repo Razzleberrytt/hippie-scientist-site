@@ -29,49 +29,67 @@ export default function MeltSheet({ open, onClose }: MeltSheetProps) {
 
   if (!open) return null;
 
-  const Chip = ({ active, label, onClick }: { active: boolean; label: string; onClick: () => void }) => (
-    <button
-      onClick={onClick}
-      aria-pressed={active}
-      className={`shrink-0 rounded-full px-3 py-1.5 text-sm transition no-underline border ${
-        active
-          ? "border-white/30 bg-white/15 text-white"
-          : "border-white/10 bg-white/5 text-white/80 hover:bg-white/10"
-      }`}
-    >
-      {label}
-    </button>
-  );
-
   const palettes: MeltPalette[] = ["ocean", "amethyst", "aura", "forest", "nebula"];
 
   return (
     <div className="fixed inset-0 z-[60]">
-      <div className="absolute inset-0 bg-black/60" onClick={onClose} />
-      <div className="absolute bottom-0 left-0 right-0 rounded-t-3xl border-t border-white/10 bg-neutral-900/95 p-4 backdrop-blur">
-        <div className="mx-auto max-w-screen-sm space-y-3">
-          <div className="flex items-center justify-between">
-            <h3 className="font-semibold text-white/90">Melt</h3>
-            <button className="text-white/70 transition hover:text-white" onClick={onClose}>
-              Close
-            </button>
-          </div>
+      <button
+        type="button"
+        aria-label="Close Melt panel"
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      <div className="absolute inset-x-0 bottom-0">
+        <div className="safe mx-auto max-w-screen-md w-full px-4 pb-6">
+          <div className="rounded-3xl bg-black/60 p-5 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)] ring-1 ring-white/10 backdrop-blur-xl sm:p-6">
+            <div className="flex items-center justify-between gap-3">
+              <h3 className="text-base font-semibold text-white">Melt</h3>
+              <button
+                type="button"
+                className="text-sm text-white/70 transition hover:text-white"
+                onClick={onClose}
+              >
+                Close
+              </button>
+            </div>
 
-          <div className="no-scrollbar flex gap-2 overflow-x-auto py-1">
-            <Chip active={enabled} label="Melt On" onClick={() => setEnabled(true)} />
-            <Chip active={!enabled} label="Melt Off" onClick={() => setEnabled(false)} />
-          </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setEnabled(!enabled)}
+                className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-3 py-1.5 text-sm transition ${
+                  enabled
+                    ? "bg-white/15 text-white"
+                    : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {enabled ? "Melt on" : "Melt off"}
+              </button>
+            </div>
 
-          <div className="text-xs text-white/60">Palette</div>
-          <div className="no-scrollbar flex gap-2 overflow-x-auto py-1">
-            {palettes.map((p) => (
-              <Chip
-                key={p}
-                active={palette === p}
-                label={`${p.charAt(0).toUpperCase()}${p.slice(1)}`}
-                onClick={() => setPalette(p)}
-              />
-            ))}
+            <div className="mt-5 text-xs font-semibold uppercase tracking-wide text-white/60">Palette</div>
+            <div className="mx-auto max-w-screen-md w-full px-4">
+              <div className="mt-2 flex flex-wrap gap-2">
+                {palettes.map((p) => {
+                  const active = palette === p;
+                  return (
+                    <button
+                      key={p}
+                      type="button"
+                      onClick={() => setPalette(p)}
+                      aria-pressed={active}
+                      className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-3 py-1.5 text-sm capitalize transition ${
+                        active
+                          ? "bg-white/20 text-white"
+                          : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white"
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

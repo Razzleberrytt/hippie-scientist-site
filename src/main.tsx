@@ -7,14 +7,12 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { TrippyProvider } from '@/lib/trippy';
 import { initConsentDefault } from './lib/consent';
 import { loadAnalytics, onConsentChange } from './lib/loadAnalytics';
-import { initTheme } from './lib/theme';
 import { unregisterServiceWorkers } from './sw-unregister';
 import './index.css';
 import './styles/clamp.css';
 
 unregisterServiceWorkers();
 
-initTheme();
 initConsentDefault();
 loadAnalytics();
 

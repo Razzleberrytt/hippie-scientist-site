@@ -103,98 +103,108 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   if (sources.length) sections.push({ label: "Sources", content: sources });
 
   return (
-    <div
+    <motion.article
+      initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       className={clsx(
-        "relative mx-auto mb-6 w-full max-w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]",
-        "backdrop-blur-xl ring-1 ring-white/12",
-        "shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)]",
+        "relative overflow-hidden rounded-3xl bg-white/5 backdrop-blur-xl ring-1 ring-white/12",
+        "shadow-[inset_0_1px_0_rgba(255,255,255,.2)] transition duration-300",
+        "mx-auto w-full max-w-screen-md px-4 py-5 text-white/90 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.65)]",
       )}
     >
-      <motion.article
-        initial={reduceMotion ? false : { opacity: 0, y: 8 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="will-change-transform p-5 text-neutral-100/90 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_-18px_rgba(0,0,0,0.6)] sm:p-6"
-      >
+      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl">
+        <div className="absolute inset-px rounded-[calc(theme(borderRadius.3xl)-1px)] border border-white/10" />
+      </div>
+
+      <div className="relative space-y-4">
         <header className="space-y-2">
-          <h2 className="text-xl font-semibold tracking-tight text-neutral-100 sm:text-2xl">{heading}</h2>
-          {secondary && <p className="text-sm italic text-neutral-100/60">{secondary}</p>}
+          <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">{heading}</h2>
+          {secondary && <p className="text-sm italic text-white/60">{secondary}</p>}
 
-        {(chips.length > 0 || intensityLabel || benefits) && (
-          <div className="mt-3 flex flex-wrap gap-2">
-            {chips.map((chip) => (
-              <span key={chip} className="pill text-[12px]">
-                {chip}
-              </span>
-            ))}
-            {intensityLabel && (
-              <span className={clsx('pill text-[12px]', intensityTone)}>
-                <span className="font-semibold tracking-wide text-[11px] uppercase text-white/80">INTENSITY:</span>&nbsp;{intensityLabel}
-              </span>
-            )}
-            {benefits && (
-              <span className="pill text-[12px]">{benefits}</span>
-            )}
-          </div>
-        )}
-      </header>
-
-      {summary && (
-        <p className={`mt-3 text-sm leading-relaxed text-neutral-100/70 sm:text-base ${open ? '' : 'line-clamp-3'}`}>
-          {summary}
-        </p>
-      )}
-
-      {open && sections.length > 0 && (
-        <div className="mt-4 space-y-4">
-          {sections.map((section, index) => (
-            <div key={index}>
-              <p className="text-xs font-semibold uppercase tracking-wide text-mute">{section.label}</p>
-              {Array.isArray(section.content) ? (
-                <ul className="mt-1 list-inside list-disc space-y-1 text-sm text-neutral-100/70">
-                  {section.content.map((item, i) => {
-                    const isUrl = /^https?:\/\//i.test(item);
-                    return (
-                      <li key={i}>
-                        {isUrl ? (
-                          <a
-                            href={item}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="underline decoration-dotted underline-offset-2 hover:text-text"
-                          >
-                            {item}
-                          </a>
-                        ) : (
-                          item
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              ) : (
-                <p className="mt-1 text-sm text-neutral-100/70">{section.content}</p>
+          {(chips.length > 0 || intensityLabel || benefits) && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {chips.map((chip) => (
+                <span
+                  key={chip}
+                  className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-1.5 text-[12px] text-white/80"
+                >
+                  {chip}
+                </span>
+              ))}
+              {intensityLabel && (
+                <span className={clsx('inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 text-[12px]', intensityTone)}>
+                  <span className="font-semibold uppercase tracking-wide text-[11px] text-white/80">Intensity:</span>
+                  {intensityLabel}
+                </span>
+              )}
+              {benefits && (
+                <span className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-1.5 text-[12px] text-white/80">
+                  {benefits}
+                </span>
               )}
             </div>
-          ))}
-        </div>
-      )}
+          )}
+        </header>
 
-      <div className="mt-4 flex flex-wrap gap-3">
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          className="btn-ghost"
-          aria-expanded={open}
-        >
-          {open ? 'Show less' : 'Show more'}
-        </button>
-        <a href={toHash(detailPath)} className="btn-primary relative overflow-hidden">
-          <span>View details</span>
-          <span className="pointer-events-none absolute -inset-8 rounded-full bg-emerald-400/10 blur-2xl" />
-        </a>
+        {summary && (
+          <p className={`text-sm leading-relaxed text-white/75 sm:text-base ${open ? '' : 'line-clamp-3'}`}>
+            {summary}
+          </p>
+        )}
+
+        {open && sections.length > 0 && (
+          <div className="space-y-4">
+            {sections.map((section, index) => (
+              <div key={index}>
+                <p className="text-xs font-semibold uppercase tracking-wide text-white/55">{section.label}</p>
+                {Array.isArray(section.content) ? (
+                  <ul className="mt-1 list-inside list-disc space-y-1 text-sm text-white/70">
+                    {section.content.map((item, i) => {
+                      const isUrl = /^https?:\/\//i.test(item);
+                      return (
+                        <li key={i}>
+                          {isUrl ? (
+                            <a
+                              href={item}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="underline decoration-dotted underline-offset-2 transition hover:text-white"
+                            >
+                              {item}
+                            </a>
+                          ) : (
+                            item
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : (
+                  <p className="mt-1 text-sm text-white/70">{section.content}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/15 hover:text-white"
+            aria-expanded={open}
+          >
+            {open ? 'Show less' : 'Show more'}
+          </button>
+          <a
+            href={toHash(detailPath)}
+            className="inline-flex items-center gap-2 rounded-2xl bg-emerald-500/85 px-4 py-2 text-sm font-semibold text-black shadow-lg shadow-emerald-900/30 transition hover:bg-emerald-400/90"
+          >
+            View details
+          </a>
+        </div>
       </div>
-      </motion.article>
-    </div>
+    </motion.article>
   );
 }

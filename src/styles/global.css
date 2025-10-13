@@ -53,3 +53,21 @@
   max-width: 100%;
   overflow-x: hidden;
 }
+
+:root {
+  --hs-card: 255 255 255;
+}
+
+html,
+body {
+  height: 100%;
+  background: #07090b;
+}
+
+body {
+  color: rgb(240 240 245 / 0.92);
+}
+
+.safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}

@@ -1,10 +1,9 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MeltGLCanvas from "@/components/MeltGLCanvas";
-import ThemeToggle from "./ThemeToggle";
 import MeltButton from "./MeltButton";
 import { useTrippy } from "@/lib/trippy";
 import { useMelt } from "@/melt/useMelt";
+import MeltBackground from "./MeltBackground";
 
 const links = [
   { label: "Browse", to: "/database" },
@@ -15,7 +14,7 @@ const links = [
 export default function SiteLayout({ children }: PropsWithChildren) {
   const location = useLocation();
   const { level, enabled: trippyEnabled } = useTrippy();
-  const { enabled, setEnabled, palette } = useMelt();
+  const { enabled, setEnabled } = useMelt();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -60,20 +59,9 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [level, prefersReducedMotion, setEnabled, trippyEnabled]);
 
-  const shouldAnimate = trippyEnabled && level !== "off" && enabled && !prefersReducedMotion;
-
   return (
-    <div className="relative min-h-svh overflow-x-hidden text-white">
-      <MeltGLCanvas enabled={shouldAnimate} palette={palette} />
-
-      <div
-        className="pointer-events-none fixed inset-0 z-[1] opacity-[.05] mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22 viewBox=%220 0 180 180%22><filter id=%22n%22 x=%220%22 y=%220%22 width=%22100%25%22 height=%22100%25%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22 stitchTiles=%22stitch%22/></filter><rect width=%22180%22 height=%22180%22 filter=%22url(%23n)%22 opacity=%220.9%22/></svg>')",
-        }}
-        aria-hidden
-      />
+    <div className="relative min-h-svh overflow-x-hidden">
+      <MeltBackground />
 
       <a
         href="#main"
@@ -82,29 +70,37 @@ export default function SiteLayout({ children }: PropsWithChildren) {
         Skip to content
       </a>
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40">
-        <div className="mx-auto flex w-full max-w-7xl items-center gap-3 px-4 py-3">
-          <Link to="/" className="flex items-center gap-2">
-            <span className="h-6 w-2.5 rounded-full bg-gradient-to-b from-teal-300 via-sky-400 to-fuchsia-400" />
-            <span className="font-semibold tracking-tight text-white">THS</span>
-          </Link>
-
-          <nav className="ml-auto flex items-center gap-2 overflow-x-auto no-scrollbar" aria-label="Site">
+      <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/60">
+        <div className="mx-auto max-w-screen-md w-full px-4">
+          <nav className="flex items-center gap-2 py-3 overflow-x-auto no-scrollbar" aria-label="Site">
+            <Link
+              to="/"
+              className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-semibold transition ${
+                location.pathname === "/" ? "bg-white/15 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+              }`}
+            >
+              THS
+            </Link>
             {links.map((link) => {
               const active = location.pathname.startsWith(link.to);
               return (
-                <Link key={link.to} to={link.to} className={`pill ${active ? "bg-white/10 text-white" : "text-white/80"}`}>
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm transition ${
+                    active ? "bg-white/15 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
                   {link.label}
                 </Link>
               );
             })}
             <MeltButton />
-            <ThemeToggle />
           </nav>
         </div>
       </header>
 
-      <main id="main" className="relative z-10 px-4 py-8">
+      <main id="main" className="relative z-10 flex-1">
         {children}
       </main>
     </div>

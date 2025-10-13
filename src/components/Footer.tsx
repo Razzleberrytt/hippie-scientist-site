@@ -24,47 +24,55 @@ export default function Footer() {
   useEffect(() => onOpenConsent(() => setOpen(true)), []);
 
   return (
-    <footer
-      id="site-footer"
-      className="relative z-10 mt-12 border-t border-white/10 bg-black/20 pb-16 backdrop-blur sm:mt-16"
-    >
-      <div className="container grid gap-8 px-4 pb-10 pt-8 sm:grid-cols-2 sm:px-6 sm:pt-10">
-        <NonEmpty>
-          {exploreLinks.length > 0 && (
-            <div>
-              <h4 className="mb-2 font-semibold">Explore</h4>
-              <ul className="space-y-1 text-sm">
-                {exploreLinks.map(link => (
-                  <li key={link.href}>
-                    <a href={toHash(link.href)}>{link.label}</a>
+    <footer className="relative mx-auto max-w-screen-md w-full px-4 py-10">
+      <div className="rounded-3xl bg-white/5 ring-1 ring-white/10 backdrop-blur-xl p-6 sm:p-7">
+        <div className="grid gap-8 sm:grid-cols-2">
+          <NonEmpty>
+            {exploreLinks.length > 0 && (
+              <div>
+                <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-white/70">Explore</h4>
+                <ul className="space-y-1 text-sm text-white/75">
+                  {exploreLinks.map(link => (
+                    <li key={link.href}>
+                      <a className="transition hover:text-white" href={toHash(link.href)}>
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </NonEmpty>
+          <NonEmpty>
+            {legalLinks.length > 0 && (
+              <div>
+                <h4 className="mb-3 text-sm font-semibold uppercase tracking-wide text-white/70">Stay safe</h4>
+                <ul className="space-y-1 text-sm text-white/75">
+                  {legalLinks.map(link => (
+                    <li key={link.href}>
+                      <a className="transition hover:text-white" href={toHash(link.href)}>
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                  <li>
+                    <button
+                      className="text-white/70 underline decoration-dotted underline-offset-4 transition hover:text-white"
+                      type="button"
+                      onClick={() => setOpen(true)}
+                    >
+                      Privacy settings
+                    </button>
                   </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </NonEmpty>
-        <NonEmpty>
-          {legalLinks.length > 0 && (
-            <div>
-              <h4 className="mb-2 font-semibold">Legal</h4>
-              <ul className="space-y-1 text-sm">
-                {legalLinks.map(link => (
-                  <li key={link.href}>
-                    <a href={toHash(link.href)}>{link.label}</a>
-                  </li>
-                ))}
-                <li>
-                  <button className="link" type="button" onClick={() => setOpen(true)}>
-                    Privacy settings
-                  </button>
-                </li>
-              </ul>
-            </div>
-          )}
-        </NonEmpty>
-      </div>
-      <div className="container px-4 text-xs text-white/60 sm:px-6">
-        © 2025 The Hippie Scientist — All Rights Reserved
+                </ul>
+              </div>
+            )}
+          </NonEmpty>
+        </div>
+
+        <div className="mt-8 border-t border-white/10 pt-4 text-xs text-white/60">
+          © 2025 The Hippie Scientist — All Rights Reserved
+        </div>
       </div>
       <ConsentManager open={open} onClose={() => setOpen(false)} />
     </footer>

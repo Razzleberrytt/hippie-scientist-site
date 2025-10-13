@@ -236,7 +236,7 @@ export default function MeltGLCanvas({ enabled: propEnabled, palette: propPalett
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 -z-10 block h-screen w-screen max-w-[100vw] overflow-hidden transition-opacity duration-700"
+      className="pointer-events-none block h-full w-full max-w-full overflow-hidden transition-opacity duration-700"
       style={{ opacity: enabled ? 1 : 0, background: "transparent" }}
       aria-hidden="true"
     />
