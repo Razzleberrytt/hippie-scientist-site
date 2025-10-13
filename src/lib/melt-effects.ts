@@ -147,4 +147,16 @@ export const EFFECTS: Record<MeltEffectKey, MeltEffect> = {
   particles: ParticleBloom,
 };
 
+Object.values(EFFECTS as Record<string, Partial<MeltEffect>>).forEach((fx) => {
+  if (typeof fx.frame !== 'function') {
+    fx.frame = (ctx: CanvasRenderingContext2D, w: number, h: number) => {
+      const g = ctx.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, '#0f172a');
+      g.addColorStop(1, '#020617');
+      ctx.fillStyle = g;
+      ctx.fillRect(0, 0, w, h);
+    };
+  }
+});
+
 export const DEFAULT_EFFECT: MeltEffectKey = 'aura';
