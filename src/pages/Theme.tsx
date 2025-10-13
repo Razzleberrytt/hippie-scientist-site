@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Meta from "../components/Meta";
 import { useTrippy } from "@/lib/trippy";
-import { useMelt, type MeltIntensity, type MeltPalette } from "@/melt/useMelt";
+import { useMelt, type MeltPalette } from "@/melt/useMelt";
 
 export default function Theme() {
   const { enabled: motionEnabled } = useTrippy();
-  const { enabled, setEnabled, palette, setPalette, intensity, setIntensity } = useMelt();
+  const { enabled, setEnabled, palette, setPalette } = useMelt();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -33,8 +33,8 @@ export default function Theme() {
   const canAnimate = motionEnabled && !prefersReducedMotion;
 
   const toggle = () => setEnabled(!enabled);
+  const palettes: MeltPalette[] = ["ocean", "aura", "amethyst", "forest", "nebula"];
   const selectPalette = (value: MeltPalette) => setPalette(value);
-  const selectIntensity = (value: MeltIntensity) => setIntensity(value);
 
   return (
     <>
@@ -70,38 +70,16 @@ export default function Theme() {
           <div className="space-y-2">
             <h2 className="text-base font-semibold text-white">Palette</h2>
             <div className="flex flex-wrap gap-2">
-              {["ocean", "aura", "amethyst", "forest"].map((option) => {
-                const label = option === "ocean" ? "Ocean" : option === "aura" ? "Aura" : option === "amethyst" ? "Amethyst" : "Forest";
+              {palettes.map((option) => {
+                const label = option.charAt(0).toUpperCase() + option.slice(1);
                 return (
                   <button
                     key={option}
                     type="button"
-                    onClick={() => selectPalette(option as MeltPalette)}
+                    onClick={() => selectPalette(option)}
                     disabled={!enabled || !canAnimate}
                     className={`btn-secondary rounded-2xl px-3 py-1.5 text-sm ${
                       palette === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
-                    } disabled:cursor-not-allowed disabled:opacity-50`}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h2 className="text-base font-semibold text-white">Intensity</h2>
-            <div className="flex flex-wrap gap-2">
-              {["low", "med", "high"].map((option) => {
-                const label = option === "low" ? "Low" : option === "med" ? "Medium" : "High";
-                return (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => selectIntensity(option as MeltIntensity)}
-                    disabled={!enabled || !canAnimate}
-                    className={`btn-secondary rounded-2xl px-3 py-1.5 text-sm ${
-                      intensity === option ? "ring-white/40 bg-white/16" : "hover:bg-white/9"
                     } disabled:cursor-not-allowed disabled:opacity-50`}
                   >
                     {label}

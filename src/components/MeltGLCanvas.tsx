@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { useMelt, type MeltIntensity, type MeltPalette } from "@/melt/useMelt";
+import { useMelt } from "@/melt/useMelt";
+import type { MeltPalette } from "@/melt/meltTheme";
 
 /** Palettes as RGB uniforms (0..1) */
 const PALETTES: Record<MeltPalette, [number, number, number][]> = {
@@ -7,9 +8,16 @@ const PALETTES: Record<MeltPalette, [number, number, number][]> = {
   amethyst: [[0.7, 0.53, 1.0], [0.54, 0.31, 1.0], [1.0, 0.0, 0.85]],
   aura: [[0.0, 1.0, 0.65], [0.2, 0.87, 1.0], [1.0, 0.4, 1.0]],
   forest: [[0.49, 0.94, 0.63], [0.12, 0.67, 0.35], [0.0, 1.0, 0.7]],
+  nebula: [[0.0157, 0.098, 0.1373], [0.3569, 0.1647, 0.5255], [0.8902, 0.4824, 0.8392]],
 };
 
-const SPEED: Record<MeltIntensity, number> = { low: 0.35, med: 0.75, high: 1.4 };
+const STAR_STRENGTH: Record<MeltPalette, number> = {
+  ocean: 0.15,
+  amethyst: 0.22,
+  aura: 0.18,
+  forest: 0.12,
+  nebula: 0.45,
+};
 
 /** Minimal passthrough vertex shader */
 const VERT = `
@@ -30,6 +38,7 @@ uniform vec3  u_c0;       // palette color 0
 uniform vec3  u_c1;       // palette color 1
 uniform vec3  u_c2;       // palette color 2
 uniform float u_alpha;    // global alpha
+uniform float u_stars;    // star intensity
 
 // hash + noise helpers
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123); }
@@ -74,6 +83,13 @@ void main(){
   vec3 col = mix(u_c0, u_c1, clamp(n, 0.0, 1.0));
   col = mix(col, u_c2, clamp(m, 0.0, 1.0));
 
+  // Twinkly stars
+  vec2 grid = floor(uv * vec2(180.0, 120.0));
+  float starSeed = fract(sin(dot(grid, vec2(12.9898, 78.233))) * 43758.5453);
+  float twinkle = 0.5 + 0.5 * sin(t * 0.8 + starSeed * 6.2831);
+  float sparkle = smoothstep(0.985, 1.0, starSeed * twinkle);
+  col += vec3(1.0) * sparkle * u_stars;
+
   // subtle vignette
   float v = smoothstep(0.95, 0.2, length(p)*1.2);
   col *= v * mask;
@@ -85,17 +101,14 @@ void main(){
 type Props = {
   enabled?: boolean;
   palette?: MeltPalette;
-  intensity?: MeltIntensity;
 };
 
-export default function MeltGLCanvas({ enabled: propEnabled, palette: propPalette, intensity: propIntensity }: Props) {
+export default function MeltGLCanvas({ enabled: propEnabled, palette: propPalette }: Props) {
   const storeEnabled = useMelt((state) => state.enabled);
   const storePalette = useMelt((state) => state.palette);
-  const storeIntensity = useMelt((state) => state.intensity);
 
   const enabled = propEnabled ?? storeEnabled;
   const palette = propPalette ?? storePalette;
-  const intensity = propIntensity ?? storeIntensity;
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const raf = useRef<number | null>(null);
@@ -177,9 +190,11 @@ export default function MeltGLCanvas({ enabled: propEnabled, palette: propPalett
     const uC1 = gl.getUniformLocation(program, "u_c1");
     const uC2 = gl.getUniformLocation(program, "u_c2");
     const uAlpha = gl.getUniformLocation(program, "u_alpha");
+    const uStars = gl.getUniformLocation(program, "u_stars");
 
     const paletteRGB = PALETTES[palette] || PALETTES.ocean;
-    const speed = SPEED[intensity];
+    const speed = 1.4;
+    const starStrength = STAR_STRENGTH[palette] ?? STAR_STRENGTH.ocean;
 
     let start = performance.now();
     const render = (now: number) => {
@@ -198,6 +213,7 @@ export default function MeltGLCanvas({ enabled: propEnabled, palette: propPalett
       gl.uniform3f(uC1, ...paletteRGB[1]);
       gl.uniform3f(uC2, ...paletteRGB[2]);
       gl.uniform1f(uAlpha, 0.85);
+      if (uStars) gl.uniform1f(uStars, starStrength);
 
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       raf.current = requestAnimationFrame(render);
@@ -215,12 +231,12 @@ export default function MeltGLCanvas({ enabled: propEnabled, palette: propPalett
       gl.deleteShader(vert);
       gl.deleteShader(frag);
     };
-  }, [enabled, intensity, palette]);
+  }, [enabled, palette]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 -z-10 block h-[100svh] w-[100vw] transition-opacity duration-700"
+      className="pointer-events-none fixed inset-0 -z-10 block h-screen w-screen max-w-[100vw] overflow-hidden transition-opacity duration-700"
       style={{ opacity: enabled ? 1 : 0, background: "transparent" }}
       aria-hidden="true"
     />
