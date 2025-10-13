@@ -49,14 +49,10 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <main className='mx-auto max-w-screen-md w-full px-4 py-6 space-y-6'>
-        <section className='relative overflow-hidden rounded-3xl bg-white/6 backdrop-blur-xl ring-1 ring-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,.25),0_20px_40px_-20px_rgba(0,0,0,.6)]'>
-          <div aria-hidden className='pointer-events-none absolute inset-0 rounded-3xl'>
-            <div className='absolute inset-px rounded-[calc(theme(borderRadius.3xl)-1px)] bg-gradient-to-br from-white/12 via-white/6 to-white/2' />
-          </div>
-          <div className='relative p-6 sm:p-8'>
-            <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>Herb Database</h1>
-            <p className='mt-2 text-white/75'>Search and explore the library.</p>
+      <main className='container mx-auto max-w-screen-md px-4 py-6 space-y-6'>
+        <section className='rounded-[28px] backdrop-glass p-6 sm:p-8 shadow-[0_18px_60px_-20px_rgba(0,0,0,.6)] ring-1 ring-black/5'>
+          <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>Herb Database</h1>
+          <p className='mt-2 text-white/75'>Search and explore the library.</p>
 
             {ENABLE_ADVANCED_FILTERS && (
               <div className='mt-4 flex flex-wrap items-center gap-2'>
@@ -95,12 +91,8 @@ export default function Database() {
               </div>
             </div>
 
-            <KPIRow
-              herbs={counters.herbCount}
-              compounds={counters.compoundCount}
-              articles={counters.articleCount}
-              className='mt-6'
-            />
+          <div className='mt-6'>
+            <KPIRow herbs={counters.herbCount} compounds={counters.compoundCount} articles={counters.articleCount} />
           </div>
         </section>
 

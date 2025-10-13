@@ -1,13 +1,13 @@
 import { create } from 'zustand';
-import { DEFAULT_MELT, type MeltPresetKey } from '@/lib/melt-presets';
+import { DEFAULT_EFFECT, type MeltEffectKey } from '@/lib/melt-effects';
 
-export type { MeltPresetKey } from '@/lib/melt-presets';
+export type { MeltEffectKey } from '@/lib/melt-effects';
 
 type MeltState = {
   enabled: boolean;
-  preset: MeltPresetKey;
+  preset: MeltEffectKey;
   setEnabled: (v: boolean) => void;
-  setPreset: (p: MeltPresetKey) => void;
+  setPreset: (p: MeltEffectKey) => void;
 };
 
 const KEY = 'ths.melt.v2';
@@ -41,7 +41,7 @@ const prefersReducedMotion = () => {
 export const useMelt = create<MeltState>((set) => {
   const saved = typeof window !== 'undefined' ? load() : null;
   const initialEnabled = prefersReducedMotion() ? false : saved?.enabled ?? true;
-  const initialPreset = saved?.preset ?? DEFAULT_MELT;
+  const initialPreset = saved?.preset ?? DEFAULT_EFFECT;
 
   const persist = (partial: Partial<MeltState>) =>
     set((state) => {
