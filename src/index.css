@@ -5,6 +5,26 @@
 @import './styles/clamp.css';
 @import './styles/global.css';
 
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+:root {
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-strong: rgba(255, 255, 255, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,15 +59,6 @@
 html,
 body {
   scroll-behavior: smooth;
-}
-
-html,
-body,
-#root {
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  overflow-x: hidden;
 }
 
 html,

@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTrippy } from "@/lib/trippy";
 import { useMelt } from "@/melt/useMelt";
@@ -12,8 +12,31 @@ const links = [
 
 export default function Header() {
   const { enabled: motionEnabled } = useTrippy();
-  const { setEnabled, prefersReducedMotion } = useMelt();
+  const { setEnabled } = useMelt();
   const location = useLocation();
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const update = () => setPrefersReducedMotion(media.matches);
+    update();
+
+    const handler = (event: MediaQueryListEvent) => setPrefersReducedMotion(event.matches);
+
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", handler);
+      return () => media.removeEventListener("change", handler);
+    }
+
+    if (typeof media.addListener === "function") {
+      media.addListener(handler);
+      return () => media.removeListener(handler);
+    }
+
+    return undefined;
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

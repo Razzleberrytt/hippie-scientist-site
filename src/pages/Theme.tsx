@@ -1,18 +1,34 @@
+import { useEffect, useState } from "react";
 import Meta from "../components/Meta";
 import { useTrippy } from "@/lib/trippy";
 import { useMelt, type MeltIntensity, type MeltPalette } from "@/melt/useMelt";
 
 export default function Theme() {
   const { enabled: motionEnabled } = useTrippy();
-  const {
-    enabled,
-    setEnabled,
-    palette,
-    setPalette,
-    intensity,
-    setIntensity,
-    prefersReducedMotion,
-  } = useMelt();
+  const { enabled, setEnabled, palette, setPalette, intensity, setIntensity } = useMelt();
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const update = () => setPrefersReducedMotion(media.matches);
+    update();
+
+    const handler = (event: MediaQueryListEvent) => setPrefersReducedMotion(event.matches);
+
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", handler);
+      return () => media.removeEventListener("change", handler);
+    }
+
+    if (typeof media.addListener === "function") {
+      media.addListener(handler);
+      return () => media.removeListener(handler);
+    }
+
+    return undefined;
+  }, []);
 
   const canAnimate = motionEnabled && !prefersReducedMotion;
 
