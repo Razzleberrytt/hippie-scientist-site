@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useMelt, type MeltPalette, type MeltIntensity } from "@/melt/useMelt";
+import { useMelt } from "@/melt/useMelt";
+import type { MeltPalette } from "@/melt/meltTheme";
 
 type MeltSheetProps = {
   open: boolean;
@@ -7,7 +8,7 @@ type MeltSheetProps = {
 };
 
 export default function MeltSheet({ open, onClose }: MeltSheetProps) {
-  const { enabled, setEnabled, palette, setPalette, intensity, setIntensity } = useMelt();
+  const { enabled, setEnabled, palette, setPalette } = useMelt();
 
   useEffect(() => {
     if (!open) return;
@@ -42,8 +43,7 @@ export default function MeltSheet({ open, onClose }: MeltSheetProps) {
     </button>
   );
 
-  const palettes: MeltPalette[] = ["ocean", "amethyst", "aura", "forest"];
-  const levels: MeltIntensity[] = ["low", "med", "high"];
+  const palettes: MeltPalette[] = ["ocean", "amethyst", "aura", "forest", "nebula"];
 
   return (
     <div className="fixed inset-0 z-[60]">
@@ -65,14 +65,12 @@ export default function MeltSheet({ open, onClose }: MeltSheetProps) {
           <div className="text-xs text-white/60">Palette</div>
           <div className="no-scrollbar flex gap-2 overflow-x-auto py-1">
             {palettes.map((p) => (
-              <Chip key={p} active={palette === p} label={p} onClick={() => setPalette(p)} />
-            ))}
-          </div>
-
-          <div className="text-xs text-white/60">Intensity</div>
-          <div className="no-scrollbar flex gap-2 overflow-x-auto py-1">
-            {levels.map((level) => (
-              <Chip key={level} active={intensity === level} label={level} onClick={() => setIntensity(level)} />
+              <Chip
+                key={p}
+                active={palette === p}
+                label={`${p.charAt(0).toUpperCase()}${p.slice(1)}`}
+                onClick={() => setPalette(p)}
+              />
             ))}
           </div>
         </div>

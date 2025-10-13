@@ -15,7 +15,7 @@ const links = [
 export default function SiteLayout({ children }: PropsWithChildren) {
   const location = useLocation();
   const { level, enabled: trippyEnabled } = useTrippy();
-  const { enabled, setEnabled, palette, intensity } = useMelt();
+  const { enabled, setEnabled, palette } = useMelt();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function SiteLayout({ children }: PropsWithChildren) {
 
   return (
     <div className="relative min-h-svh overflow-x-hidden text-white">
-      <MeltGLCanvas enabled={shouldAnimate} palette={palette} intensity={intensity} />
+      <MeltGLCanvas enabled={shouldAnimate} palette={palette} />
 
       <div
         className="pointer-events-none fixed inset-0 z-[1] opacity-[.05] mix-blend-overlay"
@@ -89,7 +89,7 @@ export default function SiteLayout({ children }: PropsWithChildren) {
             <span className="font-semibold tracking-tight text-white">THS</span>
           </Link>
 
-          <nav className="ml-auto flex items-center gap-2" aria-label="Site">
+          <nav className="ml-auto flex items-center gap-2 overflow-x-auto no-scrollbar" aria-label="Site">
             {links.map((link) => {
               const active = location.pathname.startsWith(link.to);
               return (

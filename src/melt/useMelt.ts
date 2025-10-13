@@ -1,20 +1,21 @@
 import { create } from "zustand";
-
-export type MeltPalette = "ocean" | "amethyst" | "aura" | "forest";
-export type MeltIntensity = "low" | "med" | "high";
+import type { MeltPalette } from "./meltTheme";
+export type { MeltPalette } from "./meltTheme";
 
 type MeltState = {
   enabled: boolean;
   palette: MeltPalette;
-  intensity: MeltIntensity;
   setEnabled: (v: boolean) => void;
   setPalette: (p: MeltPalette) => void;
-  setIntensity: (i: MeltIntensity) => void;
 };
 
 const KEY = "ths.melt.v1";
 
-const load = () => {
+type PersistedState = Partial<Pick<MeltState, "enabled" | "palette">> & {
+  intensity?: string;
+};
+
+const load = (): PersistedState | null => {
   try {
     const raw = typeof window !== "undefined" ? localStorage.getItem(KEY) : null;
     return raw ? JSON.parse(raw) : null;
@@ -23,7 +24,7 @@ const load = () => {
   }
 };
 
-const save = (state: Pick<MeltState, "enabled" | "palette" | "intensity">) => {
+const save = (state: Pick<MeltState, "enabled" | "palette">) => {
   try {
     if (typeof window !== "undefined") {
       localStorage.setItem(KEY, JSON.stringify(state));
@@ -41,16 +42,15 @@ const prefersReducedMotion = () => {
 export const useMelt = create<MeltState>((set) => {
   const saved = typeof window !== "undefined" ? load() : null;
   const initialEnabled = prefersReducedMotion() ? false : saved?.enabled ?? true;
-  const initial: Pick<MeltState, "enabled" | "palette" | "intensity"> = {
+  const initial: Pick<MeltState, "enabled" | "palette"> = {
     enabled: initialEnabled,
     palette: saved?.palette ?? "ocean",
-    intensity: saved?.intensity ?? "med",
   };
 
   const persist = (partial: Partial<MeltState>) =>
     set((state) => {
       const next = { ...state, ...partial } as MeltState;
-      save({ enabled: next.enabled, palette: next.palette, intensity: next.intensity });
+      save({ enabled: next.enabled, palette: next.palette });
       return partial;
     });
 
@@ -80,9 +80,6 @@ export const useMelt = create<MeltState>((set) => {
     },
     setPalette: (palette) => {
       persist({ palette });
-    },
-    setIntensity: (intensity) => {
-      persist({ intensity });
     },
   };
 });
