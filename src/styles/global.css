@@ -8,6 +8,16 @@
     overflow-x: hidden;
   }
 
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  main {
+    padding-left: max(16px, env(safe-area-inset-left, 0));
+    padding-right: max(16px, env(safe-area-inset-right, 0));
+  }
+
   /* Ensure layout shells never exceed the viewport width */
   .site-shell,
   .main,
@@ -22,15 +32,6 @@
   /* Safer containers */
   .container-safe {
     @apply mx-auto w-full max-w-screen-lg px-4 sm:px-6 lg:px-8;
-  }
-
-  .glass-card {
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
-    border-radius: 1.5rem;
   }
 
   /* Compact pill counters (one line; no wrap) */

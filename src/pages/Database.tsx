@@ -3,7 +3,7 @@ import Meta from '../components/Meta'
 import ErrorBoundary from '../components/ErrorBoundary'
 import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import AdvancedSearch from '../components/AdvancedSearch'
-import StatRow from '../components/StatRow'
+import Stats from '@/components/Stats'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 import { decorateHerbs } from '../lib/herbs'
@@ -93,12 +93,15 @@ export default function Database() {
               </div>
             </div>
 
-            <StatRow
-              herbs={siteStats.herbs}
-              compounds={siteStats.compounds}
-              posts={siteStats.posts}
-              className='mt-6'
-            />
+            <div className='mt-6'>
+              <Stats
+                items={[
+                  { value: siteStats.herbs, label: 'psychoactive herbs' },
+                  { value: siteStats.compounds, label: 'active compounds' },
+                  { value: siteStats.posts, label: 'articles' },
+                ]}
+              />
+            </div>
           </div>
         </section>
 

@@ -1,42 +1,50 @@
-import type { MeltPalette } from "@/melt/meltTheme";
+import React, { useEffect, useRef } from "react";
 
-export default function MeltControls({
-  enabled,
-  palette,
-  onEnabled,
-  onPalette,
-}: {
-  enabled: boolean;
-  palette: MeltPalette;
-  onEnabled: (v: boolean) => void;
-  onPalette: (p: MeltPalette) => void;
-}) {
-  const palettes: MeltPalette[] = ["ocean", "amethyst", "aura", "forest", "nebula"];
+type Option = { id: string; label: string };
+
+type Props = {
+  palettes: Option[];
+  value: string;
+  onChange: (id: string) => void;
+  onClose: () => void;
+};
+
+export default function MeltControls({ palettes, value, onChange, onClose }: Props) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    const onClick = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onClick);
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onClick);
+    };
+  }, [onClose]);
 
   return (
-    <div className="no-scrollbar flex items-center gap-2 overflow-x-auto">
-      <button
-        onClick={() => onEnabled(!enabled)}
-        className={`rounded-full px-3 py-1.5 text-sm ring-1 ring-white/15 ${
-          enabled ? "bg-white/20" : "bg-white/10 text-white/60"
-        }`}
-        aria-pressed={enabled}
-      >
-        {enabled ? "Melt On" : "Melt Off"}
-      </button>
-
-      {palettes.map((p) => (
-        <button
-          key={p}
-          onClick={() => onPalette(p)}
-          className={`rounded-full px-2.5 py-1 text-xs capitalize ring-1 ring-white/10 ${
-            p === palette ? "bg-white/25" : "bg-white/10 hover:bg-white/15"
-          }`}
-          aria-pressed={p === palette}
-        >
-          {p}
-        </button>
-      ))}
+    <div className="melt-popover" role="dialog" aria-label="Background palette" ref={ref}>
+      <div className="melt-row" role="group" aria-label="Palette">
+        {palettes.map((palette) => (
+          <button
+            key={palette.id}
+            className={`chip ${value === palette.id ? "chip--active" : ""}`}
+            onClick={() => onChange(palette.id)}
+            type="button"
+          >
+            {palette.label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

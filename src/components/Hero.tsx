@@ -10,7 +10,7 @@ export default function Hero({ children }: HeroProps) {
   return (
     <section className="mx-auto max-w-screen-md w-full px-4 py-8">
       <div
-        className="relative overflow-hidden rounded-3xl bg-white/6 dark:bg-white/6 backdrop-blur-xl ring-1 ring-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,.25),0_20px_40px_-20px_rgba(0,0,0,.6)] [mask-image:radial-gradient(120%_120%_at_50%_0%,black_40%,transparent_100%)]"
+        className="relative overflow-hidden rounded-3xl glass-card backdrop-blur-xl [mask-image:radial-gradient(120%_120%_at_50%_0%,black_40%,transparent_100%)]"
       >
         <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl">
           <div

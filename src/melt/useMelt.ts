@@ -21,6 +21,12 @@ const applyIntensity = (value: string) => {
   }
 };
 
+const applyPalette = (value: MeltPalette) => {
+  if (typeof document !== "undefined") {
+    document.documentElement.style.setProperty("--melt-palette", value);
+  }
+};
+
 const load = (): PersistedState | null => {
   try {
     const raw = typeof window !== "undefined" ? localStorage.getItem(KEY) : null;
@@ -54,6 +60,7 @@ export const useMelt = create<MeltState>((set) => {
   };
 
   applyIntensity("high");
+  applyPalette(initial.palette);
 
   const persist = (partial: Partial<MeltState>) =>
     set((state) => {
@@ -87,6 +94,7 @@ export const useMelt = create<MeltState>((set) => {
       persist({ enabled: next });
     },
     setPalette: (palette) => {
+      applyPalette(palette);
       persist({ palette });
     },
   };

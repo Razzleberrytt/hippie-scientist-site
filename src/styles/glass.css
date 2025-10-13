@@ -1,0 +1,65 @@
+/* --- Stats (professional symmetric counters) --- */
+.stats-grid {
+  --pill-h: 48px;
+  --pill-bg: rgba(255, 255, 255, 0.06);
+  --pill-ring: rgba(255, 255, 255, 0.22);
+  --value-bg: rgba(255, 255, 255, 0.12);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  height: var(--pill-h);
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--pill-bg);
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+  border: 1px solid var(--pill-ring);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset, 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.stat-value {
+  min-width: 36px;
+  height: 32px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  background: var(--value-bg);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.stat-label {
+  font-weight: 500;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+/* mobile: keep in one row when space allows; otherwise wrap to two neat rows */
+@media (max-width: 420px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 720px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.glass-card {
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  background: rgba(20, 22, 26, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 30px 80px rgba(0, 0, 0, 0.45);
+}
