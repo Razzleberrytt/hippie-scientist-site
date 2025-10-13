@@ -48,7 +48,7 @@ export default function Database() {
         path='/database'
       />
       <main className='page-wrap relative z-10'>
-        <section className='container mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24'>
+        <section className='mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24'>
           <div className='glass p-6 sm:p-8 md:p-10'>
             <h1 className='text-4xl sm:text-5xl font-extrabold tracking-tight mb-2'>Herb Database</h1>
             <p className='text-neutral-100/70'>Search and explore the library.</p>
@@ -99,8 +99,8 @@ export default function Database() {
           </div>
         </section>
 
-        <section className='container mx-auto w-full max-w-5xl pb-16 sm:pb-24'>
-          <div className='w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6'>
+        <section className='mx-auto w-full max-w-screen-xl px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24'>
+          <div className='mx-auto w-full max-w-screen-xl space-y-6'>
             {results.map((herb, index) => (
               <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
             ))}

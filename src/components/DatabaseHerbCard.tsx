@@ -105,8 +105,8 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
   return (
     <div
       className={clsx(
-        "w-full max-w-[48rem] mx-auto mb-6 overflow-hidden rounded-3xl",
-        "bg-white/14 backdrop-blur-xl ring-1 ring-white/12",
+        "relative mx-auto mb-6 w-full max-w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]",
+        "backdrop-blur-xl ring-1 ring-white/12",
         "shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)]",
       )}
     >
