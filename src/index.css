@@ -7,6 +7,10 @@
 @import './styles/melt.css';
 @import './styles/global.css';
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 html,
 body,
 #root {
