@@ -338,6 +338,23 @@
     "updatedAt": "2025-10-14"
   },
   {
+    "id": "harmaline",
+    "kind": "compound",
+    "commonName": "Harmaline",
+    "latinName": "Harmaline",
+    "summary": "RIMA similar to harmine; traditionally part of ayahuasca admixtures.",
+    "tags": [
+      "compound",
+      "beta-carboline",
+      "MAOI"
+    ],
+    "intensity": "MODERATE",
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
     "id": "harmine",
     "kind": "compound",
     "commonName": "Harmine",
@@ -442,6 +459,39 @@
     "updatedAt": "2025-10-14"
   },
   {
+    "id": "lsa",
+    "kind": "compound",
+    "commonName": "LSA",
+    "latinName": "d-lysergic acid amide",
+    "summary": "Ergoline found in morning glory and Hawaiian baby woodrose seeds.",
+    "tags": [
+      "compound",
+      "ergoline"
+    ],
+    "intensity": "MODERATE",
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "lsd",
+    "kind": "compound",
+    "commonName": "LSD",
+    "latinName": "Lysergic acid diethylamide",
+    "summary": "Potent semi-synthetic ergoline; very low active dose.",
+    "tags": [
+      "compound",
+      "ergoline",
+      "psychedelic"
+    ],
+    "intensity": "STRONG",
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
     "id": "marmelosin",
     "kind": "compound",
     "commonName": "Marmelosin",
@@ -501,6 +551,23 @@
     "tags": [
       "compound"
     ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "mitragynine",
+    "kind": "compound",
+    "commonName": "Mitragynine",
+    "latinName": "Mitragynine",
+    "summary": "Kratom alkaloid with activity at opioid receptors.",
+    "tags": [
+      "compound",
+      "indole",
+      "opioidergic"
+    ],
+    "intensity": "MODERATE",
     "regions": [],
     "sources": [],
     "createdAt": "2025-10-14",
@@ -572,6 +639,40 @@
     "updatedAt": "2025-10-14"
   },
   {
+    "id": "psilocin",
+    "kind": "compound",
+    "commonName": "Psilocin",
+    "latinName": "Psilocin",
+    "summary": "Active metabolite of psilocybin; engages serotonin receptors.",
+    "tags": [
+      "compound",
+      "tryptamine",
+      "psychedelic"
+    ],
+    "intensity": "STRONG",
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "psilocybin",
+    "kind": "compound",
+    "commonName": "Psilocybin",
+    "latinName": "Psilocybin",
+    "summary": "Prodrug of psilocin; principal constituent in many Psilocybe species.",
+    "tags": [
+      "compound",
+      "tryptamine",
+      "psychedelic"
+    ],
+    "intensity": "STRONG",
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
     "id": "quercetin",
     "kind": "compound",
     "commonName": "Quercetin",
@@ -618,6 +719,22 @@
     "tags": [
       "compound"
     ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "salvinorin-a",
+    "kind": "compound",
+    "commonName": "Salvinorin A",
+    "latinName": "Salvinorin A",
+    "summary": "Highly potent kappa-opioid receptor agonist from Salvia divinorum.",
+    "tags": [
+      "compound",
+      "diterpene"
+    ],
+    "intensity": "STRONG",
     "regions": [],
     "sources": [],
     "createdAt": "2025-10-14",
@@ -774,6 +891,23 @@
     "tags": [
       "compound"
     ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "yohimbine",
+    "kind": "compound",
+    "commonName": "Yohimbine",
+    "latinName": "Yohimbine",
+    "summary": "α2-adrenergic antagonist; associated with Pausinystalia yohimbe.",
+    "tags": [
+      "compound",
+      "indole",
+      "stimulant"
+    ],
+    "intensity": "MODERATE",
     "regions": [],
     "sources": [],
     "createdAt": "2025-10-14",
