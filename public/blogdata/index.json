@@ -1,9 +1,790 @@
 [
   {
+    "slug": "2025-10-14-field-notes-damiana-tuesday-notes",
+    "title": "Field Notes — Damiana (Tuesday Notes)",
+    "date": "2025-10-14",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Skullcap with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/field-notes-damiana-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-10-13-formulation-tips-valerian-monday-notes",
+    "title": "Formulation Tips — Valerian (Monday Notes)",
+    "date": "2025-10-13",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Mugwort with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/formulation-tips-valerian-monday-notes.svg"
+  },
+  {
+    "slug": "2025-10-12-psychoactive-botany-skullcap-sunday-notes",
+    "title": "Psychoactive Botany — Skullcap (Sunday Notes)",
+    "date": "2025-10-12",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Kava with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/psychoactive-botany-skullcap-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-10-11-blend-craft-reishi-saturday-notes",
+    "title": "Blend Craft — Reishi (Saturday Notes)",
+    "date": "2025-10-11",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Ashwagandha with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/blend-craft-reishi-saturday-notes.svg"
+  },
+  {
+    "slug": "2025-10-10-bioassays-damiana-friday-notes",
+    "title": "Bioassays — Damiana (Friday Notes)",
+    "date": "2025-10-10",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Reishi with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/bioassays-damiana-friday-notes.svg"
+  },
+  {
+    "slug": "2025-10-09-bioassays-rhodiola-thursday-notes",
+    "title": "Bioassays — Rhodiola (Thursday Notes)",
+    "date": "2025-10-09",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Damiana with a focus on practical use, active compounds like Apigenin, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/bioassays-rhodiola-thursday-notes.svg"
+  },
+  {
+    "slug": "2025-10-08-safety-set-setting-cordyceps-wednesday-notes",
+    "title": "Safety & Set/Setting — Cordyceps (Wednesday Notes)",
+    "date": "2025-10-08",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Gotu Kola with a focus on practical use, active compounds like Hordenine, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/safety-set-setting-cordyceps-wednesday-notes.svg"
+  },
+  {
+    "slug": "2025-10-07-cultivar-notes-amanita-muscaria-tuesday-notes",
+    "title": "Cultivar Notes — Amanita muscaria (Tuesday Notes)",
+    "date": "2025-10-07",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Blue Lotus with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/cultivar-notes-amanita-muscaria-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-10-06-formulation-tips-lion-s-mane-monday-notes",
+    "title": "Formulation Tips — Lion's Mane (Monday Notes)",
+    "date": "2025-10-06",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Amanita muscaria with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/formulation-tips-lion-s-mane-monday-notes.svg"
+  },
+  {
+    "slug": "2025-10-05-microdosing-log-kava-sunday-notes",
+    "title": "Microdosing Log — Kava (Sunday Notes)",
+    "date": "2025-10-05",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Kava with a focus on practical use, active compounds like Thujone, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/microdosing-log-kava-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-10-04-blend-craft-damiana-saturday-notes",
+    "title": "Blend Craft — Damiana (Saturday Notes)",
+    "date": "2025-10-04",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Calea zacatechichi with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/blend-craft-damiana-saturday-notes.svg"
+  },
+  {
+    "slug": "2025-10-03-safety-set-setting-calea-zacatechichi-friday-notes",
+    "title": "Safety & Set/Setting — Calea zacatechichi (Friday Notes)",
+    "date": "2025-10-03",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Gotu Kola with a focus on practical use, active compounds like Hordenine, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/safety-set-setting-calea-zacatechichi-friday-notes.svg"
+  },
+  {
+    "slug": "2025-10-02-safety-set-setting-valerian-thursday-notes",
+    "title": "Safety & Set/Setting — Valerian (Thursday Notes)",
+    "date": "2025-10-02",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Damiana with a focus on practical use, active compounds like Apigenin, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/safety-set-setting-valerian-thursday-notes.svg"
+  },
+  {
+    "slug": "2025-10-01-field-notes-ashwagandha-wednesday-notes",
+    "title": "Field Notes — Ashwagandha (Wednesday Notes)",
+    "date": "2025-10-01",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Cordyceps with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/field-notes-ashwagandha-wednesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-30-cultivar-notes-amanita-muscaria-tuesday-notes",
+    "title": "Cultivar Notes — Amanita muscaria (Tuesday Notes)",
+    "date": "2025-09-30",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Skullcap with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/cultivar-notes-amanita-muscaria-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-29-bioassays-mugwort-monday-notes",
+    "title": "Bioassays — Mugwort (Monday Notes)",
+    "date": "2025-09-29",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Calea zacatechichi with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/bioassays-mugwort-monday-notes.svg"
+  },
+  {
+    "slug": "2025-09-28-field-notes-valerian-sunday-notes",
+    "title": "Field Notes — Valerian (Sunday Notes)",
+    "date": "2025-09-28",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Passionflower with a focus on practical use, active compounds like Harmine, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/field-notes-valerian-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-09-27-formulation-tips-cordyceps-saturday-notes",
+    "title": "Formulation Tips — Cordyceps (Saturday Notes)",
+    "date": "2025-09-27",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Valerian with a focus on practical use, active compounds like Thujone, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/formulation-tips-cordyceps-saturday-notes.svg"
+  },
+  {
+    "slug": "2025-09-26-microdosing-log-skullcap-friday-notes",
+    "title": "Microdosing Log — Skullcap (Friday Notes)",
+    "date": "2025-09-26",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Mugwort with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/microdosing-log-skullcap-friday-notes.svg"
+  },
+  {
+    "slug": "2025-09-25-traditional-use-mugwort-thursday-notes",
+    "title": "Traditional Use — Mugwort (Thursday Notes)",
+    "date": "2025-09-25",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Lion's Mane with a focus on practical use, active compounds like L-Theanine, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/traditional-use-mugwort-thursday-notes.svg"
+  },
+  {
+    "slug": "2025-09-24-traditional-use-rhodiola-wednesday-notes",
+    "title": "Traditional Use — Rhodiola (Wednesday Notes)",
+    "date": "2025-09-24",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Kava with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/traditional-use-rhodiola-wednesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-23-extraction-101-kava-tuesday-notes",
+    "title": "Extraction 101 — Kava (Tuesday Notes)",
+    "date": "2025-09-23",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Kava with a focus on practical use, active compounds like Thujone, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/extraction-101-kava-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-22-field-notes-lion-s-mane-monday-notes",
+    "title": "Field Notes — Lion's Mane (Monday Notes)",
+    "date": "2025-09-22",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Ashwagandha with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/field-notes-lion-s-mane-monday-notes.svg"
+  },
+  {
+    "slug": "2025-09-21-research-digest-calea-zacatechichi-sunday-notes",
+    "title": "Research Digest — Calea zacatechichi (Sunday Notes)",
+    "date": "2025-09-21",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Valerian with a focus on practical use, active compounds like Apigenin, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/research-digest-calea-zacatechichi-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-09-20-microdosing-log-cordyceps-saturday-notes",
+    "title": "Microdosing Log — Cordyceps (Saturday Notes)",
+    "date": "2025-09-20",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Reishi with a focus on practical use, active compounds like L-Theanine, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/microdosing-log-cordyceps-saturday-notes.svg"
+  },
+  {
+    "slug": "2025-09-19-blend-craft-calea-zacatechichi-friday-notes",
+    "title": "Blend Craft — Calea zacatechichi (Friday Notes)",
+    "date": "2025-09-19",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Reishi with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/blend-craft-calea-zacatechichi-friday-notes.svg"
+  },
+  {
+    "slug": "2025-09-18-psychoactive-botany-ashwagandha-thursday-notes",
+    "title": "Psychoactive Botany — Ashwagandha (Thursday Notes)",
+    "date": "2025-09-18",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Damiana with a focus on practical use, active compounds like Choline, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/psychoactive-botany-ashwagandha-thursday-notes.svg"
+  },
+  {
+    "slug": "2025-09-17-psychoactive-botany-amanita-muscaria-wednesday-notes",
+    "title": "Psychoactive Botany — Amanita muscaria (Wednesday Notes)",
+    "date": "2025-09-17",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Mugwort with a focus on practical use, active compounds like Eugenol, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/psychoactive-botany-amanita-muscaria-wednesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-16-cultivar-notes-damiana-tuesday-notes",
+    "title": "Cultivar Notes — Damiana (Tuesday Notes)",
+    "date": "2025-09-16",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Skullcap with a focus on practical use, active compounds like Thujone, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/cultivar-notes-damiana-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-15-traditional-use-gotu-kola-monday-notes",
+    "title": "Traditional Use — Gotu Kola (Monday Notes)",
+    "date": "2025-09-15",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Calea zacatechichi with a focus on practical use, active compounds like Choline, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/traditional-use-gotu-kola-monday-notes.svg"
+  },
+  {
+    "slug": "2025-09-14-bioassays-ashwagandha-sunday-notes",
+    "title": "Bioassays — Ashwagandha (Sunday Notes)",
+    "date": "2025-09-14",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Damiana with a focus on practical use, active compounds like Choline, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/bioassays-ashwagandha-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-09-13-formulation-tips-mugwort-saturday-notes",
+    "title": "Formulation Tips — Mugwort (Saturday Notes)",
+    "date": "2025-09-13",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Blue Lotus with a focus on practical use, active compounds like Harmine, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/formulation-tips-mugwort-saturday-notes.svg"
+  },
+  {
+    "slug": "2025-09-12-safety-set-setting-gotu-kola-friday-notes",
+    "title": "Safety & Set/Setting — Gotu Kola (Friday Notes)",
+    "date": "2025-09-12",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Skullcap with a focus on practical use, active compounds like Harmine, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/safety-set-setting-gotu-kola-friday-notes.svg"
+  },
+  {
+    "slug": "2025-09-11-formulation-tips-skullcap-thursday-notes",
+    "title": "Formulation Tips — Skullcap (Thursday Notes)",
+    "date": "2025-09-11",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Ashwagandha with a focus on practical use, active compounds like Apigenin, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/formulation-tips-skullcap-thursday-notes.svg"
+  },
+  {
+    "slug": "2025-09-10-field-notes-damiana-wednesday-notes",
+    "title": "Field Notes — Damiana (Wednesday Notes)",
+    "date": "2025-09-10",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Blue Lotus with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/field-notes-damiana-wednesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-09-bioassays-blue-lotus-tuesday-notes",
+    "title": "Bioassays — Blue Lotus (Tuesday Notes)",
+    "date": "2025-09-09",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Blue Lotus with a focus on practical use, active compounds like Eugenol, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/bioassays-blue-lotus-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-08-safety-set-setting-gotu-kola-monday-notes",
+    "title": "Safety & Set/Setting — Gotu Kola (Monday Notes)",
+    "date": "2025-09-08",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Passionflower with a focus on practical use, active compounds like L-Theanine, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/safety-set-setting-gotu-kola-monday-notes.svg"
+  },
+  {
+    "slug": "2025-09-07-pharmacology-basics-blue-lotus-sunday-notes",
+    "title": "Pharmacology Basics — Blue Lotus (Sunday Notes)",
+    "date": "2025-09-07",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Kava with a focus on practical use, active compounds like Hordenine, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/pharmacology-basics-blue-lotus-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-09-06-pharmacology-basics-rhodiola-saturday-notes",
+    "title": "Pharmacology Basics — Rhodiola (Saturday Notes)",
+    "date": "2025-09-06",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Ashwagandha with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/pharmacology-basics-rhodiola-saturday-notes.svg"
+  },
+  {
+    "slug": "2025-09-05-bioassays-reishi-friday-notes",
+    "title": "Bioassays — Reishi (Friday Notes)",
+    "date": "2025-09-05",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Amanita muscaria with a focus on practical use, active compounds like L-Theanine, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/bioassays-reishi-friday-notes.svg"
+  },
+  {
+    "slug": "2025-09-04-bioassays-blue-lotus-thursday-notes",
+    "title": "Bioassays — Blue Lotus (Thursday Notes)",
+    "date": "2025-09-04",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Passionflower with a focus on practical use, active compounds like Eugenol, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/bioassays-blue-lotus-thursday-notes.svg"
+  },
+  {
+    "slug": "2025-09-03-pharmacology-basics-damiana-wednesday-notes",
+    "title": "Pharmacology Basics — Damiana (Wednesday Notes)",
+    "date": "2025-09-03",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Valerian with a focus on practical use, active compounds like Apigenin, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/pharmacology-basics-damiana-wednesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-02-cultivar-notes-rhodiola-tuesday-notes",
+    "title": "Cultivar Notes — Rhodiola (Tuesday Notes)",
+    "date": "2025-09-02",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Skullcap with a focus on practical use, active compounds like Hordenine, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/cultivar-notes-rhodiola-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-09-01-microdosing-log-blue-lotus-monday-notes",
+    "title": "Microdosing Log — Blue Lotus (Monday Notes)",
+    "date": "2025-09-01",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Blue Lotus with a focus on practical use, active compounds like L-Theanine, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/microdosing-log-blue-lotus-monday-notes.svg"
+  },
+  {
+    "slug": "2025-08-31-safety-set-setting-amanita-muscaria-sunday-notes",
+    "title": "Safety & Set/Setting — Amanita muscaria (Sunday Notes)",
+    "date": "2025-08-31",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Reishi with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/safety-set-setting-amanita-muscaria-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-08-30-blend-craft-reishi-saturday-notes",
+    "title": "Blend Craft — Reishi (Saturday Notes)",
+    "date": "2025-08-30",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Skullcap with a focus on practical use, active compounds like Choline, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/blend-craft-reishi-saturday-notes.svg"
+  },
+  {
+    "slug": "2025-08-29-blend-craft-passionflower-friday-notes",
+    "title": "Blend Craft — Passionflower (Friday Notes)",
+    "date": "2025-08-29",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Gotu Kola with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/blend-craft-passionflower-friday-notes.svg"
+  },
+  {
+    "slug": "2025-08-28-research-digest-gotu-kola-thursday-notes",
+    "title": "Research Digest — Gotu Kola (Thursday Notes)",
+    "date": "2025-08-28",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Blue Lotus with a focus on practical use, active compounds like Eugenol, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/research-digest-gotu-kola-thursday-notes.svg"
+  },
+  {
+    "slug": "2025-08-27-blend-craft-calea-zacatechichi-wednesday-notes",
+    "title": "Blend Craft — Calea zacatechichi (Wednesday Notes)",
+    "date": "2025-08-27",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Valerian with a focus on practical use, active compounds like Eugenol, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/blend-craft-calea-zacatechichi-wednesday-notes.svg"
+  },
+  {
+    "slug": "2025-08-26-pharmacology-basics-rhodiola-tuesday-notes",
+    "title": "Pharmacology Basics — Rhodiola (Tuesday Notes)",
+    "date": "2025-08-26",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Ashwagandha with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/pharmacology-basics-rhodiola-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-08-25-extraction-101-passionflower-monday-notes",
+    "title": "Extraction 101 — Passionflower (Monday Notes)",
+    "date": "2025-08-25",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Calea zacatechichi with a focus on practical use, active compounds like Hordenine, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/extraction-101-passionflower-monday-notes.svg"
+  },
+  {
+    "slug": "2025-08-24-safety-set-setting-skullcap-sunday-notes",
+    "title": "Safety & Set/Setting — Skullcap (Sunday Notes)",
+    "date": "2025-08-24",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Damiana with a focus on practical use, active compounds like Myriscin, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/safety-set-setting-skullcap-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-08-23-psychoactive-botany-cordyceps-saturday-notes",
+    "title": "Psychoactive Botany — Cordyceps (Saturday Notes)",
+    "date": "2025-08-23",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Cordyceps with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/psychoactive-botany-cordyceps-saturday-notes.svg"
+  },
+  {
+    "slug": "2025-08-22-safety-set-setting-cordyceps-friday-notes",
+    "title": "Safety & Set/Setting — Cordyceps (Friday Notes)",
+    "date": "2025-08-22",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Damiana with a focus on practical use, active compounds like Apigenin, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/safety-set-setting-cordyceps-friday-notes.svg"
+  },
+  {
+    "slug": "2025-08-21-pharmacology-basics-gotu-kola-thursday-notes",
+    "title": "Pharmacology Basics — Gotu Kola (Thursday Notes)",
+    "date": "2025-08-21",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Valerian with a focus on practical use, active compounds like Eugenol, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Compounds"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/pharmacology-basics-gotu-kola-thursday-notes.svg"
+  },
+  {
+    "slug": "2025-08-20-blend-craft-kava-wednesday-notes",
+    "title": "Blend Craft — Kava (Wednesday Notes)",
+    "date": "2025-08-20",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Amanita muscaria with a focus on practical use, active compounds like Hordenine, and safe experimentation.",
+    "tags": [
+      "Field Notes",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/blend-craft-kava-wednesday-notes.svg"
+  },
+  {
+    "slug": "2025-08-19-formulation-tips-passionflower-tuesday-notes",
+    "title": "Formulation Tips — Passionflower (Tuesday Notes)",
+    "date": "2025-08-19",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Kava with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "tags": [
+      "Research",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/formulation-tips-passionflower-tuesday-notes.svg"
+  },
+  {
+    "slug": "2025-08-18-research-digest-cordyceps-monday-notes",
+    "title": "Research Digest — Cordyceps (Monday Notes)",
+    "date": "2025-08-18",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Valerian with a focus on practical use, active compounds like Mesembrine, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Culture"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/research-digest-cordyceps-monday-notes.svg"
+  },
+  {
+    "slug": "2025-08-17-traditional-use-calea-zacatechichi-sunday-notes",
+    "title": "Traditional Use — Calea zacatechichi (Sunday Notes)",
+    "date": "2025-08-17",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Kava with a focus on practical use, active compounds like Choline, and safe experimentation.",
+    "tags": [
+      "Blend Ideas",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/traditional-use-calea-zacatechichi-sunday-notes.svg"
+  },
+  {
+    "slug": "2025-08-16-psychoactive-botany-rhodiola-saturday-notes",
+    "title": "Psychoactive Botany — Rhodiola (Saturday Notes)",
+    "date": "2025-08-16",
+    "description": " import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */",
+    "summary": "Daily notes on Cordyceps with a focus on practical use, active compounds like Hordenine, and safe experimentation.",
+    "tags": [
+      "Safety",
+      "Herbs"
+    ],
+    "readingTime": "1 min read",
+    "cover": "/blog/psychoactive-botany-rhodiola-saturday-notes.svg"
+  },
+  {
     "slug": "rhodiola-vs-ashwagandha",
     "title": "Rhodiola vs. Ashwagandha: Matching Adaptogens to Your Needs",
     "date": "2024-05-20",
     "description": " Rhodiola (*Rhodiola rosea*) and ashwagandha (*Withania somnifera*) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis, their personaliti",
+    "summary": " Rhodiola (*Rhodiola rosea*) and ashwagandha (*Withania somnifera*) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis, their personaliti",
     "tags": [
       "rhodiola",
       "ashwagandha",
@@ -16,6 +797,7 @@
     "title": "Kava Safety: Kavalactones, Extraction, and Liver Risk",
     "date": "2024-05-18",
     "description": " Kava (*Piper methysticum*) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone chemistry, extractio",
+    "summary": " Kava (*Piper methysticum*) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone chemistry, extractio",
     "tags": [
       "kava",
       "safety",
@@ -28,6 +810,7 @@
     "title": "Cacao and Theobromine: A Gentle Stimulant Profile",
     "date": "2024-05-15",
     "description": " Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart opening, and creative f",
+    "summary": " Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart opening, and creative f",
     "tags": [
       "cacao",
       "theobromine",
@@ -40,6 +823,7 @@
     "title": "Blue Lotus (Nymphaea) and Aporphines for Gentle Sedation",
     "date": "2024-05-14",
     "description": " Blue lotus (*Nymphaea caerulea*) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to understanding blue lotu",
+    "summary": " Blue lotus (*Nymphaea caerulea*) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to understanding blue lotu",
     "tags": [
       "blue lotus",
       "sedation",
@@ -52,6 +836,7 @@
     "title": "Start Here: Building a Simple Nightly Herb Blend",
     "date": "2024-05-13",
     "description": " Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitution, schedule, and sle",
+    "summary": " Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitution, schedule, and sle",
     "tags": [
       "sleep",
       "herbal blends",
@@ -64,6 +849,7 @@
     "title": "Lion's Mane and BDNF: What the Evidence Shows",
     "date": "2024-05-12",
     "description": " Lion’s mane mushroom (*Hericium erinaceus*) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein that supports syna",
+    "summary": " Lion’s mane mushroom (*Hericium erinaceus*) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein that supports syna",
     "tags": [
       "lion's mane",
       "bdnf",
@@ -76,6 +862,7 @@
     "title": "Yerba Mate vs. Green Tea: Balancing Caffeine and L-Theanine",
     "date": "2024-05-11",
     "description": " Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with precise choreograph",
+    "summary": " Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with precise choreograph",
     "tags": [
       "yerba mate",
       "green tea",
@@ -88,6 +875,7 @@
     "title": "Kanna (Sceletium) for Mood and Focus",
     "date": "2024-05-10",
     "description": " Kanna, or *Sceletium tortuosum*, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotional buoyancy withou",
+    "summary": " Kanna, or *Sceletium tortuosum*, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotional buoyancy withou",
     "tags": [
       "kanna",
       "mood",
@@ -100,6 +888,7 @@
     "title": "Reishi for Sleep and Immunity: What the Studies Say",
     "date": "2024-05-09",
     "description": " Reishi (*Ganoderma lucidum*) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and stress resilience.",
+    "summary": " Reishi (*Ganoderma lucidum*) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and stress resilience.",
     "tags": [
       "reishi",
       "sleep",
@@ -112,6 +901,7 @@
     "title": "Mugwort and Dreaming: Tradition Meets Evidence",
     "date": "2024-05-08",
     "description": " Mugwort (*Artemisia vulgaris*) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate vivid dreams. But ho",
+    "summary": " Mugwort (*Artemisia vulgaris*) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate vivid dreams. But ho",
     "tags": [
       "mugwort",
       "dreams",

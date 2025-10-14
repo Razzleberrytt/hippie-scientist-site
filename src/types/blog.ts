@@ -5,6 +5,9 @@ export type BlogPost = {
   excerpt: string;
   tags: string[];
   description?: string;
+  summary?: string;
+  readingTime?: string;
+  cover?: string;
 };
 export type BlogStore = {
   version: string;

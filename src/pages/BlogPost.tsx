@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ensureTrailingSlash, resolveBlogIndexUrl } from "@/lib/blog";
 
 type PostMeta = {
   slug: string;
@@ -15,13 +16,17 @@ export default function BlogPost() {
   const [meta, setMeta] = useState<PostMeta | null>(null);
   const [html, setHtml] = useState<string>("");
   const [error, setError] = useState<string>("");
-  const base = (import.meta.env.BASE_URL || "/").replace(/\/+$/, "/");
+  const base = useMemo(
+    () => ensureTrailingSlash(import.meta.env.BASE_URL || "/"),
+    [],
+  );
+  const indexUrl = useMemo(() => resolveBlogIndexUrl(base), [base]);
 
   useEffect(() => {
     let alive = true;
     async function load() {
       try {
-        const idx = await fetch(`${base}blogdata/index.json`, { cache: "no-cache" }).then((r) => r.json());
+        const idx = await fetch(indexUrl, { cache: "no-cache" }).then((r) => r.json());
         const m = idx.find((p: PostMeta) => p.slug === slug) ?? null;
         if (alive) setMeta(m);
 
@@ -37,7 +42,7 @@ export default function BlogPost() {
     return () => {
       alive = false;
     };
-  }, [slug, base]);
+  }, [slug, base, indexUrl]);
 
   if (error) {
     return (

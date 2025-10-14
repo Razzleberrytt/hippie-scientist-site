@@ -58,6 +58,7 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
               {/* Add other routes here */}
               <Route path="/blog" element={<BlogList />} />
+              <Route path="/blog/page/:page" element={<BlogList />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/theme" element={<Theme />} />
               <Route path="/herb-index" element={<HerbIndex />} />
