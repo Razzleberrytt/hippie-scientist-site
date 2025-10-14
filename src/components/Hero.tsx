@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Tilt from "./Tilt";
 import StatPill from "./StatPill";
+import HeroCTA from "./HeroCTA";
 
 type HeroCounts = {
   herbs: number;
@@ -18,7 +18,7 @@ export default function Hero({ counts }: HeroProps) {
   const { herbs = 0, compounds = 0, articles = 0 } = counts ?? {};
 
   return (
-    <section className="relative mx-auto max-w-5xl px-4 py-12">
+    <section className="relative mx-auto max-w-3xl px-4 py-12 sm:px-6">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 grid place-items-center">
         <div className="size-[52rem] rounded-full bg-gradient-to-br from-emerald-500/15 via-fuchsia-500/10 to-indigo-500/15 blur-3xl animate-breathe" />
       </div>
@@ -52,22 +52,11 @@ export default function Hero({ counts }: HeroProps) {
               Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
             </motion.p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Link
-                to="/herbs"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-3 font-semibold text-white transition hover:bg-emerald-500 active:scale-[.99]"
-              >
-                🌿 Browse Herbs
-              </Link>
-              <Link
-                to="/build"
-                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-5 py-3 font-semibold text-white/90 transition hover:bg-white/15 active:scale-[.99]"
-              >
-                🧪 Build a Blend
-              </Link>
+            <div className="mt-6">
+              <HeroCTA />
             </div>
 
-            <nav aria-label="Site stats" className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+            <nav aria-label="Site stats" className="mt-6 flex flex-wrap gap-2 sm:gap-3">
               <StatPill to="/herbs" value={herbs} label="psychoactive herbs" testId="pill-herbs" />
               <StatPill to="/compounds" value={compounds} label="active compounds" testId="pill-compounds" />
               <StatPill to="/blog" value={articles} label="articles" testId="pill-articles" />

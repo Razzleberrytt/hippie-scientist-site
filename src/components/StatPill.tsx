@@ -12,7 +12,7 @@ export default function StatPill({ to, value, label, testId }: StatPillProps) {
     <Link
       data-testid={testId}
       to={to}
-      className="group relative flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,.08)] backdrop-blur-md transition hover:bg-white/8 active:scale-[.99]"
+      className="group relative flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,.08)] backdrop-blur-md transition hover:bg-white/8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300/70 active:scale-[.99]"
       aria-label={`${value} ${label}`}
     >
       <span className="grid h-9 w-9 place-content-center rounded-full border border-white/15 bg-white/10 text-sm font-semibold text-white/90">
