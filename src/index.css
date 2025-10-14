@@ -385,3 +385,5 @@ body {
     animation: none;
   }
 }
+
+html { -webkit-text-size-adjust: 100%; } /* stop Safari auto-enlarge creating overflow */
