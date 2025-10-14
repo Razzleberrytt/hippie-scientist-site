@@ -16,6 +16,8 @@ const ROOT = process.cwd();
 const BLOG_SRC = path.join(ROOT, "content", "blog");
 const OUT = path.join(ROOT, "public", "blogdata");
 const POSTS_OUT = path.join(OUT, "posts");
+const DATA_OUT = path.join(ROOT, "src", "data", "blog", "posts.json");
+const PUBLIC_POSTS = path.join(ROOT, "public", "blog", "posts.json");
 
 function iso(d) {
   const date = new Date(d);
@@ -64,21 +66,27 @@ fs.rmSync(POSTS_OUT, { recursive: true, force: true });
 fs.mkdirSync(POSTS_OUT, { recursive: true });
 
 const files = fs.existsSync(BLOG_SRC)
-  ? fs.readdirSync(BLOG_SRC).filter((f) => f.endsWith(".md"))
+  ? fs
+      .readdirSync(BLOG_SRC)
+      .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
   : [];
 const rows = [];
 
 for (const file of files) {
-  const slug = file.replace(/\.md$/, "");
+  const slug = file.replace(/\.(md|mdx)$/, "");
   const filePath = path.join(BLOG_SRC, file);
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
+  if (data?.draft) continue;
   const html = marked.parse(content);
   const firstParagraph = content.split(/\n\s*\n/).find(Boolean) || content;
   const excerpt = firstParagraph.replace(/\n+/g, " ").slice(0, 220);
   const words = content.trim().split(/\s+/).length;
   const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
   const created = getCreatedDate(filePath, data?.date);
+  const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
+  const summary = data.summary || data.description || excerpt;
+  const cover = data.cover || data.hero || null;
 
   fs.writeFileSync(path.join(POSTS_OUT, `${slug}.html`), html, "utf-8");
 
@@ -87,12 +95,32 @@ for (const file of files) {
     title: data.title || slug,
     date: created,
     description: data.description || excerpt,
-    tags: data.tags || [],
+    summary,
+    tags,
     readingTime,
+    cover: cover || undefined,
   });
 }
 
 rows.sort((a, b) => (a.date < b.date ? 1 : -1));
 fs.writeFileSync(path.join(OUT, "index.json"), JSON.stringify(rows, null, 2), "utf-8");
+
+const metadata = rows.map((row) => ({
+  slug: row.slug,
+  title: row.title,
+  date: row.date,
+  excerpt: row.description,
+  description: row.description,
+  summary: row.summary,
+  tags: row.tags,
+  readingTime: row.readingTime,
+  cover: row.cover,
+}));
+
+fs.mkdirSync(path.dirname(DATA_OUT), { recursive: true });
+fs.writeFileSync(DATA_OUT, JSON.stringify(metadata, null, 2), "utf-8");
+
+fs.mkdirSync(path.dirname(PUBLIC_POSTS), { recursive: true });
+fs.writeFileSync(PUBLIC_POSTS, JSON.stringify(metadata, null, 2), "utf-8");
 
 console.log(`Built ${rows.length} posts → /public/blogdata`);
