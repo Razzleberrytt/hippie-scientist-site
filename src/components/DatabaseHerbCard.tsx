@@ -24,7 +24,13 @@ function firstNonEmpty(...values: Array<string | null | undefined>): string {
   return "";
 }
 
-export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
+export default function DatabaseHerbCard({
+  herb,
+  kind = "herb",
+}: {
+  herb: Herb;
+  kind?: "herb" | "compound";
+}) {
   const [open, setOpen] = React.useState(false);
   const reduceMotion = useReducedMotion();
 
@@ -41,7 +47,10 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
     herb.name,
   );
   const commonName = getCommonName(herb) ?? (fallbackCommon ? titleCase(fallbackCommon) : "");
-  const heading = commonName || scientificName || "Unknown herb";
+  const heading =
+    commonName ||
+    scientificName ||
+    (kind === "compound" ? "Unknown compound" : "Unknown herb");
   const secondary = scientificName && heading !== scientificName
     ? scientificName
     : firstNonEmpty((herb as any).family, (herb as any).category_label, toArray((herb as any).category)[0]);
@@ -61,6 +70,7 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
         ...toArray((herb as any).category),
         ...(Array.isArray(herb.compoundClasses) ? herb.compoundClasses : []),
         ...(Array.isArray(herb.pharmCategories) ? herb.pharmCategories : []),
+        ...(Array.isArray(herb.tags) ? herb.tags : []),
       ]
         .map((chip) => titleCase(String(chip)))
         .filter(Boolean)
@@ -91,7 +101,10 @@ export default function DatabaseHerbCard({ herb }: { herb: Herb }) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
-  const detailPath = slug ? `/herb/${encodeURIComponent(slug)}` : "/herb";
+  const detailBase = kind === "compound" ? "/compounds" : "/herbs";
+  const detailPath = slug
+    ? `${detailBase}/${encodeURIComponent(slug)}`
+    : detailBase;
 
   const effects = firstNonEmpty(herb.effectsSummary, herb.effects);
   const legal = firstNonEmpty(herb.legalStatus as string, herb.legalstatus as string, herb.legal as string, herb.legalnotes as string);

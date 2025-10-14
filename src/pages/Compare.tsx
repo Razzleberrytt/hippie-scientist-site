@@ -34,7 +34,7 @@ export default function Compare() {
     <main className="mx-auto max-w-6xl px-4 py-8">
       <div className="flex flex-wrap items-baseline justify-between gap-4">
         <h1 className="text-2xl font-bold">Compare Herbs</h1>
-        <Link className="underline" to="/database">← Back to Database</Link>
+        <Link className="underline" to="/herbs">← Back to Database</Link>
       </div>
 
       {herbs.length === 0 ? (

@@ -49,7 +49,7 @@ export default function AuroraHero({ title, subtitle }: AuroraHeroProps) {
           className="flex flex-wrap items-center justify-center gap-3 pt-2"
         >
           <Link
-            to="/database"
+            to="/herbs"
             className="btn-primary rounded-full px-6 py-2.5 text-sm sm:text-base"
           >
             Browse Herbs

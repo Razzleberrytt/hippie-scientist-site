@@ -20,7 +20,7 @@ export default function HerbDetailView() {
     return (
       <div className='p-6 text-center'>
         <p>Herb not found.</p>
-        <Link to='/database' className='text-comet underline'>
+        <Link to='/herbs' className='text-comet underline'>
           Back to database
         </Link>
       </div>
@@ -182,7 +182,7 @@ export default function HerbDetailView() {
         animate={{ opacity: 1 }}
         className='mx-auto max-w-3xl space-y-6 px-6 py-12'
       >
-        <Link to='/database' className='text-comet underline'>
+        <Link to='/herbs' className='text-comet underline'>
           ← Back
         </Link>
         <h1 className='text-gradient flex items-center gap-2 text-4xl font-bold'>

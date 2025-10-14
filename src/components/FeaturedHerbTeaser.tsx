@@ -59,7 +59,7 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
           return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
         })()}
         <Link
-          to={`/database#${slugify(herbName(herb))}`}
+          to={`/herbs#${slugify(herbName(herb))}`}
           className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:bg-black/40'
         >
           More Info

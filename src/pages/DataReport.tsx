@@ -393,7 +393,7 @@ export default function DataReport() {
       )}
 
       <footer className='mt-12 text-sm text-sand/70'>
-        <Link to='/database' className='text-sky-300 underline-offset-4 hover:underline'>
+        <Link to='/herbs' className='text-sky-300 underline-offset-4 hover:underline'>
           ← Back to database
         </Link>
       </footer>

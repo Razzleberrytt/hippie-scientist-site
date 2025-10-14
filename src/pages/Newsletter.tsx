@@ -133,7 +133,7 @@ export default function Newsletter() {
             <h2 className="font-semibold text-lime-300">You're on the list ✦</h2>
             <p className="mt-1 text-white/75">Check your inbox for a confirmation. Welcome aboard.</p>
             <nav className="mt-4 text-sm">
-              <Link className="mr-3 underline" to="/database">
+              <Link className="mr-3 underline" to="/herbs">
                 Browse database
               </Link>
               <Link className="underline" to="/blog">

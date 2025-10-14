@@ -12,6 +12,25 @@ export type Entity = {
   sources?: { title: string; url: string }[];
 };
 
+function decodeTag(tag: unknown): string {
+  if (typeof tag !== "string") return String(tag ?? "");
+  if (/\\u[0-9a-fA-F]{4}/.test(tag)) {
+    try {
+      return JSON.parse(`"${tag.replace(/"/g, "\\\"")}"`);
+    } catch {
+      return tag;
+    }
+  }
+  return tag;
+}
+
+function normalizeEntities(entities: Entity[]): Entity[] {
+  return entities.map((entity) => ({
+    ...entity,
+    tags: Array.isArray(entity.tags) ? entity.tags.map((tag) => decodeTag(tag).trim()) : [],
+  }));
+}
+
 async function safeJson<T>(url: string, fallback: T): Promise<T> {
   try {
     const response = await fetch(url, { cache: "no-store" });
@@ -23,11 +42,13 @@ async function safeJson<T>(url: string, fallback: T): Promise<T> {
 }
 
 export async function loadHerbs() {
-  return safeJson<Entity[]>("/data/herbs.json", []);
+  const data = await safeJson<Entity[]>("/data/herbs.json", []);
+  return normalizeEntities(data);
 }
 
 export async function loadCompounds() {
-  return safeJson<Entity[]>("/data/compounds.json", []);
+  const data = await safeJson<Entity[]>("/data/compounds.json", []);
+  return normalizeEntities(data);
 }
 
 export async function loadCounts() {
