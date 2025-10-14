@@ -1,0 +1,795 @@
+[
+  {
+    "id": "5-meo-dmt",
+    "kind": "compound",
+    "commonName": "5-MeO-DMT",
+    "latinName": "5-MeO-DMT",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "alpha-asarone",
+    "kind": "compound",
+    "commonName": "Alpha-asarone",
+    "latinName": "Alpha-asarone",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "alpha-bulnesene",
+    "kind": "compound",
+    "commonName": "Alpha-bulnesene",
+    "latinName": "Alpha-bulnesene",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "amorphigenin",
+    "kind": "compound",
+    "commonName": "Amorphigenin",
+    "latinName": "Amorphigenin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "anthocyanins",
+    "kind": "compound",
+    "commonName": "Anthocyanins",
+    "latinName": "Anthocyanins",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "ascaridole",
+    "kind": "compound",
+    "commonName": "Ascaridole",
+    "latinName": "Ascaridole",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "bacosides-a-and-b",
+    "kind": "compound",
+    "commonName": "Bacosides A and B",
+    "latinName": "Bacosides A and B",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "baicalin",
+    "kind": "compound",
+    "commonName": "Baicalin",
+    "latinName": "Baicalin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "beta-asarone",
+    "kind": "compound",
+    "commonName": "Beta-asarone",
+    "latinName": "Beta-asarone",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "boldine",
+    "kind": "compound",
+    "commonName": "Boldine",
+    "latinName": "Boldine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "bufotenine",
+    "kind": "compound",
+    "commonName": "Bufotenine",
+    "latinName": "Bufotenine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "caffeine",
+    "kind": "compound",
+    "commonName": "Caffeine",
+    "latinName": "Caffeine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "camphor",
+    "kind": "compound",
+    "commonName": "Camphor",
+    "latinName": "Camphor",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "catuabine",
+    "kind": "compound",
+    "commonName": "Catuabine",
+    "latinName": "Catuabine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "cbd",
+    "kind": "compound",
+    "commonName": "CBD",
+    "latinName": "CBD",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "citral",
+    "kind": "compound",
+    "commonName": "Citral",
+    "latinName": "Citral",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "cytisine",
+    "kind": "compound",
+    "commonName": "Cytisine",
+    "latinName": "Cytisine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "damianin",
+    "kind": "compound",
+    "commonName": "Damianin",
+    "latinName": "Damianin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "dmt",
+    "kind": "compound",
+    "commonName": "DMT",
+    "latinName": "DMT",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "ergoline-alkaloids",
+    "kind": "compound",
+    "commonName": "Ergoline alkaloids",
+    "latinName": "Ergoline alkaloids",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "ergotamine",
+    "kind": "compound",
+    "commonName": "Ergotamine",
+    "latinName": "Ergotamine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "essential-oils",
+    "kind": "compound",
+    "commonName": "Essential oils",
+    "latinName": "Essential oils",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "eugenol",
+    "kind": "compound",
+    "commonName": "Eugenol",
+    "latinName": "Eugenol",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "flavonoids",
+    "kind": "compound",
+    "commonName": "Flavonoids",
+    "latinName": "Flavonoids",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "graveoline",
+    "kind": "compound",
+    "commonName": "Graveoline",
+    "latinName": "Graveoline",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "gymnemic-acids",
+    "kind": "compound",
+    "commonName": "Gymnemic Acids",
+    "latinName": "Gymnemic Acids",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "harmine",
+    "kind": "compound",
+    "commonName": "Harmine",
+    "latinName": "Harmine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "huperzine-a",
+    "kind": "compound",
+    "commonName": "Huperzine A",
+    "latinName": "Huperzine A",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "ibogaine",
+    "kind": "compound",
+    "commonName": "Ibogaine",
+    "latinName": "Ibogaine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "ibotenic-acid",
+    "kind": "compound",
+    "commonName": "Ibotenic Acid",
+    "latinName": "Ibotenic Acid",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "iridoids",
+    "kind": "compound",
+    "commonName": "Iridoids",
+    "latinName": "Iridoids",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "isopetasin",
+    "kind": "compound",
+    "commonName": "Isopetasin",
+    "latinName": "Isopetasin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "leonurine",
+    "kind": "compound",
+    "commonName": "Leonurine",
+    "latinName": "Leonurine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "linalyl-acetate",
+    "kind": "compound",
+    "commonName": "Linalyl acetate",
+    "latinName": "Linalyl acetate",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "marmelosin",
+    "kind": "compound",
+    "commonName": "Marmelosin",
+    "latinName": "Marmelosin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "marrubiin",
+    "kind": "compound",
+    "commonName": "Marrubiin",
+    "latinName": "Marrubiin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "mescaline",
+    "kind": "compound",
+    "commonName": "Mescaline",
+    "latinName": "Mescaline",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "mesembrine",
+    "kind": "compound",
+    "commonName": "Mesembrine",
+    "latinName": "Mesembrine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "methyl-salicylate",
+    "kind": "compound",
+    "commonName": "Methyl salicylate",
+    "latinName": "Methyl salicylate",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "muscimol",
+    "kind": "compound",
+    "commonName": "Muscimol",
+    "latinName": "Muscimol",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "p-cymene",
+    "kind": "compound",
+    "commonName": "p-Cymene",
+    "latinName": "p-Cymene",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "patchoulol",
+    "kind": "compound",
+    "commonName": "Patchoulol",
+    "latinName": "Patchoulol",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "perillaldehyde",
+    "kind": "compound",
+    "commonName": "Perillaldehyde",
+    "latinName": "Perillaldehyde",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "petasin",
+    "kind": "compound",
+    "commonName": "Petasin",
+    "latinName": "Petasin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "quercetin",
+    "kind": "compound",
+    "commonName": "Quercetin",
+    "latinName": "Quercetin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "rosmarinic-acid",
+    "kind": "compound",
+    "commonName": "Rosmarinic Acid",
+    "latinName": "Rosmarinic Acid",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "rutarin",
+    "kind": "compound",
+    "commonName": "Rutarin",
+    "latinName": "Rutarin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "safrole",
+    "kind": "compound",
+    "commonName": "Safrole",
+    "latinName": "Safrole",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "saponins",
+    "kind": "compound",
+    "commonName": "Saponins",
+    "latinName": "Saponins",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "sclareol",
+    "kind": "compound",
+    "commonName": "Sclareol",
+    "latinName": "Sclareol",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "scutellarin",
+    "kind": "compound",
+    "commonName": "Scutellarin",
+    "latinName": "Scutellarin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "thc",
+    "kind": "compound",
+    "commonName": "THC",
+    "latinName": "THC",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "thujone",
+    "kind": "compound",
+    "commonName": "Thujone",
+    "latinName": "Thujone",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "thymol",
+    "kind": "compound",
+    "commonName": "Thymol",
+    "latinName": "Thymol",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "valeranon",
+    "kind": "compound",
+    "commonName": "Valeranon",
+    "latinName": "Valeranon",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "vasicine",
+    "kind": "compound",
+    "commonName": "Vasicine",
+    "latinName": "Vasicine",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "vasicinone",
+    "kind": "compound",
+    "commonName": "Vasicinone",
+    "latinName": "Vasicinone",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "verbascoside",
+    "kind": "compound",
+    "commonName": "Verbascoside",
+    "latinName": "Verbascoside",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "verbenalin",
+    "kind": "compound",
+    "commonName": "Verbenalin",
+    "latinName": "Verbenalin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "volatile-oils",
+    "kind": "compound",
+    "commonName": "Volatile oils",
+    "latinName": "Volatile oils",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  },
+  {
+    "id": "zapotin",
+    "kind": "compound",
+    "commonName": "Zapotin",
+    "latinName": "Zapotin",
+    "tags": [
+      "compound"
+    ],
+    "regions": [],
+    "sources": [],
+    "createdAt": "2025-10-14",
+    "updatedAt": "2025-10-14"
+  }
+]
