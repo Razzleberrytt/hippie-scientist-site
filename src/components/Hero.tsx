@@ -4,20 +4,14 @@ import { motion, useReducedMotion } from "framer-motion";
 import Tilt from "./Tilt";
 import Magnetic from "./Magnetic";
 import StatPill from "./StatPill";
-import { loadCounts } from "@/lib/data";
+import { getFullCounts } from "@/lib/fullCounts";
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
   const [counts, setCounts] = useState({ herbCount: 0, compoundCount: 0 });
 
   useEffect(() => {
-    let active = true;
-    loadCounts().then((data) => {
-      if (active) setCounts(data);
-    });
-    return () => {
-      active = false;
-    };
+    getFullCounts().then(setCounts);
   }, []);
 
   return (
@@ -86,7 +80,7 @@ export default function Hero() {
               </Magnetic>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
               <StatPill to="/browse/herbs" value={counts.herbCount} label="psychoactive herbs" testId="pill-herbs" />
               <StatPill to="/browse/compounds" value={counts.compoundCount} label="active compounds" testId="pill-compounds" />
             </div>
