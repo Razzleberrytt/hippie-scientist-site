@@ -3,7 +3,7 @@ import Meta from '../components/Meta'
 import ErrorBoundary from '../components/ErrorBoundary'
 import DatabaseHerbCard from '../components/DatabaseHerbCard'
 import AdvancedSearch from '../components/AdvancedSearch'
-import KPIRow from '@/components/KPIRow'
+import StatBadges from '@/components/StatBadges'
 import type { Herb } from '../types'
 import herbsData from '../data/herbs/herbs.normalized.json'
 import { decorateHerbs } from '../lib/herbs'
@@ -49,10 +49,10 @@ export default function Database() {
         description='Browse psychoactive herb profiles with scientific and cultural context.'
         path='/database'
       />
-      <main className='container mx-auto max-w-screen-md px-4 py-6 space-y-6'>
-        <section className='rounded-[28px] border border-white/10 bg-white/5 p-6 md:p-8 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]'>
+      <main className='container mx-auto max-w-screen-md space-y-6 px-4 py-6'>
+        <section className='rounded-[28px] border border-white/10 bg-white/[0.03] p-6 text-white shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl md:p-8'>
           <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>Herb Database</h1>
-          <p className='mt-2 text-white/75'>Search and explore the library.</p>
+          <p className='mt-2 text-white/85'>Search and explore the library.</p>
 
             {ENABLE_ADVANCED_FILTERS && (
               <div className='mt-4 flex flex-wrap items-center gap-2'>
@@ -75,7 +75,7 @@ export default function Database() {
               </div>
             )}
 
-            <div className='mt-5 rounded-2xl border border-white/12 bg-white/5 p-4 backdrop-blur-xl'>
+            <div className='mt-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl'>
               <label className='sr-only' htmlFor='herb-search-input'>
                 Search herbs
               </label>
@@ -91,11 +91,12 @@ export default function Database() {
               </div>
             </div>
 
-          <KPIRow
-            className='mt-6'
-            herbs={counters.herbCount}
-            compounds={counters.compoundCount}
-            articles={counters.articleCount}
+          <StatBadges
+            stats={[
+              { label: 'psychoactive herbs', value: counters.herbCount },
+              { label: 'active compounds', value: counters.compoundCount },
+              { label: 'articles', value: counters.articleCount },
+            ]}
           />
         </section>
 
@@ -104,7 +105,7 @@ export default function Database() {
             <DatabaseHerbCard key={herb.slug ?? herb.id ?? `herb-${index}`} herb={herb} />
           ))}
           {!results.length && (
-            <div className='rounded-3xl border border-white/12 bg-white/5 p-6 text-center text-white/75 backdrop-blur-xl'>
+            <div className='rounded-[28px] border border-white/10 bg-white/[0.03] p-6 text-center text-white/80 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl'>
               No herbs match that search.
             </div>
           )}

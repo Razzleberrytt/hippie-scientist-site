@@ -1,18 +1,19 @@
 import { create } from 'zustand';
-import { DEFAULT_EFFECT, type MeltKey } from '@/lib/melt/effects';
 
-export type { MeltKey } from '@/lib/melt/effects';
+export type MeltEffect = 'aura' | 'nebula' | 'vapor' | 'plasma';
+
+const DEFAULT_EFFECT: MeltEffect = 'aura';
 
 type MeltState = {
   enabled: boolean;
-  preset: MeltKey;
-  setEnabled: (v: boolean) => void;
-  setPreset: (p: MeltKey) => void;
+  effect: MeltEffect;
+  setEnabled: (value: boolean) => void;
+  setEffect: (value: MeltEffect) => void;
 };
 
-const KEY = 'ths.melt.v2';
+const KEY = 'ths.melt.v3';
 
-type PersistedState = Partial<Pick<MeltState, 'enabled' | 'preset'>>;
+type PersistedState = Partial<Pick<MeltState, 'enabled' | 'effect'>>;
 
 const load = (): PersistedState | null => {
   try {
@@ -23,7 +24,7 @@ const load = (): PersistedState | null => {
   }
 };
 
-const save = (state: Pick<MeltState, 'enabled' | 'preset'>) => {
+const save = (state: Pick<MeltState, 'enabled' | 'effect'>) => {
   try {
     if (typeof window !== 'undefined') {
       localStorage.setItem(KEY, JSON.stringify(state));
@@ -41,12 +42,12 @@ const prefersReducedMotion = () => {
 export const useMelt = create<MeltState>((set) => {
   const saved = typeof window !== 'undefined' ? load() : null;
   const initialEnabled = prefersReducedMotion() ? false : saved?.enabled ?? true;
-  const initialPreset = saved?.preset ?? DEFAULT_EFFECT;
+  const initialEffect = saved?.effect ?? DEFAULT_EFFECT;
 
   const persist = (partial: Partial<MeltState>) =>
     set((state) => {
       const next = { ...state, ...partial } as MeltState;
-      save({ enabled: next.enabled, preset: next.preset });
+      save({ enabled: next.enabled, effect: next.effect });
       return next;
     });
 
@@ -70,13 +71,15 @@ export const useMelt = create<MeltState>((set) => {
 
   return {
     enabled: initialEnabled,
-    preset: initialPreset,
+    effect: initialEffect,
     setEnabled: (value) => {
       const next = prefersReducedMotion() ? false : value;
       persist({ enabled: next });
     },
-    setPreset: (preset) => {
-      persist({ preset });
+    setEffect: (value) => {
+      persist({ effect: value });
     },
   };
 });
+
+export { DEFAULT_EFFECT };
