@@ -66,6 +66,7 @@ const config: Config = {
         ring: "0 0 0 1px rgba(255,255,255,0.06) inset, 0 8px 40px -12px rgba(0,0,0,0.5)",
         glow: "0 0 0 2px rgba(34,211,238,.15), 0 10px 30px rgba(34,211,238,.15)",
         card: "0 6px 24px rgba(0,0,0,.25)",
+        halo: "0 0 120px -40px rgba(147, 51, 234, 0.45)",
       },
       borderRadius: {
         xl2: "1.25rem",
@@ -111,12 +112,22 @@ const config: Config = {
           "0%": { filter: "hue-rotate(0deg)" },
           "100%": { filter: "hue-rotate(360deg)" },
         },
+        breathe: {
+          "0%, 100%": { transform: "scale(1)", opacity: 0.9 },
+          "50%": { transform: "scale(1.02)", opacity: 1 },
+        },
+        shimmer: {
+          "0%": { transform: "translateY(6px)" },
+          "100%": { transform: "translateY(0)" },
+        },
       },
       animation: {
         gradientShift: "gradientShift 18s ease-in-out infinite",
         float: "float 6s ease-in-out infinite",
         aurora: "aurora 18s ease-in-out infinite",
         hue: "hue 20s linear infinite",
+        breathe: "breathe 20s ease-in-out infinite",
+        shimmerIn: "shimmer 700ms ease-out",
       },
       backgroundImage: {
         noisy:

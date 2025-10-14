@@ -1,7 +1,6 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import BackgroundStage from "./BackgroundStage";
-import MeltToggle from "./MeltToggle";
 import { useTrippy } from "@/lib/trippy";
 import { useMelt } from "@/melt/useMelt";
 
@@ -14,7 +13,7 @@ const links = [
 export default function SiteLayout({ children }: PropsWithChildren) {
   const location = useLocation();
   const { level, enabled: trippyEnabled } = useTrippy();
-  const { enabled, setEnabled, effect, setEffect } = useMelt();
+  const { enabled, setEnabled, effect } = useMelt();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -45,20 +44,6 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     }
   }, [enabled, prefersReducedMotion, setEnabled]);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "t") {
-        event.preventDefault();
-        if (!trippyEnabled || prefersReducedMotion || level === "off") return;
-        const current = useMelt.getState().enabled;
-        setEnabled(!current);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [level, prefersReducedMotion, setEnabled, trippyEnabled]);
-
   const shouldAnimate = trippyEnabled && level !== "off" && enabled && !prefersReducedMotion;
 
   return (
@@ -72,38 +57,35 @@ export default function SiteLayout({ children }: PropsWithChildren) {
         Skip to content
       </a>
 
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/30">
-        <nav className="container-safe mx-auto flex max-w-6xl items-center gap-2 px-4 py-3" aria-label="Site">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 shadow-[0_0_24px_-12px_rgba(147,51,234,0.6)] backdrop-blur">
+        <nav className="container-safe mx-auto flex max-w-6xl items-center gap-3 px-4 py-3" aria-label="Site">
           <Link
             to="/"
-            className={`inline-flex items-center gap-2 rounded-2xl border border-white/10 px-4 py-2.5 text-sm font-semibold transition ${
-              location.pathname === "/" ? "bg-white/10 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+            className={`inline-flex items-center gap-3 rounded-full border border-white/10 px-4 py-2.5 text-sm font-semibold transition ${
+              location.pathname === "/"
+                ? "bg-white/15 text-white shadow-[0_0_18px_-10px_rgba(147,51,234,0.7)]"
+                : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
             }`}
           >
             THS
           </Link>
-          {links.map((link) => {
-            const active = location.pathname.startsWith(link.to);
-            return (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`inline-flex items-center gap-2 rounded-2xl border border-white/10 px-4 py-2.5 text-sm transition ${
-                  active ? "bg-white/10 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-          <div className="ml-auto">
-            <MeltToggle
-              state={{ enabled, effect }}
-              onChange={(next) => {
-                setEnabled(next.enabled);
-                setEffect(next.effect);
-              }}
-            />
+          <div className="flex flex-1 items-center gap-2">
+            {links.map((link) => {
+              const active = location.pathname.startsWith(link.to);
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2.5 text-sm font-medium transition ${
+                    active
+                      ? "bg-white/15 text-white shadow-[0_0_16px_-12px_rgba(147,51,234,0.6)]"
+                      : "bg-white/5 text-white/75 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         </nav>
       </header>

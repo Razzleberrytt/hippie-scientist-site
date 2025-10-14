@@ -208,7 +208,7 @@ export default function BackgroundStage({ effect = "aura", enabled = true }: Bac
     return (
       <div
         aria-hidden
-        className="fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black"
+        className="fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black animate-breathe"
       />
     );
   }
@@ -222,7 +222,7 @@ export default function BackgroundStage({ effect = "aura", enabled = true }: Bac
       />
       <div
         aria-hidden
-        className="fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black"
+        className="fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black animate-breathe"
       />
     </>
   );
