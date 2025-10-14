@@ -1,9 +1,9 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MeltControl from "./MeltControl";
+import BackgroundStage from "./BackgroundStage";
+import MeltToggle from "./MeltToggle";
 import { useTrippy } from "@/lib/trippy";
 import { useMelt } from "@/melt/useMelt";
-import MeltBackground from "./MeltBackground";
 
 const links = [
   { label: "Browse", to: "/database" },
@@ -14,7 +14,7 @@ const links = [
 export default function SiteLayout({ children }: PropsWithChildren) {
   const location = useLocation();
   const { level, enabled: trippyEnabled } = useTrippy();
-  const { enabled, setEnabled, preset, setPreset } = useMelt();
+  const { enabled, setEnabled, effect, setEffect } = useMelt();
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -59,9 +59,11 @@ export default function SiteLayout({ children }: PropsWithChildren) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [level, prefersReducedMotion, setEnabled, trippyEnabled]);
 
+  const shouldAnimate = trippyEnabled && level !== "off" && enabled && !prefersReducedMotion;
+
   return (
     <div className="relative min-h-svh overflow-x-hidden">
-      <MeltBackground />
+      <BackgroundStage enabled={shouldAnimate} effect={effect} />
 
       <a
         href="#main"
@@ -70,12 +72,12 @@ export default function SiteLayout({ children }: PropsWithChildren) {
         Skip to content
       </a>
 
-      <header className="header-nav sticky top-0 z-50 bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40">
-        <nav className="nav-row container-safe flex items-center gap-2 py-3" aria-label="Site">
+      <header className="sticky top-0 z-50 border-b border-white/5 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/30">
+        <nav className="container-safe mx-auto flex max-w-6xl items-center gap-2 px-4 py-3" aria-label="Site">
           <Link
             to="/"
-            className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm font-semibold transition ${
-              location.pathname === "/" ? "bg-white/15 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+            className={`inline-flex items-center gap-2 rounded-2xl border border-white/10 px-4 py-2.5 text-sm font-semibold transition ${
+              location.pathname === "/" ? "bg-white/10 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
             }`}
           >
             THS
@@ -86,8 +88,8 @@ export default function SiteLayout({ children }: PropsWithChildren) {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`inline-flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2.5 text-sm transition ${
-                  active ? "bg-white/15 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
+                className={`inline-flex items-center gap-2 rounded-2xl border border-white/10 px-4 py-2.5 text-sm transition ${
+                  active ? "bg-white/10 text-white" : "bg-white/5 text-white/80 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -95,7 +97,13 @@ export default function SiteLayout({ children }: PropsWithChildren) {
             );
           })}
           <div className="ml-auto">
-            <MeltControl value={preset} onChange={setPreset} />
+            <MeltToggle
+              state={{ enabled, effect }}
+              onChange={(next) => {
+                setEnabled(next.enabled);
+                setEffect(next.effect);
+              }}
+            />
           </div>
         </nav>
       </header>
