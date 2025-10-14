@@ -1,21 +1,12 @@
 import { Link } from "react-router-dom";
-import NavLink from "./NavLink";
-
-const navLinks = [
-  { to: "/herbs", label: "Browse" },
-  { to: "/compounds", label: "Compounds" },
-  { to: "/blend", label: "Build" },
-  { to: "/blog", label: "Blog" },
-];
+import HeaderNav from "./HeaderNav";
 
 type Props = { subtleOnHome?: boolean };
 
 export default function SiteHeader({ subtleOnHome = false }: Props) {
-  const buttonClasses = "px-3 py-2 text-sm";
-
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur supports-[backdrop-filter]:bg-black/30">
-      <div className="mx-auto max-w-6xl px-4 py-2 flex items-center gap-3">
+    <header className="safe-top sticky top-0 z-40 border-b border-white/10 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/30">
+      <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-2 sm:px-6">
         <Link
           to="/"
           className="flex items-center gap-3 text-white"
@@ -27,13 +18,9 @@ export default function SiteHeader({ subtleOnHome = false }: Props) {
             The Hippie Scientist
           </span>
         </Link>
-        <nav className="ml-auto flex gap-2">
-          {navLinks.map(link => (
-            <NavLink key={link.to} to={link.to} className={buttonClasses}>
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
+        <div className="ml-auto min-w-0 flex-1">
+          <HeaderNav />
+        </div>
       </div>
     </header>
   );
