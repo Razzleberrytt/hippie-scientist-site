@@ -39,7 +39,8 @@
     "gen:ai-post": "node scripts/ai-write-posts.mjs --one",
     "gen:ai-posts:10": "node scripts/ai-write-posts.mjs --count=10",
     "sync:blog": "npm run build:blog && node scripts/generate-sitemap.mjs public",
-    "dev:blog:watch": "node -e \"require('chokidar').watch('content/blog').on('all',()=>console.log('[blog] change'),()=>{});\""
+    "dev:blog:watch": "node -e \"require('chokidar').watch('content/blog').on('all',()=>console.log('[blog] change'),()=>{});\"",
+    "seed:compounds": "tsx scripts/seed-compounds.ts"
   },
   "engines": {
     "node": ">=20.19.0 <21"
