@@ -5,7 +5,8 @@ import NonEmpty from "./NonEmpty";
 import { toHash } from "../lib/routing";
 
 const exploreLinks = [
-  { href: "/database", label: "Database" },
+  { href: "/herbs", label: "Herb Database" },
+  { href: "/compounds", label: "Compounds" },
   { href: "/build", label: "Build a Blend" },
   { href: "/blog", label: "Blog" },
   { href: "/graph", label: "NeuroHerbGraph" },

@@ -57,7 +57,7 @@ export default function Hero() {
                   transition={reduceMotion ? undefined : { type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <Link
-                    to="/browse/herbs"
+                    to="/herbs"
                     className="inline-flex h-12 items-center justify-center rounded-full bg-emerald-500/90 px-5 text-sm font-semibold text-black shadow-[0_10px_40px_-18px_rgba(16,185,129,0.9)] transition hover:bg-emerald-400"
                   >
                     🌿 Browse Herbs
@@ -81,8 +81,8 @@ export default function Hero() {
             </div>
 
             <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <StatPill to="/browse/herbs" value={counts.herbCount} label="psychoactive herbs" testId="pill-herbs" />
-              <StatPill to="/browse/compounds" value={counts.compoundCount} label="active compounds" testId="pill-compounds" />
+              <StatPill to="/herbs" value={counts.herbCount} label="psychoactive herbs" testId="pill-herbs" />
+              <StatPill to="/compounds" value={counts.compoundCount} label="active compounds" testId="pill-compounds" />
             </div>
           </div>
         </motion.div>

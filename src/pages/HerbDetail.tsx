@@ -304,7 +304,7 @@ export default function HerbDetail() {
           <RelatedPosts slug={herb.slug} />
 
           <div className="text-sm" style={{ color: "var(--muted-c)" }}>
-            <Link to="/database" className="link" style={{ color: "var(--accent)" }}>
+            <Link to="/herbs" className="link" style={{ color: "var(--accent)" }}>
               ← Back to Database
             </Link>
           </div>

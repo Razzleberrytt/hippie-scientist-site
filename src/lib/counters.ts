@@ -1,5 +1,6 @@
 import herbs from '@/data/herbs/herbs.normalized.json';
 import posts from '../../public/blogdata/index.json';
+import { getAllCompounds } from '@/lib/compounds';
 
 type HerbEntry = {
   active_compounds?: unknown;
@@ -30,13 +31,20 @@ export function getCounters() {
     }
   }
 
+  const decoratedCompounds = getAllCompounds();
+  decoratedCompounds.forEach(compound => {
+    if (compound.common) compoundSet.add(compound.common.toLowerCase());
+    if (compound.scientific) compoundSet.add(compound.scientific.toLowerCase());
+    if (compound.name) compoundSet.add(String(compound.name).toLowerCase());
+  });
+
   const articleCount = Array.isArray(posts)
     ? (posts as PostEntry[]).filter((post) => !post?.draft && post?.published !== false).length
     : 0;
 
   return {
     herbCount,
-    compoundCount: compoundSet.size,
+    compoundCount: decoratedCompounds.length || compoundSet.size,
     articleCount,
   };
 }

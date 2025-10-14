@@ -5,7 +5,8 @@ import { useTrippy } from "@/lib/trippy";
 import { useMelt } from "@/melt/useMelt";
 
 const links = [
-  { label: "Browse", to: "/database" },
+  { label: "Browse", to: "/herbs" },
+  { label: "Compounds", to: "/compounds" },
   { label: "Build", to: "/build" },
   { label: "Blog", to: "/blog" },
 ];

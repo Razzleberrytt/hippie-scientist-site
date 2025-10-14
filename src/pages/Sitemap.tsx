@@ -44,8 +44,13 @@ export default function Sitemap() {
               </Link>
             </li>
             <li>
-              <Link className="underline" to="/database">
+              <Link className="underline" to="/herbs">
                 Herb Database
+              </Link>
+            </li>
+            <li>
+              <Link className="underline" to="/compounds">
+                Compounds
               </Link>
             </li>
             <li>

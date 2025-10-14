@@ -103,7 +103,7 @@ export default function NotFound() {
         </section>
 
         <nav className="text-white/70">
-          <Link className="underline mr-4" to="/database">
+          <Link className="underline mr-4" to="/herbs">
             Browse database
           </Link>
           <Link className="underline mr-4" to="/blog">

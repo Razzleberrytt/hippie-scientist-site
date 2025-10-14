@@ -84,7 +84,7 @@ export default function RotatingHerbCard() {
             to={
               herb.slug
                 ? `/herb/${herb.slug}`
-                : `/database#${slugify(herbName(herb))}`
+                : `/herbs#${slugify(herbName(herb))}`
             }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >
@@ -150,7 +150,7 @@ export default function RotatingHerbCard() {
             to={
               herb.slug
                 ? `/herb/${herb.slug}`
-                : `/database#${slugify(herbName(herb))}`
+                : `/herbs#${slugify(herbName(herb))}`
             }
             className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:rotate-1'
           >

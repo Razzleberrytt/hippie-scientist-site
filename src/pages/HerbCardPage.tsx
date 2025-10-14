@@ -24,7 +24,7 @@ export default function HerbCardPage() {
   const notFound = (
     <div className='rounded-md border border-red-500/40 bg-red-500/10 p-6 text-center'>
       <h1 className='text-2xl font-bold text-red-300'>404 – Herb Not Found</h1>
-      <Link to='/database' className='text-comet underline'>
+      <Link to='/herbs' className='text-comet underline'>
         Back to database
       </Link>
     </div>
