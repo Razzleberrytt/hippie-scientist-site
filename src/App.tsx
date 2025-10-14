@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { Routes, Route, Outlet, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound';
 import { RedirectHandler } from './RedirectHandler';
 import { useGA } from './lib/useGA';
 import HerbIndex from './pages/HerbIndex';
+import CompoundIndex from './pages/CompoundIndex';
 import HerbDetail from './pages/HerbDetail';
 import Compare from './pages/Compare';
 import DataReport from './pages/DataReport';
@@ -43,6 +44,9 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/database" element={<Database />} />
+              <Route path="/browse" element={<Navigate to="/browse/herbs" replace />} />
+              <Route path="/browse/herbs" element={<HerbIndex />} />
+              <Route path="/browse/compounds" element={<CompoundIndex />} />
               <Route path="/blend" element={<BuildBlend />} />
               <Route path="/build" element={<BuildBlend />} />
               <Route path="/favorites" element={<Favorites />} />

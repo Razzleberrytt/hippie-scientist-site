@@ -1,0 +1,900 @@
+[
+  {
+    "id": "entada-rheedii",
+    "kind": "herb",
+    "commonName": "Entada rheedii",
+    "latinName": "Entada rheedii",
+    "summary": "Seed from a tropical vine used in African traditions to induce vivid dreams.",
+    "description": "Seed from a tropical vine used in African traditions to induce vivid dreams.",
+    "tags": [
+      "\\ud83d\\udc8a Oral",
+      "\\ud83e\\udde0 Dream",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇲🇽 Latin America"
+    ]
+  },
+  {
+    "id": "kava",
+    "kind": "herb",
+    "commonName": "Kava",
+    "latinName": "Piper methysticum",
+    "summary": "South Pacific root brew known for its relaxing and anxiolytic effects.",
+    "description": "South Pacific root brew known for its relaxing and anxiolytic effects.",
+    "tags": [
+      "\\ud83d\\udc8a Oral",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Pacific Islands"
+    ]
+  },
+  {
+    "id": "lions-mane",
+    "kind": "herb",
+    "commonName": "Lion's Mane",
+    "latinName": "Hericium erinaceus",
+    "summary": "Medicinal mushroom valued for promoting nerve growth and mental clarity.",
+    "description": "Medicinal mushroom valued for promoting nerve growth and mental clarity.",
+    "tags": [
+      "\\ud83d\\udc8a Oral",
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇨🇳 East Asia"
+    ]
+  },
+  {
+    "id": "passionflower",
+    "kind": "herb",
+    "commonName": "Passionflower",
+    "latinName": "Passiflora incarnata",
+    "summary": "Climbing vine traditionally brewed for anxiety relief and restful sleep.",
+    "description": "Climbing vine traditionally brewed for anxiety relief and restful sleep.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 North America"
+    ]
+  },
+  {
+    "id": "reishi-mushroom",
+    "kind": "herb",
+    "commonName": "Reishi Mushroom",
+    "latinName": "Ganoderma lucidum",
+    "summary": "Tonic fungus revered in Asia for boosting immunity and easing stress.",
+    "description": "Tonic fungus revered in Asia for boosting immunity and easing stress.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇨🇳 East Asia"
+    ]
+  },
+  {
+    "id": "valerian",
+    "kind": "herb",
+    "commonName": "Valerian",
+    "latinName": "Valeriana officinalis",
+    "summary": "Pungent root used as a natural sleep aid and mild tranquilizer.",
+    "description": "Pungent root used as a natural sleep aid and mild tranquilizer.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇧🇪 Europe"
+    ]
+  },
+  {
+    "id": "mugwort",
+    "kind": "herb",
+    "commonName": "Mugwort",
+    "latinName": "Mugwort",
+    "summary": "Aromatic herb smoked or sipped to enhance dreaming and soothe digestion.",
+    "description": "Aromatic herb smoked or sipped to enhance dreaming and soothe digestion.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83e\\udde0 Dream",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇪🇺 Europe"
+    ]
+  },
+  {
+    "id": "heimia-salicifolia-sinicuichi",
+    "kind": "herb",
+    "commonName": "Heimia salicifolia (Sinicuichi)",
+    "latinName": "Heimia salicifolia (Sinicuichi)",
+    "summary": "Mexican shrub whose fermented leaves produce mild auditory shifts.",
+    "description": "Mexican shrub whose fermented leaves produce mild auditory shifts.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83e\\uddea Fermented",
+      "\\ud83c\\udf00 Dissociation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "sceletium-tortuosum-kanna",
+    "kind": "herb",
+    "commonName": "Sceletium tortuosum (Kanna)",
+    "latinName": "Sceletium tortuosum (Kanna)",
+    "summary": "South African succulent chewed to elevate mood and decrease tension.",
+    "description": "South African succulent chewed to elevate mood and decrease tension.",
+    "tags": [
+      "\\ud83d\\udc8a Oral",
+      "\\ud83d\\udcab Euphoria",
+      "\\u26a0\\ufe0f Restricted"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "blue-lotus-nymphaea-caerulea",
+    "kind": "herb",
+    "commonName": "Blue Lotus (Nymphaea caerulea)",
+    "latinName": "Blue Lotus (Nymphaea caerulea)",
+    "summary": "Sacred water lily delivering gentle euphoria and relaxation.",
+    "description": "Sacred water lily delivering gentle euphoria and relaxation.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "salvia-divinorum",
+    "kind": "herb",
+    "commonName": "Salvia divinorum",
+    "latinName": "Salvia divinorum",
+    "summary": "Mazatec entheogen with powerful, short-lived visionary effects.",
+    "description": "Mazatec entheogen with powerful, short-lived visionary effects.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\u26a0\\ufe0f Restricted"
+    ],
+    "regions": [
+      "🇲🇽 Latin America"
+    ]
+  },
+  {
+    "id": "wild-lettuce",
+    "kind": "herb",
+    "commonName": "Wild Lettuce",
+    "latinName": "Wild Lettuce",
+    "summary": "Leafy plant exuding sedative latex historically called 'lettuce opium.'",
+    "description": "Leafy plant exuding sedative latex historically called 'lettuce opium.'",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "chiric-sanango",
+    "kind": "herb",
+    "commonName": "Chiric Sanango",
+    "latinName": "Chiric Sanango",
+    "summary": "Amazonian shrub added to ayahuasca for introspection and cleansing.",
+    "description": "Amazonian shrub added to ayahuasca for introspection and cleansing.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "mapacho",
+    "kind": "herb",
+    "commonName": "Mapacho",
+    "latinName": "Mapacho",
+    "summary": "Potent Nicotiana rustica tobacco burned in ritual for focus and protection.",
+    "description": "Potent Nicotiana rustica tobacco burned in ritual for focus and protection.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\ud83d\\udd2e Ritual",
+      "\\u26a0\\ufe0f Restricted"
+    ],
+    "regions": [
+      "🇲🇽 Latin America"
+    ]
+  },
+  {
+    "id": "tagetes-lucida-mexican-tarragon",
+    "kind": "herb",
+    "commonName": "Tagetes lucida (Mexican Tarragon)",
+    "latinName": "Tagetes lucida (Mexican Tarragon)",
+    "summary": "Sweet marigold used as tea or incense for clear dreams and calm.",
+    "description": "Sweet marigold used as tea or incense for clear dreams and calm.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83d\\udd6f\\ufe0f Ritual",
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇲🇽 Latin America"
+    ]
+  },
+  {
+    "id": "turnera-diffusa",
+    "kind": "herb",
+    "commonName": "Turnera diffusa",
+    "latinName": "Turnera diffusa",
+    "summary": "Fragrant shrub known as damiana, smoked or brewed as aphrodisiac and relaxant.",
+    "description": "Fragrant shrub known as damiana, smoked or brewed as aphrodisiac and relaxant.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83d\\udcab Euphoria",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "Texas, Mexico, Central America"
+    ]
+  },
+  {
+    "id": "kra-thum-na--kok",
+    "kind": "herb",
+    "commonName": "Kra Thum Na / Kok",
+    "latinName": "Kra Thum Na / Kok",
+    "summary": "Southeast Asian tree related to kratom with stimulating leaves.",
+    "description": "Southeast Asian tree related to kratom with stimulating leaves.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83d\\udc8a Oral",
+      "\\ud83d\\udcab Euphoria",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "sakae-naa",
+    "kind": "herb",
+    "commonName": "Sakae Naa",
+    "latinName": "Sakae Naa",
+    "summary": "Thai herb with mitragynine-like alkaloids providing mild stimulation.",
+    "description": "Thai herb with mitragynine-like alkaloids providing mild stimulation.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83d\\udc8a Oral",
+      "\\ud83d\\udcab Euphoria",
+      "\\u26a1 Stimulant",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "nelumbo-nucifera",
+    "kind": "herb",
+    "commonName": "Nelumbo nucifera",
+    "latinName": "Nelumbo nucifera",
+    "summary": "Sacred lotus revered for tranquil, mildly euphoric properties.",
+    "description": "Sacred lotus revered for tranquil, mildly euphoric properties.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83d\\udcab Euphoria",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "scullcap-scutellaria",
+    "kind": "herb",
+    "commonName": "Scullcap (Scutellaria)",
+    "latinName": "Scullcap (Scutellaria)",
+    "summary": "Calming mint-family herb rich in baicalin used as nerve tonic.",
+    "description": "Calming mint-family herb rich in baicalin used as nerve tonic.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "california-poppy",
+    "kind": "herb",
+    "commonName": "California Poppy",
+    "latinName": "California Poppy",
+    "summary": "California's state flower containing non-addictive sedative alkaloids.",
+    "description": "California's state flower containing non-addictive sedative alkaloids.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "hop-flowers",
+    "kind": "herb",
+    "commonName": "Hop Flowers",
+    "latinName": "Hop Flowers",
+    "summary": "Bitter cones of Humulus lupulus used for relaxation and sleep.",
+    "description": "Bitter cones of Humulus lupulus used for relaxation and sleep.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "copal",
+    "kind": "herb",
+    "commonName": "Copal",
+    "latinName": "Copal",
+    "summary": "Resin from Bursera trees burned ceremonially to purify and induce trance.",
+    "description": "Resin from Bursera trees burned ceremonially to purify and induce trance.",
+    "tags": [
+      "\\ud83d\\udd6f\\ufe0f Ritual",
+      "\\ud83d\\udd2e Ritual",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌐 Global / Ritual"
+    ]
+  },
+  {
+    "id": "sweetgrass",
+    "kind": "herb",
+    "commonName": "Sweetgrass",
+    "latinName": "Sweetgrass",
+    "summary": "Vanilla-scented grass braided and burned to invite positive spirits.",
+    "description": "Vanilla-scented grass braided and burned to invite positive spirits.",
+    "tags": [
+      "\\ud83d\\udd2e Ritual",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌐 Global / Ritual"
+    ]
+  },
+  {
+    "id": "white-sage",
+    "kind": "herb",
+    "commonName": "White Sage",
+    "latinName": "White Sage",
+    "summary": "Aromatic sage revered for cleansing rituals and mental clarity.",
+    "description": "Aromatic sage revered for cleansing rituals and mental clarity.",
+    "tags": [
+      "\\ud83d\\udd6f\\ufe0f Ritual",
+      "\\ud83d\\udd2e Ritual",
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌐 Global / Ritual"
+    ]
+  },
+  {
+    "id": "frankincense-boswellia",
+    "kind": "herb",
+    "commonName": "Frankincense (Boswellia)",
+    "latinName": "Frankincense (Boswellia)",
+    "summary": "Resin incense with boswellic acids studied for anti-inflammatory effects.",
+    "description": "Resin incense with boswellic acids studied for anti-inflammatory effects.",
+    "tags": [
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌐 Global / Ritual"
+    ]
+  },
+  {
+    "id": "henbane",
+    "kind": "herb",
+    "commonName": "Henbane",
+    "latinName": "Henbane",
+    "summary": "Nightshade containing tropane alkaloids causing powerful delirium.",
+    "description": "Nightshade containing tropane alkaloids causing powerful delirium.",
+    "tags": [
+      "\\ud83d\\udd6f\\ufe0f Ritual",
+      "\\u2620\\ufe0f Toxic"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "belladonna",
+    "kind": "herb",
+    "commonName": "Belladonna",
+    "latinName": "Belladonna",
+    "summary": "Deadly nightshade once used for trance and as a cosmetic poison.",
+    "description": "Deadly nightshade once used for trance and as a cosmetic poison.",
+    "tags": [
+      "\\u2620\\ufe0f Toxic"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "mandrake-root",
+    "kind": "herb",
+    "commonName": "Mandrake Root",
+    "latinName": "Mandrake Root",
+    "summary": "Mythic Mediterranean root with hallucinogenic tropane alkaloids.",
+    "description": "Mythic Mediterranean root with hallucinogenic tropane alkaloids.",
+    "tags": [
+      "\\u2620\\ufe0f Toxic"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "anadenanthera-colubrina-cebl",
+    "kind": "herb",
+    "commonName": "Anadenanthera colubrina (Cebíl)",
+    "latinName": "Anadenanthera colubrina (Cebíl)",
+    "summary": "South American tree whose snuffable seeds contain bufotenin.",
+    "description": "South American tree whose snuffable seeds contain bufotenin.",
+    "tags": [
+      "\\u26a0\\ufe0f Restricted"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "virola-spp",
+    "kind": "herb",
+    "commonName": "Virola spp.",
+    "latinName": "Virola spp.",
+    "summary": "Amazonian trees producing DMT-rich resins for shamanic snuffs.",
+    "description": "Amazonian trees producing DMT-rich resins for shamanic snuffs.",
+    "tags": [
+      "\\u26a0\\ufe0f Restricted"
+    ],
+    "regions": [
+      "🇲🇽 Latin America"
+    ]
+  },
+  {
+    "id": "acorus-gramineus",
+    "kind": "herb",
+    "commonName": "Acorus gramineus",
+    "latinName": "Acorus gramineus",
+    "summary": "Asian sweet flag containing β-asarone, sometimes taken for cognition.",
+    "description": "Asian sweet flag containing β-asarone, sometimes taken for cognition.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83d\\udc8a Oral",
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇨🇳 East Asia"
+    ]
+  },
+  {
+    "id": "celastrus-paniculatus-intellect-tree",
+    "kind": "herb",
+    "commonName": "Celastrus paniculatus (Intellect Tree)",
+    "latinName": "Celastrus paniculatus (Intellect Tree)",
+    "summary": "Indian vine whose oil is consumed to sharpen memory and dream vividly.",
+    "description": "Indian vine whose oil is consumed to sharpen memory and dream vividly.",
+    "tags": [
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "silphium-extinct",
+    "kind": "herb",
+    "commonName": "Silphium (extinct)",
+    "latinName": "Silphium (extinct)",
+    "summary": "Famed classical herb believed to have contraceptive and psychoactive resins.",
+    "description": "Famed classical herb believed to have contraceptive and psychoactive resins.",
+    "tags": [
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "nymphaea-ampla",
+    "kind": "herb",
+    "commonName": "Nymphaea ampla",
+    "latinName": "Nymphaea ampla",
+    "summary": "Central American water lily providing mild euphoria and sedation.",
+    "description": "Central American water lily providing mild euphoria and sedation.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83d\\udcab Euphoria",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "pedicularis-densiflora-indian-warrior",
+    "kind": "herb",
+    "commonName": "Pedicularis densiflora (Indian warrior)",
+    "latinName": "Pedicularis densiflora (Indian warrior)",
+    "summary": "North American wildflower smoked for muscle relaxation.",
+    "description": "North American wildflower smoked for muscle relaxation.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌍 Africa, 🇮🇳 India"
+    ]
+  },
+  {
+    "id": "pedicularis-groenlandica",
+    "kind": "herb",
+    "commonName": "Pedicularis groenlandica",
+    "latinName": "Pedicularis groenlandica",
+    "summary": "High-elevation lousewort prized for soothing tense muscles.",
+    "description": "High-elevation lousewort prized for soothing tense muscles.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌍 Africa"
+    ]
+  },
+  {
+    "id": "lactuca-canadensis",
+    "kind": "herb",
+    "commonName": "Lactuca canadensis",
+    "latinName": "Lactuca canadensis",
+    "summary": "Wild lettuce species containing lactucarium for gentle analgesia.",
+    "description": "Wild lettuce species containing lactucarium for gentle analgesia.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "artemisia-vulgaris-mugwort",
+    "kind": "herb",
+    "commonName": "Artemisia vulgaris (Mugwort)",
+    "latinName": "Artemisia vulgaris (Mugwort)",
+    "summary": "Common European mugwort used in dream pillows and as bitter tonic.",
+    "description": "Common European mugwort used in dream pillows and as bitter tonic.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83d\\udd6f\\ufe0f Ritual",
+      "\\ud83e\\udde0 Dream",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇪🇺 Europe"
+    ]
+  },
+  {
+    "id": "justicia-pectoralis",
+    "kind": "herb",
+    "commonName": "Justicia pectoralis",
+    "latinName": "Justicia pectoralis",
+    "summary": "Aromatic herb called tilo, brewed or smoked for calming effects.",
+    "description": "Aromatic herb called tilo, brewed or smoked for calming effects.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83d\\udcab Euphoria",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "viola-odorata-sweet-violet",
+    "kind": "herb",
+    "commonName": "Viola odorata (Sweet violet)",
+    "latinName": "Viola odorata (Sweet violet)",
+    "summary": "Fragrant violet whose flowers are a mild sedative and expectorant.",
+    "description": "Fragrant violet whose flowers are a mild sedative and expectorant.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇪🇺 Europe"
+    ]
+  },
+  {
+    "id": "piper-auritum-root-beer-plant",
+    "kind": "herb",
+    "commonName": "Piper auritum (Root beer plant)",
+    "latinName": "Piper auritum (Root beer plant)",
+    "summary": "Sassafras-scented leaf from Mexico used culinary and for mild mood lift.",
+    "description": "Sassafras-scented leaf from Mexico used culinary and for mild mood lift.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83d\\udcab Euphoria",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "eschscholzia-californica-california-poppy",
+    "kind": "herb",
+    "commonName": "Eschscholzia californica (California poppy)",
+    "latinName": "Eschscholzia californica (California poppy)",
+    "summary": "Gentle sedative flower used for anxiety and sleep support.",
+    "description": "Gentle sedative flower used for anxiety and sleep support.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "rivea-corymbosa",
+    "kind": "herb",
+    "commonName": "Rivea corymbosa",
+    "latinName": "Rivea corymbosa",
+    "summary": "Morning glory species with LSA seeds used in ancient Mexican rituals.",
+    "description": "Morning glory species with LSA seeds used in ancient Mexican rituals.",
+    "tags": [
+      "\\u26a0\\ufe0f Restricted"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "ipomoea-tricolor-heavenly-blue",
+    "kind": "herb",
+    "commonName": "Ipomoea tricolor (Heavenly Blue)",
+    "latinName": "Ipomoea tricolor (Heavenly Blue)",
+    "summary": "Ornamental morning glory whose seeds induce LSD-like visions.",
+    "description": "Ornamental morning glory whose seeds induce LSD-like visions.",
+    "tags": [
+      "\\u26a0\\ufe0f Restricted"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "tilia-europaea-linden-flower",
+    "kind": "herb",
+    "commonName": "Tilia europaea (Linden flower)",
+    "latinName": "Tilia europaea (Linden flower)",
+    "summary": "Soothing tree blossoms steeped as tea for relaxation and cold relief.",
+    "description": "Soothing tree blossoms steeped as tea for relaxation and cold relief.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇪🇺 Europe"
+    ]
+  },
+  {
+    "id": "melissa-officinalis-lemon-balm",
+    "kind": "herb",
+    "commonName": "Melissa officinalis (Lemon balm)",
+    "latinName": "Melissa officinalis (Lemon balm)",
+    "summary": "Lemony herb easing anxiety and digestive upset while calming the mind.",
+    "description": "Lemony herb easing anxiety and digestive upset while calming the mind.",
+    "tags": [
+      "\\ud83c\\udf2c\\ufe0f Smokable",
+      "\\u2615 Brewable",
+      "\\ud83c\\udf00 Dissociation",
+      "\\ud83e\\udde0 Cognitive",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "ocimum-sanctum-holy-basil--tulsi",
+    "kind": "herb",
+    "commonName": "Ocimum sanctum (Holy Basil / Tulsi)",
+    "latinName": "Ocimum sanctum (Holy Basil / Tulsi)",
+    "summary": "Sacred basil revered in Ayurveda for uplifting and adaptogenic qualities.",
+    "description": "Sacred basil revered in Ayurveda for uplifting and adaptogenic qualities.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83d\\udd6f\\ufe0f Ritual",
+      "\\ud83d\\udcab Euphoria",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇮🇳 India"
+    ]
+  },
+  {
+    "id": "rhodiola-rosea",
+    "kind": "herb",
+    "commonName": "Rhodiola rosea",
+    "latinName": "Rhodiola rosea",
+    "summary": "Hardy root enhancing endurance and stress tolerance via adaptogens.",
+    "description": "Hardy root enhancing endurance and stress tolerance via adaptogens.",
+    "tags": [
+      "\\ud83d\\udc8a Oral",
+      "\\ud83d\\udcab Euphoria",
+      "\\ud83e\\udde0 Cognitive",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🌎 Unknown / Global"
+    ]
+  },
+  {
+    "id": "withania-somnifera-ashwagandha",
+    "kind": "herb",
+    "commonName": "Withania somnifera (Ashwagandha)",
+    "latinName": "Withania somnifera (Ashwagandha)",
+    "summary": "Indian nightshade root that reduces stress hormones and promotes sleep.",
+    "description": "Indian nightshade root that reduces stress hormones and promotes sleep.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83d\\udc8a Oral",
+      "\\ud83c\\udf00 Dissociation",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇮🇳 India"
+    ]
+  },
+  {
+    "id": "bacopa-monnieri",
+    "kind": "herb",
+    "commonName": "Bacopa monnieri",
+    "latinName": "Bacopa monnieri",
+    "summary": "Aquatic herb taken long-term to improve memory and concentration.",
+    "description": "Aquatic herb taken long-term to improve memory and concentration.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83d\\udc8a Oral",
+      "\\ud83d\\udcab Euphoria",
+      "\\ud83e\\uddd8 Sedation",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇮🇳 India"
+    ]
+  },
+  {
+    "id": "eleutherococcus-senticosus-siberian-ginseng",
+    "kind": "herb",
+    "commonName": "Eleutherococcus senticosus (Siberian Ginseng)",
+    "latinName": "Eleutherococcus senticosus (Siberian Ginseng)",
+    "summary": "Adaptogenic root boosting stamina and immune function.",
+    "description": "Adaptogenic root boosting stamina and immune function.",
+    "tags": [
+      "\\u2615 Brewable",
+      "\\ud83d\\udcab Euphoria",
+      "\\u2705 Safe"
+    ],
+    "regions": [
+      "🇨🇳 East Asia"
+    ]
+  },
+  {
+    "id": "lsd",
+    "kind": "herb",
+    "commonName": "LSD",
+    "latinName": "Lysergic acid diethylamide",
+    "summary": "Semi-synthetic ergoline discovered in 1938; among the most potent psychedelics.",
+    "description": "Semi-synthetic ergoline discovered in 1938; among the most potent psychedelics.",
+    "tags": [
+      "💊 Oral",
+      "⚠️ Restricted",
+      "🌀 Visionary"
+    ],
+    "regions": [
+      "🌎 Synthetic"
+    ]
+  },
+  {
+    "id": "psilocybin",
+    "kind": "herb",
+    "commonName": "Psilocybin",
+    "latinName": "Psilocybin",
+    "summary": "Active compound in psychedelic mushrooms producing profound perceptual changes.",
+    "description": "Active compound in psychedelic mushrooms producing profound perceptual changes.",
+    "tags": [
+      "💊 Oral",
+      "🌀 Visionary",
+      "⚠️ Restricted"
+    ],
+    "regions": [
+      "🌎 Global"
+    ]
+  },
+  {
+    "id": "mescaline",
+    "kind": "herb",
+    "commonName": "Mescaline",
+    "latinName": "3,4,5-trimethoxyphenethylamine",
+    "summary": "Classic phenethylamine psychedelic from peyote and San Pedro cacti.",
+    "description": "Classic phenethylamine psychedelic from peyote and San Pedro cacti.",
+    "tags": [
+      "💊 Oral",
+      "🌀 Visionary",
+      "⚠️ Restricted"
+    ],
+    "regions": [
+      "🌎 Americas"
+    ]
+  }
+]
