@@ -10,7 +10,7 @@ const navLinks = [
 ];
 
 const baseLinkClasses =
-  "flex h-9 w-full items-center justify-center rounded-full px-3 text-xs font-medium text-white/80 transition sm:text-sm bg-white/5 ring-1 ring-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
+  "w-full inline-flex items-center justify-center h-8 sm:h-9 rounded-full px-2 sm:px-3 text-[11px] sm:text-sm leading-none tracking-tight text-white/80 bg-white/5 hover:bg-white/10 ring-1 ring-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
 
 export default function HeaderNav() {
   const { pathname, hash } = useLocation();
@@ -31,12 +31,12 @@ export default function HeaderNav() {
   };
 
   return (
-    <nav aria-label="Primary" className="w-full">
-      <ul className="flex gap-1">
+    <nav aria-label="Primary" className="w-full px-2 py-2">
+      <ul className="grid grid-cols-5 gap-1">
         {navLinks.map(link => {
           const active = isActive(link.to);
           return (
-            <li key={link.to} className="min-w-0 flex-1">
+            <li key={link.to}>
               <NavLink
                 to={link.to}
                 aria-current={active ? "page" : undefined}
