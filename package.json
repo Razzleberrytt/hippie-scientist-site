@@ -13,6 +13,7 @@
     "sitemap": "node scripts/generate-sitemap.mjs dist",
     "build:blog": "node scripts/build-blog.mjs",
     "build:graph": "node scripts/build-graph.mjs",
+    "build:compounds": "tsx scripts/extract-compounds.ts",
     "prebuild": "node scripts/generate-stats.mjs && npm run build:blog",
     "preview": "vite preview",
     "lint": "echo 'No lint configured yet' && exit 0",
@@ -53,6 +54,7 @@
     "file-saver": "^2.0.5",
     "framer-motion": "^10.18.0",
     "fuse.js": "^7.1.0",
+    "csv-parse": "^5.5.6",
     "gh-pages": "^6.3.0",
     "gray-matter": "^4.0.3",
     "jspdf": "^3.0.1",
@@ -91,6 +93,7 @@
     "puppeteer": "^22.0.0",
     "satori": "^0.10.13",
     "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "^5.8.3",
     "vite": "^4.5.14"
   }
