@@ -47,6 +47,12 @@ body,
   scrollbar-width: none;
 }
 
+/* Respect iOS safe-area on left/right and fix subpixel rounding */
+.safe-x {
+  padding-left: max(0.25rem, env(safe-area-inset-left));
+  padding-right: max(0.25rem, env(safe-area-inset-right));
+}
+
 .safe-top {
   padding-top: max(0.75rem, env(safe-area-inset-top));
 }
