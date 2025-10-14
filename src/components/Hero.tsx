@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Tilt from "./Tilt";
-import Magnetic from "./Magnetic";
 import StatPill from "./StatPill";
 
 type HeroCounts = {
@@ -53,35 +52,19 @@ export default function Hero({ counts }: HeroProps) {
               Psychedelic botany, mindful blends, and evidence-forward guidance for curious explorers.
             </motion.p>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Magnetic strength={12} className="flex-none">
-                <motion.div
-                  whileHover={reduceMotion ? undefined : { y: -2 }}
-                  whileTap={reduceMotion ? undefined : { y: 0 }}
-                  transition={reduceMotion ? undefined : { type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <Link
-                    to="/herbs"
-                    className="inline-flex h-12 items-center justify-center rounded-full bg-emerald-500/90 px-5 text-sm font-semibold text-black shadow-[0_10px_40px_-18px_rgba(16,185,129,0.9)] transition hover:bg-emerald-400"
-                  >
-                    🌿 Browse Herbs
-                  </Link>
-                </motion.div>
-              </Magnetic>
-              <Magnetic strength={12} className="flex-none">
-                <motion.div
-                  whileHover={reduceMotion ? undefined : { y: -2 }}
-                  whileTap={reduceMotion ? undefined : { y: 0 }}
-                  transition={reduceMotion ? undefined : { type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <Link
-                    to="/build"
-                    className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 text-sm font-semibold text-white transition hover:bg-white/15"
-                  >
-                    🧪 Build a Blend
-                  </Link>
-                </motion.div>
-              </Magnetic>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Link
+                to="/herbs"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-3 font-semibold text-white transition hover:bg-emerald-500 active:scale-[.99]"
+              >
+                🌿 Browse Herbs
+              </Link>
+              <Link
+                to="/build"
+                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-5 py-3 font-semibold text-white/90 transition hover:bg-white/15 active:scale-[.99]"
+              >
+                🧪 Build a Blend
+              </Link>
             </div>
 
             <nav aria-label="Site stats" className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">

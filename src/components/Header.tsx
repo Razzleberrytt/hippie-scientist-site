@@ -5,9 +5,9 @@ import { useTrippy } from "@/lib/trippy";
 import { useMelt } from "@/melt/useMelt";
 
 const links = [
-  { label: "Browse", to: "/herbs" },
+  { label: "Browse Herbs", to: "/herbs" },
+  { label: "Build a Blend", to: "/build" },
   { label: "Compounds", to: "/compounds" },
-  { label: "Build", to: "/build" },
   { label: "Blog", to: "/blog" },
 ];
 
@@ -56,36 +56,38 @@ export default function Header() {
   }, [motionEnabled, prefersReducedMotion, setEnabled]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur supports-[backdrop-filter]:bg-black/30">
+    <header className="sticky top-0 z-50 bg-transparent backdrop-blur supports-[backdrop-filter]:bg-black/20">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-[999] rounded bg-black/70 px-3 py-2 text-sm font-medium text-white"
       >
         Skip to content
       </a>
-      <div className="container-safe flex flex-wrap items-center gap-3 py-3" aria-label="Site">
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <span className="h-6 w-2.5 rounded-full bg-gradient-to-b from-teal-300 via-sky-400 to-fuchsia-400" />
-          <span className="font-semibold tracking-tight text-white">THS</span>
-        </Link>
+      <div className="mx-auto max-w-5xl px-4">
+        <div className="flex items-center justify-between py-3" aria-label="Site">
+          <Link to="/" className="flex items-center gap-2 shrink-0">
+            <span className="h-6 w-2.5 rounded-full bg-gradient-to-b from-teal-300 via-sky-400 to-fuchsia-400" />
+            <span className="font-semibold tracking-tight text-white">THS</span>
+          </Link>
 
-        <nav
-          className="ml-auto flex flex-wrap items-center gap-2"
-          aria-label="Site"
-        >
-          {links.map((link) => {
-            const active = location.pathname.startsWith(link.to);
-            return (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`pill border border-white/10 bg-white/5 text-white/80 hover:bg-white/10 ${active ? 'bg-white/10 text-white' : ''}`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+          <nav
+            className="ml-4 flex min-w-0 items-center gap-2 overflow-x-auto no-scrollbar"
+            aria-label="Primary"
+          >
+            {links.map((link) => {
+              const active = location.pathname.startsWith(link.to);
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-white/80 transition hover:bg-white/10 ${active ? 'bg-white/10 text-white' : ''}`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
       </div>
     </header>
   );
