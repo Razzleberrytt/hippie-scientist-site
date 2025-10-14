@@ -1,6 +1,9 @@
 import Meta from '../components/Meta';
 import NewsletterCard from '@/components/NewsletterCard';
 import Hero from '@/components/Hero';
+import { getSiteCounts } from '@/lib/stats';
+
+const homeCounts = getSiteCounts();
 
 export default function Home() {
   return (
@@ -12,7 +15,7 @@ export default function Home() {
         pageType='website'
       />
 
-      <Hero />
+      <Hero counts={homeCounts} />
 
       <section aria-label='Newsletter signup' className='container mx-auto max-w-screen-md px-4 pb-12'>
         <NewsletterCard />
