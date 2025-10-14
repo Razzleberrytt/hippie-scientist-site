@@ -1,18 +1,22 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Tilt from "./Tilt";
 import Magnetic from "./Magnetic";
 import StatPill from "./StatPill";
-import { getFullCounts } from "@/lib/fullCounts";
 
-export default function Hero() {
+type HeroCounts = {
+  herbs: number;
+  compounds: number;
+  articles: number;
+};
+
+type HeroProps = {
+  counts?: HeroCounts;
+};
+
+export default function Hero({ counts }: HeroProps) {
   const reduceMotion = useReducedMotion();
-  const [counts, setCounts] = useState({ herbCount: 0, compoundCount: 0 });
-
-  useEffect(() => {
-    getFullCounts().then(setCounts);
-  }, []);
+  const { herbs = 0, compounds = 0, articles = 0 } = counts ?? {};
 
   return (
     <section className="relative mx-auto max-w-5xl px-4 py-12">
@@ -50,7 +54,7 @@ export default function Hero() {
             </motion.p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <Magnetic strength={12}>
+              <Magnetic strength={12} className="flex-none">
                 <motion.div
                   whileHover={reduceMotion ? undefined : { y: -2 }}
                   whileTap={reduceMotion ? undefined : { y: 0 }}
@@ -64,7 +68,7 @@ export default function Hero() {
                   </Link>
                 </motion.div>
               </Magnetic>
-              <Magnetic strength={12}>
+              <Magnetic strength={12} className="flex-none">
                 <motion.div
                   whileHover={reduceMotion ? undefined : { y: -2 }}
                   whileTap={reduceMotion ? undefined : { y: 0 }}
@@ -80,10 +84,11 @@ export default function Hero() {
               </Magnetic>
             </div>
 
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <StatPill to="/herbs" value={counts.herbCount} label="psychoactive herbs" testId="pill-herbs" />
-              <StatPill to="/compounds" value={counts.compoundCount} label="active compounds" testId="pill-compounds" />
-            </div>
+            <nav aria-label="Site stats" className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+              <StatPill to="/herbs" value={herbs} label="psychoactive herbs" testId="pill-herbs" />
+              <StatPill to="/compounds" value={compounds} label="active compounds" testId="pill-compounds" />
+              <StatPill to="/blog" value={articles} label="articles" testId="pill-articles" />
+            </nav>
           </div>
         </motion.div>
       </Tilt>
