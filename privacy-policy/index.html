@@ -1,76 +1,105 @@
-<!doctype html><html lang="en"><head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K9MGMJZS');</script>
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-K9MGMJZS')
+    </script>
     <!-- End Google Tag Manager -->
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy | The Hippie Scientist</title>
-<meta name="description" content="Privacy Policy | The Hippie Scientist">
-<meta name="robots" content="noindex,nofollow">
-<link rel="canonical" href="https://thehippiescientist.net/privacy-policy">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DFJL2FC6F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  (function(){
-    var status = 'denied';
-    try {
-      var raw = localStorage.getItem('consent.v1');
-      if (raw) {
-        var parsed = JSON.parse(raw);
-        if (parsed && parsed.status === 'granted') {
-          status = 'granted';
-        }
-      } else {
-        var nav = typeof navigator !== 'undefined' ? navigator : {};
-        var win = typeof window !== 'undefined' ? window : {};
-        var dnt = nav.doNotTrack || win.doNotTrack || nav.msDoNotTrack;
-        var gpc = nav.globalPrivacyControl;
-        if (dnt == '1' || dnt === 1 || gpc === true) {
-          status = 'denied';
-        }
+    <meta charset="utf-8" />
+    <title>Privacy Policy | The Hippie Scientist</title>
+    <meta name="description" content="Privacy Policy | The Hippie Scientist" />
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="canonical" href="https://thehippiescientist.net/privacy-policy" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DFJL2FC6F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
       }
-    } catch (e) {}
-    var granted = status === 'granted';
-    gtag('consent', 'default', {
-      ad_user_data: granted ? 'granted' : 'denied',
-      ad_personalization: granted ? 'granted' : 'denied',
-      ad_storage: granted ? 'granted' : 'denied',
-      analytics_storage: granted ? 'granted' : 'denied',
-      functionality_storage: 'granted',
-      security_storage: 'granted'
-    });
-  })();
-  gtag('js', new Date());
-  gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true });
-  gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
-</script>
-</head><body>
+      ;(function () {
+        var status = 'denied'
+        try {
+          var raw = localStorage.getItem('consent.v1')
+          if (raw) {
+            var parsed = JSON.parse(raw)
+            if (parsed && parsed.status === 'granted') {
+              status = 'granted'
+            }
+          } else {
+            var nav = typeof navigator !== 'undefined' ? navigator : {}
+            var win = typeof window !== 'undefined' ? window : {}
+            var dnt = nav.doNotTrack || win.doNotTrack || nav.msDoNotTrack
+            var gpc = nav.globalPrivacyControl
+            if (dnt == '1' || dnt === 1 || gpc === true) {
+              status = 'denied'
+            }
+          }
+        } catch (e) {}
+        var granted = status === 'granted'
+        gtag('consent', 'default', {
+          ad_user_data: granted ? 'granted' : 'denied',
+          ad_personalization: granted ? 'granted' : 'denied',
+          ad_storage: granted ? 'granted' : 'denied',
+          analytics_storage: granted ? 'granted' : 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+        })
+      })()
+      gtag('js', new Date())
+      gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true })
+      gtag('event', 'page_view', { page_location: location.href, page_title: document.title })
+    </script>
+  </head>
+  <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9MGMJZS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-K9MGMJZS"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-<header><a href="/">Home</a></header>
-<main>
-<h1>Privacy Policy</h1>
-<p>We collect minimal data necessary to operate this site (e.g., analytics). If Google Analytics is enabled, it may use cookies and anonymized IP. You can block cookies in your browser.</p>
-<p>This site uses Google Analytics (GA4) to collect anonymous traffic data. No personally identifying information is stored.</p>
-<h2>Consent &amp; Do Not Track</h2>
-<p>We respect browser “Do Not Track” and Global Privacy Control signals. Analytics remain disabled unless you opt in via the on-site
-consent banner. You can change your choice anytime by clearing site data.</p>
-<p>Contact: <a href="/contact">/contact</a>. Last updated: Oct 05, 2025.</p>
-</main>
-<footer>
-  <nav>
-    <a href="/about">About</a> ·
-    <a href="/disclaimer">Disclaimer</a> ·
-    <a href="/privacy-policy">Privacy</a> ·
-    <a href="/contact">Contact</a>
-  </nav>
-  <small>© 2025 The Hippie Scientist</small>
-</footer>
-</body></html>
+    <header><a href="/">Home</a></header>
+    <main>
+      <h1>Privacy Policy</h1>
+      <p>
+        We collect minimal data necessary to operate this site (e.g., analytics). If Google
+        Analytics is enabled, it may use cookies and anonymized IP. You can block cookies in your
+        browser.
+      </p>
+      <p>
+        This site uses Google Analytics (GA4) to collect anonymous traffic data. No personally
+        identifying information is stored.
+      </p>
+      <h2>Consent &amp; Do Not Track</h2>
+      <p>
+        We respect browser “Do Not Track” and Global Privacy Control signals. Analytics remain
+        disabled unless you opt in via the on-site consent banner. You can change your choice
+        anytime by clearing site data.
+      </p>
+      <p>Contact: <a href="/contact">/contact</a>. Last updated: Oct 05, 2025.</p>
+    </main>
+    <footer>
+      <nav>
+        <a href="/about">About</a> · <a href="/disclaimer">Disclaimer</a> ·
+        <a href="/privacy-policy">Privacy</a> ·
+        <a href="/contact">Contact</a>
+      </nav>
+      <small>© 2025 The Hippie Scientist</small>
+    </footer>
+  </body>
+</html>

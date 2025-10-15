@@ -1,27 +1,146 @@
 selector,files,count
-#root,src/index.css | src/styles/global.css,2
-*,src/index.css | src/styles/theme.css,2
-.bg-white\/14,src/index.css | src/styles/global.css,2
-.bg-white\/6,src/index.css | src/styles/global.css,2
-.btn-ghost,src/index.css | src/styles/tokens.css,2
-.btn-ghost:hover,src/index.css | src/styles/tokens.css,2
-.btn-primary,src/index.css | src/styles/tokens.css,2
-.btn-secondary,src/index.css | src/styles/tokens.css,2
-.btn-secondary:hover,src/index.css | src/styles/tokens.css,2
-.card,src/styles/clamp.css | src/styles/theme.css,2
-.glass,src/index.css | src/styles/theme.css,2
-.scrollbar-none,src/index.css | src/styles/global.css,2
-.scrollbar-none::-webkit-scrollbar,src/index.css | src/styles/global.css,2
-.stat-pill,src/index.css | src/styles/glass.css,2
-0%,src/index.css | src/styles/theme.css,2
-100%,src/index.css | src/styles/theme.css,2
-50%,src/index.css | src/styles/theme.css,2
-@media (min-width: 640px),src/index.css | src/styles/theme.css,2
-main,src/styles/global.css | src/styles/theme.css,2
-.no-scrollbar,src/index.css | src/styles/global.css | src/styles/theme.css,3
-.no-scrollbar::-webkit-scrollbar,src/index.css | src/styles/global.css | src/styles/theme.css,3
-:root,src/index.css | src/styles/global.css | src/styles/theme.css,3
-@layer components,src/index.css | src/styles/global.css | src/styles/tokens.css,3
-@layer utilities,src/index.css | src/styles/global.css | src/styles/tokens.css,3
-body,src/index.css | src/styles/global.css | src/styles/theme.css,3
-html,src/index.css | src/styles/global.css | src/styles/theme.css,3
+#app-root,src/index.css,1
+#app-shell,src/index.css,1
+#root,src/index.css; src/styles/global.css,2
+*,src/index.css; src/styles/theme.css,2
+*::-webkit-scrollbar,src/index.css,1
+*::-webkit-scrollbar-thumb,src/index.css,1
+*::-webkit-scrollbar-track,src/index.css,1
+*::after,src/index.css,1
+*::before,src/index.css,1
+.HerbCardGlow,src/components/HerbCard.css,1
+.HerbCardTilt,src/components/HerbCard.css,1
+.animated-border,src/index.css,1
+.animated-border > *,src/index.css,1
+.app-aurora,src/styles/theme.css,1
+.aurora,src/index.css,1
+.aurora-bg,src/styles/theme.css,1
+.backdrop-glass,src/styles/global.css,1
+.badge,src/index.css,1
+.bg-chip,src/styles/tokens.css,1
+.bg-white\/14,src/index.css; src/styles/global.css,2
+.bg-white\/16,src/index.css,1
+.bg-white\/6,src/index.css; src/styles/global.css,2
+.bg-white\/8,src/styles/global.css,1
+.bg-white\/9,src/index.css,1
+.blur-panel,src/index.css,1
+.border-white\/14,src/styles/global.css,1
+.border-white\/20,src/styles/global.css,1
+.btn,src/styles/theme.css,1
+.btn-ghost,src/index.css; src/styles/tokens.css,2
+.btn-ghost:hover,src/index.css; src/styles/tokens.css,2
+.btn-pill,src/index.css,1
+.btn-pill:hover,src/index.css,1
+.btn-primary,src/index.css; src/styles/tokens.css,2
+.btn-secondary,src/index.css; src/styles/tokens.css,2
+.btn-secondary:hover,src/index.css; src/styles/tokens.css,2
+.btn.primary,src/styles/theme.css,1
+.btn:focus-visible,src/styles/theme.css,1
+.btn:hover,src/styles/theme.css,1
+.card,src/styles/clamp.css; src/styles/theme.css,2
+.card .label,src/styles/clamp.css,1
+.card .meta,src/styles/clamp.css,1
+.card .section,src/styles/clamp.css,1
+.card h3,src/styles/clamp.css,1
+.card:hover,src/styles/theme.css,1
+.chip,src/styles/melt.css,1
+.chip--active,src/styles/melt.css,1
+.clamp-2,src/styles/clamp.css,1
+.clamp-3,src/styles/clamp.css,1
+.compact-stack > * + *,src/index.css,1
+.container,src/styles/theme.css,1
+.container-page,src/index.css,1
+.container-safe,src/styles/global.css,1
+.focus-glow:focus-visible,src/styles/theme.css,1
+.focus-visible\:ring-accent\/60:focus-visible,src/styles/theme.css,1
+.glass,src/index.css; src/styles/theme.css,2
+.glass-card,src/styles/glass.css,1
+.glass-elev,src/styles/theme.css,1
+.glass-panel,src/index.css,1
+.glass-pill,src/styles/global.css,1
+.glass-soft,src/styles/theme.css,1
+.gradient-text,src/styles/theme.css,1
+.gradient-text-animated,src/styles/theme.css,1
+.grid,src/styles/theme.css,1
+.h1-grad,src/index.css,1
+.header--compact,src/styles/theme.css,1
+.header--sticky,src/styles/theme.css,1
+.header-nav,src/styles/melt.css,1
+.header-nav > .nav-row,src/styles/melt.css,1
+.hero,src/styles/theme.css,1
+.hover-glow:hover,src/styles/theme.css,1
+.hr,src/index.css,1
+.input,src/styles/theme.css,1
+.input:focus-visible,src/styles/theme.css,1
+.kpi-num,src/styles/global.css,1
+.lg\:grid-cols-3,src/styles/theme.css,1
+.link,src/index.css,1
+.link:hover,src/index.css,1
+.logo-glow,src/styles/theme.css,1
+.main,src/styles/global.css,1
+.melt-layer,src/index.css,1
+.melt-popover,src/styles/melt.css,1
+.melt-row,src/styles/melt.css,1
+.mix-blend-overlay,src/styles/theme.css,1
+.no-scrollbar,src/index.css; src/styles/global.css; src/styles/theme.css,3
+.no-scrollbar::-webkit-scrollbar,src/index.css; src/styles/global.css; src/styles/theme.css,3
+.no-x-bleed,src/styles/global.css,1
+.page-wrap,src/styles/global.css,1
+.pill,src/index.css; src/styles/global.css,2
+.pill .count,src/styles/global.css,1
+.pill:hover,src/index.css,1
+.prose a,src/index.css,1
+.prose a:hover,src/index.css,1
+.ring-white\/12,src/index.css,1
+.ring-white\/15,src/index.css,1
+.safe,src/styles/global.css,1
+.safe-top,src/index.css,1
+.safe-x,src/index.css,1
+.scrollbar-none,src/index.css; src/styles/global.css,2
+.scrollbar-none::-webkit-scrollbar,src/index.css; src/styles/global.css,2
+.site-header,src/styles/theme.css,1
+.site-shell,src/styles/global.css,1
+.sm\:grid-cols-2,src/styles/theme.css,1
+.stat-label,src/styles/glass.css,1
+.stat-pill,src/index.css; src/styles/glass.css,2
+.stat-value,src/styles/glass.css,1
+.stats-grid,src/styles/glass.css,1
+.tabular-nums,src/index.css,1
+.tag-label,src/styles/tags.css,1
+.tag-list,src/styles/tags.css,1
+.tag-section,src/styles/tags.css,1
+.text-body,src/styles/tokens.css,1
+.text-emphasis,src/styles/tokens.css,1
+.text-link,src/index.css,1
+.text-muted,src/styles/tokens.css,1
+.text-subtle,src/styles/tokens.css,1
+.text-title,src/styles/tokens.css,1
+.toggle-link,src/styles/clamp.css,1
+0%,src/index.css; src/styles/theme.css,2
+100%,src/index.css; src/styles/theme.css,2
+50%,src/index.css; src/styles/theme.css,2
+:root,src/index.css; src/styles/global.css; src/styles/theme.css,3
+[data-accent="blue"],src/styles/theme.css,1
+[data-accent="lime"],src/styles/theme.css,1
+[data-accent="pink"],src/styles/theme.css,1
+[data-theme="light"],src/styles/theme.css,1
+[data-theme],src/styles/theme.css,1
+a,src/index.css,1
+a:hover,src/index.css,1
+body,src/index.css; src/styles/global.css; src/styles/theme.css,3
+body::before,src/index.css,1
+canvas,src/index.css,1
+footer,src/styles/theme.css,1
+footer .legal-faint,src/index.css,1
+h1,src/styles/theme.css,1
+h2,src/styles/theme.css,1
+h3,src/styles/theme.css,1
+h4,src/styles/theme.css,1
+h5,src/styles/theme.css,1
+h6,src/styles/theme.css,1
+html,src/index.css; src/styles/global.css; src/styles/theme.css,3
+img,src/index.css,1
+main,src/styles/global.css; src/styles/theme.css,2
+section,src/styles/theme.css,1
+svg,src/index.css,1
+video,src/index.css,1
