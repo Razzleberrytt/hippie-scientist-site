@@ -65,18 +65,7 @@ function AuroraCanvas() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={ref}
-      aria-hidden
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: -30,
-        pointerEvents: "none",
-      }}
-    />
-  );
+  return <canvas ref={ref} aria-hidden={true} className="pointer-events-none fixed inset-0 -z-30" />;
 }
 
 export default function TrippyBackground() {

@@ -5,6 +5,7 @@ import Card from './ui/Card';
 import { cleanLine, hasVal, titleCase } from '../lib/pretty';
 import { chipClassFor } from '../lib/tags';
 import { slugify } from '../lib/slug';
+import './HerbCard.css';
 
 interface HerbCardProps {
   herb: Record<string, any>;
@@ -94,17 +95,10 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
         onPointerCancel={(event) => {
           resetTilt(event.currentTarget as HTMLElement);
         }}
-        className="group relative h-full transition-transform duration-200"
-        style={{
-          transform: 'perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))',
-        }}
+        className="HerbCardTilt group relative h-full transition-transform duration-200"
       >
         <div
-          className="pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-          style={{
-            background:
-              'radial-gradient(400px 200px at var(--glowX, 50%) var(--glowY, 50%), rgba(0,255,200,.15), transparent 60%)',
-          }}
+          className="HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
         />
         <Card
           className={`relative flex h-full flex-col ${compact ? 'gap-3 mini-card' : 'gap-4'} card-pad transition-shadow duration-200 hover:shadow-glow`}

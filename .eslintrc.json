@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "env": { "browser": true, "es2023": true, "node": true },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react", "react-hooks"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "eslint-config-prettier"
+  ],
+  "settings": { "react": { "version": "detect" } },
+  "rules": {
+    "no-debugger": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "@typescript-eslint/no-explicit-any": "off"
+  ],
+  "overrides": [
+    { "files": ["*.js", "*.jsx"], "parser": "espree", "plugins": ["react"] }
+  ]
+}

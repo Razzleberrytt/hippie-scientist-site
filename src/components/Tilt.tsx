@@ -1,6 +1,7 @@
 "use client";
+import clsx from "clsx";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type CSSProperties } from "react";
 
 type Props = React.ComponentProps<typeof motion.div> & {
   maxTilt?: number;
@@ -68,8 +69,11 @@ export default function Tilt({
   return (
     <motion.div
       ref={ref}
-      style={{ transformStyle: "preserve-3d", perspective }}
-      className={className}
+      style={{ "--tilt-perspective": `${perspective}px` } as CSSProperties}
+      className={clsx(
+        className,
+        "[perspective:var(--tilt-perspective)] [transform-style:preserve-3d]",
+      )}
       {...rest}
     >
       <motion.div style={{ transform: r }}>{children}</motion.div>

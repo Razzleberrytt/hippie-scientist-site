@@ -12,22 +12,17 @@ export default function BlogList({ posts }: { posts: PostPreview[] }) {
       {posts.map(post => (
         <article
           key={post.slug}
-          className="rounded-xl p-4 backdrop-blur"
-          style={{
-            border: "1px solid color-mix(in oklab, var(--border-c) 80%, transparent 20%)",
-            background: "color-mix(in oklab, var(--surface-c) 90%, transparent 10%)",
-          }}
+          className="rounded-xl border border-[color:color-mix(in_oklab,var(--border-c)_80%,transparent_20%)] bg-[color-mix(in_oklab,var(--surface-c)_90%,transparent_10%)] p-4 backdrop-blur"
         >
-          <h3 className="text-xl font-semibold" style={{ color: "var(--text-c)" }}>
+          <h3 className="text-xl font-semibold text-[color:var(--text-c)]">
             <Link
               to={`/blog/${post.slug}`}
-              className="link"
-              style={{ color: "var(--accent)" }}
+              className="link text-[color:var(--accent)]"
             >
               {post.title}
             </Link>
           </h3>
-          <p style={{ color: "var(--muted-c)" }}>{post.summary}</p>
+          <p className="text-[color:var(--muted-c)]">{post.summary}</p>
         </article>
       ))}
     </section>

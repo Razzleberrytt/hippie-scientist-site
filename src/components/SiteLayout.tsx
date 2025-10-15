@@ -91,7 +91,7 @@ export default function SiteLayout({ children }: PropsWithChildren) {
         </nav>
       </header>
 
-      <main id="main" className="relative z-10 flex-1">
+      <main id="SiteLayout_main" className="relative z-10 flex-1">
         {children}
       </main>
     </div>

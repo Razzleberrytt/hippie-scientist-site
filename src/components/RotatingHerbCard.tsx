@@ -59,8 +59,7 @@ export default function RotatingHerbCard() {
         className='relative mx-auto mt-6 flex min-h-[16rem] min-w-[280px] justify-center'
       >
         <div
-          className='glass-card hover-glow inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
-          style={{ position: 'absolute', top: 0, left: 0 }}
+          className='glass-card hover-glow absolute inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
         >
           {herb.image && (
             <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
@@ -101,16 +100,6 @@ export default function RotatingHerbCard() {
       className='relative mx-auto mt-6 flex min-h-[16rem] min-w-[280px] justify-center'
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      onClick={handleAdvance}
-      onTouchStart={handleAdvance}
-      onKeyDown={e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          handleAdvance()
-        }
-      }}
-      role='button'
-      tabIndex={0}
     >
       <AnimatePresence exitBeforeEnter>
         <motion.div
@@ -121,8 +110,7 @@ export default function RotatingHerbCard() {
               .join(', ')
             return eff ? ` – ${eff}` : ''
           })()}`}
-          className='glass-card hover-glow inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
-          style={{ position: 'absolute', top: 0, left: 0 }}
+          className='glass-card hover-glow absolute inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
           initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
@@ -130,22 +118,28 @@ export default function RotatingHerbCard() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          {herb.image && (
-            <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
-          )}
-          <h3
-            className={`mt-3 font-herb ${
-              herbName(herb).length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
-            }`}
+          <button
+            type='button'
+            onClick={handleAdvance}
+            className='flex w-full flex-col items-center bg-transparent p-0 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400'
           >
-            {herbName(herb)}
-          </h3>
-          {(() => {
-            const effects = splitField(herb.effects).slice(0, 3).join(', ')
-            return effects ? (
-              <p className='mt-1 text-sm text-sand'>{effects}</p>
-            ) : null
-          })()}
+            {herb.image && (
+              <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
+            )}
+            <h3
+              className={`mt-3 font-herb ${
+                herbName(herb).length > 20 ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'
+              }`}
+            >
+              {herbName(herb)}
+            </h3>
+            {(() => {
+              const effects = splitField(herb.effects).slice(0, 3).join(', ')
+              return effects ? (
+                <p className='mt-1 text-sm text-sand'>{effects}</p>
+              ) : null
+            })()}
+          </button>
           <Link
             to={
               herb.slug
@@ -157,8 +151,7 @@ export default function RotatingHerbCard() {
             More Info
           </Link>
           <motion.div
-            className='pointer-events-none absolute inset-0 rounded-xl ring-2 ring-psychedelic-pink/40 drop-shadow-[0_0_8px_#ff00ff]'
-            style={{ willChange: 'filter' }}
+            className='pointer-events-none absolute inset-0 rounded-xl ring-2 ring-psychedelic-pink/40 drop-shadow-[0_0_8px_#ff00ff] [will-change:filter]'
             animate={{ filter: ['hue-rotate(0deg)', 'hue-rotate(360deg)'] }}
             transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
           />

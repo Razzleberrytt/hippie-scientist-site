@@ -14,8 +14,7 @@ export default function AuroraHero({ title, subtitle }: AuroraHeroProps) {
 
   return (
     <section
-      className="hero relative flex min-h-[70vh] flex-col items-center justify-center overflow-hidden px-4 text-center"
-      style={{ minHeight: "clamp(70vh, 82vh, 92vh)" }}
+      className="hero relative flex min-h-[clamp(70vh,82vh,92vh)] flex-col items-center justify-center overflow-hidden px-4 text-center"
       aria-labelledby="hero-title"
     >
       <motion.div

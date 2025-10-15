@@ -121,18 +121,8 @@ export default function HerbCardAccordion({ herb }: Props) {
       exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      onClick={toggleExpanded}
-      onKeyDown={e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          toggleExpanded()
-        }
-      }}
       id={slugify(herbName(herb))}
-      role='button'
-      tabIndex={0}
-      aria-expanded={expanded}
-      className='group relative cursor-pointer overflow-hidden rounded-3xl bg-white/14 p-4 text-shadow text-gray-100 ring-1 ring-white/12 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] backdrop-blur-xl'
+      className='group relative overflow-hidden rounded-3xl bg-white/14 p-4 text-shadow text-gray-100 ring-1 ring-white/12 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] backdrop-blur-xl'
     >
       <motion.div
         className='pointer-events-none absolute inset-0 rounded-lg border-2 border-fuchsia-500/40 dark:rounded-2xl'
@@ -150,49 +140,56 @@ export default function HerbCardAccordion({ herb }: Props) {
       >
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
       </button>
-      <div className='flex items-center gap-2'>
-        <span className='text-xl font-bold text-lime-600 transition group-hover:text-lime-700 group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)] dark:text-lime-300 dark:group-hover:text-lime-200'>
-          {herbName(herb) || herb.slug || 'Herb'}
-        </span>
-      </div>
-      {scientificName && (
-        <p className='text-sm italic text-gray-700 dark:text-gray-300 transition-colors duration-300'>{scientificName}</p>
-      )}
-      {!expanded && herbBlurbs[herbName(herb)] && (
-        <p className='mt-1 text-sm italic text-gray-800 dark:text-gray-100 transition-colors duration-300'>
-          {herbBlurbs[herbName(herb)]}
-        </p>
-      )}
-
-      {expanded && (
-        <>
-          {safeEffects.length > 0 && (
-            <div className='mt-2 text-sm text-gray-800 dark:text-white'>
-              <strong>Effects:</strong> {safeEffects.join(', ')}
-            </div>
-          )}
-
-          {descriptionText && (
-            <div className='mt-2 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300'>
-              <strong>Description:</strong> {descriptionText}
-            </div>
-          )}
-        </>
-      )}
-
-      <div className='mt-2 flex max-w-full flex-wrap gap-2'>
-        {safeTags.map(tag => (
-          <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
-        ))}
-        {intensityLabel && (
-          <span className={`pill text-[12px] ${intensityTone}`}>
-            <span className='font-semibold uppercase tracking-wide text-[11px] text-white/80'>Intensity:</span>&nbsp;{intensityLabel}
+      <button
+        type='button'
+        onClick={toggleExpanded}
+        aria-expanded={expanded}
+        className='w-full bg-transparent p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400'
+      >
+        <div className='flex items-center gap-2'>
+          <span className='text-xl font-bold text-lime-600 transition group-hover:text-lime-700 group-hover:drop-shadow-[0_0_6px_rgba(163,255,134,0.8)] dark:text-lime-300 dark:group-hover:text-lime-200'>
+            {herbName(herb) || herb.slug || 'Herb'}
           </span>
+        </div>
+        {scientificName && (
+          <p className='text-sm italic text-gray-700 dark:text-gray-300 transition-colors duration-300'>{scientificName}</p>
         )}
-        {benefits && (
-          <span className='pill text-[12px]'>{benefits}</span>
+        {!expanded && herbBlurbs[herbName(herb)] && (
+          <p className='mt-1 text-sm italic text-gray-800 dark:text-gray-100 transition-colors duration-300'>
+            {herbBlurbs[herbName(herb)]}
+          </p>
         )}
-      </div>
+
+        {expanded && (
+          <>
+            {safeEffects.length > 0 && (
+              <div className='mt-2 text-sm text-gray-800 dark:text-white'>
+                <strong>Effects:</strong> {safeEffects.join(', ')}
+              </div>
+            )}
+
+            {descriptionText && (
+              <div className='mt-2 text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300'>
+                <strong>Description:</strong> {descriptionText}
+              </div>
+            )}
+          </>
+        )}
+
+        <div className='mt-2 flex max-w-full flex-wrap gap-2'>
+          {safeTags.map(tag => (
+            <TagBadge key={tag} label={decodeTag(tag)} variant={tagVariant(tag)} />
+          ))}
+          {intensityLabel && (
+            <span className={`pill text-[12px] ${intensityTone}`}>
+              <span className='font-semibold uppercase tracking-wide text-[11px] text-white/80'>Intensity:</span>&nbsp;{intensityLabel}
+            </span>
+          )}
+          {benefits && (
+            <span className='pill text-[12px]'>{benefits}</span>
+          )}
+        </div>
+      </button>
 
       <AnimatePresence initial={false}>
         {expanded && (

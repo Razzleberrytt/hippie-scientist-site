@@ -84,7 +84,7 @@ function RootLayout() {
 
   return (
     <div className="relative flex min-h-screen flex-col">
-      <main id="main" className="main relative z-10 flex-1">
+      <main id="App_main" className="main relative z-10 flex-1">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
