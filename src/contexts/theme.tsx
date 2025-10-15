@@ -1,7 +1,5 @@
 import React, { createContext, useState, useEffect, useCallback } from 'react'
 
-/* eslint-disable react-refresh/only-export-components */
-
 type Theme = 'light' | 'dark'
 
 interface ThemeContextType {

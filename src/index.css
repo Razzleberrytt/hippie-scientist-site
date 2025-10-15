@@ -27,8 +27,8 @@ body,
 
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation: none !important;
-    transition: none !important;
+    animation: none;
+    transition: none;
   }
 }
 
@@ -68,12 +68,14 @@ body,
 
 /* Compact vertical rhythm helpers */
 :root {
-  --thspx-1: .25rem;
-  --thspx-2: .375rem;
-  --thspx-3: .5rem;
+  --thspx-1: 0.25rem;
+  --thspx-2: 0.375rem;
+  --thspx-3: 0.5rem;
 }
 
-.compact-stack > * + * { margin-top: var(--thspx-3); }
+.compact-stack > * + * {
+  margin-top: var(--thspx-3);
+}
 
 @media (min-width: 640px) {
   :root {
@@ -100,7 +102,16 @@ body {
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    'Apple Color Emoji',
+    'Segoe UI Emoji';
   line-height: 1.6;
   letter-spacing: -0.01em;
   @apply antialiased;
@@ -108,7 +119,7 @@ body {
 }
 
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
   z-index: -20;
@@ -249,7 +260,9 @@ a:hover {
 }
 
 .prose a {
-  transition: color 0.15s ease-in-out, text-shadow 0.2s ease-in-out;
+  transition:
+    color 0.15s ease-in-out,
+    text-shadow 0.2s ease-in-out;
 }
 
 .prose a:hover {
@@ -277,7 +290,7 @@ svg {
   }
 
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full px-3 h-9 text-sm text-white/90 ring-1 ring-white/15 transition;
+    @apply inline-flex h-9 items-center gap-2 rounded-full px-3 text-sm text-white/90 ring-1 ring-white/15 transition;
     background-color: rgba(255, 255, 255, 0.06);
   }
 
@@ -287,7 +300,7 @@ svg {
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium text-white bg-teal-500/90 hover:bg-teal-400 ring-1 ring-white/20 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] transition;
+    @apply inline-flex items-center gap-2 rounded-xl bg-teal-500/90 px-4 py-2 font-medium text-white shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] ring-1 ring-white/20 transition hover:bg-teal-400;
   }
 
   .btn-ghost,
@@ -300,7 +313,6 @@ svg {
   .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.09);
   }
-
 }
 
 @layer utilities {
@@ -332,14 +344,14 @@ svg {
 /* Respect user motion settings */
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation: none !important;
-    transition: none !important;
+    animation: none;
+    transition: none;
   }
 }
 
 /* Hide thin horizontal rules/stray footers that sometimes leak in older pages */
 footer .legal-faint {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -356,7 +368,7 @@ body {
 }
 
 .glass {
-  @apply backdrop-blur-xl ring-1 ring-white/12 bg-white/14 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)];
+  @apply ring-white/12 bg-white/14 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] ring-1 backdrop-blur-xl;
 }
 
 @keyframes gradient-border-pan {
@@ -375,7 +387,12 @@ body {
   position: relative;
   border-radius: 28px;
   padding: 1px;
-  background: linear-gradient(130deg, rgba(67, 227, 255, 0.6), rgba(173, 123, 255, 0.65), rgba(255, 144, 189, 0.6));
+  background: linear-gradient(
+    130deg,
+    rgba(67, 227, 255, 0.6),
+    rgba(173, 123, 255, 0.65),
+    rgba(255, 144, 189, 0.6)
+  );
   background-size: 220% 220%;
   animation: gradient-border-pan 42s linear infinite;
 }
@@ -390,4 +407,6 @@ body {
   }
 }
 
-html { -webkit-text-size-adjust: 100%; } /* stop Safari auto-enlarge creating overflow */
+html {
+  -webkit-text-size-adjust: 100%;
+} /* stop Safari auto-enlarge creating overflow */
