@@ -4,6 +4,7 @@ import data from "../data/herbs/herbs.normalized.json";
 import Card from "../components/ui/Card";
 import Badge from "../components/ui/Badge";
 import { Button } from "../components/ui/Button";
+import { recordDevMessage } from "../utils/devMessages";
 
 type Herb = {
   id?: string;
@@ -171,7 +172,7 @@ export default function BuildBlend() {
         setFavorites(normalised);
       }
     } catch (error) {
-      console.warn("Unable to parse saved blends", error);
+      recordDevMessage("warning", "Unable to parse saved blends", error);
     }
   }, []);
 
@@ -377,7 +378,7 @@ export default function BuildBlend() {
         toast.success("Blend formula copied to clipboard!");
       }
     } catch (error) {
-      console.error("Clipboard copy failed", error);
+      recordDevMessage("error", "Clipboard copy failed", error);
     }
   };
 

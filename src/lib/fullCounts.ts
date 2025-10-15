@@ -1,3 +1,5 @@
+import { recordDevMessage } from "../utils/devMessages";
+
 type AnyEntity = {
   id?: string;
   latinName?: string;
@@ -101,7 +103,8 @@ export async function getFullCounts() {
   const herbs = dedupe(herbRaw ?? []);
   const compounds = dedupe(compRaw ?? []);
   if (herbs.length < 100) {
-    console.warn(
+    recordDevMessage(
+      "warning",
       `[THS] Herb count seems low (${herbs.length}). Check data source paths. Tried multiple locations.`
     );
   }

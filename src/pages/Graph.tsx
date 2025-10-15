@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const ForceGraph2D = React.lazy(() => import("react-force-graph-2d"));
 import Meta from "../components/Meta";
+import { recordDevMessage } from "../utils/devMessages";
 
 type GraphNode = {
   id: string;
@@ -92,7 +93,7 @@ export default function GraphPage() {
           setIsDataMissing(false);
         }
       } catch (error) {
-        console.warn("Graph data missing, skipping render", error);
+        recordDevMessage("warning", "Graph data missing, skipping render", error);
         if (isMounted) {
           setGraphData({ nodes: [], links: [] });
           setIsDataMissing(true);

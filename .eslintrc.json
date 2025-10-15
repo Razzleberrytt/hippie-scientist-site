@@ -7,7 +7,6 @@
   "ignorePatterns": [
     "node_modules/**",
     "dist/**",
-    "scripts/**",
     "src/__tests__/**",
     "src/components/StarfieldBackground.tsx"
   ],
@@ -19,6 +18,25 @@
       },
       "parserOptions": {
         "sourceType": "script"
+      }
+    },
+    {
+      "files": ["src/**/*.{js,jsx,ts,tsx}"],
+      "rules": {
+        "no-console": "error",
+        "no-debugger": "error"
+      }
+    },
+    {
+      "files": ["scripts/**/*.{js,jsx,ts,tsx}"],
+      "env": {
+        "node": true
+      },
+      "parserOptions": {
+        "sourceType": "script"
+      },
+      "rules": {
+        "no-console": "off"
       }
     }
   ],
@@ -45,12 +63,7 @@
   },
   "rules": {
     "no-debugger": "error",
-    "no-console": [
-      "warn",
-      {
-        "allow": ["warn", "error"]
-      }
-    ],
+    "no-console": "off",
     "no-empty": ["error", { "allowEmptyCatch": true }],
     "prefer-const": "off",
     "react/react-in-jsx-scope": "off",

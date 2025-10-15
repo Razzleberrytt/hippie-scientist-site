@@ -1,4 +1,5 @@
 import React from 'react'
+import { recordDevMessage } from '../utils/devMessages'
 
 interface Props {
   fallback?: React.ReactNode
@@ -18,7 +19,7 @@ export default class ErrorBoundary extends React.Component<React.PropsWithChildr
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error('Caught error in ErrorBoundary:', error, info)
+    recordDevMessage('error', 'Caught error in ErrorBoundary', error, info)
   }
 
   render() {

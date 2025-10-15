@@ -2,6 +2,7 @@ import React from 'react'
 import type { Herb } from '../types'
 import { herbs } from '../data/herbs/herbsfull'
 import { herbName } from '../utils/herb'
+import { recordDevMessage } from '../utils/devMessages'
 
 export function useHerbs(): Herb[] {
   const [herbList] = React.useState<Herb[]>(() => {
@@ -21,7 +22,7 @@ export function useHerbs(): Herb[] {
       if (!h.mechanism) missing.push('mechanism')
       if (!(Array.isArray(h.compounds) && h.compounds.length)) missing.push('compounds')
       if (missing.length) {
-        console.warn(`${herbName(h)} missing: ${missing.join(', ')}`)
+        recordDevMessage('warning', `${herbName(h)} missing: ${missing.join(', ')}`)
       }
     })
   }, [herbList])
