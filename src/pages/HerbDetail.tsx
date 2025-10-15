@@ -34,24 +34,22 @@ function RelatedPosts({ slug }: { slug?: string }) {
 
   return (
     <section
-      className="card p-5 backdrop-blur"
-      style={{ background: "color-mix(in oklab, var(--surface-c) 92%, transparent 8%)" }}
+      className="card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 backdrop-blur"
     >
-      <h2 className="text-lg font-semibold" style={{ color: "var(--text-c)" }}>
+      <h2 className="text-lg font-semibold text-[color:var(--text-c)]">
         Related Posts
       </h2>
       <ul className="mt-3 space-y-3">
         {posts.map(p => (
-          <li key={p.slug} className="text-sm" style={{ color: "var(--muted-c)" }}>
+          <li key={p.slug} className="text-sm text-[color:var(--muted-c)]">
             <Link
               to={`/blog/${p.slug}`}
-              className="link"
-              style={{ color: "var(--accent)" }}
+              className="link text-[color:var(--accent)]"
             >
               {p.title}
             </Link>
             {p.date && (
-              <p className="text-xs" style={{ color: "color-mix(in oklab, var(--muted-c) 75%, transparent 25%)" }}>
+              <p className="text-xs text-[color:color-mix(in_oklab,var(--muted-c)_75%,transparent_25%)]">
                 {new Date(p.date).toLocaleDateString(undefined, {
                   year: "numeric",
                   month: "short",
@@ -60,15 +58,15 @@ function RelatedPosts({ slug }: { slug?: string }) {
               </p>
             )}
             {p.description && (
-              <p className="text-xs" style={{ color: "color-mix(in oklab, var(--muted-c) 85%, transparent 15%)" }}>
+              <p className="text-xs text-[color:color-mix(in_oklab,var(--muted-c)_85%,transparent_15%)]">
                 {p.description}
               </p>
             )}
           </li>
         ))}
       </ul>
-      <div className="mt-4 text-sm">
-        <Link to="/blog" className="link" style={{ color: "var(--accent)" }}>
+      <div className="mt-4 text-sm text-[color:var(--muted-c)]">
+        <Link to="/blog" className="link text-[color:var(--accent)]">
           View all posts →
         </Link>
       </div>
@@ -97,39 +95,19 @@ export default function HerbDetail() {
   const intensityLevel = herb.intensityLevel || null;
   const intensityLabel = herb.intensityLabel
     || (intensityLevel ? titleCase(intensityLevel) : '');
-  const intensityStyle = (() => {
+  const intensityClass = (() => {
     switch (intensityLevel) {
       case 'strong':
-        return {
-          background: 'rgba(244, 63, 94, 0.12)',
-          border: '1px solid rgba(248, 113, 113, 0.45)',
-          color: '#ffdada',
-        };
+        return 'border border-[color:rgba(248,113,113,0.45)] bg-[rgba(244,63,94,0.12)] text-[color:#ffdada]';
       case 'moderate':
-        return {
-          background: 'color-mix(in oklab, var(--accent) 18%, var(--surface-c) 82%)',
-          border: '1px solid color-mix(in oklab, var(--accent), white 25%)',
-          color: 'color-mix(in oklab, var(--accent) 20%, var(--text-c) 80%)',
-        };
+        return 'border border-[color:color-mix(in_oklab,var(--accent),white_25%)] bg-[color-mix(in_oklab,var(--accent)_18%,var(--surface-c)_82%)] text-[color:color-mix(in_oklab,var(--accent)_20%,var(--text-c)_80%)]';
       case 'mild':
-        return {
-          background: 'rgba(34, 197, 94, 0.15)',
-          border: '1px solid rgba(52, 211, 153, 0.45)',
-          color: '#defce7',
-        };
+        return 'border border-[color:rgba(52,211,153,0.45)] bg-[rgba(34,197,94,0.15)] text-[color:#defce7]';
       case 'variable':
-        return {
-          background: 'rgba(56, 189, 248, 0.14)',
-          border: '1px solid rgba(56, 189, 248, 0.35)',
-          color: '#d6f3ff',
-        };
+        return 'border border-[color:rgba(56,189,248,0.35)] bg-[rgba(56,189,248,0.14)] text-[color:#d6f3ff]';
       case 'unknown':
       default:
-        return {
-          background: 'color-mix(in oklab, var(--surface-c) 92%, transparent 8%)',
-          border: '1px solid color-mix(in oklab, var(--border-c) 80%, transparent 20%)',
-          color: 'var(--muted-c)',
-        };
+        return 'border border-[color:color-mix(in_oklab,var(--border-c)_80%,transparent_20%)] bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] text-[color:var(--muted-c)]';
     }
   })();
   const benefits = cleanLine((herb as any).benefits || herb.benefits || '');
@@ -173,22 +151,20 @@ export default function HerbDetail() {
       <main className="container py-6">
         <div className="mx-auto flex max-w-3xl flex-col gap-6">
           <article
-            className="card p-6 shadow-[0_30px_80px_rgba(0,0,0,.25)] backdrop-blur"
-            style={{ background: "color-mix(in oklab, var(--surface-c) 94%, transparent 6%)" }}
+            className="card bg-[color-mix(in_oklab,var(--surface-c)_94%,transparent_6%)] p-6 shadow-[0_30px_80px_rgba(0,0,0,.25)] backdrop-blur"
           >
-            <header className="flex flex-col gap-2 pb-4" style={{ borderBottom: "1px solid var(--border-c)" }}>
-              <h1 className="text-3xl font-semibold" style={{ color: "var(--accent)" }}>
+            <header className="flex flex-col gap-2 border-b border-b-[color:var(--border-c)] pb-4">
+              <h1 className="text-3xl font-semibold text-[color:var(--accent)]">
                 {displayTitle}
               </h1>
               {hasVal(scientificName) && (
-                <p className="italic" style={{ color: "var(--muted-c)" }}>
+                <p className="italic text-[color:var(--muted-c)]">
                   {scientificName}
                 </p>
               )}
               {intensityLabel && intensityLevel && intensityLevel !== 'unknown' && (
                 <span
-                  className="pill hover-glow focus-glow mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85"
-                  style={intensityStyle}
+                  className={`pill hover-glow focus-glow mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 ${intensityClass}`}
                 >
                   Intensity: {intensityLabel}
                 </span>
@@ -200,12 +176,11 @@ export default function HerbDetail() {
               )}
             </header>
 
-            <div className="mt-4 flex flex-wrap gap-2 text-sm" style={{ color: "var(--muted-c)" }}>
+            <div className="mt-4 flex flex-wrap gap-2 text-sm text-[color:var(--muted-c)]">
               <Button
                 variant="ghost"
                 data-fav={herb.slug}
-                className="px-3 py-1"
-                style={{ color: "inherit" }}
+                className="px-3 py-1 text-current"
                 onClick={() => {
                   toast("Added to favorites ❤️");
                 }}
@@ -215,8 +190,7 @@ export default function HerbDetail() {
               <Button
                 variant="ghost"
                 data-compare={herb.slug}
-                className="px-3 py-1"
-                style={{ color: "inherit" }}
+                className="px-3 py-1 text-current"
                 onClick={() => {
                   toast("Added to compare list 🔄");
                 }}
@@ -225,8 +199,7 @@ export default function HerbDetail() {
               </Button>
               <Button
                 variant="ghost"
-                className="px-3 py-1"
-                style={{ color: "inherit" }}
+                className="px-3 py-1 text-current"
                 onClick={() =>
                   navigator.share?.({
                     title: herb.common || herb.scientific,
@@ -238,29 +211,28 @@ export default function HerbDetail() {
               </Button>
             </div>
 
-            <div className="mt-6 space-y-5" style={{ color: "var(--text-c)" }}>
+            <div className="mt-6 space-y-5 text-[color:var(--text-c)]">
               <HerbDetails herb={herb} />
             </div>
           </article>
 
           {hasSafetyExtras && (
             <section
-              className="card p-5 backdrop-blur-sm shadow-sm"
-              style={{ background: "color-mix(in oklab, var(--surface-c) 92%, transparent 8%)" }}
+              className="card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 shadow-sm backdrop-blur-sm"
             >
-              <h2 className="text-lg font-semibold" style={{ color: "var(--text-c)" }}>
+              <h2 className="text-lg font-semibold text-[color:var(--text-c)]">
                 Safety Notes
               </h2>
-              <div className="mt-3 space-y-3 text-sm" style={{ color: "var(--muted-c)" }}>
+              <div className="mt-3 space-y-3 text-sm text-[color:var(--muted-c)]">
                 {safety && <p>{safety}</p>}
                 {therapeutic && (
                   <p>
-                    <strong style={{ color: "var(--text-c)" }}>Therapeutic uses:</strong> {therapeutic}
+                    <strong className="text-[color:var(--text-c)]">Therapeutic uses:</strong> {therapeutic}
                   </p>
                 )}
                 {sideEffects && sideEffects.length > 0 && (
                   <div>
-                    <strong style={{ color: "var(--text-c)" }}>Side effects:</strong>
+                    <strong className="text-[color:var(--text-c)]">Side effects:</strong>
                     <ul className="mt-1 list-disc space-y-1 pl-5">
                       {sideEffects.map((effect, index) => (
                         <li key={`effect-${index}`}>{effect}</li>
@@ -270,12 +242,12 @@ export default function HerbDetail() {
                 )}
                 {toxicity && (
                   <p>
-                    <strong style={{ color: "var(--text-c)" }}>Toxicity:</strong> {toxicity}
+                    <strong className="text-[color:var(--text-c)]">Toxicity:</strong> {toxicity}
                   </p>
                 )}
                 {toxicityLd50 && (
                   <p>
-                    <strong style={{ color: "var(--text-c)" }}>LD50:</strong> {toxicityLd50}
+                    <strong className="text-[color:var(--text-c)]">LD50:</strong> {toxicityLd50}
                   </p>
                 )}
               </div>
@@ -284,17 +256,16 @@ export default function HerbDetail() {
 
           {hasMechanism && (
             <section
-              className="card p-5 backdrop-blur-sm shadow-sm"
-              style={{ background: "color-mix(in oklab, var(--surface-c) 92%, transparent 8%)" }}
+              className="card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 shadow-sm backdrop-blur-sm"
             >
-              <h2 className="text-lg font-semibold" style={{ color: "var(--text-c)" }}>
+              <h2 className="text-lg font-semibold text-[color:var(--text-c)]">
                 Mechanism &amp; Pharmacology
               </h2>
-              <div className="mt-3 space-y-3 text-sm" style={{ color: "var(--muted-c)" }}>
+              <div className="mt-3 space-y-3 text-sm text-[color:var(--muted-c)]">
                 {mechanism && <p>{mechanism}</p>}
                 {pharmacology && (
                   <p>
-                    <strong style={{ color: "var(--text-c)" }}>Pharmacology:</strong> {pharmacology}
+                    <strong className="text-[color:var(--text-c)]">Pharmacology:</strong> {pharmacology}
                   </p>
                 )}
               </div>
@@ -303,8 +274,8 @@ export default function HerbDetail() {
 
           <RelatedPosts slug={herb.slug} />
 
-          <div className="text-sm" style={{ color: "var(--muted-c)" }}>
-            <Link to="/herbs" className="link" style={{ color: "var(--accent)" }}>
+          <div className="text-sm text-[color:var(--muted-c)]">
+            <Link to="/herbs" className="link text-[color:var(--accent)]">
               ← Back to Database
             </Link>
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, type CSSProperties } from "react";
 
 function Aurora() {
   return (
@@ -37,12 +37,11 @@ function Floaters({ count = 12 }: { count?: number }) {
       {Array.from({ length: count }).map((_, index) => (
         <span
           key={index}
-          className="absolute size-2 rounded-full bg-white/20"
+          className="absolute size-2 rounded-full bg-white/20 [left:var(--floater-left)] [top:var(--floater-top)] blur-[2px]"
           style={{
-            left: `${(index * 97) % 100}%`,
-            top: `${(index * 57) % 100}%`,
-            filter: "blur(2px)",
-          }}
+            "--floater-left": `${(index * 97) % 100}%`,
+            "--floater-top": `${(index * 57) % 100}%`,
+          } as CSSProperties}
         />
       ))}
     </div>

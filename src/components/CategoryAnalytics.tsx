@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { type CSSProperties } from 'react'
 import { motion } from 'framer-motion'
 import { herbs } from '../data/herbs/herbsfull'
 
@@ -34,8 +34,8 @@ export default function CategoryAnalytics() {
           <span className='w-40 text-sm'>{cat}</span>
           <div className='h-2 flex-1 rounded bg-gray-200 transition-colors duration-300 dark:bg-gray-700'>
             <div
-              className='h-2 rounded bg-pink-500 transition-colors duration-300 dark:bg-pink-400'
-              style={{ width: `${(count / max) * 100}%` }}
+              className='h-2 rounded bg-pink-500 transition-colors duration-300 dark:bg-pink-400 [width:var(--category-width)]'
+              style={{ '--category-width': `${(count / max) * 100}%` } as CSSProperties}
             />
           </div>
           <span className='text-sm'>{count}</span>

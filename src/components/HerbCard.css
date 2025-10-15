@@ -1,0 +1,11 @@
+.HerbCardTilt {
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+
+.HerbCardGlow {
+  background: radial-gradient(
+    400px 200px at var(--glowX, 50%) var(--glowY, 50%),
+    rgba(0, 255, 200, 0.15),
+    transparent 60%
+  );
+}

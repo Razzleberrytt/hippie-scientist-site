@@ -46,12 +46,10 @@ const MouseTrail: React.FC = () => {
   if (!enabled) return null
   return (
     <motion.div
-      className='pointer-events-none fixed left-0 top-0 z-50 h-6 w-6'
+      className='pointer-events-none fixed left-0 top-0 z-50 h-6 w-6 -translate-x-1/2 -translate-y-1/2'
       style={{
         x,
         y,
-        translateX: '-50%',
-        translateY: '-50%',
       }}
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{ duration: 0.3 }}
