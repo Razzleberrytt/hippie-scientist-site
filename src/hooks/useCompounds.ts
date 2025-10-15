@@ -1,6 +1,7 @@
 import React from 'react'
 import { compounds, Compound } from '../data/compounds/compounds'
 import { herbs } from '../data/herbs/herbsfull'
+import { recordDevMessage } from '../utils/devMessages'
 
 export function useCompounds(): Compound[] {
   const [list] = React.useState<Compound[]>(compounds)
@@ -10,7 +11,7 @@ export function useCompounds(): Compound[] {
       const refs = c.foundInHerbs ?? c.sourceHerbs
       refs.forEach(h => {
         if (!herbs.find(x => x.id === h)) {
-          console.warn(`Compound ${c.name} references missing herb: ${h}`)
+          recordDevMessage('warning', `Compound ${c.name} references missing herb: ${h}`)
         }
       })
     })
@@ -18,7 +19,7 @@ export function useCompounds(): Compound[] {
     herbs.forEach(h => {
       h.activeConstituents?.forEach(cn => {
         if (!list.find(c => c.name.toLowerCase() === cn.name.toLowerCase())) {
-          console.warn(`Herb ${h.name} lists unknown compound: ${cn.name}`)
+          recordDevMessage('warning', `Herb ${h.name} lists unknown compound: ${cn.name}`)
         }
       })
     })

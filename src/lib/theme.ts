@@ -1,3 +1,5 @@
+import { recordDevMessage } from '../utils/devMessages';
+
 const THEME_KEY = 'ths:theme';
 const ACCENT_KEY = 'ths:accent';
 
@@ -8,7 +10,7 @@ function safeSetItem(key: string, value: string) {
   try {
     localStorage.setItem(key, value);
   } catch (error) {
-    console.warn('Unable to persist preference', error);
+    recordDevMessage('warning', 'Unable to persist preference', error);
   }
 }
 
