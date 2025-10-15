@@ -1,15 +1,16 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import PanelWrapper from '../components/PanelWrapper'
 
 const Lesson: React.FC = () => {
   const { slug } = useParams<{ slug: string }>()
-  const post = null
-
   return (
     <div className='mx-auto max-w-3xl px-6 py-12 text-center'>
-      <p className='mb-4'>Lesson not found.</p>
+      <h1 className='mb-4 text-3xl font-bold text-white'>
+        {slug ? `Lesson: ${slug}` : 'Lesson not found'}
+      </h1>
+      <p className='text-sand mb-4'>
+        {slug ? `We couldn't find the lesson "${slug}".` : "We couldn't find that lesson."}
+      </p>
       <Link to='/learn' className='text-comet underline'>
         Back to Learn
       </Link>
