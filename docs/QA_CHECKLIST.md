@@ -1,9 +1,8 @@
-# QA Checklist
+# QA Checklist (quick pass)
 
-Use this quick list to verify quality before shipping changes:
-
-- [ ] Viewport meta tag is present and unique in every HTML document.
-- [ ] Basic accessibility passes: images have `alt`, interactive elements are labeled.
-- [ ] Layout looks correct across key breakpoints (mobile, tablet, desktop).
-- [ ] No duplicate IDs or missing form labels.
-- [ ] Avoid using `!important` unless absolutely necessary.
+- [ ] `<meta name="viewport">` is `width=device-width, initial-scale=1` (single instance)
+- [ ] Header/nav/footer stable at 320/375/768/1024/1280/1440 px
+- [ ] No JS console errors in shipped code
+- [ ] All `<img>`/`<Image>` have `alt` (decorative: `alt=""` + `aria-hidden="true"`)
+- [ ] No duplicate `id` in DOM
+- [ ] `!important` count trending down

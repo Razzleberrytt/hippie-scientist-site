@@ -16,7 +16,7 @@
     "build:compounds": "tsx scripts/extract-compounds.ts",
     "prebuild": "node scripts/generate-stats.mjs && npm run build:blog",
     "preview": "vite preview",
-    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
     "format": "prettier --write .",
     "stylelint": "stylelint \"**/*.{css,scss}\"",
     "prepare": "husky install",
@@ -52,15 +52,14 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "npm run lint:fix --",
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss,md,json}": [
       "prettier --write"
     ],
     "*.{css,scss}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.{md,json}": [
-      "prettier --write"
+      "stylelint --fix"
     ]
   },
   "dependencies": {
@@ -111,13 +110,16 @@
     "@typescript-eslint/parser": "^8.10.0",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react": "^7.34.4",
     "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-react-refresh": "^0.4.11",
     "prettier": "^3.3.3",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.0",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.7",
+    "typescript-eslint": "^8.10.0",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "puppeteer": "^22.0.0",
     "satori": "^0.10.13",

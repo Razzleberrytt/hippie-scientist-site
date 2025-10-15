@@ -1,8 +1,17 @@
-<!doctype html><meta charset="utf-8">
-<script>
-  (function () {
-    var p = location.pathname + location.search + location.hash;
-    location.replace("/#" + p.replace(/^\//, ""));
-  })();
-</script>
-<p>Not found. <a href="/">Go home</a>.</p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Not found</title>
+  </head>
+  <body>
+    <script>
+      ;(function () {
+        var p = location.pathname + location.search + location.hash
+        location.replace('/#' + p.replace(/^\//, ''))
+      })()
+    </script>
+    <p>Not found. <a href="/">Go home</a>.</p>
+  </body>
+</html>

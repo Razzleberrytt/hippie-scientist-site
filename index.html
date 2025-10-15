@@ -1,17 +1,24 @@
 <!doctype html>
 <html lang="en" class="dark">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K9MGMJZS');</script>
+    <script>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-K9MGMJZS')
+    </script>
     <!-- End Google Tag Manager -->
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="Explore psychedelic botanicals, cognitive enhancers, and consciousness tools at The Hippie Scientist."
@@ -34,7 +41,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .site-entry-nav {
         text-align: center;
         margin: 2rem auto;
-        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family:
+          'Inter',
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
         font-size: 0.95rem;
         color: #202020;
       }
@@ -52,40 +65,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DFJL2FC6F"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      (function(){
-        var status = 'denied';
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      ;(function () {
+        var status = 'denied'
         try {
-          var raw = localStorage.getItem('consent.v1');
+          var raw = localStorage.getItem('consent.v1')
           if (raw) {
-            var parsed = JSON.parse(raw);
+            var parsed = JSON.parse(raw)
             if (parsed && parsed.status === 'granted') {
-              status = 'granted';
+              status = 'granted'
             }
           } else {
-            var nav = typeof navigator !== 'undefined' ? navigator : {};
-            var win = typeof window !== 'undefined' ? window : {};
-            var dnt = nav.doNotTrack || win.doNotTrack || nav.msDoNotTrack;
-            var gpc = nav.globalPrivacyControl;
+            var nav = typeof navigator !== 'undefined' ? navigator : {}
+            var win = typeof window !== 'undefined' ? window : {}
+            var dnt = nav.doNotTrack || win.doNotTrack || nav.msDoNotTrack
+            var gpc = nav.globalPrivacyControl
             if (dnt == '1' || dnt === 1 || gpc === true) {
-              status = 'denied';
+              status = 'denied'
             }
           }
         } catch (e) {}
-        var granted = status === 'granted';
+        var granted = status === 'granted'
         gtag('consent', 'default', {
           ad_user_data: granted ? 'granted' : 'denied',
           ad_personalization: granted ? 'granted' : 'denied',
           ad_storage: granted ? 'granted' : 'denied',
           analytics_storage: granted ? 'granted' : 'denied',
           functionality_storage: 'granted',
-          security_storage: 'granted'
-        });
-      })();
-      gtag('js', new Date());
-      gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true });
-      gtag('event', 'page_view', { page_location: location.href, page_title: document.title });
+          security_storage: 'granted',
+        })
+      })()
+      gtag('js', new Date())
+      gtag('config', 'G-7DFJL2FC6F', { debug_mode: true, send_page_view: true })
+      gtag('event', 'page_view', { page_location: location.href, page_title: document.title })
     </script>
     <script type="application/ld+json">
       {
@@ -108,21 +123,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
       }
     </script>
-    <link rel="alternate" type="application/rss+xml" title="The Hippie Scientist RSS" href="/feed.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="The Hippie Scientist RSS"
+      href="/feed.xml"
+    />
   </head>
-  <body class="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_50%_20%,#0b1120_0%,#030712_70%,#010409_100%)] text-white antialiased">
+  <body
+    class="min-h-screen overflow-x-hidden bg-[radial-gradient(circle_at_50%_20%,#0b1120_0%,#030712_70%,#010409_100%)] text-white antialiased"
+  >
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9MGMJZS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-K9MGMJZS"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="bg-root"></div>
     <div id="root"></div>
     <footer class="site-entry-nav">
       <nav>
-        <a href="/herb-index">Herb Index</a> ·
-        <a href="/blog/">Blog</a> ·
-        <a href="/about">About</a> ·
-        <a href="/disclaimer">Disclaimer</a> ·
+        <a href="/herb-index">Herb Index</a> · <a href="/blog/">Blog</a> ·
+        <a href="/about">About</a> · <a href="/disclaimer">Disclaimer</a> ·
         <a href="/privacy-policy">Privacy</a> ·
         <a href="/contact">Contact</a>
       </nav>
