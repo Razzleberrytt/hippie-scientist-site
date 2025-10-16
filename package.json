@@ -8,6 +8,7 @@
     "prebuild:data": "node scripts/convert-herbs.mjs",
     "autofill:data": "node scripts/autofill-herbs.mjs",
     "prebuild:validate": "node scripts/validate-herbs.mjs",
+    "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
     "build": "vite build",
     "sitemap": "node scripts/generate-sitemap.mjs dist",
