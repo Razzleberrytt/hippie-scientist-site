@@ -7,6 +7,7 @@ import type { Herb } from '../types'
 import TagBadge from './TagBadge'
 import { decodeTag, tagVariant } from '../utils/format'
 import { herbName, splitField } from '../utils/herb'
+import { getResponsiveImageProps } from '../utils/images'
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -44,13 +45,15 @@ export default function RotatingHerbHero() {
   }, [items, index])
 
   if (loading) {
-    return (
-      <div className='mx-auto mt-8 text-center text-sand'>Loading featured herb...</div>
-    )
+    return <div className='text-sand mx-auto mt-8 text-center'>Loading featured herb...</div>
   }
 
   const herb = items[index]
   const tags = splitField(herb.tags).slice(0, 3)
+  const imageProps = getResponsiveImageProps(herb.image, {
+    widths: [320, 384, 640],
+    sizes: '(min-width: 640px) 384px, (min-width: 375px) 320px, 100vw',
+  })
 
   return (
     <div className='relative mx-auto mt-8 flex max-w-xs justify-center sm:max-w-sm'>
@@ -63,10 +66,14 @@ export default function RotatingHerbHero() {
           transition={{ duration: 0.6 }}
           className='bg-psychedelic-gradient/30 soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'
         >
-          {herb.image && (
-            <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
+          {imageProps && (
+            <img
+              {...imageProps}
+              alt={herbName(herb)}
+              className='h-32 w-full rounded-md object-cover'
+            />
           )}
-          <h3 className='mt-3 font-herb text-2xl text-lime-300 drop-shadow-[0_0_6px_rgba(163,255,134,0.8)]'>
+          <h3 className='font-herb mt-3 text-2xl text-lime-300 drop-shadow-[0_0_6px_rgba(163,255,134,0.8)]'>
             {herbName(herb)}
           </h3>
           {tags.length > 0 && (
@@ -83,7 +90,7 @@ export default function RotatingHerbHero() {
           )}
           {(() => {
             const effects = splitField(herb.effects).slice(0, 3).join(', ')
-            return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
+            return effects ? <p className='text-sand mt-1 text-sm'>{effects}</p> : null
           })()}
           <motion.div
             className='pointer-events-none absolute inset-0 rounded-2xl border-2 border-fuchsia-500/40'

@@ -8,6 +8,7 @@ import { slugify } from '../utils/slugify'
 import { decodeTag, tagVariant } from '../utils/format'
 import { herbName, splitField } from '../utils/herb'
 import { gradientClassName } from '../lib/classMap'
+import { getResponsiveImageProps } from '../utils/images'
 
 interface Props {
   fixedId?: string
@@ -40,6 +41,10 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
     herb.category || herb.compoundClasses?.[0] || tags[0],
     'psychoactive'
   )
+  const imageProps = getResponsiveImageProps(herb.image, {
+    widths: [320, 384, 640],
+    sizes: '(min-width: 640px) 384px, (min-width: 375px) 320px, 100vw',
+  })
 
   return (
     <motion.div
@@ -52,11 +57,17 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
         whileHover={{ scale: 1.02 }}
         className='soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'
       >
-        <div className={`pointer-events-none absolute inset-0 -z-10 opacity-70 blur-2xl ${accentGradient}`} />
-        {herb.image && (
-          <img src={herb.image} alt={herbName(herb)} className='h-32 w-full rounded-md object-cover' />
+        <div
+          className={`pointer-events-none absolute inset-0 -z-10 opacity-70 blur-2xl ${accentGradient}`}
+        />
+        {imageProps && (
+          <img
+            {...imageProps}
+            alt={herbName(herb)}
+            className='h-32 w-full rounded-md object-cover'
+          />
         )}
-        <h3 className='mt-3 font-herb text-2xl text-lime-300'>{herbName(herb)}</h3>
+        <h3 className='font-herb mt-3 text-2xl text-lime-300'>{herbName(herb)}</h3>
         {tags.length > 0 && (
           <div className='mt-1 flex flex-wrap justify-center gap-1'>
             {tags.map(tag => (
@@ -71,12 +82,12 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
         )}
         {(() => {
           const effects = splitField(herb.effects).slice(0, 3).join(', ')
-          return effects ? <p className='mt-1 text-sm text-sand'>{effects}</p> : null
+          return effects ? <p className='text-sand mt-1 text-sm'>{effects}</p> : null
         })()}
         <motion.div whileTap={{ scale: 0.95 }}>
           <Link
             to={`/herb/${herb.slug || herb.id || slugify(herbName(herb))}`}
-            className='hover-glow mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-sand backdrop-blur-md hover:bg-black/40'
+            className='hover-glow text-sand mt-3 inline-block rounded-md bg-black/30 px-4 py-2 backdrop-blur-md hover:bg-black/40'
           >
             More Info
           </Link>
