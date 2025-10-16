@@ -1,0 +1,24 @@
+name: Image Budget
+
+on:
+  pull_request:
+
+jobs:
+  check:
+    name: Enforce image budget
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run image budget check
+        run: npm run check:images
