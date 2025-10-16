@@ -1,4 +1,13 @@
+# Robots.txt for thehippiescientist.net
 User-agent: *
 Allow: /
+Allow: /blog/
+Allow: /herbs/
+Allow: /compounds/
+Allow: /browse/
+Allow: /graph
+Allow: /store
+Allow: /downloads
+
 Sitemap: https://thehippiescientist.net/sitemap.xml
 Sitemap: https://thehippiescientist.net/rss.xml
