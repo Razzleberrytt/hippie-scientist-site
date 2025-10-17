@@ -1,63 +1,73 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const rootDir = resolve(__dirname, '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const blogIndexPath = resolve(rootDir, 'public', 'blogdata', 'index.json');
-const outputDir = resolve(rootDir, 'public', 'blog');
-const outputPath = resolve(outputDir, 'index.html');
+const blogDataPath = path.resolve(__dirname, "..", "public", "blogdata", "index.json");
+const outDir = path.resolve(__dirname, "..", "public", "blog");
+const outFile = path.join(outDir, "index.html");
 
-const escapeHtml = (value = '') =>
-  value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+function esc(s = "") {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
 
-const main = async () => {
-  const file = await readFile(blogIndexPath, 'utf8');
-  const posts = JSON.parse(file);
+async function run() {
+  if (!fs.existsSync(blogDataPath)) {
+    console.warn("[generate-blog-index] Skipped: no blogdata at", blogDataPath);
+    return;
+  }
+  const raw = fs.readFileSync(blogDataPath, "utf-8");
+  /** @type {{slug:string,title:string,date?:string,description?:string}[]} */
+  const posts = JSON.parse(raw);
 
-  await mkdir(outputDir, { recursive: true });
+  posts.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
 
-  const listItems = posts
-    .map((post) => {
-      const slug = escapeHtml(post.slug ?? '');
-      const title = escapeHtml(post.title ?? slug);
-      const description = escapeHtml(post.description ?? '');
-      const date = escapeHtml(post.date ?? '');
-
-      const dateMarkup = date ? ` — <time>${date}</time>` : '';
-      const descriptionMarkup = description ? `<br>${description}` : '';
-
-      return `    <li><a href="/blog/${slug}/">${title}</a>${dateMarkup}${descriptionMarkup}</li>`;
-    })
-    .join('\n');
+  const items = posts.map(p => {
+    const slug = String(p.slug || "").replace(/^\/+|\/+$/g, "");
+    const url = `/blog/${slug}/`;
+    const date = p.date ? `<time datetime="${esc(p.date)}">${esc(p.date)}</time>` : "";
+    const desc = p.description ? `<div class="desc">${esc(p.description)}</div>` : "";
+    return `<li><a href="${esc(url)}">${esc(p.title || slug)}</a> ${date}${desc}</li>`;
+  }).join("\n");
 
   const html = `<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Hippie Scientist Blog</title>
-<meta name="robots" content="index,follow">
+  <meta charset="utf-8" />
+  <title>Blog — The Hippie Scientist</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://thehippiescientist.net/blog/" />
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
+    h1 { font-size: 1.75rem; margin-bottom: 1rem; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 0 0 1rem 0; }
+    a { text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .desc { opacity: .8; }
+  </style>
 </head>
 <body>
-<h1>Hippie Scientist Blog</h1>
-<ul>
-${listItems}
-</ul>
+  <h1>Blog</h1>
+  <ul>${items}</ul>
+  <p><a href="/">← Back to home</a></p>
 </body>
-</html>
-`;
+</html>`;
 
-  await writeFile(outputPath, html, 'utf8');
-};
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(outFile, html, "utf-8");
+  console.log("[generate-blog-index] Wrote", outFile, "with", posts.length, "posts");
+}
 
-main().catch((error) => {
-  console.error('[generate-blog-index] failed to build static blog index');
-  console.error(error);
-  process.exitCode = 1;
+run().catch(e => {
+  console.error("[generate-blog-index] Failed:", e);
+  process.exit(1);
 });
