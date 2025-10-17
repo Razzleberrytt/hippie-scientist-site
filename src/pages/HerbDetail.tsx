@@ -38,7 +38,7 @@ function RelatedPosts({ slug }: { slug?: string }) {
       <ul className='mt-3 space-y-3'>
         {posts.map(p => (
           <li key={p.slug} className='text-sm text-[color:var(--muted-c)]'>
-            <Link to={`/blog/${p.slug}`} className='link text-[color:var(--accent)]'>
+            <Link to={`/blog/${p.slug}/`} className='link text-[color:var(--accent)]'>
               {p.title}
             </Link>
             {p.date && (

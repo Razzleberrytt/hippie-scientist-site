@@ -147,7 +147,7 @@ export default function GraphPage() {
                 if (node.group === 'herb') {
                   openInNewTab(`/herb/${node.slug}`)
                 } else if (node.group === 'post') {
-                  openInNewTab(`/blog/${node.slug}`)
+                  openInNewTab(`/blog/${node.slug}/`)
                 }
               }}
               nodeCanvasObject={(
