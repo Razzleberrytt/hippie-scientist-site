@@ -2,7 +2,8 @@ import fs from "fs";
 import path from "path";
 
 const SITE = "https://thehippiescientist.net";
-const OUT  = path.resolve("public/rss.xml");
+const OUT  = path.resolve("public/feed.xml");
+const OUT2 = path.resolve("public/rss.xml");
 
 let posts = [];
 try {
@@ -42,4 +43,10 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 </rss>`;
 
 fs.writeFileSync(OUT, xml);
+try {
+  fs.writeFileSync(OUT2, xml);
+} catch (error) {
+  console.warn("Unable to mirror RSS feed to", OUT2, error);
+}
+
 console.log("RSS feed written to", OUT, "with", posts.length);

@@ -15,7 +15,7 @@
     "build:blog": "node scripts/build-blog.mjs",
     "build:graph": "node scripts/build-graph.mjs",
     "build:compounds": "tsx scripts/extract-compounds.ts",
-    "prebuild": "node scripts/generate-stats.mjs && npm run build:blog",
+    "prebuild": "node scripts/build-blog.mjs && node scripts/generate-rss.mjs",
     "preview": "vite preview",
     "lint": "ESLINT_USE_FLAT_CONFIG=false eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
     "format": "prettier --write .",
