@@ -27,7 +27,9 @@ export default function HerbDetailView() {
     )
   }
 
-  const shareUrl = `https://thehippiescientist.net/#/herb/${herb.id}`
+  const canonicalSlug = herb.slug || slugify(herbName(herb))
+  const canonicalPath = canonicalSlug ? `/herbs/${canonicalSlug}/` : `/herbs/${id}/`
+  const shareUrl = `https://thehippiescientist.net${canonicalPath}`
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(shareUrl)
@@ -50,12 +52,14 @@ export default function HerbDetailView() {
       })()}
       {herb.region && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Region:</span> {herb.region}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>Region:</span>{' '}
+          {herb.region}
         </div>
       )}
       {(herb as any).history && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>History:</span> {(herb as any).history}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>History:</span>{' '}
+          {(herb as any).history}
         </div>
       )}
       {splitField(herb.tags).length > 0 && (
@@ -72,7 +76,7 @@ export default function HerbDetailView() {
     <div className='space-y-2'>
       {Array.isArray(herb.activeConstituents) && herb.activeConstituents.length > 0 && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Compounds:</span>{' '}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>Compounds:</span>{' '}
           {herb.activeConstituents.map((c, i) => (
             <React.Fragment key={c.name}>
               {i > 0 && ', '}
@@ -85,12 +89,14 @@ export default function HerbDetailView() {
       )}
       {herb.mechanismofaction && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Mechanism:</span> {herb.mechanismofaction}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>Mechanism:</span>{' '}
+          {herb.mechanismofaction}
         </div>
       )}
       {herb.toxicityld50 && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>LD50:</span> {herb.toxicityld50}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>LD50:</span>{' '}
+          {herb.toxicityld50}
         </div>
       )}
     </div>
@@ -100,23 +106,29 @@ export default function HerbDetailView() {
     <div className='space-y-2'>
       {herb.preparation && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Prep:</span> {herb.preparation}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>Prep:</span>{' '}
+          {herb.preparation}
         </div>
       )}
       {(herb.intensityLabel || herb.intensityLevel) && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Intensity:</span>{' '}
-            {herb.intensityLabel || (herb.intensityLevel ? `${herb.intensityLevel.charAt(0).toUpperCase()}${herb.intensityLevel.slice(1)}` : 'Unknown')}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>Intensity:</span>{' '}
+          {herb.intensityLabel ||
+            (herb.intensityLevel
+              ? `${herb.intensityLevel.charAt(0).toUpperCase()}${herb.intensityLevel.slice(1)}`
+              : 'Unknown')}
         </div>
       )}
       {herb.benefits && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Benefits:</span> {herb.benefits}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>Benefits:</span>{' '}
+          {herb.benefits}
         </div>
       )}
       {herb.dosage && (
         <div>
-            <span className='font-semibold text-lime-600 dark:text-lime-300'>Dosage:</span> {herb.dosage}
+          <span className='font-semibold text-lime-600 dark:text-lime-300'>Dosage:</span>{' '}
+          {herb.dosage}
         </div>
       )}
       {herb.affiliatelink && herb.affiliatelink.startsWith('http') ? (
@@ -129,7 +141,7 @@ export default function HerbDetailView() {
           Buy Online
         </a>
       ) : (
-        <span className='text-sm text-sand/60'>No affiliate link available.</span>
+        <span className='text-sand/60 text-sm'>No affiliate link available.</span>
       )}
       <div>
         <h3 className='text-xl font-bold text-sky-300'>Usage Log</h3>
@@ -140,7 +152,7 @@ export default function HerbDetailView() {
           rows={5}
         />
         <div className='flex items-center gap-4 pt-2'>
-          {notes && <span className='text-sm text-sand/80'>Saved</span>}
+          {notes && <span className='text-sand/80 text-sm'>Saved</span>}
           {notes && (
             <button type='button' onClick={clearNotes} className='text-sky-300 underline'>
               Clear Notes
@@ -162,7 +174,6 @@ export default function HerbDetailView() {
   const metaDescription =
     herb.description ||
     `${herbName(herb)} herb profile with effects, chemistry, usage notes, and safety considerations.`
-  const canonicalSlug = herb.slug || slugify(herbName(herb))
   const ogImage = herb.og || (canonicalSlug ? `/og/herb/${canonicalSlug}.png` : '/og/default.png')
 
   return (
@@ -170,7 +181,7 @@ export default function HerbDetailView() {
       <Meta
         title={`${herbName(herb)} — The Hippie Scientist`}
         description={metaDescription}
-        path={`/herb/${id}`}
+        path={canonicalPath}
         pageType='article'
         image={ogImage}
         og={{
@@ -188,13 +199,11 @@ export default function HerbDetailView() {
         <h1 className='text-gradient flex items-center gap-2 text-4xl font-bold'>
           <span>{herbName(herb)}</span>
         </h1>
-        {herb.scientificname && (
-          <p className='italic text-gray-600'>{herb.scientificname}</p>
-        )}
+        {herb.scientificname && <p className='italic text-gray-600'>{herb.scientificname}</p>}
         <button
           type='button'
           onClick={copyLink}
-          className='rounded-md bg-black/30 px-3 py-2 text-sm text-sand backdrop-blur-md hover:bg-white/10'
+          className='text-sand rounded-md bg-black/30 px-3 py-2 text-sm backdrop-blur-md hover:bg-white/10'
         >
           {copied ? '✅ Copied!' : 'Share \uD83D\uDD17'}
         </button>
