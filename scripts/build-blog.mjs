@@ -16,7 +16,6 @@ const ROOT = process.cwd();
 const BLOG_SRC = path.join(ROOT, "content", "blog");
 const OUT = path.join(ROOT, "public", "blogdata");
 const POSTS_OUT = path.join(OUT, "posts");
-const BLOG_HTML_OUT = path.join(ROOT, "public", "blog");
 const DATA_OUT = path.join(ROOT, "src", "data", "blog", "posts.json");
 const PUBLIC_POSTS = path.join(ROOT, "public", "blog", "posts.json");
 
@@ -140,9 +139,6 @@ for (const file of files) {
 
   fs.writeFileSync(path.join(POSTS_OUT, `${rawSlug}.html`), postHtml, "utf-8");
 
-  const postDir = path.join(BLOG_HTML_OUT, rawSlug);
-  fs.rmSync(postDir, { recursive: true, force: true });
-  fs.mkdirSync(postDir, { recursive: true });
   const post = {
     slug: rawSlug,
     title,
@@ -169,7 +165,13 @@ for (const file of files) {
     html = html.replace(/<\/head>/i, `${canonical}\n</head>`);
   }
 
-  fs.writeFileSync(path.join(postDir, "index.html"), html, "utf-8");
+  const outDir = path.resolve("public", "blog", slug);
+  const outFile = path.join(outDir, "index.html");
+  const legacyFile = path.resolve("public", "blog", `${slug}.html`);
+
+  fs.rmSync(legacyFile, { force: true });
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(outFile, html, "utf-8");
 
   rows.push(post);
 }
