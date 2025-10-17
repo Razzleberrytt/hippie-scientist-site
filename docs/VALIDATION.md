@@ -1,24 +1,23 @@
-# Validation — Clean URLs (BrowserRouter)
+# Validation — Clean URLs & Crawlability
 
-## Routing
+## Routing (server-side)
 
-- Direct-load these in a clean session: /blog/, /about, /privacy-policy, /disclaimer, /contact, /herb-index
-  - Expect HTTP 200 and the app to render (no 404 from the host).
-- Click all footer/nav links: expect clean URLs (no "#").
+- Direct-load (new tab/private): /blog/, /about, /privacy-policy, /disclaimer, /contact, /herb-index
+  Expect HTTP 200 (not 404) + app content.
 
-## Blog & SEO
+## Blog
 
-- GET /blog/index.html returns a static HTML list with links to posts.
-- GET /feed.xml returns valid RSS; link rel="alternate" present in index.html.
-- GET /sitemap.xml lists top pages + each post (clean URLs, no hashes).
-- robots.txt references the sitemap URL.
+- GET /blog/ returns static HTML list with links to /blog/{slug}/ (view source: contains <ul> items).
+- GET /blog/{slug}/ returns HTTP 200; page renders.
 
-## Privacy & Security
+## SEO
 
-- No GA/GTM network requests before consent.
-- Basic XSS probe in a draft post does not execute (DOMPurify sanitizes).
+- GET /sitemap.xml lists top pages and each post (clean URLs).
+- GET /robots.txt includes Sitemap: line.
+- View-source on a blog post contains title/description/canonical + OG/Twitter tags.
+- GET /feed.xml is accessible; <link rel="alternate" ...> exists on root.
 
-## Performance
+## Privacy/Security
 
-- Initial JS bundle size reduced vs pre-change baseline (note measurement).
-- App icons optimized and referenced correctly in manifest.
+- No GA/GTM requests before consent accept.
+- DOMPurify present; simple "<script>alert(1)</script>" in a draft post does not execute.
