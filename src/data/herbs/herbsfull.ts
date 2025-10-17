@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react'
 import type { Herb } from '../../types'
 import { decorateHerbs } from '../../lib/herbs'
-import rawHerbs from './herbs.normalized.json'
+import { loadHerbData } from '@/lib/herb-data'
+
+type RawHerb = Record<string, unknown>
 
 function toStringArray(value: unknown): string[] {
   if (Array.isArray(value)) {
@@ -17,7 +20,7 @@ function toStringArray(value: unknown): string[] {
   return []
 }
 
-const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
+function normalizeHerb(raw: RawHerb): Herb {
   const compounds = toStringArray(raw.compounds)
   const tags = toStringArray(raw.tags)
   const interactions = toStringArray(raw.interactions)
@@ -29,8 +32,9 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
 
   const common = typeof raw.common === 'string' ? raw.common : ''
   const scientific = typeof raw.scientific === 'string' ? raw.scientific : ''
-  const slug = typeof raw.slug === 'string' && raw.slug ? raw.slug : String(raw.id || '')
-  const id = String(raw.id || slug)
+  const slug =
+    typeof raw.slug === 'string' && raw.slug ? raw.slug : String((raw as { id?: unknown }).id || '')
+  const id = String((raw as { id?: unknown }).id || slug)
 
   const mechanism =
     typeof raw.mechanism === 'string'
@@ -55,7 +59,7 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
     subcategory,
     category_label:
       typeof raw.category_label === 'string' && raw.category_label
-        ? raw.category_label
+        ? (raw.category_label as string)
         : typeof raw.category === 'string'
           ? raw.category
           : '',
@@ -63,14 +67,14 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
     intensity: typeof raw.intensity === 'string' ? raw.intensity : '',
     intensityLabel:
       typeof raw.intensityLabel === 'string' && raw.intensityLabel
-        ? raw.intensityLabel
+        ? (raw.intensityLabel as Herb['intensityLabel'])
         : typeof raw.intensity_label === 'string' && raw.intensity_label
-          ? raw.intensity_label
+          ? (raw.intensity_label as Herb['intensityLabel'])
           : typeof raw.intensityLevel === 'string' && raw.intensityLevel
             ? `${raw.intensityLevel.charAt(0).toUpperCase()}${raw.intensityLevel.slice(1)}`
             : typeof raw.intensity === 'string'
-              ? raw.intensity
-              : '',
+              ? (raw.intensity as Herb['intensityLabel'])
+              : null,
     intensityLevel: (() => {
       const candidate =
         (typeof raw.intensityLevel === 'string' && raw.intensityLevel) ||
@@ -106,12 +110,10 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
     legalnotes,
     sources,
     image: typeof raw.image === 'string' ? raw.image : '',
-    name:
-      typeof raw.name === 'string' && raw.name ? raw.name : common || scientific || id,
+    name: typeof raw.name === 'string' && raw.name ? raw.name : common || scientific || id,
     nameNorm:
       typeof raw.nameNorm === 'string' && raw.nameNorm ? raw.nameNorm : common || scientific || id,
-    commonnames:
-      typeof raw.commonnames === 'string' && raw.commonnames ? raw.commonnames : common,
+    commonnames: typeof raw.commonnames === 'string' && raw.commonnames ? raw.commonnames : common,
     scientificname:
       typeof raw.scientificname === 'string' && raw.scientificname
         ? raw.scientificname
@@ -119,24 +121,26 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
     mechanismofaction:
       typeof raw.mechanismofaction === 'string' ? raw.mechanismofaction : mechanism,
     mechanismOfAction:
-      typeof raw.mechanismOfAction === 'string' ? raw.mechanismOfAction : mechanism,
+      typeof raw.mechanismOfAction === 'string' ? (raw.mechanismOfAction as string) : mechanism,
     legalStatus: typeof raw.legalStatus === 'string' ? raw.legalStatus : legalstatus,
-    therapeuticUses:
-      typeof raw.therapeuticUses === 'string' ? raw.therapeuticUses : therapeutic,
-    sideEffects:
-      typeof raw.sideEffects === 'string' ? raw.sideEffects : sideeffects.join('; '),
+    therapeuticUses: typeof raw.therapeuticUses === 'string' ? raw.therapeuticUses : therapeutic,
+    sideEffects: typeof raw.sideEffects === 'string' ? raw.sideEffects : sideeffects.join('; '),
     drugInteractions:
       typeof raw.drugInteractions === 'string' && raw.drugInteractions
         ? raw.drugInteractions
         : interactions.join('; '),
     toxicityld50:
-      typeof raw.toxicityld50 === 'string' ? raw.toxicityld50 : raw.toxicity_ld50 || '',
+      typeof raw.toxicityld50 === 'string' ? raw.toxicityld50 : (raw.toxicity_ld50 as string) || '',
     toxicityLD50:
-      typeof raw.toxicityLD50 === 'string' ? raw.toxicityLD50 : raw.toxicity_ld50 || '',
-    compoundsDetailed: Array.isArray(raw.compoundsDetailed) ? raw.compoundsDetailed : compounds,
-    activeconstituents: Array.isArray(raw.activeconstituents) ? raw.activeconstituents : compounds,
+      typeof raw.toxicityLD50 === 'string' ? raw.toxicityLD50 : (raw.toxicity_ld50 as string) || '',
+    compoundsDetailed: Array.isArray(raw.compoundsDetailed)
+      ? (raw.compoundsDetailed as string[])
+      : compounds,
+    activeconstituents: Array.isArray(raw.activeconstituents)
+      ? (raw.activeconstituents as string[])
+      : compounds,
     activeConstituents: Array.isArray(raw.activeConstituents)
-      ? raw.activeConstituents
+      ? (raw.activeConstituents as { name: string }[])
       : compounds.map(name => ({ name })),
     contraindicationsText:
       typeof raw.contraindicationsText === 'string' && raw.contraindicationsText
@@ -162,10 +166,61 @@ const normalized: Herb[] = (rawHerbs as any[]).map(raw => {
     intensityClean: (raw.intensityClean ?? null) as string | null,
     effectsSummary: (raw.effectsSummary ?? null) as string | null,
     affiliatelink: (raw.affiliatelink ?? null) as string | null,
-    imageCredit: (raw.imageCredit ?? null) as string | null
+    imageCredit: (raw.imageCredit ?? null) as string | null,
   }
 
   return herb
-})
+}
 
-export const herbs: Herb[] = decorateHerbs(normalized)
+let cachedHerbs: Herb[] | null = null
+let herbsPromise: Promise<Herb[]> | null = null
+
+async function resolveHerbs(): Promise<Herb[]> {
+  if (cachedHerbs) return cachedHerbs
+  if (!herbsPromise) {
+    herbsPromise = loadHerbData()
+      .then(rawList => {
+        const normalized = (rawList as RawHerb[]).map(normalizeHerb)
+        const decorated = decorateHerbs(normalized)
+        cachedHerbs = decorated
+        return decorated
+      })
+      .catch(error => {
+        herbsPromise = null
+        throw error
+      })
+  }
+
+  return herbsPromise
+}
+
+export async function loadHerbsFull(): Promise<Herb[]> {
+  return resolveHerbs()
+}
+
+export function useHerbsFull(): Herb[] {
+  const [herbList, setHerbList] = useState<Herb[]>(cachedHerbs ?? [])
+
+  useEffect(() => {
+    let alive = true
+    resolveHerbs()
+      .then(items => {
+        if (!alive) return
+        setHerbList(items)
+      })
+      .catch(() => {
+        if (!alive) return
+        setHerbList([])
+      })
+
+    return () => {
+      alive = false
+    }
+  }, [])
+
+  return herbList
+}
+
+export function getHerbsSnapshot(): Herb[] {
+  return cachedHerbs ?? []
+}

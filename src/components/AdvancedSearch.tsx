@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import herbsData from '../data/herbs/herbs.normalized.json'
+import { useHerbData } from '@/lib/herb-data'
 
 export type AdvancedHerb = {
   common?: string
@@ -33,7 +33,8 @@ function norm(value: string | undefined | null) {
 
 function getContraindicationText(herb: AdvancedHerb) {
   const segments: string[] = []
-  const { contraindications, contraindicationsText, interactions, interactionsText } = herb as Record<string, unknown>
+  const { contraindications, contraindicationsText, interactions, interactionsText } =
+    herb as Record<string, unknown>
 
   if (Array.isArray(contraindications)) segments.push(contraindications.join(' '))
   if (typeof contraindications === 'string') segments.push(contraindications)
@@ -88,6 +89,7 @@ export default function AdvancedSearch({
   onClose: () => void
   onApply: (results: AdvancedHerb[]) => void
 }) {
+  const herbs = useHerbData() as AdvancedHerb[]
   const [q, setQ] = useState('')
   const [tags, setTags] = useState<string[]>([])
   const [pregSafe, setPregSafe] = useState<null | boolean>(null)
@@ -105,7 +107,7 @@ export default function AdvancedSearch({
 
   const filtered = useMemo(() => {
     const query = norm(q)
-    return (herbsData as AdvancedHerb[]).filter(herb => {
+    return herbs.filter(herb => {
       const fields = [
         herb.common,
         herb.scientific,
@@ -135,11 +137,13 @@ export default function AdvancedSearch({
 
       return true
     })
-  }, [q, tags, pregSafe, maoiSsr, intensity])
+  }, [q, tags, pregSafe, maoiSsr, intensity, herbs])
 
   function toggleTag(tag: string) {
     const normalized = norm(tag)
-    setTags(prev => (prev.includes(normalized) ? prev.filter(t => t !== normalized) : [...prev, normalized]))
+    setTags(prev =>
+      prev.includes(normalized) ? prev.filter(t => t !== normalized) : [...prev, normalized]
+    )
   }
 
   if (!open) return null
@@ -154,16 +158,16 @@ export default function AdvancedSearch({
       }}
     >
       <div className='absolute inset-0 bg-black/60 backdrop-blur-sm' />
-      <div className='relative z-10 mx-auto mt-10 w-[min(92vw,780px)] rounded-2xl bg-white/14 p-5 text-white ring-1 ring-white/12 shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] backdrop-blur-xl'>
+      <div className='bg-white/14 ring-white/12 relative z-10 mx-auto mt-10 w-[min(92vw,780px)] rounded-2xl p-5 text-white shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] ring-1 backdrop-blur-xl'>
         <div className='flex items-start justify-between gap-3'>
-          <h2 className='text-lg font-semibold bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-transparent'>
+          <h2 className='bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-lg font-semibold text-transparent'>
             Advanced search
           </h2>
           <button
             type='button'
             aria-label='Close'
             onClick={onClose}
-            className='rounded-md bg-white/6 px-2 py-1 text-sm text-white/90 ring-1 ring-white/15 transition hover:bg-white/9'
+            className='bg-white/6 hover:bg-white/9 rounded-md px-2 py-1 text-sm text-white/90 ring-1 ring-white/15 transition'
           >
             ✕
           </button>
@@ -176,7 +180,7 @@ export default function AdvancedSearch({
               value={q}
               onChange={event => setQ(event.target.value)}
               placeholder='e.g., sleep, GABA, adaptogen'
-              className='mt-1 w-full rounded-lg bg-white/14 px-3 py-2 text-white/90 placeholder-white/50 ring-1 ring-white/12 backdrop-blur-xl'
+              className='bg-white/14 ring-white/12 mt-1 w-full rounded-lg px-3 py-2 text-white/90 placeholder-white/50 ring-1 backdrop-blur-xl'
             />
           </label>
 
@@ -192,7 +196,7 @@ export default function AdvancedSearch({
                     type='button'
                     onClick={() => toggleTag(tag)}
                     className={`pill transition ${
-                      active ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/9'
+                      active ? 'text-lime-200 ring-1 ring-lime-300' : 'hover:bg-white/9'
                     }`}
                   >
                     {tag}
@@ -201,7 +205,6 @@ export default function AdvancedSearch({
               })}
             </div>
           </div>
-
           <div>
             <span className='text-sm text-white/85'>Pregnancy safety</span>
             <div className='mt-1 flex items-center gap-2'>
@@ -214,14 +217,14 @@ export default function AdvancedSearch({
               </button>
               <button
                 type='button'
-                className={`pill ${pregSafe === true ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/9'}`}
+                className={`pill ${pregSafe === true ? 'text-lime-200 ring-1 ring-lime-300' : 'hover:bg-white/9'}`}
                 onClick={() => setPregSafe(true)}
               >
                 Explicitly safe
               </button>
               <button
                 type='button'
-                className={`pill ${pregSafe === false ? 'ring-1 ring-rose-300 text-rose-200' : 'hover:bg-white/9'}`}
+                className={`pill ${pregSafe === false ? 'text-rose-200 ring-1 ring-rose-300' : 'hover:bg-white/9'}`}
                 onClick={() => setPregSafe(false)}
               >
                 Show cautions
@@ -241,14 +244,14 @@ export default function AdvancedSearch({
               </button>
               <button
                 type='button'
-                className={`pill ${maoiSsr === true ? 'ring-1 ring-amber-300 text-amber-200' : 'hover:bg-white/9'}`}
+                className={`pill ${maoiSsr === true ? 'text-amber-200 ring-1 ring-amber-300' : 'hover:bg-white/9'}`}
                 onClick={() => setMaoiSsr(true)}
               >
                 Must have caution
               </button>
               <button
                 type='button'
-                className={`pill ${maoiSsr === false ? 'ring-1 ring-lime-300 text-lime-200' : 'hover:bg-white/9'}`}
+                className={`pill ${maoiSsr === false ? 'text-lime-200 ring-1 ring-lime-300' : 'hover:bg-white/9'}`}
                 onClick={() => setMaoiSsr(false)}
               >
                 Exclude cautions

@@ -1,19 +1,21 @@
-import EntityDatabasePage from "@/components/EntityDatabasePage";
-import { getCounters } from "@/lib/counters";
-import { decorateCompounds } from "@/lib/compounds";
+import React from 'react'
+import EntityDatabasePage from '@/components/EntityDatabasePage'
+import { useCounters } from '@/lib/counters'
+import { decorateCompounds } from '@/lib/compounds'
 
-const counters = getCounters();
-const decoratedCompounds = decorateCompounds();
+const decoratedCompounds = decorateCompounds()
 
 export default function CompoundsPage() {
+  const counters = useCounters()
+
   return (
     <EntityDatabasePage
-      title="Active Compounds"
-      description="Search and explore the molecule library."
-      metaPath="/compounds"
+      title='Active Compounds'
+      description='Search and explore the molecule library.'
+      metaPath='/compounds'
       items={decoratedCompounds}
-      kind="compound"
+      kind='compound'
       counters={counters}
     />
-  );
+  )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import QuickFillModal from '../components/QuickFillModal'
-import data from '../data/herbs/herbs.normalized.json'
+import { useHerbData } from '@/lib/herb-data'
 import type { Herb } from '../types'
 
 type Coverage = Record<string, number>
@@ -95,7 +95,7 @@ function hasVal(value: unknown): boolean {
 
 function exportCSV(rows: any[], headers: string[]) {
   const esc = (s: any) => `"${String(s ?? '').replace(/"/g, '""')}"`
-  const coerce = (v: any) => (Array.isArray(v) ? v.join('; ') : v ?? '')
+  const coerce = (v: any) => (Array.isArray(v) ? v.join('; ') : (v ?? ''))
   const lines = [
     headers.map(esc).join(','),
     ...rows.map(r => headers.map(h => esc(coerce(r[h]))).join(',')),
@@ -112,6 +112,7 @@ function exportCSV(rows: any[], headers: string[]) {
 }
 
 export default function DataReport() {
+  const data = useHerbData()
   const [coverage, setCoverage] = useState<Coverage>({})
   const [missing, setMissing] = useState<Herb[]>([])
   const [total, setTotal] = useState(0)
@@ -120,7 +121,7 @@ export default function DataReport() {
   const [editRow, setEditRow] = useState<Herb | null>(null)
   const [showModal, setShowModal] = useState(false)
   const [patchedData, setPatchedData] = useState<Herb[] | null>(null)
-  const currentData = useMemo(() => (patchedData ?? (data as Herb[])), [patchedData])
+  const currentData = useMemo(() => patchedData ?? data, [patchedData, data])
 
   useEffect(() => {
     const rows = currentData
@@ -136,9 +137,7 @@ export default function DataReport() {
 
     setCoverage(nextCoverage)
 
-    const missingRows = rows.filter(row =>
-      KEY_FIELDS.some(key => !hasVal((row as any)[key]))
-    )
+    const missingRows = rows.filter(row => KEY_FIELDS.some(key => !hasVal((row as any)[key])))
 
     setMissing(missingRows)
   }, [currentData])
@@ -179,7 +178,7 @@ export default function DataReport() {
 
   const applyPatch = (patch: Record<string, string>) => {
     if (!editRow) return
-    const sourceData = patchedData ?? (data as Herb[])
+    const sourceData = patchedData ?? data
     let changed = false
     const newData = sourceData.map(r => {
       if (r.slug !== editRow.slug) return r
@@ -188,7 +187,7 @@ export default function DataReport() {
       for (const [key, value] of Object.entries(patch)) {
         const trimmed = value.trim()
         if (trimmed) {
-          (updated as any)[key] = trimmed
+          ;(updated as any)[key] = trimmed
           rowChanged = true
         }
       }
@@ -207,7 +206,7 @@ export default function DataReport() {
   }
 
   const exportJSON = () => {
-    const rowsToExport = patchedData ?? (data as Herb[])
+    const rowsToExport = patchedData ?? data
     const blob = new Blob([JSON.stringify(rowsToExport, null, 2)], {
       type: 'application/json',
     })
@@ -222,29 +221,34 @@ export default function DataReport() {
   }
 
   return (
-    <main className='mx-auto max-w-6xl px-4 py-10 text-sand'>
+    <main className='text-sand mx-auto max-w-6xl px-4 py-10'>
       <header className='mb-10'>
         <h1 className='text-gradient mb-3 text-4xl font-bold'>📊 Herb Dataset Coverage</h1>
-        <p className='max-w-3xl text-sm text-sand/80'>
-          This internal dashboard summarizes the completeness of the normalized herb dataset used across the
-          site. Each metric reflects how many of the {total || '—'} total entries have non-empty data for a
-          given field.
+        <p className='text-sand/80 max-w-3xl text-sm'>
+          This internal dashboard summarizes the completeness of the normalized herb dataset used
+          across the site. Each metric reflects how many of the {total || '—'} total entries have
+          non-empty data for a given field.
         </p>
       </header>
 
-      <div className='mb-6 border rounded-lg p-3 bg-gray-900'>
-        <p className='text-sm font-semibold mb-2'>Filter: show herbs missing ALL of the selected fields</p>
+      <div className='mb-6 rounded-lg border bg-gray-900 p-3'>
+        <p className='mb-2 text-sm font-semibold'>
+          Filter: show herbs missing ALL of the selected fields
+        </p>
         <div className='flex flex-wrap gap-3'>
           {[...KEY_FIELDS, ...OPTIONAL_FIELDS].map(f => {
             const checked = showMissingOf.includes(f)
             return (
-              <label key={f} className='flex items-center gap-2 text-xs bg-gray-800 px-2 py-1 rounded-md cursor-pointer'>
+              <label
+                key={f}
+                className='flex cursor-pointer items-center gap-2 rounded-md bg-gray-800 px-2 py-1 text-xs'
+              >
                 <input
                   type='checkbox'
                   checked={checked}
                   onChange={e =>
                     setShowMissingOf(prev =>
-                      e.target.checked ? [...prev, f] : prev.filter(x => x !== f),
+                      e.target.checked ? [...prev, f] : prev.filter(x => x !== f)
                     )
                   }
                 />
@@ -254,14 +258,16 @@ export default function DataReport() {
           })}
         </div>
 
-        <div className='mt-3 text-xs opacity-80 flex items-center gap-3'>
+        <div className='mt-3 flex items-center gap-3 text-xs opacity-80'>
           <span>Selected: {showMissingOf.length || 0}</span>
           <span>•</span>
           <span>Matches: {filtered.length || 0}</span>
           {filtered.length > 0 && (
             <button
-              onClick={() => exportCSV(filtered, ['slug', 'common', 'scientific', ...showMissingOf])}
-              className='ml-auto border px-2 py-1 rounded-md hover:bg-gray-800'
+              onClick={() =>
+                exportCSV(filtered, ['slug', 'common', 'scientific', ...showMissingOf])
+              }
+              className='ml-auto rounded-md border px-2 py-1 hover:bg-gray-800'
             >
               Export CSV (current)
             </button>
@@ -274,7 +280,7 @@ export default function DataReport() {
         <div className='overflow-hidden rounded-xl border border-white/10 bg-black/40 shadow-lg backdrop-blur'>
           <table className='w-full table-fixed border-collapse text-sm'>
             <thead>
-              <tr className='bg-black/60 text-left uppercase tracking-wide text-sand/60'>
+              <tr className='text-sand/60 bg-black/60 text-left uppercase tracking-wide'>
                 <th className='p-3 font-medium'>Field</th>
                 <th className='p-3 text-right font-medium'>Filled</th>
                 <th className='p-3 text-right font-medium'>Coverage</th>
@@ -285,11 +291,11 @@ export default function DataReport() {
                 const count = coverage[String(key)] ?? 0
                 return (
                   <tr key={String(key)} className='odd:bg-white/5 even:bg-black/30'>
-                    <td className='p-3 font-medium text-sand'>{label || key}</td>
-                    <td className='p-3 text-right text-sand/80'>
+                    <td className='text-sand p-3 font-medium'>{label || key}</td>
+                    <td className='text-sand/80 p-3 text-right'>
                       {count} / {total}
                     </td>
-                    <td className='p-3 text-right text-sand/80'>{formatPercent(String(key))}</td>
+                    <td className='text-sand/80 p-3 text-right'>{formatPercent(String(key))}</td>
                   </tr>
                 )
               })}
@@ -303,7 +309,7 @@ export default function DataReport() {
         <div className='overflow-hidden rounded-xl border border-white/10 bg-black/30 shadow-lg backdrop-blur'>
           <table className='w-full table-fixed border-collapse text-sm'>
             <thead>
-              <tr className='bg-black/60 text-left uppercase tracking-wide text-sand/60'>
+              <tr className='text-sand/60 bg-black/60 text-left uppercase tracking-wide'>
                 <th className='p-3 font-medium'>Field</th>
                 <th className='p-3 text-right font-medium'>Filled</th>
                 <th className='p-3 text-right font-medium'>Coverage</th>
@@ -312,11 +318,11 @@ export default function DataReport() {
             <tbody>
               {sortedOptionalFields.map(({ key, label, coverage: count }) => (
                 <tr key={String(key)} className='odd:bg-white/5 even:bg-black/30'>
-                  <td className='p-3 font-medium text-sand'>{label || key}</td>
-                  <td className='p-3 text-right text-sand/80'>
+                  <td className='text-sand p-3 font-medium'>{label || key}</td>
+                  <td className='text-sand/80 p-3 text-right'>
                     {count} / {total}
                   </td>
-                  <td className='p-3 text-right text-sand/80'>{formatPercent(String(key))}</td>
+                  <td className='text-sand/80 p-3 text-right'>{formatPercent(String(key))}</td>
                 </tr>
               ))}
             </tbody>
@@ -325,7 +331,7 @@ export default function DataReport() {
       </section>
 
       <section>
-        <h2 className='text-xl font-semibold mb-2'>
+        <h2 className='mb-2 text-xl font-semibold'>
           {showMissingOf.length === 0
             ? `Missing Key Field Rows (${missing.length})`
             : `Rows missing: ${showMissingOf.join(', ')} (${filtered.length})`}
@@ -334,14 +340,14 @@ export default function DataReport() {
         {(showMissingOf.length === 0 ? missing.length === 0 : filtered.length === 0) ? (
           <p className='opacity-70'>No rows match.</p>
         ) : (
-          <div className='overflow-x-auto max-h-[480px] border rounded-lg'>
-            <table className='w-full text-xs border-collapse border'>
+          <div className='max-h-[480px] overflow-x-auto rounded-lg border'>
+            <table className='w-full border-collapse border text-xs'>
               <thead>
-                <tr className='bg-gray-800 text-left sticky top-0'>
-                  <th className='p-2 border'>Slug</th>
-                  <th className='p-2 border'>Common</th>
-                  <th className='p-2 border'>Missing Fields</th>
-                  <th className='p-2 border'>Open</th>
+                <tr className='sticky top-0 bg-gray-800 text-left'>
+                  <th className='border p-2'>Slug</th>
+                  <th className='border p-2'>Common</th>
+                  <th className='border p-2'>Missing Fields</th>
+                  <th className='border p-2'>Open</th>
                 </tr>
               </thead>
               <tbody>
@@ -349,16 +355,16 @@ export default function DataReport() {
                   const miss = KEY_FIELDS.filter(k => !hasVal((r as any)[k]))
                   return (
                     <tr key={r.slug || i} className='odd:bg-gray-900 even:bg-gray-800'>
-                      <td className='p-2 border'>{r.slug}</td>
-                      <td className='p-2 border'>{r.common}</td>
-                      <td className='p-2 border'>{miss.join(', ')}</td>
-                      <td className='p-2 border flex gap-2'>
+                      <td className='border p-2'>{r.slug}</td>
+                      <td className='border p-2'>{r.common}</td>
+                      <td className='border p-2'>{miss.join(', ')}</td>
+                      <td className='flex gap-2 border p-2'>
                         <Link to={`/herb/${r.slug}`} className='underline'>
                           Details →
                         </Link>
                         <button
                           onClick={() => openQuickFill(r)}
-                          className='text-xs underline text-green-400 hover:text-green-300'
+                          className='text-xs text-green-400 underline hover:text-green-300'
                         >
                           Quick-fill
                         </button>
@@ -376,7 +382,7 @@ export default function DataReport() {
         <div className='mt-8 flex justify-end'>
           <button
             onClick={exportJSON}
-            className='px-4 py-2 bg-green-700 hover:bg-green-600 rounded-lg'
+            className='rounded-lg bg-green-700 px-4 py-2 hover:bg-green-600'
           >
             💾 Download Patched herbs.normalized.json
           </button>
@@ -392,7 +398,7 @@ export default function DataReport() {
         />
       )}
 
-      <footer className='mt-12 text-sm text-sand/70'>
+      <footer className='text-sand/70 mt-12 text-sm'>
         <Link to='/herbs' className='text-sky-300 underline-offset-4 hover:underline'>
           ← Back to database
         </Link>

@@ -1,12 +1,13 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { herbs } from '../data/herbs/herbsfull'
+import { useHerbsFull } from '../data/herbs/herbsfull'
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import ErrorBoundary from '../components/ErrorBoundary'
 import { slugify } from '../utils/slugify'
 
 export default function HerbCardPage() {
   const { herbId } = useParams<{ herbId?: string }>()
+  const herbs = useHerbsFull()
   const id = herbId?.toLowerCase() || ''
   const herb = React.useMemo(() => {
     return herbs.find(h => {
@@ -19,7 +20,7 @@ export default function HerbCardPage() {
         slugify(h.nameNorm || h.id).toLowerCase() === id
       )
     })
-  }, [id])
+  }, [herbs, id])
 
   const notFound = (
     <div className='rounded-md border border-red-500/40 bg-red-500/10 p-6 text-center'>
@@ -30,14 +31,23 @@ export default function HerbCardPage() {
     </div>
   )
 
-  const content =
-    herb && typeof herb === 'object' ? (
+  if (!herbs.length) {
+    return (
+      <div className='mx-auto max-w-3xl px-4 py-8'>
+        <div className='text-sand text-center'>Loading herb details…</div>
+      </div>
+    )
+  }
+
+  if (!herb || typeof herb !== 'object') {
+    return <div className='mx-auto max-w-3xl px-4 py-8'>{notFound}</div>
+  }
+
+  return (
+    <div className='mx-auto max-w-3xl px-4 py-8'>
       <ErrorBoundary fallback={notFound}>
         <HerbCardAccordion herb={herb} />
       </ErrorBoundary>
-    ) : (
-      notFound
-    )
-
-  return <div className='mx-auto max-w-3xl px-4 py-8'>{content}</div>
+    </div>
+  )
 }

@@ -1,14 +1,15 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { compounds, Compound } from '../data/compounds/compounds'
-import { herbs } from '../data/herbs/herbsfull'
+import { useHerbsFull } from '../data/herbs/herbsfull'
 import { recordDevMessage } from '../utils/devMessages'
 
 export function useCompounds(): Compound[] {
-  const [list] = React.useState<Compound[]>(compounds)
+  const [list] = useState<Compound[]>(compounds)
+  const herbs = useHerbsFull()
 
-  React.useEffect(() => {
+  useEffect(() => {
     list.forEach(c => {
-      const refs = c.foundInHerbs ?? c.sourceHerbs
+      const refs = c.foundInHerbs ?? c.sourceHerbs ?? []
       refs.forEach(h => {
         if (!herbs.find(x => x.id === h)) {
           recordDevMessage('warning', `Compound ${c.name} references missing herb: ${h}`)
@@ -23,7 +24,7 @@ export function useCompounds(): Compound[] {
         }
       })
     })
-  }, [list])
+  }, [herbs, list])
 
   return list
 }
