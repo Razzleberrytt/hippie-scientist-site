@@ -1,19 +1,23 @@
-import React from 'react'
+import { useEffect, useMemo } from 'react'
 import type { Herb } from '../types'
-import { herbs } from '../data/herbs/herbsfull'
+import { useHerbsFull } from '../data/herbs/herbsfull'
 import { herbName } from '../utils/herb'
 import { recordDevMessage } from '../utils/devMessages'
 
 export function useHerbs(): Herb[] {
-  const [herbList] = React.useState<Herb[]>(() => {
+  const herbs = useHerbsFull()
+
+  const herbList = useMemo(() => {
     const map = new Map<string, Herb>()
     herbs.forEach(h => {
-      if (!map.has(h.id)) map.set(h.id, h)
+      const key = h.id || h.slug
+      if (!key) return
+      if (!map.has(key)) map.set(key, h)
     })
     return Array.from(map.values())
-  })
+  }, [herbs])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!import.meta.env.DEV) return
 
     herbList.forEach(h => {

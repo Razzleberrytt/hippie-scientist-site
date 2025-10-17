@@ -1,10 +1,14 @@
-import { Link } from 'react-router-dom';
-import data from '../data/herbs/herbs.normalized.json';
-import { useFavorites } from '../lib/useFavorites';
+import { useMemo } from 'react'
+import { Link } from 'react-router-dom'
+import { useHerbData } from '@/lib/herb-data'
+import { useFavorites } from '../lib/useFavorites'
 
 export default function Favorites() {
-  const { favs, clear } = useFavorites();
-  const herbs = data.filter(h => favs.includes(h.slug));
+  const data = useHerbData()
+  const { favs, clear } = useFavorites()
+
+  const herbs = useMemo(() => data.filter(h => favs.includes(h.slug)), [data, favs])
+  const loading = favs.length > 0 && data.length === 0
 
   return (
     <main className='mx-auto max-w-5xl px-4 py-8'>
@@ -16,7 +20,9 @@ export default function Favorites() {
           </button>
         )}
       </div>
-      {herbs.length === 0 ? (
+      {loading ? (
+        <p className='opacity-70'>Loading favorites…</p>
+      ) : herbs.length === 0 ? (
         <p className='opacity-70'>You haven’t starred any herbs yet.</p>
       ) : (
         <div className='grid gap-4 sm:grid-cols-2'>
@@ -34,5 +40,5 @@ export default function Favorites() {
         </div>
       )}
     </main>
-  );
+  )
 }

@@ -2,10 +2,8 @@ import React from 'react'
 import { saveAs } from 'file-saver'
 import jsPDF from 'jspdf'
 import { Herb } from '../types'
-import { herbs } from '../data/herbs/herbsfull'
+import { useHerbsFull } from '../data/herbs/herbsfull'
 import Meta from '../components/Meta'
-
-const allHerbs = herbs
 
 const required: (keyof Herb)[] = [
   'affiliateLink',
@@ -35,8 +33,9 @@ const defaultFields: (keyof Herb)[] = [
 
 export default function Downloads() {
   const [fields, setFields] = React.useState<(keyof Herb)[]>(defaultFields)
+  const herbs = useHerbsFull()
 
-  const filteredHerbs = React.useMemo(() => validHerbs(allHerbs), [])
+  const filteredHerbs = React.useMemo(() => validHerbs(herbs), [herbs])
 
   const toggleField = (f: keyof Herb) => {
     setFields(prev => (prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f]))
@@ -90,13 +89,13 @@ export default function Downloads() {
       />
       <div className='mx-auto max-w-3xl space-y-6'>
         <h1 className='text-gradient mb-4 text-center text-5xl font-bold'>Export Herb Data</h1>
-        <p className='text-center text-sand'>
+        <p className='text-sand text-center'>
           {filteredHerbs.length} herbs · Exported {new Date().toLocaleString()}
         </p>
         <div className='flex flex-wrap justify-center gap-4'>
           <button
             onClick={exportCSV}
-            className='rounded-md bg-psychedelic-purple px-4 py-2 font-medium text-white hover:bg-psychedelic-pink'
+            className='bg-psychedelic-purple hover:bg-psychedelic-pink rounded-md px-4 py-2 font-medium text-white'
           >
             Download CSV
           </button>
@@ -117,7 +116,7 @@ export default function Downloads() {
           <p className='text-sand'>Select fields for CSV:</p>
           <div className='flex flex-wrap gap-2'>
             {defaultFields.map(f => (
-              <label key={f} className='flex items-center gap-1 text-sand'>
+              <label key={f} className='text-sand flex items-center gap-1'>
                 <input
                   type='checkbox'
                   checked={fields.includes(f)}

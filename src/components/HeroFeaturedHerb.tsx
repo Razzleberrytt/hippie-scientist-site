@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { herbs } from '../data/herbs/herbsfull'
+import { useHerbsFull } from '../data/herbs/herbsfull'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
 import { slugify } from '../utils/slugify'
@@ -16,8 +16,10 @@ interface Props {
 
 export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
   const [herb, setHerb] = useState<Herb | null>(null)
+  const herbs = useHerbsFull()
 
   useEffect(() => {
+    if (!herbs.length) return
     if (fixedId) {
       const selected = herbs.find(h => h.id === fixedId || h.name === fixedId)
       setHerb(selected ?? herbs[0])
@@ -26,7 +28,7 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
     const psychedelic = herbs.filter(h => h.category.includes('Psychedelic'))
     const pool = psychedelic.length > 0 ? psychedelic : herbs
     setHerb(pool[Math.floor(Math.random() * pool.length)])
-  }, [fixedId])
+  }, [fixedId, herbs])
 
   if (!herb) {
     return (

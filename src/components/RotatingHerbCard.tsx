@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { herbs } from '../data/herbs/herbsfull'
+import { useHerbsFull } from '../data/herbs/herbsfull'
 import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'
 import { herbName, splitField } from '../utils/herb'
@@ -20,13 +20,21 @@ const INTERVAL = 4500
 
 export default function RotatingHerbCard() {
   const reduceMotion = useReducedMotion()
-  const [items] = useState<Herb[]>(() => shuffle(herbs))
+  const source = useHerbsFull()
+  const [items, setItems] = useState<Herb[]>([])
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const intervalRef = useRef<NodeJS.Timeout>()
 
   useEffect(() => {
+    if (source.length === 0) return
+    setItems(shuffle(source))
+    setIndex(0)
+  }, [source])
+
+  useEffect(() => {
     if (reduceMotion) return
+    if (items.length === 0) return
     intervalRef.current = setInterval(() => {
       if (!paused) {
         setIndex(i => (i + 1) % items.length)
@@ -35,7 +43,7 @@ export default function RotatingHerbCard() {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
-  }, [paused, reduceMotion, items])
+  }, [items, paused, reduceMotion])
 
   const herb = items[index]
   if (!herb) return null
@@ -51,6 +59,7 @@ export default function RotatingHerbCard() {
     stats[herb.id] = (stats[herb.id] || 0) + 1
     localStorage.setItem('herbTapCounts', JSON.stringify(stats))
 
+    if (items.length === 0) return
     setIndex(i => {
       let next = Math.floor(Math.random() * items.length)
       if (next === i) next = (i + 1) % items.length

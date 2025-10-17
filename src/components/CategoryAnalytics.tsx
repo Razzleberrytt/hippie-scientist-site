@@ -1,10 +1,11 @@
 import React, { type CSSProperties } from 'react'
 import { motion } from 'framer-motion'
-import { herbs } from '../data/herbs/herbsfull'
+import { useHerbsFull } from '../data/herbs/herbsfull'
 
 const TOP_N = 5
 
 export default function CategoryAnalytics() {
+  const herbs = useHerbsFull()
   const counts = React.useMemo(() => {
     const c: Record<string, number> = {}
     herbs.forEach(h => {
@@ -12,7 +13,7 @@ export default function CategoryAnalytics() {
       c[main] = (c[main] || 0) + 1
     })
     return c
-  }, [])
+  }, [herbs])
 
   const entries = React.useMemo(() => Object.entries(counts).sort((a, b) => b[1] - a[1]), [counts])
 
@@ -34,7 +35,7 @@ export default function CategoryAnalytics() {
           <span className='w-40 text-sm'>{cat}</span>
           <div className='h-2 flex-1 rounded bg-gray-200 transition-colors duration-300 dark:bg-gray-700'>
             <div
-              className='h-2 rounded bg-pink-500 transition-colors duration-300 dark:bg-pink-400 [width:var(--category-width)]'
+              className='h-2 rounded bg-pink-500 transition-colors duration-300 [width:var(--category-width)] dark:bg-pink-400'
               style={{ '--category-width': `${(count / max) * 100}%` } as CSSProperties}
             />
           </div>
@@ -46,7 +47,7 @@ export default function CategoryAnalytics() {
           layout
           type='button'
           onClick={() => setExpanded(e => !e)}
-          className='mx-auto block text-xs text-moss hover:underline'
+          className='text-moss mx-auto block text-xs hover:underline'
         >
           {expanded ? 'Show Less' : 'Show More'}
         </motion.button>
