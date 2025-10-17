@@ -120,12 +120,12 @@ const files = fs.existsSync(BLOG_SRC)
 const rows = [];
 
 for (const file of files) {
-  const slug = file.replace(/\.(md|mdx)$/, "");
+  const rawSlug = file.replace(/\.(md|mdx)$/, "");
   const filePath = path.join(BLOG_SRC, file);
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
   if (data?.draft) continue;
-  const html = marked.parse(content);
+  const postHtml = marked.parse(content);
   const firstParagraph = content.split(/\n\s*\n/).find(Boolean) || content;
   const excerpt = firstParagraph.replace(/\n+/g, " ").trim().slice(0, 220);
   const words = content.trim().split(/\s+/).length;
@@ -134,26 +134,17 @@ for (const file of files) {
   const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
   const summary = data.summary || data.description || excerpt;
   const cover = data.cover || data.hero || null;
-  const title = data.title || slug;
+  const title = data.title || rawSlug;
   const description = data.description || excerpt;
   const ogImage = data.ogImage || cover || null;
 
-  fs.writeFileSync(path.join(POSTS_OUT, `${slug}.html`), html, "utf-8");
+  fs.writeFileSync(path.join(POSTS_OUT, `${rawSlug}.html`), postHtml, "utf-8");
 
-  const postDir = path.join(BLOG_HTML_OUT, slug);
+  const postDir = path.join(BLOG_HTML_OUT, rawSlug);
   fs.rmSync(postDir, { recursive: true, force: true });
   fs.mkdirSync(postDir, { recursive: true });
-  const fullHtml = buildHtmlDocument({
-    title,
-    description,
-    slug,
-    body: html,
-    ogImage,
-  });
-  fs.writeFileSync(path.join(postDir, "index.html"), fullHtml, "utf-8");
-
-  rows.push({
-    slug,
+  const post = {
+    slug: rawSlug,
     title,
     date: created,
     description,
@@ -162,7 +153,25 @@ for (const file of files) {
     readingTime,
     cover: cover || undefined,
     ogImage: ogImage || undefined,
+  };
+
+  let html = buildHtmlDocument({
+    title: post.title,
+    description: post.description,
+    slug: post.slug,
+    body: postHtml,
+    ogImage,
   });
+
+  const slug = String(post.slug || "").replace(/^\/+|\/+$/g, "");
+  const canonical = `<link rel="canonical" href="https://thehippiescientist.net/blog/${slug}/">`;
+  if (/<\/head>/i.test(html) && !/rel=["']canonical["']/i.test(html)) {
+    html = html.replace(/<\/head>/i, `${canonical}\n</head>`);
+  }
+
+  fs.writeFileSync(path.join(postDir, "index.html"), html, "utf-8");
+
+  rows.push(post);
 }
 
 rows.sort((a, b) => (a.date < b.date ? 1 : -1));
