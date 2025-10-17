@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
+import DOMPurify from "dompurify";
 import { ensureTrailingSlash, resolveBlogIndexUrl } from "@/lib/blog";
 
 type PostMeta = {
@@ -97,7 +98,9 @@ export default function BlogPost() {
           prose-pre:bg-black/60 prose-code:text-pink-300
           prose-headings:scroll-mt-24 prose-img:rounded-xl
         "
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(html, { USE_PROFILES: { html: true } }),
+        }}
       />
 
       <footer className="mt-10 border-t border-white/10 pt-6">
