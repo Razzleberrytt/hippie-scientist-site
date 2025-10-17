@@ -11,7 +11,7 @@
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
     "prebuild": "node scripts/build-blog.mjs && node scripts/generate-rss.mjs && node scripts/generate-blog-index.mjs",
-    "build": "vite build",
+    "build": "npm run prebuild && vite build",
     "postbuild": "node scripts/generate-sitemap.mjs dist",
     "sitemap": "node scripts/generate-sitemap.mjs dist",
     "build:blog": "node scripts/build-blog.mjs",
