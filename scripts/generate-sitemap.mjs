@@ -1,57 +1,51 @@
-const fs = await import("fs/promises");
-const path = await import("path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const BASE_URL = "https://thehippiescientist.net";
-const OUTPUT_PATH = path.resolve("public", "sitemap.xml");
-const BLOG_INDEX_PATH = path.resolve("public", "blogdata", "index.json");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const STATIC_PAGES = [
-  "/",
-  "/blog/",
-  "/about",
-  "/privacy-policy",
-  "/disclaimer",
-  "/contact",
-  "/herb-index",
-];
+const outDir = process.argv[2] ? path.resolve(process.argv[2]) : path.resolve(__dirname, "..", "dist");
+const site = process.env.SITE_BASE_URL || "https://thehippiescientist.net";
 
-const urls = new Set(STATIC_PAGES);
+const staticPaths = ["/", "/blog/", "/about", "/privacy-policy", "/disclaimer", "/contact", "/herb-index"];
 
-const ensureCleanPath = (slug) => {
-  if (!slug) return null;
-  const withoutHash = String(slug).trim().replace(/#.*/, "");
-  const normalized = withoutHash.replace(/^[\\/]+/, "").replace(/[\\/]+/g, "/");
-  const trimmed = normalized.replace(/\/+$/, "");
-  if (!trimmed) return null;
-  return `/blog/${trimmed}/`;
-};
+function url(loc) {
+  const lastmod = new Date().toISOString();
+  return `<url><loc>${site}${loc}</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>`;
+}
 
-try {
-  const raw = await fs.readFile(BLOG_INDEX_PATH, "utf8");
-  const posts = JSON.parse(raw);
-  posts.forEach(({ slug }) => {
-    const clean = ensureCleanPath(slug);
-    if (clean) urls.add(clean);
-  });
-} catch (error) {
-  if (error.code !== "ENOENT") {
-    console.error("Failed to read blog index", error);
-    process.exitCode = 1;
+function toSlugPath(slug) {
+  slug = String(slug || "").replace(/^\/+|\/+$/g, "");
+  return `/blog/${slug}/`;
+}
+
+function readPosts() {
+  const blogDataPath = path.resolve(__dirname, "..", "public", "blogdata", "index.json");
+  if (!fs.existsSync(blogDataPath)) return [];
+  try {
+    const raw = fs.readFileSync(blogDataPath, "utf-8");
+    const arr = JSON.parse(raw);
+    return Array.isArray(arr) ? arr : [];
+  } catch {
+    return [];
   }
 }
 
-const now = new Date().toISOString();
-const body = [...urls]
-  .sort()
-  .map((pathname) => {
-    const changefreq = pathname.startsWith("/blog/") ? "weekly" : "monthly";
-    return `  <url><loc>${BASE_URL}${pathname}</loc><lastmod>${now}</lastmod><changefreq>${changefreq}</changefreq></url>`;
-  })
-  .join("\n");
+function buildXml() {
+  const posts = readPosts();
+  const postUrls = posts.map(p => url(toSlugPath(p.slug)));
+  const baseUrls = staticPaths.map(url);
+  const body = [...baseUrls, ...postUrls].join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+}
 
-const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+function run() {
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+  const xml = buildXml();
+  const outFile = path.join(outDir, "sitemap.xml");
+  fs.writeFileSync(outFile, xml, "utf-8");
+  console.log("[sitemap] wrote", outFile);
+}
 
-await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
-await fs.writeFile(OUTPUT_PATH, xml);
-
-console.log(`Wrote sitemap with ${urls.size} URLs to ${OUTPUT_PATH}`);
+run();
