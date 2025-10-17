@@ -28,64 +28,35 @@
       }
     </script>
     <style>
+      :root {
+        color-scheme: dark;
+      }
       body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         margin: 0;
-        padding: 2rem;
-        background: #111;
-        color: #f6f6f6;
         min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 2rem;
+        display: grid;
+        place-items: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #050711;
+        color: #f8fafc;
       }
       main {
-        max-width: 720px;
-        margin: 0 auto;
+        text-align: center;
+        padding: 2rem;
       }
       a {
         color: #a4f5d4;
       }
-      footer {
-        text-align: center;
-        font-size: 0.875rem;
-      }
-      footer nav {
-        margin-bottom: 0.5rem;
-      }
-      footer a {
-        color: inherit;
-        text-decoration: none;
-      }
     </style>
   </head>
   <body>
-    <script>
-      (function () {
-        var l = window.location
-        var dest = '/#' + l.pathname + l.search + l.hash
-        if (!l.pathname.startsWith('/index.html')) l.replace(dest)
-      })()
-    </script>
     <main>
-      <h1>Lost in the Psychedelic Wilderness</h1>
+      <h1>Page Not Found</h1>
+      <p>The page you’re looking for doesn’t exist.</p>
       <p>
-        This page has floated away on a cloud of kanna. Head back to the
-        <a href="/">home page</a> or browse the <a href="/herb-index">herb index</a>
-        to continue your exploration.
+        Head back <a href="/">home</a> or visit the <a href="/blog">blog</a> to continue
+        exploring.
       </p>
     </main>
-    <footer>
-      <nav>
-        <a href="/#/about">About</a> ·
-        <a href="/#/disclaimer">Disclaimer</a> ·
-        <a href="/#/privacy-policy">Privacy</a> ·
-        <a href="/#/contact">Contact</a> ·
-        <a href="/#/blog/">Blog</a> ·
-        <a href="/#/herb-index">Herb Index</a>
-      </nav>
-      <small>© 2025 The Hippie Scientist</small>
-    </footer>
   </body>
 </html>
