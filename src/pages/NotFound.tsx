@@ -102,7 +102,7 @@ export default function NotFound() {
           <Link className='mr-4 underline' to='/herbs'>
             Browse database
           </Link>
-          <Link className='mr-4 underline' to='/blog'>
+          <Link className='mr-4 underline' to='/blog/'>
             Read the blog
           </Link>
           <Link className='underline' to='/'>

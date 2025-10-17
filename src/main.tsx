@@ -1,36 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import App from './App';
-import ErrorBoundary from './components/ErrorBoundary';
-import { TrippyProvider } from '@/lib/trippy';
-import { initConsentDefault } from './lib/consent';
-import { loadAnalytics, onConsentChange } from './lib/loadAnalytics';
-import { unregisterServiceWorkers } from './sw-unregister';
-import './index.css';
-import './styles/clamp.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
+import App from './App'
+import ErrorBoundary from './components/ErrorBoundary'
+import { TrippyProvider } from '@/lib/trippy'
+import { initConsentDefault } from './lib/consent'
+import { loadAnalytics, onConsentChange } from './lib/loadAnalytics'
+import { unregisterServiceWorkers } from './sw-unregister'
+import './index.css'
+import './styles/clamp.css'
 
-unregisterServiceWorkers();
+unregisterServiceWorkers()
 
-initConsentDefault();
-loadAnalytics();
+initConsentDefault()
+loadAnalytics()
 
 window.addEventListener('storage', (event: StorageEvent) => {
-  if (event.key === 'consent.v1') onConsentChange();
-});
+  if (event.key === 'consent.v1') onConsentChange()
+})
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <HelmetProvider>
       <ErrorBoundary>
-        {/* HashRouter prevents 404 on refresh by using URL hash for routing */}
-        <HashRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <TrippyProvider>
             <App />
           </TrippyProvider>
-        </HashRouter>
+        </BrowserRouter>
       </ErrorBoundary>
     </HelmetProvider>
   </React.StrictMode>
-);
+)

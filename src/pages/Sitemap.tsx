@@ -55,7 +55,7 @@ export default function Sitemap() {
               </Link>
             </li>
             <li>
-              <Link className='underline' to='/blog'>
+              <Link className='underline' to='/blog/'>
                 Blog
               </Link>
             </li>
@@ -88,7 +88,7 @@ export default function Sitemap() {
             <ul className='list-inside list-disc space-y-1 text-white/70'>
               {blogPosts.map((p, i) => (
                 <li key={i}>
-                  <Link className='underline' to={`/blog/${p.slug}`}>
+                  <Link className='underline' to={`/blog/${p.slug}/`}>
                     {p.title}
                   </Link>
                 </li>
