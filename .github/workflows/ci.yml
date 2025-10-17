@@ -26,7 +26,7 @@ jobs:
             npm install
           fi
 
-      - name: Run prebuild
+      - name: Run site prebuild
         run: npm run prebuild
 
       - name: Run lint
