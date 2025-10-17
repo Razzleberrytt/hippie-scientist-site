@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { motion, useReducedMotion } from 'framer-motion'
 import { cleanIntensity, titleCase } from '../lib/text'
 import type { Herb } from '../types'
-import { toHash } from '../lib/routing'
+import { normalizeHref } from '../lib/routing'
 import { getCommonName } from '../lib/herbName'
 
 function toArray(value: unknown): string[] {
@@ -225,7 +225,7 @@ export default function DatabaseHerbCard({
             {open ? 'Show less' : 'Show more'}
           </button>
           <a
-            href={toHash(detailPath)}
+            href={normalizeHref(detailPath)}
             className='inline-flex items-center gap-2 rounded-2xl bg-emerald-500/85 px-4 py-2 text-sm font-semibold text-black shadow-lg shadow-emerald-900/30 transition hover:bg-emerald-400/90'
           >
             View details
