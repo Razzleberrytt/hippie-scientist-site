@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://thehippiescientist.net/sitemap.xml
-Sitemap: https://thehippiescientist.net/feed.xml

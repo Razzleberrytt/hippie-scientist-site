@@ -3,14 +3,14 @@ const path = await import("path");
 const SITE = "https://thehippiescientist.net";
 const outDir = process.argv[2] || "public";
 
-let pages = new Set([
+const pages = new Set([
   "/",
-  "/database",
-  "/blog",
+  "/blog/",
   "/about",
-  "/privacy",
+  "/privacy-policy",
   "/disclaimer",
   "/contact",
+  "/herb-index",
 ]);
 
 // Load blog posts if available
@@ -18,7 +18,7 @@ try {
   const idx = JSON.parse(
     await fs.readFile(path.resolve(outDir, "blogdata/index.json"), "utf8"),
   );
-  idx.forEach((p) => pages.add(`/blog/${p.slug}`));
+  idx.forEach((p) => pages.add(`/blog/${p.slug.replace(/#.*$/, "")}/`));
 } catch {}
 
 const now = new Date().toISOString();
