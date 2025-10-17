@@ -1,28 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 export function useIsHome() {
   const [home, setHome] = useState<boolean>(() => {
-    const hash = typeof window !== 'undefined' ? window.location.hash : '';
-    const path = typeof window !== 'undefined' ? window.location.pathname : '/';
-    return hash === '' || hash === '#/' || path === '/';
-  });
+    const path = typeof window !== 'undefined' ? window.location.pathname : '/'
+    return path === '/'
+  })
 
   useEffect(() => {
     const update = () => {
-      const hash = window.location.hash;
-      const path = window.location.pathname;
-      setHome(hash === '' || hash === '#/' || path === '/');
-    };
+      const path = window.location.pathname
+      setHome(path === '/')
+    }
 
-    update();
-    window.addEventListener('hashchange', update);
-    window.addEventListener('popstate', update);
+    update()
+    window.addEventListener('popstate', update)
 
     return () => {
-      window.removeEventListener('hashchange', update);
-      window.removeEventListener('popstate', update);
-    };
-  }, []);
+      window.removeEventListener('popstate', update)
+    }
+  }, [])
 
-  return home;
+  return home
 }
