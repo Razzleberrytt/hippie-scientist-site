@@ -77,20 +77,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </head>
   <body>
     <script>
-      ;(function (l) {
-        var redirectUrl =
-          l.protocol +
-          '//' +
-          l.hostname +
-          (l.port ? ':' + l.port : '') +
-          '/?/' +
-          l.pathname
-            .slice(1)
-            .replace(/&/g, '~and~') +
-          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-          l.hash
-        l.replace(redirectUrl)
-      })(window.location)
+      (function () {
+        var l = window.location
+        var dest = '/#' + l.pathname + l.search + l.hash
+        if (!l.pathname.startsWith('/index.html')) l.replace(dest)
+      })()
     </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9MGMJZS"
@@ -106,12 +97,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </main>
     <footer>
       <nav>
-        <a href="/about">About</a> ·
-        <a href="/disclaimer">Disclaimer</a> ·
-        <a href="/privacy-policy">Privacy</a> ·
-        <a href="/contact">Contact</a> ·
-        <a href="/blog/">Blog</a> ·
-        <a href="/herb-index">Herb Index</a>
+        <a href="/#/about">About</a> ·
+        <a href="/#/disclaimer">Disclaimer</a> ·
+        <a href="/#/privacy-policy">Privacy</a> ·
+        <a href="/#/contact">Contact</a> ·
+        <a href="/#/blog/">Blog</a> ·
+        <a href="/#/herb-index">Herb Index</a>
       </nav>
       <small>© 2025 The Hippie Scientist</small>
     </footer>
