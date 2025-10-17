@@ -16,6 +16,7 @@ const ROOT = process.cwd();
 const BLOG_SRC = path.join(ROOT, "content", "blog");
 const OUT = path.join(ROOT, "public", "blogdata");
 const POSTS_OUT = path.join(OUT, "posts");
+const BLOG_HTML_OUT = path.join(ROOT, "public", "blog");
 const DATA_OUT = path.join(ROOT, "src", "data", "blog", "posts.json");
 const PUBLIC_POSTS = path.join(ROOT, "public", "blog", "posts.json");
 
@@ -35,6 +36,52 @@ function statISO(p) {
     }
   } catch {}
   return iso(Date.now()) ?? new Date().toISOString().slice(0, 10);
+}
+
+function escapeAttr(value) {
+  if (value === undefined || value === null) return "";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function buildHtmlDocument({ title, description, slug, body, ogImage }) {
+  const canonical = `https://thehippiescientist.net/blog/${slug}/`;
+  const fallbackDescription = description || "";
+  const fallbackImage = ogImage || "/og-default.jpg";
+  const pageTitle = `${title} — The Hippie Scientist`;
+  const indentedBody = body
+    .split("\n")
+    .map((line) => (line ? `      ${line}` : ""))
+    .join("\n");
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>${escapeAttr(pageTitle)}</title>
+    <meta name="description" content="${escapeAttr(fallbackDescription)}" />
+    <link rel="canonical" href="${escapeAttr(canonical)}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="${escapeAttr(title)}" />
+    <meta property="og:description" content="${escapeAttr(fallbackDescription)}" />
+    <meta property="og:url" content="${escapeAttr(canonical)}" />
+    <meta property="og:image" content="${escapeAttr(fallbackImage)}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeAttr(title)}" />
+    <meta name="twitter:description" content="${escapeAttr(fallbackDescription)}" />
+    <meta name="twitter:image" content="${escapeAttr(fallbackImage)}" />
+  </head>
+  <body>
+    <main id="blog-post">
+${indentedBody}
+    </main>
+  </body>
+</html>
+`;
 }
 
 /**
@@ -80,25 +127,41 @@ for (const file of files) {
   if (data?.draft) continue;
   const html = marked.parse(content);
   const firstParagraph = content.split(/\n\s*\n/).find(Boolean) || content;
-  const excerpt = firstParagraph.replace(/\n+/g, " ").slice(0, 220);
+  const excerpt = firstParagraph.replace(/\n+/g, " ").trim().slice(0, 220);
   const words = content.trim().split(/\s+/).length;
   const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
   const created = getCreatedDate(filePath, data?.date);
   const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
   const summary = data.summary || data.description || excerpt;
   const cover = data.cover || data.hero || null;
+  const title = data.title || slug;
+  const description = data.description || excerpt;
+  const ogImage = data.ogImage || cover || null;
 
   fs.writeFileSync(path.join(POSTS_OUT, `${slug}.html`), html, "utf-8");
 
+  const postDir = path.join(BLOG_HTML_OUT, slug);
+  fs.rmSync(postDir, { recursive: true, force: true });
+  fs.mkdirSync(postDir, { recursive: true });
+  const fullHtml = buildHtmlDocument({
+    title,
+    description,
+    slug,
+    body: html,
+    ogImage,
+  });
+  fs.writeFileSync(path.join(postDir, "index.html"), fullHtml, "utf-8");
+
   rows.push({
     slug,
-    title: data.title || slug,
+    title,
     date: created,
-    description: data.description || excerpt,
+    description,
     summary,
     tags,
     readingTime,
     cover: cover || undefined,
+    ogImage: ogImage || undefined,
   });
 }
 
@@ -115,6 +178,7 @@ const metadata = rows.map((row) => ({
   tags: row.tags,
   readingTime: row.readingTime,
   cover: row.cover,
+  ogImage: row.ogImage,
 }));
 
 fs.mkdirSync(path.dirname(DATA_OUT), { recursive: true });
@@ -123,4 +187,6 @@ fs.writeFileSync(DATA_OUT, JSON.stringify(metadata, null, 2), "utf-8");
 fs.mkdirSync(path.dirname(PUBLIC_POSTS), { recursive: true });
 fs.writeFileSync(PUBLIC_POSTS, JSON.stringify(metadata, null, 2), "utf-8");
 
-console.log(`Built ${rows.length} posts → /public/blogdata`);
+console.log(
+  `Built ${rows.length} posts → /public/blogdata & /public/blog/{slug}/index.html`
+);
