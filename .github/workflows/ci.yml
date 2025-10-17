@@ -34,3 +34,6 @@ jobs:
 
       - name: Run build
         run: npm run build --if-present
+
+      - name: Verify built links
+        run: node tools/check-links.mjs
