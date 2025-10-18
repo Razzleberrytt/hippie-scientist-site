@@ -6,18 +6,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const outDir = process.argv[2] ? path.resolve(process.argv[2]) : path.resolve(__dirname, "..", "dist");
-const site = process.env.SITE_BASE_URL || "https://thehippiescientist.net";
+const site = "https://thehippiescientist.net";
 
-const staticPaths = ["/", "/blog/", "/about", "/privacy-policy", "/disclaimer", "/contact", "/herb-index"];
+const staticPaths = [
+  "/",
+  "/blog/",
+  "/about",
+  "/privacy-policy",
+  "/disclaimer",
+  "/contact",
+  "/herb-index",
+];
 
-function url(loc) {
+function urlEntry(loc) {
   const lastmod = new Date().toISOString();
   return `<url><loc>${site}${loc}</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>`;
 }
 
 function toSlugPath(slug) {
   slug = String(slug || "").replace(/^\/+|\/+$/g, "");
-  return `/blog/${slug}/`;
+  return slug ? `/blog/${slug}/` : null;
 }
 
 function readPosts() {
@@ -33,9 +41,16 @@ function readPosts() {
 }
 
 function buildXml() {
-  const posts = readPosts();
-  const postUrls = posts.map(p => url(toSlugPath(p.slug)));
-  const baseUrls = staticPaths.map(url);
+  const baseUrls = staticPaths.map(urlEntry);
+  const postUrls = [];
+  const seen = new Set();
+  for (const post of readPosts()) {
+    const loc = toSlugPath(post.slug);
+    if (loc && !seen.has(loc)) {
+      seen.add(loc);
+      postUrls.push(urlEntry(loc));
+    }
+  }
   const body = [...baseUrls, ...postUrls].join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
 }

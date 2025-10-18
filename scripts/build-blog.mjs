@@ -83,6 +83,93 @@ ${indentedBody}
 `;
 }
 
+function ensureCanonical(html, slug) {
+  const cleanSlug = String(slug || "").replace(/^\/+|\/+$/g, "");
+  if (!cleanSlug) return html;
+  const canonicalHref = `https://thehippiescientist.net/blog/${cleanSlug}/`;
+  const canonicalTag = `<link rel="canonical" href="${escapeAttr(canonicalHref)}">`;
+  const canonicalRe = /<link[^>]+rel=["']canonical["'][^>]*>/i;
+
+  if (canonicalRe.test(html)) {
+    return html.replace(canonicalRe, canonicalTag);
+  }
+
+  if (/<\/head>/i.test(html)) {
+    return html.replace(/<\/head>/i, `    ${canonicalTag}\n  </head>`);
+  }
+
+  return `${canonicalTag}\n${html}`;
+}
+
+function upsertHeadTag(html, testRe, tag) {
+  if (testRe.test(html)) {
+    return html.replace(testRe, tag);
+  }
+  if (/<\/head>/i.test(html)) {
+    return html.replace(/<\/head>/i, `    ${tag}\n  </head>`);
+  }
+  return `${tag}\n${html}`;
+}
+
+function ensureSocialMeta(html, { slug, ogImage }) {
+  const cleanSlug = String(slug || "").replace(/^\/+|\/+$/g, "");
+  const canonicalHref = cleanSlug ? `https://thehippiescientist.net/blog/${cleanSlug}/` : "https://thehippiescientist.net/";
+  const image = ogImage || "/og-default.jpg";
+
+  const entries = [
+    {
+      regex: /<meta[^>]+property=["']og:type["'][^>]*>/i,
+      tag: '<meta property="og:type" content="article" />',
+    },
+    {
+      regex: /<meta[^>]+property=["']og:url["'][^>]*>/i,
+      tag: `<meta property="og:url" content="${escapeAttr(canonicalHref)}" />`,
+    },
+    {
+      regex: /<meta[^>]+property=["']og:image["'][^>]*>/i,
+      tag: `<meta property="og:image" content="${escapeAttr(image)}" />`,
+    },
+    {
+      regex: /<meta[^>]+name=["']twitter:card["'][^>]*>/i,
+      tag: '<meta name="twitter:card" content="summary_large_image" />',
+    },
+    {
+      regex: /<meta[^>]+name=["']twitter:image["'][^>]*>/i,
+      tag: `<meta name="twitter:image" content="${escapeAttr(image)}" />`,
+    },
+  ];
+
+  let next = html;
+  for (const { regex, tag } of entries) {
+    next = upsertHeadTag(next, regex, tag);
+  }
+  return next;
+}
+
+function ensureTitleAndDescription(html, { title, description }) {
+  const pageTitle = title ? `${title} — The Hippie Scientist` : "The Hippie Scientist";
+  const fallbackDescription = description || "";
+  const titleTag = `<title>${escapeAttr(pageTitle)}</title>`;
+  const titleRe = /<title>.*?<\/title>/i;
+
+  let next = html;
+  if (titleRe.test(next)) {
+    next = next.replace(titleRe, titleTag);
+  } else if (/<\/head>/i.test(next)) {
+    next = next.replace(/<\/head>/i, `    ${titleTag}\n  </head>`);
+  } else {
+    next = `${titleTag}\n${next}`;
+  }
+
+  next = upsertHeadTag(
+    next,
+    /<meta[^>]+name=["']description["'][^>]*>/i,
+    `<meta name="description" content="${escapeAttr(fallbackDescription)}" />`,
+  );
+
+  return next;
+}
+
 /**
  * Resolve the post's creation date with this precedence:
  * 1) front-matter 'date'
@@ -160,10 +247,9 @@ for (const file of files) {
   });
 
   const slug = String(post.slug || "").replace(/^\/+|\/+$/g, "");
-  const canonical = `<link rel="canonical" href="https://thehippiescientist.net/blog/${slug}/">`;
-  if (/<\/head>/i.test(html) && !/rel=["']canonical["']/i.test(html)) {
-    html = html.replace(/<\/head>/i, `${canonical}\n</head>`);
-  }
+  html = ensureCanonical(html, slug);
+  html = ensureSocialMeta(html, { slug, ogImage });
+  html = ensureTitleAndDescription(html, { title: post.title, description: post.description });
 
   const outDir = path.resolve("public", "blog", slug);
   const outFile = path.join(outDir, "index.html");
