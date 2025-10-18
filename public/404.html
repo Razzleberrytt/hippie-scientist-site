@@ -1,8 +1,20 @@
-<!doctype html><meta charset="utf-8">
-<script>
-  (function () {
-    var p = location.pathname + location.search + location.hash;
-    location.replace("/#" + p.replace(/^\//, ""));
-  })();
-</script>
-<p>Not found. <a href="/">Go home</a>.</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content="0;url='/'">
+    <script>
+      // Single Page Apps for GitHub Pages — https://github.com/rafgraph/spa-github-pages
+      // pathSegmentsToKeep = 0 for a custom domain at the site root
+      var pathSegmentsToKeep = 0;
+      var l = window.location;
+      var path = l.pathname.split('/').slice(1 + pathSegmentsToKeep).join('/');
+      var search = l.search.slice(1).replace(/&/g, '~and~');
+      var url = l.protocol + '//' + l.host + (l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/')) +
+        '/?/' + path + (search ? '&' + search : '') + l.hash;
+      l.replace(url);
+    </script>
+  </head>
+  <body>Redirecting…</body>
+</html>
