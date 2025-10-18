@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build && npm run verify:redirects"
+  command = "npm ci && npm run prebuild && npm run build && npm run verify:redirects"
   publish = "dist"
 
 [[headers]]
@@ -7,3 +7,4 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
