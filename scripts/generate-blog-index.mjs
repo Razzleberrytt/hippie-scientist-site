@@ -37,6 +37,19 @@ async function run() {
     return `<li><a href="${esc(url)}">${esc(p.title || slug)}</a> ${date}${desc}</li>`;
   }).join("\n");
 
+  const nav = `
+  <footer>
+    <nav>
+      <a href="/">Home</a> ·
+      <a href="/blog">Blog</a> ·
+      <a href="/about">About</a> ·
+      <a href="/privacy-policy">Privacy</a> ·
+      <a href="/disclaimer">Disclaimer</a> ·
+      <a href="/contact">Contact</a> ·
+      <a href="/herb-index">Herb Index</a>
+    </nav>
+  </footer>`;
+
   const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -53,12 +66,15 @@ async function run() {
     a { text-decoration: none; }
     a:hover { text-decoration: underline; }
     .desc { opacity: .8; }
+    footer { margin-top: 2rem; font-size: .9rem; }
+    footer nav a { color: inherit; }
   </style>
 </head>
 <body>
   <h1>Blog</h1>
   <ul>${items}</ul>
   <p><a href="/">← Back to home</a></p>
+${nav}
 </body>
 </html>`;
 
