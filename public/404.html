@@ -1,8 +1,6 @@
 <!doctype html><meta charset="utf-8">
+<title>Redirecting…</title>
 <script>
-  (function () {
-    var p = location.pathname + location.search + location.hash;
-    location.replace("/#" + p.replace(/^\//, ""));
-  })();
+  sessionStorage.redirect = location.pathname + location.search + location.hash;
+  location.replace("/");
 </script>
-<p>Not found. <a href="/">Go home</a>.</p>
