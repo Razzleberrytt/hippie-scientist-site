@@ -41,6 +41,13 @@
     <meta name="twitter:url" content="https://thehippiescientist.net/" />
     <link rel="canonical" href="https://thehippiescientist.net/" />
     <title>The Hippie Scientist | Psychedelic Botany Insights</title>
+    <script>
+      if (sessionStorage.redirect) {
+        const url = sessionStorage.redirect;
+        sessionStorage.removeItem("redirect");
+        history.replaceState(null, "", url);
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

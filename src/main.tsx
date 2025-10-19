@@ -1,35 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
-import App from './App'
-import ErrorBoundary from './components/ErrorBoundary'
-import { TrippyProvider } from '@/lib/trippy'
-import { initConsentDefault } from './lib/consent'
-import { loadAnalytics, onConsentChange } from './lib/loadAnalytics'
-import { unregisterServiceWorkers } from './sw-unregister'
-import './index.css'
-import './styles/clamp.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import "./index.css";
 
-unregisterServiceWorkers()
-
-initConsentDefault()
-loadAnalytics()
-
-window.addEventListener('storage', (event: StorageEvent) => {
-  if (event.key === 'consent.v1') onConsentChange()
-})
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <ErrorBoundary>
-        <BrowserRouter>
-          <TrippyProvider>
-            <App />
-          </TrippyProvider>
-        </BrowserRouter>
-      </ErrorBoundary>
-    </HelmetProvider>
-  </React.StrictMode>
-)
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>
+);
