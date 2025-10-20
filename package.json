@@ -50,7 +50,7 @@
     "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint --fix"
   },
   "engines": {
-    "node": ">=20.19.0 <21"
+    "node": ">=20 <21"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
