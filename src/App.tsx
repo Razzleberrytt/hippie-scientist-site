@@ -24,6 +24,7 @@ import AppToaster from './components/ui/Toaster'
 import ConsentBanner from './components/ConsentBanner'
 import AmbientCursor from './components/AmbientCursor'
 import SiteLayout from '@/components/SiteLayout'
+import NavBar from './components/NavBar'
 import BlogList from './pages/BlogList'
 import BlogPost from './pages/BlogPost'
 import GraphPage from './pages/Graph'
@@ -38,7 +39,8 @@ export default function App() {
   return (
     <div id='app-root'>
       <SiteLayout>
-        <div className='relative z-10'>
+        <NavBar />
+        <div className='relative z-10 flex-1'>
           <RedirectHandler />
           {level !== 'off' && <AmbientCursor />}
           <Routes>
@@ -85,7 +87,7 @@ function RootLayout() {
 
   return (
     <div className='relative flex min-h-screen flex-col'>
-      <main id='App_main' className='main relative z-10 flex-1'>
+      <main id='main' className='main relative z-10 flex-1'>
         <AnimatePresence mode='wait'>
           <motion.div
             key={location.pathname}
