@@ -1,136 +1,84 @@
-# The Hippie Scientist
+# SnipeBT Trading Bot
 
-this shit is always broke. This project is a Vite + React + TypeScript site exploring herbal and psychedelic education. It uses Tailwind CSS for styling and framer-motion for animations.
+SnipeBT is a modular Solana trading bot focused on rapid liquidity events. Phase 1 introduces a clean project layout,
+centralised configuration and a Telegram alert subsystem that can be shared across strategies.
 
-Recent updates introduced an expanded Learn section, a dedicated About page and a placeholder Store for future merchandise. The navigation bar was rebuilt for better responsiveness and easier access to these pages.
+## Prerequisites
 
-## Quickstart
+- Node.js 20.x
+- npm 9+
+- A Solana RPC endpoint (devnet or mainnet)
+- Optional: Telegram bot + chat/channel to receive alerts
 
-### Dry-run simulation
-
-1. Copy the sample environment file and fill in the required values:
-   ```bash
-   cp .env.example .env
-   ```
-2. Leave trading-specific variables (such as RPC endpoints or API keys) empty or pointed at public devnet resources to ensure no live execution occurs.
-3. Launch the project locally in dry-run mode to verify configuration and UI flows:
-   ```bash
-   npm run dev
-   ```
-
-### Live-ready configuration
-
-1. Populate `.env` with production-ready values (RPC endpoints, Telegram credentials, risk caps, etc.).
-2. Review risk, safety and alert modules before enabling live execution.
-3. Build and deploy the application or service with your preferred target (VPS, serverless host, etc.).
-
-## Environment setup
-
-Create a `.env` file (see `.env.example`) and provide values for the following variables:
-
-- `RPC_URL` – primary Solana RPC endpoint used for on-chain reads.
-- `BACKUP_RPC_URL` – fallback RPC endpoint for resiliency.
-- `TELEGRAM_BOT_TOKEN` – bot token generated via @BotFather for alerts.
-- `TELEGRAM_CHAT_ID` – chat or channel ID that should receive alerts.
-- `RUGCHECK_API_KEY` – API token for Rugcheck safety scoring.
-- `RISK_PCT` – default portfolio allocation per trade (decimal form).
-- `STOPLOSS_PCT` – percentage drop that triggers stop-loss checks.
-- `MAX_CONCURRENT` – cap on simultaneously open positions.
-
-## Telegram alerts
-
-Telegram messaging is handled through `src/alerts/telegram.ts`. The module sends trade lifecycle notifications (BUY/SELL/TP/SL) and error reports to the configured chat. If `TELEGRAM_BOT_TOKEN` or `TELEGRAM_CHAT_ID` are missing, the alerts subsystem soft-fails after logging a single warning so local development remains unaffected.
-
-## Development
+## Setup
 
 1. Install dependencies:
    ```bash
    npm install
    ```
-2. Start the development server:
+2. Copy the sample environment file and update values as needed:
    ```bash
-   npm run dev
+   cp .env.example .env
    ```
-   ![Deploy Status](https://github.com/razzleberrytt/hippie-scientist-site/actions/workflows/pages/pages-build-deployment/badge.svg)
+3. Adjust environment variables for your target network and alerting setup (see [Environment variables](#environment-variables)).
+4. Run the bot entrypoint (example using tsx):
+   ```bash
+   npx tsx src/core/bot.ts
+   ```
 
-Additional scripts are available:
+## Environment variables
 
-- `npm run build` – build the site for production
-- `npm run preview` – preview the production build
-- `npm run deploy` – publish the `dist/` folder to GitHub Pages
-- `npm test` – placeholder script
+| Variable                             | Description                                                                |
+| ------------------------------------ | -------------------------------------------------------------------------- |
+| `NODE_ENV`                           | Runtime environment label used for logging context.                        |
+| `BOT_MODE`                           | `dry-run` prevents trade execution, `live` allows execution logic to run.  |
+| `LOG_LEVEL`                          | Global log verbosity (`debug`, `info`, `warn`, `error`).                   |
+| `SOLANA_RPC_URL`                     | Primary Solana RPC endpoint for market + account data.                     |
+| `SOLANA_KEYPAIR_PATH`                | Path to the keypair file used for signing live transactions.               |
+| `SOLANA_COMMITMENT`                  | Commitment level for RPC requests (`processed`, `confirmed`, `finalized`). |
+| `TELEGRAM_BOT_TOKEN`                 | Bot token from @BotFather used for alert delivery.                         |
+| `TELEGRAM_CHAT_ID`                   | Target chat/channel ID that should receive alerts.                         |
+| `DEFAULT_STRATEGY`                   | Strategy name loaded by `Bot.create`. Defaults to `liquiditySniper`.       |
+| `LIQUIDITY_SNIPER_POLL_INTERVAL_MS`  | Polling cadence for the Liquidity Sniper strategy.                         |
+| `LIQUIDITY_SNIPER_MIN_LIQUIDITY_USD` | Minimum liquidity threshold (USD) before acting.                           |
 
-## Folder layout
+> **Soft fail behaviour:** If Telegram credentials are missing, alerts log a warning once and silently return so development work
+> continues without interruption.
 
-Key directories now include:
+## Folder structure
 
 ```
 src/
-  ai/           # advisory-only AI hooks (placeholder for future work)
-  alerts/       # Telegram and other alert transports
-  core/         # engine, portfolio and execution wiring stubs
-  discovery/    # Raydium/Jupiter/Orca discovery adapters
-  risk/         # risk management helpers and session PnL tiers
-  safety/       # rugcheck integrations and allowlists
-  strategies/   # trading strategies (e.g., RSI divergence)
-logs/           # runtime logs and journals (git-ignored)
+  alerts/             # Alert transports (Telegram, future email/webhooks)
+  core/               # Configuration, logging and bot orchestration
+  strategies/         # Base strategy interfaces and concrete strategies
+logs/                  # Runtime logs (add .gitignore/.gitkeep as needed)
 ```
 
-Existing site pages remain under `src/pages`, shared components under `src/components`, and build output continues to emit into `dist/`.
+Additional application code (UI, reporting, etc.) continues to live alongside this layout inside `src/`.
 
-## Features
+## Running modes
 
-- **Database** – interactive herbal index with tag filtering
-- **Learn** – animated lessons with curated resources
-- **Blog** – markdown-style posts served from the `posts` data file
-- **Community & Safety** – guidelines for responsible exploration
-- **Store** – upcoming merch and digital resources
-- **Theming** – light/dark modes persisted with local storage
-- **Bookmarks** – save favorite blog posts for later
+- **Dry-run (`BOT_MODE=dry-run`)** – default. Strategies execute discovery logic but skip any trade execution routines. Use this for
+  local testing and validation without risking funds.
+- **Live (`BOT_MODE=live`)** – enables live execution paths. Ensure `SOLANA_RPC_URL`, wallet credentials and alert channels are fully
+  configured before switching to this mode.
 
-## Educational Resources
+## Logging & alerts
 
-This repository includes a variety of learning materials:
+- Logging is handled by `src/core/logger.ts`. Set `LOG_LEVEL` to control verbosity.
+- Configuration is centralised in `src/core/config.ts`, which also normalises numeric values and updates the logger level.
+- Telegram helpers (`src/alerts/telegram.ts`) provide `sendTradeAlert` and `sendErrorAlert` helpers that other modules can re-use
+  without worrying about configuration checks.
 
-- Over twenty short articles in `src/data/posts.ts` on topics like neuroscience, cultural traditions and field research.
-- A detailed herb database in `src/data/herbs/herbsData.ts` with pharmacology notes and images.
-- Modular lessons and tutorials on the Learn page (`src/pages/Learn.tsx`).
+## Strategies
 
-## Potential Upgrades
+- `src/strategies/baseStrategy.ts` defines the base lifecycle (`initialize`, `start`, `stop`) along with the shared context passed to
+  strategies.
+- `src/strategies/liquiditySniper.ts` is the example implementation. It performs a stubbed liquidity scan loop using the configured
+  polling interval and can be extended with real execution logic.
 
-- Add search and tag filters for blog posts.
-- Allow users to bookmark herbs or lessons. _(Posts can already be bookmarked)_
-- Integrate interactive quizzes from the Learn section.
-- Enable offline access via a service worker.
-- Expand the store with downloadable resources.
+## Next steps
 
-## Contributing
-
-Pull requests and issue reports are welcome. Please open an issue first if you would like to discuss a major change.
-
-### Data maintenance
-
-- Refresh + validate dataset locally: `npm run data:refresh`
-- Refresh + validate + build: `npm run data:refresh+build`
-
-### Merging a patched dataset
-
-- Download JSON from /data-report (Quick-Fill): `herbs_patched.json`
-- Merge + validate:
-
-  ```bash
-  npm run data:merge -- herbs_patched.json
-  npm run data:refresh
-  ```
-
-- One-liner (merge → convert/autofill/validate/audit):
-
-  ```bash
-  npm run data:merge+refresh -- herbs_patched.json
-  ```
-
-- Full rebuild after merge:
-
-  ```bash
-  npm run data:merge+build -- herbs_patched.json
-  ```
+Future phases will add richer Solana execution clients, deeper strategy implementations, automated risk controls and enhanced alert
+channels.
