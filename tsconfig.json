@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "ES2017",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2017", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "node",
     "jsx": "react-jsx",
@@ -18,8 +14,10 @@
       "@/*": ["*"]
     }
   },
-  "include": [
-    "src",
-    "public/blogdata/index.json"
-  ]
+  "include": ["src", "public/blogdata/index.json"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }
