@@ -1,85 +1,99 @@
-# The Hippie Scientist
+# SnipeBT — Solana Liquidity Sniper Bot
 
-this shit is always broke. This project is a Vite + React + TypeScript site exploring herbal and psychedelic education. It uses Tailwind CSS for styling and framer-motion for animations.
-
-Recent updates introduced an expanded Learn section, a dedicated About page and a placeholder Store for future merchandise. The navigation bar was rebuilt for better responsiveness and easier access to these pages.
-
-## Development
-
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
-   ![Deploy Status](https://github.com/razzleberrytt/hippie-scientist-site/actions/workflows/pages/pages-build-deployment/badge.svg)
-
-Additional scripts are available:
-
-- `npm run build` – build the site for production
-- `npm run preview` – preview the production build
-- `npm run deploy` – publish the `dist/` folder to GitHub Pages
-- `npm test` – placeholder script
-
-## Project Structure
-
-Source files live in `src/`. Pages are under `src/pages` and reusable components are in `src/components`. Production assets are generated into `dist/` during the build process.
+`v1-local-sync` merges the locally maintained trading features into the public repo so the bot can run reproducibly on any Node 20 host. The bot is advisory-first (no private keys committed) and focuses on quick liquidity discovery with strict risk controls.
 
 ## Features
 
-- **Database** – interactive herbal index with tag filtering
-- **Learn** – animated lessons with curated resources
-- **Blog** – markdown-style posts served from the `posts` data file
-- **Community & Safety** – guidelines for responsible exploration
-- **Store** – upcoming merch and digital resources
-- **Theming** – light/dark modes persisted with local storage
-- **Bookmarks** – save favorite blog posts for later
+- **Telegram alerts** for buy fills, sell exits, session PnL milestones, and critical errors.
+- **Multi-API discovery** with Raydium → Jupiter → Orca failover so routing stays resilient when a venue is degraded.
+- **Rugcheck safety gate** that blocks entry when a token scores poorly or is explicitly flagged.
+- **Accurate entry tracking** with weighted-average fills to avoid drift in partial fills.
+- **Session PnL tiers** that roll forward new profit targets once the current tier is cleared.
+- **Multiple strategies** selectable at runtime (momentum, mean reversion, sniper) with optional JSON overrides.
 
-## Educational Resources
+## Project Structure
 
-This repository includes a variety of learning materials:
+```
+├── src
+│   ├── alerts/            # Telegram transport
+│   ├── ai/Advisors/       # Advisory-only AI stubs
+│   ├── config/            # Environment bootstrap
+│   ├── discovery/         # Raydium/Jupiter/Orca discovery failover
+│   ├── risk/              # Position sizing, stop losses, PnL tiers
+│   ├── safety/            # Rugcheck validation
+│   ├── session/           # Trading session orchestration
+│   ├── strategies/        # Strategy implementations
+│   ├── types/             # Shared trading types
+│   └── utils/             # Logging utilities
+├── logs/                  # Session log output (`logs/session.log`)
+├── docs/                  # Architecture and operational docs
+└── .github/workflows/     # Deployment pipeline
+```
 
-- Over twenty short articles in `src/data/posts.ts` on topics like neuroscience, cultural traditions and field research.
-- A detailed herb database in `src/data/herbs/herbsData.ts` with pharmacology notes and images.
-- Modular lessons and tutorials on the Learn page (`src/pages/Learn.tsx`).
+## Environment Variables
 
-## Potential Upgrades
+Create a `.env` file based on `.env.example`.
 
-- Add search and tag filters for blog posts.
-- Allow users to bookmark herbs or lessons. _(Posts can already be bookmarked)_
-- Integrate interactive quizzes from the Learn section.
-- Enable offline access via a service worker.
-- Expand the store with downloadable resources.
+| Variable                | Description                                                               |
+| ----------------------- | ------------------------------------------------------------------------- |
+| `RPC_ENDPOINT`          | Solana RPC URL used for account reads (default mainnet-beta).             |
+| `WS_ENDPOINT`           | Optional Solana websocket URL.                                            |
+| `KEYPAIR_PATH`          | Local filesystem path to the bot operator keypair.                        |
+| `TELEGRAM_BOT_TOKEN`    | Bot token used to send Telegram alerts.                                   |
+| `TELEGRAM_CHAT_ID`      | Chat or channel ID that receives Telegram alerts.                         |
+| `RAYDIUM_API_URL`       | Raydium discovery endpoint (defaults to public API).                      |
+| `JUPITER_API_URL`       | Jupiter quote API base URL.                                               |
+| `ORCA_API_URL`          | Orca quote API base URL.                                                  |
+| `RUGCHECK_API_URL`      | Rugcheck validation API.                                                  |
+| `SESSION_TARGET_PCT`    | Percent PnL to reach before the first session tier completes (default 5). |
+| `SESSION_TIER_PCT`      | Percent increment to add after each tier completion (default 5).          |
+| `ACCOUNT_RISK_PCT`      | Percent of account allocated per trade (default 3).                       |
+| `STOPLOSS_PCT`          | Stop loss percentage applied to entries (default 20).                     |
+| `MAX_CONCURRENT_TRADES` | Maximum open trades (default 5).                                          |
+| `STRATEGIES`            | Comma-separated strategies to enable by default.                          |
+| `LOG_FILE`              | Optional override path for the rolling session log.                       |
 
-## Contributing
+## CLI Usage
 
-Pull requests and issue reports are welcome. Please open an issue first if you would like to discuss a major change.
+Install dependencies with `npm ci` and then run the CLI with `ts-node`:
 
-### Data maintenance
+```bash
+npx ts-node src/main.ts --help
+```
 
-- Refresh + validate dataset locally: `npm run data:refresh`
-- Refresh + validate + build: `npm run data:refresh+build`
+Common invocations:
 
-### Merging a patched dataset
+```bash
+# Run with defaults using SOL/USDC pair
+npx ts-node src/main.ts
 
-- Download JSON from /data-report (Quick-Fill): `herbs_patched.json`
-- Merge + validate:
+# Override strategies and account balance
+npx ts-node src/main.ts --strategies momentum,meanReversion --balance 2500
 
-  ```bash
-  npm run data:merge -- herbs_patched.json
-  npm run data:refresh
-  ```
+# Supply inline strategy configs (JSON string)
+npx ts-node src/main.ts --config '[{"name":"momentum","minConfidence":0.65,"allocationPct":12}]'
+```
 
-- One-liner (merge → convert/autofill/validate/audit):
+The CLI loads `.env` automatically, requests liquidity quotes, validates via Rugcheck, and only then evaluates the active strategies. Alerts are emitted for each material event.
 
-  ```bash
-  npm run data:merge+refresh -- herbs_patched.json
-  ```
+## Development
 
-- Full rebuild after merge:
+```bash
+npm ci
+npx ts-node src/main.ts --help
+```
 
-  ```bash
-  npm run data:merge+build -- herbs_patched.json
-  ```
+The Node runtime must be v20.x. No private keys are stored in this repository—configure them locally via `.env`.
+
+## Deployment
+
+A minimal deployment target is provided via PM2 and GitHub Actions:
+
+- `npm run start:pm2` (see `package.json`) starts the bot under PM2 using the compiled TypeScript entry.
+- `.github/workflows/deploy.yml` ships the project to a remote server over SSH after pushes to `main`.
+
+Ensure the remote host has Node 20, PM2, and a populated `.env` file before enabling the workflow.
+
+## Documentation
+
+Supplemental notes live under `docs/`. Start with [`docs/trading-session.md`](docs/trading-session.md) for an overview of the runtime flow.
