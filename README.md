@@ -4,6 +4,43 @@ this shit is always broke. This project is a Vite + React + TypeScript site expl
 
 Recent updates introduced an expanded Learn section, a dedicated About page and a placeholder Store for future merchandise. The navigation bar was rebuilt for better responsiveness and easier access to these pages.
 
+## Quickstart
+
+### Dry-run simulation
+
+1. Copy the sample environment file and fill in the required values:
+   ```bash
+   cp .env.example .env
+   ```
+2. Leave trading-specific variables (such as RPC endpoints or API keys) empty or pointed at public devnet resources to ensure no live execution occurs.
+3. Launch the project locally in dry-run mode to verify configuration and UI flows:
+   ```bash
+   npm run dev
+   ```
+
+### Live-ready configuration
+
+1. Populate `.env` with production-ready values (RPC endpoints, Telegram credentials, risk caps, etc.).
+2. Review risk, safety and alert modules before enabling live execution.
+3. Build and deploy the application or service with your preferred target (VPS, serverless host, etc.).
+
+## Environment setup
+
+Create a `.env` file (see `.env.example`) and provide values for the following variables:
+
+- `RPC_URL` – primary Solana RPC endpoint used for on-chain reads.
+- `BACKUP_RPC_URL` – fallback RPC endpoint for resiliency.
+- `TELEGRAM_BOT_TOKEN` – bot token generated via @BotFather for alerts.
+- `TELEGRAM_CHAT_ID` – chat or channel ID that should receive alerts.
+- `RUGCHECK_API_KEY` – API token for Rugcheck safety scoring.
+- `RISK_PCT` – default portfolio allocation per trade (decimal form).
+- `STOPLOSS_PCT` – percentage drop that triggers stop-loss checks.
+- `MAX_CONCURRENT` – cap on simultaneously open positions.
+
+## Telegram alerts
+
+Telegram messaging is handled through `src/alerts/telegram.ts`. The module sends trade lifecycle notifications (BUY/SELL/TP/SL) and error reports to the configured chat. If `TELEGRAM_BOT_TOKEN` or `TELEGRAM_CHAT_ID` are missing, the alerts subsystem soft-fails after logging a single warning so local development remains unaffected.
+
 ## Development
 
 1. Install dependencies:
@@ -23,9 +60,23 @@ Additional scripts are available:
 - `npm run deploy` – publish the `dist/` folder to GitHub Pages
 - `npm test` – placeholder script
 
-## Project Structure
+## Folder layout
 
-Source files live in `src/`. Pages are under `src/pages` and reusable components are in `src/components`. Production assets are generated into `dist/` during the build process.
+Key directories now include:
+
+```
+src/
+  ai/           # advisory-only AI hooks (placeholder for future work)
+  alerts/       # Telegram and other alert transports
+  core/         # engine, portfolio and execution wiring stubs
+  discovery/    # Raydium/Jupiter/Orca discovery adapters
+  risk/         # risk management helpers and session PnL tiers
+  safety/       # rugcheck integrations and allowlists
+  strategies/   # trading strategies (e.g., RSI divergence)
+logs/           # runtime logs and journals (git-ignored)
+```
+
+Existing site pages remain under `src/pages`, shared components under `src/components`, and build output continues to emit into `dist/`.
 
 ## Features
 
