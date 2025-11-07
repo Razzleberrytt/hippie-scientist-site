@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -e
-echo "[tests] Placeholder; wire TestEZ runner when ready."
+echo "[tests] Placeholder (no runtime test harness yet)."
 exit 0

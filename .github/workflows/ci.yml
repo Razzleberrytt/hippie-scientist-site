@@ -30,14 +30,14 @@ jobs:
             echo "wally not found via aftman; ensure aftman.toml pins wally." && exit 1
           fi
 
-      - name: Lint & Format (non-blocking for now)
+      - name: Lint & Format (BLOCKING)
         run: |
-          if command -v stylua >/dev/null; then stylua --check . || true; fi
-          if command -v selene >/dev/null; then selene . || true; fi
+          if command -v stylua >/dev/null; then stylua --check .; fi
+          if command -v selene >/dev/null; then selene .; fi
 
-      - name: Run tests (best-effort)
+      - name: Run tests (placeholder)
         run: |
-          bash scripts/run-tests.sh || true
+          bash scripts/run-tests.sh
 
       - name: Build rbxm
         run: |
