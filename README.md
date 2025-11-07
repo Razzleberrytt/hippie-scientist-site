@@ -1,6 +1,13 @@
 # Survive 99: Evolved
 
 [![CI](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/ci.yml/badge.svg)](../../actions)
+**Phase 2**: admin gating, centralized telemetry, server currency, stricter lint.
+
+- Docs: [Playtest](docs/PLAYTEST.md) • [Release](docs/RELEASE.md)
+
+# Survive 99: Evolved
+
+[![CI](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/ci.yml/badge.svg)](../../actions)
 A Rojo/Wally Roblox project for a survive-the-night co-op experience with live-ops toggles and soft-launch discipline.
 
 - **Docs:** [Playtest](docs/PLAYTEST.md) • [Release](docs/RELEASE.md)
