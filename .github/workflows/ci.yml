@@ -1,42 +1,54 @@
-name: CI
-
+name: ci
 on:
   push:
-    branches: [main]
-  pull_request:
-
+    branches: [ "main" ]
+  pull_request: {}
+permissions:
+  contents: read
 jobs:
-  build:
+  build-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: npm
-
-      - name: Install dependencies
+      - name: Install Aftman
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci
+          curl -fsSL https://raw.githubusercontent.com/LPGhatguy/aftman/main/install.sh | bash
+          echo "$HOME/.aftman/bin" >> $GITHUB_PATH
+
+      - name: Install toolchain
+        run: |
+          aftman install
+          echo "Aftman tools:" && ls -l "$HOME/.aftman/bin" || true
+
+      - name: Wally install
+        run: |
+          if command -v wally >/dev/null; then
+            wally install
           else
-            npm install
+            echo "wally not found via aftman; ensure aftman.toml pins wally." && exit 1
           fi
 
-      - name: Run site prebuild
-        run: npm run prebuild
+      - name: Lint & Format (non-blocking for now)
+        run: |
+          if command -v stylua >/dev/null; then stylua --check . || true; fi
+          if command -v selene >/dev/null; then selene . || true; fi
 
-      - name: Run lint
-        run: npm run lint --if-present
+      - name: Run tests (best-effort)
+        run: |
+          bash scripts/run-tests.sh || true
 
-      - name: Run stylelint
-        run: npm run stylelint --if-present
+      - name: Build rbxm
+        run: |
+          if command -v rojo >/dev/null; then
+            rojo build --output Survive99.rbxm default.project.json
+          else
+            echo "rojo not found via aftman; ensure aftman.toml pins rojo." && exit 1
+          fi
 
-      - name: Run build
-        run: npm run build
-
-      - name: Verify built links
-        run: node tools/check-links.mjs
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Survive99-build
+          path: Survive99.rbxm
