@@ -1,6 +1,13 @@
 # Survive 99: Evolved
 
 [![CI](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/ci.yml/badge.svg)](../../actions)
+**Phase 5**: mobile big-tap + low-flash preset, FPS auto-fallback, and FOV guard.
+
+- Docs: [Mobile](docs/MOBILE.md) • [Fairness](docs/FAIRNESS.md) • [Playtest](docs/PLAYTEST.md)
+
+# Survive 99: Evolved
+
+[![CI](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/ci.yml/badge.svg)](../../actions)
 **Phase 3**: server policy/age gating, UI purchase guard, policy-aware ProcessReceipt, `/policycheck`, and `/navpreset base-safe`.
 
 - Docs: [Playtest](docs/PLAYTEST.md) • [Release](docs/RELEASE.md)
