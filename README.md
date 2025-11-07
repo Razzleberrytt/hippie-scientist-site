@@ -1,6 +1,13 @@
 # Survive 99: Evolved
 
 [![CI](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/ci.yml/badge.svg)](../../actions)
+**Phase 3**: server policy/age gating, UI purchase guard, policy-aware ProcessReceipt, `/policycheck`, and `/navpreset base-safe`.
+
+- Docs: [Playtest](docs/PLAYTEST.md) • [Release](docs/RELEASE.md)
+
+# Survive 99: Evolved
+
+[![CI](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/ci.yml/badge.svg)](../../actions)
 **Phase 2**: admin gating, centralized telemetry, server currency, stricter lint.
 
 - Docs: [Playtest](docs/PLAYTEST.md) • [Release](docs/RELEASE.md)
