@@ -1,4 +1,11 @@
-import { createLogger, LogLevel, normalizeLogLevel, setLogLevel } from './logger'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+
+import { Keypair } from '@solana/web3.js'
+
+import { loadEnv } from '../config/env.schema.ts'
+import { initializeRpc, setRpcEndpoint } from './rpc.ts'
+import { createLogger, LogLevel, normalizeLogLevel, setLogLevel } from './logger.ts'
 
 export type BotMode = 'dry-run' | 'live'
 
@@ -12,6 +19,7 @@ export interface SolanaConfig {
   rpcUrl?: string
   keypairPath?: string
   commitment: string
+  walletPublicKey?: string
 }
 
 export interface LiquiditySniperConfig {
@@ -24,6 +32,19 @@ export interface StrategyConfig {
   liquiditySniper: LiquiditySniperConfig
 }
 
+export interface RiskConfig {
+  allowMints: string[]
+  denyMints: string[]
+  minLiquidityUsd: number
+  maxOpenPositions: number
+  maxTradesPerMinute: number
+  baseInputMint: string
+}
+
+export interface AlertConfig {
+  lowBalanceLamports: number
+}
+
 export interface BotConfig {
   environment: string
   mode: BotMode
@@ -32,24 +53,36 @@ export interface BotConfig {
   solana: SolanaConfig
   telegram: TelegramConfig
   strategy: StrategyConfig
+  risk: RiskConfig
+  alerts: AlertConfig
 }
 
 const logger = createLogger('Config')
 
 let cachedConfig: BotConfig | null = null
 
-function parseNumber(value: string | undefined, fallback: number): number {
-  if (!value) {
-    return fallback
+function deriveWalletPublicKey(
+  explicitPubkey: string | undefined,
+  keypairPath: string | undefined
+): string | undefined {
+  if (explicitPubkey) {
+    return explicitPubkey
   }
 
-  const parsed = Number(value)
-  if (Number.isFinite(parsed) && parsed > 0) {
-    return parsed
+  if (!keypairPath) {
+    return undefined
   }
 
-  logger.warn(`Invalid numeric value received: ${value}. Falling back to ${fallback}.`)
-  return fallback
+  try {
+    const resolvedPath = resolve(keypairPath)
+    const contents = readFileSync(resolvedPath, 'utf-8')
+    const secret = JSON.parse(contents) as number[]
+    const keypair = Keypair.fromSecretKey(Uint8Array.from(secret))
+    return keypair.publicKey.toBase58()
+  } catch (error) {
+    logger.warn('Unable to derive wallet public key from keypair path.', error)
+    return undefined
+  }
 }
 
 export function getConfig(): BotConfig {
@@ -57,25 +90,36 @@ export function getConfig(): BotConfig {
     return cachedConfig
   }
 
-  const environment = process.env.NODE_ENV ?? 'development'
-  const logLevel = normalizeLogLevel(process.env.LOG_LEVEL)
+  const env = loadEnv()
+  const environment = env.NODE_ENV
+  const logLevel = normalizeLogLevel(env.LOG_LEVEL)
   setLogLevel(logLevel)
 
-  const mode: BotMode = process.env.BOT_MODE?.toLowerCase() === 'live' ? 'live' : 'dry-run'
+  const mode: BotMode = env.BOT_MODE === 'live' ? 'live' : 'dry-run'
   const dryRun = mode !== 'live'
 
+  initializeRpc(env.RPC_PRIMARY ?? env.SOLANA_RPC_URL, env.RPC_FALLBACKS)
+
+  const rpcUrl = env.SOLANA_RPC_URL ?? env.RPC_PRIMARY
+  if (rpcUrl) {
+    setRpcEndpoint(rpcUrl, false)
+  }
+
   const solana: SolanaConfig = {
-    rpcUrl: process.env.SOLANA_RPC_URL ?? process.env.RPC_URL,
-    keypairPath: process.env.SOLANA_KEYPAIR_PATH ?? process.env.KEYPAIR_PATH,
-    commitment: process.env.SOLANA_COMMITMENT ?? 'confirmed',
+    rpcUrl,
+    keypairPath: env.SOLANA_KEYPAIR_PATH,
+    commitment: env.SOLANA_COMMITMENT,
+    walletPublicKey: deriveWalletPublicKey(env.SOLANA_WALLET_PUBKEY, env.SOLANA_KEYPAIR_PATH),
   }
 
   if (!solana.rpcUrl) {
-    logger.warn('SOLANA_RPC_URL is not set. Network calls will fail until it is configured.')
+    logger.warn(
+      'SOLANA_RPC_URL or RPC_PRIMARY is not set. Network calls will fail until configured.'
+    )
   }
 
-  const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN?.trim()
-  const telegramChatId = process.env.TELEGRAM_CHAT_ID?.trim()
+  const telegramBotToken = env.TELEGRAM_BOT_TOKEN?.trim()
+  const telegramChatId = env.TELEGRAM_CHAT_ID?.trim()
 
   const telegram: TelegramConfig = {
     botToken: telegramBotToken,
@@ -84,13 +128,26 @@ export function getConfig(): BotConfig {
   }
 
   const liquiditySniper: LiquiditySniperConfig = {
-    pollIntervalMs: parseNumber(process.env.LIQUIDITY_SNIPER_POLL_INTERVAL_MS, 5000),
-    minLiquidityUsd: parseNumber(process.env.LIQUIDITY_SNIPER_MIN_LIQUIDITY_USD, 10000),
+    pollIntervalMs: env.LIQUIDITY_SNIPER_POLL_INTERVAL_MS,
+    minLiquidityUsd: env.LIQUIDITY_SNIPER_MIN_LIQUIDITY_USD,
   }
 
   const strategy: StrategyConfig = {
-    default: process.env.DEFAULT_STRATEGY ?? 'liquiditySniper',
+    default: env.DEFAULT_STRATEGY,
     liquiditySniper,
+  }
+
+  const risk: RiskConfig = {
+    allowMints: env.ALLOW_MINTS,
+    denyMints: env.DENY_MINTS,
+    minLiquidityUsd: env.MIN_LIQ_USD,
+    maxOpenPositions: env.MAX_OPEN_POSITIONS,
+    maxTradesPerMinute: env.MAX_TRADES_PER_MIN,
+    baseInputMint: env.BASE_INPUT_MINT,
+  }
+
+  const alerts: AlertConfig = {
+    lowBalanceLamports: env.ALERT_LOW_BALANCE_LAMPORTS,
   }
 
   cachedConfig = {
@@ -101,6 +158,8 @@ export function getConfig(): BotConfig {
     solana,
     telegram,
     strategy,
+    risk,
+    alerts,
   }
 
   return cachedConfig
