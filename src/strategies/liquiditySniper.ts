@@ -1,4 +1,4 @@
-import { BaseStrategy, StrategyContext } from './baseStrategy'
+import { BaseStrategy, StrategyContext } from './baseStrategy.ts'
 
 export class LiquiditySniperStrategy extends BaseStrategy {
   private pollingHandle: NodeJS.Timeout | null = null
