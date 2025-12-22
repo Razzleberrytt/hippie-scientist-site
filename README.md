@@ -110,3 +110,16 @@ Additional application code (UI, reporting, etc.) continues to live alongside th
 
 Future phases will add richer Solana execution clients, deeper strategy implementations, automated risk controls and enhanced alert
 channels.
+
+## Phase 2 usage
+
+- **Run the metrics server + collector:**
+  1. Build the bot: `npm run build`
+  2. Provide collector env vars (`COLLECTOR_IN`, `COLLECTOR_OUT`, `COLLECTOR_AMT`, optional `COLLECTOR_MS`).
+  3. Start in dry-run mode: `npm run start:dry`
+- **Record quotes without trades:** the collector stores quote telemetry in SQLite (or the JSON fallback) every interval so dashboards can be built offline later.
+- **Try the naive live loop:**
+  1. Ensure `DRY_RUN=false` and populate the `NAIVE_*` variables with a funded wallet + mint pair.
+  2. Build (`npm run build`) and launch: `npm run start:live`
+  3. The loop requests a Jupiter quote, builds the swap transaction, and attempts to submit/signal confirmations.
+- **Reminder:** live execution requires a funded Solana wallet capable of signing Jupiter v6 swap transactions. Keep DRY-RUN as the default unless you understand the risks.

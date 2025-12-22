@@ -1,0 +1,4 @@
+- Replace naive loop with event-driven strategy and real wallet signing.
+- Secrets provider: load wallet private key and sign transactions properly.
+- Rich risk heuristics + deny/allow lists.
+- More robust circuit breaker + telemetry for RPC failover.
