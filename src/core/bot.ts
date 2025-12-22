@@ -1,8 +1,8 @@
-import { getConfig } from './config'
-import { createLogger } from './logger'
-import { sendErrorAlert, sendTradeAlert } from '../alerts'
-import { BaseStrategy, StrategyContext } from '../strategies/baseStrategy'
-import { liquiditySniperStrategy } from '../strategies/liquiditySniper'
+import { getConfig } from './config.ts'
+import { createLogger } from './logger.ts'
+import { sendErrorAlert, sendTradeAlert } from '../alerts/index.ts'
+import { BaseStrategy, StrategyContext } from '../strategies/baseStrategy.ts'
+import { liquiditySniperStrategy } from '../strategies/liquiditySniper.ts'
 
 export type StrategyRegistry = Record<string, BaseStrategy>
 

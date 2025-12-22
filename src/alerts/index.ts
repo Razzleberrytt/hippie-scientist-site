@@ -1,1 +1,1 @@
-export { sendTradeAlert, sendErrorAlert } from './telegram'
+export { sendTradeAlert, sendErrorAlert } from './telegram.ts'
