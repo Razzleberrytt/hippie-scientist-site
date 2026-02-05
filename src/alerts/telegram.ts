@@ -1,5 +1,5 @@
-import { getConfig } from '../core/config'
-import { createLogger } from '../core/logger'
+import { getConfig } from '../core/config.ts'
+import { createLogger } from '../core/logger.ts'
 
 const logger = createLogger('TelegramAlerts')
 

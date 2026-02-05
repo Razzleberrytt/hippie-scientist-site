@@ -1,5 +1,5 @@
-import type { BotConfig } from '../core/config'
-import type { Logger } from '../core/logger'
+import type { BotConfig } from '../core/config.ts'
+import type { Logger } from '../core/logger.ts'
 
 export interface StrategyContext {
   config: BotConfig
