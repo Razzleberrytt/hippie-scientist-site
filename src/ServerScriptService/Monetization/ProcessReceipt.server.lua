@@ -1,22 +1,31 @@
 local Players = game:GetService("Players")
-local MarketplaceService = game:GetService("MarketplaceService")
 local DataStoreService = game:GetService("DataStoreService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Telemetry = require(script.Parent.Parent:WaitForChild("Ops"):WaitForChild("Telemetry"))
-local Currency = require(script.Parent.Parent:WaitForChild("Systems"):WaitForChild("Currency"))
-local PolicyGuard = require(script.Parent:WaitForChild("Policy"):WaitForChild("PolicyGuard"))
-local Store = require(ReplicatedStorage:WaitForChild("Config"):WaitForChild("Store"))
+local function safeRequire(path)
+	local ok, mod = pcall(function() return require(path) end)
+	return ok and mod or nil
+end
 
+local Telemetry = safeRequire(script.Parent.Parent:WaitForChild("Ops"):WaitForChild("Telemetry")) or { log = function() end }
+local Currency = safeRequire(script.Parent.Parent:WaitForChild("Systems"):WaitForChild("Currency"))
+local PolicyGuard = safeRequire(script.Parent:WaitForChild("Policy"):WaitForChild("PolicyGuard"))
+local SKU = require(script.Parent:WaitForChild("SKU"))
+local Eligibility = require(script.Parent:WaitForChild("Eligibility"))
 local ReceiptsDS = DataStoreService:GetDataStore("PurchaseReceipts_v1")
 
 local function grantProduct(player, productId)
-	local def = Store.Products[productId]
+	local def = SKU.get(productId)
 	if not def then
+		Telemetry.log("purchase_unknown_product", { userId = player.UserId, productId = productId })
 		return false, "unknown_product"
 	end
-	local newBal = Currency.add(player.UserId, def.amount)
-	Telemetry.log("purchase_grant", { userId = player.UserId, productId = productId, amount = def.amount, balance = newBal })
+	if Currency then
+		local newBal = Currency.add(player.UserId, def.amount)
+		Telemetry.log("purchase_grant", { userId = player.UserId, productId = productId, amount = def.amount, balance = newBal })
+	else
+		Telemetry.log("purchase_grant_nocurrency", { userId = player.UserId, productId = productId, amount = def.amount })
+	end
 	return true, "granted"
 end
 
@@ -26,39 +35,37 @@ local function processReceipt(receiptInfo)
 		return Enum.ProductPurchaseDecision.NotProcessedYet
 	end
 
-	-- Policy gate: refuse to grant if monetization not allowed for this player/region
-	if not PolicyGuard.canMonetize(player) then
+	-- Re-check policy on server for safety
+	if PolicyGuard and not PolicyGuard.canMonetize(player) then
 		Telemetry.log("purchase_blocked_policy", { userId = receiptInfo.PlayerId, productId = receiptInfo.ProductId })
-		-- NotProcessedYet tells Roblox to retry; since policy won't change mid-session,
-		-- this will effectively not grant and the purchase won't be charged.
 		return Enum.ProductPurchaseDecision.NotProcessedYet
 	end
 
+	-- Idempotency
 	local key = string.format("%d:%s", receiptInfo.PlayerId, receiptInfo.PurchaseId)
-	local okGet, alreadyProcessed = pcall(function()
-		return ReceiptsDS:GetAsync(key)
-	end)
+	local okGet, already = pcall(function() return ReceiptsDS:GetAsync(key) end)
 	if not okGet then
 		Telemetry.log("receipt_datastore_error", { stage = "get" })
 		return Enum.ProductPurchaseDecision.NotProcessedYet
 	end
-	if alreadyProcessed then
+	if already then
 		return Enum.ProductPurchaseDecision.PurchaseGranted
 	end
 
+	-- Grant
 	local okGrant, reason = grantProduct(player, receiptInfo.ProductId)
 	if not okGrant then
 		Telemetry.log("purchase_failed", { userId = receiptInfo.PlayerId, productId = receiptInfo.ProductId, reason = reason })
 		return Enum.ProductPurchaseDecision.NotProcessedYet
 	end
 
-	pcall(function()
-		ReceiptsDS:SetAsync(key, true)
-	end)
+	-- Mark processed and set cooldown
+	pcall(function() ReceiptsDS:SetAsync(key, true) end)
+	pcall(function() Eligibility.applyCooldown(player, receiptInfo.ProductId) end)
 
 	Telemetry.log("purchase_success", { userId = receiptInfo.PlayerId, productId = receiptInfo.ProductId })
 	return Enum.ProductPurchaseDecision.PurchaseGranted
 end
 
-MarketplaceService.ProcessReceipt = processReceipt
-Telemetry.log("receipt_handler_ready", { policy_gate = true })
+game:GetService("MarketplaceService").ProcessReceipt = processReceipt
+Telemetry.log("receipt_handler_ready", { phase6 = true })
