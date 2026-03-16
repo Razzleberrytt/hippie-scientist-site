@@ -5,11 +5,12 @@ on:
     - cron: "35 11 * * *"
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,17 +18,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
+          cache: npm
 
       - name: Install
         run: npm ci
 
-      - name: Generate today’s post
+      - name: Generate today's post
         run: npm run blog:daily
 
-      - name: Commit & push if changed
+      - name: Sync blog outputs
+        run: npm run sync:blog
+
+      - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git diff --quiet && echo "No changes" || (git commit -m "chore(blog): daily post $(date -u +'%Y-%m-%d')" && git push)
+          git add content/blog public/blog public/blogdata public/sitemap.xml
+          git diff --cached --quiet && echo "No changes" || (git commit -m "chore(blog): daily post $(date -u +'%Y-%m-%d')" && git push)
