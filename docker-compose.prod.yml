@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  bot:
+    build: .
+    command: npm run start:live
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '5'
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
