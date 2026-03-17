@@ -16,12 +16,12 @@ export default function ConsentBanner() {
   const dnt = getSystemNoTracking()
 
   return (
-    <div className='fixed inset-x-0 bottom-0 z-50 p-2 sm:p-3'>
-      <div className='mx-auto max-w-3xl rounded-xl border border-white/10 bg-black/75 p-3 text-xs text-white/85 backdrop-blur md:text-sm'>
-        <div className='flex flex-col gap-2.5 sm:gap-2 md:flex-row md:items-center md:justify-between md:gap-3'>
-          <div className='space-y-0.5'>
-            <strong className='font-semibold'>Privacy &amp; cookies</strong>
-            <p className='leading-relaxed text-white/70'>
+    <div className='fixed inset-x-0 bottom-0 z-50 p-1.5 sm:p-2'>
+      <div className='mx-auto max-w-3xl rounded-xl border border-white/10 bg-black/75 px-3 py-2 text-[11px] text-white/85 backdrop-blur sm:text-xs'>
+        <div className='flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between sm:gap-2'>
+          <div className='space-y-0'>
+            <strong className='font-semibold leading-tight'>Privacy &amp; cookies</strong>
+            <p className='leading-snug text-white/70'>
               We use privacy-friendly analytics to understand site usage. No personal data unless
               you opt in. Read our{' '}
               <Link className='underline' to='/privacy'>
@@ -35,9 +35,9 @@ export default function ConsentBanner() {
               )}
             </p>
           </div>
-          <div className='flex shrink-0 items-center gap-1.5 sm:gap-2'>
+          <div className='flex shrink-0 items-center gap-1.5'>
             <button
-              className='rounded-lg border border-white/15 bg-white/5 px-2.5 py-1.5 text-xs hover:bg-white/10 sm:px-3'
+              className='min-h-9 rounded-lg border border-white/15 bg-white/5 px-2.5 py-1 text-xs hover:bg-white/10'
               onClick={() => {
                 setConsent('denied')
                 setShow(false)
@@ -46,7 +46,7 @@ export default function ConsentBanner() {
               Decline
             </button>
             <button
-              className='rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/30 to-cyan-400/20 px-2.5 py-1.5 text-xs font-medium text-lime-200 hover:from-lime-400/40 hover:to-cyan-400/30 sm:px-3'
+              className='min-h-9 rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/30 to-cyan-400/20 px-2.5 py-1 text-xs font-medium text-lime-200 hover:from-lime-400/40 hover:to-cyan-400/30'
               onClick={() => {
                 setConsent('granted')
                 setShow(false)
