@@ -17,29 +17,21 @@ export default function ConsentBanner() {
 
   return (
     <div className='fixed inset-x-0 bottom-0 z-50 p-1 sm:p-1.5'>
-      <div className='mx-auto max-w-3xl rounded-xl border border-white/10 bg-black/65 px-2.5 py-1.5 text-[10px] text-white/80 backdrop-blur-md sm:text-[11px]'>
-        <div className='flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-1.5'>
-          <div className='space-y-0'>
-            <strong className='font-semibold leading-tight text-white/90'>
-              Privacy &amp; cookies
-            </strong>
-            <p className='leading-snug text-white/65'>
-              We use privacy-friendly analytics to understand site usage. No personal data unless
-              you opt in. Read our{' '}
-              <Link className='underline' to='/privacy'>
-                Privacy Policy
-              </Link>
-              .
-              {dnt && (
-                <span className='ml-1 text-amber-300'>
-                  Do Not Track / GPC detected. Tracking stays off by default.
-                </span>
-              )}
-            </p>
-          </div>
-          <div className='flex shrink-0 items-center gap-1'>
+      <div className='mx-auto max-w-3xl rounded-lg border border-white/10 bg-black/50 px-3 py-2 text-xs text-white/80 backdrop-blur-sm'>
+        <div className='flex items-center justify-between gap-2'>
+          <p className='min-w-0 truncate leading-tight text-white/75'>
+            We use privacy-friendly analytics.{' '}
+            <Link className='underline' to='/privacy'>
+              Privacy
+            </Link>
+            .
+            {dnt && (
+              <span className='ml-1 text-amber-300'>DNT/GPC detected: tracking stays off.</span>
+            )}
+          </p>
+          <div className='flex shrink-0 items-center gap-2'>
             <button
-              className='rounded-lg border border-white/15 bg-white/5 px-2 py-1 text-[11px] transition-all duration-200 hover:scale-[1.01] hover:bg-white/10 active:scale-[0.98]'
+              className='text-[11px] text-white/60 underline underline-offset-2 transition-colors hover:text-white/80'
               onClick={() => {
                 setConsent('denied')
                 setShow(false)
@@ -48,7 +40,7 @@ export default function ConsentBanner() {
               Decline
             </button>
             <button
-              className='rounded-lg border border-lime-300/20 bg-gradient-to-r from-lime-400/25 to-cyan-400/15 px-2 py-1 text-[11px] font-medium text-lime-200 transition-all duration-200 hover:scale-[1.01] hover:from-lime-400/35 hover:to-cyan-400/25 active:scale-[0.98]'
+              className='rounded-md border border-lime-300/20 bg-gradient-to-r from-lime-400/25 to-cyan-400/15 px-2 py-1 text-[11px] font-medium text-lime-200 transition-all duration-200 hover:from-lime-400/35 hover:to-cyan-400/25'
               onClick={() => {
                 setConsent('granted')
                 setShow(false)
