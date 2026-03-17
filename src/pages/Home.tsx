@@ -7,6 +7,11 @@ import { loadSiteCounts, siteStats } from '@/lib/stats'
 export default function Home() {
   const [counts, setCounts] = useState(siteStats)
 
+  // eslint-disable-next-line no-console
+  console.log('App mounted')
+  // eslint-disable-next-line no-console
+  console.log('Rendering homepage')
+
   useEffect(() => {
     let alive = true
     loadSiteCounts()
