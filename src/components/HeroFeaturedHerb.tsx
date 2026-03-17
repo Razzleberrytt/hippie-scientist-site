@@ -57,7 +57,7 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
     >
       <motion.article
         whileHover={{ scale: 1.02 }}
-        className='soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'
+        className='soft-border-glow relative overflow-hidden rounded-2xl border border-white/20 p-4 text-center text-white shadow-lg backdrop-blur-lg'
       >
         <div
           className={`pointer-events-none absolute inset-0 -z-10 opacity-70 blur-2xl ${accentGradient}`}
@@ -89,7 +89,7 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
         <motion.div whileTap={{ scale: 0.95 }}>
           <Link
             to={`/herb/${herb.slug || herb.id || slugify(herbName(herb))}`}
-            className='hover-glow text-sand mt-3 inline-block rounded-md bg-black/30 px-4 py-2 backdrop-blur-md hover:bg-black/40'
+            className='hover-glow text-sand mt-3 inline-block rounded-md bg-black/30 px-4 py-2 backdrop-blur-md transition-all duration-200 hover:scale-[1.02] hover:bg-black/40 active:scale-[0.98]'
           >
             More Info
           </Link>

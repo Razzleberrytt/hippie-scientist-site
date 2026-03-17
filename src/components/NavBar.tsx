@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-const linkBase = 'rounded-xl transition-colors'
-const linkDim = 'text-white/80 hover:text-white hover:bg-white/10'
-const linkSolid = 'bg-white/10 hover:bg-white/20 text-white'
+const linkBase = 'rounded-xl transition-all duration-200'
+const linkDim = 'text-white/75 hover:text-white hover:bg-white/10'
+const linkSolid =
+  'bg-white/8 text-white/90 hover:scale-[1.01] hover:bg-white/14 active:scale-[0.98]'
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -48,26 +49,22 @@ export default function NavBar() {
             </NavLink>
           </div>
         </div>
-
-        <div className='flex gap-2 pb-2 md:hidden'>
-          <NavLink
-            to='/herbs'
-            className={`${linkBase} ${linkSolid} flex-1 px-3 py-2 text-center text-sm`}
-            onClick={() => setMenuOpen(false)}
-          >
-            Browse Herbs
-          </NavLink>
-          <NavLink
-            to='/blend'
-            className={`${linkBase} ${linkSolid} flex-1 px-3 py-2 text-center text-sm`}
-            onClick={() => setMenuOpen(false)}
-          >
-            Build a Blend
-          </NavLink>
-        </div>
-
         {menuOpen && (
           <div className='grid gap-1.5 pb-2 md:hidden'>
+            <NavLink
+              to='/herbs'
+              className={`${linkBase} ${linkSolid} min-h-11 px-3 py-2 text-sm`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Browse Herbs
+            </NavLink>
+            <NavLink
+              to='/blend'
+              className={`${linkBase} ${linkSolid} min-h-11 px-3 py-2 text-sm`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Build a Blend
+            </NavLink>
             <NavLink
               to='/compounds'
               className={`${linkBase} ${linkDim} min-h-11 px-3 py-2 text-sm`}
