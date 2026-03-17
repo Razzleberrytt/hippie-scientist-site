@@ -1,38 +1,96 @@
+import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-const linkBase = 'px-3 py-1.5 rounded-xl transition-colors'
+const linkBase = 'rounded-xl transition-colors'
 const linkDim = 'text-white/80 hover:text-white hover:bg-white/10'
 const linkSolid = 'bg-white/10 hover:bg-white/20 text-white'
 
 export default function NavBar() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <header className='sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40'>
       <nav className='mx-auto max-w-7xl px-4 sm:px-6'>
-        <div className='flex flex-wrap items-center gap-x-4 gap-y-2 py-2 md:flex-nowrap md:justify-between'>
+        <div className='flex items-center justify-between py-2.5'>
           <Link
             to='/'
             className='shrink-0 text-base font-bold tracking-tight sm:text-lg md:text-xl'
+            onClick={() => setMenuOpen(false)}
           >
             The Hippie Scientist
           </Link>
-          <div className='flex min-w-0 flex-1 flex-wrap items-center justify-start gap-1.5 sm:gap-2 md:justify-end'>
-            <NavLink to='/herbs' className={`${linkBase} ${linkSolid} text-xs sm:text-sm`}>
+
+          <button
+            type='button'
+            className='inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-sm text-white/90 hover:bg-white/10 md:hidden'
+            aria-label='Toggle navigation menu'
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(open => !open)}
+          >
+            Menu
+          </button>
+
+          <div className='hidden min-w-0 flex-1 items-center justify-end gap-2 md:flex'>
+            <NavLink to='/herbs' className={`${linkBase} ${linkSolid} px-3 py-1.5 text-sm`}>
               Browse Herbs
             </NavLink>
-            <NavLink to='/blend' className={`${linkBase} ${linkSolid} text-xs sm:text-sm`}>
+            <NavLink to='/blend' className={`${linkBase} ${linkSolid} px-3 py-1.5 text-sm`}>
               Build a Blend
             </NavLink>
-            <NavLink to='/compounds' className={`${linkBase} ${linkDim} text-xs sm:text-sm`}>
+            <NavLink to='/compounds' className={`${linkBase} ${linkDim} px-3 py-1.5 text-sm`}>
               Compounds
             </NavLink>
-            <NavLink to='/blog' className={`${linkBase} ${linkDim} text-xs sm:text-sm`}>
+            <NavLink to='/blog' className={`${linkBase} ${linkDim} px-3 py-1.5 text-sm`}>
               Blog
             </NavLink>
-            <NavLink to='/about' className={`${linkBase} ${linkDim} text-xs sm:text-sm`}>
+            <NavLink to='/about' className={`${linkBase} ${linkDim} px-3 py-1.5 text-sm`}>
               About
             </NavLink>
           </div>
         </div>
+
+        <div className='flex gap-2 pb-2 md:hidden'>
+          <NavLink
+            to='/herbs'
+            className={`${linkBase} ${linkSolid} flex-1 px-3 py-2 text-center text-sm`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Browse Herbs
+          </NavLink>
+          <NavLink
+            to='/blend'
+            className={`${linkBase} ${linkSolid} flex-1 px-3 py-2 text-center text-sm`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Build a Blend
+          </NavLink>
+        </div>
+
+        {menuOpen && (
+          <div className='grid gap-1.5 pb-2 md:hidden'>
+            <NavLink
+              to='/compounds'
+              className={`${linkBase} ${linkDim} min-h-11 px-3 py-2 text-sm`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Compounds
+            </NavLink>
+            <NavLink
+              to='/blog'
+              className={`${linkBase} ${linkDim} min-h-11 px-3 py-2 text-sm`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Blog
+            </NavLink>
+            <NavLink
+              to='/about'
+              className={`${linkBase} ${linkDim} min-h-11 px-3 py-2 text-sm`}
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </NavLink>
+          </div>
+        )}
       </nav>
     </header>
   )
