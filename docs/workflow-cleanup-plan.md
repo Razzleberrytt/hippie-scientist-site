@@ -127,3 +127,31 @@ To keep maintenance low while preserving core automation:
 
 - Environment warning only: local runner is Node `v22`, while `package.json` engine is `>=20 <21`; workflows already pin Node 20, so deploy path is aligned.
 - Non-blocking build warnings remain (large chunk size and Browserslist data age), but they do not prevent deployment.
+
+## Runtime blank-screen diagnosis and fix (GitHub Pages)
+
+### Root cause
+
+- App routing in `src/main.tsx` used `BrowserRouter`.
+- On GitHub Pages, direct navigation/reloads on client routes (for example `/blog`, `/herbs`) are not backed by server-side route handling.
+- Result: runtime navigation could resolve to an unexpected document path and produce a blank-page symptom in production.
+
+### Minimal fix applied
+
+1. `src/main.tsx`
+   - Switched `BrowserRouter` → `HashRouter` for static hosting compatibility on GitHub Pages.
+   - No route structure changes were made in `src/App.tsx`.
+
+2. Verified `vite.config.ts`
+   - `base: '/'` is already explicit and correct for custom-domain root deployment.
+
+3. Fetch/path check
+   - Runtime data fetches in app code continue to resolve under site root (`/data`, `/blogdata`) and remain valid with hash-based routing (hash fragment is client-only and not sent in HTTP requests).
+
+### Verification completed
+
+- `npm ci`
+- `npm run lint`
+- `npm test`
+- `npm run build`
+- Confirmed `dist/index.html` emits root-relative built asset URLs and correct script/css references.
