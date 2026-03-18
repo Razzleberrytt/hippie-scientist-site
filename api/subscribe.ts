@@ -50,9 +50,9 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   try {
     const sendResult = await resend.emails.send({
       from: SENDER_EMAIL,
-      to: [email],
+      to: 'razzleberryt@gmail.com',
       subject: 'New Hippie Scientist signup',
-      text: `New signup email: ${email}`,
+      html: `<p>New signup: ${email}</p>`,
     })
 
     console.log('[api/subscribe] resend send result:', sendResult)
