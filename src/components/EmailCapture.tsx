@@ -1,5 +1,24 @@
 import { FormEvent, useState } from 'react'
 
+const EMAIL_STORAGE_KEY = 'hs_email_list'
+
+export const getStoredEmails = (): string[] => {
+  const storedEmails = localStorage.getItem(EMAIL_STORAGE_KEY)
+
+  if (!storedEmails) {
+    return []
+  }
+
+  try {
+    const parsedEmails = JSON.parse(storedEmails)
+    return Array.isArray(parsedEmails)
+      ? parsedEmails.filter((item): item is string => typeof item === 'string')
+      : []
+  } catch {
+    return []
+  }
+}
+
 export default function EmailCapture() {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -10,14 +29,26 @@ export default function EmailCapture() {
 
     setSuccess(false)
 
-    if (!email.includes('@')) {
+    const normalizedEmail = email.trim().toLowerCase()
+
+    if (!normalizedEmail.includes('@')) {
       setError('Please enter a valid email address.')
       return
     }
 
     setError('')
     // eslint-disable-next-line no-console
-    console.log('Email capture submit:', email.trim())
+    console.log('Email capture submit:', normalizedEmail)
+
+    const emailList = getStoredEmails()
+
+    if (!emailList.includes(normalizedEmail)) {
+      emailList.push(normalizedEmail)
+      localStorage.setItem(EMAIL_STORAGE_KEY, JSON.stringify(emailList))
+    }
+
+    // eslint-disable-next-line no-console
+    console.log('Stored emails:', emailList)
 
     const guideUrl = '/blend-guide.txt'
     const guideLink = document.createElement('a')
