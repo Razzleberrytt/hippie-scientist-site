@@ -83,8 +83,6 @@ keywords:
   - safety
 ---
 
-import Callout from '../../components/Callout.mdx' /* if not present, plain blockquote is fine */
-
 # ${topic}
 
 **TL;DR** — 2–3 sentences summarizing uses, effects, and key safety note.
