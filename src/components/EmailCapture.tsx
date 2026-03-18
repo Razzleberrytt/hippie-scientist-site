@@ -30,6 +30,26 @@ export default function EmailCapture() {
     setStoredEmailCount(getStoredEmails().length)
   }, [])
 
+  const sendEmailToBackend = async (capturedEmail: string) => {
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: capturedEmail }),
+      })
+
+      if (!response.ok) {
+        // eslint-disable-next-line no-console
+        console.error('Subscribe request failed:', response.status)
+      }
+    } catch (requestError) {
+      // eslint-disable-next-line no-console
+      console.error('Subscribe request error:', requestError)
+    }
+  }
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
@@ -65,6 +85,8 @@ export default function EmailCapture() {
     document.body.appendChild(guideLink)
     guideLink.click()
     document.body.removeChild(guideLink)
+
+    void sendEmailToBackend(normalizedEmail)
 
     setSuccess(true)
     setEmail('')
