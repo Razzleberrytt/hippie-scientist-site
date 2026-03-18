@@ -1,38 +1,41 @@
 # Resend subscribe endpoint setup
 
-This project now includes a minimal serverless endpoint at `/api/subscribe`.
+This project includes a Vercel serverless endpoint at `/api/subscribe`.
 
 ## What it does
 
 - Accepts `POST` requests with JSON body: `{ "email": "you@example.com" }`
-- Validates the email format
-- Sends a notification email through Resend to the site owner
-- Returns an error response if validation fails or the server is not configured
+- Validates email input
+- Sends a confirmation email through Resend
+- Returns a JSON success/error response
 
-## Required environment variables
+## Required environment variables (Vercel)
 
-Set these in your hosting provider (for example, Vercel Project Settings → Environment Variables):
+Set these in **Vercel → Project Settings → Environment Variables**:
 
 - `RESEND_API_KEY` - your Resend API key
-- `RESEND_FROM_EMAIL` - verified sender (for example: `The Hippie Scientist <newsletter@yourdomain.com>`)
-- `RESEND_TO_EMAIL` - destination inbox for captured emails
 
-## Local development
+## API file
 
-Create a local env file for Vercel functions (for example `.env.local`) and add:
+- `api/subscribe.ts` handles the secure backend request.
+- The frontend never receives the Resend key.
+
+## Frontend URL configuration
+
+Set the Vite frontend env var so GitHub Pages can call your Vercel backend:
 
 ```bash
-RESEND_API_KEY=re_xxxxxxxxx
-RESEND_FROM_EMAIL="The Hippie Scientist <newsletter@yourdomain.com>"
-RESEND_TO_EMAIL=owner@yourdomain.com
+VITE_SUBSCRIBE_API_URL=https://your-vercel-project.vercel.app/api/subscribe
 ```
 
-## Frontend behavior
+Then update your GitHub Pages deployment so this variable is available at build time.
 
-`EmailCapture` still:
+## Quick deployment checklist
 
-- Stores emails in `localStorage`
-- Allows CSV export from `localStorage`
-- Downloads `blend-guide.txt`
-
-Additionally, it now sends a non-blocking `POST /api/subscribe` request and logs failures without breaking the UI.
+1. Push this repo to GitHub.
+2. Import the repo into Vercel.
+3. In Vercel, add `RESEND_API_KEY`.
+4. Deploy and copy your production URL (for example `https://your-vercel-project.vercel.app`).
+5. Set `VITE_SUBSCRIBE_API_URL` in your frontend build environment to `https://your-vercel-project.vercel.app/api/subscribe`.
+6. Redeploy the frontend.
+7. Submit a test email and verify a `200` response from the Vercel endpoint.
