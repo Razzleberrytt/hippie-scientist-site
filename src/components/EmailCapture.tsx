@@ -1,4 +1,5 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
+import { exportEmailsToCSV } from '@/utils/exportEmailsToCSV'
 
 const EMAIL_STORAGE_KEY = 'hs_email_list'
 
@@ -23,6 +24,11 @@ export default function EmailCapture() {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
+  const [storedEmailCount, setStoredEmailCount] = useState(0)
+
+  useEffect(() => {
+    setStoredEmailCount(getStoredEmails().length)
+  }, [])
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -45,6 +51,7 @@ export default function EmailCapture() {
     if (!emailList.includes(normalizedEmail)) {
       emailList.push(normalizedEmail)
       localStorage.setItem(EMAIL_STORAGE_KEY, JSON.stringify(emailList))
+      setStoredEmailCount(emailList.length)
     }
 
     // eslint-disable-next-line no-console
@@ -61,6 +68,17 @@ export default function EmailCapture() {
 
     setSuccess(true)
     setEmail('')
+  }
+
+  const handleExportEmails = () => {
+    const didExport = exportEmailsToCSV()
+
+    if (!didExport) {
+      setError('No emails available to export yet.')
+      return
+    }
+
+    setError('')
   }
 
   return (
@@ -106,6 +124,18 @@ export default function EmailCapture() {
               Get the Guide
             </button>
           </form>
+
+          {storedEmailCount > 0 ? (
+            <div className='pt-1'>
+              <button
+                type='button'
+                onClick={handleExportEmails}
+                className='rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-xs font-medium text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40'
+              >
+                Export Emails
+              </button>
+            </div>
+          ) : null}
 
           {error ? <p className='text-xs text-rose-300'>{error}</p> : null}
           {success ? (
