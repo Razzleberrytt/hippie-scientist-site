@@ -2,9 +2,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { exportEmailsToCSV } from '@/utils/exportEmailsToCSV'
 
 const EMAIL_STORAGE_KEY = 'hs_email_list'
-const SUBSCRIBE_API_URL =
-  import.meta.env.VITE_SUBSCRIBE_API_URL ??
-  'https://your-vercel-deployment.vercel.app/api/subscribe'
+const SUBSCRIBE_API_URL = '/api/subscribe'
 
 export const getStoredEmails = (): string[] => {
   const storedEmails = localStorage.getItem(EMAIL_STORAGE_KEY)
@@ -66,8 +64,6 @@ export default function EmailCapture() {
     }
 
     setError('')
-    // eslint-disable-next-line no-console
-    console.log('Email capture submit:', normalizedEmail)
 
     const emailList = getStoredEmails()
 
@@ -76,9 +72,6 @@ export default function EmailCapture() {
       localStorage.setItem(EMAIL_STORAGE_KEY, JSON.stringify(emailList))
       setStoredEmailCount(emailList.length)
     }
-
-    // eslint-disable-next-line no-console
-    console.log('Stored emails:', emailList)
 
     const guideUrl = '/blend-guide.txt'
     const guideLink = document.createElement('a')
