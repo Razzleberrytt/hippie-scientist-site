@@ -91,13 +91,11 @@ cover: "${cover}"
 draft: false
 ---
 
-import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */
-
 # ${title}
 
 _${summary}_
 
-<Callout emoji="🌿">This post is part of our daily field notes series.</Callout>
+> 🌿 This post is part of our daily field notes series.
 
 ## Highlights
 

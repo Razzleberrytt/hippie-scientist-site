@@ -170,6 +170,32 @@ function ensureTitleAndDescription(html, { title, description }) {
   return next;
 }
 
+function stripUnsafeMarkdownSyntax(markdown) {
+  if (!markdown) return "";
+
+  const withoutModuleLines = markdown
+    .split("\n")
+    .filter((line) => {
+      const trimmed = line.trimStart();
+      return !trimmed.startsWith("import ") && !trimmed.startsWith("export ");
+    })
+    .join("\n");
+
+  const withoutJsx = withoutModuleLines
+    .split("\n")
+    .filter((line) => {
+      const trimmed = line.trim();
+      // Remove JSX/component-style tags such as <Callout ...>...</Callout> and </Callout>
+      if (/^<\/?[A-Z][\w.-]*\b/.test(trimmed)) return false;
+      // Remove embedded JS expression lines often used in MDX
+      if (/^\{[\s\S]*\}$/.test(trimmed)) return false;
+      return true;
+    })
+    .join("\n");
+
+  return withoutJsx.replace(/\n{3,}/g, "\n\n").trim();
+}
+
 /**
  * Resolve the post's creation date with this precedence:
  * 1) front-matter 'date'
@@ -211,10 +237,11 @@ for (const file of files) {
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
   if (data?.draft) continue;
-  const postHtml = marked.parse(content);
-  const firstParagraph = content.split(/\n\s*\n/).find(Boolean) || content;
+  const sanitizedMarkdown = stripUnsafeMarkdownSyntax(content);
+  const postHtml = marked.parse(sanitizedMarkdown);
+  const firstParagraph = sanitizedMarkdown.split(/\n\s*\n/).find(Boolean) || sanitizedMarkdown;
   const excerpt = firstParagraph.replace(/\n+/g, " ").trim().slice(0, 220);
-  const words = content.trim().split(/\s+/).length;
+  const words = sanitizedMarkdown.trim() ? sanitizedMarkdown.trim().split(/\s+/).length : 0;
   const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
   const created = getCreatedDate(filePath, data?.date);
   const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
