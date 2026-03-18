@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Meta from '../components/Meta'
-import NewsletterCard from '@/components/NewsletterCard'
+import EmailCapture from '@/components/EmailCapture'
 import Hero from '@/components/Hero'
 import { loadSiteCounts, siteStats } from '@/lib/stats'
 
@@ -39,12 +39,7 @@ export default function Home() {
 
       <Hero counts={counts} />
 
-      <section
-        aria-label='Newsletter signup'
-        className='container mx-auto max-w-screen-md px-4 pb-12'
-      >
-        <NewsletterCard />
-      </section>
+      <EmailCapture />
     </>
   )
 }
