@@ -3,9 +3,12 @@ import { FormEvent, useState } from 'react'
 export default function EmailCapture() {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    setSuccess(false)
 
     if (!email.includes('@')) {
       setError('Please enter a valid email address.')
@@ -15,6 +18,17 @@ export default function EmailCapture() {
     setError('')
     // eslint-disable-next-line no-console
     console.log('Email capture submit:', email.trim())
+
+    const guideUrl = '/blend-guide.txt'
+    const guideLink = document.createElement('a')
+    guideLink.href = guideUrl
+    guideLink.download = 'blend-guide.txt'
+    guideLink.rel = 'noopener noreferrer'
+    document.body.appendChild(guideLink)
+    guideLink.click()
+    document.body.removeChild(guideLink)
+
+    setSuccess(true)
     setEmail('')
   }
 
@@ -63,6 +77,9 @@ export default function EmailCapture() {
           </form>
 
           {error ? <p className='text-xs text-rose-300'>{error}</p> : null}
+          {success ? (
+            <p className='text-xs text-emerald-300 motion-safe:animate-pulse'>Guide downloaded ✓</p>
+          ) : null}
 
           <p className='text-xs text-white/55'>No spam. Unsubscribe anytime.</p>
         </div>
