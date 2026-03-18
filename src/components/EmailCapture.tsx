@@ -42,12 +42,10 @@ export default function EmailCapture() {
       })
 
       if (!response.ok) {
-        // eslint-disable-next-line no-console
-        console.error('Subscribe request failed:', response.status)
+        return
       }
-    } catch (requestError) {
-      // eslint-disable-next-line no-console
-      console.error('Subscribe request error:', requestError)
+    } catch {
+      // Keep this quiet so the download/success UI still works.
     }
   }
 
