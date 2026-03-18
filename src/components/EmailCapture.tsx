@@ -164,7 +164,17 @@ export default function EmailCapture() {
 
           {error ? <p className='text-xs text-rose-300'>{error}</p> : null}
           {success ? (
-            <p className='text-xs text-emerald-300 motion-safe:animate-pulse'>Guide downloaded ✓</p>
+            <div className='shadow-halo mt-1 flex flex-col gap-3 rounded-xl border border-emerald-300/30 bg-emerald-300/10 p-3 sm:flex-row sm:items-center sm:justify-between'>
+              <p className='text-sm text-emerald-200'>
+                Your guide is downloading. Want a personalized blend?
+              </p>
+              <a
+                href='/build'
+                className='inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80 sm:w-auto'
+              >
+                Build Your First Blend
+              </a>
+            </div>
           ) : null}
 
           <p className='text-xs text-white/55'>No spam. Unsubscribe anytime.</p>
