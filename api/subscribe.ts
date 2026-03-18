@@ -19,7 +19,7 @@ type ApiResponse = {
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
-    return res.status(405).json({ error: 'Method not allowed' })
+    return res.status(405).json({ ok: false, error: 'Method not allowed' })
   }
 
   let payload: unknown
@@ -27,8 +27,11 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   try {
     payload = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
   } catch {
-    return res.status(400).json({ error: 'Invalid JSON body' })
+    return res.status(400).json({ ok: false, error: 'Invalid JSON body' })
   }
+
+  console.log('[api/subscribe] incoming request body:', payload)
+
   const email =
     payload &&
     typeof payload === 'object' &&
@@ -37,25 +40,26 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       : ''
 
   if (!EMAIL_REGEX.test(email)) {
-    return res.status(400).json({ error: 'Missing or invalid email' })
+    return res.status(400).json({ ok: false, error: 'Missing or invalid email' })
   }
 
-  const toEmail = process.env.RESEND_TO_EMAIL
-
-  if (!process.env.RESEND_API_KEY || !toEmail) {
-    return res.status(200).json({ success: true })
+  if (!process.env.RESEND_API_KEY) {
+    return res.status(500).json({ ok: false, error: 'Missing RESEND_API_KEY environment variable' })
   }
 
   try {
-    await resend.emails.send({
+    const sendResult = await resend.emails.send({
       from: SENDER_EMAIL,
-      to: [toEmail],
+      to: [email],
       subject: 'New Hippie Scientist signup',
       text: `New signup email: ${email}`,
     })
-  } catch {
-    // Keep this quiet so the frontend success flow still works.
+
+    console.log('[api/subscribe] resend send result:', sendResult)
+  } catch (error) {
+    console.error('[api/subscribe] resend send error:', error)
+    return res.status(500).json({ ok: false, error: 'Failed to send email' })
   }
 
-  return res.status(200).json({ success: true })
+  return res.status(200).json({ ok: true })
 }

@@ -41,9 +41,13 @@ export default function EmailCapture() {
         body: JSON.stringify({ email: capturedEmail }),
       })
 
-      if (!response.ok) {
-        return
-      }
+      const responseBody = await response.json().catch(() => null)
+      // eslint-disable-next-line no-console
+      console.log('[EmailCapture] /api/subscribe response:', {
+        status: response.status,
+        ok: response.ok,
+        body: responseBody,
+      })
     } catch {
       // Keep this quiet so the download/success UI still works.
     }
