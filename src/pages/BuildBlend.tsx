@@ -459,10 +459,27 @@ export default function BuildBlend() {
 
   return (
     <main className='container space-y-6 py-8'>
+      <section className='border-brand-lime/35 bg-panel/95 relative overflow-hidden rounded-2xl border p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.1),0_18px_48px_-22px_rgba(163,230,53,0.7)] sm:p-5'>
+        <div className='from-brand-lime/12 to-brand-lime/8 pointer-events-none absolute inset-0 bg-gradient-to-r via-transparent' />
+        <div className='relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
+          <p className='text-text max-w-2xl text-sm sm:text-base'>
+            Want 5 proven beginner blends ready to go? Skip trial and error.
+          </p>
+          <a
+            href='https://checkout.example.com/starter-pack'
+            target='_blank'
+            rel='noreferrer'
+            className='btn btn-primary w-full justify-center whitespace-nowrap text-sm sm:w-auto'
+          >
+            Get Starter Pack ($7)
+          </a>
+        </div>
+      </section>
+
       <header className='space-y-3'>
-        <p className='text-xs uppercase tracking-[0.3em] text-sub'>Experimental Mixer</p>
+        <p className='text-sub text-xs uppercase tracking-[0.3em]'>Experimental Mixer</p>
         <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>Build a Blend</h1>
-        <p className='max-w-2xl text-sub'>
+        <p className='text-sub max-w-2xl'>
           Curate herbs, adjust their ratios in percentages or grams, and watch potency and mood
           predictions update instantly.
         </p>
@@ -487,13 +504,13 @@ export default function BuildBlend() {
                   <Button
                     onClick={resetBlend}
                     variant='ghost'
-                    className='px-3 py-1 text-xs text-sub hover:text-text'
+                    className='text-sub hover:text-text px-3 py-1 text-xs'
                   >
                     Clear blend
                   </Button>
                 )}
               </div>
-              <div className='flex items-center gap-2 rounded-full border border-border bg-panel p-1 text-xs font-medium text-sub'>
+              <div className='border-border bg-panel text-sub flex items-center gap-2 rounded-full border p-1 text-xs font-medium'>
                 {(Object.keys(RATIO_SETTINGS) as RatioMode[]).map(mode => (
                   <button
                     key={mode}
@@ -513,12 +530,12 @@ export default function BuildBlend() {
                 value={query}
                 onChange={event => setQuery(event.target.value)}
                 placeholder='Search herbs by name, effects, or vibe'
-                className='w-full rounded-xl border border-border bg-panel px-4 py-3 text-sm text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:outline-none focus:ring-2 focus:ring-brand-lime/20'
+                className='border-border bg-panel text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:ring-brand-lime/20 w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2'
               />
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className='absolute inset-y-0 right-3 flex items-center text-xs text-sub transition hover:text-text'
+                  className='text-sub hover:text-text absolute inset-y-0 right-3 flex items-center text-xs transition'
                 >
                   Clear
                 </button>
@@ -542,7 +559,7 @@ export default function BuildBlend() {
 
           <section className='space-y-4'>
             {!blend.length && (
-              <Card className='border-dashed p-6 text-center text-sm text-sub'>
+              <Card className='text-sub border-dashed p-6 text-center text-sm'>
                 Use search or presets to start building your signature blend.
               </Card>
             )}
@@ -553,8 +570,8 @@ export default function BuildBlend() {
                 <Card key={herb.key} className='space-y-4 p-5'>
                   <div className='flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between'>
                     <div className='space-y-2'>
-                      <p className='text-xs uppercase tracking-wide text-sub'>Herb</p>
-                      <h2 className='text-lg font-semibold text-text'>{herb.displayName}</h2>
+                      <p className='text-sub text-xs uppercase tracking-wide'>Herb</p>
+                      <h2 className='text-text text-lg font-semibold'>{herb.displayName}</h2>
                       {(herb.intensityLabel || herb.intensityLevel || herb.intensity) && (
                         <Badge className='text-xs uppercase tracking-wide'>
                           INTENSITY:{' '}
@@ -565,9 +582,9 @@ export default function BuildBlend() {
                           .
                         </Badge>
                       )}
-                      {herb.benefits && <p className='text-xs text-sub'>{herb.benefits}</p>}
+                      {herb.benefits && <p className='text-sub text-xs'>{herb.benefits}</p>}
                       {herb.effects && (
-                        <p className='text-xs text-sub'>
+                        <p className='text-sub text-xs'>
                           {herb.effects.substring(0, 160)}
                           {herb.effects.length > 160 ? '…' : ''}
                         </p>
@@ -578,7 +595,7 @@ export default function BuildBlend() {
                       <Button
                         variant='ghost'
                         onClick={() => removeHerb(herb.key)}
-                        className='px-3 py-1 text-xs text-sub hover:text-text'
+                        className='text-sub hover:text-text px-3 py-1 text-xs'
                       >
                         Remove
                       </Button>
@@ -592,9 +609,9 @@ export default function BuildBlend() {
                       step={settings.step}
                       value={value}
                       onChange={event => updateRatio(herb.key, Number(event.target.value))}
-                      className='w-full accent-brand-lime'
+                      className='accent-brand-lime w-full'
                     />
-                    <div className='flex items-center justify-between text-xs text-sub'>
+                    <div className='text-sub flex items-center justify-between text-xs'>
                       <span>
                         {settings.min}
                         {settings.label}
@@ -604,9 +621,9 @@ export default function BuildBlend() {
                           type='number'
                           value={value}
                           onChange={event => updateRatio(herb.key, Number(event.target.value))}
-                          className='w-16 rounded-lg border border-border bg-panel px-2 py-1 text-right text-xs text-text focus:border-brand-lime/60 focus:outline-none'
+                          className='border-border bg-panel text-text focus:border-brand-lime/60 w-16 rounded-lg border px-2 py-1 text-right text-xs focus:outline-none'
                         />
-                        <span className='font-semibold text-text'>{settings.label}</span>
+                        <span className='text-text font-semibold'>{settings.label}</span>
                       </div>
                       <span>
                         {settings.max}
@@ -622,17 +639,17 @@ export default function BuildBlend() {
 
         <aside className='space-y-6'>
           <Card className='space-y-4 p-5'>
-            <h2 className='text-sm font-semibold uppercase tracking-wide text-sub'>
+            <h2 className='text-sub text-sm font-semibold uppercase tracking-wide'>
               Blend telemetry
             </h2>
-            <div className='space-y-3 text-sm text-sub'>
+            <div className='text-sub space-y-3 text-sm'>
               <div className='flex items-center justify-between'>
                 <span>Total herbs</span>
-                <span className='font-semibold text-text'>{blend.length}</span>
+                <span className='text-text font-semibold'>{blend.length}</span>
               </div>
               <div className='flex items-center justify-between'>
                 <span>Total {ratioMode === 'percent' ? 'ratio' : 'weight'}</span>
-                <span className='font-semibold text-text'>
+                <span className='text-text font-semibold'>
                   {ratioMode === 'percent'
                     ? `${totalAmount.toFixed(0)}%`
                     : `${totalAmount.toFixed(1)} g`}
@@ -640,13 +657,13 @@ export default function BuildBlend() {
               </div>
               <div className='flex items-center justify-between'>
                 <span>Potency score</span>
-                <span className='font-semibold text-text'>{potencyScore.toFixed(1)}</span>
+                <span className='text-text font-semibold'>{potencyScore.toFixed(1)}</span>
               </div>
             </div>
-            <div className='rounded-xl border border-border bg-panel p-4 text-sm text-sub'>
-              <p className='text-xs uppercase tracking-wide text-sub/70'>Mood projection</p>
-              <p className='mt-1 text-base font-semibold text-text'>{moodInsight.headline}</p>
-              <p className='mt-1 text-xs text-sub'>{moodInsight.breakdown}</p>
+            <div className='border-border bg-panel text-sub rounded-xl border p-4 text-sm'>
+              <p className='text-sub/70 text-xs uppercase tracking-wide'>Mood projection</p>
+              <p className='text-text mt-1 text-base font-semibold'>{moodInsight.headline}</p>
+              <p className='text-sub mt-1 text-xs'>{moodInsight.breakdown}</p>
             </div>
             <div className='flex flex-wrap gap-3 text-sm'>
               <Button
@@ -668,15 +685,15 @@ export default function BuildBlend() {
           </Card>
 
           {!!favorites.length && (
-            <Card className='space-y-4 p-5 text-sm text-sub'>
-              <h2 className='text-sm font-semibold uppercase tracking-wide text-sub'>Favorites</h2>
+            <Card className='text-sub space-y-4 p-5 text-sm'>
+              <h2 className='text-sub text-sm font-semibold uppercase tracking-wide'>Favorites</h2>
               <ul className='space-y-3'>
                 {favorites.map(fav => (
-                  <li key={fav.id} className='rounded-xl border border-border bg-panel p-3'>
+                  <li key={fav.id} className='border-border bg-panel rounded-xl border p-3'>
                     <div className='flex items-center justify-between gap-2'>
                       <div>
-                        <p className='font-semibold text-text'>{fav.name}</p>
-                        <p className='text-xs text-sub/70'>
+                        <p className='text-text font-semibold'>{fav.name}</p>
+                        <p className='text-sub/70 text-xs'>
                           {new Date(fav.createdAt).toLocaleDateString(undefined, {
                             month: 'short',
                             day: 'numeric',
@@ -686,12 +703,12 @@ export default function BuildBlend() {
                       <Button
                         onClick={() => loadFavorite(fav)}
                         variant='ghost'
-                        className='px-3 py-1 text-xs text-sub hover:text-text'
+                        className='text-sub hover:text-text px-3 py-1 text-xs'
                       >
                         Load
                       </Button>
                     </div>
-                    <p className='mt-2 text-xs text-sub'>
+                    <p className='text-sub mt-2 text-xs'>
                       {fav.items.length} herbs · {ratioMode === 'percent' ? '%' : 'g'} ready
                     </p>
                   </li>
