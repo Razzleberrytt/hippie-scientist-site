@@ -2,7 +2,6 @@ import { FormEvent, useEffect, useState } from 'react'
 import { exportEmailsToCSV } from '@/utils/exportEmailsToCSV'
 
 const EMAIL_STORAGE_KEY = 'hs_email_list'
-const SUBSCRIBE_API_URL = '/api/subscribe'
 
 export const getStoredEmails = (): string[] => {
   const storedEmails = localStorage.getItem(EMAIL_STORAGE_KEY)
@@ -40,7 +39,7 @@ export default function EmailCapture() {
 
   const sendEmailToBackend = async (capturedEmail: string) => {
     try {
-      const response = await fetch(SUBSCRIBE_API_URL, {
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
