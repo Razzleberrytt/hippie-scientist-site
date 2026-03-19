@@ -26,6 +26,13 @@ export default function EmailCapture() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [storedEmailCount, setStoredEmailCount] = useState(0)
+  const [submitDebug, setSubmitDebug] = useState<{
+    status: number
+    ok: boolean
+    error: string | null
+    hasApiKey: boolean | null
+    email: string
+  } | null>(null)
 
   useEffect(() => {
     setStoredEmailCount(getStoredEmails().length)
@@ -42,6 +49,24 @@ export default function EmailCapture() {
       })
 
       const responseBody = await response.json().catch(() => null)
+      const parsedBody =
+        responseBody && typeof responseBody === 'object'
+          ? (responseBody as {
+              ok?: boolean
+              error?: unknown
+              hasApiKey?: unknown
+              email?: unknown
+            })
+          : null
+
+      setSubmitDebug({
+        status: response.status,
+        ok: response.ok,
+        error: typeof parsedBody?.error === 'string' ? parsedBody.error : null,
+        hasApiKey: typeof parsedBody?.hasApiKey === 'boolean' ? parsedBody.hasApiKey : null,
+        email: typeof parsedBody?.email === 'string' ? parsedBody.email : capturedEmail,
+      })
+
       // eslint-disable-next-line no-console
       console.log('[EmailCapture] /api/subscribe response:', {
         status: response.status,
@@ -49,6 +74,13 @@ export default function EmailCapture() {
         body: responseBody,
       })
     } catch {
+      setSubmitDebug({
+        status: 0,
+        ok: false,
+        error: 'Network request failed before receiving JSON response.',
+        hasApiKey: null,
+        email: capturedEmail,
+      })
       // Keep this quiet so the download/success UI still works.
     }
   }
@@ -169,6 +201,30 @@ export default function EmailCapture() {
               >
                 Build Your First Blend
               </a>
+            </div>
+          ) : null}
+
+          {submitDebug ? (
+            <div className='mt-1 rounded-xl border border-amber-300/30 bg-amber-300/10 p-3 text-xs text-amber-100'>
+              <p className='font-semibold tracking-wide text-amber-200'>DEBUG · /api/subscribe</p>
+              <ul className='mt-1 space-y-1'>
+                <li>
+                  <span className='text-amber-200/90'>status:</span> {submitDebug.status}
+                </li>
+                <li>
+                  <span className='text-amber-200/90'>ok:</span> {String(submitDebug.ok)}
+                </li>
+                <li>
+                  <span className='text-amber-200/90'>error:</span> {submitDebug.error ?? 'none'}
+                </li>
+                <li>
+                  <span className='text-amber-200/90'>hasApiKey:</span>{' '}
+                  {submitDebug.hasApiKey === null ? 'not returned' : String(submitDebug.hasApiKey)}
+                </li>
+                <li>
+                  <span className='text-amber-200/90'>email:</span> {submitDebug.email}
+                </li>
+              </ul>
             </div>
           ) : null}
 
