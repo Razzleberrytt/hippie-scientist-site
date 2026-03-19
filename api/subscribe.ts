@@ -2,6 +2,7 @@ import { Resend } from 'resend'
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const SENDER_EMAIL = 'The Hippie Scientist <onboarding@resend.dev>'
+const RECIPIENT_EMAIL = 'MY_REAL_EMAIL@gmail.com'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -17,9 +18,18 @@ type ApiResponse = {
 }
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
+  const hasApiKey = Boolean(process.env.RESEND_API_KEY)
+  const responseForFailure = (statusCode: number, error: string, email = '') =>
+    res.status(statusCode).json({
+      ok: false,
+      error,
+      hasApiKey,
+      email,
+    })
+
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
-    return res.status(405).json({ ok: false, error: 'Method not allowed' })
+    return responseForFailure(405, 'Method not allowed')
   }
 
   let payload: unknown
@@ -27,7 +37,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   try {
     payload = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
   } catch {
-    return res.status(400).json({ ok: false, error: 'Invalid JSON body' })
+    return responseForFailure(400, 'Invalid JSON body')
   }
 
   console.log('[api/subscribe] incoming request body:', payload)
@@ -40,17 +50,17 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       : ''
 
   if (!EMAIL_REGEX.test(email)) {
-    return res.status(400).json({ ok: false, error: 'Missing or invalid email' })
+    return responseForFailure(400, 'Missing or invalid email', email)
   }
 
-  if (!process.env.RESEND_API_KEY) {
-    return res.status(500).json({ ok: false, error: 'Missing RESEND_API_KEY environment variable' })
+  if (!hasApiKey) {
+    return responseForFailure(500, 'Missing RESEND_API_KEY environment variable', email)
   }
 
   try {
     const sendResult = await resend.emails.send({
       from: SENDER_EMAIL,
-      to: 'razzleberryt@gmail.com',
+      to: RECIPIENT_EMAIL,
       subject: 'New Hippie Scientist signup',
       html: `<p>New signup: ${email}</p>`,
     })
@@ -58,8 +68,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     console.log('[api/subscribe] resend send result:', sendResult)
   } catch (error) {
     console.error('[api/subscribe] resend send error:', error)
-    return res.status(500).json({ ok: false, error: 'Failed to send email' })
+    return responseForFailure(500, 'Failed to send email', email)
   }
 
-  return res.status(200).json({ ok: true })
+  return res.status(200).json({ ok: true, email, hasApiKey })
 }
