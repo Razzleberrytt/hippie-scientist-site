@@ -25,57 +25,10 @@ export default function EmailCapture() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [storedEmailCount, setStoredEmailCount] = useState(0)
-  const apiUrl = 'https://thehippiescientist.net/api/subscribe'
-  const [submitDebug, setSubmitDebug] = useState<{
-    apiUrl: string
-    status: number
-    ok: boolean
-    body: unknown
-    fetchError: string | null
-  } | null>(null)
 
   useEffect(() => {
     setStoredEmailCount(getStoredEmails().length)
   }, [])
-
-  const sendEmailToBackend = async (capturedEmail: string) => {
-    try {
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: capturedEmail }),
-      })
-
-      const responseBody = await response.json().catch(() => null)
-
-      setSubmitDebug({
-        apiUrl,
-        status: response.status,
-        ok: response.ok,
-        body: responseBody,
-        fetchError: null,
-      })
-
-      // eslint-disable-next-line no-console
-      console.log('[EmailCapture] /api/subscribe response:', {
-        status: response.status,
-        ok: response.ok,
-        body: responseBody,
-      })
-    } catch (error) {
-      setSubmitDebug({
-        apiUrl,
-        status: 0,
-        ok: false,
-        body: null,
-        fetchError: error instanceof Error ? error.message : String(error),
-      })
-      // eslint-disable-next-line no-console
-      console.error('[EmailCapture] /api/subscribe fetch failed:', error)
-    }
-  }
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -107,8 +60,6 @@ export default function EmailCapture() {
     document.body.appendChild(guideLink)
     guideLink.click()
     document.body.removeChild(guideLink)
-
-    void sendEmailToBackend(normalizedEmail)
 
     setSuccess(true)
     setEmail('')
@@ -168,8 +119,6 @@ export default function EmailCapture() {
               Get the Guide
             </button>
           </form>
-          <p className='text-xs text-white/60'>CURRENT API URL: {apiUrl}</p>
-
           {storedEmailCount > 0 ? (
             <div className='pt-1'>
               <button
@@ -194,33 +143,6 @@ export default function EmailCapture() {
               >
                 Build Your First Blend
               </a>
-            </div>
-          ) : null}
-
-          {submitDebug ? (
-            <div className='mt-1 rounded-xl border border-amber-300/30 bg-amber-300/10 p-3 text-xs text-amber-100'>
-              <p className='font-semibold tracking-wide text-amber-200'>DEBUG · /api/subscribe</p>
-              <ul className='mt-1 space-y-1'>
-                <li>
-                  <span className='text-amber-200/90'>apiUrl:</span> {submitDebug.apiUrl}
-                </li>
-                <li>
-                  <span className='text-amber-200/90'>status:</span> {submitDebug.status}
-                </li>
-                <li>
-                  <span className='text-amber-200/90'>ok:</span> {String(submitDebug.ok)}
-                </li>
-                <li>
-                  <span className='text-amber-200/90'>fetchError:</span>{' '}
-                  {submitDebug.fetchError ?? 'none'}
-                </li>
-                <li>
-                  <span className='text-amber-200/90'>body JSON:</span>{' '}
-                  <pre className='mt-1 overflow-x-auto rounded bg-black/20 p-2 text-[11px] leading-relaxed text-amber-50'>
-                    {JSON.stringify(submitDebug.body, null, 2) ?? 'null'}
-                  </pre>
-                </li>
-              </ul>
             </div>
           ) : null}
 
