@@ -29,7 +29,12 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
-    return responseForFailure(405, 'Method not allowed')
+    return res.status(405).json({
+      ok: false,
+      error: 'Method not allowed',
+      hasApiKey: true,
+      email: '',
+    })
   }
 
   let payload: unknown
@@ -71,5 +76,10 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     return responseForFailure(500, 'Failed to send email', email)
   }
 
-  return res.status(200).json({ ok: true, email, hasApiKey })
+  return res.status(200).json({
+    ok: true,
+    email,
+    hasApiKey: true,
+    message: 'Sent',
+  })
 }
