@@ -28,9 +28,8 @@ export default function EmailCapture() {
   const [submitDebug, setSubmitDebug] = useState<{
     status: number
     ok: boolean
-    error: string | null
-    hasApiKey: boolean | null
-    email: string
+    body: unknown
+    fetchError: string | null
   } | null>(null)
 
   useEffect(() => {
@@ -48,22 +47,12 @@ export default function EmailCapture() {
       })
 
       const responseBody = await response.json().catch(() => null)
-      const parsedBody =
-        responseBody && typeof responseBody === 'object'
-          ? (responseBody as {
-              ok?: boolean
-              error?: unknown
-              hasApiKey?: unknown
-              email?: unknown
-            })
-          : null
 
       setSubmitDebug({
         status: response.status,
         ok: response.ok,
-        error: typeof parsedBody?.error === 'string' ? parsedBody.error : null,
-        hasApiKey: typeof parsedBody?.hasApiKey === 'boolean' ? parsedBody.hasApiKey : null,
-        email: typeof parsedBody?.email === 'string' ? parsedBody.email : capturedEmail,
+        body: responseBody,
+        fetchError: null,
       })
 
       // eslint-disable-next-line no-console
@@ -72,15 +61,15 @@ export default function EmailCapture() {
         ok: response.ok,
         body: responseBody,
       })
-    } catch {
+    } catch (error) {
       setSubmitDebug({
         status: 0,
         ok: false,
-        error: 'Network request failed before receiving JSON response.',
-        hasApiKey: null,
-        email: capturedEmail,
+        body: null,
+        fetchError: error instanceof Error ? error.message : String(error),
       })
-      // Keep this quiet so the download/success UI still works.
+      // eslint-disable-next-line no-console
+      console.error('[EmailCapture] /api/subscribe fetch failed:', error)
     }
   }
 
@@ -214,14 +203,14 @@ export default function EmailCapture() {
                   <span className='text-amber-200/90'>ok:</span> {String(submitDebug.ok)}
                 </li>
                 <li>
-                  <span className='text-amber-200/90'>error:</span> {submitDebug.error ?? 'none'}
+                  <span className='text-amber-200/90'>fetchError:</span>{' '}
+                  {submitDebug.fetchError ?? 'none'}
                 </li>
                 <li>
-                  <span className='text-amber-200/90'>hasApiKey:</span>{' '}
-                  {submitDebug.hasApiKey === null ? 'not returned' : String(submitDebug.hasApiKey)}
-                </li>
-                <li>
-                  <span className='text-amber-200/90'>email:</span> {submitDebug.email}
+                  <span className='text-amber-200/90'>body JSON:</span>{' '}
+                  <pre className='mt-1 overflow-x-auto rounded bg-black/20 p-2 text-[11px] leading-relaxed text-amber-50'>
+                    {JSON.stringify(submitDebug.body, null, 2) ?? 'null'}
+                  </pre>
                 </li>
               </ul>
             </div>
