@@ -1,6 +1,13 @@
 # Survive 99: Evolved
 
 [![CI](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/ci.yml/badge.svg)](../../actions)
+**Phase 6**: storefront + economy loop — eligibility & cooldowns, client store bridge, server sinks, FTU & comeback bonuses.
+
+- Docs: [Economy](docs/ECONOMY.md) • [Mobile](docs/MOBILE.md) • [Fairness](docs/FAIRNESS.md)
+
+# Survive 99: Evolved
+
+[![CI](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/ci.yml/badge.svg)](../../actions)
 **Phase 5**: mobile big-tap + low-flash preset, FPS auto-fallback, and FOV guard.
 
 - Docs: [Mobile](docs/MOBILE.md) • [Fairness](docs/FAIRNESS.md) • [Playtest](docs/PLAYTEST.md)
