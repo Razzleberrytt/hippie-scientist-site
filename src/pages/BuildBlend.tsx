@@ -48,6 +48,82 @@ const PRESETS: Record<string, string[]> = {
   Focus: ['Gotu Kola', 'Bacopa monnieri', 'Rhodiola rosea'],
 }
 
+type GoalKey = 'calm' | 'focus' | 'sleep'
+
+type GoalRecommendation = {
+  key: GoalKey
+  label: string
+  prompt: string
+  blendName: string
+  herbs: Array<{
+    name: string
+    reason: string
+  }>
+}
+
+const GOAL_RECOMMENDATIONS: GoalRecommendation[] = [
+  {
+    key: 'calm',
+    label: 'Calm / Anxiety',
+    prompt: 'Nervous system reset',
+    blendName: 'Grounded Calm Starter',
+    herbs: [
+      {
+        name: 'Lemon Balm',
+        reason: 'Softens stress spikes and settles mental noise without feeling heavy.',
+      },
+      {
+        name: 'Passionflower',
+        reason: 'Supports a calmer mind when thoughts feel loud or restless.',
+      },
+      {
+        name: 'Tulsi',
+        reason: 'Adds a steady, uplifting calm so the blend stays balanced.',
+      },
+    ],
+  },
+  {
+    key: 'focus',
+    label: 'Focus / Energy',
+    prompt: 'Clear momentum',
+    blendName: 'Bright Focus Starter',
+    herbs: [
+      {
+        name: 'Rhodiola rosea',
+        reason: 'Helps with mental stamina so focus lasts longer.',
+      },
+      {
+        name: 'Gotu Kola',
+        reason: 'Supports clarity and smoother concentration.',
+      },
+      {
+        name: 'Yerba Mate',
+        reason: 'Provides a clean lift for alertness and productivity.',
+      },
+    ],
+  },
+  {
+    key: 'sleep',
+    label: 'Sleep / Recovery',
+    prompt: 'Evening downshift',
+    blendName: 'Night Recovery Starter',
+    herbs: [
+      {
+        name: 'Passionflower',
+        reason: 'Eases nighttime tension and helps the mind unwind.',
+      },
+      {
+        name: 'Chamomile',
+        reason: 'Brings gentle body calm and bedtime comfort.',
+      },
+      {
+        name: 'Valerian',
+        reason: 'Deepens relaxation when you need stronger sleep support.',
+      },
+    ],
+  },
+]
+
 const RATIO_SETTINGS: Record<
   RatioMode,
   { label: string; min: number; max: number; step: number; defaultValue: number }
@@ -103,6 +179,7 @@ export default function BuildBlend() {
   const [favorites, setFavorites] = useState<SavedBlend[]>([])
   const [activePreset, setActivePreset] = useState<string | null>(null)
   const [copyState, setCopyState] = useState<'idle' | 'copied'>('idle')
+  const [selectedGoal, setSelectedGoal] = useState<GoalKey | null>(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -457,6 +534,39 @@ export default function BuildBlend() {
     setActivePreset(null)
   }
 
+  const selectedRecommendation = useMemo(
+    () => GOAL_RECOMMENDATIONS.find(goal => goal.key === selectedGoal) ?? null,
+    [selectedGoal]
+  )
+
+  const applyGoalRecommendation = (goal: GoalRecommendation) => {
+    setSelectedGoal(goal.key)
+    const resolved = goal.herbs
+      .map(entry =>
+        dataset.find(herb => getHerbName(herb).toLowerCase() === entry.name.toLowerCase())
+      )
+      .filter(Boolean) as Herb[]
+    if (!resolved.length) return
+    const percentValue = Math.round((100 / resolved.length) * 10) / 10
+    const gramsValue = Math.round((15 / resolved.length) * 10) / 10
+    setBlend(
+      resolved.map(herb => ({
+        ...herb,
+        key: getHerbKey(herb),
+        displayName: getHerbName(herb),
+        ratios: {
+          percent: percentValue,
+          grams: gramsValue,
+        },
+      }))
+    )
+    setActivePreset(null)
+  }
+
+  const exploreRecommendedHerbs = (goal: GoalRecommendation) => {
+    setQuery(goal.herbs.map(herb => herb.name).join(' '))
+  }
+
   return (
     <main className='container space-y-6 py-8'>
       <section className='border-brand-lime/35 bg-panel/95 relative overflow-hidden rounded-2xl border p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.1),0_18px_48px_-22px_rgba(163,230,53,0.7)] sm:p-5'>
@@ -484,6 +594,72 @@ export default function BuildBlend() {
           predictions update instantly.
         </p>
       </header>
+
+      <section className='border-border/80 from-brand-lime/10 via-panel to-brand-lime/5 space-y-4 rounded-2xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.05),0_16px_36px_-22px_rgba(163,230,53,0.7)] sm:p-5'>
+        <div className='space-y-2'>
+          <h2 className='text-text text-xl font-semibold sm:text-2xl'>
+            Let’s build your first blend
+          </h2>
+          <p className='text-sub max-w-2xl text-sm sm:text-base'>
+            Answer a few quick questions and we’ll suggest a simple starting blend.
+          </p>
+        </div>
+
+        <div className='grid gap-3 sm:grid-cols-3'>
+          {GOAL_RECOMMENDATIONS.map(goal => {
+            const isActive = selectedGoal === goal.key
+            return (
+              <button
+                key={goal.key}
+                onClick={() => applyGoalRecommendation(goal)}
+                className={`rounded-xl border p-4 text-left transition ${
+                  isActive
+                    ? 'border-brand-lime/60 bg-brand-lime/15 shadow-[0_0_24px_-14px_rgba(163,230,53,0.9)]'
+                    : 'border-border/80 bg-panel/70 hover:border-brand-lime/40 hover:bg-brand-lime/10'
+                }`}
+              >
+                <p className='text-text font-semibold'>{goal.label}</p>
+                <p className='text-sub mt-1 text-xs'>{goal.prompt}</p>
+              </button>
+            )
+          })}
+        </div>
+
+        {selectedRecommendation && (
+          <Card className='border-brand-lime/30 space-y-4 bg-black/20 p-4'>
+            <div>
+              <p className='text-sub text-xs uppercase tracking-wide'>Recommended starter</p>
+              <h3 className='text-text mt-1 text-lg font-semibold'>
+                {selectedRecommendation.blendName}
+              </h3>
+            </div>
+            <ul className='space-y-3'>
+              {selectedRecommendation.herbs.map(herb => (
+                <li key={herb.name} className='border-border/70 bg-panel/60 rounded-lg border p-3'>
+                  <p className='text-text text-sm font-semibold'>{herb.name}</p>
+                  <p className='text-sub mt-1 text-xs'>{herb.reason}</p>
+                </li>
+              ))}
+            </ul>
+            <div className='flex flex-col gap-2 sm:flex-row'>
+              <Button
+                onClick={saveBlend}
+                disabled={!blend.length}
+                className='flex-1 justify-center'
+              >
+                Save this blend
+              </Button>
+              <Button
+                onClick={() => exploreRecommendedHerbs(selectedRecommendation)}
+                variant='ghost'
+                className='flex-1 justify-center'
+              >
+                Explore these herbs
+              </Button>
+            </div>
+          </Card>
+        )}
+      </section>
 
       <section className='grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-start'>
         <div className='space-y-6'>
