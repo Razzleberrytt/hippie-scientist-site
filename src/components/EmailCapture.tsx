@@ -25,7 +25,7 @@ export default function EmailCapture() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [storedEmailCount, setStoredEmailCount] = useState(0)
-  const apiUrl = `${window.location.origin}/api/subscribe`
+  const apiUrl = 'https://thehippiescientist.net/api/subscribe'
   const [submitDebug, setSubmitDebug] = useState<{
     apiUrl: string
     status: number
