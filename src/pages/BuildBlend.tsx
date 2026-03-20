@@ -12,6 +12,7 @@ import {
   saveGeneratedGuide,
 } from '../utils/starterPack'
 import { useHerbData } from '@/lib/herb-data'
+import BundleUpgradeCard from '../components/BundleUpgradeCard'
 
 type Herb = {
   id?: string
@@ -716,6 +717,12 @@ export default function BuildBlend() {
                 )}
               </div>
             </section>
+
+            <BundleUpgradeCard
+              sourcePage='build'
+              currentBlendName={selectedRecommendation.blendName}
+            />
+
             <div className='flex flex-col gap-2 sm:flex-row'>
               <Button
                 onClick={saveRecommendedBlend}
