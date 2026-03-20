@@ -89,10 +89,11 @@ export default function EmailCapture() {
 
         <div className='relative space-y-3'>
           <h2 className='text-xl font-semibold tracking-tight text-white sm:text-2xl'>
-            Stay in the loop
+            Build your first calming herbal blend in minutes
           </h2>
           <p className='text-sm text-white/75 sm:text-[0.95rem]'>
-            Get a free beginner blend guide + new herbs and research drops.
+            Get a clear, beginner-safe roadmap so you can craft a blend that actually works—without
+            overwhelm.
           </p>
 
           <form
@@ -116,9 +117,15 @@ export default function EmailCapture() {
               type='submit'
               className='rounded-xl bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80'
             >
-              Get the Guide
+              Start My First Blend
             </button>
           </form>
+
+          <ul className='space-y-1 text-xs text-white/80 sm:text-sm'>
+            <li>• Beginner-friendly blend recipes</li>
+            <li>• Research-backed herb insights</li>
+            <li>• No fluff, just what works</li>
+          </ul>
           {storedEmailCount > 0 ? (
             <div className='pt-1'>
               <button
@@ -134,9 +141,7 @@ export default function EmailCapture() {
           {error ? <p className='text-xs text-rose-300'>{error}</p> : null}
           {success ? (
             <div className='shadow-halo mt-1 flex flex-col gap-3 rounded-xl border border-emerald-300/30 bg-emerald-300/10 p-3 sm:flex-row sm:items-center sm:justify-between'>
-              <p className='text-sm text-emerald-200'>
-                Your guide is downloading. Want a personalized blend?
-              </p>
+              <p className='text-sm text-emerald-200'>You’re in. Your guide is downloading now.</p>
               <a
                 href='/build'
                 className='inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80 sm:w-auto'
@@ -146,7 +151,7 @@ export default function EmailCapture() {
             </div>
           ) : null}
 
-          <p className='text-xs text-white/55'>No spam. Unsubscribe anytime.</p>
+          <p className='text-xs text-white/55'>No spam. Just useful drops.</p>
         </div>
       </div>
     </section>
