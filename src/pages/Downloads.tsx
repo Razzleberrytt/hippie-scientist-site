@@ -1,133 +1,120 @@
-import React from 'react'
-import { saveAs } from 'file-saver'
-import jsPDF from 'jspdf'
-import { Herb } from '../types'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Meta from '../components/Meta'
+import Card from '../components/ui/Card'
+import { Button } from '../components/ui/Button'
+import {
+  clearGeneratedGuides,
+  deleteGeneratedGuide,
+  downloadStarterPackByFilename,
+  getGeneratedGuides,
+  type GeneratedGuideRecord,
+} from '../utils/starterPack'
 
-const required: (keyof Herb)[] = [
-  'affiliateLink',
-  'activeConstituents',
-  'mechanismOfAction',
-  'legalStatus',
-]
-
-function validHerbs(herbs: Herb[]): Herb[] {
-  return herbs.filter(
-    h =>
-      !required.some(k => {
-        const val = (h as any)[k]
-        return val == null || (Array.isArray(val) ? val.length === 0 : val === '')
-      })
-  )
+const formatDate = (isoDate: string) => {
+  const parsed = new Date(isoDate)
+  if (Number.isNaN(parsed.getTime())) return 'Unknown date'
+  return parsed.toLocaleString()
 }
 
-const defaultFields: (keyof Herb)[] = [
-  'name',
-  'category',
-  'effects',
-  'tags',
-  'mechanismOfAction',
-  'legalStatus',
-]
-
 export default function Downloads() {
-  const [fields, setFields] = React.useState<(keyof Herb)[]>(defaultFields)
-  const herbs = useHerbsFull()
+  const [guides, setGuides] = useState<GeneratedGuideRecord[]>(() => getGeneratedGuides())
 
-  const filteredHerbs = React.useMemo(() => validHerbs(herbs), [herbs])
+  const hasGuides = guides.length > 0
+  const sortedGuides = useMemo(
+    () =>
+      [...guides].sort(
+        (a, b) => new Date(b.generatedAt).getTime() - new Date(a.generatedAt).getTime()
+      ),
+    [guides]
+  )
 
-  const toggleField = (f: keyof Herb) => {
-    setFields(prev => (prev.includes(f) ? prev.filter(x => x !== f) : [...prev, f]))
+  const handleDownloadAgain = (guide: GeneratedGuideRecord) => {
+    downloadStarterPackByFilename(guide.filename, guide.content)
   }
 
-  const exportCSV = () => {
-    const csvRows = [fields.join(',')]
-    filteredHerbs.forEach(h => {
-      const row = fields.map(f => {
-        const val = (h as any)[f]
-        return `"${Array.isArray(val) ? val.join(' | ') : (val ?? '')}"`
-      })
-      csvRows.push(row.join(','))
-    })
-    const csv = csvRows.join('\n')
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' })
-    saveAs(blob, `herbs-${Date.now()}.csv`)
+  const handleDelete = (id: string) => {
+    setGuides(deleteGeneratedGuide(id))
   }
 
-  const exportJSON = () => {
-    const blob = new Blob([JSON.stringify(filteredHerbs, null, 2)], {
-      type: 'application/json',
-    })
-    saveAs(blob, `herbs-${Date.now()}.json`)
-  }
-
-  const exportPDF = () => {
-    const doc = new jsPDF()
-    let y = 10
-    doc.setFontSize(12)
-    filteredHerbs.forEach((h, i) => {
-      if (i && i % 2 === 0) {
-        doc.addPage()
-        y = 10
-      }
-      doc.text(`Name: ${h.name}`, 10, y)
-      doc.text(`Category: ${h.category}`, 10, y + 6)
-      doc.text(`Effects: ${(h.effects || []).join(', ')}`, 10, y + 12)
-      doc.text(`Tags: ${(h.tags || []).join(', ')}`, 10, y + 18)
-      y += 40
-    })
-    doc.save(`herbs-${Date.now()}.pdf`)
+  const handleClearAll = () => {
+    clearGeneratedGuides()
+    setGuides([])
   }
 
   return (
-    <div className='min-h-screen px-4 pt-20'>
+    <main className='container space-y-6 py-8'>
       <Meta
-        title='Downloads - The Hippie Scientist'
-        description='Download the herb database in multiple formats.'
+        title='My Guides - The Hippie Scientist'
+        description='Your saved Starter Packs and generated blend downloads.'
         path='/downloads'
       />
-      <div className='mx-auto max-w-3xl space-y-6'>
-        <h1 className='text-gradient mb-4 text-center text-5xl font-bold'>Export Herb Data</h1>
-        <p className='text-sand text-center'>
-          {filteredHerbs.length} herbs · Exported {new Date().toLocaleString()}
+
+      <header className='space-y-2'>
+        <p className='text-sub text-xs uppercase tracking-[0.3em]'>Digital library</p>
+        <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>My Guides</h1>
+        <p className='text-sub max-w-2xl text-sm sm:text-base'>
+          Your saved Starter Packs and generated blend downloads.
         </p>
-        <div className='flex flex-wrap justify-center gap-4'>
-          <button
-            onClick={exportCSV}
-            className='bg-psychedelic-purple hover:bg-psychedelic-pink rounded-md px-4 py-2 font-medium text-white'
-          >
-            Download CSV
-          </button>
-          <button
-            onClick={exportJSON}
-            className='bg-cosmic-forest rounded-md px-4 py-2 font-medium text-white hover:bg-emerald-700'
-          >
-            Download JSON
-          </button>
-          <button
-            onClick={exportPDF}
-            className='rounded-md bg-indigo-600 px-4 py-2 font-medium text-white hover:bg-indigo-700'
-          >
-            Download PDF
-          </button>
-        </div>
-        <div className='mt-6 space-y-2'>
-          <p className='text-sand'>Select fields for CSV:</p>
-          <div className='flex flex-wrap gap-2'>
-            {defaultFields.map(f => (
-              <label key={f} className='text-sand flex items-center gap-1'>
-                <input
-                  type='checkbox'
-                  checked={fields.includes(f)}
-                  onChange={() => toggleField(f)}
-                />
-                {f}
-              </label>
-            ))}
+      </header>
+
+      {!hasGuides && (
+        <Card className='border-border/80 from-panel/90 to-panel/70 flex flex-col items-center gap-4 rounded-2xl border bg-gradient-to-br p-8 text-center'>
+          <p className='text-text text-xl font-semibold'>No guides saved yet</p>
+          <p className='text-sub max-w-lg text-sm'>
+            Once you generate a Starter Pack, it will appear here so you can download it any time.
+          </p>
+          <Link to='/blend'>
+            <Button className='border-brand-lime/40 bg-brand-lime/20 text-brand-lime hover:bg-brand-lime/30 border shadow-[0_0_24px_-12px_rgba(163,230,53,0.95)]'>
+              Build Your First Blend
+            </Button>
+          </Link>
+        </Card>
+      )}
+
+      {hasGuides && (
+        <>
+          <div className='flex justify-end'>
+            <Button variant='ghost' onClick={handleClearAll} className='text-sub hover:text-text'>
+              Clear All
+            </Button>
           </div>
-        </div>
-      </div>
-    </div>
+          <section className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+            {sortedGuides.map(guide => (
+              <Card
+                key={guide.id}
+                className='border-border/80 from-panel/90 via-panel/80 to-panel/70 flex h-full flex-col gap-4 rounded-2xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_18px_40px_-26px_rgba(148,163,184,0.6)]'
+              >
+                <div className='space-y-1'>
+                  <p className='text-sub text-xs uppercase tracking-wide'>{guide.goal}</p>
+                  <h2 className='text-text text-lg font-semibold'>{guide.blendName}</h2>
+                </div>
+                <div className='space-y-2'>
+                  <p className='text-sub text-xs uppercase tracking-wide'>Herbs</p>
+                  <ul className='text-sub list-inside list-disc space-y-1 text-sm'>
+                    {guide.herbs.map(herb => (
+                      <li key={`${guide.id}-${herb}`}>{herb}</li>
+                    ))}
+                  </ul>
+                </div>
+                <p className='text-sub text-xs'>Generated: {formatDate(guide.generatedAt)}</p>
+                <div className='mt-auto flex flex-col gap-2'>
+                  <Button onClick={() => handleDownloadAgain(guide)} className='justify-center'>
+                    Download Again
+                  </Button>
+                  <Button
+                    variant='ghost'
+                    onClick={() => handleDelete(guide.id)}
+                    className='text-sub hover:text-text justify-center'
+                  >
+                    Delete
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </section>
+        </>
+      )}
+    </main>
   )
 }
