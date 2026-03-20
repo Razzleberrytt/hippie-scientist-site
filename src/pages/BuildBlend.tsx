@@ -5,6 +5,7 @@ import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
 import { Button } from '../components/ui/Button'
 import { recordDevMessage } from '../utils/devMessages'
+import { downloadStarterPack, generateStarterPack } from '../utils/starterPack'
 import { useHerbData } from '@/lib/herb-data'
 
 type Herb = {
@@ -510,6 +511,29 @@ export default function BuildBlend() {
       recordDevMessage('warning', 'Unable to store selected blend for Starter Pack checkout', error)
     }
 
+    let didDownloadStarterPack = false
+    try {
+      const starterPackContent = generateStarterPack({
+        goal: selectedRecommendation.label,
+        blendName: selectedRecommendation.blendName,
+        herbs: selectedRecommendation.herbs.map(herb => ({
+          name: herb.name,
+          purpose: herb.reason,
+          effect: herb.reason,
+        })),
+      })
+      didDownloadStarterPack = downloadStarterPack(
+        selectedRecommendation.blendName,
+        starterPackContent
+      )
+    } catch (error) {
+      recordDevMessage('warning', 'Unable to generate Starter Pack download', error)
+    }
+
+    if (!didDownloadStarterPack) {
+      toast.message('Your guide will be available on the next screen')
+    }
+
     const checkoutWindow = window.open(STARTER_PACK_LINK, '_blank', 'noopener,noreferrer')
     setShowPostCheckoutNote(true)
     if (checkoutWindow) {
@@ -661,7 +685,7 @@ export default function BuildBlend() {
                 )}
                 {showStarterPackFallback && (
                   <p className='text-sub rounded-lg border border-white/10 bg-black/30 px-3 py-2 text-xs'>
-                    Popup blocked?{' '}
+                    Your guide will be available on the next screen. Popup blocked?{' '}
                     <a
                       href={STARTER_PACK_LINK}
                       target='_blank'
