@@ -38,7 +38,7 @@ export default function EmailCapture() {
 
   const sendEmailToBackend = async (capturedEmail: string) => {
     try {
-      const response = await fetch('/api/subscribe', {
+      const response = await fetch('https://thehippiescientist.net/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
