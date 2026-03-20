@@ -31,6 +31,7 @@ import GraphPage from './pages/Graph'
 import Theme from './pages/Theme'
 import CompoundDetail from './pages/CompoundDetail'
 import StarterPackSuccess from './pages/StarterPackSuccess'
+import Downloads from './pages/Downloads'
 import { useTrippy } from '@/lib/trippy'
 // Import other pages as needed
 
@@ -57,6 +58,7 @@ export default function App() {
               <Route path='/blend' element={<BuildBlend />} />
               <Route path='/build' element={<BuildBlend />} />
               <Route path='/starter-pack-success' element={<StarterPackSuccess />} />
+              <Route path='/downloads' element={<Downloads />} />
               <Route path='/favorites' element={<Favorites />} />
               <Route path='/newsletter' element={<Newsletter />} />
               <Route path='/contact' element={<Contact />} />

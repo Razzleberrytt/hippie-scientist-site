@@ -5,7 +5,12 @@ import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
 import { Button } from '../components/ui/Button'
 import { recordDevMessage } from '../utils/devMessages'
-import { downloadStarterPack, generateStarterPack } from '../utils/starterPack'
+import {
+  downloadStarterPack,
+  generateStarterPack,
+  getStarterPackFilename,
+  saveGeneratedGuide,
+} from '../utils/starterPack'
 import { useHerbData } from '@/lib/herb-data'
 
 type Herb = {
@@ -522,6 +527,15 @@ export default function BuildBlend() {
           effect: herb.reason,
         })),
       })
+
+      saveGeneratedGuide({
+        goal: selectedRecommendation.label,
+        blendName: selectedRecommendation.blendName,
+        herbs: selectedRecommendation.herbs.map(herb => herb.name),
+        filename: getStarterPackFilename(selectedRecommendation.blendName),
+        content: starterPackContent,
+      })
+
       didDownloadStarterPack = downloadStarterPack(
         selectedRecommendation.blendName,
         starterPackContent
@@ -669,6 +683,9 @@ export default function BuildBlend() {
                       Get Starter Pack
                     </Button>
                     <p className='text-sub text-xs'>Secure checkout • Instant access</p>
+                    <Link to='/downloads' className='text-brand-lime text-xs hover:underline'>
+                      My Guides
+                    </Link>
                   </div>
                 </div>
                 {showPostCheckoutNote && (

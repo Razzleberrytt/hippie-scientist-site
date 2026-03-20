@@ -38,6 +38,9 @@ export default function NavBar() {
             <NavLink to='/blend' className={`${linkBase} ${linkSolid} px-3 py-1.5 text-sm`}>
               Build a Blend
             </NavLink>
+            <NavLink to='/downloads' className={`${linkBase} ${linkSolid} px-3 py-1.5 text-sm`}>
+              My Guides
+            </NavLink>
             <NavLink to='/compounds' className={`${linkBase} ${linkDim} px-3 py-1.5 text-sm`}>
               Compounds
             </NavLink>
@@ -64,6 +67,13 @@ export default function NavBar() {
               onClick={() => setMenuOpen(false)}
             >
               Build a Blend
+            </NavLink>
+            <NavLink
+              to='/downloads'
+              className={`${linkBase} ${linkSolid} min-h-11 px-3 py-2 text-sm`}
+              onClick={() => setMenuOpen(false)}
+            >
+              My Guides
             </NavLink>
             <NavLink
               to='/compounds'
