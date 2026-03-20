@@ -18,6 +18,10 @@ type ApiResponse = {
 }
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+
   const hasApiKey = Boolean(process.env.RESEND_API_KEY)
   const responseForFailure = (statusCode: number, error: string, email = '') =>
     res.status(statusCode).json({
@@ -27,12 +31,28 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       email,
     })
 
+  if (req.method === 'OPTIONS') {
+    return res.status(200).json({
+      ok: true,
+      message: 'Preflight OK',
+    })
+  }
+
+  if (req.method === 'GET') {
+    return res.status(200).json({
+      ok: true,
+      method: 'GET',
+      hasApiKey,
+      message: 'Subscribe API is reachable',
+    })
+  }
+
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST')
+    res.setHeader('Allow', 'GET,POST,OPTIONS')
     return res.status(405).json({
       ok: false,
       error: 'Method not allowed',
-      hasApiKey: true,
+      hasApiKey,
       email: '',
     })
   }

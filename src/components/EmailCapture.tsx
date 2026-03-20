@@ -26,6 +26,7 @@ export default function EmailCapture() {
   const [success, setSuccess] = useState(false)
   const [storedEmailCount, setStoredEmailCount] = useState(0)
   const [submitDebug, setSubmitDebug] = useState<{
+    apiUrl: string
     status: number
     ok: boolean
     body: unknown
@@ -37,8 +38,10 @@ export default function EmailCapture() {
   }, [])
 
   const sendEmailToBackend = async (capturedEmail: string) => {
+    const apiUrl = `${window.location.origin}/api/subscribe`
+
     try {
-      const response = await fetch('https://thehippiescientist.net/api/subscribe', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,6 +52,7 @@ export default function EmailCapture() {
       const responseBody = await response.json().catch(() => null)
 
       setSubmitDebug({
+        apiUrl,
         status: response.status,
         ok: response.ok,
         body: responseBody,
@@ -63,6 +67,7 @@ export default function EmailCapture() {
       })
     } catch (error) {
       setSubmitDebug({
+        apiUrl,
         status: 0,
         ok: false,
         body: null,
@@ -196,6 +201,9 @@ export default function EmailCapture() {
             <div className='mt-1 rounded-xl border border-amber-300/30 bg-amber-300/10 p-3 text-xs text-amber-100'>
               <p className='font-semibold tracking-wide text-amber-200'>DEBUG · /api/subscribe</p>
               <ul className='mt-1 space-y-1'>
+                <li>
+                  <span className='text-amber-200/90'>apiUrl:</span> {submitDebug.apiUrl}
+                </li>
                 <li>
                   <span className='text-amber-200/90'>status:</span> {submitDebug.status}
                 </li>
