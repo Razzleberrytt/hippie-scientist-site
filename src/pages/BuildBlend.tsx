@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { toast } from 'sonner'
 import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
@@ -30,15 +31,11 @@ type BlendItem = Herb & {
   ratios: BlendRatios
 }
 
-type SavedBlend = {
-  id: string
-  name: string
-  createdAt: string
-  items: Array<{
-    key: string
-    name: string
-    ratios: BlendRatios
-  }>
+type SavedGoalBlend = {
+  goal: string
+  blendName: string
+  herbs: string[]
+  timestamp: string
 }
 
 const PRESETS: Record<string, string[]> = {
@@ -176,97 +173,44 @@ export default function BuildBlend() {
   const [query, setQuery] = useState('')
   const [ratioMode, setRatioMode] = useState<RatioMode>('percent')
   const [blend, setBlend] = useState<BlendItem[]>([])
-  const [favorites, setFavorites] = useState<SavedBlend[]>([])
+  const [savedGoalBlends, setSavedGoalBlends] = useState<SavedGoalBlend[]>([])
   const [activePreset, setActivePreset] = useState<string | null>(null)
   const [copyState, setCopyState] = useState<'idle' | 'copied'>('idle')
   const [selectedGoal, setSelectedGoal] = useState<GoalKey | null>(null)
+  const [blendSavedMessage, setBlendSavedMessage] = useState(false)
+  const [showExploreHerbs, setShowExploreHerbs] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
     try {
-      const saved = JSON.parse(window.localStorage.getItem('savedBlends') ?? '[]') as
-        | SavedBlend[]
+      const saved = JSON.parse(window.localStorage.getItem('hs_saved_blends') ?? '[]') as
+        | SavedGoalBlend[]
         | Array<Record<string, unknown>>
       if (Array.isArray(saved)) {
-        const normalised: SavedBlend[] = saved.map((entry, index) => {
-          const baseName =
-            typeof entry === 'object' && entry && 'name' in entry && typeof entry.name === 'string'
-              ? entry.name
-              : `Blend ${index + 1}`
-          const baseItems =
-            typeof entry === 'object' &&
-            entry &&
-            'items' in entry &&
-            Array.isArray((entry as { items?: unknown }).items)
-              ? ((entry as { items?: Array<Record<string, unknown>> }).items ?? [])
+        const normalised = saved
+          .map(entry => {
+            if (!entry || typeof entry !== 'object') return null
+            const herbs = Array.isArray((entry as { herbs?: unknown[] }).herbs)
+              ? ((entry as { herbs?: unknown[] }).herbs ?? []).filter(
+                  herbName => typeof herbName === 'string'
+                )
               : []
-          return {
-            id:
-              typeof entry === 'object' && entry && 'id' in entry && typeof entry.id === 'string'
-                ? entry.id
-                : `${Date.now()}-${index}`,
-            name: baseName,
-            createdAt:
-              typeof entry === 'object' &&
-              entry &&
-              'createdAt' in entry &&
-              typeof entry.createdAt === 'string'
-                ? entry.createdAt
-                : new Date().toISOString(),
-            items: baseItems
-              .map((item, itemIndex) => {
-                if (!item) return null
-                const source = item as Record<string, unknown>
-                const key =
-                  typeof source.key === 'string'
-                    ? source.key
-                    : typeof source.slug === 'string'
-                      ? source.slug
-                      : typeof source.id === 'string'
-                        ? source.id
-                        : typeof source.name === 'string'
-                          ? source.name
-                          : typeof source.common === 'string'
-                            ? source.common
-                            : typeof source.scientific === 'string'
-                              ? source.scientific
-                              : undefined
-                const name =
-                  typeof source.name === 'string'
-                    ? source.name
-                    : typeof source.common === 'string'
-                      ? source.common
-                      : typeof source.scientific === 'string'
-                        ? source.scientific
-                        : undefined
-                const ratios =
-                  typeof source.ratios === 'object' && source.ratios !== null
-                    ? (source.ratios as Partial<BlendRatios>)
-                    : undefined
-                const legacyRatio =
-                  typeof source.ratio === 'number' ? (source.ratio as number) : undefined
-                if (!key) return null
-                return {
-                  key,
-                  name: name ?? `Herb ${itemIndex + 1}`,
-                  ratios: {
-                    percent:
-                      typeof ratios?.percent === 'number' && Number.isFinite(ratios.percent)
-                        ? ratios.percent
-                        : typeof legacyRatio === 'number'
-                          ? legacyRatio
-                          : RATIO_SETTINGS.percent.defaultValue,
-                    grams:
-                      typeof ratios?.grams === 'number' && Number.isFinite(ratios.grams)
-                        ? ratios.grams
-                        : RATIO_SETTINGS.grams.defaultValue,
-                  },
-                }
-              })
-              .filter(Boolean) as SavedBlend['items'],
-          }
-        })
-        setFavorites(normalised)
+            if (
+              typeof entry.goal !== 'string' ||
+              typeof entry.blendName !== 'string' ||
+              typeof entry.timestamp !== 'string'
+            ) {
+              return null
+            }
+            return {
+              goal: entry.goal,
+              blendName: entry.blendName,
+              herbs: herbs as string[],
+              timestamp: entry.timestamp,
+            }
+          })
+          .filter(Boolean) as SavedGoalBlend[]
+        setSavedGoalBlends(normalised)
       }
     } catch (error) {
       recordDevMessage('warning', 'Unable to parse saved blends', error)
@@ -274,21 +218,15 @@ export default function BuildBlend() {
   }, [])
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+    window.localStorage.setItem('hs_saved_blends', JSON.stringify(savedGoalBlends))
+  }, [savedGoalBlends])
+
+  useEffect(() => {
     if (copyState !== 'copied') return
     const timeout = window.setTimeout(() => setCopyState('idle'), 2000)
     return () => window.clearTimeout(timeout)
   }, [copyState])
-
-  const herbMap = useMemo(() => {
-    const map = new Map<string, Herb>()
-    dataset.forEach(herb => {
-      const key = getHerbKey(herb)
-      if (key) {
-        map.set(key, herb)
-      }
-    })
-    return map
-  }, [dataset])
 
   const availableHerbs = useMemo(() => {
     const lowerQuery = query.trim().toLowerCase()
@@ -492,46 +430,31 @@ export default function BuildBlend() {
     }
   }
 
-  const saveBlend = () => {
-    if (typeof window === 'undefined' || !blend.length) return
-    const defaultName = activePreset ? `${activePreset} Remix` : `Blend ${favorites.length + 1}`
-    const name = window.prompt('Name your blend', defaultName) ?? ''
-    const finalName = name.trim() || defaultName
-    const id = `${Date.now()}`
-    const entry: SavedBlend = {
-      id,
-      name: finalName,
-      createdAt: new Date().toISOString(),
-      items: blend.map(item => ({
-        key: item.key,
-        name: item.displayName,
-        ratios: item.ratios,
-      })),
+  const saveRecommendedBlend = () => {
+    if (!selectedRecommendation) return
+    const entry: SavedGoalBlend = {
+      goal: selectedRecommendation.label,
+      blendName: selectedRecommendation.blendName,
+      herbs: selectedRecommendation.herbs.map(herb => herb.name),
+      timestamp: new Date().toISOString(),
     }
-    const updated = [...favorites.filter(fav => fav.id !== id), entry]
-    setFavorites(updated)
-    window.localStorage.setItem('savedBlends', JSON.stringify(updated))
-    toast.success('Blend saved locally!')
-  }
-
-  const loadFavorite = (saved: SavedBlend) => {
-    const resolvedItems: BlendItem[] = []
-    saved.items.forEach(savedItem => {
-      const herb = herbMap.get(savedItem.key)
-      if (!herb) return
-      resolvedItems.push({
-        ...herb,
-        key: savedItem.key,
-        displayName: savedItem.name || getHerbName(herb),
-        ratios: {
-          percent: savedItem.ratios.percent ?? RATIO_SETTINGS.percent.defaultValue,
-          grams: savedItem.ratios.grams ?? RATIO_SETTINGS.grams.defaultValue,
-        },
-      })
+    const comparisonKey = JSON.stringify({
+      goal: entry.goal,
+      blendName: entry.blendName,
+      herbs: entry.herbs,
     })
-    if (!resolvedItems.length) return
-    setBlend(resolvedItems)
-    setActivePreset(null)
+    setSavedGoalBlends(current => {
+      const deduped = current.filter(saved => {
+        const savedKey = JSON.stringify({
+          goal: saved.goal,
+          blendName: saved.blendName,
+          herbs: saved.herbs,
+        })
+        return savedKey !== comparisonKey
+      })
+      return [entry, ...deduped]
+    })
+    setBlendSavedMessage(true)
   }
 
   const selectedRecommendation = useMemo(
@@ -541,6 +464,8 @@ export default function BuildBlend() {
 
   const applyGoalRecommendation = (goal: GoalRecommendation) => {
     setSelectedGoal(goal.key)
+    setBlendSavedMessage(false)
+    setShowExploreHerbs(false)
     const resolved = goal.herbs
       .map(entry =>
         dataset.find(herb => getHerbName(herb).toLowerCase() === entry.name.toLowerCase())
@@ -563,9 +488,21 @@ export default function BuildBlend() {
     setActivePreset(null)
   }
 
-  const exploreRecommendedHerbs = (goal: GoalRecommendation) => {
-    setQuery(goal.herbs.map(herb => herb.name).join(' '))
-  }
+  const clearSavedBlends = () => setSavedGoalBlends([])
+
+  const recommendedHerbLinks = useMemo(() => {
+    if (!selectedRecommendation) return []
+    return selectedRecommendation.herbs.map(entry => {
+      const matched = dataset.find(
+        herb => getHerbName(herb).toLowerCase() === entry.name.toLowerCase()
+      )
+      const slug = typeof matched?.slug === 'string' ? matched.slug : ''
+      return {
+        name: entry.name,
+        href: slug ? `/herb/${slug}` : '/herbs',
+      }
+    })
+  }, [dataset, selectedRecommendation])
 
   return (
     <main className='container space-y-6 py-8'>
@@ -643,20 +580,32 @@ export default function BuildBlend() {
             </ul>
             <div className='flex flex-col gap-2 sm:flex-row'>
               <Button
-                onClick={saveBlend}
+                onClick={saveRecommendedBlend}
                 disabled={!blend.length}
                 className='flex-1 justify-center'
               >
                 Save this blend
               </Button>
               <Button
-                onClick={() => exploreRecommendedHerbs(selectedRecommendation)}
+                onClick={() => setShowExploreHerbs(current => !current)}
                 variant='ghost'
                 className='flex-1 justify-center'
               >
                 Explore these herbs
               </Button>
             </div>
+            {blendSavedMessage && <p className='text-brand-lime text-xs'>Blend saved ✓</p>}
+            {showExploreHerbs && (
+              <ul className='space-y-2'>
+                {recommendedHerbLinks.map(herb => (
+                  <li key={herb.name} className='text-sm'>
+                    <Link className='text-brand-lime hover:underline' to={herb.href}>
+                      {herb.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </Card>
         )}
       </section>
@@ -849,50 +798,33 @@ export default function BuildBlend() {
               >
                 {copyState === 'copied' ? 'Copied!' : 'Copy formula'}
               </Button>
-              <Button
-                onClick={saveBlend}
-                variant='primary'
-                className='flex-1 justify-center'
-                disabled={!blend.length}
-              >
-                Save to favorites
-              </Button>
             </div>
           </Card>
-
-          {!!favorites.length && (
-            <Card className='text-sub space-y-4 p-5 text-sm'>
-              <h2 className='text-sub text-sm font-semibold uppercase tracking-wide'>Favorites</h2>
-              <ul className='space-y-3'>
-                {favorites.map(fav => (
-                  <li key={fav.id} className='border-border bg-panel rounded-xl border p-3'>
-                    <div className='flex items-center justify-between gap-2'>
-                      <div>
-                        <p className='text-text font-semibold'>{fav.name}</p>
-                        <p className='text-sub/70 text-xs'>
-                          {new Date(fav.createdAt).toLocaleDateString(undefined, {
-                            month: 'short',
-                            day: 'numeric',
-                          })}
-                        </p>
-                      </div>
-                      <Button
-                        onClick={() => loadFavorite(fav)}
-                        variant='ghost'
-                        className='text-sub hover:text-text px-3 py-1 text-xs'
-                      >
-                        Load
-                      </Button>
-                    </div>
-                    <p className='text-sub mt-2 text-xs'>
-                      {fav.items.length} herbs · {ratioMode === 'percent' ? '%' : 'g'} ready
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          )}
         </aside>
+      </section>
+
+      <section className='space-y-3'>
+        <div className='flex items-center justify-between gap-3'>
+          <h2 className='text-sub text-sm font-semibold uppercase tracking-wide'>Saved blends</h2>
+          {!!savedGoalBlends.length && (
+            <Button onClick={clearSavedBlends} variant='ghost' className='px-3 py-1 text-xs'>
+              Clear saved blends
+            </Button>
+          )}
+        </div>
+        {!savedGoalBlends.length ? (
+          <Card className='text-sub border-dashed p-4 text-sm'>No saved blends yet.</Card>
+        ) : (
+          <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+            {savedGoalBlends.slice(0, 3).map(saved => (
+              <Card key={`${saved.timestamp}-${saved.blendName}`} className='space-y-2 p-4'>
+                <p className='text-text text-sm font-semibold'>{saved.blendName}</p>
+                <p className='text-sub text-xs'>Goal: {saved.goal}</p>
+                <p className='text-sub text-xs'>Herbs: {saved.herbs.join(', ')}</p>
+              </Card>
+            ))}
+          </div>
+        )}
       </section>
     </main>
   )
