@@ -38,6 +38,8 @@ type SavedGoalBlend = {
   timestamp: string
 }
 
+const STARTER_PACK_LINK = 'https://buy.stripe.com/your-link-here'
+
 const PRESETS: Record<string, string[]> = {
   Relaxation: ['Blue Lotus', 'Kava', 'Passionflower'],
   Energy: ['Yerba Mate', 'Guayusa', 'Kola Nut'],
@@ -179,9 +181,7 @@ export default function BuildBlend() {
   const [selectedGoal, setSelectedGoal] = useState<GoalKey | null>(null)
   const [blendSavedMessage, setBlendSavedMessage] = useState(false)
   const [showExploreHerbs, setShowExploreHerbs] = useState(false)
-  const [showStarterPackWaitlist, setShowStarterPackWaitlist] = useState(false)
-  const [starterPackEmail, setStarterPackEmail] = useState('')
-  const [starterPackWaitlistMessage, setStarterPackWaitlistMessage] = useState('')
+  const [showStarterPackFallback, setShowStarterPackFallback] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -493,40 +493,30 @@ export default function BuildBlend() {
 
   const clearSavedBlends = () => setSavedGoalBlends([])
 
-  const joinStarterPackWaitlist = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const email = starterPackEmail.trim().toLowerCase()
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setStarterPackWaitlistMessage('Please enter a valid email address.')
-      return
+  const handleStarterPackCheckout = () => {
+    if (!selectedRecommendation || typeof window === 'undefined') return
+
+    const payload = {
+      goal: selectedRecommendation.label,
+      herbs: selectedRecommendation.herbs.map(herb => herb.name),
+      timestamp: new Date().toISOString(),
     }
-    if (typeof window === 'undefined') return
 
     try {
-      const current = JSON.parse(window.localStorage.getItem('hs_waitlist') ?? '[]')
-      const waitlist = Array.isArray(current) ? current : []
-      const alreadyJoined = waitlist.some(entry =>
-        typeof entry === 'string'
-          ? entry.toLowerCase() === email
-          : typeof entry?.email === 'string' && entry.email.toLowerCase() === email
-      )
-      if (!alreadyJoined) {
-        waitlist.push({
-          email,
-          source: 'starter-pack',
-          timestamp: new Date().toISOString(),
-          goal: selectedRecommendation?.label ?? null,
-          blendName: selectedRecommendation?.blendName ?? null,
-        })
-        window.localStorage.setItem('hs_waitlist', JSON.stringify(waitlist))
-      }
-      setStarterPackEmail('')
-      setStarterPackWaitlistMessage('You’re on the early access list.')
-      toast.success('Added to Starter Pack early access list')
+      window.localStorage.setItem('hs_last_selected_blend', JSON.stringify(payload))
     } catch (error) {
-      recordDevMessage('warning', 'Unable to store Starter Pack waitlist email', error)
-      setStarterPackWaitlistMessage('Could not save right now. Please try again.')
+      recordDevMessage('warning', 'Unable to store selected blend for Starter Pack checkout', error)
     }
+
+    const checkoutWindow = window.open(STARTER_PACK_LINK, '_blank', 'noopener,noreferrer')
+    if (checkoutWindow) {
+      checkoutWindow.opener = null
+      setShowStarterPackFallback(false)
+      return
+    }
+
+    setShowStarterPackFallback(true)
+    toast.error('Popup blocked. Use the secure checkout link below.')
   }
 
   const recommendedHerbLinks = useMemo(() => {
@@ -644,42 +634,29 @@ export default function BuildBlend() {
                   <p className='text-text text-base font-semibold'>
                     Starter Pack (Digital Guide): $9
                   </p>
-                  <Button
-                    onClick={() => {
-                      setShowStarterPackWaitlist(current => !current)
-                      setStarterPackWaitlistMessage('')
-                    }}
-                    className='min-w-[180px] justify-center'
-                  >
-                    Get Starter Pack
-                  </Button>
+                  <div className='flex flex-col items-start gap-1 sm:items-end'>
+                    <Button
+                      onClick={handleStarterPackCheckout}
+                      className='border-brand-lime/40 bg-brand-lime/20 text-brand-lime hover:bg-brand-lime/30 min-w-[190px] justify-center border shadow-[0_0_24px_-12px_rgba(163,230,53,0.95)]'
+                    >
+                      Get Starter Pack
+                    </Button>
+                    <p className='text-sub text-xs'>Secure checkout • Instant access</p>
+                  </div>
                 </div>
-
-                {showStarterPackWaitlist && (
-                  <form
-                    onSubmit={joinStarterPackWaitlist}
-                    className='space-y-3 rounded-lg border border-white/10 bg-black/30 p-3'
-                  >
-                    <p className='text-text text-sm font-medium'>
-                      Coming soon — want early access?
-                    </p>
-                    <div className='flex flex-col gap-2 sm:flex-row'>
-                      <input
-                        type='email'
-                        value={starterPackEmail}
-                        onChange={event => setStarterPackEmail(event.target.value)}
-                        placeholder='you@example.com'
-                        className='border-border bg-panel text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:ring-brand-lime/20 w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2'
-                        required
-                      />
-                      <Button type='submit' className='justify-center sm:min-w-[120px]'>
-                        Join Waitlist
-                      </Button>
-                    </div>
-                    {starterPackWaitlistMessage && (
-                      <p className='text-brand-lime text-xs'>{starterPackWaitlistMessage}</p>
-                    )}
-                  </form>
+                {showStarterPackFallback && (
+                  <p className='text-sub rounded-lg border border-white/10 bg-black/30 px-3 py-2 text-xs'>
+                    Popup blocked?{' '}
+                    <a
+                      href={STARTER_PACK_LINK}
+                      target='_blank'
+                      rel='noreferrer'
+                      className='text-brand-lime font-medium hover:underline'
+                    >
+                      Continue to secure checkout
+                    </a>
+                    .
+                  </p>
                 )}
               </div>
             </section>
