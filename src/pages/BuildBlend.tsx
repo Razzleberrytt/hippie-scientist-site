@@ -182,6 +182,7 @@ export default function BuildBlend() {
   const [blendSavedMessage, setBlendSavedMessage] = useState(false)
   const [showExploreHerbs, setShowExploreHerbs] = useState(false)
   const [showStarterPackFallback, setShowStarterPackFallback] = useState(false)
+  const [showPostCheckoutNote, setShowPostCheckoutNote] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -498,6 +499,7 @@ export default function BuildBlend() {
 
     const payload = {
       goal: selectedRecommendation.label,
+      blendName: selectedRecommendation.blendName,
       herbs: selectedRecommendation.herbs.map(herb => herb.name),
       timestamp: new Date().toISOString(),
     }
@@ -509,6 +511,7 @@ export default function BuildBlend() {
     }
 
     const checkoutWindow = window.open(STARTER_PACK_LINK, '_blank', 'noopener,noreferrer')
+    setShowPostCheckoutNote(true)
     if (checkoutWindow) {
       checkoutWindow.opener = null
       setShowStarterPackFallback(false)
@@ -644,6 +647,18 @@ export default function BuildBlend() {
                     <p className='text-sub text-xs'>Secure checkout • Instant access</p>
                   </div>
                 </div>
+                {showPostCheckoutNote && (
+                  <p className='text-sub rounded-lg border border-white/10 bg-black/30 px-3 py-2 text-xs'>
+                    After checkout, come back here for your next steps. You can also open{' '}
+                    <Link
+                      to='/starter-pack-success'
+                      className='text-brand-lime font-medium hover:underline'
+                    >
+                      your handoff page
+                    </Link>
+                    .
+                  </p>
+                )}
                 {showStarterPackFallback && (
                   <p className='text-sub rounded-lg border border-white/10 bg-black/30 px-3 py-2 text-xs'>
                     Popup blocked?{' '}
