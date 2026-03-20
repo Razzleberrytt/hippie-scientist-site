@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Meta from '../components/Meta'
 import Card from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
+import BundleUpgradeCard from '../components/BundleUpgradeCard'
 import {
   clearGeneratedGuides,
   deleteGeneratedGuide,
@@ -57,6 +58,8 @@ export default function Downloads() {
           Your saved Starter Packs and generated blend downloads.
         </p>
       </header>
+
+      <BundleUpgradeCard sourcePage='downloads' currentBlendName={sortedGuides[0]?.blendName} />
 
       {!hasGuides && (
         <Card className='border-border/80 from-panel/90 to-panel/70 flex flex-col items-center gap-4 rounded-2xl border bg-gradient-to-br p-8 text-center'>
