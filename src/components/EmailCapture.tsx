@@ -25,6 +25,7 @@ export default function EmailCapture() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [storedEmailCount, setStoredEmailCount] = useState(0)
+  const apiUrl = `${window.location.origin}/api/subscribe`
   const [submitDebug, setSubmitDebug] = useState<{
     apiUrl: string
     status: number
@@ -38,8 +39,6 @@ export default function EmailCapture() {
   }, [])
 
   const sendEmailToBackend = async (capturedEmail: string) => {
-    const apiUrl = `${window.location.origin}/api/subscribe`
-
     try {
       const response = await fetch(apiUrl, {
         method: 'POST',
@@ -169,6 +168,7 @@ export default function EmailCapture() {
               Get the Guide
             </button>
           </form>
+          <p className='text-xs text-white/60'>CURRENT API URL: {apiUrl}</p>
 
           {storedEmailCount > 0 ? (
             <div className='pt-1'>
