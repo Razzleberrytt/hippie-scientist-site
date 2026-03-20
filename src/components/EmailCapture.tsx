@@ -37,11 +37,8 @@ export default function EmailCapture() {
     setStoredEmailCount(getStoredEmails().length)
   }, [])
 
-  const getSubscribeApiUrl = () => `${window.location.origin}/api/subscribe`
-
   const sendEmailToBackend = async (capturedEmail: string) => {
-    // Always post to the same origin the visitor is currently on (no www rewrites).
-    const apiUrl = getSubscribeApiUrl()
+    const apiUrl = `${window.location.origin}/api/subscribe`
 
     try {
       const response = await fetch(apiUrl, {
