@@ -179,6 +179,9 @@ export default function BuildBlend() {
   const [selectedGoal, setSelectedGoal] = useState<GoalKey | null>(null)
   const [blendSavedMessage, setBlendSavedMessage] = useState(false)
   const [showExploreHerbs, setShowExploreHerbs] = useState(false)
+  const [showStarterPackWaitlist, setShowStarterPackWaitlist] = useState(false)
+  const [starterPackEmail, setStarterPackEmail] = useState('')
+  const [starterPackWaitlistMessage, setStarterPackWaitlistMessage] = useState('')
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -490,6 +493,42 @@ export default function BuildBlend() {
 
   const clearSavedBlends = () => setSavedGoalBlends([])
 
+  const joinStarterPackWaitlist = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const email = starterPackEmail.trim().toLowerCase()
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStarterPackWaitlistMessage('Please enter a valid email address.')
+      return
+    }
+    if (typeof window === 'undefined') return
+
+    try {
+      const current = JSON.parse(window.localStorage.getItem('hs_waitlist') ?? '[]')
+      const waitlist = Array.isArray(current) ? current : []
+      const alreadyJoined = waitlist.some(entry =>
+        typeof entry === 'string'
+          ? entry.toLowerCase() === email
+          : typeof entry?.email === 'string' && entry.email.toLowerCase() === email
+      )
+      if (!alreadyJoined) {
+        waitlist.push({
+          email,
+          source: 'starter-pack',
+          timestamp: new Date().toISOString(),
+          goal: selectedRecommendation?.label ?? null,
+          blendName: selectedRecommendation?.blendName ?? null,
+        })
+        window.localStorage.setItem('hs_waitlist', JSON.stringify(waitlist))
+      }
+      setStarterPackEmail('')
+      setStarterPackWaitlistMessage('You’re on the early access list.')
+      toast.success('Added to Starter Pack early access list')
+    } catch (error) {
+      recordDevMessage('warning', 'Unable to store Starter Pack waitlist email', error)
+      setStarterPackWaitlistMessage('Could not save right now. Please try again.')
+    }
+  }
+
   const recommendedHerbLinks = useMemo(() => {
     if (!selectedRecommendation) return []
     return selectedRecommendation.herbs.map(entry => {
@@ -506,23 +545,6 @@ export default function BuildBlend() {
 
   return (
     <main className='container space-y-6 py-8'>
-      <section className='border-brand-lime/35 bg-panel/95 relative overflow-hidden rounded-2xl border p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.1),0_18px_48px_-22px_rgba(163,230,53,0.7)] sm:p-5'>
-        <div className='from-brand-lime/12 to-brand-lime/8 pointer-events-none absolute inset-0 bg-gradient-to-r via-transparent' />
-        <div className='relative z-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
-          <p className='text-text max-w-2xl text-sm sm:text-base'>
-            Want 5 proven beginner blends ready to go? Skip trial and error.
-          </p>
-          <a
-            href='https://checkout.example.com/starter-pack'
-            target='_blank'
-            rel='noreferrer'
-            className='btn btn-primary w-full justify-center whitespace-nowrap text-sm sm:w-auto'
-          >
-            Get Starter Pack ($7)
-          </a>
-        </div>
-      </section>
-
       <header className='space-y-3'>
         <p className='text-sub text-xs uppercase tracking-[0.3em]'>Experimental Mixer</p>
         <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>Build a Blend</h1>
@@ -578,6 +600,89 @@ export default function BuildBlend() {
                 </li>
               ))}
             </ul>
+            <section className='border-brand-lime/40 from-brand-lime/16 to-panel/95 relative space-y-4 overflow-hidden rounded-xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.12),0_12px_34px_-18px_rgba(163,230,53,0.9)]'>
+              <div className='from-brand-lime/18 via-brand-lime/6 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
+              <div className='relative z-10 space-y-4'>
+                <div>
+                  <h4 className='text-text text-lg font-semibold'>Starter Pack</h4>
+                  <p className='text-sub mt-1 text-sm'>
+                    Everything you need to try this blend safely and simply.
+                  </p>
+                </div>
+
+                <div className='grid gap-4 md:grid-cols-2'>
+                  <div className='space-y-2 rounded-lg border border-white/10 bg-black/20 p-3'>
+                    <p className='text-text text-sm font-semibold'>What&apos;s included</p>
+                    <ul className='text-sub list-inside list-disc space-y-1 text-sm'>
+                      {selectedRecommendation.herbs.map(herb => (
+                        <li key={`${herb.name}-starter`}>{herb.name}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className='space-y-2 rounded-lg border border-white/10 bg-black/20 p-3'>
+                    <p className='text-text text-sm font-semibold'>Simple prep</p>
+                    <ul className='text-sub list-inside list-disc space-y-1 text-sm'>
+                      <li>1 tsp dried herb blend</li>
+                      <li>Steep 10–15 minutes</li>
+                      <li>Drink 1–2x daily</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className='space-y-2 rounded-lg border border-white/10 bg-black/20 p-3'>
+                  <p className='text-text text-sm font-semibold'>Why this works</p>
+                  <ul className='text-sub list-inside list-disc space-y-1 text-sm'>
+                    {selectedRecommendation.herbs.slice(0, 3).map(herb => (
+                      <li key={`${herb.name}-why`}>
+                        {herb.name}: {herb.reason}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className='flex flex-col gap-3 rounded-lg border border-white/10 bg-black/20 p-3 sm:flex-row sm:items-center sm:justify-between'>
+                  <p className='text-text text-base font-semibold'>
+                    Starter Pack (Digital Guide): $9
+                  </p>
+                  <Button
+                    onClick={() => {
+                      setShowStarterPackWaitlist(current => !current)
+                      setStarterPackWaitlistMessage('')
+                    }}
+                    className='min-w-[180px] justify-center'
+                  >
+                    Get Starter Pack
+                  </Button>
+                </div>
+
+                {showStarterPackWaitlist && (
+                  <form
+                    onSubmit={joinStarterPackWaitlist}
+                    className='space-y-3 rounded-lg border border-white/10 bg-black/30 p-3'
+                  >
+                    <p className='text-text text-sm font-medium'>
+                      Coming soon — want early access?
+                    </p>
+                    <div className='flex flex-col gap-2 sm:flex-row'>
+                      <input
+                        type='email'
+                        value={starterPackEmail}
+                        onChange={event => setStarterPackEmail(event.target.value)}
+                        placeholder='you@example.com'
+                        className='border-border bg-panel text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:ring-brand-lime/20 w-full rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2'
+                        required
+                      />
+                      <Button type='submit' className='justify-center sm:min-w-[120px]'>
+                        Join Waitlist
+                      </Button>
+                    </div>
+                    {starterPackWaitlistMessage && (
+                      <p className='text-brand-lime text-xs'>{starterPackWaitlistMessage}</p>
+                    )}
+                  </form>
+                )}
+              </div>
+            </section>
             <div className='flex flex-col gap-2 sm:flex-row'>
               <Button
                 onClick={saveRecommendedBlend}
