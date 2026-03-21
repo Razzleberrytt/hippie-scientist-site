@@ -6,6 +6,8 @@ import { normalizeScientificTags } from '@/lib/tags'
 import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '@/lib/slug'
 import { getDisplayName, recommendRelatedCompounds, recommendRelatedHerbs } from '@/lib/discovery'
+import { trackEvent, useSavedItems } from '@/lib/growth'
+import posts from '../../public/blogdata/index.json'
 
 const compounds = decorateCompounds()
 
@@ -24,6 +26,7 @@ export default function CompoundDetail() {
   const { slug } = useParams<Param>()
   const compound = compounds.find(entry => entry.slug === slug)
   const herbs = useHerbData()
+  const { toggle, isSaved } = useSavedItems()
 
   if (!compound) {
     return (
@@ -72,6 +75,18 @@ export default function CompoundDetail() {
     5
   )
   const relatedHerbs = foundHerbs.length ? foundHerbs : recommendRelatedHerbs(compound, herbs, 5)
+  const saved = isSaved('compound', compound.slug)
+  const mentionedIn = (Array.isArray(posts) ? posts : [])
+    .filter((post: any) => {
+      const hay =
+        `${post.title || ''} ${post.description || ''} ${(post.tags || []).join(' ')}`.toLowerCase()
+      return (
+        hay.includes(title.toLowerCase()) ||
+        normalizedTags.some(tag => hay.includes(tag.toLowerCase()))
+      )
+    })
+    .slice(0, 4)
+  const curatedExplore = [...relatedCompounds.slice(0, 2), ...relatedHerbs.slice(0, 3)].slice(0, 5)
 
   return (
     <>
@@ -96,6 +111,20 @@ export default function CompoundDetail() {
             {compound.scientific && compound.common && compound.common !== compound.scientific && (
               <p className='text-white/65'>{compound.scientific}</p>
             )}
+            <button
+              className='w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
+              onClick={() =>
+                toggle({
+                  type: 'compound',
+                  slug: compound.slug,
+                  title,
+                  href: `/compounds/${compound.slug}`,
+                  note: description,
+                })
+              }
+            >
+              {saved ? '★ Favorited' : '☆ Favorite'}
+            </button>
           </header>
 
           <section className='ds-card mt-2'>
@@ -111,6 +140,17 @@ export default function CompoundDetail() {
 
           <Section title='Overview'>
             <p className='ds-text mt-3'>{description}</p>
+            <p className='mt-3 text-xs text-white/70'>
+              Explore connected{' '}
+              <Link to='/herbs' className='text-[color:var(--accent)] underline'>
+                herb profiles
+              </Link>{' '}
+              and{' '}
+              <Link to='/blog' className='text-[color:var(--accent)] underline'>
+                research notes
+              </Link>
+              .
+            </p>
           </Section>
 
           <Section title='Chemical Class'>
@@ -206,12 +246,28 @@ export default function CompoundDetail() {
                 ))}
             </ul>
           </Section>
+          {mentionedIn.length > 0 && (
+            <Section title='Mentioned in'>
+              <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-white/80'>
+                {mentionedIn.map((post: any) => (
+                  <li key={post.slug}>
+                    <Link
+                      className='text-[color:var(--accent)] underline'
+                      to={`/blog/${post.slug}`}
+                    >
+                      {post.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
         </article>
 
         {(relatedHerbs.length > 0 || relatedCompounds.length > 0) && (
           <section className='ds-card-lg ds-section'>
             <h2 className='text-lg font-semibold text-white'>Explore Next</h2>
-            <div className='mt-4 grid gap-5 sm:grid-cols-2'>
+            <div className='mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
               {relatedHerbs.length > 0 && (
                 <div>
                   <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
@@ -250,6 +306,50 @@ export default function CompoundDetail() {
                   </ul>
                 </div>
               )}
+              {mentionedIn.length > 0 && (
+                <div>
+                  <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
+                    Related Articles
+                  </h3>
+                  <ul className='mt-2 space-y-2 text-sm text-white/80'>
+                    {mentionedIn.map((post: any) => (
+                      <li key={post.slug}>
+                        <Link className='link text-[color:var(--accent)]' to={`/blog/${post.slug}`}>
+                          {post.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+        {curatedExplore.length > 0 && (
+          <section className='ds-card-lg ds-section'>
+            <h2 className='text-lg font-semibold text-white'>You might also explore</h2>
+            <div className='mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+              {curatedExplore.map((item: any) => {
+                const isCompound = !!item.compoundClasses
+                const href = isCompound ? `/compounds/${item.slug}` : `/herbs/${item.slug}`
+                return (
+                  <Link
+                    key={`${isCompound ? 'c' : 'h'}-${item.slug}`}
+                    to={href}
+                    onClick={() =>
+                      trackEvent('detail_click', { source: 'compound_curated', target: href })
+                    }
+                    className='rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-white/30'
+                  >
+                    <p className='text-xs uppercase tracking-[0.14em] text-white/55'>
+                      {isCompound ? 'compound' : 'herb'}
+                    </p>
+                    <h3 className='mt-1 text-base font-semibold text-white'>
+                      {item.common || item.name || item.scientific}
+                    </h3>
+                  </Link>
+                )
+              })}
             </div>
           </section>
         )}

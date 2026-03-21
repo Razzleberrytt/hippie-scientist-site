@@ -14,6 +14,7 @@ import {
 import { useHerbData } from '@/lib/herb-data'
 import BundleUpgradeCard from '../components/BundleUpgradeCard'
 import ResultsSummaryCard from '../components/ResultsSummaryCard'
+import { trackEvent, useSavedItems } from '@/lib/growth'
 
 type Herb = {
   id?: string
@@ -208,6 +209,7 @@ export default function BuildBlend() {
   const [showPostCheckoutNote, setShowPostCheckoutNote] = useState(false)
   const [didLoadSharedBlend, setDidLoadSharedBlend] = useState(false)
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false)
+  const { save } = useSavedItems()
   const stepTwoRef = useRef<HTMLElement | null>(null)
   const stepThreeRef = useRef<HTMLElement | null>(null)
   const stepFourRef = useRef<HTMLElement | null>(null)
@@ -485,6 +487,17 @@ export default function BuildBlend() {
         return savedKey !== comparisonKey
       })
       return [entry, ...deduped]
+    })
+    save({
+      type: 'blend',
+      slug: `${selectedRecommendation.key}-${Date.now()}`,
+      title: selectedRecommendation.blendName,
+      href: '/blend',
+      note: selectedRecommendation.herbs.map(herb => herb.name).join(', '),
+    })
+    trackEvent('blend_created', {
+      blend: selectedRecommendation.blendName,
+      herbs: selectedRecommendation.herbs.length,
     })
     setBlendSavedMessage(true)
   }
@@ -937,7 +950,9 @@ export default function BuildBlend() {
               <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
                 Step 5: Save / Download
               </p>
-              <p className='text-sub text-xs'>Keep your result for later or continue exploring.</p>
+              <p className='text-sub text-xs'>
+                Keep this blend as a reusable protocol, then export a guide for your notes.
+              </p>
             </div>
             <div className='grid gap-2.5 sm:grid-cols-3'>
               <Button onClick={handleRetakeQuiz} variant='ghost' className='justify-center'>
@@ -958,6 +973,9 @@ export default function BuildBlend() {
                 Explore these herbs
               </Button>
             </div>
+            <Button onClick={handleStarterPackCheckout} variant='ghost' className='justify-center'>
+              Turn this into a printable guide
+            </Button>
             {blendSavedMessage && <p className='text-brand-lime text-xs'>Blend saved ✓</p>}
             {showExploreHerbs && (
               <ul className='space-y-2'>
