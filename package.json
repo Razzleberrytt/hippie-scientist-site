@@ -10,7 +10,7 @@
     "prebuild:validate": "node scripts/validate-herbs.mjs",
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
-    "prebuild": "node scripts/build-blog.mjs && node scripts/generate-rss.mjs && node scripts/generate-blog-index.mjs && npm run prerender:entities",
+    "prebuild": "node scripts/sync-updated-datasets.mjs && node scripts/build-blog.mjs && node scripts/generate-rss.mjs && node scripts/generate-blog-index.mjs && npm run prerender:entities",
     "build": "npm run prebuild && vite build",
     "postbuild": "node scripts/generate-sitemap.mjs dist",
     "sitemap": "node scripts/generate-sitemap.mjs dist",

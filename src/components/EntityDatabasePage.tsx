@@ -68,6 +68,9 @@ export default function EntityDatabasePage({
   const [intensityFilter, setIntensityFilter] = useState('all')
   const [categoryFilter, setCategoryFilter] = useState('all')
   const [tagFilter, setTagFilter] = useState(searchParams.get('tag') || 'all')
+  const [regionFilter, setRegionFilter] = useState('all')
+  const [mechanismFilter, setMechanismFilter] = useState('all')
+  const [compoundQuery, setCompoundQuery] = useState('')
 
   const scopedItems = useMemo(
     () => (enableAdvancedFilters ? (advancedResults ?? items) : items),
@@ -79,6 +82,8 @@ export default function EntityDatabasePage({
     const intensitySet = new Set<string>()
     const categorySet = new Set<string>()
     const tagSet = new Set<string>()
+    const regionSet = new Set<string>()
+    const mechanismSet = new Set<string>()
 
     items.forEach(item => {
       ;(item.pharmCategories || []).forEach(entry => effectSet.add(String(entry)))
@@ -93,6 +98,12 @@ export default function EntityDatabasePage({
       const intensity = item.intensityLabel || item.intensityLevel || item.intensity
       if (intensity) intensitySet.add(String(intensity))
 
+      const regions = [item.region, ...(item.regiontags || [])].filter(Boolean)
+      regions.forEach(entry => regionSet.add(String(entry)))
+
+      const mechanism = String(item.mechanism || (item as any).mechanismOfAction || '').trim()
+      if (mechanism) mechanismSet.add(mechanism)
+
       const categories = [
         ...(item.compoundClasses || []),
         item.category,
@@ -106,6 +117,8 @@ export default function EntityDatabasePage({
       intensities: Array.from(intensitySet).sort((a, b) => a.localeCompare(b)),
       categories: Array.from(categorySet).sort((a, b) => a.localeCompare(b)),
       tags: Array.from(tagSet).sort((a, b) => a.localeCompare(b)),
+      regions: Array.from(regionSet).sort((a, b) => a.localeCompare(b)),
+      mechanisms: Array.from(mechanismSet).sort((a, b) => a.localeCompare(b)),
     }
   }, [items])
 
@@ -150,6 +163,29 @@ export default function EntityDatabasePage({
         if (!label.includes(intensityFilter.toLowerCase())) return false
       }
 
+      if (regionFilter !== 'all') {
+        const regions = [item.region || '', ...(item.regiontags || [])].join(' ').toLowerCase()
+        if (!regions.includes(regionFilter.toLowerCase())) return false
+      }
+
+      if (mechanismFilter !== 'all') {
+        const mechanism = String(
+          item.mechanism || (item as any).mechanismOfAction || ''
+        ).toLowerCase()
+        if (!mechanism.includes(mechanismFilter.toLowerCase())) return false
+      }
+
+      if (compoundQuery.trim()) {
+        const compounds = [
+          ...((item as any).activeCompounds || []),
+          ...(item.active_compounds || []),
+          ...(item.compounds || []),
+        ]
+          .join(' ')
+          .toLowerCase()
+        if (!compounds.includes(compoundQuery.trim().toLowerCase())) return false
+      }
+
       if (categoryFilter !== 'all') {
         const categories = [
           ...(item.compoundClasses || []),
@@ -163,7 +199,17 @@ export default function EntityDatabasePage({
 
       return true
     })
-  }, [scopedItems, query, effectFilter, intensityFilter, categoryFilter, tagFilter])
+  }, [
+    scopedItems,
+    query,
+    effectFilter,
+    intensityFilter,
+    categoryFilter,
+    tagFilter,
+    regionFilter,
+    mechanismFilter,
+    compoundQuery,
+  ])
   const topMatches = useMemo(() => filtered.slice(0, 3), [filtered])
 
   const randomHerb = kind === 'herb' ? pickRandomHerb(items) : null
@@ -213,6 +259,9 @@ export default function EntityDatabasePage({
 
           <div className='ds-card mt-5 space-y-4 p-5'>
             <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4'>
+              <label htmlFor={`${kind}-search-input`} className='sr-only'>
+                Search {kind}
+              </label>
               <input
                 id={`${kind}-search-input`}
                 className='min-w-0 flex-1 rounded-2xl border border-white/15 bg-black/30 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30'
@@ -268,7 +317,11 @@ export default function EntityDatabasePage({
             )}
 
             <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+              <label className='text-xs text-white/70' htmlFor={`${kind}-effect-filter`}>
+                Effect
+              </label>
               <select
+                id={`${kind}-effect-filter`}
                 value={effectFilter}
                 onChange={event => {
                   const next = event.target.value
@@ -284,7 +337,11 @@ export default function EntityDatabasePage({
                   </option>
                 ))}
               </select>
+              <label className='text-xs text-white/70' htmlFor={`${kind}-tag-filter`}>
+                Tag
+              </label>
               <select
+                id={`${kind}-tag-filter`}
                 value={tagFilter}
                 onChange={event => {
                   const next = event.target.value
@@ -300,7 +357,11 @@ export default function EntityDatabasePage({
                   </option>
                 ))}
               </select>
+              <label className='text-xs text-white/70' htmlFor={`${kind}-intensity-filter`}>
+                Intensity
+              </label>
               <select
+                id={`${kind}-intensity-filter`}
                 value={intensityFilter}
                 onChange={event => setIntensityFilter(event.target.value)}
                 className='rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
@@ -312,7 +373,11 @@ export default function EntityDatabasePage({
                   </option>
                 ))}
               </select>
+              <label className='text-xs text-white/70' htmlFor={`${kind}-class-filter`}>
+                Class
+              </label>
               <select
+                id={`${kind}-class-filter`}
                 value={categoryFilter}
                 onChange={event => setCategoryFilter(event.target.value)}
                 className='rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white sm:col-span-2 lg:col-span-3'
@@ -324,6 +389,54 @@ export default function EntityDatabasePage({
                   </option>
                 ))}
               </select>
+              {kind === 'herb' && (
+                <>
+                  <label className='text-xs text-white/70' htmlFor={`${kind}-region-filter`}>
+                    Region
+                  </label>
+                  <select
+                    id={`${kind}-region-filter`}
+                    value={regionFilter}
+                    onChange={event => setRegionFilter(event.target.value)}
+                    className='rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
+                  >
+                    <option value='all'>All regions</option>
+                    {options.regions.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+
+                  <label className='text-xs text-white/70' htmlFor={`${kind}-mechanism-filter`}>
+                    Mechanism
+                  </label>
+                  <select
+                    id={`${kind}-mechanism-filter`}
+                    value={mechanismFilter}
+                    onChange={event => setMechanismFilter(event.target.value)}
+                    className='rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
+                  >
+                    <option value='all'>All mechanisms</option>
+                    {options.mechanisms.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+
+                  <label className='text-xs text-white/70' htmlFor={`${kind}-compound-filter`}>
+                    Active compound
+                  </label>
+                  <input
+                    id={`${kind}-compound-filter`}
+                    value={compoundQuery}
+                    onChange={event => setCompoundQuery(event.target.value)}
+                    className='rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white placeholder:text-white/50'
+                    placeholder='Search by active compound'
+                  />
+                </>
+              )}
             </div>
           </div>
 
@@ -338,7 +451,7 @@ export default function EntityDatabasePage({
           </div>
         </section>
 
-        <section className='ds-section ds-stack pb-8'>
+        <section className='ds-section grid gap-4 pb-8 md:grid-cols-2'>
           {filtered.map((item, index) => (
             <DatabaseHerbCard
               key={item.slug ?? item.id ?? `${kind}-${index}`}

@@ -126,8 +126,7 @@ export default function BlogList() {
               {post.cover ? (
                 <img
                   src={post.cover}
-                  alt=''
-                  aria-hidden
+                  alt={`Cover image for ${post.title || 'blog post'}`}
                   className='h-full w-full object-cover opacity-75'
                 />
               ) : null}

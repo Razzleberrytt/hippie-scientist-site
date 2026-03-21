@@ -15,7 +15,7 @@ type PostMeta = {
   date: string
   lastUpdated?: string
   author?: string
-  sources?: string[]
+  sources?: Array<{ title: string; url: string }>
   description?: string
   summary?: string
   tags?: string[]
@@ -122,10 +122,11 @@ export default function BlogPost() {
           {meta?.title || 'Loading…'}
         </h1>
 
+        {meta?.author && <p className='-mt-1 text-sm text-white/75'>By {meta.author}</p>}
+
         <div className='flex flex-wrap items-center gap-2 text-sm text-white/65'>
           {meta?.date && <time dateTime={meta.date}>{formatDate(meta.date)}</time>}
           {meta?.lastUpdated && <span>• Updated {formatDate(meta.lastUpdated)}</span>}
-          {meta?.author && <span>• By {meta.author}</span>}
           {meta?.readingTime && <span>• {meta.readingTime}</span>}
           <span>• {resolvePostType(meta?.tags || [])}</span>
         </div>
@@ -145,6 +146,7 @@ export default function BlogPost() {
         {meta?.slug && (
           <div className='flex flex-wrap gap-2'>
             <button
+              aria-label='Save blog post'
               className='w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
               onClick={() =>
                 toggle({
@@ -159,6 +161,7 @@ export default function BlogPost() {
               {isSaved('article', meta.slug) ? '★ Favorited' : '☆ Favorite'}
             </button>
             <button
+              aria-label='Copy blog post link'
               className='w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
               onClick={async () => {
                 await navigator.clipboard.writeText(`${window.location.origin}/blog/${meta.slug}`)
@@ -202,14 +205,10 @@ export default function BlogPost() {
           <h2 className='text-lg font-semibold text-white'>References</h2>
           <ol className='mt-3 list-decimal space-y-2 pl-5 text-sm text-white/80'>
             {meta.sources.map((source, index) => (
-              <li key={`${source}-${index}`}>
-                {/^https?:\/\//i.test(source) ? (
-                  <a href={source} target='_blank' rel='noreferrer' className='link'>
-                    {source}
-                  </a>
-                ) : (
-                  source
-                )}
+              <li key={`${source.url}-${index}`}>
+                <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+                  {source.title || source.url}
+                </a>
               </li>
             ))}
           </ol>
