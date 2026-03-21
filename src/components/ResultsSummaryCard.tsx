@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 
 type ResultsSummaryCardProps = {
   goal: string
@@ -9,6 +9,7 @@ type ResultsSummaryCardProps = {
   ctaButtons?: ReactNode
   variant?: 'compact' | 'expanded'
   className?: string
+  sharePath?: string
 }
 
 const formatTimestamp = (timestamp?: string) => {
@@ -27,9 +28,78 @@ export default function ResultsSummaryCard({
   ctaButtons,
   variant = 'expanded',
   className = '',
+  sharePath = '/build',
 }: ResultsSummaryCardProps) {
   const isCompact = variant === 'compact'
   const formattedTimestamp = formatTimestamp(timestamp)
+  const [shareMessage, setShareMessage] = useState<'idle' | 'copied' | 'shared'>('idle')
+  const shareGoal = goal
+    .toLowerCase()
+    .replace(/[^a-z\s/-]/g, '')
+    .split(/[\/\s-]+/)
+    .find(Boolean)
+  const shareUrl = useMemo(() => {
+    const goalParam = shareGoal || 'calm'
+    const herbParam = herbs
+      .map(herb =>
+        herb
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+      )
+      .filter(Boolean)
+      .join(',')
+    const pathWithParams = `${sharePath}?goal=${encodeURIComponent(goalParam)}${
+      herbParam ? `&herbs=${encodeURIComponent(herbParam)}` : ''
+    }`
+    if (typeof window === 'undefined') {
+      return `https://thehippiescientist.net/#${pathWithParams}`
+    }
+    return `${window.location.origin}/#${pathWithParams}`
+  }, [herbs, shareGoal, sharePath])
+  const shareText = useMemo(
+    () =>
+      `I just built a ${blendName} using:\n${herbs.map(herb => `- ${herb}`).join('\n')}\nTry it here: ${shareUrl}`,
+    [blendName, herbs, shareUrl]
+  )
+
+  const setSuccessState = (state: 'copied' | 'shared') => {
+    setShareMessage(state)
+    window.setTimeout(() => {
+      setShareMessage('idle')
+    }, 1800)
+  }
+
+  const handleCopy = async () => {
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareText)
+        setSuccessState('copied')
+        return
+      }
+      if (typeof window !== 'undefined') {
+        window.prompt('Copy your blend summary', shareText)
+      }
+    } catch {
+      if (typeof window !== 'undefined') {
+        window.prompt('Copy your blend summary', shareText)
+      }
+    }
+  }
+
+  const handleNativeShare = async () => {
+    if (typeof navigator === 'undefined' || !navigator.share) return
+    try {
+      await navigator.share({
+        title: blendName,
+        text: shareText,
+        url: shareUrl,
+      })
+      setSuccessState('shared')
+    } catch {
+      // User canceled or browser blocked share.
+    }
+  }
 
   return (
     <article
@@ -67,7 +137,31 @@ export default function ResultsSummaryCard({
         <p className='text-sub relative z-10 text-xs'>Recommended: {formattedTimestamp}</p>
       )}
 
-      {ctaButtons && <div className='relative z-10'>{ctaButtons}</div>}
+      <div className='relative z-10 space-y-2'>
+        {(ctaButtons || herbs.length > 0) && (
+          <div className='flex flex-wrap items-center gap-2'>
+            {ctaButtons}
+            <button
+              type='button'
+              onClick={handleCopy}
+              className='border-border/70 text-sub hover:text-text hover:border-brand-lime/40 rounded-md border bg-black/20 px-2.5 py-1 text-xs transition'
+            >
+              Share
+            </button>
+            {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
+              <button
+                type='button'
+                onClick={handleNativeShare}
+                className='border-border/70 text-sub hover:text-text hover:border-brand-lime/40 rounded-md border bg-black/20 px-2.5 py-1 text-xs transition'
+              >
+                Native share
+              </button>
+            )}
+          </div>
+        )}
+        {shareMessage === 'copied' && <p className='text-brand-lime text-xs'>Copied ✓</p>}
+        {shareMessage === 'shared' && <p className='text-brand-lime text-xs'>Shared ✓</p>}
+      </div>
     </article>
   )
 }
