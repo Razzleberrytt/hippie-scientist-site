@@ -10,6 +10,8 @@ import { cleanLine, hasVal, titleCase } from '../lib/pretty'
 import { pick } from '../lib/present'
 import { getCommonName } from '../lib/herbName'
 import { useHerbData } from '@/lib/herb-data'
+import { decorateCompounds } from '@/lib/compounds'
+import { normalizeScientificTags } from '@/lib/tags'
 import type { Herb } from '@/types'
 
 type BlogPost = {
@@ -20,9 +22,51 @@ type BlogPost = {
 }
 
 const blogPosts = postsData as BlogPost[]
+const compounds = decorateCompounds()
 
 type Param = {
   slug?: string
+}
+
+function splitNotes(input: string) {
+  return input
+    .split(/\n|;|\.|•/g)
+    .map(part => cleanLine(part))
+    .filter(Boolean)
+}
+
+function inferEffectBuckets(input: string, tags: string[]) {
+  const parts = input
+    .split(/\n|;|\.|•/g)
+    .map(part => cleanLine(part))
+    .filter(Boolean)
+
+  const mental = parts.filter(item =>
+    /mood|focus|calm|stress|anxiety|sleep|cognition|mind/i.test(item)
+  )
+  const physical = parts.filter(item =>
+    /pain|energy|inflammation|digest|body|muscle|immune|stamina/i.test(item)
+  )
+  const subtle = parts.filter(item =>
+    /dream|spiritual|subjective|awareness|sensory|ritual|oneiro/i.test(item)
+  )
+
+  if (
+    !mental.length &&
+    tags.some(tag => /calming|stimulating|serotonergic|dopaminergic|adaptogen/.test(tag))
+  ) {
+    mental.push(`Associated tags: ${tags.join(', ')}`)
+  }
+
+  return {
+    mental: mental.length ? mental : ['Mental effects vary by dose and context.'],
+    physical: physical.length
+      ? physical
+      : ['Physical effects are context-dependent and may vary by preparation.'],
+    subtle: subtle.length
+      ? subtle
+      : ['Subjective effects are traditionally described and may vary between people.'],
+  }
 }
 
 function RelatedPosts({ slug }: { slug?: string }) {
@@ -34,7 +78,7 @@ function RelatedPosts({ slug }: { slug?: string }) {
 
   return (
     <section className='card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 backdrop-blur'>
-      <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>Related Posts</h2>
+      <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>Related Articles</h2>
       <ul className='mt-3 space-y-3'>
         {posts.map(p => (
           <li key={p.slug} className='text-sm text-[color:var(--muted-c)]'>
@@ -50,19 +94,9 @@ function RelatedPosts({ slug }: { slug?: string }) {
                 })}
               </p>
             )}
-            {p.description && (
-              <p className='text-xs text-[color:color-mix(in_oklab,var(--muted-c)_85%,transparent_15%)]'>
-                {p.description}
-              </p>
-            )}
           </li>
         ))}
       </ul>
-      <div className='mt-4 text-sm text-[color:var(--muted-c)]'>
-        <Link to='/blog' className='link text-[color:var(--accent)]'>
-          View all posts →
-        </Link>
-      </div>
     </section>
   )
 }
@@ -93,24 +127,10 @@ export default function HerbDetail() {
   const displayTitle = commonName ?? scientificName ?? 'Herb'
   const description = details.description || details.effects || 'Herb profile'
   const intensityLevel = herb.intensityLevel || null
-  const intensityLabel = herb.intensityLabel || (intensityLevel ? titleCase(intensityLevel) : '')
-  const intensityClass = (() => {
-    switch (intensityLevel) {
-      case 'strong':
-        return 'border border-[color:rgba(248,113,113,0.45)] bg-[rgba(244,63,94,0.12)] text-[color:#ffdada]'
-      case 'moderate':
-        return 'border border-[color:color-mix(in_oklab,var(--accent),white_25%)] bg-[color-mix(in_oklab,var(--accent)_18%,var(--surface-c)_82%)] text-[color:color-mix(in_oklab,var(--accent)_20%,var(--text-c)_80%)]'
-      case 'mild':
-        return 'border border-[color:rgba(52,211,153,0.45)] bg-[rgba(34,197,94,0.15)] text-[color:#defce7]'
-      case 'variable':
-        return 'border border-[color:rgba(56,189,248,0.35)] bg-[rgba(56,189,248,0.14)] text-[color:#d6f3ff]'
-      case 'unknown':
-      default:
-        return 'border border-[color:color-mix(in_oklab,var(--border-c)_80%,transparent_20%)] bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] text-[color:var(--muted-c)]'
-    }
-  })()
-  const benefits = cleanLine((herb as any).benefits || herb.benefits || '')
+  const intensityLabel =
+    herb.intensityLabel || (intensityLevel ? titleCase(intensityLevel) : 'Unknown')
 
+  const benefits = cleanLine((herb as any).benefits || herb.benefits || '')
   const safety = cleanLine(herb.safety || pick.safety(herb))
   const therapeutic = cleanLine(herb.therapeutic || pick.therapeutic(herb))
   const sideEffects = pick
@@ -118,24 +138,56 @@ export default function HerbDetail() {
     .map(effect => cleanLine(effect))
     .filter(Boolean)
   const toxicity = cleanLine(herb.toxicity || pick.toxicity(herb))
-  const toxicityLd50 = cleanLine(
-    (herb.toxicity_ld50 as string) ||
-      (herb as any).toxicityld50 ||
-      (herb as any).toxicityLD50 ||
-      pick.toxicity_ld50(herb)
-  )
   const mechanism = cleanLine(herb.mechanism || pick.mechanism(herb))
   const pharmacology = cleanLine((herb as any).pharmacology || (herb as any).pharmacokinetics || '')
 
-  const hasSafetyExtras = Boolean(
-    safety || therapeutic || toxicity || toxicityLd50 || (sideEffects && sideEffects.length > 0)
-  )
-  const hasMechanism = Boolean(mechanism || pharmacology)
   const traditionalUse = cleanLine((herb as any).traditionalUse || (herb as any).ethnobotany || '')
-  const researchNotes = cleanLine((herb as any).researchNotes || (herb as any).evidenceNotes || '')
+  const researchNotesRaw = cleanLine(
+    (herb as any).researchNotes || (herb as any).evidenceNotes || ''
+  )
   const effects = cleanLine(details.effects)
   const activeCompounds = details.active_compounds
   const contraindications = cleanLine(details.contraindications)
+  const interactions = cleanLine(details.interactions)
+  const normalizedTags = normalizeScientificTags(details.tags)
+  const effectBuckets = inferEffectBuckets(effects, normalizedTags)
+
+  const linkedCompounds = activeCompounds.map(name => {
+    const match = compounds.find(
+      entry =>
+        entry.name?.toLowerCase() === name.toLowerCase() ||
+        entry.common?.toLowerCase() === name.toLowerCase()
+    )
+    return {
+      name,
+      slug: match?.slug,
+    }
+  })
+
+  const relatedHerbs = herbs
+    .filter(
+      entry =>
+        entry.slug !== herb.slug &&
+        entry.tags?.some(tag => normalizedTags.includes((tag || '').toLowerCase()))
+    )
+    .slice(0, 3)
+
+  const relatedCompounds = compounds
+    .filter(
+      entry =>
+        entry.slug !== herb.slug &&
+        entry.tags?.some(tag =>
+          normalizedTags.includes(
+            tag
+              .toLowerCase()
+              .replace(/^[^a-z0-9]+/i, '')
+              .trim()
+          )
+        )
+    )
+    .slice(0, 3)
+
+  const researchNotes = splitNotes(researchNotesRaw)
 
   return (
     <>
@@ -150,35 +202,54 @@ export default function HerbDetail() {
         }}
       />
       <main className='container py-6'>
-        <div className='mx-auto flex max-w-3xl flex-col gap-6'>
+        <div className='mx-auto flex w-full max-w-3xl flex-col gap-6'>
           <article className='card bg-[color-mix(in_oklab,var(--surface-c)_94%,transparent_6%)] p-6 shadow-[0_30px_80px_rgba(0,0,0,.25)] backdrop-blur'>
-            <header className='flex flex-col gap-2 border-b border-b-[color:var(--border-c)] pb-4'>
+            <header className='flex flex-col gap-3 border-b border-b-[color:var(--border-c)] pb-5'>
               <h1 className='text-3xl font-semibold text-[color:var(--accent)]'>{displayTitle}</h1>
               {hasVal(scientificName) && (
-                <p className='italic text-[color:var(--muted-c)]'>{scientificName}</p>
-              )}
-              {intensityLabel && intensityLevel && intensityLevel !== 'unknown' && (
-                <span
-                  className={`pill hover-glow focus-glow mt-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85 ${intensityClass}`}
-                >
-                  Intensity: {intensityLabel}
-                </span>
+                <p className='italic leading-relaxed text-[color:var(--muted-c)]'>
+                  {scientificName}
+                </p>
               )}
               {hasVal(benefits) && (
-                <span className='pill hover-glow focus-glow mt-2 text-[12px] text-white/80'>
-                  {benefits}
-                </span>
+                <p className='text-sm leading-relaxed text-white/75'>{benefits}</p>
               )}
             </header>
 
-            <div className='mt-4 flex flex-wrap gap-2 text-sm text-[color:var(--muted-c)]'>
+            <section className='mt-6 rounded-2xl border border-white/10 bg-black/20 p-4'>
+              <h2 className='text-sm font-semibold uppercase tracking-[0.14em] text-white/70'>
+                Quick Facts
+              </h2>
+              <div className='mt-3 grid gap-3 text-sm sm:grid-cols-2'>
+                <p>
+                  <strong className='text-white'>Type:</strong>{' '}
+                  <span className='text-white/80'>{details.categories[0] || 'Botanical'}</span>
+                </p>
+                <p>
+                  <strong className='text-white'>Primary effects:</strong>{' '}
+                  <span className='text-white/80'>
+                    {normalizedTags.slice(0, 3).join(', ') || 'Varies'}
+                  </span>
+                </p>
+                <p>
+                  <strong className='text-white'>Intensity:</strong>{' '}
+                  <span className='text-white/80'>{intensityLabel}</span>
+                </p>
+                <p>
+                  <strong className='text-white'>Safety level:</strong>{' '}
+                  <span className='text-white/80'>
+                    {safety || toxicity || 'Use caution; evidence varies by preparation and dose.'}
+                  </span>
+                </p>
+              </div>
+            </section>
+
+            <div className='mt-6 flex flex-wrap gap-2 text-sm text-[color:var(--muted-c)]'>
               <Button
                 variant='ghost'
                 data-fav={herb.slug}
                 className='px-3 py-1 text-current'
-                onClick={() => {
-                  toast('Added to favorites ❤️')
-                }}
+                onClick={() => toast('Added to favorites ❤️')}
               >
                 ★ Favorite
               </Button>
@@ -186,117 +257,207 @@ export default function HerbDetail() {
                 variant='ghost'
                 data-compare={herb.slug}
                 className='px-3 py-1 text-current'
-                onClick={() => {
-                  toast('Added to compare list 🔄')
-                }}
+                onClick={() => toast('Added to compare list 🔄')}
               >
                 ⇄ Compare
               </Button>
-              <Button
-                variant='ghost'
-                className='px-3 py-1 text-current'
-                onClick={() =>
-                  navigator.share?.({
-                    title: herb.common || herb.scientific,
-                    url: typeof window !== 'undefined' ? window.location.href : undefined,
-                  })
-                }
-              >
-                ↗ Share
-              </Button>
             </div>
 
-            <div className='mt-6 space-y-6 text-[color:var(--text-c)]'>
+            <div className='mt-8 space-y-8 text-[color:var(--text-c)]'>
               <section>
-                <h2 className='text-lg font-semibold text-white'>Overview</h2>
-                <p className='mt-2 text-sm text-white/80'>{description}</p>
+                <h2 className='text-xl font-semibold text-white'>Overview</h2>
+                <p className='mt-3 text-sm leading-7 text-white/85'>{description}</p>
+                {normalizedTags.length > 0 && (
+                  <div className='mt-3 flex flex-wrap gap-2'>
+                    {normalizedTags.map(tag => (
+                      <span
+                        key={tag}
+                        className='rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-white/80'
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </section>
 
-              {traditionalUse && (
-                <section>
-                  <h2 className='text-lg font-semibold text-white'>Traditional Use</h2>
-                  <p className='mt-2 text-sm text-white/80'>{traditionalUse}</p>
-                </section>
-              )}
+              <section>
+                <h2 className='text-xl font-semibold text-white'>Traditional Use</h2>
+                <p className='mt-3 text-sm leading-7 text-white/80'>
+                  {traditionalUse ||
+                    'Traditionally used in regional systems of herbal practice; details vary by preparation and lineage.'}
+                </p>
+              </section>
 
-              {activeCompounds.length > 0 && (
-                <section>
-                  <h2 className='text-lg font-semibold text-white'>Active Compounds</h2>
-                  <p className='mt-2 text-sm text-white/80'>{activeCompounds.join(', ')}</p>
-                </section>
-              )}
-
-              {effects && (
-                <section>
-                  <h2 className='text-lg font-semibold text-white'>Effects</h2>
-                  <p className='mt-2 text-sm text-white/80'>{effects}</p>
-                </section>
-              )}
-
-              {hasMechanism && (
-                <section>
-                  <h2 className='text-lg font-semibold text-white'>Mechanism (Simplified)</h2>
-                  <p className='mt-2 text-sm text-white/80'>
-                    {mechanism || 'Mechanism evidence is still evolving for this herb.'}
-                  </p>
-                  {pharmacology && <p className='mt-2 text-sm text-white/75'>{pharmacology}</p>}
-                </section>
-              )}
-            </div>
-          </article>
-
-          {hasSafetyExtras && (
-            <section className='card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 shadow-sm backdrop-blur-sm'>
-              <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>
-                Safety / Contraindications
-              </h2>
-              <div className='mt-3 space-y-3 text-sm text-[color:var(--muted-c)]'>
-                {safety && <p>{safety}</p>}
-                {contraindications && (
-                  <p>
-                    <strong className='text-[color:var(--text-c)]'>Contraindications:</strong>{' '}
-                    {contraindications}
+              <section>
+                <h2 className='text-xl font-semibold text-white'>Active Compounds</h2>
+                {linkedCompounds.length > 0 ? (
+                  <ul className='mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-white/80'>
+                    {linkedCompounds.map(entry => (
+                      <li key={entry.name}>
+                        {entry.slug ? (
+                          <Link
+                            className='link text-[color:var(--accent)]'
+                            to={`/compounds/${entry.slug}`}
+                          >
+                            {entry.name}
+                          </Link>
+                        ) : (
+                          entry.name
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className='mt-3 text-sm text-white/75'>
+                    No compound data is currently mapped for this herb.
                   </p>
                 )}
-                {therapeutic && (
-                  <p>
-                    <strong className='text-[color:var(--text-c)]'>Therapeutic uses:</strong>{' '}
-                    {therapeutic}
-                  </p>
-                )}
-                {sideEffects && sideEffects.length > 0 && (
+              </section>
+
+              <section>
+                <h2 className='text-xl font-semibold text-white'>Effects</h2>
+                <div className='mt-3 grid gap-4 sm:grid-cols-3'>
                   <div>
-                    <strong className='text-[color:var(--text-c)]'>Side effects:</strong>
-                    <ul className='mt-1 list-disc space-y-1 pl-5'>
-                      {sideEffects.map((effect, index) => (
-                        <li key={`effect-${index}`}>{effect}</li>
+                    <h3 className='text-sm font-semibold text-white/90'>Mental</h3>
+                    <ul className='mt-2 list-disc space-y-1 pl-5 text-sm leading-7 text-white/75'>
+                      {effectBuckets.mental.map(item => (
+                        <li key={`mental-${item}`}>{item}</li>
                       ))}
                     </ul>
                   </div>
+                  <div>
+                    <h3 className='text-sm font-semibold text-white/90'>Physical</h3>
+                    <ul className='mt-2 list-disc space-y-1 pl-5 text-sm leading-7 text-white/75'>
+                      {effectBuckets.physical.map(item => (
+                        <li key={`physical-${item}`}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className='text-sm font-semibold text-white/90'>Subtle / Subjective</h3>
+                    <ul className='mt-2 list-disc space-y-1 pl-5 text-sm leading-7 text-white/75'>
+                      {effectBuckets.subtle.map(item => (
+                        <li key={`subtle-${item}`}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h2 className='text-xl font-semibold text-white'>Mechanism (Simple Science)</h2>
+                <p className='mt-3 text-sm leading-7 text-white/85'>
+                  {mechanism ||
+                    'Mechanism evidence is still evolving. Current findings suggest this herb may support specific pathways without implying guaranteed outcomes.'}
+                </p>
+                {pharmacology && (
+                  <p className='mt-2 text-sm leading-7 text-white/70'>{pharmacology}</p>
                 )}
-                {toxicity && (
+              </section>
+
+              <section>
+                <h2 className='text-xl font-semibold text-white'>Safety & Contraindications</h2>
+                <div className='mt-3 space-y-2 text-sm leading-7 text-white/80'>
                   <p>
-                    <strong className='text-[color:var(--text-c)]'>Toxicity:</strong> {toxicity}
+                    {safety ||
+                      'Safety profile depends on dose, extract type, and individual context.'}
                   </p>
-                )}
-                {toxicityLd50 && (
-                  <p>
-                    <strong className='text-[color:var(--text-c)]'>LD50:</strong> {toxicityLd50}
-                  </p>
-                )}
-              </div>
-            </section>
-          )}
+                  {contraindications && (
+                    <p>
+                      <strong>Contraindications:</strong> {contraindications}
+                    </p>
+                  )}
+                  {interactions && (
+                    <p>
+                      <strong>Interactions:</strong> {interactions}
+                    </p>
+                  )}
+                  {sideEffects.length > 0 && (
+                    <p>
+                      <strong>Reported side effects:</strong> {sideEffects.join(', ')}
+                    </p>
+                  )}
+                  {therapeutic && (
+                    <p>
+                      <strong>Traditional/clinical uses:</strong> {therapeutic}
+                    </p>
+                  )}
+                  {toxicity && (
+                    <p>
+                      <strong>Risk level:</strong> {toxicity}
+                    </p>
+                  )}
+                </div>
+              </section>
+
+              <section>
+                <h2 className='text-xl font-semibold text-white'>Research Notes</h2>
+                <ul className='mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-white/80'>
+                  {(researchNotes.length
+                    ? researchNotes
+                    : [
+                        'Evidence quality varies from traditional reports to preclinical and limited human data.',
+                        'Findings are associated with dosage, extraction method, and individual variability.',
+                      ]
+                  ).map(note => (
+                    <li key={note}>{note}</li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </article>
 
           <section className='card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 shadow-sm backdrop-blur-sm'>
-            <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>Research Notes</h2>
-            <p className='mt-3 text-sm text-[color:var(--muted-c)]'>
-              {researchNotes ||
-                'Evidence quality varies across traditional reports, preclinical studies, and limited human trials.'}
-            </p>
+            <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>Explore Next</h2>
+            <div className='mt-4 grid gap-5 sm:grid-cols-3'>
+              <div>
+                <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
+                  Related Herbs
+                </h3>
+                <ul className='mt-2 space-y-2 text-sm text-white/80'>
+                  {relatedHerbs.length ? (
+                    relatedHerbs.map(item => (
+                      <li key={item.slug}>
+                        <Link to={`/herb/${item.slug}`} className='link text-[color:var(--accent)]'>
+                          {item.common || item.scientific || item.slug}
+                        </Link>
+                      </li>
+                    ))
+                  ) : (
+                    <li className='text-white/60'>No mapped herbs yet.</li>
+                  )}
+                </ul>
+              </div>
+              <div>
+                <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
+                  Related Compounds
+                </h3>
+                <ul className='mt-2 space-y-2 text-sm text-white/80'>
+                  {relatedCompounds.length ? (
+                    relatedCompounds.map(item => (
+                      <li key={item.slug}>
+                        <Link
+                          to={`/compounds/${item.slug}`}
+                          className='link text-[color:var(--accent)]'
+                        >
+                          {item.common || item.name}
+                        </Link>
+                      </li>
+                    ))
+                  ) : (
+                    <li className='text-white/60'>No mapped compounds yet.</li>
+                  )}
+                </ul>
+              </div>
+              <div>
+                <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
+                  Related Articles
+                </h3>
+                <RelatedPosts slug={herb.slug} />
+              </div>
+            </div>
           </section>
-
-          <RelatedPosts slug={herb.slug} />
 
           <div className='text-sm text-[color:var(--muted-c)]'>
             <Link to='/herbs' className='link text-[color:var(--accent)]'>
