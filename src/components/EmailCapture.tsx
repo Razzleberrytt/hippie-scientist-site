@@ -90,14 +90,14 @@ export default function EmailCapture() {
         <div className='relative space-y-5'>
           <div className='space-y-2'>
             <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-              Free starter guide
+              Bonus step
             </p>
             <h2 className='text-[1.4rem] font-semibold tracking-tight text-white sm:text-3xl'>
-              Start with a calmer, clearer first blend
+              Get your blend starter kit as a reward
             </h2>
             <p className='max-w-2xl text-sm leading-relaxed text-white/75 sm:text-[0.97rem]'>
-              Get a practical guide with simple ratios, prep tips, and beginner-friendly safety
-              notes. Delivered instantly when you subscribe.
+              You’ve seen how the system works. Enter your email to unlock the quick-start guide
+              with simple ratios, prep tips, and beginner-friendly safety notes.
             </p>
           </div>
 
@@ -119,7 +119,7 @@ export default function EmailCapture() {
               type='submit'
               className='min-h-11 rounded-xl border border-emerald-200/35 bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80'
             >
-              Get Free Guide
+              Unlock Free Guide
             </button>
           </form>
 

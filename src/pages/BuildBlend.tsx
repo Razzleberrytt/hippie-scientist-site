@@ -737,6 +737,8 @@ export default function BuildBlend() {
     })
   }, [dataset, selectedRecommendation])
 
+  const hasRecommendation = Boolean(selectedRecommendation)
+
   return (
     <main className='container space-y-9 py-8 sm:py-10'>
       <header className='space-y-3'>
@@ -750,6 +752,9 @@ export default function BuildBlend() {
 
       <section className='border-white/12 from-brand-lime/12 via-panel to-brand-lime/6 space-y-6 rounded-3xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.06),0_20px_40px_-24px_rgba(163,230,53,0.7)] sm:p-7'>
         <div className='space-y-2'>
+          <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
+            Step 1: Choose Your Goal
+          </p>
           <h2 className='text-text text-xl font-semibold sm:text-2xl'>
             Let’s build your first blend
           </h2>
@@ -817,8 +822,20 @@ export default function BuildBlend() {
           </Card>
         </div>
 
+        {!hasRecommendation && (
+          <p className='text-sub rounded-xl border border-white/10 bg-black/25 px-3 py-2 text-xs'>
+            Start by selecting your goal above. Your blend will appear in Step 2.
+          </p>
+        )}
+
         {selectedRecommendation && (
           <Card className='border-brand-lime/30 space-y-4 bg-black/20 p-4 sm:p-5'>
+            <div className='space-y-1'>
+              <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
+                Step 2: Your Recommended Blend
+              </p>
+              <p className='text-sub text-xs'>You did it — here is your starting recommendation.</p>
+            </div>
             <ResultsSummaryCard
               goal={selectedGoal ?? quizGoal ?? selectedRecommendation.key}
               blendName={selectedRecommendation.blendName}
@@ -826,6 +843,14 @@ export default function BuildBlend() {
               herbs={selectedRecommendation.herbs.map(herb => herb.name)}
               variant='expanded'
             />
+            <div className='space-y-1'>
+              <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
+                Step 3: Upgrade Your Result
+              </p>
+              <p className='text-sub text-xs'>
+                Optional: unlock done-for-you guidance for this recommendation.
+              </p>
+            </div>
             <section className='border-brand-lime/40 from-brand-lime/16 to-panel/95 relative space-y-4 overflow-hidden rounded-2xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.12),0_12px_34px_-18px_rgba(163,230,53,0.9)]'>
               <div className='from-brand-lime/18 via-brand-lime/6 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
               <div className='relative z-10 space-y-4'>
@@ -917,6 +942,12 @@ export default function BuildBlend() {
               currentBlendName={selectedRecommendation.blendName}
             />
 
+            <div className='space-y-1'>
+              <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
+                Step 5: Save / Download
+              </p>
+              <p className='text-sub text-xs'>Keep your result for later or continue exploring.</p>
+            </div>
             <div className='grid gap-2.5 sm:grid-cols-3'>
               <Button onClick={handleRetakeQuiz} variant='ghost' className='justify-center'>
                 Retake Quiz
@@ -952,12 +983,22 @@ export default function BuildBlend() {
         )}
       </section>
 
-      <section className='grid gap-7 lg:grid-cols-[2fr_1fr] lg:items-start'>
+      <section
+        className={`grid gap-7 lg:grid-cols-[2fr_1fr] lg:items-start ${
+          hasRecommendation ? '' : 'opacity-65'
+        }`}
+      >
         <div className='space-y-6'>
           <Card className='space-y-5 p-5 sm:p-6'>
             <div className='space-y-2'>
+              <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
+                Step 4: Customize (Optional)
+              </p>
               <p className='text-sub text-[11px] font-semibold uppercase tracking-[0.22em]'>
                 Search &amp; select herbs
+              </p>
+              <p className='text-sub text-xs'>
+                Optional step — skip this if your recommended blend already looks good.
               </p>
               <div className='relative'>
                 <input
@@ -1047,7 +1088,7 @@ export default function BuildBlend() {
           <section className='space-y-4'>
             {!blend.length && (
               <Card className='text-sub border-dashed p-6 text-center text-sm'>
-                Use search or presets to start building your signature blend.
+                Your custom blend will appear here. Start by selecting your goal above.
               </Card>
             )}
             {blend.map(herb => {
