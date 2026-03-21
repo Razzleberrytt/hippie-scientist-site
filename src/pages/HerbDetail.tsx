@@ -152,6 +152,10 @@ export default function HerbDetail() {
                 <Fact label='Mechanism' value={mechanism || 'Not well characterized'} />
                 <Fact label='Risk level' value={riskLevel} />
               </dl>
+              <p className='mt-3 text-xs text-white/60'>
+                Evidence varies by preparation and dose. Educational reference only, not medical
+                advice.
+              </p>
             </section>
 
             <Section title='Overview'>
@@ -190,17 +194,17 @@ export default function HerbDetail() {
                 <EffectList
                   title='Mental'
                   items={mental}
-                  fallback='Mental effects vary with dose and preparation.'
+                  fallback='Reported mental effects are context-dependent; review evidence notes before interpreting.'
                 />
                 <EffectList
                   title='Physical'
                   items={physical}
-                  fallback='Physical effects vary by chemistry and context.'
+                  fallback='Physical response profiles differ by extract chemistry and dose range.'
                 />
                 <EffectList
                   title='Subjective / Experiential'
                   items={subjective}
-                  fallback='Subjective effects depend on set, setting, and expectations.'
+                  fallback='Subjective reports are heterogeneous and should not be treated as universal outcomes.'
                 />
               </div>
             </Section>
@@ -217,7 +221,7 @@ export default function HerbDetail() {
                       <Link
                         key={tag}
                         to={`/herbs?tag=${encodeURIComponent(tag)}`}
-                        className='rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-white/80'
+                        className='ds-pill text-white/85'
                       >
                         {tag}
                       </Link>
@@ -239,7 +243,7 @@ export default function HerbDetail() {
                         ))}
                       </ul>
                     ) : (
-                      'No explicit contraindications listed; use conservative dosing and caution.'
+                      'No clear contraindications were found in current notes; treat this as an evidence gap, not a safety guarantee.'
                     )}
                   </dd>
                 </div>
@@ -253,7 +257,7 @@ export default function HerbDetail() {
                         ))}
                       </ul>
                     ) : (
-                      'Side effects are not clearly documented in this profile.'
+                      'Side effects are insufficiently documented in this profile; start conservatively and monitor response.'
                     )}
                   </dd>
                 </div>
@@ -269,7 +273,7 @@ export default function HerbDetail() {
                 {(researchNotes.length
                   ? researchNotes
                   : [
-                      'Evidence quality varies from traditional reports to preclinical and limited human data.',
+                      'Evidence ranges from traditional use records to preclinical work with limited controlled human data.',
                     ]
                 )
                   .slice(0, 5)
@@ -334,7 +338,7 @@ export default function HerbDetail() {
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className='mt-8'>
-      <h2 className='text-xl font-semibold text-white'>{title}</h2>
+      <h2 className='text-lg font-semibold text-white sm:text-xl'>{title}</h2>
       {children}
     </section>
   )

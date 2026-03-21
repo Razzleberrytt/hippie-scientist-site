@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 
 const linkBase =
-  'inline-flex min-h-10 items-center justify-center rounded-xl px-3 text-sm font-medium transition-all duration-200'
+  'inline-flex min-h-11 items-center justify-center rounded-xl px-3.5 text-sm font-medium transition-all duration-200'
 const linkDim =
   'border border-transparent text-white/72 hover:border-white/15 hover:bg-white/8 hover:text-white'
 const linkSolid =
@@ -14,7 +14,7 @@ export default function NavBar() {
   const isHome = location.pathname === '/'
 
   return (
-    <header className='sticky top-0 z-50 border-b border-white/10 bg-black/55 backdrop-blur-xl supports-[backdrop-filter]:bg-black/35'>
+    <header className='sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xl supports-[backdrop-filter]:bg-black/40'>
       <nav className='mx-auto max-w-7xl px-4 sm:px-6'>
         <div className='flex items-center justify-between gap-2 py-2 sm:py-2.5'>
           <Link
