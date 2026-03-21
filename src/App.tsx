@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, Outlet, useLocation, Navigate } from 'react-router-dom'
+import { Routes, Route, Outlet, useLocation, Navigate, useParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -66,10 +66,10 @@ export default function App() {
               <Route path='/blog' element={<BlogList />} />
               <Route path='/blog/page/:page' element={<BlogList />} />
               <Route path='/blog/:slug' element={<BlogPost />} />
-              <Route path='/blog/:slug/' element={<BlogPost />} />
+              <Route path='/blog/:slug/' element={<LegacyBlogRedirect />} />
               <Route path='/theme' element={<Theme />} />
               <Route path='/herb-index' element={<HerbIndex />} />
-              <Route path='/herb/:slug' element={<HerbDetail />} />
+              <Route path='/herb/:slug' element={<LegacyHerbRedirect />} />
               <Route path='/herbs/:slug' element={<HerbDetail />} />
               <Route path='/compounds/:slug' element={<CompoundDetail />} />
               <Route path='/compare' element={<Compare />} />
@@ -84,6 +84,16 @@ export default function App() {
       </SiteLayout>
     </div>
   )
+}
+
+function LegacyHerbRedirect() {
+  const { slug = '' } = useParams()
+  return <Navigate to={`/herbs/${encodeURIComponent(slug)}`} replace />
+}
+
+function LegacyBlogRedirect() {
+  const { slug = '' } = useParams()
+  return <Navigate to={`/blog/${encodeURIComponent(slug)}`} replace />
 }
 
 function RootLayout() {

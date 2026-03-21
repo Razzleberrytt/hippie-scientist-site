@@ -107,7 +107,7 @@ export default function BlogList() {
               </span>
             </div>
             <h2 className='text-xl font-semibold tracking-tight sm:text-2xl'>
-              <Link to={`/blog/${p.slug}/`} className='text-accent-200 hover:text-accent-100'>
+              <Link to={`/blog/${p.slug}`} className='text-accent-200 hover:text-accent-100'>
                 {normalizeTitle(p.title)}
               </Link>
             </h2>
@@ -115,11 +115,9 @@ export default function BlogList() {
               <time dateTime={p.date || undefined}>{formatDate(p.date || '')}</time>
               {p.readingTime && <> • {p.readingTime}</>}
             </div>
-            <p className='mt-3 text-white/80'>
-              {p.summary || 'Short research note from the field.'}
-            </p>
+            <p className='mt-3 text-white/80'>{cleanSummary(p.summary, p.description)}</p>
             <div className='mt-4'>
-              <Link to={`/blog/${p.slug}/`} className='btn-primary'>
+              <Link to={`/blog/${p.slug}`} className='btn-primary'>
                 Read post
               </Link>
             </div>
@@ -142,6 +140,14 @@ function resolveCategory(tags?: string[]) {
 function normalizeTitle(title: string) {
   if (!title) return 'Research Note'
   return title.replace(/^blend craft/i, 'Research Note').replace(/^microdosing log/i, 'Field Note')
+}
+
+function cleanSummary(summary?: string | null, description?: string | null) {
+  const candidate = (summary || description || '').trim()
+  if (!candidate) return 'Short research note from the field.'
+  const singleLine = candidate.replace(/\s+/g, ' ')
+  if (singleLine.length <= 190) return singleLine
+  return `${singleLine.slice(0, 187).trimEnd()}…`
 }
 
 function PaginationNav({ current, totalPages }: { current: number; totalPages: number }) {

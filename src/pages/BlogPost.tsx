@@ -24,12 +24,17 @@ export default function BlogPost() {
   const [meta, setMeta] = useState<PostMeta | null>(null)
   const [html, setHtml] = useState<string>('')
   const [error, setError] = useState<string>('')
+  const [loading, setLoading] = useState(true)
   const base = useMemo(() => ensureTrailingSlash(import.meta.env.BASE_URL || '/'), [])
   const indexUrl = useMemo(() => resolveBlogIndexUrl(base), [base])
 
   useEffect(() => {
     let alive = true
     async function load() {
+      setLoading(true)
+      setError('')
+      setMeta(null)
+      setHtml('')
       try {
         const idx = await fetch(indexUrl, { cache: 'no-cache' }).then(r => r.json())
         const m = idx.find((p: PostMeta) => p.slug === slug) ?? null
@@ -41,6 +46,8 @@ export default function BlogPost() {
         if (alive) setHtml(text)
       } catch (e: any) {
         if (alive) setError(e.message || 'Failed to load post.')
+      } finally {
+        if (alive) setLoading(false)
       }
     }
     load()
@@ -72,13 +79,23 @@ export default function BlogPost() {
       .slice(0, 3)
   }, [meta?.tags])
 
-  if (error) {
+  if (loading) {
+    return <main className='container-page py-8 text-white/75'>Loading post…</main>
+  }
+
+  if (error || (!meta && !html)) {
     return (
       <main className='container-page py-8'>
-        <p className='text-red-400'>{error}</p>
-        <a className='underline' href='/blog'>
-          ← Back to blog
-        </a>
+        <section className='glass-elev rounded-3xl p-6 sm:p-8'>
+          <p className='text-sm uppercase tracking-[0.14em] text-white/60'>Not Found</p>
+          <h1 className='mt-2 text-2xl font-semibold text-white'>Blog post not found</h1>
+          <p className='mt-3 text-white/75'>
+            {error || 'We could not find that post. It may have moved or the slug is incorrect.'}
+          </p>
+          <Link to='/blog' className='btn-primary mt-5 inline-flex'>
+            ← Back to blog
+          </Link>
+        </section>
       </main>
     )
   }
@@ -86,9 +103,12 @@ export default function BlogPost() {
   return (
     <main className='container-page py-8'>
       <header className='glass-elev mb-8 rounded-3xl p-6 sm:p-8'>
-        <a href='/blog' className='text-accent-300 hover:text-accent-200 text-sm'>
+        <Link
+          to='/blog'
+          className='text-accent-200 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium transition hover:border-white/30 hover:bg-white/10'
+        >
           ← Back to Blog
-        </a>
+        </Link>
         <h1 className='mt-2 text-4xl font-extrabold tracking-tight text-white'>
           {meta?.title || 'Loading…'}
         </h1>
@@ -168,13 +188,17 @@ export default function BlogPost() {
               {relatedHerbs.length ? (
                 relatedHerbs.map(item => (
                   <li key={item.slug}>
-                    <Link className='link text-[color:var(--accent)]' to={`/herb/${item.slug}`}>
+                    <Link className='link text-[color:var(--accent)]' to={`/herbs/${item.slug}`}>
                       {item.common || item.scientific || item.slug}
                     </Link>
                   </li>
                 ))
               ) : (
-                <li className='text-white/60'>No direct herb links available.</li>
+                <li>
+                  <Link className='link text-[color:var(--accent)]' to='/herbs'>
+                    Browse herb database
+                  </Link>
+                </li>
               )}
             </ul>
           </div>
@@ -195,7 +219,11 @@ export default function BlogPost() {
                   </li>
                 ))
               ) : (
-                <li className='text-white/60'>No direct compound links available.</li>
+                <li>
+                  <Link className='link text-[color:var(--accent)]' to='/compounds'>
+                    Browse compounds
+                  </Link>
+                </li>
               )}
             </ul>
           </div>
