@@ -116,7 +116,7 @@ export default function DatabaseHerbCard({
       initial={reduceMotion ? false : { opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className='ds-card-lg relative mx-auto w-full max-w-5xl text-white/90'
+      className='ds-card-lg relative mx-auto h-full w-full max-w-5xl text-white/90'
     >
       <div className='space-y-4'>
         <header className='space-y-1'>

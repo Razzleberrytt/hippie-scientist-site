@@ -272,7 +272,20 @@ for (const file of files) {
   const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
   const author = data.author ? String(data.author) : "The Hippie Scientist";
   const sources = Array.isArray(data.sources)
-    ? data.sources.map((source) => String(source)).filter(Boolean)
+    ? data.sources
+        .map((source) => {
+          if (typeof source === 'string') {
+            return { title: source, url: source };
+          }
+          if (source && typeof source === 'object') {
+            const title = String(source.title || source.url || '').trim();
+            const url = String(source.url || '').trim();
+            if (!title && !url) return null;
+            return { title: title || url, url: url || title };
+          }
+          return null;
+        })
+        .filter(Boolean)
     : [];
   const summary = excerpt;
   const cover = data.cover || data.hero || null;

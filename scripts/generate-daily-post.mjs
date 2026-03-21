@@ -76,7 +76,9 @@ title: "${yaml(title)}"
 date: "${todayISO()}"
 author: "${AUTHOR}"
 summary: "${yaml(summary)}"
-sources: []
+sources:
+  - title: "Source placeholder"
+    url: "https://example.com"
 tags: ["Daily","Field Notes","Herbs"]
 cover: "${coverRel}"
 draft: false
