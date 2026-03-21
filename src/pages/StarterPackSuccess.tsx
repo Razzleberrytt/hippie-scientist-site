@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Card from '@/components/ui/Card'
+import ResultsSummaryCard from '@/components/ResultsSummaryCard'
 
 type LastSelectedBlend = {
   goal?: string
@@ -81,35 +82,13 @@ export default function StarterPackSuccess() {
           <h2 className='text-text text-lg font-semibold'>Your saved blend</h2>
 
           {hasSavedBlend ? (
-            <div className='space-y-3'>
-              <div className='grid gap-2 sm:grid-cols-2'>
-                <div className='border-border/80 bg-panel/65 rounded-lg border p-3'>
-                  <p className='text-sub text-xs uppercase tracking-wide'>Goal</p>
-                  <p className='text-text mt-1 text-sm font-medium'>
-                    {savedBlend?.goal ?? 'Not set yet'}
-                  </p>
-                </div>
-                <div className='border-border/80 bg-panel/65 rounded-lg border p-3'>
-                  <p className='text-sub text-xs uppercase tracking-wide'>Blend name</p>
-                  <p className='text-text mt-1 text-sm font-medium'>
-                    {savedBlend?.blendName ?? 'Starter recommendation'}
-                  </p>
-                </div>
-              </div>
-
-              <div className='border-border/80 bg-panel/65 rounded-lg border p-3'>
-                <p className='text-sub text-xs uppercase tracking-wide'>Herb list</p>
-                {savedBlend?.herbs?.length ? (
-                  <ul className='text-text mt-2 list-inside list-disc space-y-1 text-sm'>
-                    {savedBlend.herbs.map(herb => (
-                      <li key={herb}>{herb}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className='text-sub mt-2 text-sm'>No herbs saved yet.</p>
-                )}
-              </div>
-            </div>
+            <ResultsSummaryCard
+              goal={savedBlend?.goal ?? 'Not set yet'}
+              blendName={savedBlend?.blendName ?? 'Starter recommendation'}
+              herbs={savedBlend?.herbs ?? []}
+              explanation='Saved handoff from your recent Starter Pack recommendation.'
+              variant='expanded'
+            />
           ) : (
             <div className='border-border/80 bg-panel/65 rounded-lg border p-3'>
               <p className='text-sub text-sm'>

@@ -4,6 +4,7 @@ import Meta from '../components/Meta'
 import Card from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import BundleUpgradeCard from '../components/BundleUpgradeCard'
+import ResultsSummaryCard from '../components/ResultsSummaryCard'
 import {
   clearGeneratedGuides,
   deleteGeneratedGuide,
@@ -11,12 +12,6 @@ import {
   getGeneratedGuides,
   type GeneratedGuideRecord,
 } from '../utils/starterPack'
-
-const formatDate = (isoDate: string) => {
-  const parsed = new Date(isoDate)
-  if (Number.isNaN(parsed.getTime())) return 'Unknown date'
-  return parsed.toLocaleString()
-}
 
 export default function Downloads() {
   const [guides, setGuides] = useState<GeneratedGuideRecord[]>(() => getGeneratedGuides())
@@ -84,36 +79,30 @@ export default function Downloads() {
           </div>
           <section className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
             {sortedGuides.map(guide => (
-              <Card
+              <ResultsSummaryCard
                 key={guide.id}
-                className='border-border/80 from-panel/90 via-panel/80 to-panel/70 flex h-full flex-col gap-4 rounded-2xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_18px_40px_-26px_rgba(148,163,184,0.6)]'
-              >
-                <div className='space-y-1'>
-                  <p className='text-sub text-xs uppercase tracking-wide'>{guide.goal}</p>
-                  <h2 className='text-text text-lg font-semibold'>{guide.blendName}</h2>
-                </div>
-                <div className='space-y-2'>
-                  <p className='text-sub text-xs uppercase tracking-wide'>Herbs</p>
-                  <ul className='text-sub list-inside list-disc space-y-1 text-sm'>
-                    {guide.herbs.map(herb => (
-                      <li key={`${guide.id}-${herb}`}>{herb}</li>
-                    ))}
-                  </ul>
-                </div>
-                <p className='text-sub text-xs'>Generated: {formatDate(guide.generatedAt)}</p>
-                <div className='mt-auto flex flex-col gap-2'>
-                  <Button onClick={() => handleDownloadAgain(guide)} className='justify-center'>
-                    Download Again
-                  </Button>
-                  <Button
-                    variant='ghost'
-                    onClick={() => handleDelete(guide.id)}
-                    className='text-sub hover:text-text justify-center'
-                  >
-                    Delete
-                  </Button>
-                </div>
-              </Card>
+                goal={guide.goal}
+                blendName={guide.blendName}
+                explanation='Saved Starter Pack guide ready to download whenever you need it.'
+                herbs={guide.herbs}
+                timestamp={guide.generatedAt}
+                variant='compact'
+                ctaButtons={
+                  <div className='mt-auto flex flex-col gap-2'>
+                    <Button onClick={() => handleDownloadAgain(guide)} className='justify-center'>
+                      Download Again
+                    </Button>
+                    <Button
+                      variant='ghost'
+                      onClick={() => handleDelete(guide.id)}
+                      className='text-sub hover:text-text justify-center'
+                    >
+                      Delete
+                    </Button>
+                  </div>
+                }
+                className='flex h-full flex-col'
+              />
             ))}
           </section>
         </>
