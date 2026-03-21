@@ -38,7 +38,7 @@ export default function Hero() {
                 viewport={{ once: true }}
                 className='text-xs font-semibold uppercase tracking-[0.24em] text-white/65'
               >
-                Psychoactive botany knowledge base
+                Evidence-aware botanical research notebook
               </motion.p>
               <motion.h1
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -51,7 +51,7 @@ export default function Hero() {
                 }
                 className='text-[2.05rem] font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl'
               >
-                Research-backed herbal knowledge for curious minds
+                Botanical mechanisms, safety context, and practical research notes
               </motion.h1>
               <motion.p
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -64,8 +64,8 @@ export default function Hero() {
                 }
                 className='max-w-2xl text-[0.98rem] leading-[1.72] text-white/80 sm:text-lg'
               >
-                Study herbs, compounds, and mechanisms in plain language. Explore traditional
-                context, modern findings, and safety considerations before you build.
+                Compare herbs and compounds, review traditional use alongside modern findings, and
+                map safety constraints before trying a blend.
               </motion.p>
             </div>
 

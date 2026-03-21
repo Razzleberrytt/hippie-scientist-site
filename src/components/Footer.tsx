@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
 
         <div className='mt-6 border-t border-white/10 pt-3 text-xs text-white/55'>
-          © 2025 The Hippie Scientist — All Rights Reserved
+          © 2026 The Hippie Scientist — Educational use only · Not medical advice
         </div>
       </div>
       <ConsentManager open={open} onClose={() => setOpen(false)} />

@@ -80,12 +80,12 @@ export default function BlogPost() {
   }, [meta?.tags])
 
   if (loading) {
-    return <main className='container-page py-8 text-white/75'>Loading post…</main>
+    return <main className='container-page py-7 text-white/75 sm:py-8'>Loading post…</main>
   }
 
   if (error || (!meta && !html)) {
     return (
-      <main className='container-page py-8'>
+      <main className='container-page py-7 sm:py-8'>
         <section className='glass-elev rounded-3xl p-6 sm:p-8'>
           <p className='text-sm uppercase tracking-[0.14em] text-white/60'>Not Found</p>
           <h1 className='mt-2 text-2xl font-semibold text-white'>Blog post not found</h1>
@@ -101,7 +101,7 @@ export default function BlogPost() {
   }
 
   return (
-    <main className='container-page py-8'>
+    <main className='container-page py-7 sm:py-8'>
       <div className='mb-4'>
         <Link to='/blog' className='btn-secondary inline-flex items-center gap-2 rounded-full px-4'>
           ← Back to Blog
@@ -109,7 +109,7 @@ export default function BlogPost() {
       </div>
 
       <header className='ds-card-lg mb-8 space-y-4'>
-        <h1 className='text-4xl font-extrabold tracking-tight text-white'>
+        <h1 className='text-3xl font-semibold tracking-tight text-white sm:text-4xl'>
           {meta?.title || 'Loading…'}
         </h1>
 
@@ -119,7 +119,7 @@ export default function BlogPost() {
           <span>• {resolvePostType(meta?.tags || [])}</span>
         </div>
 
-        <section className='rounded-2xl border border-white/10 bg-white/5 p-4'>
+        <section className='rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5'>
           <h2 className='text-sm font-semibold uppercase tracking-[0.14em] text-white/70'>
             Summary
           </h2>
@@ -144,7 +144,7 @@ export default function BlogPost() {
         />
         <InfoBlock
           title='Safety Notes'
-          body='Contraindications, side-effect considerations, and uncertainty where evidence is limited.'
+          body='Contraindications, interaction flags, and uncertainty markers when direct evidence is limited.'
         />
       </section>
 
@@ -155,7 +155,7 @@ export default function BlogPost() {
         }}
       />
 
-      <section className='mt-8 rounded-3xl border border-white/10 bg-white/5 p-6'>
+      <section className='mt-8 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6'>
         <h2 className='text-lg font-semibold text-white'>Explore Next</h2>
         <div className='mt-4 grid gap-5 sm:grid-cols-2'>
           <div>
@@ -210,7 +210,8 @@ export default function BlogPost() {
 
       <footer className='mt-10 border-t border-white/10 pt-6'>
         <p className='text-xs text-white/50'>
-          Educational content only. Not medical advice. Consult a qualified professional before use.
+          Educational research content only, not medical advice. Verify interactions and consult a
+          qualified clinician before use.
         </p>
       </footer>
     </main>

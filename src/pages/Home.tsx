@@ -21,6 +21,12 @@ function shuffle<T>(items: T[]): T[] {
   return copy
 }
 
+function tightenBlurb(value: string) {
+  const cleaned = value.replace(/\s+/g, ' ').trim()
+  if (!cleaned) return 'Mechanism and safety profile pending editorial review.'
+  return cleaned.length > 145 ? `${cleaned.slice(0, 142).trimEnd()}…` : cleaned
+}
+
 export default function Home() {
   const [counts, setCounts] = useState(siteStats)
   const [featured, setFeatured] = useState<FeaturedItem[]>([])
@@ -40,7 +46,9 @@ export default function Home() {
             .map(herb => ({
               slug: herb.slug,
               name: getCommonName(herb) ?? herb.scientific ?? herb.common ?? 'Herb',
-              blurb: herb.effectsSummary || herb.effects || herb.description || 'Herbal profile',
+              blurb: tightenBlurb(
+                herb.effectsSummary || herb.effects || herb.description || 'Herbal profile'
+              ),
               kind: 'herb' as const,
             }))
         ).slice(0, 3)
@@ -49,7 +57,7 @@ export default function Home() {
           decorateCompounds().map(compound => ({
             slug: compound.slug,
             name: compound.common || compound.scientific || 'Compound',
-            blurb: compound.effects || compound.description || 'Compound profile',
+            blurb: tightenBlurb(compound.effects || compound.description || 'Compound profile'),
             kind: 'compound' as const,
           }))
         ).slice(0, 2)
@@ -77,13 +85,12 @@ export default function Home() {
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-            Trusted scope
+            Knowledge scope
           </p>
-          <h2 className='text-xl font-semibold text-white sm:text-2xl'>
-            Explore a science-forward herbal knowledge base
-          </h2>
-          <p className='text-sm leading-relaxed text-white/75 sm:text-base'>
-            Study herbs, compounds, mechanisms, and safety context before experimentation.
+          <h2 className='ds-heading'>A science-forward index for botanical decision-making</h2>
+          <p className='ds-text'>
+            Review compounds, proposed mechanisms, and safety boundaries before any personal
+            experimentation.
           </p>
           <nav aria-label='Site stats' className='grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3'>
             <StatPill
@@ -98,8 +105,16 @@ export default function Home() {
               label='active compounds'
               testId='pill-compounds'
             />
-            <StatPill to='/blog' value={counts.articles} label='articles' testId='pill-articles' />
+            <StatPill
+              to='/blog'
+              value={counts.articles}
+              label='research notes'
+              testId='pill-articles'
+            />
           </nav>
+          <p className='text-xs text-white/60'>
+            Educational use only. Evidence strength varies across herbs and outcomes.
+          </p>
         </div>
       </section>
 
@@ -119,7 +134,7 @@ export default function Home() {
                   {item.kind}
                 </p>
                 <h3 className='mt-1 text-lg font-semibold text-white'>{item.name}</h3>
-                <p className='mt-2 line-clamp-2 text-sm text-white/70'>{item.blurb}</p>
+                <p className='mt-2 line-clamp-3 text-sm text-white/70'>{item.blurb}</p>
               </Link>
             ))}
           </div>
@@ -129,14 +144,12 @@ export default function Home() {
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack border-brand-lime/20 bg-brand-lime/5'>
           <p className='text-brand-lime/80 text-xs font-semibold uppercase tracking-[0.24em]'>
-            Why this matters
+            How to use this database
           </p>
-          <h2 className='text-xl font-semibold text-white sm:text-2xl'>
-            Learn mechanisms and safety before experimentation
-          </h2>
-          <p className='max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base'>
-            Better decisions come from context: what a herb may support, how compounds interact, and
-            where contraindications apply. Findings vary by dose, preparation, and context.
+          <h2 className='ds-heading'>Trace mechanism, context, then safety</h2>
+          <p className='ds-text'>
+            Start with what is known about active chemistry, then compare traditional preparation
+            and modern usage patterns. Mark areas with limited evidence before making any decisions.
           </p>
         </div>
       </section>
@@ -146,27 +159,22 @@ export default function Home() {
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/55'>
-            Applied learning tool
+            Applied learning
           </p>
-          <h2 className='text-xl font-semibold text-white sm:text-2xl'>
-            Build a Blend (Applied Learning)
-          </h2>
-          <p className='max-w-2xl text-sm text-white/75'>
-            Use your knowledge to create a blend. Start with herbs and compounds first, then test
-            combinations intentionally.
+          <h2 className='ds-heading'>Build a Blend with constraints in mind</h2>
+          <p className='ds-text-muted'>
+            Prototype combinations after reviewing mechanisms and contraindications in the herb and
+            compound indexes.
           </p>
-          <Link to='/build' className='btn-primary'>
-            Build a Blend (Applied Learning)
-          </Link>
-          <div className='flex flex-wrap gap-2.5 text-sm'>
-            <Link to='/herbs' className='btn-secondary min-h-10 px-3 py-2 text-sm'>
-              Browse herbs
+          <div className='flex flex-wrap gap-2.5'>
+            <Link to='/build' className='btn-primary'>
+              Build a Blend
             </Link>
-            <Link to='/blog' className='btn-secondary min-h-10 px-3 py-2 text-sm'>
-              Read articles
+            <Link to='/herbs' className='btn-secondary'>
+              Explore Herbs
             </Link>
-            <Link to='/compounds' className='btn-secondary min-h-10 px-3 py-2 text-sm'>
-              Study compounds
+            <Link to='/compounds' className='btn-secondary'>
+              View Compounds
             </Link>
           </div>
         </div>

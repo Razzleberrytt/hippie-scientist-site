@@ -90,12 +90,15 @@ export default function BlogList() {
     pagination.page > 1 ? `Research Notebook — Page ${pagination.page}` : 'Research Notebook'
 
   return (
-    <div className='container-page space-y-6 py-8'>
+    <div className='container-page space-y-6 py-7 sm:py-8'>
       <header className='ds-card-lg space-y-3'>
-        <h1 className='text-4xl font-extrabold tracking-tight text-white'>{heading}</h1>
+        <h1 className='text-3xl font-semibold tracking-tight text-white sm:text-4xl'>{heading}</h1>
         <p className='text-white/72 max-w-2xl'>
-          Practical research notes across mechanisms, traditional context, safety framing, and field
+          Mechanism-focused notes with explicit uncertainty, safety framing, and practical
           interpretation.
+        </p>
+        <p className='text-xs text-white/60'>
+          Educational use only. Posts summarize available evidence and may include unresolved gaps.
         </p>
       </header>
 
@@ -118,11 +121,11 @@ export default function BlogList() {
                 {post.title || 'Research note'}
               </Link>
             </h2>
-            <p className='text-sm leading-7 text-white/80 sm:text-base'>
+            <p className='max-w-3xl text-sm leading-7 text-white/80 sm:text-base'>
               {cleanBlogExcerpt(post.summary, post.description)}
             </p>
             <div>
-              <Link to={`/blog/${post.slug}`} className='btn-primary'>
+              <Link to={`/blog/${post.slug}`} className='btn-primary min-w-28'>
                 Read post
               </Link>
             </div>
@@ -148,7 +151,7 @@ function PaginationNav({ current, totalPages }: { current: number; totalPages: n
   return (
     <nav
       aria-label='Blog pagination'
-      className='flex flex-wrap items-center justify-center gap-2 pt-4'
+      className='flex flex-wrap items-center justify-center gap-2 pb-2 pt-4'
     >
       {Array.from({ length: totalPages }).map((_, index) => {
         const pageNumber = index + 1
@@ -159,7 +162,7 @@ function PaginationNav({ current, totalPages }: { current: number; totalPages: n
             key={pageNumber}
             to={to}
             aria-current={active ? 'page' : undefined}
-            className={`rounded-full border px-3 py-1.5 text-sm transition ${
+            className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm transition ${
               active
                 ? 'border-white/30 bg-white/15 text-white'
                 : 'border-white/10 bg-white/5 text-white/80 hover:bg-white/10'
