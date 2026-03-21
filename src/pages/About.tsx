@@ -1,66 +1,53 @@
-import React from 'react'
 import Meta from '../components/Meta'
-import { motion } from 'framer-motion'
 
 export default function About() {
   return (
     <>
       <Meta
-        title='About | The Hippie Scientist'
-        description='Independent site exploring psychoactive herbs with scientific rigor and cultural context.'
+        title='About Hippie Scientist'
+        description='Education-first herbal database focused on harm reduction, research literacy, and clear safety communication.'
         path='/about'
       />
-      <div className='min-h-screen px-4 pt-20'>
-        <div className='mx-auto max-w-3xl space-y-8'>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className='text-gradient mb-6 text-center text-5xl font-bold'
-          >
-            About
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className='text-lg text-sand'
-          >
-            The Hippie Scientist is a grassroots project exploring the world of visionary botanicals
-            and the science of consciousness. Our goal is to share accurate information, celebrate
-            traditional knowledge and encourage safe, responsible exploration.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className='text-lg text-sand'
-          >
-            This site is maintained by a small collective of enthusiasts who believe that open
-            education and community dialogue can help demystify these powerful plants and
-            substances. We do not offer medical advice or promote irresponsible use.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className='text-lg text-sand'
-          >
-            Whether you are new to the topic or a seasoned researcher, we hope you find resources
-            here that spark curiosity and support your personal journey.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className='text-lg text-sand'
-          >
-            We are committed to open access education and welcome contributions from the community.
-            If you have suggestions or wish to collaborate, please reach out through our contact
-            links.
-          </motion.p>
-        </div>
-      </div>
+      <main className='container mx-auto max-w-4xl px-4 py-10 text-white'>
+        <article className='ds-card-lg ds-stack'>
+          <header className='ds-stack'>
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
+              About Hippie Scientist
+            </p>
+            <h1 className='ds-heading'>Independent research for safer herbal decision-making</h1>
+            <p className='ds-text'>
+              Hippie Scientist is an education-first project built by an independent researcher. The
+              goal is to make herbal and compound information easier to evaluate without hype.
+            </p>
+          </header>
+
+          <section className='ds-stack border-t border-white/10 pt-4'>
+            <h2 className='ds-subheading'>Mission</h2>
+            <ul className='text-white/82 list-disc space-y-2 pl-5 text-sm leading-7'>
+              <li>Education first: explain what is known, unknown, and uncertain.</li>
+              <li>Harm reduction: surface risks, contraindications, and caution points early.</li>
+              <li>Clarity over hype: use structured language instead of strong claims.</li>
+            </ul>
+          </section>
+
+          <section className='ds-stack border-t border-white/10 pt-4'>
+            <h2 className='ds-subheading'>How sources are used</h2>
+            <p className='ds-text'>
+              Profiles are compiled from public literature, pharmacology summaries, traditional-use
+              references, and published research notes where available. Evidence strength is uneven
+              across herbs and compounds, so each profile aims to label confidence and gaps.
+            </p>
+          </section>
+
+          <section className='ds-stack border-t border-white/10 pt-4'>
+            <h2 className='ds-subheading'>Scope and intent</h2>
+            <p className='ds-text'>
+              This site is for education and research literacy. It is not medical advice, and it is
+              not a substitute for professional care.
+            </p>
+          </section>
+        </article>
+      </main>
     </>
   )
 }
