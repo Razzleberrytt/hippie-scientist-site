@@ -13,6 +13,7 @@ import {
 } from '../utils/starterPack'
 import { useHerbData } from '@/lib/herb-data'
 import BundleUpgradeCard from '../components/BundleUpgradeCard'
+import ResultsSummaryCard from '../components/ResultsSummaryCard'
 
 type Herb = {
   id?: string
@@ -760,24 +761,13 @@ export default function BuildBlend() {
 
         {selectedRecommendation && (
           <Card className='border-brand-lime/30 space-y-4 bg-black/20 p-4'>
-            <div>
-              <p className='text-sub text-xs uppercase tracking-wide'>Recommended starter</p>
-              <h3 className='text-text mt-1 text-lg font-semibold'>
-                {selectedRecommendation.blendName}
-              </h3>
-              <p className='text-sub mt-2 text-sm'>
-                Based on your answers, this is the simplest place to start.{' '}
-                {quizRecommendationMessage}
-              </p>
-            </div>
-            <ul className='space-y-3'>
-              {selectedRecommendation.herbs.map(herb => (
-                <li key={herb.name} className='border-border/70 bg-panel/60 rounded-lg border p-3'>
-                  <p className='text-text text-sm font-semibold'>{herb.name}</p>
-                  <p className='text-sub mt-1 text-xs'>{herb.reason}</p>
-                </li>
-              ))}
-            </ul>
+            <ResultsSummaryCard
+              goal={selectedGoal ?? quizGoal ?? selectedRecommendation.key}
+              blendName={selectedRecommendation.blendName}
+              explanation={`Based on your answers, this is the simplest place to start. ${quizRecommendationMessage}`}
+              herbs={selectedRecommendation.herbs.map(herb => herb.name)}
+              variant='expanded'
+            />
             <section className='border-brand-lime/40 from-brand-lime/16 to-panel/95 relative space-y-4 overflow-hidden rounded-xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.12),0_12px_34px_-18px_rgba(163,230,53,0.9)]'>
               <div className='from-brand-lime/18 via-brand-lime/6 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
               <div className='relative z-10 space-y-4'>
@@ -1111,11 +1101,15 @@ export default function BuildBlend() {
         ) : (
           <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
             {savedGoalBlends.slice(0, 3).map(saved => (
-              <Card key={`${saved.timestamp}-${saved.blendName}`} className='space-y-2 p-4'>
-                <p className='text-text text-sm font-semibold'>{saved.blendName}</p>
-                <p className='text-sub text-xs'>Goal: {saved.goal}</p>
-                <p className='text-sub text-xs'>Herbs: {saved.herbs.join(', ')}</p>
-              </Card>
+              <ResultsSummaryCard
+                key={`${saved.timestamp}-${saved.blendName}`}
+                goal={saved.goal}
+                blendName={saved.blendName}
+                herbs={saved.herbs}
+                explanation='Saved from your blend recommendations for quick reuse.'
+                timestamp={saved.timestamp}
+                variant='compact'
+              />
             ))}
           </div>
         )}
