@@ -30,7 +30,7 @@ export default function TagBadge({ label, variant = 'purple', toneKey, className
   const alias = tagAliasMap[cleaned.toLowerCase()]
   const gradientKey = toneKey
     ? resolveClassKey(toneKey, 'blog')
-    : VARIANT_TO_CLASS_KEY[variant] ?? gradientKeyForTag(cleaned)
+    : (VARIANT_TO_CLASS_KEY[variant] ?? gradientKeyForTag(cleaned))
   const gradientClass = gradientClassName(gradientKey, 'blog')
   const content = (
     <motion.span
@@ -41,7 +41,7 @@ export default function TagBadge({ label, variant = 'purple', toneKey, className
       whileTap={{ scale: 0.95 }}
       tabIndex={0}
       className={clsx(
-        'hover-glow soft-border-glow text-shadow inline-flex items-center whitespace-pre-wrap break-words rounded-full px-2 py-1 text-xs font-medium shadow ring-1 ring-white/30 backdrop-blur-sm transition-colors duration-300 text-white',
+        'inline-flex items-center whitespace-pre-wrap break-words rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-white/75 transition-colors duration-200',
         gradientClass,
         className
       )}

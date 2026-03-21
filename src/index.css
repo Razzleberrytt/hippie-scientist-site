@@ -352,6 +352,51 @@ svg {
 }
 
 @layer components {
+  .ds-section {
+    @apply mb-10;
+  }
+
+  .ds-card {
+    @apply rounded-2xl border border-white/15 bg-white/[0.05] p-5 shadow-[0_14px_36px_-22px_rgba(0,0,0,0.75)] backdrop-blur-xl;
+  }
+
+  .ds-card-lg {
+    @apply ds-card p-6;
+  }
+
+  .ds-stack {
+    @apply space-y-4;
+  }
+
+  .ds-heading {
+    @apply text-2xl font-semibold text-white sm:text-3xl;
+  }
+
+  .ds-subheading {
+    @apply text-xl font-semibold text-white/95;
+  }
+
+  .ds-text {
+    @apply text-sm leading-7 text-white/80 sm:text-base;
+  }
+
+  .ds-text-muted {
+    @apply text-sm leading-7 text-white/70 sm:text-base;
+  }
+
+  .ds-pill {
+    @apply inline-flex items-center rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-white/75;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-emerald-200/30 bg-emerald-400 px-4 py-2 text-sm font-semibold text-emerald-950 shadow-[0_10px_28px_-18px_rgba(16,185,129,0.8)] transition hover:bg-emerald-300;
+  }
+
+  .btn-secondary,
+  .btn-ghost {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.04] px-4 py-2 text-sm font-medium text-white/85 transition hover:bg-white/[0.08];
+  }
+
   .container-page {
     @apply mx-auto w-full max-w-screen-md px-4;
   }

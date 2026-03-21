@@ -158,7 +158,7 @@ export default function AdvancedSearch({
       }}
     >
       <div className='absolute inset-0 bg-black/60 backdrop-blur-sm' />
-      <div className='bg-white/14 ring-white/12 relative z-10 mx-auto mt-10 w-[min(92vw,780px)] rounded-2xl p-5 text-white shadow-[0_10px_40px_-10px_rgba(0,0,0,.6)] ring-1 backdrop-blur-xl'>
+      <div className='ds-card-lg relative z-10 mx-auto mt-10 w-[min(92vw,780px)] text-white'>
         <div className='flex items-start justify-between gap-3'>
           <h2 className='bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-lg font-semibold text-transparent'>
             Advanced search
@@ -173,7 +173,7 @@ export default function AdvancedSearch({
           </button>
         </div>
 
-        <div className='mt-4 grid gap-4 md:grid-cols-2'>
+        <div className='mt-5 grid gap-5 md:grid-cols-2'>
           <label className='block'>
             <span className='text-sm text-white/85'>Query</span>
             <input
@@ -186,7 +186,7 @@ export default function AdvancedSearch({
 
           <div>
             <span className='text-sm text-white/85'>Tags</span>
-            <div className='mt-1 flex flex-wrap gap-2'>
+            <div className='mt-2 flex flex-wrap gap-2'>
               {TAG_CATALOG.map(tag => {
                 const normalized = norm(tag)
                 const active = tags.includes(normalized)
@@ -195,7 +195,7 @@ export default function AdvancedSearch({
                     key={tag}
                     type='button'
                     onClick={() => toggleTag(tag)}
-                    className={`pill transition ${
+                    className={`ds-pill transition ${
                       active ? 'text-lime-200 ring-1 ring-lime-300' : 'hover:bg-white/9'
                     }`}
                   >
@@ -207,24 +207,24 @@ export default function AdvancedSearch({
           </div>
           <div>
             <span className='text-sm text-white/85'>Pregnancy safety</span>
-            <div className='mt-1 flex items-center gap-2'>
+            <div className='mt-2 flex items-center gap-2'>
               <button
                 type='button'
-                className={`pill ${pregSafe === null ? 'ring-1 ring-white/20' : 'hover:bg-white/9'}`}
+                className={`ds-pill ${pregSafe === null ? 'ring-1 ring-white/20' : 'hover:bg-white/9'}`}
                 onClick={() => setPregSafe(null)}
               >
                 Any
               </button>
               <button
                 type='button'
-                className={`pill ${pregSafe === true ? 'text-lime-200 ring-1 ring-lime-300' : 'hover:bg-white/9'}`}
+                className={`ds-pill ${pregSafe === true ? 'text-lime-200 ring-1 ring-lime-300' : 'hover:bg-white/9'}`}
                 onClick={() => setPregSafe(true)}
               >
                 Explicitly safe
               </button>
               <button
                 type='button'
-                className={`pill ${pregSafe === false ? 'text-rose-200 ring-1 ring-rose-300' : 'hover:bg-white/9'}`}
+                className={`ds-pill ${pregSafe === false ? 'text-rose-200 ring-1 ring-rose-300' : 'hover:bg-white/9'}`}
                 onClick={() => setPregSafe(false)}
               >
                 Show cautions
@@ -234,24 +234,24 @@ export default function AdvancedSearch({
 
           <div>
             <span className='text-sm text-white/85'>MAOI/SSRI interactions</span>
-            <div className='mt-1 flex items-center gap-2'>
+            <div className='mt-2 flex items-center gap-2'>
               <button
                 type='button'
-                className={`pill ${maoiSsr === null ? 'ring-1 ring-white/20' : 'hover:bg-white/9'}`}
+                className={`ds-pill ${maoiSsr === null ? 'ring-1 ring-white/20' : 'hover:bg-white/9'}`}
                 onClick={() => setMaoiSsr(null)}
               >
                 Any
               </button>
               <button
                 type='button'
-                className={`pill ${maoiSsr === true ? 'text-amber-200 ring-1 ring-amber-300' : 'hover:bg-white/9'}`}
+                className={`ds-pill ${maoiSsr === true ? 'text-amber-200 ring-1 ring-amber-300' : 'hover:bg-white/9'}`}
                 onClick={() => setMaoiSsr(true)}
               >
                 Must have caution
               </button>
               <button
                 type='button'
-                className={`pill ${maoiSsr === false ? 'text-lime-200 ring-1 ring-lime-300' : 'hover:bg-white/9'}`}
+                className={`ds-pill ${maoiSsr === false ? 'text-lime-200 ring-1 ring-lime-300' : 'hover:bg-white/9'}`}
                 onClick={() => setMaoiSsr(false)}
               >
                 Exclude cautions
@@ -288,7 +288,7 @@ export default function AdvancedSearch({
           </div>
         </div>
 
-        <div className='mt-5 flex flex-wrap items-center justify-between gap-3 text-sm'>
+        <div className='mt-6 flex flex-wrap items-center justify-between gap-3 text-sm'>
           <div className='text-xs text-white/75'>{filtered.length} results</div>
           <div className='flex gap-2'>
             <button
