@@ -37,15 +37,16 @@ export default function BundleUpgradeCard({
 
   return (
     <section
-      className={`border-brand-lime/50 from-brand-lime/20 via-panel to-panel/95 relative space-y-4 overflow-hidden rounded-2xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.16),0_16px_44px_-18px_rgba(163,230,53,0.95)] ${className}`.trim()}
+      className={`border-brand-lime/45 from-brand-lime/18 via-panel to-panel/95 relative space-y-4 overflow-hidden rounded-2xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.16),0_16px_44px_-18px_rgba(163,230,53,0.95)] ${className}`.trim()}
     >
-      <div className='from-brand-lime/25 via-brand-lime/10 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
+      <div className='from-brand-lime/20 via-brand-lime/8 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
       <div className='relative z-10 space-y-4'>
-        <p className='text-sub text-xs uppercase tracking-[0.3em]'>Bundle Upgrade</p>
+        <p className='text-white/72 text-xs uppercase tracking-[0.3em]'>Bundle Upgrade</p>
         <div>
-          <h4 className='text-text text-lg font-semibold'>Want the full set?</h4>
+          <h4 className='text-text text-lg font-semibold'>Get every starter guide in one bundle</h4>
           <p className='text-sub mt-1 text-sm leading-relaxed'>
-            Get 3 beginner-friendly blend guides for calm, focus, and sleep.
+            Save and cover your full routine: calm evenings, focused mornings, and better sleep
+            support.
           </p>
         </div>
 
@@ -60,10 +61,11 @@ export default function BundleUpgradeCard({
 
         <div className='grid gap-2 rounded-xl border border-white/15 bg-black/30 p-3.5 text-sm sm:grid-cols-2'>
           <p className='text-sub'>
-            Single Starter Pack: <span className='text-text font-semibold'>$9</span>
+            3 singles:{' '}
+            <span className='text-text font-semibold line-through decoration-white/35'>$27</span>
           </p>
           <p className='text-sub'>
-            Bundle: <span className='text-brand-lime font-semibold'>$19</span>
+            Bundle today: <span className='text-brand-lime text-lg font-semibold'>$19</span>
           </p>
         </div>
 

@@ -39,14 +39,14 @@ export default function Downloads() {
   }
 
   return (
-    <main className='container space-y-7 py-9'>
+    <main className='container space-y-8 py-8 sm:py-10'>
       <Meta
         title='My Guides - The Hippie Scientist'
         description='Your saved Starter Packs and generated blend downloads.'
         path='/downloads'
       />
 
-      <header className='space-y-2.5'>
+      <header className='space-y-3'>
         <p className='text-sub text-xs uppercase tracking-[0.3em]'>Digital library</p>
         <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>My Guides</h1>
         <p className='text-sub max-w-2xl text-sm leading-relaxed sm:text-base'>
