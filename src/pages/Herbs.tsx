@@ -30,8 +30,8 @@ export default function HerbsPage() {
 
   return (
     <EntityDatabasePage
-      title='Herb Database'
-      description='Search and explore the library.'
+      title='Herb Knowledge Database'
+      description='Search effects, classification, intensity, and safety context across the herb library.'
       metaPath='/herbs'
       items={items}
       kind='herb'

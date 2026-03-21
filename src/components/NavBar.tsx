@@ -36,20 +36,17 @@ export default function NavBar() {
           </button>
 
           <div className='hidden min-w-0 flex-1 items-center justify-end gap-1.5 md:flex'>
-            <NavLink to='/blend' className={`${linkBase} ${linkSolid}`}>
-              Build a Blend
-            </NavLink>
             <NavLink to='/herbs' className={`${linkBase} ${linkSolid}`}>
-              Browse Herbs
-            </NavLink>
-            <NavLink to='/downloads' className={`${linkBase} ${linkSolid}`}>
-              My Guides
+              Herbs
             </NavLink>
             <NavLink to='/compounds' className={`${linkBase} ${linkDim}`}>
               Compounds
             </NavLink>
             <NavLink to='/blog' className={`${linkBase} ${linkDim}`}>
               Blog
+            </NavLink>
+            <NavLink to='/blend' className={`${linkBase} ${linkSolid}`}>
+              Build a Blend
             </NavLink>
             <NavLink to='/about' className={`${linkBase} ${linkDim}`}>
               About
@@ -59,25 +56,11 @@ export default function NavBar() {
         {menuOpen && (
           <div className='border-white/12 mb-2 grid gap-2 rounded-2xl border bg-black/40 p-2.5 backdrop-blur-xl md:hidden'>
             <NavLink
-              to='/blend'
-              className={`${linkBase} ${linkSolid} justify-start`}
-              onClick={() => setMenuOpen(false)}
-            >
-              Build a Blend
-            </NavLink>
-            <NavLink
               to='/herbs'
               className={`${linkBase} ${linkSolid} justify-start`}
               onClick={() => setMenuOpen(false)}
             >
-              Browse Herbs
-            </NavLink>
-            <NavLink
-              to='/downloads'
-              className={`${linkBase} ${linkSolid} justify-start`}
-              onClick={() => setMenuOpen(false)}
-            >
-              My Guides
+              Herbs
             </NavLink>
             <NavLink
               to='/compounds'
@@ -92,6 +75,13 @@ export default function NavBar() {
               onClick={() => setMenuOpen(false)}
             >
               Blog
+            </NavLink>
+            <NavLink
+              to='/blend'
+              className={`${linkBase} ${linkSolid} justify-start`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Build a Blend
             </NavLink>
             <NavLink
               to='/about'
