@@ -3,8 +3,9 @@ import clsx from 'clsx'
 import { motion, useReducedMotion } from 'framer-motion'
 import { cleanIntensity, titleCase } from '../lib/text'
 import type { Herb } from '../types'
-import { normalizeHref } from '../lib/routing'
 import { getCommonName } from '../lib/herbName'
+import { Link } from 'react-router-dom'
+import { canonicalSlug } from '@/lib/slug'
 
 function toArray(value: unknown): string[] {
   if (!value) return []
@@ -59,28 +60,12 @@ export default function DatabaseHerbCard({
         )
 
   const summary = firstNonEmpty(herb.summary, herb.description, herb.effectsSummary, herb.effects)
-  const keyEffects = firstNonEmpty(herb.effectsSummary, herb.effects, herb.benefits as string)
   const classification = firstNonEmpty(
     toArray((herb as any).category)[0],
     (herb as any).category_label,
     (herb.compoundClasses || [])[0],
     (herb.pharmCategories || [])[0]
   )
-
-  const chips = Array.from(
-    new Set(
-      [
-        ...toArray((herb as any).chem_class),
-        ...toArray((herb as any).drug_class),
-        ...toArray((herb as any).category),
-        ...(Array.isArray(herb.compoundClasses) ? herb.compoundClasses : []),
-        ...(Array.isArray(herb.pharmCategories) ? herb.pharmCategories : []),
-        ...(Array.isArray(herb.tags) ? herb.tags : []),
-      ]
-        .map(chip => titleCase(String(chip)))
-        .filter(Boolean)
-    )
-  ).slice(0, 2)
 
   const intensityLevel = (herb.intensityLevel || (herb as any).intensityLevel || '')
     .toString()
@@ -101,17 +86,17 @@ export default function DatabaseHerbCard({
         : intensityLevel.includes('variable')
           ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
           : 'bg-white/6 text-white/90 ring-1 ring-white/15'
-  const mechanism = firstNonEmpty((herb as any).mechanismOfAction, herb.benefits as string)
+  const mechanism = firstNonEmpty(
+    (herb as any).mechanismOfAction,
+    herb.mechanism,
+    herb.benefits as string
+  )
 
-  const slugSource = firstNonEmpty(herb.slug, heading, scientificName)
-  const slug = slugSource
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '')
+  const slug = canonicalSlug(herb.slug, heading, scientificName)
   const detailBase = kind === 'compound' ? '/compounds' : '/herbs'
-  const detailPath = slug ? `${detailBase}/${encodeURIComponent(slug)}` : detailBase
+  const detailPath = `${detailBase}/${encodeURIComponent(slug)}`
+  const detailFallbackPath = detailBase
 
-  const effects = firstNonEmpty(herb.effectsSummary, herb.effects)
   const legal = firstNonEmpty(
     herb.legalStatus as string,
     herb.legalstatus as string,
@@ -121,9 +106,15 @@ export default function DatabaseHerbCard({
   const sources = toArray(herb.sources).slice(0, 3)
 
   const sections: Array<{ label: string; content: string | string[] }> = []
-  if (effects) sections.push({ label: 'Effects', content: effects })
+  if (summary) sections.push({ label: 'Overview', content: summary })
   if (legal) sections.push({ label: 'Legal', content: legal })
   if (sources.length) sections.push({ label: 'Sources', content: sources })
+
+  const facts = [
+    classification ? { label: 'Class', value: titleCase(classification) } : null,
+    intensityLabel ? { label: 'Intensity', value: intensityLabel } : null,
+    mechanism ? { label: 'Mechanism', value: mechanism } : null,
+  ].filter(Boolean) as Array<{ label: string; value: string }>
 
   return (
     <motion.article
@@ -143,37 +134,25 @@ export default function DatabaseHerbCard({
           <h2 className='text-xl font-semibold tracking-tight text-white sm:text-2xl'>{heading}</h2>
           {secondary && <p className='text-white/62 text-sm italic'>{secondary}</p>}
 
-          {(chips.length > 0 || intensityLabel || mechanism || classification) && (
+          {facts.length > 0 && (
             <div className='mt-3 flex flex-wrap gap-2'>
-              {classification && (
-                <span className='ds-pill border-sky-200/20 bg-sky-400/10 text-sky-100'>
-                  Class: {classification}
-                </span>
-              )}
-              {chips.map(chip => (
-                <span key={chip} className='ds-pill'>
-                  {chip}
+              {facts.slice(0, 3).map(fact => (
+                <span
+                  key={fact.label}
+                  className={clsx(
+                    'ds-pill bg-white/5 text-white/85 ring-1 ring-white/15',
+                    fact.label === 'Intensity' && intensityTone
+                  )}
+                >
+                  <span className='text-[11px] font-semibold uppercase tracking-wide text-white/70'>
+                    {fact.label}:
+                  </span>{' '}
+                  {fact.value}
                 </span>
               ))}
-              {intensityLabel && (
-                <span className={clsx('ds-pill', intensityTone)}>
-                  <span className='text-[11px] font-semibold uppercase tracking-wide text-white/80'>
-                    Intensity:
-                  </span>
-                  {intensityLabel}
-                </span>
-              )}
-              {mechanism && <span className='ds-pill'>Mechanism: {mechanism}</span>}
             </div>
           )}
         </header>
-
-        {keyEffects && (
-          <p className='text-sm font-medium leading-7 text-white/85'>
-            <span className='text-white/65'>Key effects: </span>
-            {keyEffects}
-          </p>
-        )}
 
         {summary && (
           <p
@@ -229,9 +208,9 @@ export default function DatabaseHerbCard({
           >
             {open ? 'Show less' : 'Show more'}
           </button>
-          <a href={normalizeHref(detailPath)} className='btn-primary'>
+          <Link to={slug ? detailPath : detailFallbackPath} className='btn-primary'>
             View details
-          </a>
+          </Link>
         </div>
       </div>
     </motion.article>

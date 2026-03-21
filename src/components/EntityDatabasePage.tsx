@@ -199,7 +199,7 @@ export default function EntityDatabasePage({
               </>
             )}
             {randomHerb?.slug && (
-              <Link to={`/herb/${randomHerb.slug}`} className='btn-secondary'>
+              <Link to={`/herbs/${randomHerb.slug}`} className='btn-secondary'>
                 Discover something new
               </Link>
             )}
