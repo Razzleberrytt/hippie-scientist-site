@@ -25,16 +25,16 @@ export default function Footer() {
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
   return (
-    <footer className='relative mx-auto w-full max-w-screen-md px-4 py-10'>
-      <div className='rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-xl sm:p-7'>
-        <div className='grid gap-8 sm:grid-cols-2'>
+    <footer className='relative mx-auto mt-8 w-full max-w-screen-lg px-4 pb-10 pt-8'>
+      <div className='bg-white/6 ring-white/12 rounded-3xl p-6 ring-1 backdrop-blur-xl sm:p-7'>
+        <div className='grid gap-8 sm:grid-cols-2 sm:gap-10'>
           <NonEmpty>
             {exploreLinks.length > 0 && (
               <div>
-                <h4 className='mb-3 text-sm font-semibold uppercase tracking-wide text-white/70'>
+                <h4 className='mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/65'>
                   Explore
                 </h4>
-                <ul className='space-y-1 text-sm text-white/75'>
+                <ul className='space-y-1.5 text-sm text-white/75'>
                   {exploreLinks.map(link => (
                     <li key={link.href}>
                       <a className='transition hover:text-white' href={normalizeHref(link.href)}>
@@ -49,10 +49,10 @@ export default function Footer() {
           <NonEmpty>
             {legalLinks.length > 0 && (
               <div>
-                <h4 className='mb-3 text-sm font-semibold uppercase tracking-wide text-white/70'>
+                <h4 className='mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/65'>
                   Stay safe
                 </h4>
-                <ul className='space-y-1 text-sm text-white/75'>
+                <ul className='space-y-1.5 text-sm text-white/75'>
                   {legalLinks.map(link => (
                     <li key={link.href}>
                       <a className='transition hover:text-white' href={normalizeHref(link.href)}>
@@ -75,7 +75,7 @@ export default function Footer() {
           </NonEmpty>
         </div>
 
-        <div className='mt-8 border-t border-white/10 pt-4 text-xs text-white/60'>
+        <div className='mt-8 border-t border-white/10 pt-4 text-xs text-white/55'>
           © 2025 The Hippie Scientist — All Rights Reserved
         </div>
       </div>

@@ -79,27 +79,24 @@ export default function EmailCapture() {
   return (
     <section
       aria-label='Email capture'
-      className='container mx-auto max-w-3xl px-4 pb-10 sm:px-6 sm:pb-12'
+      className='container mx-auto max-w-3xl px-4 pb-12 sm:px-6 sm:pb-14'
     >
-      <div className='shadow-halo relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl sm:rounded-[24px] sm:p-5'>
+      <div className='shadow-halo border-white/12 bg-white/6 relative overflow-hidden rounded-2xl border p-5 backdrop-blur-xl sm:rounded-[24px] sm:p-6'>
         <div
           aria-hidden
           className='pointer-events-none absolute -top-16 left-0 right-0 h-28 bg-gradient-to-b from-white/10 to-transparent'
         />
 
-        <div className='relative space-y-3'>
-          <h2 className='text-xl font-semibold tracking-tight text-white sm:text-2xl'>
+        <div className='relative space-y-4'>
+          <h2 className='text-[1.45rem] font-semibold tracking-tight text-white sm:text-2xl'>
             Build your first calming herbal blend in minutes
           </h2>
-          <p className='text-sm text-white/75 sm:text-[0.95rem]'>
+          <p className='text-sm leading-relaxed text-white/75 sm:text-[0.97rem]'>
             Get a clear, beginner-safe roadmap so you can craft a blend that actually works—without
             overwhelm.
           </p>
 
-          <form
-            onSubmit={handleSubmit}
-            className='flex flex-col gap-2.5 sm:flex-row sm:items-center'
-          >
+          <form onSubmit={handleSubmit} className='flex flex-col gap-3 sm:flex-row sm:items-center'>
             <label htmlFor='email-capture-input' className='sr-only'>
               Email address
             </label>
@@ -111,17 +108,17 @@ export default function EmailCapture() {
               value={email}
               onChange={event => setEmail(event.target.value)}
               placeholder='you@example.com'
-              className='border-white/12 w-full rounded-xl border bg-white/10 px-4 py-2.5 text-sm text-white placeholder-white/50 outline-none transition focus:border-white/30 focus:ring-2 focus:ring-emerald-300/35 sm:flex-1'
+              className='border-white/14 min-h-11 w-full rounded-xl border bg-white/10 px-4 py-2.5 text-sm text-white placeholder-white/50 outline-none transition focus:border-white/30 focus:ring-2 focus:ring-emerald-300/35 sm:flex-1'
             />
             <button
               type='submit'
-              className='rounded-xl bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80'
+              className='min-h-11 rounded-xl border border-emerald-200/35 bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80'
             >
               Start My First Blend
             </button>
           </form>
 
-          <ul className='space-y-1 text-xs text-white/80 sm:text-sm'>
+          <ul className='space-y-1.5 text-xs text-white/80 sm:text-sm'>
             <li>• Beginner-friendly blend recipes</li>
             <li>• Research-backed herb insights</li>
             <li>• No fluff, just what works</li>
@@ -131,7 +128,7 @@ export default function EmailCapture() {
               <button
                 type='button'
                 onClick={handleExportEmails}
-                className='rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-xs font-medium text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40'
+                className='min-h-10 rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-xs font-medium text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40'
               >
                 Export Emails
               </button>
@@ -140,11 +137,11 @@ export default function EmailCapture() {
 
           {error ? <p className='text-xs text-rose-300'>{error}</p> : null}
           {success ? (
-            <div className='shadow-halo mt-1 flex flex-col gap-3 rounded-xl border border-emerald-300/30 bg-emerald-300/10 p-3 sm:flex-row sm:items-center sm:justify-between'>
+            <div className='shadow-halo mt-1 flex flex-col gap-3 rounded-xl border border-emerald-300/30 bg-emerald-300/10 p-3.5 sm:flex-row sm:items-center sm:justify-between'>
               <p className='text-sm text-emerald-200'>You’re in. Your guide is downloading now.</p>
               <a
                 href='/build'
-                className='inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80 sm:w-auto'
+                className='inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80 sm:w-auto'
               >
                 Build Your First Blend
               </a>

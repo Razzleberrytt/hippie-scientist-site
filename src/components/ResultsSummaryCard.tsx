@@ -103,26 +103,28 @@ export default function ResultsSummaryCard({
 
   return (
     <article
-      className={`border-border/80 from-panel/95 via-panel/85 to-panel/75 relative overflow-hidden rounded-2xl border bg-gradient-to-br shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_14px_34px_-24px_rgba(148,163,184,0.55)] ${isCompact ? 'space-y-3 p-3' : 'space-y-4 p-4 sm:p-5'} ${className}`}
+      className={`border-border/80 from-panel/95 via-panel/86 to-panel/76 relative overflow-hidden rounded-2xl border bg-gradient-to-br shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_18px_34px_-24px_rgba(148,163,184,0.62)] ${isCompact ? 'space-y-3.5 p-3.5' : 'space-y-4 p-4 sm:p-5'} ${className}`}
     >
       <div className='from-brand-lime/14 via-brand-lime/4 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
-      <div className='relative z-10 space-y-2'>
-        <p className='text-sub text-[11px] uppercase tracking-[0.22em]'>Your Recommended Blend</p>
+      <div className='relative z-10 space-y-2.5'>
+        <p className='text-sub text-[11px] uppercase tracking-[0.2em]'>Your Recommended Blend</p>
         <h3 className={`${isCompact ? 'text-base' : 'text-lg sm:text-xl'} text-text font-semibold`}>
           {blendName}
         </h3>
-        <span className='text-brand-lime bg-brand-lime/18 border-brand-lime/35 inline-flex rounded-full border px-2.5 py-1 text-xs font-medium capitalize tracking-wide'>
+        <span className='text-brand-lime bg-brand-lime/18 border-brand-lime/35 inline-flex rounded-full border px-2.5 py-1 text-[11px] font-semibold capitalize tracking-[0.08em]'>
           {goal}
         </span>
       </div>
 
-      <p className={`${isCompact ? 'text-xs' : 'text-sm'} text-sub relative z-10`}>{explanation}</p>
+      <p className={`${isCompact ? 'text-xs' : 'text-sm'} text-sub relative z-10 leading-relaxed`}>
+        {explanation}
+      </p>
 
-      <div className='relative z-10 space-y-2'>
-        <p className='text-sub text-xs uppercase tracking-wide'>Herb list</p>
+      <div className='relative z-10 space-y-2.5'>
+        <p className='text-sub text-[11px] uppercase tracking-[0.18em]'>Herb list</p>
         {herbs.length ? (
           <ul
-            className={`${isCompact ? 'text-xs' : 'text-sm'} text-sub list-inside list-disc space-y-1`}
+            className={`${isCompact ? 'text-xs' : 'text-sm'} text-sub list-inside list-disc space-y-1.5`}
           >
             {herbs.map(herb => (
               <li key={`${blendName}-${herb}`}>{herb}</li>
@@ -134,17 +136,19 @@ export default function ResultsSummaryCard({
       </div>
 
       {formattedTimestamp && (
-        <p className='text-sub relative z-10 text-xs'>Recommended: {formattedTimestamp}</p>
+        <p className='text-sub relative z-10 border-t border-white/10 pt-2 text-[11px]'>
+          Recommended: {formattedTimestamp}
+        </p>
       )}
 
-      <div className='relative z-10 space-y-2'>
+      <div className='relative z-10 space-y-2.5 border-t border-white/10 pt-2.5'>
         {(ctaButtons || herbs.length > 0) && (
           <div className='flex flex-wrap items-center gap-2'>
             {ctaButtons}
             <button
               type='button'
               onClick={handleCopy}
-              className='border-border/70 text-sub hover:text-text hover:border-brand-lime/40 rounded-md border bg-black/20 px-2.5 py-1 text-xs transition'
+              className='border-border/70 text-sub hover:text-text hover:border-brand-lime/40 min-h-9 rounded-lg border bg-black/20 px-3 py-1.5 text-xs font-medium transition'
             >
               Share
             </button>
@@ -152,7 +156,7 @@ export default function ResultsSummaryCard({
               <button
                 type='button'
                 onClick={handleNativeShare}
-                className='border-border/70 text-sub hover:text-text hover:border-brand-lime/40 rounded-md border bg-black/20 px-2.5 py-1 text-xs transition'
+                className='border-border/70 text-sub hover:text-text hover:border-brand-lime/40 min-h-9 rounded-lg border bg-black/20 px-3 py-1.5 text-xs font-medium transition'
               >
                 Native share
               </button>

@@ -18,7 +18,7 @@ export default function Hero({ counts }: HeroProps) {
   const { herbs = 0, compounds = 0, articles = 0 } = counts ?? {}
 
   return (
-    <section className='relative mx-auto mt-3 max-w-3xl px-4 py-6 sm:mt-4 sm:px-6 sm:py-8'>
+    <section className='relative mx-auto mt-4 max-w-3xl px-4 py-7 sm:mt-6 sm:px-6 sm:py-10'>
       <div
         aria-hidden
         className='pointer-events-none absolute inset-0 -z-10 grid place-items-center'
@@ -31,14 +31,14 @@ export default function Hero({ counts }: HeroProps) {
           initial={reduceMotion ? undefined : { opacity: 0, y: 18, scale: 0.985 }}
           animate={reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
           transition={reduceMotion ? undefined : { duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className='shadow-halo relative overflow-hidden rounded-[24px] border border-white/10 bg-white/5 backdrop-blur-xl sm:rounded-[28px]'
+          className='shadow-halo border-white/12 bg-white/6 relative overflow-hidden rounded-[24px] border backdrop-blur-xl sm:rounded-[28px]'
         >
           <div
             className='pointer-events-none absolute -top-24 left-0 right-0 h-48 bg-gradient-to-b from-white/10 to-transparent'
             aria-hidden
           />
 
-          <div className='relative space-y-4 p-4 sm:space-y-5 sm:p-8'>
+          <div className='relative space-y-5 p-5 sm:space-y-6 sm:p-8'>
             <motion.h1
               initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function Hero({ counts }: HeroProps) {
               transition={
                 reduceMotion ? undefined : { delay: 0.05, duration: 0.4, ease: [0.22, 1, 0.36, 1] }
               }
-              className='text-[2.15rem] font-extrabold leading-[1.04] tracking-tight text-white sm:text-6xl'
+              className='text-[2rem] font-semibold leading-[1.03] tracking-tight text-white sm:text-6xl'
             >
               The Hippie <br className='hidden sm:block' /> Scientist
             </motion.h1>
@@ -57,7 +57,7 @@ export default function Hero({ counts }: HeroProps) {
               transition={
                 reduceMotion ? undefined : { delay: 0.12, duration: 0.4, ease: [0.22, 1, 0.36, 1] }
               }
-              className='max-w-2xl text-sm text-white/80 sm:text-base'
+              className='text-white/78 max-w-2xl text-[0.95rem] leading-relaxed sm:text-base'
             >
               Psychedelic botany, mindful blends, and evidence-forward guidance for curious
               explorers.
@@ -69,7 +69,7 @@ export default function Hero({ counts }: HeroProps) {
 
             <nav
               aria-label='Site stats'
-              className='grid grid-cols-1 gap-1.5 sm:flex sm:flex-wrap sm:gap-2.5'
+              className='grid grid-cols-1 gap-2 sm:flex sm:flex-wrap sm:gap-2.5'
             >
               <StatPill to='/herbs' value={herbs} label='psychoactive herbs' testId='pill-herbs' />
               <StatPill
