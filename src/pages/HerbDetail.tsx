@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import Meta from '../components/Meta'
-import HerbDetails, { normalizeHerbDetails } from '../components/HerbDetails'
+import { normalizeHerbDetails } from '../components/HerbDetails'
 import { Button } from '../components/ui/Button'
 import postsData from '../data/blog/posts.json'
 import { relatedPostsByHerbSlug } from '../lib/relevance'
@@ -131,6 +131,11 @@ export default function HerbDetail() {
     safety || therapeutic || toxicity || toxicityLd50 || (sideEffects && sideEffects.length > 0)
   )
   const hasMechanism = Boolean(mechanism || pharmacology)
+  const traditionalUse = cleanLine((herb as any).traditionalUse || (herb as any).ethnobotany || '')
+  const researchNotes = cleanLine((herb as any).researchNotes || (herb as any).evidenceNotes || '')
+  const effects = cleanLine(details.effects)
+  const activeCompounds = details.active_compounds
+  const contraindications = cleanLine(details.contraindications)
 
   return (
     <>
@@ -201,16 +206,58 @@ export default function HerbDetail() {
               </Button>
             </div>
 
-            <div className='mt-6 space-y-5 text-[color:var(--text-c)]'>
-              <HerbDetails herb={herb} />
+            <div className='mt-6 space-y-6 text-[color:var(--text-c)]'>
+              <section>
+                <h2 className='text-lg font-semibold text-white'>Overview</h2>
+                <p className='mt-2 text-sm text-white/80'>{description}</p>
+              </section>
+
+              {traditionalUse && (
+                <section>
+                  <h2 className='text-lg font-semibold text-white'>Traditional Use</h2>
+                  <p className='mt-2 text-sm text-white/80'>{traditionalUse}</p>
+                </section>
+              )}
+
+              {activeCompounds.length > 0 && (
+                <section>
+                  <h2 className='text-lg font-semibold text-white'>Active Compounds</h2>
+                  <p className='mt-2 text-sm text-white/80'>{activeCompounds.join(', ')}</p>
+                </section>
+              )}
+
+              {effects && (
+                <section>
+                  <h2 className='text-lg font-semibold text-white'>Effects</h2>
+                  <p className='mt-2 text-sm text-white/80'>{effects}</p>
+                </section>
+              )}
+
+              {hasMechanism && (
+                <section>
+                  <h2 className='text-lg font-semibold text-white'>Mechanism (Simplified)</h2>
+                  <p className='mt-2 text-sm text-white/80'>
+                    {mechanism || 'Mechanism evidence is still evolving for this herb.'}
+                  </p>
+                  {pharmacology && <p className='mt-2 text-sm text-white/75'>{pharmacology}</p>}
+                </section>
+              )}
             </div>
           </article>
 
           {hasSafetyExtras && (
             <section className='card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 shadow-sm backdrop-blur-sm'>
-              <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>Safety Notes</h2>
+              <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>
+                Safety / Contraindications
+              </h2>
               <div className='mt-3 space-y-3 text-sm text-[color:var(--muted-c)]'>
                 {safety && <p>{safety}</p>}
+                {contraindications && (
+                  <p>
+                    <strong className='text-[color:var(--text-c)]'>Contraindications:</strong>{' '}
+                    {contraindications}
+                  </p>
+                )}
                 {therapeutic && (
                   <p>
                     <strong className='text-[color:var(--text-c)]'>Therapeutic uses:</strong>{' '}
@@ -241,22 +288,13 @@ export default function HerbDetail() {
             </section>
           )}
 
-          {hasMechanism && (
-            <section className='card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 shadow-sm backdrop-blur-sm'>
-              <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>
-                Mechanism &amp; Pharmacology
-              </h2>
-              <div className='mt-3 space-y-3 text-sm text-[color:var(--muted-c)]'>
-                {mechanism && <p>{mechanism}</p>}
-                {pharmacology && (
-                  <p>
-                    <strong className='text-[color:var(--text-c)]'>Pharmacology:</strong>{' '}
-                    {pharmacology}
-                  </p>
-                )}
-              </div>
-            </section>
-          )}
+          <section className='card bg-[color-mix(in_oklab,var(--surface-c)_92%,transparent_8%)] p-5 shadow-sm backdrop-blur-sm'>
+            <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>Research Notes</h2>
+            <p className='mt-3 text-sm text-[color:var(--muted-c)]'>
+              {researchNotes ||
+                'Evidence quality varies across traditional reports, preclinical studies, and limited human trials.'}
+            </p>
+          </section>
 
           <RelatedPosts slug={herb.slug} />
 

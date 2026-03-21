@@ -11,7 +11,7 @@ export default function Hero() {
         aria-hidden
         className='pointer-events-none absolute inset-0 -z-10 grid place-items-center'
       >
-        <div className='animate-breathe from-emerald-500/12 via-fuchsia-500/8 to-indigo-500/12 size-[58rem] rounded-full bg-gradient-to-br blur-[120px]' />
+        <div className='animate-breathe from-emerald-500/8 to-indigo-500/8 size-[52rem] rounded-full bg-gradient-to-br via-fuchsia-500/5 blur-[120px]' />
       </div>
 
       <Tilt maxTilt={4} perspective={900} className='relative'>
@@ -38,7 +38,7 @@ export default function Hero() {
                 viewport={{ once: true }}
                 className='text-xs font-semibold uppercase tracking-[0.24em] text-white/65'
               >
-                Mindful herbal guidance
+                Psychoactive botany knowledge base
               </motion.p>
               <motion.h1
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -51,7 +51,7 @@ export default function Hero() {
                 }
                 className='text-[2.05rem] font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl'
               >
-                Build better blends with clarity
+                Research-backed herbal knowledge for curious minds
               </motion.h1>
               <motion.p
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -64,8 +64,8 @@ export default function Hero() {
                 }
                 className='max-w-2xl text-[0.98rem] leading-[1.72] text-white/80 sm:text-lg'
               >
-                Evidence-forward herbal tools for calm, focus, and recovery—designed to help you
-                move from research overload to a practical plan.
+                Study herbs, compounds, and mechanisms in plain language. Explore traditional
+                context, modern findings, and safety considerations before you build.
               </motion.p>
             </div>
 

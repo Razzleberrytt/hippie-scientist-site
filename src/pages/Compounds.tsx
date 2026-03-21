@@ -10,8 +10,8 @@ export default function CompoundsPage() {
 
   return (
     <EntityDatabasePage
-      title='Active Compounds'
-      description='Search and explore the molecule library.'
+      title='Compound Reference'
+      description='Explore phytochemicals by class, effects, source herbs, and research relevance.'
       metaPath='/compounds'
       items={decoratedCompounds}
       kind='compound'

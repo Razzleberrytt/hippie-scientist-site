@@ -83,7 +83,7 @@ export default function BlogList() {
 
   const heading = pagination.page > 1 ? `Blog — Page ${pagination.page}` : 'Blog'
   const intro =
-    'Daily notes, research digests, and herb craft. Fresh posts drop in chronological order.'
+    'Research notes on psychoactive botany, traditional context, and compound-level interpretation.'
 
   return (
     <div className='container-page space-y-6 py-8'>
@@ -99,18 +99,25 @@ export default function BlogList() {
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='glass-elev rounded-3xl p-5 text-white transition hover:translate-y-[-2px] hover:shadow-glow sm:p-6'
+            className='glass-elev rounded-3xl p-5 text-white transition hover:translate-y-[-1px] sm:p-6'
           >
+            <div className='mb-2'>
+              <span className='rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/75'>
+                {resolveCategory(p.tags)}
+              </span>
+            </div>
             <h2 className='text-xl font-semibold tracking-tight sm:text-2xl'>
               <Link to={`/blog/${p.slug}/`} className='text-accent-200 hover:text-accent-100'>
-                {p.title}
+                {normalizeTitle(p.title)}
               </Link>
             </h2>
             <div className='mt-2 text-sm text-white/60'>
               <time dateTime={p.date || undefined}>{formatDate(p.date || '')}</time>
               {p.readingTime && <> • {p.readingTime}</>}
             </div>
-            <p className='mt-3 text-white/80'>{p.summary || p.description}</p>
+            <p className='mt-3 text-white/80'>
+              {p.summary || 'Short research note from the field.'}
+            </p>
             <div className='mt-4'>
               <Link to={`/blog/${p.slug}/`} className='btn-primary'>
                 Read post
@@ -123,6 +130,18 @@ export default function BlogList() {
       <PaginationNav current={pagination.page} totalPages={pagination.totalPages} />
     </div>
   )
+}
+
+function resolveCategory(tags?: string[]) {
+  const joined = (tags || []).join(' ').toLowerCase()
+  if (/research|compound|science/.test(joined)) return 'Research Digest'
+  if (/traditional|culture|ethno/.test(joined)) return 'Traditional Use'
+  return 'Field Notes'
+}
+
+function normalizeTitle(title: string) {
+  if (!title) return 'Research Note'
+  return title.replace(/^blend craft/i, 'Research Note').replace(/^microdosing log/i, 'Field Note')
 }
 
 function PaginationNav({ current, totalPages }: { current: number; totalPages: number }) {

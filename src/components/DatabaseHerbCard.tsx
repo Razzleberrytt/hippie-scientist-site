@@ -59,6 +59,13 @@ export default function DatabaseHerbCard({
         )
 
   const summary = firstNonEmpty(herb.summary, herb.description, herb.effectsSummary, herb.effects)
+  const keyEffects = firstNonEmpty(herb.effectsSummary, herb.effects, herb.benefits as string)
+  const classification = firstNonEmpty(
+    toArray((herb as any).category)[0],
+    (herb as any).category_label,
+    (herb.compoundClasses || [])[0],
+    (herb.pharmCategories || [])[0]
+  )
 
   const chips = Array.from(
     new Set(
@@ -125,8 +132,8 @@ export default function DatabaseHerbCard({
       viewport={{ once: true }}
       className={clsx(
         'ring-white/12 relative overflow-hidden rounded-3xl bg-white/5 ring-1 backdrop-blur-xl',
-        'shadow-[inset_0_1px_0_rgba(255,255,255,.2)] transition duration-300',
-        'mx-auto w-full max-w-screen-md px-4 py-5 text-white/90 hover:shadow-[0_24px_60px_-30px_rgba(0,0,0,0.65)]'
+        'shadow-[inset_0_1px_0_rgba(255,255,255,.12)] transition duration-300',
+        'mx-auto w-full max-w-5xl px-5 py-6 text-white/90'
       )}
     >
       <div aria-hidden className='pointer-events-none absolute inset-0 rounded-3xl'>
@@ -138,8 +145,13 @@ export default function DatabaseHerbCard({
           <h2 className='text-xl font-semibold tracking-tight text-white sm:text-2xl'>{heading}</h2>
           {secondary && <p className='text-sm italic text-white/60'>{secondary}</p>}
 
-          {(chips.length > 0 || intensityLabel || benefits) && (
+          {(chips.length > 0 || intensityLabel || benefits || classification) && (
             <div className='mt-3 flex flex-wrap gap-2'>
+              {classification && (
+                <span className='inline-flex items-center gap-2 rounded-2xl border border-sky-200/20 bg-sky-400/10 px-3 py-1.5 text-[12px] text-sky-100'>
+                  Class: {classification}
+                </span>
+              )}
               {chips.map(chip => (
                 <span
                   key={chip}
@@ -169,6 +181,13 @@ export default function DatabaseHerbCard({
             </div>
           )}
         </header>
+
+        {keyEffects && (
+          <p className='text-sm font-medium text-white/85'>
+            <span className='text-white/65'>Key effects: </span>
+            {keyEffects}
+          </p>
+        )}
 
         {summary && (
           <p
