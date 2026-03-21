@@ -7,6 +7,8 @@ import AdvancedSearch from './AdvancedSearch'
 import StatBadges from './StatBadges'
 import { pickRandomHerb } from '@/lib/discovery'
 import type { Herb } from '@/types'
+import { trackEvent } from '@/lib/growth'
+import { CTA } from '@/lib/cta'
 
 export type EntityDatabasePageProps = {
   title: string
@@ -194,13 +196,13 @@ export default function EntityDatabasePage({
                   className='btn-ghost text-sm'
                   onClick={() => setAdvancedOpen(true)}
                 >
-                  Advanced search options
+                  {CTA.primary.learn}
                 </button>
               </>
             )}
             {randomHerb?.slug && (
               <Link to={`/herbs/${randomHerb.slug}`} className='btn-secondary'>
-                Discover something new
+                {CTA.primary.explore}
               </Link>
             )}
           </div>
@@ -216,6 +218,9 @@ export default function EntityDatabasePage({
                   const next = event.target.value
                   setQuery(next)
                   updateParam('q', next.trim())
+                  if (next.trim().length >= 2) {
+                    trackEvent('search_used', { kind, query_length: next.trim().length })
+                  }
                 }}
               />
               <span className='text-sm text-white/65 sm:shrink-0'>{filtered.length} results</span>

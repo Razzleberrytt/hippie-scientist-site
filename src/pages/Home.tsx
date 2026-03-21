@@ -10,6 +10,8 @@ import { decorateHerbs } from '@/lib/herbs'
 import { decorateCompounds } from '@/lib/compounds'
 import { getCommonName } from '@/lib/herbName'
 import { useSavedItems } from '@/lib/growth'
+import { futureProducts } from '@/lib/products'
+import { CTA } from '@/lib/cta'
 
 type FeaturedItem = { slug: string; name: string; blurb: string; kind: 'herb' | 'compound' }
 
@@ -94,6 +96,7 @@ export default function Home() {
             Review compounds, proposed mechanisms, and safety boundaries before any personal
             experimentation.
           </p>
+          <p className='text-xs text-white/65'>Designed to help you learn safely.</p>
           <nav aria-label='Site stats' className='grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3'>
             <StatPill
               to='/herbs'
@@ -136,7 +139,7 @@ export default function Home() {
               ))}
             </div>
             <Link to='/favorites' className='btn-secondary w-fit'>
-              View all saved items
+              {CTA.secondary.save}d items
             </Link>
           </div>
         </section>
@@ -190,7 +193,7 @@ export default function Home() {
             Follow curated paths like Psychedelic Mechanisms 101 and Safety & Risk Awareness.
           </p>
           <Link to='/learning' className='btn-secondary w-fit'>
-            Open learning paths
+            {CTA.primary.learn}
           </Link>
         </div>
       </section>
@@ -198,19 +201,47 @@ export default function Home() {
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-            Guides / Packs
+            Value ladder
           </p>
           <div className='grid gap-3 sm:grid-cols-3'>
-            {['Beginner Herbal Blend Guide', 'Sleep Blend Starter Kit', 'Focus Stack Guide'].map(
-              title => (
-                <article key={title} className='ds-card p-4'>
-                  <h3 className='text-sm font-semibold text-white'>{title}</h3>
-                  <p className='mt-2 text-xs text-white/65'>
-                    Placeholder preview — monetization not active.
-                  </p>
-                </article>
-              )
-            )}
+            <article className='ds-card p-4'>
+              <h3 className='text-sm font-semibold text-white'>FREE</h3>
+              <p className='mt-2 text-xs text-white/65'>
+                Herb database • compound database • blog.
+              </p>
+            </article>
+            <article className='ds-card p-4'>
+              <h3 className='text-sm font-semibold text-white'>LEAD MAGNET</h3>
+              <p className='mt-2 text-xs text-white/65'>
+                Beginner-safe blend guide with practical context and safety framing.
+              </p>
+            </article>
+            <article className='ds-card p-4'>
+              <h3 className='text-sm font-semibold text-white'>PRODUCT READY</h3>
+              <p className='mt-2 text-xs text-white/65'>
+                Starter packs, premium datasets, and deeper field guides (coming next).
+              </p>
+            </article>
+          </div>
+          <p className='text-xs text-white/60'>Built for clarity, not hype.</p>
+        </div>
+      </section>
+
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack'>
+          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+            Future product engine
+          </p>
+          <div className='grid gap-3 sm:grid-cols-2'>
+            {futureProducts.map(product => (
+              <article key={product.id} className='ds-card p-4'>
+                <p className='text-xs uppercase tracking-[0.12em] text-white/55'>
+                  {product.category}
+                </p>
+                <h3 className='text-sm font-semibold text-white'>{product.title}</h3>
+                <p className='mt-2 text-xs text-white/65'>{product.summary}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

@@ -15,6 +15,7 @@ import { useHerbData } from '@/lib/herb-data'
 import BundleUpgradeCard from '../components/BundleUpgradeCard'
 import ResultsSummaryCard from '../components/ResultsSummaryCard'
 import { trackEvent, useSavedItems } from '@/lib/growth'
+import { CTA } from '@/lib/cta'
 
 type Herb = {
   id?: string
@@ -48,6 +49,7 @@ type SavedGoalBlend = {
 }
 
 const STARTER_PACK_LINK = 'https://buy.stripe.com/your-link-here'
+const MAX_FREE_SAVED_BLENDS = 3
 
 const PRESETS: Record<string, string[]> = {
   Relaxation: ['Blue Lotus', 'Kava', 'Passionflower'],
@@ -209,6 +211,9 @@ export default function BuildBlend() {
   const [showPostCheckoutNote, setShowPostCheckoutNote] = useState(false)
   const [didLoadSharedBlend, setDidLoadSharedBlend] = useState(false)
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false)
+  const [starterPackEmail, setStarterPackEmail] = useState('')
+  const [starterPackEmailError, setStarterPackEmailError] = useState('')
+  const [starterPackUnlocked, setStarterPackUnlocked] = useState(false)
   const { save } = useSavedItems()
   const stepTwoRef = useRef<HTMLElement | null>(null)
   const stepThreeRef = useRef<HTMLElement | null>(null)
@@ -466,6 +471,10 @@ export default function BuildBlend() {
 
   const saveRecommendedBlend = () => {
     if (!selectedRecommendation) return
+    if (savedGoalBlends.length >= MAX_FREE_SAVED_BLENDS) {
+      toast.message('You reached the free limit of 3 saved blends.')
+      return
+    }
     const entry: SavedGoalBlend = {
       goal: selectedRecommendation.label,
       blendName: selectedRecommendation.blendName,
@@ -740,6 +749,18 @@ export default function BuildBlend() {
     toast.error('Popup blocked. Use the secure checkout link below.')
   }
 
+  const handleStarterPackUnlock = () => {
+    const normalized = starterPackEmail.trim().toLowerCase()
+    if (!normalized.includes('@')) {
+      setStarterPackEmailError('Enter a valid email to save and download your starter guide.')
+      return
+    }
+    setStarterPackEmailError('')
+    setStarterPackUnlocked(true)
+    trackEvent('email_submit', { context: 'starter-pack', source: 'build_blend_gate' })
+    trackEvent('starter_pack_saved', { source: 'build_blend', has_blend: blend.length > 0 })
+  }
+
   const scrollToStep = (target: HTMLElement | null) => {
     if (!target || typeof window === 'undefined') return
     window.setTimeout(() => {
@@ -963,7 +984,7 @@ export default function BuildBlend() {
                 disabled={!blend.length}
                 className='justify-center'
               >
-                Save this blend
+                {CTA.conversion.saveBlend}
               </Button>
               <Button
                 onClick={() => setShowExploreHerbs(current => !current)}
@@ -973,9 +994,39 @@ export default function BuildBlend() {
                 Explore these herbs
               </Button>
             </div>
-            <Button onClick={handleStarterPackCheckout} variant='ghost' className='justify-center'>
-              Turn this into a printable guide
-            </Button>
+            {!starterPackUnlocked ? (
+              <div className='space-y-2 rounded-xl border border-white/10 bg-black/20 p-3.5'>
+                <p className='text-sm font-semibold text-white'>
+                  Save your blend + get a printable guide
+                </p>
+                <p className='text-sub text-xs'>
+                  Enter your email to unlock your starter pack download. No popups, no spam.
+                </p>
+                <div className='grid gap-2 sm:grid-cols-[1fr_auto]'>
+                  <input
+                    type='email'
+                    value={starterPackEmail}
+                    onChange={event => setStarterPackEmail(event.target.value)}
+                    placeholder='you@example.com'
+                    className='rounded-lg border border-white/15 bg-black/30 px-3 py-2 text-sm text-white placeholder:text-white/45'
+                  />
+                  <Button onClick={handleStarterPackUnlock} className='justify-center'>
+                    {CTA.conversion.getGuide}
+                  </Button>
+                </div>
+                {starterPackEmailError && (
+                  <p className='text-xs text-rose-300'>{starterPackEmailError}</p>
+                )}
+              </div>
+            ) : (
+              <Button
+                onClick={handleStarterPackCheckout}
+                variant='ghost'
+                className='justify-center'
+              >
+                {CTA.secondary.download}
+              </Button>
+            )}
             {blendSavedMessage && <p className='text-brand-lime text-xs'>Blend saved ✓</p>}
             {showExploreHerbs && (
               <ul className='space-y-2'>
@@ -1036,9 +1087,10 @@ export default function BuildBlend() {
                   <div className='flex flex-col items-start gap-1 sm:items-end'>
                     <Button
                       onClick={handleStarterPackCheckout}
+                      disabled={!starterPackUnlocked}
                       className='border-brand-lime/35 bg-brand-lime/18 text-brand-lime hover:bg-brand-lime/26 min-w-[190px] justify-center border shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
                     >
-                      Get Starter Pack
+                      {starterPackUnlocked ? 'Download starter pack' : 'Unlock with email first'}
                     </Button>
                     <p className='text-sub text-xs'>Secure checkout • Instant access</p>
                     <Link to='/downloads' className='text-brand-lime text-xs hover:underline'>
@@ -1308,6 +1360,12 @@ export default function BuildBlend() {
                 />
               ))}
             </div>
+          )}
+          {savedGoalBlends.length >= MAX_FREE_SAVED_BLENDS && (
+            <p className='text-sub rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-xs'>
+              Free limit reached (3 saved blends). Unlock unlimited saved blends in a future premium
+              plan.
+            </p>
           )}
           <Button onClick={copyFormula} className='justify-center' disabled={!blend.length}>
             {copyState === 'copied' ? 'Copied!' : 'Copy formula'}

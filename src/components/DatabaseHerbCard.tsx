@@ -6,6 +6,8 @@ import type { Herb } from '../types'
 import { getCommonName } from '../lib/herbName'
 import { Link } from 'react-router-dom'
 import { canonicalSlug } from '@/lib/slug'
+import { trackEvent } from '@/lib/growth'
+import { CTA } from '@/lib/cta'
 
 function toArray(value: unknown): string[] {
   if (!value) return []
@@ -159,11 +161,15 @@ export default function DatabaseHerbCard({
               className='btn-secondary'
               aria-expanded={open}
             >
-              {open ? 'Show less' : 'Show more'}
+              {open ? 'Show less' : CTA.primary.learn}
             </button>
           )}
-          <Link to={detailPath} className='btn-primary'>
-            View details
+          <Link
+            to={detailPath}
+            className='btn-primary'
+            onClick={() => trackEvent('view_details_click', { kind, slug })}
+          >
+            {CTA.primary.viewDetails}
           </Link>
         </div>
       </div>

@@ -1,8 +1,20 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { exportEmailsToCSV } from '@/utils/exportEmailsToCSV'
-import { useEmailCaptureTrigger } from '@/lib/growth'
+import { trackEvent, useEmailCaptureTrigger } from '@/lib/growth'
+import { CTA } from '@/lib/cta'
 
 const EMAIL_STORAGE_KEY = 'hs_email_list'
+type CaptureContext = 'global' | 'herb' | 'compound' | 'blog' | 'starter-pack'
+
+type EmailCaptureProps = {
+  context?: CaptureContext
+  forceShow?: boolean
+  title?: string
+  subtitle?: string
+  buttonLabel?: string
+  postSubmitCtaPath?: string
+  postSubmitCtaLabel?: string
+}
 
 export const getStoredEmails = (): string[] => {
   const storedEmails = localStorage.getItem(EMAIL_STORAGE_KEY)
@@ -21,7 +33,15 @@ export const getStoredEmails = (): string[] => {
   }
 }
 
-export default function EmailCapture() {
+export default function EmailCapture({
+  context = 'global',
+  forceShow = false,
+  title,
+  subtitle,
+  buttonLabel,
+  postSubmitCtaPath = '/build',
+  postSubmitCtaLabel = 'Save blend',
+}: EmailCaptureProps) {
   const shouldShow = useEmailCaptureTrigger()
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -53,6 +73,7 @@ export default function EmailCapture() {
       localStorage.setItem(EMAIL_STORAGE_KEY, JSON.stringify(emailList))
       setStoredEmailCount(emailList.length)
     }
+    trackEvent('email_submit', { context, source: 'inline_capture' })
 
     const guideUrl = '/blend-guide.txt'
     const guideLink = document.createElement('a')
@@ -78,7 +99,7 @@ export default function EmailCapture() {
     setError('')
   }
 
-  if (!shouldShow) return null
+  if (!forceShow && !shouldShow) return null
 
   return (
     <section
@@ -97,11 +118,11 @@ export default function EmailCapture() {
               Research notes
             </p>
             <h2 className='text-[1.4rem] font-semibold tracking-tight text-white sm:text-3xl'>
-              Get new herbs, compounds, and research notes as they’re added.
+              {title || 'Get a beginner-safe herbal blend guide (free)'}
             </h2>
             <p className='max-w-2xl text-sm leading-relaxed text-white/75 sm:text-[0.97rem]'>
-              Choose one practical freebie: the Beginner Blend Guide or a Starter Research Pack. No
-              popups, no pressure—just useful updates.
+              {subtitle ||
+                'Designed to help you learn safely. Built for clarity, not hype. We share practical updates and starter resources only.'}
             </p>
           </div>
 
@@ -123,7 +144,7 @@ export default function EmailCapture() {
               type='submit'
               className='min-h-11 rounded-xl border border-emerald-200/35 bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80'
             >
-              Send my pack
+              {buttonLabel || CTA.conversion.getGuide}
             </button>
           </form>
 
@@ -149,10 +170,10 @@ export default function EmailCapture() {
             <div className='shadow-halo mt-1 flex flex-col gap-3 rounded-xl border border-emerald-300/30 bg-emerald-300/10 p-3.5 sm:flex-row sm:items-center sm:justify-between'>
               <p className='text-sm text-emerald-200'>You’re in. Your guide is downloading now.</p>
               <a
-                href='/build'
+                href={postSubmitCtaPath}
                 className='inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80 sm:w-auto'
               >
-                Build Your First Blend
+                {postSubmitCtaLabel || CTA.conversion.saveBlend}
               </a>
             </div>
           ) : null}

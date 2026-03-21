@@ -6,6 +6,8 @@ import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '@/lib/slug'
 import { getDisplayName, recommendRelatedCompounds, recommendRelatedHerbs } from '@/lib/discovery'
 import { trackEvent, useSavedItems } from '@/lib/growth'
+import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
+import { CTA } from '@/lib/cta'
 
 const compounds = decorateCompounds()
 type Param = { slug?: string }
@@ -106,6 +108,7 @@ export default function CompoundDetail() {
             {compound.scientific && compound.common && compound.common !== compound.scientific && (
               <p className='mt-1 text-white/65'>{compound.scientific}</p>
             )}
+            <p className='mt-2 text-xs text-white/60'>Built for clarity, not hype.</p>
             <button
               className='mt-3 w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
               onClick={() =>
@@ -186,6 +189,11 @@ export default function CompoundDetail() {
             </div>
           </Section>
         </article>
+        <ContextualLeadMagnet
+          context='compound'
+          title='Learn how this compound is used in blends'
+          subtitle='Get the free guide with beginner-safe examples and confidence labels.'
+        />
 
         <section className='ds-card-lg ds-section'>
           <h2 className='text-lg font-semibold text-white'>Explore Next</h2>
@@ -213,6 +221,11 @@ export default function CompoundDetail() {
             />
           </div>
         </section>
+        <ContextualLeadMagnet
+          context='compound'
+          title='Turn this compound insight into a safe starter blend'
+          subtitle='Get guide + save your first blend workflow.'
+        />
       </main>
     </>
   )
@@ -305,7 +318,7 @@ function ExploreColumn({
               }
               className='text-white/84 text-sm underline decoration-white/35 underline-offset-2 hover:text-white'
             >
-              {item.label}
+              {item.label} · {CTA.primary.viewDetails}
             </Link>
           </li>
         ))}

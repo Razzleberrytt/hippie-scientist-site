@@ -6,6 +6,8 @@ import { useHerbData } from '@/lib/herb-data'
 import { decorateCompounds } from '@/lib/compounds'
 import { normalizeScientificTags } from '@/lib/tags'
 import { trackEvent, useSavedItems } from '@/lib/growth'
+import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
+import { CTA } from '@/lib/cta'
 
 type PostMeta = {
   slug: string
@@ -172,6 +174,11 @@ export default function BlogPost() {
           __html: DOMPurify.sanitize(html, { USE_PROFILES: { html: true } }),
         }}
       />
+      <ContextualLeadMagnet
+        context='blog'
+        title='Download the full guide'
+        subtitle='Get a beginner-safe blend guide (free) and connect this article to practical next steps.'
+      />
 
       <section className='mt-8 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6'>
         <h2 className='text-lg font-semibold text-white'>Explore Next</h2>
@@ -216,7 +223,7 @@ export default function BlogPost() {
                         })
                       }
                     >
-                      {item.name}
+                      {item.name} · {CTA.primary.viewDetails}
                     </Link>
                   </li>
                 ))
@@ -233,6 +240,11 @@ export default function BlogPost() {
       </section>
 
       <footer className='mt-10 border-t border-white/10 pt-6'>
+        <ContextualLeadMagnet
+          context='blog'
+          title='Save this article path and get the guide'
+          subtitle='Education-first updates only. Built for clarity, not hype.'
+        />
         <p className='text-xs text-white/50'>
           Educational research content only, not medical advice. Verify interactions and consult a
           qualified clinician before use.
