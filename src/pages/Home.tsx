@@ -9,11 +9,24 @@ import { loadHerbData } from '@/lib/herb-data'
 import { decorateHerbs } from '@/lib/herbs'
 import { decorateCompounds } from '@/lib/compounds'
 import { getCommonName } from '@/lib/herbName'
-import { useSavedItems } from '@/lib/growth'
+import {
+  getTopClickedCompounds,
+  getTopSearches,
+  getTopViewedHerbs,
+  useRecentlyViewed,
+  useSavedItems,
+} from '@/lib/growth'
 import { futureProducts } from '@/lib/products'
 import { CTA } from '@/lib/cta'
+import { buildHerbViralHooks } from '@/lib/viralContent'
 
-type FeaturedItem = { slug: string; name: string; blurb: string; kind: 'herb' | 'compound' }
+type FeaturedItem = {
+  slug: string
+  name: string
+  blurb: string
+  kind: 'herb' | 'compound'
+  whyItMatters: string
+}
 
 function shuffle<T>(items: T[]): T[] {
   const copy = [...items]
@@ -34,6 +47,10 @@ export default function Home() {
   const [counts, setCounts] = useState(siteStats)
   const [featured, setFeatured] = useState<FeaturedItem[]>([])
   const { items } = useSavedItems()
+  const recent = useRecentlyViewed()
+  const [topViewed, setTopViewed] = useState<Array<{ slug: string; count: number }>>([])
+  const [topCompounds, setTopCompounds] = useState<Array<{ slug: string; count: number }>>([])
+  const [topSearches, setTopSearches] = useState<Array<{ value: string; count: number }>>([])
 
   useEffect(() => {
     let alive = true
@@ -44,6 +61,9 @@ export default function Home() {
     loadHerbData()
       .then(data => {
         if (!alive) return
+        const daySeed = new Date().toISOString().slice(0, 10)
+        const sessionSeed = `${daySeed}-${sessionStorage.getItem('hs_feature_seed') || Math.random().toString(36).slice(2, 8)}`
+        sessionStorage.setItem('hs_feature_seed', sessionSeed)
         const herbPicks = shuffle(
           decorateHerbs(data)
             .filter(herb => herb.slug)
@@ -54,8 +74,11 @@ export default function Home() {
                 herb.effectsSummary || herb.effects || herb.description || 'Herbal profile'
               ),
               kind: 'herb' as const,
+              whyItMatters: buildHerbViralHooks(herb).whyItMatters,
             }))
-        ).slice(0, 3)
+        )
+          .sort((a, b) => (a.slug + sessionSeed > b.slug + sessionSeed ? 1 : -1))
+          .slice(0, 3)
 
         const compoundPicks = shuffle(
           decorateCompounds().map(compound => ({
@@ -63,12 +86,18 @@ export default function Home() {
             name: compound.common || compound.scientific || 'Compound',
             blurb: tightenBlurb(compound.effects || compound.description || 'Compound profile'),
             kind: 'compound' as const,
+            whyItMatters:
+              'Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.',
           }))
         ).slice(0, 2)
 
         setFeatured(shuffle([...herbPicks, ...compoundPicks]).slice(0, 5))
       })
       .catch(() => alive && setFeatured([]))
+
+    setTopViewed(getTopViewedHerbs(3))
+    setTopCompounds(getTopClickedCompounds(3))
+    setTopSearches(getTopSearches(4))
 
     return () => {
       alive = false
@@ -162,8 +191,67 @@ export default function Home() {
                 </p>
                 <h3 className='mt-1 text-lg font-semibold text-white'>{item.name}</h3>
                 <p className='mt-2 line-clamp-3 text-sm text-white/70'>{item.blurb}</p>
+                <p className='mt-3 text-xs text-emerald-100/80'>{item.whyItMatters}</p>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {recent.length > 0 && (
+        <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+          <div className='ds-card-lg ds-stack'>
+            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+              Recently viewed
+            </p>
+            <div className='grid gap-3 sm:grid-cols-2'>
+              {recent.slice(0, 4).map(item => (
+                <Link key={`${item.type}-${item.slug}`} to={item.href} className='ds-card p-4'>
+                  <p className='text-xs uppercase tracking-[0.14em] text-white/55'>{item.type}</p>
+                  <p className='mt-1 text-sm font-semibold text-white'>{item.title}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack'>
+          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+            Trending now
+          </p>
+          <div className='grid gap-3 sm:grid-cols-3'>
+            <article className='ds-card p-4'>
+              <h3 className='text-sm font-semibold text-white'>Most viewed herbs</h3>
+              <ul className='mt-2 text-xs text-white/70'>
+                {topViewed.length ? (
+                  topViewed.map(item => <li key={item.slug}>{item.slug}</li>)
+                ) : (
+                  <li>No data yet</li>
+                )}
+              </ul>
+            </article>
+            <article className='ds-card p-4'>
+              <h3 className='text-sm font-semibold text-white'>Most clicked compounds</h3>
+              <ul className='mt-2 text-xs text-white/70'>
+                {topCompounds.length ? (
+                  topCompounds.map(item => <li key={item.slug}>{item.slug}</li>)
+                ) : (
+                  <li>No data yet</li>
+                )}
+              </ul>
+            </article>
+            <article className='ds-card p-4'>
+              <h3 className='text-sm font-semibold text-white'>Top searches</h3>
+              <ul className='mt-2 text-xs text-white/70'>
+                {topSearches.length ? (
+                  topSearches.map(item => <li key={item.value}>{item.value}</li>)
+                ) : (
+                  <li>No data yet</li>
+                )}
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -178,6 +266,25 @@ export default function Home() {
             Browse herbs, then study compounds to understand mechanism context. Read research notes,
             track confidence labels, and only build blends after learning core safety details.
           </p>
+        </div>
+      </section>
+
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack'>
+          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+            Programmatic collections
+          </p>
+          <div className='flex flex-wrap gap-2'>
+            <Link to='/herbs-for-relaxation' className='btn-secondary'>
+              Herbs for relaxation
+            </Link>
+            <Link to='/herbs-for-focus' className='btn-secondary'>
+              Herbs for focus
+            </Link>
+            <Link to='/herbs-for-sleep' className='btn-secondary'>
+              Herbs for sleep
+            </Link>
+          </div>
         </div>
       </section>
 
