@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 const linkBase =
   'inline-flex min-h-10 items-center justify-center rounded-xl px-3 text-sm font-medium transition-all duration-200'
@@ -10,6 +10,8 @@ const linkSolid =
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   return (
     <header className='sticky top-0 z-50 border-b border-white/10 bg-black/65 backdrop-blur-xl supports-[backdrop-filter]:bg-black/45'>
@@ -17,7 +19,7 @@ export default function NavBar() {
         <div className='flex items-center justify-between gap-3 py-2.5 sm:py-3'>
           <Link
             to='/'
-            className='shrink-0 rounded-xl px-1.5 py-1 text-base font-semibold tracking-tight text-white/95 transition hover:text-white sm:text-lg'
+            className={`shrink-0 rounded-xl px-1.5 py-1 font-semibold tracking-tight transition hover:text-white ${isHome ? 'text-white/62 text-sm sm:text-base' : 'text-base text-white/95 sm:text-lg'}`}
             onClick={() => setMenuOpen(false)}
           >
             The Hippie Scientist

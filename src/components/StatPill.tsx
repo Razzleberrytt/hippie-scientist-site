@@ -12,16 +12,16 @@ export default function StatPill({ to, value, label, testId }: StatPillProps) {
     <Link
       data-testid={testId}
       to={to}
-      className='hover:bg-white/8 group relative flex items-center gap-2.5 rounded-2xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,.08)] backdrop-blur-md transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300/70 active:scale-[.99] sm:gap-3 sm:px-4 sm:py-3'
+      className='border-white/8 text-white/88 hover:border-white/18 group relative flex items-center gap-3 rounded-2xl border bg-white/[0.035] px-4 py-3 text-sm shadow-[inset_0_1px_0_rgba(255,255,255,.05)] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-300/70 active:translate-y-0 active:scale-[.99]'
       aria-label={`${value} ${label}`}
     >
-      <span className='grid h-8 w-8 place-content-center rounded-full border border-white/15 bg-white/10 text-xs font-semibold text-white/90 sm:h-9 sm:w-9 sm:text-sm'>
+      <span className='grid h-9 w-9 place-content-center rounded-full border border-white/20 bg-white/10 text-base font-semibold text-white sm:h-10 sm:w-10 sm:text-lg'>
         {value}
       </span>
-      <span className='text-white/90'>{label}</span>
+      <span className='text-white/85'>{label}</span>
       <span
         aria-hidden
-        className='ml-auto text-white/70 opacity-0 transition group-hover:opacity-100'
+        className='ml-auto text-white/65 opacity-0 transition group-hover:opacity-100'
       >
         ↗
       </span>
