@@ -8,66 +8,55 @@ import { loadSiteCounts, siteStats } from '@/lib/stats'
 import { loadHerbData } from '@/lib/herb-data'
 import { decorateHerbs } from '@/lib/herbs'
 import { decorateCompounds } from '@/lib/compounds'
-import postsData from '@/data/blog/posts.json'
-import { sortPostsByDateDesc } from '@/lib/blog'
 import { getCommonName } from '@/lib/herbName'
 
-type Post = {
-  slug: string
-  title: string
-  summary?: string | null
+type FeaturedItem = { slug: string; name: string; blurb: string; kind: 'herb' | 'compound' }
+
+function shuffle<T>(items: T[]): T[] {
+  const copy = [...items]
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
 }
 
 export default function Home() {
   const [counts, setCounts] = useState(siteStats)
-  const [featuredHerbs, setFeaturedHerbs] = useState<
-    Array<{ slug: string; name: string; blurb: string }>
-  >([])
-  const [featuredCompounds, setFeaturedCompounds] = useState<
-    Array<{ slug: string; name: string; blurb: string }>
-  >([])
-  const [featuredPost, setFeaturedPost] = useState<Post | null>(null)
+  const [featured, setFeatured] = useState<FeaturedItem[]>([])
 
   useEffect(() => {
     let alive = true
     loadSiteCounts()
-      .then(data => {
-        if (!alive) return
-        setCounts(data)
-      })
-      .catch(() => {
-        /* ignore */
-      })
+      .then(data => alive && setCounts(data))
+      .catch(() => {})
 
     loadHerbData()
       .then(data => {
         if (!alive) return
-        const herbs = decorateHerbs(data)
-          .filter(herb => herb.slug)
-          .slice(0, 3)
-          .map(herb => ({
-            slug: herb.slug,
-            name: getCommonName(herb) ?? herb.scientific ?? herb.common ?? 'Herb',
-            blurb: herb.effectsSummary || herb.effects || herb.description || 'Herbal profile',
+        const herbPicks = shuffle(
+          decorateHerbs(data)
+            .filter(herb => herb.slug)
+            .map(herb => ({
+              slug: herb.slug,
+              name: getCommonName(herb) ?? herb.scientific ?? herb.common ?? 'Herb',
+              blurb: herb.effectsSummary || herb.effects || herb.description || 'Herbal profile',
+              kind: 'herb' as const,
+            }))
+        ).slice(0, 3)
+
+        const compoundPicks = shuffle(
+          decorateCompounds().map(compound => ({
+            slug: compound.slug,
+            name: compound.common || compound.scientific || 'Compound',
+            blurb: compound.effects || compound.description || 'Compound profile',
+            kind: 'compound' as const,
           }))
-        setFeaturedHerbs(herbs)
-      })
-      .catch(() => {
-        if (!alive) return
-        setFeaturedHerbs([])
-      })
+        ).slice(0, 2)
 
-    const compounds = decorateCompounds()
-      .slice(0, 2)
-      .map(compound => ({
-        slug: compound.slug,
-        name: compound.common || compound.scientific || 'Compound',
-        blurb: compound.effects || compound.description || 'Compound profile',
-      }))
-    setFeaturedCompounds(compounds)
-
-    const post = sortPostsByDateDesc(postsData as Post[]).find(entry => entry.slug)
-    setFeaturedPost(post ?? null)
+        setFeatured(shuffle([...herbPicks, ...compoundPicks]).slice(0, 5))
+      })
+      .catch(() => alive && setFeatured([]))
 
     return () => {
       alive = false
@@ -119,44 +108,21 @@ export default function Home() {
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
             Featured discoveries
           </p>
-          <div className='grid gap-3 sm:grid-cols-2'>
-            {featuredHerbs.map(herb => (
+          <div className='no-scrollbar flex snap-x gap-3 overflow-x-auto pb-1'>
+            {featured.map(item => (
               <Link
-                key={herb.slug}
-                to={`/herbs/${herb.slug}`}
-                className='ds-card p-5 transition hover:border-white/25'
+                key={`${item.kind}-${item.slug}`}
+                to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
+                className='ds-card min-w-[230px] snap-start p-5 transition hover:border-white/25'
               >
-                <p className='text-xs uppercase tracking-[0.18em] text-emerald-200/80'>Herb</p>
-                <h3 className='mt-1 text-lg font-semibold text-white'>{herb.name}</h3>
-                <p className='mt-2 line-clamp-2 text-sm text-white/70'>{herb.blurb}</p>
-              </Link>
-            ))}
-            {featuredCompounds.map(compound => (
-              <Link
-                key={compound.slug}
-                to={`/compounds/${compound.slug}`}
-                className='ds-card p-5 transition hover:border-white/25'
-              >
-                <p className='text-xs uppercase tracking-[0.18em] text-sky-200/80'>Compound</p>
-                <h3 className='mt-1 text-lg font-semibold text-white'>{compound.name}</h3>
-                <p className='mt-2 line-clamp-2 text-sm text-white/70'>{compound.blurb}</p>
+                <p className='text-xs uppercase tracking-[0.18em] text-emerald-200/80'>
+                  {item.kind}
+                </p>
+                <h3 className='mt-1 text-lg font-semibold text-white'>{item.name}</h3>
+                <p className='mt-2 line-clamp-2 text-sm text-white/70'>{item.blurb}</p>
               </Link>
             ))}
           </div>
-          {featuredPost && (
-            <Link
-              to={`/blog/${featuredPost.slug}/`}
-              className='ds-card block p-5 transition hover:border-white/25'
-            >
-              <p className='text-xs uppercase tracking-[0.18em] text-violet-200/80'>
-                Research note
-              </p>
-              <h3 className='mt-1 text-lg font-semibold text-white'>{featuredPost.title}</h3>
-              {featuredPost.summary && (
-                <p className='mt-2 line-clamp-2 text-sm text-white/70'>{featuredPost.summary}</p>
-              )}
-            </Link>
-          )}
         </div>
       </section>
 
