@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react'
 import { exportEmailsToCSV } from '@/utils/exportEmailsToCSV'
+import { useEmailCaptureTrigger } from '@/lib/growth'
 
 const EMAIL_STORAGE_KEY = 'hs_email_list'
 
@@ -21,6 +22,7 @@ export const getStoredEmails = (): string[] => {
 }
 
 export default function EmailCapture() {
+  const shouldShow = useEmailCaptureTrigger()
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
@@ -76,6 +78,8 @@ export default function EmailCapture() {
     setError('')
   }
 
+  if (!shouldShow) return null
+
   return (
     <section
       aria-label='Email capture'
@@ -90,14 +94,14 @@ export default function EmailCapture() {
         <div className='relative space-y-5'>
           <div className='space-y-2'>
             <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-              Bonus step
+              Research notes
             </p>
             <h2 className='text-[1.4rem] font-semibold tracking-tight text-white sm:text-3xl'>
-              Get your blend starter kit as a reward
+              Get new herbs, compounds, and research notes as they’re added.
             </h2>
             <p className='max-w-2xl text-sm leading-relaxed text-white/75 sm:text-[0.97rem]'>
-              You’ve seen how the system works. Enter your email to unlock the quick-start guide
-              with simple ratios, prep tips, and beginner-friendly safety notes.
+              Choose one practical freebie: the Beginner Blend Guide or a Starter Research Pack. No
+              popups, no pressure—just useful updates.
             </p>
           </div>
 
@@ -119,14 +123,14 @@ export default function EmailCapture() {
               type='submit'
               className='min-h-11 rounded-xl border border-emerald-200/35 bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80'
             >
-              Unlock Free Guide
+              Send my pack
             </button>
           </form>
 
           <div className='text-white/78 grid gap-2 text-xs sm:grid-cols-3 sm:text-sm'>
-            <p>• Beginner-friendly blend recipes</p>
+            <p>• Beginner Blend Guide</p>
             <p>• Research-backed herb insights</p>
-            <p>• Instant download after signup</p>
+            <p>• Starter Research Pack download</p>
           </div>
           {storedEmailCount > 0 ? (
             <div className='pt-1'>

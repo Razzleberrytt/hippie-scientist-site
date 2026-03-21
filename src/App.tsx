@@ -32,11 +32,14 @@ import Theme from './pages/Theme'
 import CompoundDetail from './pages/CompoundDetail'
 import StarterPackSuccess from './pages/StarterPackSuccess'
 import Downloads from './pages/Downloads'
+import LearningPaths from './pages/LearningPaths'
 import { useTrippy } from '@/lib/trippy'
+import { useGrowthTracking } from '@/lib/growth'
 // Import other pages as needed
 
 export default function App() {
   useGA()
+  useGrowthTracking()
   const { level } = useTrippy()
   return (
     <div id='app-root'>
@@ -59,6 +62,7 @@ export default function App() {
               <Route path='/build' element={<BuildBlend />} />
               <Route path='/starter-pack-success' element={<StarterPackSuccess />} />
               <Route path='/downloads' element={<Downloads />} />
+              <Route path='/learning' element={<LearningPaths />} />
               <Route path='/favorites' element={<Favorites />} />
               <Route path='/newsletter' element={<Newsletter />} />
               <Route path='/contact' element={<Contact />} />

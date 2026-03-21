@@ -45,6 +45,12 @@ export default function NavBar() {
             <NavLink to='/blog' className={`${linkBase} ${linkDim}`}>
               Blog
             </NavLink>
+            <NavLink to='/learning' className={`${linkBase} ${linkDim}`}>
+              Learning Paths
+            </NavLink>
+            <NavLink to='/favorites' className={`${linkBase} ${linkDim}`}>
+              Saved
+            </NavLink>
             <NavLink to='/blend' className={`${linkBase} ${linkSolid}`}>
               Build a Blend
             </NavLink>
@@ -75,6 +81,20 @@ export default function NavBar() {
               onClick={() => setMenuOpen(false)}
             >
               Blog
+            </NavLink>
+            <NavLink
+              to='/learning'
+              className={`${linkBase} ${linkDim} justify-start`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Learning Paths
+            </NavLink>
+            <NavLink
+              to='/favorites'
+              className={`${linkBase} ${linkDim} justify-start`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Saved
             </NavLink>
             <NavLink
               to='/blend'

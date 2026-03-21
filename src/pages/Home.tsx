@@ -9,6 +9,7 @@ import { loadHerbData } from '@/lib/herb-data'
 import { decorateHerbs } from '@/lib/herbs'
 import { decorateCompounds } from '@/lib/compounds'
 import { getCommonName } from '@/lib/herbName'
+import { useSavedItems } from '@/lib/growth'
 
 type FeaturedItem = { slug: string; name: string; blurb: string; kind: 'herb' | 'compound' }
 
@@ -30,6 +31,7 @@ function tightenBlurb(value: string) {
 export default function Home() {
   const [counts, setCounts] = useState(siteStats)
   const [featured, setFeatured] = useState<FeaturedItem[]>([])
+  const { items } = useSavedItems()
 
   useEffect(() => {
     let alive = true
@@ -118,6 +120,28 @@ export default function Home() {
         </div>
       </section>
 
+      {items.length > 0 && (
+        <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+          <div className='ds-card-lg ds-stack'>
+            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+              Saved items
+            </p>
+            <h2 className='ds-heading'>Pick up where you left off</h2>
+            <div className='grid gap-3 sm:grid-cols-2'>
+              {items.slice(0, 4).map(item => (
+                <Link key={item.id} to={item.href} className='ds-card p-4'>
+                  <p className='text-xs uppercase tracking-[0.14em] text-white/55'>{item.type}</p>
+                  <p className='mt-1 text-sm font-semibold text-white'>{item.title}</p>
+                </Link>
+              ))}
+            </div>
+            <Link to='/favorites' className='btn-secondary w-fit'>
+              View all saved items
+            </Link>
+          </div>
+        </section>
+      )}
+
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
@@ -155,6 +179,41 @@ export default function Home() {
       </section>
 
       <EmailCapture />
+
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack'>
+          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+            Learning Paths
+          </p>
+          <h2 className='ds-heading'>Move from scattered reading to guided study</h2>
+          <p className='ds-text-muted'>
+            Follow curated paths like Psychedelic Mechanisms 101 and Safety & Risk Awareness.
+          </p>
+          <Link to='/learning' className='btn-secondary w-fit'>
+            Open learning paths
+          </Link>
+        </div>
+      </section>
+
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack'>
+          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+            Guides / Packs
+          </p>
+          <div className='grid gap-3 sm:grid-cols-3'>
+            {['Beginner Herbal Blend Guide', 'Sleep Blend Starter Kit', 'Focus Stack Guide'].map(
+              title => (
+                <article key={title} className='ds-card p-4'>
+                  <h3 className='text-sm font-semibold text-white'>{title}</h3>
+                  <p className='mt-2 text-xs text-white/65'>
+                    Placeholder preview — monetization not active.
+                  </p>
+                </article>
+              )
+            )}
+          </div>
+        </div>
+      </section>
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>

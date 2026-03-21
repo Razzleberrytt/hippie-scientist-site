@@ -13,6 +13,8 @@ import {
   recommendRelatedCompoundsForHerb,
   recommendRelatedHerbs,
 } from '@/lib/discovery'
+import { trackEvent, useSavedItems } from '@/lib/growth'
+import posts from '../../public/blogdata/index.json'
 import type { Herb } from '@/types'
 
 type Param = {
@@ -31,6 +33,7 @@ function splitList(input: string) {
 export default function HerbDetail() {
   const { slug = '' } = useParams<Param>()
   const herbs = useHerbData()
+  const { toggle, isSaved } = useSavedItems()
 
   const herb = useMemo(() => {
     const normalized = canonicalSlug(slug)
@@ -114,6 +117,18 @@ export default function HerbDetail() {
 
   const relatedHerbs = recommendRelatedHerbs(herb, herbs, 5)
   const relatedCompounds = recommendRelatedCompoundsForHerb(herb, compounds, 5)
+  const articleMentions = (Array.isArray(posts) ? posts : [])
+    .filter((post: any) => {
+      const hay =
+        `${post.title || ''} ${post.description || ''} ${(post.tags || []).join(' ')}`.toLowerCase()
+      return (
+        hay.includes((displayTitle || '').toLowerCase()) ||
+        details.tags.some(tag => hay.includes(String(tag).toLowerCase()))
+      )
+    })
+    .slice(0, 4)
+  const curatedExplore = [...relatedHerbs.slice(0, 2), ...relatedCompounds.slice(0, 3)].slice(0, 5)
+  const saved = isSaved('herb', herb.slug)
 
   return (
     <>
@@ -137,6 +152,20 @@ export default function HerbDetail() {
               {scientificName && (
                 <p className='mt-1 italic text-[color:var(--muted-c)]'>{scientificName}</p>
               )}
+              <button
+                className='mt-3 rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
+                onClick={() =>
+                  toggle({
+                    type: 'herb',
+                    slug: herb.slug,
+                    title: displayTitle,
+                    href: `/herbs/${herb.slug}`,
+                    note: overview,
+                  })
+                }
+              >
+                {saved ? '★ Favorited' : '☆ Favorite'}
+              </button>
             </header>
 
             <section className='mt-6 rounded-2xl border border-white/10 bg-black/20 p-4'>
@@ -160,6 +189,17 @@ export default function HerbDetail() {
 
             <Section title='Overview'>
               <p className='mt-3 text-sm leading-7 text-white/85'>{overview}</p>
+              <p className='mt-3 text-xs text-white/70'>
+                Cross-reference: review{' '}
+                <Link to='/compounds' className='text-[color:var(--accent)] underline'>
+                  compounds by mechanism
+                </Link>{' '}
+                and{' '}
+                <Link to='/blog' className='text-[color:var(--accent)] underline'>
+                  related research notes
+                </Link>
+                .
+              </p>
             </Section>
 
             {!!traditionalUse && (
@@ -207,6 +247,22 @@ export default function HerbDetail() {
                   fallback='Subjective reports are heterogeneous and should not be treated as universal outcomes.'
                 />
               </div>
+              {relatedCompounds[0] && (
+                <p className='mt-3 text-xs text-white/70'>
+                  This profile overlaps with{' '}
+                  <Link
+                    to={`/compounds/${relatedCompounds[0].slug}`}
+                    className='text-[color:var(--accent)] underline'
+                  >
+                    {relatedCompounds[0].common || relatedCompounds[0].name}
+                  </Link>{' '}
+                  and is discussed in{' '}
+                  <Link to='/blog' className='text-[color:var(--accent)] underline'>
+                    ongoing notes
+                  </Link>
+                  .
+                </p>
+              )}
             </Section>
 
             {(mechanism || pharmacology) && (
@@ -282,12 +338,28 @@ export default function HerbDetail() {
                   ))}
               </ul>
             </Section>
+            {articleMentions.length > 0 && (
+              <Section title='Mentioned in'>
+                <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-white/80'>
+                  {articleMentions.map((post: any) => (
+                    <li key={post.slug}>
+                      <Link
+                        to={`/blog/${post.slug}`}
+                        className='text-[color:var(--accent)] underline'
+                      >
+                        {post.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </Section>
+            )}
           </article>
 
           {(relatedHerbs.length > 0 || relatedCompounds.length > 0) && (
             <section className='card p-5'>
               <h2 className='text-lg font-semibold text-[color:var(--text-c)]'>Explore Next</h2>
-              <div className='mt-4 grid gap-5 sm:grid-cols-2'>
+              <div className='mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
                 {relatedHerbs.length > 0 && (
                   <div>
                     <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
@@ -326,6 +398,55 @@ export default function HerbDetail() {
                     </ul>
                   </div>
                 )}
+                {articleMentions.length > 0 && (
+                  <div>
+                    <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
+                      Related Articles
+                    </h3>
+                    <ul className='mt-2 space-y-2 text-sm text-white/80'>
+                      {articleMentions.map((post: any) => (
+                        <li key={`post-${post.slug}`}>
+                          <Link
+                            to={`/blog/${post.slug}`}
+                            className='link text-[color:var(--accent)]'
+                          >
+                            {post.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
+          {curatedExplore.length > 0 && (
+            <section className='card p-5'>
+              <h2 className='text-lg font-semibold text-white'>You might also explore</h2>
+              <div className='mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+                {curatedExplore.map((item: any) => {
+                  const isCompound = !!item.compoundClasses
+                  const href = isCompound ? `/compounds/${item.slug}` : `/herbs/${item.slug}`
+                  const title = item.common || item.name || item.scientific || item.slug
+                  return (
+                    <Link
+                      key={`${isCompound ? 'c' : 'h'}-${item.slug}`}
+                      to={href}
+                      onClick={() =>
+                        trackEvent('detail_click', {
+                          source: 'herb_you_might_also_explore',
+                          target: href,
+                        })
+                      }
+                      className='rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-white/30'
+                    >
+                      <p className='text-xs uppercase tracking-[0.14em] text-white/55'>
+                        {isCompound ? 'compound' : 'herb'}
+                      </p>
+                      <h3 className='mt-1 text-base font-semibold text-white'>{title}</h3>
+                    </Link>
+                  )
+                })}
               </div>
             </section>
           )}

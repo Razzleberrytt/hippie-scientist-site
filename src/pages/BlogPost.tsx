@@ -5,6 +5,7 @@ import { cleanBlogExcerpt, ensureTrailingSlash, resolveBlogIndexUrl } from '@/li
 import { useHerbData } from '@/lib/herb-data'
 import { decorateCompounds } from '@/lib/compounds'
 import { normalizeScientificTags } from '@/lib/tags'
+import { trackEvent, useSavedItems } from '@/lib/growth'
 
 type PostMeta = {
   slug: string
@@ -27,6 +28,7 @@ export default function BlogPost() {
   const [loading, setLoading] = useState(true)
   const base = useMemo(() => ensureTrailingSlash(import.meta.env.BASE_URL || '/'), [])
   const indexUrl = useMemo(() => resolveBlogIndexUrl(base), [base])
+  const { toggle, isSaved } = useSavedItems()
 
   useEffect(() => {
     let alive = true
@@ -127,6 +129,22 @@ export default function BlogPost() {
             {cleanBlogExcerpt(meta?.summary, meta?.description)}
           </p>
         </section>
+        {meta?.slug && (
+          <button
+            className='w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
+            onClick={() =>
+              toggle({
+                type: 'article',
+                slug: meta.slug,
+                title: meta.title,
+                href: `/blog/${meta.slug}`,
+                note: cleanBlogExcerpt(meta.summary, meta.description),
+              })
+            }
+          >
+            {isSaved('article', meta.slug) ? '★ Favorited' : '☆ Favorite'}
+          </button>
+        )}
       </header>
 
       <section className='mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
@@ -191,6 +209,12 @@ export default function BlogPost() {
                     <Link
                       className='link text-[color:var(--accent)]'
                       to={`/compounds/${item.slug}`}
+                      onClick={() =>
+                        trackEvent('detail_click', {
+                          source: 'blog_explore_next',
+                          target: `/compounds/${item.slug}`,
+                        })
+                      }
                     >
                       {item.name}
                     </Link>
