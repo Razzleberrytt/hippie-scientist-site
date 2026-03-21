@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { toast } from 'sonner'
 import Card from '../components/ui/Card'
 import Badge from '../components/ui/Badge'
@@ -189,6 +189,7 @@ const getHerbName = (herb: Herb) => {
 }
 
 export default function BuildBlend() {
+  const location = useLocation()
   const dataset = useHerbData() as Herb[]
   const [query, setQuery] = useState('')
   const [ratioMode, setRatioMode] = useState<RatioMode>('percent')
@@ -205,6 +206,7 @@ export default function BuildBlend() {
   const [showExploreHerbs, setShowExploreHerbs] = useState(false)
   const [showStarterPackFallback, setShowStarterPackFallback] = useState(false)
   const [showPostCheckoutNote, setShowPostCheckoutNote] = useState(false)
+  const [didLoadSharedBlend, setDidLoadSharedBlend] = useState(false)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -562,6 +564,62 @@ export default function BuildBlend() {
     )
     setActivePreset(null)
   }
+
+  useEffect(() => {
+    if (didLoadSharedBlend || !dataset.length) return
+    const params = new URLSearchParams(location.search)
+    const goalParam = params.get('goal')?.trim().toLowerCase() ?? ''
+    const herbsParam = params.get('herbs')?.trim() ?? ''
+
+    if (!goalParam && !herbsParam) {
+      setDidLoadSharedBlend(true)
+      return
+    }
+
+    const matchedGoal = GOAL_RECOMMENDATIONS.find(goal => goal.key === goalParam)
+    if (matchedGoal) {
+      applyGoalRecommendation(matchedGoal)
+    }
+
+    if (herbsParam) {
+      const requested = herbsParam
+        .split(',')
+        .map(item => item.trim().toLowerCase())
+        .filter(Boolean)
+
+      const resolved = requested
+        .map(item => {
+          const nameLike = item.replace(/-/g, ' ')
+          return dataset.find(herb => {
+            const slug = String(herb.slug ?? '')
+              .trim()
+              .toLowerCase()
+            const display = getHerbName(herb).trim().toLowerCase()
+            return slug === item || display === nameLike
+          })
+        })
+        .filter(Boolean) as Herb[]
+
+      if (resolved.length) {
+        const percentValue = Math.round((100 / resolved.length) * 10) / 10
+        const gramsValue = Math.round((15 / resolved.length) * 10) / 10
+        setBlend(
+          resolved.map(herb => ({
+            ...herb,
+            key: getHerbKey(herb),
+            displayName: getHerbName(herb),
+            ratios: {
+              percent: percentValue,
+              grams: gramsValue,
+            },
+          }))
+        )
+        setQuizRecommendationMessage('Loaded from your shared blend link.')
+      }
+    }
+
+    setDidLoadSharedBlend(true)
+  }, [applyGoalRecommendation, dataset, didLoadSharedBlend, location.search])
 
   useEffect(() => {
     if (!quizGoal || !quizTimeOfDay || !quizIntensity) return
