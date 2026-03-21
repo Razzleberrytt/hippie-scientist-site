@@ -8,6 +8,7 @@ import {
   resolveBlogIndexUrl,
   sortPostsByDateDesc,
 } from '@/lib/blog'
+import { CTA } from '@/lib/cta'
 
 type PostIndex = {
   slug: string
@@ -126,7 +127,7 @@ export default function BlogList() {
             </p>
             <div>
               <Link to={`/blog/${post.slug}`} className='btn-primary min-w-28'>
-                Read post
+                {CTA.primary.learn}
               </Link>
             </div>
           </motion.article>

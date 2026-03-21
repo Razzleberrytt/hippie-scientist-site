@@ -14,7 +14,15 @@ export type SavedEntity = {
 }
 
 type AnalyticsEvent = {
-  name: 'page_view' | 'detail_click' | 'favorite_toggle' | 'blend_created'
+  name:
+    | 'page_view'
+    | 'detail_click'
+    | 'favorite_toggle'
+    | 'blend_created'
+    | 'email_submit'
+    | 'search_used'
+    | 'view_details_click'
+    | 'starter_pack_saved'
   at: string
   payload?: Record<string, string | number | boolean>
 }
@@ -90,6 +98,19 @@ export function trackEvent(name: AnalyticsEvent['name'], payload: AnalyticsEvent
   const events = readJson<AnalyticsEvent[]>(EVENTS_KEY, [])
   const next = [{ name, at: new Date().toISOString(), payload }, ...events].slice(0, 250)
   writeJson(EVENTS_KEY, next)
+
+  if (typeof window === 'undefined') return
+  try {
+    window.dispatchEvent(
+      new CustomEvent('hs:analytics', {
+        detail: { name, payload, provider: 'local_queue' },
+      })
+    )
+    ;(window as any).gtag?.('event', name, payload)
+    ;(window as any).plausible?.(name, payload ? { props: payload } : undefined)
+  } catch {
+    // noop
+  }
 }
 
 export function useGrowthTracking() {

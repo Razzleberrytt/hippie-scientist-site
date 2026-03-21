@@ -10,6 +10,8 @@ import { normalizeScientificTags } from '@/lib/tags'
 import { canonicalSlug, slugify } from '@/lib/slug'
 import { recommendRelatedCompoundsForHerb, recommendRelatedHerbs } from '@/lib/discovery'
 import { trackEvent, useSavedItems } from '@/lib/growth'
+import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
+import { CTA } from '@/lib/cta'
 import posts from '../../public/blogdata/index.json'
 
 type Param = { slug?: string }
@@ -127,6 +129,7 @@ export default function HerbDetail() {
             <header className='border-b border-white/10 pb-4'>
               <h1 className='text-3xl font-semibold text-white'>{displayTitle}</h1>
               {scientificName && <p className='mt-1 italic text-white/65'>{scientificName}</p>}
+              <p className='mt-2 text-xs text-white/60'>Designed to help you learn safely.</p>
               <button
                 className='mt-3 rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
                 onClick={() =>
@@ -214,6 +217,11 @@ export default function HerbDetail() {
               </ul>
             </Section>
           </article>
+          <ContextualLeadMagnet
+            context='herb'
+            title='Get a beginner-safe blend using herbs like this'
+            subtitle='Get the free Beginner Blend Guide and apply this profile with safety-first context.'
+          />
 
           <section className='ds-card-lg'>
             <h2 className='text-lg font-semibold text-white'>Explore Next</h2>
@@ -250,6 +258,11 @@ export default function HerbDetail() {
             </div>
           </section>
         </div>
+        <ContextualLeadMagnet
+          context='herb'
+          title='Save this learning path and get your free guide'
+          subtitle='A practical way to move from herb research to your first safe starter blend.'
+        />
       </main>
     </>
   )
@@ -342,7 +355,7 @@ function ExploreColumn({
               }
               className='text-white/84 text-sm underline decoration-white/35 underline-offset-2 hover:text-white'
             >
-              {item.label}
+              {item.label} · {CTA.primary.viewDetails}
             </Link>
           </li>
         ))}
