@@ -80,6 +80,10 @@ export default function CompoundDetail() {
   const sideEffects = splitNotes(compound.sideEffects || compound.safety || compound.toxicity || '')
   const riskRaw = compound.safety || compound.toxicity || compound.intensityLabel || 'Use caution'
   const riskLevel = riskLevelText(riskRaw)
+  const lastUpdated = String((compound as any).lastUpdated || '')
+  const sources = Array.isArray((compound as any).sources)
+    ? ((compound as any).sources as string[])
+    : []
   const evidence = evidenceChips(
     Array.isArray((compound as any).sources) ? (compound as any).sources.length : 0,
     Boolean(mechanism),
@@ -126,6 +130,11 @@ export default function CompoundDetail() {
               <p className='mt-1 text-white/65'>{compound.scientific}</p>
             )}
             <p className='mt-2 text-xs text-white/60'>Built for clarity, not hype.</p>
+            {lastUpdated && (
+              <p className='mt-1 text-xs text-emerald-100/85'>
+                Last updated: {lastUpdated.slice(0, 10)}
+              </p>
+            )}
             <button
               className='mt-3 w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
               onClick={() =>
@@ -206,6 +215,18 @@ export default function CompoundDetail() {
           </Section>
 
           <Section title='Safety' label='Safety profile'>
+            {contraindications.length > 0 && (
+              <div className='mb-3 flex flex-wrap gap-2'>
+                {contraindications.slice(0, 8).map(item => (
+                  <span
+                    key={item}
+                    className='rounded-full border border-rose-400/50 bg-rose-500/15 px-2.5 py-1 text-xs text-rose-100'
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            )}
             <SafetyBlock
               riskLevel={riskLevel}
               contraindications={contraindications}
@@ -216,6 +237,28 @@ export default function CompoundDetail() {
               cautionNote={riskRaw}
             />
           </Section>
+          {sources.length > 0 && (
+            <Section title='Sources' label='Citations'>
+              <ol className='text-white/82 mt-2 list-decimal space-y-2 pl-5 text-sm'>
+                {sources.map(source => (
+                  <li key={source}>
+                    {/^https?:\/\//i.test(source) ? (
+                      <a
+                        href={source}
+                        target='_blank'
+                        rel='noreferrer'
+                        className='link text-[color:var(--accent)]'
+                      >
+                        {source}
+                      </a>
+                    ) : (
+                      source
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </Section>
+          )}
 
           <Section title='Related herbs' label='Cross-reference'>
             <ul className='text-white/82 mt-2 list-disc space-y-2 pl-5 text-sm'>

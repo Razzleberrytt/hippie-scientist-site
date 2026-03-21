@@ -14,10 +14,12 @@ type PostIndex = {
   slug: string
   title: string
   date: string | null
+  lastUpdated?: string | null
   description?: string | null
   summary?: string | null
   tags?: string[]
   readingTime?: string | null
+  cover?: string | null
 }
 
 const PER_PAGE = 12
@@ -111,18 +113,29 @@ export default function BlogList() {
         </div>
       </header>
 
-      <div className='space-y-4'>
+      <div className='grid gap-4 md:grid-cols-2'>
         {pagination.items.map(post => (
           <motion.article
             key={post.slug}
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='ds-card-lg space-y-3 text-white'
+            className='ds-card-lg flex h-full flex-col space-y-3 text-white'
           >
+            <div className='h-24 w-full overflow-hidden rounded-xl bg-gradient-to-r from-cyan-500/20 via-indigo-500/20 to-fuchsia-500/20'>
+              {post.cover ? (
+                <img
+                  src={post.cover}
+                  alt=''
+                  aria-hidden
+                  className='h-full w-full object-cover opacity-75'
+                />
+              ) : null}
+            </div>
             <div className='flex flex-wrap items-center gap-2 text-xs text-white/70'>
               <span className='ds-pill bg-white/8'>{resolveCategory(post.tags)}</span>
               <time dateTime={post.date || undefined}>{formatDate(post.date || '')}</time>
+              {post.lastUpdated && <span>• Updated {formatDate(post.lastUpdated)}</span>}
               {post.readingTime && <span>• {post.readingTime}</span>}
             </div>
             <h2 className='text-xl font-semibold tracking-tight sm:text-2xl'>
@@ -130,7 +143,7 @@ export default function BlogList() {
                 {post.title || 'Research note'}
               </Link>
             </h2>
-            <p className='max-w-3xl text-sm leading-7 text-white/80 sm:text-base'>
+            <p className='max-w-3xl flex-1 overflow-hidden text-sm leading-7 text-white/80 sm:text-base'>
               {cleanBlogExcerpt(post.summary, post.description)}
             </p>
             <p className='text-xs text-emerald-100/85'>

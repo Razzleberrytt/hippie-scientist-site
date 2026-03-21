@@ -270,11 +270,16 @@ for (const file of files) {
   const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
   const created = getCreatedDate(filePath, data?.date);
   const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
+  const author = data.author ? String(data.author) : "The Hippie Scientist";
+  const sources = Array.isArray(data.sources)
+    ? data.sources.map((source) => String(source)).filter(Boolean)
+    : [];
   const summary = excerpt;
   const cover = data.cover || data.hero || null;
   const title = data.title || rawSlug;
   const description = toExcerpt(data.description || contentWithoutTitle || sanitizedMarkdown, 200);
   const ogImage = data.ogImage || cover || null;
+  const lastUpdated = iso(data.lastUpdated) || statISO(filePath);
 
   fs.writeFileSync(path.join(POSTS_OUT, `${rawSlug}.html`), postHtml, "utf-8");
 
@@ -282,6 +287,9 @@ for (const file of files) {
     slug: rawSlug,
     title,
     date: created,
+    lastUpdated,
+    author,
+    sources,
     description,
     summary,
     tags,
@@ -321,6 +329,9 @@ const metadata = rows.map((row) => ({
   slug: row.slug,
   title: row.title,
   date: row.date,
+  lastUpdated: row.lastUpdated,
+  author: row.author,
+  sources: row.sources,
   excerpt: row.description,
   description: row.description,
   summary: row.summary,

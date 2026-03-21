@@ -13,6 +13,9 @@ type PostMeta = {
   slug: string
   title: string
   date: string
+  lastUpdated?: string
+  author?: string
+  sources?: string[]
   description?: string
   summary?: string
   tags?: string[]
@@ -121,6 +124,8 @@ export default function BlogPost() {
 
         <div className='flex flex-wrap items-center gap-2 text-sm text-white/65'>
           {meta?.date && <time dateTime={meta.date}>{formatDate(meta.date)}</time>}
+          {meta?.lastUpdated && <span>• Updated {formatDate(meta.lastUpdated)}</span>}
+          {meta?.author && <span>• By {meta.author}</span>}
           {meta?.readingTime && <span>• {meta.readingTime}</span>}
           <span>• {resolvePostType(meta?.tags || [])}</span>
         </div>
@@ -192,6 +197,24 @@ export default function BlogPost() {
           __html: DOMPurify.sanitize(html, { USE_PROFILES: { html: true } }),
         }}
       />
+      {Array.isArray(meta?.sources) && meta.sources.length > 0 && (
+        <section className='mt-8 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6'>
+          <h2 className='text-lg font-semibold text-white'>References</h2>
+          <ol className='mt-3 list-decimal space-y-2 pl-5 text-sm text-white/80'>
+            {meta.sources.map((source, index) => (
+              <li key={`${source}-${index}`}>
+                {/^https?:\/\//i.test(source) ? (
+                  <a href={source} target='_blank' rel='noreferrer' className='link'>
+                    {source}
+                  </a>
+                ) : (
+                  source
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
       <ContextualLeadMagnet
         context='blog'
         title='Download the full guide'
