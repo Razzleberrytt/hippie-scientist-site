@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import DOMPurify from 'dompurify'
-import { ensureTrailingSlash, resolveBlogIndexUrl } from '@/lib/blog'
+import { cleanBlogExcerpt, ensureTrailingSlash, resolveBlogIndexUrl } from '@/lib/blog'
 import { useHerbData } from '@/lib/herb-data'
 import { decorateCompounds } from '@/lib/compounds'
 import { normalizeScientificTags } from '@/lib/tags'
@@ -102,76 +102,54 @@ export default function BlogPost() {
 
   return (
     <main className='container-page py-8'>
-      <header className='glass-elev mb-8 rounded-3xl p-6 sm:p-8'>
-        <Link
-          to='/blog'
-          className='text-accent-200 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium transition hover:border-white/30 hover:bg-white/10'
-        >
+      <div className='mb-4'>
+        <Link to='/blog' className='btn-secondary inline-flex items-center gap-2 rounded-full px-4'>
           ← Back to Blog
         </Link>
-        <h1 className='mt-2 text-4xl font-extrabold tracking-tight text-white'>
+      </div>
+
+      <header className='ds-card-lg mb-8 space-y-4'>
+        <h1 className='text-4xl font-extrabold tracking-tight text-white'>
           {meta?.title || 'Loading…'}
         </h1>
 
-        <div className='mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/60'>
+        <div className='flex flex-wrap items-center gap-2 text-sm text-white/65'>
           {meta?.date && <time dateTime={meta.date}>{formatDate(meta.date)}</time>}
-          {meta?.readingTime && <span aria-hidden='true'>•</span>}
-          {meta?.readingTime && <span>{meta.readingTime}</span>}
-          {meta?.tags?.length ? (
-            <>
-              <span aria-hidden='true'>•</span>
-              <ul className='flex flex-wrap gap-2'>
-                {normalizeScientificTags(meta.tags).map(t => (
-                  <li key={t} className='pill bg-white/10 text-[12px] text-white/70'>
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : null}
+          {meta?.readingTime && <span>• {meta.readingTime}</span>}
+          <span>• {resolvePostType(meta?.tags || [])}</span>
         </div>
 
-        <section className='mt-5 rounded-2xl border border-white/10 bg-white/5 p-4'>
+        <section className='rounded-2xl border border-white/10 bg-white/5 p-4'>
           <h2 className='text-sm font-semibold uppercase tracking-[0.14em] text-white/70'>
             Summary
           </h2>
           <p className='mt-2 text-sm leading-7 text-white/80'>
-            {meta?.summary ||
-              meta?.description ||
-              'A grounded research note focused on practical interpretation and scientific context.'}
+            {cleanBlogExcerpt(meta?.summary, meta?.description)}
           </p>
         </section>
       </header>
 
-      <section className='mb-6 grid gap-4 sm:grid-cols-3'>
-        <div className='rounded-2xl border border-white/10 bg-white/5 p-4'>
-          <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
-            Research Digest
-          </h3>
-          <p className='mt-2 text-sm leading-7 text-white/75'>
-            Highlights from mechanism-level and evidence-focused discussion.
-          </p>
-        </div>
-        <div className='rounded-2xl border border-white/10 bg-white/5 p-4'>
-          <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
-            Field Notes
-          </h3>
-          <p className='mt-2 text-sm leading-7 text-white/75'>
-            Practical framing for context, preparation, and use conditions.
-          </p>
-        </div>
-        <div className='rounded-2xl border border-white/10 bg-white/5 p-4'>
-          <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>
-            Traditional Insights
-          </h3>
-          <p className='mt-2 text-sm leading-7 text-white/75'>
-            Cultural and historical framing where relevant.
-          </p>
-        </div>
+      <section className='mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+        <InfoBlock
+          title='Research Digest'
+          body='Mechanisms, evidence quality, and confidence boundaries from available studies.'
+        />
+        <InfoBlock
+          title='Field Notes'
+          body='Applied context on dose framing, preparation, and user-reported patterns.'
+        />
+        <InfoBlock
+          title='Traditional Context'
+          body='Ethnobotanical usage where documented, with caution around over-generalization.'
+        />
+        <InfoBlock
+          title='Safety Notes'
+          body='Contraindications, side-effect considerations, and uncertainty where evidence is limited.'
+        />
       </section>
 
       <article
-        className='prose prose-invert prose-headings:scroll-mt-24 prose-headings:text-white prose-p:text-white/85 prose-a:text-accent-200 hover:prose-a:text-accent-100 prose-blockquote:border-l-white/30 prose-blockquote:text-white/70 prose-strong:text-white prose-code:text-pink-300 prose-pre:bg-black/60 prose-li:marker:text-white/50 prose-img:rounded-xl max-w-none leading-8'
+        className='prose prose-invert prose-headings:scroll-mt-24 prose-headings:mt-10 prose-headings:text-white prose-p:text-white/85 prose-p:leading-8 prose-a:text-accent-200 hover:prose-a:text-accent-100 prose-blockquote:border-l-white/30 prose-blockquote:text-white/70 prose-strong:text-white prose-code:text-pink-300 prose-pre:bg-black/60 prose-li:marker:text-white/50 prose-li:my-1 prose-img:rounded-xl max-w-none'
         dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize(html, { USE_PROFILES: { html: true } }),
         }}
@@ -236,6 +214,23 @@ export default function BlogPost() {
         </p>
       </footer>
     </main>
+  )
+}
+
+function resolvePostType(tags: string[]) {
+  const joined = tags.join(' ').toLowerCase()
+  if (/research|science|compound/.test(joined)) return 'Research Digest'
+  if (/traditional|ethno|history/.test(joined)) return 'Traditional Context'
+  if (/safety|risk/.test(joined)) return 'Safety Notes'
+  return 'Field Notes'
+}
+
+function InfoBlock({ title, body }: { title: string; body: string }) {
+  return (
+    <div className='rounded-2xl border border-white/10 bg-white/5 p-4'>
+      <h3 className='text-sm font-semibold uppercase tracking-wide text-white/70'>{title}</h3>
+      <p className='mt-2 text-sm leading-7 text-white/75'>{body}</p>
+    </div>
   )
 }
 

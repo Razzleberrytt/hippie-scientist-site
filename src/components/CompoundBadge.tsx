@@ -6,11 +6,9 @@ import { slugify } from '../utils/slugify'
 import { compounds as compoundList } from '../data/compounds/compounds'
 
 export default function CompoundBadge({ name }: { name: string }) {
-  const info = compoundList.find(
-    c => c.name.toLowerCase() === name.toLowerCase()
-  )
+  const info = compoundList.find(c => c.name.toLowerCase() === name.toLowerCase())
   const badge = (
-    <Link to={`/compound/${slugify(name)}`} className='inline-block'>
+    <Link to={`/compounds/${slugify(name)}`} className='inline-block'>
       <TagBadge label={name} variant='green' />
     </Link>
   )

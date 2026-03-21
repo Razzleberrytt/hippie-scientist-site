@@ -196,6 +196,31 @@ function stripUnsafeMarkdownSyntax(markdown) {
   return withoutJsx.replace(/\n{3,}/g, "\n\n").trim();
 }
 
+
+function stripMarkdownToText(markdown) {
+  if (!markdown) return "";
+  return markdown
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[[^\]]+\]\([^)]*\)/g, "$1")
+    .replace(/^\s{0,3}#{1,6}\s+/gm, "")
+    .replace(/^>\s?/gm, "")
+    .replace(/^\s*[-*+]\s+/gm, "")
+    .replace(/^\s*\d+\.\s+/gm, "")
+    .replace(/[>*_~]/g, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function toExcerpt(markdown, max = 220) {
+  const clean = stripMarkdownToText(markdown);
+  if (!clean) return "Research notes focused on mechanisms, context, and safety.";
+  if (clean.length <= max) return clean;
+  return `${clean.slice(0, max - 1).trimEnd()}…`;
+}
+
 /**
  * Resolve the post's creation date with this precedence:
  * 1) front-matter 'date'
@@ -239,16 +264,16 @@ for (const file of files) {
   if (data?.draft) continue;
   const sanitizedMarkdown = stripUnsafeMarkdownSyntax(content);
   const postHtml = marked.parse(sanitizedMarkdown);
-  const firstParagraph = sanitizedMarkdown.split(/\n\s*\n/).find(Boolean) || sanitizedMarkdown;
-  const excerpt = firstParagraph.replace(/\n+/g, " ").trim().slice(0, 220);
+  const contentWithoutTitle = sanitizedMarkdown.replace(/^\s*#\s+.+$/m, '').trim();
+  const excerpt = toExcerpt(contentWithoutTitle || sanitizedMarkdown, 220);
   const words = sanitizedMarkdown.trim() ? sanitizedMarkdown.trim().split(/\s+/).length : 0;
   const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
   const created = getCreatedDate(filePath, data?.date);
   const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
-  const summary = data.summary || data.description || excerpt;
+  const summary = excerpt;
   const cover = data.cover || data.hero || null;
   const title = data.title || rawSlug;
-  const description = data.description || excerpt;
+  const description = toExcerpt(data.description || contentWithoutTitle || sanitizedMarkdown, 200);
   const ogImage = data.ogImage || cover || null;
 
   fs.writeFileSync(path.join(POSTS_OUT, `${rawSlug}.html`), postHtml, "utf-8");
