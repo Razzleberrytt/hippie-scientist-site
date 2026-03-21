@@ -954,73 +954,93 @@ export default function BuildBlend() {
 
       <section className='grid gap-6 lg:grid-cols-[2fr_1fr] lg:items-start'>
         <div className='space-y-6'>
-          <Card className='flex flex-col gap-4 p-5'>
-            <div className='flex flex-wrap items-center justify-between gap-3'>
-              <div className='flex flex-wrap gap-2'>
-                {Object.keys(PRESETS).map(preset => (
-                  <Button
-                    key={preset}
-                    onClick={() => applyPreset(preset)}
-                    variant={activePreset === preset ? 'primary' : 'default'}
-                    className={`px-3 text-xs ${activePreset === preset ? 'text-brand-lime' : 'text-sub'}`}
-                  >
-                    {preset}
-                  </Button>
-                ))}
-                {!!blend.length && (
-                  <Button
-                    onClick={resetBlend}
-                    variant='ghost'
-                    className='text-sub hover:text-text px-3 text-xs'
-                  >
-                    Clear blend
-                  </Button>
-                )}
-              </div>
-              <div className='border-border bg-panel text-sub flex items-center gap-2 rounded-full border p-1 text-xs font-medium'>
-                {(Object.keys(RATIO_SETTINGS) as RatioMode[]).map(mode => (
+          <Card className='space-y-5 p-5'>
+            <div className='space-y-2'>
+              <p className='text-sub text-[11px] font-semibold uppercase tracking-[0.22em]'>
+                Search &amp; select herbs
+              </p>
+              <div className='relative'>
+                <input
+                  value={query}
+                  onChange={event => setQuery(event.target.value)}
+                  placeholder='Search herbs by name, effects, or vibe'
+                  className='bg-white/6 text-text placeholder:text-sub/70 focus:border-brand-lime/55 focus:ring-brand-lime/25 min-h-10 w-full rounded-xl border border-white/15 px-4 py-2.5 text-sm backdrop-blur-md transition-shadow focus:shadow-[0_0_0_1px_rgba(163,230,53,0.2),0_0_26px_-12px_rgba(163,230,53,0.75)] focus:outline-none focus:ring-2'
+                />
+                {query && (
                   <button
-                    key={mode}
-                    onClick={() => setRatioMode(mode)}
-                    className={`rounded-full px-3 py-1 transition ${
-                      ratioMode === mode ? 'bg-brand-lime/25 text-text' : 'hover:bg-white/10'
-                    }`}
+                    onClick={() => setQuery('')}
+                    className='text-sub hover:text-text absolute inset-y-0 right-3 flex items-center text-xs transition'
                   >
-                    {mode === 'percent' ? '% ratios' : 'Grams'}
+                    Clear
                   </button>
-                ))}
+                )}
               </div>
             </div>
 
-            <div className='relative'>
-              <input
-                value={query}
-                onChange={event => setQuery(event.target.value)}
-                placeholder='Search herbs by name, effects, or vibe'
-                className='border-border bg-panel text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:ring-brand-lime/20 min-h-11 w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2'
-              />
-              {query && (
-                <button
-                  onClick={() => setQuery('')}
-                  className='text-sub hover:text-text absolute inset-y-0 right-3 flex items-center text-xs transition'
-                >
-                  Clear
-                </button>
-              )}
+            <div className='border-border/70 bg-panel/45 space-y-3 rounded-xl border p-3.5'>
+              <div className='flex flex-wrap items-center justify-between gap-3'>
+                <div className='flex flex-wrap gap-2.5'>
+                  {Object.keys(PRESETS).map(preset => (
+                    <Button
+                      key={preset}
+                      onClick={() => applyPreset(preset)}
+                      variant={activePreset === preset ? 'primary' : 'default'}
+                      className={`min-h-8 px-3 text-[11px] font-semibold ${
+                        activePreset === preset
+                          ? 'border-brand-lime/45 bg-brand-lime/22 text-text shadow-[0_0_18px_-12px_rgba(163,230,53,0.95)]'
+                          : 'text-sub opacity-75 hover:opacity-100'
+                      }`}
+                    >
+                      {preset}
+                    </Button>
+                  ))}
+                  {!!blend.length && (
+                    <Button
+                      onClick={resetBlend}
+                      variant='ghost'
+                      className='text-sub hover:text-text min-h-8 px-3 text-[11px] font-medium'
+                    >
+                      Clear blend
+                    </Button>
+                  )}
+                </div>
+                <div className='border-border bg-panel text-sub flex items-center gap-1.5 rounded-full border p-1 text-[11px] font-semibold'>
+                  {(Object.keys(RATIO_SETTINGS) as RatioMode[]).map(mode => (
+                    <button
+                      key={mode}
+                      onClick={() => setRatioMode(mode)}
+                      className={`rounded-full px-3 py-1 transition ${
+                        ratioMode === mode
+                          ? 'bg-brand-lime/25 text-text shadow-[0_0_18px_-14px_rgba(163,230,53,0.95)]'
+                          : 'opacity-80 hover:bg-white/10 hover:opacity-100'
+                      }`}
+                    >
+                      {mode === 'percent' ? '% ratios' : 'Grams'}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {!!availableHerbs.length && (
-              <div className='flex flex-wrap gap-2'>
-                {availableHerbs.map(herb => (
-                  <button
-                    key={getHerbKey(herb)}
-                    onClick={() => addHerbToBlend(herb)}
-                    className='badge hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
-                  >
-                    {getHerbName(herb)}
-                  </button>
-                ))}
+              <div className='max-h-[15.5rem] overflow-y-auto pr-1'>
+                <div className='flex flex-wrap gap-2.5'>
+                  {availableHerbs.map(herb => (
+                    <button
+                      key={getHerbKey(herb)}
+                      onClick={() => addHerbToBlend(herb)}
+                      className='bg-white/8 text-text/95 hover:border-brand-lime/45 hover:bg-brand-lime/16 active:bg-brand-lime/20 rounded-full border border-white/20 px-3.5 py-1.5 text-xs font-medium shadow-[0_6px_14px_-12px_rgba(163,230,53,0.85)] transition'
+                    >
+                      {getHerbName(herb)}
+                    </button>
+                  ))}
+                </div>
               </div>
+            )}
+            {!availableHerbs.length && (
+              <p className='text-sub text-xs'>
+                No matching herbs found. Try another search or use a preset filter.
+              </p>
             )}
           </Card>
 
