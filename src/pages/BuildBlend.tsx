@@ -55,6 +55,16 @@ const PRESETS: Record<string, string[]> = {
 }
 
 type GoalKey = 'calm' | 'focus' | 'sleep'
+type TimeOfDay = 'morning' | 'afternoon' | 'evening'
+type IntensityPreference = 'gentle' | 'balanced' | 'stronger'
+
+type QuizHistoryEntry = {
+  goal: GoalKey
+  timeOfDay: TimeOfDay
+  intensity: IntensityPreference
+  recommendedBlend: string
+  timestamp: string
+}
 
 type GoalRecommendation = {
   key: GoalKey
@@ -72,7 +82,7 @@ const GOAL_RECOMMENDATIONS: GoalRecommendation[] = [
     key: 'calm',
     label: 'Calm / Anxiety',
     prompt: 'Nervous system reset',
-    blendName: 'Grounded Calm Starter',
+    blendName: 'Calm Blend',
     herbs: [
       {
         name: 'Lemon Balm',
@@ -92,7 +102,7 @@ const GOAL_RECOMMENDATIONS: GoalRecommendation[] = [
     key: 'focus',
     label: 'Focus / Energy',
     prompt: 'Clear momentum',
-    blendName: 'Bright Focus Starter',
+    blendName: 'Focus Blend',
     herbs: [
       {
         name: 'Rhodiola rosea',
@@ -112,7 +122,7 @@ const GOAL_RECOMMENDATIONS: GoalRecommendation[] = [
     key: 'sleep',
     label: 'Sleep / Recovery',
     prompt: 'Evening downshift',
-    blendName: 'Night Recovery Starter',
+    blendName: 'Sleep Blend',
     herbs: [
       {
         name: 'Passionflower',
@@ -186,6 +196,10 @@ export default function BuildBlend() {
   const [activePreset, setActivePreset] = useState<string | null>(null)
   const [copyState, setCopyState] = useState<'idle' | 'copied'>('idle')
   const [selectedGoal, setSelectedGoal] = useState<GoalKey | null>(null)
+  const [quizGoal, setQuizGoal] = useState<GoalKey | null>(null)
+  const [quizTimeOfDay, setQuizTimeOfDay] = useState<TimeOfDay | null>(null)
+  const [quizIntensity, setQuizIntensity] = useState<IntensityPreference | null>(null)
+  const [quizRecommendationMessage, setQuizRecommendationMessage] = useState('')
   const [blendSavedMessage, setBlendSavedMessage] = useState(false)
   const [showExploreHerbs, setShowExploreHerbs] = useState(false)
   const [showStarterPackFallback, setShowStarterPackFallback] = useState(false)
@@ -473,6 +487,55 @@ export default function BuildBlend() {
     [selectedGoal]
   )
 
+  const resolveQuizRecommendation = (
+    goal: GoalKey,
+    timeOfDay: TimeOfDay,
+    intensity: IntensityPreference
+  ) => {
+    if (goal === 'calm' && timeOfDay === 'evening') {
+      return {
+        key: 'calm' as GoalKey,
+        message: 'Calm evenings pair best with a soothing downshift profile.',
+      }
+    }
+    if (goal === 'focus' && timeOfDay === 'morning') {
+      return {
+        key: 'focus' as GoalKey,
+        message: 'Morning focus works best with a clear, uplifting start.',
+      }
+    }
+    if (goal === 'sleep' && timeOfDay === 'evening') {
+      return {
+        key: 'sleep' as GoalKey,
+        message: 'Evening sleep support points to a deeper unwind blend.',
+      }
+    }
+
+    if (goal === 'sleep') {
+      return {
+        key: 'sleep' as GoalKey,
+        message: 'Your answers are closest to bedtime support, so we matched you to Sleep Blend.',
+      }
+    }
+    if (goal === 'calm' || timeOfDay === 'evening') {
+      return {
+        key: 'calm' as GoalKey,
+        message: 'Your answers lean toward steady calm, so Calm Blend is the closest fit.',
+      }
+    }
+    if (goal === 'focus' || timeOfDay === 'morning' || intensity === 'stronger') {
+      return {
+        key: 'focus' as GoalKey,
+        message:
+          'Your answers lean toward momentum and clarity, so Focus Blend is the closest fit.',
+      }
+    }
+    return {
+      key: goal,
+      message: 'We matched the blend closest to your goal and preferred feel.',
+    }
+  }
+
   const applyGoalRecommendation = (goal: GoalRecommendation) => {
     setSelectedGoal(goal.key)
     setBlendSavedMessage(false)
@@ -497,6 +560,46 @@ export default function BuildBlend() {
       }))
     )
     setActivePreset(null)
+  }
+
+  useEffect(() => {
+    if (!quizGoal || !quizTimeOfDay || !quizIntensity) return
+
+    const resolved = resolveQuizRecommendation(quizGoal, quizTimeOfDay, quizIntensity)
+    const nextRecommendation = GOAL_RECOMMENDATIONS.find(goal => goal.key === resolved.key)
+    if (!nextRecommendation) return
+
+    applyGoalRecommendation(nextRecommendation)
+    setQuizRecommendationMessage(resolved.message)
+
+    if (typeof window !== 'undefined') {
+      try {
+        const raw = window.localStorage.getItem('hs_quiz_history')
+        const existing = raw ? (JSON.parse(raw) as QuizHistoryEntry[]) : []
+        const safeExisting = Array.isArray(existing) ? existing : []
+        const entry: QuizHistoryEntry = {
+          goal: quizGoal,
+          timeOfDay: quizTimeOfDay,
+          intensity: quizIntensity,
+          recommendedBlend: nextRecommendation.blendName,
+          timestamp: new Date().toISOString(),
+        }
+        window.localStorage.setItem('hs_quiz_history', JSON.stringify([entry, ...safeExisting]))
+      } catch (error) {
+        recordDevMessage('warning', 'Unable to store quiz history', error)
+      }
+    }
+  }, [quizGoal, quizIntensity, quizTimeOfDay])
+
+  const handleRetakeQuiz = () => {
+    setQuizGoal(null)
+    setQuizTimeOfDay(null)
+    setQuizIntensity(null)
+    setQuizRecommendationMessage('')
+    setSelectedGoal(null)
+    setBlendSavedMessage(false)
+    setShowExploreHerbs(false)
+    setBlend([])
   }
 
   const clearSavedBlends = () => setSavedGoalBlends([])
@@ -596,24 +699,63 @@ export default function BuildBlend() {
           </p>
         </div>
 
-        <div className='grid gap-3 sm:grid-cols-3'>
-          {GOAL_RECOMMENDATIONS.map(goal => {
-            const isActive = selectedGoal === goal.key
-            return (
-              <button
-                key={goal.key}
-                onClick={() => applyGoalRecommendation(goal)}
-                className={`rounded-xl border p-4 text-left transition ${
-                  isActive
-                    ? 'border-brand-lime/60 bg-brand-lime/15 shadow-[0_0_24px_-14px_rgba(163,230,53,0.9)]'
-                    : 'border-border/80 bg-panel/70 hover:border-brand-lime/40 hover:bg-brand-lime/10'
-                }`}
-              >
-                <p className='text-text font-semibold'>{goal.label}</p>
-                <p className='text-sub mt-1 text-xs'>{goal.prompt}</p>
-              </button>
-            )
-          })}
+        <div className='grid gap-3 md:grid-cols-3'>
+          <Card className='border-white/10 bg-black/30 p-3'>
+            <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>1. Main goal</p>
+            <div className='grid gap-2'>
+              {(['calm', 'focus', 'sleep'] as GoalKey[]).map(goal => (
+                <button
+                  key={goal}
+                  onClick={() => setQuizGoal(goal)}
+                  className={`rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
+                    quizGoal === goal
+                      ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
+                      : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
+                  }`}
+                >
+                  {goal}
+                </button>
+              ))}
+            </div>
+          </Card>
+
+          <Card className='border-white/10 bg-black/30 p-3'>
+            <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>2. Time of day</p>
+            <div className='grid gap-2'>
+              {(['morning', 'afternoon', 'evening'] as TimeOfDay[]).map(timeOption => (
+                <button
+                  key={timeOption}
+                  onClick={() => setQuizTimeOfDay(timeOption)}
+                  className={`rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
+                    quizTimeOfDay === timeOption
+                      ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
+                      : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
+                  }`}
+                >
+                  {timeOption}
+                </button>
+              ))}
+            </div>
+          </Card>
+
+          <Card className='border-white/10 bg-black/30 p-3'>
+            <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>3. Intensity</p>
+            <div className='grid gap-2'>
+              {(['gentle', 'balanced', 'stronger'] as IntensityPreference[]).map(intensity => (
+                <button
+                  key={intensity}
+                  onClick={() => setQuizIntensity(intensity)}
+                  className={`rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
+                    quizIntensity === intensity
+                      ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
+                      : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
+                  }`}
+                >
+                  {intensity}
+                </button>
+              ))}
+            </div>
+          </Card>
         </div>
 
         {selectedRecommendation && (
@@ -623,6 +765,10 @@ export default function BuildBlend() {
               <h3 className='text-text mt-1 text-lg font-semibold'>
                 {selectedRecommendation.blendName}
               </h3>
+              <p className='text-sub mt-2 text-sm'>
+                Based on your answers, this is the simplest place to start.{' '}
+                {quizRecommendationMessage}
+              </p>
             </div>
             <ul className='space-y-3'>
               {selectedRecommendation.herbs.map(herb => (
@@ -724,6 +870,9 @@ export default function BuildBlend() {
             />
 
             <div className='flex flex-col gap-2 sm:flex-row'>
+              <Button onClick={handleRetakeQuiz} variant='ghost' className='flex-1 justify-center'>
+                Retake Quiz
+              </Button>
               <Button
                 onClick={saveRecommendedBlend}
                 disabled={!blend.length}
