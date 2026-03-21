@@ -1,21 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import Tilt from './Tilt'
-import StatPill from './StatPill'
 import HeroCTA from './HeroCTA'
 
-type HeroCounts = {
-  herbs: number
-  compounds: number
-  articles: number
-}
-
-type HeroProps = {
-  counts?: HeroCounts
-}
-
-export default function Hero({ counts }: HeroProps) {
+export default function Hero() {
   const reduceMotion = useReducedMotion()
-  const { herbs = 0, compounds = 0, articles = 0 } = counts ?? {}
 
   return (
     <section className='relative mx-auto mt-4 max-w-4xl px-4 py-8 sm:mt-6 sm:px-6 sm:py-12'>
@@ -82,20 +70,6 @@ export default function Hero({ counts }: HeroProps) {
             </div>
 
             <HeroCTA />
-
-            <nav
-              aria-label='Site stats'
-              className='grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3'
-            >
-              <StatPill to='/herbs' value={herbs} label='psychoactive herbs' testId='pill-herbs' />
-              <StatPill
-                to='/compounds'
-                value={compounds}
-                label='active compounds'
-                testId='pill-compounds'
-              />
-              <StatPill to='/blog' value={articles} label='articles' testId='pill-articles' />
-            </nav>
           </div>
         </motion.div>
       </Tilt>
