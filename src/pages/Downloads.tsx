@@ -39,17 +39,17 @@ export default function Downloads() {
   }
 
   return (
-    <main className='container space-y-6 py-8'>
+    <main className='container space-y-7 py-9'>
       <Meta
         title='My Guides - The Hippie Scientist'
         description='Your saved Starter Packs and generated blend downloads.'
         path='/downloads'
       />
 
-      <header className='space-y-2'>
+      <header className='space-y-2.5'>
         <p className='text-sub text-xs uppercase tracking-[0.3em]'>Digital library</p>
         <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>My Guides</h1>
-        <p className='text-sub max-w-2xl text-sm sm:text-base'>
+        <p className='text-sub max-w-2xl text-sm leading-relaxed sm:text-base'>
           Your saved Starter Packs and generated blend downloads.
         </p>
       </header>
@@ -57,9 +57,9 @@ export default function Downloads() {
       <BundleUpgradeCard sourcePage='downloads' currentBlendName={sortedGuides[0]?.blendName} />
 
       {!hasGuides && (
-        <Card className='border-border/80 from-panel/90 to-panel/70 flex flex-col items-center gap-4 rounded-2xl border bg-gradient-to-br p-8 text-center'>
+        <Card className='border-border/80 from-panel/92 to-panel/70 flex flex-col items-center gap-4 rounded-2xl border bg-gradient-to-br p-8 text-center'>
           <p className='text-text text-xl font-semibold'>No guides saved yet</p>
-          <p className='text-sub max-w-lg text-sm'>
+          <p className='text-sub max-w-lg text-sm leading-relaxed'>
             Once you generate a Starter Pack, it will appear here so you can download it any time.
           </p>
           <Link to='/blend'>
@@ -88,7 +88,7 @@ export default function Downloads() {
                 timestamp={guide.generatedAt}
                 variant='compact'
                 ctaButtons={
-                  <div className='mt-auto flex flex-col gap-2'>
+                  <div className='mt-auto flex w-full flex-col gap-2'>
                     <Button onClick={() => handleDownloadAgain(guide)} className='justify-center'>
                       Download Again
                     </Button>

@@ -54,11 +54,11 @@ export default function StarterPackSuccess() {
   }, [savedBlend])
 
   return (
-    <main className='container space-y-6 py-8'>
+    <main className='container space-y-7 py-9'>
       <section className='border-border/80 from-brand-lime/12 via-panel to-brand-lime/5 rounded-2xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.05),0_16px_36px_-22px_rgba(163,230,53,0.7)] sm:p-6'>
         <p className='text-sub text-xs uppercase tracking-[0.3em]'>Starter Pack</p>
         <h1 className='h1-grad mt-2 text-3xl font-semibold md:text-4xl'>You&apos;re in.</h1>
-        <p className='text-sub mt-3 max-w-2xl text-sm sm:text-base'>
+        <p className='text-sub mt-3 max-w-2xl text-sm leading-relaxed sm:text-base'>
           Your Starter Pack is on the way. Here&apos;s what to do next.
         </p>
 
@@ -66,7 +66,7 @@ export default function StarterPackSuccess() {
           {CHECKLIST_ITEMS.map((item, index) => (
             <div
               key={item}
-              className='border-border/80 bg-panel/70 flex items-start gap-3 rounded-xl border p-3'
+              className='border-border/80 bg-panel/70 flex items-start gap-3 rounded-xl border p-3.5'
             >
               <span className='text-brand-lime bg-brand-lime/15 mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold'>
                 {index + 1}
@@ -78,7 +78,7 @@ export default function StarterPackSuccess() {
       </section>
 
       <section className='grid gap-4 lg:grid-cols-[1.25fr_1fr]'>
-        <Card className='border-border/80 space-y-4 bg-black/25 p-4 sm:p-5'>
+        <Card className='border-border/80 space-y-4 bg-black/25 p-5'>
           <h2 className='text-text text-lg font-semibold'>Your saved blend</h2>
 
           {hasSavedBlend ? (
@@ -90,7 +90,7 @@ export default function StarterPackSuccess() {
               variant='expanded'
             />
           ) : (
-            <div className='border-border/80 bg-panel/65 rounded-lg border p-3'>
+            <div className='border-border/80 bg-panel/65 rounded-xl border p-3.5'>
               <p className='text-sub text-sm'>
                 No saved blend found yet. Pick a goal and get your Starter Pack to see your
                 personalized handoff details here.
@@ -98,7 +98,7 @@ export default function StarterPackSuccess() {
             </div>
           )}
 
-          <div className='flex flex-col gap-2 pt-1 sm:flex-row'>
+          <div className='flex flex-col gap-2.5 pt-1 sm:flex-row'>
             <Link
               to='/herbs'
               className='btn border-brand-lime/35 bg-brand-lime/20 text-brand-lime hover:bg-brand-lime/30 justify-center border'
@@ -111,7 +111,7 @@ export default function StarterPackSuccess() {
           </div>
         </Card>
 
-        <Card className='border-border/80 space-y-3 bg-black/25 p-4 sm:p-5'>
+        <Card className='border-border/80 space-y-3.5 bg-black/25 p-5'>
           <h2 className='text-text text-lg font-semibold'>What you&apos;ll get</h2>
           <ul className='space-y-2'>
             {includedItems.map(item => (

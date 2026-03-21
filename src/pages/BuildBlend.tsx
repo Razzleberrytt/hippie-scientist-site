@@ -738,17 +738,17 @@ export default function BuildBlend() {
   }, [dataset, selectedRecommendation])
 
   return (
-    <main className='container space-y-6 py-8'>
-      <header className='space-y-3'>
+    <main className='container space-y-7 py-9'>
+      <header className='space-y-3.5'>
         <p className='text-sub text-xs uppercase tracking-[0.3em]'>Experimental Mixer</p>
         <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>Build a Blend</h1>
-        <p className='text-sub max-w-2xl'>
+        <p className='text-sub max-w-2xl leading-relaxed'>
           Curate herbs, adjust their ratios in percentages or grams, and watch potency and mood
           predictions update instantly.
         </p>
       </header>
 
-      <section className='border-border/80 from-brand-lime/10 via-panel to-brand-lime/5 space-y-4 rounded-2xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.05),0_16px_36px_-22px_rgba(163,230,53,0.7)] sm:p-5'>
+      <section className='border-border/80 from-brand-lime/10 via-panel to-brand-lime/5 space-y-5 rounded-2xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.05),0_16px_36px_-22px_rgba(163,230,53,0.7)] sm:p-6'>
         <div className='space-y-2'>
           <h2 className='text-text text-xl font-semibold sm:text-2xl'>
             Let’s build your first blend
@@ -758,15 +758,15 @@ export default function BuildBlend() {
           </p>
         </div>
 
-        <div className='grid gap-3 md:grid-cols-3'>
-          <Card className='border-white/10 bg-black/30 p-3'>
+        <div className='grid gap-3.5 md:grid-cols-3'>
+          <Card className='border-white/10 bg-black/30 p-3.5'>
             <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>1. Main goal</p>
             <div className='grid gap-2'>
               {(['calm', 'focus', 'sleep'] as GoalKey[]).map(goal => (
                 <button
                   key={goal}
                   onClick={() => setQuizGoal(goal)}
-                  className={`rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
+                  className={`min-h-10 rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
                     quizGoal === goal
                       ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
                       : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
@@ -778,14 +778,14 @@ export default function BuildBlend() {
             </div>
           </Card>
 
-          <Card className='border-white/10 bg-black/30 p-3'>
+          <Card className='border-white/10 bg-black/30 p-3.5'>
             <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>2. Time of day</p>
             <div className='grid gap-2'>
               {(['morning', 'afternoon', 'evening'] as TimeOfDay[]).map(timeOption => (
                 <button
                   key={timeOption}
                   onClick={() => setQuizTimeOfDay(timeOption)}
-                  className={`rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
+                  className={`min-h-10 rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
                     quizTimeOfDay === timeOption
                       ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
                       : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
@@ -797,14 +797,14 @@ export default function BuildBlend() {
             </div>
           </Card>
 
-          <Card className='border-white/10 bg-black/30 p-3'>
+          <Card className='border-white/10 bg-black/30 p-3.5'>
             <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>3. Intensity</p>
             <div className='grid gap-2'>
               {(['gentle', 'balanced', 'stronger'] as IntensityPreference[]).map(intensity => (
                 <button
                   key={intensity}
                   onClick={() => setQuizIntensity(intensity)}
-                  className={`rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
+                  className={`min-h-10 rounded-lg border px-3 py-2 text-left text-sm capitalize transition ${
                     quizIntensity === intensity
                       ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
                       : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
@@ -826,7 +826,7 @@ export default function BuildBlend() {
               herbs={selectedRecommendation.herbs.map(herb => herb.name)}
               variant='expanded'
             />
-            <section className='border-brand-lime/40 from-brand-lime/16 to-panel/95 relative space-y-4 overflow-hidden rounded-xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.12),0_12px_34px_-18px_rgba(163,230,53,0.9)]'>
+            <section className='border-brand-lime/40 from-brand-lime/16 to-panel/95 relative space-y-4 overflow-hidden rounded-2xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.12),0_12px_34px_-18px_rgba(163,230,53,0.9)]'>
               <div className='from-brand-lime/18 via-brand-lime/6 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
               <div className='relative z-10 space-y-4'>
                 <div>
@@ -837,7 +837,7 @@ export default function BuildBlend() {
                 </div>
 
                 <div className='grid gap-4 md:grid-cols-2'>
-                  <div className='space-y-2 rounded-lg border border-white/10 bg-black/20 p-3'>
+                  <div className='space-y-2 rounded-xl border border-white/10 bg-black/20 p-3.5'>
                     <p className='text-text text-sm font-semibold'>What&apos;s included</p>
                     <ul className='text-sub list-inside list-disc space-y-1 text-sm'>
                       {selectedRecommendation.herbs.map(herb => (
@@ -845,7 +845,7 @@ export default function BuildBlend() {
                       ))}
                     </ul>
                   </div>
-                  <div className='space-y-2 rounded-lg border border-white/10 bg-black/20 p-3'>
+                  <div className='space-y-2 rounded-xl border border-white/10 bg-black/20 p-3.5'>
                     <p className='text-text text-sm font-semibold'>Simple prep</p>
                     <ul className='text-sub list-inside list-disc space-y-1 text-sm'>
                       <li>1 tsp dried herb blend</li>
@@ -855,7 +855,7 @@ export default function BuildBlend() {
                   </div>
                 </div>
 
-                <div className='space-y-2 rounded-lg border border-white/10 bg-black/20 p-3'>
+                <div className='space-y-2 rounded-xl border border-white/10 bg-black/20 p-3.5'>
                   <p className='text-text text-sm font-semibold'>Why this works</p>
                   <ul className='text-sub list-inside list-disc space-y-1 text-sm'>
                     {selectedRecommendation.herbs.slice(0, 3).map(herb => (
@@ -866,7 +866,7 @@ export default function BuildBlend() {
                   </ul>
                 </div>
 
-                <div className='flex flex-col gap-3 rounded-lg border border-white/10 bg-black/20 p-3 sm:flex-row sm:items-center sm:justify-between'>
+                <div className='flex flex-col gap-3 rounded-xl border border-white/10 bg-black/20 p-3.5 sm:flex-row sm:items-center sm:justify-between'>
                   <p className='text-text text-base font-semibold'>
                     Starter Pack (Digital Guide): $9
                   </p>
@@ -917,7 +917,7 @@ export default function BuildBlend() {
               currentBlendName={selectedRecommendation.blendName}
             />
 
-            <div className='flex flex-col gap-2 sm:flex-row'>
+            <div className='flex flex-col gap-2.5 sm:flex-row'>
               <Button onClick={handleRetakeQuiz} variant='ghost' className='flex-1 justify-center'>
                 Retake Quiz
               </Button>
@@ -962,7 +962,7 @@ export default function BuildBlend() {
                     key={preset}
                     onClick={() => applyPreset(preset)}
                     variant={activePreset === preset ? 'primary' : 'default'}
-                    className={`px-3 py-1 text-xs ${activePreset === preset ? 'text-brand-lime' : 'text-sub'}`}
+                    className={`px-3 text-xs ${activePreset === preset ? 'text-brand-lime' : 'text-sub'}`}
                   >
                     {preset}
                   </Button>
@@ -971,7 +971,7 @@ export default function BuildBlend() {
                   <Button
                     onClick={resetBlend}
                     variant='ghost'
-                    className='text-sub hover:text-text px-3 py-1 text-xs'
+                    className='text-sub hover:text-text px-3 text-xs'
                   >
                     Clear blend
                   </Button>
@@ -997,7 +997,7 @@ export default function BuildBlend() {
                 value={query}
                 onChange={event => setQuery(event.target.value)}
                 placeholder='Search herbs by name, effects, or vibe'
-                className='border-border bg-panel text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:ring-brand-lime/20 w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2'
+                className='border-border bg-panel text-text placeholder:text-sub/70 focus:border-brand-lime/60 focus:ring-brand-lime/20 min-h-11 w-full rounded-xl border px-4 py-3 text-sm focus:outline-none focus:ring-2'
               />
               {query && (
                 <button
@@ -1062,7 +1062,7 @@ export default function BuildBlend() {
                       <Button
                         variant='ghost'
                         onClick={() => removeHerb(herb.key)}
-                        className='text-sub hover:text-text px-3 py-1 text-xs'
+                        className='text-sub hover:text-text px-3 text-xs'
                       >
                         Remove
                       </Button>
@@ -1145,7 +1145,7 @@ export default function BuildBlend() {
         </aside>
       </section>
 
-      <section className='space-y-3'>
+      <section className='space-y-3.5'>
         <div className='flex items-center justify-between gap-3'>
           <h2 className='text-sub text-sm font-semibold uppercase tracking-wide'>Saved blends</h2>
           {!!savedGoalBlends.length && (

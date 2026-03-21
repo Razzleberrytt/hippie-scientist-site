@@ -164,6 +164,23 @@ a:hover {
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
 }
 
+.card-shell {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: linear-gradient(145deg, rgba(20, 24, 32, 0.82), rgba(14, 18, 26, 0.72));
+  backdrop-filter: blur(18px);
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease;
+}
+
+.card-shell:hover {
+  border-color: rgba(163, 230, 53, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 20px 46px -26px rgba(163, 230, 53, 0.55);
+}
+
 .h1-grad {
   background: linear-gradient(90deg, #c4f64e, #6ee7ff, #f0a4ff);
   -webkit-background-clip: text;
@@ -196,6 +213,53 @@ a:hover {
 
 .btn-pill:hover {
   border-color: rgba(255, 255, 255, 0.25);
+}
+
+.btn {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-4 text-sm font-semibold transition;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: linear-gradient(180deg, rgba(31, 35, 47, 0.9), rgba(20, 24, 34, 0.86));
+  color: rgba(244, 246, 255, 0.95);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 10px 28px -18px rgba(7, 12, 23, 0.95);
+}
+
+.btn:hover {
+  border-color: rgba(163, 230, 53, 0.42);
+  background: linear-gradient(180deg, rgba(37, 42, 56, 0.92), rgba(25, 30, 42, 0.9));
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  border-color: rgba(163, 230, 53, 0.44);
+  color: rgba(217, 249, 157, 0.98);
+  background: linear-gradient(180deg, rgba(73, 94, 24, 0.92), rgba(52, 73, 15, 0.94));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 12px 28px -18px rgba(163, 230, 53, 0.9);
+}
+
+.btn-primary:hover {
+  border-color: rgba(190, 242, 100, 0.6);
+  color: rgba(236, 252, 203, 0.98);
+  background: linear-gradient(180deg, rgba(90, 111, 31, 0.95), rgba(64, 85, 21, 0.94));
+}
+
+.btn-ghost {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(226, 232, 240, 0.8);
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  color: rgba(241, 245, 249, 0.95);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .stat-pill {
