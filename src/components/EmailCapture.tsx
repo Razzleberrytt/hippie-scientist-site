@@ -79,24 +79,29 @@ export default function EmailCapture() {
   return (
     <section
       aria-label='Email capture'
-      className='container mx-auto max-w-3xl px-4 pb-12 sm:px-6 sm:pb-14'
+      className='container mx-auto max-w-4xl px-4 pb-12 sm:px-6 sm:pb-16'
     >
-      <div className='shadow-halo border-white/12 bg-white/6 relative overflow-hidden rounded-2xl border p-5 backdrop-blur-xl sm:rounded-[24px] sm:p-6'>
+      <div className='shadow-halo border-white/12 relative overflow-hidden rounded-3xl border bg-white/[0.05] p-5 backdrop-blur-2xl sm:p-7'>
         <div
           aria-hidden
-          className='pointer-events-none absolute -top-16 left-0 right-0 h-28 bg-gradient-to-b from-white/10 to-transparent'
+          className='pointer-events-none absolute -top-20 left-0 right-0 h-32 bg-gradient-to-b from-white/10 to-transparent'
         />
 
-        <div className='relative space-y-4'>
-          <h2 className='text-[1.45rem] font-semibold tracking-tight text-white sm:text-2xl'>
-            Build your first calming herbal blend in minutes
-          </h2>
-          <p className='text-sm leading-relaxed text-white/75 sm:text-[0.97rem]'>
-            Get a clear, beginner-safe roadmap so you can craft a blend that actually works—without
-            overwhelm.
-          </p>
+        <div className='relative space-y-5'>
+          <div className='space-y-2'>
+            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+              Free starter guide
+            </p>
+            <h2 className='text-[1.4rem] font-semibold tracking-tight text-white sm:text-3xl'>
+              Start with a calmer, clearer first blend
+            </h2>
+            <p className='max-w-2xl text-sm leading-relaxed text-white/75 sm:text-[0.97rem]'>
+              Get a practical guide with simple ratios, prep tips, and beginner-friendly safety
+              notes. Delivered instantly when you subscribe.
+            </p>
+          </div>
 
-          <form onSubmit={handleSubmit} className='flex flex-col gap-3 sm:flex-row sm:items-center'>
+          <form onSubmit={handleSubmit} className='grid gap-2.5 sm:grid-cols-[1fr_auto]'>
             <label htmlFor='email-capture-input' className='sr-only'>
               Email address
             </label>
@@ -108,21 +113,21 @@ export default function EmailCapture() {
               value={email}
               onChange={event => setEmail(event.target.value)}
               placeholder='you@example.com'
-              className='border-white/14 min-h-11 w-full rounded-xl border bg-white/10 px-4 py-2.5 text-sm text-white placeholder-white/50 outline-none transition focus:border-white/30 focus:ring-2 focus:ring-emerald-300/35 sm:flex-1'
+              className='border-white/16 min-h-11 w-full rounded-xl border bg-white/10 px-4 py-2.5 text-sm text-white placeholder-white/45 outline-none transition focus:border-white/35 focus:ring-2 focus:ring-emerald-300/35'
             />
             <button
               type='submit'
               className='min-h-11 rounded-xl border border-emerald-200/35 bg-emerald-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200/80'
             >
-              Start My First Blend
+              Get Free Guide
             </button>
           </form>
 
-          <ul className='space-y-1.5 text-xs text-white/80 sm:text-sm'>
-            <li>• Beginner-friendly blend recipes</li>
-            <li>• Research-backed herb insights</li>
-            <li>• No fluff, just what works</li>
-          </ul>
+          <div className='text-white/78 grid gap-2 text-xs sm:grid-cols-3 sm:text-sm'>
+            <p>• Beginner-friendly blend recipes</p>
+            <p>• Research-backed herb insights</p>
+            <p>• Instant download after signup</p>
+          </div>
           {storedEmailCount > 0 ? (
             <div className='pt-1'>
               <button
@@ -148,7 +153,9 @@ export default function EmailCapture() {
             </div>
           ) : null}
 
-          <p className='text-xs text-white/55'>No spam. Just useful drops.</p>
+          <p className='text-xs text-white/55'>
+            No spam. Unsubscribe anytime. Practical content only.
+          </p>
         </div>
       </div>
     </section>

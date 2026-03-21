@@ -25,16 +25,16 @@ export default function Footer() {
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
   return (
-    <footer className='relative mx-auto mt-8 w-full max-w-screen-lg px-4 pb-10 pt-8'>
-      <div className='bg-white/6 ring-white/12 rounded-3xl p-6 ring-1 backdrop-blur-xl sm:p-7'>
+    <footer className='relative mx-auto mt-10 w-full max-w-screen-lg px-4 pb-10 pt-6'>
+      <div className='border-white/12 bg-white/6 rounded-3xl border p-6 ring-1 ring-white/10 backdrop-blur-xl sm:p-7'>
         <div className='grid gap-8 sm:grid-cols-2 sm:gap-10'>
           <NonEmpty>
             {exploreLinks.length > 0 && (
               <div>
-                <h4 className='mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/65'>
+                <h4 className='text-white/62 mb-3 text-xs font-semibold uppercase tracking-[0.24em]'>
                   Explore
                 </h4>
-                <ul className='space-y-1.5 text-sm text-white/75'>
+                <ul className='text-white/78 space-y-2 text-sm'>
                   {exploreLinks.map(link => (
                     <li key={link.href}>
                       <a className='transition hover:text-white' href={normalizeHref(link.href)}>
@@ -49,10 +49,10 @@ export default function Footer() {
           <NonEmpty>
             {legalLinks.length > 0 && (
               <div>
-                <h4 className='mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/65'>
-                  Stay safe
+                <h4 className='text-white/62 mb-3 text-xs font-semibold uppercase tracking-[0.24em]'>
+                  Trust & safety
                 </h4>
-                <ul className='space-y-1.5 text-sm text-white/75'>
+                <ul className='text-white/78 space-y-2 text-sm'>
                   {legalLinks.map(link => (
                     <li key={link.href}>
                       <a className='transition hover:text-white' href={normalizeHref(link.href)}>
@@ -62,7 +62,7 @@ export default function Footer() {
                   ))}
                   <li>
                     <button
-                      className='text-white/70 underline decoration-dotted underline-offset-4 transition hover:text-white'
+                      className='text-white/72 underline decoration-dotted underline-offset-4 transition hover:text-white'
                       type='button'
                       onClick={() => setOpen(true)}
                     >
