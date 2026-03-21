@@ -80,7 +80,7 @@ export default function DatabaseHerbCard({
         .map(chip => titleCase(String(chip)))
         .filter(Boolean)
     )
-  ).slice(0, 3)
+  ).slice(0, 2)
 
   const intensityLevel = (herb.intensityLevel || (herb as any).intensityLevel || '')
     .toString()
@@ -101,7 +101,7 @@ export default function DatabaseHerbCard({
         : intensityLevel.includes('variable')
           ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
           : 'bg-white/6 text-white/90 ring-1 ring-white/15'
-  const benefits = firstNonEmpty(herb.benefits as string, (herb as any).benefits as string)
+  const mechanism = firstNonEmpty((herb as any).mechanismOfAction, herb.benefits as string)
 
   const slugSource = firstNonEmpty(herb.slug, heading, scientificName)
   const slug = slugSource
@@ -131,59 +131,45 @@ export default function DatabaseHerbCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       className={clsx(
-        'ring-white/12 relative overflow-hidden rounded-3xl bg-white/5 ring-1 backdrop-blur-xl',
-        'shadow-[inset_0_1px_0_rgba(255,255,255,.12)] transition duration-300',
-        'mx-auto w-full max-w-5xl px-5 py-6 text-white/90'
+        'ds-card-lg relative mx-auto w-full max-w-5xl overflow-hidden text-white/90 transition duration-300'
       )}
     >
-      <div aria-hidden className='pointer-events-none absolute inset-0 rounded-3xl'>
-        <div className='absolute inset-px rounded-[calc(theme(borderRadius.3xl)-1px)] border border-white/10' />
+      <div aria-hidden className='pointer-events-none absolute inset-0 rounded-2xl'>
+        <div className='absolute inset-px rounded-[calc(theme(borderRadius.2xl)-1px)] border border-white/10' />
       </div>
 
-      <div className='relative space-y-4'>
-        <header className='space-y-2'>
+      <div className='ds-stack relative'>
+        <header className='ds-stack'>
           <h2 className='text-xl font-semibold tracking-tight text-white sm:text-2xl'>{heading}</h2>
-          {secondary && <p className='text-sm italic text-white/60'>{secondary}</p>}
+          {secondary && <p className='text-white/62 text-sm italic'>{secondary}</p>}
 
-          {(chips.length > 0 || intensityLabel || benefits || classification) && (
+          {(chips.length > 0 || intensityLabel || mechanism || classification) && (
             <div className='mt-3 flex flex-wrap gap-2'>
               {classification && (
-                <span className='inline-flex items-center gap-2 rounded-2xl border border-sky-200/20 bg-sky-400/10 px-3 py-1.5 text-[12px] text-sky-100'>
+                <span className='ds-pill border-sky-200/20 bg-sky-400/10 text-sky-100'>
                   Class: {classification}
                 </span>
               )}
               {chips.map(chip => (
-                <span
-                  key={chip}
-                  className='inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-1.5 text-[12px] text-white/80'
-                >
+                <span key={chip} className='ds-pill'>
                   {chip}
                 </span>
               ))}
               {intensityLabel && (
-                <span
-                  className={clsx(
-                    'inline-flex items-center gap-2 rounded-2xl px-3 py-1.5 text-[12px]',
-                    intensityTone
-                  )}
-                >
+                <span className={clsx('ds-pill', intensityTone)}>
                   <span className='text-[11px] font-semibold uppercase tracking-wide text-white/80'>
                     Intensity:
                   </span>
                   {intensityLabel}
                 </span>
               )}
-              {benefits && (
-                <span className='inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-1.5 text-[12px] text-white/80'>
-                  {benefits}
-                </span>
-              )}
+              {mechanism && <span className='ds-pill'>Mechanism: {mechanism}</span>}
             </div>
           )}
         </header>
 
         {keyEffects && (
-          <p className='text-sm font-medium text-white/85'>
+          <p className='text-sm font-medium leading-7 text-white/85'>
             <span className='text-white/65'>Key effects: </span>
             {keyEffects}
           </p>
@@ -238,15 +224,12 @@ export default function DatabaseHerbCard({
           <button
             type='button'
             onClick={() => setOpen(value => !value)}
-            className='inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:bg-white/15 hover:text-white'
+            className='btn-secondary'
             aria-expanded={open}
           >
             {open ? 'Show less' : 'Show more'}
           </button>
-          <a
-            href={normalizeHref(detailPath)}
-            className='inline-flex items-center gap-2 rounded-2xl bg-emerald-500/85 px-4 py-2 text-sm font-semibold text-black shadow-lg shadow-emerald-900/30 transition hover:bg-emerald-400/90'
-          >
+          <a href={normalizeHref(detailPath)} className='btn-primary'>
             View details
           </a>
         </div>

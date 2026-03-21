@@ -15,9 +15,7 @@ export default function HerbBlender() {
   const [saved, setSaved] = useLocalStorage<string[][]>('savedBlends', [])
 
   const addHerb = () => {
-    const h = herbs.find(
-      x => herbName(x).toLowerCase() === input.toLowerCase() || x.id === input
-    )
+    const h = herbs.find(x => herbName(x).toLowerCase() === input.toLowerCase() || x.id === input)
     if (h && !selected.includes(h.id) && selected.length < 5) {
       setSelected(s => [...s, h.id])
     }
@@ -45,14 +43,11 @@ export default function HerbBlender() {
   }
 
   const combinedEffects = React.useMemo(
-    () =>
-      Array.from(
-        new Set(selectedHerbs.flatMap(h => splitField(h.effects)))
-      ),
+    () => Array.from(new Set(selectedHerbs.flatMap(h => splitField(h.effects)))),
     [selectedHerbs]
   )
   const combinedTags = React.useMemo(
-    () => Array.from(new Set(selectedHerbs.flatMap(h => splitField(h.tags)))),
+    () => Array.from(new Set(selectedHerbs.flatMap(h => splitField(h.tags)))).slice(0, 4),
     [selectedHerbs]
   )
   const categories = React.useMemo(
@@ -83,67 +78,57 @@ export default function HerbBlender() {
         >
           Herb Blend Builder
         </motion.h1>
-        <div className='flex flex-wrap items-center gap-2'>
-          <input
-            list='herb-list'
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            placeholder='Type herb name'
-            className='rounded-md bg-space-dark/70 px-3 py-2 text-white backdrop-blur-md focus:outline-none'
-          />
-          <datalist id='herb-list'>
-            {herbs.map(h => (
-              <option key={h.id} value={herbName(h)} />
-            ))}
-          </datalist>
-          <button
-            type='button'
-            onClick={addHerb}
-            className='tag-pill hover-glow bg-emerald-700/70 text-white'
-          >
-            Add Herb
-          </button>
-          <button
-            type='button'
-            onClick={clearAll}
-            className='tag-pill hover-glow bg-rose-700/70 text-white'
-          >
-            Clear
-          </button>
-          <button
-            type='button'
-            onClick={randomize}
-            className='tag-pill hover-glow bg-sky-700/70 text-white'
-          >
-            Randomize
-          </button>
-        </div>
-        <div className='flex flex-wrap gap-2'>
-          {selectedHerbs.map(h => (
-            <button
-              key={h.id}
-              type='button'
-              onClick={() => removeHerb(h.id)}
-              className='tag-pill ring-2 ring-emerald-400'
-            >
-              {herbName(h)}
+        <div className='ds-card-lg ds-stack'>
+          <div className='flex flex-wrap items-center gap-3'>
+            <input
+              list='herb-list'
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              placeholder='Type herb name'
+              className='min-w-[220px] flex-1 rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-white backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-white/30'
+            />
+            <datalist id='herb-list'>
+              {herbs.map(h => (
+                <option key={h.id} value={herbName(h)} />
+              ))}
+            </datalist>
+            <button type='button' onClick={addHerb} className='btn-primary'>
+              Add Herb
             </button>
-          ))}
+            <button type='button' onClick={clearAll} className='btn-secondary'>
+              Clear
+            </button>
+            <button type='button' onClick={randomize} className='btn-secondary'>
+              Randomize
+            </button>
+          </div>
+          <div className='flex flex-wrap gap-2'>
+            {selectedHerbs.map(h => (
+              <button
+                key={h.id}
+                type='button'
+                onClick={() => removeHerb(h.id)}
+                className='ds-pill border-emerald-300/35 text-white/90'
+              >
+                {herbName(h)}
+              </button>
+            ))}
+          </div>
         </div>
         <BlendSummaryCard herbs={selectedHerbs} onSave={saveBlend} />
         {combinedEffects.length > 0 && (
-          <div className='space-y-1 text-sand'>
-            <p>
+          <div className='ds-card ds-stack text-white/80'>
+            <p className='leading-7'>
               <strong>Effects:</strong> {combinedEffects.join(', ')}
             </p>
-            <p>
+            <p className='leading-7'>
               <strong>Categories:</strong> {categories.join(', ')}
             </p>
-            <p>
+            <p className='leading-7'>
               <strong>Contraindications:</strong> {contraindications || 'None'}
             </p>
             {combinedTags.length > 0 && (
-              <div className='flex flex-wrap gap-1'>
+              <div className='flex flex-wrap gap-2'>
                 {combinedTags.map(t => (
                   <TagBadge key={t} label={t} />
                 ))}

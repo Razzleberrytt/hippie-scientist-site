@@ -85,8 +85,8 @@ export default function Home() {
 
       <Hero />
 
-      <section className='container mx-auto max-w-4xl px-4 pb-6 sm:px-6 sm:pb-8'>
-        <div className='space-y-3 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-7'>
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
             Trusted scope
           </p>
@@ -114,8 +114,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='container mx-auto max-w-4xl px-4 pb-6 sm:px-6 sm:pb-8'>
-        <div className='space-y-4 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:p-7'>
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
             Featured discoveries
           </p>
@@ -124,7 +124,7 @@ export default function Home() {
               <Link
                 key={herb.slug}
                 to={`/herbs/${herb.slug}`}
-                className='rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:border-white/20 hover:bg-black/30'
+                className='ds-card p-5 transition hover:border-white/25'
               >
                 <p className='text-xs uppercase tracking-[0.18em] text-emerald-200/80'>Herb</p>
                 <h3 className='mt-1 text-lg font-semibold text-white'>{herb.name}</h3>
@@ -135,7 +135,7 @@ export default function Home() {
               <Link
                 key={compound.slug}
                 to={`/compounds/${compound.slug}`}
-                className='rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:border-white/20 hover:bg-black/30'
+                className='ds-card p-5 transition hover:border-white/25'
               >
                 <p className='text-xs uppercase tracking-[0.18em] text-sky-200/80'>Compound</p>
                 <h3 className='mt-1 text-lg font-semibold text-white'>{compound.name}</h3>
@@ -146,7 +146,7 @@ export default function Home() {
           {featuredPost && (
             <Link
               to={`/blog/${featuredPost.slug}/`}
-              className='block rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:border-white/20 hover:bg-black/30'
+              className='ds-card block p-5 transition hover:border-white/25'
             >
               <p className='text-xs uppercase tracking-[0.18em] text-violet-200/80'>
                 Research note
@@ -160,8 +160,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className='container mx-auto max-w-4xl px-4 pb-6 sm:px-6 sm:pb-8'>
-        <div className='border-brand-lime/20 bg-brand-lime/5 space-y-3 rounded-3xl border p-5 sm:p-7'>
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack border-brand-lime/20 bg-brand-lime/5'>
           <p className='text-brand-lime/80 text-xs font-semibold uppercase tracking-[0.24em]'>
             Why this matters
           </p>
@@ -177,8 +177,8 @@ export default function Home() {
 
       <EmailCapture />
 
-      <section className='container mx-auto max-w-4xl px-4 pb-12 sm:px-6 sm:pb-16'>
-        <div className='space-y-3 rounded-3xl border border-white/10 bg-white/[0.02] p-5 sm:p-6'>
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/55'>
             Applied learning tool
           </p>
@@ -189,29 +189,17 @@ export default function Home() {
             Use your knowledge to create a blend. Start with herbs and compounds first, then test
             combinations intentionally.
           </p>
-          <Link
-            to='/build'
-            className='inline-flex min-h-11 items-center justify-center rounded-xl border border-emerald-200/35 bg-emerald-400 px-4 text-sm font-semibold text-emerald-950 transition hover:bg-emerald-300'
-          >
+          <Link to='/build' className='btn-primary'>
             Build a Blend (Applied Learning)
           </Link>
           <div className='flex flex-wrap gap-2.5 text-sm'>
-            <Link
-              to='/herbs'
-              className='rounded-lg border border-white/15 px-3 py-2 text-white/80 hover:bg-white/10'
-            >
+            <Link to='/herbs' className='btn-secondary min-h-10 px-3 py-2 text-sm'>
               Browse herbs
             </Link>
-            <Link
-              to='/blog'
-              className='rounded-lg border border-white/15 px-3 py-2 text-white/80 hover:bg-white/10'
-            >
+            <Link to='/blog' className='btn-secondary min-h-10 px-3 py-2 text-sm'>
               Read articles
             </Link>
-            <Link
-              to='/compounds'
-              className='rounded-lg border border-white/15 px-3 py-2 text-white/80 hover:bg-white/10'
-            >
+            <Link to='/compounds' className='btn-secondary min-h-10 px-3 py-2 text-sm'>
               Study compounds
             </Link>
           </div>

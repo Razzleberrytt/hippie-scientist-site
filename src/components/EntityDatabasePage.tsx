@@ -127,34 +127,30 @@ export default function EntityDatabasePage({
   return (
     <ErrorBoundary>
       <Meta title={`${title} | The Hippie Scientist`} description={description} path={metaPath} />
-      <main className='container mx-auto max-w-5xl space-y-6 px-4 py-6'>
-        <section className='rounded-[28px] border border-white/10 bg-white/[0.03] p-6 text-white shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl md:p-8'>
-          <h1 className='text-4xl font-extrabold tracking-tight text-white sm:text-5xl'>{title}</h1>
-          <p className='mt-2 text-white/85'>{description}</p>
+      <main className='container mx-auto max-w-5xl px-4 py-6'>
+        <section className='ds-card-lg ds-section text-white'>
+          <h1 className='ds-heading text-4xl font-bold tracking-tight sm:text-5xl'>{title}</h1>
+          <p className='text-white/78 mt-4 max-w-3xl text-base leading-7'>{description}</p>
 
           {enableAdvancedFilters && (
-            <div className='mt-4 flex flex-wrap items-center gap-2'>
+            <div className='mt-5 flex flex-wrap items-center gap-3'>
               {advancedResults && (
                 <button
                   type='button'
-                  className='inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white transition hover:bg-white/15'
+                  className='btn-secondary'
                   onClick={() => setAdvancedResults(null)}
                 >
                   Clear advanced filters
                 </button>
               )}
-              <button
-                type='button'
-                className='inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white transition hover:bg-white/15'
-                onClick={() => setAdvancedOpen(true)}
-              >
+              <button type='button' className='btn-secondary' onClick={() => setAdvancedOpen(true)}>
                 Advanced search
               </button>
             </div>
           )}
 
-          <div className='mt-5 space-y-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl'>
-            <div className='flex flex-wrap items-center gap-3'>
+          <div className='ds-card mt-5 space-y-4 p-5'>
+            <div className='flex flex-wrap items-center gap-4'>
               <input
                 id={`${kind}-search-input`}
                 className='min-w-0 flex-1 rounded-2xl border border-white/15 bg-black/30 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30'
@@ -162,10 +158,10 @@ export default function EntityDatabasePage({
                 value={query}
                 onChange={event => setQuery(event.target.value)}
               />
-              <span className='text-sm text-white/70'>{results.length} results</span>
+              <span className='text-sm text-white/65'>{results.length} results</span>
             </div>
             {kind === 'herb' && (
-              <div className='grid gap-2 sm:grid-cols-3'>
+              <div className='grid gap-3 sm:grid-cols-3'>
                 <select
                   value={effectFilter}
                   onChange={event => setEffectFilter(event.target.value)}
@@ -209,16 +205,18 @@ export default function EntityDatabasePage({
             )}
           </div>
 
-          <StatBadges
-            stats={[
-              { label: 'psychoactive herbs', value: counters.herbCount },
-              { label: 'active compounds', value: counters.compoundCount },
-              { label: 'articles', value: counters.articleCount },
-            ]}
-          />
+          <div className='mt-6'>
+            <StatBadges
+              stats={[
+                { label: 'psychoactive herbs', value: counters.herbCount },
+                { label: 'active compounds', value: counters.compoundCount },
+                { label: 'articles', value: counters.articleCount },
+              ]}
+            />
+          </div>
         </section>
 
-        <section className='space-y-4 pb-8'>
+        <section className='ds-section ds-stack pb-8'>
           {results.map((item, index) => (
             <DatabaseHerbCard
               key={item.slug ?? item.id ?? `${kind}-${index}`}
@@ -227,7 +225,7 @@ export default function EntityDatabasePage({
             />
           ))}
           {!results.length && (
-            <div className='rounded-[28px] border border-white/10 bg-white/[0.03] p-6 text-center text-white/80 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl'>
+            <div className='ds-card-lg text-center text-white/80'>
               No {kind === 'herb' ? 'herbs' : 'compounds'} match that search.
             </div>
           )}

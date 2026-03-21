@@ -86,70 +86,66 @@ export default function CompoundDetail() {
         pageType='article'
       />
       <main className='container mx-auto max-w-3xl px-4 py-10 text-white'>
-        <article className='space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_80px_rgba(0,0,0,.25)] backdrop-blur-xl'>
-          <header className='space-y-3'>
-            <h1 className='text-3xl font-semibold text-white'>{title}</h1>
+        <article className='ds-card-lg ds-section ds-stack'>
+          <header className='ds-stack'>
+            <h1 className='text-4xl font-semibold text-white'>{title}</h1>
             {compound.scientific && compound.common && compound.common !== compound.scientific && (
-              <p className='text-white/60'>{compound.scientific}</p>
+              <p className='text-white/65'>{compound.scientific}</p>
             )}
           </header>
 
-          <section className='rounded-2xl border border-white/10 bg-black/20 p-4'>
-            <h2 className='text-sm font-semibold uppercase tracking-[0.14em] text-white/70'>
+          <section className='ds-card mt-8'>
+            <h2 className='text-white/72 text-sm font-semibold uppercase tracking-[0.14em]'>
               Quick Facts
             </h2>
-            <div className='mt-3 grid gap-3 text-sm sm:grid-cols-2'>
-              <p>
-                <strong className='text-white'>Type:</strong>{' '}
-                <span className='text-white/80'>{compoundClass}</span>
+            <div className='mt-4 grid gap-3 text-sm leading-7 sm:grid-cols-2'>
+              <p className='text-white/80'>
+                <strong className='text-white'>Type:</strong> <span>{compoundClass}</span>
               </p>
-              <p>
+              <p className='text-white/80'>
                 <strong className='text-white'>Primary effects:</strong>{' '}
-                <span className='text-white/80'>
-                  {normalizedTags.slice(0, 3).join(', ') || 'Context-dependent'}
-                </span>
+                <span>{normalizedTags.slice(0, 3).join(', ') || 'Context-dependent'}</span>
               </p>
-              <p>
+              <p className='text-white/80'>
                 <strong className='text-white'>Intensity:</strong>{' '}
-                <span className='text-white/80'>{compound.intensityLabel || 'Unknown'}</span>
+                <span>{compound.intensityLabel || 'Unknown'}</span>
               </p>
-              <p>
-                <strong className='text-white'>Safety level:</strong>{' '}
-                <span className='text-white/80'>{safety}</span>
+              <p className='text-white/80'>
+                <strong className='text-white'>Safety level:</strong> <span>{safety}</span>
               </p>
             </div>
           </section>
 
-          <section>
-            <h2 className='text-xl font-semibold text-white'>Overview</h2>
-            <p className='mt-3 text-sm leading-7 text-white/85'>{description}</p>
+          <section className='mt-8'>
+            <h2 className='ds-subheading'>Overview</h2>
+            <p className='ds-text mt-4'>{description}</p>
           </section>
 
-          <section>
-            <h2 className='text-xl font-semibold text-white'>Chemical Class</h2>
-            <p className='mt-3 text-sm leading-7 text-white/80'>{compoundClass}</p>
+          <section className='mt-8'>
+            <h2 className='ds-subheading'>Chemical Class</h2>
+            <p className='ds-text-muted mt-4'>{compoundClass}</p>
           </section>
 
-          <section>
-            <h2 className='text-xl font-semibold text-white'>Effects</h2>
-            <p className='mt-3 text-sm leading-7 text-white/80'>
+          <section className='mt-8'>
+            <h2 className='ds-subheading'>Effects</h2>
+            <p className='ds-text-muted mt-4'>
               {compound.effects ||
                 'Effect profile is associated with receptor activity and dosage context.'}
             </p>
           </section>
 
-          <section>
-            <h2 className='text-xl font-semibold text-white'>Mechanism</h2>
-            <p className='mt-3 text-sm leading-7 text-white/80'>
+          <section className='mt-8'>
+            <h2 className='ds-subheading'>Mechanism</h2>
+            <p className='ds-text-muted mt-4'>
               {compound.benefits ||
                 'Mechanistic evidence is still developing; current models are preliminary.'}
             </p>
           </section>
 
-          <section>
-            <h2 className='text-xl font-semibold text-white'>Found In (Herbs)</h2>
+          <section className='mt-8'>
+            <h2 className='ds-subheading'>Found In (Herbs)</h2>
             {foundHerbs.length > 0 ? (
-              <ul className='mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-white/80'>
+              <ul className='text-white/78 mt-4 list-disc space-y-2 pl-5 text-sm leading-7'>
                 {foundHerbs.map(entry => (
                   <li key={entry.name}>
                     {entry.slug ? (
@@ -163,13 +159,15 @@ export default function CompoundDetail() {
                 ))}
               </ul>
             ) : (
-              <p className='mt-3 text-sm text-white/70'>No herb mapping currently available.</p>
+              <p className='ds-text-muted mt-4'>
+                This area will expand as more relationships are mapped.
+              </p>
             )}
           </section>
 
-          <section>
-            <h2 className='text-xl font-semibold text-white'>Research Notes</h2>
-            <ul className='mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-white/80'>
+          <section className='mt-8'>
+            <h2 className='ds-subheading'>Research Notes</h2>
+            <ul className='text-white/78 mt-4 list-disc space-y-2 pl-5 text-sm leading-7'>
               {splitNotes(description)
                 .slice(0, 3)
                 .map(note => (
@@ -179,15 +177,15 @@ export default function CompoundDetail() {
             </ul>
           </section>
 
-          <section>
-            <h2 className='text-xl font-semibold text-white'>Safety</h2>
-            <p className='mt-3 text-sm leading-7 text-white/80'>
+          <section className='mt-8'>
+            <h2 className='ds-subheading'>Safety</h2>
+            <p className='ds-text-muted mt-4'>
               {safety} Monitor interactions, extraction strength, and individual sensitivity.
             </p>
           </section>
         </article>
 
-        <section className='mt-6 rounded-3xl border border-white/10 bg-white/5 p-6'>
+        <section className='ds-card-lg ds-section'>
           <h2 className='text-lg font-semibold text-white'>Explore Next</h2>
           <div className='mt-4 grid gap-5 sm:grid-cols-3'>
             <div>
@@ -195,17 +193,23 @@ export default function CompoundDetail() {
                 Related Herbs
               </h3>
               <ul className='mt-2 space-y-2 text-sm text-white/80'>
-                {foundHerbs.slice(0, 3).map(item => (
-                  <li key={`herb-${item.name}`}>
-                    {item.slug ? (
-                      <Link className='link text-[color:var(--accent)]' to={`/herb/${item.slug}`}>
-                        {item.name}
-                      </Link>
-                    ) : (
-                      item.name
-                    )}
+                {foundHerbs.length ? (
+                  foundHerbs.slice(0, 3).map(item => (
+                    <li key={`herb-${item.name}`}>
+                      {item.slug ? (
+                        <Link className='link text-[color:var(--accent)]' to={`/herb/${item.slug}`}>
+                          {item.name}
+                        </Link>
+                      ) : (
+                        item.name
+                      )}
+                    </li>
+                  ))
+                ) : (
+                  <li className='text-white/60'>
+                    This area will expand as more relationships are mapped.
                   </li>
-                ))}
+                )}
               </ul>
             </div>
             <div>
