@@ -4,6 +4,7 @@ import { trackEvent, useEmailCaptureTrigger } from '@/lib/growth'
 import { CTA } from '@/lib/cta'
 
 const EMAIL_STORAGE_KEY = 'hs_email_list'
+const EMAIL_JOURNEY_KEY = 'hs_email_journey_v1'
 type CaptureContext = 'global' | 'herb' | 'compound' | 'blog' | 'starter-pack'
 
 type EmailCaptureProps = {
@@ -30,6 +31,15 @@ export const getStoredEmails = (): string[] => {
       : []
   } catch {
     return []
+  }
+}
+
+const getStoredJourney = (): Record<string, unknown> => {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(EMAIL_JOURNEY_KEY) || '{}')
+    return parsed && typeof parsed === 'object' ? parsed : {}
+  } catch {
+    return {}
   }
 }
 
@@ -73,6 +83,18 @@ export default function EmailCapture({
       localStorage.setItem(EMAIL_STORAGE_KEY, JSON.stringify(emailList))
       setStoredEmailCount(emailList.length)
     }
+    const journey = getStoredJourney()
+    localStorage.setItem(
+      EMAIL_JOURNEY_KEY,
+      JSON.stringify({
+        ...journey,
+        [normalizedEmail]: {
+          startedAt: new Date().toISOString(),
+          day1: 'Beginner Blend Guide',
+          cadence: 'Daily herb or compound insight',
+        },
+      })
+    )
     trackEvent('email_submit', { context, source: 'inline_capture' })
 
     const guideUrl = '/blend-guide.txt'
@@ -149,9 +171,9 @@ export default function EmailCapture({
           </form>
 
           <div className='text-white/78 grid gap-2 text-xs sm:grid-cols-3 sm:text-sm'>
-            <p>• Beginner Blend Guide</p>
-            <p>• Research-backed herb insights</p>
-            <p>• Starter Research Pack download</p>
+            <p>• Day 1: Beginner Blend Guide</p>
+            <p>• Day 2+: One herb insight per day</p>
+            <p>• Always links back to full breakdowns</p>
           </div>
           {storedEmailCount > 0 ? (
             <div className='pt-1'>

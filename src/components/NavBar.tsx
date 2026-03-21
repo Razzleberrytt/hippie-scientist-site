@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { getDailyDiscoverySnippet } from '@/utils/contentSnippets'
 
 const linkBase =
   'inline-flex min-h-11 items-center justify-center rounded-xl px-3.5 text-sm font-medium transition-all duration-200'
@@ -12,6 +13,7 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const isHome = location.pathname === '/'
+  const dailyDiscovery = useMemo(() => getDailyDiscoverySnippet(), [])
 
   return (
     <header className='sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xl supports-[backdrop-filter]:bg-black/40'>
@@ -115,6 +117,14 @@ export default function NavBar() {
       </nav>
       <div className='border-white/8 border-t bg-white/[0.03]'>
         <div className='mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-1 px-4 py-1.5 text-[11px] tracking-[0.08em] text-white/55 sm:px-6'>
+          {dailyDiscovery && (
+            <Link
+              to={dailyDiscovery.ctaPath}
+              className='text-emerald-100/80 hover:text-emerald-100'
+            >
+              Today&apos;s discovery: {dailyDiscovery.title}
+            </Link>
+          )}
           <span className='inline-flex items-center gap-1.5 whitespace-nowrap'>
             <span aria-hidden='true'>🧪</span>
             Research-based herbal knowledge

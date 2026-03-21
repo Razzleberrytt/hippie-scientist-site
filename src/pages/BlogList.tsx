@@ -89,6 +89,7 @@ export default function BlogList() {
 
   const heading =
     pagination.page > 1 ? `Research Notebook — Page ${pagination.page}` : 'Research Notebook'
+  const series = buildSeriesBuckets(posts)
 
   return (
     <div className='container-page space-y-6 py-7 sm:py-8'>
@@ -101,6 +102,13 @@ export default function BlogList() {
         <p className='text-xs text-white/60'>
           Educational use only. Posts summarize available evidence and may include unresolved gaps.
         </p>
+        <div className='flex flex-wrap gap-2'>
+          {series.slice(0, 5).map(item => (
+            <span key={item.label} className='ds-pill'>
+              {item.label} · {item.count}
+            </span>
+          ))}
+        </div>
       </header>
 
       <div className='space-y-4'>
@@ -140,6 +148,17 @@ export default function BlogList() {
       <PaginationNav current={pagination.page} totalPages={pagination.totalPages} />
     </div>
   )
+}
+
+function buildSeriesBuckets(posts: PostIndex[]) {
+  const counts = new Map<string, number>()
+  posts.forEach(post => {
+    const label = resolveCategory(post.tags)
+    counts.set(label, (counts.get(label) || 0) + 1)
+  })
+  return Array.from(counts.entries())
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => b.count - a.count)
 }
 
 function deriveKeyword(title: string) {

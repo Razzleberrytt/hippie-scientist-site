@@ -5,10 +5,11 @@ import { decorateCompounds } from '@/lib/compounds'
 import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '@/lib/slug'
 import { getDisplayName, recommendRelatedCompounds, recommendRelatedHerbs } from '@/lib/discovery'
-import { pushRecentlyViewed, trackEvent, useSavedItems } from '@/lib/growth'
+import { getTopClickedCompounds, pushRecentlyViewed, trackEvent, useSavedItems } from '@/lib/growth'
 import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
 import { CTA } from '@/lib/cta'
 import ShareInsightCard from '@/components/ShareInsightCard'
+import { getSnippet } from '@/utils/contentSnippets'
 
 const compounds = decorateCompounds()
 type Param = { slug?: string }
@@ -103,6 +104,8 @@ export default function CompoundDetail() {
   const fallbackCompounds = compounds.filter(c => c.slug !== compound.slug).slice(0, 3)
   const saved = isSaved('compound', compound.slug)
   const shareInsight = `${title} is associated with ${effects[0] || 'distinct receptor-level effects'} and should always be interpreted through dose + safety context.`
+  const snippet = getSnippet('compound', compound.slug)
+  const trendingCompounds = getTopClickedCompounds(4).filter(item => item.slug !== compound.slug)
 
   return (
     <>
@@ -137,6 +140,9 @@ export default function CompoundDetail() {
             >
               {saved ? '★ Favorited' : '☆ Favorite'}
             </button>
+            <p className='mt-2 text-xs text-white/60'>
+              Save this for later and get deeper insights.
+            </p>
             <ShareInsightCard
               title={title}
               insight={shareInsight}
@@ -147,7 +153,31 @@ export default function CompoundDetail() {
 
           <Section title='Overview' label='Research-backed'>
             <p className='mt-2 text-sm leading-7 text-white/85'>{description}</p>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              <Link to={`/compounds/${compound.slug}`} className='btn-secondary'>
+                Read full breakdown
+              </Link>
+              <Link to='/blend' className='btn-secondary'>
+                Build a blend with this
+              </Link>
+            </div>
           </Section>
+
+          {snippet && (
+            <Section title='Distribution snippet' label='Social + email ready'>
+              <ul className='text-white/82 mt-2 space-y-2 text-sm'>
+                <li>
+                  <strong className='text-white'>Hook:</strong> {snippet.hook}
+                </li>
+                <li>
+                  <strong className='text-white'>Explanation:</strong> {snippet.explanation}
+                </li>
+                <li>
+                  <strong className='text-white'>Safety note:</strong> {snippet.safetyNote}
+                </li>
+              </ul>
+            </Section>
+          )}
 
           <Section title='Class' label='Taxonomy + profile'>
             <dl className='mt-3 grid gap-3 text-sm sm:grid-cols-2'>
@@ -242,6 +272,19 @@ export default function CompoundDetail() {
                 href: `/herbs/${item.slug}`,
               }))}
             />
+          </div>
+        </section>
+        <section className='ds-card-lg ds-section'>
+          <h2 className='text-lg font-semibold text-white'>Trending now</h2>
+          <p className='mt-1 text-sm text-white/70'>Get deeper insights from trending compounds.</p>
+          <div className='mt-3 flex flex-wrap gap-2'>
+            {(trendingCompounds.length ? trendingCompounds : fallbackCompounds)
+              .slice(0, 4)
+              .map(item => (
+                <Link key={item.slug} className='btn-secondary' to={`/compounds/${item.slug}`}>
+                  {item.slug}
+                </Link>
+              ))}
           </div>
         </section>
         <ContextualLeadMagnet

@@ -19,6 +19,7 @@ import {
 import { futureProducts } from '@/lib/products'
 import { CTA } from '@/lib/cta'
 import { buildHerbViralHooks } from '@/lib/viralContent'
+import { getDailyDiscoverySnippet } from '@/utils/contentSnippets'
 
 type FeaturedItem = {
   slug: string
@@ -51,6 +52,7 @@ export default function Home() {
   const [topViewed, setTopViewed] = useState<Array<{ slug: string; count: number }>>([])
   const [topCompounds, setTopCompounds] = useState<Array<{ slug: string; count: number }>>([])
   const [topSearches, setTopSearches] = useState<Array<{ value: string; count: number }>>([])
+  const dailyDiscovery = getDailyDiscoverySnippet()
 
   useEffect(() => {
     let alive = true
@@ -114,6 +116,26 @@ export default function Home() {
       />
 
       <Hero />
+
+      {dailyDiscovery && (
+        <section className='container mx-auto max-w-4xl px-4 pt-5 sm:px-6'>
+          <div className='ds-card-lg border-emerald-200/20 bg-emerald-400/5'>
+            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-emerald-100/80'>
+              Today&apos;s discovery
+            </p>
+            <h2 className='mt-2 text-2xl font-semibold text-white'>{dailyDiscovery.title}</h2>
+            <p className='mt-2 text-sm text-white/75'>{dailyDiscovery.explanation}</p>
+            <div className='mt-3 flex flex-wrap gap-2.5'>
+              <Link to={dailyDiscovery.ctaPath} className='btn-primary'>
+                Read full breakdown
+              </Link>
+              <Link to='/blend' className='btn-secondary'>
+                Build a blend with this
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
@@ -216,6 +238,31 @@ export default function Home() {
         </section>
       )}
 
+      {(recent.length > 0 || items.length > 0) && (
+        <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+          <div className='ds-card-lg ds-stack'>
+            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+              Continue exploring
+            </p>
+            <p className='text-sm text-white/70'>
+              Want more like this? Jump back into your recent profiles or saved research trails.
+            </p>
+            <div className='flex flex-wrap gap-2'>
+              {recent.slice(0, 2).map(item => (
+                <Link key={`recent-${item.slug}`} to={item.href} className='btn-secondary'>
+                  {item.title}
+                </Link>
+              ))}
+              {items.slice(0, 2).map(item => (
+                <Link key={`saved-${item.id}`} to={item.href} className='btn-secondary'>
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
@@ -225,21 +272,47 @@ export default function Home() {
             <article className='ds-card p-4'>
               <h3 className='text-sm font-semibold text-white'>Most viewed herbs</h3>
               <ul className='mt-2 text-xs text-white/70'>
-                {topViewed.length ? (
-                  topViewed.map(item => <li key={item.slug}>{item.slug}</li>)
-                ) : (
-                  <li>No data yet</li>
-                )}
+                {topViewed.length
+                  ? topViewed.map(item => (
+                      <li key={item.slug}>
+                        <Link to={`/herbs/${item.slug}`} className='hover:text-emerald-200'>
+                          {item.slug}
+                        </Link>
+                      </li>
+                    ))
+                  : featured
+                      .filter(item => item.kind === 'herb')
+                      .slice(0, 3)
+                      .map(item => (
+                        <li key={item.slug}>
+                          <Link to={`/herbs/${item.slug}`} className='hover:text-emerald-200'>
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
               </ul>
             </article>
             <article className='ds-card p-4'>
               <h3 className='text-sm font-semibold text-white'>Most clicked compounds</h3>
               <ul className='mt-2 text-xs text-white/70'>
-                {topCompounds.length ? (
-                  topCompounds.map(item => <li key={item.slug}>{item.slug}</li>)
-                ) : (
-                  <li>No data yet</li>
-                )}
+                {topCompounds.length
+                  ? topCompounds.map(item => (
+                      <li key={item.slug}>
+                        <Link to={`/compounds/${item.slug}`} className='hover:text-emerald-200'>
+                          {item.slug}
+                        </Link>
+                      </li>
+                    ))
+                  : featured
+                      .filter(item => item.kind === 'compound')
+                      .slice(0, 3)
+                      .map(item => (
+                        <li key={item.slug}>
+                          <Link to={`/compounds/${item.slug}`} className='hover:text-emerald-200'>
+                            {item.name}
+                          </Link>
+                        </li>
+                      ))}
               </ul>
             </article>
             <article className='ds-card p-4'>
@@ -288,7 +361,11 @@ export default function Home() {
         </div>
       </section>
 
-      <EmailCapture />
+      <EmailCapture
+        title='Get one new herb insight per day'
+        subtitle='Day 1: beginner blend guide. Day 2+: a short daily herb or compound insight with a direct link back to the full breakdown.'
+        buttonLabel='Start daily insights'
+      />
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>

@@ -9,12 +9,13 @@ import { decorateCompounds } from '@/lib/compounds'
 import { normalizeScientificTags } from '@/lib/tags'
 import { canonicalSlug, slugify } from '@/lib/slug'
 import { recommendRelatedCompoundsForHerb, recommendRelatedHerbs } from '@/lib/discovery'
-import { pushRecentlyViewed, trackEvent, useSavedItems } from '@/lib/growth'
+import { getTopViewedHerbs, pushRecentlyViewed, trackEvent, useSavedItems } from '@/lib/growth'
 import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
 import { CTA } from '@/lib/cta'
 import posts from '../../public/blogdata/index.json'
 import { buildHerbViralHooks } from '@/lib/viralContent'
 import ShareInsightCard from '@/components/ShareInsightCard'
+import { getSnippet } from '@/utils/contentSnippets'
 
 type Param = { slug?: string }
 const compounds = decorateCompounds()
@@ -133,6 +134,8 @@ export default function HerbDetail() {
     })
     .slice(0, 3)
   const viralHooks = buildHerbViralHooks(herb)
+  const snippet = getSnippet('herb', herb.slug)
+  const trendingHerbs = getTopViewedHerbs(4).filter(item => item.slug !== herb.slug)
 
   return (
     <>
@@ -169,6 +172,9 @@ export default function HerbDetail() {
               >
                 {saved ? '★ Favorited' : '☆ Favorite'}
               </button>
+              <p className='mt-2 text-xs text-white/60'>
+                Save this for later and continue exploring.
+              </p>
               <ShareInsightCard
                 title={displayTitle}
                 insight={viralHooks.didYouKnow[0]}
@@ -180,7 +186,31 @@ export default function HerbDetail() {
             <Section title='Overview' label='Research-backed'>
               <p className='mt-2 text-sm leading-7 text-white/85'>{overview}</p>
               <p className='mt-3 text-sm text-emerald-100/85'>{viralHooks.beginnerExplanation}</p>
+              <div className='mt-3 flex flex-wrap gap-2'>
+                <Link to={`/herbs/${herb.slug}`} className='btn-secondary'>
+                  Read full breakdown
+                </Link>
+                <Link to='/blend' className='btn-secondary'>
+                  Build a blend with this
+                </Link>
+              </div>
             </Section>
+
+            {snippet && (
+              <Section title='Distribution snippet' label='Social + email ready'>
+                <ul className='text-white/82 mt-2 space-y-2 text-sm'>
+                  <li>
+                    <strong className='text-white'>Hook:</strong> {snippet.hook}
+                  </li>
+                  <li>
+                    <strong className='text-white'>Explanation:</strong> {snippet.explanation}
+                  </li>
+                  <li>
+                    <strong className='text-white'>Safety note:</strong> {snippet.safetyNote}
+                  </li>
+                </ul>
+              </Section>
+            )}
 
             <Section title='Classification' label='Taxonomy + profile'>
               <dl className='mt-3 grid gap-3 text-sm sm:grid-cols-2'>
@@ -299,6 +329,19 @@ export default function HerbDetail() {
                         .map((post: any) => ({ label: post.title, href: `/blog/${post.slug}` }))
                 }
               />
+            </div>
+          </section>
+          <section className='ds-card-lg'>
+            <h2 className='text-lg font-semibold text-white'>Trending now</h2>
+            <p className='mt-1 text-sm text-white/70'>
+              Want more like this? Follow the profiles readers are opening now.
+            </p>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              {(trendingHerbs.length ? trendingHerbs : popularFallback).slice(0, 4).map(item => (
+                <Link key={item.slug} className='btn-secondary' to={`/herbs/${item.slug}`}>
+                  {item.slug}
+                </Link>
+              ))}
             </div>
           </section>
         </div>
