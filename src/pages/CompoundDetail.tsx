@@ -1,13 +1,14 @@
+import { useEffect, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import type { ReactNode } from 'react'
 import Meta from '@/components/Meta'
 import { decorateCompounds } from '@/lib/compounds'
 import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '@/lib/slug'
 import { getDisplayName, recommendRelatedCompounds, recommendRelatedHerbs } from '@/lib/discovery'
-import { trackEvent, useSavedItems } from '@/lib/growth'
+import { pushRecentlyViewed, trackEvent, useSavedItems } from '@/lib/growth'
 import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
 import { CTA } from '@/lib/cta'
+import ShareInsightCard from '@/components/ShareInsightCard'
 
 const compounds = decorateCompounds()
 type Param = { slug?: string }
@@ -41,6 +42,18 @@ export default function CompoundDetail() {
   const compound = compounds.find(entry => entry.slug === slug)
   const herbs = useHerbData()
   const { toggle, isSaved } = useSavedItems()
+
+  useEffect(() => {
+    if (!compound) return
+    const title = compound.common || compound.scientific || compound.name || 'Compound'
+    pushRecentlyViewed({
+      type: 'compound',
+      slug: compound.slug,
+      title,
+      href: `/compounds/${compound.slug}`,
+    })
+    trackEvent('detail_click', { kind: 'compound', slug: compound.slug, action: 'view' })
+  }, [compound])
 
   if (!compound) {
     return (
@@ -89,6 +102,7 @@ export default function CompoundDetail() {
   )
   const fallbackCompounds = compounds.filter(c => c.slug !== compound.slug).slice(0, 3)
   const saved = isSaved('compound', compound.slug)
+  const shareInsight = `${title} is associated with ${effects[0] || 'distinct receptor-level effects'} and should always be interpreted through dose + safety context.`
 
   return (
     <>
@@ -123,6 +137,12 @@ export default function CompoundDetail() {
             >
               {saved ? '★ Favorited' : '☆ Favorite'}
             </button>
+            <ShareInsightCard
+              title={title}
+              insight={shareInsight}
+              kind='compound'
+              slug={compound.slug}
+            />
           </header>
 
           <Section title='Overview' label='Research-backed'>
@@ -197,23 +217,26 @@ export default function CompoundDetail() {
 
         <section className='ds-card-lg ds-section'>
           <h2 className='text-lg font-semibold text-white'>Explore Next</h2>
+          <p className='mt-1 text-sm text-white/70'>
+            If you found this interesting… continue the loop.
+          </p>
           <div className='mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
             <ExploreColumn
-              title='Same class'
+              title='Compare with…'
               items={(relatedCompounds.length ? relatedCompounds : fallbackCompounds).map(item => ({
                 label: item.common || item.name || item.scientific || item.slug,
                 href: `/compounds/${item.slug}`,
               }))}
             />
             <ExploreColumn
-              title='Similar effects'
+              title='Explore similar mechanisms'
               items={herbLinks.map((item: any) => ({
                 label: getDisplayName(item),
                 href: `/herbs/${item.slug}`,
               }))}
             />
             <ExploreColumn
-              title='Contains similar compounds'
+              title='Jump to another herb'
               items={(foundHerbs.length ? foundHerbs : herbs.slice(0, 3)).map((item: any) => ({
                 label: getDisplayName(item),
                 href: `/herbs/${item.slug}`,

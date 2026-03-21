@@ -10,6 +10,9 @@ import type { Herb } from '@/types'
 import { trackEvent } from '@/lib/growth'
 import { CTA } from '@/lib/cta'
 
+const POPULAR_SEARCHES = ['ashwagandha', 'lion’s mane', 'kava', 'reishi', 'muscimol']
+const SEARCH_SUGGESTIONS = ['gaba', 'adaptogen', 'sleep', 'focus', 'dream']
+
 export type EntityDatabasePageProps = {
   title: string
   description: string
@@ -161,6 +164,7 @@ export default function EntityDatabasePage({
       return true
     })
   }, [scopedItems, query, effectFilter, intensityFilter, categoryFilter, tagFilter])
+  const topMatches = useMemo(() => filtered.slice(0, 3), [filtered])
 
   const randomHerb = kind === 'herb' ? pickRandomHerb(items) : null
 
@@ -219,12 +223,49 @@ export default function EntityDatabasePage({
                   setQuery(next)
                   updateParam('q', next.trim())
                   if (next.trim().length >= 2) {
-                    trackEvent('search_used', { kind, query_length: next.trim().length })
+                    trackEvent('search_used', {
+                      kind,
+                      query_length: next.trim().length,
+                      query: next.trim().toLowerCase(),
+                    })
                   }
                 }}
               />
               <span className='text-sm text-white/65 sm:shrink-0'>{filtered.length} results</span>
             </div>
+            <div className='flex flex-wrap gap-2 text-xs'>
+              <span className='text-white/60'>Popular searches:</span>
+              {POPULAR_SEARCHES.map(term => (
+                <button
+                  key={term}
+                  className='rounded-full border border-white/15 px-2 py-1 text-white/80 hover:bg-white/10'
+                  onClick={() => {
+                    setQuery(term)
+                    updateParam('q', term)
+                    trackEvent('search_used', { kind, query: term })
+                  }}
+                >
+                  {term}
+                </button>
+              ))}
+            </div>
+            {!query && (
+              <p className='text-xs text-white/60'>
+                Try searching for… {SEARCH_SUGGESTIONS.join(', ')}.
+              </p>
+            )}
+            {query.trim().length > 0 && (
+              <div className='rounded-xl border border-white/10 bg-white/[0.03] p-3'>
+                <p className='text-xs uppercase tracking-[0.13em] text-white/60'>Top matches</p>
+                <ul className='mt-2 space-y-1 text-sm text-white/85'>
+                  {topMatches.map(item => (
+                    <li key={item.slug}>
+                      {item.common || item.scientific || item.name || item.slug}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
               <select

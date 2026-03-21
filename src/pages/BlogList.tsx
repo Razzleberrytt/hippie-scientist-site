@@ -125,6 +125,9 @@ export default function BlogList() {
             <p className='max-w-3xl text-sm leading-7 text-white/80 sm:text-base'>
               {cleanBlogExcerpt(post.summary, post.description)}
             </p>
+            <p className='text-xs text-emerald-100/85'>
+              Targets keyword: {deriveKeyword(post.title)} · Answers: {deriveQuestion(post.title)}
+            </p>
             <div>
               <Link to={`/blog/${post.slug}`} className='btn-primary min-w-28'>
                 {CTA.primary.learn}
@@ -137,6 +140,20 @@ export default function BlogList() {
       <PaginationNav current={pagination.page} totalPages={pagination.totalPages} />
     </div>
   )
+}
+
+function deriveKeyword(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 4)
+    .join(' ')
+}
+
+function deriveQuestion(title: string) {
+  return `What is ${title.toLowerCase()}?`
 }
 
 function resolveCategory(tags?: string[]) {

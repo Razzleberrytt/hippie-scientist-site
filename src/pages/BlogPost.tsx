@@ -82,6 +82,8 @@ export default function BlogPost() {
       )
       .slice(0, 3)
   }, [meta?.tags])
+  const targetKeyword = useMemo(() => deriveKeyword(meta?.title || ''), [meta?.title])
+  const targetQuestion = useMemo(() => deriveQuestion(meta?.title || ''), [meta?.title])
 
   if (loading) {
     return <main className='container-page py-7 text-white/75 sm:py-8'>Loading post…</main>
@@ -130,26 +132,42 @@ export default function BlogPost() {
           <p className='mt-2 text-sm leading-7 text-white/80'>
             {cleanBlogExcerpt(meta?.summary, meta?.description)}
           </p>
+          <p className='mt-3 text-xs text-emerald-100/90'>
+            Intro hook: If you have ever asked “{targetQuestion}”, this guide gives a
+            mechanism-first explanation with practical safety framing.
+          </p>
         </section>
         {meta?.slug && (
-          <button
-            className='w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
-            onClick={() =>
-              toggle({
-                type: 'article',
-                slug: meta.slug,
-                title: meta.title,
-                href: `/blog/${meta.slug}`,
-                note: cleanBlogExcerpt(meta.summary, meta.description),
-              })
-            }
-          >
-            {isSaved('article', meta.slug) ? '★ Favorited' : '☆ Favorite'}
-          </button>
+          <div className='flex flex-wrap gap-2'>
+            <button
+              className='w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
+              onClick={() =>
+                toggle({
+                  type: 'article',
+                  slug: meta.slug,
+                  title: meta.title,
+                  href: `/blog/${meta.slug}`,
+                  note: cleanBlogExcerpt(meta.summary, meta.description),
+                })
+              }
+            >
+              {isSaved('article', meta.slug) ? '★ Favorited' : '☆ Favorite'}
+            </button>
+            <button
+              className='w-fit rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
+              onClick={async () => {
+                await navigator.clipboard.writeText(`${window.location.origin}/blog/${meta.slug}`)
+              }}
+            >
+              Copy link
+            </button>
+          </div>
         )}
       </header>
 
       <section className='mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+        <InfoBlock title='Target keyword' body={targetKeyword} />
+        <InfoBlock title='Question answered' body={targetQuestion} />
         <InfoBlock
           title='Research Digest'
           body='Mechanisms, evidence quality, and confidence boundaries from available studies.'
@@ -275,4 +293,21 @@ function formatDate(iso: string) {
   const d = new Date(iso)
   if (Number.isNaN(d.getTime())) return iso
   return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })
+}
+
+function deriveKeyword(title: string) {
+  const cleaned = title.toLowerCase().replace(/[^a-z0-9\s]/g, ' ')
+  const bits = cleaned
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter(word => !['the', 'and', 'for', 'with', 'notes'].includes(word))
+    .slice(0, 5)
+  return bits.join(' ') || 'herbal mechanisms'
+}
+
+function deriveQuestion(title: string) {
+  const cleaned = title.replace(/\s+/g, ' ').trim()
+  if (!cleaned) return 'What is this herb or compound and how does it work?'
+  if (cleaned.endsWith('?')) return cleaned
+  return `What is ${cleaned.toLowerCase()}?`
 }

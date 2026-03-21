@@ -30,6 +30,15 @@ type AnalyticsEvent = {
 const SAVED_KEY = 'hs_saved_items_v1'
 const EVENTS_KEY = 'hs_analytics_events_v1'
 const PAGE_KEY = 'hs_page_views_v1'
+const RECENTLY_VIEWED_KEY = 'hs_recently_viewed_v1'
+
+export type RecentlyViewed = {
+  type: SavedEntityType
+  slug: string
+  title: string
+  href: string
+  at: string
+}
 
 function readJson<T>(key: string, fallback: T): T {
   if (typeof window === 'undefined') return fallback
@@ -111,6 +120,72 @@ export function trackEvent(name: AnalyticsEvent['name'], payload: AnalyticsEvent
   } catch {
     // noop
   }
+}
+
+export function pushRecentlyViewed(entry: Omit<RecentlyViewed, 'at'>) {
+  const rows = readJson<RecentlyViewed[]>(RECENTLY_VIEWED_KEY, [])
+  const filtered = rows.filter(item => !(item.type === entry.type && item.slug === entry.slug))
+  const next = [{ ...entry, at: new Date().toISOString() }, ...filtered].slice(0, 20)
+  writeJson(RECENTLY_VIEWED_KEY, next)
+}
+
+export function useRecentlyViewed() {
+  const [items, setItems] = useState<RecentlyViewed[]>([])
+  useEffect(() => {
+    setItems(readJson<RecentlyViewed[]>(RECENTLY_VIEWED_KEY, []))
+  }, [])
+  return items
+}
+
+function topFromPayloadKey(key: string, limit = 5) {
+  const events = readJson<AnalyticsEvent[]>(EVENTS_KEY, [])
+  const counter = new Map<string, number>()
+  events.forEach(event => {
+    const value = event.payload?.[key]
+    if (!value) return
+    const normalized = String(value).trim()
+    if (!normalized) return
+    counter.set(normalized, (counter.get(normalized) || 0) + 1)
+  })
+  return Array.from(counter.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([value, count]) => ({ value, count }))
+}
+
+export function getTopViewedHerbs(limit = 5) {
+  const pages = readJson<string[]>(PAGE_KEY, [])
+  const counter = new Map<string, number>()
+  pages.forEach(path => {
+    const match = path.match(/\/herbs\/([^/?#]+)/)
+    if (!match?.[1]) return
+    const slug = decodeURIComponent(match[1])
+    counter.set(slug, (counter.get(slug) || 0) + 1)
+  })
+  return Array.from(counter.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([slug, count]) => ({ slug, count }))
+}
+
+export function getTopClickedCompounds(limit = 5) {
+  const events = readJson<AnalyticsEvent[]>(EVENTS_KEY, [])
+  const counter = new Map<string, number>()
+  events.forEach(event => {
+    if (event.name !== 'view_details_click' && event.name !== 'detail_click') return
+    if (event.payload?.kind !== 'compound') return
+    const value = String(event.payload?.slug || '').trim()
+    if (!value) return
+    counter.set(value, (counter.get(value) || 0) + 1)
+  })
+  return Array.from(counter.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([slug, count]) => ({ slug, count }))
+}
+
+export function getTopSearches(limit = 5) {
+  return topFromPayloadKey('query', limit)
 }
 
 export function useGrowthTracking() {

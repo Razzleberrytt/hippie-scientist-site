@@ -1,4 +1,4 @@
-import { useMemo, type ReactNode } from 'react'
+import { useEffect, useMemo, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '../components/Meta'
 import { normalizeHerbDetails } from '../components/HerbDetails'
@@ -9,10 +9,12 @@ import { decorateCompounds } from '@/lib/compounds'
 import { normalizeScientificTags } from '@/lib/tags'
 import { canonicalSlug, slugify } from '@/lib/slug'
 import { recommendRelatedCompoundsForHerb, recommendRelatedHerbs } from '@/lib/discovery'
-import { trackEvent, useSavedItems } from '@/lib/growth'
+import { pushRecentlyViewed, trackEvent, useSavedItems } from '@/lib/growth'
 import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
 import { CTA } from '@/lib/cta'
 import posts from '../../public/blogdata/index.json'
+import { buildHerbViralHooks } from '@/lib/viralContent'
+import ShareInsightCard from '@/components/ShareInsightCard'
 
 type Param = { slug?: string }
 const compounds = decorateCompounds()
@@ -50,6 +52,28 @@ export default function HerbDetail() {
     const normalized = canonicalSlug(slug)
     return herbs.find(h => canonicalSlug(h.slug, h.common, h.scientific, h.name) === normalized)
   }, [herbs, slug])
+
+  useEffect(() => {
+    if (!herb) return
+    const details = normalizeHerbDetails(herb)
+    const scientificName =
+      herb.scientific || (herb as any).scientificName || (herb as any).binomial || herb.name
+    const normalizedCommon =
+      getCommonName(herb) ?? (herb.common ? titleCase(String(herb.common)) : undefined)
+    const displayTitle = normalizedCommon ?? scientificName ?? 'Herb'
+    pushRecentlyViewed({
+      type: 'herb',
+      slug: herb.slug,
+      title: displayTitle,
+      href: `/herbs/${herb.slug}`,
+    })
+    trackEvent('detail_click', {
+      kind: 'herb',
+      slug: herb.slug,
+      action: 'view',
+      tag_count: details.tags.length,
+    })
+  }, [herb])
 
   if (!herbs.length)
     return <main className='container py-6 text-white/75'>Loading herb profile…</main>
@@ -108,6 +132,7 @@ export default function HerbDetail() {
       return hay.includes(displayTitle.toLowerCase())
     })
     .slice(0, 3)
+  const viralHooks = buildHerbViralHooks(herb)
 
   return (
     <>
@@ -144,10 +169,17 @@ export default function HerbDetail() {
               >
                 {saved ? '★ Favorited' : '☆ Favorite'}
               </button>
+              <ShareInsightCard
+                title={displayTitle}
+                insight={viralHooks.didYouKnow[0]}
+                kind='herb'
+                slug={herb.slug}
+              />
             </header>
 
             <Section title='Overview' label='Research-backed'>
               <p className='mt-2 text-sm leading-7 text-white/85'>{overview}</p>
+              <p className='mt-3 text-sm text-emerald-100/85'>{viralHooks.beginnerExplanation}</p>
             </Section>
 
             <Section title='Classification' label='Taxonomy + profile'>
@@ -189,6 +221,15 @@ export default function HerbDetail() {
                 }
                 cautionNote={riskRaw}
               />
+              <p className='mt-3 text-sm text-amber-100/90'>{viralHooks.safetyInsight}</p>
+            </Section>
+
+            <Section title='Did you know?' label='Shareable facts'>
+              <ul className='text-white/82 mt-2 list-disc space-y-2 pl-5 text-sm'>
+                {viralHooks.didYouKnow.map(fact => (
+                  <li key={fact}>{fact}</li>
+                ))}
+              </ul>
             </Section>
 
             <Section title='Traditional Use' label='Historical context'>
@@ -225,16 +266,19 @@ export default function HerbDetail() {
 
           <section className='ds-card-lg'>
             <h2 className='text-lg font-semibold text-white'>Explore Next</h2>
+            <p className='mt-1 text-sm text-white/70'>
+              If you found this interesting… keep exploring.
+            </p>
             <div className='mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
               <ExploreColumn
-                title='Same class'
+                title='Compare with…'
                 items={(relatedHerbs.length ? relatedHerbs : popularFallback).map(item => ({
                   label: item.common || item.scientific || item.slug,
                   href: `/herbs/${item.slug}`,
                 }))}
               />
               <ExploreColumn
-                title='Similar effects'
+                title='Explore similar mechanisms'
                 items={(relatedCompounds.length ? relatedCompounds : compounds.slice(0, 3)).map(
                   item => ({
                     label: item.common || item.name || item.scientific || item.slug,
@@ -243,7 +287,7 @@ export default function HerbDetail() {
                 )}
               />
               <ExploreColumn
-                title='Contains similar compounds'
+                title='Read a related blog post'
                 items={
                   relatedArticles.length
                     ? relatedArticles.map((post: any) => ({

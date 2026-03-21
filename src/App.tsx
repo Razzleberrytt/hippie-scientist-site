@@ -33,6 +33,7 @@ import CompoundDetail from './pages/CompoundDetail'
 import StarterPackSuccess from './pages/StarterPackSuccess'
 import Downloads from './pages/Downloads'
 import LearningPaths from './pages/LearningPaths'
+import HerbGoalPage from './pages/HerbGoalPage'
 import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
 // Import other pages as needed
@@ -63,6 +64,7 @@ export default function App() {
               <Route path='/starter-pack-success' element={<StarterPackSuccess />} />
               <Route path='/downloads' element={<Downloads />} />
               <Route path='/learning' element={<LearningPaths />} />
+              <Route path='/herbs-for-:goal' element={<HerbGoalPage />} />
               <Route path='/favorites' element={<Favorites />} />
               <Route path='/newsletter' element={<Newsletter />} />
               <Route path='/contact' element={<Contact />} />
