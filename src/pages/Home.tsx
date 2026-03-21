@@ -80,10 +80,10 @@ export default function Home() {
             Trusted scope
           </p>
           <h2 className='text-xl font-semibold text-white sm:text-2xl'>
-            Explore a research-backed psychoactive plant database
+            Explore a science-forward herbal knowledge base
           </h2>
           <p className='text-sm leading-relaxed text-white/75 sm:text-base'>
-            Start with verified herb profiles, active compounds, and short research notes.
+            Study herbs, compounds, mechanisms, and safety context before experimentation.
           </p>
           <nav aria-label='Site stats' className='grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3'>
             <StatPill
@@ -132,11 +132,11 @@ export default function Home() {
             Why this matters
           </p>
           <h2 className='text-xl font-semibold text-white sm:text-2xl'>
-            Learn effects and safety before experimentation
+            Learn mechanisms and safety before experimentation
           </h2>
           <p className='max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base'>
-            Better decisions come from context: what a herb does, how compounds work, and where
-            contraindications apply. This project prioritizes informed, lower-risk exploration.
+            Better decisions come from context: what a herb may support, how compounds interact, and
+            where contraindications apply. Findings vary by dose, preparation, and context.
           </p>
         </div>
       </section>

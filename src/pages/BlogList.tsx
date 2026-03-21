@@ -2,7 +2,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 
-import { paginateCollection, resolveBlogIndexUrl, sortPostsByDateDesc } from '@/lib/blog'
+import {
+  cleanBlogExcerpt,
+  paginateCollection,
+  resolveBlogIndexUrl,
+  sortPostsByDateDesc,
+} from '@/lib/blog'
 
 type PostIndex = {
   slug: string
@@ -77,47 +82,47 @@ export default function BlogList() {
     }
   }, [loading, posts.length, currentPage, pagination.page, isValidPage, hasParam, navigate])
 
-  if (loading) return <div className='p-6 opacity-80'>Loading…</div>
-  if (error) return <div className='p-6 opacity-80'>{error}</div>
-  if (!posts.length) return <div className='p-6 opacity-80'>No posts yet.</div>
+  if (loading) return <div className='container-page py-8 opacity-80'>Loading…</div>
+  if (error) return <div className='container-page py-8 opacity-80'>{error}</div>
+  if (!posts.length) return <div className='container-page py-8 opacity-80'>No posts yet.</div>
 
-  const heading = pagination.page > 1 ? `Blog — Page ${pagination.page}` : 'Blog'
-  const intro =
-    'Research notes on psychoactive botany, traditional context, and compound-level interpretation.'
+  const heading =
+    pagination.page > 1 ? `Research Notebook — Page ${pagination.page}` : 'Research Notebook'
 
   return (
     <div className='container-page space-y-6 py-8'>
-      <header className='space-y-3'>
-        <h1 className='text-4xl font-extrabold tracking-tight'>{heading}</h1>
-        <p className='max-w-2xl text-white/70'>{intro}</p>
+      <header className='ds-card-lg space-y-3'>
+        <h1 className='text-4xl font-extrabold tracking-tight text-white'>{heading}</h1>
+        <p className='text-white/72 max-w-2xl'>
+          Practical research notes across mechanisms, traditional context, safety framing, and field
+          interpretation.
+        </p>
       </header>
 
-      <div className='space-y-6'>
-        {pagination.items.map(p => (
+      <div className='space-y-4'>
+        {pagination.items.map(post => (
           <motion.article
-            key={p.slug}
+            key={post.slug}
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='glass-elev rounded-3xl p-5 text-white transition hover:translate-y-[-1px] sm:p-6'
+            className='ds-card-lg space-y-3 text-white'
           >
-            <div className='mb-2'>
-              <span className='rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-white/75'>
-                {resolveCategory(p.tags)}
-              </span>
+            <div className='flex flex-wrap items-center gap-2 text-xs text-white/70'>
+              <span className='ds-pill bg-white/8'>{resolveCategory(post.tags)}</span>
+              <time dateTime={post.date || undefined}>{formatDate(post.date || '')}</time>
+              {post.readingTime && <span>• {post.readingTime}</span>}
             </div>
             <h2 className='text-xl font-semibold tracking-tight sm:text-2xl'>
-              <Link to={`/blog/${p.slug}`} className='text-accent-200 hover:text-accent-100'>
-                {normalizeTitle(p.title)}
+              <Link to={`/blog/${post.slug}`} className='hover:text-emerald-200'>
+                {post.title || 'Research note'}
               </Link>
             </h2>
-            <div className='mt-2 text-sm text-white/60'>
-              <time dateTime={p.date || undefined}>{formatDate(p.date || '')}</time>
-              {p.readingTime && <> • {p.readingTime}</>}
-            </div>
-            <p className='mt-3 text-white/80'>{cleanSummary(p.summary, p.description)}</p>
-            <div className='mt-4'>
-              <Link to={`/blog/${p.slug}`} className='btn-primary'>
+            <p className='text-sm leading-7 text-white/80 sm:text-base'>
+              {cleanBlogExcerpt(post.summary, post.description)}
+            </p>
+            <div>
+              <Link to={`/blog/${post.slug}`} className='btn-primary'>
                 Read post
               </Link>
             </div>
@@ -133,21 +138,9 @@ export default function BlogList() {
 function resolveCategory(tags?: string[]) {
   const joined = (tags || []).join(' ').toLowerCase()
   if (/research|compound|science/.test(joined)) return 'Research Digest'
-  if (/traditional|culture|ethno/.test(joined)) return 'Traditional Use'
+  if (/traditional|culture|ethno/.test(joined)) return 'Traditional Context'
+  if (/safety/.test(joined)) return 'Safety Notes'
   return 'Field Notes'
-}
-
-function normalizeTitle(title: string) {
-  if (!title) return 'Research Note'
-  return title.replace(/^blend craft/i, 'Research Note').replace(/^microdosing log/i, 'Field Note')
-}
-
-function cleanSummary(summary?: string | null, description?: string | null) {
-  const candidate = (summary || description || '').trim()
-  if (!candidate) return 'Short research note from the field.'
-  const singleLine = candidate.replace(/\s+/g, ' ')
-  if (singleLine.length <= 190) return singleLine
-  return `${singleLine.slice(0, 187).trimEnd()}…`
 }
 
 function PaginationNav({ current, totalPages }: { current: number; totalPages: number }) {

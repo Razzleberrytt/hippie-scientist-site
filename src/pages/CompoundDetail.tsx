@@ -82,6 +82,14 @@ export default function CompoundDetail() {
         pageType='article'
       />
       <main className='container mx-auto max-w-4xl px-4 py-10 text-white'>
+        <div className='mb-4'>
+          <Link
+            className='btn-secondary inline-flex items-center rounded-full px-4'
+            to='/compounds'
+          >
+            ← Back to compounds
+          </Link>
+        </div>
         <article className='ds-card-lg ds-section ds-stack'>
           <header className='ds-stack'>
             <h1 className='text-4xl font-semibold text-white'>{title}</h1>
@@ -153,7 +161,11 @@ export default function CompoundDetail() {
               </ul>
             ) : (
               <p className='mt-3 text-sm text-white/70'>
-                No direct herb mapping available yet. Browse the herb database for likely sources.
+                Direct mappings are limited; explore source candidates in the{' '}
+                <Link className='underline decoration-dotted underline-offset-2' to='/herbs'>
+                  herb database
+                </Link>
+                .
               </p>
             )}
           </Section>
@@ -241,12 +253,6 @@ export default function CompoundDetail() {
             </div>
           </section>
         )}
-
-        <p className='mt-8 text-white/70'>
-          <Link className='underline' to='/compounds'>
-            ← Back to compounds
-          </Link>
-        </p>
       </main>
     </>
   )

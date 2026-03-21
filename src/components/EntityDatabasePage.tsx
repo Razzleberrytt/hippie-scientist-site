@@ -191,10 +191,10 @@ export default function EntityDatabasePage({
                 )}
                 <button
                   type='button'
-                  className='btn-secondary'
+                  className='btn-ghost text-sm'
                   onClick={() => setAdvancedOpen(true)}
                 >
-                  Advanced search
+                  Advanced search options
                 </button>
               </>
             )}
@@ -206,7 +206,7 @@ export default function EntityDatabasePage({
           </div>
 
           <div className='ds-card mt-5 space-y-4 p-5'>
-            <div className='flex flex-wrap items-center gap-4'>
+            <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4'>
               <input
                 id={`${kind}-search-input`}
                 className='min-w-0 flex-1 rounded-2xl border border-white/15 bg-black/30 px-4 py-2 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/30'
@@ -218,10 +218,10 @@ export default function EntityDatabasePage({
                   updateParam('q', next.trim())
                 }}
               />
-              <span className='text-sm text-white/65'>{filtered.length} results</span>
+              <span className='text-sm text-white/65 sm:shrink-0'>{filtered.length} results</span>
             </div>
 
-            <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-4'>
+            <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
               <select
                 value={effectFilter}
                 onChange={event => {
@@ -269,7 +269,7 @@ export default function EntityDatabasePage({
               <select
                 value={categoryFilter}
                 onChange={event => setCategoryFilter(event.target.value)}
-                className='rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
+                className='rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white sm:col-span-2 lg:col-span-3'
               >
                 <option value='all'>All classifications</option>
                 {options.categories.map(option => (

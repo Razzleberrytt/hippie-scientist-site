@@ -126,6 +126,11 @@ export default function HerbDetail() {
       />
       <main className='container py-6'>
         <div className='mx-auto flex w-full max-w-4xl flex-col gap-6'>
+          <div>
+            <Link to='/herbs' className='btn-secondary inline-flex items-center rounded-full px-4'>
+              ← Back to database
+            </Link>
+          </div>
           <article className='card p-6'>
             <header className='border-b border-white/10 pb-5'>
               <h1 className='text-3xl font-semibold text-[color:var(--accent)]'>{displayTitle}</h1>
@@ -320,12 +325,6 @@ export default function HerbDetail() {
               </div>
             </section>
           )}
-
-          <div className='text-sm text-[color:var(--muted-c)]'>
-            <Link to='/herbs' className='link text-[color:var(--accent)]'>
-              ← Back to database
-            </Link>
-          </div>
         </div>
       </main>
     </>

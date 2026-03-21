@@ -5,14 +5,54 @@
   <link>https://thehippiescientist.net/blog</link>
   <description>Psychoactive botany, safety, and DIY blend guides</description>
   <language>en</language>
-  <lastBuildDate>Fri, 17 Oct 2025 14:48:05 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 21 Mar 2026 15:44:00 GMT</lastBuildDate>
   
+    <item>
+      <title><![CDATA[Extraction 101 — Skullcap]]></title>
+      <link>https://thehippiescientist.net/blog/2026-03-21-extraction-101-skullcap</link>
+      <guid>https://thehippiescientist.net/blog/2026-03-21-extraction-101-skullcap</guid>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A practical extraction note for Scutellaria lateriflora (American skullcap), with emphasis on preparation choices and conservative use. Summary Skullcap is traditionally prepared as tea, tincture, or…]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Pharmacology Basics — Rhodiola]]></title>
+      <link>https://thehippiescientist.net/blog/2026-03-20-pharmacology-basics-rhodiola</link>
+      <guid>https://thehippiescientist.net/blog/2026-03-20-pharmacology-basics-rhodiola</guid>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Daily notes on Passionflower with attention to active compounds like Beta-caryophyllene and safe practice. Highlights Context and traditional notes Quick pharmacology snapshot Practical prep and safe…]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Pharmacology Basics — Passionflower]]></title>
+      <link>https://thehippiescientist.net/blog/2026-03-19-pharmacology-basics-passionflower</link>
+      <guid>https://thehippiescientist.net/blog/2026-03-19-pharmacology-basics-passionflower</guid>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Daily notes on Valerian with attention to active compounds like Hordenine and safe practice. Highlights Context and traditional notes Quick pharmacology snapshot Practical prep and safety pointers Fu…]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Research Digest — Passionflower]]></title>
+      <link>https://thehippiescientist.net/blog/2026-03-18-research-digest-passionflower</link>
+      <guid>https://thehippiescientist.net/blog/2026-03-18-research-digest-passionflower</guid>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Can’t sleep because your body is tired but your mind is still racing? Passionflower is often a better fit for that pattern than stronger “knock-you-out” options. What people misunderstand It’s not a…]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Traditional Use — Ashwagandha]]></title>
+      <link>https://thehippiescientist.net/blog/2026-03-17-traditional-use-ashwagandha</link>
+      <guid>https://thehippiescientist.net/blog/2026-03-17-traditional-use-ashwagandha</guid>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Daily notes on Valerian with attention to active compounds like L-Theanine and safe practice. Highlights Context and traditional notes Quick pharmacology snapshot Practical prep and safety pointers F…]]></description>
+    </item>
+
     <item>
       <title><![CDATA[Field Notes — Damiana (Tuesday Notes)]]></title>
       <link>https://thehippiescientist.net/blog/2025-10-14-field-notes-damiana-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-14-field-notes-damiana-tuesday-notes</guid>
       <pubDate>Tue, 14 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Skullcap with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives…]]></description>
     </item>
 
     <item>
@@ -20,7 +60,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-13-formulation-tips-valerian-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-13-formulation-tips-valerian-monday-notes</guid>
       <pubDate>Mon, 13 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Mugwort with a focus on practical use, active compounds like Mesembrine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practica…]]></description>
     </item>
 
     <item>
@@ -28,7 +68,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-12-psychoactive-botany-skullcap-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-12-psychoactive-botany-skullcap-sunday-notes</guid>
       <pubDate>Sun, 12 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Kava with a focus on practical use, active compounds like Mesembrine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical t…]]></description>
     </item>
 
     <item>
@@ -36,7 +76,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-11-blend-craft-reishi-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-11-blend-craft-reishi-saturday-notes</guid>
       <pubDate>Sat, 11 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Ashwagandha with a focus on practical use, active compounds like Mesembrine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Prac…]]></description>
     </item>
 
     <item>
@@ -44,7 +84,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-10-bioassays-damiana-friday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-10-bioassays-damiana-friday-notes</guid>
       <pubDate>Fri, 10 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Reishi with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical t…]]></description>
     </item>
 
     <item>
@@ -52,7 +92,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-09-bioassays-rhodiola-thursday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-09-bioassays-rhodiola-thursday-notes</guid>
       <pubDate>Thu, 09 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Damiana with a focus on practical use, active compounds like Apigenin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -60,7 +100,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-08-safety-set-setting-cordyceps-wednesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-08-safety-set-setting-cordyceps-wednesday-notes</guid>
       <pubDate>Wed, 08 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Gotu Kola with a focus on practical use, active compounds like Hordenine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practic…]]></description>
     </item>
 
     <item>
@@ -68,7 +108,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-07-cultivar-notes-amanita-muscaria-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-07-cultivar-notes-amanita-muscaria-tuesday-notes</guid>
       <pubDate>Tue, 07 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Blue Lotus with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key activ…]]></description>
     </item>
 
     <item>
@@ -76,7 +116,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-06-formulation-tips-lion-s-mane-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-06-formulation-tips-lion-s-mane-monday-notes</guid>
       <pubDate>Mon, 06 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Amanita muscaria with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives P…]]></description>
     </item>
 
     <item>
@@ -84,7 +124,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-05-microdosing-log-kava-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-05-microdosing-log-kava-sunday-notes</guid>
       <pubDate>Sun, 05 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Kava with a focus on practical use, active compounds like Thujone, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical tips…]]></description>
     </item>
 
     <item>
@@ -92,7 +132,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-04-blend-craft-damiana-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-04-blend-craft-damiana-saturday-notes</guid>
       <pubDate>Sat, 04 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Calea zacatechichi with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives…]]></description>
     </item>
 
     <item>
@@ -100,7 +140,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-03-safety-set-setting-calea-zacatechichi-friday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-03-safety-set-setting-calea-zacatechichi-friday-notes</guid>
       <pubDate>Fri, 03 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Gotu Kola with a focus on practical use, active compounds like Hordenine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practic…]]></description>
     </item>
 
     <item>
@@ -108,7 +148,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-02-safety-set-setting-valerian-thursday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-02-safety-set-setting-valerian-thursday-notes</guid>
       <pubDate>Thu, 02 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Damiana with a focus on practical use, active compounds like Apigenin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -116,7 +156,7 @@
       <link>https://thehippiescientist.net/blog/2025-10-01-field-notes-ashwagandha-wednesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-10-01-field-notes-ashwagandha-wednesday-notes</guid>
       <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Cordyceps with a focus on practical use, active compounds like Mesembrine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practi…]]></description>
     </item>
 
     <item>
@@ -124,7 +164,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-30-cultivar-notes-amanita-muscaria-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-30-cultivar-notes-amanita-muscaria-tuesday-notes</guid>
       <pubDate>Tue, 30 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Skullcap with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives…]]></description>
     </item>
 
     <item>
@@ -132,7 +172,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-29-bioassays-mugwort-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-29-bioassays-mugwort-monday-notes</guid>
       <pubDate>Mon, 29 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Calea zacatechichi with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives…]]></description>
     </item>
 
     <item>
@@ -140,7 +180,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-28-field-notes-valerian-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-28-field-notes-valerian-sunday-notes</guid>
       <pubDate>Sun, 28 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Passionflower with a focus on practical use, active compounds like Harmine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Pract…]]></description>
     </item>
 
     <item>
@@ -148,7 +188,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-27-formulation-tips-cordyceps-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-27-formulation-tips-cordyceps-saturday-notes</guid>
       <pubDate>Sat, 27 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Valerian with a focus on practical use, active compounds like Thujone, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -156,7 +196,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-26-microdosing-log-skullcap-friday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-26-microdosing-log-skullcap-friday-notes</guid>
       <pubDate>Fri, 26 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Mugwort with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives…]]></description>
     </item>
 
     <item>
@@ -164,7 +204,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-25-traditional-use-mugwort-thursday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-25-traditional-use-mugwort-thursday-notes</guid>
       <pubDate>Thu, 25 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Lion's Mane with a focus on practical use, active compounds like L-Theanine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Prac…]]></description>
     </item>
 
     <item>
@@ -172,7 +212,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-24-traditional-use-rhodiola-wednesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-24-traditional-use-rhodiola-wednesday-notes</guid>
       <pubDate>Wed, 24 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Kava with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical tip…]]></description>
     </item>
 
     <item>
@@ -180,7 +220,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-23-extraction-101-kava-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-23-extraction-101-kava-tuesday-notes</guid>
       <pubDate>Tue, 23 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Kava with a focus on practical use, active compounds like Thujone, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical tips…]]></description>
     </item>
 
     <item>
@@ -188,7 +228,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-22-field-notes-lion-s-mane-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-22-field-notes-lion-s-mane-monday-notes</guid>
       <pubDate>Mon, 22 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Ashwagandha with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practi…]]></description>
     </item>
 
     <item>
@@ -196,7 +236,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-21-research-digest-calea-zacatechichi-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-21-research-digest-calea-zacatechichi-sunday-notes</guid>
       <pubDate>Sun, 21 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Valerian with a focus on practical use, active compounds like Apigenin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -204,7 +244,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-20-microdosing-log-cordyceps-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-20-microdosing-log-cordyceps-saturday-notes</guid>
       <pubDate>Sat, 20 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Reishi with a focus on practical use, active compounds like L-Theanine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -212,7 +252,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-19-blend-craft-calea-zacatechichi-friday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-19-blend-craft-calea-zacatechichi-friday-notes</guid>
       <pubDate>Fri, 19 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Reishi with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives P…]]></description>
     </item>
 
     <item>
@@ -220,7 +260,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-18-psychoactive-botany-ashwagandha-thursday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-18-psychoactive-botany-ashwagandha-thursday-notes</guid>
       <pubDate>Thu, 18 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Damiana with a focus on practical use, active compounds like Choline, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical t…]]></description>
     </item>
 
     <item>
@@ -228,7 +268,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-17-psychoactive-botany-amanita-muscaria-wednesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-17-psychoactive-botany-amanita-muscaria-wednesday-notes</guid>
       <pubDate>Wed, 17 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Mugwort with a focus on practical use, active compounds like Eugenol, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical t…]]></description>
     </item>
 
     <item>
@@ -236,7 +276,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-16-cultivar-notes-damiana-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-16-cultivar-notes-damiana-tuesday-notes</guid>
       <pubDate>Tue, 16 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Skullcap with a focus on practical use, active compounds like Thujone, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -244,7 +284,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-15-traditional-use-gotu-kola-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-15-traditional-use-gotu-kola-monday-notes</guid>
       <pubDate>Mon, 15 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Calea zacatechichi with a focus on practical use, active compounds like Choline, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives…]]></description>
     </item>
 
     <item>
@@ -252,7 +292,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-14-bioassays-ashwagandha-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-14-bioassays-ashwagandha-sunday-notes</guid>
       <pubDate>Sun, 14 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Damiana with a focus on practical use, active compounds like Choline, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical t…]]></description>
     </item>
 
     <item>
@@ -260,7 +300,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-13-formulation-tips-mugwort-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-13-formulation-tips-mugwort-saturday-notes</guid>
       <pubDate>Sat, 13 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Blue Lotus with a focus on practical use, active compounds like Harmine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practica…]]></description>
     </item>
 
     <item>
@@ -268,7 +308,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-12-safety-set-setting-gotu-kola-friday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-12-safety-set-setting-gotu-kola-friday-notes</guid>
       <pubDate>Fri, 12 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Skullcap with a focus on practical use, active compounds like Harmine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -276,7 +316,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-11-formulation-tips-skullcap-thursday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-11-formulation-tips-skullcap-thursday-notes</guid>
       <pubDate>Thu, 11 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Ashwagandha with a focus on practical use, active compounds like Apigenin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practi…]]></description>
     </item>
 
     <item>
@@ -284,7 +324,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-10-field-notes-damiana-wednesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-10-field-notes-damiana-wednesday-notes</guid>
       <pubDate>Wed, 10 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Blue Lotus with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key activ…]]></description>
     </item>
 
     <item>
@@ -292,7 +332,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-09-bioassays-blue-lotus-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-09-bioassays-blue-lotus-tuesday-notes</guid>
       <pubDate>Tue, 09 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Blue Lotus with a focus on practical use, active compounds like Eugenol, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practica…]]></description>
     </item>
 
     <item>
@@ -300,7 +340,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-08-safety-set-setting-gotu-kola-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-08-safety-set-setting-gotu-kola-monday-notes</guid>
       <pubDate>Mon, 08 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Passionflower with a focus on practical use, active compounds like L-Theanine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Pr…]]></description>
     </item>
 
     <item>
@@ -308,7 +348,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-07-pharmacology-basics-blue-lotus-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-07-pharmacology-basics-blue-lotus-sunday-notes</guid>
       <pubDate>Sun, 07 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Kava with a focus on practical use, active compounds like Hordenine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical ti…]]></description>
     </item>
 
     <item>
@@ -316,7 +356,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-06-pharmacology-basics-rhodiola-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-06-pharmacology-basics-rhodiola-saturday-notes</guid>
       <pubDate>Sat, 06 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Ashwagandha with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practi…]]></description>
     </item>
 
     <item>
@@ -324,7 +364,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-05-bioassays-reishi-friday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-05-bioassays-reishi-friday-notes</guid>
       <pubDate>Fri, 05 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Amanita muscaria with a focus on practical use, active compounds like L-Theanine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives…]]></description>
     </item>
 
     <item>
@@ -332,7 +372,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-04-bioassays-blue-lotus-thursday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-04-bioassays-blue-lotus-thursday-notes</guid>
       <pubDate>Thu, 04 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Passionflower with a focus on practical use, active compounds like Eugenol, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Pract…]]></description>
     </item>
 
     <item>
@@ -340,7 +380,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-03-pharmacology-basics-damiana-wednesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-03-pharmacology-basics-damiana-wednesday-notes</guid>
       <pubDate>Wed, 03 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Valerian with a focus on practical use, active compounds like Apigenin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -348,7 +388,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-02-cultivar-notes-rhodiola-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-02-cultivar-notes-rhodiola-tuesday-notes</guid>
       <pubDate>Tue, 02 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Skullcap with a focus on practical use, active compounds like Hordenine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practica…]]></description>
     </item>
 
     <item>
@@ -356,7 +396,7 @@
       <link>https://thehippiescientist.net/blog/2025-09-01-microdosing-log-blue-lotus-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-09-01-microdosing-log-blue-lotus-monday-notes</guid>
       <pubDate>Mon, 01 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Blue Lotus with a focus on practical use, active compounds like L-Theanine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Pract…]]></description>
     </item>
 
     <item>
@@ -364,7 +404,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-31-safety-set-setting-amanita-muscaria-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-31-safety-set-setting-amanita-muscaria-sunday-notes</guid>
       <pubDate>Sun, 31 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Reishi with a focus on practical use, active compounds like Mesembrine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -372,7 +412,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-30-blend-craft-reishi-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-30-blend-craft-reishi-saturday-notes</guid>
       <pubDate>Sat, 30 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Skullcap with a focus on practical use, active compounds like Choline, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -380,7 +420,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-29-blend-craft-passionflower-friday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-29-blend-craft-passionflower-friday-notes</guid>
       <pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Gotu Kola with a focus on practical use, active compounds like Beta-caryophyllene, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key active…]]></description>
     </item>
 
     <item>
@@ -388,7 +428,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-28-research-digest-gotu-kola-thursday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-28-research-digest-gotu-kola-thursday-notes</guid>
       <pubDate>Thu, 28 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Blue Lotus with a focus on practical use, active compounds like Eugenol, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practica…]]></description>
     </item>
 
     <item>
@@ -396,7 +436,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-27-blend-craft-calea-zacatechichi-wednesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-27-blend-craft-calea-zacatechichi-wednesday-notes</guid>
       <pubDate>Wed, 27 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Valerian with a focus on practical use, active compounds like Eugenol, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -404,7 +444,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-26-pharmacology-basics-rhodiola-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-26-pharmacology-basics-rhodiola-tuesday-notes</guid>
       <pubDate>Tue, 26 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Ashwagandha with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practi…]]></description>
     </item>
 
     <item>
@@ -412,7 +452,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-25-extraction-101-passionflower-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-25-extraction-101-passionflower-monday-notes</guid>
       <pubDate>Mon, 25 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Calea zacatechichi with a focus on practical use, active compounds like Hordenine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key active…]]></description>
     </item>
 
     <item>
@@ -420,7 +460,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-24-safety-set-setting-skullcap-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-24-safety-set-setting-skullcap-sunday-notes</guid>
       <pubDate>Sun, 24 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Damiana with a focus on practical use, active compounds like Myriscin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -428,7 +468,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-23-psychoactive-botany-cordyceps-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-23-psychoactive-botany-cordyceps-saturday-notes</guid>
       <pubDate>Sat, 23 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Cordyceps with a focus on practical use, active compounds like Mesembrine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practi…]]></description>
     </item>
 
     <item>
@@ -436,7 +476,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-22-safety-set-setting-cordyceps-friday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-22-safety-set-setting-cordyceps-friday-notes</guid>
       <pubDate>Fri, 22 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Damiana with a focus on practical use, active compounds like Apigenin, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -444,7 +484,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-21-pharmacology-basics-gotu-kola-thursday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-21-pharmacology-basics-gotu-kola-thursday-notes</guid>
       <pubDate>Thu, 21 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Valerian with a focus on practical use, active compounds like Eugenol, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical…]]></description>
     </item>
 
     <item>
@@ -452,7 +492,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-20-blend-craft-kava-wednesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-20-blend-craft-kava-wednesday-notes</guid>
       <pubDate>Wed, 20 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Amanita muscaria with a focus on practical use, active compounds like Hordenine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives…]]></description>
     </item>
 
     <item>
@@ -460,7 +500,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-19-formulation-tips-passionflower-tuesday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-19-formulation-tips-passionflower-tuesday-notes</guid>
       <pubDate>Tue, 19 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Kava with a focus on practical use, active compounds like Mesembrine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical t…]]></description>
     </item>
 
     <item>
@@ -468,7 +508,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-18-research-digest-cordyceps-monday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-18-research-digest-cordyceps-monday-notes</guid>
       <pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Valerian with a focus on practical use, active compounds like Mesembrine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practic…]]></description>
     </item>
 
     <item>
@@ -476,7 +516,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-17-traditional-use-calea-zacatechichi-sunday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-17-traditional-use-calea-zacatechichi-sunday-notes</guid>
       <pubDate>Sun, 17 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Kava with a focus on practical use, active compounds like Choline, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practical tips…]]></description>
     </item>
 
     <item>
@@ -484,7 +524,7 @@
       <link>https://thehippiescientist.net/blog/2025-08-16-psychoactive-botany-rhodiola-saturday-notes</link>
       <guid>https://thehippiescientist.net/blog/2025-08-16-psychoactive-botany-rhodiola-saturday-notes</guid>
       <pubDate>Sat, 16 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[ import Callout from '@/components/Callout' /* safe to leave; if missing, remove this line */]]></description>
+      <description><![CDATA[Daily notes on Cordyceps with a focus on practical use, active compounds like Hordenine, and safe experimentation. Highlights Context and traditional use Pharmacology snapshot and key actives Practic…]]></description>
     </item>
 
     <item>
@@ -492,7 +532,7 @@
       <link>https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha</link>
       <guid>https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha</guid>
       <pubDate>Mon, 20 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Rhodiola (*Rhodiola rosea*) and ashwagandha (*Withania somnifera*) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis, their personaliti]]></description>
+      <description><![CDATA[Rhodiola (Rhodiola rosea) and ashwagandha (Withania somnifera) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis, t…]]></description>
     </item>
 
     <item>
@@ -500,7 +540,7 @@
       <link>https://thehippiescientist.net/blog/kava-safety-kavalactones</link>
       <guid>https://thehippiescientist.net/blog/kava-safety-kavalactones</guid>
       <pubDate>Sat, 18 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Kava (*Piper methysticum*) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone chemistry, extractio]]></description>
+      <description><![CDATA[Kava (Piper methysticum) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone ch…]]></description>
     </item>
 
     <item>
@@ -508,7 +548,7 @@
       <link>https://thehippiescientist.net/blog/cacao-theobromine-stimulant</link>
       <guid>https://thehippiescientist.net/blog/cacao-theobromine-stimulant</guid>
       <pubDate>Wed, 15 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart opening, and creative f]]></description>
+      <description><![CDATA[Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart ope…]]></description>
     </item>
 
     <item>
@@ -516,7 +556,7 @@
       <link>https://thehippiescientist.net/blog/blue-lotus-aporphines</link>
       <guid>https://thehippiescientist.net/blog/blue-lotus-aporphines</guid>
       <pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Blue lotus (*Nymphaea caerulea*) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to understanding blue lotu]]></description>
+      <description><![CDATA[Blue lotus (Nymphaea caerulea) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to under…]]></description>
     </item>
 
     <item>
@@ -524,7 +564,7 @@
       <link>https://thehippiescientist.net/blog/nightly-blend-guide</link>
       <guid>https://thehippiescientist.net/blog/nightly-blend-guide</guid>
       <pubDate>Mon, 13 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitution, schedule, and sle]]></description>
+      <description><![CDATA[Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitutio…]]></description>
     </item>
 
     <item>
@@ -532,7 +572,7 @@
       <link>https://thehippiescientist.net/blog/lions-mane-bdnf</link>
       <guid>https://thehippiescientist.net/blog/lions-mane-bdnf</guid>
       <pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Lion’s mane mushroom (*Hericium erinaceus*) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein that supports syna]]></description>
+      <description><![CDATA[Lion’s mane mushroom (Hericium erinaceus) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein…]]></description>
     </item>
 
     <item>
@@ -540,7 +580,7 @@
       <link>https://thehippiescientist.net/blog/yerba-mate-vs-green-tea</link>
       <guid>https://thehippiescientist.net/blog/yerba-mate-vs-green-tea</guid>
       <pubDate>Sat, 11 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with precise choreograph]]></description>
+      <description><![CDATA[Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with…]]></description>
     </item>
 
     <item>
@@ -548,7 +588,7 @@
       <link>https://thehippiescientist.net/blog/kanna-mood-focus</link>
       <guid>https://thehippiescientist.net/blog/kanna-mood-focus</guid>
       <pubDate>Fri, 10 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Kanna, or *Sceletium tortuosum*, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotional buoyancy withou]]></description>
+      <description><![CDATA[Kanna, or Sceletium tortuosum, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotion…]]></description>
     </item>
 
     <item>
@@ -556,7 +596,7 @@
       <link>https://thehippiescientist.net/blog/reishi-sleep-immunity</link>
       <guid>https://thehippiescientist.net/blog/reishi-sleep-immunity</guid>
       <pubDate>Thu, 09 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Reishi (*Ganoderma lucidum*) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and stress resilience.]]></description>
+      <description><![CDATA[Reishi (Ganoderma lucidum) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and…]]></description>
     </item>
 
     <item>
@@ -564,7 +604,7 @@
       <link>https://thehippiescientist.net/blog/mugwort-dreaming-tradition</link>
       <guid>https://thehippiescientist.net/blog/mugwort-dreaming-tradition</guid>
       <pubDate>Wed, 08 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[ Mugwort (*Artemisia vulgaris*) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate vivid dreams. But ho]]></description>
+      <description><![CDATA[Mugwort (Artemisia vulgaris) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate vi…]]></description>
     </item>
 </channel>
 </rss>

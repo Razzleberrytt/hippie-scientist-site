@@ -25,9 +25,9 @@ export default function Footer() {
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
   return (
-    <footer className='relative mx-auto mt-10 w-full max-w-screen-lg px-4 pb-10 pt-6'>
-      <div className='border-white/12 bg-white/6 rounded-3xl border p-6 ring-1 ring-white/10 backdrop-blur-xl sm:p-7'>
-        <div className='grid gap-8 sm:grid-cols-2 sm:gap-10'>
+    <footer className='relative mx-auto mt-8 w-full max-w-screen-lg px-4 pb-8 pt-4'>
+      <div className='border-white/12 ring-white/8 rounded-2xl border bg-white/5 p-5 ring-1 backdrop-blur-xl sm:p-6'>
+        <div className='grid gap-6 sm:grid-cols-2 sm:gap-8'>
           <NonEmpty>
             {exploreLinks.length > 0 && (
               <div>
@@ -75,7 +75,7 @@ export default function Footer() {
           </NonEmpty>
         </div>
 
-        <div className='mt-8 border-t border-white/10 pt-4 text-xs text-white/55'>
+        <div className='mt-6 border-t border-white/10 pt-3 text-xs text-white/55'>
           © 2025 The Hippie Scientist — All Rights Reserved
         </div>
       </div>

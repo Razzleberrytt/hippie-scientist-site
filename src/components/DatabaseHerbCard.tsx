@@ -78,24 +78,17 @@ export default function DatabaseHerbCard({
     )
   )
   const intensityTone = intensityLevel.includes('strong')
-    ? 'bg-rose-500/20 text-rose-100 ring-1 ring-rose-300/40'
+    ? 'bg-rose-500/16 text-rose-100 border-rose-300/35'
     : intensityLevel.includes('moderate')
-      ? 'bg-amber-500/20 text-amber-100 ring-1 ring-amber-300/40'
+      ? 'bg-amber-500/16 text-amber-100 border-amber-300/35'
       : intensityLevel.includes('mild')
-        ? 'bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-300/40'
-        : intensityLevel.includes('variable')
-          ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
-          : 'bg-white/6 text-white/90 ring-1 ring-white/15'
-  const mechanism = firstNonEmpty(
-    (herb as any).mechanismOfAction,
-    herb.mechanism,
-    herb.benefits as string
-  )
+        ? 'bg-emerald-500/16 text-emerald-100 border-emerald-300/35'
+        : 'bg-white/6 text-white/90 border-white/20'
+  const mechanism = firstNonEmpty((herb as any).mechanismOfAction, herb.mechanism)
 
   const slug = canonicalSlug(herb.slug, heading, scientificName)
   const detailBase = kind === 'compound' ? '/compounds' : '/herbs'
   const detailPath = `${detailBase}/${encodeURIComponent(slug)}`
-  const detailFallbackPath = detailBase
 
   const legal = firstNonEmpty(
     herb.legalStatus as string,
@@ -103,12 +96,7 @@ export default function DatabaseHerbCard({
     herb.legal as string,
     herb.legalnotes as string
   )
-  const sources = toArray(herb.sources).slice(0, 3)
-
-  const sections: Array<{ label: string; content: string | string[] }> = []
-  if (summary) sections.push({ label: 'Overview', content: summary })
-  if (legal) sections.push({ label: 'Legal', content: legal })
-  if (sources.length) sections.push({ label: 'Sources', content: sources })
+  const sources = toArray(herb.sources).slice(0, 2)
 
   const facts = [
     classification ? { label: 'Class', value: titleCase(classification) } : null,
@@ -116,99 +104,65 @@ export default function DatabaseHerbCard({
     mechanism ? { label: 'Mechanism', value: mechanism } : null,
   ].filter(Boolean) as Array<{ label: string; value: string }>
 
+  const expandedDetails = [
+    legal ? `Legal: ${legal}` : '',
+    ...sources.map(source => `Source: ${source}`),
+  ].filter(Boolean)
+
   return (
     <motion.article
       initial={reduceMotion ? false : { opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={clsx(
-        'ds-card-lg relative mx-auto w-full max-w-5xl overflow-hidden text-white/90 transition duration-300'
-      )}
+      className='ds-card-lg relative mx-auto w-full max-w-5xl text-white/90'
     >
-      <div aria-hidden className='pointer-events-none absolute inset-0 rounded-2xl'>
-        <div className='absolute inset-px rounded-[calc(theme(borderRadius.2xl)-1px)] border border-white/10' />
-      </div>
-
-      <div className='ds-stack relative'>
-        <header className='ds-stack'>
+      <div className='space-y-4'>
+        <header className='space-y-1'>
           <h2 className='text-xl font-semibold tracking-tight text-white sm:text-2xl'>{heading}</h2>
-          {secondary && <p className='text-white/62 text-sm italic'>{secondary}</p>}
-
-          {facts.length > 0 && (
-            <div className='mt-3 flex flex-wrap gap-2'>
-              {facts.slice(0, 3).map(fact => (
-                <span
-                  key={fact.label}
-                  className={clsx(
-                    'ds-pill bg-white/5 text-white/85 ring-1 ring-white/15',
-                    fact.label === 'Intensity' && intensityTone
-                  )}
-                >
-                  <span className='text-[11px] font-semibold uppercase tracking-wide text-white/70'>
-                    {fact.label}:
-                  </span>{' '}
-                  {fact.value}
-                </span>
-              ))}
-            </div>
-          )}
+          {secondary && <p className='text-sm italic text-white/60'>{secondary}</p>}
         </header>
 
         {summary && (
-          <p
-            className={`text-sm leading-relaxed text-white/75 sm:text-base ${open ? '' : 'line-clamp-3'}`}
-          >
-            {summary}
-          </p>
+          <p className='text-white/78 line-clamp-2 text-sm leading-7 sm:text-base'>{summary}</p>
         )}
 
-        {open && sections.length > 0 && (
-          <div className='space-y-4'>
-            {sections.map((section, index) => (
-              <div key={index}>
-                <p className='text-xs font-semibold uppercase tracking-wide text-white/55'>
-                  {section.label}
-                </p>
-                {Array.isArray(section.content) ? (
-                  <ul className='mt-1 list-inside list-disc space-y-1 text-sm text-white/70'>
-                    {section.content.map((item, i) => {
-                      const isUrl = /^https?:\/\//i.test(item)
-                      return (
-                        <li key={i}>
-                          {isUrl ? (
-                            <a
-                              href={item}
-                              target='_blank'
-                              rel='noopener noreferrer'
-                              className='underline decoration-dotted underline-offset-2 transition hover:text-white'
-                            >
-                              {item}
-                            </a>
-                          ) : (
-                            item
-                          )}
-                        </li>
-                      )
-                    })}
-                  </ul>
-                ) : (
-                  <p className='mt-1 text-sm text-white/70'>{section.content}</p>
+        {facts.length > 0 && (
+          <div className='flex flex-wrap gap-2'>
+            {facts.slice(0, 3).map(fact => (
+              <span
+                key={fact.label}
+                className={clsx(
+                  'inline-flex items-center rounded-full border px-3 py-1 text-xs text-white/85',
+                  fact.label === 'Intensity' ? intensityTone : 'border-white/15 bg-white/5'
                 )}
-              </div>
+              >
+                <span className='mr-1 font-semibold text-white/70'>{fact.label}:</span>
+                <span className='line-clamp-1'>{fact.value}</span>
+              </span>
             ))}
           </div>
         )}
 
+        {open && expandedDetails.length > 0 && (
+          <ul className='text-white/72 list-disc space-y-1 pl-5 text-sm'>
+            {expandedDetails.map(item => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        )}
+
         <div className='flex flex-wrap gap-3'>
-          <button
-            type='button'
-            onClick={() => setOpen(value => !value)}
-            className='btn-secondary'
-            aria-expanded={open}
-          >
-            {open ? 'Show less' : 'Show more'}
-          </button>
-          <Link to={slug ? detailPath : detailFallbackPath} className='btn-primary'>
+          {expandedDetails.length > 0 && (
+            <button
+              type='button'
+              onClick={() => setOpen(value => !value)}
+              className='btn-secondary'
+              aria-expanded={open}
+            >
+              {open ? 'Show less' : 'Show more'}
+            </button>
+          )}
+          <Link to={detailPath} className='btn-primary'>
             View details
           </Link>
         </div>
