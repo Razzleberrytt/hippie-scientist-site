@@ -3,7 +3,7 @@ import path from 'path';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 const PUBLIC_BLOG_DIR = path.join(process.cwd(), 'public', 'blog');
-const AUTHOR = 'The Hippie Scientist';
+const AUTHOR = 'Auto-Generator';
 
 const topics = [
   'Field Notes',
@@ -76,6 +76,7 @@ title: "${yaml(title)}"
 date: "${todayISO()}"
 author: "${AUTHOR}"
 summary: "${yaml(summary)}"
+sources: []
 tags: ["Daily","Field Notes","Herbs"]
 cover: "${coverRel}"
 draft: false

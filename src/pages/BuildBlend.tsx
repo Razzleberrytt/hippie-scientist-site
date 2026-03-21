@@ -1003,7 +1003,11 @@ export default function BuildBlend() {
                   Enter your email to unlock your starter pack download. No popups, no spam.
                 </p>
                 <div className='grid gap-2 sm:grid-cols-[1fr_auto]'>
+                  <label htmlFor='starter-pack-email' className='sr-only'>
+                    Email address for starter pack access
+                  </label>
                   <input
+                    id='starter-pack-email'
                     type='email'
                     value={starterPackEmail}
                     onChange={event => setStarterPackEmail(event.target.value)}
@@ -1160,7 +1164,11 @@ export default function BuildBlend() {
                   Search &amp; select herbs
                 </p>
                 <div className='relative'>
+                  <label htmlFor='blend-herb-search' className='sr-only'>
+                    Search herbs by name, effects, or vibe
+                  </label>
                   <input
+                    id='blend-herb-search'
                     value={query}
                     onChange={event => setQuery(event.target.value)}
                     placeholder='Search herbs by name, effects, or vibe'
@@ -1303,6 +1311,7 @@ export default function BuildBlend() {
                       step={settings.step}
                       value={value}
                       onChange={event => updateRatio(herb.key, Number(event.target.value))}
+                      aria-label={`${herb.displayName} ${ratioMode} slider`}
                       className='accent-brand-lime w-full'
                     />
                     <div className='text-sub flex items-center justify-between text-xs'>
@@ -1313,6 +1322,7 @@ export default function BuildBlend() {
                       <div className='flex items-center gap-2'>
                         <input
                           type='number'
+                          aria-label={`${herb.displayName} ${ratioMode} value`}
                           value={value}
                           onChange={event => updateRatio(herb.key, Number(event.target.value))}
                           className='border-border bg-panel text-text focus:border-brand-lime/60 w-16 rounded-lg border px-2 py-1 text-right text-xs focus:outline-none'

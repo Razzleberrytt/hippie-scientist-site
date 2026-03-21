@@ -109,6 +109,7 @@ export default function HerbDetail() {
   )
   const riskRaw = cleanLine(herb.safety || herb.toxicity || 'Use caution with unknown variables')
   const riskLevel = riskLevelText(riskRaw)
+  const lastUpdated = cleanLine(String((herb as any).lastUpdated || ''))
   const researchNotes = splitList(
     cleanLine((herb as any).researchNotes || (herb as any).evidenceNotes || '')
   )
@@ -158,6 +159,11 @@ export default function HerbDetail() {
               <h1 className='text-3xl font-semibold text-white'>{displayTitle}</h1>
               {scientificName && <p className='mt-1 italic text-white/65'>{scientificName}</p>}
               <p className='mt-2 text-xs text-white/60'>Designed to help you learn safely.</p>
+              {lastUpdated && (
+                <p className='mt-1 text-xs text-emerald-100/85'>
+                  Last updated: {lastUpdated.slice(0, 10)}
+                </p>
+              )}
               <button
                 className='mt-3 rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
                 onClick={() =>
@@ -253,6 +259,29 @@ export default function HerbDetail() {
               />
               <p className='mt-3 text-sm text-amber-100/90'>{viralHooks.safetyInsight}</p>
             </Section>
+
+            {details.sources.length > 0 && (
+              <Section title='Sources' label='Citations'>
+                <ol className='text-white/82 mt-2 list-decimal space-y-2 pl-5 text-sm'>
+                  {details.sources.map(source => (
+                    <li key={source}>
+                      {/^https?:\/\//i.test(source) ? (
+                        <a
+                          href={source}
+                          target='_blank'
+                          rel='noreferrer'
+                          className='link text-[color:var(--accent)]'
+                        >
+                          {source}
+                        </a>
+                      ) : (
+                        source
+                      )}
+                    </li>
+                  ))}
+                </ol>
+              </Section>
+            )}
 
             <Section title='Did you know?' label='Shareable facts'>
               <ul className='text-white/82 mt-2 list-disc space-y-2 pl-5 text-sm'>

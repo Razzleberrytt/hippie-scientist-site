@@ -155,3 +155,15 @@ To keep maintenance low while preserving core automation:
 - `npm test`
 - `npm run build`
 - Confirmed `dist/index.html` emits root-relative built asset URLs and correct script/css references.
+
+## 2026-03-21 update: daily enrichment hook
+
+- Updated `.github/workflows/daily-blog.yml` to run `npm run data:enrich` before blog sync.
+- Commit scope in the workflow now includes:
+  - `public/data/herbs.json`
+  - `public/data/compounds.json`
+- Re-checked stale path patterns (`src/content/blog`, `src/data/blog`, `src/data/herbs`) in active workflows: none present.
+- Active workflow inventory remains minimal and compliant:
+  1. `deploy.yml`
+  2. `daily-blog.yml`
+  3. `data-audit.yml` (optional)

@@ -1,7 +1,7 @@
 :root {
   color-scheme: dark;
   --font-body: 'Inter', system-ui, sans-serif;
-  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-display: 'Inter', system-ui, sans-serif;
   --radius: 1rem;
   --space-unit: 0.25rem;
 

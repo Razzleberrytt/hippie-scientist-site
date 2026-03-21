@@ -110,3 +110,72 @@ Additional application code (UI, reporting, etc.) continues to live alongside th
 
 Future phases will add richer Solana execution clients, deeper strategy implementations, automated risk controls and enhanced alert
 channels.
+
+---
+
+# The Hippie Scientist (Web App Notes)
+
+[![Daily Blog Post](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/daily-blog.yml/badge.svg)](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/daily-blog.yml)
+
+## Data enrichment from CSV
+
+Run the enrichment pipeline (expects CSV files at `/home/oai/share/psychoactive_herbs_enriched_full.csv` and `/home/oai/share/psychoactive_herbs_enriched_full 3.csv`):
+
+```bash
+npm run data:enrich
+```
+
+This updates:
+
+- `public/data/herbs.json`
+- `public/data/compounds.json`
+
+## Manual herb/compound updates
+
+1. Edit `public/data/herbs.json` and/or `public/data/compounds.json`.
+2. Keep records keyed by stable `id` values.
+3. Add `lastUpdated` ISO timestamps and `sources` arrays for new evidence.
+4. Re-run:
+
+```bash
+npm run prerender:entities
+npm run build:blog
+```
+
+## Blog front-matter fields
+
+MDX front-matter now supports:
+
+```yaml
+author: 'Auto-Generator'
+sources: []
+lastUpdated: '2026-03-21'
+```
+
+Daily generated posts include `author` and `sources` placeholders by default.
+
+## Accessibility testing
+
+Recommended checks:
+
+```bash
+npm run build
+npx eslint src --ext .ts,.tsx
+```
+
+Use Lighthouse or axe DevTools in the browser to validate color contrast and labeling.
+
+## Deployment + prerender
+
+`npm run build` now prerenders static herb and compound detail pages into `public/herbs/*` and `public/compounds/*`.
+This improves crawler visibility and JS-disabled fallback behavior on static hosts (GitHub Pages/Netlify/Vercel static deployments).
+
+## Route-based chunk verification
+
+Run and inspect bundle split output:
+
+```bash
+npm run build
+```
+
+Then inspect `dist/assets/` and verify route chunks are emitted instead of one large app bundle.

@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "node scripts/generate-stats.mjs && vite",
     "dev:data": "node scripts/convert-herbs.mjs",
-    "prebuild:data": "node scripts/convert-herbs.mjs",
+    "prebuild:data": "node scripts/convert-herbs.mjs && npm run data:enrich",
     "autofill:data": "node scripts/autofill-herbs.mjs",
     "prebuild:validate": "node scripts/validate-herbs.mjs",
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
-    "prebuild": "node scripts/build-blog.mjs && node scripts/generate-rss.mjs && node scripts/generate-blog-index.mjs",
+    "prebuild": "node scripts/build-blog.mjs && node scripts/generate-rss.mjs && node scripts/generate-blog-index.mjs && npm run prerender:entities",
     "build": "npm run prebuild && vite build",
     "postbuild": "node scripts/generate-sitemap.mjs dist",
     "sitemap": "node scripts/generate-sitemap.mjs dist",
@@ -47,7 +47,9 @@
     "sync:blog": "npm run build:blog && node scripts/generate-sitemap.mjs public",
     "dev:blog:watch": "node -e \"require('chokidar').watch('content/blog').on('all',()=>console.log('[blog] change'),()=>{});\"",
     "seed:compounds": "tsx scripts/seed-compounds.ts",
-    "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint --fix"
+    "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint --fix",
+    "data:enrich": "tsx scripts/convert-herbs-csv.ts",
+    "prerender:entities": "node scripts/prerender-entities.mjs"
   },
   "engines": {
     "node": ">=20 <21"
