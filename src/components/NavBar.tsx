@@ -113,6 +113,22 @@ export default function NavBar() {
           </div>
         )}
       </nav>
+      <div className='border-white/8 border-t bg-white/[0.03]'>
+        <div className='mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-1 px-4 py-1.5 text-[11px] tracking-[0.08em] text-white/55 sm:px-6'>
+          <span className='inline-flex items-center gap-1.5 whitespace-nowrap'>
+            <span aria-hidden='true'>🧪</span>
+            Research-based herbal knowledge
+          </span>
+          <span className='inline-flex items-center gap-1.5 whitespace-nowrap'>
+            <span aria-hidden='true'>⚠️</span>
+            Safety-first, harm-reduction approach
+          </span>
+          <span className='inline-flex items-center gap-1.5 whitespace-nowrap'>
+            <span aria-hidden='true'>↻</span>
+            Continuously updated database
+          </span>
+        </div>
+      </div>
     </header>
   )
 }

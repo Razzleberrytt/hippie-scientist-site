@@ -101,12 +101,12 @@ a:hover {
   }
 
   .ds-stack {
-    @apply space-y-4 sm:space-y-5;
+    @apply space-y-3.5 sm:space-y-4;
   }
 
   .ds-card {
-    @apply rounded-2xl border border-white/15 bg-white/[0.045] p-5 backdrop-blur-lg;
-    box-shadow: 0 12px 28px -24px rgba(0, 0, 0, 0.76);
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md;
+    box-shadow: 0 8px 22px -22px rgba(0, 0, 0, 0.72);
   }
 
   .ds-card-lg {

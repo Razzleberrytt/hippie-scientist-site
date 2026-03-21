@@ -170,10 +170,10 @@ export default function Home() {
           <p className='text-brand-lime/80 text-xs font-semibold uppercase tracking-[0.24em]'>
             How to use this database
           </p>
-          <h2 className='ds-heading'>Trace mechanism, context, then safety</h2>
+          <h2 className='ds-heading'>How to explore this database</h2>
           <p className='ds-text'>
-            Start with what is known about active chemistry, then compare traditional preparation
-            and modern usage patterns. Mark areas with limited evidence before making any decisions.
+            Browse herbs, then study compounds to understand mechanism context. Read research notes,
+            track confidence labels, and only build blends after learning core safety details.
           </p>
         </div>
       </section>
