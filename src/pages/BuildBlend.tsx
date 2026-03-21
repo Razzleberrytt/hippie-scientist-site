@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { toast } from 'sonner'
 import Card from '../components/ui/Card'
@@ -207,6 +207,10 @@ export default function BuildBlend() {
   const [showStarterPackFallback, setShowStarterPackFallback] = useState(false)
   const [showPostCheckoutNote, setShowPostCheckoutNote] = useState(false)
   const [didLoadSharedBlend, setDidLoadSharedBlend] = useState(false)
+  const [isCustomizeOpen, setIsCustomizeOpen] = useState(false)
+  const stepTwoRef = useRef<HTMLElement | null>(null)
+  const stepThreeRef = useRef<HTMLElement | null>(null)
+  const stepFourRef = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -723,6 +727,28 @@ export default function BuildBlend() {
     toast.error('Popup blocked. Use the secure checkout link below.')
   }
 
+  const scrollToStep = (target: HTMLElement | null) => {
+    if (!target || typeof window === 'undefined') return
+    window.setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 120)
+  }
+
+  useEffect(() => {
+    if (!quizGoal || (quizTimeOfDay && quizIntensity)) return
+    scrollToStep(stepTwoRef.current)
+  }, [quizGoal, quizIntensity, quizTimeOfDay])
+
+  useEffect(() => {
+    if (!selectedRecommendation) return
+    scrollToStep(stepThreeRef.current)
+  }, [selectedRecommendation])
+
+  useEffect(() => {
+    if (!isCustomizeOpen) return
+    scrollToStep(stepFourRef.current)
+  }, [isCustomizeOpen])
+
   const recommendedHerbLinks = useMemo(() => {
     if (!selectedRecommendation) return []
     return selectedRecommendation.herbs.map(entry => {
@@ -738,9 +764,30 @@ export default function BuildBlend() {
   }, [dataset, selectedRecommendation])
 
   const hasRecommendation = Boolean(selectedRecommendation)
+  const hasCompletedQuiz = Boolean(quizGoal && quizTimeOfDay && quizIntensity)
+  const currentStep = !quizGoal
+    ? 1
+    : !hasCompletedQuiz
+      ? 2
+      : !hasRecommendation
+        ? 3
+        : isCustomizeOpen
+          ? 4
+          : 5
+  const currentStepLabel =
+    currentStep === 1
+      ? 'Choose Your Goal'
+      : currentStep === 2
+        ? 'Choose Time + Intensity'
+        : currentStep === 3
+          ? 'View Recommendation'
+          : currentStep === 4
+            ? 'Customize (Optional)'
+            : 'Save / Download'
+  const visibleAvailableHerbs = availableHerbs.slice(0, 24)
 
   return (
-    <main className='container space-y-9 py-8 sm:py-10'>
+    <main className='container space-y-10 py-8 sm:py-10'>
       <header className='space-y-3'>
         <p className='text-sub text-xs uppercase tracking-[0.3em]'>Experimental Mixer</p>
         <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>Build a Blend</h1>
@@ -748,9 +795,12 @@ export default function BuildBlend() {
           Curate herbs, adjust their ratios in percentages or grams, and watch potency and mood
           predictions update instantly.
         </p>
+        <div className='bg-panel/45 inline-flex rounded-full border border-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em]'>
+          Step {currentStep} of 5 — {currentStepLabel}
+        </div>
       </header>
 
-      <section className='border-white/12 from-brand-lime/12 via-panel to-brand-lime/6 space-y-6 rounded-3xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.06),0_20px_40px_-24px_rgba(163,230,53,0.7)] sm:p-7'>
+      <section className='border-white/12 from-brand-lime/10 via-panel to-brand-lime/5 space-y-6 rounded-3xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.04),0_12px_24px_-20px_rgba(163,230,53,0.55)] sm:p-7'>
         <div className='space-y-2'>
           <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
             Step 1: Choose Your Goal
@@ -763,78 +813,88 @@ export default function BuildBlend() {
           </p>
         </div>
 
-        <div className='grid gap-3 md:grid-cols-3'>
-          <Card className='border-white/10 bg-black/25 p-4'>
-            <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>1. Main goal</p>
-            <div className='grid gap-2'>
-              {(['calm', 'focus', 'sleep'] as GoalKey[]).map(goal => (
-                <button
-                  key={goal}
-                  onClick={() => setQuizGoal(goal)}
-                  className={`min-h-10 rounded-xl border px-3.5 py-2.5 text-left text-sm capitalize transition ${
-                    quizGoal === goal
-                      ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
-                      : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
-                  }`}
-                >
-                  {goal}
-                </button>
-              ))}
-            </div>
-          </Card>
+        <Card className='border-white/10 bg-black/20 p-4'>
+          <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>Main goal</p>
+          <div className='grid gap-2 sm:grid-cols-3'>
+            {(['calm', 'focus', 'sleep'] as GoalKey[]).map(goal => (
+              <button
+                key={goal}
+                onClick={() => setQuizGoal(goal)}
+                className={`min-h-10 rounded-xl border px-3.5 py-2.5 text-left text-sm capitalize transition duration-200 ${
+                  quizGoal === goal
+                    ? 'border-brand-lime/70 bg-brand-lime/20 text-text scale-[1.01] shadow-[0_0_16px_-12px_rgba(163,230,53,0.9)]'
+                    : 'border-border/70 bg-panel/60 text-sub hover:border-brand-lime/35 hover:bg-brand-lime/8 hover:text-text'
+                }`}
+              >
+                {goal}
+              </button>
+            ))}
+          </div>
+        </Card>
+      </section>
 
-          <Card className='border-white/10 bg-black/25 p-4'>
-            <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>2. Time of day</p>
-            <div className='grid gap-2'>
-              {(['morning', 'afternoon', 'evening'] as TimeOfDay[]).map(timeOption => (
-                <button
-                  key={timeOption}
-                  onClick={() => setQuizTimeOfDay(timeOption)}
-                  className={`min-h-10 rounded-xl border px-3.5 py-2.5 text-left text-sm capitalize transition ${
-                    quizTimeOfDay === timeOption
-                      ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
-                      : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
-                  }`}
-                >
-                  {timeOption}
-                </button>
-              ))}
-            </div>
-          </Card>
+      {quizGoal && (
+        <section ref={stepTwoRef} className='scroll-mt-24 space-y-5'>
+          <div className='space-y-1'>
+            <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
+              Step 2: Choose Time + Intensity
+            </p>
+            <p className='text-sub text-sm'>
+              Tune the recommendation to your day and desired feel.
+            </p>
+          </div>
+          <div className='grid gap-3 md:grid-cols-2'>
+            <Card className='border-white/10 bg-black/20 p-4'>
+              <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>Time of day</p>
+              <div className='grid gap-2'>
+                {(['morning', 'afternoon', 'evening'] as TimeOfDay[]).map(timeOption => (
+                  <button
+                    key={timeOption}
+                    onClick={() => setQuizTimeOfDay(timeOption)}
+                    className={`min-h-10 rounded-xl border px-3.5 py-2.5 text-left text-sm capitalize transition duration-200 ${
+                      quizTimeOfDay === timeOption
+                        ? 'border-brand-lime/70 bg-brand-lime/20 text-text scale-[1.01] shadow-[0_0_16px_-12px_rgba(163,230,53,0.9)]'
+                        : 'border-border/70 bg-panel/60 text-sub hover:border-brand-lime/35 hover:bg-brand-lime/8 hover:text-text'
+                    }`}
+                  >
+                    {timeOption}
+                  </button>
+                ))}
+              </div>
+            </Card>
 
-          <Card className='border-white/10 bg-black/25 p-4'>
-            <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>3. Intensity</p>
-            <div className='grid gap-2'>
-              {(['gentle', 'balanced', 'stronger'] as IntensityPreference[]).map(intensity => (
-                <button
-                  key={intensity}
-                  onClick={() => setQuizIntensity(intensity)}
-                  className={`min-h-10 rounded-xl border px-3.5 py-2.5 text-left text-sm capitalize transition ${
-                    quizIntensity === intensity
-                      ? 'border-brand-lime/60 bg-brand-lime/15 text-text shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
-                      : 'border-border/80 bg-panel/70 text-sub hover:border-brand-lime/40 hover:bg-brand-lime/10 hover:text-text'
-                  }`}
-                >
-                  {intensity}
-                </button>
-              ))}
-            </div>
-          </Card>
-        </div>
+            <Card className='border-white/10 bg-black/20 p-4'>
+              <p className='text-sub mb-2 text-xs uppercase tracking-[0.2em]'>Intensity</p>
+              <div className='grid gap-2'>
+                {(['gentle', 'balanced', 'stronger'] as IntensityPreference[]).map(intensity => (
+                  <button
+                    key={intensity}
+                    onClick={() => setQuizIntensity(intensity)}
+                    className={`min-h-10 rounded-xl border px-3.5 py-2.5 text-left text-sm capitalize transition duration-200 ${
+                      quizIntensity === intensity
+                        ? 'border-brand-lime/70 bg-brand-lime/20 text-text scale-[1.01] shadow-[0_0_16px_-12px_rgba(163,230,53,0.9)]'
+                        : 'border-border/70 bg-panel/60 text-sub hover:border-brand-lime/35 hover:bg-brand-lime/8 hover:text-text'
+                    }`}
+                  >
+                    {intensity}
+                  </button>
+                ))}
+              </div>
+            </Card>
+          </div>
+        </section>
+      )}
 
-        {!hasRecommendation && (
-          <p className='text-sub rounded-xl border border-white/10 bg-black/25 px-3 py-2 text-xs'>
-            Start by selecting your goal above. Your blend will appear in Step 2.
-          </p>
-        )}
-
-        {selectedRecommendation && (
-          <Card className='border-brand-lime/30 space-y-4 bg-black/20 p-4 sm:p-5'>
+      {selectedRecommendation && (
+        <section ref={stepThreeRef} className='scroll-mt-24 space-y-5'>
+          <Card className='border-brand-lime/35 from-brand-lime/15 to-panel/90 space-y-5 bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.08),0_16px_28px_-22px_rgba(163,230,53,0.8)] sm:p-6'>
             <div className='space-y-1'>
               <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
-                Step 2: Your Recommended Blend
+                Step 3: Your Recommended Blend
               </p>
-              <p className='text-sub text-xs'>You did it — here is your starting recommendation.</p>
+              <p className='text-sub text-xs'>
+                You completed the quiz. Here&apos;s your blend recommendation.
+              </p>
             </div>
             <ResultsSummaryCard
               goal={selectedGoal ?? quizGoal ?? selectedRecommendation.key}
@@ -843,16 +903,76 @@ export default function BuildBlend() {
               herbs={selectedRecommendation.herbs.map(herb => herb.name)}
               variant='expanded'
             />
+
+            <Card className='border-white/10 bg-black/15 p-4'>
+              <h2 className='text-sub text-xs font-semibold uppercase tracking-[0.2em]'>
+                Blend stats
+              </h2>
+              <div className='text-sub mt-3 grid gap-2 text-sm sm:grid-cols-3'>
+                <div className='rounded-lg border border-white/10 bg-black/20 px-3 py-2'>
+                  <p>Total herbs</p>
+                  <p className='text-text font-semibold'>{blend.length}</p>
+                </div>
+                <div className='rounded-lg border border-white/10 bg-black/20 px-3 py-2'>
+                  <p>Total {ratioMode === 'percent' ? 'ratio' : 'weight'}</p>
+                  <p className='text-text font-semibold'>
+                    {ratioMode === 'percent'
+                      ? `${totalAmount.toFixed(0)}%`
+                      : `${totalAmount.toFixed(1)} g`}
+                  </p>
+                </div>
+                <div className='rounded-lg border border-white/10 bg-black/20 px-3 py-2'>
+                  <p>Potency score</p>
+                  <p className='text-text font-semibold'>{potencyScore.toFixed(1)}</p>
+                </div>
+              </div>
+              <div className='bg-panel/50 text-sub mt-3 rounded-xl border border-white/10 p-3 text-xs'>
+                <p className='text-sub/70 uppercase tracking-wide'>Mood projection</p>
+                <p className='text-text mt-1 text-sm font-semibold'>{moodInsight.headline}</p>
+                <p className='mt-1'>{moodInsight.breakdown}</p>
+              </div>
+            </Card>
+
             <div className='space-y-1'>
               <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
-                Step 3: Upgrade Your Result
+                Step 5: Save / Download
               </p>
-              <p className='text-sub text-xs'>
-                Optional: unlock done-for-you guidance for this recommendation.
-              </p>
+              <p className='text-sub text-xs'>Keep your result for later or continue exploring.</p>
             </div>
-            <section className='border-brand-lime/40 from-brand-lime/16 to-panel/95 relative space-y-4 overflow-hidden rounded-2xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.12),0_12px_34px_-18px_rgba(163,230,53,0.9)]'>
-              <div className='from-brand-lime/18 via-brand-lime/6 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
+            <div className='grid gap-2.5 sm:grid-cols-3'>
+              <Button onClick={handleRetakeQuiz} variant='ghost' className='justify-center'>
+                Retake Quiz
+              </Button>
+              <Button
+                onClick={saveRecommendedBlend}
+                disabled={!blend.length}
+                className='justify-center'
+              >
+                Save this blend
+              </Button>
+              <Button
+                onClick={() => setShowExploreHerbs(current => !current)}
+                variant='ghost'
+                className='justify-center'
+              >
+                Explore these herbs
+              </Button>
+            </div>
+            {blendSavedMessage && <p className='text-brand-lime text-xs'>Blend saved ✓</p>}
+            {showExploreHerbs && (
+              <ul className='space-y-2'>
+                {recommendedHerbLinks.map(herb => (
+                  <li key={herb.name} className='text-sm'>
+                    <Link className='text-brand-lime hover:underline' to={herb.href}>
+                      {herb.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            <section className='border-brand-lime/30 from-brand-lime/12 to-panel/95 relative space-y-4 overflow-hidden rounded-2xl border bg-gradient-to-br p-4 shadow-[0_0_0_1px_rgba(163,230,53,0.08),0_10px_24px_-18px_rgba(163,230,53,0.75)]'>
+              <div className='from-brand-lime/14 via-brand-lime/4 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
               <div className='relative z-10 space-y-4'>
                 <div>
                   <h4 className='text-text text-lg font-semibold'>Starter Pack</h4>
@@ -898,7 +1018,7 @@ export default function BuildBlend() {
                   <div className='flex flex-col items-start gap-1 sm:items-end'>
                     <Button
                       onClick={handleStarterPackCheckout}
-                      className='border-brand-lime/40 bg-brand-lime/20 text-brand-lime hover:bg-brand-lime/30 min-w-[190px] justify-center border shadow-[0_0_24px_-12px_rgba(163,230,53,0.95)]'
+                      className='border-brand-lime/35 bg-brand-lime/18 text-brand-lime hover:bg-brand-lime/26 min-w-[190px] justify-center border shadow-[0_0_20px_-14px_rgba(163,230,53,0.9)]'
                     >
                       Get Starter Pack
                     </Button>
@@ -941,147 +1061,123 @@ export default function BuildBlend() {
               sourcePage='build'
               currentBlendName={selectedRecommendation.blendName}
             />
-
-            <div className='space-y-1'>
-              <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
-                Step 5: Save / Download
-              </p>
-              <p className='text-sub text-xs'>Keep your result for later or continue exploring.</p>
-            </div>
-            <div className='grid gap-2.5 sm:grid-cols-3'>
-              <Button onClick={handleRetakeQuiz} variant='ghost' className='justify-center'>
-                Retake Quiz
-              </Button>
-              <Button
-                onClick={saveRecommendedBlend}
-                disabled={!blend.length}
-                className='justify-center'
-              >
-                Save this blend
-              </Button>
-              <Button
-                onClick={() => setShowExploreHerbs(current => !current)}
-                variant='ghost'
-                className='justify-center'
-              >
-                Explore these herbs
-              </Button>
-            </div>
-            {blendSavedMessage && <p className='text-brand-lime text-xs'>Blend saved ✓</p>}
-            {showExploreHerbs && (
-              <ul className='space-y-2'>
-                {recommendedHerbLinks.map(herb => (
-                  <li key={herb.name} className='text-sm'>
-                    <Link className='text-brand-lime hover:underline' to={herb.href}>
-                      {herb.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
           </Card>
-        )}
-      </section>
+        </section>
+      )}
 
-      <section
-        className={`grid gap-7 lg:grid-cols-[2fr_1fr] lg:items-start ${
-          hasRecommendation ? '' : 'opacity-65'
-        }`}
-      >
-        <div className='space-y-6'>
-          <Card className='space-y-5 p-5 sm:p-6'>
+      {hasRecommendation && (
+        <section ref={stepFourRef} className='scroll-mt-24 space-y-5'>
+          <Card className='space-y-4 p-5 sm:p-6'>
             <div className='space-y-2'>
               <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
                 Step 4: Customize (Optional)
               </p>
-              <p className='text-sub text-[11px] font-semibold uppercase tracking-[0.22em]'>
-                Search &amp; select herbs
-              </p>
-              <p className='text-sub text-xs'>
-                Optional step — skip this if your recommended blend already looks good.
-              </p>
-              <div className='relative'>
-                <input
-                  value={query}
-                  onChange={event => setQuery(event.target.value)}
-                  placeholder='Search herbs by name, effects, or vibe'
-                  className='bg-white/6 text-text placeholder:text-sub/70 focus:border-brand-lime/55 focus:ring-brand-lime/25 min-h-10 w-full rounded-xl border border-white/15 px-4 py-2.5 text-sm backdrop-blur-md transition-shadow focus:shadow-[0_0_0_1px_rgba(163,230,53,0.2),0_0_26px_-12px_rgba(163,230,53,0.75)] focus:outline-none focus:ring-2'
-                />
-                {query && (
-                  <button
-                    onClick={() => setQuery('')}
-                    className='text-sub hover:text-text absolute inset-y-0 right-3 flex items-center text-xs transition'
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
+              <Button
+                onClick={() => setIsCustomizeOpen(current => !current)}
+                variant='ghost'
+                className='w-full justify-between border border-white/10 px-3 py-2 text-left text-sm'
+              >
+                <span>
+                  {isCustomizeOpen ? 'Hide customization' : 'Customize your blend (optional)'}
+                </span>
+                <span className='text-brand-lime'>{isCustomizeOpen ? '−' : '+'}</span>
+              </Button>
             </div>
 
-            <div className='border-white/12 bg-panel/45 space-y-3 rounded-2xl border p-3.5'>
-              <div className='flex flex-wrap items-center justify-between gap-3'>
-                <div className='flex flex-wrap gap-2.5'>
-                  {Object.keys(PRESETS).map(preset => (
-                    <Button
-                      key={preset}
-                      onClick={() => applyPreset(preset)}
-                      variant={activePreset === preset ? 'primary' : 'default'}
-                      className={`min-h-8 px-3 text-[11px] font-semibold ${
-                        activePreset === preset
-                          ? 'border-brand-lime/45 bg-brand-lime/22 text-text shadow-[0_0_18px_-12px_rgba(163,230,53,0.95)]'
-                          : 'text-sub opacity-75 hover:opacity-100'
-                      }`}
+            {isCustomizeOpen && (
+              <>
+                <p className='text-sub text-[11px] font-semibold uppercase tracking-[0.22em]'>
+                  Search &amp; select herbs
+                </p>
+                <div className='relative'>
+                  <input
+                    value={query}
+                    onChange={event => setQuery(event.target.value)}
+                    placeholder='Search herbs by name, effects, or vibe'
+                    className='bg-white/6 text-text placeholder:text-sub/70 focus:border-brand-lime/55 focus:ring-brand-lime/25 min-h-10 w-full rounded-xl border border-white/15 px-4 py-2.5 text-sm backdrop-blur-md transition-shadow focus:shadow-[0_0_0_1px_rgba(163,230,53,0.2),0_0_26px_-12px_rgba(163,230,53,0.75)] focus:outline-none focus:ring-2'
+                  />
+                  {query && (
+                    <button
+                      onClick={() => setQuery('')}
+                      className='text-sub hover:text-text absolute inset-y-0 right-3 flex items-center text-xs transition'
                     >
-                      {preset}
-                    </Button>
-                  ))}
-                  {!!blend.length && (
-                    <Button
-                      onClick={resetBlend}
-                      variant='ghost'
-                      className='text-sub hover:text-text min-h-8 px-3 text-[11px] font-medium'
-                    >
-                      Clear blend
-                    </Button>
+                      Clear
+                    </button>
                   )}
                 </div>
-                <div className='border-border bg-panel text-sub flex items-center gap-1.5 rounded-full border p-1 text-[11px] font-semibold'>
-                  {(Object.keys(RATIO_SETTINGS) as RatioMode[]).map(mode => (
-                    <button
-                      key={mode}
-                      onClick={() => setRatioMode(mode)}
-                      className={`rounded-full px-3 py-1 transition ${
-                        ratioMode === mode
-                          ? 'bg-brand-lime/25 text-text shadow-[0_0_18px_-14px_rgba(163,230,53,0.95)]'
-                          : 'opacity-80 hover:bg-white/10 hover:opacity-100'
-                      }`}
-                    >
-                      {mode === 'percent' ? '% ratios' : 'Grams'}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
 
-            {!!availableHerbs.length && (
-              <div className='max-h-[14.5rem] overflow-y-auto pr-1'>
-                <div className='flex flex-wrap gap-2.5'>
-                  {availableHerbs.map(herb => (
-                    <button
-                      key={getHerbKey(herb)}
-                      onClick={() => addHerbToBlend(herb)}
-                      className='bg-white/8 text-text/95 hover:border-brand-lime/45 hover:bg-brand-lime/16 active:bg-brand-lime/20 border-white/22 rounded-full border px-3.5 py-2 text-xs font-medium shadow-[0_6px_14px_-12px_rgba(163,230,53,0.85)] transition'
-                    >
-                      {getHerbName(herb)}
-                    </button>
-                  ))}
+                <div className='border-white/12 bg-panel/35 space-y-3 rounded-2xl border p-3.5'>
+                  <div className='flex flex-wrap items-center justify-between gap-3'>
+                    <div className='flex flex-wrap gap-2.5'>
+                      {Object.keys(PRESETS).map(preset => (
+                        <Button
+                          key={preset}
+                          onClick={() => applyPreset(preset)}
+                          variant={activePreset === preset ? 'primary' : 'default'}
+                          className={`min-h-8 px-3 text-[11px] font-semibold ${
+                            activePreset === preset
+                              ? 'border-brand-lime/35 bg-brand-lime/20 text-text shadow-[0_0_12px_-10px_rgba(163,230,53,0.85)]'
+                              : 'text-sub opacity-75 hover:opacity-100'
+                          }`}
+                        >
+                          {preset}
+                        </Button>
+                      ))}
+                      {!!blend.length && (
+                        <Button
+                          onClick={resetBlend}
+                          variant='ghost'
+                          className='text-sub hover:text-text min-h-8 px-3 text-[11px] font-medium'
+                        >
+                          Clear blend
+                        </Button>
+                      )}
+                    </div>
+                    <div className='border-border bg-panel text-sub flex items-center gap-1.5 rounded-full border p-1 text-[11px] font-semibold'>
+                      {(Object.keys(RATIO_SETTINGS) as RatioMode[]).map(mode => (
+                        <button
+                          key={mode}
+                          onClick={() => setRatioMode(mode)}
+                          className={`rounded-full px-3 py-1 transition ${
+                            ratioMode === mode
+                              ? 'bg-brand-lime/22 text-text shadow-[0_0_12px_-12px_rgba(163,230,53,0.9)]'
+                              : 'opacity-80 hover:bg-white/10 hover:opacity-100'
+                          }`}
+                        >
+                          {mode === 'percent' ? '% ratios' : 'Grams'}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            )}
-            {!availableHerbs.length && (
-              <p className='text-sub text-xs'>
-                No matching herbs found. Try another search or use a preset filter.
-              </p>
+
+                {!!visibleAvailableHerbs.length && (
+                  <div className='max-h-[12rem] overflow-y-auto rounded-xl border border-white/10 bg-black/15 p-3 pr-2'>
+                    <div className='flex flex-wrap gap-2'>
+                      {visibleAvailableHerbs.map(herb => (
+                        <button
+                          key={getHerbKey(herb)}
+                          onClick={() => addHerbToBlend(herb)}
+                          className='bg-white/6 text-text/90 hover:border-brand-lime/35 hover:bg-brand-lime/10 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium transition active:scale-[0.99]'
+                        >
+                          {getHerbName(herb)}
+                        </button>
+                      ))}
+                    </div>
+                    {availableHerbs.length > visibleAvailableHerbs.length && (
+                      <p className='text-sub mt-3 text-xs'>
+                        Showing the first {visibleAvailableHerbs.length} herbs. Use search to narrow
+                        your options.
+                      </p>
+                    )}
+                  </div>
+                )}
+                {!visibleAvailableHerbs.length && (
+                  <p className='text-sub text-xs'>
+                    No matching herbs found. Try another search or use a preset filter.
+                  </p>
+                )}
+              </>
             )}
           </Card>
 
@@ -1163,72 +1259,43 @@ export default function BuildBlend() {
               )
             })}
           </section>
-        </div>
+        </section>
+      )}
 
-        <aside className='space-y-5'>
-          <Card className='space-y-4 p-5 sm:p-6'>
-            <h2 className='text-sub text-sm font-semibold uppercase tracking-wide'>
-              Blend telemetry
-            </h2>
-            <div className='text-sub space-y-3 text-sm'>
-              <div className='flex items-center justify-between'>
-                <span>Total herbs</span>
-                <span className='text-text font-semibold'>{blend.length}</span>
-              </div>
-              <div className='flex items-center justify-between'>
-                <span>Total {ratioMode === 'percent' ? 'ratio' : 'weight'}</span>
-                <span className='text-text font-semibold'>
-                  {ratioMode === 'percent'
-                    ? `${totalAmount.toFixed(0)}%`
-                    : `${totalAmount.toFixed(1)} g`}
-                </span>
-              </div>
-              <div className='flex items-center justify-between'>
-                <span>Potency score</span>
-                <span className='text-text font-semibold'>{potencyScore.toFixed(1)}</span>
-              </div>
-            </div>
-            <div className='border-border bg-panel text-sub rounded-xl border p-4 text-sm'>
-              <p className='text-sub/70 text-xs uppercase tracking-wide'>Mood projection</p>
-              <p className='text-text mt-1 text-base font-semibold'>{moodInsight.headline}</p>
-              <p className='text-sub mt-1 text-xs'>{moodInsight.breakdown}</p>
-            </div>
-            <div className='flex flex-wrap gap-3 text-sm'>
-              <Button onClick={copyFormula} className='justify-center' disabled={!blend.length}>
-                {copyState === 'copied' ? 'Copied!' : 'Copy formula'}
+      {hasRecommendation && (
+        <section className='bg-panel/25 space-y-4 rounded-2xl border border-white/10 p-5'>
+          <div className='flex items-center justify-between gap-3'>
+            <h2 className='text-sub text-sm font-semibold uppercase tracking-wide'>Saved blends</h2>
+            {!!savedGoalBlends.length && (
+              <Button onClick={clearSavedBlends} variant='ghost' className='px-3 py-1 text-xs'>
+                Clear saved blends
               </Button>
-            </div>
-          </Card>
-        </aside>
-      </section>
-
-      <section className='space-y-4'>
-        <div className='flex items-center justify-between gap-3'>
-          <h2 className='text-sub text-sm font-semibold uppercase tracking-wide'>Saved blends</h2>
-          {!!savedGoalBlends.length && (
-            <Button onClick={clearSavedBlends} variant='ghost' className='px-3 py-1 text-xs'>
-              Clear saved blends
-            </Button>
-          )}
-        </div>
-        {!savedGoalBlends.length ? (
-          <Card className='text-sub border-dashed p-5 text-sm'>No saved blends yet.</Card>
-        ) : (
-          <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
-            {savedGoalBlends.slice(0, 3).map(saved => (
-              <ResultsSummaryCard
-                key={`${saved.timestamp}-${saved.blendName}`}
-                goal={saved.goal}
-                blendName={saved.blendName}
-                herbs={saved.herbs}
-                explanation='Saved from your blend recommendations for quick reuse.'
-                timestamp={saved.timestamp}
-                variant='compact'
-              />
-            ))}
+            )}
           </div>
-        )}
-      </section>
+          {!savedGoalBlends.length ? (
+            <Card className='text-sub border-dashed p-5 text-sm'>
+              Your saved blends will appear here after you create one.
+            </Card>
+          ) : (
+            <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+              {savedGoalBlends.slice(0, 3).map(saved => (
+                <ResultsSummaryCard
+                  key={`${saved.timestamp}-${saved.blendName}`}
+                  goal={saved.goal}
+                  blendName={saved.blendName}
+                  herbs={saved.herbs}
+                  explanation='Saved from your blend recommendations for quick reuse.'
+                  timestamp={saved.timestamp}
+                  variant='compact'
+                />
+              ))}
+            </div>
+          )}
+          <Button onClick={copyFormula} className='justify-center' disabled={!blend.length}>
+            {copyState === 'copied' ? 'Copied!' : 'Copy formula'}
+          </Button>
+        </section>
+      )}
     </main>
   )
 }
