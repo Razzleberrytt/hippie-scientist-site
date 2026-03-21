@@ -35,6 +35,13 @@ function splitNotes(input: string) {
     .filter(Boolean)
 }
 
+function splitList(input: string) {
+  return input
+    .split(/\n|;|•|,/g)
+    .map(part => cleanLine(part))
+    .filter(Boolean)
+}
+
 function inferEffectBuckets(input: string, tags: string[]) {
   const parts = input
     .split(/\n|;|\.|•/g)
@@ -59,14 +66,41 @@ function inferEffectBuckets(input: string, tags: string[]) {
   }
 
   return {
-    mental: mental.length ? mental : ['Mental effects vary by dose and context.'],
+    mental: mental.length
+      ? mental
+      : ['Mental effects vary by dose, preparation method, and physiology.'],
     physical: physical.length
       ? physical
-      : ['Physical effects are context-dependent and may vary by preparation.'],
+      : ['Physical effects vary by dose, preparation method, and physiology.'],
     subtle: subtle.length
       ? subtle
-      : ['Subjective effects are traditionally described and may vary between people.'],
+      : ['Subjective effects vary by setting, expectation, and individual response.'],
   }
+}
+
+function inferEvidenceLevel(input: {
+  sourcesCount: number
+  mechanism: string
+  notes: string[]
+  traditionalUse: string
+}) {
+  const corpus = `${input.mechanism} ${input.notes.join(' ')} ${input.traditionalUse}`.toLowerCase()
+  const hasHumanSignals = /human|clinical|trial|double-blind|randomized|rct|meta-analysis/.test(
+    corpus
+  )
+  const hasPreclinicalSignals = /animal|in vitro|cell|rodent|preclinical|mechanistic/.test(corpus)
+  const hasTraditionalSignals = /traditional|ethnobot|folk|historic|ceremonial/.test(corpus)
+
+  if (
+    (hasHumanSignals && input.sourcesCount >= 3) ||
+    /meta-analysis|systematic review/.test(corpus)
+  ) {
+    return 'Well-studied'
+  }
+  if (hasHumanSignals) return 'Limited human data'
+  if (hasPreclinicalSignals || Boolean(input.mechanism)) return 'Preclinical'
+  if (hasTraditionalSignals || Boolean(input.traditionalUse)) return 'Traditional'
+  return 'Traditional'
 }
 
 function RelatedPosts({ slug }: { slug?: string }) {
@@ -188,6 +222,22 @@ export default function HerbDetail() {
     .slice(0, 3)
 
   const researchNotes = splitNotes(researchNotesRaw)
+  const evidenceLevel = inferEvidenceLevel({
+    sourcesCount: details.sources.length,
+    mechanism,
+    notes: researchNotes,
+    traditionalUse,
+  })
+  const primaryEffects = [
+    ...effectBuckets.mental,
+    ...effectBuckets.physical,
+    ...effectBuckets.subtle,
+  ].slice(0, 3)
+  const contraindicationItems = splitList(contraindications)
+  const interactionItems = splitList(interactions)
+  const safetyLabel = safety || toxicity || 'Use caution; evidence varies by preparation and dose.'
+  const fallbackRelatedHerbs = herbs.filter(entry => entry.slug !== herb.slug).slice(0, 3)
+  const visibleRelatedHerbs = relatedHerbs.length ? relatedHerbs : fallbackRelatedHerbs
 
   return (
     <>
@@ -220,15 +270,21 @@ export default function HerbDetail() {
               <h2 className='text-sm font-semibold uppercase tracking-[0.14em] text-white/70'>
                 Quick Facts
               </h2>
-              <div className='mt-3 grid gap-3 text-sm sm:grid-cols-2'>
+              <div className='mt-3 grid grid-cols-2 gap-3 text-sm lg:grid-cols-3'>
                 <p>
-                  <strong className='text-white'>Type:</strong>{' '}
+                  <strong className='text-white'>Class:</strong>{' '}
                   <span className='text-white/80'>{details.categories[0] || 'Botanical'}</span>
                 </p>
+                {mechanism && (
+                  <p>
+                    <strong className='text-white'>Mechanism:</strong>{' '}
+                    <span className='text-white/80'>{mechanism}</span>
+                  </p>
+                )}
                 <p>
                   <strong className='text-white'>Primary effects:</strong>{' '}
                   <span className='text-white/80'>
-                    {normalizedTags.slice(0, 3).join(', ') || 'Varies'}
+                    {primaryEffects.join(', ') || normalizedTags.slice(0, 3).join(', ') || 'Varies'}
                   </span>
                 </p>
                 <p>
@@ -237,9 +293,7 @@ export default function HerbDetail() {
                 </p>
                 <p>
                   <strong className='text-white'>Safety level:</strong>{' '}
-                  <span className='text-white/80'>
-                    {safety || toxicity || 'Use caution; evidence varies by preparation and dose.'}
-                  </span>
+                  <span className='text-white/80'>{safetyLabel}</span>
                 </p>
               </div>
             </section>
@@ -267,6 +321,9 @@ export default function HerbDetail() {
               <section>
                 <h2 className='text-xl font-semibold text-white'>Overview</h2>
                 <p className='mt-3 text-sm leading-7 text-white/85'>{description}</p>
+                {traditionalUse && (
+                  <p className='mt-3 text-sm leading-7 text-white/75'>{traditionalUse}</p>
+                )}
                 {normalizedTags.length > 0 && (
                   <div className='mt-3 flex flex-wrap gap-2'>
                     {normalizedTags.map(tag => (
@@ -281,39 +338,15 @@ export default function HerbDetail() {
                 )}
               </section>
 
-              <section>
-                <h2 className='text-xl font-semibold text-white'>Traditional Use</h2>
-                <p className='mt-3 text-sm leading-7 text-white/80'>
-                  {traditionalUse ||
-                    'Traditionally used in regional systems of herbal practice; details vary by preparation and lineage.'}
-                </p>
-              </section>
-
-              <section>
-                <h2 className='text-xl font-semibold text-white'>Active Compounds</h2>
-                {linkedCompounds.length > 0 ? (
-                  <ul className='mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-white/80'>
-                    {linkedCompounds.map(entry => (
-                      <li key={entry.name}>
-                        {entry.slug ? (
-                          <Link
-                            className='link text-[color:var(--accent)]'
-                            to={`/compounds/${entry.slug}`}
-                          >
-                            {entry.name}
-                          </Link>
-                        ) : (
-                          entry.name
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className='mt-3 text-sm text-white/75'>
-                    No compound data is currently mapped for this herb.
-                  </p>
-                )}
-              </section>
+              {(mechanism || pharmacology) && (
+                <section>
+                  <h2 className='text-xl font-semibold text-white'>Mechanism of Action</h2>
+                  {mechanism && <p className='mt-3 text-sm leading-7 text-white/85'>{mechanism}</p>}
+                  {pharmacology && (
+                    <p className='mt-2 text-sm leading-7 text-white/70'>{pharmacology}</p>
+                  )}
+                </section>
+              )}
 
               <section>
                 <h2 className='text-xl font-semibold text-white'>Effects</h2>
@@ -343,34 +376,35 @@ export default function HerbDetail() {
                     </ul>
                   </div>
                 </div>
-              </section>
-
-              <section>
-                <h2 className='text-xl font-semibold text-white'>Mechanism (Simple Science)</h2>
-                <p className='mt-3 text-sm leading-7 text-white/85'>
-                  {mechanism ||
-                    'Mechanism evidence is still evolving. Current findings suggest this herb may support specific pathways without implying guaranteed outcomes.'}
-                </p>
-                {pharmacology && (
-                  <p className='mt-2 text-sm leading-7 text-white/70'>{pharmacology}</p>
-                )}
+                <div className='mt-4 rounded-xl border border-white/10 bg-white/5 p-4'>
+                  <h3 className='text-sm font-semibold text-white/90'>Context & Variability</h3>
+                  <p className='mt-2 text-sm leading-7 text-white/80'>
+                    Effects vary by dose, preparation method, and individual physiology.
+                  </p>
+                </div>
               </section>
 
               <section>
                 <h2 className='text-xl font-semibold text-white'>Safety & Contraindications</h2>
                 <div className='mt-3 space-y-2 text-sm leading-7 text-white/80'>
                   <p>
-                    {safety ||
-                      'Safety profile depends on dose, extract type, and individual context.'}
+                    <strong>Safety summary:</strong> {safetyLabel}
                   </p>
-                  {contraindications && (
-                    <p>
-                      <strong>Contraindications:</strong> {contraindications}
-                    </p>
+                  {contraindicationItems.length > 0 && (
+                    <div>
+                      <p>
+                        <strong>Contraindications:</strong>
+                      </p>
+                      <ul className='mt-1 list-disc space-y-1 pl-5'>
+                        {contraindicationItems.map(item => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
-                  {interactions && (
+                  {interactionItems.length > 0 && (
                     <p>
-                      <strong>Interactions:</strong> {interactions}
+                      <strong>Interactions:</strong> {interactionItems.join(', ')}
                     </p>
                   )}
                   {sideEffects.length > 0 && (
@@ -378,21 +412,20 @@ export default function HerbDetail() {
                       <strong>Reported side effects:</strong> {sideEffects.join(', ')}
                     </p>
                   )}
-                  {therapeutic && (
-                    <p>
-                      <strong>Traditional/clinical uses:</strong> {therapeutic}
-                    </p>
-                  )}
-                  {toxicity && (
-                    <p>
-                      <strong>Risk level:</strong> {toxicity}
-                    </p>
-                  )}
+                  <p>
+                    <strong>Risk level:</strong> {toxicity || safetyLabel}
+                  </p>
                 </div>
               </section>
 
               <section>
                 <h2 className='text-xl font-semibold text-white'>Research Notes</h2>
+                <p className='mt-3 text-sm text-white/80'>
+                  <strong>Evidence Level:</strong>{' '}
+                  <span className='rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-xs'>
+                    {evidenceLevel}
+                  </span>
+                </p>
                 <ul className='mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-white/80'>
                   {(researchNotes.length
                     ? researchNotes
@@ -404,6 +437,41 @@ export default function HerbDetail() {
                     <li key={note}>{note}</li>
                   ))}
                 </ul>
+                {(linkedCompounds.length > 0 || therapeutic) && (
+                  <details className='mt-4 rounded-xl border border-white/10 bg-white/5 p-4'>
+                    <summary className='cursor-pointer text-sm font-semibold text-white/90'>
+                      Read more / Deep dive
+                    </summary>
+                    {linkedCompounds.length > 0 && (
+                      <>
+                        <h3 className='mt-3 text-sm font-semibold text-white/90'>
+                          Mapped compounds
+                        </h3>
+                        <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/80'>
+                          {linkedCompounds.map(entry => (
+                            <li key={entry.name}>
+                              {entry.slug ? (
+                                <Link
+                                  className='link text-[color:var(--accent)]'
+                                  to={`/compounds/${entry.slug}`}
+                                >
+                                  {entry.name}
+                                </Link>
+                              ) : (
+                                entry.name
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                    {therapeutic && (
+                      <p className='mt-3 text-sm leading-7 text-white/75'>
+                        <strong>Traditional/clinical uses:</strong> {therapeutic}
+                      </p>
+                    )}
+                  </details>
+                )}
               </section>
             </div>
           </article>
@@ -416,17 +484,18 @@ export default function HerbDetail() {
                   Related Herbs
                 </h3>
                 <ul className='mt-2 space-y-2 text-sm text-white/80'>
-                  {relatedHerbs.length ? (
-                    relatedHerbs.map(item => (
-                      <li key={item.slug}>
-                        <Link to={`/herb/${item.slug}`} className='link text-[color:var(--accent)]'>
-                          {item.common || item.scientific || item.slug}
-                        </Link>
-                      </li>
-                    ))
-                  ) : (
-                    <li className='text-white/60'>No mapped herbs yet.</li>
-                  )}
+                  {visibleRelatedHerbs.length
+                    ? visibleRelatedHerbs.map(item => (
+                        <li key={item.slug}>
+                          <Link
+                            to={`/herb/${item.slug}`}
+                            className='link text-[color:var(--accent)]'
+                          >
+                            {item.common || item.scientific || item.slug}
+                          </Link>
+                        </li>
+                      ))
+                    : null}
                 </ul>
               </div>
               <div>
