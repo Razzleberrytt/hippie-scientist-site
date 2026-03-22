@@ -204,3 +204,17 @@ To keep maintenance low while preserving core automation:
   3. `data-audit.yml` (optional)
 - Re-verified active workflows for stale path references (`src/content/blog`, `src/data/blog`, `src/data/herbs`): none found.
 - Daily workflow still runs on Node 20 and uses the daily generation script via `npm run blog:daily`.
+
+## 2026-03-22 update: final touches + action health check
+
+- Re-validated `.github/workflows/daily-blog.yml` against operational requirements:
+  - Node pinned to `20`
+  - install step uses `npm ci`
+  - generation executes `node scripts/generate-daily-post.mjs`
+  - commit author configured with `git config user.name` and `git config user.email`
+  - push credentials wired through `ACTIONS_DEPLOY_KEY` via checkout SSH key
+  - workflow permissions retain `contents: write`
+- Re-checked active workflows for stale references:
+  - `src/content/blog` → none
+  - `src/data/blog` → none
+  - `src/data/herbs` → none

@@ -57,6 +57,8 @@
 
 :root {
   --hs-card: 255 255 255;
+  --glow-sm: 0 10px 24px -18px rgba(45, 212, 191, 0.45);
+  --glow-lg: 0 20px 45px -36px rgba(16, 185, 129, 0.65);
   color-scheme: dark;
 }
 
@@ -74,17 +76,52 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .ambient-cursor,
+  .aurora-bg,
+  .app-aurora {
+    animation: none;
+    transition: none;
+    transform: none;
+  }
+}
+
 @layer utilities {
-  .bg-white\/6 { background-color: rgba(255, 255, 255, 0.06); }
-  .bg-white\/8 { background-color: rgba(255, 255, 255, 0.08); }
-  .bg-white\/14 { background-color: rgba(255, 255, 255, 0.14); }
-  .border-white\/14 { border-color: rgba(255, 255, 255, 0.14); }
-  .border-white\/20 { border-color: rgba(255, 255, 255, 0.2); }
-  .scrollbar-none { scrollbar-width: none; }
-  .scrollbar-none::-webkit-scrollbar { display: none; }
-  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  .no-scrollbar::-webkit-scrollbar { display: none; }
-  .backdrop-glass { @apply bg-white/8 border border-white/15 backdrop-blur-xl; }
-  .glass-pill { @apply rounded-full backdrop-glass; }
-  .kpi-num { @apply grid place-items-center w-10 h-10 rounded-full bg-white/14 border border-white/20 font-semibold [font-variant-numeric:tabular-nums]; }
+  .bg-white\/6 {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+  .bg-white\/8 {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  .bg-white\/14 {
+    background-color: rgba(255, 255, 255, 0.14);
+  }
+  .border-white\/14 {
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+  .border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .backdrop-glass {
+    @apply bg-white/8 border border-white/15 backdrop-blur-xl;
+  }
+  .glass-pill {
+    @apply backdrop-glass rounded-full;
+  }
+  .kpi-num {
+    @apply bg-white/14 grid h-10 w-10 place-items-center rounded-full border border-white/20 font-semibold [font-variant-numeric:tabular-nums];
+  }
 }

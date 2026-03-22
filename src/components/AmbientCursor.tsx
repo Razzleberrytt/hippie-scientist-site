@@ -65,7 +65,7 @@ export default function AmbientCursor() {
   return (
     <div
       aria-hidden
-      className='ambient-cursor pointer-events-none fixed inset-0 z-0 hidden transition-opacity duration-500 ease-out motion-safe:block motion-reduce:hidden'
+      className='ambient-cursor pointer-events-none fixed inset-0 z-0 hidden transition-opacity transition-transform duration-500 ease-out motion-safe:block motion-reduce:hidden'
       style={{
         background: [
           'radial-gradient(240px 240px at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(45, 212, 191, 0.18), transparent 72%)',
@@ -74,7 +74,7 @@ export default function AmbientCursor() {
         ].join(','),
         filter: 'blur(16px) saturate(1.05)',
         mixBlendMode: 'screen',
-        opacity: 0.78,
+        opacity: 0.62,
       }}
     />
   )

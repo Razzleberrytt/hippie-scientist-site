@@ -156,8 +156,8 @@ The script copies and renames them to:
 4. Re-run:
 
 ```bash
-npm run prerender:entities
 npm run build:blog
+npm run build
 ```
 
 ## Blog front-matter fields
@@ -192,10 +192,9 @@ npx eslint src --ext .ts,.tsx
 
 Use Lighthouse or axe DevTools in the browser to validate color contrast and labeling.
 
-## Deployment + prerender
+## Deployment notes
 
-`npm run build` now prerenders static herb and compound detail pages into `public/herbs/*` and `public/compounds/*`.
-This improves crawler visibility and JS-disabled fallback behavior on static hosts (GitHub Pages/Netlify/Vercel static deployments).
+`npm run build` currently ships the SPA build only (no prerender plugin/SSR integration). This keeps Vercel builds stable after `vite-plugin-prerender` failures.
 
 ## Route-based chunk verification
 
@@ -207,25 +206,9 @@ npm run build
 
 Then inspect `dist/assets/` and verify route chunks are emitted instead of one large app bundle.
 
-## SPA prerender configuration (Vite)
+## SPA build configuration (Vite)
 
-This project uses `vite-plugin-prerender` in `vite.config.ts`.
-
-During `vite build`, the config reads:
-
-- `public/data/herbs.json`
-- `public/data/compounds.json`
-
-and builds static route lists for:
-
-- `/`
-- `/herbs`
-- `/herbs/:slug` (all slugs in `herbs.json`)
-- `/compounds`
-- `/compounds/:slug` (all slugs in `compounds.json`)
-- `/blog`
-
-This improves crawler coverage while preserving the HashRouter SPA runtime (`#/path`).
+Vite is currently configured with React + `@` alias resolution only. Prerendering is intentionally disabled for now and will be revisited once the deployment environment supports it.
 
 ### Rebuild and deploy
 
@@ -261,16 +244,10 @@ This writes `public/data/missing-fields-report.json` and summarizes missing core
 - Herb/compound detail pages show a contextual “Help us fill in missing data” CTA when core evidence fields are incomplete.
 - Evidence issue template: `https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml`
 
-## Monthly data sync workflow
+## Workflow snapshot
 
-A scheduled workflow is available at `.github/workflows/update-data.yml`.
+The active workflow set is intentionally minimal:
 
-- Schedule: `0 0 1 * *` (monthly)
-- Manual trigger: GitHub → **Actions** → **Monthly data sync** → **Run workflow**
-- Steps:
-  1. checks out repo
-  2. runs `node scripts/sync-updated-datasets.mjs`
-  3. runs `npm run data:missing` for missing field metrics
-  4. commits/pushes updates to `public/data/herbs.json` + `public/data/compounds.json` when changed
-
-The workflow uses `BOT_GITHUB_TOKEN` (fallback `GITHUB_TOKEN`) for push permissions.
+1. `.github/workflows/deploy.yml`
+2. `.github/workflows/daily-blog.yml`
+3. `.github/workflows/data-audit.yml` (optional)
