@@ -6,11 +6,12 @@ const root = process.cwd()
 const outDir = path.join(root, 'public', 'data')
 
 const CANDIDATE_DIRS = [
+  path.join(root, 'data-sources'),
   '/home/oai/share',
   '/mnt/data',
   '/tmp',
-  path.join(root, 'public', 'data'),
   root,
+  path.join(root, 'public', 'data'),
 ]
 
 const FILES = [

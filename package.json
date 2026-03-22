@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/generate-stats.mjs && vite",
+    "update-data": "node scripts/update-data.js",
     "dev:data": "node scripts/convert-herbs.mjs",
     "prebuild:data": "node scripts/convert-herbs.mjs && npm run data:enrich",
     "autofill:data": "node scripts/autofill-herbs.mjs",
@@ -69,6 +70,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
+    "@headlessui/react": "^2.2.9",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "autoprefixer": "^10.4.19",

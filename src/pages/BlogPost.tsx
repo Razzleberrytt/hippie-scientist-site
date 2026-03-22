@@ -122,7 +122,7 @@ export default function BlogPost() {
           {meta?.title || 'Loading…'}
         </h1>
 
-        {meta?.author && <p className='-mt-1 text-sm text-white/75'>By {meta.author}</p>}
+        <p className='-mt-1 text-sm text-white/75'>By {meta?.author || 'Hippie Scientist Team'}</p>
 
         <div className='flex flex-wrap items-center gap-2 text-sm text-white/65'>
           {meta?.date && <time dateTime={meta.date}>{formatDate(meta.date)}</time>}

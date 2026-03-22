@@ -2,8 +2,11 @@ import { type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
+import InfoTooltip from '@/components/InfoTooltip'
+import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 
-type SourceRef = { title: string; url: string }
+type SourceRef = { title: string; url: string; note?: string }
+const MISSING_COPY = 'Information not yet available'
 
 function toList(value: unknown): string[] {
   if (Array.isArray(value)) return value.map(v => String(v).trim()).filter(Boolean)
@@ -26,7 +29,8 @@ function toSources(value: unknown): SourceRef[] {
       const title = String(source.title || source.url || '').trim()
       const url = String(source.url || '').trim()
       if (!title && !url) return null
-      return { title: title || url, url: url || title }
+      const note = String(source.note || '').trim()
+      return { title: title || url, url: url || title, note: note || undefined }
     })
     .filter((item): item is SourceRef => Boolean(item))
 }
@@ -37,6 +41,14 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       <h2 className='text-lg font-semibold text-white'>{title}</h2>
       <div className='mt-2 text-sm text-white/85'>{children}</div>
     </section>
+  )
+}
+
+function MissingText({ label }: { label: string }) {
+  return (
+    <p className='italic text-white/60'>
+      {MISSING_COPY} for {label.toLowerCase()}.
+    </p>
   )
 }
 
@@ -73,6 +85,25 @@ export default function HerbDetail() {
   const preparation = String(herb.preparation || herb.preparations?.join(', ') || '').trim()
   const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
   const lastUpdated = String((herb as any).lastUpdated || '').trim()
+  const renderableKeys = pickNonEmptyKeys(
+    {
+      className,
+      activeCompounds,
+      therapeuticUses,
+      contraindications,
+      interactions,
+      legalStatus,
+    },
+    [
+      'className',
+      'activeCompounds',
+      'therapeuticUses',
+      'contraindications',
+      'interactions',
+      'legalStatus',
+    ]
+  )
+  const missingFieldCount = 6 - renderableKeys.length
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -90,12 +121,12 @@ export default function HerbDetail() {
         {herb.scientific && <p className='mt-1 italic text-white/75'>{herb.scientific}</p>}
 
         {description && <Section title='Description'>{description}</Section>}
-        {className && <Section title='Class'>{className}</Section>}
+        <Section title='Class'>{className || <MissingText label='Class' />}</Section>
         {intensity && <Section title='Intensity'>{intensity}</Section>}
         {mechanism && <Section title='Mechanism'>{mechanism}</Section>}
 
-        {activeCompounds.length > 0 && (
-          <Section title='Active Compounds'>
+        <Section title='Active Compounds'>
+          {activeCompounds.length > 0 ? (
             <div className='flex flex-wrap gap-2'>
               {activeCompounds.map(compound => (
                 <span key={compound} className='ds-pill'>
@@ -103,8 +134,10 @@ export default function HerbDetail() {
                 </span>
               ))}
             </div>
-          </Section>
-        )}
+          ) : (
+            <MissingText label='Active compounds' />
+          )}
+        </Section>
 
         {effects.length > 0 && (
           <Section title='Effects'>
@@ -116,18 +149,20 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {therapeuticUses.length > 0 && (
-          <Section title='Therapeutic Uses'>
+        <Section title='Therapeutic Uses'>
+          {therapeuticUses.length > 0 ? (
             <ul className='list-disc space-y-1 pl-5'>
               {therapeuticUses.map(item => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-          </Section>
-        )}
+          ) : (
+            <MissingText label='Therapeutic uses' />
+          )}
+        </Section>
 
-        {contraindications.length > 0 && (
-          <Section title='Contraindications'>
+        <Section title='Contraindications'>
+          {contraindications.length > 0 ? (
             <ul className='space-y-2'>
               {contraindications.map(item => (
                 <li
@@ -138,24 +173,30 @@ export default function HerbDetail() {
                 </li>
               ))}
             </ul>
-          </Section>
-        )}
+          ) : (
+            <MissingText label='Contraindications' />
+          )}
+        </Section>
 
-        {interactions.length > 0 && (
-          <Section title='Interactions'>
+        <Section title='Interactions'>
+          {interactions.length > 0 ? (
             <ul className='list-disc space-y-1 pl-5'>
               {interactions.map(item => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-          </Section>
-        )}
+          ) : (
+            <MissingText label='Interactions' />
+          )}
+        </Section>
 
         {dosage.length > 0 && <Section title='Dosage'>{dosage.join('; ')}</Section>}
         {duration && <Section title='Duration'>{duration}</Section>}
         {region && <Section title='Region'>{region}</Section>}
         {preparation && <Section title='Preparation'>{preparation}</Section>}
-        {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
+        <Section title='Legal Status'>
+          {legalStatus || <MissingText label='Legal status' />}
+        </Section>
 
         {sideEffects.length > 0 && (
           <Section title='Side Effects'>
@@ -179,6 +220,7 @@ export default function HerbDetail() {
                   ) : (
                     source.title
                   )}
+                  {source.note && <span className='ml-2 text-white/60'>— {source.note}</span>}
                 </li>
               ))}
             </ol>
@@ -186,6 +228,23 @@ export default function HerbDetail() {
         )}
 
         {lastUpdated && <Section title='Last Updated'>{lastUpdated}</Section>}
+
+        <section className='mt-8 rounded-2xl border border-amber-300/40 bg-amber-200/10 p-4 text-sm text-amber-100'>
+          <p className='flex items-center gap-2'>
+            <span aria-hidden='true'>ℹ️</span>
+            {missingFieldCount > 0
+              ? `${missingFieldCount} evidence fields are still incomplete for this herb.`
+              : 'This profile currently has all core evidence fields filled.'}
+            <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
+          </p>
+          <p className='mt-3'>
+            Help improve this profile by sharing vetted sources in our{' '}
+            <Link to='/contribute' className='link'>
+              contribution guide
+            </Link>
+            .
+          </p>
+        </section>
       </article>
     </main>
   )
