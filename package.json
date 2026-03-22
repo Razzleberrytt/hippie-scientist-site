@@ -50,7 +50,8 @@
     "seed:compounds": "tsx scripts/seed-compounds.ts",
     "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint --fix",
     "data:enrich": "tsx scripts/convert-herbs-csv.ts",
-    "prerender:entities": "node scripts/prerender-entities.mjs"
+    "prerender:entities": "node scripts/prerender-entities.mjs",
+    "data:missing": "node scripts/check-missing-fields.mjs"
   },
   "engines": {
     "node": ">=20 <21"
@@ -69,8 +70,8 @@
     ]
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.5.19",
     "@headlessui/react": "^2.2.9",
+    "@tailwindcss/typography": "^0.5.19",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "autoprefixer": "^10.4.19",
@@ -131,6 +132,7 @@
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^5.8.3",
-    "vite": "^4.5.14"
+    "vite": "^4.5.14",
+    "vite-plugin-prerender": "^1.0.8"
   }
 }

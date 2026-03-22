@@ -151,6 +151,32 @@ export default function DataReport() {
     }
   }, [showMissingOf, currentData])
 
+  const missingResearchMetrics = useMemo(() => {
+    const targets = [
+      { key: 'class', label: 'Missing class' },
+      { key: 'activeCompounds', label: 'Missing activeCompounds' },
+      { key: 'therapeuticUses', label: 'Missing therapeuticUses' },
+      { key: 'contraindications', label: 'Missing contraindications' },
+      { key: 'interactions', label: 'Missing interactions' },
+    ]
+
+    return targets.map(target => ({
+      label: target.label,
+      count: currentData.reduce((acc, row) => {
+        const candidate =
+          (row as Record<string, unknown>)[target.key] ??
+          (target.key === 'class' ? (row as Record<string, unknown>).category : undefined) ??
+          (target.key === 'activeCompounds'
+            ? (row as Record<string, unknown>).compounds
+            : undefined) ??
+          (target.key === 'therapeuticUses'
+            ? (row as Record<string, unknown>).therapeutic
+            : undefined)
+        return acc + (hasVal(candidate) ? 0 : 1)
+      }, 0),
+    }))
+  }, [currentData])
+
   const sortedOptionalFields = useMemo(
     () =>
       OPTIONAL_FIELD_DEFS.map(field => ({
@@ -230,6 +256,15 @@ export default function DataReport() {
           non-empty data for a given field.
         </p>
       </header>
+
+      <section className='mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5'>
+        {missingResearchMetrics.map(metric => (
+          <article key={metric.label} className='rounded-xl border border-white/10 bg-white/5 p-4'>
+            <p className='text-xs uppercase tracking-wide text-white/70'>{metric.label}</p>
+            <p className='mt-2 text-2xl font-semibold text-white'>{metric.count}</p>
+          </article>
+        ))}
+      </section>
 
       <div className='mb-6 rounded-lg border bg-gray-900 p-3'>
         <p className='mb-2 text-sm font-semibold'>

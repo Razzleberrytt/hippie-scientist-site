@@ -7,6 +7,8 @@ import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 
 type SourceRef = { title: string; url: string; note?: string }
 const MISSING_COPY = 'Information not yet available'
+const CONTRIBUTION_URL =
+  'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
 
 function toList(value: unknown): string[] {
   if (Array.isArray(value)) return value.map(v => String(v).trim()).filter(Boolean)
@@ -46,8 +48,11 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 
 function MissingText({ label }: { label: string }) {
   return (
-    <p className='italic text-white/60'>
-      {MISSING_COPY} for {label.toLowerCase()}.
+    <p className='italic text-white/70'>
+      {MISSING_COPY} for {label.toLowerCase()}.{' '}
+      <a href={CONTRIBUTION_URL} target='_blank' rel='noreferrer' className='link'>
+        Contribute a citation.
+      </a>
     </p>
   )
 }
@@ -208,8 +213,8 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {sources.length > 0 && (
-          <Section title='Sources'>
+        <Section title='Sources'>
+          {sources.length > 0 ? (
             <ol className='list-decimal space-y-1 pl-5'>
               {sources.map((source, index) => (
                 <li key={`${source.url}-${index}`}>
@@ -220,12 +225,19 @@ export default function HerbDetail() {
                   ) : (
                     source.title
                   )}
-                  {source.note && <span className='ml-2 text-white/60'>— {source.note}</span>}
+                  {source.note && <span className='ml-2 text-white/70'>— {source.note}</span>}
                 </li>
               ))}
             </ol>
-          </Section>
-        )}
+          ) : (
+            <p className='text-white/75'>
+              No citations available yet.{' '}
+              <a href={CONTRIBUTION_URL} target='_blank' rel='noreferrer' className='link'>
+                Add one on GitHub.
+              </a>
+            </p>
+          )}
+        </Section>
 
         {lastUpdated && <Section title='Last Updated'>{lastUpdated}</Section>}
 
@@ -239,9 +251,9 @@ export default function HerbDetail() {
           </p>
           <p className='mt-3'>
             Help improve this profile by sharing vetted sources in our{' '}
-            <Link to='/contribute' className='link'>
+            <a href={CONTRIBUTION_URL} target='_blank' rel='noreferrer' className='link'>
               contribution guide
-            </Link>
+            </a>
             .
           </p>
         </section>

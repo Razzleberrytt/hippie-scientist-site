@@ -206,3 +206,46 @@ npm run build
 ```
 
 Then inspect `dist/assets/` and verify route chunks are emitted instead of one large app bundle.
+
+## SPA prerender configuration (Vite)
+
+This project uses `vite-plugin-prerender` in `vite.config.ts`.
+
+During `vite build`, the config reads:
+
+- `public/data/herbs.json`
+- `public/data/compounds.json`
+
+and builds static route lists for:
+
+- `/`
+- `/herbs`
+- `/herbs/:slug` (all slugs in `herbs.json`)
+- `/compounds`
+- `/compounds/:slug` (all slugs in `compounds.json`)
+- `/blog`
+
+This improves crawler coverage while preserving the HashRouter SPA runtime (`#/path`).
+
+### Rebuild and deploy
+
+```bash
+npm ci
+npm run build
+```
+
+Deploy workflow (`.github/workflows/deploy.yml`) publishes `dist/` to `gh-pages`.
+
+## Monthly data sync workflow
+
+A scheduled workflow is available at `.github/workflows/update-data.yml`.
+
+- Schedule: `0 0 1 * *` (monthly)
+- Manual trigger: GitHub → **Actions** → **Monthly data sync** → **Run workflow**
+- Steps:
+  1. checks out repo
+  2. runs `node scripts/sync-updated-datasets.mjs`
+  3. runs `npm run data:missing` for missing field metrics
+  4. commits/pushes updates to `public/data/herbs.json` + `public/data/compounds.json` when changed
+
+The workflow uses `BOT_GITHUB_TOKEN` (fallback `GITHUB_TOKEN`) for push permissions.
