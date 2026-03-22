@@ -62,6 +62,9 @@ export default function DatabaseHerbCard({
         )
 
   const summary = firstNonEmpty(herb.summary, herb.description, herb.effectsSummary, herb.effects)
+  const activeCompounds = toArray(
+    (herb as any).activeCompounds ?? herb.active_compounds ?? herb.compounds
+  ).slice(0, 2)
   const classification = firstNonEmpty(
     toArray((herb as any).category)[0],
     (herb as any).category_label,
@@ -103,7 +106,6 @@ export default function DatabaseHerbCard({
   const facts = [
     classification ? { label: 'Class', value: titleCase(classification) } : null,
     intensityLabel ? { label: 'Intensity', value: intensityLabel } : null,
-    mechanism ? { label: 'Mechanism', value: mechanism } : null,
   ].filter(Boolean) as Array<{ label: string; value: string }>
 
   const expandedDetails = [
@@ -116,7 +118,7 @@ export default function DatabaseHerbCard({
       initial={reduceMotion ? false : { opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className='ds-card-lg relative mx-auto h-full w-full max-w-5xl text-white/90'
+      className='ds-card-lg relative mx-auto flex h-full w-full max-w-5xl flex-col text-white/90'
     >
       <div className='space-y-4'>
         <header className='space-y-1'>
@@ -145,6 +147,19 @@ export default function DatabaseHerbCard({
           </div>
         )}
 
+        {activeCompounds.length > 0 && (
+          <div className='flex flex-wrap gap-2'>
+            {activeCompounds.map(compound => (
+              <span
+                key={compound}
+                className='rounded-full border border-emerald-300/30 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-100'
+              >
+                {compound}
+              </span>
+            ))}
+          </div>
+        )}
+
         {open && expandedDetails.length > 0 && (
           <ul className='text-white/72 list-disc space-y-1 pl-5 text-sm'>
             {expandedDetails.map(item => (
@@ -153,7 +168,9 @@ export default function DatabaseHerbCard({
           </ul>
         )}
 
-        <div className='flex flex-wrap gap-3'>
+        {mechanism && <p className='line-clamp-2 text-sm text-white/75'>{mechanism}</p>}
+
+        <div className='mt-auto flex flex-wrap gap-3'>
           {expandedDetails.length > 0 && (
             <button
               type='button'

@@ -2,6 +2,9 @@ export type BlogIndexPost = {
   slug: string
   title: string
   date?: string | null
+  lastUpdated?: string | null
+  author?: string | null
+  sources?: Array<{ title: string; url: string }>
   description?: string | null
   summary?: string | null
   tags?: string[]
