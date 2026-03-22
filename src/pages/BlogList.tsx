@@ -94,16 +94,22 @@ export default function BlogList() {
   const heading =
     pagination.page > 1 ? `Research Notebook — Page ${pagination.page}` : 'Research Notebook'
   const series = buildSeriesBuckets(posts)
+  const coverGradients = [
+    'from-emerald-300/35 via-cyan-300/25 to-indigo-400/35',
+    'from-violet-300/30 via-fuchsia-300/20 to-cyan-300/35',
+    'from-lime-300/30 via-emerald-300/20 to-teal-300/35',
+    'from-sky-300/30 via-blue-300/20 to-violet-300/30',
+  ]
 
   return (
     <div className='container-page space-y-6 py-7 sm:py-8'>
       <header className='ds-card-lg space-y-3'>
         <h1 className='text-3xl font-semibold tracking-tight text-white sm:text-4xl'>{heading}</h1>
-        <p className='text-white/72 max-w-2xl'>
+        <p className='max-w-2xl text-white/85'>
           Mechanism-focused notes with explicit uncertainty, safety framing, and practical
           interpretation.
         </p>
-        <p className='text-xs text-white/60'>
+        <p className='text-xs text-white/70'>
           Educational use only. Posts summarize available evidence and may include unresolved gaps.
         </p>
         <div className='flex flex-wrap gap-2'>
@@ -116,24 +122,26 @@ export default function BlogList() {
       </header>
 
       <div className='grid auto-rows-fr gap-4 md:grid-cols-2'>
-        {pagination.items.map(post => (
+        {pagination.items.map((post, index) => (
           <motion.article
             key={post.slug}
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='ds-card-lg flex h-full min-h-[26rem] flex-col space-y-3 text-white'
+            className='ds-card-lg flex h-full min-h-[28rem] flex-col space-y-3 text-white shadow-[0_20px_45px_-36px_rgba(16,185,129,0.65)]'
           >
-            <div className='h-28 w-full overflow-hidden rounded-xl bg-gradient-to-r from-emerald-400/25 via-cyan-400/20 to-indigo-500/25'>
+            <div
+              className={`h-32 w-full overflow-hidden rounded-xl bg-gradient-to-r sm:h-40 lg:h-48 ${coverGradients[index % coverGradients.length]}`}
+            >
               {post.cover ? (
                 <img
                   src={post.cover}
                   alt={`Cover image for ${post.title || 'blog post'}`}
-                  className='h-full w-full object-cover opacity-75'
+                  className='h-full w-full object-cover opacity-80'
                 />
               ) : null}
             </div>
-            <div className='flex flex-wrap items-center gap-2 text-xs text-white/80'>
+            <div className='flex flex-wrap items-center gap-2 text-xs text-white/85'>
               <span className='ds-pill bg-white/8'>{resolveCategory(post.tags)}</span>
               <time dateTime={post.date || undefined}>{formatDate(post.date || '')}</time>
               <span>• Last updated {formatDate(post.lastUpdated || post.date || '')}</span>
@@ -144,18 +152,18 @@ export default function BlogList() {
                 {post.title || 'Research note'}
               </Link>
             </h2>
-            <p className='line-clamp-3 max-w-3xl flex-1 overflow-hidden text-sm leading-7 text-white/85 sm:line-clamp-4 sm:text-base'>
+            <p className='line-clamp-3 max-w-3xl flex-1 overflow-hidden text-sm leading-7 text-white/90 sm:text-base'>
               {cleanBlogExcerpt(post.summary, post.description)}
             </p>
-            <p className='text-xs text-emerald-100/95'>
+            <p className='text-xs text-emerald-100'>
               Last updated {formatDate(post.lastUpdated || post.date || '')} · By{' '}
               {post.author || 'Hippie Scientist Team'}
             </p>
-            <p className='text-xs text-white/75'>
+            <p className='text-xs text-white/80'>
               References: {Array.isArray(post.sources) ? post.sources.length : 0}
             </p>
-            <div>
-              <Link to={`/blog/${post.slug}`} className='btn-primary min-w-28'>
+            <div className='pt-1'>
+              <Link to={`/blog/${post.slug}`} className='btn-primary min-w-28 self-start'>
                 {CTA.primary.learn}
               </Link>
             </div>

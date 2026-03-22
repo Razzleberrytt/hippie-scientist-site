@@ -104,8 +104,10 @@ a:hover {
   }
 
   .ds-card {
-    @apply rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md;
-    box-shadow: 0 8px 22px -22px rgba(0, 0, 0, 0.72);
+    @apply rounded-2xl border border-white/15 bg-white/[0.04] p-5 backdrop-blur-md;
+    box-shadow:
+      0 14px 30px -26px rgba(16, 185, 129, 0.5),
+      0 8px 22px -22px rgba(0, 0, 0, 0.72);
   }
 
   .ds-card-lg {
@@ -130,7 +132,7 @@ a:hover {
 
   .ds-pill,
   .pill {
-    @apply inline-flex items-center rounded-full border border-white/15 bg-white/[0.05] px-3 py-1 text-xs font-medium text-white/75;
+    @apply inline-flex items-center rounded-full border border-white/20 bg-white/[0.07] px-3 py-1 text-xs font-medium text-white/90;
   }
 
   .btn,
@@ -205,4 +207,16 @@ a:hover {
   z-index: -1;
   pointer-events: none;
   contain: layout style size;
+}
+
+.ambient-cursor {
+  transition:
+    opacity 500ms ease-out,
+    filter 500ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-cursor {
+    display: none;
+  }
 }
