@@ -1,8 +1,13 @@
 [
   {
-    "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
+    "name": "(-)-syringaresnol-4-o-d-apiofuranosyl-(1→2)-d-glucopyranoside",
     "herbs": ["albizia julibrissin"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [
       "Limited safety data",
       "may potentiate sedative or antidepressant drugs",
@@ -23,6 +28,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -30,25 +36,22 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "5",
-    "herbs": ["virola theiodora"],
-    "effects": [],
-    "contraindications": [],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
-  },
-  {
-    "name": "5-MeO-DMT",
+    "name": "5-meo-dmt",
     "herbs": [],
     "effects": [
       "Intense visuals",
       "spiritual experiences",
       "ego dissolution",
+      "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.",
       "Intense visions",
       "altered perception",
       "nausea",
@@ -57,7 +60,11 @@
       "Visuals",
       "euphoria",
       "altered states",
-      "stimulation"
+      "stimulation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Avoid with MAOIs or SSRIs",
@@ -101,13 +108,27 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "[object Object]",
+    "name": "[object object]",
     "herbs": ["kratom hybrids", "yarrow"],
-    "effects": ["Clarity", "calm", "subtle mood lift"],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
+      "Clarity",
+      "calm",
+      "subtle mood lift",
+      "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
+    ],
     "contraindications": ["Avoid during pregnancy", "neurotoxic in high doses"],
     "category": null,
     "sources": [],
@@ -116,7 +137,14 @@
   {
     "name": "acetylcholine",
     "herbs": [],
-    "effects": ["Mild stimulation", "increased circulation"],
+    "effects": [
+      "Mild stimulation",
+      "increased circulation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Pregnancy (caution)", "diuretics"],
     "category": null,
     "sources": [],
@@ -139,7 +167,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -159,7 +192,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -173,6 +211,9 @@
       "beta-asarone rich)",
       "Mild sedative",
       "hallucinogenic in high doses",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "digestive aid",
@@ -200,7 +241,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -212,7 +258,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -224,7 +275,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -238,7 +294,12 @@
       "Pregnant or breastfeeding individuals should consult healthcare provider before use"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -251,7 +312,12 @@
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -272,7 +338,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -293,7 +364,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -314,7 +390,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -335,7 +416,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -356,7 +442,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -377,7 +468,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -398,7 +494,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -419,11 +520,16 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "albiziasaponins A–E",
+    "name": "albiziasaponins a–e",
     "herbs": ["albizia lebbeck"],
     "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
     "contraindications": [
@@ -432,13 +538,19 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "alchorneine",
     "herbs": ["alchornea castaneifolia"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
       "Increased alertness",
       "minor euphoria",
       "divinatory visions",
@@ -458,10 +570,18 @@
   },
   {
     "name": "alkaloids",
-    "herbs": ["african dream root", "alchornea castaneifolia", "Muira Puama"],
+    "herbs": [
+      "african dream root",
+      "alchornea castaneifolia",
+      "ptychopetalum olacoides benth. ptychopetalum olacoides"
+    ],
     "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
       "Improved libido",
       "enhanced cognition",
       "mood elevation",
@@ -479,10 +599,15 @@
       "Calming",
       "antioxidant",
       "lipid-lowering",
+      "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.",
       "Relaxation",
       "mild euphoria",
       "dream enhancement",
       "anxiolytic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Pain relief",
       "reduced inflammation",
       "worm expulsion",
@@ -497,6 +622,7 @@
       "Visual distortions",
       "sedation",
       "altered mental state",
+      "No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.",
       "Increased alertness",
       "minor euphoria",
       "divinatory visions",
@@ -577,13 +703,20 @@
       "epilepsy"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "alkaloids (nicotine, leucocyanidin)",
     "herbs": ["acacia nilotica"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+    ],
     "contraindications": [
       "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
       "Avoid during pregnancy or lactation due to potential anti-fertility effects",
@@ -621,7 +754,8 @@
       "altered consciousness",
       "Visual distortions",
       "sedation",
-      "altered mental state"
+      "altered mental state",
+      "No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies."
     ],
     "contraindications": [
       "Potentially toxic",
@@ -661,18 +795,32 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Alpha",
+    "name": "alpha",
     "herbs": ["acorus americanus", "pogostemon cablin"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Alpha-asarone",
+    "name": "alpha-asarone",
     "herbs": ["acorus americanus"],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Stimulation",
       "mental clarity",
       "mild sedation (low dose)",
@@ -680,6 +828,9 @@
       "beta-asarone rich)",
       "Mild sedative",
       "hallucinogenic in high doses",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "digestive aid",
@@ -699,18 +850,29 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Alpha-bulnesene",
+    "name": "alpha-bulnesene",
     "herbs": ["pogostemon cablin"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Amorphigenin",
+    "name": "amorphigenin",
     "herbs": ["amorpha fruticosa"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -726,9 +888,14 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Anthocyanins",
+    "name": "anthocyanins",
     "herbs": ["hibiscus sabdariffa"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -751,7 +918,8 @@
       "stimulation",
       "relaxation",
       "increased libido",
-      "mood enhancement"
+      "mood enhancement",
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
     ],
     "contraindications": [
       "Excessive internal use may cause constipation or dry mucous membranes",
@@ -763,7 +931,12 @@
       "hormone-sensitive conditions"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -776,13 +949,19 @@
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Aporphine",
-    "herbs": ["blue lotus"],
+    "name": "aporphine",
+    "herbs": ["nymphaea caerulea"],
     "effects": [
+      "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
       "Relaxation",
       "mild euphoria",
       "lucid dreaming",
@@ -825,7 +1004,8 @@
       "stimulation",
       "relaxation",
       "increased libido",
-      "mood enhancement"
+      "mood enhancement",
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
     ],
     "contraindications": [
       "Limited safety data",
@@ -835,13 +1015,25 @@
       "hormone-sensitive conditions"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "asarone",
     "herbs": ["acorus americanus", "acorus calamus var. angustatus"],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Stimulation",
@@ -874,29 +1066,50 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Asarone (alpha & beta)",
+    "name": "asarone (alpha & beta)",
     "herbs": [],
-    "effects": ["Mild stimulation", "focus", "calm"],
+    "effects": [
+      "Mild stimulation",
+      "focus",
+      "calm",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Similar risks to Acorus calamus", "avoid large doses"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Ascaridole",
+    "name": "ascaridole",
     "herbs": ["dysphania ambrosioides", "peumus boldus"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Astragalin",
+    "name": "astragalin",
     "herbs": ["desmodium adscendens"],
     "effects": [
+      "No direct effects data. Contextual inference: Used to treat asthma",
       "allergies",
-      "and liver issues in folk medicine. Used to treat asthma",
+      "and liver issues in folk medicine... No direct mechanismofaction data. Contextual inference: Used to treat asthma",
+      "and liver issues in folk medicine... Used to treat asthma",
+      "and liver issues in folk medicine.. Used to treat asthma",
       "and liver issues in folk medicine."
     ],
     "contraindications": [],
@@ -905,12 +1118,14 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Atropine",
+    "name": "atropine",
     "herbs": ["datura metel"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
       "Complete dissociation",
       "hallucinations",
       "amnesia",
+      "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use",
       "Intense hallucinations",
       "delirium",
       "Strong anticholinergic and hallucinogenic effects",
@@ -944,7 +1159,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Azulene",
+    "name": "azulene",
     "herbs": [],
     "effects": ["Anti-inflammatory", "astringent", "digestive aid", "hemostatic"],
     "contraindications": ["Pregnancy", "allergies to Asteraceae", "bleeding disorders"],
@@ -953,21 +1168,27 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Bacosides A and B",
+    "name": "bacosides a and b",
     "herbs": ["bacopa monnieri"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Baicalin",
+    "name": "baicalin",
     "herbs": ["scutellaria lateriflora"],
     "effects": [
       "Mild sedation",
       "calm mood",
       "anxiety relief",
+      "No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
       "Nervine",
       "anxiolytic",
       "anti-inflammatory",
@@ -1000,7 +1221,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -1012,31 +1238,47 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Benzyl isothiocyanate",
+    "name": "benzyl isothiocyanate",
     "herbs": ["tropaeolum majus"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Beta",
-    "herbs": ["acorus calamus var. angustatus"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
-    "contraindications": [],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
-  },
-  {
-    "name": "Beta-asarone",
+    "name": "beta",
     "herbs": ["acorus calamus var. angustatus"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine"
+    ],
+    "contraindications": [],
+    "category": null,
+    "sources": [],
+    "lastUpdated": "2026-03-21"
+  },
+  {
+    "name": "beta-asarone",
+    "herbs": ["acorus calamus var. angustatus"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Stimulation",
@@ -1083,7 +1325,8 @@
     "effects": [
       "Closed-eye visuals",
       "altered cognition",
-      "spiritual insight (when used with MAOI)"
+      "spiritual insight (when used with MAOI)",
+      "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
     ],
     "contraindications": ["Use with SSRIs or MAOIs without supervision"],
     "category": null,
@@ -1091,9 +1334,14 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Boldine",
+    "name": "boldine",
     "herbs": ["peumus boldus"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -1110,6 +1358,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -1117,11 +1366,16 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Boswellic acids",
+    "name": "boswellic acids",
     "herbs": [],
     "effects": ["Joint pain relief", "antibacterial"],
     "contraindications": ["Avoid use in bleeding disorders"],
@@ -1130,7 +1384,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "budmunchiamines L1-L6",
+    "name": "budmunchiamines l1-l6",
     "herbs": ["albizia lebbeck"],
     "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
     "contraindications": [
@@ -1139,11 +1393,16 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Bufotenin",
+    "name": "bufotenin",
     "herbs": [],
     "effects": [
       "Visuals",
@@ -1151,7 +1410,11 @@
       "euphoria",
       "altered states",
       "stimulation",
-      "altered perception"
+      "altered perception",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Asthma",
@@ -1166,20 +1429,28 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Bufotenine",
+    "name": "bufotenine",
     "herbs": ["anadenanthera colubrina", "anadenanthera peregrina", "virola theiodora"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Intense visuals",
       "spiritual experiences",
       "ego dissolution",
+      "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.",
       "Visuals",
       "nausea",
       "euphoria",
       "altered states",
       "stimulation",
       "altered perception",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Visual stimulation",
       "introspection"
     ],
@@ -1201,7 +1472,13 @@
   {
     "name": "bulnesene",
     "herbs": ["pogostemon cablin"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -1225,11 +1502,16 @@
       "L313】."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Caffeine",
+    "name": "caffeine",
     "herbs": ["yerba mate", "camellia sinensis"],
     "effects": [
       "Mental alertness",
@@ -1243,13 +1525,18 @@
       "antioxidant",
       "Mental stimulation",
       "mild diuretic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Alertness",
       "calm focus",
       "mood lift",
       "Euphoria",
       "heart opening",
       "mild euphoriant",
-      "contains theobromine and caffeine"
+      "contains theobromine and caffeine",
+      "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
     ],
     "contraindications": [
       "Anxiety",
@@ -1277,7 +1564,8 @@
       "stimulation",
       "relaxation",
       "increased libido",
-      "mood enhancement"
+      "mood enhancement",
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
     ],
     "contraindications": [
       "Avoid in bipolar disorder and pregnancy",
@@ -1299,7 +1587,8 @@
       "stimulation",
       "relaxation",
       "increased libido",
-      "mood enhancement"
+      "mood enhancement",
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
     ],
     "contraindications": [
       "Avoid in bipolar disorder and pregnancy",
@@ -1311,7 +1600,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Caleicines",
+    "name": "caleicines",
     "herbs": [],
     "effects": [
       "Lucid dreaming",
@@ -1320,6 +1609,9 @@
       "Vivid dreams",
       "increased dream recall",
       "mild sedation",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Dream enhancement and mild sedative",
@@ -1331,7 +1623,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "calein A",
+    "name": "calein a",
     "herbs": [],
     "effects": [
       "Lucid dreaming",
@@ -1340,6 +1632,9 @@
       "Vivid dreams",
       "increased dream recall",
       "mild sedation",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Dream enhancement and mild sedative",
@@ -1351,9 +1646,13 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "calein A and B",
+    "name": "calein a and b",
     "herbs": [],
-    "effects": ["Vivid and lucid dreams", "dream recall"],
+    "effects": [
+      "Vivid and lucid dreams",
+      "dream recall",
+      "No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions."
+    ],
     "contraindications": ["Avoid in pregnancy and with CNS depressants"],
     "category": null,
     "sources": [],
@@ -1368,7 +1667,12 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -1382,6 +1686,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -1389,7 +1694,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -1401,6 +1711,9 @@
       "and anti-epileptic in TCM",
       "and anti",
       "epileptic in TCM",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Mental clarity",
@@ -1411,9 +1724,11 @@
       "memory enhancer",
       "Clarity",
       "calm",
-      "subtle mood lift"
+      "subtle mood lift",
+      "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -1426,7 +1741,12 @@
       "neurotoxic in high doses"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -1447,11 +1767,14 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Casimiroin",
+    "name": "casimiroin",
     "herbs": ["casimiroa edulis"],
     "effects": [
+      "No direct effects data. Contextual inference: Used to treat anxiety",
       "insomnia",
-      "and as a mild euphoric. Used to treat anxiety",
+      "and as a mild euphoric... No direct mechanismofaction data. Contextual inference: Used to treat anxiety",
+      "and as a mild euphoric... Used to treat anxiety",
+      "and as a mild euphoric.. Used to treat anxiety",
       "and as a mild euphoric."
     ],
     "contraindications": [],
@@ -1481,7 +1804,12 @@
       "L313】."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -1491,6 +1819,7 @@
       "Used in Ayurveda for asthma",
       "allergies",
       "and anxiety",
+      "No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
       "Mental alertness",
       "energy",
       "appetite suppression",
@@ -1506,7 +1835,11 @@
       "hepatoprotective",
       "Alertness",
       "calm focus",
-      "mood lift"
+      "mood lift",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "No well‑documented contraindications",
@@ -1522,40 +1855,70 @@
       "heart issues"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Catuabine",
+    "name": "catuabine",
     "herbs": ["catuaba"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "CBD",
+    "name": "cbd",
     "herbs": ["cannabis sativa"],
-    "effects": ["Euphoria", "altered perception", "sedation or stimulation"],
+    "effects": [
+      "Euphoria",
+      "altered perception",
+      "sedation or stimulation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Psychosis", "schizophrenia", "pregnancy"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "CBN",
+    "name": "cbn",
     "herbs": [],
-    "effects": ["Euphoria", "altered perception", "sedation or stimulation"],
+    "effects": [
+      "Euphoria",
+      "altered perception",
+      "sedation or stimulation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Psychosis", "schizophrenia", "pregnancy"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Celastrine",
+    "name": "celastrine",
     "herbs": ["celastrus paniculatus"],
-    "effects": ["focus", "and learning. Used in Ayurveda for cognition", "and learning."],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ayurveda for cognition",
+      "focus",
+      "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
+      "and learning... Used in Ayurveda for cognition",
+      "and learning.. Used in Ayurveda for cognition",
+      "and learning."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -1579,11 +1942,16 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Chamazulene",
+    "name": "chamazulene",
     "herbs": [],
     "effects": ["Anti-inflammatory", "astringent", "digestive aid", "hemostatic"],
     "contraindications": ["Pregnancy", "allergies to Asteraceae", "bleeding disorders"],
@@ -1592,9 +1960,11 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Chlorogenic acid",
+    "name": "chlorogenic acid",
     "herbs": ["yerba mate"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -1628,9 +1998,11 @@
       "mild calm",
       "enhanced intuition",
       "menstrual regulator",
-      "mild sedative"
+      "mild sedative",
+      "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -1648,13 +2020,26 @@
       "thujone sensitivity"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "cinnamic acid derivatives",
     "herbs": [],
-    "effects": ["Mild stimulation", "hunger suppression", "improved stamina"],
+    "effects": [
+      "Mild stimulation",
+      "hunger suppression",
+      "improved stamina",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Heart issues", "stimulant sensitivity"],
     "category": null,
     "sources": [],
@@ -1671,6 +2056,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -1678,31 +2064,56 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Cissamine",
+    "name": "cissamine",
     "herbs": ["cissampelos pareira"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... No direct mechanismofaction data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... Used in Amazonian and Ayurvedic traditions for pain and calming.. Used in Amazonian and Ayurvedic traditions for pain and calming."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Citral",
+    "name": "citral",
     "herbs": ["aloysia citrodora"],
-    "effects": ["Mild sedation", "relaxation", "antispasmodic", "Mild sedative", "carminative"],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
+      "Mild sedation",
+      "relaxation",
+      "antispasmodic",
+      "Mild sedative",
+      "carminative"
+    ],
     "contraindications": ["Pregnancy", "sedation-sensitive individuals"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Cocaine alkaloids (0.2–1%)",
+    "name": "cocaine alkaloids (0.2–1%)",
     "herbs": [],
-    "effects": ["Mild stimulation", "hunger suppression", "improved stamina"],
+    "effects": [
+      "Mild stimulation",
+      "hunger suppression",
+      "improved stamina",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Heart issues", "stimulant sensitivity"],
     "category": null,
     "sources": [],
@@ -1734,18 +2145,22 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Combretin",
+    "name": "combretin",
     "herbs": ["combretum quadrangulare"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Combretol",
+    "name": "combretol",
     "herbs": ["combretum quadrangulare"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -1759,6 +2174,9 @@
       "stimulation",
       "euphoria",
       "potential visionary states",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
@@ -1777,7 +2195,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Coumarin",
+    "name": "coumarin",
     "herbs": ["justicia pectoralis"],
     "effects": [
       "Calming",
@@ -1785,7 +2203,8 @@
       "spiritual insight",
       "sedation",
       "muscle relaxation",
-      "spiritual openness"
+      "spiritual openness",
+      "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
     ],
     "contraindications": [
       "Avoid large doses",
@@ -1824,7 +2243,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Cryogenine",
+    "name": "cryogenine",
     "herbs": ["heimia salicifolia"],
     "effects": [
       "Auditory distortion",
@@ -1835,11 +2254,16 @@
       "relaxation",
       "mild euphoria",
       "dream-like state",
+      "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
       "Mild auditory and memory effects",
       "traditional fermentation increases effects",
       "Auditory shifts",
       "relaxed dreamlike state",
       "Mild auditory and visual alterations",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Mild auditory hallucinations",
       "warmth",
       "euphoria"
@@ -1862,7 +2286,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Cryogenine (vertine)",
+    "name": "cryogenine (vertine)",
     "herbs": [],
     "effects": [
       "Auditory distortion",
@@ -1873,6 +2297,7 @@
       "relaxation",
       "mild euphoria",
       "dream-like state",
+      "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
       "Mild auditory and memory effects",
       "traditional fermentation increases effects",
       "Auditory hallucinations",
@@ -1895,34 +2320,58 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Cymene",
+    "name": "cymene",
     "herbs": ["dysphania ambrosioides"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Cytisine",
+    "name": "cytisine",
     "herbs": ["sophora secundiflora"],
-    "effects": ["Delirium", "nausea", "visionary trance", "paralysis"],
+    "effects": [
+      "Delirium",
+      "nausea",
+      "visionary trance",
+      "paralysis",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Highly toxic", "ceremonial use only"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Cytisine (nicotinic agonist)",
+    "name": "cytisine (nicotinic agonist)",
     "herbs": [],
-    "effects": ["Delirium", "nausea", "visionary trance", "paralysis"],
+    "effects": [
+      "Delirium",
+      "nausea",
+      "visionary trance",
+      "paralysis",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Highly toxic", "ceremonial use only"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Damianin",
+    "name": "damianin",
     "herbs": ["turnera diffusa var. aphrodisiaca", "turnera diffusa"],
     "effects": [
       "Mood lift",
@@ -1932,7 +2381,12 @@
       "stimulation",
       "relaxation",
       "increased libido",
-      "mood enhancement"
+      "mood enhancement",
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Avoid in bipolar disorder and pregnancy",
@@ -1960,7 +2414,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -1981,11 +2440,16 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Desfontainin",
+    "name": "desfontainin",
     "herbs": ["desfontainia spinosa"],
     "effects": [
       "Color vision changes",
@@ -1996,7 +2460,8 @@
       "altered consciousness",
       "Visual distortions",
       "sedation",
-      "altered mental state"
+      "altered mental state",
+      "No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies."
     ],
     "contraindications": [
       "Potentially toxic",
@@ -2010,7 +2475,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Desfontainine",
+    "name": "desfontainine",
     "herbs": [],
     "effects": [
       "Color vision changes",
@@ -2021,7 +2486,8 @@
       "altered consciousness",
       "Visual distortions",
       "sedation",
-      "altered mental state"
+      "altered mental state",
+      "No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies."
     ],
     "contraindications": [
       "Potentially toxic",
@@ -2035,18 +2501,25 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Desmodin",
+    "name": "desmodin",
     "herbs": ["desmodium adscendens"],
     "effects": [
+      "No direct effects data. Contextual inference: Used to treat asthma",
       "allergies",
-      "and liver issues in folk medicine. Used to treat asthma",
+      "and liver issues in folk medicine... No direct mechanismofaction data. Contextual inference: Used to treat asthma",
+      "and liver issues in folk medicine... Used to treat asthma",
+      "and liver issues in folk medicine.. Used to treat asthma",
       "and liver issues in folk medicine.",
       "Relaxation",
       "improved mood",
       "mild clarity",
       "Calming",
       "expectorant",
-      "mild analgesic"
+      "mild analgesic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": ["None known", "caution with sedatives", "None known in moderate doses"],
     "category": null,
@@ -2057,6 +2530,9 @@
     "name": "diterpenoids",
     "herbs": ["african dream root"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Mild euphoria",
@@ -2084,7 +2560,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "DMT",
+    "name": "dmt",
     "herbs": ["acacia maidenii", "virola theiodora"],
     "effects": [
       "Intense visual hallucinations",
@@ -2093,11 +2569,16 @@
       "introspection",
       "Psychedelic visuals",
       "altered consciousness",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Psychoactive (when extracted)",
       "vision alteration",
       "Intense visuals",
       "spiritual experiences",
       "ego dissolution",
+      "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals.",
       "Intense visions",
       "nausea",
       "Source of DMT-rich resin",
@@ -2138,7 +2619,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "DMT (0.3–0.7%)",
+    "name": "dmt (0.3–0.7%)",
     "herbs": [],
     "effects": [
       "Psychedelic visions",
@@ -2156,9 +2637,16 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "DMT (in root bark)",
+    "name": "dmt (in root bark)",
     "herbs": [],
-    "effects": ["Psychedelic visuals", "emotional shifts (with MAOI)"],
+    "effects": [
+      "Psychedelic visuals",
+      "emotional shifts (with MAOI)",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["psychoactivity not fully studied"],
     "category": null,
     "sources": [],
@@ -2174,15 +2662,23 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Elaeagnin",
+    "name": "elaeagnin",
     "herbs": ["elaeagnus angustifolia"],
     "effects": [
+      "No direct effects data. Contextual inference: Used traditionally to relieve pain",
       "stress",
-      "and inflammation. Used traditionally to relieve pain",
+      "and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain",
+      "and inflammation... Used traditionally to relieve pain",
+      "and inflammation.. Used traditionally to relieve pain",
       "and inflammation."
     ],
     "contraindications": [],
@@ -2201,8 +2697,11 @@
       "sedation",
       "altered perception",
       "disorientation",
+      "No direct effects data. Contextual inference: Used in spice blends",
       "aphrodisiacs",
-      "and as a psychoactive in folk rituals. Used in spice blends",
+      "and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends",
+      "and as a psychoactive in folk rituals... Used in spice blends",
+      "and as a psychoactive in folk rituals.. Used in spice blends",
       "and as a psychoactive in folk rituals."
     ],
     "contraindications": [
@@ -2228,7 +2727,12 @@
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -2249,13 +2753,20 @@
       "L313】."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Elsholtzia ketone",
+    "name": "elsholtzia ketone",
     "herbs": ["elsholtzia ciliata"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in vietnamese herbal teas for alertness and wellness... No direct mechanismofaction data. Contextual inference: Used in vietnamese herbal teas for alertness and wellness... Used in Vietnamese herbal teas for alertness and wellness.. Used in Vietnamese herbal teas for alertness and wellness."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -2279,7 +2790,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -2312,7 +2828,12 @@
       "pregnancy"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -2324,7 +2845,8 @@
       "dream-like mental state",
       "Visual distortion",
       "introspection",
-      "altered perception of time and self"
+      "altered perception of time and self",
+      "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening."
     ],
     "contraindications": [
       "Avoid with antidepressants",
@@ -2338,18 +2860,28 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Ergoline alkaloids (trace)",
+    "name": "ergoline alkaloids (trace)",
     "herbs": ["convolvulus arvensis"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Ergotamine",
+    "name": "ergotamine",
     "herbs": ["claviceps purpurea"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -2364,7 +2896,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -2376,7 +2913,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -2388,11 +2930,16 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Erythravine",
+    "name": "erythravine",
     "herbs": [],
     "effects": [
       "Relaxation",
@@ -2403,6 +2950,9 @@
       "sedation",
       "muscle relaxation",
       "anxiety reduction",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Sedative",
@@ -2434,6 +2984,9 @@
       "sedation",
       "muscle relaxation",
       "anxiety reduction",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Sedative",
@@ -2454,7 +3007,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Erythrinian alkaloids",
+    "name": "erythrinian alkaloids",
     "herbs": [],
     "effects": [
       "Relaxation",
@@ -2465,6 +3018,9 @@
       "sedation",
       "muscle relaxation",
       "anxiety reduction",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Sedative",
@@ -2496,6 +3052,9 @@
       "sedation",
       "muscle relaxation",
       "anxiety reduction",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Sedative",
@@ -2519,20 +3078,28 @@
     "name": "essential oils",
     "herbs": ["adhatoda vasica", "helichrysum odoratissimum"],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Calming",
       "mild euphoria",
       "spiritual insight",
       "sedation",
       "muscle relaxation",
       "spiritual openness",
+      "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.",
       "Subtle clarity",
       "mild stimulation",
       "relaxation",
       "focus",
       "calm",
       "Mild sedation",
+      "No direct effects data. Contextual inference: Used traditionally to relieve pain",
       "stress",
-      "and inflammation. Used traditionally to relieve pain",
+      "and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain",
+      "and inflammation... Used traditionally to relieve pain",
+      "and inflammation.. Used traditionally to relieve pain",
       "and inflammation."
     ],
     "contraindications": [
@@ -2562,6 +3129,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -2569,13 +3137,23 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Eucalyptol",
+    "name": "eucalyptol",
     "herbs": [],
-    "effects": ["Clarity", "calm", "subtle mood lift"],
+    "effects": [
+      "Clarity",
+      "calm",
+      "subtle mood lift",
+      "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
+    ],
     "contraindications": ["Avoid during pregnancy", "neurotoxic in high doses"],
     "category": null,
     "sources": [],
@@ -2598,6 +3176,9 @@
       "beta-asarone rich)",
       "Mild sedative",
       "hallucinogenic in high doses",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "digestive aid",
@@ -2611,11 +3192,16 @@
       "anti-stress",
       "immune support",
       "disorientation",
+      "No direct effects data. Contextual inference: Used in spice blends",
       "aphrodisiacs",
-      "and as a psychoactive in folk rituals. Used in spice blends",
+      "and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends",
+      "and as a psychoactive in folk rituals... Used in spice blends",
+      "and as a psychoactive in folk rituals.. Used in spice blends",
       "and as a psychoactive in folk rituals.",
       "Anxiolytic",
-      "relaxing"
+      "relaxing",
+      "No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
+      "No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion."
     ],
     "contraindications": [
       "Avoid in pregnancy",
@@ -2640,16 +3226,23 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Farnesol",
-    "herbs": ["linden", "Silver Linden"],
+    "name": "farnesol",
+    "herbs": ["linden", "tilia tomentosa"],
     "effects": [
+      "No direct effects data. Contextual inference: Used as a calming tea for sleep",
       "anxiety",
-      "and tension. Used as a calming tea for sleep",
+      "and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep",
+      "and tension... Used as a calming tea for sleep",
+      "and tension.. Used as a calming tea for sleep",
       "and tension.",
       "Mild sedative",
       "hallucinogenic in high doses",
       "Anxiolytic",
-      "relaxing"
+      "relaxing",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": ["Pregnancy", "high doses", "None known"],
     "category": null,
@@ -2665,7 +3258,11 @@
       "libido enhancement",
       "Aphrodisiac",
       "stimulant",
-      "nerve tonic"
+      "nerve tonic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": ["High blood pressure", "hypertension", "pregnancy."],
     "category": null,
@@ -2681,19 +3278,28 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "flavones",
     "herbs": ["alchornea castaneifolia"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
       "Lucid dreaming",
       "relaxation",
       "altered dream content",
       "Vivid dreams",
       "increased dream recall",
       "mild sedation",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Dream enhancement and mild sedative",
@@ -2720,12 +3326,16 @@
       "agrimonia eupatoria",
       "albizia julibrissin",
       "helichrysum odoratissimum",
-      "Muira Puama",
+      "ptychopetalum olacoides benth. ptychopetalum olacoides",
       "rhododendron anthopogon",
       "turnera diffusa var. aphrodisiaca",
       "elaeagnus angustifolia"
     ],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Astringent",
       "anti-inflammatory",
       "digestive tonic",
@@ -2767,6 +3377,7 @@
       "Calming",
       "antioxidant",
       "lipid-lowering",
+      "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.",
       "Psychoactive (when extracted)",
       "vision alteration",
       "dream enhancement",
@@ -2786,12 +3397,14 @@
       "stimulation",
       "increased libido",
       "mood enhancement",
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
       "Mental clarity",
       "mood boost",
       "memory enhancer",
       "spiritual insight",
       "sedation",
       "spiritual openness",
+      "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.",
       "Vivid dreams",
       "mild calm",
       "enhanced intuition",
@@ -2806,8 +3419,11 @@
       "mild sedation",
       "Skeletal muscle relaxant",
       "used in smoking blends",
+      "No direct effects data. Contextual inference: Used traditionally to relieve pain",
       "stress",
-      "and inflammation. Used traditionally to relieve pain",
+      "and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain",
+      "and inflammation... Used traditionally to relieve pain",
+      "and inflammation.. Used traditionally to relieve pain",
       "and inflammation.",
       "Calmness",
       "clarity",
@@ -2819,19 +3435,24 @@
       "mild analgesic",
       "calm",
       "subtle mood lift",
+      "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity.",
       "Mild euphoric and sedative",
       "used in traditional African and Caribbean medicine",
       "improved sleep",
       "reduced stress",
       "reduced anxiety",
       "anxiety reduction",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Sedative",
       "used for sleep and stress in South America",
       "slight mood enhancement",
       "antioxidant (inferred from related Calliandra species).",
-      "warming sensation"
+      "warming sensation",
+      "No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine."
     ],
     "contraindications": [
       "High doses may cause nausea or vomiting",
@@ -2910,7 +3531,12 @@
       "gastrointestinal disorders"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -2920,6 +3546,9 @@
       "Enhanced dreams",
       "altered awareness",
       "calm",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
@@ -2929,7 +3558,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Flavonoids (vitexin",
+    "name": "flavonoids (vitexin",
     "herbs": [],
     "effects": [
       "Calmness",
@@ -2947,7 +3576,9 @@
   {
     "name": "flavonols",
     "herbs": ["alchornea castaneifolia"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
+    ],
     "contraindications": [
       "Little clinical research",
       "avoid during pregnancy or while breastfeeding",
@@ -2959,27 +3590,33 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Fragarine",
+    "name": "fragarine",
     "herbs": ["rubus idaeus"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Furanocoumarins",
+    "name": "furanocoumarins",
     "herbs": ["ficus religiosa"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Galbulimimine",
+    "name": "galbulimimine",
     "herbs": ["galbulimima belgraveana"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -3008,7 +3645,12 @@
       "Avoid during pregnancy due to uterine stimulation potential"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3021,7 +3663,12 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3033,21 +3680,30 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Germacranolides",
+    "name": "germacranolides",
     "herbs": ["calea zacatechichi"],
     "effects": [
       "Vivid and lucid dreams",
       "dream recall",
+      "No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions.",
       "Lucid dreaming",
       "relaxation",
       "altered dream content",
       "Vivid dreams",
       "increased dream recall",
       "mild sedation",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Dream enhancement and mild sedative",
@@ -3073,7 +3729,12 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3085,7 +3746,11 @@
       "lucid dreaming",
       "increased tactile sensation",
       "dream enhancement",
-      "anxiolytic"
+      "anxiolytic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Avoid use with CNS depressants",
@@ -3103,34 +3768,50 @@
   {
     "name": "gramine",
     "herbs": [],
-    "effects": ["Visual stimulation", "introspection"],
+    "effects": [
+      "Visual stimulation",
+      "introspection",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["MAOIs", "pregnancy"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Graveoline",
+    "name": "graveoline",
     "herbs": ["ruta graveolens"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Gymnemic Acids",
+    "name": "gymnemic acids",
     "herbs": ["gymnema sylvestre"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Harmala alkaloids",
+    "name": "harmala alkaloids",
     "herbs": ["nicotiana rustica"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -3151,7 +3832,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Harmaline",
+    "name": "harmaline",
     "herbs": [],
     "effects": [
       "Altered perception",
@@ -3167,7 +3848,11 @@
       "psychoactive",
       "Dreamlike visions",
       "introspection",
-      "emotional release"
+      "emotional release",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Avoid with SSRIs",
@@ -3199,7 +3884,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Harmalol",
+    "name": "harmalol",
     "herbs": [],
     "effects": [
       "Altered perception",
@@ -3237,7 +3922,8 @@
       "altered consciousness",
       "clarity",
       "Potent tobacco",
-      "used in Amazonian rituals for purification and divination"
+      "used in Amazonian rituals for purification and divination",
+      "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
     ],
     "contraindications": [
       "Cardiac issues",
@@ -3284,7 +3970,11 @@
       "psychoactive",
       "Dreamlike visions",
       "introspection",
-      "emotional release"
+      "emotional release",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Avoid with SSRIs",
@@ -3302,18 +3992,25 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Himandrine",
+    "name": "himandrine",
     "herbs": [],
-    "effects": ["Hallucinations", "dizziness", "sedation"],
+    "effects": [
+      "Hallucinations",
+      "dizziness",
+      "sedation",
+      "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
+    ],
     "contraindications": ["not recommended outside supervised research"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Himbacine",
+    "name": "himbacine",
     "herbs": ["galbulimima belgraveana"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -3322,25 +4019,39 @@
   {
     "name": "himbacine (alkaloids)",
     "herbs": [],
-    "effects": ["Hallucinations", "dizziness", "sedation"],
+    "effects": [
+      "Hallucinations",
+      "dizziness",
+      "sedation",
+      "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
+    ],
     "contraindications": ["not recommended outside supervised research"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Histamine",
+    "name": "histamine",
     "herbs": [],
-    "effects": ["Mild stimulation", "increased circulation"],
+    "effects": [
+      "Mild stimulation",
+      "increased circulation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Pregnancy (caution)", "diuretics"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Huperzine A",
+    "name": "huperzine a",
     "herbs": ["huperzia serrata"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -3355,7 +4066,12 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3365,6 +4081,7 @@
       "Complete dissociation",
       "hallucinations",
       "amnesia",
+      "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use",
       "Intense hallucinations",
       "delirium",
       "Strong anticholinergic and hallucinogenic effects",
@@ -3414,7 +4131,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3429,6 +4151,9 @@
       "sedation",
       "muscle relaxation",
       "anxiety reduction",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Sedative",
@@ -3449,16 +4174,21 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Iboga alkaloids",
+    "name": "iboga alkaloids",
     "herbs": [],
-    "effects": ["Inner visions", "deep introspection", "energetic clarity"],
+    "effects": [
+      "Inner visions",
+      "deep introspection",
+      "energetic clarity",
+      "No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
+    ],
     "contraindications": ["Heart conditions", "psychiatric illness"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Ibogaine",
+    "name": "ibogaine",
     "herbs": ["tabernanthe iboga"],
     "effects": [
       "Intense visions",
@@ -3466,7 +4196,11 @@
       "ataxia",
       "dream states",
       "Powerful psychedelic and anti-addiction",
-      "long visionary experience"
+      "long visionary experience",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Serious cardiac risk",
@@ -3486,6 +4220,9 @@
       "stimulation",
       "euphoria",
       "potential visionary states",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
@@ -3517,6 +4254,9 @@
       "euphoria",
       "confusion",
       "dream-like states",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Psychoactive and deliriant",
@@ -3544,7 +4284,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3557,9 +4302,13 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Iridoids",
+    "name": "iridoids",
     "herbs": ["mitchella repens"],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Color vision changes",
       "detachment",
       "vivid hallucinations",
@@ -3569,6 +4318,7 @@
       "Visual distortions",
       "sedation",
       "altered mental state",
+      "No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.",
       "Muscle relaxation",
       "mild sedation",
       "euphoria",
@@ -3608,7 +4358,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3626,6 +4381,7 @@
       "Visual distortion",
       "introspection",
       "altered perception of time and self",
+      "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening.",
       "emotional introspection",
       "nausea",
       "Entheogenic",
@@ -3657,7 +4413,12 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3666,8 +4427,11 @@
     "effects": [
       "Mild sedation",
       "muscle relaxation",
+      "No direct effects data. Contextual inference: Used historically to treat pain",
       "migraines",
-      "and spasms. Used historically to treat pain",
+      "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+      "and spasms... Used historically to treat pain",
+      "and spasms.. Used historically to treat pain",
       "and spasms."
     ],
     "contraindications": ["Avoid unpurified extracts due to liver-toxic alkaloids"],
@@ -3685,7 +4449,12 @@
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3697,7 +4466,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3749,13 +4523,23 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "julibroside C1",
+    "name": "julibroside c1",
     "herbs": ["albizia julibrissin"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [
       "Limited safety data",
       "may potentiate sedative or antidepressant drugs",
@@ -3780,8 +4564,11 @@
       "Uterine tonic",
       "astringent",
       "regulates menstruation and bleeding.",
+      "No direct effects data. Contextual inference: Used as a calming tea for sleep",
       "anxiety",
-      "and tension. Used as a calming tea for sleep",
+      "and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep",
+      "and tension... Used as a calming tea for sleep",
+      "and tension.. Used as a calming tea for sleep",
       "and tension."
     ],
     "contraindications": [
@@ -3796,7 +4583,12 @@
       "L313】."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3809,29 +4601,50 @@
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Kavalactones (kavain",
+    "name": "kavalactones (kavain",
     "herbs": [],
-    "effects": ["Euphoria", "calmness", "muscle relaxation"],
+    "effects": [
+      "Euphoria",
+      "calmness",
+      "muscle relaxation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Liver conditions", "concurrent alcohol use"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "L-theanine",
+    "name": "l-theanine",
     "herbs": [],
-    "effects": ["Alertness", "calm focus", "mood lift"],
+    "effects": [
+      "Alertness",
+      "calm focus",
+      "mood lift",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Insomnia", "anxiety", "heart issues"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Lactucin",
+    "name": "lactucin",
     "herbs": ["wild lettuce"],
     "effects": [
       "Sedation",
@@ -3840,7 +4653,11 @@
       "Sedative",
       "analgesic",
       "antispasmodic",
-      "century medicine for pain and insomnia. Used in 19th",
+      "No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+      "No direct effects data. Contextual inference: Used in 19th",
+      "century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th",
+      "century medicine for pain and insomnia... Used in 19th",
+      "century medicine for pain and insomnia.. Used in 19th",
       "century medicine for pain and insomnia."
     ],
     "contraindications": ["Not recommended during pregnancy or with sedatives"],
@@ -3858,7 +4675,11 @@
       "Sedative",
       "analgesic",
       "antispasmodic",
-      "century medicine for pain and insomnia. Used in 19th",
+      "No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+      "No direct effects data. Contextual inference: Used in 19th",
+      "century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th",
+      "century medicine for pain and insomnia... Used in 19th",
+      "century medicine for pain and insomnia.. Used in 19th",
       "century medicine for pain and insomnia."
     ],
     "contraindications": ["Not recommended during pregnancy or with sedatives"],
@@ -3876,11 +4697,16 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "lebbeckoside C",
+    "name": "lebbeckoside c",
     "herbs": ["albizia lebbeck"],
     "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
     "contraindications": [
@@ -3889,11 +4715,16 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "lebbeckosides A and B",
+    "name": "lebbeckosides a and b",
     "herbs": ["albizia lebbeck"],
     "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
     "contraindications": [
@@ -3902,22 +4733,35 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Leonurine",
+    "name": "leonurine",
     "herbs": ["leonurus sibiricus", "motherwort"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Mild sedative",
       "uterine tonic",
       "and relaxant",
       "used in traditional Chinese medicine",
+      "No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.",
       "Relaxation",
       "mild euphoria",
       "dream enhancement",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Mild euphoric and calming",
       "used as cannabis substitute",
       "sedation",
@@ -3951,7 +4795,12 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -3960,8 +4809,11 @@
     "effects": [
       "Mild sedation",
       "relaxation",
+      "No direct effects data. Contextual inference: Used traditionally to relieve pain",
       "stress",
-      "and inflammation. Used traditionally to relieve pain",
+      "and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain",
+      "and inflammation... Used traditionally to relieve pain",
+      "and inflammation.. Used traditionally to relieve pain",
       "and inflammation."
     ],
     "contraindications": ["caution in pregnancy"],
@@ -3972,7 +4824,12 @@
   {
     "name": "lignan glycosides",
     "herbs": ["albizia julibrissin"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [
       "Limited safety data",
       "may potentiate sedative or antidepressant drugs",
@@ -4013,6 +4870,7 @@
       "cooling"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -4025,11 +4883,16 @@
       "infants (menthol sensitivity)"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Limonoids",
+    "name": "limonoids",
     "herbs": [],
     "effects": ["Skin healing", "antiparasitic action", "Fever reduction", "parasite suppression"],
     "contraindications": [
@@ -4042,7 +4905,7 @@
   },
   {
     "name": "linalool",
-    "herbs": ["acorus tatarinowii", "Silver Linden"],
+    "herbs": ["acorus tatarinowii", "tilia tomentosa"],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -4059,9 +4922,14 @@
       "Mild sedative",
       "hallucinogenic in high doses",
       "Anxiolytic",
-      "relaxing"
+      "relaxing",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -4074,13 +4942,23 @@
       "None known"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Linalyl acetate",
+    "name": "linalyl acetate",
     "herbs": ["salvia sclarea"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -4088,7 +4966,7 @@
   },
   {
     "name": "long-chain fatty acids",
-    "herbs": ["Muira Puama"],
+    "herbs": ["ptychopetalum olacoides benth. ptychopetalum olacoides"],
     "effects": [
       "Improved libido",
       "enhanced cognition",
@@ -4105,11 +4983,16 @@
       "pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "LSA (ergine)",
+    "name": "lsa (ergine)",
     "herbs": [],
     "effects": [
       "Closed-eye visuals",
@@ -4124,16 +5007,22 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "LSA (lysergic acid amide)",
+    "name": "lsa (lysergic acid amide)",
     "herbs": ["argyreia nervosa"],
-    "effects": ["opening. Used in Ayurvedic and Polynesian traditions for mind", "opening."],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
+      "opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
+      "opening... Used in Ayurvedic and Polynesian traditions for mind",
+      "opening.. Used in Ayurvedic and Polynesian traditions for mind",
+      "opening."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Lucidine",
+    "name": "lucidine",
     "herbs": [],
     "effects": ["Lucid dreaming", "relaxation", "altered states of consciousness"],
     "contraindications": ["Pregnancy", "epilepsy"],
@@ -4152,7 +5041,8 @@
       "inflammatory",
       "Used in Ayurveda for asthma",
       "allergies",
-      "and anxiety"
+      "and anxiety",
+      "No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support."
     ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
@@ -4162,7 +5052,12 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -4174,7 +5069,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -4201,7 +5101,12 @@
       "L313】."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -4216,11 +5121,16 @@
       "relaxation",
       "mild euphoria",
       "dream-like state",
+      "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
       "Mild auditory and memory effects",
       "traditional fermentation increases effects",
       "Auditory shifts",
       "relaxed dreamlike state",
       "Mild auditory and visual alterations",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Mild auditory hallucinations",
       "warmth",
       "euphoria",
@@ -4247,7 +5157,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Lysergic acid amide (LSA)",
+    "name": "lysergic acid amide (lsa)",
     "herbs": [],
     "effects": [
       "Visual hallucinations",
@@ -4260,7 +5170,8 @@
       "dream-like mental state",
       "Visual distortion",
       "introspection",
-      "altered perception of time and self"
+      "altered perception of time and self",
+      "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind-opening... Used in Ayurvedic and Polynesian traditions for mind-opening.. Used in Ayurvedic and Polynesian traditions for mind-opening."
     ],
     "contraindications": [
       "Avoid with psychiatric conditions",
@@ -4290,11 +5201,16 @@
       "relaxation",
       "mild euphoria",
       "dream-like state",
+      "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
       "Mild auditory and memory effects",
       "traditional fermentation increases effects",
       "Auditory shifts",
       "relaxed dreamlike state",
       "Mild auditory and visual alterations",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Auditory hallucinations",
       "memory alterations",
       "vivid dreams"
@@ -4333,18 +5249,24 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Marmelosin",
+    "name": "marmelosin",
     "herbs": ["aegle marmelos"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Marrubiin",
+    "name": "marrubiin",
     "herbs": ["marrubium vulgare"],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Relaxation",
       "mild euphoria",
       "dream enhancement",
@@ -4370,11 +5292,16 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Menthol",
+    "name": "menthol",
     "herbs": [],
     "effects": [
       "Soothes GI tract",
@@ -4425,9 +5352,11 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "MeO",
+    "name": "meo",
     "herbs": ["virola theiodora"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -4450,13 +5379,25 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Mescaline",
+    "name": "mescaline",
     "herbs": ["echinopsis pachanoi"],
-    "effects": ["Psychedelic effects due to mescaline", "traditionally used in Andean ceremonies"],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
+      "Psychedelic effects due to mescaline",
+      "traditionally used in Andean ceremonies"
+    ],
     "contraindications": ["mental illness", "pregnancy."],
     "category": null,
     "sources": [],
@@ -4507,9 +5448,13 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Mesembrine",
+    "name": "mesembrine",
     "herbs": ["kanna"],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Euphoria",
       "empathy",
       "stress relief",
@@ -4542,7 +5487,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Mesembrine analogues (suspected)",
+    "name": "mesembrine analogues (suspected)",
     "herbs": [],
     "effects": [
       "Mood elevation",
@@ -4566,7 +5511,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -4580,6 +5530,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -4587,7 +5538,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -4599,13 +5555,29 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Methyl salicylate",
+    "name": "methyl salicylate",
     "herbs": ["betula lenta", "sweet violet"],
-    "effects": ["coughs", "and gentle mood support. Used for sleep", "and gentle mood support."],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
+      "No direct effects data. Contextual inference: Used for sleep",
+      "coughs",
+      "and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep",
+      "and gentle mood support... Used for sleep",
+      "and gentle mood support.. Used for sleep",
+      "and gentle mood support."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -4620,20 +5592,33 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "methysticin",
     "herbs": [],
-    "effects": ["Euphoria", "calmness", "muscle relaxation"],
+    "effects": [
+      "Euphoria",
+      "calmness",
+      "muscle relaxation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Liver conditions", "concurrent alcohol use"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Mitragynine",
+    "name": "mitragynine",
     "herbs": [],
     "effects": [
       "Stimulation",
@@ -4660,6 +5645,9 @@
       "beta-asarone rich)",
       "Mild sedative",
       "hallucinogenic in high doses",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "digestive aid",
@@ -4679,7 +5667,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Morphine",
+    "name": "morphine",
     "herbs": [],
     "effects": [
       "Pain relief",
@@ -4704,8 +5692,8 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Muirapuamine",
-    "herbs": ["Muira Puama"],
+    "name": "muirapuamine",
+    "herbs": ["ptychopetalum olacoides benth. ptychopetalum olacoides"],
     "effects": [
       "Improved libido",
       "enhanced cognition",
@@ -4722,7 +5710,12 @@
       "pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -4737,6 +5730,9 @@
       "sedation",
       "muscle relaxation",
       "anxiety reduction",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Sedative",
@@ -4757,13 +5753,16 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Muscimol",
+    "name": "muscimol",
     "herbs": ["amanita muscaria"],
     "effects": [
       "Muscle jerks",
       "euphoria",
       "confusion",
       "dream-like states",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Psychoactive and deliriant",
@@ -4777,7 +5776,9 @@
   {
     "name": "myricetin",
     "herbs": ["acacia nilotica"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+    ],
     "contraindications": [
       "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
       "Avoid during pregnancy or lactation due to potential anti-fertility effects",
@@ -4788,7 +5789,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Myristicin",
+    "name": "myristicin",
     "herbs": ["myristica fragrans"],
     "effects": [
       "Euphoria",
@@ -4798,8 +5799,11 @@
       "sedation",
       "altered perception",
       "disorientation",
+      "No direct effects data. Contextual inference: Used in spice blends",
       "aphrodisiacs",
-      "and as a psychoactive in folk rituals. Used in spice blends",
+      "and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends",
+      "and as a psychoactive in folk rituals... Used in spice blends",
+      "and as a psychoactive in folk rituals.. Used in spice blends",
       "and as a psychoactive in folk rituals."
     ],
     "contraindications": [
@@ -4816,12 +5820,13 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "N",
+    "name": "n-dimethyltryptamine (dmt)",
     "herbs": [],
     "effects": [
       "Closed-eye visuals",
       "altered cognition",
-      "spiritual insight (when used with MAOI)"
+      "spiritual insight (when used with MAOI)",
+      "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
     ],
     "contraindications": ["Use with SSRIs or MAOIs without supervision"],
     "category": null,
@@ -4829,20 +5834,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "N-Dimethyltryptamine (DMT)",
-    "herbs": [],
-    "effects": [
-      "Closed-eye visuals",
-      "altered cognition",
-      "spiritual insight (when used with MAOI)"
-    ],
-    "contraindications": ["Use with SSRIs or MAOIs without supervision"],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
-  },
-  {
-    "name": "N-methylcephaeline (alamarckine)",
+    "name": "n-methylcephaeline (alamarckine)",
     "herbs": ["alangium salvifolium"],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
@@ -4859,13 +5851,26 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "N-methyltryptamine",
+    "name": "n-methyltryptamine",
     "herbs": [],
-    "effects": ["Psychedelic visuals", "introspection", "altered consciousness"],
+    "effects": [
+      "Psychedelic visuals",
+      "introspection",
+      "altered consciousness",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Mental health conditions", "MAOI use", "pregnancy", "liver disease"],
     "category": null,
     "sources": [],
@@ -4888,13 +5893,24 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "neferine",
     "herbs": ["nelumbo nucifera"],
-    "effects": ["Calming", "antioxidant", "anti-inflammatory", "lipid-lowering"],
+    "effects": [
+      "Calming",
+      "antioxidant",
+      "anti-inflammatory",
+      "lipid-lowering",
+      "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion."
+    ],
     "contraindications": ["Pregnancy", "hypotension", "sedation"],
     "category": null,
     "sources": [],
@@ -4917,7 +5933,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -4945,11 +5966,14 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Nepetalactone",
+    "name": "nepetalactone",
     "herbs": ["catnip"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in folk medicine for relaxation",
       "colds",
-      "and digestive issues. Used in folk medicine for relaxation",
+      "and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation",
+      "and digestive issues... Used in folk medicine for relaxation",
+      "and digestive issues.. Used in folk medicine for relaxation",
       "and digestive issues.",
       "Mild sedation",
       "relaxation",
@@ -4974,6 +5998,7 @@
       "relaxation",
       "mild euphoria",
       "dream-like state",
+      "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
       "Mild auditory and memory effects",
       "traditional fermentation increases effects"
     ],
@@ -4991,16 +6016,21 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Nicotine",
+    "name": "nicotine",
     "herbs": ["nicotiana rustica"],
-    "effects": ["Stimulation", "mood elevation", "alertness"],
+    "effects": [
+      "Stimulation",
+      "mood elevation",
+      "alertness",
+      "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
+    ],
     "contraindications": ["Heart disease", "pregnancy", "epilepsy"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Nicotine (9–15%)",
+    "name": "nicotine (9–15%)",
     "herbs": [],
     "effects": ["Intense stimulation", "nausea", "dizziness", "spiritual visions", "relaxation"],
     "contraindications": [
@@ -5014,7 +6044,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Nicotine (up to 9%)",
+    "name": "nicotine (up to 9%)",
     "herbs": [],
     "effects": [
       "Intense stimulation",
@@ -5022,7 +6052,8 @@
       "altered consciousness",
       "clarity",
       "Potent tobacco",
-      "used in Amazonian rituals for purification and divination"
+      "used in Amazonian rituals for purification and divination",
+      "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
     ],
     "contraindications": [
       "Cardiac issues",
@@ -5037,7 +6068,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "NMT",
+    "name": "nmt",
     "herbs": [],
     "effects": [
       "Intense visual hallucinations",
@@ -5073,7 +6104,8 @@
       "altered consciousness",
       "clarity",
       "Potent tobacco",
-      "used in Amazonian rituals for purification and divination"
+      "used in Amazonian rituals for purification and divination",
+      "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
     ],
     "contraindications": [
       "Cardiac issues",
@@ -5096,7 +6128,11 @@
       "ataxia",
       "dream states",
       "Powerful psychedelic and anti-addiction",
-      "long visionary experience"
+      "long visionary experience",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Serious cardiac risk",
@@ -5120,7 +6156,8 @@
       "altered consciousness",
       "clarity",
       "Potent tobacco",
-      "used in Amazonian rituals for purification and divination"
+      "used in Amazonian rituals for purification and divination",
+      "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
     ],
     "contraindications": [
       "Heart disease",
@@ -5153,9 +6190,10 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Nuciferine",
-    "herbs": ["blue lotus", "nelumbo nucifera"],
+    "name": "nuciferine",
+    "herbs": ["nymphaea caerulea", "nelumbo nucifera"],
     "effects": [
+      "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
       "Relaxation",
       "mild euphoria",
       "lucid dreaming",
@@ -5164,6 +6202,7 @@
       "antioxidant",
       "anti-inflammatory",
       "lipid-lowering",
+      "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.",
       "Euphoria",
       "dream intensification",
       "mild sedation",
@@ -5199,6 +6238,10 @@
       "mild euphoria",
       "dream enhancement",
       "anxiolytic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Euphoria",
       "dream intensification",
       "mild sedation",
@@ -5222,13 +6265,17 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Nupharine",
+    "name": "nupharine",
     "herbs": [],
     "effects": [
       "Relaxation",
       "mild euphoria",
       "dream enhancement",
       "anxiolytic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Euphoria",
       "dream intensification",
       "mild sedation",
@@ -5262,6 +6309,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -5269,7 +6317,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5282,7 +6335,12 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5295,7 +6353,12 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5309,16 +6372,12 @@
       "Pregnant or breastfeeding individuals should consult healthcare provider before use"
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
-  },
-  {
-    "name": "p",
-    "herbs": ["dysphania ambrosioides"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
-    "contraindications": [],
-    "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5341,13 +6400,24 @@
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "p-Cymene",
+    "name": "p-cymene",
     "herbs": ["dysphania ambrosioides"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -5362,13 +6432,25 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Paniculatin",
+    "name": "paniculatin",
     "herbs": ["celastrus paniculatus"],
-    "effects": ["focus", "and learning. Used in Ayurveda for cognition", "and learning."],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ayurveda for cognition",
+      "focus",
+      "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
+      "and learning... Used in Ayurveda for cognition",
+      "and learning.. Used in Ayurveda for cognition",
+      "and learning."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -5400,9 +6482,11 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Pareirine",
+    "name": "pareirine",
     "herbs": ["cissampelos pareira"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... No direct mechanismofaction data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... Used in Amazonian and Ayurvedic traditions for pain and calming.. Used in Amazonian and Ayurvedic traditions for pain and calming."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -5418,27 +6502,37 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Patchoulol",
+    "name": "patchoulol",
     "herbs": ["pogostemon cablin"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Pellitorine",
+    "name": "pellitorine",
     "herbs": ["zanthoxylum clava-herculis"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Perillaldehyde",
+    "name": "perillaldehyde",
     "herbs": ["perilla frutescens"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -5453,11 +6547,16 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "persinosides A",
+    "name": "persinosides a",
     "herbs": ["aerva lanata"],
     "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
     "contraindications": [
@@ -5465,11 +6564,16 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "persinosides B",
+    "name": "persinosides b",
     "herbs": ["aerva lanata"],
     "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
     "contraindications": [
@@ -5477,17 +6581,25 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Petasin",
+    "name": "petasin",
     "herbs": ["petasites hybridus"],
     "effects": [
       "Mild sedation",
       "muscle relaxation",
+      "No direct effects data. Contextual inference: Used historically to treat pain",
       "migraines",
-      "and spasms. Used historically to treat pain",
+      "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+      "and spasms... Used historically to treat pain",
+      "and spasms.. Used historically to treat pain",
       "and spasms."
     ],
     "contraindications": ["Avoid unpurified extracts due to liver-toxic alkaloids"],
@@ -5515,11 +6627,16 @@
       "hormone-sensitive conditions"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Phenolics",
+    "name": "phenolics",
     "herbs": [],
     "effects": ["Wound healing", "anti-infective effects"],
     "contraindications": ["Potential allergenicity with long-term use"],
@@ -5530,7 +6647,9 @@
   {
     "name": "phenols",
     "herbs": ["alchornea castaneifolia"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
+    ],
     "contraindications": [
       "Little clinical research",
       "avoid during pregnancy or while breastfeeding",
@@ -5567,7 +6686,12 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5588,7 +6712,12 @@
       "L313】."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5608,7 +6737,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5621,7 +6755,12 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5635,7 +6774,8 @@
       "stimulation",
       "relaxation",
       "increased libido",
-      "mood enhancement"
+      "mood enhancement",
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
     ],
     "contraindications": [
       "Avoid in bipolar disorder and pregnancy",
@@ -5649,7 +6789,9 @@
   {
     "name": "polysaccharides (arabinose, rhamnose)",
     "herbs": ["acacia nilotica"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+    ],
     "contraindications": [
       "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
       "Avoid during pregnancy or lactation due to potential anti-fertility effects",
@@ -5660,7 +6802,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Prenylated isoflavonoids",
+    "name": "prenylated isoflavonoids",
     "herbs": [],
     "effects": ["Pain relief", "immune modulation"],
     "contraindications": ["Pregnancy", "hormone-sensitive conditions"],
@@ -5678,7 +6820,12 @@
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5723,7 +6870,12 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5735,7 +6887,11 @@
       "mild clarity",
       "Calming",
       "expectorant",
-      "mild analgesic"
+      "mild analgesic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": ["None known", "caution with sedatives", "None known in moderate doses"],
     "category": null,
@@ -5765,8 +6921,11 @@
     "effects": [
       "Mild sedation",
       "muscle relaxation",
+      "No direct effects data. Contextual inference: Used historically to treat pain",
       "migraines",
-      "and spasms. Used historically to treat pain",
+      "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+      "and spasms... Used historically to treat pain",
+      "and spasms.. Used historically to treat pain",
       "and spasms."
     ],
     "contraindications": ["Avoid unpurified extracts due to liver-toxic alkaloids"],
@@ -5783,10 +6942,10 @@
       "alchemilla vulgaris",
       "byrsonima crassifolia",
       "pimenta dioica",
-      "Silver Linden",
       "tilia tomentosa"
     ],
     "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
       "Diuretic",
       "anti-inflammatory",
       "antimicrobial",
@@ -5798,8 +6957,14 @@
       "Uterine tonic",
       "astringent",
       "regulates menstruation and bleeding.",
+      "No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
+      "No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
       "Anxiolytic",
-      "relaxing"
+      "relaxing",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
@@ -5817,7 +6982,12 @@
       "None known"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5830,13 +7000,23 @@
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "quercitrin",
     "herbs": ["albizia julibrissin"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [
       "Limited safety data",
       "may potentiate sedative or antidepressant drugs",
@@ -5863,7 +7043,9 @@
       "anti-stress",
       "immune support",
       "Subtle clarity",
-      "mild stimulation"
+      "mild stimulation",
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
+      "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
     "contraindications": [
       "Pregnancy",
@@ -5877,27 +7059,34 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Rutarin",
+    "name": "rutarin",
     "herbs": ["ruta graveolens"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Rutin",
+    "name": "rutin",
     "herbs": ["ruta graveolens"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Safrole",
+    "name": "safrole",
     "herbs": ["mexican pepperleaf"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Euphoria",
@@ -5907,8 +7096,11 @@
       "sedation",
       "altered perception",
       "disorientation",
+      "No direct effects data. Contextual inference: Used in spice blends",
       "aphrodisiacs",
-      "and as a psychoactive in folk rituals. Used in spice blends",
+      "and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends",
+      "and as a psychoactive in folk rituals... Used in spice blends",
+      "and as a psychoactive in folk rituals.. Used in spice blends",
       "and as a psychoactive in folk rituals."
     ],
     "contraindications": [
@@ -5942,7 +7134,12 @@
       "L313】."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -5963,13 +7160,20 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Sanshools",
+    "name": "sanshools",
     "herbs": ["zanthoxylum clava-herculis"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -5985,6 +7189,12 @@
       "entada rheedii"
     ],
     "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
       "Mental alertness",
       "energy",
       "appetite suppression",
@@ -6005,6 +7215,9 @@
       "Vivid dreams",
       "dream recall",
       "mental clarity",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Color vision changes",
@@ -6016,6 +7229,7 @@
       "Visual distortions",
       "sedation",
       "altered mental state",
+      "No direct effects data. Contextual inference: Used by mapuche shamans in ritual ceremonies... No direct mechanismofaction data. Contextual inference: Used by mapuche shamans in ritual ceremonies... Used by Mapuche shamans in ritual ceremonies.. Used by Mapuche shamans in ritual ceremonies.",
       "Enhanced dreams",
       "altered awareness",
       "calm",
@@ -6059,7 +7273,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "saponins (lebbekanin A-H)",
+    "name": "saponins (lebbekanin a-h)",
     "herbs": ["albizia lebbeck"],
     "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
     "contraindications": [
@@ -6068,25 +7282,37 @@
       "excessive intake may cause gastrointestinal irritation or interact with medications."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Sclareol",
+    "name": "sclareol",
     "herbs": ["salvia sclarea"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Scopolamine",
+    "name": "scopolamine",
     "herbs": ["datura metel"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
       "Complete dissociation",
       "hallucinations",
       "amnesia",
+      "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use",
       "Intense hallucinations",
       "delirium",
       "Strong anticholinergic and hallucinogenic effects",
@@ -6126,6 +7352,10 @@
       "Relaxation",
       "mild euphoria",
       "dream enhancement",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Mild euphoric and calming",
       "used as cannabis substitute"
     ],
@@ -6145,6 +7375,7 @@
       "Mild sedation",
       "calm mood",
       "anxiety relief",
+      "No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
       "Nervine",
       "anxiolytic",
       "anti-inflammatory",
@@ -6161,12 +7392,13 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Scutellarin",
+    "name": "scutellarin",
     "herbs": ["scutellaria lateriflora"],
     "effects": [
       "Mild sedation",
       "calm mood",
       "anxiety relief",
+      "No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
       "Nervine",
       "anxiolytic",
       "anti-inflammatory",
@@ -6185,14 +7417,21 @@
   {
     "name": "serotonin",
     "herbs": [],
-    "effects": ["Mild stimulation", "increased circulation"],
+    "effects": [
+      "Mild stimulation",
+      "increased circulation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Pregnancy (caution)", "diuretics"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Sesquiterpene lactones",
+    "name": "sesquiterpene lactones",
     "herbs": [],
     "effects": [
       "Blood sugar regulation",
@@ -6231,6 +7470,9 @@
       "Vivid dreams",
       "increased dream recall",
       "mild sedation",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
       "Dream enhancement and mild sedative",
@@ -6252,7 +7494,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Solanine",
+    "name": "solanine",
     "herbs": [],
     "effects": ["Delirium", "confusion", "hallucinations (toxic profile)"],
     "contraindications": ["Highly toxic", "not for human use"],
@@ -6277,7 +7519,12 @@
       "handling requires caution."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -6298,7 +7545,7 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Spilanthol",
+    "name": "spilanthol",
     "herbs": [],
     "effects": [
       "Local anesthesia",
@@ -6324,9 +7571,11 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Stachydrine",
+    "name": "stachydrine",
     "herbs": ["motherwort"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -6335,7 +7584,9 @@
   {
     "name": "steroids",
     "herbs": ["alchornea castaneifolia"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
+    ],
     "contraindications": [
       "Little clinical research",
       "avoid during pregnancy or while breastfeeding",
@@ -6348,8 +7599,12 @@
   },
   {
     "name": "sterols",
-    "herbs": ["albizia julibrissin", "Muira Puama"],
+    "herbs": ["albizia julibrissin", "ptychopetalum olacoides benth. ptychopetalum olacoides"],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Improved libido",
       "enhanced cognition",
       "mood elevation",
@@ -6381,7 +7636,12 @@
       "High blood pressure"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -6393,11 +7653,16 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Sulfur compounds",
+    "name": "sulfur compounds",
     "herbs": [],
     "effects": [
       "Calmness",
@@ -6421,13 +7686,23 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "tabersonine",
     "herbs": [],
-    "effects": ["Inner visions", "deep introspection", "energetic clarity"],
+    "effects": [
+      "Inner visions",
+      "deep introspection",
+      "energetic clarity",
+      "No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
+    ],
     "contraindications": ["Heart conditions", "psychiatric illness"],
     "category": null,
     "sources": [],
@@ -6442,7 +7717,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -6454,6 +7734,8 @@
       "digestive tonic",
       "anti",
       "inflammatory",
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
+      "No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace.",
       "Intense visual hallucinations",
       "altered perception",
       "emotional sensitivity",
@@ -6470,11 +7752,16 @@
       "antispasmodic",
       "Psychedelic visuals",
       "altered consciousness",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "digestive aid",
       "hemostatic",
       "Calming",
       "antioxidant",
       "lipid-lowering",
+      "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion.",
       "Mental alertness",
       "energy",
       "appetite suppression",
@@ -6497,8 +7784,11 @@
       "Aphrodisiac and stimulant",
       "used as a hunting drug in Africa",
       "Mild sedation",
+      "No direct effects data. Contextual inference: Used traditionally to relieve pain",
       "stress",
-      "and inflammation. Used traditionally to relieve pain",
+      "and inflammation... No direct mechanismofaction data. Contextual inference: Used traditionally to relieve pain",
+      "and inflammation... Used traditionally to relieve pain",
+      "and inflammation.. Used traditionally to relieve pain",
       "and inflammation.",
       "improved mood",
       "mild clarity",
@@ -6552,13 +7842,20 @@
       "None known in moderate doses"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "tannins (gallic acid, ellagic acid, catechin)",
     "herbs": ["acacia nilotica"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+    ],
     "contraindications": [
       "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
       "Avoid during pregnancy or lactation due to potential anti-fertility effects",
@@ -6569,9 +7866,11 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Tartaric acid",
+    "name": "tartaric acid",
     "herbs": ["tamarindus indica"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -6595,7 +7894,12 @@
       "relaxation",
       "increased libido",
       "mood enhancement",
-      "sedation or stimulation"
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
+      "sedation or stimulation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Avoid in pregnancy",
@@ -6638,7 +7942,11 @@
       "psychoactive",
       "Dreamlike visions",
       "introspection",
-      "emotional release"
+      "emotional release",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Avoid with SSRIs",
@@ -6686,9 +7994,11 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Tetrahydropalmatine (THP)",
+    "name": "tetrahydropalmatine (thp)",
     "herbs": ["corydalis yanhusuo"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -6703,7 +8013,12 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -6715,13 +8030,26 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "THC",
+    "name": "thc",
     "herbs": ["cannabis sativa"],
-    "effects": ["Euphoria", "altered perception", "sedation or stimulation"],
+    "effects": [
+      "Euphoria",
+      "altered perception",
+      "sedation or stimulation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Psychosis", "schizophrenia", "pregnancy"],
     "category": null,
     "sources": [],
@@ -6767,11 +8095,16 @@
       "antioxidant",
       "Mental stimulation",
       "mild diuretic",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Euphoria",
       "alertness",
       "heart opening",
       "mild euphoriant",
-      "contains theobromine and caffeine"
+      "contains theobromine and caffeine",
+      "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
     ],
     "contraindications": [
       "Anxiety",
@@ -6812,11 +8145,15 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Thujone",
+    "name": "thujone",
     "herbs": ["artemisia abrotanum", "artemisia absinthium", "artemisia ludoviciana"],
     "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine",
+      "No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.",
       "Anti-inflammatory",
       "astringent",
       "digestive aid",
@@ -6860,7 +8197,12 @@
       "Mild euphoria",
       "stimulation",
       "increased libido",
-      "mood enhancement"
+      "mood enhancement",
+      "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism.",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Pregnancy",
@@ -6875,14 +8217,26 @@
   {
     "name": "tiliroside",
     "herbs": ["agrimonia eupatoria", "rubus idaeus"],
-    "effects": ["Astringent", "anti-inflammatory", "digestive tonic", "anti", "inflammatory"],
+    "effects": [
+      "Astringent",
+      "anti-inflammatory",
+      "digestive tonic",
+      "anti",
+      "inflammatory",
+      "No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health."
+    ],
     "contraindications": [
       "Generally safe when used as tea",
       "due to tannins may cause constipation or reduce absorption of minerals",
       "avoid large doses during pregnancy."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -6896,6 +8250,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -6903,13 +8258,24 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "triterpene saponins",
     "herbs": ["african dream root"],
-    "effects": ["dreaming or folk medicine. Used in ritual", "dreaming or folk medicine"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
+      "dreaming or folk medicine. Used in ritual",
+      "dreaming or folk medicine"
+    ],
     "contraindications": [
       "Limited safety data; high doses may irritate the digestive tract and cause vomiting",
       "May cause disturbing or confusing dreams at high doses",
@@ -6930,9 +8296,15 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Triterpenoid saponins",
+    "name": "triterpenoid saponins",
     "herbs": ["silene undulata"],
-    "effects": ["meaningful dreams. Used by Xhosa shamans to induce vivid", "meaningful dreams."],
+    "effects": [
+      "No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid",
+      "meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid",
+      "meaningful dreams... Used by Xhosa shamans to induce vivid",
+      "meaningful dreams.. Used by Xhosa shamans to induce vivid",
+      "meaningful dreams."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -6947,6 +8319,10 @@
       "digestive tonic",
       "anti",
       "inflammatory",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Pain relief",
       "reduced inflammation"
     ],
@@ -6960,7 +8336,12 @@
       "Avoid in renal disease due to limited safety profile"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -6970,6 +8351,9 @@
       "Vivid dreams",
       "dream recall",
       "mental clarity",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
@@ -7005,6 +8389,10 @@
       "Psychoactive (when extracted)",
       "vision alteration",
       "introspection",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Psychedelic visuals",
       "emotional shifts (with MAOI)"
     ],
@@ -7021,9 +8409,11 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Tynanthin",
+    "name": "tynanthin",
     "herbs": ["tynanthus panurensis"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -7040,7 +8430,8 @@
       "spiritual insight",
       "sedation",
       "muscle relaxation",
-      "spiritual openness"
+      "spiritual openness",
+      "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
     ],
     "contraindications": [
       "Limited safety data",
@@ -7051,13 +8442,20 @@
       "anticoagulant therapy due to coumarin content"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Umelliferone",
+    "name": "umelliferone",
     "herbs": ["justicia pectoralis"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
@@ -7097,16 +8495,21 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Valeranon",
+    "name": "valeranon",
     "herbs": ["valeriana jatamansi"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Valerenic acid",
+    "name": "valerenic acid",
     "herbs": [],
     "effects": [
       "Sedation",
@@ -7130,13 +8533,23 @@
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
     "name": "vasicine",
     "herbs": ["adhatoda vasica", "justicia adhatoda"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [
       "High doses may cause nausea or vomiting",
       "Not recommended during pregnancy or lactation without medical guidance",
@@ -7150,6 +8563,10 @@
     "name": "vasicinone",
     "herbs": ["adhatoda vasica", "justicia adhatoda"],
     "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
       "Increased energy",
       "focus",
       "thermogenesis",
@@ -7191,36 +8608,52 @@
       "use with caution and avoid during pregnancy or without medical supervision."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Verbascoside",
+    "name": "verbascoside",
     "herbs": ["aloysia citrodora"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Verbenalin",
+    "name": "verbenalin",
     "herbs": ["verbena officinalis"],
-    "effects": [],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Vertine (cryogenine)",
+    "name": "vertine (cryogenine)",
     "herbs": [],
     "effects": [
       "Auditory shifts",
       "relaxed dreamlike state",
       "Mild auditory and visual alterations",
       "relaxation",
-      "dream enhancement"
+      "dream enhancement",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "CNS depressants",
@@ -7232,16 +8665,23 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Violine",
+    "name": "violine",
     "herbs": ["sweet violet"],
-    "effects": ["coughs", "and gentle mood support. Used for sleep", "and gentle mood support."],
+    "effects": [
+      "No direct effects data. Contextual inference: Used for sleep",
+      "coughs",
+      "and gentle mood support... No direct mechanismofaction data. Contextual inference: Used for sleep",
+      "and gentle mood support... Used for sleep",
+      "and gentle mood support.. Used for sleep",
+      "and gentle mood support."
+    ],
     "contraindications": [],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Voacamine",
+    "name": "voacamine",
     "herbs": [],
     "effects": [
       "Tranquility",
@@ -7253,6 +8693,9 @@
       "stimulation",
       "euphoria",
       "potential visionary states",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
@@ -7274,10 +8717,14 @@
       "Inner visions",
       "deep introspection",
       "energetic clarity",
+      "No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition.",
       "Altered perception",
       "stimulation",
       "euphoria",
       "potential visionary states",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
@@ -7300,6 +8747,9 @@
       "stimulation",
       "euphoria",
       "potential visionary states",
+      "No direct effects data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+      "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
@@ -7310,7 +8760,7 @@
   },
   {
     "name": "volatile oils",
-    "herbs": ["agrimonia eupatoria", "rhododendron anthopogon", "Silver Linden", "tilia tomentosa"],
+    "herbs": ["agrimonia eupatoria", "rhododendron anthopogon", "tilia tomentosa"],
     "effects": [
       "Astringent",
       "anti-inflammatory",
@@ -7319,6 +8769,11 @@
       "inflammatory",
       "Mild stimulation",
       "warming sensation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan.",
+      "No direct effects data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... No direct mechanismofaction data. Contextual inference: Burned in tibetan buddhist rituals and used in himalayan medicine... Burned in Tibetan Buddhist rituals and used in Himalayan medicine.. Burned in Tibetan Buddhist rituals and used in Himalayan medicine.",
       "Anxiolytic",
       "relaxing"
     ],
@@ -7331,7 +8786,12 @@
       "None known"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7341,6 +8801,7 @@
       "Mild sedation",
       "calm mood",
       "anxiety relief",
+      "No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
       "Nervine",
       "anxiolytic",
       "anti-inflammatory",
@@ -7359,7 +8820,11 @@
   {
     "name": "xanthones",
     "herbs": ["alchornea castaneifolia"],
-    "effects": ["Pain relief", "worm expulsion"],
+    "effects": [
+      "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
+      "Pain relief",
+      "worm expulsion"
+    ],
     "contraindications": [
       "Little clinical research",
       "avoid during pregnancy or while breastfeeding",
@@ -7374,14 +8839,22 @@
   {
     "name": "yangonin)",
     "herbs": [],
-    "effects": ["Euphoria", "calmness", "muscle relaxation"],
+    "effects": [
+      "Euphoria",
+      "calmness",
+      "muscle relaxation",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
+    ],
     "contraindications": ["Liver conditions", "concurrent alcohol use"],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Yohimbine",
+    "name": "yohimbine",
     "herbs": [],
     "effects": ["Stimulation", "increased blood flow", "heightened alertness", "sexual arousal"],
     "contraindications": ["Heart disease", "anxiety", "hypertension", "psychiatric conditions"],
@@ -7390,11 +8863,14 @@
     "lastUpdated": "2026-03-21"
   },
   {
-    "name": "Zapotin",
+    "name": "zapotin",
     "herbs": ["casimiroa edulis"],
     "effects": [
+      "No direct effects data. Contextual inference: Used to treat anxiety",
       "insomnia",
-      "and as a mild euphoric. Used to treat anxiety",
+      "and as a mild euphoric... No direct mechanismofaction data. Contextual inference: Used to treat anxiety",
+      "and as a mild euphoric... Used to treat anxiety",
+      "and as a mild euphoric.. Used to treat anxiety",
       "and as a mild euphoric."
     ],
     "contraindications": [],
@@ -7413,6 +8889,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7420,7 +8897,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7434,6 +8916,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7441,7 +8924,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7455,6 +8943,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7462,7 +8951,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7476,6 +8970,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7483,7 +8978,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7497,6 +8997,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7504,7 +9005,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7518,6 +9024,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7525,7 +9032,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7539,7 +9051,11 @@
       "relaxation",
       "Psychedelic visuals",
       "introspection",
-      "altered consciousness"
+      "altered consciousness",
+      "No direct effects data. Contextual inference:",
+      "nan.. No direct mechanismofaction data. Contextual inference:",
+      "nan..",
+      "nan."
     ],
     "contraindications": [
       "Cardiovascular disease",
@@ -7565,6 +9081,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7572,7 +9089,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7586,6 +9108,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7593,7 +9116,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7605,7 +9133,12 @@
       "Pregnant women should use cautiously"
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   },
   {
@@ -7619,6 +9152,7 @@
       "epileptic in TCM"
     ],
     "contraindications": [
+      "β",
       "asarone is potentially carcinogenic",
       "avoid long",
       "term or high",
@@ -7626,7 +9160,12 @@
       "contraindicated in pregnancy and children."
     ],
     "category": null,
-    "sources": [],
+    "sources": [
+      {
+        "note": "Inferred from scientific name:",
+        "url": ""
+      }
+    ],
     "lastUpdated": "2026-03-21"
   }
 ]
