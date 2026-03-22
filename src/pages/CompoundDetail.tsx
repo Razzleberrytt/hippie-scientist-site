@@ -4,7 +4,8 @@ import Meta from '@/components/Meta'
 import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '@/lib/slug'
-import InfoTooltip from '@/components/InfoTooltip'
+
+type SourceRef = { title: string; url: string; note?: string }
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -12,6 +13,47 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       <h2 className='text-lg font-semibold text-white'>{title}</h2>
       <div className='mt-2 text-sm text-white/85'>{children}</div>
     </section>
+  )
+}
+
+function MissingField({ label }: { label: string }) {
+  return (
+    <p className='italic text-white/70'>Information not yet available for {label.toLowerCase()}.</p>
+  )
+}
+
+function SourceList({ sources }: { sources: SourceRef[] }) {
+  if (!sources.length) {
+    return (
+      <p className='text-white/75'>
+        No citations available yet.{' '}
+        <a
+          className='link'
+          href='https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
+          target='_blank'
+          rel='noreferrer'
+        >
+          Contribute a source.
+        </a>
+      </p>
+    )
+  }
+
+  return (
+    <ol className='list-decimal space-y-1 pl-5'>
+      {sources.map((source, index) => (
+        <li key={`${source.url}-${index}`}>
+          {/^https?:\/\//i.test(source.url) ? (
+            <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+              {source.title}
+            </a>
+          ) : (
+            source.title
+          )}
+          {source.note && <span className='ml-2 text-white/65'>— {source.note}</span>}
+        </li>
+      ))}
+    </ol>
   )
 }
 
@@ -37,30 +79,6 @@ export default function CompoundDetail() {
     name,
     slug: herbMap.get(name.toLowerCase()) || slugify(name),
   }))
-  const linkedHerbRecords = herbs.filter(herb =>
-    linkedHerbs.some(linked => linked.slug === herb.slug || linked.name === herb.common)
-  )
-  const aggregatedEffects = Array.from(
-    new Set(
-      linkedHerbRecords.flatMap(herb =>
-        String(herb.effects || '')
-          .split(/[;|,]/)
-          .map(v => v.trim())
-      )
-    )
-  ).filter(Boolean)
-  const aggregatedContraindications = Array.from(
-    new Set(
-      linkedHerbRecords.flatMap(herb =>
-        (Array.isArray(herb.contraindications)
-          ? herb.contraindications
-          : String(herb.contraindications || '').split(/[;|,]/)
-        ).map(v => String(v).trim())
-      )
-    )
-  ).filter(Boolean)
-
-  const contraindications = compound.contraindications.filter(Boolean)
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -76,91 +94,42 @@ export default function CompoundDetail() {
       <article className='ds-card-lg mt-4'>
         <h1 className='text-3xl font-semibold'>{compound.name}</h1>
 
-        {compound.description && <Section title='Description'>{compound.description}</Section>}
-        {compound.className && <Section title='Class'>{compound.className}</Section>}
-        {compound.intensity && <Section title='Intensity'>{compound.intensity}</Section>}
-        {compound.mechanism && (
-          <Section title='Mechanism'>
-            {compound.mechanism}
-            <InfoTooltip text='Literature-derived field. See Sources for the cited basis.' />
-          </Section>
-        )}
+        <Section title='Description'>
+          {compound.description || <MissingField label='Description' />}
+        </Section>
 
-        {compound.activeCompounds.length > 0 && (
-          <Section title='Active Compounds'>
-            <div className='flex flex-wrap gap-2'>
-              {compound.activeCompounds.map(item => (
-                <span key={item} className='ds-pill'>
-                  {item}
-                </span>
-              ))}
-            </div>
-          </Section>
-        )}
-
-        {compound.effects.length > 0 && (
-          <Section title='Effects'>
+        <Section title='Effects'>
+          {compound.effects.length > 0 ? (
             <ul className='list-disc space-y-1 pl-5'>
               {compound.effects.map(effect => (
                 <li key={effect}>{effect}</li>
               ))}
             </ul>
-          </Section>
-        )}
+          ) : (
+            <MissingField label='Effects' />
+          )}
+        </Section>
 
-        {compound.therapeuticUses.length > 0 && (
-          <Section title='Therapeutic Uses'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {compound.therapeuticUses.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
-
-        {contraindications.length > 0 && (
-          <Section title='Contraindications'>
+        <Section title='Contraindications'>
+          {compound.contraindications.length > 0 ? (
             <ul className='space-y-2'>
-              {contraindications.map(item => (
+              {compound.contraindications.map(item => (
                 <li
                   key={item}
-                  className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
+                  className='rounded-xl border border-rose-300/45 bg-rose-500/15 px-3 py-2 text-rose-50'
                 >
-                  ⚠ {item}
+                  <span aria-hidden='true'>⚠ </span>
+                  {item}
                 </li>
               ))}
             </ul>
-          </Section>
-        )}
+          ) : (
+            <MissingField label='Contraindications' />
+          )}
+        </Section>
 
-        {compound.interactions.length > 0 && (
-          <Section title='Interactions'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {compound.interactions.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
-
-        {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
-        {compound.duration && <Section title='Duration'>{compound.duration}</Section>}
-        {compound.region && <Section title='Region'>{compound.region}</Section>}
-        {compound.preparation && <Section title='Preparation'>{compound.preparation}</Section>}
-        {compound.legalStatus && <Section title='Legal Status'>{compound.legalStatus}</Section>}
-
-        {compound.sideEffects.length > 0 && (
-          <Section title='Side Effects'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {compound.sideEffects.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
-
-        {linkedHerbs.length > 0 && (
-          <Section title='Herbs containing this compound'>
+        <Section title='Associated Herbs'>
+          {linkedHerbs.length > 0 ? (
             <div className='mt-3 flex flex-wrap gap-2'>
               {linkedHerbs.map(herb => (
                 <Link
@@ -172,49 +141,18 @@ export default function CompoundDetail() {
                 </Link>
               ))}
             </div>
-          </Section>
-        )}
+          ) : (
+            <MissingField label='Associated herbs' />
+          )}
+        </Section>
 
-        {aggregatedEffects.length > 0 && (
-          <Section title='Aggregated effects from associated herbs'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {aggregatedEffects.slice(0, 12).map(effect => (
-                <li key={effect}>{effect}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
+        <Section title='Sources'>
+          <SourceList sources={compound.sources} />
+        </Section>
 
-        {aggregatedContraindications.length > 0 && (
-          <Section title='Aggregated contraindications from associated herbs'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {aggregatedContraindications.slice(0, 12).map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
-
-        {compound.sources.length > 0 && (
-          <Section title='Sources'>
-            <ol className='list-decimal space-y-1 pl-5'>
-              {compound.sources.map((source, index) => (
-                <li key={`${source.url}-${index}`}>
-                  {/^https?:\/\//i.test(source.url) ? (
-                    <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-                      {source.title}
-                    </a>
-                  ) : (
-                    source.title
-                  )}
-                  {source.note && <span className='ml-2 text-white/60'>— {source.note}</span>}
-                </li>
-              ))}
-            </ol>
-          </Section>
-        )}
-
-        {compound.lastUpdated && <Section title='Last Updated'>{compound.lastUpdated}</Section>}
+        <Section title='Last Updated'>
+          {compound.lastUpdated || <MissingField label='Last updated' />}
+        </Section>
       </article>
     </main>
   )

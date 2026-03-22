@@ -196,7 +196,7 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
     return (
       <div
         aria-hidden
-        className='animate-breathe fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black'
+        className='motion-safe:animate-breathe fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black'
       />
     )
   }
@@ -205,12 +205,12 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
     <>
       <canvas
         ref={canvasRef}
-        className='pointer-events-none fixed inset-0 -z-10 opacity-90 will-change-transform'
+        className='pointer-events-none fixed inset-0 -z-10 opacity-70 will-change-transform motion-safe:animate-none motion-reduce:hidden'
         aria-hidden
       />
       <div
         aria-hidden
-        className='animate-breathe fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black'
+        className='motion-safe:animate-breathe fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black'
       />
     </>
   )

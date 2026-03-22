@@ -10,7 +10,6 @@ const NotFound = lazy(() => import('./pages/NotFound'))
 import { RedirectHandler } from './RedirectHandler'
 import { useGA } from './lib/useGA'
 const HerbIndex = lazy(() => import('./pages/HerbIndex'))
-const CompoundIndex = lazy(() => import('./pages/CompoundIndex'))
 const CompoundsPage = lazy(() => import('./pages/Compounds'))
 const HerbDetail = lazy(() => import('./pages/HerbDetail'))
 const Compare = lazy(() => import('./pages/Compare'))
@@ -59,7 +58,7 @@ export default function App() {
                 <Route path='/compounds' element={<CompoundsPage />} />
                 <Route path='/browse' element={<Navigate to='/browse/herbs' replace />} />
                 <Route path='/browse/herbs' element={<HerbIndex />} />
-                <Route path='/browse/compounds' element={<CompoundIndex />} />
+                <Route path='/browse/compounds' element={<Navigate to='/compounds' replace />} />
                 <Route path='/blend' element={<BuildBlend />} />
                 <Route path='/build' element={<BuildBlend />} />
                 <Route path='/starter-pack-success' element={<StarterPackSuccess />} />

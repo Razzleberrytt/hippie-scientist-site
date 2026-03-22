@@ -11,6 +11,8 @@ import {
 import { CTA } from '@/lib/cta'
 
 type PostIndex = {
+  author?: string | null
+  sources?: Array<{ title?: string | null; url?: string | null; note?: string | null }>
   slug: string
   title: string
   date: string | null
@@ -122,7 +124,7 @@ export default function BlogList() {
             viewport={{ once: true }}
             className='ds-card-lg flex h-full flex-col space-y-3 text-white'
           >
-            <div className='h-24 w-full overflow-hidden rounded-xl bg-gradient-to-r from-cyan-500/20 via-indigo-500/20 to-fuchsia-500/20'>
+            <div className='h-28 w-full overflow-hidden rounded-xl bg-gradient-to-r from-cyan-500/25 via-indigo-500/25 to-fuchsia-500/25'>
               {post.cover ? (
                 <img
                   src={post.cover}
@@ -131,22 +133,26 @@ export default function BlogList() {
                 />
               ) : null}
             </div>
-            <div className='flex flex-wrap items-center gap-2 text-xs text-white/70'>
+            <div className='flex flex-wrap items-center gap-2 text-xs text-white/80'>
               <span className='ds-pill bg-white/8'>{resolveCategory(post.tags)}</span>
               <time dateTime={post.date || undefined}>{formatDate(post.date || '')}</time>
-              {post.lastUpdated && <span>• Updated {formatDate(post.lastUpdated)}</span>}
+              <span>• Last updated {formatDate(post.lastUpdated || post.date || '')}</span>
               {post.readingTime && <span>• {post.readingTime}</span>}
             </div>
-            <h2 className='text-xl font-semibold tracking-tight sm:text-2xl'>
+            <h2 className='min-h-[3.5rem] text-xl font-semibold tracking-tight sm:text-2xl'>
               <Link to={`/blog/${post.slug}`} className='hover:text-emerald-200'>
                 {post.title || 'Research note'}
               </Link>
             </h2>
-            <p className='max-w-3xl flex-1 overflow-hidden text-sm leading-7 text-white/80 sm:text-base'>
+            <p className='line-clamp-4 max-w-3xl flex-1 overflow-hidden text-sm leading-7 text-white/85 sm:text-base'>
               {cleanBlogExcerpt(post.summary, post.description)}
             </p>
-            <p className='text-xs text-emerald-100/85'>
-              Targets keyword: {deriveKeyword(post.title)} · Answers: {deriveQuestion(post.title)}
+            <p className='text-xs text-emerald-100/95'>
+              Last updated {formatDate(post.lastUpdated || post.date || '')} · By{' '}
+              {post.author || 'Hippie Scientist Team'}
+            </p>
+            <p className='text-xs text-white/75'>
+              References: {Array.isArray(post.sources) ? post.sources.length : 0}
             </p>
             <div>
               <Link to={`/blog/${post.slug}`} className='btn-primary min-w-28'>
@@ -171,20 +177,6 @@ function buildSeriesBuckets(posts: PostIndex[]) {
   return Array.from(counts.entries())
     .map(([label, count]) => ({ label, count }))
     .sort((a, b) => b.count - a.count)
-}
-
-function deriveKeyword(title: string) {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9\s]/g, ' ')
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 4)
-    .join(' ')
-}
-
-function deriveQuestion(title: string) {
-  return `What is ${title.toLowerCase()}?`
 }
 
 function resolveCategory(tags?: string[]) {

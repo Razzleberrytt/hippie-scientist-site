@@ -230,9 +230,9 @@ h3 {
     radial-gradient(80vh 60vh at 20% 15%, rgba(120, 180, 255, 0.18), transparent 70%),
     radial-gradient(70vh 56vh at 75% 25%, rgba(255, 120, 220, 0.14), transparent 65%),
     radial-gradient(90vh 70vh at 50% 80%, rgba(0, 200, 160, 0.14), transparent 60%),
-    linear-gradient(#05080f, #070a13);
+    linear-gradient(rgba(5, 8, 15, 0.82), rgba(7, 10, 19, 0.82));
   animation: floatGlow 18s ease-in-out infinite alternate;
-  filter: blur(0.5px) saturate(1.1);
+  filter: blur(0.25px) saturate(1.06);
 }
 
 @keyframes floatGlow {

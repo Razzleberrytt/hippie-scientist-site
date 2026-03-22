@@ -167,3 +167,17 @@ To keep maintenance low while preserving core automation:
   1. `deploy.yml`
   2. `daily-blog.yml`
   3. `data-audit.yml` (optional)
+
+## 2026-03-22 update: monthly data sync addition
+
+- Added `.github/workflows/update-data.yml` to satisfy monthly dataset refresh requirements.
+- This is intentionally outside the earlier minimal set and is scoped strictly to `public/data/*` maintenance.
+- Path audit for active workflows confirms no stale references to:
+  - `src/content/blog`
+  - `src/data/blog`
+  - `src/data/herbs`
+- Active workflow inventory is now:
+  1. `deploy.yml`
+  2. `daily-blog.yml`
+  3. `data-audit.yml` (optional)
+  4. `update-data.yml` (monthly data sync)

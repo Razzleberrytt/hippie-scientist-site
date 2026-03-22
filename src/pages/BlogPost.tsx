@@ -15,7 +15,7 @@ type PostMeta = {
   date: string
   lastUpdated?: string
   author?: string
-  sources?: Array<{ title: string; url: string }>
+  sources?: Array<{ title: string; url: string; note?: string }>
   description?: string
   summary?: string
   tags?: string[]
@@ -203,12 +203,13 @@ export default function BlogPost() {
       {Array.isArray(meta?.sources) && meta.sources.length > 0 && (
         <section className='mt-8 rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6'>
           <h2 className='text-lg font-semibold text-white'>References</h2>
-          <ol className='mt-3 list-decimal space-y-2 pl-5 text-sm text-white/80'>
+          <ol className='mt-3 list-decimal space-y-2 pl-5 text-sm text-white/85'>
             {meta.sources.map((source, index) => (
               <li key={`${source.url}-${index}`}>
                 <a href={source.url} target='_blank' rel='noreferrer' className='link'>
                   {source.title || source.url}
                 </a>
+                {source.note ? <span className='ml-2 text-white/70'>— {source.note}</span> : null}
               </li>
             ))}
           </ol>
