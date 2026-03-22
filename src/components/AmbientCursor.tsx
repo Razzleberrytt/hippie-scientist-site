@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function AmbientCursor() {
   const [enabled, setEnabled] = useState(false)
+  const rafRef = useRef<number | null>(null)
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -31,13 +32,32 @@ export default function AmbientCursor() {
     if (!enabled) return
 
     const root = document.documentElement
-    const move = (event: PointerEvent) => {
-      root.style.setProperty('--cursor-x', `${event.clientX}px`)
-      root.style.setProperty('--cursor-y', `${event.clientY}px`)
+    const pointer = { x: window.innerWidth * 0.5, y: window.innerHeight * 0.5 }
+    const current = { ...pointer }
+
+    const tick = () => {
+      current.x += (pointer.x - current.x) * 0.14
+      current.y += (pointer.y - current.y) * 0.14
+      root.style.setProperty('--cursor-x', `${current.x}px`)
+      root.style.setProperty('--cursor-y', `${current.y}px`)
+      rafRef.current = window.requestAnimationFrame(tick)
     }
 
+    const move = (event: PointerEvent) => {
+      pointer.x = event.clientX
+      pointer.y = event.clientY
+    }
+
+    rafRef.current = window.requestAnimationFrame(tick)
     window.addEventListener('pointermove', move, { passive: true })
-    return () => window.removeEventListener('pointermove', move)
+
+    return () => {
+      window.removeEventListener('pointermove', move)
+      if (rafRef.current) {
+        window.cancelAnimationFrame(rafRef.current)
+        rafRef.current = null
+      }
+    }
   }, [enabled])
 
   if (!enabled) return null
@@ -45,14 +65,16 @@ export default function AmbientCursor() {
   return (
     <div
       aria-hidden
-      className='pointer-events-none fixed inset-0 z-0 hidden transition-opacity duration-500 ease-out motion-safe:block motion-reduce:hidden'
+      className='ambient-cursor pointer-events-none fixed inset-0 z-0 hidden transition-opacity duration-500 ease-out motion-safe:block motion-reduce:hidden'
       style={{
         background: [
-          'radial-gradient(260px 260px at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(34, 211, 238, 0.18), transparent 70%)',
-          'radial-gradient(300px 300px at calc(var(--cursor-x, 50%) - 12%) calc(var(--cursor-y, 50%) + 10%), rgba(168, 85, 247, 0.12), transparent 72%)',
-          'radial-gradient(360px 360px at calc(var(--cursor-x, 50%) + 14%) calc(var(--cursor-y, 50%) - 14%), rgba(16, 185, 129, 0.08), transparent 74%)',
+          'radial-gradient(240px 240px at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(45, 212, 191, 0.18), transparent 72%)',
+          'radial-gradient(320px 320px at calc(var(--cursor-x, 50%) - 11%) calc(var(--cursor-y, 50%) + 10%), rgba(168, 85, 247, 0.12), transparent 75%)',
+          'radial-gradient(360px 360px at calc(var(--cursor-x, 50%) + 14%) calc(var(--cursor-y, 50%) - 14%), rgba(59, 130, 246, 0.1), transparent 78%)',
         ].join(','),
-        filter: 'blur(18px) saturate(1.05)',
+        filter: 'blur(16px) saturate(1.05)',
+        mixBlendMode: 'screen',
+        opacity: 0.78,
       }}
     />
   )

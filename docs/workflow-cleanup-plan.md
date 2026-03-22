@@ -194,3 +194,13 @@ To keep maintenance low while preserving core automation:
   - `public/data/missing-fields-report.json`
   - `src/data/site-counts.json`
 - Rechecked active workflows for stale paths (`src/content/blog`, `src/data/blog`, `src/data/herbs`): none found.
+
+## 2026-03-22 update: workflow set restored to minimal
+
+- Removed `.github/workflows/update-data.yml` to align with the project rule to keep a minimal workflow inventory.
+- Confirmed active workflows are now only:
+  1. `deploy.yml`
+  2. `daily-blog.yml`
+  3. `data-audit.yml` (optional)
+- Re-verified active workflows for stale path references (`src/content/blog`, `src/data/blog`, `src/data/herbs`): none found.
+- Daily workflow still runs on Node 20 and uses the daily generation script via `npm run blog:daily`.

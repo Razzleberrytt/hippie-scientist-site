@@ -2,7 +2,6 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import vitePrerender from 'vite-plugin-prerender'
 
 function slugify(value: string) {
   return value
@@ -41,18 +40,28 @@ const prerenderRoutes = [
   ...compoundSlugs.map(slug => `/compounds/${slug}`),
 ]
 
-export default defineConfig({
-  plugins: [
-    react(),
-    vitePrerender({
-      staticDir: path.join(__dirname, 'dist'),
-      routes: prerenderRoutes,
-    }),
-  ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
+export default defineConfig(async () => {
+  const plugins = [react()]
+
+  try {
+    const { default: prerender } = await import('vite-plugin-prerender')
+    plugins.push(
+      prerender({
+        staticDir: path.join(__dirname, 'dist'),
+        routes: prerenderRoutes,
+      })
+    )
+  } catch {
+    console.warn('vite-plugin-prerender not installed; skipping prerender configuration')
+  }
+
+  return {
+    plugins,
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
     },
-  },
-  base: '/',
+    base: '/',
+  }
 })
