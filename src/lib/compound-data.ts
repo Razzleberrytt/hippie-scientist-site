@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { slugify } from '@/lib/slug'
 
-export type SourceRef = { title: string; url: string }
+export type SourceRef = { title: string; url: string; note?: string }
 
 export type CompoundRecord = {
   id: string
@@ -51,7 +51,8 @@ function normalizeSources(value: unknown): SourceRef[] {
       const title = String(ref.title || ref.url || '').trim()
       const url = String(ref.url || '').trim()
       if (!title && !url) return null
-      return { title: title || url, url: url || title }
+      const note = String(ref.note || '').trim()
+      return { title: title || url, url: url || title, note: note || undefined }
     })
     .filter((item): item is SourceRef => Boolean(item))
 }

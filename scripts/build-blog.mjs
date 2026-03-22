@@ -280,8 +280,9 @@ for (const file of files) {
           if (source && typeof source === 'object') {
             const title = String(source.title || source.url || '').trim();
             const url = String(source.url || '').trim();
+            const note = String(source.note || '').trim();
             if (!title && !url) return null;
-            return { title: title || url, url: url || title };
+            return { title: title || url, url: url || title, note: note || undefined };
           }
           return null;
         })

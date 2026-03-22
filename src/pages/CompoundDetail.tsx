@@ -4,6 +4,7 @@ import Meta from '@/components/Meta'
 import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '@/lib/slug'
+import InfoTooltip from '@/components/InfoTooltip'
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -36,6 +37,28 @@ export default function CompoundDetail() {
     name,
     slug: herbMap.get(name.toLowerCase()) || slugify(name),
   }))
+  const linkedHerbRecords = herbs.filter(herb =>
+    linkedHerbs.some(linked => linked.slug === herb.slug || linked.name === herb.common)
+  )
+  const aggregatedEffects = Array.from(
+    new Set(
+      linkedHerbRecords.flatMap(herb =>
+        String(herb.effects || '')
+          .split(/[;|,]/)
+          .map(v => v.trim())
+      )
+    )
+  ).filter(Boolean)
+  const aggregatedContraindications = Array.from(
+    new Set(
+      linkedHerbRecords.flatMap(herb =>
+        (Array.isArray(herb.contraindications)
+          ? herb.contraindications
+          : String(herb.contraindications || '').split(/[;|,]/)
+        ).map(v => String(v).trim())
+      )
+    )
+  ).filter(Boolean)
 
   const contraindications = compound.contraindications.filter(Boolean)
 
@@ -56,7 +79,12 @@ export default function CompoundDetail() {
         {compound.description && <Section title='Description'>{compound.description}</Section>}
         {compound.className && <Section title='Class'>{compound.className}</Section>}
         {compound.intensity && <Section title='Intensity'>{compound.intensity}</Section>}
-        {compound.mechanism && <Section title='Mechanism'>{compound.mechanism}</Section>}
+        {compound.mechanism && (
+          <Section title='Mechanism'>
+            {compound.mechanism}
+            <InfoTooltip text='Literature-derived field. See Sources for the cited basis.' />
+          </Section>
+        )}
 
         {compound.activeCompounds.length > 0 && (
           <Section title='Active Compounds'>
@@ -147,6 +175,26 @@ export default function CompoundDetail() {
           </Section>
         )}
 
+        {aggregatedEffects.length > 0 && (
+          <Section title='Aggregated effects from associated herbs'>
+            <ul className='list-disc space-y-1 pl-5'>
+              {aggregatedEffects.slice(0, 12).map(effect => (
+                <li key={effect}>{effect}</li>
+              ))}
+            </ul>
+          </Section>
+        )}
+
+        {aggregatedContraindications.length > 0 && (
+          <Section title='Aggregated contraindications from associated herbs'>
+            <ul className='list-disc space-y-1 pl-5'>
+              {aggregatedContraindications.slice(0, 12).map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </Section>
+        )}
+
         {compound.sources.length > 0 && (
           <Section title='Sources'>
             <ol className='list-decimal space-y-1 pl-5'>
@@ -159,6 +207,7 @@ export default function CompoundDetail() {
                   ) : (
                     source.title
                   )}
+                  {source.note && <span className='ml-2 text-white/60'>— {source.note}</span>}
                 </li>
               ))}
             </ol>

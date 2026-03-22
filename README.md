@@ -130,6 +130,24 @@ This updates:
 - `public/data/herbs.json`
 - `public/data/compounds.json`
 
+## Updated dataset sync (recommended)
+
+When you receive new enriched JSON files, place:
+
+- `herbs_combined_updated.json`
+- `compounds_combined_updated.json`
+
+in `data-sources/` (preferred), repo root, or `/home/oai/share`, then run:
+
+```bash
+npm run update-data
+```
+
+The script copies and renames them to:
+
+- `public/data/herbs.json`
+- `public/data/compounds.json`
+
 ## Manual herb/compound updates
 
 1. Edit `public/data/herbs.json` and/or `public/data/compounds.json`.
@@ -153,6 +171,15 @@ lastUpdated: '2026-03-21'
 ```
 
 Daily generated posts include `author` and `sources` placeholders by default.
+
+To add references manually in front-matter, use:
+
+```yaml
+sources:
+  - title: 'Review article title'
+    url: 'https://example.org/paper'
+    note: 'Optional context'
+```
 
 ## Accessibility testing
 

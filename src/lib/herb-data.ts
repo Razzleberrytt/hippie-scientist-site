@@ -3,6 +3,7 @@ import { slugify } from '@/lib/slug'
 import type { Herb } from '@/types'
 
 let herbsPromise: Promise<Herb[]> | null = null
+type SourceRef = { title: string; url?: string; note?: string }
 
 function toList(value: unknown): string[] {
   if (Array.isArray(value)) return value.map(v => String(v).trim()).filter(Boolean)
@@ -25,6 +26,23 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     .toLowerCase()
 
   const activeCompounds = toList(raw.activeCompounds ?? raw.active_compounds ?? raw.compounds)
+
+  const sources: SourceRef[] = Array.isArray(raw.sources)
+    ? (raw.sources as unknown[])
+        .map(source => {
+          if (typeof source === 'string') return { title: source, url: source }
+          if (source && typeof source === 'object') {
+            const entry = source as Record<string, unknown>
+            const title = String(entry.title || entry.url || '').trim()
+            const url = String(entry.url || '').trim()
+            const note = String(entry.note || '').trim()
+            if (!title && !url) return null
+            return { title: title || url, url: url || undefined, note: note || undefined }
+          }
+          return null
+        })
+        .filter((entry): entry is SourceRef => Boolean(entry))
+    : toList(raw.sources).map(item => ({ title: item, url: item }))
 
   return {
     ...(raw as Herb),
@@ -59,18 +77,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     compounds: activeCompounds,
     active_compounds: activeCompounds,
     legalStatus: String(raw.legalStatus || raw.legalstatus || '').trim(),
-    sources: Array.isArray(raw.sources)
-      ? (raw.sources as unknown[])
-          .map(source => {
-            if (typeof source === 'string') return source
-            if (source && typeof source === 'object') {
-              const entry = source as Record<string, unknown>
-              return String(entry.title || entry.url || '').trim()
-            }
-            return ''
-          })
-          .filter(Boolean)
-      : toList(raw.sources),
+    sources,
   }
 }
 

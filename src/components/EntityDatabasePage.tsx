@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import { Listbox } from '@headlessui/react'
 import Meta from './Meta'
 import ErrorBoundary from './ErrorBoundary'
 import DatabaseHerbCard from './DatabaseHerbCard'
@@ -71,6 +72,8 @@ export default function EntityDatabasePage({
   const [regionFilter, setRegionFilter] = useState('all')
   const [mechanismFilter, setMechanismFilter] = useState<string[]>([])
   const [compoundFilter, setCompoundFilter] = useState<string[]>([])
+  const [interactionFilter, setInteractionFilter] = useState<string[]>([])
+  const [legalFilter, setLegalFilter] = useState<string[]>([])
 
   const scopedItems = useMemo(
     () => (enableAdvancedFilters ? (advancedResults ?? items) : items),
@@ -85,6 +88,8 @@ export default function EntityDatabasePage({
     const regionSet = new Set<string>()
     const mechanismSet = new Set<string>()
     const activeCompoundSet = new Set<string>()
+    const interactionSet = new Set<string>()
+    const legalSet = new Set<string>()
 
     items.forEach(item => {
       ;(item.pharmCategories || []).forEach(entry => effectSet.add(String(entry)))
@@ -117,6 +122,18 @@ export default function EntityDatabasePage({
         .filter(Boolean)
       compounds.forEach(entry => activeCompoundSet.add(entry))
 
+      const interactions = [
+        ...(Array.isArray(item.interactions)
+          ? item.interactions
+          : String(item.interactions || '')
+              .split(/[;|,]/)
+              .map(entry => entry.trim())),
+      ].filter(Boolean)
+      interactions.forEach(entry => interactionSet.add(String(entry)))
+
+      const legalValues = [item.legalStatus, item.legalstatus, item.legal].filter(Boolean)
+      legalValues.forEach(entry => legalSet.add(String(entry)))
+
       const categories = [
         ...(item.compoundClasses || []),
         item.category,
@@ -133,6 +150,8 @@ export default function EntityDatabasePage({
       regions: Array.from(regionSet).sort((a, b) => a.localeCompare(b)),
       mechanisms: Array.from(mechanismSet).sort((a, b) => a.localeCompare(b)),
       activeCompounds: Array.from(activeCompoundSet).sort((a, b) => a.localeCompare(b)),
+      interactions: Array.from(interactionSet).sort((a, b) => a.localeCompare(b)),
+      legalStatuses: Array.from(legalSet).sort((a, b) => a.localeCompare(b)),
     }
   }, [items])
 
@@ -202,6 +221,20 @@ export default function EntityDatabasePage({
         if (!hasAny) return false
       }
 
+      if (interactionFilter.length > 0) {
+        const interactions = Array.isArray(item.interactions)
+          ? item.interactions.join(' ').toLowerCase()
+          : String(item.interactions || '').toLowerCase()
+        const hasAny = interactionFilter.some(entry => interactions.includes(entry.toLowerCase()))
+        if (!hasAny) return false
+      }
+
+      if (legalFilter.length > 0) {
+        const legal = String(item.legalStatus || item.legalstatus || item.legal || '').toLowerCase()
+        const hasAny = legalFilter.some(entry => legal.includes(entry.toLowerCase()))
+        if (!hasAny) return false
+      }
+
       if (categoryFilter !== 'all') {
         const categories = [
           ...(item.compoundClasses || []),
@@ -225,6 +258,8 @@ export default function EntityDatabasePage({
     regionFilter,
     mechanismFilter,
     compoundFilter,
+    interactionFilter,
+    legalFilter,
   ])
   const topMatches = useMemo(() => filtered.slice(0, 3), [filtered])
 
@@ -333,163 +368,160 @@ export default function EntityDatabasePage({
             )}
 
             <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
-              <div className='space-y-1'>
-                <label className='text-xs text-white/80' htmlFor={`${kind}-effect-filter`}>
-                  Effect
-                </label>
-                <select
-                  id={`${kind}-effect-filter`}
-                  aria-label='Filter by effect'
-                  value={effectFilter}
-                  onChange={event => {
-                    const next = event.target.value
-                    setEffectFilter(next)
-                    updateParam('effect', next)
-                  }}
-                  className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
-                >
-                  <option value='all'>All effects</option>
-                  {options.effects.map(option => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              {options.effects.length > 0 && (
+                <div className='space-y-1'>
+                  <label className='text-xs text-white/80' htmlFor={`${kind}-effect-filter`}>
+                    Effect
+                  </label>
+                  <select
+                    id={`${kind}-effect-filter`}
+                    aria-label='Filter by effect'
+                    value={effectFilter}
+                    onChange={event => {
+                      const next = event.target.value
+                      setEffectFilter(next)
+                      updateParam('effect', next)
+                    }}
+                    className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
+                  >
+                    <option value='all'>All effects</option>
+                    {options.effects.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
-              <div className='space-y-1'>
-                <label className='text-xs text-white/80' htmlFor={`${kind}-tag-filter`}>
-                  Tag
-                </label>
-                <select
-                  id={`${kind}-tag-filter`}
-                  aria-label='Filter by tag'
-                  value={tagFilter}
-                  onChange={event => {
-                    const next = event.target.value
-                    setTagFilter(next)
-                    updateParam('tag', next)
-                  }}
-                  className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
-                >
-                  <option value='all'>All tags</option>
-                  {options.tags.map(option => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              {options.tags.length > 0 && (
+                <div className='space-y-1'>
+                  <label className='text-xs text-white/80' htmlFor={`${kind}-tag-filter`}>
+                    Tag
+                  </label>
+                  <select
+                    id={`${kind}-tag-filter`}
+                    aria-label='Filter by tag'
+                    value={tagFilter}
+                    onChange={event => {
+                      const next = event.target.value
+                      setTagFilter(next)
+                      updateParam('tag', next)
+                    }}
+                    className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
+                  >
+                    <option value='all'>All tags</option>
+                    {options.tags.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
-              <div className='space-y-1'>
-                <label className='text-xs text-white/80' htmlFor={`${kind}-intensity-filter`}>
-                  Intensity
-                </label>
-                <select
-                  id={`${kind}-intensity-filter`}
-                  aria-label='Filter by intensity'
-                  value={intensityFilter}
-                  onChange={event => setIntensityFilter(event.target.value)}
-                  className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
-                >
-                  <option value='all'>All intensity levels</option>
-                  {options.intensities.map(option => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              {options.intensities.length > 0 && (
+                <div className='space-y-1'>
+                  <label className='text-xs text-white/80' htmlFor={`${kind}-intensity-filter`}>
+                    Intensity
+                  </label>
+                  <select
+                    id={`${kind}-intensity-filter`}
+                    aria-label='Filter by intensity'
+                    value={intensityFilter}
+                    onChange={event => setIntensityFilter(event.target.value)}
+                    className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
+                  >
+                    <option value='all'>All intensity levels</option>
+                    {options.intensities.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
-              <div className='space-y-1'>
-                <label className='text-xs text-white/80' htmlFor={`${kind}-class-filter`}>
-                  Class
-                </label>
-                <select
-                  id={`${kind}-class-filter`}
-                  aria-label='Filter by class'
-                  value={categoryFilter}
-                  onChange={event => setCategoryFilter(event.target.value)}
-                  className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
-                >
-                  <option value='all'>All classifications</option>
-                  {options.categories.map(option => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
+              {options.categories.length > 0 && (
+                <div className='space-y-1'>
+                  <label className='text-xs text-white/80' htmlFor={`${kind}-class-filter`}>
+                    Class
+                  </label>
+                  <select
+                    id={`${kind}-class-filter`}
+                    aria-label='Filter by class'
+                    value={categoryFilter}
+                    onChange={event => setCategoryFilter(event.target.value)}
+                    className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
+                  >
+                    <option value='all'>All classifications</option>
+                    {options.categories.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
               {kind === 'herb' && (
                 <>
-                  <div className='space-y-1'>
-                    <label className='text-xs text-white/80' htmlFor={`${kind}-region-filter`}>
-                      Region
-                    </label>
-                    <select
-                      id={`${kind}-region-filter`}
-                      aria-label='Filter by region'
-                      value={regionFilter}
-                      onChange={event => setRegionFilter(event.target.value)}
-                      className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
-                    >
-                      <option value='all'>All regions</option>
-                      {options.regions.map(option => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  {options.regions.length > 0 && (
+                    <div className='space-y-1'>
+                      <label className='text-xs text-white/80' htmlFor={`${kind}-region-filter`}>
+                        Region
+                      </label>
+                      <select
+                        id={`${kind}-region-filter`}
+                        aria-label='Filter by region'
+                        value={regionFilter}
+                        onChange={event => setRegionFilter(event.target.value)}
+                        className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
+                      >
+                        <option value='all'>All regions</option>
+                        {options.regions.map(option => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
 
-                  <div className='space-y-1'>
-                    <label className='text-xs text-white/80' htmlFor={`${kind}-mechanism-filter`}>
-                      Mechanism (multi-select)
-                    </label>
-                    <select
-                      id={`${kind}-mechanism-filter`}
-                      aria-label='Filter by mechanism'
-                      multiple
-                      value={mechanismFilter}
-                      onChange={event =>
-                        setMechanismFilter(
-                          Array.from(event.target.selectedOptions).map(option => option.value)
-                        )
-                      }
-                      className='h-28 w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
-                    >
-                      {options.mechanisms.map(option => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  {options.mechanisms.length > 0 && (
+                    <MultiSelectFilter
+                      label='Mechanism'
+                      selected={mechanismFilter}
+                      options={options.mechanisms}
+                      onChange={setMechanismFilter}
+                    />
+                  )}
 
-                  <div className='space-y-1 sm:col-span-2 lg:col-span-3'>
-                    <label className='text-xs text-white/80' htmlFor={`${kind}-compound-filter`}>
-                      Active compounds (multi-select)
-                    </label>
-                    <select
-                      id={`${kind}-compound-filter`}
-                      aria-label='Filter by active compounds'
-                      multiple
-                      value={compoundFilter}
-                      onChange={event =>
-                        setCompoundFilter(
-                          Array.from(event.target.selectedOptions).map(option => option.value)
-                        )
-                      }
-                      className='h-32 w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white'
-                    >
-                      {options.activeCompounds.map(option => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  {options.activeCompounds.length > 0 && (
+                    <MultiSelectFilter
+                      label='Active compounds'
+                      selected={compoundFilter}
+                      options={options.activeCompounds}
+                      onChange={setCompoundFilter}
+                      className='sm:col-span-2 lg:col-span-3'
+                    />
+                  )}
+                  {options.interactions.length > 0 && (
+                    <MultiSelectFilter
+                      label='Interactions'
+                      selected={interactionFilter}
+                      options={options.interactions}
+                      onChange={setInteractionFilter}
+                    />
+                  )}
+                  {options.legalStatuses.length > 0 && (
+                    <MultiSelectFilter
+                      label='Legal status'
+                      selected={legalFilter}
+                      options={options.legalStatuses}
+                      onChange={setLegalFilter}
+                    />
+                  )}
                 </>
               )}
             </div>
@@ -534,5 +566,48 @@ export default function EntityDatabasePage({
         />
       )}
     </ErrorBoundary>
+  )
+}
+
+function MultiSelectFilter({
+  label,
+  selected,
+  options,
+  onChange,
+  className = '',
+}: {
+  label: string
+  selected: string[]
+  options: string[]
+  onChange: (value: string[]) => void
+  className?: string
+}) {
+  return (
+    <div className={`space-y-1 ${className}`}>
+      <label className='text-xs text-white/80'>{label} (multi-select)</label>
+      <Listbox value={selected} onChange={onChange} multiple>
+        <div className='relative'>
+          <Listbox.Button className='w-full rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-left text-sm text-white'>
+            {selected.length > 0 ? `${selected.length} selected` : `All ${label.toLowerCase()}`}
+          </Listbox.Button>
+          <Listbox.Options className='absolute z-30 mt-2 max-h-60 w-full overflow-auto rounded-xl border border-white/15 bg-slate-950 p-2 text-sm text-white shadow-2xl'>
+            {options.map(option => (
+              <Listbox.Option
+                key={option}
+                value={option}
+                className='ui-active:bg-white/10 cursor-pointer rounded-md px-2 py-1'
+              >
+                {({ selected: isSelected }) => (
+                  <span className={isSelected ? 'text-cyan-300' : 'text-white/85'}>
+                    {isSelected ? '✓ ' : ''}
+                    {option}
+                  </span>
+                )}
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </div>
+      </Listbox>
+    </div>
   )
 }

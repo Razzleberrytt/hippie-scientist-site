@@ -1,6 +1,7 @@
 export type BlogSource = {
   title: string
   url: string
+  note?: string
 }
 
 export type BlogPost = {
