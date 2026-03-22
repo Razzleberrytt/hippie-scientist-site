@@ -3,6 +3,7 @@ import path from 'path';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 const PUBLIC_BLOG_DIR = path.join(process.cwd(), 'public', 'blog');
+const MANIFEST_PATH = path.join(PUBLIC_BLOG_DIR, 'manifest.json');
 const AUTHOR = 'Auto-Generator';
 
 const topics = [
@@ -74,6 +75,7 @@ function run() {
   const frontmatter = `---
 title: "${yaml(title)}"
 date: "${todayISO()}"
+lastUpdated: "${todayDate()}"
 author: "${AUTHOR}"
 summary: "${yaml(summary)}"
 sources: []
@@ -99,7 +101,37 @@ _${summary}_
 
   fs.writeFileSync(path.join(BLOG_DIR, `${slug}.mdx`), `${frontmatter}\n${body}`, 'utf8');
   fs.writeFileSync(path.join(PUBLIC_BLOG_DIR, `${slug}.svg`), svg(Date.now()), 'utf8');
+  appendManifest({
+    slug,
+    title,
+    date: todayDate(),
+    lastUpdated: todayDate(),
+    author: AUTHOR,
+    summary,
+    sources: [],
+    tags: ['Daily', 'Field Notes', 'Herbs'],
+    cover: coverRel,
+  });
   console.log('Created blog post:', slug);
+}
+
+function appendManifest(entry) {
+  let manifest = [];
+  if (fs.existsSync(MANIFEST_PATH)) {
+    try {
+      const raw = fs.readFileSync(MANIFEST_PATH, 'utf8');
+      const parsed = JSON.parse(raw);
+      manifest = Array.isArray(parsed) ? parsed : [];
+    } catch {
+      manifest = [];
+    }
+  }
+
+  const exists = manifest.some(item => item && item.slug === entry.slug);
+  if (exists) return;
+
+  manifest.unshift(entry);
+  fs.writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
 }
 
 run();

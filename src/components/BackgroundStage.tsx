@@ -55,8 +55,8 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
       ctx.clearRect(0, 0, w, h)
 
       const wash = ctx.createLinearGradient(0, 0, 0, h)
-      wash.addColorStop(0, '#051927')
-      wash.addColorStop(1, '#030d16')
+      wash.addColorStop(0, 'rgba(5, 25, 39, 0.55)')
+      wash.addColorStop(1, 'rgba(3, 13, 22, 0.52)')
       ctx.fillStyle = wash
       ctx.fillRect(0, 0, w, h)
 
@@ -78,7 +78,7 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
     const vapor = (ctx: CanvasRenderingContext2D, t: number, w: number, h: number) => {
       ctx.globalCompositeOperation = 'source-over'
       ctx.clearRect(0, 0, w, h)
-      ctx.fillStyle = '#030712'
+      ctx.fillStyle = 'rgba(3, 7, 18, 0.45)'
       ctx.fillRect(0, 0, w, h)
 
       for (let i = 0; i < 6; i += 1) {
@@ -95,7 +95,7 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
     const plasma = (ctx: CanvasRenderingContext2D, t: number, w: number, h: number) => {
       ctx.globalCompositeOperation = 'source-over'
       ctx.clearRect(0, 0, w, h)
-      ctx.fillStyle = '#020409'
+      ctx.fillStyle = 'rgba(2, 4, 9, 0.45)'
       ctx.fillRect(0, 0, w, h)
 
       for (let i = 0; i < 4; i += 1) {
@@ -205,12 +205,12 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
     <>
       <canvas
         ref={canvasRef}
-        className='pointer-events-none fixed inset-0 -z-10 opacity-70 will-change-transform motion-safe:animate-none motion-reduce:hidden'
+        className='pointer-events-none fixed inset-0 -z-20 opacity-75 mix-blend-screen transition-opacity duration-700 will-change-transform motion-safe:animate-none motion-reduce:hidden'
         aria-hidden
       />
       <div
         aria-hidden
-        className='motion-safe:animate-breathe fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black'
+        className='motion-safe:animate-breathe fixed inset-0 -z-30 bg-gradient-to-br from-indigo-950/95 via-slate-950/95 to-slate-950 transition-opacity duration-700'
       />
     </>
   )

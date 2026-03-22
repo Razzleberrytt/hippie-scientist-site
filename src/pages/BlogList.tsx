@@ -128,16 +128,16 @@ export default function BlogList() {
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='ds-card-lg flex h-full min-h-[28rem] flex-col space-y-3 text-white shadow-[0_20px_45px_-36px_rgba(16,185,129,0.65)]'
+            className='ds-card-lg flex h-full min-h-[28rem] flex-col space-y-3 text-white shadow-[var(--glow-lg)] transition-transform duration-300'
           >
             <div
-              className={`h-32 w-full overflow-hidden rounded-xl bg-gradient-to-r sm:h-40 lg:h-48 ${coverGradients[index % coverGradients.length]}`}
+              className={`h-24 w-full overflow-hidden rounded-xl bg-gradient-to-r sm:h-36 ${coverGradients[index % coverGradients.length]}`}
             >
               {post.cover ? (
                 <img
                   src={post.cover}
                   alt={`Cover image for ${post.title || 'blog post'}`}
-                  className='h-full w-full object-cover opacity-80'
+                  className='h-full w-full object-cover opacity-80 transition-transform duration-500'
                 />
               ) : null}
             </div>
@@ -152,16 +152,18 @@ export default function BlogList() {
                 {post.title || 'Research note'}
               </Link>
             </h2>
-            <p className='line-clamp-3 max-w-3xl flex-1 overflow-hidden text-sm leading-7 text-white/90 sm:text-base'>
-              {cleanBlogExcerpt(post.summary, post.description)}
-            </p>
-            <p className='text-xs text-emerald-100'>
-              Last updated {formatDate(post.lastUpdated || post.date || '')} · By{' '}
-              {post.author || 'Hippie Scientist Team'}
-            </p>
-            <p className='text-xs text-white/80'>
-              References: {Array.isArray(post.sources) ? post.sources.length : 0}
-            </p>
+            <div className='flex-1 space-y-2'>
+              <p className='line-clamp-3 max-w-3xl overflow-hidden text-sm leading-7 text-white/90 sm:text-base'>
+                {cleanBlogExcerpt(post.summary, post.description)}
+              </p>
+              <p className='text-xs text-emerald-100'>
+                Last updated {formatDate(post.lastUpdated || post.date || '')} · By{' '}
+                {post.author || 'Hippie Scientist Team'}
+              </p>
+              <p className='text-xs text-white/80'>
+                References: {Array.isArray(post.sources) ? post.sources.length : 0}
+              </p>
+            </div>
             <div className='pt-1'>
               <Link to={`/blog/${post.slug}`} className='btn-primary min-w-28 self-start'>
                 {CTA.primary.learn}
