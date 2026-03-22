@@ -9,6 +9,7 @@ const exploreLinks = [
   { href: '/compounds', label: 'Compounds' },
   { href: '/build', label: 'Build a Blend' },
   { href: '/blog', label: 'Blog' },
+  { href: '/contribute', label: 'Contribute data' },
   { href: '/graph', label: 'NeuroHerbGraph' },
 ]
 

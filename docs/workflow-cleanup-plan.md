@@ -181,3 +181,16 @@ To keep maintenance low while preserving core automation:
   2. `daily-blog.yml`
   3. `data-audit.yml` (optional)
   4. `update-data.yml` (monthly data sync)
+
+## 2026-03-22 update: monthly workflow refinement
+
+- Refined `.github/workflows/update-data.yml` to run the full monthly refresh chain:
+  1. `npm run data:enrich` (CSV enrichment)
+  2. `node scripts/sync-updated-datasets.mjs` (sync latest dataset files)
+  3. `npm run data:missing` (write `public/data/missing-fields-report.json`)
+- Commit scope now includes the generated missing-fields report and count snapshot:
+  - `public/data/herbs.json`
+  - `public/data/compounds.json`
+  - `public/data/missing-fields-report.json`
+  - `src/data/site-counts.json`
+- Rechecked active workflows for stale paths (`src/content/blog`, `src/data/blog`, `src/data/herbs`): none found.

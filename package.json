@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/generate-stats.mjs && vite",
+    "dev": "node scripts/calc-counts.js && node scripts/generate-stats.mjs && vite",
     "update-data": "node scripts/update-data.js",
     "dev:data": "node scripts/convert-herbs.mjs",
     "prebuild:data": "node scripts/convert-herbs.mjs && npm run data:enrich",
@@ -11,7 +11,7 @@
     "prebuild:validate": "node scripts/validate-herbs.mjs",
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
-    "prebuild": "node scripts/sync-updated-datasets.mjs && node scripts/build-blog.mjs && node scripts/generate-rss.mjs && node scripts/generate-blog-index.mjs && npm run prerender:entities",
+    "prebuild": "node scripts/calc-counts.js && node scripts/sync-updated-datasets.mjs && node scripts/build-blog.mjs && node scripts/generate-rss.mjs && node scripts/generate-blog-index.mjs && npm run prerender:entities",
     "build": "npm run prebuild && vite build",
     "postbuild": "node scripts/generate-sitemap.mjs dist",
     "sitemap": "node scripts/generate-sitemap.mjs dist",
@@ -51,7 +51,7 @@
     "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint --fix",
     "data:enrich": "tsx scripts/convert-herbs-csv.ts",
     "prerender:entities": "node scripts/prerender-entities.mjs",
-    "data:missing": "node scripts/check-missing-fields.mjs"
+    "data:missing": "node scripts/check-missing-fields.mjs --write"
   },
   "engines": {
     "node": ">=20 <21"

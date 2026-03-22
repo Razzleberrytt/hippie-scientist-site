@@ -4,6 +4,8 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const herbsPath = path.join(ROOT, 'public', 'data', 'herbs.json')
+const outputPath = path.join(ROOT, 'public', 'data', 'missing-fields-report.json')
+const shouldWrite = process.argv.includes('--write')
 
 function hasValue(value) {
   if (Array.isArray(value)) return value.some(hasValue)
@@ -23,14 +25,41 @@ const fields = [
   { key: 'interactions', fallback: [], label: 'interactions' },
 ]
 
-const report = {}
-for (const field of fields) {
-  report[field.label] = herbs.reduce((missing, herb) => {
-    const candidate = [field.key, ...field.fallback]
-      .map(key => herb?.[key])
-      .find(value => value !== undefined)
-    return missing + (hasValue(candidate) ? 0 : 1)
-  }, 0)
+const missing = {}
+const entries = herbs.map(herb => {
+  const missingFields = fields
+    .filter(field => {
+      const candidate = [field.key, ...field.fallback]
+        .map(key => herb?.[key])
+        .find(value => value !== undefined)
+      return !hasValue(candidate)
+    })
+    .map(field => field.label)
+
+  return {
+    slug: String(herb.slug || '').trim(),
+    common: String(herb.common || herb.name || '').trim(),
+    missingFields,
+  }
+})
+
+fields.forEach(field => {
+  missing[field.label] = entries.reduce(
+    (count, herb) => count + (herb.missingFields.includes(field.label) ? 1 : 0),
+    0
+  )
+})
+
+const report = {
+  total: herbs.length,
+  missing,
+  incompleteEntries: entries.filter(entry => entry.missingFields.length > 0),
+  generatedAt: new Date().toISOString(),
 }
 
-console.log(JSON.stringify({ total: herbs.length, missing: report }, null, 2))
+if (shouldWrite) {
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true })
+  fs.writeFileSync(outputPath, `${JSON.stringify(report, null, 2)}\n`)
+}
+
+console.log(JSON.stringify(report, null, 2))

@@ -1,11 +1,16 @@
 import posts from '@/data/blog/posts.json'
-import { baseCompounds } from '@/data/compounds/compoundData'
-import { getHerbsSnapshot, loadHerbsFull } from '@/data/herbs/herbsfull'
+import generatedCounts from '@/data/site-counts.json'
+import { loadHerbsFull } from '@/data/herbs/herbsfull'
 
 export type SiteCounts = {
   herbs: number
   compounds: number
   articles: number
+}
+
+type GeneratedCounts = {
+  herbs?: number
+  compounds?: number
 }
 
 function countArticles() {
@@ -14,20 +19,20 @@ function countArticles() {
   ).length
 }
 
-const baseHerbCount = getHerbsSnapshot().length
+const buildCounts = (generatedCounts || {}) as GeneratedCounts
 
 export async function loadSiteCounts(): Promise<SiteCounts> {
   const [herbList] = await Promise.all([loadHerbsFull()])
   return {
     herbs: herbList.length,
-    compounds: baseCompounds.length,
+    compounds: Number(buildCounts.compounds) || 0,
     articles: countArticles(),
   }
 }
 
 export const siteStats: SiteCounts = {
-  herbs: baseHerbCount,
-  compounds: baseCompounds.length,
+  herbs: Number(buildCounts.herbs) || 0,
+  compounds: Number(buildCounts.compounds) || 0,
   articles: countArticles(),
 }
 

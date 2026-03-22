@@ -115,16 +115,16 @@ export default function BlogList() {
         </div>
       </header>
 
-      <div className='grid gap-4 md:grid-cols-2'>
+      <div className='grid auto-rows-fr gap-4 md:grid-cols-2'>
         {pagination.items.map(post => (
           <motion.article
             key={post.slug}
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='ds-card-lg flex h-full flex-col space-y-3 text-white'
+            className='ds-card-lg flex h-full min-h-[26rem] flex-col space-y-3 text-white'
           >
-            <div className='h-28 w-full overflow-hidden rounded-xl bg-gradient-to-r from-cyan-500/25 via-indigo-500/25 to-fuchsia-500/25'>
+            <div className='h-28 w-full overflow-hidden rounded-xl bg-gradient-to-r from-emerald-400/25 via-cyan-400/20 to-indigo-500/25'>
               {post.cover ? (
                 <img
                   src={post.cover}
@@ -144,7 +144,7 @@ export default function BlogList() {
                 {post.title || 'Research note'}
               </Link>
             </h2>
-            <p className='line-clamp-4 max-w-3xl flex-1 overflow-hidden text-sm leading-7 text-white/85 sm:text-base'>
+            <p className='line-clamp-3 max-w-3xl flex-1 overflow-hidden text-sm leading-7 text-white/85 sm:line-clamp-4 sm:text-base'>
               {cleanBlogExcerpt(post.summary, post.description)}
             </p>
             <p className='text-xs text-emerald-100/95'>

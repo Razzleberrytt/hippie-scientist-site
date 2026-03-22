@@ -45,12 +45,14 @@ export default function AmbientCursor() {
   return (
     <div
       aria-hidden
-      className='pointer-events-none fixed inset-0 z-0 hidden motion-safe:block'
+      className='pointer-events-none fixed inset-0 z-0 hidden transition-opacity duration-500 ease-out motion-safe:block motion-reduce:hidden'
       style={{
-        background:
-          'radial-gradient(220px 220px at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(56, 189, 248, 0.16), rgba(147, 51, 234, 0.08) 45%, transparent 70%)',
-        mixBlendMode: 'screen',
-        filter: 'blur(24px) saturate(1.08)',
+        background: [
+          'radial-gradient(260px 260px at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(34, 211, 238, 0.18), transparent 70%)',
+          'radial-gradient(300px 300px at calc(var(--cursor-x, 50%) - 12%) calc(var(--cursor-y, 50%) + 10%), rgba(168, 85, 247, 0.12), transparent 72%)',
+          'radial-gradient(360px 360px at calc(var(--cursor-x, 50%) + 14%) calc(var(--cursor-y, 50%) - 14%), rgba(16, 185, 129, 0.08), transparent 74%)',
+        ].join(','),
+        filter: 'blur(18px) saturate(1.05)',
       }}
     />
   )

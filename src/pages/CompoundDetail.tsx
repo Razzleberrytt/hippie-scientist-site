@@ -4,8 +4,11 @@ import Meta from '@/components/Meta'
 import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '@/lib/slug'
+import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 
 type SourceRef = { title: string; url: string; note?: string }
+const ISSUE_TEMPLATE_URL =
+  'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -24,19 +27,7 @@ function MissingField({ label }: { label: string }) {
 
 function SourceList({ sources }: { sources: SourceRef[] }) {
   if (!sources.length) {
-    return (
-      <p className='text-white/75'>
-        No citations available yet.{' '}
-        <a
-          className='link'
-          href='https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
-          target='_blank'
-          rel='noreferrer'
-        >
-          Contribute a source.
-        </a>
-      </p>
-    )
+    return <p className='text-white/75'>No citations available yet.</p>
   }
 
   return (
@@ -80,6 +71,18 @@ export default function CompoundDetail() {
     slug: herbMap.get(name.toLowerCase()) || slugify(name),
   }))
 
+  const missingContributionFields = pickNonEmptyKeys(
+    {
+      className: compound.className,
+      activeCompounds: compound.activeCompounds,
+      therapeuticUses: compound.therapeuticUses,
+      contraindications: compound.contraindications,
+      interactions: compound.interactions,
+    },
+    ['className', 'activeCompounds', 'therapeuticUses', 'contraindications', 'interactions']
+  )
+  const shouldShowContributionCta = missingContributionFields.length < 5
+
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
       <Meta
@@ -98,6 +101,24 @@ export default function CompoundDetail() {
           {compound.description || <MissingField label='Description' />}
         </Section>
 
+        <Section title='Class'>
+          {compound.className || compound.category || <MissingField label='Class' />}
+        </Section>
+
+        <Section title='Active Compounds'>
+          {compound.activeCompounds.length ? (
+            <div className='flex flex-wrap gap-2'>
+              {compound.activeCompounds.map(item => (
+                <span key={item} className='ds-pill'>
+                  {item}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <MissingField label='Active compounds' />
+          )}
+        </Section>
+
         <Section title='Effects'>
           {compound.effects.length > 0 ? (
             <ul className='list-disc space-y-1 pl-5'>
@@ -107,6 +128,18 @@ export default function CompoundDetail() {
             </ul>
           ) : (
             <MissingField label='Effects' />
+          )}
+        </Section>
+
+        <Section title='Therapeutic Uses'>
+          {compound.therapeuticUses.length > 0 ? (
+            <ul className='list-disc space-y-1 pl-5'>
+              {compound.therapeuticUses.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <MissingField label='Therapeutic uses' />
           )}
         </Section>
 
@@ -125,6 +158,18 @@ export default function CompoundDetail() {
             </ul>
           ) : (
             <MissingField label='Contraindications' />
+          )}
+        </Section>
+
+        <Section title='Interactions'>
+          {compound.interactions.length > 0 ? (
+            <ul className='list-disc space-y-1 pl-5'>
+              {compound.interactions.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <MissingField label='Interactions' />
           )}
         </Section>
 
@@ -149,6 +194,24 @@ export default function CompoundDetail() {
         <Section title='Sources'>
           <SourceList sources={compound.sources} />
         </Section>
+
+        {shouldShowContributionCta && (
+          <section className='mt-8 rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-4 text-sm text-cyan-50'>
+            <p className='font-semibold'>Help us fill in missing data</p>
+            <p className='mt-2 text-cyan-100/90'>
+              This compound still has evidence gaps in class, compounds, therapeutic uses,
+              contraindications, or interactions.
+            </p>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              <Link to='/contribute' className='btn-secondary'>
+                Contribution guide
+              </Link>
+              <a href={ISSUE_TEMPLATE_URL} target='_blank' rel='noreferrer' className='btn-primary'>
+                Open evidence issue
+              </a>
+            </div>
+          </section>
+        )}
 
         <Section title='Last Updated'>
           {compound.lastUpdated || <MissingField label='Last updated' />}
