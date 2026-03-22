@@ -12,6 +12,13 @@ type FieldDefinition = {
   description?: string
 }
 
+type MissingFieldsReport = {
+  total: number
+  missing: Record<string, number>
+  incompleteEntries: Array<{ slug: string; common: string; missingFields: string[] }>
+  generatedAt?: string
+}
+
 const KEY_FIELD_DEFS: FieldDefinition[] = [
   { key: 'common', label: 'Common Name' },
   { key: 'scientific', label: 'Scientific Name' },
@@ -121,6 +128,7 @@ export default function DataReport() {
   const [editRow, setEditRow] = useState<Herb | null>(null)
   const [showModal, setShowModal] = useState(false)
   const [patchedData, setPatchedData] = useState<Herb[] | null>(null)
+  const [missingReport, setMissingReport] = useState<MissingFieldsReport | null>(null)
   const currentData = useMemo(() => patchedData ?? data, [patchedData, data])
 
   useEffect(() => {
@@ -141,6 +149,24 @@ export default function DataReport() {
 
     setMissing(missingRows)
   }, [currentData])
+
+  useEffect(() => {
+    let alive = true
+    fetch('/data/missing-fields-report.json', { cache: 'no-store' })
+      .then(response => (response.ok ? response.json() : null))
+      .then(payload => {
+        if (!alive || !payload || typeof payload !== 'object') return
+        setMissingReport(payload as MissingFieldsReport)
+      })
+      .catch(() => {
+        if (!alive) return
+        setMissingReport(null)
+      })
+
+    return () => {
+      alive = false
+    }
+  }, [])
 
   useEffect(() => {
     const rows = currentData
@@ -256,6 +282,31 @@ export default function DataReport() {
           non-empty data for a given field.
         </p>
       </header>
+
+      {missingReport && (
+        <section className='border-white/12 mb-8 rounded-2xl border bg-white/5 p-4'>
+          <h2 className='text-lg font-semibold text-white'>Core missing fields report</h2>
+          <p className='mt-1 text-xs text-white/70'>
+            Generated{' '}
+            {missingReport.generatedAt
+              ? new Date(missingReport.generatedAt).toLocaleString()
+              : 'recently'}{' '}
+            from
+            <code className='mx-1 rounded bg-white/10 px-1 py-0.5'>npm run data:missing</code>
+          </p>
+          <div className='mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-5'>
+            {Object.entries(missingReport.missing).map(([field, count]) => (
+              <article key={field} className='rounded-xl border border-white/10 bg-black/20 p-3'>
+                <p className='text-xs uppercase tracking-wide text-white/60'>{field}</p>
+                <p className='mt-1 text-lg font-semibold text-white'>{count}</p>
+              </article>
+            ))}
+          </div>
+          <p className='mt-3 text-xs text-white/65'>
+            Incomplete entries: {missingReport.incompleteEntries.length}
+          </p>
+        </section>
+      )}
 
       <section className='mb-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5'>
         {missingResearchMetrics.map(metric => (

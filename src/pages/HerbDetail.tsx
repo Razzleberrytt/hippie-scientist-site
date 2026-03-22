@@ -1,13 +1,13 @@
 import { type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
-import { useHerbData } from '@/lib/herb-data'
 import InfoTooltip from '@/components/InfoTooltip'
+import { useHerbData } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 
 type SourceRef = { title: string; url: string; note?: string }
 const MISSING_COPY = 'Information not yet available'
-const CONTRIBUTION_URL =
+const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
 
 function toList(value: unknown): string[] {
@@ -49,10 +49,7 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
 function MissingText({ label }: { label: string }) {
   return (
     <p className='italic text-white/70'>
-      {MISSING_COPY} for {label.toLowerCase()}.{' '}
-      <a href={CONTRIBUTION_URL} target='_blank' rel='noreferrer' className='link'>
-        Contribute a citation.
-      </a>
+      {MISSING_COPY} for {label.toLowerCase()}.
     </p>
   )
 }
@@ -73,10 +70,10 @@ export default function HerbDetail() {
   const activeCompounds = toList(
     (herb as any).activeCompounds ?? herb.active_compounds ?? herb.compounds
   )
-  const effects = toList(herb.effects)
   const therapeuticUses = toList((herb as any).therapeuticUses ?? herb.therapeutic)
   const contraindications = toList(herb.contraindications)
   const interactions = toList(herb.interactions)
+  const effects = toList(herb.effects)
   const sideEffects = toList((herb as any).sideEffects ?? herb.sideeffects)
   const dosage = toList(herb.dosage)
   const sources = toSources((herb as any).sources)
@@ -90,6 +87,13 @@ export default function HerbDetail() {
   const preparation = String(herb.preparation || herb.preparations?.join(', ') || '').trim()
   const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
   const lastUpdated = String((herb as any).lastUpdated || '').trim()
+
+  const missingContributionFields = pickNonEmptyKeys(
+    { className, activeCompounds, therapeuticUses, contraindications, interactions },
+    ['className', 'activeCompounds', 'therapeuticUses', 'contraindications', 'interactions']
+  )
+  const shouldShowContributionCta = missingContributionFields.length < 5
+
   const renderableKeys = pickNonEmptyKeys(
     {
       className,
@@ -230,16 +234,28 @@ export default function HerbDetail() {
               ))}
             </ol>
           ) : (
-            <p className='text-white/75'>
-              No citations available yet.{' '}
-              <a href={CONTRIBUTION_URL} target='_blank' rel='noreferrer' className='link'>
-                Add one on GitHub.
-              </a>
-            </p>
+            <p className='text-white/75'>No citations available yet.</p>
           )}
         </Section>
 
         {lastUpdated && <Section title='Last Updated'>{lastUpdated}</Section>}
+
+        {shouldShowContributionCta && (
+          <section className='mt-8 rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-4 text-sm text-cyan-50'>
+            <p className='font-semibold'>Help us fill in missing data</p>
+            <p className='mt-2 text-cyan-100/90'>
+              This entry is still missing one or more core evidence fields.
+            </p>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              <Link to='/contribute' className='btn-secondary'>
+                Contribution guide
+              </Link>
+              <a href={ISSUE_TEMPLATE_URL} target='_blank' rel='noreferrer' className='btn-primary'>
+                Open evidence issue
+              </a>
+            </div>
+          </section>
+        )}
 
         <section className='mt-8 rounded-2xl border border-amber-300/40 bg-amber-200/10 p-4 text-sm text-amber-100'>
           <p className='flex items-center gap-2'>
@@ -248,13 +264,6 @@ export default function HerbDetail() {
               ? `${missingFieldCount} evidence fields are still incomplete for this herb.`
               : 'This profile currently has all core evidence fields filled.'}
             <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
-          </p>
-          <p className='mt-3'>
-            Help improve this profile by sharing vetted sources in our{' '}
-            <a href={CONTRIBUTION_URL} target='_blank' rel='noreferrer' className='link'>
-              contribution guide
-            </a>
-            .
           </p>
         </section>
       </article>

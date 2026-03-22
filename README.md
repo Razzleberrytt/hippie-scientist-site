@@ -236,6 +236,31 @@ npm run build
 
 Deploy workflow (`.github/workflows/deploy.yml`) publishes `dist/` to `gh-pages`.
 
+## Dataset counts + missing-field report
+
+Generate build-time home counters from `public/data/*.json`:
+
+```bash
+node scripts/calc-counts.js
+```
+
+This writes `src/data/site-counts.json` (herb + compound counts).
+If `public/data/compounds.json` includes a `psychoactive` boolean field, the compound counter uses only entries where `psychoactive === true`; otherwise it counts all compounds.
+
+Generate a detailed missing-fields report used by `/data-report`:
+
+```bash
+npm run data:missing
+```
+
+This writes `public/data/missing-fields-report.json` and summarizes missing core fields (`class`, `activeCompounds`, `therapeuticUses`, `contraindications`, `interactions`).
+
+## Community contributions
+
+- New contributor guide route: `/contribute`
+- Herb/compound detail pages show a contextual “Help us fill in missing data” CTA when core evidence fields are incomplete.
+- Evidence issue template: `https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml`
+
 ## Monthly data sync workflow
 
 A scheduled workflow is available at `.github/workflows/update-data.yml`.

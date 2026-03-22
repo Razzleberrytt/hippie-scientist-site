@@ -136,13 +136,13 @@ export default function EmailCapture({
 
         <div className='relative space-y-5'>
           <div className='space-y-2'>
-            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
+            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/75'>
               Research notes
             </p>
             <h2 className='text-[1.4rem] font-semibold tracking-tight text-white sm:text-3xl'>
               {title || 'Get a beginner-safe herbal blend guide (free)'}
             </h2>
-            <p className='max-w-2xl text-sm leading-relaxed text-white/75 sm:text-[0.97rem]'>
+            <p className='text-white/88 max-w-2xl text-sm leading-relaxed sm:text-[0.97rem]'>
               {subtitle ||
                 'Designed to help you learn safely. Built for clarity, not hype. We share practical updates and starter resources only.'}
             </p>
@@ -160,7 +160,8 @@ export default function EmailCapture({
               value={email}
               onChange={event => setEmail(event.target.value)}
               placeholder='you@example.com'
-              className='border-white/16 min-h-11 w-full rounded-xl border bg-white/10 px-4 py-2.5 text-sm text-white placeholder-white/45 outline-none transition focus:border-white/35 focus:ring-2 focus:ring-emerald-300/35'
+              aria-label='Email address'
+              className='min-h-11 w-full rounded-xl border border-white/30 bg-slate-950/70 px-4 py-2.5 text-sm text-white placeholder-white/65 outline-none transition focus:border-emerald-300/80 focus:ring-2 focus:ring-emerald-300/50'
             />
             <button
               type='submit'

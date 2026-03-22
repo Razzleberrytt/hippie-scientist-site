@@ -1,0 +1,6819 @@
+{
+  "total": 812,
+  "missing": {
+    "class": 662,
+    "activeCompounds": 599,
+    "therapeuticUses": 632,
+    "contraindications": 628,
+    "interactions": 651
+  },
+  "incompleteEntries": [
+    {
+      "slug": "",
+      "common": "acacia nilotica",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "aconitum ferox",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aconitum napellus",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "acorus americanus",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "acorus calamus var. angustatus",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "acorus tatarinowii",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "adenium obesum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "adenostoma fasciculatum",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "adhatoda vasica",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "aegle marmelos",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "aerva lanata",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "aesculus hippocastanum",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "african dream root",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "agastache foeniculum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "agrimonia eupatoria",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "alangium salvifolium",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "albizia julibrissin",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "albizia lebbeck",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "alchemilla vulgaris",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "alchornea castaneifolia",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "alectra sessiliflora",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aletris farinosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "allium sativum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "alnus rubra",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aloe vera",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aloysia citrodora",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "alpinia galanga",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "althaea officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "alyxia stellata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "amanita pantherina",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "american ginseng",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "american yellow lotus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "amorpha fruticosa",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "amphipterygium adstringens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "anacardium occidentale",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "anadenanthera colubrina",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "anadenanthera colubrina (cebíl)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "anemarrhena asphodeloides",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "anemone pulsatilla",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "angelica archangelica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "angelica sinensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aniseia martinicensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "anisomeles indica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "anisoptera thurifera",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "annona muricata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "apium graveolens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aquilaria agallocha",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aquilaria malaccensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aquilegia vulgaris",
+      "missingFields": ["activeCompounds", "therapeuticUses"]
+    },
+    {
+      "slug": "",
+      "common": "arctium lappa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "areca catechu",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "argemone mexicana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "argyreia speciosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aristolochia argentina",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aristolochia grandiflora",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aristolochia indica",
+      "missingFields": ["activeCompounds", "therapeuticUses"]
+    },
+    {
+      "slug": "",
+      "common": "armoracia rusticana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "arnica montana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "artemisia abrotanum",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "artemisia absinthium",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "artemisia annua",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "artemisia glacialis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "artemisia gmelinii",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "artemisia herba-alba",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "artemisia judaica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "artemisia ludoviciana",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "artemisia tilesii",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "artemisia vulgaris (mugwort)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "asclepias syriaca",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "asclepias tuberosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ashwagandha",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "asian ginseng",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "asparagus racemosus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "aspidosperma quebracho-blanco",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "astragalus membranaceus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "atractylodes macrocephala",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "atropa belladonna",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "avena sativa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ayahuasca",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "azadirachta indica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "bacopa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "bacopa monnieri",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "baptisia tinctoria",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "barringtonia asiatica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "baybean",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "belladonna",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "berberis vulgaris",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "betel nut",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "betula lenta",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "bidens pilosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "blue lotus",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "blue lotus (nymphaea caerulea)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "blue vervain",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "bobinsana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "boerhavia diffusa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "boesenbergia rotunda",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "boldo",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "bolivian torch",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "boophone disticha",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "borago officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "boswellia sacra",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "boswellia serrata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "brugmansia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "brunfelsia americana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "brunfelsia grandiflora",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "bryonia alba",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "bupleurum falcatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "bursera graveolens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "byrsonima crassifolia",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "caapi",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "caesalpinia bonduc",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "caesalpinia sepiaria",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "calamus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "calendula officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "california poppy",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "calliandra angustifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "calliandra haematocephala",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "calliandra portoricensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "calotropis procera",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "camellia japonica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "campsiandra angustifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cananga odorata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cannabis indica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cannabis ruderalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cannabis sativa (african varieties)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "capparis erythrocarpos",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "capparis spinosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "capraria biflora",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "capsella bursa-pastoris",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "capsicum annuum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "carica papaya",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "carolina jessamine",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "casimiroa edulis",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "cassia alata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cassia occidentalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "catha edulis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "catnip",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "catuaba",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "cbd",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ceanothus integerrimus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cecropia peltata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "celastrus paniculatus",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "celastrus paniculatus (intellect tree)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "centaurium erythraea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "centella asiatica",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "cephaelis ipecacuanha",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cestrum nocturnum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "chacruna",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "chaga (inonotus obliquus)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "chaliponga",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "chamomile",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "chaste tree",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "chelidonium majus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "chimaphila umbellata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "chiric sanango",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cichorium intybus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cinnamomum verum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cissampelos pareira",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "citrus aurantium",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "citrus limon",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "claviceps purpurea",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "clavo huasca",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "clematis vitalba",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "clerodendrum glabrum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "clinopodium vulgare",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "clitoria ternatea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "club moss",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cnidium monnieri",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "coca",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "coca leaf",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cocculus hirsutus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "codiaeum variegatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "coffea arabica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "coffee",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cola acuminata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cola nitida",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "coleus blumei",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "coltsfoot",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "combretum quadrangulare",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "commiphora myrrha",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "conium maculatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "convallaria majalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "convolvulus arvensis",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "convolvulus pluricaulis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "copaifera officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "copal",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "coptis chinensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cordyceps sinensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cordyline fruticosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "corn silk",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cornus officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "corydalis cava",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "corydalis yanhusuo",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "corymbia terminalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cramp bark",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "crataegus monogyna",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "crocus sativus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "croton lechleri",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "curcuma longa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cymbopogon citratus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cynara scolymus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cynodon dactylon",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cyperus articulatus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cyperus rotundus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "cytisus scoparius",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "dactylorhiza hatagirea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "damiana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "datura inoxia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "datura metel",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "delosperma cooperi",
+      "missingFields": ["activeCompounds", "therapeuticUses"]
+    },
+    {
+      "slug": "",
+      "common": "delphinium brunonianum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "dendrobium nobile",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "derris elliptica",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "desmodium adscendens",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "dichroa febrifuga",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "dioscorea villosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "diplopterys cabrerana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "dodonaea viscosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "dracocephalum moldavica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "duboisia hopwoodii",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "duboisia myoporoides",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "dwarf nettle",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "dysphania ambrosioides",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "echinacea purpurea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "echinopsis pachanoi",
+      "missingFields": ["class"]
+    },
+    {
+      "slug": "",
+      "common": "eclipta prostrata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "elaeagnus umbellata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "elephantopus mollis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "eleutherococcus senticosus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "eleutherococcus senticosus (siberian ginseng)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "elsholtzia ciliata",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "ephedra",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "equisetum arvense",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "eremophila longifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erigeron canadensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "eryngium foetidum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erythrina americana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erythrina flabelliformis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erythrina subumbrans",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erythrina variegata",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "erythrina vespertilio",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erythroxylum catuaba",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erythroxylum novogranatense",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "eschscholzia californica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "espeletia grandiflora",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "eucalyptus globulus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "eupatorium perfoliatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "european mandrake",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "fagraea berteroana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ferula assa-foetida",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ferula communis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ficus religiosa",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "ficus tinctoria",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "five-leaved chaste tree",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "flame lily",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "foeniculum vulgare",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "foxglove",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "frankincense (boswellia)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "fucus vesiculosus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "galium aparine",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "galphimia glauca",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "garcinia cambogia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "garden balsam",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "gardenia jasminoides",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "gastrodia elata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "gelsemium sempervirens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "genipa americana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "gentiana lutea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "geranium robertianum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "giant reed",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ginger",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ginkgo biloba",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "glechoma hederacea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "gliricidia sepium",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "glycyrrhiza glabra",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "gorse",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "grains of selim",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "grape seed",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "griffonia simplicifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "grindelia robusta",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "guarana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "guaraná",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "guayusa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "gymnema sylvestre",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "gynostemma pentaphyllum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "hamamelis virginiana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "harpagophytum procumbens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "hawaiian baby woodrose",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "heartsease",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "hedera helix",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "heimia",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "helichrysum odoratissimum",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "helinus integrifolius",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "heliotropium indicum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "henbane",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "hibiscus sabdariffa",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "hibiscus tiliaceus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "himalayan valerian",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "holy basil",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "hop flowers",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "hops",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "horny goat weed",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "huperzia serrata",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "hydrastis canadensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "hyoscyamus niger",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "hypericum perforatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "hyssopus officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ilex guayusa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ilex paraguariensis",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "ilex vomitoria",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "indian lotus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "indian pipe",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "inula helenium",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ipomoea tricolor",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ipomoea tricolor (heavenly blue)",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "iresine herbstii",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "iris germanica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "jatropha podagrica",
+      "missingFields": ["activeCompounds", "therapeuticUses"]
+    },
+    {
+      "slug": "",
+      "common": "jimson weed",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "juglans nigra",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "jujube",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "juniperus communis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "juniperus sibirica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "justicia adhatoda",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "justicia secunda",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "kaempferia galanga",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "kanna",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "kava",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "khat",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "kieli",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "kra thum na / kok",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "kratom",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "kratom hybrids",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "lactuca canadensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lagochilus inebrians",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "laminaria digitata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "laurus nobilis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lavandula angustifolia",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "ledum palustre",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lemon balm",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "leonurus cardiaca",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "leonurus japonicus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "leonurus sibiricus",
+      "missingFields": ["class"]
+    },
+    {
+      "slug": "",
+      "common": "lepidium meyenii",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "leptospermum scoparium",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lesser periwinkle",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ligusticum chuanxiong",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lilium candidum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "linden",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "linum usitatissimum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lion's mane",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lion’s mane",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lippia alba",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lobelia inflata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lobelia tupa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lomatium dissectum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lonicera japonica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lophophora williamsii",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "lsd",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "lycopodium clavatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lycopus virginicus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "maca",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "macaranga tanarius",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "maconha brava",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "macropiper excelsum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "maerua angolensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "malouetia tamaquarina",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "malva sylvestris",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mandrake",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mandrake root",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "marrubium vulgare",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "marshmallow root",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "matricaria chamomilla",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "melaleuca alternifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "melissa officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "melissa officinalis (lemon balm)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "menyanthes trifoliata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mescaline",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "mexican pepperleaf",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "mexican tarragon",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "micromelum minutum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mimosa hostilis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mimosa pudica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mistletoe",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "mitchella repens",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "mitragyna hirsuta",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mitragyna parvifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mitragyna speciosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mitragyna stipulosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "momordica charantia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "monarda fistulosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "morinda citrifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "moringa oleifera",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mormon tea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "morning glory (heavenly blue)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "motherwort",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "mucuna pruriens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mugwort",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mullein",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "myroxylon balsamum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["contraindications"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["therapeuticUses", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nan",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nardostachys jatamansi",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nerium oleander",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nicotiana tabacum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nigella sativa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nymphaea ampla",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nymphaea lotus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nymphaea nouchali",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ocimum sanctum (holy basil / tulsi)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "oenothera biennis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ononis spinosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "opium poppy",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "origanum vulgare",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "panax ginseng",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "panax quinquefolius",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pandanus tectorius",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "passionflower",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "paullinia pinnata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pausinystalia yohimbe",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pedicularis densiflora (indian warrior)",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "pedicularis groenlandica",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "pelargonium sidoides",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "peperomia pellucida",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "peppermint",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "perilla frutescens",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "peruvian torch",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "peumus boldus",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "phalaris arundinacea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "phellodendron amurense",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "picrorhiza kurroa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pimenta dioica",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "pimenta racemosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pimpinella anisum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pinkroot",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "piper auritum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "piper auritum (root beer plant)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "piptadenia peregrina",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pipturus albidus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "plantago major",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "podophyllum peltatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pogostemon cablin",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "polygala tenuifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "polygonum multiflorum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "polynesian nicotiana spp.",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "poria cocos",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "prestonia amazonica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "prickly ash",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "primula veris",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "prunella vulgaris",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "psilocybe mexicana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "psilocybin",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "psychotria carthaginensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "psychotria viridis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "psyllium (plantago ovata)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pueraria mirifica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "punica granatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "quassia amara",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rauvolfia serpentina",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rauvolfia vomitoria",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "red/blue water lily",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "reishi mushroom",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rheum palmatum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rhizophora mangle",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rhizophora stylosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rhodiola",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "rhododendron anthopogon",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "rhynchosia phaseoloides",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ricinus communis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rosa canina",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rosmarinus officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rubus idaeus",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "ruta chalepensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ruta graveolens",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "sacred basil",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "sakae naa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "salacia reticulata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "salix alba",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "salvia",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "salvia dorrii",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "salvia miltiorrhiza",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "salvia sclarea",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "sambucus nigra",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sananga",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "sanango",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sanguinaria canadensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sassafras",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "scaevola taccada",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sceletium expansum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sceletium tortuosum (kanna)",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "schisandra chinensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "scoparia dulcis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "scopolia carniolica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "scullcap (scutellaria)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "scutellaria baicalensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "selaginella tamariscina",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "selinum tenuifolium",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "senna alexandrina",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "serenoa repens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "shampoo ginger",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "shankhpushpi",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sichuan pepper",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sida acuta",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "silene undulata",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "silphium (extinct)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "Silver Linden",
+      "missingFields": ["interactions"]
+    },
+    {
+      "slug": "",
+      "common": "silybum marianum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sinicuichi",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "smilax ornata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "solandra maxima",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "solanum nigrum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "solidago virgaurea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sophora flavescens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "stachytarpheta cayennensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "stephania cepharantha",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "stephania tetrandra",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sweet acacia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "sweet violet",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "sweetgrass",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "symphytum officinale",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "synaptolepis kirkii",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "syrian rue",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "syzygium aromaticum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tabebuia impetiginosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tabernaemontana africana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tabernaemontana divaricata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tabernaemontana spp.",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tagetes lucida",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tagetes lucida (mexican tarragon)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tamarindus indica",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "tanaecium nocturnum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "taraxacum officinale",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tasmannia lanceolata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tetradenia riparia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tetradium ruticarpum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tetrapleura tetraptera",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tetrapterys methystica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "teucrium chamaedrys",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "thc",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "theobroma bicolor",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "thevetia peruviana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "thymus vulgaris",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "tilia europaea (linden flower)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "toloache",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tongkat ali",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "toothache plant",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tragia involucrata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "trichilia catigua",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "trichilia emetica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "trichocereus bridgesii",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "trifolium pratense",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tropaeolum majus",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "tulsi",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "turmeric",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "turnera diffusa var. aphrodisiaca",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "turnera ulmifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tussilago farfara",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "twinleaf zornia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tylophora indica",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "tynanthus panurensis",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "uncaria rhynchophylla",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "uncaria tomentosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "usnea barbata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "uva ursi",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "valerian",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "valerian root",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "valeriana jatamansi",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "verbascum thapsus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "verbena officinalis",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "veronicastrum virginicum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "viburnum opulus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "vinca minor",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "viola odorata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "viola odorata (sweet violet)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "virola elongata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "virola sebifera",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "virola spp.",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "vitex agnus-castus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "vitex trifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "white lily",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "white sage",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "wild dagga",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "wild jujube seed",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "wild lettuce",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "withania somnifera",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "withania somnifera (ashwagandha)",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "wormwood",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "xanthium strumarium",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "yarrow",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "yellow horned poppy",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "yerba mate",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "yohimbe",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "yopo",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "yucca schidigera",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "zanthoxylum capense",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "zanthoxylum clava-herculis",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "zingiber officinale",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "acacia confusa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "acacia maidenii",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "acacia phlebophylla",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "acmella oleracea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "acorus calamus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "acorus gramineus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "alchornea floribunda",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "amanita muscaria",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "anadenanthera peregrina",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "argyreia nervosa",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "artemisia vulgaris",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "arundo donax",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "asarum canadense",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "banisteriopsis caapi",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "brugmansia sanguinea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "brugmansia suaveolens",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "calea ternifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "calea zacatechichi",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "calliandra anomala",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "camellia sinensis",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "cannabis sativa",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "combretum micranthum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "datura ferox",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "datura stramonium",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "datura wrightii",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "delosperma bosseranum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "desfontainia spinosa",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "desmanthus illinoensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "desmodium gangeticum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "dream herb",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "elaeagnus angustifolia",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "entada rheedii",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "ephedra sinica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ervatamia coronaria",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erythrina mulungu",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "erythroxylum coca",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "fly agaric",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "galbulimima belgraveana",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "gotu kola",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "heimia myrtifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "heimia salicifolia",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "heimia salicifolia (sinicuichi)",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "humulus lupulus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "iboga",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "indian warrior",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "justicia pectoralis",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "kana",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "klip dagga",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "lactuca virosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lavender",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "leonotis leonurus",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "lion’s tail",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "maca root",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "mapacho",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "mentha piperita",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mitragyna javanica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "mulungu",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "myristica fragrans",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nelumbo nucifera",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nepeta cataria",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nicotiana rustica",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "nymphaea caerulea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "nymphaea rubra",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ocimum sanctum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "papaver somniferum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "passiflora incarnata",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "paullinia cupana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "paullinia yoco",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "peganum harmala",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "petasites hybridus",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "petiveria alliacea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "peyote",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "piper methysticum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "pituri",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "psychotria carthagenensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "ptychopetalum olacoides",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rhodiola rosea",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rhododendron tomentosum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "rivea corymbosa",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "salvia apiana",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "salvia divinorum",
+      "missingFields": ["activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "salvia officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "san pedro",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "sceletium tortuosum",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "scutellaria lateriflora",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "siberian motherwort",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "sida cordifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "silene capensis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "skullcap",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "sophora secundiflora",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "sweet flag",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "tabernaemontana sananho",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tabernaemontana undulata",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "tabernanthe iboga",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "theobroma cacao",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "tilia tomentosa",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "tonga root",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "turbina corymbosa",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "turnera diffusa",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "urtica dioica",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "valeriana officinalis",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "virola calophylla",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "virola theiodora",
+      "missingFields": ["class", "therapeuticUses", "contraindications", "interactions"]
+    },
+    {
+      "slug": "",
+      "common": "voacanga africana",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "yerba maté",
+      "missingFields": ["class", "activeCompounds"]
+    },
+    {
+      "slug": "",
+      "common": "zornia latifolia",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    },
+    {
+      "slug": "",
+      "common": "unknown",
+      "missingFields": [
+        "class",
+        "activeCompounds",
+        "therapeuticUses",
+        "contraindications",
+        "interactions"
+      ]
+    }
+  ],
+  "generatedAt": "2026-03-22T01:29:28.002Z"
+}

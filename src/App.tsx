@@ -18,6 +18,7 @@ const DataFix = lazy(() => import('./pages/DataFix'))
 const Sitemap = lazy(() => import('./pages/Sitemap'))
 const Newsletter = lazy(() => import('./pages/Newsletter'))
 const Contact = lazy(() => import('./pages/Contact'))
+const Contribute = lazy(() => import('./pages/Contribute'))
 import Footer from './components/Footer'
 import AppToaster from './components/ui/Toaster'
 import ConsentBanner from './components/ConsentBanner'
@@ -68,6 +69,7 @@ export default function App() {
                 <Route path='/favorites' element={<Favorites />} />
                 <Route path='/newsletter' element={<Newsletter />} />
                 <Route path='/contact' element={<Contact />} />
+                <Route path='/contribute' element={<Contribute />} />
                 {/* Add other routes here */}
                 <Route path='/blog' element={<BlogList />} />
                 <Route path='/blog/page/:page' element={<BlogList />} />
