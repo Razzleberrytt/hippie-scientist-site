@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 
+type SourceRef = { title: string; url: string }
+
 function toList(value: unknown): string[] {
   if (Array.isArray(value)) return value.map(v => String(v).trim()).filter(Boolean)
   if (typeof value === 'string') {
@@ -12,6 +14,21 @@ function toList(value: unknown): string[] {
       .filter(Boolean)
   }
   return []
+}
+
+function toSources(value: unknown): SourceRef[] {
+  if (!Array.isArray(value)) return []
+  return value
+    .map(item => {
+      if (typeof item === 'string') return { title: item, url: item }
+      if (!item || typeof item !== 'object') return null
+      const source = item as Record<string, unknown>
+      const title = String(source.title || source.url || '').trim()
+      const url = String(source.url || '').trim()
+      if (!title && !url) return null
+      return { title: title || url, url: url || title }
+    })
+    .filter((item): item is SourceRef => Boolean(item))
 }
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
@@ -44,7 +61,18 @@ export default function HerbDetail() {
   const contraindications = toList(herb.contraindications)
   const interactions = toList(herb.interactions)
   const sideEffects = toList((herb as any).sideEffects ?? herb.sideeffects)
-  const sources = toList(herb.sources)
+  const dosage = toList(herb.dosage)
+  const sources = toSources((herb as any).sources)
+
+  const className = String((herb as any).class || herb.category || '').trim()
+  const intensity = String(herb.intensity || '').trim()
+  const mechanism = String(herb.mechanism || '').trim()
+  const description = String(herb.description || '').trim()
+  const duration = String((herb as any).duration || '').trim()
+  const region = String(herb.region || '').trim()
+  const preparation = String(herb.preparation || herb.preparations?.join(', ') || '').trim()
+  const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
+  const lastUpdated = String((herb as any).lastUpdated || '').trim()
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -59,14 +87,12 @@ export default function HerbDetail() {
 
       <article className='ds-card-lg mt-4'>
         <h1 className='text-3xl font-semibold'>{herb.common || herb.name}</h1>
-        {herb.scientific && <p className='mt-1 italic text-white/70'>{herb.scientific}</p>}
+        {herb.scientific && <p className='mt-1 italic text-white/75'>{herb.scientific}</p>}
 
-        {herb.description && <Section title='Description'>{herb.description}</Section>}
-        {(herb.category || (herb as any).class) && (
-          <Section title='Class'>{String((herb as any).class || herb.category)}</Section>
-        )}
-        {herb.intensity && <Section title='Intensity'>{herb.intensity}</Section>}
-        {herb.mechanism && <Section title='Mechanism'>{herb.mechanism}</Section>}
+        {description && <Section title='Description'>{description}</Section>}
+        {className && <Section title='Class'>{className}</Section>}
+        {intensity && <Section title='Intensity'>{intensity}</Section>}
+        {mechanism && <Section title='Mechanism'>{mechanism}</Section>}
 
         {activeCompounds.length > 0 && (
           <Section title='Active Compounds'>
@@ -102,9 +128,14 @@ export default function HerbDetail() {
 
         {contraindications.length > 0 && (
           <Section title='Contraindications'>
-            <ul className='list-disc space-y-1 pl-5'>
+            <ul className='space-y-2'>
               {contraindications.map(item => (
-                <li key={item}>{item}</li>
+                <li
+                  key={item}
+                  className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
+                >
+                  ⚠ {item}
+                </li>
               ))}
             </ul>
           </Section>
@@ -120,19 +151,11 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {herb.dosage && <Section title='Dosage'>{herb.dosage}</Section>}
-        {(herb as any).duration && (
-          <Section title='Duration'>{String((herb as any).duration)}</Section>
-        )}
-        {herb.region && <Section title='Region'>{herb.region}</Section>}
-        {(herb.preparation || herb.preparations?.length) && (
-          <Section title='Preparation'>
-            {String(herb.preparation || herb.preparations?.join(', '))}
-          </Section>
-        )}
-        {(herb.legalStatus || herb.legalstatus) && (
-          <Section title='Legal Status'>{String(herb.legalStatus || herb.legalstatus)}</Section>
-        )}
+        {dosage.length > 0 && <Section title='Dosage'>{dosage.join('; ')}</Section>}
+        {duration && <Section title='Duration'>{duration}</Section>}
+        {region && <Section title='Region'>{region}</Section>}
+        {preparation && <Section title='Preparation'>{preparation}</Section>}
+        {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 
         {sideEffects.length > 0 && (
           <Section title='Side Effects'>
@@ -148,13 +171,13 @@ export default function HerbDetail() {
           <Section title='Sources'>
             <ol className='list-decimal space-y-1 pl-5'>
               {sources.map((source, index) => (
-                <li key={`${source}-${index}`}>
-                  {/^https?:\/\//i.test(source) ? (
-                    <a href={source} target='_blank' rel='noreferrer' className='link'>
-                      {source}
+                <li key={`${source.url}-${index}`}>
+                  {/^https?:\/\//i.test(source.url) ? (
+                    <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+                      {source.title}
                     </a>
                   ) : (
-                    source
+                    source.title
                   )}
                 </li>
               ))}
@@ -162,9 +185,7 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {(herb as any).lastUpdated && (
-          <Section title='Last Updated'>{String((herb as any).lastUpdated)}</Section>
-        )}
+        {lastUpdated && <Section title='Last Updated'>{lastUpdated}</Section>}
       </article>
     </main>
   )

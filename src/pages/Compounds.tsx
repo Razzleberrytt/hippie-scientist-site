@@ -24,9 +24,11 @@ export default function CompoundsPage() {
           <article key={compound.id} className='ds-card-lg flex h-full flex-col'>
             <h2 className='text-xl font-semibold'>{compound.name}</h2>
             <p className='mt-2 flex-1 text-sm text-white/80'>
-              {compound.effects[0] || compound.description || 'Mechanism and effects under review.'}
+              {compound.effects.slice(0, 2).join(' · ') ||
+                compound.description ||
+                'Mechanism and effects under review.'}
             </p>
-            <p className='mt-3 text-xs text-white/65'>{compound.herbs.length} herbs listed</p>
+            <p className='mt-3 text-xs text-white/75'>{compound.herbs.length} herbs listed</p>
             <Link to={`/compounds/${compound.slug}`} className='btn-primary mt-4 w-fit'>
               View details
             </Link>

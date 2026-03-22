@@ -9,6 +9,7 @@ const CANDIDATE_DIRS = [
   '/home/oai/share',
   '/mnt/data',
   '/tmp',
+  path.join(root, 'public', 'data'),
   root,
 ]
 

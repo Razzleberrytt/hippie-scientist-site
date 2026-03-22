@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
+import { slugify } from '@/lib/slug'
 import type { Herb } from '@/types'
 
 let herbsPromise: Promise<Herb[]> | null = null
 
-function toList<T>(value: unknown): T[] {
-  return Array.isArray(value) ? (value as T[]) : []
-}
-
-function splitText(value: unknown): string[] {
+function toList(value: unknown): string[] {
   if (Array.isArray(value)) return value.map(v => String(v).trim()).filter(Boolean)
   if (typeof value === 'string') {
     return value
@@ -19,19 +16,26 @@ function splitText(value: unknown): string[] {
 }
 
 function normalizeHerbRow(raw: Record<string, unknown>): Herb {
-  const slug = String(raw.slug || raw.id || raw.commonName || raw.name || '')
+  const common = String(raw.common || raw.commonName || raw.name || '').trim()
+  const scientific = String(
+    raw.scientific || raw.latin || raw.latinName || raw.scientificName || ''
+  ).trim()
+  const slug = String(raw.slug || raw.id || slugify(common || scientific || ''))
     .trim()
     .toLowerCase()
-  const compounds = splitText(raw.activeCompounds ?? raw.compounds ?? raw.active_compounds)
+
+  const activeCompounds = toList(raw.activeCompounds ?? raw.active_compounds ?? raw.compounds)
 
   return {
     ...(raw as Herb),
     id: String(raw.id || slug),
     slug,
-    common: String(raw.common || raw.commonName || raw.name || '').trim(),
-    scientific: String(raw.scientific || raw.latinName || raw.scientificName || '').trim(),
+    name: common || scientific,
+    common,
+    scientific,
     description: String(raw.description || raw.summary || '').trim(),
     category: String(raw.class || raw.category || '').trim(),
+    class: String(raw.class || '').trim(),
     intensity: String(raw.intensity || '').trim(),
     region: String(raw.region || '').trim(),
     mechanism: String(raw.mechanism || raw.mechanismOfAction || '').trim(),
@@ -41,14 +45,32 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     therapeuticUses: Array.isArray(raw.therapeuticUses)
       ? (raw.therapeuticUses as string[]).join('; ')
       : String(raw.therapeuticUses || ''),
-    contraindications: splitText(raw.contraindications),
-    interactions: splitText(raw.interactions),
-    preparations: splitText(raw.preparation ?? raw.preparations),
-    sideeffects: splitText(raw.sideEffects ?? raw.sideeffects),
-    compounds,
-    active_compounds: compounds,
-    tags: toList<string>(raw.tags),
-    sources: splitText(raw.sources),
+    contraindications: toList(raw.contraindications),
+    interactions: toList(raw.interactions),
+    dosage: Array.isArray(raw.dosage)
+      ? (raw.dosage as string[]).join('; ')
+      : String(raw.dosage || ''),
+    duration: String(raw.duration || '').trim(),
+    preparation: Array.isArray(raw.preparation)
+      ? (raw.preparation as string[]).join('; ')
+      : String(raw.preparation || ''),
+    sideeffects: toList(raw.sideEffects ?? raw.sideeffects),
+    activeCompounds,
+    compounds: activeCompounds,
+    active_compounds: activeCompounds,
+    legalStatus: String(raw.legalStatus || raw.legalstatus || '').trim(),
+    sources: Array.isArray(raw.sources)
+      ? (raw.sources as unknown[])
+          .map(source => {
+            if (typeof source === 'string') return source
+            if (source && typeof source === 'object') {
+              const entry = source as Record<string, unknown>
+              return String(entry.title || entry.url || '').trim()
+            }
+            return ''
+          })
+          .filter(Boolean)
+      : toList(raw.sources),
   }
 }
 

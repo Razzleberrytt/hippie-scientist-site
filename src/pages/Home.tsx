@@ -9,13 +9,7 @@ import { loadHerbData } from '@/lib/herb-data'
 import { decorateHerbs } from '@/lib/herbs'
 import { decorateCompounds } from '@/lib/compounds'
 import { getCommonName } from '@/lib/herbName'
-import {
-  getTopClickedCompounds,
-  getTopSearches,
-  getTopViewedHerbs,
-  useRecentlyViewed,
-  useSavedItems,
-} from '@/lib/growth'
+import { useRecentlyViewed, useSavedItems } from '@/lib/growth'
 import { futureProducts } from '@/lib/products'
 import { CTA } from '@/lib/cta'
 import { buildHerbViralHooks } from '@/lib/viralContent'
@@ -49,9 +43,6 @@ export default function Home() {
   const [featured, setFeatured] = useState<FeaturedItem[]>([])
   const { items } = useSavedItems()
   const recent = useRecentlyViewed()
-  const [topViewed, setTopViewed] = useState<Array<{ slug: string; count: number }>>([])
-  const [topCompounds, setTopCompounds] = useState<Array<{ slug: string; count: number }>>([])
-  const [topSearches, setTopSearches] = useState<Array<{ value: string; count: number }>>([])
   const dailyDiscovery = getDailyDiscoverySnippet()
 
   useEffect(() => {
@@ -96,10 +87,6 @@ export default function Home() {
         setFeatured(shuffle([...herbPicks, ...compoundPicks]).slice(0, 5))
       })
       .catch(() => alive && setFeatured([]))
-
-    setTopViewed(getTopViewedHerbs(3))
-    setTopCompounds(getTopClickedCompounds(3))
-    setTopSearches(getTopSearches(4))
 
     return () => {
       alive = false
@@ -265,66 +252,25 @@ export default function Home() {
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-            Trending now
+          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/70'>
+            Curated picks
+          </p>
+          <p className='text-sm text-white/80'>
+            Hand-picked profiles from the refreshed herb and compound datasets.
           </p>
           <div className='grid gap-3 sm:grid-cols-3'>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Most viewed herbs</h3>
-              <ul className='mt-2 text-xs text-white/70'>
-                {topViewed.length
-                  ? topViewed.map(item => (
-                      <li key={item.slug}>
-                        <Link to={`/herbs/${item.slug}`} className='hover:text-emerald-200'>
-                          {item.slug}
-                        </Link>
-                      </li>
-                    ))
-                  : featured
-                      .filter(item => item.kind === 'herb')
-                      .slice(0, 3)
-                      .map(item => (
-                        <li key={item.slug}>
-                          <Link to={`/herbs/${item.slug}`} className='hover:text-emerald-200'>
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-              </ul>
-            </article>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Most clicked compounds</h3>
-              <ul className='mt-2 text-xs text-white/70'>
-                {topCompounds.length
-                  ? topCompounds.map(item => (
-                      <li key={item.slug}>
-                        <Link to={`/compounds/${item.slug}`} className='hover:text-emerald-200'>
-                          {item.slug}
-                        </Link>
-                      </li>
-                    ))
-                  : featured
-                      .filter(item => item.kind === 'compound')
-                      .slice(0, 3)
-                      .map(item => (
-                        <li key={item.slug}>
-                          <Link to={`/compounds/${item.slug}`} className='hover:text-emerald-200'>
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-              </ul>
-            </article>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Top searches</h3>
-              <ul className='mt-2 text-xs text-white/70'>
-                {topSearches.length ? (
-                  topSearches.map(item => <li key={item.value}>{item.value}</li>)
-                ) : (
-                  <li>No data yet</li>
-                )}
-              </ul>
-            </article>
+            {featured.slice(0, 3).map(item => (
+              <article key={`curated-${item.kind}-${item.slug}`} className='ds-card p-4'>
+                <h3 className='text-sm font-semibold text-white'>{item.name}</h3>
+                <p className='mt-2 line-clamp-3 text-xs text-white/80'>{item.blurb}</p>
+                <Link
+                  to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
+                  className='mt-3 inline-flex text-xs text-emerald-200 hover:text-emerald-100'
+                >
+                  View details →
+                </Link>
+              </article>
+            ))}
           </div>
         </div>
       </section>
