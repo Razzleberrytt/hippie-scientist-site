@@ -6,6 +6,11 @@ import { cleanLine, hasVal, titleCase } from '../lib/pretty'
 import { chipClassFor } from '../lib/tags'
 import { slugify } from '../lib/slug'
 import { buildCardSummary, sanitizeSurfaceText } from '@/lib/summary'
+import {
+  computeConfidenceLevel,
+  confidenceBadgeClass,
+  extractPrimaryEffects,
+} from '@/lib/dataTrust'
 import './HerbCard.css'
 
 interface HerbCardProps {
@@ -42,6 +47,12 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   const benefits = sanitizeSurfaceText(
     cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit)
   )
+  const confidence = computeConfidenceLevel({
+    mechanism: herb.mechanism || herb.mechanismofaction || herb.mechanismOfAction,
+    effects: herb.effects,
+    compounds: herb.compounds || herb.active_compounds,
+  })
+  const primaryEffects = extractPrimaryEffects(herb.effects, compact ? 2 : 3)
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : []
   const tagLimit = compact ? 3 : 6
@@ -131,6 +142,9 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
                 </span>
               )}
               {hasVal(benefits) && <span className='pill text-[12px]'>{benefits}</span>}
+              <span className={`pill border text-[12px] ${confidenceBadgeClass(confidence)}`}>
+                Confidence: {confidence}
+              </span>
             </div>
           </header>
 
@@ -143,6 +157,20 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
             {showLegal && (
               <p className='small text-white/60'>
                 <span className='text-white/75'>Legal:</span> {cleanLine(herb.legalstatus)}
+              </p>
+            )}
+            {primaryEffects.length > 0 && (
+              <div className='cluster'>
+                {primaryEffects.map(effect => (
+                  <span key={effect} className='pill bg-violet-500/15 text-[12px] text-violet-100'>
+                    {effect}
+                  </span>
+                ))}
+              </div>
+            )}
+            {confidence === 'Low' && (
+              <p className='small rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-amber-100'>
+                Data incomplete: key evidence fields are still missing.
               </p>
             )}
             {tags.length > 0 && (

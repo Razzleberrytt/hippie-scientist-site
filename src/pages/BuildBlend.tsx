@@ -61,6 +61,7 @@ const PRESETS: Record<string, string[]> = {
 type GoalKey = 'calm' | 'focus' | 'sleep'
 type TimeOfDay = 'morning' | 'afternoon' | 'evening'
 type IntensityPreference = 'gentle' | 'balanced' | 'stronger'
+type BlendMode = 'guided' | 'manual'
 
 type QuizHistoryEntry = {
   goal: GoalKey
@@ -201,6 +202,7 @@ export default function BuildBlend() {
   const [activePreset, setActivePreset] = useState<string | null>(null)
   const [copyState, setCopyState] = useState<'idle' | 'copied'>('idle')
   const [selectedGoal, setSelectedGoal] = useState<GoalKey | null>(null)
+  const [blendMode, setBlendMode] = useState<BlendMode>('guided')
   const [quizGoal, setQuizGoal] = useState<GoalKey | null>(null)
   const [quizTimeOfDay, setQuizTimeOfDay] = useState<TimeOfDay | null>(null)
   const [quizIntensity, setQuizIntensity] = useState<IntensityPreference | null>(null)
@@ -799,15 +801,24 @@ export default function BuildBlend() {
 
   const hasRecommendation = Boolean(selectedRecommendation)
   const hasCompletedQuiz = Boolean(quizGoal && quizTimeOfDay && quizIntensity)
-  const currentStep = !quizGoal
-    ? 1
-    : !hasCompletedQuiz
-      ? 2
-      : !hasRecommendation
-        ? 3
-        : isCustomizeOpen
-          ? 4
-          : 5
+  const currentStep =
+    blendMode === 'manual'
+      ? !quizGoal
+        ? 1
+        : !hasRecommendation
+          ? 3
+          : isCustomizeOpen
+            ? 4
+            : 5
+      : !quizGoal
+        ? 1
+        : !hasCompletedQuiz
+          ? 2
+          : !hasRecommendation
+            ? 3
+            : isCustomizeOpen
+              ? 4
+              : 5
   const currentStepLabel =
     currentStep === 1
       ? 'Choose Your Goal'
@@ -835,15 +846,41 @@ export default function BuildBlend() {
       </header>
 
       <section className='border-white/12 from-brand-lime/10 via-panel to-brand-lime/5 space-y-6 rounded-3xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.04),0_12px_24px_-20px_rgba(163,230,53,0.55)] sm:p-7'>
+        <div className='border-border bg-panel/50 inline-flex rounded-full border p-1 text-xs'>
+          <button
+            onClick={() => setBlendMode('guided')}
+            className={`rounded-full px-3 py-1.5 transition ${
+              blendMode === 'guided'
+                ? 'bg-brand-lime/20 text-text'
+                : 'text-sub hover:text-text hover:bg-white/10'
+            }`}
+          >
+            Guided mode
+          </button>
+          <button
+            onClick={() => setBlendMode('manual')}
+            className={`rounded-full px-3 py-1.5 transition ${
+              blendMode === 'manual'
+                ? 'bg-brand-lime/20 text-text'
+                : 'text-sub hover:text-text hover:bg-white/10'
+            }`}
+          >
+            Manual mode
+          </button>
+        </div>
         <div className='space-y-2'>
           <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>
-            Step 1: Choose Your Goal
+            {blendMode === 'guided' ? 'Step 1: Choose Your Goal' : 'Quick Start: Pick a Goal'}
           </p>
           <h2 className='text-text text-xl font-semibold sm:text-2xl'>
-            Let’s build your first blend
+            {blendMode === 'guided'
+              ? 'Let’s build your first blend'
+              : 'Build manually with a goal anchor'}
           </h2>
           <p className='text-sub max-w-2xl text-sm sm:text-base'>
-            Answer a few quick questions and we’ll suggest a simple starting blend.
+            {blendMode === 'guided'
+              ? 'Answer a few quick questions and we’ll suggest a simple starting blend.'
+              : 'Select a goal to prefill starter herbs, then customize ratios and ingredients.'}
           </p>
         </div>
 
@@ -853,7 +890,16 @@ export default function BuildBlend() {
             {(['calm', 'focus', 'sleep'] as GoalKey[]).map(goal => (
               <button
                 key={goal}
-                onClick={() => setQuizGoal(goal)}
+                onClick={() => {
+                  setQuizGoal(goal)
+                  if (blendMode === 'manual') {
+                    const recommendation = GOAL_RECOMMENDATIONS.find(entry => entry.key === goal)
+                    if (recommendation) {
+                      applyGoalRecommendation(recommendation)
+                      setIsCustomizeOpen(true)
+                    }
+                  }
+                }}
                 className={`min-h-10 rounded-xl border px-3.5 py-2.5 text-left text-sm capitalize transition duration-200 ${
                   quizGoal === goal
                     ? 'border-brand-lime/70 bg-brand-lime/20 text-text scale-[1.01] shadow-[0_0_16px_-12px_rgba(163,230,53,0.9)]'
@@ -867,7 +913,7 @@ export default function BuildBlend() {
         </Card>
       </section>
 
-      {quizGoal && (
+      {blendMode === 'guided' && quizGoal && (
         <section ref={stepTwoRef} className='scroll-mt-24 space-y-5'>
           <div className='space-y-1'>
             <p className='text-brand-lime text-xs font-semibold uppercase tracking-[0.24em]'>

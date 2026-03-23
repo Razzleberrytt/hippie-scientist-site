@@ -38,7 +38,7 @@ export default function Hero() {
                 viewport={{ once: true }}
                 className='text-xs font-semibold uppercase tracking-[0.24em] text-white/65'
               >
-                Evidence-aware botanical research notebook
+                Clarity-first herbal intelligence
               </motion.p>
               <motion.h1
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -51,7 +51,7 @@ export default function Hero() {
                 }
                 className='text-[2.05rem] font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl'
               >
-                Botanical mechanisms, safety context, and practical research notes
+                Understand what a herb does, how confident the data is, and what safety gaps remain
               </motion.h1>
               <motion.p
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -64,8 +64,8 @@ export default function Hero() {
                 }
                 className='max-w-2xl text-[0.98rem] leading-[1.72] text-white/80 sm:text-lg'
               >
-                Compare herbs and compounds, review traditional use alongside modern findings, and
-                map safety constraints before trying a blend.
+                Compare mechanisms, primary effects, and contraindications in one place—then build
+                goal-based blends with clearer evidence signals.
               </motion.p>
             </div>
 
