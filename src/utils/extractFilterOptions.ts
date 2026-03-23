@@ -1,15 +1,15 @@
 import type { Herb } from '@/types'
 import type { CompoundRecord } from '@/lib/compound-data'
 import { normalizeText } from './normalizeText'
+import { asStringArray } from './asStringArray'
+import { isNonEmptyString } from './isNonEmptyString'
 
 const IGNORED_EFFECT_TAGS = new Set(['psychoactive', 'effects', 'herb', 'compound'])
 
 function splitList(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value.map(item => String(item).trim()).filter(Boolean)
-  }
-
-  return String(value || '')
+  if (Array.isArray(value)) return asStringArray(value)
+  if (!isNonEmptyString(value)) return []
+  return value
     .split(/[\n;,|]/)
     .map(item => item.trim())
     .filter(Boolean)
