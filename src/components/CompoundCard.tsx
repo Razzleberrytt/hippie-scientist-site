@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import type { CompoundEntry } from '../data/compounds/compounds'
 import TagBadge from './TagBadge'
+import { buildCardSummary } from '@/lib/summary'
 
 interface HerbRef {
   name: string
@@ -15,19 +16,26 @@ export interface CompoundWithRefs extends CompoundEntry {
 }
 
 export default function CompoundCard({ compound }: { compound: CompoundWithRefs }) {
+  const summary = buildCardSummary({
+    effects: compound.mechanismOfAction,
+    mechanism: compound.mechanismOfAction,
+    description: compound.description,
+    activeCompounds: compound.herbsFound.map(h => h.name),
+    maxLen: 170,
+  })
+
   return (
     <motion.article
       whileHover={{ scale: 1.03 }}
       title={compound.herbsFound.map(h => h.name).join(', ')}
       className='glassmorphic-card hover-glow flex flex-col rounded-lg border border-emerald-600/40 p-4 text-left'
     >
-      <h2 className='mb-1 text-lg font-bold text-emerald-300 drop-shadow-glow'>{compound.name}</h2>
+      <h2 className='drop-shadow-glow mb-1 text-lg font-bold text-emerald-300'>{compound.name}</h2>
       <div className='mb-2 flex flex-wrap gap-2'>
         <TagBadge label={compound.type} />
         {compound.effectClass && <TagBadge label={compound.effectClass} variant='blue' />}
       </div>
-      <p className='mb-2 text-sm text-sand'>{compound.description}</p>
-      <p className='mb-2 text-sm text-sand'>{compound.mechanismOfAction}</p>
+      <p className='text-sand mb-2 text-sm'>{summary}</p>
       <div className='mt-auto flex flex-wrap gap-1'>
         {compound.herbsFound.map(h =>
           h.slug ? (

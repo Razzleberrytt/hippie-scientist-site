@@ -16,20 +16,27 @@ export default function Contribute() {
         <p className='text-xs font-semibold uppercase tracking-[0.24em] text-emerald-200/80'>
           Community contributions
         </p>
-        <h1 className='text-3xl font-semibold'>Help us fill in missing data</h1>
+        <h1 className='text-3xl font-semibold'>Help improve research quality</h1>
         <p className='text-white/85'>
-          We welcome citations, corrections, and new herb/compound records. Every submission is
+          The project is research-first and harm-reduction oriented. We welcome citations,
+          corrections, and high-signal updates to herb and compound records. Every submission is
           reviewed before publishing.
         </p>
       </header>
 
       <section className='ds-card-lg space-y-3'>
-        <h2 className='text-xl font-semibold'>How to submit</h2>
+        <h2 className='text-xl font-semibold'>How to submit useful corrections</h2>
         <ol className='list-decimal space-y-2 pl-5 text-white/85'>
-          <li>Open the evidence update issue template.</li>
-          <li>Include the herb or compound name, what is missing, and your source links.</li>
           <li>
-            Prefer peer-reviewed studies, pharmacopeias, or clearly cited clinical references.
+            Open the evidence update issue template and identify the specific herb or compound page.
+          </li>
+          <li>
+            Describe what should change (mechanism, contraindication, interaction, class, active
+            compounds, or source metadata).
+          </li>
+          <li>
+            Include exact citation details (title, link/DOI, date, and why the source supports your
+            correction).
           </li>
         </ol>
         <a href={ISSUE_TEMPLATE_URL} target='_blank' rel='noreferrer' className='btn-primary w-fit'>
@@ -38,11 +45,15 @@ export default function Contribute() {
       </section>
 
       <section className='ds-card-lg space-y-3'>
-        <h2 className='text-xl font-semibold'>What is most helpful</h2>
+        <h2 className='text-xl font-semibold'>Preferred citations and contribution quality</h2>
         <ul className='list-disc space-y-1 pl-5 text-white/85'>
-          <li>Clear mechanism language tied to a source.</li>
-          <li>Contraindications and interaction details with dosing context.</li>
-          <li>Corrections to taxonomy, legal status, or region metadata.</li>
+          <li>Peer-reviewed human or preclinical studies with DOI/PMID links.</li>
+          <li>Authoritative monographs (pharmacopeias, WHO, EMA, NCCIH, textbook references).</li>
+          <li>
+            Safety-critical edits: contraindications, interactions, adverse effect notes, and
+            uncertainty boundaries.
+          </li>
+          <li>Taxonomy, synonym, and region corrections with primary botany references.</li>
         </ul>
       </section>
     </main>

@@ -88,11 +88,27 @@ export default function HerbDetail() {
   const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
   const lastUpdated = String((herb as any).lastUpdated || '').trim()
 
-  const missingContributionFields = pickNonEmptyKeys(
-    { className, activeCompounds, therapeuticUses, contraindications, interactions },
-    ['className', 'activeCompounds', 'therapeuticUses', 'contraindications', 'interactions']
+  const presentContributionFields = pickNonEmptyKeys(
+    {
+      className,
+      activeCompounds,
+      mechanism,
+      therapeuticUses,
+      contraindications,
+      interactions,
+      sources,
+    },
+    [
+      'className',
+      'activeCompounds',
+      'mechanism',
+      'therapeuticUses',
+      'contraindications',
+      'interactions',
+      'sources',
+    ]
   )
-  const shouldShowContributionCta = missingContributionFields.length < 5
+  const shouldShowContributionCta = presentContributionFields.length < 7
 
   const renderableKeys = pickNonEmptyKeys(
     {
@@ -242,16 +258,17 @@ export default function HerbDetail() {
 
         {shouldShowContributionCta && (
           <section className='mt-8 rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-4 text-sm text-cyan-50'>
-            <p className='font-semibold'>Help us fill in missing data</p>
+            <p className='font-semibold'>Help improve this entry</p>
             <p className='mt-2 text-cyan-100/90'>
-              This entry is still missing one or more core evidence fields.
+              Submit a source or correction to improve mechanism, safety, or reference quality for
+              this herb profile.
             </p>
             <div className='mt-3 flex flex-wrap gap-2'>
               <Link to='/contribute' className='btn-secondary'>
-                Contribution guide
+                Help improve this entry
               </Link>
               <a href={ISSUE_TEMPLATE_URL} target='_blank' rel='noreferrer' className='btn-primary'>
-                Open evidence issue
+                Submit a source or correction
               </a>
             </div>
           </section>

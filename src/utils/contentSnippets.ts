@@ -2,6 +2,7 @@ import herbsRaw from '@/data/herbs/herbs.normalized.json'
 import { decorateCompounds } from '@/lib/compounds'
 import { getCommonName } from '@/lib/herbName'
 import type { Herb } from '@/types'
+import { buildCardSummary } from '@/lib/summary'
 
 export type ContentSnippet = {
   kind: 'herb' | 'compound'
@@ -30,10 +31,14 @@ function buildHook(item: Herb, title: string, kind: 'herb' | 'compound') {
 }
 
 function buildExplanation(item: Herb, title: string, kind: 'herb' | 'compound') {
-  return compactText(
-    item.effectsSummary || item.description || item.effects,
-    `${title} is tracked in our database for ${kind === 'herb' ? 'botanical' : 'compound-level'} effects, mechanisms, and practical context.`
-  )
+  return buildCardSummary({
+    effects: item.effectsSummary || item.effects,
+    mechanism: item.mechanism || item.mechanismOfAction,
+    description: item.description,
+    activeCompounds: item.active_compounds || item.compounds,
+    fallback: `${title} is tracked in our database for ${kind === 'herb' ? 'botanical' : 'compound-level'} effects, mechanisms, and practical context.`,
+    maxLen: 155,
+  })
 }
 
 function buildSafety(item: Herb) {
