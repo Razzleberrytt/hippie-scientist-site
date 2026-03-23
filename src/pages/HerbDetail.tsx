@@ -43,9 +43,9 @@ function toSources(value: unknown): SourceRef[] {
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className='mt-6'>
-      <h2 className='text-lg font-semibold text-white'>{title}</h2>
-      <div className='mt-2 text-sm text-white/85'>{children}</div>
+    <section className='rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5'>
+      <h2 className='text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200'>{title}</h2>
+      <div className='mt-3 text-sm text-white/85'>{children}</div>
     </section>
   )
 }
@@ -157,6 +157,12 @@ export default function HerbDetail() {
   )
   const missingFieldCount = 6 - renderableKeys.length
   const isDataIncomplete = keyFields.length < 4
+  const missingImportantFields = [
+    !mechanism ? 'mechanism' : null,
+    effects.length === 0 ? 'effects' : null,
+    activeCompounds.length === 0 ? 'active compounds' : null,
+    contraindications.length === 0 ? 'contraindications' : null,
+  ].filter((field): field is string => Boolean(field))
   const sourceCount = sources.length
   const mechanismKnown = Boolean(mechanism)
 
@@ -221,7 +227,7 @@ export default function HerbDetail() {
         ← Back to herbs
       </Link>
 
-      <article className='ds-card-lg mt-4'>
+      <article className='ds-card-lg mt-4 space-y-4'>
         <div className='flex flex-wrap items-start justify-between gap-2'>
           <h1 className='text-3xl font-semibold'>{herb.common || herb.name}</h1>
         </div>
@@ -240,128 +246,140 @@ export default function HerbDetail() {
           .
         </p>
         {isDataIncomplete && (
-          <section className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
+          <section className='rounded-xl border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>
             <p className='font-semibold uppercase tracking-wide'>Data incomplete</p>
-            <p className='mt-1 text-amber-50/90'>
-              Key evidence fields are still missing for this profile. Treat this page as a draft
-              snapshot and cross-check sources before making decisions.
-            </p>
+            {missingImportantFields.length > 0 && (
+              <p className='mt-1 text-amber-50/90'>
+                Missing: {missingImportantFields.slice(0, 3).join(', ')}
+                {missingImportantFields.length > 3 ? ', and more' : ''}.
+              </p>
+            )}
           </section>
         )}
 
-        {description && <Section title='Description'>{description}</Section>}
-        {className && <Section title='Class'>{className}</Section>}
-        {intensity && <Section title='Intensity'>{intensity}</Section>}
-        {mechanism && <Section title='Mechanism'>{mechanism}</Section>}
+        <div className='grid gap-4'>
+          {description && <Section title='Description'>{description}</Section>}
+          {(className || intensity || mechanism) && (
+            <section className='grid gap-4 md:grid-cols-3'>
+              {className && <Section title='Class'>{className}</Section>}
+              {intensity && <Section title='Intensity'>{intensity}</Section>}
+              {mechanism && <Section title='Mechanism'>{mechanism}</Section>}
+            </section>
+          )}
 
-        {activeCompounds.length > 0 && (
-          <Section title='Active Compounds'>
-            <div className='flex flex-wrap gap-2'>
-              {activeCompounds.map(compound => (
-                <span key={compound} className='ds-pill'>
-                  {compound}
-                </span>
-              ))}
-            </div>
-          </Section>
-        )}
+          {activeCompounds.length > 0 && (
+            <Section title='Active Compounds'>
+              <div className='flex flex-wrap gap-2'>
+                {activeCompounds.map(compound => (
+                  <span key={compound} className='ds-pill'>
+                    {compound}
+                  </span>
+                ))}
+              </div>
+            </Section>
+          )}
 
-        {primaryEffects.length > 0 && (
-          <Section title='Primary Effects'>
-            <div className='flex flex-wrap gap-2'>
-              {primaryEffects.map(effect => (
-                <span
-                  key={effect}
-                  className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
-                >
-                  {effect}
-                </span>
-              ))}
-            </div>
-          </Section>
-        )}
+          {primaryEffects.length > 0 && (
+            <Section title='Primary Effects'>
+              <div className='flex flex-wrap gap-2'>
+                {primaryEffects.map(effect => (
+                  <span
+                    key={effect}
+                    className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+                  >
+                    {effect}
+                  </span>
+                ))}
+              </div>
+            </Section>
+          )}
 
-        {effects.length > 0 && (
-          <Section title='Effects'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {effects.map(effect => (
-                <li key={effect}>{effect}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
+          {effects.length > 0 && (
+            <Section title='Effects'>
+              <ul className='list-disc space-y-1 pl-5'>
+                {effects.map(effect => (
+                  <li key={effect}>{effect}</li>
+                ))}
+              </ul>
+            </Section>
+          )}
 
-        {therapeuticUses.length > 0 && (
-          <Section title='Therapeutic Uses'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {therapeuticUses.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
+          {therapeuticUses.length > 0 && (
+            <Section title='Therapeutic Uses'>
+              <ul className='list-disc space-y-1 pl-5'>
+                {therapeuticUses.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </Section>
+          )}
 
-        {contraindications.length > 0 && (
-          <Section title='Contraindications'>
-            <ul className='space-y-2'>
-              {contraindications.map(item => (
-                <li
-                  key={item}
-                  className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
-                >
-                  ⚠ {item}
-                </li>
-              ))}
-            </ul>
-          </Section>
-        )}
+          {contraindications.length > 0 && (
+            <Section title='Contraindications'>
+              <ul className='space-y-2'>
+                {contraindications.map(item => (
+                  <li
+                    key={item}
+                    className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
+                  >
+                    ⚠ {item}
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
 
-        {interactions.length > 0 && (
-          <Section title='Interactions'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {interactions.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
+          {interactions.length > 0 && (
+            <Section title='Interactions'>
+              <ul className='list-disc space-y-1 pl-5'>
+                {interactions.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </Section>
+          )}
 
-        {dosage.length > 0 && <Section title='Dosage'>{dosage.join('; ')}</Section>}
-        {duration && <Section title='Duration'>{duration}</Section>}
-        {region && <Section title='Region'>{region}</Section>}
-        {preparation && <Section title='Preparation'>{preparation}</Section>}
-        {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
+          {(dosage.length > 0 || duration || region || preparation || legalStatus) && (
+            <section className='grid gap-4 sm:grid-cols-2'>
+              {dosage.length > 0 && <Section title='Dosage'>{dosage.join('; ')}</Section>}
+              {duration && <Section title='Duration'>{duration}</Section>}
+              {region && <Section title='Region'>{region}</Section>}
+              {preparation && <Section title='Preparation'>{preparation}</Section>}
+              {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
+            </section>
+          )}
 
-        {sideEffects.length > 0 && (
-          <Section title='Side Effects'>
-            <ul className='list-disc space-y-1 pl-5'>
-              {sideEffects.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </Section>
-        )}
+          {sideEffects.length > 0 && (
+            <Section title='Side Effects'>
+              <ul className='list-disc space-y-1 pl-5'>
+                {sideEffects.map(item => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </Section>
+          )}
 
-        {sources.length > 0 && (
-          <Section title='Sources'>
-            <ol className='list-decimal space-y-1 pl-5'>
-              {sources.map((source, index) => (
-                <li key={`${source.url}-${index}`}>
-                  {/^https?:\/\//i.test(source.url) ? (
-                    <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-                      {source.title}
-                    </a>
-                  ) : (
-                    source.title
-                  )}
-                  {source.note && <span className='ml-2 text-white/70'>— {source.note}</span>}
-                </li>
-              ))}
-            </ol>
-          </Section>
-        )}
+          {sources.length > 0 && (
+            <Section title='Sources'>
+              <ol className='list-decimal space-y-1 pl-5'>
+                {sources.map((source, index) => (
+                  <li key={`${source.url}-${index}`}>
+                    {/^https?:\/\//i.test(source.url) ? (
+                      <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+                        {source.title}
+                      </a>
+                    ) : (
+                      source.title
+                    )}
+                    {source.note && <span className='ml-2 text-white/70'>— {source.note}</span>}
+                  </li>
+                ))}
+              </ol>
+            </Section>
+          )}
 
-        {lastUpdated && <Section title='Last Updated'>{lastUpdated}</Section>}
+          {lastUpdated && <Section title='Last Updated'>{lastUpdated}</Section>}
+        </div>
 
         {shouldShowContributionCta && (
           <section className='mt-8 rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-4 text-sm text-cyan-50'>

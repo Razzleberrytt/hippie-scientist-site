@@ -23,14 +23,19 @@ function isConfidenceLevel(value: string): value is ConfidenceLevel {
 }
 
 function HerbMiniCard({ herb }: { herb: Herb }) {
-  const effects = getHerbEffects(herb).slice(0, 4)
+  const effects = getHerbEffects(herb).slice(0, 3)
+  const confidence = getHerbConfidence(herb)
 
   return (
-    <Card className='rounded-2xl p-4 transition-all duration-300 hover:shadow-[0_0_24px_rgba(56,189,248,0.2)]'>
-      <div className='space-y-3'>
-        <div>
-          <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>Herb</p>
-          <h4 className='text-lg font-semibold text-white'>{herbDisplayName(herb)}</h4>
+    <Card className='rounded-2xl border border-white/10 p-4 transition-all duration-300 hover:shadow-[0_0_24px_rgba(56,189,248,0.2)]'>
+      <div className='space-y-2.5'>
+        <div className='flex items-start justify-between gap-3'>
+          <h4 className='line-clamp-2 text-base font-semibold text-white'>
+            {herbDisplayName(herb)}
+          </h4>
+          <span className='rounded-full border border-cyan-300/30 bg-cyan-500/15 px-2 py-0.5 text-[11px] uppercase tracking-wide text-cyan-100'>
+            {confidence}
+          </span>
         </div>
         <div className='flex flex-wrap gap-2'>
           {effects.length ? (
@@ -40,7 +45,7 @@ function HerbMiniCard({ herb }: { herb: Herb }) {
               </Badge>
             ))
           ) : (
-            <Badge className='bg-slate-800/70 text-slate-100'>No effect tags</Badge>
+            <p className='text-xs text-slate-400'>No effect tags available.</p>
           )}
         </div>
       </div>
@@ -76,6 +81,10 @@ export default function BuildBlend() {
 
   const beginnerPsychedelicWarning =
     selectedGoal?.id === 'introspection' && experienceLevel === 'beginner'
+  const lowConfidenceCount = result
+    ? [result.primary, ...result.supporting].filter(herb => getHerbConfidence(herb) === 'low')
+        .length
+    : 0
 
   const buildRecommendationFromState = (
     state: BlendState,
@@ -203,7 +212,7 @@ export default function BuildBlend() {
         description='Generate, restore, and share deterministic herbal blends for your goal.'
         path='/build'
       />
-      <header className='space-y-3'>
+      <header className='space-y-2'>
         <p className='text-xs uppercase tracking-[0.25em] text-cyan-300'>Build</p>
         <h1 className='text-3xl font-bold text-white sm:text-4xl'>
           Smart Guided Blend Recommender
@@ -314,16 +323,24 @@ export default function BuildBlend() {
         <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>Step 4 · Results</p>
 
         {!result ? (
-          <Card className='rounded-2xl p-6 text-sm text-slate-300'>
-            Generate a blend to see the primary herb, support stack, and reasoning.
+          <Card className='rounded-2xl border border-white/10 p-6 text-sm text-slate-300'>
+            Generate a blend to see a polished recommendation with primary herb, supporting stack,
+            and reasoning.
           </Card>
         ) : (
           <div className='space-y-4 transition-all duration-300'>
             <Card className='rounded-2xl border border-cyan-400/30 p-6 shadow-[0_0_30px_rgba(34,211,238,0.18)]'>
-              <p className='text-xs uppercase tracking-[0.24em] text-cyan-300'>Primary Herb</p>
-              <h2 className='mt-2 text-2xl font-bold text-cyan-50'>
-                {herbDisplayName(result.primary)}
-              </h2>
+              <div className='flex flex-wrap items-start justify-between gap-3'>
+                <div>
+                  <p className='text-xs uppercase tracking-[0.24em] text-cyan-300'>Primary Herb</p>
+                  <h2 className='mt-2 text-2xl font-bold text-cyan-50'>
+                    {herbDisplayName(result.primary)}
+                  </h2>
+                </div>
+                <span className='rounded-full border border-cyan-200/35 bg-cyan-500/20 px-2.5 py-1 text-[11px] uppercase tracking-wide text-cyan-100'>
+                  {getHerbConfidence(result.primary)} confidence
+                </span>
+              </div>
               <div className='mt-4 flex flex-wrap gap-2'>
                 {getHerbEffects(result.primary)
                   .slice(0, 6)
@@ -332,6 +349,9 @@ export default function BuildBlend() {
                       {effect}
                     </Badge>
                   ))}
+                {getHerbEffects(result.primary).length === 0 && (
+                  <p className='text-xs text-cyan-100/75'>Primary herb has no effect tags yet.</p>
+                )}
               </div>
             </Card>
 
@@ -341,7 +361,7 @@ export default function BuildBlend() {
               ))}
             </div>
 
-            <Card className='rounded-2xl p-5'>
+            <Card className='rounded-2xl border border-white/10 p-5'>
               <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>Reasoning</p>
               <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-200'>
                 {result.reasoning.map(line => (
@@ -350,9 +370,13 @@ export default function BuildBlend() {
               </ul>
             </Card>
 
-            {result.usedLowConfidenceData ? (
+            {result.usedLowConfidenceData || lowConfidenceCount >= 2 ? (
               <Card className='rounded-2xl border border-amber-400/40 bg-amber-500/10 p-4 text-sm text-amber-100'>
-                Data limited: one or more selected herbs are supported by low-confidence data.
+                Recommendation confidence is limited.{' '}
+                {lowConfidenceCount > 0
+                  ? `${lowConfidenceCount} selected herb${lowConfidenceCount > 1 ? 's are' : ' is'} currently low confidence.`
+                  : 'One or more selected herbs are supported by low-confidence data.'}{' '}
+                Use this as a draft stack and verify safety references before use.
               </Card>
             ) : null}
 
