@@ -8,7 +8,7 @@ const validHerb: Herb = {
   name: 'Test Herb',
   slug: 'test-herb',
   category: 'Test',
-  effects: ['Calm'],
+  effects: 'Calm',
   tags: [],
   legalStatus: 'Legal',
   affiliateLink: '',
@@ -18,7 +18,6 @@ const validHerb: Herb = {
 
 describe('HerbList', () => {
   it('renders fallback on invalid data', () => {
-    // @ts-expect-error
     render(<HerbList herbs={[{ id: 'x' } as any]} />)
     expect(screen.getByText(/error loading herb entries/i)).toBeInTheDocument()
   })
