@@ -3,16 +3,17 @@ import { computeConfidenceLevel } from '@/lib/dataTrust'
 import { normalizeText } from './normalizeText'
 import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
+import { asStringArray } from './asStringArray'
 
 function toList(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value.map(item => String(item).trim()).filter(Boolean)
+  if (Array.isArray(value)) return asStringArray(value)
+  if (typeof value === 'string') {
+    return value
+      .split(/[\n;,|]/)
+      .map(item => item.trim())
+      .filter(Boolean)
   }
-
-  return String(value || '')
-    .split(/[\n;,|]/)
-    .map(item => item.trim())
-    .filter(Boolean)
+  return []
 }
 
 function getConfidenceRank(level: string) {
