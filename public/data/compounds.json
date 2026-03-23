@@ -1466,8 +1466,21 @@
       "pregnancy"
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Bufotenine (CID 10257)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10257",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Psychedelic tryptamine",
+    "mechanism": "Serotonergic receptor agonism, notably at 5-HT2A/2C family targets.",
+    "therapeuticUses": [],
+    "interactions": ["Avoid with MAOIs and serotonergic drugs due to toxicity risk"],
+    "safetyNotes": [
+      "Human clinical therapeutic evidence is limited; non-medical use carries significant risk."
+    ]
   },
   {
     "name": "bulnesene",
@@ -1550,8 +1563,22 @@
       "stimulant sensitivity"
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Caffeine (CID 2519)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2519",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Methylxanthine stimulant",
+    "mechanism": "Nonselective adenosine receptor antagonism (A1/A2A) increasing CNS alertness.",
+    "therapeuticUses": [
+      "Adjunct in headache formulations; neonatal apnea treatment in specific medical products (as citrate)."
+    ],
+    "interactions": [
+      "Additive sympathomimetic effects with other stimulants; CYP1A2 inhibitors can raise caffeine exposure"
+    ]
   },
   {
     "name": "caffeine-like alkaloids",
@@ -1888,8 +1915,18 @@
     ],
     "contraindications": ["Psychosis", "schizophrenia", "pregnancy"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Cannabidiol (CID 644019)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/644019",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Phytocannabinoid",
+    "mechanism": "Multimodal signaling including low-affinity cannabinoid receptor modulation and effects at TRPV/5-HT1A-related pathways.",
+    "therapeuticUses": ["Active ingredient in approved epilepsy medicines for specific syndromes."],
+    "interactions": ["CYP2C19/CYP3A4 interactions; can increase levels of clobazam and other drugs"]
   },
   {
     "name": "cbn",
@@ -2615,8 +2652,20 @@
       "Not recommended for those with psychotic disorders or serotonin syndrome risk"
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Dimethyltryptamine (CID 6089)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6089",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Psychedelic tryptamine",
+    "mechanism": "Agonist activity at serotonin receptors including 5-HT2A; rapid metabolism by MAO-A.",
+    "therapeuticUses": ["Research compound in controlled psychedelic neuroscience settings."],
+    "interactions": [
+      "Oral exposure is dangerous with MAOIs due to marked potentiation; avoid serotonergic polypharmacy"
+    ]
   },
   {
     "name": "dmt (0.3–0.7%)",
@@ -3988,8 +4037,20 @@
       "psychiatric disorders"
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Harmine (CID 5280953)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280953",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Beta-carboline alkaloid",
+    "mechanism": "Reversible MAO-A inhibition; also reported interaction with serotonin and dopamine signaling pathways.",
+    "therapeuticUses": ["Investigational neuropsychiatric and anti-addiction research"],
+    "interactions": [
+      "MAOI interaction profile: avoid SSRIs/SNRIs, sympathomimetics, and tyramine-heavy combinations"
+    ]
   },
   {
     "name": "himandrine",
@@ -4209,8 +4270,22 @@
       "psychiatric disorders."
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Ibogaine (CID 197060)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/197060",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Psychoactive indole alkaloid",
+    "mechanism": "Multi-target actions including NMDA antagonism, kappa-opioid activity, and monoamine transporter effects.",
+    "therapeuticUses": [
+      "Investigational use for substance-use disorders under specialist monitoring only."
+    ],
+    "interactions": [
+      "Dangerous with QT-prolonging drugs, opioids, stimulants, and many antidepressants"
+    ]
   },
   {
     "name": "ibogaine-related alkaloids",
@@ -4264,8 +4339,19 @@
     ],
     "contraindications": ["Toxic if misused", "dangerous with alcohol or sedatives"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Ibotenic acid (CID 1110)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1110",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Isoxazole amino acid",
+    "mechanism": "Excitatory glutamate receptor agonism; partially decarboxylates to muscimol.",
+    "therapeuticUses": [],
+    "interactions": ["Neurotoxicity risk increases with other neuroactive/intoxicating substances"],
+    "safetyNotes": ["Toxicology-dominant evidence; no accepted therapeutic role."]
   },
   {
     "name": "indaconitine",
@@ -5400,8 +5486,20 @@
     ],
     "contraindications": ["mental illness", "pregnancy."],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Mescaline (CID 4076)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4076",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Psychedelic phenethylamine",
+    "mechanism": "Primarily 5-HT2A receptor agonism (with additional serotonergic activity).",
+    "therapeuticUses": [
+      "Investigational psychedelic-assisted psychotherapy (not approved standard care)."
+    ],
+    "interactions": ["Avoid with MAOIs and sympathomimetic stimulants due to hypertensive risk"]
   },
   {
     "name": "mesembrenol",
@@ -5770,8 +5868,23 @@
     ],
     "contraindications": ["Toxic if misused", "dangerous with alcohol or sedatives"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Muscimol (CID 4266)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4266",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Isoxazole neuroactive compound",
+    "mechanism": "Potent GABA_A receptor agonist producing sedative/dissociative effects.",
+    "therapeuticUses": [],
+    "interactions": [
+      "Additive CNS depression with alcohol, benzodiazepines, opioids, and sedative antihistamines"
+    ],
+    "safetyNotes": [
+      "No validated self-medication indication; dose variability in mushroom material increases poisoning risk."
+    ]
   },
   {
     "name": "myricetin",
@@ -8052,8 +8165,22 @@
     ],
     "contraindications": ["Psychosis", "schizophrenia", "pregnancy"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Delta-9-tetrahydrocannabinol (CID 16078)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16078",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Phytocannabinoid",
+    "mechanism": "Partial agonist at CB1 and CB2 receptors with central psychoactive effects via CB1.",
+    "therapeuticUses": [
+      "Component of approved cannabinoid medicines in select jurisdictions (e.g., spasticity, pain, antiemesis contexts)."
+    ],
+    "interactions": [
+      "Additive sedation with alcohol/CNS depressants; CYP-mediated interactions possible"
+    ]
   },
   {
     "name": "thebaine",
@@ -8859,8 +8986,20 @@
     "effects": ["Stimulation", "increased blood flow", "heightened alertness", "sexual arousal"],
     "contraindications": ["Heart disease", "anxiety", "hypertension", "psychiatric conditions"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Yohimbine (CID 8969)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8969",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
+    "class": "Indole alkaloid adrenergic antagonist",
+    "mechanism": "Alpha-2 adrenergic receptor antagonism with increased noradrenergic outflow.",
+    "therapeuticUses": [
+      "Historically prescribed for erectile dysfunction; now limited due to safety profile."
+    ],
+    "interactions": ["Dangerous with MAOIs, stimulants, and many psychiatric medications"]
   },
   {
     "name": "zapotin",
