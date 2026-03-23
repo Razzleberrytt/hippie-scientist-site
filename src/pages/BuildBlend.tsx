@@ -7,15 +7,14 @@ import Meta from '@/components/Meta'
 import { GOALS, type GoalDefinition } from '@/data/goals'
 import { useHerbData } from '@/lib/herb-data'
 import type { Herb } from '@/types'
-import type { BlendState } from '@/types/blend'
+import type { BlendFilters, BlendState } from '@/types/blend'
 import type { ConfidenceLevel } from '@/types/confidence'
 import { generateBlend, type BlendRecommendation } from '@/utils/generateBlend'
 import { deserializeBlend } from '@/utils/deserializeBlend'
 import { serializeBlend } from '@/utils/serializeBlend'
 import { getHerbConfidence, getHerbEffects, herbDisplayName } from '@/utils/herbSignals'
 
-type ExperienceLevel = 'beginner' | 'intermediate' | 'advanced'
-type ConfidenceFilter = 'all' | ConfidenceLevel
+type ConfidenceFilter = BlendFilters['confidence']
 const LAST_BLEND_KEY = 'ths:last-build-blend'
 
 function isConfidenceLevel(value: string): value is ConfidenceLevel {
@@ -53,7 +52,8 @@ export default function BuildBlend() {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const [selectedGoalId, setSelectedGoalId] = useState<string>(GOALS[0].id)
-  const [experienceLevel, setExperienceLevel] = useState<ExperienceLevel>('beginner')
+  const [experienceLevel, setExperienceLevel] =
+    useState<NonNullable<BlendFilters['experience']>>('beginner')
   const [confidenceFilter, setConfidenceFilter] = useState<ConfidenceFilter>('all')
   const [excludeInput, setExcludeInput] = useState('')
   const [result, setResult] = useState<BlendRecommendation | null>(null)
@@ -243,7 +243,9 @@ export default function BuildBlend() {
             </label>
             <select
               value={experienceLevel}
-              onChange={event => setExperienceLevel(event.target.value as ExperienceLevel)}
+              onChange={event =>
+                setExperienceLevel(event.target.value as NonNullable<BlendFilters['experience']>)
+              }
               className='w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 text-sm text-slate-100'
             >
               <option value='beginner'>Beginner</option>

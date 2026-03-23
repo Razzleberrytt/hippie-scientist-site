@@ -48,7 +48,7 @@ export function generateBlend(
 ): BlendRecommendation | null {
   const excluded = toSet(options.excludeHerbs ?? [])
 
-  const scored = herbs
+  const scored: ScoredHerb[] = herbs
     .filter(herb => !excluded.has(normalizeIdentity(herb)))
     .filter(herb => supportsExperienceLevel(herb, options.experience))
     .map(herb => {
