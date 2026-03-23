@@ -12,7 +12,7 @@ export default function CategoryFilter({ selected, onChange }: Props) {
   const counts = React.useMemo(() => {
     const c: Record<string, number> = {}
     herbs.forEach(h => {
-      const m = metaCategory(h.category)
+      const m = metaCategory(h.category ?? '')
       c[m] = (c[m] || 0) + 1
     })
     return c

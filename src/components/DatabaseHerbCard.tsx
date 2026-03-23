@@ -61,7 +61,12 @@ export default function DatabaseHerbCard({
           toArray((herb as any).category)[0]
         )
 
-  const summary = firstNonEmpty(herb.summary, herb.description, herb.effectsSummary, herb.effects)
+  const summary = firstNonEmpty(
+    typeof herb.summary === 'string' ? herb.summary : undefined,
+    typeof herb.description === 'string' ? herb.description : undefined,
+    typeof herb.effectsSummary === 'string' ? herb.effectsSummary : undefined,
+    typeof herb.effects === 'string' ? herb.effects : undefined
+  )
   const activeCompounds = toArray(
     (herb as any).activeCompounds ?? herb.active_compounds ?? herb.compounds
   ).slice(0, 2)
