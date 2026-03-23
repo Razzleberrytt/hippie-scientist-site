@@ -1897,10 +1897,10 @@
   {
     "name": "allium sativum",
     "latin": "allium sativum",
-    "class": null,
+    "class": "Cardiometabolic, antimicrobial herbal medicine",
     "intensity": "No direct intensity data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": ["Allicin (from alliin)", "Ajoene", "Diallyl sulfides", "S-allyl cysteine"],
     "effects": [
       "Antimicrobial",
       "hypotensive",
@@ -1912,7 +1912,10 @@
       "immune",
       "stimulating effects."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Hypersensitivity to garlic.",
+      "Concomitant saquinavir/ritonavir therapy (contraindicated in HMPC monograph)."
+    ],
     "safetyNotes": [
       "safe",
       "GI discomfort",
@@ -1932,17 +1935,28 @@
     ],
     "sources": [
       "{'title': 'Inferred from scientific name:'}",
-      "{'note': 'Inferred from scientific name:', 'url': ''}"
+      "{'note': 'Inferred from scientific name:', 'url': ''}",
+      {
+        "title": "EMA HMPC monograph: Allium sativum L., bulbus",
+        "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-allium-sativum-l-bulbus_en.pdf",
+        "type": "review"
+      }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-03-23",
     "description": "Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
     "dosage": ["300", "900 mg", "day extract or 1", "2 cloves"],
     "duration": "Daily use safe, long-term",
-    "interactions": [],
+    "interactions": [
+      "May increase bleeding risk with anticoagulants/antiplatelets.",
+      "May reduce saquinavir exposure; avoid with saquinavir/ritonavir."
+    ],
     "legalStatus": "Widely approved as food and supplement globally (GRAS).",
     "preparation": "Cloves consumed raw, cooked, or in capsules; also tinctured or oil extracted",
     "region": "No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional herbal medicinal product used as an adjuvant for prevention of atherosclerosis.",
+      "Traditional herbal medicinal product used for relief of common cold symptoms."
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": [
       "GI discomfort",
@@ -2130,10 +2144,10 @@
   {
     "name": "althaea officinalis",
     "latin": "althaea officinalis",
-    "class": null,
+    "class": "Demulcent herbal medicine",
     "intensity": "No direct intensity data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. No direct region data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": ["Mucilage polysaccharides", "Pectins", "Flavonoids"],
     "effects": [
       "Demulcent",
       "anti-inflammatory",
@@ -2141,7 +2155,7 @@
       "anti",
       "inflammatory"
     ],
-    "contraindications": [],
+    "contraindications": ["Hypersensitivity to marshmallow root."],
     "safetyNotes": [
       "Generally safe",
       "may delay absorption of other drugs if taken simultaneously",
@@ -2156,9 +2170,14 @@
     ],
     "sources": [
       "{'title': 'Inferred from scientific name:'}",
-      "{'note': 'Inferred from scientific name:', 'url': ''}"
+      "{'note': 'Inferred from scientific name:', 'url': ''}",
+      {
+        "title": "EMA HMPC monograph: Althaea officinalis L., radix",
+        "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/superseded-community-herbal-monograph-althaea-officinalis-l-radix_en.pdf",
+        "type": "review"
+      }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-03-23",
     "description": "Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
     "dosage": [
       "No direct dosage data. Contextual inference: Demulcent",
@@ -2174,11 +2193,16 @@
       "nan."
     ],
     "duration": "2–4 hours",
-    "interactions": [],
+    "interactions": [
+      "May delay absorption of concomitant oral medicines; separate administration times."
+    ],
     "legalStatus": "Legal in herbal medicine globally",
     "preparation": "Roots, leaves, and flowers infused or decocted; cold infusion common for demulcent properties",
     "region": "No direct region data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional herbal medicinal product for symptomatic relief of oral/pharyngeal irritation and associated dry cough.",
+      "Traditional use for mild gastrointestinal discomfort."
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": ["Generally safe", "may delay absorption of other drugs if taken simultaneously"]
   },
@@ -10161,12 +10185,17 @@
   {
     "name": "curcuma longa",
     "latin": "curcuma longa",
-    "class": null,
+    "class": "Anti-inflammatory digestive herbal medicine",
     "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. No direct region data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Curcuminoids (curcumin, demethoxycurcumin, bisdemethoxycurcumin)",
+      "Turmerones (volatile oils)"
+    ],
     "effects": ["Anti-inflammatory", "antioxidant", "liver protective", "Anti", "inflammatory"],
-    "contraindications": [],
+    "contraindications": [
+      "Biliary obstruction, cholangitis, liver disease, gallstones, or other biliary disease (per HMPC)."
+    ],
     "safetyNotes": [
       "safe",
       "High doses may cause GI upset",
@@ -10184,17 +10213,26 @@
     ],
     "sources": [
       "{'title': 'Inferred from scientific name:'}",
-      "{'note': 'Inferred from scientific name:', 'url': ''}"
+      "{'note': 'Inferred from scientific name:', 'url': ''}",
+      {
+        "title": "EMA HMPC monograph: Curcuma longa L., rhizoma (Revision monograph materials)",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal/curcumae-longae-rhizoma",
+        "type": "review"
+      }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-03-23",
     "description": "Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
     "dosage": ["500", "2000 mg", "day standardized extract"],
     "duration": "6–8 hours",
-    "interactions": [],
+    "interactions": [
+      "No well-documented interactions in HMPC monograph; use caution with anticoagulants due to bleeding case reports in literature."
+    ],
     "legalStatus": "Legal globally",
     "preparation": "Rhizome dried and powdered (turmeric); also decocted or extracted in oil or alcohol-based preparations",
     "region": "No direct region data. Contextual inference: Anti-inflammatory, antioxidant, liver protective. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antioxidant, liver protective. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional herbal medicinal product for dyspeptic complaints (e.g., fullness, slow digestion, flatulence)."
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": [
       "High doses may cause GI upset",
@@ -11693,17 +11731,21 @@
   {
     "name": "echinacea purpurea",
     "latin": "echinacea purpurea",
-    "class": null,
+    "class": "Immunomodulatory herbal medicine",
     "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Alkamides",
+      "Caffeic acid derivatives (including cichoric acid)",
+      "Polysaccharides"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": ["Hypersensitivity to echinacea or other Asteraceae plants."],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -11712,8 +11754,14 @@
       "nan. No direct effects data. Contextual inference:",
       "nan."
     ],
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "sources": [
+      {
+        "title": "EMA HMPC monograph: Echinacea purpurea herba recens",
+        "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-echinacea-purpurea-l-moench-herba-recens_en.pdf",
+        "type": "review"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
     "description": "; nan; nan.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
@@ -11724,11 +11772,14 @@
       "nan. No direct region data. Contextual inference:"
     ],
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": ["No interactions reported in HMPC monograph."],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Herbal medicinal product for short-term prevention and treatment of common cold.",
+      "Traditional cutaneous use for small superficial wounds."
+    ],
     "traditionalUse": "; nan; nan"
   },
   {
@@ -18980,12 +19031,20 @@
   {
     "name": "matricaria chamomilla",
     "latin": "matricaria chamomilla",
-    "class": null,
+    "class": "Demulcent anti-inflammatory, mild spasmolytic herbal medicine",
     "intensity": "No direct intensity data. Contextual inference: Calming, anti-inflammatory, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, anti-inflammatory, digestive support. No direct region data. Contextual inference: Calming, anti-inflammatory, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, anti-inflammatory, digestive support. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": [
+      "Apigenin glycosides",
+      "α-Bisabolol",
+      "Chamazulene (from matricin)",
+      "Flavonoids"
+    ],
     "effects": ["Calming", "anti-inflammatory", "digestive support", "anti", "inflammatory"],
-    "contraindications": [],
+    "contraindications": [
+      "Hypersensitivity to chamomile or other Asteraceae plants.",
+      "Full-bath preparations contraindicated in large skin injuries, acute severe illness, severe circulatory/cardiac insufficiency."
+    ],
     "safetyNotes": [
       "safe",
       "Allergic reactions",
@@ -19001,17 +19060,29 @@
     ],
     "sources": [
       "{'title': 'Inferred from scientific name:'}",
-      "{'note': 'Inferred from scientific name:', 'url': ''}"
+      "{'note': 'Inferred from scientific name:', 'url': ''}",
+      {
+        "title": "EMA HMPC monograph: Matricaria recutita L., flos",
+        "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-matricaria-recutita-l-flos-first-version_en.pdf",
+        "type": "review"
+      }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-03-23",
     "description": "Calming, anti-inflammatory, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
     "dosage": ["1", "3 g", "day infusion or 250", "500 mg extract"],
     "duration": "2–6 hours",
-    "interactions": [],
+    "interactions": [
+      "Oral high-dose prolonged use has reported CYP450-based interactions in transplant patients.",
+      "No interactions reported for cutaneous/oromucosal/inhalation use."
+    ],
     "legalStatus": "Legal and widely used in herbal teas",
     "preparation": "Flowers dried and infused for tea or tincture; widely used for calming and digestive support",
     "region": "No direct region data. Contextual inference: Calming, anti-inflammatory, digestive support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Calming, anti-inflammatory, digestive support. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional use for minor gastrointestinal complaints such as bloating and minor spasms.",
+      "Traditional use for relief of common-cold symptoms.",
+      "Traditional use for minor oral/throat inflammation and minor skin inflammation."
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": ["Allergic reactions", "especially in Asteraceae", "sensitive individuals"]
   },
@@ -22131,17 +22202,20 @@
   {
     "name": "peppermint",
     "latin": "peppermint",
-    "class": null,
+    "class": "Carminative, antispasmodic herbal medicine",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": ["Menthol", "Menthone", "Menthofuran", "Rosmarinic acid"],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Hypersensitivity to peppermint or menthol.",
+      "Not recommended in children under 4 years (HMPC)."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -22150,8 +22224,14 @@
       "nan. No direct effects data. Contextual inference:",
       "nan."
     ],
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "sources": [
+      {
+        "title": "EMA HMPC monograph: Mentha x piperita L., folium (Revision 1)",
+        "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/european-union-herbal-monograph-mentha-x-piperita-l-folium-revision-1_en.pdf",
+        "type": "review"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
     "description": "; nan; nan.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
@@ -22162,11 +22242,13 @@
       "nan. No direct region data. Contextual inference:"
     ],
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": ["No interactions reported in HMPC monograph."],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional herbal medicinal product for symptomatic relief of minor spasmodic gastrointestinal complaints and flatulence."
+    ],
     "traditionalUse": "; nan; nan"
   },
   {
