@@ -15,59 +15,70 @@ export default function Methodology() {
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
       <Meta
         title='Methodology | The Hippie Scientist'
-        description='How The Hippie Scientist compiles, cleans, and scores herb and compound data confidence.'
+        description='How The Hippie Scientist determines effects, scores confidence, evaluates safety, and applies harm-reduction guidance.'
         path='/methodology'
       />
 
       <header className='rounded-2xl border border-cyan-300/25 bg-cyan-400/10 p-5'>
         <h1 className='text-3xl font-semibold'>Methodology</h1>
         <p className='mt-2 text-sm text-cyan-50/90'>
-          This page explains how the dataset is assembled, what confidence represents, and why some
-          entries are intentionally shown as incomplete.
+          This page explains how effects are determined, how safety is evaluated, what intensity
+          means, and why the site uses a harm-reduction framing.
         </p>
       </header>
 
-      <Section title='1. How data is compiled'>
+      <Section title='1. How effects are determined'>
         <p>
-          Entries are standardized into a shared structure for herbs and compounds (for example:
-          mechanism, effects, and safety-related fields).
+          Effects are determined from structured evidence fields in the herb and compound dataset:
+          reported effects, known active compounds, and mechanism notes.
         </p>
         <p>
-          Data is cleaned for consistent naming, formatting, and routing so that search, filtering,
-          and detail pages can use the same schema.
-        </p>
-      </Section>
-
-      <Section title='2. How confidence is calculated'>
-        <p>
-          Confidence is computed dynamically at runtime from available structured fields. It is not
-          hard-coded in the source dataset files.
-        </p>
-        <p>
-          Missing core fields lower confidence. More complete structured entries score higher.
-          Confidence is a data coverage signal, not a medical certainty rating.
+          We prioritize signals that can be traced to source-backed records over anecdotal claims.
+          Where evidence is thin, entries are shown with lower confidence rather than overstated.
         </p>
       </Section>
 
-      <Section title='3. Why some entries are incomplete'>
+      <Section title='2. How safety is evaluated'>
         <p>
-          Coverage varies by herb and compound. Some entries have strong mechanism and effect data,
-          while others currently include only partial structured information.
+          Safety is evaluated using available contraindications, interactions, side effect notes,
+          and legal/scheduling context when present in the data.
         </p>
         <p>
-          Sparse records are displayed transparently instead of being padded with assumptions or
-          guessed values.
+          Missing safety fields are treated as uncertainty, not as proof of safety. When in doubt,
+          users should cross-check primary literature and clinical guidance.
         </p>
       </Section>
 
-      <Section title='4. Ongoing improvement approach'>
+      <Section title='3. What intensity means'>
         <p>
-          The dataset is continuously improved through normalization, gap review, and evidence
-          updates.
+          Intensity is a qualitative estimate of reported psychoactive or physiological strength
+          under common use contexts. It is not a dosage recommendation.
         </p>
         <p>
-          As structured fields are filled and verified, completeness and confidence presentation
-          update automatically in the frontend.
+          Individual response varies based on body weight, medications, route, preparation, setting,
+          and personal sensitivity.
+        </p>
+      </Section>
+
+      <Section title='4. Confidence and source transparency'>
+        <p>
+          Confidence labels (Low / Medium / High) are data quality indicators based on structure and
+          coverage, not guarantees of efficacy.
+        </p>
+        <p>
+          Source counts and mechanism-known status are displayed where available to make uncertainty
+          visible to readers.
+        </p>
+      </Section>
+
+      <Section title='5. Medical disclaimer and harm reduction'>
+        <p>
+          The Hippie Scientist is for educational purposes only and does not provide medical advice,
+          diagnosis, or treatment.
+        </p>
+        <p>
+          We use a non-judgmental harm-reduction tone: start low, avoid dangerous combinations, and
+          consult licensed professionals for personal medical decisions.
         </p>
       </Section>
     </main>

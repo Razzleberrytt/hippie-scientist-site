@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
+import Disclaimer from '@/components/Disclaimer'
 import { useHerbData } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
@@ -83,6 +84,12 @@ export default function HerbDetail() {
   const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
   const lastUpdated = String((herb as any).lastUpdated || '').trim()
   const primaryEffects = extractPrimaryEffects(effects, 3)
+  const alternateNames = [herb.scientific, herb.common, herb.name]
+    .map(value => String(value || '').trim())
+    .filter(Boolean)
+    .filter(
+      (value, index, arr) => arr.findIndex(v => v.toLowerCase() === value.toLowerCase()) === index
+    )
   const confidence =
     herb.confidence ??
     calculateHerbConfidence({
@@ -150,13 +157,65 @@ export default function HerbDetail() {
   )
   const missingFieldCount = 6 - renderableKeys.length
   const isDataIncomplete = keyFields.length < 4
+  const sourceCount = sources.length
+  const mechanismKnown = Boolean(mechanism)
+
+  const metaTitle = `${herb.common || herb.name} Effects, Benefits, Safety | The Hippie Scientist`
+  const metaDescription = [
+    description,
+    effects.length > 0 ? `Effects include ${effects.slice(0, 3).join(', ')}.` : '',
+    contraindications.length > 0
+      ? `Review interactions and contraindications before use.`
+      : 'Review confidence and safety notes before use.',
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .slice(0, 280)
+
+  const herbJsonLd: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': mechanismKnown || activeCompounds.length > 0 ? 'Substance' : 'MedicalEntity',
+    name: herb.common || herb.name,
+    description: description || undefined,
+    possibleInteraction: interactions.length > 0 ? interactions : undefined,
+    mechanismOfAction: mechanism || undefined,
+    alternateName: alternateNames.length > 1 ? alternateNames.slice(1) : undefined,
+  }
+
+  const relatedHerbs = herbs
+    .filter(item => item.slug !== herb.slug)
+    .map(item => {
+      const itemEffects = toList((item as any).effects)
+      const itemCompounds = toList(
+        (item as any).activeCompounds ?? item.active_compounds ?? item.compounds
+      )
+      const sharedEffects = itemEffects.filter(effect =>
+        effects.some(base => base.toLowerCase() === effect.toLowerCase())
+      )
+      const sharedCompounds = itemCompounds.filter(compound =>
+        activeCompounds.some(base => base.toLowerCase() === compound.toLowerCase())
+      )
+      const score = sharedEffects.length * 2 + sharedCompounds.length * 3
+      return { item, score, sharedEffects, sharedCompounds }
+    })
+    .filter(entry => entry.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 6)
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
       <Meta
-        title={`${herb.common || herb.name} | Herb Detail`}
-        description={herb.description || 'Herb detail page'}
+        title={metaTitle}
+        description={metaDescription}
         path={`/herbs/${herb.slug}`}
+        pageType='article'
+        og={{
+          title: metaTitle,
+          description: metaDescription,
+          type: 'article',
+          url: `https://thehippiescientist.net/herbs/${herb.slug}`,
+        }}
+        jsonLd={herbJsonLd}
       />
       <Link to='/herbs' className='btn-secondary inline-flex items-center rounded-full px-4'>
         ← Back to herbs
@@ -168,6 +227,18 @@ export default function HerbDetail() {
         </div>
         {herb.scientific && <p className='mt-1 italic text-white/75'>{herb.scientific}</p>}
         <DataTrustPanel entity='herb' confidence={confidence} completeness={completeness} />
+        <p className='mt-2 text-xs text-white/70'>
+          Confidence: <span className='text-white/90'>{confidence.toUpperCase()}</span>
+          {sourceCount > 0 ? ` · Sources: ${sourceCount}` : ''}
+          {` · Mechanism: ${mechanismKnown ? 'Known' : 'Unknown'}`}
+        </p>
+        <p className='mt-1 text-xs text-cyan-100/90'>
+          Learn how these signals are scored in{' '}
+          <Link to='/methodology' className='underline decoration-dotted underline-offset-4'>
+            our methodology
+          </Link>
+          .
+        </p>
         {isDataIncomplete && (
           <section className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
             <p className='font-semibold uppercase tracking-wide'>Data incomplete</p>
@@ -310,14 +381,37 @@ export default function HerbDetail() {
           </section>
         )}
 
-        <section className='mt-8 rounded-2xl border border-amber-300/40 bg-amber-200/10 p-4 text-sm text-amber-100'>
-          <p className='flex items-center gap-2'>
+        {relatedHerbs.length > 0 && (
+          <Section title='Related Herbs'>
+            <div className='grid gap-2 sm:grid-cols-2'>
+              {relatedHerbs.map(({ item, sharedEffects, sharedCompounds }) => (
+                <Link
+                  key={item.slug}
+                  to={`/herbs/${item.slug}`}
+                  className='rounded-xl border border-white/15 bg-white/5 p-3 transition hover:bg-white/10'
+                >
+                  <p className='font-medium text-white'>{item.common || item.name}</p>
+                  <p className='mt-1 text-xs text-white/70'>
+                    Shared effects: {sharedEffects.slice(0, 2).join(', ') || 'None'}
+                  </p>
+                  <p className='text-xs text-white/70'>
+                    Shared compounds: {sharedCompounds.slice(0, 2).join(', ') || 'None'}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </Section>
+        )}
+
+        <section className='mt-8'>
+          <p className='mb-3 flex items-center gap-2 text-sm text-white/75'>
             <span aria-hidden='true'>ℹ️</span>
             {missingFieldCount > 0
               ? `${missingFieldCount} evidence fields are still incomplete for this herb.`
               : 'This profile currently has all core evidence fields filled.'}
             <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
           </p>
+          <Disclaimer />
         </section>
       </article>
     </main>

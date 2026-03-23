@@ -38,12 +38,18 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
 export default function CompoundCard({ compound }: { compound: CompoundWithRefs }) {
   const mechanism = getMechanism(compound)
   const effects = Array.isArray(compound.effects) ? compound.effects : []
+  const sourceCount = Array.isArray((compound as Record<string, unknown>).sources)
+    ? ((compound as Record<string, unknown>).sources as unknown[]).length
+    : typeof (compound as Record<string, unknown>).sourceCount === 'number'
+      ? Number((compound as Record<string, unknown>).sourceCount)
+      : 0
 
   const confidence = calculateCompoundConfidence({
     mechanism,
     effects,
     compounds: compound.herbsFound.map(h => h.name),
   })
+  const confidenceLabel = confidence.charAt(0).toUpperCase() + confidence.slice(1)
   const primaryEffects = extractPrimaryEffects(effects, 3)
   const summary = buildCardSummary({
     effects,
@@ -62,7 +68,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
       <span
         className={`absolute right-4 top-4 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
       >
-        {confidence}
+        {confidenceLabel}
       </span>
       <h2 className='drop-shadow-glow mb-1 text-lg font-bold text-emerald-300'>{compound.name}</h2>
       <div className='mb-2 flex flex-wrap gap-2 pr-16'>
@@ -82,6 +88,11 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
         </div>
       )}
       <p className='text-sand mb-2 line-clamp-1 text-sm'>{summary}</p>
+      <p className='mb-2 text-xs text-white/70'>
+        Confidence: <span className='text-white/90'>{confidenceLabel}</span>
+        {sourceCount > 0 ? ` · Sources: ${sourceCount}` : ''}
+        {` · Mechanism: ${mechanism.trim() ? 'Known' : 'Unknown'}`}
+      </p>
       {confidence === 'low' && (
         <p className='mb-2 rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-xs text-amber-100'>
           ⚠️ This entry is incomplete. Data is still being verified.
