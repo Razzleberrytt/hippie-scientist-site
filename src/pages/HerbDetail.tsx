@@ -4,9 +4,13 @@ import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import { useHerbData } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
+import {
+  computeConfidenceLevel,
+  confidenceBadgeClass,
+  extractPrimaryEffects,
+} from '@/lib/dataTrust'
 
 type SourceRef = { title: string; url: string; note?: string }
-const MISSING_COPY = 'Information not yet available'
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
 
@@ -46,14 +50,6 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
-function MissingText({ label }: { label: string }) {
-  return (
-    <p className='italic text-white/70'>
-      {MISSING_COPY} for {label.toLowerCase()}.
-    </p>
-  )
-}
-
 export default function HerbDetail() {
   const { slug = '' } = useParams()
   const herbs = useHerbData()
@@ -87,6 +83,12 @@ export default function HerbDetail() {
   const preparation = String(herb.preparation || herb.preparations?.join(', ') || '').trim()
   const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
   const lastUpdated = String((herb as any).lastUpdated || '').trim()
+  const primaryEffects = extractPrimaryEffects(effects, 3)
+  const confidence = computeConfidenceLevel({
+    mechanism,
+    effects,
+    compounds: activeCompounds,
+  })
 
   const presentContributionFields = pickNonEmptyKeys(
     {
@@ -110,6 +112,17 @@ export default function HerbDetail() {
   )
   const shouldShowContributionCta = presentContributionFields.length < 7
 
+  const keyFields = pickNonEmptyKeys(
+    {
+      mechanism,
+      effects,
+      activeCompounds,
+      contraindications,
+      interactions,
+      sources,
+    },
+    ['mechanism', 'effects', 'activeCompounds', 'contraindications', 'interactions', 'sources']
+  )
   const renderableKeys = pickNonEmptyKeys(
     {
       className,
@@ -129,6 +142,7 @@ export default function HerbDetail() {
     ]
   )
   const missingFieldCount = 6 - renderableKeys.length
+  const isDataIncomplete = keyFields.length < 4
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -142,16 +156,32 @@ export default function HerbDetail() {
       </Link>
 
       <article className='ds-card-lg mt-4'>
-        <h1 className='text-3xl font-semibold'>{herb.common || herb.name}</h1>
+        <div className='flex flex-wrap items-start justify-between gap-2'>
+          <h1 className='text-3xl font-semibold'>{herb.common || herb.name}</h1>
+          <span
+            className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
+          >
+            Confidence: {confidence}
+          </span>
+        </div>
         {herb.scientific && <p className='mt-1 italic text-white/75'>{herb.scientific}</p>}
+        {isDataIncomplete && (
+          <section className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
+            <p className='font-semibold uppercase tracking-wide'>Data incomplete</p>
+            <p className='mt-1 text-amber-50/90'>
+              Key evidence fields are still missing for this profile. Treat this page as a draft
+              snapshot and cross-check sources before making decisions.
+            </p>
+          </section>
+        )}
 
         {description && <Section title='Description'>{description}</Section>}
-        <Section title='Class'>{className || <MissingText label='Class' />}</Section>
+        {className && <Section title='Class'>{className}</Section>}
         {intensity && <Section title='Intensity'>{intensity}</Section>}
         {mechanism && <Section title='Mechanism'>{mechanism}</Section>}
 
-        <Section title='Active Compounds'>
-          {activeCompounds.length > 0 ? (
+        {activeCompounds.length > 0 && (
+          <Section title='Active Compounds'>
             <div className='flex flex-wrap gap-2'>
               {activeCompounds.map(compound => (
                 <span key={compound} className='ds-pill'>
@@ -159,10 +189,23 @@ export default function HerbDetail() {
                 </span>
               ))}
             </div>
-          ) : (
-            <MissingText label='Active compounds' />
-          )}
-        </Section>
+          </Section>
+        )}
+
+        {primaryEffects.length > 0 && (
+          <Section title='Primary Effects'>
+            <div className='flex flex-wrap gap-2'>
+              {primaryEffects.map(effect => (
+                <span
+                  key={effect}
+                  className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+                >
+                  {effect}
+                </span>
+              ))}
+            </div>
+          </Section>
+        )}
 
         {effects.length > 0 && (
           <Section title='Effects'>
@@ -174,20 +217,18 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        <Section title='Therapeutic Uses'>
-          {therapeuticUses.length > 0 ? (
+        {therapeuticUses.length > 0 && (
+          <Section title='Therapeutic Uses'>
             <ul className='list-disc space-y-1 pl-5'>
               {therapeuticUses.map(item => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-          ) : (
-            <MissingText label='Therapeutic uses' />
-          )}
-        </Section>
+          </Section>
+        )}
 
-        <Section title='Contraindications'>
-          {contraindications.length > 0 ? (
+        {contraindications.length > 0 && (
+          <Section title='Contraindications'>
             <ul className='space-y-2'>
               {contraindications.map(item => (
                 <li
@@ -198,30 +239,24 @@ export default function HerbDetail() {
                 </li>
               ))}
             </ul>
-          ) : (
-            <MissingText label='Contraindications' />
-          )}
-        </Section>
+          </Section>
+        )}
 
-        <Section title='Interactions'>
-          {interactions.length > 0 ? (
+        {interactions.length > 0 && (
+          <Section title='Interactions'>
             <ul className='list-disc space-y-1 pl-5'>
               {interactions.map(item => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-          ) : (
-            <MissingText label='Interactions' />
-          )}
-        </Section>
+          </Section>
+        )}
 
         {dosage.length > 0 && <Section title='Dosage'>{dosage.join('; ')}</Section>}
         {duration && <Section title='Duration'>{duration}</Section>}
         {region && <Section title='Region'>{region}</Section>}
         {preparation && <Section title='Preparation'>{preparation}</Section>}
-        <Section title='Legal Status'>
-          {legalStatus || <MissingText label='Legal status' />}
-        </Section>
+        {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 
         {sideEffects.length > 0 && (
           <Section title='Side Effects'>
@@ -233,8 +268,8 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        <Section title='Sources'>
-          {sources.length > 0 ? (
+        {sources.length > 0 && (
+          <Section title='Sources'>
             <ol className='list-decimal space-y-1 pl-5'>
               {sources.map((source, index) => (
                 <li key={`${source.url}-${index}`}>
@@ -249,10 +284,8 @@ export default function HerbDetail() {
                 </li>
               ))}
             </ol>
-          ) : (
-            <p className='text-white/75'>No citations available yet.</p>
-          )}
-        </Section>
+          </Section>
+        )}
 
         {lastUpdated && <Section title='Last Updated'>{lastUpdated}</Section>}
 
