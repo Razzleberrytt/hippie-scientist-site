@@ -1,14 +1,12 @@
-import herbsData from '../../public/data/herbs.json'
-import compoundsData from '../../public/data/compounds.json'
+import rawHerbs from '../../public/data/herbs.json'
+import rawCompounds from '../../public/data/compounds.json'
 import type { Herb } from '../types/herb'
 import type { Compound } from '../types/compound'
 import { asStringArray } from '@/utils/asStringArray'
 import { isNonEmptyString } from '@/utils/isNonEmptyString'
 
-export const herbs: Herb[] = herbsData as unknown as Herb[]
-export const compounds: Compound[] = compoundsData as unknown as Compound[]
+type Intensity = 'MILD' | 'MODERATE' | 'STRONG'
 
-export type Intensity = 'MILD' | 'MODERATE' | 'STRONG'
 export type Entity = {
   id: string
   kind: 'herb' | 'compound'
@@ -21,6 +19,18 @@ export type Entity = {
   regions?: string[]
   sources?: { title: string; url: string }[]
 }
+
+function hasValidName(value: unknown): value is { name: string } {
+  return Boolean(
+    value && typeof value === 'object' && typeof (value as { name?: unknown }).name === 'string'
+  )
+}
+
+const safeHerbs = (Array.isArray(rawHerbs) ? rawHerbs : []).filter(hasValidName)
+const safeCompounds = (Array.isArray(rawCompounds) ? rawCompounds : []).filter(hasValidName)
+
+export const herbs: Herb[] = safeHerbs as Herb[]
+export const compounds: Compound[] = safeCompounds as Compound[]
 
 function toEntity(item: Record<string, unknown>, kind: 'herb' | 'compound'): Entity | null {
   const commonName = isNonEmptyString(item.commonName)

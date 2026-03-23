@@ -1,4 +1,5 @@
 import type { GoalDefinition } from '@/data/goals'
+import { herbs } from '@/lib/data'
 import type { Herb } from '@/types'
 import type { BlendFilters } from '@/types/blend'
 import { getHerbConfidence, herbDisplayName } from '@/utils/herbSignals'
@@ -42,13 +43,13 @@ function supportsExperienceLevel(herb: Herb, experienceLevel: BlendFilters['expe
 }
 
 export function generateBlend(
-  herbs: Herb[],
   selectedGoal: GoalDefinition,
-  options: BlendFilters = {}
+  options: BlendFilters = {},
+  herbDataset: Herb[] = herbs
 ): BlendRecommendation | null {
   const excluded = toSet(options.excludeHerbs ?? [])
 
-  const scored: ScoredHerb[] = herbs
+  const scored: ScoredHerb[] = herbDataset
     .filter(herb => !excluded.has(normalizeIdentity(herb)))
     .filter(herb => supportsExperienceLevel(herb, options.experience))
     .map(herb => {
