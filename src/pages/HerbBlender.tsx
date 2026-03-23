@@ -14,10 +14,13 @@ export default function HerbBlender() {
   const [selected, setSelected] = React.useState<string[]>([])
   const [saved, setSaved] = useLocalStorage<string[][]>('savedBlends', [])
 
+  const herbId = (id: string | undefined): string => id ?? ''
+
   const addHerb = () => {
     const h = herbs.find(x => herbName(x).toLowerCase() === input.toLowerCase() || x.id === input)
-    if (h && !selected.includes(h.id) && selected.length < 5) {
-      setSelected(s => [...s, h.id])
+    const id = herbId(h?.id)
+    if (id && !selected.includes(id) && selected.length < 5) {
+      setSelected(s => [...s, id])
     }
     setInput('')
   }
@@ -25,16 +28,17 @@ export default function HerbBlender() {
   const removeHerb = (id: string) => setSelected(s => s.filter(x => x !== id))
   const clearAll = () => setSelected([])
   const randomize = () => {
-    const ids = herbs.map(h => h.id)
+    const ids = herbs.map(h => herbId(h.id)).filter(Boolean)
     const count = Math.floor(Math.random() * 4) + 2
     const pick: string[] = []
     while (pick.length < count && ids.length) {
       const i = Math.floor(Math.random() * ids.length)
-      pick.push(ids.splice(i, 1)[0])
+      const [nextId] = ids.splice(i, 1)
+      if (nextId) pick.push(nextId)
     }
     setSelected(pick)
   }
-  const selectedHerbs = herbs.filter(h => selected.includes(h.id))
+  const selectedHerbs = herbs.filter(h => selected.includes(herbId(h.id)))
 
   const saveBlend = () => {
     if (selectedHerbs.length >= 2) {
@@ -105,9 +109,12 @@ export default function HerbBlender() {
           <div className='flex flex-wrap gap-2'>
             {selectedHerbs.map(h => (
               <button
-                key={h.id}
+                key={herbId(h.id) || herbName(h)}
                 type='button'
-                onClick={() => removeHerb(h.id)}
+                onClick={() => {
+                  const id = herbId(h.id)
+                  if (id) removeHerb(id)
+                }}
                 className='ds-pill border-emerald-300/35 text-white/90'
               >
                 {herbName(h)}
@@ -139,7 +146,7 @@ export default function HerbBlender() {
         <AnimatePresence>
           {selectedHerbs.map(h => (
             <motion.div
-              key={h.id}
+              key={herbId(h.id) || herbName(h)}
               layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

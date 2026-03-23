@@ -16,7 +16,8 @@ export function herbName(herb: Partial<Herb> | null | undefined): string {
 }
 
 export function splitField(value: unknown): string[] {
-  if (Array.isArray(value)) return value.filter((v): v is string => typeof v === 'string' && v.trim())
+  if (Array.isArray(value))
+    return value.filter((v): v is string => typeof v === 'string' && Boolean(v.trim()))
   if (typeof value === 'string') {
     return value
       .split(/;|,|\|/)
