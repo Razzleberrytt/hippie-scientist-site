@@ -37,7 +37,7 @@ export function recordDevMessage(
 ): void {
   if (!import.meta.env.DEV) return
 
-  const globalTarget = globalThis as Record<string, DevMessage[] | undefined>
+  const globalTarget = globalThis as unknown as Record<string, DevMessage[] | undefined>
   const existing = globalTarget[STORE_KEY] ?? []
   const detail = details.length ? details.map(serialiseDetail).join('\n---\n') : undefined
   const entry: DevMessage = {
