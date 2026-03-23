@@ -935,9 +935,29 @@
       {
         "note": "Inferred from scientific name:",
         "url": ""
+      },
+      {
+        "title": "PubChem: Apigenin (CID 5280443)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280443",
+        "type": "database"
+      },
+      {
+        "title": "PubMed review: Apigenin pharmacology and therapeutics",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30074102/",
+        "type": "review"
       }
     ],
-    "lastUpdated": "2026-03-21"
+    "lastUpdated": "2026-03-23",
+    "class": "Flavone",
+    "mechanism": "Modulates inflammatory and oxidative signaling pathways; weak affinity at central benzodiazepine sites reported in preclinical data.",
+    "therapeuticUses": null,
+    "interactions": [
+      "Potential additive effects with anticoagulants/antiplatelets and sedatives are theoretical; high-quality clinical interaction data are limited."
+    ],
+    "activeCompounds": [],
+    "safetyNotes": [
+      "Clinical efficacy and dose standards remain uncertain; use conservative dosing and avoid high-dose self-experimentation."
+    ]
   },
   {
     "name": "apigenin glycosides",
@@ -1155,8 +1175,28 @@
       "Heart conditions"
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "NCBI Bookshelf StatPearls: Atropine",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK470551/",
+        "type": "review"
+      },
+      {
+        "title": "PubChem: Atropine (CID 174174)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/174174",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
+    "class": "Tropane alkaloid antimuscarinic",
+    "mechanism": "Competitive reversible antagonist at muscarinic acetylcholine receptors (M1–M5).",
+    "therapeuticUses": [
+      "Used medically for symptomatic bradycardia and as antidote for muscarinic manifestations of organophosphate/cholinergic poisoning."
+    ],
+    "interactions": [
+      "Additive anticholinergic toxicity with antihistamines, tricyclic antidepressants, antipsychotics, and other antimuscarinics."
+    ],
+    "activeCompounds": []
   },
   {
     "name": "azulene",
@@ -1993,8 +2033,22 @@
     "effects": ["Anti-inflammatory", "astringent", "digestive aid", "hemostatic"],
     "contraindications": ["Pregnancy", "allergies to Asteraceae", "bleeding disorders"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem: Chamazulene (CID 5281515)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281515",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
+    "class": "Sesquiterpene derivative (azulene)",
+    "mechanism": "Anti-inflammatory and antioxidant effects reported mainly in preclinical models.",
+    "therapeuticUses": null,
+    "interactions": null,
+    "activeCompounds": [],
+    "safetyNotes": [
+      "Human clinical mechanism and interaction evidence are limited; keep field-level uncertainty explicit."
+    ]
   },
   {
     "name": "chlorogenic acid",
@@ -5400,8 +5454,23 @@
     ],
     "contraindications": ["GERD", "gallbladder disorders", "infants (menthol sensitivity)"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem: Menthol (CID 1254)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1254",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
+    "class": "Monoterpene alcohol",
+    "mechanism": "Activates TRPM8 cold-sensitive ion channels; contributes to antinociceptive and antispasmodic sensory effects.",
+    "therapeuticUses": [
+      "Used in topical counterirritant/analgesic products and cough/cold preparations; included in GI antispasmodic peppermint preparations."
+    ],
+    "interactions": [
+      "Potential additive mucosal irritation with other strong topical counterirritants; clinically major systemic interactions are not well established at usual doses."
+    ],
+    "activeCompounds": []
   },
   {
     "name": "menthone",
@@ -6139,8 +6208,28 @@
     ],
     "contraindications": ["Heart disease", "pregnancy", "epilepsy"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem: Nicotine (CID 89594)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/89594",
+        "type": "database"
+      },
+      {
+        "title": "NCBI Bookshelf StatPearls: Nicotine",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK537044/",
+        "type": "review"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
+    "class": "Pyridine alkaloid; nicotinic receptor agonist",
+    "mechanism": "Agonist at neuronal nicotinic acetylcholine receptors (notably α4β2), increasing catecholamine and dopamine signaling with dependence liability.",
+    "therapeuticUses": [
+      "Nicotine replacement therapy for smoking cessation (gum, patch, lozenge, etc.)."
+    ],
+    "interactions": [
+      "Smoking status changes can alter CYP1A2 substrate exposure (via smoke effects rather than nicotine itself); additive cardiovascular effects with stimulants."
+    ],
+    "activeCompounds": []
   },
   {
     "name": "nicotine (9–15%)",
@@ -7455,8 +7544,28 @@
       "Heart conditions"
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "NCBI Bookshelf StatPearls: Antiemetic Antimuscarinics (Scopolamine)",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK547671/",
+        "type": "review"
+      },
+      {
+        "title": "PubChem: Scopolamine (CID 3000322)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3000322",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
+    "class": "Tropane alkaloid antimuscarinic",
+    "mechanism": "Competitive muscarinic receptor antagonist with central vestibular pathway effects.",
+    "therapeuticUses": [
+      "FDA-approved for prevention of motion sickness and postoperative nausea/vomiting (transdermal system)."
+    ],
+    "interactions": [
+      "Additive anticholinergic and CNS-depressant effects with other antimuscarinics, sedatives, and alcohol."
+    ],
+    "activeCompounds": []
   },
   {
     "name": "scopoletin",
@@ -8306,8 +8415,25 @@
       "thujone sensitivity"
     ],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem: alpha,beta-Thujone (CID 10931629)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10931629",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
+    "class": "Monoterpene ketone",
+    "mechanism": "Negative modulation/antagonism at GABA_A receptors at sufficiently high concentrations; pro-convulsant toxicity signal.",
+    "therapeuticUses": null,
+    "interactions": [
+      "May lower seizure threshold; avoid combination with other pro-convulsant substances.",
+      "Potential additive neurotoxicity with CNS stimulants and alcohol misuse."
+    ],
+    "activeCompounds": [],
+    "safetyNotes": [
+      "Human therapeutic evidence is weak; prioritize exposure minimization and seizure-risk harm reduction."
+    ]
   },
   {
     "name": "thymol",
@@ -8648,8 +8774,29 @@
     ],
     "contraindications": ["Avoid with alcohol", "benzodiazepines", "or barbiturates"],
     "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21"
+    "sources": [
+      {
+        "title": "PubChem: Valerenic acid (CID 6440940)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6440940",
+        "type": "database"
+      },
+      {
+        "title": "PubMed: Benke et al., GABAA receptor modulation by valerenic acid",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17123735/",
+        "type": "primary"
+      }
+    ],
+    "lastUpdated": "2026-03-23",
+    "class": "Sesquiterpenoid carboxylic acid",
+    "mechanism": "Positive allosteric modulation at GABA_A receptors (subunit-dependent), contributing to sedative signaling in valerian extracts.",
+    "therapeuticUses": null,
+    "interactions": [
+      "Potential additive sedation with alcohol, benzodiazepines, sedative antihistamines, opioids, and hypnotics."
+    ],
+    "activeCompounds": [],
+    "safetyNotes": [
+      "Evidence is mostly preclinical/constituent-level; do not treat as a stand-alone validated medicine."
+    ]
   },
   {
     "name": "vanillic acid",
