@@ -24,7 +24,7 @@ export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
       setHerb(selected ?? herbs[0])
       return
     }
-    const psychedelic = herbs.filter(h => h.category.includes('Psychedelic'))
+    const psychedelic = herbs.filter(h => (h.category ?? '').includes('Psychedelic'))
     const pool = psychedelic.length > 0 ? psychedelic : herbs
     setHerb(pool[Math.floor(Math.random() * pool.length)])
   }, [fixedId, herbs])

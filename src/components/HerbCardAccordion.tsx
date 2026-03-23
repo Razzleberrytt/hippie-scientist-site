@@ -40,7 +40,7 @@ export default function HerbCardAccordion({ herb }: Props) {
     : splitField(rawCompounds)
   const rawSources = (herb as any).sources
   const sources = Array.isArray(rawSources) ? rawSources.filter(Boolean) : splitField(rawSources)
-  const favorite = isFavorite(herb.id)
+  const favorite = herb.id ? isFavorite(herb.id) : false
 
   const scientificName = (herb.scientificname || (herb as any).scientific || '').trim()
   const mechanism = (herb as any).mechanismOfAction
@@ -138,7 +138,7 @@ export default function HerbCardAccordion({ herb }: Props) {
         type='button'
         onClick={e => {
           e.stopPropagation()
-          toggle(herb.id)
+          if (herb.id) toggle(herb.id)
         }}
         className='bg-white/6 text-sand absolute right-3 top-3 rounded-full p-1 ring-1 ring-white/15 backdrop-blur-xl hover:bg-white/10'
         aria-label='Toggle favorite'

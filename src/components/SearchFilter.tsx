@@ -26,11 +26,11 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
 
   const pickRandom = () => {
     const item = herbs[Math.floor(Math.random() * herbs.length)]
-    onFilter([item])
+    if (item) onFilter([item])
   }
 
   const allTags = React.useMemo(() => {
-    const tags = herbs.reduce((acc: string[], h: Herb) => acc.concat(h.tags), [])
+    const tags = herbs.reduce((acc: string[], h: Herb) => acc.concat(h.tags ?? []), [])
     return Array.from(new Set(tags))
   }, [herbs])
 
@@ -60,13 +60,13 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
       res = fuse.search(q).map(r => r.item)
     }
     if (selectedTags.length) {
-      res = res.filter(h => selectedTags.every(t => h.tags.includes(t)))
+      res = res.filter(h => selectedTags.every(t => (h.tags ?? []).includes(t)))
     }
 
     if (sort === 'intensity') {
-      res = [...res].sort((a, b) => a.intensity.localeCompare(b.intensity))
+      res = [...res].sort((a, b) => (a.intensity ?? '').localeCompare(b.intensity ?? ''))
     } else if (sort === 'onset') {
-      res = [...res].sort((a, b) => a.onset.localeCompare(b.onset))
+      res = [...res].sort((a, b) => (a.onset ?? '').localeCompare(b.onset ?? ''))
     }
 
     return res
@@ -77,7 +77,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   }, [filtered, onFilter])
 
   return (
-    <div className='sticky top-20 z-10 mb-8 space-y-4 rounded-lg bg-white/70 p-4 backdrop-blur-md dark:bg-space-dark/70'>
+    <div className='dark:bg-space-dark/70 sticky top-20 z-10 mb-8 space-y-4 rounded-lg bg-white/70 p-4 backdrop-blur-md'>
       <input
         type='text'
         placeholder='Search herbs...'
@@ -89,7 +89,12 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
       />
       <div className='flex flex-wrap items-center gap-2 gap-y-2'>
         {selectedTags.map(tag => (
-          <button type='button' key={tag} onClick={() => removeTag(tag)} className='tag-pill transition-colors duration-300 dark:bg-gray-800 dark:text-gray-200'>
+          <button
+            type='button'
+            key={tag}
+            onClick={() => removeTag(tag)}
+            className='tag-pill transition-colors duration-300 dark:bg-gray-800 dark:text-gray-200'
+          >
             {decodeTag(tag)}
           </button>
         ))}

@@ -24,7 +24,7 @@ export default function RotatingHerbCard() {
   const [items, setItems] = useState<Herb[]>([])
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
-  const intervalRef = useRef<NodeJS.Timeout>()
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     if (source.length === 0) return
@@ -56,8 +56,10 @@ export default function RotatingHerbCard() {
   const handleAdvance = () => {
     const statsRaw = localStorage.getItem('herbTapCounts')
     const stats = statsRaw ? JSON.parse(statsRaw) : {}
-    stats[herb.id] = (stats[herb.id] || 0) + 1
-    localStorage.setItem('herbTapCounts', JSON.stringify(stats))
+    if (herb.id) {
+      stats[herb.id] = (stats[herb.id] || 0) + 1
+      localStorage.setItem('herbTapCounts', JSON.stringify(stats))
+    }
 
     if (items.length === 0) return
     setIndex(i => {
@@ -89,9 +91,7 @@ export default function RotatingHerbCard() {
             {herbName(herb)}
           </h3>
           {(() => {
-            const effects = Array.isArray(herb.effects)
-              ? herb.effects.slice(0, 3).join(', ')
-              : herb.effects || ''
+            const effects = splitField(herb.effects).slice(0, 3).join(', ')
             return effects ? <p className='text-sand mt-1 text-sm'>{effects}</p> : null
           })()}
           <Link
