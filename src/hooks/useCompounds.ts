@@ -2,9 +2,19 @@ import { useEffect, useState } from 'react'
 import { compounds, Compound } from '../data/compounds/compounds'
 import { useHerbsFull } from '../data/herbs/herbsfull'
 import { recordDevMessage } from '../utils/devMessages'
+import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 
 export function useCompounds(): Compound[] {
-  const [list] = useState<Compound[]>(compounds)
+  const [list] = useState<Compound[]>(
+    compounds.map(compound => ({
+      ...compound,
+      confidence: calculateCompoundConfidence({
+        mechanism: compound.mechanismOfAction,
+        effects: compound.description,
+        compounds: compound.foundIn,
+      }),
+    }))
+  )
   const herbs = useHerbsFull()
 
   useEffect(() => {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { slugify } from '@/lib/slug'
 import type { Herb } from '@/types'
+import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 
 let herbsPromise: Promise<Herb[]> | null = null
 type SourceRef = { title: string; url?: string; note?: string }
@@ -76,6 +77,11 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     activeCompounds,
     compounds: activeCompounds,
     active_compounds: activeCompounds,
+    confidence: calculateHerbConfidence({
+      mechanism: raw.mechanism || raw.mechanismOfAction,
+      effects: raw.effects,
+      compounds: activeCompounds,
+    }),
     legalStatus: String(raw.legalStatus || raw.legalstatus || '').trim(),
     sources,
   }

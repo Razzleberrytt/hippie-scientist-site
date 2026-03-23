@@ -30,6 +30,7 @@ export type Herb = {
   mechanismOfAction?: string
   compounds?: string[]
   active_compounds?: string[]
+  confidence?: 'high' | 'medium' | 'low'
   compoundsDetailed?: string[]
   activeconstituents?: string[]
   activeConstituents?: { name: string }[]

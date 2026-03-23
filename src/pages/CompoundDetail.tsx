@@ -5,6 +5,7 @@ import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '@/lib/slug'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
+import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 
 type SourceRef = { title: string; url: string; note?: string }
 const ISSUE_TEMPLATE_URL =
@@ -17,6 +18,14 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       <div className='mt-2 text-sm text-white/85'>{children}</div>
     </section>
   )
+}
+
+function confidenceBadgeClass(level: ConfidenceLevel) {
+  if (level === 'high')
+    return 'border-emerald-300/50 bg-emerald-500/15 text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.35)]'
+  if (level === 'medium')
+    return 'border-amber-300/45 bg-amber-500/15 text-amber-100 shadow-[0_0_18px_rgba(245,158,11,0.35)]'
+  return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
 }
 
 function MissingField({ label }: { label: string }) {
@@ -70,6 +79,13 @@ export default function CompoundDetail() {
     name,
     slug: herbMap.get(name.toLowerCase()) || slugify(name),
   }))
+  const confidence =
+    compound.confidence ??
+    calculateCompoundConfidence({
+      mechanism: compound.mechanism,
+      effects: compound.effects,
+      compounds: compound.herbs,
+    })
 
   const presentContributionFields = pickNonEmptyKeys(
     {
@@ -105,7 +121,19 @@ export default function CompoundDetail() {
       </Link>
 
       <article className='ds-card-lg mt-4'>
-        <h1 className='text-3xl font-semibold'>{compound.name}</h1>
+        <div className='flex flex-wrap items-start justify-between gap-2'>
+          <h1 className='text-3xl font-semibold'>{compound.name}</h1>
+          <span
+            className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
+          >
+            Confidence: {confidence}
+          </span>
+        </div>
+        {confidence === 'low' && (
+          <section className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
+            ⚠️ This entry has limited verified data.
+          </section>
+        )}
 
         <Section title='Description'>
           {compound.description || <MissingField label='Description' />}

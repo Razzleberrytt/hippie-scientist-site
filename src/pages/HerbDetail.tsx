@@ -5,7 +5,7 @@ import InfoTooltip from '@/components/InfoTooltip'
 import { useHerbData } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import { calculateConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
+import { calculateHerbConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 
 type SourceRef = { title: string; url: string; note?: string }
 const ISSUE_TEMPLATE_URL =
@@ -89,11 +89,13 @@ export default function HerbDetail() {
   const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
   const lastUpdated = String((herb as any).lastUpdated || '').trim()
   const primaryEffects = extractPrimaryEffects(effects, 3)
-  const confidence = calculateConfidence({
-    mechanism,
-    effects,
-    compounds: activeCompounds,
-  })
+  const confidence =
+    herb.confidence ??
+    calculateHerbConfidence({
+      mechanism,
+      effects,
+      compounds: activeCompounds,
+    })
 
   const presentContributionFields = pickNonEmptyKeys(
     {
@@ -181,7 +183,7 @@ export default function HerbDetail() {
         )}
         {confidence === 'low' && (
           <section className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
-            ⚠️ This entry is incomplete. Data is still being verified.
+            ⚠️ This entry has limited verified data.
           </section>
         )}
 

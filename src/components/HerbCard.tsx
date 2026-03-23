@@ -7,7 +7,7 @@ import { chipClassFor } from '../lib/tags'
 import { slugify } from '../lib/slug'
 import { buildCardSummary, sanitizeSurfaceText } from '@/lib/summary'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import { calculateConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
+import { calculateHerbConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 import './HerbCard.css'
 
 interface HerbCardProps {
@@ -52,11 +52,13 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   const benefits = sanitizeSurfaceText(
     cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit)
   )
-  const confidence = calculateConfidence({
-    mechanism: herb.mechanism || herb.mechanismofaction || herb.mechanismOfAction,
-    effects: herb.effects,
-    compounds: herb.compounds || herb.active_compounds,
-  })
+  const confidence =
+    herb.confidence ??
+    calculateHerbConfidence({
+      mechanism: herb.mechanism || herb.mechanismofaction || herb.mechanismOfAction,
+      effects: herb.effects,
+      compounds: herb.compounds || herb.active_compounds,
+    })
   const primaryEffects = extractPrimaryEffects(Array.isArray(herb.effects) ? herb.effects : [], 3)
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : []

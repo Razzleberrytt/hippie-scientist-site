@@ -3,6 +3,7 @@ import type { Herb } from '../types'
 import { useHerbsFull } from '../data/herbs/herbsfull'
 import { herbName } from '../utils/herb'
 import { recordDevMessage } from '../utils/devMessages'
+import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 
 export function useHerbs(): Herb[] {
   const herbs = useHerbsFull()
@@ -12,7 +13,16 @@ export function useHerbs(): Herb[] {
     herbs.forEach(h => {
       const key = h.id || h.slug
       if (!key) return
-      if (!map.has(key)) map.set(key, h)
+      if (!map.has(key)) {
+        map.set(key, {
+          ...h,
+          confidence: calculateHerbConfidence({
+            mechanism: h.mechanism || h.mechanismOfAction || h.mechanismofaction,
+            effects: h.effects,
+            compounds: h.activeCompounds || h.active_compounds || h.compounds,
+          }),
+        })
+      }
     })
     return Array.from(map.values())
   }, [herbs])

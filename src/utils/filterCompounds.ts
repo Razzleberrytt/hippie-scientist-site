@@ -1,5 +1,5 @@
 import type { CompoundRecord } from '@/lib/compound-data'
-import { computeConfidenceLevel } from '@/lib/dataTrust'
+import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { normalizeText } from './normalizeText'
 import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
@@ -12,11 +12,11 @@ function getConfidenceRank(level: string) {
 }
 
 function getCompoundConfidence(compound: CompoundRecord) {
-  return computeConfidenceLevel({
+  return calculateCompoundConfidence({
     mechanism: compound.mechanism,
     effects: asStringArray(compound.effects),
     compounds: asStringArray(compound.herbs),
-  }).toLowerCase()
+  })
 }
 
 export function filterCompounds(

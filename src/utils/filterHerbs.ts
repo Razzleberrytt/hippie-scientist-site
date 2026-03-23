@@ -1,5 +1,5 @@
 import type { Herb } from '@/types'
-import { computeConfidenceLevel } from '@/lib/dataTrust'
+import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { normalizeText } from './normalizeText'
 import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
@@ -12,11 +12,11 @@ function getConfidenceRank(level: string) {
 }
 
 function getHerbConfidence(herb: Herb) {
-  return computeConfidenceLevel({
+  return calculateHerbConfidence({
     mechanism: herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
     effects: asStringArray(herb.effects),
     compounds: asStringArray(herb.activeCompounds || herb.active_compounds || herb.compounds),
-  }).toLowerCase()
+  })
 }
 
 export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
