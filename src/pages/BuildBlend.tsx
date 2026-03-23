@@ -5,7 +5,7 @@ import Badge from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import Meta from '@/components/Meta'
 import { GOALS, type GoalDefinition } from '@/data/goals'
-import { useHerbData } from '@/lib/herb-data'
+import { herbs } from '@/lib/data'
 import type { Herb } from '@/types'
 import type { BlendFilters, BlendState } from '@/types/blend'
 import type { ConfidenceLevel } from '@/types/confidence'
@@ -48,7 +48,6 @@ function HerbMiniCard({ herb }: { herb: Herb }) {
 }
 
 export default function BuildBlend() {
-  const herbs = useHerbData()
   const [searchParams, setSearchParams] = useSearchParams()
 
   const [selectedGoalId, setSelectedGoalId] = useState<string>(GOALS[0].id)
@@ -140,7 +139,7 @@ export default function BuildBlend() {
 
   const onGenerate = () => {
     if (!selectedGoal) return
-    const recommendation = generateBlend(herbs, selectedGoal, {
+    const recommendation = generateBlend(selectedGoal, {
       confidence: confidenceFilter,
       excludeHerbs: excludedHerbIds,
       experience: experienceLevel,
