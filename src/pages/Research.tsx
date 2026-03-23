@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import NeuroHerbGraph from '../components/NeuroHerbGraph'
 import Meta from '../components/Meta'
 
@@ -21,19 +21,19 @@ const Research: React.FC = () => {
             className='mb-20 text-center'
           >
             <h1 className='text-gradient mb-6 text-5xl font-bold md:text-6xl'>Research</h1>
-            <p className='mx-auto max-w-3xl text-xl text-sand'>
+            <p className='text-sand mx-auto max-w-3xl text-xl'>
               Exploring the frontiers of consciousness and psychedelic science
             </p>
           </motion.div>
 
           <div className='glass-card p-8'>
             <h2 className='mb-6 text-center text-3xl font-bold text-white'>Current Studies</h2>
-            <ul className='mx-auto mb-6 max-w-xl list-disc space-y-2 pl-5 text-left text-sand'>
+            <ul className='text-sand mx-auto mb-6 max-w-xl list-disc space-y-2 pl-5 text-left'>
               <li>Clinical trials evaluating psychedelic-assisted therapy</li>
               <li>Neuroimaging projects exploring brain connectivity</li>
               <li>Longitudinal surveys on integration practices</li>
             </ul>
-            <p className='text-center text-sand'>
+            <p className='text-sand text-center'>
               This list highlights a few ongoing areas of investigation. Check back regularly for
               detailed summaries and links to published papers.
             </p>

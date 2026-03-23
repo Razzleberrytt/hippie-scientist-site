@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import { Users, MessageCircle, Calendar, Book } from 'lucide-react'
 import Meta from '../components/Meta'
 
@@ -21,7 +21,7 @@ const Community: React.FC = () => {
             className='mb-20 text-center'
           >
             <h1 className='text-gradient mb-6 text-5xl font-bold md:text-6xl'>Community</h1>
-            <p className='mx-auto max-w-3xl text-xl text-sand'>
+            <p className='text-sand mx-auto max-w-3xl text-xl'>
               Connect with fellow consciousness explorers and researchers
             </p>
           </motion.div>
@@ -63,9 +63,9 @@ const Community: React.FC = () => {
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   className='glass-card p-8'
                 >
-                  <Icon className='mb-4 h-12 w-12 text-psychedelic-purple' aria-hidden='true' />
+                  <Icon className='text-psychedelic-purple mb-4 h-12 w-12' aria-hidden='true' />
                   <h3 className='mb-4 text-2xl font-bold text-white'>{feature.title}</h3>
-                  <p className='mb-6 text-sand'>{feature.description}</p>
+                  <p className='text-sand mb-6'>{feature.description}</p>
                   <button className='glass-button rounded-lg px-6 py-3 font-medium text-white transition-all hover:scale-105'>
                     {feature.action}
                   </button>
@@ -84,27 +84,27 @@ const Community: React.FC = () => {
             <h2 className='mb-6 text-center text-3xl font-bold text-white'>Community Guidelines</h2>
             <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
               <div>
-                <h3 className='mb-3 text-xl font-semibold text-psychedelic-purple'>
+                <h3 className='text-psychedelic-purple mb-3 text-xl font-semibold'>
                   Respect & Safety
                 </h3>
-                <ul className='space-y-2 text-sand'>
+                <ul className='text-sand space-y-2'>
                   <li>• Treat all members with respect and kindness</li>
                   <li>• Prioritize harm reduction and safety</li>
                   <li>• No medical advice - consult professionals</li>
                 </ul>
               </div>
               <div>
-                <h3 className='mb-3 text-xl font-semibold text-psychedelic-purple'>
+                <h3 className='text-psychedelic-purple mb-3 text-xl font-semibold'>
                   Quality Content
                 </h3>
-                <ul className='space-y-2 text-sand'>
+                <ul className='text-sand space-y-2'>
                   <li>• Share evidence-based information</li>
                   <li>• Cite sources when possible</li>
                   <li>• Keep discussions constructive</li>
                 </ul>
               </div>
             </div>
-            <p className='mt-6 text-center text-sm text-sand'>
+            <p className='text-sand mt-6 text-center text-sm'>
               Please remember that all interactions are moderated according to these guidelines.
             </p>
           </motion.div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import { ArrowUp } from 'lucide-react'
 
 export default function ScrollToTopButton() {
@@ -16,7 +16,7 @@ export default function ScrollToTopButton() {
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       initial={{ opacity: 0 }}
       animate={{ opacity: visible ? 1 : 0 }}
-      className='bounce fixed bottom-6 right-6 z-40 rounded-full bg-psychedelic-purple p-3 text-white shadow-lg hover:scale-105'
+      className='bounce bg-psychedelic-purple fixed bottom-6 right-6 z-40 rounded-full p-3 text-white shadow-lg hover:scale-105'
       aria-label='Scroll to top'
     >
       <ArrowUp />

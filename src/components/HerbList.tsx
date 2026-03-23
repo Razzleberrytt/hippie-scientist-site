@@ -1,5 +1,5 @@
 import React from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from '@/lib/motion'
 import type { Herb } from '../types'
 import HerbCardAccordion from './HerbCardAccordion'
 
@@ -19,13 +19,18 @@ interface Props {
   batchSize?: number
   view?: 'grid' | 'list'
 }
-const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24, view = 'grid' }) => {
+const HerbList: React.FC<Props> = ({
+  herbs,
+  highlightQuery = '',
+  batchSize = 24,
+  view = 'grid',
+}) => {
   const [visible, setVisible] = React.useState(batchSize)
 
   const showMore = () => setVisible(v => Math.min(v + batchSize, herbs.length))
 
   if (herbs.length === 0) {
-    return <p className='text-center text-sand/80'>No herbs match your search.</p>
+    return <p className='text-sand/80 text-center'>No herbs match your search.</p>
   }
 
   return (
@@ -56,7 +61,7 @@ const HerbList: React.FC<Props> = ({ herbs, highlightQuery = '', batchSize = 24,
           <button
             type='button'
             onClick={showMore}
-            className='rounded-md bg-black/30 px-4 py-2 text-sand hover:bg-white/10 backdrop-blur-md'
+            className='text-sand rounded-md bg-black/30 px-4 py-2 backdrop-blur-md hover:bg-white/10'
           >
             Show More
           </button>

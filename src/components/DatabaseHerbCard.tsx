@@ -1,6 +1,6 @@
 import React from 'react'
 import clsx from 'clsx'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from '@/lib/motion'
 import { cleanIntensity, titleCase } from '../lib/text'
 import type { Herb } from '../types'
 import { getCommonName } from '../lib/herbName'

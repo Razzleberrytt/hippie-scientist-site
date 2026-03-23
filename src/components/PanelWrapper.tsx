@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 
 interface Props {
   children: React.ReactNode
@@ -13,9 +13,9 @@ const PanelWrapper: React.FC<Props> = ({ children, className }) => (
     viewport={{ once: true }}
     className={`neon-card soft-border-glow relative my-12 overflow-hidden rounded-xl p-6 ${className ?? ''}`}
   >
-    <div className='absolute inset-x-0 top-0 h-px animate-pulse bg-gradient-to-r from-transparent via-lichen/30 to-transparent' />
+    <div className='via-lichen/30 absolute inset-x-0 top-0 h-px animate-pulse bg-gradient-to-r from-transparent to-transparent' />
     {children}
-    <div className='absolute inset-x-0 bottom-0 h-px animate-pulse bg-gradient-to-r from-transparent via-comet/30 to-transparent' />
+    <div className='via-comet/30 absolute inset-x-0 bottom-0 h-px animate-pulse bg-gradient-to-r from-transparent to-transparent' />
   </motion.section>
 )
 

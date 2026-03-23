@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from '@/lib/motion'
 
 const MouseTrail: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)

@@ -1,6 +1,6 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import type { MotionProps } from 'framer-motion'
+import { motion, AnimatePresence } from '@/lib/motion'
+import type { MotionProps } from '@/lib/motion'
 import BlendSummaryCard from '../components/BlendSummaryCard'
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import TagBadge from '../components/TagBadge'

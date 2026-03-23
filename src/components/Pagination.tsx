@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 
 interface Props {
   currentPage: number
@@ -26,7 +26,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
         type='button'
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
-        className='rounded px-2 py-1 text-sm text-sand disabled:opacity-50'
+        className='text-sand rounded px-2 py-1 text-sm disabled:opacity-50'
       >
         Prev
       </button>
@@ -41,7 +41,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
             {p}
           </motion.button>
         ) : (
-          <span key={`ellipsis-${i}`} className='w-8 px-2 py-1 text-center text-sand'>
+          <span key={`ellipsis-${i}`} className='text-sand w-8 px-2 py-1 text-center'>
             {p}
           </span>
         )
@@ -50,7 +50,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
         type='button'
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
-        className='rounded px-2 py-1 text-sm text-sand disabled:opacity-50'
+        className='text-sand rounded px-2 py-1 text-sm disabled:opacity-50'
       >
         Next
       </button>

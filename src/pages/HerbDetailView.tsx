@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import { useHerbsFull } from '../data/herbs/herbsfull'
 import TagBadge from '../components/TagBadge'
 import { decodeTag, tagVariant } from '../utils/format'

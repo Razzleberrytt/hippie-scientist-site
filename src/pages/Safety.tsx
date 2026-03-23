@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import { Shield, AlertTriangle, Heart, Phone } from 'lucide-react'
 import Meta from '../components/Meta'
 
@@ -21,7 +21,7 @@ const Safety: React.FC = () => {
             className='mb-20 text-center'
           >
             <h1 className='text-gradient mb-6 text-5xl font-bold md:text-6xl'>Safety First</h1>
-            <p className='mx-auto max-w-3xl text-xl text-sand'>
+            <p className='text-sand mx-auto max-w-3xl text-xl'>
               Comprehensive harm reduction resources and safety guidelines
             </p>
           </motion.div>
@@ -82,15 +82,15 @@ const Safety: React.FC = () => {
                 className='glass-card p-6'
               >
                 <Icon
-                  className='mx-auto mb-4 h-12 w-12 text-psychedelic-purple'
+                  className='text-psychedelic-purple mx-auto mb-4 h-12 w-12'
                   aria-hidden='true'
                 />
                 <h3 className='mb-4 text-center text-xl font-bold text-white'>{title}</h3>
-                <p className='text-center text-sand'>{description}</p>
+                <p className='text-sand text-center'>{description}</p>
               </motion.div>
             ))}
           </div>
-          <p className='mt-8 text-center text-sm text-sand'>
+          <p className='text-sand mt-8 text-center text-sm'>
             The information presented here is for educational purposes only and does not replace
             professional medical advice.
           </p>

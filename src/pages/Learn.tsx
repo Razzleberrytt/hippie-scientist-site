@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import PanelWrapper from '../components/PanelWrapper'
 import LearnTabs from '../components/LearnTabs'
 import StarfieldBackground from '../components/StarfieldBackground'
@@ -24,10 +24,10 @@ export default function Learn() {
           transition={{ duration: 0.8 }}
           className='mb-12 text-left'
         >
-          <h1 className='text-gradient mb-4 text-5xl font-bold drop-shadow-glow md:text-6xl'>
+          <h1 className='text-gradient drop-shadow-glow mb-4 text-5xl font-bold md:text-6xl'>
             🌿 The Hippie Scientist Codex
           </h1>
-          <p className='mx-auto max-w-3xl text-xl text-sand'>
+          <p className='text-sand mx-auto max-w-3xl text-xl'>
             Welcome! Explore each topic below to deepen your understanding.
           </p>
         </motion.div>

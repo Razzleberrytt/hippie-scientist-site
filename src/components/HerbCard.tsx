@@ -1,6 +1,6 @@
 import { memo, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import Card from './ui/Card'
 import { cleanLine, hasVal, titleCase } from '../lib/pretty'
 import { chipClassFor } from '../lib/tags'

@@ -1,17 +1,16 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from 'react'
+import { motion } from '@/lib/motion'
 
 export const LoadingScreen: React.FC = () => {
   return (
     <div
-      className="fixed inset-0 bg-cosmic-gradient flex items-center justify-center z-50"
-      role="status"
-      aria-live="polite"
+      className='bg-cosmic-gradient fixed inset-0 z-50 flex items-center justify-center'
+      role='status'
+      aria-live='polite'
     >
-      <div className="text-center">
+      <div className='text-center'>
         <motion.div
-          className="w-24 h-24 mx-auto mb-4 bg-psychedelic-gradient rounded-full flex items-center justify-center"
+          className='bg-psychedelic-gradient mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full'
           animate={{
             rotate: 360,
             boxShadow: [
@@ -25,19 +24,19 @@ export const LoadingScreen: React.FC = () => {
             boxShadow: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
           }}
         >
-          <span className="text-2xl font-bold text-white">HS</span>
+          <span className='text-2xl font-bold text-white'>HS</span>
         </motion.div>
 
         <motion.h2
-          className="text-2xl font-display font-bold text-white"
+          className='font-display text-2xl font-bold text-white'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
         >
           Loading...
         </motion.h2>
-        <span className="sr-only">Loading content, please wait</span>
+        <span className='sr-only'>Loading content, please wait</span>
       </div>
     </div>
-  );
-};
+  )
+}

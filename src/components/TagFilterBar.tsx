@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import { decodeTag } from '../utils/format'
 
 interface Props {
@@ -72,7 +72,7 @@ export default function TagFilterBar({ allTags, activeTags, onToggleTag }: Props
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.08 }}
           transition={{ type: 'spring', stiffness: 220, damping: 12 }}
-          className='tag-pill hover-glow whitespace-nowrap bg-rose-700/70 text-white dark:bg-rose-800 transition-colors duration-300'
+          className='tag-pill hover-glow whitespace-nowrap bg-rose-700/70 text-white transition-colors duration-300 dark:bg-rose-800'
         >
           Clear Filters
         </motion.button>
