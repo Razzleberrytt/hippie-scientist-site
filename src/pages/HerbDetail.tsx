@@ -4,11 +4,8 @@ import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import { useHerbData } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
-import {
-  computeConfidenceLevel,
-  confidenceBadgeClass,
-  extractPrimaryEffects,
-} from '@/lib/dataTrust'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import { calculateConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 
 type SourceRef = { title: string; url: string; note?: string }
 const ISSUE_TEMPLATE_URL =
@@ -50,6 +47,14 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   )
 }
 
+function confidenceBadgeClass(level: ConfidenceLevel) {
+  if (level === 'high')
+    return 'border-emerald-300/50 bg-emerald-500/15 text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.35)]'
+  if (level === 'medium')
+    return 'border-amber-300/45 bg-amber-500/15 text-amber-100 shadow-[0_0_18px_rgba(245,158,11,0.35)]'
+  return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
+}
+
 export default function HerbDetail() {
   const { slug = '' } = useParams()
   const herbs = useHerbData()
@@ -84,7 +89,7 @@ export default function HerbDetail() {
   const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
   const lastUpdated = String((herb as any).lastUpdated || '').trim()
   const primaryEffects = extractPrimaryEffects(effects, 3)
-  const confidence = computeConfidenceLevel({
+  const confidence = calculateConfidence({
     mechanism,
     effects,
     compounds: activeCompounds,
@@ -172,6 +177,11 @@ export default function HerbDetail() {
               Key evidence fields are still missing for this profile. Treat this page as a draft
               snapshot and cross-check sources before making decisions.
             </p>
+          </section>
+        )}
+        {confidence === 'low' && (
+          <section className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
+            ⚠️ This entry is incomplete. Data is still being verified.
           </section>
         )}
 

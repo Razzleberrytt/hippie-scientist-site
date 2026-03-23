@@ -6,17 +6,22 @@ import { cleanLine, hasVal, titleCase } from '../lib/pretty'
 import { chipClassFor } from '../lib/tags'
 import { slugify } from '../lib/slug'
 import { buildCardSummary, sanitizeSurfaceText } from '@/lib/summary'
-import {
-  computeConfidenceLevel,
-  confidenceBadgeClass,
-  extractPrimaryEffects,
-} from '@/lib/dataTrust'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import { calculateConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 import './HerbCard.css'
 
 interface HerbCardProps {
   herb: Record<string, any>
   index?: number
   compact?: boolean
+}
+
+function confidenceBadgeClass(level: ConfidenceLevel) {
+  if (level === 'high')
+    return 'border-emerald-300/50 bg-emerald-500/15 text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.35)]'
+  if (level === 'medium')
+    return 'border-amber-300/45 bg-amber-500/15 text-amber-100 shadow-[0_0_18px_rgba(245,158,11,0.35)]'
+  return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
 }
 
 function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
@@ -47,12 +52,12 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   const benefits = sanitizeSurfaceText(
     cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit)
   )
-  const confidence = computeConfidenceLevel({
+  const confidence = calculateConfidence({
     mechanism: herb.mechanism || herb.mechanismofaction || herb.mechanismOfAction,
     effects: herb.effects,
     compounds: herb.compounds || herb.active_compounds,
   })
-  const primaryEffects = extractPrimaryEffects(herb.effects, compact ? 2 : 3)
+  const primaryEffects = extractPrimaryEffects(Array.isArray(herb.effects) ? herb.effects : [], 3)
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : []
   const tagLimit = compact ? 3 : 6
@@ -125,7 +130,12 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
         <Card
           className={`relative flex h-full flex-col ${compact ? 'mini-card gap-3' : 'gap-4'} card-pad hover:shadow-glow transition-shadow duration-200`}
         >
-          <header className='stack'>
+          <header className='stack relative pr-20'>
+            <span
+              className={`absolute right-0 top-0 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
+            >
+              {confidence}
+            </span>
             {compact ? (
               <h3 className='font-semibold text-lime-300'>{heading}</h3>
             ) : (
@@ -142,9 +152,6 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
                 </span>
               )}
               {hasVal(benefits) && <span className='pill text-[12px]'>{benefits}</span>}
-              <span className={`pill border text-[12px] ${confidenceBadgeClass(confidence)}`}>
-                Confidence: {confidence}
-              </span>
             </div>
           </header>
 
@@ -160,17 +167,20 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
               </p>
             )}
             {primaryEffects.length > 0 && (
-              <div className='cluster'>
+              <div className='flex flex-wrap gap-1.5'>
                 {primaryEffects.map(effect => (
-                  <span key={effect} className='pill bg-violet-500/15 text-[12px] text-violet-100'>
+                  <span
+                    key={effect}
+                    className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
+                  >
                     {effect}
                   </span>
                 ))}
               </div>
             )}
-            {confidence === 'Low' && (
+            {confidence === 'low' && (
               <p className='small rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-amber-100'>
-                Data incomplete: key evidence fields are still missing.
+                ⚠️ This entry is incomplete. Data is still being verified.
               </p>
             )}
             {tags.length > 0 && (
