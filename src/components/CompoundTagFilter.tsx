@@ -40,7 +40,7 @@ export default function CompoundTagFilter({
                 : { scale: 1, boxShadow: 'none' }
             }
             transition={{ type: 'spring', stiffness: 220, damping: 12 }}
-            className={`tag-pill hover-glow whitespace-nowrap transition-colors duration-300 ${act ? 'bg-emerald-700/70 text-white ring-2 ring-emerald-400 dark:bg-emerald-800' : 'bg-space-dark/70 text-sand dark:bg-gray-800 dark:text-gray-200'}`}
+            className={`ds-pill whitespace-nowrap transition ${act ? 'border-emerald-400/60 bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-400/40' : 'text-white/75 hover:border-white/25'}`}
           >
             {opt.label}
           </motion.button>
@@ -53,7 +53,7 @@ export default function CompoundTagFilter({
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.08 }}
           transition={{ type: 'spring', stiffness: 220, damping: 12 }}
-          className='tag-pill hover-glow whitespace-nowrap bg-rose-700/70 text-white transition-colors duration-300 dark:bg-rose-800'
+          className='ds-pill whitespace-nowrap border-rose-400/40 bg-rose-500/15 text-rose-100'
         >
           Clear
         </motion.button>

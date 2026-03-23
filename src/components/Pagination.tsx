@@ -26,7 +26,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
         type='button'
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
-        className='text-sand rounded px-2 py-1 text-sm disabled:opacity-50'
+        className='rounded px-2 py-1 text-sm text-white/70 disabled:opacity-40'
       >
         Prev
       </button>
@@ -36,12 +36,12 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
             whileHover={{ scale: 1.1 }}
             key={p}
             onClick={() => onPageChange(p)}
-            className={`w-8 rounded px-2 py-1 text-center text-sm ${p === currentPage ? 'bg-cosmic-purple text-white' : 'text-sand'}`}
+            className={`w-8 rounded px-2 py-1 text-center text-sm ${p === currentPage ? 'bg-white/15 text-white' : 'text-white/70'}`}
           >
             {p}
           </motion.button>
         ) : (
-          <span key={`ellipsis-${i}`} className='text-sand w-8 px-2 py-1 text-center'>
+          <span key={`ellipsis-${i}`} className='w-8 px-2 py-1 text-center text-white/60'>
             {p}
           </span>
         )
@@ -50,7 +50,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
         type='button'
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
-        className='text-sand rounded px-2 py-1 text-sm disabled:opacity-50'
+        className='rounded px-2 py-1 text-sm text-white/70 disabled:opacity-40'
       >
         Next
       </button>

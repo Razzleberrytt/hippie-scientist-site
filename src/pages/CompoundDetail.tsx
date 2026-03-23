@@ -8,46 +8,30 @@ import { slugify } from '@/lib/slug'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
+import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 
-type SourceRef = { title: string; url: string; note?: string }
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className='mt-6'>
-      <h2 className='text-lg font-semibold text-white'>{title}</h2>
-      <div className='mt-2 text-sm text-white/85'>{children}</div>
+    <section className='border-white/8 mt-6 border-t pt-5'>
+      <h2 className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
+        {title}
+      </h2>
+      <div className='text-sm leading-relaxed text-white/85'>{children}</div>
     </section>
   )
 }
 
-function MissingField({ label }: { label: string }) {
+function ListSection({ items }: { items: string[] }) {
+  if (!items.length) return null
   return (
-    <p className='italic text-white/70'>Information not yet available for {label.toLowerCase()}.</p>
-  )
-}
-
-function SourceList({ sources }: { sources: SourceRef[] }) {
-  if (!sources.length) {
-    return <p className='text-white/75'>No citations available yet.</p>
-  }
-
-  return (
-    <ol className='list-decimal space-y-1 pl-5'>
-      {sources.map((source, index) => (
-        <li key={`${source.url}-${index}`}>
-          {/^https?:\/\//i.test(source.url) ? (
-            <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-              {source.title}
-            </a>
-          ) : (
-            source.title
-          )}
-          {source.note && <span className='ml-2 text-white/65'>— {source.note}</span>}
-        </li>
+    <ul className='list-disc space-y-1 pl-5'>
+      {items.map(item => (
+        <li key={item}>{item}</li>
       ))}
-    </ol>
+    </ul>
   )
 }
 
@@ -60,7 +44,10 @@ export default function CompoundDetail() {
   if (!compound) {
     return (
       <main className='container mx-auto max-w-3xl px-4 py-10 text-white'>
-        <p>Compound profile not found.</p>
+        <p className='text-white/60'>Compound profile not found.</p>
+        <Link to='/compounds' className='btn-secondary mt-4 inline-flex'>
+          ← Back to compounds
+        </Link>
       </main>
     )
   }
@@ -68,11 +55,11 @@ export default function CompoundDetail() {
   const herbMap = new Map(
     herbs.map(herb => [String(herb.common || herb.name || herb.slug).toLowerCase(), herb.slug])
   )
-
   const linkedHerbs = compound.herbs.map(name => ({
     name,
     slug: herbMap.get(name.toLowerCase()) || slugify(name),
   }))
+
   const confidence =
     compound.confidence ??
     calculateCompoundConfidence({
@@ -80,6 +67,7 @@ export default function CompoundDetail() {
       effects: compound.effects,
       compounds: compound.herbs,
     })
+
   const completeness = getCompoundDataCompleteness({
     mechanism: compound.mechanism,
     effects: compound.effects,
@@ -88,164 +76,174 @@ export default function CompoundDetail() {
     herbs: compound.herbs,
   })
 
-  const presentContributionFields = pickNonEmptyKeys(
+  const primaryEffects = extractPrimaryEffects(compound.effects, 4)
+
+  const keyFields = pickNonEmptyKeys(
     {
-      className: compound.className,
-      activeCompounds: compound.activeCompounds,
       mechanism: compound.mechanism,
-      therapeuticUses: compound.therapeuticUses,
+      effects: compound.effects,
       contraindications: compound.contraindications,
-      interactions: compound.interactions,
-      sources: compound.sources,
+      herbs: compound.herbs,
     },
-    [
-      'className',
-      'activeCompounds',
-      'mechanism',
-      'therapeuticUses',
-      'contraindications',
-      'interactions',
-      'sources',
-    ]
+    ['mechanism', 'effects', 'contraindications', 'herbs']
   )
-  const shouldShowContributionCta = presentContributionFields.length < 7
+  const shouldShowContributionCta = keyFields.length < 3
+
+  // Derive a display class — category only if it's meaningful
+  const displayClass =
+    compound.className || (compound.category !== 'Uncategorized' ? compound.category : '')
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
       <Meta
-        title={`${compound.name} | Compound Detail`}
-        description={compound.description || `Detail page for ${compound.name}.`}
+        title={`${compound.name} | The Hippie Scientist`}
+        description={compound.description || `Compound profile for ${compound.name}.`}
         path={`/compounds/${compound.slug}`}
       />
-      <Link to='/compounds' className='btn-secondary inline-flex items-center rounded-full px-4'>
+      <Link to='/compounds' className='btn-secondary inline-flex items-center'>
         ← Back to compounds
       </Link>
 
       <article className='ds-card-lg mt-4'>
-        <div className='flex flex-wrap items-start justify-between gap-2'>
-          <h1 className='text-3xl font-semibold'>{compound.name}</h1>
-        </div>
-        <DataTrustPanel entity='compound' confidence={confidence} completeness={completeness} />
+        {/* Header */}
+        <header>
+          <div className='flex flex-wrap items-start justify-between gap-3'>
+            <h1 className='text-3xl font-semibold leading-tight'>{compound.name}</h1>
+            {displayClass && (
+              <span className='bg-white/6 mt-1 shrink-0 rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80'>
+                {displayClass}
+              </span>
+            )}
+          </div>
+          <DataTrustPanel entity='compound' confidence={confidence} completeness={completeness} />
+        </header>
 
-        <Section title='Description'>
-          {compound.description || <MissingField label='Description' />}
-        </Section>
+        {/* Primary effects pills */}
+        {primaryEffects.length > 0 && (
+          <div className='mt-5 flex flex-wrap gap-2'>
+            {primaryEffects.map(effect => (
+              <span
+                key={effect}
+                className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+              >
+                {effect}
+              </span>
+            ))}
+          </div>
+        )}
 
-        <Section title='Class'>
-          {compound.className || compound.category || <MissingField label='Class' />}
-        </Section>
+        {/* Core fields — only render when value is present */}
+        {compound.description && <Section title='Overview'>{compound.description}</Section>}
 
-        <Section title='Active Compounds'>
-          {compound.activeCompounds.length ? (
-            <div className='flex flex-wrap gap-2'>
-              {compound.activeCompounds.map(item => (
-                <span key={item} className='ds-pill'>
-                  {item}
-                </span>
-              ))}
-            </div>
-          ) : (
-            <MissingField label='Active compounds' />
-          )}
-        </Section>
+        {compound.mechanism && <Section title='Mechanism of Action'>{compound.mechanism}</Section>}
 
-        <Section title='Effects'>
-          {compound.effects.length > 0 ? (
-            <ul className='list-disc space-y-1 pl-5'>
-              {compound.effects.map(effect => (
-                <li key={effect}>{effect}</li>
-              ))}
-            </ul>
-          ) : (
-            <MissingField label='Effects' />
-          )}
-        </Section>
+        {compound.effects.length > 0 && (
+          <Section title='Effects'>
+            <ListSection items={compound.effects} />
+          </Section>
+        )}
 
-        <Section title='Therapeutic Uses'>
-          {compound.therapeuticUses.length > 0 ? (
-            <ul className='list-disc space-y-1 pl-5'>
-              {compound.therapeuticUses.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          ) : (
-            <MissingField label='Therapeutic uses' />
-          )}
-        </Section>
+        {compound.therapeuticUses.length > 0 && (
+          <Section title='Therapeutic Uses'>
+            <ListSection items={compound.therapeuticUses} />
+          </Section>
+        )}
 
-        <Section title='Contraindications'>
-          {compound.contraindications.length > 0 ? (
+        {/* Safety */}
+        {compound.contraindications.length > 0 && (
+          <Section title='Contraindications'>
             <ul className='space-y-2'>
               {compound.contraindications.map(item => (
                 <li
                   key={item}
-                  className='rounded-xl border border-rose-300/45 bg-rose-500/15 px-3 py-2 text-rose-50'
+                  className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
                 >
-                  <span aria-hidden='true'>⚠ </span>
+                  <span aria-hidden='true' className='mr-1'>
+                    ⚠
+                  </span>
                   {item}
                 </li>
               ))}
             </ul>
-          ) : (
-            <MissingField label='Contraindications' />
-          )}
-        </Section>
+          </Section>
+        )}
 
-        <Section title='Interactions'>
-          {compound.interactions.length > 0 ? (
-            <ul className='list-disc space-y-1 pl-5'>
-              {compound.interactions.map(item => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          ) : (
-            <MissingField label='Interactions' />
-          )}
-        </Section>
+        {compound.interactions.length > 0 && (
+          <Section title='Drug Interactions'>
+            <ListSection items={compound.interactions} />
+          </Section>
+        )}
 
-        <Section title='Associated Herbs'>
-          {linkedHerbs.length > 0 ? (
-            <div className='mt-3 flex flex-wrap gap-2'>
+        {compound.sideEffects.length > 0 && (
+          <Section title='Side Effects'>
+            <ListSection items={compound.sideEffects} />
+          </Section>
+        )}
+
+        {/* Associated herbs */}
+        {linkedHerbs.length > 0 && (
+          <Section title='Found In'>
+            <div className='flex flex-wrap gap-2'>
               {linkedHerbs.map(herb => (
                 <Link
                   key={herb.name}
                   to={`/herbs/${encodeURIComponent(herb.slug)}`}
-                  className='ds-pill'
+                  className='ds-pill transition hover:border-white/30'
                 >
                   {herb.name}
                 </Link>
               ))}
             </div>
-          ) : (
-            <MissingField label='Associated herbs' />
-          )}
-        </Section>
+          </Section>
+        )}
 
-        <Section title='Sources'>
-          <SourceList sources={compound.sources} />
-        </Section>
+        {/* Practical info */}
+        {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
+        {compound.duration && <Section title='Duration'>{compound.duration}</Section>}
+
+        {/* Sources */}
+        {compound.sources.length > 0 && (
+          <Section title='Sources'>
+            <ol className='list-decimal space-y-1 pl-5'>
+              {compound.sources.map((source, index) => (
+                <li key={`${source.url}-${index}`}>
+                  {/^https?:\/\//i.test(source.url) ? (
+                    <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+                      {source.title}
+                    </a>
+                  ) : (
+                    source.title
+                  )}
+                  {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
+                </li>
+              ))}
+            </ol>
+          </Section>
+        )}
+
+        {compound.lastUpdated && (
+          <Section title='Last Updated'>
+            <span className='text-white/50'>{compound.lastUpdated}</span>
+          </Section>
+        )}
 
         {shouldShowContributionCta && (
-          <section className='mt-8 rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-4 text-sm text-cyan-50'>
+          <div className='bg-cyan-300/8 mt-8 rounded-2xl border border-cyan-300/30 p-4 text-sm text-cyan-50'>
             <p className='font-semibold'>Help improve this entry</p>
-            <p className='mt-2 text-cyan-100/90'>
-              Submit a source or correction to strengthen mechanism, safety, and reference quality
-              for this compound profile.
+            <p className='mt-1 text-cyan-100/80'>
+              This compound is missing key evidence fields. Submit a source or correction to
+              strengthen this profile.
             </p>
             <div className='mt-3 flex flex-wrap gap-2'>
               <Link to='/contribute' className='btn-secondary'>
-                Help improve this entry
+                Contribute data
               </Link>
               <a href={ISSUE_TEMPLATE_URL} target='_blank' rel='noreferrer' className='btn-primary'>
-                Submit a source or correction
+                Submit a source
               </a>
             </div>
-          </section>
+          </div>
         )}
-
-        <Section title='Last Updated'>
-          {compound.lastUpdated || <MissingField label='Last updated' />}
-        </Section>
       </article>
     </main>
   )

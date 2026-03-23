@@ -77,7 +77,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
   }, [filtered, onFilter])
 
   return (
-    <div className='dark:bg-space-dark/70 sticky top-20 z-10 mb-8 space-y-4 rounded-lg bg-white/70 p-4 backdrop-blur-md'>
+    <div className='sticky top-20 z-10 mb-8 space-y-4 rounded-2xl border border-white/10 bg-black/30 p-4 backdrop-blur-md'>
       <input
         type='text'
         placeholder='Search herbs...'
@@ -93,7 +93,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({ herbs, onFilter }) => {
             type='button'
             key={tag}
             onClick={() => removeTag(tag)}
-            className='tag-pill transition-colors duration-300 dark:bg-gray-800 dark:text-gray-200'
+            className='ds-pill transition hover:border-white/25'
           >
             {decodeTag(tag)}
           </button>
