@@ -58,7 +58,7 @@ export function searchEntries<T>(
     const effects = toList(fields.effects)
     const activeCompounds = toList(fields.activeCompounds)
     const contraindications = toList(fields.contraindications)
-    const safety = normalizeText(fields.safety)
+    const safety = toList(fields.safety)
 
     let score = 0
 
@@ -68,7 +68,7 @@ export function searchEntries<T>(
 
     if (type && includesAnyToken(type, q)) score += 240
     if (mechanism && includesAnyToken(mechanism, q)) score += 220
-    if (safety && includesAnyToken(safety, q)) score += 180
+    if (safety.some(item => includesAnyToken(item, q))) score += 180
 
     if (effects.some(effect => includesAnyToken(effect, q))) score += 200
     if (activeCompounds.some(compound => includesAnyToken(compound, q))) score += 170

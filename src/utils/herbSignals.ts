@@ -1,12 +1,14 @@
 import type { Herb } from '@/types'
+import { asStringArray } from '@/utils/asStringArray'
+import { isNonEmptyString } from '@/utils/isNonEmptyString'
 
 export type ConfidenceLevel = 'high' | 'medium' | 'low'
 
 function splitList(value: unknown): string[] {
   if (Array.isArray(value)) {
-    return value.map(item => String(item).trim()).filter(Boolean)
+    return asStringArray(value)
   }
-  if (typeof value === 'string') {
+  if (isNonEmptyString(value)) {
     return value
       .split(/[;,|\n]/)
       .map(item => item.trim())
