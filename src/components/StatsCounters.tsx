@@ -12,7 +12,7 @@ export default function StatsCounters({ className = '' }: { className?: string }
   const herbCount = herbs.length
   const compoundCount = baseCompounds.length
   const postCount = (posts as BlogPost[]).filter(post => Boolean(post?.slug)).length
-  const kpis = formatKpis({ herbs: herbCount, compounds: compoundCount, posts: postCount })
+  const kpis = formatKpis({ herbs: herbCount, compounds: compoundCount, articles: postCount })
 
   return (
     <p className={`mt-6 text-center text-lg text-zinc-300 ${className}`} aria-label={kpis}>

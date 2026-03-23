@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from '@/lib/motion'
 import { Link } from 'react-router-dom'
-import type { CompoundEntry } from '../data/compounds/compounds'
+import type { Compound } from '@/types/compound'
 import TagBadge from './TagBadge'
 import { buildCardSummary } from '@/lib/summary'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
@@ -12,9 +12,19 @@ interface HerbRef {
   slug?: string
 }
 
-export interface CompoundWithRefs extends CompoundEntry {
+export interface CompoundWithRefs extends Compound {
+  name: string
   herbsFound: HerbRef[]
   effectClass?: string
+}
+
+function getMechanism(compound: CompoundWithRefs): string {
+  if (typeof compound.mechanism === 'string' && compound.mechanism.trim()) {
+    return compound.mechanism
+  }
+
+  const legacyMechanism = (compound as Record<string, unknown>).mechanismOfAction
+  return typeof legacyMechanism === 'string' ? legacyMechanism : ''
 }
 
 function confidenceBadgeClass(level: ConfidenceLevel) {
@@ -26,15 +36,18 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
 }
 
 export default function CompoundCard({ compound }: { compound: CompoundWithRefs }) {
+  const mechanism = getMechanism(compound)
+  const effects = Array.isArray(compound.effects) ? compound.effects : []
+
   const confidence = calculateCompoundConfidence({
-    mechanism: compound.mechanismOfAction || compound.mechanism,
-    effects: compound.effects,
+    mechanism,
+    effects,
     compounds: compound.herbsFound.map(h => h.name),
   })
-  const primaryEffects = extractPrimaryEffects(compound.effects, 3)
+  const primaryEffects = extractPrimaryEffects(effects, 3)
   const summary = buildCardSummary({
-    effects: compound.mechanismOfAction,
-    mechanism: compound.mechanismOfAction,
+    effects,
+    mechanism,
     description: compound.description,
     activeCompounds: compound.herbsFound.map(h => h.name),
     maxLen: 170,
@@ -53,7 +66,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
       </span>
       <h2 className='drop-shadow-glow mb-1 text-lg font-bold text-emerald-300'>{compound.name}</h2>
       <div className='mb-2 flex flex-wrap gap-2 pr-16'>
-        <TagBadge label={compound.type} />
+        <TagBadge label={compound.type ?? compound.category ?? 'compound'} />
         {compound.effectClass && <TagBadge label={compound.effectClass} variant='blue' />}
       </div>
       {primaryEffects.length > 0 && (

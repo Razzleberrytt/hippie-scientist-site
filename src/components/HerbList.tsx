@@ -36,7 +36,7 @@ const HerbList: React.FC<Props> = ({
   return (
     <>
       <motion.div
-        key={herbs.map(h => h.id).join('-')}
+        key={`${highlightQuery}-${herbs.map(h => h.id).join('-')}`}
         layout
         variants={containerVariants}
         initial='hidden'
@@ -51,7 +51,7 @@ const HerbList: React.FC<Props> = ({
         <AnimatePresence>
           {herbs.slice(0, visible).map(h => (
             <motion.div key={h.id || h.name} variants={itemVariants} layout>
-              <HerbCardAccordion herb={h} highlight={highlightQuery} />
+              <HerbCardAccordion herb={h} />
             </motion.div>
           ))}
         </AnimatePresence>
