@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { slugify } from '@/lib/slug'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
+import { cleanText, splitClean } from '@/lib/sanitize'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -32,22 +33,14 @@ export type CompoundRecord = {
 
 let compoundsPromise: Promise<CompoundRecord[]> | null = null
 
-function splitText(value: unknown): string[] {
-  if (Array.isArray(value)) return value.map(v => String(v).trim()).filter(Boolean)
-  if (typeof value === 'string') {
-    return value
-      .split(/[\n;,|]/)
-      .map(item => item.trim())
-      .filter(Boolean)
-  }
-  return []
-}
-
 function normalizeSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
   return value
     .map(source => {
-      if (typeof source === 'string') return { title: source, url: source }
+      if (typeof source === 'string') {
+        const t = source.trim()
+        return t ? { title: t, url: t } : null
+      }
       if (!source || typeof source !== 'object') return null
       const ref = source as Record<string, unknown>
       const title = String(ref.title || ref.url || '').trim()
@@ -60,39 +53,34 @@ function normalizeSources(value: unknown): SourceRef[] {
 }
 
 function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
-  const name = String(raw.name || raw.commonName || raw.id || '').trim()
+  const name = cleanText(raw.name ?? raw.commonName ?? raw.id) || ''
   const slug = String(raw.slug || slugify(name))
-  const effects = splitText(raw.effects)
-  const herbs = splitText(raw.associatedHerbs ?? raw.foundInHerbs ?? raw.herbs ?? raw.foundIn)
+  const effects = splitClean(raw.effects)
+  const herbs = splitClean(raw.associatedHerbs ?? raw.foundInHerbs ?? raw.herbs ?? raw.foundIn)
+  const mechanism = cleanText(raw.mechanism ?? raw.mechanismOfAction) || ''
 
   return {
     id: String(raw.id || slug),
     slug,
     name,
-    description: String(raw.description || raw.summary || '').trim(),
-    className: String(raw.class || raw.type || '').trim(),
-    category: String(raw.category || raw.class || raw.type || '').trim(),
-    intensity: String(raw.intensity || '').trim(),
-    mechanism: String(raw.mechanism || raw.mechanismOfAction || '').trim(),
-    activeCompounds: splitText(raw.activeCompounds),
+    description: cleanText(raw.description ?? raw.summary) || '',
+    className: cleanText(raw.class ?? raw.type) || '',
+    category: cleanText(raw.category ?? raw.class ?? raw.type) || '',
+    intensity: cleanText(raw.intensity) || '',
+    mechanism,
+    activeCompounds: splitClean(raw.activeCompounds),
     effects,
-    therapeuticUses: splitText(raw.therapeuticUses),
-    contraindications: splitText(raw.contraindications),
-    interactions: splitText(raw.interactions),
-    dosage: Array.isArray(raw.dosage)
-      ? (raw.dosage as string[]).join('; ')
-      : String(raw.dosage || '').trim(),
-    duration: String(raw.duration || '').trim(),
-    region: String(raw.region || '').trim(),
-    preparation: String(raw.preparation || '').trim(),
-    legalStatus: String(raw.legalStatus || '').trim(),
-    sideEffects: splitText(raw.sideEffects),
+    therapeuticUses: splitClean(raw.therapeuticUses),
+    contraindications: splitClean(raw.contraindications),
+    interactions: splitClean(raw.interactions),
+    dosage: cleanText(raw.dosage) || '',
+    duration: cleanText(raw.duration) || '',
+    region: cleanText(raw.region) || '',
+    preparation: cleanText(raw.preparation) || '',
+    legalStatus: cleanText(raw.legalStatus) || '',
+    sideEffects: splitClean(raw.sideEffects),
     herbs,
-    confidence: calculateCompoundConfidence({
-      mechanism: raw.mechanism || raw.mechanismOfAction,
-      effects,
-      compounds: herbs,
-    }),
+    confidence: calculateCompoundConfidence({ mechanism, effects, compounds: herbs }),
     sources: normalizeSources(raw.sources),
     lastUpdated: String(raw.lastUpdated || raw.updatedAt || '').trim(),
   }

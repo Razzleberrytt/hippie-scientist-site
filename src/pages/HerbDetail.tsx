@@ -3,33 +3,26 @@ import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
-import Disclaimer from '@/components/Disclaimer'
 import { useHerbData } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
+import { splitClean } from '@/lib/sanitize'
 
-type SourceRef = { title: string; url: string; note?: string }
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
 
-function toList(value: unknown): string[] {
-  if (Array.isArray(value)) return value.map(v => String(v).trim()).filter(Boolean)
-  if (typeof value === 'string') {
-    return value
-      .split(/[\n;,|]/)
-      .map(item => item.trim())
-      .filter(Boolean)
-  }
-  return []
-}
+type SourceRef = { title: string; url: string; note?: string }
 
 function toSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
   return value
     .map(item => {
-      if (typeof item === 'string') return { title: item, url: item }
+      if (typeof item === 'string') {
+        const t = item.trim()
+        return t ? { title: t, url: t } : null
+      }
       if (!item || typeof item !== 'object') return null
       const source = item as Record<string, unknown>
       const title = String(source.title || source.url || '').trim()
@@ -41,12 +34,56 @@ function toSources(value: unknown): SourceRef[] {
     .filter((item): item is SourceRef => Boolean(item))
 }
 
+// Only renders if children is a non-empty string, non-empty array, or explicit ReactNode
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className='rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5'>
-      <h2 className='text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200'>{title}</h2>
-      <div className='mt-3 text-sm text-white/85'>{children}</div>
+    <section className='border-white/8 mt-6 border-t pt-5'>
+      <h2 className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
+        {title}
+      </h2>
+      <div className='text-sm leading-relaxed text-white/85'>{children}</div>
     </section>
+  )
+}
+
+function TagList({
+  items,
+  variant = 'default',
+}: {
+  items: string[]
+  variant?: 'default' | 'warning' | 'accent'
+}) {
+  if (!items.length) return null
+  const cls =
+    variant === 'warning'
+      ? 'rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
+      : variant === 'accent'
+        ? 'rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+        : 'ds-pill'
+  return (
+    <div className='flex flex-wrap gap-2'>
+      {items.map(item => (
+        <span key={item} className={cls}>
+          {variant === 'warning' && (
+            <span aria-hidden='true' className='mr-1'>
+              ⚠
+            </span>
+          )}
+          {item}
+        </span>
+      ))}
+    </div>
+  )
+}
+
+function ListSection({ items }: { items: string[] }) {
+  if (!items.length) return null
+  return (
+    <ul className='list-disc space-y-1 pl-5'>
+      {items.map(item => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
   )
 }
 
@@ -58,45 +95,49 @@ export default function HerbDetail() {
   if (!herb) {
     return (
       <main className='container mx-auto max-w-3xl px-4 py-10 text-white'>
-        <p>Herb profile not found.</p>
+        <p className='text-white/60'>Herb profile not found.</p>
+        <Link to='/herbs' className='btn-secondary mt-4 inline-flex'>
+          ← Back to herbs
+        </Link>
       </main>
     )
   }
 
-  const activeCompounds = toList(
-    (herb as any).activeCompounds ?? herb.active_compounds ?? herb.compounds
-  )
-  const therapeuticUses = toList((herb as any).therapeuticUses ?? herb.therapeutic)
-  const contraindications = toList(herb.contraindications)
-  const interactions = toList(herb.interactions)
-  const effects = toList(herb.effects)
-  const sideEffects = toList((herb as any).sideEffects ?? herb.sideeffects)
-  const dosage = toList(herb.dosage)
-  const sources = toSources((herb as any).sources)
+  // All list fields are already cleaned arrays from herb-data.ts
+  const effects = Array.isArray(herb.effects) ? herb.effects : splitClean(herb.effects)
+  const activeCompounds = Array.isArray(herb.activeCompounds)
+    ? herb.activeCompounds
+    : splitClean(herb.activeCompounds)
+  const contraindications = Array.isArray(herb.contraindications)
+    ? herb.contraindications
+    : splitClean(herb.contraindications)
+  const interactions = Array.isArray(herb.interactions)
+    ? herb.interactions
+    : splitClean(herb.interactions)
+  const therapeuticUses = Array.isArray(herb.therapeuticUses)
+    ? (herb.therapeuticUses as string[])
+    : splitClean(herb.therapeuticUses)
+  const sideEffects = Array.isArray(herb.sideeffects)
+    ? herb.sideeffects
+    : splitClean(herb.sideeffects)
+  const sources = toSources(herb.sources)
+  const primaryEffects = extractPrimaryEffects(effects, 4)
 
-  const className = String((herb as any).class || herb.category || '').trim()
-  const intensity = String(herb.intensity || '').trim()
-  const mechanism = String(herb.mechanism || '').trim()
-  const description = String(herb.description || '').trim()
-  const duration = String((herb as any).duration || '').trim()
-  const region = String(herb.region || '').trim()
-  const preparation = String(herb.preparation || herb.preparations?.join(', ') || '').trim()
-  const legalStatus = String(herb.legalStatus || herb.legalstatus || '').trim()
-  const lastUpdated = String((herb as any).lastUpdated || '').trim()
-  const primaryEffects = extractPrimaryEffects(effects, 3)
-  const alternateNames = [herb.scientific, herb.common, herb.name]
-    .map(value => String(value || '').trim())
-    .filter(Boolean)
-    .filter(
-      (value, index, arr) => arr.findIndex(v => v.toLowerCase() === value.toLowerCase()) === index
-    )
+  // Scalar fields already cleaned by normalization
+  const description = herb.description || ''
+  const mechanism = herb.mechanism || ''
+  const intensity = herb.intensity || ''
+  const region = herb.region || ''
+  const duration = herb.duration || ''
+  const dosage = herb.dosage || ''
+  const preparation = herb.preparation || ''
+  const legalStatus = herb.legalStatus || ''
+  const herbClass = herb.class || herb.category || ''
+  const lastUpdated = String((herb as Record<string, unknown>).lastUpdated || '').trim()
+
   const confidence =
-    herb.confidence ??
-    calculateHerbConfidence({
-      mechanism,
-      effects,
-      compounds: activeCompounds,
-    })
+    herb.confidence ?? calculateHerbConfidence({ mechanism, effects, compounds: activeCompounds })
+
   const completeness = getHerbDataCompleteness({
     mechanism,
     effects,
@@ -104,50 +145,16 @@ export default function HerbDetail() {
     contraindications,
   })
 
-  const presentContributionFields = pickNonEmptyKeys(
-    {
-      className,
-      activeCompounds,
-      mechanism,
-      therapeuticUses,
-      contraindications,
-      interactions,
-      sources,
-    },
-    [
-      'className',
-      'activeCompounds',
-      'mechanism',
-      'therapeuticUses',
-      'contraindications',
-      'interactions',
-      'sources',
-    ]
-  )
-  const shouldShowContributionCta = presentContributionFields.length < 7
-
   const keyFields = pickNonEmptyKeys(
-    {
-      mechanism,
-      effects,
-      activeCompounds,
-      contraindications,
-      interactions,
-      sources,
-    },
+    { mechanism, effects, activeCompounds, contraindications, interactions, sources },
     ['mechanism', 'effects', 'activeCompounds', 'contraindications', 'interactions', 'sources']
   )
+  const isDataIncomplete = keyFields.length < 3
+
   const renderableKeys = pickNonEmptyKeys(
-    {
-      className,
-      activeCompounds,
-      therapeuticUses,
-      contraindications,
-      interactions,
-      legalStatus,
-    },
+    { herbClass, activeCompounds, therapeuticUses, contraindications, interactions, legalStatus },
     [
-      'className',
+      'herbClass',
       'activeCompounds',
       'therapeuticUses',
       'contraindications',
@@ -156,281 +163,166 @@ export default function HerbDetail() {
     ]
   )
   const missingFieldCount = 6 - renderableKeys.length
-  const isDataIncomplete = keyFields.length < 4
-  const missingImportantFields = [
-    !mechanism ? 'mechanism' : null,
-    effects.length === 0 ? 'effects' : null,
-    activeCompounds.length === 0 ? 'active compounds' : null,
-    contraindications.length === 0 ? 'contraindications' : null,
-  ].filter((field): field is string => Boolean(field))
-  const sourceCount = sources.length
-  const mechanismKnown = Boolean(mechanism)
-
-  const metaTitle = `${herb.common || herb.name} Effects, Benefits, Safety | The Hippie Scientist`
-  const metaDescription = [
-    description,
-    effects.length > 0 ? `Effects include ${effects.slice(0, 3).join(', ')}.` : '',
-    contraindications.length > 0
-      ? `Review interactions and contraindications before use.`
-      : 'Review confidence and safety notes before use.',
-  ]
-    .filter(Boolean)
-    .join(' ')
-    .slice(0, 280)
-
-  const herbJsonLd: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': mechanismKnown || activeCompounds.length > 0 ? 'Substance' : 'MedicalEntity',
-    name: herb.common || herb.name,
-    description: description || undefined,
-    possibleInteraction: interactions.length > 0 ? interactions : undefined,
-    mechanismOfAction: mechanism || undefined,
-    alternateName: alternateNames.length > 1 ? alternateNames.slice(1) : undefined,
-  }
-
-  const relatedHerbs = herbs
-    .filter(item => item.slug !== herb.slug)
-    .map(item => {
-      const itemEffects = toList((item as any).effects)
-      const itemCompounds = toList(
-        (item as any).activeCompounds ?? item.active_compounds ?? item.compounds
-      )
-      const sharedEffects = itemEffects.filter(effect =>
-        effects.some(base => base.toLowerCase() === effect.toLowerCase())
-      )
-      const sharedCompounds = itemCompounds.filter(compound =>
-        activeCompounds.some(base => base.toLowerCase() === compound.toLowerCase())
-      )
-      const score = sharedEffects.length * 2 + sharedCompounds.length * 3
-      return { item, score, sharedEffects, sharedCompounds }
-    })
-    .filter(entry => entry.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 6)
+  const shouldShowContributionCta = renderableKeys.length < 5
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
       <Meta
-        title={metaTitle}
-        description={metaDescription}
+        title={`${herb.common || herb.name} | The Hippie Scientist`}
+        description={description || `Herb profile for ${herb.common || herb.name}.`}
         path={`/herbs/${herb.slug}`}
-        pageType='article'
-        og={{
-          title: metaTitle,
-          description: metaDescription,
-          type: 'article',
-          url: `https://thehippiescientist.net/herbs/${herb.slug}`,
-        }}
-        jsonLd={herbJsonLd}
       />
-      <Link to='/herbs' className='btn-secondary inline-flex items-center rounded-full px-4'>
+      <Link to='/herbs' className='btn-secondary inline-flex items-center'>
         ← Back to herbs
       </Link>
 
-      <article className='ds-card-lg mt-4 space-y-4'>
-        <div className='flex flex-wrap items-start justify-between gap-2'>
-          <h1 className='text-3xl font-semibold'>{herb.common || herb.name}</h1>
-        </div>
-        {herb.scientific && <p className='mt-1 italic text-white/75'>{herb.scientific}</p>}
-        <DataTrustPanel entity='herb' confidence={confidence} completeness={completeness} />
-        <p className='mt-2 text-xs text-white/70'>
-          Confidence: <span className='text-white/90'>{confidence.toUpperCase()}</span>
-          {sourceCount > 0 ? ` · Sources: ${sourceCount}` : ''}
-          {` · Mechanism: ${mechanismKnown ? 'Known' : 'Unknown'}`}
-        </p>
-        <p className='mt-1 text-xs text-cyan-100/90'>
-          Learn how these signals are scored in{' '}
-          <Link to='/methodology' className='underline decoration-dotted underline-offset-4'>
-            our methodology
-          </Link>
-          .
-        </p>
-        {isDataIncomplete && (
-          <section className='rounded-xl border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>
-            <p className='font-semibold uppercase tracking-wide'>Data incomplete</p>
-            {missingImportantFields.length > 0 && (
-              <p className='mt-1 text-amber-50/90'>
-                Missing: {missingImportantFields.slice(0, 3).join(', ')}
-                {missingImportantFields.length > 3 ? ', and more' : ''}.
-              </p>
+      <article className='ds-card-lg mt-4'>
+        {/* Header */}
+        <header>
+          <div className='flex flex-wrap items-start justify-between gap-3'>
+            <div>
+              <h1 className='text-3xl font-semibold leading-tight'>{herb.common || herb.name}</h1>
+              {herb.scientific && (
+                <p className='mt-1 text-sm italic text-white/55'>{herb.scientific}</p>
+              )}
+            </div>
+            {intensity && (
+              <span className='bg-white/6 mt-1 shrink-0 rounded-full border border-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white/80'>
+                {intensity}
+              </span>
             )}
-          </section>
+          </div>
+
+          <DataTrustPanel entity='herb' confidence={confidence} completeness={completeness} />
+
+          {isDataIncomplete && (
+            <div className='bg-amber-500/8 mt-4 rounded-xl border border-amber-300/30 p-3 text-sm text-amber-100'>
+              <p className='font-semibold'>Incomplete profile</p>
+              <p className='mt-1 text-amber-50/80'>
+                Key evidence fields are missing. Treat this as a draft — cross-check before making
+                decisions.
+              </p>
+            </div>
+          )}
+        </header>
+
+        {/* Primary effects pills — high-signal summary */}
+        {primaryEffects.length > 0 && (
+          <div className='mt-5 flex flex-wrap gap-2'>
+            {primaryEffects.map(effect => (
+              <span
+                key={effect}
+                className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
+              >
+                {effect}
+              </span>
+            ))}
+          </div>
         )}
 
-        <div className='grid gap-4'>
-          {description && <Section title='Description'>{description}</Section>}
-          {(className || intensity || mechanism) && (
-            <section className='grid gap-4 md:grid-cols-3'>
-              {className && <Section title='Class'>{className}</Section>}
-              {intensity && <Section title='Intensity'>{intensity}</Section>}
-              {mechanism && <Section title='Mechanism'>{mechanism}</Section>}
-            </section>
-          )}
+        {/* Core content */}
+        {description && <Section title='Overview'>{description}</Section>}
 
-          {activeCompounds.length > 0 && (
-            <Section title='Active Compounds'>
-              <div className='flex flex-wrap gap-2'>
-                {activeCompounds.map(compound => (
-                  <span key={compound} className='ds-pill'>
-                    {compound}
-                  </span>
-                ))}
-              </div>
-            </Section>
-          )}
+        {herbClass && <Section title='Class'>{herbClass}</Section>}
 
-          {primaryEffects.length > 0 && (
-            <Section title='Primary Effects'>
-              <div className='flex flex-wrap gap-2'>
-                {primaryEffects.map(effect => (
-                  <span
-                    key={effect}
-                    className='rounded-full border border-violet-300/35 bg-violet-500/10 px-2.5 py-1 text-xs text-violet-100'
-                  >
-                    {effect}
-                  </span>
-                ))}
-              </div>
-            </Section>
-          )}
+        {mechanism && <Section title='Mechanism of Action'>{mechanism}</Section>}
 
-          {effects.length > 0 && (
-            <Section title='Effects'>
-              <ul className='list-disc space-y-1 pl-5'>
-                {effects.map(effect => (
-                  <li key={effect}>{effect}</li>
-                ))}
-              </ul>
-            </Section>
-          )}
-
-          {therapeuticUses.length > 0 && (
-            <Section title='Therapeutic Uses'>
-              <ul className='list-disc space-y-1 pl-5'>
-                {therapeuticUses.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </Section>
-          )}
-
-          {contraindications.length > 0 && (
-            <Section title='Contraindications'>
-              <ul className='space-y-2'>
-                {contraindications.map(item => (
-                  <li
-                    key={item}
-                    className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
-                  >
-                    ⚠ {item}
-                  </li>
-                ))}
-              </ul>
-            </Section>
-          )}
-
-          {interactions.length > 0 && (
-            <Section title='Interactions'>
-              <ul className='list-disc space-y-1 pl-5'>
-                {interactions.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </Section>
-          )}
-
-          {(dosage.length > 0 || duration || region || preparation || legalStatus) && (
-            <section className='grid gap-4 sm:grid-cols-2'>
-              {dosage.length > 0 && <Section title='Dosage'>{dosage.join('; ')}</Section>}
-              {duration && <Section title='Duration'>{duration}</Section>}
-              {region && <Section title='Region'>{region}</Section>}
-              {preparation && <Section title='Preparation'>{preparation}</Section>}
-              {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
-            </section>
-          )}
-
-          {sideEffects.length > 0 && (
-            <Section title='Side Effects'>
-              <ul className='list-disc space-y-1 pl-5'>
-                {sideEffects.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </Section>
-          )}
-
-          {sources.length > 0 && (
-            <Section title='Sources'>
-              <ol className='list-decimal space-y-1 pl-5'>
-                {sources.map((source, index) => (
-                  <li key={`${source.url}-${index}`}>
-                    {/^https?:\/\//i.test(source.url) ? (
-                      <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-                        {source.title}
-                      </a>
-                    ) : (
-                      source.title
-                    )}
-                    {source.note && <span className='ml-2 text-white/70'>— {source.note}</span>}
-                  </li>
-                ))}
-              </ol>
-            </Section>
-          )}
-
-          {lastUpdated && <Section title='Last Updated'>{lastUpdated}</Section>}
-        </div>
-
-        {shouldShowContributionCta && (
-          <section className='mt-8 rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-4 text-sm text-cyan-50'>
-            <p className='font-semibold'>Help improve this entry</p>
-            <p className='mt-2 text-cyan-100/90'>
-              Submit a source or correction to improve mechanism, safety, or reference quality for
-              this herb profile.
-            </p>
-            <div className='mt-3 flex flex-wrap gap-2'>
-              <Link to='/contribute' className='btn-secondary'>
-                Help improve this entry
-              </Link>
-              <a href={ISSUE_TEMPLATE_URL} target='_blank' rel='noreferrer' className='btn-primary'>
-                Submit a source or correction
-              </a>
-            </div>
-          </section>
-        )}
-
-        {relatedHerbs.length > 0 && (
-          <Section title='Related Herbs'>
-            <div className='grid gap-2 sm:grid-cols-2'>
-              {relatedHerbs.map(({ item, sharedEffects, sharedCompounds }) => (
-                <Link
-                  key={item.slug}
-                  to={`/herbs/${item.slug}`}
-                  className='rounded-xl border border-white/15 bg-white/5 p-3 transition hover:bg-white/10'
-                >
-                  <p className='font-medium text-white'>{item.common || item.name}</p>
-                  <p className='mt-1 text-xs text-white/70'>
-                    Shared effects: {sharedEffects.slice(0, 2).join(', ') || 'None'}
-                  </p>
-                  <p className='text-xs text-white/70'>
-                    Shared compounds: {sharedCompounds.slice(0, 2).join(', ') || 'None'}
-                  </p>
-                </Link>
-              ))}
-            </div>
+        {activeCompounds.length > 0 && (
+          <Section title='Active Compounds'>
+            <TagList items={activeCompounds} />
           </Section>
         )}
 
-        <section className='mt-8'>
-          <p className='mb-3 flex items-center gap-2 text-sm text-white/75'>
-            <span aria-hidden='true'>ℹ️</span>
-            {missingFieldCount > 0
-              ? `${missingFieldCount} evidence fields are still incomplete for this herb.`
-              : 'This profile currently has all core evidence fields filled.'}
-            <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
-          </p>
-          <Disclaimer />
-        </section>
+        {effects.length > 0 && (
+          <Section title='Effects'>
+            <ListSection items={effects} />
+          </Section>
+        )}
+
+        {therapeuticUses.length > 0 && (
+          <Section title='Therapeutic Uses'>
+            <ListSection items={therapeuticUses} />
+          </Section>
+        )}
+
+        {/* Safety — always prominent if present */}
+        {contraindications.length > 0 && (
+          <Section title='Contraindications'>
+            <TagList items={contraindications} variant='warning' />
+          </Section>
+        )}
+
+        {interactions.length > 0 && (
+          <Section title='Drug Interactions'>
+            <ListSection items={interactions} />
+          </Section>
+        )}
+
+        {sideEffects.length > 0 && (
+          <Section title='Side Effects'>
+            <ListSection items={sideEffects} />
+          </Section>
+        )}
+
+        {/* Practical info — only render if value exists */}
+        {dosage && <Section title='Dosage'>{dosage}</Section>}
+        {duration && <Section title='Duration'>{duration}</Section>}
+        {preparation && <Section title='Preparation'>{preparation}</Section>}
+        {region && <Section title='Region'>{region}</Section>}
+        {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
+
+        {/* Sources */}
+        {sources.length > 0 && (
+          <Section title='Sources'>
+            <ol className='list-decimal space-y-1 pl-5'>
+              {sources.map((source, index) => (
+                <li key={`${source.url}-${index}`}>
+                  {/^https?:\/\//i.test(source.url) ? (
+                    <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+                      {source.title}
+                    </a>
+                  ) : (
+                    source.title
+                  )}
+                  {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
+                </li>
+              ))}
+            </ol>
+          </Section>
+        )}
+
+        {lastUpdated && (
+          <Section title='Last Updated'>
+            <span className='text-white/50'>{lastUpdated}</span>
+          </Section>
+        )}
+
+        {/* Contribute CTA — only when data is thin */}
+        {shouldShowContributionCta && (
+          <div className='bg-cyan-300/8 mt-8 rounded-2xl border border-cyan-300/30 p-4 text-sm text-cyan-50'>
+            <p className='font-semibold'>Help improve this entry</p>
+            <p className='mt-1 text-cyan-100/80'>
+              Submit a source or correction to strengthen mechanism, safety, or reference quality.
+            </p>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              <Link to='/contribute' className='btn-secondary'>
+                Contribute data
+              </Link>
+              <a href={ISSUE_TEMPLATE_URL} target='_blank' rel='noreferrer' className='btn-primary'>
+                Submit a source
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* Data completeness footer */}
+        <div className='bg-white/3 mt-6 flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2.5 text-xs text-white/50'>
+          <span aria-hidden='true'>ℹ</span>
+          {missingFieldCount > 0
+            ? `${missingFieldCount} core evidence field${missingFieldCount !== 1 ? 's' : ''} still incomplete.`
+            : 'All core evidence fields present for this profile.'}
+          <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
+        </div>
       </article>
     </main>
   )

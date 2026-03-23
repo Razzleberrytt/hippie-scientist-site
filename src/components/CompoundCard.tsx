@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from '@/lib/motion'
 import { Link } from 'react-router-dom'
 import type { Compound } from '@/types/compound'
+import TagBadge from './TagBadge'
 import { buildCardSummary } from '@/lib/summary'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
@@ -37,18 +38,12 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
 export default function CompoundCard({ compound }: { compound: CompoundWithRefs }) {
   const mechanism = getMechanism(compound)
   const effects = Array.isArray(compound.effects) ? compound.effects : []
-  const sourceCount = Array.isArray((compound as Record<string, unknown>).sources)
-    ? ((compound as Record<string, unknown>).sources as unknown[]).length
-    : typeof (compound as Record<string, unknown>).sourceCount === 'number'
-      ? Number((compound as Record<string, unknown>).sourceCount)
-      : 0
 
   const confidence = calculateCompoundConfidence({
     mechanism,
     effects,
     compounds: compound.herbsFound.map(h => h.name),
   })
-  const confidenceLabel = confidence.charAt(0).toUpperCase() + confidence.slice(1)
   const primaryEffects = extractPrimaryEffects(effects, 3)
   const summary = buildCardSummary({
     effects,
@@ -62,66 +57,51 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     <motion.article
       whileHover={{ scale: 1.03 }}
       title={compound.herbsFound.map(h => h.name).join(', ')}
-      className='glassmorphic-card hover-glow relative flex min-h-[250px] flex-col rounded-lg border border-emerald-600/40 p-4 text-left'
+      className='ds-card relative flex flex-col rounded-2xl p-4 text-left transition hover:border-white/25'
     >
       <span
         className={`absolute right-4 top-4 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
       >
-        {confidenceLabel}
+        {confidence}
       </span>
-      <h2 className='drop-shadow-glow mb-2 line-clamp-2 pr-16 text-lg font-bold text-emerald-300'>
-        {compound.name}
-      </h2>
-      {primaryEffects.length > 0 ? (
+      <h2 className='mb-1 text-lg font-semibold text-emerald-200'>{compound.name}</h2>
+      <div className='mb-2 flex flex-wrap gap-2 pr-16'>
+        <TagBadge label={compound.type ?? compound.category ?? 'compound'} />
+        {compound.effectClass && <TagBadge label={compound.effectClass} variant='blue' />}
+      </div>
+      {primaryEffects.length > 0 && (
         <div className='mb-2 flex flex-wrap gap-1.5'>
           {primaryEffects.map(effect => (
             <span
               key={`${compound.name}-${effect}`}
-              className='line-clamp-1 rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
+              className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
             >
               {effect}
             </span>
           ))}
         </div>
-      ) : (
-        <p className='mb-2 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs text-white/65'>
-          No high-confidence effect tags yet.
-        </p>
       )}
-      <p className='text-sand mb-2 line-clamp-2 text-sm'>{summary}</p>
-      <p className='mb-2 text-xs text-white/70'>
-        Confidence: <span className='text-white/90'>{confidenceLabel}</span>
-        {sourceCount > 0 ? ` · Sources: ${sourceCount}` : ''}
-        {` · Mechanism: ${mechanism.trim() ? 'Known' : 'Unknown'}`}
-      </p>
+      <p className='mb-2 line-clamp-2 text-sm text-white/75'>{summary}</p>
       {confidence === 'low' && (
         <p className='mb-2 rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-xs text-amber-100'>
           ⚠️ This entry is incomplete. Data is still being verified.
         </p>
       )}
       <div className='mt-auto flex flex-wrap gap-1'>
-        {compound.herbsFound.slice(0, 3).map(h =>
+        {compound.herbsFound.map(h =>
           h.slug ? (
             <Link
               key={h.name}
               to={`/herbs/${h.slug}`}
-              className='tag-pill bg-space-dark/70 text-sand hover-glow transition-colors duration-300 dark:bg-gray-800 dark:text-gray-200'
+              className='ds-pill text-xs transition hover:border-white/30'
             >
               {h.name}
             </Link>
           ) : (
-            <span
-              key={h.name}
-              className='tag-pill bg-space-dark/70 text-sand dark:bg-gray-800 dark:text-gray-200'
-            >
+            <span key={h.name} className='ds-pill text-xs'>
               {h.name}
             </span>
           )
-        )}
-        {compound.herbsFound.length > 3 && (
-          <span className='tag-pill bg-space-dark/70 text-sand/80 dark:bg-gray-800 dark:text-gray-300'>
-            +{compound.herbsFound.length - 3} more
-          </span>
         )}
       </div>
     </motion.article>
