@@ -2,10 +2,12 @@ import { type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
+import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useHerbData } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import { calculateHerbConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
+import { calculateHerbConfidence } from '@/utils/calculateConfidence'
+import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
 
 type SourceRef = { title: string; url: string; note?: string }
 const ISSUE_TEMPLATE_URL =
@@ -45,14 +47,6 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
       <div className='mt-2 text-sm text-white/85'>{children}</div>
     </section>
   )
-}
-
-function confidenceBadgeClass(level: ConfidenceLevel) {
-  if (level === 'high')
-    return 'border-emerald-300/50 bg-emerald-500/15 text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.35)]'
-  if (level === 'medium')
-    return 'border-amber-300/45 bg-amber-500/15 text-amber-100 shadow-[0_0_18px_rgba(245,158,11,0.35)]'
-  return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
 }
 
 export default function HerbDetail() {
@@ -96,6 +90,12 @@ export default function HerbDetail() {
       effects,
       compounds: activeCompounds,
     })
+  const completeness = getHerbDataCompleteness({
+    mechanism,
+    effects,
+    activeCompounds,
+    contraindications,
+  })
 
   const presentContributionFields = pickNonEmptyKeys(
     {
@@ -165,13 +165,9 @@ export default function HerbDetail() {
       <article className='ds-card-lg mt-4'>
         <div className='flex flex-wrap items-start justify-between gap-2'>
           <h1 className='text-3xl font-semibold'>{herb.common || herb.name}</h1>
-          <span
-            className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
-          >
-            Confidence: {confidence}
-          </span>
         </div>
         {herb.scientific && <p className='mt-1 italic text-white/75'>{herb.scientific}</p>}
+        <DataTrustPanel entity='herb' confidence={confidence} completeness={completeness} />
         {isDataIncomplete && (
           <section className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
             <p className='font-semibold uppercase tracking-wide'>Data incomplete</p>
@@ -179,11 +175,6 @@ export default function HerbDetail() {
               Key evidence fields are still missing for this profile. Treat this page as a draft
               snapshot and cross-check sources before making decisions.
             </p>
-          </section>
-        )}
-        {confidence === 'low' && (
-          <section className='mt-4 rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
-            ⚠️ This entry has limited verified data.
           </section>
         )}
 
