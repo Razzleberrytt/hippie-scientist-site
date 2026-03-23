@@ -11,13 +11,13 @@ export default function HerbCardPage() {
   const id = herbId?.toLowerCase() || ''
   const herb = React.useMemo(() => {
     return herbs.find(h => {
-      const nameSlug = h.nameNorm?.toLowerCase().replaceAll(' ', '-')
+      const nameSlug = h.nameNorm?.toLowerCase().replace(/ /g, '-')
       const slug = (h as any).slug?.toLowerCase()
       return (
         h.id?.toLowerCase() === id ||
         slug === id ||
         nameSlug === id ||
-        slugify(h.nameNorm || h.id).toLowerCase() === id
+        slugify(h.nameNorm || h.id || '').toLowerCase() === id
       )
     })
   }, [herbs, id])

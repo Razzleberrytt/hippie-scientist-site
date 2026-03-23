@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react'
-import { compounds, Compound } from '../data/compounds/compounds'
+import { compounds } from '../data/compounds/compounds'
+import type { CompoundEntry } from '../data/compounds/compounds'
 import { useHerbsFull } from '../data/herbs/herbsfull'
 import { recordDevMessage } from '../utils/devMessages'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
+
+type Compound = CompoundEntry & {
+  confidence: ReturnType<typeof calculateCompoundConfidence>
+  foundInHerbs?: string[]
+  sourceHerbs?: string[]
+}
 
 export function useCompounds(): Compound[] {
   const [list] = useState<Compound[]>(
@@ -20,7 +27,7 @@ export function useCompounds(): Compound[] {
   useEffect(() => {
     list.forEach(c => {
       const refs = c.foundInHerbs ?? c.sourceHerbs ?? []
-      refs.forEach(h => {
+      refs.forEach((h: string) => {
         if (!herbs.find(x => x.id === h)) {
           recordDevMessage('warning', `Compound ${c.name} references missing herb: ${h}`)
         }

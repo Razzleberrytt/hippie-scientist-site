@@ -62,8 +62,8 @@ export const generateStarterPack = ({ goal, blendName, herbs }: StarterPackInput
     .join('\n\n')
 
   return starterPackTemplate
-    .replaceAll('{{goal}}', goal)
-    .replaceAll('{{blendName}}', blendName)
+    .replace(/{{goal}}/g, goal)
+    .replace(/{{blendName}}/g, blendName)
     .replace(/{{#each herbs}}[\s\S]*?{{\/each}}/, herbSection)
     .replace('{{herbs}}', herbSection)
     .replace('{{timingSuggestion}}', 'Late afternoon or evening for a calming routine')
