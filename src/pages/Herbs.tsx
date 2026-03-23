@@ -1,42 +1,111 @@
-import React from 'react'
-import EntityDatabasePage from '@/components/EntityDatabasePage'
-import type { Herb } from '@/types'
+import { useMemo } from 'react'
+import Meta from '@/components/Meta'
+import HerbCard from '@/components/HerbCard'
+import ActiveFiltersBar from '@/components/filters/ActiveFiltersBar'
+import ConfidenceFilter from '@/components/filters/ConfidenceFilter'
+import EffectFilter from '@/components/filters/EffectFilter'
+import SearchBar from '@/components/filters/SearchBar'
+import SortSelect from '@/components/filters/SortSelect'
+import TypeFilter from '@/components/filters/TypeFilter'
+import { useHerbData } from '@/lib/herb-data'
 import { decorateHerbs } from '@/lib/herbs'
-import { ENABLE_ADVANCED_FILTERS } from '@/config/ui'
-import { useCounters } from '@/lib/counters'
-import { loadHerbData } from '@/lib/herb-data'
+import { useUrlFilterState } from '@/hooks/useUrlFilterState'
+import { filterHerbs } from '@/utils/filterHerbs'
+import { DEFAULT_FILTER_STATE } from '@/utils/filterModel'
+import { extractFilterOptions } from '@/utils/extractFilterOptions'
 
 export default function HerbsPage() {
-  const counters = useCounters()
-  const [items, setItems] = React.useState<Herb[]>([])
+  const herbs = useHerbData()
+  const decoratedHerbs = useMemo(() => decorateHerbs(herbs), [herbs])
+  const [filters, setFilters] = useUrlFilterState(DEFAULT_FILTER_STATE)
 
-  React.useEffect(() => {
-    let alive = true
+  const options = useMemo(() => extractFilterOptions({ herbs: decoratedHerbs }), [decoratedHerbs])
+  const filtered = useMemo(() => filterHerbs(decoratedHerbs, filters), [decoratedHerbs, filters])
 
-    loadHerbData()
-      .then(data => {
-        if (!alive) return
-        setItems(decorateHerbs(data))
-      })
-      .catch(() => {
-        if (!alive) return
-        setItems([])
-      })
+  const toggleEffect = (effect: string) => {
+    setFilters(prev => ({
+      ...prev,
+      selectedEffects: prev.selectedEffects.includes(effect)
+        ? prev.selectedEffects.filter(item => item !== effect)
+        : [...prev.selectedEffects, effect],
+    }))
+  }
 
-    return () => {
-      alive = false
-    }
-  }, [])
+  const clearAll = () => setFilters(DEFAULT_FILTER_STATE)
 
   return (
-    <EntityDatabasePage
-      title='Herb Knowledge Database'
-      description='Search effects, classification, intensity, and safety context across the herb library.'
-      metaPath='/herbs'
-      items={items}
-      kind='herb'
-      counters={counters}
-      enableAdvancedFilters={ENABLE_ADVANCED_FILTERS}
-    />
+    <main className='container mx-auto max-w-6xl px-4 py-8 text-white'>
+      <Meta
+        title='Herb Knowledge Database | The Hippie Scientist'
+        description='Search effects, classification, confidence, and safety context across the herb library.'
+        path='/herbs'
+      />
+
+      <header className='ds-card-lg mb-6'>
+        <h1 className='text-3xl font-semibold sm:text-4xl'>Herb Knowledge Database</h1>
+        <p className='mt-3 max-w-3xl text-white/80'>
+          Search and filter herbs by effect tags, confidence, and class to quickly compare entries.
+        </p>
+      </header>
+
+      <section className='mb-4 space-y-3'>
+        <SearchBar
+          value={filters.query}
+          onChange={value => setFilters(prev => ({ ...prev, query: value }))}
+          placeholder='Search herbs, effects, compounds...'
+        />
+
+        <div className='grid gap-3 lg:grid-cols-3'>
+          <ConfidenceFilter
+            value={filters.confidence}
+            onChange={value => setFilters(prev => ({ ...prev, confidence: value }))}
+          />
+          <TypeFilter
+            label='Class'
+            options={options.classes}
+            value={filters.type}
+            onChange={value => setFilters(prev => ({ ...prev, type: value }))}
+          />
+          <SortSelect
+            value={filters.sort}
+            onChange={value => setFilters(prev => ({ ...prev, sort: value }))}
+          />
+        </div>
+
+        <EffectFilter
+          options={options.effects}
+          selected={filters.selectedEffects}
+          onToggle={toggleEffect}
+        />
+
+        <ActiveFiltersBar
+          state={filters}
+          typeLabel='Class'
+          onRemoveEffect={toggleEffect}
+          onClear={clearAll}
+          onClearQuery={() => setFilters(prev => ({ ...prev, query: '' }))}
+          onClearType={() => setFilters(prev => ({ ...prev, type: 'all' }))}
+          onClearConfidence={() => setFilters(prev => ({ ...prev, confidence: 'all' }))}
+        />
+      </section>
+
+      <p className='mb-4 text-sm text-white/70'>{filtered.length} results</p>
+
+      {filtered.length === 0 ? (
+        <div className='rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center text-white/80'>
+          No herbs match your current filters.
+        </div>
+      ) : (
+        <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          {filtered.map((herb, index) => (
+            <HerbCard
+              key={herb.slug || herb.id || `${herb.common}-${index}`}
+              herb={herb}
+              index={index}
+            />
+          ))}
+        </section>
+      )}
+    </main>
   )
 }
