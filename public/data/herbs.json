@@ -28282,10 +28282,10 @@
   {
     "name": "toloache",
     "latin": "toloache",
-    "class": null,
+    "class": "Deliriant tropane-alkaloid nightshade",
     "intensity": "strong",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-    "activeCompounds": [],
+    "activeCompounds": ["scopolamine", "atropine", "hyoscyamine"],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -28293,7 +28293,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Absolute contraindication for unsupervised use",
+      "Contraindicated in glaucoma, urinary retention, tachyarrhythmia, and psychiatric vulnerability"
+    ],
     "safetyNotes": [
       "Toxic – anticholinergic",
       "deliriant",
@@ -28302,10 +28305,22 @@
       "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "dreaming or folk medicine",
+      "Harm reduction: do not ingest/prepare at home; alkaloid content is highly variable and overdose can be life-threatening."
     ],
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Scopolamine (CID 3000322)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3000322",
+        "type": "database"
+      },
+      {
+        "title": "PubMed review: Datura stramonium poisoning",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14677787/",
+        "type": "review"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
     "description": "Used in ritual, dreaming or folk medicine.",
     "dosage": [
       "No direct dosage data. Contextual inference: Used in ritual",
@@ -28317,11 +28332,16 @@
       "dreaming or folk medicine"
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Severe additive anticholinergic toxicity with antihistamines, tricyclics, antipsychotics, and antiparkinsonian anticholinergics",
+      "Dangerous with alcohol and sedative misuse contexts due to delirium/injury risk"
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "No safe self-medication role; traditional ritual use exists but toxicity is high"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine"
   },
   {
@@ -28712,17 +28732,20 @@
   {
     "name": "turmeric",
     "latin": "turmeric",
-    "class": null,
+    "class": "Medicinal rhizome (anti-inflammatory phytomedicine)",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": ["curcumin", "demethoxycurcumin", "bisdemethoxycurcumin", "ar-turmerone"],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Biliary obstruction/cholangitis or active gallstone symptoms",
+      "Avoid high-dose supplements during pregnancy unless advised by clinician"
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -28730,8 +28753,19 @@
       "nan. No direct effects data. Contextual inference:",
       "nan."
     ],
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "sources": [
+      {
+        "title": "EMA monograph: Curcuma longa L., rhizoma",
+        "url": "https://www.ema.europa.eu/en/documents/herbal-monograph/final-european-union-herbal-monograph-curcuma-longa-l-rhizoma-revision-1_en.pdf",
+        "type": "review"
+      },
+      {
+        "title": "PubChem Compound Summary for Curcumin (CID 969516)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/969516",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
     "description": "; nan; nan.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
@@ -28742,11 +28776,17 @@
       "nan. No direct region data. Contextual inference:"
     ],
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Potential additive bleeding risk with anticoagulant/antiplatelet drugs",
+      "May alter metabolism/absorption of some oral medicines; separate and monitor"
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Mild digestive complaints (bloating, fullness)",
+      "Adjunct anti-inflammatory support where clinically appropriate"
+    ],
     "traditionalUse": "; nan; nan"
   },
   {
@@ -29324,17 +29364,20 @@
   {
     "name": "valerian root",
     "latin": "valerian root",
-    "class": null,
+    "class": "Sedative-hypnotic medicinal root",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": ["valerenic acid", "acetoxyvalerenic acid", "valepotriates"],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid in severe hepatic impairment without medical supervision",
+      "Not for use in children unless specifically directed"
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -29343,8 +29386,19 @@
       "nan. No direct effects data. Contextual inference:",
       "nan."
     ],
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "sources": [
+      {
+        "title": "EMA herbal substance page: Valerianae radix",
+        "url": "https://www.ema.europa.eu/en/medicines/herbal/valerianae-radix",
+        "type": "review"
+      },
+      {
+        "title": "PubChem Compound Summary for Valerenic acid (CID 6440940)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6440940",
+        "type": "database"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
     "description": "; nan; nan.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
@@ -29355,11 +29409,17 @@
       "nan. No direct region data. Contextual inference:"
     ],
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Additive sedation with alcohol, benzodiazepines, opioids, and antihistamines",
+      "Use caution with other CNS depressants before driving or operating machinery"
+    ],
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Short-term relief of mild nervous tension",
+      "Sleep initiation support in mild insomnia"
+    ],
     "traditionalUse": "; nan; nan"
   },
   {
@@ -30011,12 +30071,15 @@
   {
     "name": "vitex agnus-castus",
     "latin": "vitex agnus-castus",
-    "class": null,
+    "class": "Hormonal-modulating medicinal berry",
     "intensity": "No direct intensity data. Contextual inference: Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hormonal modulator, PMS relief, prolactin regulator. No direct region data. Contextual inference: Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hormonal modulator, PMS relief, prolactin regulator. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": ["agnuside", "aucubin", "casticin"],
     "effects": ["Hormonal modulator", "PMS relief", "prolactin regulator"],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and lactation unless specialist-directed",
+      "Avoid in hormone-sensitive conditions without clinician oversight"
+    ],
     "safetyNotes": [
       "safe",
       "GI upset",
@@ -30037,15 +30100,21 @@
       "{'title': 'Inferred from scientific name:'}",
       "{'note': 'Inferred from scientific name:', 'url': ''}"
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-03-22",
     "description": "Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
     "dosage": ["150", "500 mg", "day extract"],
     "duration": "Chronic",
-    "interactions": [],
+    "interactions": [
+      "May interact with dopamine agonists/antagonists",
+      "Potential interaction with hormonal contraceptives or hormone therapy"
+    ],
     "legalStatus": "Legal worldwide",
     "preparation": "Dried berries used in tinctures or capsules; hormone modulator used for PMS and menstrual regulation",
     "region": "No direct region data. Contextual inference: Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hormonal modulator, PMS relief, prolactin regulator. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Premenstrual syndrome symptom relief",
+      "Cyclic mastalgia support in some patients"
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": ["GI upset", "dizziness", "acne", "like rash", "affects hormonal balance"]
   },
@@ -30337,12 +30406,15 @@
   {
     "name": "withania somnifera",
     "latin": "withania somnifera",
-    "class": null,
+    "class": "Adaptogenic medicinal shrub",
     "intensity": "No direct intensity data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. No direct region data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": ["withaferin A", "withanolide A", "withanoside IV/V"],
     "effects": ["Adaptogen", "anti-anxiety", "cognitive enhancer", "anti", "anxiety"],
-    "contraindications": [],
+    "contraindications": [
+      "Pregnancy (avoid unless specifically prescribed)",
+      "Hyperthyroidism or thyroid hormone therapy requires medical supervision"
+    ],
     "safetyNotes": [
       "safe",
       "Drowsiness",
@@ -30361,25 +30433,31 @@
       "{'title': 'Inferred from scientific name:'}",
       "{'note': 'Inferred from scientific name:', 'url': ''}"
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-03-22",
     "description": "Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
     "dosage": ["250", "1000 mg", "day root extract"],
     "duration": "Chronic",
-    "interactions": [],
+    "interactions": [
+      "Additive sedation with CNS depressants",
+      "Potential interaction with thyroid, immunosuppressive, or antihyperglycemic therapy"
+    ],
     "legalStatus": "Legal globally",
     "preparation": "Roots dried, powdered, decocted, or tinctured (Ashwagandha); Ayurvedic adaptogen",
     "region": "No direct region data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Stress and sleep support (traditional use; emerging clinical evidence)",
+      "Adjunct support for anxiety symptoms in selected adults"
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": ["Drowsiness", "GI upset", "avoid in hyperthyroidism"]
   },
   {
     "name": "wormwood",
     "latin": "wormwood",
-    "class": null,
+    "class": "Aromatic bitter herb (thujone-containing)",
     "intensity": "mild",
     "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
-    "activeCompounds": [],
+    "activeCompounds": ["alpha-thujone", "beta-thujone", "absinthin"],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -30387,7 +30465,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Pregnancy/lactation",
+      "Seizure disorders or epilepsy",
+      "Avoid chronic/high-dose use due to neurotoxicity risk"
+    ],
     "safetyNotes": [
       "Toxic – neurotoxic at high doses",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -30395,10 +30477,22 @@
       "dreaming or folk medicine.. Used in ritual",
       "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "dreaming or folk medicine",
+      "Harm reduction: avoid concentrates/essential oils; stop immediately if agitation, tremor, confusion, or seizures occur."
     ],
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Thujone (CID 11463)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/11463",
+        "type": "database"
+      },
+      {
+        "title": "PubMed: Absinthe and gamma-aminobutyric acid receptors",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/10631679/",
+        "type": "primary"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
     "description": "Used in ritual, dreaming or folk medicine.",
     "dosage": [
       "No direct dosage data. Contextual inference: Used in ritual",
@@ -30410,11 +30504,17 @@
       "dreaming or folk medicine"
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "May lower seizure threshold with pro-convulsant drugs",
+      "Additive CNS effects with alcohol or neuroactive substances"
+    ],
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional bitter digestive support (short-term, low-dose)",
+      "Historically used for appetite/dyspepsia; clinical evidence limited"
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine"
   },
   {
@@ -30571,27 +30671,42 @@
   {
     "name": "yohimbe",
     "latin": "yohimbe",
-    "class": null,
+    "class": "Stimulant indole-alkaloid bark",
     "intensity": "moderate",
     "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
-    "activeCompounds": [],
+    "activeCompounds": ["yohimbine", "rauwolscine"],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Cardiovascular disease, uncontrolled hypertension, anxiety disorders, bipolar/psychotic disorders",
+      "Pregnancy and lactation"
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
       "nan..",
       "nan. No direct effects data. Contextual inference:",
-      "nan."
+      "nan.",
+      "Harm reduction: avoid unsupervised use; product potency is unpredictable and serious cardiovascular/psychiatric adverse events are documented."
     ],
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "sources": [
+      {
+        "title": "PubChem Compound Summary for Yohimbine (CID 8969)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8969",
+        "type": "database"
+      },
+      {
+        "title": "PubMed: Yohimbine and erectile dysfunction overview",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30575692/",
+        "type": "review"
+      }
+    ],
+    "lastUpdated": "2026-03-22",
     "description": "; nan; nan.",
     "dosage": [
       "No direct dosage data. Contextual inference:",
@@ -30602,11 +30717,17 @@
       "nan. No direct region data. Contextual inference:"
     ],
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-    "interactions": [],
+    "interactions": [
+      "Dangerous with MAOIs, stimulants, decongestants, and serotonergic drugs",
+      "May potentiate antihypertensives and cause blood pressure instability"
+    ],
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Historically used for erectile dysfunction; modern use is high-risk and clinician-only",
+      "Investigational sympatholytic/pharmacologic probe"
+    ],
     "traditionalUse": "; nan; nan"
   },
   {
@@ -30813,10 +30934,10 @@
   {
     "name": "zingiber officinale",
     "latin": "zingiber officinale",
-    "class": null,
+    "class": "Medicinal culinary rhizome",
     "intensity": "No direct intensity data. Contextual inference: Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive stimulant, anti-nausea, anti-inflammatory. No direct region data. Contextual inference: Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive stimulant, anti-nausea, anti-inflammatory. none. ; nan; nan. ; nan; nan",
     "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
-    "activeCompounds": [],
+    "activeCompounds": ["[6]-gingerol", "[6]-shogaol", "zingerone"],
     "effects": [
       "Digestive stimulant",
       "anti-nausea",
@@ -30825,7 +30946,10 @@
       "nausea",
       "inflammatory"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Use caution with gallstone disease unless medically advised",
+      "Avoid medicinal high doses close to surgery due to potential antiplatelet effects"
+    ],
     "safetyNotes": [
       "safe",
       "Heartburn",
@@ -30838,21 +30962,28 @@
       "or enzyme inhibition.. None.",
       "nan.. Herbs often act via neurotransmitter modulation",
       "or enzyme inhibition.. Digestive stimulant",
-      "anti-inflammatory. none."
+      "anti-inflammatory. none.",
+      "Use food-level doses first; avoid combining multiple concentrated extracts without supervision."
     ],
     "sources": [
       "{'title': 'Inferred from scientific name:'}",
       "{'note': 'Inferred from scientific name:', 'url': ''}"
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-03-22",
     "description": "Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
     "dosage": ["250", "2000 mg", "day rhizome"],
     "duration": "2–4 hours",
-    "interactions": [],
+    "interactions": [
+      "May increase bleeding risk with anticoagulants/antiplatelets (evidence mixed)",
+      "May modestly lower blood glucose; monitor with antidiabetic therapy"
+    ],
     "legalStatus": "Legal worldwide",
     "preparation": "Rhizome dried, powdered, or used fresh in decoctions, infusions, capsules, or tinctures; digestive and anti-inflammatory support",
     "region": "No direct region data. Contextual inference: Digestive stimulant, anti-nausea, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive stimulant, anti-nausea, anti-inflammatory. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Short-term treatment of nausea/vomiting (motion sickness, pregnancy-related nausea with clinician guidance)",
+      "Dyspeptic complaints and mild GI discomfort"
+    ],
     "traditionalUse": "; nan; nan",
     "sideEffects": ["Heartburn", "GI discomfort", "avoid large doses in bleeding disorders"]
   },
