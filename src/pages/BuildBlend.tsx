@@ -8,14 +8,19 @@ import { GOALS, type GoalDefinition } from '@/data/goals'
 import { useHerbData } from '@/lib/herb-data'
 import type { Herb } from '@/types'
 import type { BlendState } from '@/types/blend'
+import type { ConfidenceLevel } from '@/types/confidence'
 import { generateBlend, type BlendRecommendation } from '@/utils/generateBlend'
 import { deserializeBlend } from '@/utils/deserializeBlend'
 import { serializeBlend } from '@/utils/serializeBlend'
 import { getHerbConfidence, getHerbEffects, herbDisplayName } from '@/utils/herbSignals'
 
 type ExperienceLevel = 'beginner' | 'intermediate' | 'advanced'
-type ConfidenceFilter = 'any' | 'high' | 'medium' | 'low'
+type ConfidenceFilter = 'all' | ConfidenceLevel
 const LAST_BLEND_KEY = 'ths:last-build-blend'
+
+function isConfidenceLevel(value: string): value is ConfidenceLevel {
+  return value === 'high' || value === 'medium' || value === 'low'
+}
 
 function HerbMiniCard({ herb }: { herb: Herb }) {
   const effects = getHerbEffects(herb).slice(0, 4)
@@ -49,7 +54,7 @@ export default function BuildBlend() {
 
   const [selectedGoalId, setSelectedGoalId] = useState<string>(GOALS[0].id)
   const [experienceLevel, setExperienceLevel] = useState<ExperienceLevel>('beginner')
-  const [confidenceFilter, setConfidenceFilter] = useState<ConfidenceFilter>('any')
+  const [confidenceFilter, setConfidenceFilter] = useState<ConfidenceFilter>('all')
   const [excludeInput, setExcludeInput] = useState('')
   const [result, setResult] = useState<BlendRecommendation | null>(null)
   const [blendLoadError, setBlendLoadError] = useState(false)
@@ -126,8 +131,8 @@ export default function BuildBlend() {
 
     const restoredGoal = GOALS.some(goal => goal.id === restored.goal) ? restored.goal : GOALS[0].id
     setSelectedGoalId(restoredGoal)
-    if (restored.confidence && ['high', 'medium', 'low'].includes(restored.confidence)) {
-      setConfidenceFilter(restored.confidence as ConfidenceFilter)
+    if (restored.confidence && isConfidenceLevel(restored.confidence)) {
+      setConfidenceFilter(restored.confidence)
     }
     setResult(recommendation)
     setBlendLoadError(false)
@@ -136,9 +141,9 @@ export default function BuildBlend() {
   const onGenerate = () => {
     if (!selectedGoal) return
     const recommendation = generateBlend(herbs, selectedGoal, {
-      confidenceLevel: confidenceFilter,
-      excludeList: excludedHerbIds,
-      experienceLevel,
+      confidence: confidenceFilter,
+      excludeHerbs: excludedHerbIds,
+      experience: experienceLevel,
     })
     setResult(recommendation)
     if (!recommendation) return
@@ -147,7 +152,7 @@ export default function BuildBlend() {
       goal: selectedGoal.id,
       primary: recommendation.primary.slug,
       supporting: recommendation.supporting.map(herb => herb.slug),
-      ...(confidenceFilter !== 'any' ? { confidence: confidenceFilter } : {}),
+      ...(confidenceFilter !== 'all' ? { confidence: confidenceFilter } : {}),
     }
     const serialized = serializeBlend(blendState)
     setSearchParams({ blend: serialized }, { replace: true })
@@ -256,7 +261,7 @@ export default function BuildBlend() {
               onChange={event => setConfidenceFilter(event.target.value as ConfidenceFilter)}
               className='w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 text-sm text-slate-100'
             >
-              <option value='any'>Any confidence</option>
+              <option value='all'>All confidence</option>
               <option value='high'>High only</option>
               <option value='medium'>Medium only</option>
               <option value='low'>Low only</option>

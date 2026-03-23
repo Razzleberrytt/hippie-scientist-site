@@ -1,15 +1,8 @@
-import type { Herb } from '@/types'
 import type { GoalDefinition } from '@/data/goals'
-import { getHerbConfidence, herbDisplayName, type ConfidenceLevel } from '@/utils/herbSignals'
+import type { Herb } from '@/types'
+import type { BlendFilters } from '@/types/blend'
+import { getHerbConfidence, herbDisplayName } from '@/utils/herbSignals'
 import { scoreHerbForGoal } from '@/utils/scoreHerbForGoal'
-
-type ExperienceLevel = 'beginner' | 'intermediate' | 'advanced'
-
-type GenerateBlendOptions = {
-  confidenceLevel?: ConfidenceLevel | 'any'
-  excludeList?: string[]
-  experienceLevel?: ExperienceLevel
-}
 
 export type BlendRecommendation = {
   primary: Herb
@@ -38,10 +31,7 @@ function hasDuplicateProfile(selectedEffects: Set<string>, candidateEffects: str
   return overlap.length >= Math.max(1, Math.ceil(candidateEffects.length * 0.66))
 }
 
-function supportsExperienceLevel(
-  herb: Herb,
-  experienceLevel: ExperienceLevel | undefined
-): boolean {
+function supportsExperienceLevel(herb: Herb, experienceLevel: BlendFilters['experience']): boolean {
   if (!experienceLevel || experienceLevel === 'advanced') return true
 
   const intensity = String(herb.intensity ?? herb.intensityLevel ?? '').toLowerCase()
@@ -54,13 +44,13 @@ function supportsExperienceLevel(
 export function generateBlend(
   herbs: Herb[],
   selectedGoal: GoalDefinition,
-  options: GenerateBlendOptions = {}
+  options: BlendFilters = {}
 ): BlendRecommendation | null {
-  const excluded = toSet(options.excludeList ?? [])
+  const excluded = toSet(options.excludeHerbs ?? [])
 
   const scored = herbs
     .filter(herb => !excluded.has(normalizeIdentity(herb)))
-    .filter(herb => supportsExperienceLevel(herb, options.experienceLevel))
+    .filter(herb => supportsExperienceLevel(herb, options.experience))
     .map(herb => {
       const { score, matchedEffects } = scoreHerbForGoal(herb, selectedGoal)
       return { herb, score, matchedEffects }
@@ -70,8 +60,8 @@ export function generateBlend(
   if (!scored.length) return null
 
   const confidenceFiltered =
-    options.confidenceLevel && options.confidenceLevel !== 'any'
-      ? scored.filter(entry => getHerbConfidence(entry.herb) === options.confidenceLevel)
+    options.confidence && options.confidence !== 'all'
+      ? scored.filter(entry => getHerbConfidence(entry.herb) === options.confidence)
       : scored
 
   const pool = confidenceFiltered.length ? confidenceFiltered : scored

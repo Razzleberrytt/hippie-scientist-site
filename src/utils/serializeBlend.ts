@@ -1,20 +1,26 @@
 import type { BlendState } from '@/types/blend'
+import type { ConfidenceLevel } from '@/types/confidence'
 
 type CompactBlendState = {
   g: string
   p: string
   s: string[]
-  c?: string
+  c?: ConfidenceLevel
 }
 
 function normalizeState(state: BlendState): CompactBlendState {
+  const confidence =
+    state.confidence === 'high' || state.confidence === 'medium' || state.confidence === 'low'
+      ? state.confidence
+      : undefined
+
   return {
     g: String(state.goal || '').trim(),
     p: String(state.primary || '').trim(),
     s: (Array.isArray(state.supporting) ? state.supporting : [])
       .map(item => String(item).trim())
       .filter(Boolean),
-    ...(state.confidence ? { c: String(state.confidence).trim() } : {}),
+    ...(confidence ? { c: confidence } : {}),
   }
 }
 

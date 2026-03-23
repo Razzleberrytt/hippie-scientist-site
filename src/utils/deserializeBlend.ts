@@ -1,4 +1,5 @@
 import type { BlendState } from '@/types/blend'
+import type { ConfidenceLevel } from '@/types/confidence'
 
 type UnknownRecord = Record<string, unknown>
 
@@ -32,6 +33,11 @@ function parseRecord(value: unknown): UnknownRecord | null {
   return value as UnknownRecord
 }
 
+function parseConfidence(value: unknown): ConfidenceLevel | undefined {
+  if (value === 'high' || value === 'medium' || value === 'low') return value
+  return undefined
+}
+
 export function deserializeBlend(value: string | null | undefined): BlendState | null {
   if (!value || typeof value !== 'string') return null
   const decoded = fromUrlSafeBase64(value.trim())
@@ -45,7 +51,7 @@ export function deserializeBlend(value: string | null | undefined): BlendState |
     const goal = typeof record.g === 'string' ? record.g.trim() : ''
     const primary = typeof record.p === 'string' ? record.p.trim() : ''
     const supporting = sanitizeStringArray(record.s)
-    const confidence = typeof record.c === 'string' ? record.c.trim() : undefined
+    const confidence = parseConfidence(record.c)
 
     if (!isString(goal) || !isString(primary) || supporting.length === 0) return null
 
