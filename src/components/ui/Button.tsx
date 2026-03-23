@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
-import { motion } from 'framer-motion'
-import type { HTMLMotionProps } from 'framer-motion'
+import { motion } from '@/lib/motion'
+import type { HTMLMotionProps } from '@/lib/motion'
 
 const variantClasses: Record<'default' | 'primary' | 'ghost', string> = {
   default: 'btn',

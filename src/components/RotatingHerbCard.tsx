@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from '@/lib/motion'
 import { Link } from 'react-router-dom'
 import { useHerbsFull } from '../data/herbs/herbsfull'
 import { slugify } from '../utils/slugify'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import Meta from '../components/Meta'
 
 export default function Store() {
@@ -28,7 +28,7 @@ export default function Store() {
             className='glass-card p-8'
           >
             <h2 className='mb-6 text-3xl font-bold text-white'>Featured Items</h2>
-            <ul className='mx-auto mb-6 max-w-md list-disc space-y-2 pl-5 text-left text-sand'>
+            <ul className='text-sand mx-auto mb-6 max-w-md list-disc space-y-2 pl-5 text-left'>
               <li>Stickers and patches celebrating ethnobotany</li>
               <li>Digital field guides in PDF format</li>
               <li>Limited run T-shirts designed by community artists</li>

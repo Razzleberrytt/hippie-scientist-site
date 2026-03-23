@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import InfoTooltip from './InfoTooltip'
 import { tagAliasMap } from '../utils/tagUtils'
 import {

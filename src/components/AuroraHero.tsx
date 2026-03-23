@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform } from '@/lib/motion'
 import { Link } from 'react-router-dom'
 
 type AuroraHeroProps = {

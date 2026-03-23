@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from '@/lib/motion'
 
 interface Props {
   text: string
@@ -27,7 +27,7 @@ export default function InfoTooltip({ text, children }: Props) {
       onBlur={hide}
       onTouchStart={() => setShow(s => !s)}
     >
-      {children || <span className='ml-1 cursor-help select-none text-sand'>ℹ️</span>}
+      {children || <span className='text-sand ml-1 cursor-help select-none'>ℹ️</span>}
       <AnimatePresence>
         {show && (
           <motion.div

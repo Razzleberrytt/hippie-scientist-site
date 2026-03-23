@@ -1,5 +1,5 @@
 import React, { type CSSProperties } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from '@/lib/motion'
 import { useHerbsFull } from '../data/herbs/herbsfull'
 
 const TOP_N = 5

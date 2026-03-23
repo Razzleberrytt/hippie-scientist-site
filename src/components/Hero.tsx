@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from '@/lib/motion'
 import Tilt from './Tilt'
 import HeroCTA from './HeroCTA'
 

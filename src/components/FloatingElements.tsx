@@ -1,5 +1,5 @@
-import React, { useMemo, type CSSProperties } from "react";
-import { motion } from "framer-motion";
+import React, { useMemo, type CSSProperties } from 'react'
+import { motion } from '@/lib/motion'
 
 const FloatingElements: React.FC = () => {
   const elements = useMemo(
@@ -16,16 +16,18 @@ const FloatingElements: React.FC = () => {
   )
 
   return (
-    <div className="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
-      {elements.map((element) => (
+    <div className='pointer-events-none fixed inset-0 overflow-hidden' aria-hidden='true'>
+      {elements.map(element => (
         <motion.div
           key={element.id}
-          className="absolute rounded-full [height:var(--floating-size)] [left:var(--floating-left)] [top:var(--floating-top)] [width:var(--floating-size)] bg-[radial-gradient(circle,rgba(34,197,94,0.15)_0%,transparent_70%)] [will-change:transform,opacity]"
-          style={{
-            "--floating-size": `${element.size}px`,
-            "--floating-left": `${element.x}%`,
-            "--floating-top": `${element.y}%`,
-          } as CSSProperties}
+          className='absolute rounded-full bg-[radial-gradient(circle,rgba(34,197,94,0.15)_0%,transparent_70%)] [height:var(--floating-size)] [left:var(--floating-left)] [top:var(--floating-top)] [width:var(--floating-size)] [will-change:transform,opacity]'
+          style={
+            {
+              '--floating-size': `${element.size}px`,
+              '--floating-left': `${element.x}%`,
+              '--floating-top': `${element.y}%`,
+            } as CSSProperties
+          }
           animate={{
             y: [0, -30, 0],
             x: [0, 15, 0],

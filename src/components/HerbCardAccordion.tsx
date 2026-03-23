@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from '@/lib/motion'
 import { Link } from 'react-router-dom'
 import { Herb } from '../types'
 import TagBadge from './TagBadge'

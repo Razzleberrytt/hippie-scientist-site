@@ -1,5 +1,5 @@
 import React from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from '@/lib/motion'
 import { ChevronDown } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
@@ -73,7 +73,7 @@ export default function LearnTabs({ sections }: Props) {
               <motion.span
                 initial={false}
                 animate={{ rotate: i === active ? 180 : 0 }}
-                className='ml-2 text-psychedelic-purple'
+                className='text-psychedelic-purple ml-2'
               >
                 <ChevronDown size={20} />
               </motion.span>
@@ -100,7 +100,7 @@ export default function LearnTabs({ sections }: Props) {
 
   return (
     <div>
-      <div className='mb-4 flex flex-wrap gap-2 border-b border-comet/30'>
+      <div className='border-comet/30 mb-4 flex flex-wrap gap-2 border-b'>
         {sections.map((s, i) => (
           <button
             key={s.id}
@@ -108,7 +108,7 @@ export default function LearnTabs({ sections }: Props) {
             onClick={() => setActive(i)}
             className={`px-3 py-2 text-sm transition-colors ${
               i === active
-                ? 'border-b-2 border-psychedelic-purple text-psychedelic-purple shadow-glow'
+                ? 'border-psychedelic-purple text-psychedelic-purple shadow-glow border-b-2'
                 : 'text-sand hover:text-psychedelic-purple'
             }`}
           >
