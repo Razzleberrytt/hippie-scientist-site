@@ -5,17 +5,6 @@ import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
 import { asStringArray } from './asStringArray'
 
-function toList(value: unknown): string[] {
-  if (Array.isArray(value)) return asStringArray(value)
-  if (typeof value === 'string') {
-    return value
-      .split(/[\n;,|]/)
-      .map(item => item.trim())
-      .filter(Boolean)
-  }
-  return []
-}
-
 function getConfidenceRank(level: string) {
   if (level === 'high') return 3
   if (level === 'medium') return 2
@@ -25,8 +14,8 @@ function getConfidenceRank(level: string) {
 function getCompoundConfidence(compound: CompoundRecord) {
   return computeConfidenceLevel({
     mechanism: compound.mechanism,
-    effects: compound.effects,
-    compounds: compound.herbs,
+    effects: asStringArray(compound.effects),
+    compounds: asStringArray(compound.herbs),
   }).toLowerCase()
 }
 
@@ -38,17 +27,17 @@ export function filterCompounds(
     name: compound.name,
     type: compound.category || compound.className,
     mechanism: compound.mechanism,
-    effects: compound.effects,
-    activeCompounds: compound.activeCompounds,
-    contraindications: compound.contraindications,
-    safety: compound.legalStatus,
+    effects: asStringArray(compound.effects),
+    activeCompounds: asStringArray(compound.activeCompounds),
+    contraindications: asStringArray(compound.contraindications),
+    safety: asStringArray(compound.legalStatus),
   })).map(result => result.entry)
 
   const effectNeedles = filters.selectedEffects.map(effect => normalizeText(effect))
   const typeNeedle = normalizeText(filters.type)
 
   const filtered = searched.filter(compound => {
-    const effects = toList(compound.effects).map(effect => normalizeText(effect))
+    const effects = asStringArray(compound.effects).map(effect => normalizeText(effect))
     const confidence = getCompoundConfidence(compound)
     const category = normalizeText(compound.category || compound.className)
 
@@ -74,7 +63,7 @@ export function filterCompounds(
       )
     }
 
-    const effectCountDiff = toList(b.effects).length - toList(a.effects).length
+    const effectCountDiff = asStringArray(b.effects).length - asStringArray(a.effects).length
     if (effectCountDiff !== 0) return effectCountDiff
 
     return a.name.localeCompare(b.name)
