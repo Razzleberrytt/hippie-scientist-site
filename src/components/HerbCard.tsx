@@ -5,6 +5,7 @@ import Card from './ui/Card'
 import { cleanLine, hasVal, titleCase } from '../lib/pretty'
 import { chipClassFor } from '../lib/tags'
 import { slugify } from '../lib/slug'
+import { buildCardSummary, sanitizeSurfaceText } from '@/lib/summary'
 import './HerbCard.css'
 
 interface HerbCardProps {
@@ -38,7 +39,9 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
         : intensityLevel.includes('variable')
           ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
           : 'bg-white/6 text-white/90 ring-1 ring-white/15'
-  const benefits = cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit)
+  const benefits = sanitizeSurfaceText(
+    cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit)
+  )
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : []
   const tagLimit = compact ? 3 : 6
@@ -48,6 +51,14 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   const showLegal = !compact && hasVal(herb.legalstatus)
   const showCompounds = !compact && compounds.length > 0
   const showShowMore = !compact && (hasVal(herb.effects) || hasVal(herb.description))
+  const surfaceSummary = buildCardSummary({
+    effects: herb.effects,
+    mechanism: herb.mechanism,
+    description: herb.description,
+    activeCompounds: herb.compounds,
+    therapeuticUses: herb.therapeuticUses,
+    maxLen: expanded ? 240 : 150,
+  })
 
   const detailHref = useMemo(() => {
     const slug = hasVal(herb.slug)
@@ -124,14 +135,9 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
           </header>
 
           <section className='stack text-white/80'>
-            {showDescription && (
+            {(showDescription || showEffects) && (
               <p className={`small text-white/85 ${expanded ? '' : 'line-clamp-3'}`}>
-                {cleanLine(herb.description)}
-              </p>
-            )}
-            {showEffects && (
-              <p className={`small text-white/70 ${expanded ? '' : 'line-clamp-3'}`}>
-                <span className='text-white/85'>Effects:</span> {cleanLine(herb.effects)}
+                {surfaceSummary}
               </p>
             )}
             {showLegal && (

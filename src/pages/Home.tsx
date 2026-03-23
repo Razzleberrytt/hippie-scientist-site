@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Meta from '../components/Meta'
 import EmailCapture from '@/components/EmailCapture'
@@ -6,14 +6,19 @@ import Hero from '@/components/Hero'
 import StatPill from '@/components/StatPill'
 import { loadSiteCounts, siteStats } from '@/lib/stats'
 import { loadHerbData } from '@/lib/herb-data'
-import { decorateHerbs } from '@/lib/herbs'
-import { decorateCompounds } from '@/lib/compounds'
+import { loadCompoundData } from '@/lib/compound-data'
 import { getCommonName } from '@/lib/herbName'
 import { useRecentlyViewed, useSavedItems } from '@/lib/growth'
 import { futureProducts } from '@/lib/products'
 import { CTA } from '@/lib/cta'
 import { buildHerbViralHooks } from '@/lib/viralContent'
-import { getDailyDiscoverySnippet } from '@/utils/contentSnippets'
+import { buildCardSummary } from '@/lib/summary'
+import {
+  scoreCompoundQuality,
+  scoreHerbQuality,
+  toQualityBadge,
+  type QualityResult,
+} from '@/lib/data-quality'
 
 type FeaturedItem = {
   slug: string
@@ -21,7 +26,16 @@ type FeaturedItem = {
   blurb: string
   kind: 'herb' | 'compound'
   whyItMatters: string
+  quality: QualityResult
 }
+
+const CURATED_FALLBACK = [
+  'withania-somnifera-ashwagandha',
+  'rhodiola-rosea',
+  'passionflower',
+  'caffeine',
+  'quercetin',
+]
 
 function shuffle<T>(items: T[]): T[] {
   const copy = [...items]
@@ -32,18 +46,16 @@ function shuffle<T>(items: T[]): T[] {
   return copy
 }
 
-function tightenBlurb(value: string) {
-  const cleaned = value.replace(/\s+/g, ' ').trim()
-  if (!cleaned) return 'Mechanism and safety profile pending editorial review.'
-  return cleaned.length > 145 ? `${cleaned.slice(0, 142).trimEnd()}…` : cleaned
+function sortByScore<T extends { quality: QualityResult }>(items: T[]) {
+  return [...items].sort((a, b) => b.quality.score - a.quality.score)
 }
 
 export default function Home() {
   const [counts, setCounts] = useState(siteStats)
   const [featured, setFeatured] = useState<FeaturedItem[]>([])
+  const [curated, setCurated] = useState<FeaturedItem[]>([])
   const { items } = useSavedItems()
   const recent = useRecentlyViewed()
-  const dailyDiscovery = getDailyDiscoverySnippet()
 
   useEffect(() => {
     let alive = true
@@ -51,47 +63,116 @@ export default function Home() {
       .then(data => alive && setCounts(data))
       .catch(() => {})
 
-    loadHerbData()
-      .then(data => {
+    Promise.all([loadHerbData(), loadCompoundData()])
+      .then(([herbs, compounds]) => {
         if (!alive) return
-        const daySeed = new Date().toISOString().slice(0, 10)
-        const sessionSeed = `${daySeed}-${sessionStorage.getItem('hs_feature_seed') || Math.random().toString(36).slice(2, 8)}`
-        sessionStorage.setItem('hs_feature_seed', sessionSeed)
-        const herbPicks = shuffle(
-          decorateHerbs(data)
-            .filter(herb => herb.slug)
-            .map(herb => ({
+
+        const herbItems: FeaturedItem[] = herbs
+          .filter(herb => herb.slug)
+          .map(herb => {
+            const quality = scoreHerbQuality(herb as Record<string, unknown>)
+            return {
               slug: herb.slug,
               name: getCommonName(herb) ?? herb.scientific ?? herb.common ?? 'Herb',
-              blurb: tightenBlurb(
-                herb.effectsSummary || herb.effects || herb.description || 'Herbal profile'
-              ),
+              blurb: buildCardSummary({
+                effects: herb.effects,
+                mechanism: herb.mechanism,
+                description: herb.description,
+                activeCompounds: herb.activeCompounds ?? herb.active_compounds,
+                therapeuticUses: herb.therapeuticUses,
+                maxLen: 150,
+              }),
               kind: 'herb' as const,
               whyItMatters: buildHerbViralHooks(herb).whyItMatters,
-            }))
+              quality,
+            }
+          })
+
+        const compoundItems: FeaturedItem[] = compounds
+          .filter(compound => compound.slug)
+          .map(compound => {
+            const quality = scoreCompoundQuality(compound as Record<string, unknown>)
+            return {
+              slug: compound.slug,
+              name: compound.name,
+              blurb: buildCardSummary({
+                effects: compound.effects,
+                mechanism: compound.mechanism,
+                description: compound.description,
+                activeCompounds: compound.activeCompounds,
+                therapeuticUses: compound.therapeuticUses,
+                maxLen: 150,
+              }),
+              kind: 'compound' as const,
+              whyItMatters:
+                'Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.',
+              quality,
+            }
+          })
+
+        const all = [...herbItems, ...compoundItems]
+        const highQuality = all.filter(
+          item =>
+            item.quality.score >= 34 &&
+            !item.quality.flags.isIncomplete &&
+            !item.quality.flags.hasPlaceholderText
         )
-          .sort((a, b) => (a.slug + sessionSeed > b.slug + sessionSeed ? 1 : -1))
-          .slice(0, 3)
 
-        const compoundPicks = shuffle(
-          decorateCompounds().map(compound => ({
-            slug: compound.slug,
-            name: compound.common || compound.scientific || 'Compound',
-            blurb: tightenBlurb(compound.effects || compound.description || 'Compound profile'),
-            kind: 'compound' as const,
-            whyItMatters:
-              'Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.',
-          }))
-        ).slice(0, 2)
+        const fallbackPool = sortByScore(
+          all.filter(item => !item.quality.flags.hasPlaceholderText && item.quality.score >= 24)
+        )
 
-        setFeatured(shuffle([...herbPicks, ...compoundPicks]).slice(0, 5))
+        const dailyPool = highQuality.length ? highQuality : fallbackPool
+        const daySeed = new Date().toISOString().slice(0, 10)
+        const hash = Array.from(daySeed).reduce((acc, char) => acc + char.charCodeAt(0), 0)
+        const dailyPick = dailyPool[hash % Math.max(1, dailyPool.length)]
+
+        const diverseFeatured = (() => {
+          if (highQuality.length >= 5) {
+            const herbsTop = sortByScore(highQuality.filter(item => item.kind === 'herb')).slice(
+              0,
+              3
+            )
+            const compoundsTop = sortByScore(
+              highQuality.filter(item => item.kind === 'compound')
+            ).slice(0, 2)
+            return shuffle([...herbsTop, ...compoundsTop]).slice(0, 5)
+          }
+          return fallbackPool.slice(0, 5)
+        })()
+
+        const curatedFromSlugs = CURATED_FALLBACK.map(slug =>
+          sortByScore(all).find(item => item.slug === slug)
+        ).filter((item): item is FeaturedItem => Boolean(item && item.quality.score >= 24))
+
+        const curatedFallback = sortByScore(highQuality.length ? highQuality : fallbackPool).slice(
+          0,
+          3
+        )
+
+        const curatedItems = (
+          curatedFromSlugs.length >= 3 ? curatedFromSlugs : curatedFallback
+        ).slice(0, 3)
+
+        const mergedFeatured = dailyPick
+          ? [dailyPick, ...diverseFeatured.filter(item => item.slug !== dailyPick.slug)].slice(0, 5)
+          : diverseFeatured
+
+        setFeatured(mergedFeatured)
+        setCurated(curatedItems)
       })
-      .catch(() => alive && setFeatured([]))
+      .catch(() => {
+        if (!alive) return
+        setFeatured([])
+        setCurated([])
+      })
 
     return () => {
       alive = false
     }
   }, [])
+
+  const dailyDiscovery = useMemo(() => featured[0] ?? null, [featured])
 
   return (
     <>
@@ -110,15 +191,22 @@ export default function Home() {
             <p className='text-xs font-semibold uppercase tracking-[0.24em] text-emerald-100/80'>
               Today&apos;s discovery
             </p>
-            <h2 className='mt-2 text-2xl font-semibold text-white'>{dailyDiscovery.title}</h2>
-            <p className='mt-2 text-sm text-white/75'>{dailyDiscovery.explanation}</p>
+            <h2 className='mt-2 text-2xl font-semibold text-white'>{dailyDiscovery.name}</h2>
+            <p className='mt-2 text-sm text-white/75'>{dailyDiscovery.blurb}</p>
             <div className='mt-3 flex flex-wrap gap-2.5'>
-              <Link to={dailyDiscovery.ctaPath} className='btn-primary'>
+              <Link
+                to={
+                  dailyDiscovery.kind === 'herb'
+                    ? `/herbs/${dailyDiscovery.slug}`
+                    : `/compounds/${dailyDiscovery.slug}`
+                }
+                className='btn-primary'
+              >
                 Read full breakdown
               </Link>
-              <Link to='/blend' className='btn-secondary'>
-                Build a blend with this
-              </Link>
+              <span className='ds-pill text-xs text-emerald-100/85'>
+                {toQualityBadge(dailyDiscovery.quality)}
+              </span>
             </div>
           </div>
         </section>
@@ -201,6 +289,9 @@ export default function Home() {
                 <h3 className='mt-1 text-lg font-semibold text-white'>{item.name}</h3>
                 <p className='mt-2 line-clamp-3 text-sm text-white/70'>{item.blurb}</p>
                 <p className='mt-3 text-xs text-emerald-100/80'>{item.whyItMatters}</p>
+                <p className='mt-2 text-[11px] uppercase tracking-[0.16em] text-white/55'>
+                  {toQualityBadge(item.quality)}
+                </p>
               </Link>
             ))}
           </div>
@@ -256,13 +347,17 @@ export default function Home() {
             Curated picks
           </p>
           <p className='text-sm text-white/80'>
-            Hand-picked profiles from the refreshed herb and compound datasets.
+            High-confidence profiles prioritized for mechanism clarity, safety context, and source
+            quality.
           </p>
           <div className='grid gap-3 sm:grid-cols-3'>
-            {featured.slice(0, 3).map(item => (
+            {curated.map(item => (
               <article key={`curated-${item.kind}-${item.slug}`} className='ds-card p-4'>
                 <h3 className='text-sm font-semibold text-white'>{item.name}</h3>
                 <p className='mt-2 line-clamp-3 text-xs text-white/80'>{item.blurb}</p>
+                <p className='mt-2 text-[11px] uppercase tracking-[0.15em] text-white/55'>
+                  {toQualityBadge(item.quality)}
+                </p>
                 <Link
                   to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
                   className='mt-3 inline-flex text-xs text-emerald-200 hover:text-emerald-100'
@@ -372,30 +467,6 @@ export default function Home() {
                 <p className='mt-2 text-xs text-white/65'>{product.summary}</p>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card-lg ds-stack'>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/55'>
-            Applied learning
-          </p>
-          <h2 className='ds-heading'>Build a Blend with constraints in mind</h2>
-          <p className='ds-text-muted'>
-            Prototype combinations after reviewing mechanisms and contraindications in the herb and
-            compound indexes.
-          </p>
-          <div className='flex flex-wrap gap-2.5'>
-            <Link to='/build' className='btn-primary'>
-              Build a Blend
-            </Link>
-            <Link to='/herbs' className='btn-secondary'>
-              Explore Herbs
-            </Link>
-            <Link to='/compounds' className='btn-secondary'>
-              View Compounds
-            </Link>
           </div>
         </div>
       </section>

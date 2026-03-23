@@ -1,6 +1,4 @@
-import posts from '@/data/blog/posts.json'
-import generatedCounts from '@/data/site-counts.json'
-import { loadHerbsFull } from '@/data/herbs/herbsfull'
+import generatedCounts from '@/generated/site-counts.json'
 
 export type SiteCounts = {
   herbs: number
@@ -8,32 +6,22 @@ export type SiteCounts = {
   articles: number
 }
 
-type GeneratedCounts = {
-  herbs?: number
-  compounds?: number
-}
-
-function countArticles() {
-  return (Array.isArray(posts) ? posts : []).filter(post =>
-    Boolean((post as { slug?: string })?.slug)
-  ).length
-}
+type GeneratedCounts = Partial<SiteCounts> & { generatedAt?: string }
 
 const buildCounts = (generatedCounts || {}) as GeneratedCounts
 
 export async function loadSiteCounts(): Promise<SiteCounts> {
-  const [herbList] = await Promise.all([loadHerbsFull()])
   return {
-    herbs: herbList.length,
+    herbs: Number(buildCounts.herbs) || 0,
     compounds: Number(buildCounts.compounds) || 0,
-    articles: countArticles(),
+    articles: Number(buildCounts.articles) || 0,
   }
 }
 
 export const siteStats: SiteCounts = {
   herbs: Number(buildCounts.herbs) || 0,
   compounds: Number(buildCounts.compounds) || 0,
-  articles: countArticles(),
+  articles: Number(buildCounts.articles) || 0,
 }
 
 export function formatKpis({

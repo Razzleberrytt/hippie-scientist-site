@@ -71,17 +71,27 @@ export default function CompoundDetail() {
     slug: herbMap.get(name.toLowerCase()) || slugify(name),
   }))
 
-  const missingContributionFields = pickNonEmptyKeys(
+  const presentContributionFields = pickNonEmptyKeys(
     {
       className: compound.className,
       activeCompounds: compound.activeCompounds,
+      mechanism: compound.mechanism,
       therapeuticUses: compound.therapeuticUses,
       contraindications: compound.contraindications,
       interactions: compound.interactions,
+      sources: compound.sources,
     },
-    ['className', 'activeCompounds', 'therapeuticUses', 'contraindications', 'interactions']
+    [
+      'className',
+      'activeCompounds',
+      'mechanism',
+      'therapeuticUses',
+      'contraindications',
+      'interactions',
+      'sources',
+    ]
   )
-  const shouldShowContributionCta = missingContributionFields.length < 5
+  const shouldShowContributionCta = presentContributionFields.length < 7
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -197,17 +207,17 @@ export default function CompoundDetail() {
 
         {shouldShowContributionCta && (
           <section className='mt-8 rounded-2xl border border-cyan-300/40 bg-cyan-300/10 p-4 text-sm text-cyan-50'>
-            <p className='font-semibold'>Help us fill in missing data</p>
+            <p className='font-semibold'>Help improve this entry</p>
             <p className='mt-2 text-cyan-100/90'>
-              This compound still has evidence gaps in class, compounds, therapeutic uses,
-              contraindications, or interactions.
+              Submit a source or correction to strengthen mechanism, safety, and reference quality
+              for this compound profile.
             </p>
             <div className='mt-3 flex flex-wrap gap-2'>
               <Link to='/contribute' className='btn-secondary'>
-                Contribution guide
+                Help improve this entry
               </Link>
               <a href={ISSUE_TEMPLATE_URL} target='_blank' rel='noreferrer' className='btn-primary'>
-                Open evidence issue
+                Submit a source or correction
               </a>
             </div>
           </section>
