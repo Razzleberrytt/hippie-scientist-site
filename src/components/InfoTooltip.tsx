@@ -8,7 +8,7 @@ interface Props {
 
 export default function InfoTooltip({ text, children }: Props) {
   const [show, setShow] = React.useState(false)
-  const timer = React.useRef<NodeJS.Timeout>()
+  const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const showWithDelay = () => {
     timer.current = setTimeout(() => setShow(true), 150)

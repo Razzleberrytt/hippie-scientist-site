@@ -22,6 +22,21 @@ type GraphData = {
   links: GraphLink[]
 }
 
+type ForceGraphNode = GraphNode & {
+  x?: number
+  y?: number
+}
+
+function isGraphNode(node: unknown): node is GraphNode {
+  if (!node || typeof node !== 'object') return false
+  const record = node as Record<string, unknown>
+  return (
+    typeof record.slug === 'string' &&
+    typeof record.name === 'string' &&
+    (record.group === 'herb' || record.group === 'post')
+  )
+}
+
 type RawGraphData = {
   herbs: Array<{ id: string; slug: string; name: string }>
   posts: Array<{ id: string; slug: string; title: string }>
@@ -138,44 +153,46 @@ export default function GraphPage() {
               width={dims.w}
               height={dims.h}
               graphData={graphData}
-              nodeLabel={(node: GraphNode) => node.name}
+              nodeLabel={node => (isGraphNode(node) ? node.name : '')}
               nodeAutoColorBy='group'
               linkColor={() => 'rgba(255,255,255,0.1)'}
               linkDirectionalParticles={0}
               backgroundColor='rgba(0,0,0,0)'
-              onNodeClick={(node: GraphNode) => {
+              onNodeClick={node => {
+                if (!isGraphNode(node)) return
                 if (node.group === 'herb') {
                   openInNewTab(`/herb/${node.slug}`)
                 } else if (node.group === 'post') {
                   openInNewTab(`/blog/${node.slug}/`)
                 }
               }}
-              nodeCanvasObject={(
-                node: GraphNode & { x?: number; y?: number },
-                ctx,
-                globalScale
-              ) => {
-                if (typeof node.x !== 'number' || typeof node.y !== 'number') {
+              nodeCanvasObject={(node, ctx, globalScale) => {
+                const graphNode = node as ForceGraphNode
+                if (!isGraphNode(graphNode)) return
+
+                if (typeof graphNode.x !== 'number' || typeof graphNode.y !== 'number') {
                   return
                 }
+                const x = graphNode.x
+                const y = graphNode.y
 
-                const label = node.name
+                const label = graphNode.name
                 const fontSize = 12 / globalScale
                 ctx.font = `${fontSize}px Inter, sans-serif`
-                ctx.fillStyle = node.group === 'herb' ? '#7aff9d' : '#74d7ff'
+                ctx.fillStyle = graphNode.group === 'herb' ? '#7aff9d' : '#74d7ff'
                 const textWidth = ctx.measureText(label).width
                 const paddingX = 6
                 const paddingY = 4
                 const bckgDimensions: [number, number] = [textWidth + paddingX, fontSize + paddingY]
                 ctx.fillRect(
-                  node.x - bckgDimensions[0] / 2,
-                  node.y - bckgDimensions[1] / 2,
+                  x - bckgDimensions[0] / 2,
+                  y - bckgDimensions[1] / 2,
                   ...bckgDimensions
                 )
                 ctx.textAlign = 'center'
                 ctx.textBaseline = 'middle'
                 ctx.fillStyle = '#000'
-                ctx.fillText(label, node.x, node.y)
+                ctx.fillText(label, x, y)
               }}
             />
           ) : null}

@@ -34,10 +34,7 @@ export default function Meta({
   og,
 }: MetaProps) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  const slug = normalizedPath
-    .split('/')
-    .filter(Boolean)
-    .pop()
+  const slug = normalizedPath.split('/').filter(Boolean).pop()
   const inferredOg =
     normalizedPath.startsWith('/blog/') && slug
       ? `/og/blog/${slug}.png`
@@ -102,9 +99,7 @@ export default function Meta({
       <meta name='twitter:title' content={ogTitle} />
       <meta name='twitter:description' content={ogDescription} />
       <meta name='twitter:image' content={ogImage} />
-      {jsonLd && (
-        <script type='application/ld+json'>{JSON.stringify(jsonLd)}</script>
-      )}
+      {jsonLd != null && <script type='application/ld+json'>{JSON.stringify(jsonLd)}</script>}
     </Helmet>
   )
 }

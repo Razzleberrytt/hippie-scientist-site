@@ -85,12 +85,9 @@ export default function LearnTabs({ sections }: Props) {
               transition={{ duration: 0.4 }}
               className='accordion-content mt-4 overflow-hidden'
             >
-              <ReactMarkdown
-                className='learn-prose prose prose-base max-w-none'
-                rehypePlugins={[rehypeRaw]}
-              >
-                {s.content}
-              </ReactMarkdown>
+              <div className='learn-prose prose prose-base max-w-none'>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>{s.content}</ReactMarkdown>
+              </div>
             </motion.div>
           </details>
         ))}
