@@ -30,7 +30,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
 
   const sources: SourceRef[] = Array.isArray(raw.sources)
     ? (raw.sources as unknown[])
-        .map(source => {
+        .map((source): SourceRef | null => {
           if (typeof source === 'string') return { title: source, url: source }
           if (source && typeof source === 'object') {
             const entry = source as Record<string, unknown>
@@ -38,11 +38,14 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
             const url = String(entry.url || '').trim()
             const note = String(entry.note || '').trim()
             if (!title && !url) return null
-            return { title: title || url, url: url || undefined, note: note || undefined }
+            const normalized: SourceRef = { title: title || url }
+            if (url) normalized.url = url
+            if (note) normalized.note = note
+            return normalized
           }
           return null
         })
-        .filter((entry): entry is SourceRef => Boolean(entry))
+        .filter((entry): entry is SourceRef => entry !== null)
     : toList(raw.sources).map(item => ({ title: item, url: item }))
 
   return {

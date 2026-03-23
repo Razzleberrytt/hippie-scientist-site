@@ -4,6 +4,35 @@ import { decorateHerbs } from '../../lib/herbs'
 import { loadHerbData } from '@/lib/herb-data'
 
 type RawHerb = Record<string, unknown>
+type IntensityLabel = NonNullable<Herb['intensityLabel']>
+type IntensityLevel = NonNullable<Herb['intensityLevel']>
+
+const intensityLabelByLevel: Record<IntensityLevel, IntensityLabel> = {
+  mild: 'Mild',
+  moderate: 'Moderate',
+  strong: 'Strong',
+  variable: 'Variable',
+  unknown: 'Unknown',
+}
+
+function isIntensityLabel(value: unknown): value is IntensityLabel {
+  return (
+    typeof value === 'string' &&
+    ['Mild', 'Moderate', 'Strong', 'Variable', 'Unknown'].includes(value)
+  )
+}
+
+function toIntensityLabel(value: unknown): Herb['intensityLabel'] {
+  if (!value || typeof value !== 'string') return null
+  if (isIntensityLabel(value)) return value
+
+  const normalized = value.toLowerCase()
+  if (normalized in intensityLabelByLevel) {
+    return intensityLabelByLevel[normalized as IntensityLevel]
+  }
+
+  return null
+}
 
 function toStringArray(value: unknown): string[] {
   if (Array.isArray(value)) {
@@ -66,15 +95,10 @@ function normalizeHerb(raw: RawHerb): Herb {
     benefits: typeof raw.benefits === 'string' ? raw.benefits : '',
     intensity: typeof raw.intensity === 'string' ? raw.intensity : '',
     intensityLabel:
-      typeof raw.intensityLabel === 'string' && raw.intensityLabel
-        ? (raw.intensityLabel as Herb['intensityLabel'])
-        : typeof raw.intensity_label === 'string' && raw.intensity_label
-          ? (raw.intensity_label as Herb['intensityLabel'])
-          : typeof raw.intensityLevel === 'string' && raw.intensityLevel
-            ? `${raw.intensityLevel.charAt(0).toUpperCase()}${raw.intensityLevel.slice(1)}`
-            : typeof raw.intensity === 'string'
-              ? (raw.intensity as Herb['intensityLabel'])
-              : null,
+      toIntensityLabel(raw.intensityLabel) ??
+      toIntensityLabel(raw.intensity_label) ??
+      toIntensityLabel(raw.intensityLevel) ??
+      toIntensityLabel(raw.intensity),
     intensityLevel: (() => {
       const candidate =
         (typeof raw.intensityLevel === 'string' && raw.intensityLevel) ||
