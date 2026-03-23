@@ -4,6 +4,7 @@ import Card from '@/components/ui/Card'
 import Badge from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import Meta from '@/components/Meta'
+import Disclaimer from '@/components/Disclaimer'
 import { GOALS, type GoalDefinition } from '@/data/goals'
 import { herbs } from '@/lib/data'
 import type { Herb } from '@/types/herb'
@@ -381,6 +382,8 @@ export default function BuildBlend() {
           </Card>
         ) : null}
       </section>
+
+      <Disclaimer />
     </main>
   )
 }

@@ -60,6 +60,15 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
       compounds: herb.compounds || herb.active_compounds,
     })
   const primaryEffects = extractPrimaryEffects(Array.isArray(herb.effects) ? herb.effects : [], 3)
+  const sourceCount = Array.isArray(herb.sources)
+    ? herb.sources.length
+    : typeof herb.sourceCount === 'number'
+      ? herb.sourceCount
+      : 0
+  const mechanismKnown = Boolean(
+    String(herb.mechanism || herb.mechanismofaction || herb.mechanismOfAction || '').trim()
+  )
+  const confidenceLabel = confidence.charAt(0).toUpperCase() + confidence.slice(1)
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : []
   const tagLimit = compact ? 3 : 6
@@ -180,6 +189,11 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
                 ))}
               </div>
             )}
+            <p className='small text-white/70'>
+              Confidence: <span className='text-white/90'>{confidenceLabel}</span>
+              {sourceCount > 0 ? ` · Sources: ${sourceCount}` : ''}
+              {compact ? '' : ` · Mechanism: ${mechanismKnown ? 'Known' : 'Unknown'}`}
+            </p>
             {confidence === 'low' && (
               <p className='small rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-amber-100'>
                 ⚠️ This entry is incomplete. Data is still being verified.
