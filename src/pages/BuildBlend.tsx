@@ -1,15 +1,21 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import Card from '@/components/ui/Card'
 import Badge from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
+import Meta from '@/components/Meta'
 import { GOALS, type GoalDefinition } from '@/data/goals'
 import { useHerbData } from '@/lib/herb-data'
 import type { Herb } from '@/types'
+import type { BlendState } from '@/types/blend'
 import { generateBlend, type BlendRecommendation } from '@/utils/generateBlend'
-import { getHerbEffects, herbDisplayName } from '@/utils/herbSignals'
+import { deserializeBlend } from '@/utils/deserializeBlend'
+import { serializeBlend } from '@/utils/serializeBlend'
+import { getHerbConfidence, getHerbEffects, herbDisplayName } from '@/utils/herbSignals'
 
 type ExperienceLevel = 'beginner' | 'intermediate' | 'advanced'
 type ConfidenceFilter = 'any' | 'high' | 'medium' | 'low'
+const LAST_BLEND_KEY = 'ths:last-build-blend'
 
 function HerbMiniCard({ herb }: { herb: Herb }) {
   const effects = getHerbEffects(herb).slice(0, 4)
@@ -39,12 +45,15 @@ function HerbMiniCard({ herb }: { herb: Herb }) {
 
 export default function BuildBlend() {
   const herbs = useHerbData()
+  const [searchParams, setSearchParams] = useSearchParams()
 
   const [selectedGoalId, setSelectedGoalId] = useState<string>(GOALS[0].id)
   const [experienceLevel, setExperienceLevel] = useState<ExperienceLevel>('beginner')
   const [confidenceFilter, setConfidenceFilter] = useState<ConfidenceFilter>('any')
   const [excludeInput, setExcludeInput] = useState('')
   const [result, setResult] = useState<BlendRecommendation | null>(null)
+  const [blendLoadError, setBlendLoadError] = useState(false)
+  const [shareStatus, setShareStatus] = useState<'idle' | 'copied' | 'shared'>('idle')
 
   const selectedGoal = useMemo<GoalDefinition | undefined>(
     () => GOALS.find(goal => goal.id === selectedGoalId),
@@ -63,6 +72,67 @@ export default function BuildBlend() {
   const beginnerPsychedelicWarning =
     selectedGoal?.id === 'introspection' && experienceLevel === 'beginner'
 
+  const buildRecommendationFromState = (
+    state: BlendState,
+    allHerbs: Herb[]
+  ): BlendRecommendation | null => {
+    const herbMap = new Map(
+      allHerbs.map(herb => [String(herb.slug || herb.id || '').toLowerCase(), herb])
+    )
+    const primary = herbMap.get(state.primary.toLowerCase())
+    const supporting = state.supporting
+      .map(item => herbMap.get(item.toLowerCase()))
+      .filter((item): item is Herb => Boolean(item))
+
+    if (!primary || supporting.length === 0) return null
+
+    const goalLabel = GOALS.find(goal => goal.id === state.goal)?.label ?? state.goal
+    const usedLowConfidenceData = [primary, ...supporting].some(
+      herb => getHerbConfidence(herb) === 'low'
+    )
+
+    return {
+      primary,
+      supporting,
+      reasoning: [
+        `Restored blend for ${goalLabel}.`,
+        `Primary herb and ${supporting.length} supporting herbs are loaded from the shared link.`,
+        usedLowConfidenceData
+          ? 'Some selected herbs have limited confidence data, so review sources and safety notes.'
+          : 'This blend emphasizes stronger-confidence data where possible.',
+      ],
+      usedLowConfidenceData,
+    }
+  }
+
+  useEffect(() => {
+    if (!herbs.length) return
+
+    const blendParam = searchParams.get('blend')
+    const rawBlend = blendParam || window.localStorage.getItem(LAST_BLEND_KEY)
+    if (!rawBlend) return
+
+    const restored = deserializeBlend(rawBlend)
+    if (!restored) {
+      if (blendParam) setBlendLoadError(true)
+      return
+    }
+
+    const recommendation = buildRecommendationFromState(restored, herbs)
+    if (!recommendation) {
+      setBlendLoadError(true)
+      return
+    }
+
+    const restoredGoal = GOALS.some(goal => goal.id === restored.goal) ? restored.goal : GOALS[0].id
+    setSelectedGoalId(restoredGoal)
+    if (restored.confidence && ['high', 'medium', 'low'].includes(restored.confidence)) {
+      setConfidenceFilter(restored.confidence as ConfidenceFilter)
+    }
+    setResult(recommendation)
+    setBlendLoadError(false)
+  }, [herbs, searchParams])
+
   const onGenerate = () => {
     if (!selectedGoal) return
     const recommendation = generateBlend(herbs, selectedGoal, {
@@ -71,10 +141,56 @@ export default function BuildBlend() {
       experienceLevel,
     })
     setResult(recommendation)
+    if (!recommendation) return
+
+    const blendState: BlendState = {
+      goal: selectedGoal.id,
+      primary: recommendation.primary.slug,
+      supporting: recommendation.supporting.map(herb => herb.slug),
+      ...(confidenceFilter !== 'any' ? { confidence: confidenceFilter } : {}),
+    }
+    const serialized = serializeBlend(blendState)
+    setSearchParams({ blend: serialized }, { replace: true })
+    window.localStorage.setItem(LAST_BLEND_KEY, serialized)
+    setBlendLoadError(false)
+  }
+
+  const handleCopyLink = async () => {
+    const fullUrl = window.location.href
+    try {
+      await navigator.clipboard.writeText(fullUrl)
+      setShareStatus('copied')
+    } catch {
+      window.prompt('Copy blend link', fullUrl)
+    } finally {
+      window.setTimeout(() => setShareStatus('idle'), 1800)
+    }
+  }
+
+  const handleShare = async () => {
+    if (!navigator.share || !result) return
+    try {
+      await navigator.share({
+        title: `${selectedGoal?.label ?? 'Custom'} Blend`,
+        text: `Blend with ${herbDisplayName(result.primary)} + ${result.supporting
+          .map(herb => herbDisplayName(herb))
+          .join(', ')}`,
+        url: window.location.href,
+      })
+      setShareStatus('shared')
+      window.setTimeout(() => setShareStatus('idle'), 1800)
+    } catch {
+      // user canceled share
+    }
   }
 
   return (
     <main className='mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 sm:py-10'>
+      <Meta
+        title='Build a Custom Herbal Blend'
+        description='Generate, restore, and share deterministic herbal blends for your goal.'
+        path='/build'
+      />
       <header className='space-y-3'>
         <p className='text-xs uppercase tracking-[0.25em] text-cyan-300'>Build</p>
         <h1 className='text-3xl font-bold text-white sm:text-4xl'>
@@ -188,10 +304,10 @@ export default function BuildBlend() {
             Generate a blend to see the primary herb, support stack, and reasoning.
           </Card>
         ) : (
-          <div className='space-y-4'>
+          <div className='space-y-4 transition-all duration-300'>
             <Card className='rounded-2xl border border-cyan-400/30 p-6 shadow-[0_0_30px_rgba(34,211,238,0.18)]'>
               <p className='text-xs uppercase tracking-[0.24em] text-cyan-300'>Primary Herb</p>
-              <h2 className='mt-2 text-2xl font-bold text-white'>
+              <h2 className='mt-2 text-2xl font-bold text-cyan-50'>
                 {herbDisplayName(result.primary)}
               </h2>
               <div className='mt-4 flex flex-wrap gap-2'>
@@ -225,8 +341,32 @@ export default function BuildBlend() {
                 Data limited: one or more selected herbs are supported by low-confidence data.
               </Card>
             ) : null}
+
+            <Card className='rounded-2xl p-4 sm:p-5'>
+              <div className='flex flex-wrap items-center gap-2'>
+                <Button type='button' variant='default' onClick={handleCopyLink}>
+                  Copy Link
+                </Button>
+                {typeof navigator !== 'undefined' && typeof navigator.share === 'function' ? (
+                  <Button type='button' variant='ghost' onClick={handleShare}>
+                    Share
+                  </Button>
+                ) : null}
+                {shareStatus === 'copied' ? (
+                  <p className='text-xs text-emerald-300'>Link copied.</p>
+                ) : null}
+                {shareStatus === 'shared' ? (
+                  <p className='text-xs text-emerald-300'>Shared successfully.</p>
+                ) : null}
+              </div>
+            </Card>
           </div>
         )}
+        {blendLoadError ? (
+          <Card className='rounded-2xl border border-rose-400/40 bg-rose-500/10 p-4 text-sm text-rose-100'>
+            Invalid or outdated blend link.
+          </Card>
+        ) : null}
       </section>
     </main>
   )

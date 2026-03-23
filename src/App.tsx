@@ -6,6 +6,7 @@ const About = lazy(() => import('./pages/About'))
 const HerbsPage = lazy(() => import('./pages/Herbs'))
 const Favorites = lazy(() => import('./pages/Favorites'))
 const BuildBlend = lazy(() => import('./pages/BuildBlend'))
+const BlendView = lazy(() => import('./pages/BlendView'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 import { RedirectHandler } from './RedirectHandler'
 import { useGA } from './lib/useGA'
@@ -60,7 +61,7 @@ export default function App() {
                 <Route path='/browse' element={<Navigate to='/browse/herbs' replace />} />
                 <Route path='/browse/herbs' element={<HerbIndex />} />
                 <Route path='/browse/compounds' element={<Navigate to='/compounds' replace />} />
-                <Route path='/blend' element={<BuildBlend />} />
+                <Route path='/blend' element={<BlendView />} />
                 <Route path='/build' element={<BuildBlend />} />
                 <Route path='/starter-pack-success' element={<StarterPackSuccess />} />
                 <Route path='/downloads' element={<Downloads />} />
