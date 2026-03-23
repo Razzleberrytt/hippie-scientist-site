@@ -1,4 +1,6 @@
 import { normalizeText } from './normalizeText'
+import { asStringArray } from './asStringArray'
+import { isNonEmptyString } from './isNonEmptyString'
 
 export type SearchableEntryFields = {
   name?: unknown
@@ -17,14 +19,14 @@ export type SearchResult<T> = {
 
 function toList(value: unknown): string[] {
   if (Array.isArray(value)) {
-    return value.map(item => normalizeText(item)).filter(Boolean)
+    return asStringArray(value)
+      .map(item => normalizeText(item))
+      .filter(Boolean)
   }
-
-  const normalized = normalizeText(value)
-  if (!normalized) return []
-
-  return normalized
+  if (!isNonEmptyString(value)) return []
+  return value
     .split(/[\n;,|]/)
+    .map(item => normalizeText(item))
     .map(item => item.trim())
     .filter(Boolean)
 }

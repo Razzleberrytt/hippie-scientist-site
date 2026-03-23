@@ -3,13 +3,14 @@ import Fuse from 'fuse.js'
 import type { Herb } from '../types'
 import { canonicalTag } from '../utils/tagUtils'
 import { herbName, splitField } from '../utils/herb'
+import { isNonEmptyString } from '@/utils/isNonEmptyString'
 
 interface Options {
   favorites?: string[]
 }
 
 export function metaCategory(cat: string): string {
-  const c = cat.toLowerCase()
+  const c = isNonEmptyString(cat) ? cat.toLowerCase() : ''
   if (/(empathogen|euphoriant)/.test(c)) return 'Empathogen'
   if (/(psychedelic|visionary)/.test(c)) return 'Psychedelic'
   if (/dissociative|sedative/.test(c)) return 'Dissociative'
@@ -27,8 +28,8 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
   const [sort, setSort] = React.useState('name')
 
   const blendScore = React.useCallback((h: Herb) => {
-    const inDesc = h.description?.toLowerCase().includes('blend') || false
-    const inPrep = h.preparation?.toLowerCase().includes('blend') || false
+    const inDesc = isNonEmptyString(h.description) && h.description.toLowerCase().includes('blend')
+    const inPrep = isNonEmptyString(h.preparation) && h.preparation.toLowerCase().includes('blend')
     const inTags = splitField(h.tags).some(t => t.toLowerCase().includes('blend'))
     return [inDesc, inPrep, inTags].filter(Boolean).length
   }, [])
@@ -63,24 +64,22 @@ export function useFilteredHerbs(herbs: Herb[], options: Options = {}) {
       res = res.filter(h => {
         const herbTags = splitField(h.tags)
         return matchAll
-          ? tags.every(t =>
-              herbTags.some(ht => canonicalTag(ht) === canonicalTag(t))
-            )
-          : tags.some(t =>
-              herbTags.some(ht => canonicalTag(ht) === canonicalTag(t))
-            )
+          ? tags.every(t => herbTags.some(ht => canonicalTag(ht) === canonicalTag(t)))
+          : tags.some(t => herbTags.some(ht => canonicalTag(ht) === canonicalTag(t)))
       })
     }
     if (categories.length) {
-      res = res.filter(h => categories.includes(metaCategory(h.category)))
+      res = res.filter(h => categories.includes(metaCategory(String(h.category || ''))))
     }
     if (favoritesOnly) {
-      res = res.filter(h => favorites.includes(h.id))
+      res = res.filter(h => favorites.includes(String(h.id || '')))
     }
     if (sort === 'name') {
       res = [...res].sort((a, b) => herbName(a).localeCompare(herbName(b)))
     } else if (sort === 'category') {
-      res = [...res].sort((a, b) => a.category.localeCompare(b.category))
+      res = [...res].sort((a, b) =>
+        String(a.category || '').localeCompare(String(b.category || ''))
+      )
     } else if (sort === 'intensity') {
       res = [...res].sort((a, b) => (a.intensity || '').localeCompare(b.intensity || ''))
     } else if (sort === 'blend') {
