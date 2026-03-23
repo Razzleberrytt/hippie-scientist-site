@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button'
 import Meta from '@/components/Meta'
 import { GOALS, type GoalDefinition } from '@/data/goals'
 import { herbs } from '@/lib/data'
-import type { Herb } from '@/types'
+import type { Herb } from '@/types/herb'
 import type { BlendFilters, BlendState } from '@/types/blend'
 import type { ConfidenceLevel } from '@/types/confidence'
 import { generateBlend, type BlendRecommendation } from '@/utils/generateBlend'
@@ -149,8 +149,15 @@ export default function BuildBlend() {
 
     const blendState: BlendState = {
       goal: selectedGoal.id,
-      primary: recommendation.primary.slug,
-      supporting: recommendation.supporting.map(herb => herb.slug),
+      primary: String(
+        recommendation.primary.slug ??
+          recommendation.primary.id ??
+          recommendation.primary.name ??
+          ''
+      ),
+      supporting: recommendation.supporting.map(herb =>
+        String(herb.slug ?? herb.id ?? herb.name ?? '')
+      ),
       ...(confidenceFilter !== 'all' ? { confidence: confidenceFilter } : {}),
     }
     const serialized = serializeBlend(blendState)

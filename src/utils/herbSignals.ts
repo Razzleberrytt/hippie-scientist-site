@@ -1,4 +1,4 @@
-import type { Herb } from '@/types'
+import type { Herb } from '@/types/herb'
 import { asStringArray } from '@/utils/asStringArray'
 import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { isNonEmptyString } from '@/utils/isNonEmptyString'

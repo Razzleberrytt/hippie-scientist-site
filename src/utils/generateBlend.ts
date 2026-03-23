@@ -1,6 +1,6 @@
 import type { GoalDefinition } from '@/data/goals'
 import { herbs } from '@/lib/data'
-import type { Herb } from '@/types'
+import type { Herb } from '@/types/herb'
 import type { BlendFilters } from '@/types/blend'
 import { getHerbConfidence, herbDisplayName } from '@/utils/herbSignals'
 import { scoreHerbForGoal } from '@/utils/scoreHerbForGoal'
