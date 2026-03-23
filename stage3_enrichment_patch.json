@@ -1,0 +1,470 @@
+{
+  "herbs": {
+    "psilocybe cubensis": {
+      "class": "psychedelic mushroom",
+      "activeCompounds": ["psilocybin", "psilocin"],
+      "mechanism": "Psilocybin is dephosphorylated to psilocin, a partial agonist at 5-HT2A receptors (with activity at other serotonergic receptors), producing altered cortical signaling.",
+      "effects": [
+        "altered perception",
+        "mystical-type subjective effects",
+        "elevated mood",
+        "nausea"
+      ],
+      "contraindications": [
+        "history of psychotic disorders",
+        "bipolar disorder",
+        "concurrent serotonergic drugs",
+        "uncontrolled cardiovascular disease"
+      ]
+    },
+    "cannabis sativa": {
+      "class": "cannabinoid-containing psychoactive herb",
+      "activeCompounds": ["thc", "cbd"],
+      "mechanism": "THC acts primarily as a partial agonist at CB1 receptors (and CB2), while CBD has low direct CB1/CB2 efficacy and modulates endocannabinoid, serotonergic, and TRP signaling.",
+      "effects": [
+        "analgesia",
+        "appetite stimulation",
+        "antiemetic effects",
+        "anxiolytic or anxiogenic effects depending on dose and chemotype"
+      ],
+      "contraindications": [
+        "history of psychotic disorders",
+        "pregnancy or breastfeeding",
+        "unstable cardiovascular disease",
+        "concurrent CNS depressants"
+      ]
+    },
+    "banisteriopsis caapi": {
+      "class": "beta-carboline MAO-inhibiting vine",
+      "activeCompounds": ["harmine", "harmaline"],
+      "mechanism": "Contains reversible inhibitors of monoamine oxidase A (MAO-A), which reduce first-pass deamination of monoamines and orally co-administered tryptamines.",
+      "effects": ["mood alteration", "dream-like mentation", "nausea and emesis"],
+      "contraindications": [
+        "concurrent serotonergic medications",
+        "concurrent sympathomimetic medications",
+        "history of bipolar disorder",
+        "hepatic impairment"
+      ]
+    },
+    "mimosa hostilis": {
+      "class": "tryptamine-containing ethnobotanical",
+      "activeCompounds": ["dmt"],
+      "mechanism": "Contains N,N-dimethyltryptamine, a serotonergic psychedelic (primarily 5-HT2A agonist) that is orally inactive without MAO inhibition.",
+      "effects": [
+        "intense visual alterations",
+        "rapid-onset altered consciousness when inhaled",
+        "sympathomimetic activation"
+      ],
+      "contraindications": [
+        "history of psychotic disorders",
+        "bipolar disorder",
+        "uncontrolled hypertension",
+        "concurrent serotonergic drugs"
+      ]
+    },
+    "peganum harmala": {
+      "class": "beta-carboline MAO-inhibiting herb",
+      "activeCompounds": ["harmine", "harmaline"],
+      "mechanism": "Beta-carbolines act as reversible MAO-A inhibitors and can potentiate monoamines and tryptamines by reducing metabolic breakdown.",
+      "effects": ["sedation", "dream intensification", "nausea", "ataxia at higher doses"],
+      "contraindications": [
+        "concurrent serotonergic medications",
+        "concurrent stimulants",
+        "pregnancy",
+        "hepatic impairment"
+      ]
+    },
+    "salvia divinorum": {
+      "class": "atypical dissociative psychedelic herb",
+      "activeCompounds": ["salvinorin a"],
+      "mechanism": "Salvinorin A is a high-efficacy kappa-opioid receptor agonist with negligible activity at 5-HT2A receptors.",
+      "effects": [
+        "dissociation",
+        "visual and spatial distortions",
+        "short-duration intense psychoactive effects"
+      ],
+      "contraindications": [
+        "history of psychotic disorders",
+        "concurrent CNS depressants",
+        "high-risk environments requiring motor coordination"
+      ]
+    },
+    "lophophora williamsii": {
+      "class": "mescaline-containing cactus",
+      "activeCompounds": ["mescaline"],
+      "mechanism": "Mescaline is a serotonergic psychedelic with principal agonist activity at 5-HT2A receptors.",
+      "effects": [
+        "visual perceptual changes",
+        "altered cognition",
+        "nausea and emesis",
+        "sympathomimetic stimulation"
+      ],
+      "contraindications": [
+        "history of psychotic disorders",
+        "bipolar disorder",
+        "uncontrolled hypertension",
+        "concurrent serotonergic medications"
+      ]
+    },
+    "erythroxylum coca": {
+      "class": "tropane alkaloid-containing stimulant leaf",
+      "activeCompounds": ["cocaine"],
+      "mechanism": "Cocaine inhibits dopamine, norepinephrine, and serotonin transporters and blocks voltage-gated sodium channels as a local anesthetic.",
+      "effects": ["stimulation", "reduced fatigue", "tachycardia", "euphoria"],
+      "contraindications": [
+        "cardiovascular disease",
+        "hypertension",
+        "concurrent sympathomimetic drugs",
+        "history of substance use disorder"
+      ]
+    },
+    "coffea arabica": {
+      "class": "xanthine-containing stimulant plant",
+      "activeCompounds": ["caffeine"],
+      "mechanism": "Caffeine is a nonselective adenosine A1/A2A receptor antagonist that increases central catecholaminergic and glutamatergic signaling.",
+      "effects": [
+        "increased alertness",
+        "reduced perceived fatigue",
+        "diuresis",
+        "anxiety at higher doses"
+      ],
+      "contraindications": [
+        "arrhythmias",
+        "panic disorder",
+        "insomnia",
+        "uncontrolled hypertension"
+      ]
+    },
+    "camellia sinensis": {
+      "class": "methylxanthine-containing stimulant herb",
+      "activeCompounds": ["caffeine"],
+      "mechanism": "Provides caffeine-mediated adenosine receptor antagonism; L-theanine co-occurrence can modulate excitatory neurotransmission and subjective stimulation profile.",
+      "effects": [
+        "increased vigilance",
+        "mild stimulation",
+        "improved attention",
+        "sleep disruption at higher intake"
+      ],
+      "contraindications": [
+        "caffeine sensitivity",
+        "arrhythmias",
+        "insomnia",
+        "iron-deficiency risk with high intake around meals"
+      ]
+    },
+    "nicotiana tabacum": {
+      "class": "nicotinic alkaloid-containing stimulant plant",
+      "activeCompounds": ["nicotine"],
+      "mechanism": "Nicotine is an agonist at neuronal nicotinic acetylcholine receptors, increasing dopamine and norepinephrine release and reinforcing use.",
+      "effects": [
+        "increased alertness",
+        "appetite suppression",
+        "tachycardia",
+        "dependence liability"
+      ],
+      "contraindications": [
+        "cardiovascular disease",
+        "pregnancy",
+        "adolescents",
+        "concurrent stimulant overuse"
+      ]
+    },
+    "papaver somniferum": {
+      "class": "opioid alkaloid-containing analgesic plant",
+      "activeCompounds": ["morphine", "codeine"],
+      "mechanism": "Contains phenanthrene opioids that act primarily as mu-opioid receptor agonists, producing analgesia and respiratory depression in a dose-dependent manner.",
+      "effects": ["analgesia", "sedation", "euphoria", "constipation"],
+      "contraindications": [
+        "concurrent CNS depressants",
+        "respiratory disease",
+        "history of opioid use disorder",
+        "pregnancy"
+      ]
+    },
+    "valeriana officinalis": {
+      "class": "sedative-hypnotic herb",
+      "activeCompounds": ["valerenic acid"],
+      "mechanism": "Valerenic acid and related sesquiterpenes act as positive allosteric modulators of GABA-A receptors.",
+      "effects": ["sedation", "improved sleep latency", "mild anxiolytic effects"],
+      "contraindications": [
+        "concurrent CNS depressants",
+        "operating machinery after dosing",
+        "hepatic impairment"
+      ]
+    },
+    "hypericum perforatum": {
+      "class": "antidepressant herb",
+      "activeCompounds": ["hyperforin", "hypericin"],
+      "mechanism": "Hyperforin inhibits monoamine reuptake pathways and induces CYP3A4 and P-glycoprotein, creating substantial drug-interaction potential.",
+      "effects": [
+        "antidepressant effects in mild to moderate depression",
+        "anxiety reduction in some patients",
+        "photosensitivity"
+      ],
+      "contraindications": [
+        "concurrent serotonergic medications",
+        "oral contraceptives",
+        "immunosuppressants",
+        "anticoagulants"
+      ]
+    },
+    "mitragyna speciosa": {
+      "class": "opioid-like indole alkaloid herb",
+      "activeCompounds": ["mitragynine", "7-hydroxymitragynine"],
+      "mechanism": "Mitragynine and 7-hydroxymitragynine act at mu-opioid receptors (partial agonism with additional adrenergic/serotonergic interactions).",
+      "effects": [
+        "analgesia",
+        "stimulation at lower doses",
+        "sedation at higher doses",
+        "dependence and withdrawal risk"
+      ],
+      "contraindications": [
+        "concurrent CNS depressants",
+        "hepatic impairment",
+        "history of substance use disorder",
+        "pregnancy"
+      ]
+    },
+    "piper methysticum": {
+      "class": "anxiolytic kavalactone-containing herb",
+      "activeCompounds": ["kavalactones"],
+      "mechanism": "Kavalactones modulate GABA-A receptor function and influence voltage-gated ion channels, contributing to anxiolytic and sedative effects.",
+      "effects": [
+        "anxiolysis",
+        "muscle relaxation",
+        "sedation",
+        "impaired psychomotor performance"
+      ],
+      "contraindications": [
+        "hepatic disease",
+        "concurrent alcohol use",
+        "concurrent CNS depressants",
+        "pregnancy or breastfeeding"
+      ]
+    },
+    "ginkgo biloba": {
+      "class": "neurovascular cognitive-support herb",
+      "activeCompounds": ["ginkgolides", "bilobalide"],
+      "mechanism": "Terpene lactones antagonize platelet-activating factor signaling, while flavonoid fractions contribute antioxidant and microcirculatory effects.",
+      "effects": [
+        "modest cognitive support",
+        "improved peripheral circulation",
+        "headache",
+        "gastrointestinal upset"
+      ],
+      "contraindications": [
+        "concurrent anticoagulants",
+        "bleeding disorders",
+        "perioperative period",
+        "history of seizures"
+      ]
+    }
+  },
+  "compounds": {
+    "dmt": {
+      "category": "serotonergic psychedelic tryptamine",
+      "mechanism": "Agonist at 5-HT2A receptors (with activity at other serotonergic receptors); rapidly metabolized by monoamine oxidase A when taken orally without MAO inhibition.",
+      "effects": [
+        "intense visual phenomena",
+        "altered sense of self",
+        "sympathomimetic activation"
+      ],
+      "safety": [
+        "avoid with MAO inhibitors or serotonergic drugs due to interaction risk",
+        "can precipitate severe anxiety or panic",
+        "risk of psychological destabilization in predisposed individuals"
+      ]
+    },
+    "psilocybin": {
+      "category": "serotonergic psychedelic tryptamine prodrug",
+      "mechanism": "Dephosphorylated to psilocin, which acts primarily as a partial agonist at 5-HT2A receptors.",
+      "effects": ["perceptual alterations", "mood changes", "cognitive and sensory amplification"],
+      "safety": [
+        "can cause acute anxiety or dysphoria",
+        "avoid in psychotic-spectrum disorders",
+        "use caution with serotonergic medications"
+      ]
+    },
+    "psilocin": {
+      "category": "serotonergic psychedelic tryptamine",
+      "mechanism": "Partial agonist at 5-HT2A receptors with additional serotonergic receptor interactions.",
+      "effects": ["altered perception", "emotional lability", "changes in time perception"],
+      "safety": [
+        "may trigger panic reactions",
+        "avoid in individuals with psychosis risk",
+        "can impair judgment and coordination"
+      ]
+    },
+    "thc": {
+      "category": "phytocannabinoid",
+      "mechanism": "Partial agonist at CB1 receptors in the CNS and CB2 receptors in peripheral/immune tissues.",
+      "effects": ["euphoria", "analgesia", "antiemetic effects", "impaired short-term memory"],
+      "safety": [
+        "dose-related anxiety and paranoia can occur",
+        "impairs driving and psychomotor performance",
+        "can exacerbate psychotic symptoms in vulnerable users"
+      ]
+    },
+    "cbd": {
+      "category": "phytocannabinoid",
+      "mechanism": "Low intrinsic efficacy at CB1/CB2; modulates endocannabinoid tone and interacts with targets including 5-HT1A and TRPV channels.",
+      "effects": [
+        "anxiolytic effects in some contexts",
+        "antiseizure effects",
+        "anti-inflammatory signaling modulation"
+      ],
+      "safety": [
+        "can inhibit CYP enzymes and alter drug exposure",
+        "may cause somnolence or gastrointestinal upset",
+        "liver enzyme elevations reported at higher therapeutic doses"
+      ]
+    },
+    "harmine": {
+      "category": "beta-carboline alkaloid",
+      "mechanism": "Reversible inhibitor of monoamine oxidase A (MAO-A).",
+      "effects": [
+        "potentiation of monoaminergic signaling",
+        "facilitation of oral tryptamine activity",
+        "tremor at high doses"
+      ],
+      "safety": [
+        "interaction risk with serotonergic drugs",
+        "interaction risk with sympathomimetics",
+        "may cause nausea and hypotension"
+      ]
+    },
+    "harmaline": {
+      "category": "beta-carboline alkaloid",
+      "mechanism": "Reversible inhibitor of monoamine oxidase A (MAO-A) with CNS activity.",
+      "effects": ["sedation", "dream intensification", "potentiation of tryptamines"],
+      "safety": [
+        "can cause ataxia and tremor",
+        "interaction risk with serotonergic and stimulant drugs",
+        "gastrointestinal adverse effects are common"
+      ]
+    },
+    "mescaline": {
+      "category": "serotonergic psychedelic phenethylamine",
+      "mechanism": "Primarily a 5-HT2A receptor agonist with additional activity at other serotonergic receptors.",
+      "effects": [
+        "visual alterations",
+        "enhanced introspection",
+        "sympathomimetic stimulation",
+        "nausea"
+      ],
+      "safety": [
+        "can provoke anxiety or panic",
+        "avoid in psychotic-spectrum disorders",
+        "may elevate heart rate and blood pressure"
+      ]
+    },
+    "salvinorin a": {
+      "category": "neo-clerodane diterpene",
+      "mechanism": "High-efficacy agonist at kappa-opioid receptors with minimal serotonergic psychedelic receptor activity.",
+      "effects": [
+        "brief intense dissociation",
+        "perceptual and spatial distortion",
+        "dysphoria in some users"
+      ],
+      "safety": [
+        "high acute behavioral impairment",
+        "requires controlled setting to reduce injury risk",
+        "can cause severe disorientation"
+      ]
+    },
+    "cocaine": {
+      "category": "tropane alkaloid stimulant",
+      "mechanism": "Inhibits dopamine, norepinephrine, and serotonin reuptake transporters; also blocks voltage-gated sodium channels.",
+      "effects": ["euphoria", "increased energy", "tachycardia", "vasoconstriction"],
+      "safety": [
+        "high addiction liability",
+        "risk of myocardial infarction and stroke",
+        "seizure risk at high doses"
+      ]
+    },
+    "caffeine": {
+      "category": "methylxanthine stimulant",
+      "mechanism": "Nonselective adenosine A1/A2A receptor antagonist leading to increased neuronal firing and catecholamine release.",
+      "effects": [
+        "increased wakefulness",
+        "improved vigilance",
+        "diuresis",
+        "anxiety at higher doses"
+      ],
+      "safety": [
+        "can worsen insomnia and anxiety disorders",
+        "may trigger palpitations in susceptible individuals",
+        "withdrawal may cause headache and fatigue"
+      ]
+    },
+    "nicotine": {
+      "category": "nicotinic alkaloid stimulant",
+      "mechanism": "Agonist at neuronal nicotinic acetylcholine receptors, increasing dopaminergic transmission in reward pathways.",
+      "effects": [
+        "increased attention",
+        "appetite suppression",
+        "mild mood elevation",
+        "tachycardia"
+      ],
+      "safety": [
+        "high dependence potential",
+        "raises heart rate and blood pressure",
+        "toxic in concentrated forms"
+      ]
+    },
+    "morphine": {
+      "category": "opioid analgesic alkaloid",
+      "mechanism": "Full agonist at mu-opioid receptors, reducing nociceptive neurotransmission and altering pain perception.",
+      "effects": ["analgesia", "sedation", "euphoria", "respiratory depression"],
+      "safety": [
+        "high overdose risk when combined with CNS depressants",
+        "causes tolerance and physical dependence",
+        "constipation and hypoventilation are common dose-limiting effects"
+      ]
+    },
+    "codeine": {
+      "category": "opioid analgesic alkaloid",
+      "mechanism": "Weak mu-opioid receptor agonist; partly bioactivated to morphine via CYP2D6.",
+      "effects": ["analgesia", "antitussive effects", "sedation", "constipation"],
+      "safety": [
+        "respiratory depression risk in ultra-rapid CYP2D6 metabolizers",
+        "additive sedation with alcohol or benzodiazepines",
+        "dependence can develop with repeated use"
+      ]
+    },
+    "mitragynine": {
+      "category": "indole alkaloid",
+      "mechanism": "Partial agonist at mu-opioid receptors with additional adrenergic and serotonergic receptor interactions.",
+      "effects": [
+        "analgesia",
+        "stimulant-like effects at lower doses",
+        "sedative effects at higher doses"
+      ],
+      "safety": [
+        "dependence and withdrawal can occur",
+        "interaction risk with CNS depressants",
+        "hepatic adverse effects have been reported"
+      ]
+    },
+    "7-hydroxymitragynine": {
+      "category": "indole alkaloid",
+      "mechanism": "Potent partial agonist at mu-opioid receptors and major contributor to opioid-like effects of kratom preparations.",
+      "effects": ["analgesia", "sedation", "euphoria"],
+      "safety": [
+        "respiratory depression risk increases with co-depressants",
+        "significant abuse and dependence liability",
+        "overdose risk increases in polydrug use"
+      ]
+    },
+    "kavalactones": {
+      "category": "lipophilic lactone constituents",
+      "mechanism": "Modulate GABA-A receptor signaling and influence voltage-gated sodium and calcium channel activity.",
+      "effects": ["anxiolysis", "muscle relaxation", "sedation"],
+      "safety": [
+        "hepatotoxicity concern with some preparations",
+        "additive CNS depression with alcohol or sedatives",
+        "can impair psychomotor performance"
+      ]
+    }
+  }
+}
