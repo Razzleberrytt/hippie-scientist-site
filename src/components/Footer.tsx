@@ -14,6 +14,7 @@ const exploreLinks = [
 ]
 
 const legalLinks = [
+  { href: '/methodology', label: 'Methodology' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/disclaimer', label: 'Disclaimer' },
   { href: '/contact', label: 'Contact' },
