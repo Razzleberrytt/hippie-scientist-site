@@ -1,5 +1,6 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
+import type { HTMLMotionProps } from 'framer-motion'
 
 const variantClasses: Record<'default' | 'primary' | 'ghost', string> = {
   default: 'btn',
@@ -11,7 +12,7 @@ type ButtonProps = {
   children: ReactNode
   variant?: 'default' | 'primary' | 'ghost'
   className?: string
-} & ButtonHTMLAttributes<HTMLButtonElement>
+} & Omit<HTMLMotionProps<'button'>, 'children' | 'className'>
 
 const MotionButton = motion.button
 
