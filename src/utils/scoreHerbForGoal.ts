@@ -1,5 +1,5 @@
 import type { GoalDefinition } from '@/data/goals'
-import type { Herb } from '@/types'
+import type { Herb } from '@/types/herb'
 import { getClassTokens, getContraindications, getHerbEffects } from '@/utils/herbSignals'
 
 export type HerbGoalScore = {

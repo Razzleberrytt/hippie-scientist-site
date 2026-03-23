@@ -1,6 +1,6 @@
 import rawHerbs from '../../public/data/herbs.json'
 import rawCompounds from '../../public/data/compounds.json'
-import type { Herb } from '../types/herb'
+import type { Herb } from '@/types/herb'
 import type { Compound } from '../types/compound'
 import { asStringArray } from '@/utils/asStringArray'
 import { isNonEmptyString } from '@/utils/isNonEmptyString'
@@ -29,7 +29,7 @@ function hasValidName(value: unknown): value is { name: string } {
 const safeHerbs = (Array.isArray(rawHerbs) ? rawHerbs : []).filter(hasValidName)
 const safeCompounds = (Array.isArray(rawCompounds) ? rawCompounds : []).filter(hasValidName)
 
-export const herbs: Herb[] = safeHerbs as Herb[]
+export const herbs: Herb[] = safeHerbs as unknown as Herb[]
 export const compounds: Compound[] = safeCompounds as Compound[]
 
 function toEntity(item: Record<string, unknown>, kind: 'herb' | 'compound'): Entity | null {
