@@ -2,10 +2,9 @@ import { memo, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from '@/lib/motion'
 import Card from './ui/Card'
-import { cleanLine, hasVal, titleCase } from '../lib/pretty'
-import { chipClassFor } from '../lib/tags'
+import { hasVal } from '../lib/pretty'
 import { slugify } from '../lib/slug'
-import { buildCardSummary, sanitizeSurfaceText } from '@/lib/summary'
+import { buildCardSummary } from '@/lib/summary'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { calculateHerbConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 import './HerbCard.css'
@@ -33,25 +32,6 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
     Boolean(common) && (!scientific || common.toLowerCase() !== scientific.toLowerCase())
   const heading = hasCommon ? common : scientific || herb.name || 'Herb'
   const subheading = hasCommon ? scientific : ''
-
-  const intensityLevel = String(herb.intensityLevel || '').toLowerCase()
-  const intensityLabel = hasVal(herb.intensityLabel)
-    ? String(herb.intensityLabel)
-    : intensityLevel
-      ? titleCase(intensityLevel)
-      : ''
-  const intensityTone = intensityLevel.includes('strong')
-    ? 'bg-rose-500/20 text-rose-100 ring-1 ring-rose-300/40'
-    : intensityLevel.includes('moderate')
-      ? 'bg-amber-500/20 text-amber-100 ring-1 ring-amber-300/40'
-      : intensityLevel.includes('mild')
-        ? 'bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-300/40'
-        : intensityLevel.includes('variable')
-          ? 'bg-sky-500/20 text-sky-100 ring-1 ring-sky-300/40'
-          : 'bg-white/6 text-white/90 ring-1 ring-white/15'
-  const benefits = sanitizeSurfaceText(
-    cleanLine(herb.benefits || (herb as Record<string, unknown>).benefit)
-  )
   const confidence =
     herb.confidence ??
     calculateHerbConfidence({
@@ -70,13 +50,6 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   )
   const confidenceLabel = confidence.charAt(0).toUpperCase() + confidence.slice(1)
 
-  const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : []
-  const tagLimit = compact ? 3 : 6
-  const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, tagLimit) : []
-  const showDescription = !compact && hasVal(herb.description)
-  const showEffects = !compact && hasVal(herb.effects)
-  const showLegal = !compact && hasVal(herb.legalstatus)
-  const showCompounds = !compact && compounds.length > 0
   const showShowMore = !compact && (hasVal(herb.effects) || hasVal(herb.description))
   const surfaceSummary = buildCardSummary({
     effects: herb.effects,
@@ -148,46 +121,36 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
               {confidence}
             </span>
             {compact ? (
-              <h3 className='font-semibold text-lime-300'>{heading}</h3>
+              <h3 className='line-clamp-2 text-base font-semibold text-lime-300'>{heading}</h3>
             ) : (
-              <h2 className='h2 text-lime-300'>{heading}</h2>
+              <h2 className='h2 line-clamp-2 text-lime-300'>{heading}</h2>
             )}
-            {hasVal(subheading) && <p className='small italic text-white/65'>{subheading}</p>}
-            <div className='flex flex-wrap gap-2'>
-              {hasVal(intensityLabel) && (
-                <span className={`pill ${intensityTone} text-[12px]`}>
-                  <span className='text-[11px] font-semibold uppercase tracking-wide text-white/80'>
-                    INTENSITY:
-                  </span>
-                  &nbsp;{intensityLabel}
-                </span>
-              )}
-              {hasVal(benefits) && <span className='pill text-[12px]'>{benefits}</span>}
-            </div>
+            {hasVal(subheading) && (
+              <p className='small line-clamp-1 italic text-white/65'>{subheading}</p>
+            )}
           </header>
 
-          <section className='stack text-white/80'>
-            {(showDescription || showEffects) && (
+          <section className='stack min-h-[112px] text-white/80'>
+            {hasVal(surfaceSummary) && !compact ? (
               <p className={`small text-white/85 ${expanded ? '' : 'line-clamp-3'}`}>
                 {surfaceSummary}
               </p>
-            )}
-            {showLegal && (
-              <p className='small text-white/60'>
-                <span className='text-white/75'>Legal:</span> {cleanLine(herb.legalstatus)}
-              </p>
-            )}
-            {primaryEffects.length > 0 && (
+            ) : null}
+            {primaryEffects.length > 0 ? (
               <div className='flex flex-wrap gap-1.5'>
                 {primaryEffects.map(effect => (
                   <span
                     key={effect}
-                    className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
+                    className='line-clamp-1 rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
                   >
                     {effect}
                   </span>
                 ))}
               </div>
+            ) : (
+              <p className='small rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-white/65'>
+                No high-confidence effect tags yet.
+              </p>
             )}
             <p className='small text-white/70'>
               Confidence: <span className='text-white/90'>{confidenceLabel}</span>
@@ -198,18 +161,6 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
               <p className='small rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-amber-100'>
                 ⚠️ This entry is incomplete. Data is still being verified.
               </p>
-            )}
-            {tags.length > 0 && (
-              <div className='cluster'>
-                {tags.map((t: string, i: number) => (
-                  <span key={i} className={`${chipClassFor(t)} text-[12px]`}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-            )}
-            {showCompounds && (
-              <p className='small text-cyan-200'>Active Compounds: {compounds.join(', ')}</p>
             )}
           </section>
 

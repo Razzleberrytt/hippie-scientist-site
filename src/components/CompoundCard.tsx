@@ -2,7 +2,6 @@ import React from 'react'
 import { motion } from '@/lib/motion'
 import { Link } from 'react-router-dom'
 import type { Compound } from '@/types/compound'
-import TagBadge from './TagBadge'
 import { buildCardSummary } from '@/lib/summary'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
@@ -63,31 +62,33 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     <motion.article
       whileHover={{ scale: 1.03 }}
       title={compound.herbsFound.map(h => h.name).join(', ')}
-      className='glassmorphic-card hover-glow relative flex flex-col rounded-lg border border-emerald-600/40 p-4 text-left'
+      className='glassmorphic-card hover-glow relative flex min-h-[250px] flex-col rounded-lg border border-emerald-600/40 p-4 text-left'
     >
       <span
         className={`absolute right-4 top-4 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
       >
         {confidenceLabel}
       </span>
-      <h2 className='drop-shadow-glow mb-1 text-lg font-bold text-emerald-300'>{compound.name}</h2>
-      <div className='mb-2 flex flex-wrap gap-2 pr-16'>
-        <TagBadge label={compound.type ?? compound.category ?? 'compound'} />
-        {compound.effectClass && <TagBadge label={compound.effectClass} variant='blue' />}
-      </div>
-      {primaryEffects.length > 0 && (
+      <h2 className='drop-shadow-glow mb-2 line-clamp-2 pr-16 text-lg font-bold text-emerald-300'>
+        {compound.name}
+      </h2>
+      {primaryEffects.length > 0 ? (
         <div className='mb-2 flex flex-wrap gap-1.5'>
           {primaryEffects.map(effect => (
             <span
               key={`${compound.name}-${effect}`}
-              className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
+              className='line-clamp-1 rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
             >
               {effect}
             </span>
           ))}
         </div>
+      ) : (
+        <p className='mb-2 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs text-white/65'>
+          No high-confidence effect tags yet.
+        </p>
       )}
-      <p className='text-sand mb-2 line-clamp-1 text-sm'>{summary}</p>
+      <p className='text-sand mb-2 line-clamp-2 text-sm'>{summary}</p>
       <p className='mb-2 text-xs text-white/70'>
         Confidence: <span className='text-white/90'>{confidenceLabel}</span>
         {sourceCount > 0 ? ` · Sources: ${sourceCount}` : ''}
@@ -99,7 +100,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
         </p>
       )}
       <div className='mt-auto flex flex-wrap gap-1'>
-        {compound.herbsFound.map(h =>
+        {compound.herbsFound.slice(0, 3).map(h =>
           h.slug ? (
             <Link
               key={h.name}
@@ -116,6 +117,11 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
               {h.name}
             </span>
           )
+        )}
+        {compound.herbsFound.length > 3 && (
+          <span className='tag-pill bg-space-dark/70 text-sand/80 dark:bg-gray-800 dark:text-gray-300'>
+            +{compound.herbsFound.length - 3} more
+          </span>
         )}
       </div>
     </motion.article>
