@@ -8,15 +8,20 @@ import SearchBar from '@/components/filters/SearchBar'
 import SortSelect from '@/components/filters/SortSelect'
 import TypeFilter from '@/components/filters/TypeFilter'
 import { useCompoundData } from '@/lib/compound-data'
-import {
-  computeConfidenceLevel,
-  confidenceBadgeClass,
-  extractPrimaryEffects,
-} from '@/lib/dataTrust'
+import { extractPrimaryEffects } from '@/lib/dataTrust'
 import { useUrlFilterState } from '@/hooks/useUrlFilterState'
 import { filterCompounds } from '@/utils/filterCompounds'
 import { DEFAULT_FILTER_STATE } from '@/utils/filterModel'
 import { extractFilterOptions } from '@/utils/extractFilterOptions'
+import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
+
+function confidenceBadgeClass(level: ConfidenceLevel) {
+  if (level === 'high')
+    return 'border-emerald-300/50 bg-emerald-500/15 text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.35)]'
+  if (level === 'medium')
+    return 'border-amber-300/45 bg-amber-500/15 text-amber-100 shadow-[0_0_18px_rgba(245,158,11,0.35)]'
+  return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
+}
 
 function summarize(compound: { description: string; effects: string[] }) {
   if (compound.description) return compound.description
@@ -107,11 +112,13 @@ export default function CompoundsPage() {
       ) : (
         <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
           {filtered.map(compound => {
-            const confidence = computeConfidenceLevel({
-              mechanism: compound.mechanism,
-              effects: compound.effects,
-              compounds: compound.herbs,
-            })
+            const confidence =
+              compound.confidence ??
+              calculateCompoundConfidence({
+                mechanism: compound.mechanism,
+                effects: compound.effects,
+                compounds: compound.herbs,
+              })
             const primaryEffects = extractPrimaryEffects(compound.effects, 3)
 
             return (
@@ -139,9 +146,9 @@ export default function CompoundsPage() {
                     ))}
                   </div>
                 )}
-                {confidence === 'Low' && (
+                {confidence === 'low' && (
                   <p className='mt-3 rounded-lg border border-amber-300/35 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>
-                    Data incomplete: mechanism/effects links are still sparse.
+                    ⚠️ This entry has limited verified data.
                   </p>
                 )}
                 <p className='mt-3 text-xs text-white/80'>

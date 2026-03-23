@@ -5,7 +5,7 @@ import type { CompoundEntry } from '../data/compounds/compounds'
 import TagBadge from './TagBadge'
 import { buildCardSummary } from '@/lib/summary'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import { calculateConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
+import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 
 interface HerbRef {
   name: string
@@ -26,7 +26,7 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
 }
 
 export default function CompoundCard({ compound }: { compound: CompoundWithRefs }) {
-  const confidence = calculateConfidence({
+  const confidence = calculateCompoundConfidence({
     mechanism: compound.mechanismOfAction || compound.mechanism,
     effects: compound.effects,
     compounds: compound.herbsFound.map(h => h.name),

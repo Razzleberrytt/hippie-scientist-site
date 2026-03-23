@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { slugify } from '@/lib/slug'
+import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -26,6 +27,7 @@ export type CompoundRecord = {
   herbs: string[]
   sources: SourceRef[]
   lastUpdated: string
+  confidence: ConfidenceLevel
 }
 
 let compoundsPromise: Promise<CompoundRecord[]> | null = null
@@ -60,6 +62,9 @@ function normalizeSources(value: unknown): SourceRef[] {
 function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const name = String(raw.name || raw.commonName || raw.id || '').trim()
   const slug = String(raw.slug || slugify(name))
+  const effects = splitText(raw.effects)
+  const herbs = splitText(raw.associatedHerbs ?? raw.foundInHerbs ?? raw.herbs ?? raw.foundIn)
+
   return {
     id: String(raw.id || slug),
     slug,
@@ -70,7 +75,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     intensity: String(raw.intensity || '').trim(),
     mechanism: String(raw.mechanism || raw.mechanismOfAction || '').trim(),
     activeCompounds: splitText(raw.activeCompounds),
-    effects: splitText(raw.effects),
+    effects,
     therapeuticUses: splitText(raw.therapeuticUses),
     contraindications: splitText(raw.contraindications),
     interactions: splitText(raw.interactions),
@@ -82,7 +87,12 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     preparation: String(raw.preparation || '').trim(),
     legalStatus: String(raw.legalStatus || '').trim(),
     sideEffects: splitText(raw.sideEffects),
-    herbs: splitText(raw.associatedHerbs ?? raw.foundInHerbs ?? raw.herbs ?? raw.foundIn),
+    herbs,
+    confidence: calculateCompoundConfidence({
+      mechanism: raw.mechanism || raw.mechanismOfAction,
+      effects,
+      compounds: herbs,
+    }),
     sources: normalizeSources(raw.sources),
     lastUpdated: String(raw.lastUpdated || raw.updatedAt || '').trim(),
   }

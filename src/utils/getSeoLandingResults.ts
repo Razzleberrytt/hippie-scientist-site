@@ -1,4 +1,4 @@
-import { computeConfidenceLevel } from '@/lib/dataTrust'
+import { calculateCompoundConfidence, calculateHerbConfidence } from '@/utils/calculateConfidence'
 import type { CompoundRecord } from '@/lib/compound-data'
 import type { Herb } from '@/types'
 import type { SeoLandingConfig } from '@/data/seoLandingConfigs'
@@ -61,19 +61,19 @@ function scoreCompoundCompleteness(compound: CompoundRecord): number {
 }
 
 function getHerbConfidence(herb: Herb): string {
-  return computeConfidenceLevel({
+  return calculateHerbConfidence({
     mechanism: herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
     effects: herb.effects,
     compounds: herb.activeCompounds || herb.active_compounds || herb.compounds,
-  }).toLowerCase()
+  })
 }
 
 function getCompoundConfidence(compound: CompoundRecord): string {
-  return computeConfidenceLevel({
+  return calculateCompoundConfidence({
     mechanism: compound.mechanism,
     effects: compound.effects,
     compounds: compound.activeCompounds,
-  }).toLowerCase()
+  })
 }
 
 function herbHasSparseData(herb: Herb): boolean {
