@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import type { MotionProps } from 'framer-motion'
 import BlendSummaryCard from '../components/BlendSummaryCard'
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import TagBadge from '../components/TagBadge'
@@ -7,6 +8,9 @@ import { useHerbs } from '../hooks/useHerbs'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { herbName, splitField } from '../utils/herb'
 import Meta from '../components/Meta'
+
+type MotionH1Props = React.HTMLAttributes<HTMLHeadingElement> & MotionProps
+const MotionH1 = motion.h1 as React.ComponentType<MotionH1Props>
 
 export default function HerbBlender() {
   const herbs = useHerbs()
@@ -75,13 +79,13 @@ export default function HerbBlender() {
         path='/blend'
       />
       <div className='mx-auto max-w-6xl space-y-6'>
-        <motion.h1
+        <MotionH1
           className='text-gradient text-center text-5xl font-bold'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >
           Herb Blend Builder
-        </motion.h1>
+        </MotionH1>
         <div className='ds-card-lg ds-stack'>
           <div className='flex flex-wrap items-center gap-3'>
             <input
