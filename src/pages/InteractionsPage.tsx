@@ -8,6 +8,7 @@ import InteractionSearch, {
 } from '@/components/interactions/InteractionSearch'
 import SelectedInteractionItems from '@/components/interactions/SelectedInteractionItems'
 import InteractionDisclaimer from '@/components/interactions/InteractionDisclaimer'
+import InteractionLeadCapture from '@/components/interactions/InteractionLeadCapture'
 import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import type { InteractionReport, InteractionSourceItem } from '@/types/interactions'
@@ -37,6 +38,45 @@ function normalizeTextArray(value: unknown): string[] {
   return []
 }
 
+type LeadCaptureActionContext = 'after-report' | 'after-save' | 'after-share' | 'after-export'
+
+type InteractionEngagementCounters = {
+  saveCount: number
+  shareCount: number
+  exportCount: number
+}
+
+const INTERACTION_ENGAGEMENT_KEY = 'hs_interaction_engagement_v1'
+const INTERACTION_LEAD_CAPTURED_KEY = 'hs_interaction_lead_captured_v1'
+
+const DEFAULT_ENGAGEMENT: InteractionEngagementCounters = {
+  saveCount: 0,
+  shareCount: 0,
+  exportCount: 0,
+}
+
+function loadEngagementCounters(): InteractionEngagementCounters {
+  if (typeof window === 'undefined') return DEFAULT_ENGAGEMENT
+  const raw = window.localStorage.getItem(INTERACTION_ENGAGEMENT_KEY)
+  if (!raw) return DEFAULT_ENGAGEMENT
+
+  try {
+    const parsed = JSON.parse(raw) as Partial<InteractionEngagementCounters>
+    return {
+      saveCount: Number(parsed.saveCount || 0),
+      shareCount: Number(parsed.shareCount || 0),
+      exportCount: Number(parsed.exportCount || 0),
+    }
+  } catch {
+    return DEFAULT_ENGAGEMENT
+  }
+}
+
+function persistEngagementCounters(counters: InteractionEngagementCounters) {
+  if (typeof window === 'undefined') return
+  window.localStorage.setItem(INTERACTION_ENGAGEMENT_KEY, JSON.stringify(counters))
+}
+
 export default function InteractionsPage() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -48,6 +88,10 @@ export default function InteractionsPage() {
   const [copyLinkStatus, setCopyLinkStatus] = useState<'idle' | 'copied'>('idle')
   const [copySummaryStatus, setCopySummaryStatus] = useState<'idle' | 'copied'>('idle')
   const [savedReports, setSavedReports] = useState<SavedInteractionReport[]>([])
+  const [leadContext, setLeadContext] = useState<LeadCaptureActionContext | null>(null)
+  const [leadCaptured, setLeadCaptured] = useState<boolean>(false)
+  const [engagementCounters, setEngagementCounters] =
+    useState<InteractionEngagementCounters>(DEFAULT_ENGAGEMENT)
 
   const herbCatalog = useMemo<InteractionCatalogItem[]>(
     () =>
@@ -148,6 +192,7 @@ export default function InteractionsPage() {
       .filter((item): item is InteractionSourceItem => Boolean(item))
 
     setReport(checkInteractions(sourceItems))
+    setLeadContext('after-report')
     const sharedItems = buildShareItemsValue(selectedItems, catalog)
     if (sharedItems) {
       navigate(`/interactions?items=${sharedItems}`, { replace: true })
@@ -156,6 +201,10 @@ export default function InteractionsPage() {
 
   useEffect(() => {
     setSavedReports(getSavedReports())
+    setEngagementCounters(loadEngagementCounters())
+    if (typeof window !== 'undefined') {
+      setLeadCaptured(window.localStorage.getItem(INTERACTION_LEAD_CAPTURED_KEY) === '1')
+    }
   }, [])
 
   useEffect(() => {
@@ -185,11 +234,23 @@ export default function InteractionsPage() {
     await navigator.clipboard.writeText(shareUrl)
     setCopyLinkStatus('copied')
     window.setTimeout(() => setCopyLinkStatus('idle'), 1800)
+    setLeadContext('after-share')
+    setEngagementCounters(prev => {
+      const next = { ...prev, shareCount: prev.shareCount + 1 }
+      persistEngagementCounters(next)
+      return next
+    })
   }
 
   const onSaveReport = () => {
     if (selectedItems.length < 2) return
     setSavedReports(saveReport(selectedItems))
+    setLeadContext('after-save')
+    setEngagementCounters(prev => {
+      const next = { ...prev, saveCount: prev.saveCount + 1 }
+      persistEngagementCounters(next)
+      return next
+    })
   }
 
   const loadSavedReport = (savedReport: SavedInteractionReport) => {
@@ -217,7 +278,20 @@ export default function InteractionsPage() {
     await navigator.clipboard.writeText(buildReportSummary(report))
     setCopySummaryStatus('copied')
     window.setTimeout(() => setCopySummaryStatus('idle'), 1800)
+    setLeadContext('after-export')
+    setEngagementCounters(prev => {
+      const next = { ...prev, exportCount: prev.exportCount + 1 }
+      persistEngagementCounters(next)
+      return next
+    })
   }
+
+  const powerUserPrompt =
+    engagementCounters.saveCount >= 2 ||
+    engagementCounters.shareCount >= 2 ||
+    engagementCounters.exportCount >= 2
+
+  const shouldShowLeadCapture = Boolean(leadContext) && !leadCaptured
 
   return (
     <main className='mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 sm:py-10'>
@@ -272,7 +346,7 @@ export default function InteractionsPage() {
         actions={
           <>
             <Button
-              variant='outline'
+              variant='default'
               onClick={copyShareLink}
               disabled={selectedItems.length < 2}
               className='px-3 py-1.5 text-xs'
@@ -280,7 +354,7 @@ export default function InteractionsPage() {
               {copyLinkStatus === 'copied' ? 'Copied!' : 'Copy Share Link'}
             </Button>
             <Button
-              variant='outline'
+              variant='default'
               onClick={onSaveReport}
               disabled={selectedItems.length < 2}
               className='px-3 py-1.5 text-xs'
@@ -288,7 +362,7 @@ export default function InteractionsPage() {
               Save Report
             </Button>
             <Button
-              variant='outline'
+              variant='default'
               onClick={copyReportSummary}
               disabled={!report}
               className='px-3 py-1.5 text-xs'
@@ -299,6 +373,19 @@ export default function InteractionsPage() {
         }
         footerPrompt='Know someone combining similar herbs? Share this report.'
       />
+
+      {shouldShowLeadCapture && leadContext && (
+        <InteractionLeadCapture
+          context={leadContext}
+          emphasized={powerUserPrompt}
+          onSuccess={() => {
+            setLeadCaptured(true)
+            if (typeof window !== 'undefined') {
+              window.localStorage.setItem(INTERACTION_LEAD_CAPTURED_KEY, '1')
+            }
+          }}
+        />
+      )}
 
       <section className='space-y-3 rounded-2xl border border-white/10 bg-black/25 p-5'>
         <h2 className='text-lg font-semibold text-white'>Saved Reports</h2>
