@@ -13,6 +13,8 @@ import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import type { InteractionReport, InteractionSourceItem } from '@/types/interactions'
 import { checkInteractions } from '@/utils/interactions/checkInteractions'
+import { buildStackSummary } from '@/utils/stack/buildStackSummary'
+import { exportStackPDF } from '@/utils/stack/exportStackPDF'
 import {
   buildReportSummary,
   buildShareCardText,
@@ -81,6 +83,7 @@ const COMBO_GOAL_LABELS: Record<ComboGoal, string> = {
 const INTERACTION_ENGAGEMENT_KEY = 'hs_interaction_engagement_v1'
 const INTERACTION_LEAD_CAPTURED_KEY = 'hs_interaction_lead_captured_v1'
 const INTERACTION_COMBO_USAGE_KEY = 'hs_interaction_combo_usage_v1'
+const STACK_EMAIL_GATE_KEY = 'hs_stack_builder_email_v1'
 
 const DEFAULT_ENGAGEMENT: InteractionEngagementCounters = {
   saveCount: 0,
@@ -165,6 +168,12 @@ export default function InteractionsPage() {
   const [comboUsage, setComboUsage] = useState<ComboUsageState>({ usageCount: {}, recentIds: [] })
   const [activeGoalFilter, setActiveGoalFilter] = useState<ComboGoal | null>(null)
   const [activeComboId, setActiveComboId] = useState<string | null>(null)
+  const [currentStack, setCurrentStack] = useState<InteractionCatalogItem[]>([])
+  const [stackName, setStackName] = useState('')
+  const [stackCopyStatus, setStackCopyStatus] = useState<'idle' | 'copied'>('idle')
+  const [showEmailGate, setShowEmailGate] = useState(false)
+  const [pendingExport, setPendingExport] = useState(false)
+  const [emailInput, setEmailInput] = useState('')
 
   const herbCatalog = useMemo<InteractionCatalogItem[]>(
     () =>
@@ -314,6 +323,8 @@ export default function InteractionsPage() {
 
   const applyCombo = (entry: (typeof resolvedCombos)[number]) => {
     setSelectedItems(entry.resolvedItems)
+    setCurrentStack(entry.resolvedItems)
+    setStackName(entry.combo.name)
     const sourceItems = entry.resolvedItems
       .map(item => sourceItemMap.get(item.id))
       .filter((item): item is InteractionSourceItem => Boolean(item))
@@ -357,11 +368,13 @@ export default function InteractionsPage() {
     setSelectedItems(prev => {
       return [...prev, item]
     })
+    setCurrentStack(prev => [...prev, item])
     setSelectionMessage('')
   }
 
   const removeItem = (id: string) => {
     setSelectedItems(prev => prev.filter(item => item.id !== id))
+    setCurrentStack(prev => prev.filter(item => item.id !== id))
     setSelectionMessage('')
   }
 
@@ -417,6 +430,7 @@ export default function InteractionsPage() {
     const parsed = parseItemsFromSearch(location.search, catalog)
     if (parsed.items.length > 0) {
       setSelectedItems(parsed.items)
+      setCurrentStack(parsed.items)
       if (parsed.items.length >= 2) {
         const sourceItems = parsed.items
           .map(item => sourceItemMap.get(item.id))
@@ -470,6 +484,7 @@ export default function InteractionsPage() {
     }
 
     setSelectedItems(reloaded)
+    setCurrentStack(reloaded)
     const sourceItems = reloaded
       .map(item => sourceItemMap.get(item.id))
       .filter((item): item is InteractionSourceItem => Boolean(item))
@@ -501,6 +516,107 @@ export default function InteractionsPage() {
       persistEngagementCounters(next)
       return next
     })
+  }
+
+  const activeStackItems = currentStack.length > 0 ? currentStack : selectedItems
+
+  const stackSourceItems = useMemo(
+    () =>
+      activeStackItems
+        .map(item => sourceItemMap.get(item.id))
+        .filter((item): item is InteractionSourceItem => Boolean(item)),
+    [activeStackItems, sourceItemMap]
+  )
+
+  const activeGoalLabel = useMemo(() => {
+    if (activeComboId) {
+      const activeCombo = resolvedCombos.find(entry => entry.combo.id === activeComboId)
+      if (activeCombo) return COMBO_GOAL_LABELS[activeCombo.combo.goal]
+    }
+
+    return null
+  }, [activeComboId, resolvedCombos])
+
+  const stackSummary = useMemo(
+    () =>
+      buildStackSummary({
+        stackName,
+        goal: activeGoalLabel,
+        report,
+        sourceItems: stackSourceItems,
+      }),
+    [activeGoalLabel, report, stackName, stackSourceItems]
+  )
+
+  const clearStack = () => {
+    setCurrentStack([])
+    setSelectedItems([])
+    setStackName('')
+    setReport(null)
+    setActiveComboId(null)
+    setSelectionMessage('')
+    navigate('/interactions', { replace: true })
+  }
+
+  const copyStack = async () => {
+    if (activeStackItems.length === 0) return
+    const why =
+      report?.findings[0]?.summary || report?.summary || 'No major interaction signals detected.'
+    const payload = [
+      `${stackSummary.name}:`,
+      ...activeStackItems.map(item => `- ${item.name}`),
+      '',
+      `Goal: ${stackSummary.goal || 'Not specified'}`,
+      '',
+      `Verdict: ${stackSummary.interactionVerdict}`,
+      '',
+      'Why:',
+      why,
+    ].join('\n')
+
+    await navigator.clipboard.writeText(payload)
+    setStackCopyStatus('copied')
+    window.setTimeout(() => setStackCopyStatus('idle'), 1800)
+  }
+
+  const runExport = () => {
+    if (activeStackItems.length < 2) return
+    exportStackPDF(stackSummary)
+    setLeadContext('after-export')
+    setEngagementCounters(prev => {
+      const next = { ...prev, exportCount: prev.exportCount + 1 }
+      persistEngagementCounters(next)
+      return next
+    })
+  }
+
+  const startExport = () => {
+    if (typeof window !== 'undefined' && window.localStorage.getItem(STACK_EMAIL_GATE_KEY)) {
+      runExport()
+      return
+    }
+
+    setPendingExport(true)
+    setShowEmailGate(true)
+  }
+
+  const submitEmailGate = () => {
+    if (typeof window !== 'undefined' && emailInput.trim()) {
+      window.localStorage.setItem(STACK_EMAIL_GATE_KEY, emailInput.trim())
+    }
+    setShowEmailGate(false)
+    if (pendingExport) {
+      runExport()
+      setPendingExport(false)
+    }
+  }
+
+  const skipEmailGate = () => {
+    setShowEmailGate(false)
+    if (pendingExport) {
+      runExport()
+      setPendingExport(false)
+    }
   }
 
   const powerUserPrompt =
@@ -673,6 +789,102 @@ export default function InteractionsPage() {
         }
         footerPrompt='Know someone combining similar herbs? Share this report.'
       />
+
+      <section className='space-y-4 rounded-2xl border border-white/10 bg-black/30 p-5'>
+        <div className='space-y-1'>
+          <h2 className='text-lg font-semibold text-white'>Your Stack</h2>
+          <p className='text-xs text-white/65'>Save this for later or share it</p>
+        </div>
+
+        <label className='block space-y-1'>
+          <span className='text-xs font-medium uppercase tracking-wide text-white/70'>
+            Stack name (optional)
+          </span>
+          <input
+            value={stackName}
+            onChange={event => setStackName(event.target.value)}
+            placeholder='My evening unwind stack'
+            className='w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-cyan-300/60 focus:outline-none'
+          />
+        </label>
+
+        {activeStackItems.length === 0 ? (
+          <p className='rounded-lg border border-dashed border-white/20 bg-white/[0.02] px-3 py-3 text-sm text-white/65'>
+            Add at least two herbs or compounds to build your stack.
+          </p>
+        ) : (
+          <ul className='space-y-2'>
+            {activeStackItems.map(item => (
+              <li
+                key={item.id}
+                className='flex items-center justify-between rounded-lg border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white/90'
+              >
+                <span>{item.name}</span>
+                <button
+                  type='button'
+                  onClick={() => removeItem(item.id)}
+                  className='text-xs text-rose-200/90 underline-offset-2 hover:underline'
+                >
+                  Remove
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div className='flex flex-wrap gap-2'>
+          <Button
+            variant='primary'
+            onClick={startExport}
+            disabled={activeStackItems.length < 2}
+            className='px-3 py-1.5 text-xs'
+          >
+            Export PDF
+          </Button>
+          <Button
+            variant='default'
+            onClick={copyStack}
+            disabled={activeStackItems.length < 1}
+            className='px-3 py-1.5 text-xs'
+          >
+            {stackCopyStatus === 'copied' ? 'Copied!' : 'Copy Stack'}
+          </Button>
+          <Button
+            variant='default'
+            onClick={clearStack}
+            disabled={activeStackItems.length < 1}
+            className='px-3 py-1.5 text-xs'
+          >
+            Clear Stack
+          </Button>
+        </div>
+      </section>
+
+      {showEmailGate && (
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4'>
+          <div className='w-full max-w-md space-y-3 rounded-2xl border border-white/20 bg-slate-950 p-5 shadow-xl'>
+            <h3 className='text-lg font-semibold text-white'>Send this stack to your email?</h3>
+            <p className='text-sm text-white/70'>
+              We can keep this stack handy for later. You can skip this for now.
+            </p>
+            <input
+              type='email'
+              value={emailInput}
+              onChange={event => setEmailInput(event.target.value)}
+              placeholder='you@example.com'
+              className='w-full rounded-lg border border-white/20 bg-black/40 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-cyan-300/60 focus:outline-none'
+            />
+            <div className='flex justify-end gap-2 pt-1'>
+              <Button variant='default' onClick={skipEmailGate} className='px-3 py-1.5 text-xs'>
+                Skip
+              </Button>
+              <Button variant='primary' onClick={submitEmailGate} className='px-3 py-1.5 text-xs'>
+                Continue to PDF
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {report && suggestedCombos.length > 0 && (
         <section className='space-y-3 rounded-2xl border border-white/10 bg-black/25 p-5'>
