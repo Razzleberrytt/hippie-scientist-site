@@ -47,8 +47,40 @@ type InteractionEngagementCounters = {
   exportCount: number
 }
 
+type ComboGoal = 'relaxation' | 'focus' | 'sleep' | 'mood' | 'energy'
+
+type PrebuiltCombo = {
+  id: string
+  name: string
+  items: string[]
+  goal: ComboGoal
+  description: string
+}
+
+type ComboUsageState = {
+  usageCount: Record<string, number>
+  recentIds: string[]
+}
+
+const GOAL_FILTERS: Array<{ label: string; value: ComboGoal }> = [
+  { label: 'Relax', value: 'relaxation' },
+  { label: 'Focus', value: 'focus' },
+  { label: 'Sleep', value: 'sleep' },
+  { label: 'Mood', value: 'mood' },
+  { label: 'Energy', value: 'energy' },
+]
+
+const COMBO_GOAL_LABELS: Record<ComboGoal, string> = {
+  relaxation: 'Relax',
+  focus: 'Focus',
+  sleep: 'Sleep',
+  mood: 'Mood',
+  energy: 'Energy',
+}
+
 const INTERACTION_ENGAGEMENT_KEY = 'hs_interaction_engagement_v1'
 const INTERACTION_LEAD_CAPTURED_KEY = 'hs_interaction_lead_captured_v1'
+const INTERACTION_COMBO_USAGE_KEY = 'hs_interaction_combo_usage_v1'
 
 const DEFAULT_ENGAGEMENT: InteractionEngagementCounters = {
   saveCount: 0,
@@ -78,6 +110,40 @@ function persistEngagementCounters(counters: InteractionEngagementCounters) {
   window.localStorage.setItem(INTERACTION_ENGAGEMENT_KEY, JSON.stringify(counters))
 }
 
+function normalizeLookupToken(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
+function loadComboUsage(): ComboUsageState {
+  if (typeof window === 'undefined') {
+    return { usageCount: {}, recentIds: [] }
+  }
+
+  const raw = window.localStorage.getItem(INTERACTION_COMBO_USAGE_KEY)
+  if (!raw) return { usageCount: {}, recentIds: [] }
+
+  try {
+    const parsed = JSON.parse(raw) as Partial<ComboUsageState>
+    const usageCount =
+      parsed.usageCount && typeof parsed.usageCount === 'object' ? parsed.usageCount : {}
+    const recentIds = Array.isArray(parsed.recentIds)
+      ? parsed.recentIds.map(item => String(item))
+      : []
+    return { usageCount, recentIds }
+  } catch {
+    return { usageCount: {}, recentIds: [] }
+  }
+}
+
+function persistComboUsage(value: ComboUsageState) {
+  if (typeof window === 'undefined') return
+  window.localStorage.setItem(INTERACTION_COMBO_USAGE_KEY, JSON.stringify(value))
+}
+
 export default function InteractionsPage() {
   const location = useLocation()
   const navigate = useNavigate()
@@ -95,6 +161,10 @@ export default function InteractionsPage() {
   const [leadCaptured, setLeadCaptured] = useState<boolean>(false)
   const [engagementCounters, setEngagementCounters] =
     useState<InteractionEngagementCounters>(DEFAULT_ENGAGEMENT)
+  const [prebuiltCombos, setPrebuiltCombos] = useState<PrebuiltCombo[]>([])
+  const [comboUsage, setComboUsage] = useState<ComboUsageState>({ usageCount: {}, recentIds: [] })
+  const [activeGoalFilter, setActiveGoalFilter] = useState<ComboGoal | null>(null)
+  const [activeComboId, setActiveComboId] = useState<string | null>(null)
 
   const herbCatalog = useMemo<InteractionCatalogItem[]>(
     () =>
@@ -167,6 +237,112 @@ export default function InteractionsPage() {
     return map
   }, [compounds, herbs])
 
+  const catalogLookup = useMemo(() => {
+    const map = new Map<string, InteractionCatalogItem>()
+
+    catalog.forEach(item => {
+      const fallbackSlug = item.id.split(':')[1] ?? item.id
+      const tokens = [item.name, fallbackSlug]
+      for (const token of tokens) {
+        const normalized = normalizeLookupToken(token)
+        if (normalized && !map.has(normalized)) {
+          map.set(normalized, item)
+        }
+      }
+    })
+
+    return map
+  }, [catalog])
+
+  const resolvedCombos = useMemo(() => {
+    return prebuiltCombos
+      .map(combo => {
+        const resolvedItems = combo.items
+          .map(item => catalogLookup.get(normalizeLookupToken(item)))
+          .filter((item): item is InteractionCatalogItem => Boolean(item))
+          .slice(0, 3)
+        return { combo, resolvedItems }
+      })
+      .filter(entry => entry.resolvedItems.length >= 2)
+  }, [catalogLookup, prebuiltCombos])
+
+  const popularCombos = useMemo(() => {
+    const filtered = activeGoalFilter
+      ? resolvedCombos.filter(entry => entry.combo.goal === activeGoalFilter)
+      : resolvedCombos
+    return filtered.slice(0, 12)
+  }, [activeGoalFilter, resolvedCombos])
+
+  const trendingCombos = useMemo(() => {
+    const byRecent = comboUsage.recentIds
+      .map(id => resolvedCombos.find(entry => entry.combo.id === id))
+      .filter((entry): entry is (typeof resolvedCombos)[number] => Boolean(entry))
+
+    const byUsage = [...resolvedCombos]
+      .sort(
+        (a, b) =>
+          (comboUsage.usageCount[b.combo.id] ?? 0) - (comboUsage.usageCount[a.combo.id] ?? 0)
+      )
+      .filter(entry => (comboUsage.usageCount[entry.combo.id] ?? 0) > 0)
+
+    const unique = new Map<string, (typeof resolvedCombos)[number]>()
+    ;[...byRecent, ...byUsage].forEach(entry => {
+      if (!unique.has(entry.combo.id)) {
+        unique.set(entry.combo.id, entry)
+      }
+    })
+
+    return Array.from(unique.values()).slice(0, 6)
+  }, [comboUsage.recentIds, comboUsage.usageCount, resolvedCombos])
+
+  const suggestedCombos = useMemo(() => {
+    if (!report) return []
+    const selectedIds = new Set(selectedItems.map(item => item.id))
+
+    return resolvedCombos
+      .filter(entry => entry.combo.id !== activeComboId)
+      .filter(entry => {
+        const sharesItem = entry.resolvedItems.some(item => selectedIds.has(item.id))
+        const sameGoal =
+          activeComboId &&
+          resolvedCombos.find(comboEntry => comboEntry.combo.id === activeComboId)?.combo.goal ===
+            entry.combo.goal
+        return sharesItem || sameGoal
+      })
+      .slice(0, 4)
+  }, [activeComboId, report, resolvedCombos, selectedItems])
+
+  const applyCombo = (entry: (typeof resolvedCombos)[number]) => {
+    setSelectedItems(entry.resolvedItems)
+    const sourceItems = entry.resolvedItems
+      .map(item => sourceItemMap.get(item.id))
+      .filter((item): item is InteractionSourceItem => Boolean(item))
+    setReport(checkInteractions(sourceItems))
+    setSelectionMessage('')
+    setLeadContext('after-report')
+    setActiveComboId(entry.combo.id)
+
+    const sharedItems = buildShareItemsValue(entry.resolvedItems, catalog)
+    if (sharedItems) {
+      navigate(`/interactions?items=${sharedItems}`, { replace: true })
+    }
+
+    setComboUsage(prev => {
+      const next: ComboUsageState = {
+        usageCount: {
+          ...prev.usageCount,
+          [entry.combo.id]: (prev.usageCount[entry.combo.id] ?? 0) + 1,
+        },
+        recentIds: [entry.combo.id, ...prev.recentIds.filter(id => id !== entry.combo.id)].slice(
+          0,
+          12
+        ),
+      }
+      persistComboUsage(next)
+      return next
+    })
+  }
+
   const addItem = (item: InteractionCatalogItem) => {
     if (selectedItems.some(existing => existing.id === item.id)) {
       setSelectionMessage(`${item.name} is already selected.`)
@@ -205,8 +381,34 @@ export default function InteractionsPage() {
   useEffect(() => {
     setSavedReports(getSavedReports())
     setEngagementCounters(loadEngagementCounters())
+    setComboUsage(loadComboUsage())
     if (typeof window !== 'undefined') {
       setLeadCaptured(window.localStorage.getItem(INTERACTION_LEAD_CAPTURED_KEY) === '1')
+    }
+  }, [])
+
+  useEffect(() => {
+    let isMounted = true
+
+    async function loadPrebuiltCombos() {
+      try {
+        const response = await fetch('/data/prebuiltCombos.json')
+        if (!response.ok) return
+        const parsed = (await response.json()) as PrebuiltCombo[]
+        if (isMounted) {
+          setPrebuiltCombos(Array.isArray(parsed) ? parsed : [])
+        }
+      } catch {
+        if (isMounted) {
+          setPrebuiltCombos([])
+        }
+      }
+    }
+
+    loadPrebuiltCombos()
+
+    return () => {
+      isMounted = false
     }
   }, [])
 
@@ -324,6 +526,85 @@ export default function InteractionsPage() {
       </header>
 
       <section className='space-y-4 rounded-2xl border border-white/10 bg-black/30 p-5'>
+        <div className='space-y-2'>
+          <div className='flex items-center justify-between gap-3'>
+            <h2 className='text-lg font-semibold text-white'>Try a popular combo</h2>
+            {activeGoalFilter && (
+              <button
+                type='button'
+                onClick={() => setActiveGoalFilter(null)}
+                className='text-xs text-cyan-200/90 underline-offset-2 hover:underline'
+              >
+                Clear filter
+              </button>
+            )}
+          </div>
+          <p className='text-xs text-white/65'>Most people start here. Try one instantly.</p>
+          <div className='flex flex-wrap gap-2'>
+            {GOAL_FILTERS.map(goal => (
+              <button
+                key={goal.value}
+                type='button'
+                onClick={() =>
+                  setActiveGoalFilter(current => (current === goal.value ? null : goal.value))
+                }
+                className={`rounded-full border px-3 py-1 text-xs transition ${
+                  activeGoalFilter === goal.value
+                    ? 'border-cyan-300/70 bg-cyan-400/20 text-cyan-100'
+                    : 'border-white/20 bg-white/[0.03] text-white/70 hover:bg-white/[0.08]'
+                }`}
+              >
+                {goal.label}
+              </button>
+            ))}
+          </div>
+          <div className='flex gap-3 overflow-x-auto pb-1'>
+            {popularCombos.map(entry => (
+              <button
+                key={entry.combo.id}
+                type='button'
+                onClick={() => applyCombo(entry)}
+                className='min-w-[220px] rounded-xl border border-white/15 bg-white/[0.04] p-3 text-left transition hover:bg-white/[0.08]'
+              >
+                <div className='mb-2 flex items-center justify-between gap-2'>
+                  <p className='text-sm font-semibold text-white'>{entry.combo.name}</p>
+                  <span className='rounded-full bg-cyan-400/15 px-2 py-0.5 text-[11px] text-cyan-100'>
+                    {COMBO_GOAL_LABELS[entry.combo.goal]}
+                  </span>
+                </div>
+                <p className='text-xs text-white/80'>
+                  {entry.resolvedItems.map(item => item.name).join(' + ')}
+                </p>
+                <p className='mt-2 text-[11px] text-white/60'>{entry.combo.description}</p>
+              </button>
+            ))}
+            {popularCombos.length === 0 && (
+              <p className='rounded-lg border border-white/15 bg-white/[0.03] px-3 py-2 text-xs text-white/60'>
+                No prebuilt combos found for this filter.
+              </p>
+            )}
+          </div>
+        </div>
+
+        {trendingCombos.length > 0 && (
+          <div className='space-y-2 rounded-xl border border-white/10 bg-black/20 p-3'>
+            <h3 className='text-sm font-semibold text-white'>Trending now</h3>
+            <p className='text-xs text-white/65'>Common combinations people explore.</p>
+            <div className='flex flex-wrap gap-2'>
+              {trendingCombos.map(entry => (
+                <button
+                  key={entry.combo.id}
+                  type='button'
+                  onClick={() => applyCombo(entry)}
+                  className='rounded-full border border-white/20 bg-white/[0.03] px-3 py-1.5 text-xs text-white/80 transition hover:bg-white/[0.08]'
+                >
+                  {entry.combo.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         <InteractionSearch
           items={catalog}
           selectedIds={selectedItems.map(item => item.id)}
@@ -392,6 +673,33 @@ export default function InteractionsPage() {
         }
         footerPrompt='Know someone combining similar herbs? Share this report.'
       />
+
+      {report && suggestedCombos.length > 0 && (
+        <section className='space-y-3 rounded-2xl border border-white/10 bg-black/25 p-5'>
+          <h2 className='text-lg font-semibold text-white'>You might also try</h2>
+          <p className='text-xs text-white/65'>Common combinations people explore.</p>
+          <div className='grid gap-3 sm:grid-cols-2'>
+            {suggestedCombos.map(entry => (
+              <button
+                key={entry.combo.id}
+                type='button'
+                onClick={() => applyCombo(entry)}
+                className='rounded-xl border border-white/15 bg-white/[0.03] p-3 text-left transition hover:bg-white/[0.08]'
+              >
+                <div className='flex items-center justify-between gap-2'>
+                  <p className='text-sm font-medium text-white'>{entry.combo.name}</p>
+                  <span className='rounded-full bg-cyan-400/15 px-2 py-0.5 text-[11px] text-cyan-100'>
+                    {COMBO_GOAL_LABELS[entry.combo.goal]}
+                  </span>
+                </div>
+                <p className='mt-1 text-xs text-white/80'>
+                  {entry.resolvedItems.map(item => item.name).join(' + ')}
+                </p>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       {shouldShowLeadCapture && leadContext && (
         <InteractionLeadCapture
