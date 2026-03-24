@@ -1,4 +1,5 @@
 import { calculateCompoundConfidence, calculateHerbConfidence } from '@/utils/calculateConfidence'
+import { splitClean } from '@/lib/sanitize'
 import type { CompoundRecord } from '@/lib/compound-data'
 import type { Herb } from '@/types'
 import type { SeoLandingConfig } from '@/data/seoLandingConfigs'
@@ -13,11 +14,6 @@ function normalizeText(value: unknown): string {
     .toLowerCase()
     .trim()
 }
-
-function toList(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value.map(item => String(item ?? '').trim()).filter(Boolean)
-  }
 
   const text = String(value ?? '').trim()
   if (!text) return []
@@ -42,7 +38,7 @@ function scoreHerbCompleteness(herb: Herb): number {
     herb.active_compounds,
     herb.compounds,
     herb.safety,
-  ].filter(value => toList(value).length > 0 || normalizeText(value).length > 0).length
+  ].filter(value => splitClean(value).length > 0 || normalizeText(value).length > 0).length
 
   return count
 }
@@ -55,7 +51,7 @@ function scoreCompoundCompleteness(compound: CompoundRecord): number {
     compound.activeCompounds,
     compound.herbs,
     compound.legalStatus,
-  ].filter(value => toList(value).length > 0 || normalizeText(value).length > 0).length
+  ].filter(value => splitClean(value).length > 0 || normalizeText(value).length > 0).length
 
   return count
 }
@@ -90,7 +86,7 @@ function herbHasSparseData(herb: Herb): boolean {
 function compoundHasSparseData(compound: CompoundRecord): boolean {
   const essentialFields = [compound.description, compound.effects, compound.mechanism]
   const present = essentialFields.filter(
-    value => toList(value).length > 0 || normalizeText(value).length > 0
+    value => splitClean(value).length > 0 || normalizeText(value).length > 0
   ).length
   return present < 2
 }
@@ -99,7 +95,7 @@ function isNeedleMatch(haystack: unknown, needle: string): boolean {
   const normalizedNeedle = normalizeText(needle)
   if (!normalizedNeedle) return false
 
-  return toList(haystack).some(value => normalizeText(value).includes(normalizedNeedle))
+  return splitClean(haystack).some(value => normalizeText(value).includes(normalizedNeedle))
 }
 
 function matchesHerb(config: SeoLandingConfig, herb: Herb): boolean {

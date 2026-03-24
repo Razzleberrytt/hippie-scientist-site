@@ -1,4 +1,5 @@
 import { normalizeText } from './normalizeText'
+import { splitClean } from '@/lib/sanitize'
 import { asStringArray } from './asStringArray'
 import { isNonEmptyString } from './isNonEmptyString'
 
@@ -15,20 +16,6 @@ export type SearchableEntryFields = {
 export type SearchResult<T> = {
   entry: T
   score: number
-}
-
-function toList(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return asStringArray(value)
-      .map(item => normalizeText(item))
-      .filter(Boolean)
-  }
-  if (!isNonEmptyString(value)) return []
-  return value
-    .split(/[\n;,|]/)
-    .map(item => normalizeText(item))
-    .map(item => item.trim())
-    .filter(Boolean)
 }
 
 function includesAnyToken(value: string, query: string) {
@@ -55,10 +42,10 @@ export function searchEntries<T>(
     const name = normalizeText(fields.name)
     const type = normalizeText(fields.type)
     const mechanism = normalizeText(fields.mechanism)
-    const effects = toList(fields.effects)
-    const activeCompounds = toList(fields.activeCompounds)
-    const contraindications = toList(fields.contraindications)
-    const safety = toList(fields.safety)
+    const effects = splitClean(fields.effects)
+    const activeCompounds = splitClean(fields.activeCompounds)
+    const contraindications = splitClean(fields.contraindications)
+    const safety = splitClean(fields.safety)
 
     let score = 0
 

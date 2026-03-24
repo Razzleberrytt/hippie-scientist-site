@@ -20,6 +20,7 @@ const legalLinks = [
   { href: '/disclaimer', label: 'Disclaimer' },
   { href: '/contact', label: 'Contact' },
   { href: '/sitemap', label: 'Sitemap' },
+  { href: '/analytics', label: 'Site Analytics' },
 ]
 
 export default function Footer() {

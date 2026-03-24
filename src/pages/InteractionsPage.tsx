@@ -26,6 +26,8 @@ import {
   type SavedInteractionReport,
 } from '@/utils/interactions/reportSharing'
 import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
+import { type ComboGoal, type PrebuiltCombo, COMBO_GOAL_LABELS } from '@/types/combos'
+import { normalizeLookupToken } from '@/utils/normalizeToken'
 
 function normalizeTextArray(value: unknown): string[] {
   if (Array.isArray(value)) {
@@ -50,16 +52,6 @@ type InteractionEngagementCounters = {
   exportCount: number
 }
 
-type ComboGoal = 'relaxation' | 'focus' | 'sleep' | 'mood' | 'energy'
-
-type PrebuiltCombo = {
-  id: string
-  name: string
-  items: string[]
-  goal: ComboGoal
-  description: string
-}
-
 type ComboUsageState = {
   usageCount: Record<string, number>
   recentIds: string[]
@@ -73,18 +65,11 @@ const GOAL_FILTERS: Array<{ label: string; value: ComboGoal }> = [
   { label: 'Energy', value: 'energy' },
 ]
 
-const COMBO_GOAL_LABELS: Record<ComboGoal, string> = {
-  relaxation: 'Relax',
-  focus: 'Focus',
-  sleep: 'Sleep',
-  mood: 'Mood',
-  energy: 'Energy',
-}
-
 const INTERACTION_ENGAGEMENT_KEY = 'hs_interaction_engagement_v1'
 const INTERACTION_LEAD_CAPTURED_KEY = 'hs_interaction_lead_captured_v1'
 const INTERACTION_COMBO_USAGE_KEY = 'hs_interaction_combo_usage_v1'
 const STACK_EMAIL_GATE_KEY = 'hs_stack_builder_email_v1'
+const MAX_SELECTION = 3
 
 const DEFAULT_ENGAGEMENT: InteractionEngagementCounters = {
   saveCount: 0,
@@ -112,14 +97,6 @@ function loadEngagementCounters(): InteractionEngagementCounters {
 function persistEngagementCounters(counters: InteractionEngagementCounters) {
   if (typeof window === 'undefined') return
   window.localStorage.setItem(INTERACTION_ENGAGEMENT_KEY, JSON.stringify(counters))
-}
-
-function normalizeLookupToken(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/['’]/g, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim()
 }
 
 function loadComboUsage(): ComboUsageState {
@@ -169,7 +146,6 @@ export default function InteractionsPage() {
   const [comboUsage, setComboUsage] = useState<ComboUsageState>({ usageCount: {}, recentIds: [] })
   const [activeGoalFilter, setActiveGoalFilter] = useState<ComboGoal | null>(null)
   const [activeComboId, setActiveComboId] = useState<string | null>(null)
-  const [currentStack, setCurrentStack] = useState<InteractionCatalogItem[]>([])
   const [stackName, setStackName] = useState('')
   const [stackCopyStatus, setStackCopyStatus] = useState<'idle' | 'copied'>('idle')
   const [showEmailGate, setShowEmailGate] = useState(false)
@@ -333,7 +309,6 @@ export default function InteractionsPage() {
 
   const applyCombo = (entry: (typeof resolvedCombos)[number]) => {
     setSelectedItems(entry.resolvedItems)
-    setCurrentStack(entry.resolvedItems)
     setStackName(entry.combo.name)
     const sourceItems = entry.resolvedItems
       .map(item => sourceItemMap.get(item.id))
@@ -370,7 +345,7 @@ export default function InteractionsPage() {
       return
     }
 
-    if (selectedItems.length >= 3) {
+    if (selectedItems.length >= MAX_SELECTION) {
       setSelectionMessage('You can select up to 3 items. Remove one to add another.')
       return
     }
@@ -378,13 +353,11 @@ export default function InteractionsPage() {
     setSelectedItems(prev => {
       return [...prev, item]
     })
-    setCurrentStack(prev => [...prev, item])
     setSelectionMessage('')
   }
 
   const removeItem = (id: string) => {
     setSelectedItems(prev => prev.filter(item => item.id !== id))
-    setCurrentStack(prev => prev.filter(item => item.id !== id))
     setSelectionMessage('')
   }
 
@@ -494,7 +467,6 @@ export default function InteractionsPage() {
     }
 
     setSelectedItems(reloaded)
-    setCurrentStack(reloaded)
     const sourceItems = reloaded
       .map(item => sourceItemMap.get(item.id))
       .filter((item): item is InteractionSourceItem => Boolean(item))
@@ -528,14 +500,14 @@ export default function InteractionsPage() {
     })
   }
 
-  const activeStackItems = currentStack.length > 0 ? currentStack : selectedItems
+  const activeStackItems = selectedItems
 
   const stackSourceItems = useMemo(
     () =>
       activeStackItems
         .map(item => sourceItemMap.get(item.id))
         .filter((item): item is InteractionSourceItem => Boolean(item)),
-    [activeStackItems, sourceItemMap]
+    [selectedItems, sourceItemMap]
   )
 
   const activeGoalLabel = useMemo(() => {
@@ -559,7 +531,6 @@ export default function InteractionsPage() {
   )
 
   const clearStack = () => {
-    setCurrentStack([])
     setSelectedItems([])
     setStackName('')
     setReport(null)
@@ -754,10 +725,10 @@ export default function InteractionsPage() {
           items={catalog}
           selectedIds={selectedItems.map(item => item.id)}
           onAddItem={addItem}
-          maxSelection={3}
+          maxSelection={MAX_SELECTION}
         />
 
-        <SelectedInteractionItems items={selectedItems} onRemove={removeItem} maxSelection={3} />
+        <SelectedInteractionItems items={selectedItems} onRemove={removeItem} maxSelection={MAX_SELECTION} />
 
         {selectionMessage && (
           <p className='rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>

@@ -1,4 +1,5 @@
 import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
+import { splitClean } from '@/lib/sanitize'
 
 type SourceLike = { title?: string; url?: string } | string
 
@@ -11,16 +12,6 @@ type QualityFlags = {
 export type QualityResult = {
   score: number
   flags: QualityFlags
-}
-
-function toList(value: unknown): string[] {
-  if (Array.isArray(value)) return value.map(v => sanitizeSurfaceText(v)).filter(Boolean)
-  const text = sanitizeSurfaceText(value)
-  if (!text) return []
-  return text
-    .split(/[\n;,|]/)
-    .map(item => sanitizeSurfaceText(item))
-    .filter(Boolean)
 }
 
 function hasLongText(value: unknown, min = 40) {
@@ -70,12 +61,12 @@ export function scoreHerbQuality(herb: Record<string, unknown>): QualityResult {
 
   let score = 0
   score += coreMissing * 8
-  if (toList(herb.activeCompounds ?? herb.active_compounds ?? herb.compounds).length > 0)
+  if (splitClean(herb.activeCompounds ?? herb.active_compounds ?? herb.compounds).length > 0)
     score += 10
-  if (toList(herb.effects).length > 0) score += 12
+  if (splitClean(herb.effects).length > 0) score += 12
   if (hasLongText(herb.mechanism || herb.mechanismOfAction, 30)) score += 12
-  if (toList(herb.contraindications).length > 0) score += 8
-  if (toList(herb.interactions).length > 0) score += 8
+  if (splitClean(herb.contraindications).length > 0) score += 8
+  if (splitClean(herb.interactions).length > 0) score += 8
   if (hasLongText(herb.description, 70)) score += 8
 
   const sourceQuality = scoreSources(herb.sources)
@@ -110,11 +101,11 @@ export function scoreCompoundQuality(compound: Record<string, unknown>): Quality
   if (sanitizeSurfaceText(compound.name).length > 1) score += 10
   if (sanitizeSurfaceText(compound.category || compound.className || compound.class).length > 1)
     score += 8
-  if (toList(compound.herbs).length > 0) score += 8
-  if (toList(compound.effects).length > 0) score += 12
+  if (splitClean(compound.herbs).length > 0) score += 8
+  if (splitClean(compound.effects).length > 0) score += 12
   if (hasLongText(compound.mechanism || compound.mechanismOfAction, 24)) score += 12
-  if (toList(compound.contraindications).length > 0) score += 8
-  if (toList(compound.interactions).length > 0) score += 6
+  if (splitClean(compound.contraindications).length > 0) score += 8
+  if (splitClean(compound.interactions).length > 0) score += 6
   if (hasLongText(compound.description, 50)) score += 8
 
   const sourceQuality = scoreSources(compound.sources)

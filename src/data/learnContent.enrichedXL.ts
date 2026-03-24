@@ -25,27 +25,27 @@ These effects are caused by **natural plant compounds** such as alkaloids, flavo
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>GABA</h4>
-    <p class='text-sand'>Calm, sedation, anti-anxiety</p>
+    <p class='text-white/70'>Calm, sedation, anti-anxiety</p>
     <p class='text-xs italic'>Valerian, Skullcap</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Serotonin</h4>
-    <p class='text-sand'>Mood elevation, sleep, dreams</p>
+    <p class='text-white/70'>Mood elevation, sleep, dreams</p>
     <p class='text-xs italic'>Passionflower, Blue Lotus</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Dopamine</h4>
-    <p class='text-sand'>Focus, motivation, pleasure</p>
+    <p class='text-white/70'>Focus, motivation, pleasure</p>
     <p class='text-xs italic'>Mucuna pruriens</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Acetylcholine</h4>
-    <p class='text-sand'>Memory, dreams, clarity</p>
+    <p class='text-white/70'>Memory, dreams, clarity</p>
     <p class='text-xs italic'>Calea ternifolia, Huperzia</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Glutamate (NMDA)</h4>
-    <p class='text-sand'>Visionary states, dissociation</p>
+    <p class='text-white/70'>Visionary states, dissociation</p>
     <p class='text-xs italic'>Salvia divinorum, Heimia salicifolia</p>
   </div>
 </div>
@@ -315,32 +315,32 @@ This synergy can be helpful — or overwhelming — depending on dosage and comb
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>GABAergic</h4>
-    <p class='text-sand'>Calm, sedation</p>
+    <p class='text-white/70'>Calm, sedation</p>
     <p class='text-xs italic'>Valerian, Skullcap</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Serotonergic</h4>
-    <p class='text-sand'>Mood, dreams</p>
+    <p class='text-white/70'>Mood, dreams</p>
     <p class='text-xs italic'>Blue Lotus, Passionflower</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Dopaminergic</h4>
-    <p class='text-sand'>Energy, drive</p>
+    <p class='text-white/70'>Energy, drive</p>
     <p class='text-xs italic'>Mucuna, Rhodiola</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Cholinergic</h4>
-    <p class='text-sand'>Memory, dreams</p>
+    <p class='text-white/70'>Memory, dreams</p>
     <p class='text-xs italic'>Calea, Gotu Kola</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>NMDA Antagonist</h4>
-    <p class='text-sand'>Visionary, dissociative</p>
+    <p class='text-white/70'>Visionary, dissociative</p>
     <p class='text-xs italic'>Salvia, Heimia</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Endocrine/Anti-inflammatory</h4>
-    <p class='text-sand'>Hormonal balance</p>
+    <p class='text-white/70'>Hormonal balance</p>
     <p class='text-xs italic'>Ashwagandha, Turmeric</p>
   </div>
 </div>
@@ -436,37 +436,37 @@ Understanding these common effect categories helps you:
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Sedative</h4>
-    <p class='text-sand'>↓ Calms</p>
+    <p class='text-white/70'>↓ Calms</p>
     <p class='text-xs italic'>Valerian, Skullcap – Sleep, anxiety</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Stimulant</h4>
-    <p class='text-sand'>↑ Energizes</p>
+    <p class='text-white/70'>↑ Energizes</p>
     <p class='text-xs italic'>Guarana, Yerba Mate – Focus, fatigue</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Adaptogen</h4>
-    <p class='text-sand'>⚖️ Balances</p>
+    <p class='text-white/70'>⚖️ Balances</p>
     <p class='text-xs italic'>Ashwagandha, Rhodiola – Chronic stress</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Nootropic</h4>
-    <p class='text-sand'>↑ Mental focus</p>
+    <p class='text-white/70'>↑ Mental focus</p>
     <p class='text-xs italic'>Celastrus, Gotu Kola – Study, work</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Dream-enhancing</h4>
-    <p class='text-sand'>Alters sleep</p>
+    <p class='text-white/70'>Alters sleep</p>
     <p class='text-xs italic'>Calea, Silene – Lucid dreams</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Psychedelic</h4>
-    <p class='text-sand'>Alters perception</p>
+    <p class='text-white/70'>Alters perception</p>
     <p class='text-xs italic'>Salvia, Ayahuasca – Visionary states</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Euphoric</h4>
-    <p class='text-sand'>Lifts mood</p>
+    <p class='text-white/70'>Lifts mood</p>
     <p class='text-xs italic'>Kanna, Blue Lotus – Emotional release</p>
   </div>
 </div>
@@ -573,27 +573,27 @@ Some effects are dose-dependent — a low dose may be nootropic, while a high do
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Calea ternifolia</h4>
-    <p class='text-sand'>Tea or smoke</p>
+    <p class='text-white/70'>Tea or smoke</p>
     <p class='text-xs italic'>Water-soluble dream alkaloids + quick onset</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Mucuna</h4>
-    <p class='text-sand'>Powder/capsule</p>
+    <p class='text-white/70'>Powder/capsule</p>
     <p class='text-xs italic'>L-Dopa preserved in raw powder</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Passionflower</h4>
-    <p class='text-sand'>Tincture or tea</p>
+    <p class='text-white/70'>Tincture or tea</p>
     <p class='text-xs italic'>Flavonoids extracted in both forms</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Valerian</h4>
-    <p class='text-sand'>Decoction or tincture</p>
+    <p class='text-white/70'>Decoction or tincture</p>
     <p class='text-xs italic'>Needs heat/alcohol to extract valerenic acids</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md sm:col-span-2'>
     <h4 class='font-semibold'>Damiana</h4>
-    <p class='text-sand'>Smoke or tincture</p>
+    <p class='text-white/70'>Smoke or tincture</p>
     <p class='text-xs italic'>Aroma-rich; euphoric oils respond to heat &amp; alcohol</p>
   </div>
 </div>
@@ -633,27 +633,27 @@ The herb’s power lives in its preparation. Choose with care, experiment with a
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>SSRIs</h4>
-    <p class='text-sand'>Serotonin syndrome</p>
+    <p class='text-white/70'>Serotonin syndrome</p>
     <p class='text-xs italic'>Passionflower, Syrian Rue, St. John’s Wort</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Benzodiazepines</h4>
-    <p class='text-sand'>Over-sedation</p>
+    <p class='text-white/70'>Over-sedation</p>
     <p class='text-xs italic'>Kava, Valerian, Skullcap</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Antipsychotics</h4>
-    <p class='text-sand'>Dopamine disruption</p>
+    <p class='text-white/70'>Dopamine disruption</p>
     <p class='text-xs italic'>Mucuna, Celastrus</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>MAOIs</h4>
-    <p class='text-sand'>Dangerous hypertensive episodes</p>
+    <p class='text-white/70'>Dangerous hypertensive episodes</p>
     <p class='text-xs italic'>Syrian Rue + tryptamines</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md sm:col-span-2'>
     <h4 class='font-semibold'>Stimulants</h4>
-    <p class='text-sand'>Hypertension, anxiety</p>
+    <p class='text-white/70'>Hypertension, anxiety</p>
     <p class='text-xs italic'>Guarana, Ephedra, Yohimbe</p>
   </div>
 </div>
@@ -733,44 +733,44 @@ Understanding these differences is essential for safe, responsible, and legal us
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Kava</h4>
-    <p class='text-sand'>US: ⚠️ Legal (some states restrict)</p>
-    <p class='text-sand'>Canada: ❌ Banned</p>
-    <p class='text-sand'>UK/EU: ❌ Restricted</p>
+    <p class='text-white/70'>US: ⚠️ Legal (some states restrict)</p>
+    <p class='text-white/70'>Canada: ❌ Banned</p>
+    <p class='text-white/70'>UK/EU: ❌ Restricted</p>
     <p class='text-xs italic'>Liver toxicity concerns in EU/CA</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Salvia divinorum</h4>
-    <p class='text-sand'>US: ⚠️ State bans apply</p>
-    <p class='text-sand'>Canada: ❌ Controlled</p>
-    <p class='text-sand'>UK/EU: ❌ Banned</p>
+    <p class='text-white/70'>US: ⚠️ State bans apply</p>
+    <p class='text-white/70'>Canada: ❌ Controlled</p>
+    <p class='text-white/70'>UK/EU: ❌ Banned</p>
     <p class='text-xs italic'>Legal federally in US</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Kratom</h4>
-    <p class='text-sand'>US: ⚠️ Legal (some state bans)</p>
-    <p class='text-sand'>Canada: ❌ Controlled</p>
-    <p class='text-sand'>UK/EU: ❌ Banned in several states</p>
+    <p class='text-white/70'>US: ⚠️ Legal (some state bans)</p>
+    <p class='text-white/70'>Canada: ❌ Controlled</p>
+    <p class='text-white/70'>UK/EU: ❌ Banned in several states</p>
     <p class='text-xs italic'>Ongoing regulation debate</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Blue Lotus</h4>
-    <p class='text-sand'>US: ✅ Legal</p>
-    <p class='text-sand'>Canada: ✅ Legal</p>
-    <p class='text-sand'>UK/EU: ✅ Legal</p>
+    <p class='text-white/70'>US: ✅ Legal</p>
+    <p class='text-white/70'>Canada: ✅ Legal</p>
+    <p class='text-white/70'>UK/EU: ✅ Legal</p>
     <p class='text-xs italic'>Often labeled “not for human consumption”</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Ayahuasca</h4>
-    <p class='text-sand'>US: ❌ Illegal (DMT)</p>
-    <p class='text-sand'>Canada: ❌ Illegal</p>
-    <p class='text-sand'>UK/EU: ❌ Illegal</p>
+    <p class='text-white/70'>US: ❌ Illegal (DMT)</p>
+    <p class='text-white/70'>Canada: ❌ Illegal</p>
+    <p class='text-white/70'>UK/EU: ❌ Illegal</p>
     <p class='text-xs italic'>Religious exceptions in Brazil, Peru</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md sm:col-span-2'>
     <h4 class='font-semibold'>Cannabis</h4>
-    <p class='text-sand'>US: ⚠️ State-dependent legality</p>
-    <p class='text-sand'>Canada: ✅ Legal</p>
-    <p class='text-sand'>UK/EU: ⚠️ Varies</p>
+    <p class='text-white/70'>US: ⚠️ State-dependent legality</p>
+    <p class='text-white/70'>Canada: ✅ Legal</p>
+    <p class='text-white/70'>UK/EU: ⚠️ Varies</p>
     <p class='text-xs italic'>Psychoactivity varies by chemotype</p>
   </div>
 </div>
@@ -875,32 +875,32 @@ Your **why** determines your **what.**
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Stress relief</h4>
-    <p class='text-sand'>Sedative / Adaptogen</p>
+    <p class='text-white/70'>Sedative / Adaptogen</p>
     <p class='text-xs italic'>Lemon Balm, Skullcap, Ashwagandha</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Better sleep</h4>
-    <p class='text-sand'>Sedative</p>
+    <p class='text-white/70'>Sedative</p>
     <p class='text-xs italic'>Passionflower, California Poppy</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Dreaming / Lucid states</h4>
-    <p class='text-sand'>Oneirogen</p>
+    <p class='text-white/70'>Oneirogen</p>
     <p class='text-xs italic'>Blue Lotus, Mugwort</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Mood boost</h4>
-    <p class='text-sand'>Euphoric / Dopaminergic</p>
+    <p class='text-white/70'>Euphoric / Dopaminergic</p>
     <p class='text-xs italic'>Mucuna, Damiana</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Mental clarity</h4>
-    <p class='text-sand'>Nootropic / Cholinergic</p>
+    <p class='text-white/70'>Nootropic / Cholinergic</p>
     <p class='text-xs italic'>Gotu Kola, Celastrus</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Energy</h4>
-    <p class='text-sand'>Adaptogen / Stimulant</p>
+    <p class='text-white/70'>Adaptogen / Stimulant</p>
     <p class='text-xs italic'>Rhodiola, Guarana (low dose)</p>
   </div>
 </div>
@@ -987,17 +987,17 @@ Over time, this will become your **personal herbal map**.
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Lucid Tea</h4>
-    <p class='text-sand'>Blue Lotus + Mugwort + Chamomile</p>
+    <p class='text-white/70'>Blue Lotus + Mugwort + Chamomile</p>
     <p class='text-xs italic'>Dream enhancement</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Nerve Ease</h4>
-    <p class='text-sand'>Skullcap + Passionflower + Lemon Balm</p>
+    <p class='text-white/70'>Skullcap + Passionflower + Lemon Balm</p>
     <p class='text-xs italic'>Calming without sedation</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Focus Flow</h4>
-    <p class='text-sand'>Gotu Kola + Celastrus + Rhodiola</p>
+    <p class='text-white/70'>Gotu Kola + Celastrus + Rhodiola</p>
     <p class='text-xs italic'>Mental clarity & stamina</p>
   </div>
 </div>
@@ -1018,22 +1018,22 @@ Everyone's body is different. What relaxes one person may energize another. Star
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Microdose</h4>
-    <p class='text-sand'>Sub-perceptual or subtle dose</p>
+    <p class='text-white/70'>Sub-perceptual or subtle dose</p>
     <p class='text-xs italic'>Daily clarity, mood support, creativity</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Threshold dose</h4>
-    <p class='text-sand'>First point of noticeable change</p>
+    <p class='text-white/70'>First point of noticeable change</p>
     <p class='text-xs italic'>Light dreamwork, nootropic boost</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Macrodose</h4>
-    <p class='text-sand'>Strong perceptual shift</p>
+    <p class='text-white/70'>Strong perceptual shift</p>
     <p class='text-xs italic'>Deep introspection, ceremonial work</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Heroic dose</h4>
-    <p class='text-sand'>Overwhelming, ego-dissolving experience</p>
+    <p class='text-white/70'>Overwhelming, ego-dissolving experience</p>
     <p class='text-xs italic'>Advanced spiritual exploration (not recommended for beginners)</p>
   </div>
 </div>
@@ -1073,32 +1073,32 @@ Macrodosing involves taking a **standard or high dose** — enough to fully acti
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Celastrus</h4>
-    <p class='text-sand'>Micro: 2–3 seeds</p>
-    <p class='text-sand'>Macro: 10–15 seeds</p>
+    <p class='text-white/70'>Micro: 2–3 seeds</p>
+    <p class='text-white/70'>Macro: 10–15 seeds</p>
     <p class='text-xs italic'>Nootropic at low, mild euphoria at high</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Calea</h4>
-    <p class='text-sand'>Micro: 300–500mg</p>
-    <p class='text-sand'>Macro: 1–2g</p>
+    <p class='text-white/70'>Micro: 300–500mg</p>
+    <p class='text-white/70'>Macro: 1–2g</p>
     <p class='text-xs italic'>Dreams scale with dose</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Blue Lotus</h4>
-    <p class='text-sand'>Micro: 5–10 drops</p>
-    <p class='text-sand'>Macro: 200mg+ resin or 5g tea</p>
+    <p class='text-white/70'>Micro: 5–10 drops</p>
+    <p class='text-white/70'>Macro: 200mg+ resin or 5g tea</p>
     <p class='text-xs italic'>Euphoric vs. sedative states</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Mucuna</h4>
-    <p class='text-sand'>Micro: 100mg</p>
-    <p class='text-sand'>Macro: 500–1000mg</p>
+    <p class='text-white/70'>Micro: 100mg</p>
+    <p class='text-white/70'>Macro: 500–1000mg</p>
     <p class='text-xs italic'>L-Dopa effects increase with dose</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Kanna</h4>
-    <p class='text-sand'>Micro: 5–15mg</p>
-    <p class='text-sand'>Macro: 50–100mg</p>
+    <p class='text-white/70'>Micro: 5–15mg</p>
+    <p class='text-white/70'>Macro: 50–100mg</p>
     <p class='text-xs italic'>Low = mood lift, High = stimulation or sedation</p>
   </div>
 </div>
@@ -1235,27 +1235,27 @@ Your optimal dose isn’t on a chart — it’s discovered through slow experime
 <div class='grid gap-4 sm:grid-cols-2'>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Ancient (3000 BCE+)</h4>
-    <p class='text-sand'>Blue Lotus, Cannabis, Ayahuasca</p>
+    <p class='text-white/70'>Blue Lotus, Cannabis, Ayahuasca</p>
     <p class='text-xs italic'>Egypt, Vedic India, Amazonia</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Classical (~0–1000 CE)</h4>
-    <p class='text-sand'>Mandrake, Fly Agaric, Betel</p>
+    <p class='text-white/70'>Mandrake, Fly Agaric, Betel</p>
     <p class='text-xs italic'>Europe, Arctic, SE Asia</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Colonial Suppression</h4>
-    <p class='text-sand'>Peyote, Salvia, Tobacco</p>
+    <p class='text-white/70'>Peyote, Salvia, Tobacco</p>
     <p class='text-xs italic'>Americas, Africa</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md'>
     <h4 class='font-semibold'>Renaissance (~1960s–present)</h4>
-    <p class='text-sand'>Psilocybin, Ayahuasca, Kava</p>
+    <p class='text-white/70'>Psilocybin, Ayahuasca, Kava</p>
     <p class='text-xs italic'>Global rediscovery</p>
   </div>
   <div class='glass-card soft-border-glow p-4 hover:shadow-md sm:col-span-2'>
     <h4 class='font-semibold'>Future</h4>
-    <p class='text-sand'>???</p>
+    <p class='text-white/70'>???</p>
     <p class='text-xs italic'>You help write it</p>
   </div>
 </div>
