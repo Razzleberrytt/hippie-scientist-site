@@ -114,6 +114,31 @@ export function saveReport(items: InteractionCatalogItem[]): SavedInteractionRep
   return updated
 }
 
+export function buildShareCardText(report: InteractionReport): string {
+  const topFinding = report.findings.find(finding => finding.title !== 'Sparse data warning')
+  const whyThisMatters =
+    topFinding?.explanation?.trim() || topFinding?.summary?.trim() || report.summary.trim()
+
+  return [
+    report.items.join(' + '),
+    '',
+    `Verdict: ${
+      report.overallSeverity === 'high'
+        ? 'Potentially risky combination'
+        : report.overallSeverity === 'moderate'
+          ? 'Use caution'
+          : 'Low risk combination'
+    }`,
+    `Confidence: ${report.overallConfidence[0].toUpperCase()}${report.overallConfidence.slice(1)}`,
+    `Signals: ${report.findings.filter(finding => finding.title !== 'Sparse data warning').length}`,
+    '',
+    'Why this matters:',
+    whyThisMatters,
+    '',
+    'Run your own combination → thehippiescientist.net',
+  ].join('\n')
+}
+
 export function buildReportSummary(report: InteractionReport): string {
   const itemLine = report.items.join(' + ')
   const keySignalLines = report.keySignals.length
