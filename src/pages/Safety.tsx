@@ -20,8 +20,8 @@ const Safety: React.FC = () => {
             transition={{ duration: 0.8 }}
             className='mb-20 text-center'
           >
-            <h1 className='text-gradient mb-6 text-5xl font-bold md:text-6xl'>Safety First</h1>
-            <p className='text-sand mx-auto max-w-3xl text-xl'>
+            <h1 className='gradient-text mb-6 text-5xl font-bold md:text-6xl'>Safety First</h1>
+            <p className='mx-auto max-w-3xl text-xl text-white/70'>
               Comprehensive harm reduction resources and safety guidelines
             </p>
           </motion.div>
@@ -40,14 +40,14 @@ const Safety: React.FC = () => {
             <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
               <div>
                 <h3 className='mb-2 text-lg font-semibold text-white'>Crisis Hotlines</h3>
-                <p className='text-sand'>Emergency: 911</p>
-                <p className='text-sand'>Crisis Text Line: Text HOME to 741741</p>
-                <p className='text-sand'>National Suicide Prevention Lifeline: 988</p>
+                <p className='text-white/70'>Emergency: 911</p>
+                <p className='text-white/70'>Crisis Text Line: Text HOME to 741741</p>
+                <p className='text-white/70'>National Suicide Prevention Lifeline: 988</p>
               </div>
               <div>
                 <h3 className='mb-2 text-lg font-semibold text-white'>Poison Control</h3>
-                <p className='text-sand'>National Poison Control: 1-800-222-1222</p>
-                <p className='text-sand'>Online: poison.org</p>
+                <p className='text-white/70'>National Poison Control: 1-800-222-1222</p>
+                <p className='text-white/70'>Online: poison.org</p>
               </div>
             </div>
           </motion.div>
@@ -81,16 +81,13 @@ const Safety: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className='glass-card p-6'
               >
-                <Icon
-                  className='text-psychedelic-purple mx-auto mb-4 h-12 w-12'
-                  aria-hidden='true'
-                />
+                <Icon className='mx-auto mb-4 h-12 w-12 text-violet-400' aria-hidden='true' />
                 <h3 className='mb-4 text-center text-xl font-bold text-white'>{title}</h3>
-                <p className='text-sand text-center'>{description}</p>
+                <p className='text-center text-white/70'>{description}</p>
               </motion.div>
             ))}
           </div>
-          <p className='text-sand mt-8 text-center text-sm'>
+          <p className='mt-8 text-center text-sm text-white/70'>
             The information presented here is for educational purposes only and does not replace
             professional medical advice.
           </p>

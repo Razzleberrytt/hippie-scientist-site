@@ -7,7 +7,7 @@ const linkBase =
 const linkDim =
   'border border-transparent text-white/72 hover:border-white/15 hover:bg-white/8 hover:text-white'
 const linkSolid =
-  'border border-white/15 bg-white/7 text-white/92 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-brand-lime/35 hover:bg-white/14'
+  'border border-white/15 bg-white/7 text-white/92 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] hover:border-lime-400/35 hover:bg-white/14'
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -29,7 +29,7 @@ export default function NavBar() {
 
           <button
             type='button'
-            className='bg-white/7 text-white/92 hover:border-brand-lime/30 hover:bg-white/12 inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl border border-white/15 px-3 text-sm font-medium transition md:hidden'
+            className='bg-white/7 text-white/92 hover:bg-white/12 inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl border border-white/15 px-3 text-sm font-medium transition hover:border-lime-400/30 md:hidden'
             aria-label='Toggle navigation menu'
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(open => !open)}

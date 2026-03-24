@@ -34,7 +34,7 @@ export default function HerbCardPage() {
   if (!herbs.length) {
     return (
       <div className='mx-auto max-w-3xl px-4 py-8'>
-        <div className='text-sand text-center'>Loading herb details…</div>
+        <div className='text-center text-white/70'>Loading herb details…</div>
       </div>
     )
   }

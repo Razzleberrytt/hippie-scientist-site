@@ -17,7 +17,7 @@ export default function Store() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className='text-gradient mb-6 text-5xl font-bold'
+            className='gradient-text mb-6 text-5xl font-bold'
           >
             Store
           </motion.h1>
@@ -28,12 +28,12 @@ export default function Store() {
             className='glass-card p-8'
           >
             <h2 className='mb-6 text-3xl font-bold text-white'>Featured Items</h2>
-            <ul className='text-sand mx-auto mb-6 max-w-md list-disc space-y-2 pl-5 text-left'>
+            <ul className='mx-auto mb-6 max-w-md list-disc space-y-2 pl-5 text-left text-white/70'>
               <li>Stickers and patches celebrating ethnobotany</li>
               <li>Digital field guides in PDF format</li>
               <li>Limited run T-shirts designed by community artists</li>
             </ul>
-            <p className='text-sand'>
+            <p className='text-white/70'>
               Sign up to our newsletter to be notified when the shop goes live.
             </p>
           </motion.div>

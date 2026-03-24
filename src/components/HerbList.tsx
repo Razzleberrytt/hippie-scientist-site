@@ -30,7 +30,7 @@ const HerbList: React.FC<Props> = ({
   const showMore = () => setVisible(v => Math.min(v + batchSize, herbs.length))
 
   if (herbs.length === 0) {
-    return <p className='text-sand/80 text-center'>No herbs match your search.</p>
+    return <p className='text-white/70/80 text-center'>No herbs match your search.</p>
   }
 
   return (
@@ -61,7 +61,7 @@ const HerbList: React.FC<Props> = ({
           <button
             type='button'
             onClick={showMore}
-            className='text-sand rounded-md bg-black/30 px-4 py-2 backdrop-blur-md hover:bg-white/10'
+            className='rounded-md bg-black/30 px-4 py-2 text-white/70 backdrop-blur-md hover:bg-white/10'
           >
             Show More
           </button>

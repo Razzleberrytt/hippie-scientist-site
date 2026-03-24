@@ -17,7 +17,7 @@ const LoadingSpinner: React.FC = () => {
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           />
           <motion.div
-            className='border-comet absolute inset-0 h-16 w-16 rounded-full border-4 border-b-transparent'
+            className='absolute inset-0 h-16 w-16 rounded-full border-4 border-white/20 border-b-transparent'
             animate={{ rotate: -360 }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
           />

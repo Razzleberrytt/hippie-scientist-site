@@ -371,8 +371,8 @@ export default function Home() {
       </section>
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card-lg ds-stack border-brand-lime/20 bg-brand-lime/5'>
-          <p className='text-brand-lime/80 text-xs font-semibold uppercase tracking-[0.24em]'>
+        <div className='ds-card-lg ds-stack border-lime-400/20 bg-lime-400/5'>
+          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-lime-300/80'>
             How to use this database
           </p>
           <h2 className='ds-heading'>How to explore this database</h2>

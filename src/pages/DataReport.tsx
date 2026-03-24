@@ -273,10 +273,10 @@ export default function DataReport() {
   }
 
   return (
-    <main className='text-sand mx-auto max-w-6xl px-4 py-10'>
+    <main className='mx-auto max-w-6xl px-4 py-10 text-white/70'>
       <header className='mb-10'>
-        <h1 className='text-gradient mb-3 text-4xl font-bold'>📊 Herb Dataset Coverage</h1>
-        <p className='text-sand/80 max-w-3xl text-sm'>
+        <h1 className='gradient-text mb-3 text-4xl font-bold'>📊 Herb Dataset Coverage</h1>
+        <p className='text-white/70/80 max-w-3xl text-sm'>
           This internal dashboard summarizes the completeness of the normalized herb dataset used
           across the site. Each metric reflects how many of the {total || '—'} total entries have
           non-empty data for a given field.
@@ -366,7 +366,7 @@ export default function DataReport() {
         <div className='overflow-hidden rounded-xl border border-white/10 bg-black/40 shadow-lg backdrop-blur'>
           <table className='w-full table-fixed border-collapse text-sm'>
             <thead>
-              <tr className='text-sand/60 bg-black/60 text-left uppercase tracking-wide'>
+              <tr className='text-white/70/60 bg-black/60 text-left uppercase tracking-wide'>
                 <th className='p-3 font-medium'>Field</th>
                 <th className='p-3 text-right font-medium'>Filled</th>
                 <th className='p-3 text-right font-medium'>Coverage</th>
@@ -377,11 +377,13 @@ export default function DataReport() {
                 const count = coverage[String(key)] ?? 0
                 return (
                   <tr key={String(key)} className='odd:bg-white/5 even:bg-black/30'>
-                    <td className='text-sand p-3 font-medium'>{label || key}</td>
-                    <td className='text-sand/80 p-3 text-right'>
+                    <td className='p-3 font-medium text-white/70'>{label || key}</td>
+                    <td className='text-white/70/80 p-3 text-right'>
                       {count} / {total}
                     </td>
-                    <td className='text-sand/80 p-3 text-right'>{formatPercent(String(key))}</td>
+                    <td className='text-white/70/80 p-3 text-right'>
+                      {formatPercent(String(key))}
+                    </td>
                   </tr>
                 )
               })}
@@ -395,7 +397,7 @@ export default function DataReport() {
         <div className='overflow-hidden rounded-xl border border-white/10 bg-black/30 shadow-lg backdrop-blur'>
           <table className='w-full table-fixed border-collapse text-sm'>
             <thead>
-              <tr className='text-sand/60 bg-black/60 text-left uppercase tracking-wide'>
+              <tr className='text-white/70/60 bg-black/60 text-left uppercase tracking-wide'>
                 <th className='p-3 font-medium'>Field</th>
                 <th className='p-3 text-right font-medium'>Filled</th>
                 <th className='p-3 text-right font-medium'>Coverage</th>
@@ -404,11 +406,11 @@ export default function DataReport() {
             <tbody>
               {sortedOptionalFields.map(({ key, label, coverage: count }) => (
                 <tr key={String(key)} className='odd:bg-white/5 even:bg-black/30'>
-                  <td className='text-sand p-3 font-medium'>{label || key}</td>
-                  <td className='text-sand/80 p-3 text-right'>
+                  <td className='p-3 font-medium text-white/70'>{label || key}</td>
+                  <td className='text-white/70/80 p-3 text-right'>
                     {count} / {total}
                   </td>
-                  <td className='text-sand/80 p-3 text-right'>{formatPercent(String(key))}</td>
+                  <td className='text-white/70/80 p-3 text-right'>{formatPercent(String(key))}</td>
                 </tr>
               ))}
             </tbody>
@@ -484,7 +486,7 @@ export default function DataReport() {
         />
       )}
 
-      <footer className='text-sand/70 mt-12 text-sm'>
+      <footer className='text-white/70/70 mt-12 text-sm'>
         <Link to='/herbs' className='text-sky-300 underline-offset-4 hover:underline'>
           ← Back to database
         </Link>

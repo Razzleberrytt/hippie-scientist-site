@@ -19,7 +19,7 @@ export default function HerbDetailView() {
 
   if (!herb) {
     if (!herbs.length) {
-      return <div className='text-sand p-6 text-center'>Loading herb profile…</div>
+      return <div className='p-6 text-center text-white/70'>Loading herb profile…</div>
     }
     return (
       <div className='p-6 text-center'>
@@ -145,7 +145,7 @@ export default function HerbDetailView() {
           Buy Online
         </a>
       ) : (
-        <span className='text-sand/60 text-sm'>No affiliate link available.</span>
+        <span className='text-white/70/60 text-sm'>No affiliate link available.</span>
       )}
       <div>
         <h3 className='text-xl font-bold text-sky-300'>Usage Log</h3>
@@ -156,7 +156,7 @@ export default function HerbDetailView() {
           rows={5}
         />
         <div className='flex items-center gap-4 pt-2'>
-          {notes && <span className='text-sand/80 text-sm'>Saved</span>}
+          {notes && <span className='text-white/70/80 text-sm'>Saved</span>}
           {notes && (
             <button type='button' onClick={clearNotes} className='text-sky-300 underline'>
               Clear Notes
@@ -200,14 +200,14 @@ export default function HerbDetailView() {
         <Link to='/herbs' className='text-comet underline'>
           ← Back
         </Link>
-        <h1 className='text-gradient flex items-center gap-2 text-4xl font-bold'>
+        <h1 className='gradient-text flex items-center gap-2 text-4xl font-bold'>
           <span>{herbName(herb)}</span>
         </h1>
         {herb.scientificname && <p className='italic text-gray-600'>{herb.scientificname}</p>}
         <button
           type='button'
           onClick={copyLink}
-          className='text-sand rounded-md bg-black/30 px-3 py-2 text-sm backdrop-blur-md hover:bg-white/10'
+          className='rounded-md bg-black/30 px-3 py-2 text-sm text-white/70 backdrop-blur-md hover:bg-white/10'
         >
           {copied ? '✅ Copied!' : 'Share \uD83D\uDD17'}
         </button>

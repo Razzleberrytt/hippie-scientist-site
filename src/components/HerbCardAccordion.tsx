@@ -140,7 +140,7 @@ export default function HerbCardAccordion({ herb }: Props) {
           e.stopPropagation()
           if (herb.id) toggle(herb.id)
         }}
-        className='bg-white/6 text-sand absolute right-3 top-3 rounded-full p-1 ring-1 ring-white/15 backdrop-blur-xl hover:bg-white/10'
+        className='bg-white/6 absolute right-3 top-3 rounded-full p-1 text-white/70 ring-1 ring-white/15 backdrop-blur-xl hover:bg-white/10'
         aria-label='Toggle favorite'
       >
         <Star className={`h-5 w-5 ${favorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
@@ -208,7 +208,7 @@ export default function HerbCardAccordion({ herb }: Props) {
             animate='open'
             exit='collapsed'
             transition={{ type: 'spring', stiffness: 200, damping: 24 }}
-            className='text-sand mt-4 space-y-2 text-sm'
+            className='mt-4 space-y-2 text-sm text-white/70'
           >
             {hasInfo ? (
               <>

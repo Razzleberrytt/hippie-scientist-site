@@ -84,12 +84,12 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
         )}
         {(() => {
           const effects = splitField(herb.effects).slice(0, 3).join(', ')
-          return effects ? <p className='text-sand mt-1 text-sm'>{effects}</p> : null
+          return effects ? <p className='mt-1 text-sm text-white/70'>{effects}</p> : null
         })()}
         <motion.div whileTap={{ scale: 0.95 }}>
           <Link
             to={`/herb/${herb.slug || herb.id || slugify(herbName(herb))}`}
-            className='hover-glow text-sand mt-3 inline-block rounded-md bg-black/30 px-4 py-2 backdrop-blur-md transition-all duration-200 hover:scale-[1.02] hover:bg-black/40 active:scale-[0.98]'
+            className='mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-white/70 backdrop-blur-md transition-all duration-200 hover:scale-[1.02] hover:bg-black/40 active:scale-[0.98]'
           >
             More Info
           </Link>

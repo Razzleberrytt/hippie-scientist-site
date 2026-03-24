@@ -24,10 +24,10 @@ export default function Learn() {
           transition={{ duration: 0.8 }}
           className='mb-12 text-left'
         >
-          <h1 className='text-gradient drop-shadow-glow mb-4 text-5xl font-bold md:text-6xl'>
+          <h1 className='gradient-text mb-4 text-5xl font-bold md:text-6xl'>
             🌿 The Hippie Scientist Codex
           </h1>
-          <p className='text-sand mx-auto max-w-3xl text-xl'>
+          <p className='mx-auto max-w-3xl text-xl text-white/70'>
             Welcome! Explore each topic below to deepen your understanding.
           </p>
         </motion.div>

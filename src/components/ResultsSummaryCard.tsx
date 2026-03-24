@@ -103,40 +103,46 @@ export default function ResultsSummaryCard({
 
   return (
     <article
-      className={`border-white/12 from-panel/95 via-panel/85 to-panel/70 relative overflow-hidden rounded-2xl border bg-gradient-to-br shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_18px_34px_-24px_rgba(148,163,184,0.62)] ${isCompact ? 'space-y-3 p-3.5' : 'space-y-4 p-4 sm:p-5'} ${className}`}
+      className={`border-white/12 from-black/40/95 via-black/40/85 to-black/40/70 relative overflow-hidden rounded-2xl border bg-gradient-to-br shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_18px_34px_-24px_rgba(148,163,184,0.62)] ${isCompact ? 'space-y-3 p-3.5' : 'space-y-4 p-4 sm:p-5'} ${className}`}
     >
-      <div className='from-brand-lime/10 via-brand-lime/4 pointer-events-none absolute inset-0 bg-gradient-to-r to-transparent' />
+      <div className='via-lime-400/4 pointer-events-none absolute inset-0 bg-gradient-to-r from-lime-400/10 to-transparent' />
       <div className='relative z-10 space-y-2'>
-        <p className='text-sub text-[11px] uppercase tracking-[0.2em]'>Recommended blend</p>
-        <h3 className={`${isCompact ? 'text-base' : 'text-lg sm:text-xl'} text-text font-semibold`}>
+        <p className='text-[11px] uppercase tracking-[0.2em] text-white/60'>Recommended blend</p>
+        <h3
+          className={`${isCompact ? 'text-base' : 'text-lg sm:text-xl'} font-semibold text-white`}
+        >
           {blendName}
         </h3>
-        <span className='border-brand-lime/35 bg-brand-lime/16 text-brand-lime inline-flex rounded-full border px-2.5 py-1 text-[11px] font-semibold capitalize tracking-[0.08em]'>
+        <span className='bg-lime-400/16 inline-flex rounded-full border border-lime-400/35 px-2.5 py-1 text-[11px] font-semibold capitalize tracking-[0.08em] text-lime-300'>
           {goal}
         </span>
       </div>
 
-      <p className={`${isCompact ? 'text-xs' : 'text-sm'} text-sub relative z-10 leading-relaxed`}>
+      <p
+        className={`${isCompact ? 'text-xs' : 'text-sm'} relative z-10 leading-relaxed text-white/60`}
+      >
         {explanation}
       </p>
 
       <div className='relative z-10 space-y-2'>
-        <p className='text-sub text-[11px] uppercase tracking-[0.18em]'>Included herbs</p>
+        <p className='text-[11px] uppercase tracking-[0.18em] text-white/60'>Included herbs</p>
         {herbs.length ? (
           <ul
-            className={`${isCompact ? 'text-xs' : 'text-sm'} text-sub list-inside list-disc space-y-1.5`}
+            className={`${isCompact ? 'text-xs' : 'text-sm'} list-inside list-disc space-y-1.5 text-white/60`}
           >
             {herbs.map(herb => (
               <li key={`${blendName}-${herb}`}>{herb}</li>
             ))}
           </ul>
         ) : (
-          <p className={`${isCompact ? 'text-xs' : 'text-sm'} text-sub`}>No herbs saved yet.</p>
+          <p className={`${isCompact ? 'text-xs' : 'text-sm'} text-white/60`}>
+            No herbs saved yet.
+          </p>
         )}
       </div>
 
       {formattedTimestamp && (
-        <p className='text-sub relative z-10 border-t border-white/10 pt-2 text-[11px]'>
+        <p className='relative z-10 border-t border-white/10 pt-2 text-[11px] text-white/60'>
           Recommended: {formattedTimestamp}
         </p>
       )}
@@ -148,7 +154,7 @@ export default function ResultsSummaryCard({
             <button
               type='button'
               onClick={handleCopy}
-              className='border-white/18 text-sub hover:border-brand-lime/40 hover:text-text min-h-9 rounded-lg border bg-black/20 px-3 py-1.5 text-xs font-medium transition'
+              className='border-white/18 min-h-9 rounded-lg border bg-black/20 px-3 py-1.5 text-xs font-medium text-white/60 transition hover:border-lime-400/40 hover:text-white'
             >
               Share
             </button>
@@ -156,15 +162,15 @@ export default function ResultsSummaryCard({
               <button
                 type='button'
                 onClick={handleNativeShare}
-                className='border-white/18 text-sub hover:border-brand-lime/40 hover:text-text min-h-9 rounded-lg border bg-black/20 px-3 py-1.5 text-xs font-medium transition'
+                className='border-white/18 min-h-9 rounded-lg border bg-black/20 px-3 py-1.5 text-xs font-medium text-white/60 transition hover:border-lime-400/40 hover:text-white'
               >
                 Native share
               </button>
             )}
           </div>
         )}
-        {shareMessage === 'copied' && <p className='text-brand-lime text-xs'>Copied ✓</p>}
-        {shareMessage === 'shared' && <p className='text-brand-lime text-xs'>Shared ✓</p>}
+        {shareMessage === 'copied' && <p className='text-xs text-lime-300'>Copied ✓</p>}
+        {shareMessage === 'shared' && <p className='text-xs text-lime-300'>Shared ✓</p>}
       </div>
     </article>
   )
