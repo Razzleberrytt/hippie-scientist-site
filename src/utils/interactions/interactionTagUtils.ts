@@ -1,18 +1,29 @@
 import type { InteractionSignalSource } from '@/types/interactions'
+import { CANONICAL_INTERACTION_TAGS } from '@/data/interactionTags.seed'
+
+const CANONICAL_SET = new Set<string>(CANONICAL_INTERACTION_TAGS)
 
 const TAG_SYNONYMS: Record<string, string> = {
-  maoi: 'mao-related',
-  'mao inhibitor': 'mao-related',
-  'mao-a': 'mao-related',
-  'mao-b': 'mao-related',
+  maoi: 'maoi',
+  'mao-related': 'maoi',
+  'mao inhibitor': 'maoi',
+  'mao-a': 'maoi',
+  'mao-b': 'maoi',
   serotonergic: 'serotonergic',
   serotonin: 'serotonergic',
   sedative: 'sedative',
+  anxiolytic: 'sedative',
   stimulant: 'stimulant',
-  cardioactive: 'cardiovascular-caution',
-  cardiovascular: 'cardiovascular-caution',
-  hepatotoxic: 'hepatotoxicity-caution',
-  hepatotoxicity: 'hepatotoxicity-caution',
+  cardioactive: 'cardioactive',
+  cardiovascular: 'cardioactive',
+  'cardiovascular-caution': 'cardioactive',
+  hepatotoxic: 'hepatotoxic',
+  hepatotoxicity: 'hepatotoxic',
+  'hepatotoxicity-caution': 'hepatotoxic',
+  psychedelic: 'psychedelic',
+  gabaergic: 'gabaergic',
+  cholinergic: 'cholinergic',
+  'cns depressant': 'cns-depressant',
 }
 
 function normalizeTag(input: string): string {
@@ -21,7 +32,14 @@ function normalizeTag(input: string): string {
 }
 
 export function normalizeInteractionTagVocabulary(tags: string[]): string[] {
-  return Array.from(new Set(tags.map(normalizeTag).filter(Boolean)))
+  return Array.from(
+    new Set(
+      tags
+        .map(normalizeTag)
+        .filter(Boolean)
+        .filter(tag => CANONICAL_SET.has(tag))
+    )
+  )
 }
 
 export function mergeStructuredAndInferredSignals({

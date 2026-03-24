@@ -3,6 +3,7 @@ import { slugify } from '@/lib/slug'
 import type { Herb } from '@/types'
 import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { cleanText, splitClean } from '@/lib/sanitize'
+import { getHerbSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
 
 let herbsPromise: Promise<Herb[]> | null = null
 type SourceRef = { title: string; url?: string; note?: string }
@@ -43,9 +44,17 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const contraindications = splitClean(raw.contraindications)
   const interactions = splitClean(raw.interactions)
   const sideeffects = splitClean(raw.sideEffects ?? raw.sideeffects)
+  const rawInteractionTags = splitClean(raw.interactionTags)
+  const rawInteractionNotes = splitClean(raw.interactionNotes)
   const therapeuticUses = splitClean(raw.therapeuticUses)
   const activeCompounds = splitClean(raw.activeCompounds ?? raw.active_compounds ?? raw.compounds)
   const sources = normalizeSources(raw.sources)
+  const seededInteraction = getHerbSeedInteractionData(raw)
+  const mergedInteraction = mergeInteractionData({
+    rawTags: rawInteractionTags,
+    rawNotes: rawInteractionNotes,
+    seed: seededInteraction,
+  })
 
   const mechanism = cleanText(raw.mechanism ?? raw.mechanismOfAction) || ''
   const description = cleanText(raw.description ?? raw.summary) || ''
@@ -74,6 +83,8 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     therapeuticUses,
     contraindications,
     interactions,
+    interactionTags: mergedInteraction.interactionTags,
+    interactionNotes: mergedInteraction.interactionNotes,
     dosage,
     duration,
     preparation,
