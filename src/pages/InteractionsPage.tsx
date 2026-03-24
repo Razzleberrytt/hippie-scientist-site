@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { Button } from '@/components/ui/Button'
 import InteractionReportCard from '@/components/interactions/InteractionReportCard'
@@ -25,6 +25,7 @@ import {
   saveReport,
   type SavedInteractionReport,
 } from '@/utils/interactions/reportSharing'
+import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
 
 function normalizeTextArray(value: unknown): string[] {
   if (Array.isArray(value)) {
@@ -174,6 +175,15 @@ export default function InteractionsPage() {
   const [showEmailGate, setShowEmailGate] = useState(false)
   const [pendingExport, setPendingExport] = useState(false)
   const [emailInput, setEmailInput] = useState('')
+  const discoveryCollections = useMemo(
+    () =>
+      FEATURED_COLLECTION_SLUGS.slice(0, 6)
+        .map(slug => SEO_COLLECTIONS.find(collection => collection.slug === slug))
+        .filter((collection): collection is (typeof SEO_COLLECTIONS)[number] =>
+          Boolean(collection)
+        ),
+    []
+  )
 
   const herbCatalog = useMemo<InteractionCatalogItem[]>(
     () =>
@@ -640,6 +650,25 @@ export default function InteractionsPage() {
           Check potential overlap signals between herbs and compounds.
         </p>
       </header>
+
+      <section className='space-y-3 rounded-2xl border border-white/10 bg-black/25 p-5'>
+        <h2 className='text-lg font-semibold text-white'>Explore by intent</h2>
+        <p className='text-xs text-white/70'>
+          Not sure where to start? Browse targeted collections, then come back here to check
+          overlap.
+        </p>
+        <div className='flex flex-wrap gap-2'>
+          {discoveryCollections.map(collection => (
+            <Link
+              key={collection.slug}
+              to={`/collections/${collection.slug}`}
+              className='btn-secondary text-xs'
+            >
+              {collection.title}
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <section className='space-y-4 rounded-2xl border border-white/10 bg-black/30 p-5'>
         <div className='space-y-2'>
