@@ -1,21 +1,10 @@
 import { sanitizeSurfaceText } from '@/lib/summary'
+import { splitClean } from '@/lib/sanitize'
 
 export type ConfidenceLevel = 'High' | 'Medium' | 'Low'
 
-function toList(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value.map(item => sanitizeSurfaceText(item)).filter(Boolean)
-  }
-  const text = sanitizeSurfaceText(value)
-  if (!text) return []
-  return text
-    .split(/[\n;,|]/)
-    .map(item => sanitizeSurfaceText(item))
-    .filter(Boolean)
-}
-
 export function extractPrimaryEffects(value: unknown, max = 3): string[] {
-  return toList(value).slice(0, max)
+  return splitClean(value).slice(0, max)
 }
 
 export function computeConfidenceLevel(input: {
@@ -24,8 +13,8 @@ export function computeConfidenceLevel(input: {
   compounds?: unknown
 }): ConfidenceLevel {
   const hasMechanism = sanitizeSurfaceText(input.mechanism).length > 0
-  const hasEffects = toList(input.effects).length > 0
-  const hasCompounds = toList(input.compounds).length > 0
+  const hasEffects = splitClean(input.effects).length > 0
+  const hasCompounds = splitClean(input.compounds).length > 0
 
   const presentCount = [hasMechanism, hasEffects, hasCompounds].filter(Boolean).length
 

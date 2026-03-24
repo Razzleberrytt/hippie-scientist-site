@@ -12,16 +12,8 @@ import { useHerbData } from '@/lib/herb-data'
 import { submitLeadCapture } from '@/lib/leadCapture'
 import { trackCollectionEvent } from '@/lib/collectionTracking'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
-
-type ComboGoal = 'relaxation' | 'focus' | 'sleep' | 'mood' | 'energy'
-
-type PrebuiltCombo = {
-  id: string
-  name: string
-  items: string[]
-  goal: ComboGoal
-  description: string
-}
+import { type ComboGoal, type PrebuiltCombo } from '@/types/combos'
+import { normalizeLookupToken } from '@/utils/normalizeToken'
 
 type CollectionHerb = ReturnType<typeof useHerbData>[number]
 type CollectionCompound = ReturnType<typeof useCompoundData>[number]
@@ -44,14 +36,6 @@ function toSearchBlob(fields: unknown[]): string {
 function matchesAny(blob: string, terms?: string[]) {
   if (!terms?.length) return true
   return terms.some(term => blob.includes(term.toLowerCase()))
-}
-
-function normalizeLookupToken(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/[’']/g, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim()
 }
 
 function confidenceTone(level?: ConfidenceLevel) {
