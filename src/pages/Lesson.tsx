@@ -11,7 +11,7 @@ const Lesson: React.FC = () => {
       <p className='mb-4 text-white/70'>
         {slug ? `We couldn't find the lesson "${slug}".` : "We couldn't find that lesson."}
       </p>
-      <Link to='/learn' className='text-comet underline'>
+      <Link to='/learning' className='text-[color:var(--accent)] underline'>
         Back to Learn
       </Link>
     </div>
