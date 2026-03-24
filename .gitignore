@@ -13,3 +13,12 @@ scripts/audit_missing_key_fields.csv
 scripts/out/
 public/og/
 public/stats.json
+
+# Local/archive artifacts that should not ship
+archive-orphaned-not-for-app/
+src/data/backups/
+*.backup.json
+*.tmp
+*.temp
+*~
+.DS_Store

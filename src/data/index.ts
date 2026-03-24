@@ -1,4 +1,3 @@
-export { default as herbsData } from './herbs/herbs.json'
 export { loadHerbsFull, useHerbsFull, getHerbsSnapshot } from './herbs/herbsfull'
 export { herbBlurbs } from './herbs/blurbs'
 export { compounds } from './compounds/compounds'
