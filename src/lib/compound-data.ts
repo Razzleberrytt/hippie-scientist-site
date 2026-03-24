@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { slugify } from '@/lib/slug'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 import { cleanText, splitClean } from '@/lib/sanitize'
+import { getCompoundSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -60,6 +61,14 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const effects = splitClean(raw.effects)
   const herbs = splitClean(raw.associatedHerbs ?? raw.foundInHerbs ?? raw.herbs ?? raw.foundIn)
   const mechanism = cleanText(raw.mechanism ?? raw.mechanismOfAction) || ''
+  const rawInteractionTags = splitClean(raw.interactionTags)
+  const rawInteractionNotes = splitClean(raw.interactionNotes)
+  const seededInteraction = getCompoundSeedInteractionData(raw)
+  const mergedInteraction = mergeInteractionData({
+    rawTags: rawInteractionTags,
+    rawNotes: rawInteractionNotes,
+    seed: seededInteraction,
+  })
 
   return {
     id: String(raw.id || slug),
@@ -75,8 +84,8 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     therapeuticUses: splitClean(raw.therapeuticUses),
     contraindications: splitClean(raw.contraindications),
     interactions: splitClean(raw.interactions),
-    interactionTags: splitClean(raw.interactionTags),
-    interactionNotes: splitClean(raw.interactionNotes),
+    interactionTags: mergedInteraction.interactionTags,
+    interactionNotes: mergedInteraction.interactionNotes,
     dosage: cleanText(raw.dosage) || '',
     duration: cleanText(raw.duration) || '',
     region: cleanText(raw.region) || '',

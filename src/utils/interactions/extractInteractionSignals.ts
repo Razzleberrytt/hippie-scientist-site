@@ -16,23 +16,21 @@ type SignalRule = {
 
 const SIGNAL_RULES: SignalRule[] = [
   { tag: 'sedative', keywords: ['sedative', 'sedation', 'calming', 'hypnotic', 'sleep'] },
-  { tag: 'anxiolytic', keywords: ['anxiolytic', 'anti-anxiety', 'calming'] },
   { tag: 'cns-depressant', keywords: ['cns depressant', 'central nervous system depressant'] },
   { tag: 'stimulant', keywords: ['stimulant', 'stimulating', 'energizing'] },
   { tag: 'serotonergic', keywords: ['seroton', '5-ht', 'sri', 'ssri', 'serotonergic'] },
-  { tag: 'mao-related', keywords: ['mao', 'maoi', 'mao-a', 'mao-b', 'harmala'] },
+  { tag: 'maoi', keywords: ['mao', 'maoi', 'mao-a', 'mao-b', 'harmala'] },
   { tag: 'gabaergic', keywords: ['gaba', 'gabaergic', 'gaba_a', 'gaba-a'] },
   { tag: 'cholinergic', keywords: ['cholinergic', 'acetylcholine', 'muscarinic', 'nicotinic'] },
   { tag: 'psychedelic', keywords: ['psychedelic', 'hallucinogen', 'visionary', 'entheogen'] },
   {
-    tag: 'cardiovascular-caution',
+    tag: 'cardioactive',
     keywords: ['cardio', 'blood pressure', 'hypertension', 'tachycardia', 'vasoconstrict'],
   },
   {
-    tag: 'hepatotoxicity-caution',
+    tag: 'hepatotoxic',
     keywords: ['hepatotoxic', 'liver toxicity', 'liver burden', 'liver injury'],
   },
-  { tag: 'seizure-risk-caution', keywords: ['seizure', 'convuls', 'epilep'] },
 ]
 
 const DATA_FIELDS: Array<keyof InteractionSourceItem> = [

@@ -82,12 +82,11 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
   const findings: InteractionFinding[] = []
 
   const sedativeItems = extracted.filter(({ tags }) =>
-    hasAny(tags, ['sedative', 'anxiolytic', 'cns-depressant', 'gabaergic'])
+    hasAny(tags, ['sedative', 'cns-depressant', 'gabaergic'])
   )
   if (sedativeItems.length >= 2) {
     const basis = resolveFindingBasisAndConfidence(sedativeItems, [
       'sedative',
-      'anxiolytic',
       'cns-depressant',
       'gabaergic',
     ])
@@ -98,12 +97,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       basis: basis.basis,
       summary:
         'More than one selected item has calming or sedating signals. Taking them together may increase drowsiness, slowed reaction time, or next-day grogginess.',
-      evidenceBasis: collectEvidence(sedativeItems, [
-        'sedative',
-        'anxiolytic',
-        'cns-depressant',
-        'gabaergic',
-      ]),
+      evidenceBasis: collectEvidence(sedativeItems, ['sedative', 'cns-depressant', 'gabaergic']),
     })
   }
 
@@ -135,7 +129,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
     })
   }
 
-  const maoItems = extracted.filter(({ tags }) => tags.has('mao-related'))
+  const maoItems = extracted.filter(({ tags }) => tags.has('maoi'))
   if (maoItems.length >= 1 && (serotonergicItems.length >= 1 || stimulantItems.length >= 1)) {
     const severity: InteractionSeverity =
       maoItems.length >= 1 && serotonergicItems.length >= 1 && stimulantItems.length >= 1
@@ -143,31 +137,26 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
         : 'moderate'
     const basis = resolveFindingBasisAndConfidence(
       [...maoItems, ...serotonergicItems, ...stimulantItems],
-      ['mao-related', 'serotonergic', 'stimulant']
+      ['maoi', 'serotonergic', 'stimulant']
     )
     pushUniqueFindings(findings, {
-      title: 'MAO-related combination caution',
+      title: 'MAOI combination caution',
       severity,
       confidence: severity === 'high' && basis.confidence === 'high' ? 'high' : basis.confidence,
       basis: basis.basis,
       summary:
         'An MAO-related signal appears with serotonin-related or stimulant signals. That pattern can increase interaction concern, so a conservative approach is important.',
       evidenceBasis: [
-        ...collectEvidence(maoItems, ['mao-related']),
+        ...collectEvidence(maoItems, ['maoi']),
         ...collectEvidence(serotonergicItems, ['serotonergic']),
         ...collectEvidence(stimulantItems, ['stimulant']),
       ],
     })
   }
 
-  const cardioItems = extracted.filter(({ tags }) =>
-    hasAny(tags, ['cardiovascular-caution', 'stimulant'])
-  )
+  const cardioItems = extracted.filter(({ tags }) => hasAny(tags, ['cardioactive', 'stimulant']))
   if (cardioItems.length >= 2) {
-    const basis = resolveFindingBasisAndConfidence(cardioItems, [
-      'cardiovascular-caution',
-      'stimulant',
-    ])
+    const basis = resolveFindingBasisAndConfidence(cardioItems, ['cardioactive', 'stimulant'])
     pushUniqueFindings(findings, {
       title: 'Cardiovascular caution overlap',
       severity: cardioItems.length >= 3 ? 'moderate' : 'low',
@@ -175,13 +164,13 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       basis: basis.basis,
       summary:
         'Selected items share heart or stimulant-related caution signals. Together they may add strain on heart rate or blood pressure.',
-      evidenceBasis: collectEvidence(cardioItems, ['cardiovascular-caution', 'stimulant']),
+      evidenceBasis: collectEvidence(cardioItems, ['cardioactive', 'stimulant']),
     })
   }
 
-  const hepaticItems = extracted.filter(({ tags }) => tags.has('hepatotoxicity-caution'))
+  const hepaticItems = extracted.filter(({ tags }) => tags.has('hepatotoxic'))
   if (hepaticItems.length >= 2) {
-    const basis = resolveFindingBasisAndConfidence(hepaticItems, ['hepatotoxicity-caution'])
+    const basis = resolveFindingBasisAndConfidence(hepaticItems, ['hepatotoxic'])
     pushUniqueFindings(findings, {
       title: 'Liver burden overlap signal',
       severity: hepaticItems.length >= 3 ? 'moderate' : 'low',
@@ -189,7 +178,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       basis: basis.basis,
       summary:
         'More than one selected item includes liver-related caution signals. Using them together may increase overall liver burden.',
-      evidenceBasis: collectEvidence(hepaticItems, ['hepatotoxicity-caution']),
+      evidenceBasis: collectEvidence(hepaticItems, ['hepatotoxic']),
     })
   }
 
