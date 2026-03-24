@@ -19,6 +19,7 @@ import {
   toQualityBadge,
   type QualityResult,
 } from '@/lib/data-quality'
+import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
 
 type FeaturedItem = {
   slug: string
@@ -173,6 +174,13 @@ export default function Home() {
   }, [])
 
   const dailyDiscovery = useMemo(() => featured[0] ?? null, [featured])
+  const featuredCollections = useMemo(
+    () =>
+      FEATURED_COLLECTION_SLUGS.map(slug =>
+        SEO_COLLECTIONS.find(collection => collection.slug === slug)
+      ).filter((collection): collection is (typeof SEO_COLLECTIONS)[number] => Boolean(collection)),
+    []
+  )
 
   return (
     <>
@@ -388,16 +396,20 @@ export default function Home() {
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
             Programmatic collections
           </p>
-          <div className='flex flex-wrap gap-2'>
-            <Link to='/herbs-for-relaxation' className='btn-secondary'>
-              Herbs for relaxation
-            </Link>
-            <Link to='/herbs-for-focus' className='btn-secondary'>
-              Herbs for focus
-            </Link>
-            <Link to='/herbs-for-sleep' className='btn-secondary'>
-              Herbs for sleep
-            </Link>
+          <p className='text-sm text-white/75'>
+            Discover targeted landing pages generated from the same herb, compound, and combo
+            dataset used by our tools.
+          </p>
+          <div className='grid gap-2 sm:grid-cols-2'>
+            {featuredCollections.map(collection => (
+              <Link
+                key={collection.slug}
+                to={`/collections/${collection.slug}`}
+                className='ds-card p-3 text-sm font-medium text-white transition hover:border-white/25'
+              >
+                {collection.title}
+              </Link>
+            ))}
           </div>
         </div>
       </section>

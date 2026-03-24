@@ -7,6 +7,7 @@ import { normalizeHref } from '../lib/routing'
 const exploreLinks = [
   { href: '/herbs', label: 'Herb Database' },
   { href: '/compounds', label: 'Compounds' },
+  { href: '/collections/herbs-for-relaxation', label: 'SEO Collections' },
   { href: '/build', label: 'Build a Blend' },
   { href: '/blog', label: 'Blog' },
   { href: '/contribute', label: 'Contribute / Help improve this data' },
