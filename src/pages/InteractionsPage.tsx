@@ -15,6 +15,7 @@ import type { InteractionReport, InteractionSourceItem } from '@/types/interacti
 import { checkInteractions } from '@/utils/interactions/checkInteractions'
 import {
   buildReportSummary,
+  buildShareCardText,
   buildShareItemsValue,
   buildShareUrl,
   getSavedReports,
@@ -87,6 +88,8 @@ export default function InteractionsPage() {
   const [selectionMessage, setSelectionMessage] = useState<string>('')
   const [copyLinkStatus, setCopyLinkStatus] = useState<'idle' | 'copied'>('idle')
   const [copySummaryStatus, setCopySummaryStatus] = useState<'idle' | 'copied'>('idle')
+  const [copyShareCardStatus, setCopyShareCardStatus] = useState<'idle' | 'copied'>('idle')
+  const [screenshotMode, setScreenshotMode] = useState(false)
   const [savedReports, setSavedReports] = useState<SavedInteractionReport[]>([])
   const [leadContext, setLeadContext] = useState<LeadCaptureActionContext | null>(null)
   const [leadCaptured, setLeadCaptured] = useState<boolean>(false)
@@ -273,6 +276,18 @@ export default function InteractionsPage() {
     navigate(`/interactions?items=${sharedItems}`, { replace: true })
   }
 
+  const copyShareCard = async () => {
+    if (!report) return
+    await navigator.clipboard.writeText(buildShareCardText(report))
+    setCopyShareCardStatus('copied')
+    window.setTimeout(() => setCopyShareCardStatus('idle'), 1800)
+    setLeadContext('after-export')
+    setEngagementCounters(prev => {
+      const next = { ...prev, exportCount: prev.exportCount + 1 }
+      persistEngagementCounters(next)
+      return next
+    })
+  }
   const copyReportSummary = async () => {
     if (!report) return
     await navigator.clipboard.writeText(buildReportSummary(report))
@@ -343,6 +358,10 @@ export default function InteractionsPage() {
 
       <InteractionReportCard
         report={report}
+        screenshotMode={screenshotMode}
+        onToggleScreenshotMode={() => setScreenshotMode(prev => !prev)}
+        onCopyShareCard={copyShareCard}
+        shareCopyStatus={copyShareCardStatus}
         actions={
           <>
             <Button
