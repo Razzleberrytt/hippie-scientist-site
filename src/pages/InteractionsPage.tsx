@@ -6,6 +6,7 @@ import InteractionSearch, {
   type InteractionCatalogItem,
 } from '@/components/interactions/InteractionSearch'
 import SelectedInteractionItems from '@/components/interactions/SelectedInteractionItems'
+import InteractionDisclaimer from '@/components/interactions/InteractionDisclaimer'
 import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import type { InteractionReport, InteractionSourceItem } from '@/types/interactions'
@@ -31,6 +32,7 @@ export default function InteractionsPage() {
   const compounds = useCompoundData()
   const [selectedItems, setSelectedItems] = useState<InteractionCatalogItem[]>([])
   const [report, setReport] = useState<InteractionReport | null>(null)
+  const [selectionMessage, setSelectionMessage] = useState<string>('')
 
   const herbCatalog = useMemo<InteractionCatalogItem[]>(
     () =>
@@ -100,15 +102,25 @@ export default function InteractionsPage() {
   }, [compounds, herbs])
 
   const addItem = (item: InteractionCatalogItem) => {
+    if (selectedItems.some(existing => existing.id === item.id)) {
+      setSelectionMessage(`${item.name} is already selected.`)
+      return
+    }
+
+    if (selectedItems.length >= 3) {
+      setSelectionMessage('You can select up to 3 items. Remove one to add another.')
+      return
+    }
+
     setSelectedItems(prev => {
-      if (prev.some(existing => existing.id === item.id)) return prev
-      if (prev.length >= 3) return prev
       return [...prev, item]
     })
+    setSelectionMessage('')
   }
 
   const removeItem = (id: string) => {
     setSelectedItems(prev => prev.filter(item => item.id !== id))
+    setSelectionMessage('')
   }
 
   const runCheck = () => {
@@ -142,7 +154,13 @@ export default function InteractionsPage() {
           maxSelection={3}
         />
 
-        <SelectedInteractionItems items={selectedItems} onRemove={removeItem} />
+        <SelectedInteractionItems items={selectedItems} onRemove={removeItem} maxSelection={3} />
+
+        {selectionMessage && (
+          <p className='rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>
+            {selectionMessage}
+          </p>
+        )}
 
         <div className='flex flex-wrap items-center gap-3'>
           <Button
@@ -154,20 +172,16 @@ export default function InteractionsPage() {
             Check Interactions
           </Button>
           {selectedItems.length < 2 && (
-            <p className='text-sm text-white/65'>Select at least two items to compare.</p>
+            <p className='text-sm text-white/65'>
+              Select at least two items to generate an interaction report.
+            </p>
           )}
         </div>
       </section>
 
       <InteractionReportCard report={report} />
 
-      <section className='rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm text-white/80'>
-        <h2 className='mb-2 text-base font-semibold text-white'>Important disclaimer</h2>
-        <p>
-          This harm-reduction tool surfaces possible caution signals from structured data. It is not
-          a diagnostic system, and it does not replace clinical guidance.
-        </p>
-      </section>
+      <InteractionDisclaimer />
     </main>
   )
 }
