@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type {
   InteractionFinding,
   InteractionReport,
@@ -74,9 +75,15 @@ function FindingRow({ finding }: { finding: InteractionFinding }) {
 
 type InteractionReportCardProps = {
   report: InteractionReport | null
+  actions?: ReactNode
+  footerPrompt?: string
 }
 
-export default function InteractionReportCard({ report }: InteractionReportCardProps) {
+export default function InteractionReportCard({
+  report,
+  actions,
+  footerPrompt,
+}: InteractionReportCardProps) {
   if (!report) {
     return (
       <div className='rounded-2xl border border-dashed border-white/20 bg-white/[0.02] p-5 text-sm text-white/70'>
@@ -104,6 +111,7 @@ export default function InteractionReportCard({ report }: InteractionReportCardP
         >
           overall confidence: {report.overallConfidence}
         </span>
+        {actions ? <div className='ml-auto flex flex-wrap gap-2'>{actions}</div> : null}
       </div>
 
       <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-xs text-white/75'>
@@ -147,6 +155,8 @@ export default function InteractionReportCard({ report }: InteractionReportCardP
           <li key={note}>{note}</li>
         ))}
       </ul>
+
+      {footerPrompt ? <p className='text-sm text-white/70'>{footerPrompt}</p> : null}
     </section>
   )
 }
