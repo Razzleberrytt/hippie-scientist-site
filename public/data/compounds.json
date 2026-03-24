@@ -2032,6 +2032,7 @@
   },
   {
     "name": "caffeine",
+    "id": "caffeine",
     "category": "Methylxanthine stimulant",
     "description": "",
     "herbs": ["yerba mate", "camellia sinensis"],
@@ -7858,6 +7859,7 @@
   },
   {
     "name": "muscimol",
+    "id": "muscimol",
     "category": "Isoxazole neuroactive compound",
     "description": "",
     "herbs": ["amanita muscaria"],
