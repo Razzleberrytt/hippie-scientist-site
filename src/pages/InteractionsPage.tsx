@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { Button } from '@/components/ui/Button'
 import InteractionReportCard from '@/components/interactions/InteractionReportCard'
@@ -11,6 +12,15 @@ import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import type { InteractionReport, InteractionSourceItem } from '@/types/interactions'
 import { checkInteractions } from '@/utils/interactions/checkInteractions'
+import {
+  buildReportSummary,
+  buildShareItemsValue,
+  buildShareUrl,
+  getSavedReports,
+  parseItemsFromSearch,
+  saveReport,
+  type SavedInteractionReport,
+} from '@/utils/interactions/reportSharing'
 
 function normalizeTextArray(value: unknown): string[] {
   if (Array.isArray(value)) {
@@ -28,11 +38,16 @@ function normalizeTextArray(value: unknown): string[] {
 }
 
 export default function InteractionsPage() {
+  const location = useLocation()
+  const navigate = useNavigate()
   const herbs = useHerbData()
   const compounds = useCompoundData()
   const [selectedItems, setSelectedItems] = useState<InteractionCatalogItem[]>([])
   const [report, setReport] = useState<InteractionReport | null>(null)
   const [selectionMessage, setSelectionMessage] = useState<string>('')
+  const [copyLinkStatus, setCopyLinkStatus] = useState<'idle' | 'copied'>('idle')
+  const [copySummaryStatus, setCopySummaryStatus] = useState<'idle' | 'copied'>('idle')
+  const [savedReports, setSavedReports] = useState<SavedInteractionReport[]>([])
 
   const herbCatalog = useMemo<InteractionCatalogItem[]>(
     () =>
@@ -133,6 +148,75 @@ export default function InteractionsPage() {
       .filter((item): item is InteractionSourceItem => Boolean(item))
 
     setReport(checkInteractions(sourceItems))
+    const sharedItems = buildShareItemsValue(selectedItems, catalog)
+    if (sharedItems) {
+      navigate(`/interactions?items=${sharedItems}`, { replace: true })
+    }
+  }
+
+  useEffect(() => {
+    setSavedReports(getSavedReports())
+  }, [])
+
+  useEffect(() => {
+    if (!catalog.length) return
+    const parsed = parseItemsFromSearch(location.search, catalog)
+    if (parsed.items.length > 0) {
+      setSelectedItems(parsed.items)
+      if (parsed.items.length >= 2) {
+        const sourceItems = parsed.items
+          .map(item => sourceItemMap.get(item.id))
+          .filter((item): item is InteractionSourceItem => Boolean(item))
+        setReport(checkInteractions(sourceItems))
+      } else {
+        setReport(null)
+      }
+    }
+
+    if (parsed.invalidTokens.length > 0) {
+      setSelectionMessage('Some shared items were not found in the current dataset.')
+    } else if (parsed.items.length > 0) {
+      setSelectionMessage('')
+    }
+  }, [catalog, location.search, sourceItemMap])
+
+  const copyShareLink = async () => {
+    const shareUrl = buildShareUrl(selectedItems, catalog)
+    await navigator.clipboard.writeText(shareUrl)
+    setCopyLinkStatus('copied')
+    window.setTimeout(() => setCopyLinkStatus('idle'), 1800)
+  }
+
+  const onSaveReport = () => {
+    if (selectedItems.length < 2) return
+    setSavedReports(saveReport(selectedItems))
+  }
+
+  const loadSavedReport = (savedReport: SavedInteractionReport) => {
+    const reloaded = savedReport.items
+      .map(id => catalog.find(item => item.id === id))
+      .filter((item): item is InteractionCatalogItem => Boolean(item))
+      .slice(0, 3)
+
+    if (reloaded.length < 2) {
+      setSelectionMessage('This saved report includes items that are no longer available.')
+      return
+    }
+
+    setSelectedItems(reloaded)
+    const sourceItems = reloaded
+      .map(item => sourceItemMap.get(item.id))
+      .filter((item): item is InteractionSourceItem => Boolean(item))
+    setReport(checkInteractions(sourceItems))
+    const sharedItems = buildShareItemsValue(reloaded, catalog)
+    navigate(`/interactions?items=${sharedItems}`, { replace: true })
+  }
+
+  const copyReportSummary = async () => {
+    if (!report) return
+    await navigator.clipboard.writeText(buildReportSummary(report))
+    setCopySummaryStatus('copied')
+    window.setTimeout(() => setCopySummaryStatus('idle'), 1800)
   }
 
   return (
@@ -183,7 +267,66 @@ export default function InteractionsPage() {
         </div>
       </section>
 
-      <InteractionReportCard report={report} />
+      <InteractionReportCard
+        report={report}
+        actions={
+          <>
+            <Button
+              variant='outline'
+              onClick={copyShareLink}
+              disabled={selectedItems.length < 2}
+              className='px-3 py-1.5 text-xs'
+            >
+              {copyLinkStatus === 'copied' ? 'Copied!' : 'Copy Share Link'}
+            </Button>
+            <Button
+              variant='outline'
+              onClick={onSaveReport}
+              disabled={selectedItems.length < 2}
+              className='px-3 py-1.5 text-xs'
+            >
+              Save Report
+            </Button>
+            <Button
+              variant='outline'
+              onClick={copyReportSummary}
+              disabled={!report}
+              className='px-3 py-1.5 text-xs'
+            >
+              {copySummaryStatus === 'copied' ? 'Copied!' : 'Copy Report Summary'}
+            </Button>
+          </>
+        }
+        footerPrompt='Know someone combining similar herbs? Share this report.'
+      />
+
+      <section className='space-y-3 rounded-2xl border border-white/10 bg-black/25 p-5'>
+        <h2 className='text-lg font-semibold text-white'>Saved Reports</h2>
+        {savedReports.length === 0 ? (
+          <p className='text-sm text-white/70'>No saved reports yet.</p>
+        ) : (
+          <ul className='space-y-2'>
+            {savedReports.map(savedReport => (
+              <li key={savedReport.id}>
+                <button
+                  type='button'
+                  onClick={() => loadSavedReport(savedReport)}
+                  className='w-full rounded-lg border border-white/15 bg-white/[0.03] px-3 py-2 text-left text-sm text-white/85 transition hover:bg-white/[0.06]'
+                >
+                  <span className='font-medium'>
+                    {savedReport.items
+                      .map(id => catalog.find(item => item.id === id)?.name || id)
+                      .join(' + ')}
+                  </span>
+                  <span className='mt-1 block text-xs text-white/60'>
+                    Saved {new Date(savedReport.createdAt).toLocaleString()}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
       <InteractionDisclaimer />
     </main>
