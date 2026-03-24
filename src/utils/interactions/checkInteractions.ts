@@ -67,7 +67,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       severity: sedativeItems.length >= 3 ? 'moderate' : 'low',
       confidence: sedativeItems.length >= 3 ? 'medium' : 'low',
       summary:
-        'Multiple selections include sedative-style signals. Combined use may increase drowsiness or impairment.',
+        'More than one selected item has calming or sedating signals. Taking them together may increase drowsiness, slowed reaction time, or next-day grogginess.',
       evidenceBasis: collectEvidence(sedativeItems, [
         'sedative',
         'anxiolytic',
@@ -84,7 +84,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       severity: stimulantItems.length >= 3 ? 'moderate' : 'low',
       confidence: stimulantItems.length >= 3 ? 'medium' : 'low',
       summary:
-        'Multiple selections include stimulant-like signals. Combined use may increase restlessness, anxiety, heart rate, or sleep disruption.',
+        'More than one selected item has stimulating signals. Combining them may raise the chance of jitters, anxiety, faster heart rate, or trouble sleeping.',
       evidenceBasis: collectEvidence(stimulantItems, ['stimulant']),
     })
   }
@@ -96,7 +96,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       severity: 'moderate',
       confidence: serotonergicItems.length >= 3 ? 'medium' : 'low',
       summary:
-        'Multiple selections include serotonergic-style signals. This suggests a possible interaction caution and merits conservative dosing decisions.',
+        'Multiple selected items show serotonin-related activity. The combination deserves extra caution, especially with conservative dosing and timing.',
       evidenceBasis: collectEvidence(serotonergicItems, ['serotonergic']),
     })
   }
@@ -112,7 +112,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       severity,
       confidence: severity === 'high' ? 'medium' : 'low',
       summary:
-        'An MAO-related signal appears alongside serotonergic or stimulant-like signals. This pattern may elevate interaction caution.',
+        'An MAO-related signal appears with serotonin-related or stimulant signals. That pattern can increase interaction concern, so a conservative approach is important.',
       evidenceBasis: [
         ...collectEvidence(maoItems, ['mao-related']),
         ...collectEvidence(serotonergicItems, ['serotonergic']),
@@ -132,7 +132,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
         ? 'medium'
         : 'low',
       summary:
-        'Selections include overlapping cardiovascular or stimulant-related signals that may increase heart rate or blood pressure burden.',
+        'Selected items share heart or stimulant-related caution signals. Together they may add strain on heart rate or blood pressure.',
       evidenceBasis: collectEvidence(cardioItems, ['cardiovascular-caution', 'stimulant']),
     })
   }
@@ -144,7 +144,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       severity: hepaticItems.length >= 3 ? 'moderate' : 'low',
       confidence: 'low',
       summary:
-        'Multiple selections include liver-toxicity caution signals. Combined use may increase hepatic burden.',
+        'More than one selected item includes liver-related caution signals. Using them together may increase overall liver burden.',
       evidenceBasis: collectEvidence(hepaticItems, ['hepatotoxicity-caution']),
     })
   }
@@ -158,7 +158,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       severity: 'unknown',
       confidence: 'low',
       summary:
-        'One or more selections have limited mechanism/safety/effects detail, so interaction coverage is incomplete.',
+        'At least one selected item has limited structured mechanism or safety data, so this report has lower reliability and may miss signals.',
       evidenceBasis: sparseDataItems.map(item => `${item.item.name}: limited structured fields`),
     })
   }
@@ -167,8 +167,8 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
   const overallConfidence = overallConfidenceFromFindings(findings, dataLimited)
 
   const notes = [
-    'This tool highlights structured overlap signals and does not replace medical advice.',
-    'Interpret findings as possible caution signals, not certainty.',
+    'This tool surfaces structured overlap signals to support harm-reduction decisions; it is not medical advice.',
+    'Findings are caution signals, not proof of a specific outcome.',
   ]
 
   if (dataLimited) {

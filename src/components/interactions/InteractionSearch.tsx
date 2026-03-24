@@ -55,13 +55,23 @@ export default function InteractionSearch({
 
   return (
     <section className='space-y-3'>
-      <label className='text-xs uppercase tracking-[0.2em] text-white/65'>Search items</label>
+      <div className='flex items-center justify-between gap-3'>
+        <label className='text-xs uppercase tracking-[0.2em] text-white/65'>Search items</label>
+        <p className='text-xs text-white/60'>
+          {selectedIds.length}/{maxSelection} selected
+        </p>
+      </div>
       <input
         value={query}
         onChange={event => setQuery(event.target.value)}
         placeholder='Search herbs or compounds by name, class, or effects'
         className='w-full rounded-xl border border-white/15 bg-black/35 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-400/20'
       />
+      {limitReached && (
+        <p className='rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>
+          You can compare up to {maxSelection} items at once. Remove one to add another.
+        </p>
+      )}
 
       {query.trim() && (
         <div className='rounded-2xl border border-white/10 bg-black/35 p-2'>
