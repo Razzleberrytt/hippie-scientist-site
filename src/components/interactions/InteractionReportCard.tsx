@@ -30,6 +30,87 @@ function humanizeEvidence(entry: string): string {
     .replace(': limited structured fields', ' — limited structured data')
 }
 
+function getSeverityVerdict(severity: InteractionSeverity): string {
+  if (severity === 'high') return 'Potentially risky combination'
+  if (severity === 'moderate') return 'Use caution'
+  return 'Low risk combination'
+}
+
+function toTitleCase(value: string): string {
+  return value.replace(/\b\w/g, char => char.toUpperCase())
+}
+
+function tightenCopy(text: string): string {
+  return text
+    .replace(/\bmay interact\b/gi, 'can overlap')
+    .replace(/\bpossible interaction\b/gi, 'interaction signal')
+}
+
+function buildWhyThisMatters(report: InteractionReport): string {
+  const topSignals = report.keySignals
+    .slice(0, 2)
+    .map(signal => signal.split(' — ')[0].trim().toLowerCase())
+    .filter(Boolean)
+  const mechanisms = Array.from(
+    new Set(
+      report.findings
+        .flatMap(finding => finding.overlappingMechanisms)
+        .map(entry => entry.trim())
+        .filter(Boolean)
+    )
+  ).slice(0, 2)
+
+  if (topSignals.length === 0 && mechanisms.length === 0) {
+    return 'The current dataset does not show a strong shared interaction pattern, but careful dosing and spacing still helps reduce avoidable risk.'
+  }
+
+  const signalSentence = topSignals.length
+    ? `The strongest overlap signals here are ${topSignals.join(' and ')}.`
+    : 'The report found overlap signals worth planning around.'
+
+  const mechanismSentence = mechanisms.length
+    ? `Shared mechanism clues (${mechanisms.map(toTitleCase).join(', ')}) suggest these effects can stack when used close together.`
+    : 'The available mechanism clues suggest effects could stack when timing or doses are aggressive.'
+
+  return `${signalSentence} ${mechanismSentence}`
+}
+
+function getWatchFors(report: InteractionReport): string[] {
+  const context = [
+    ...report.keySignals,
+    ...report.findings.map(finding => finding.title),
+    ...report.findings.flatMap(finding => finding.overlappingMechanisms),
+  ]
+    .join(' ')
+    .toLowerCase()
+
+  const watchFors: string[] = []
+
+  if (/(sedative|cns-depressant|gabaergic)/.test(context)) {
+    watchFors.push('Watch for drowsiness, slowed reaction time, and next-day grogginess.')
+  }
+
+  if (/(stimulant|cardioactive)/.test(context)) {
+    watchFors.push('Watch for jitteriness, rapid heart rate, and sleep disruption.')
+  }
+
+  if (/serotonergic|serotonin/.test(context)) {
+    watchFors.push('Watch for restlessness, sweating, and noticeable mood shifts.')
+  }
+
+  if (/maoi/.test(context)) {
+    watchFors.push('Watch for stronger-than-expected effects from small dose changes.')
+  }
+
+  if (/hepatotoxic|liver/.test(context)) {
+    watchFors.push(
+      'Watch for signs of liver strain and avoid stacking with other liver-stressing agents.'
+    )
+  }
+
+  return watchFors
+}
+
 function FindingRow({ finding }: { finding: InteractionFinding }) {
   const basisLabel =
     finding.basis === 'structured'
@@ -56,9 +137,9 @@ function FindingRow({ finding }: { finding: InteractionFinding }) {
           {basisLabel}
         </span>
       </div>
-      <p className='text-sm text-white/85'>{finding.summary}</p>
+      <p className='text-sm text-white/85'>{tightenCopy(finding.summary)}</p>
       <p className='rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white/80'>
-        {finding.explanation}
+        {tightenCopy(finding.explanation)}
       </p>
       <p className='text-xs text-white/70'>
         signal strength: shared tags {finding.sharedTagCount} · overlapping mechanisms{' '}
@@ -103,44 +184,91 @@ export default function InteractionReportCard({
     finding => finding.title !== 'Sparse data warning'
   )
   const sparseOnly = report.findings.length > 0 && nonSparseFindings.length === 0
+  const verdict = getSeverityVerdict(report.overallSeverity)
+  const whyThisMatters = buildWhyThisMatters(report)
+  const watchFors = getWatchFors(report)
+  const prioritizedSignals = report.keySignals.slice(0, 2)
+  const secondarySignals = report.keySignals.slice(2)
 
   return (
     <section className='space-y-4 rounded-2xl border border-white/10 bg-black/35 p-5'>
-      <div className='flex flex-wrap items-center gap-2'>
-        <h2 className='text-xl font-semibold text-white'>Interaction Report</h2>
-        <span
-          className={`rounded-full border px-2.5 py-1 text-xs uppercase tracking-wide ${severityClasses(report.overallSeverity)}`}
-        >
-          overall severity: {report.overallSeverity}
-        </span>
-        <span
-          className={`rounded-full border px-2.5 py-1 text-xs uppercase tracking-wide ${confidenceClasses(report.overallConfidence)}`}
-        >
-          overall confidence: {report.overallConfidence} ({report.overallConfidenceScore}/100)
-        </span>
+      <div className='flex flex-wrap items-start gap-2'>
+        <div className='space-y-2'>
+          <h2 className='text-xl font-semibold text-white'>Interaction Report</h2>
+          <p className='text-lg font-bold text-white'>{verdict}</p>
+        </div>
+        <div className='flex flex-wrap gap-2'>
+          <span
+            className={`rounded-full border px-2.5 py-1 text-xs uppercase tracking-wide ${severityClasses(report.overallSeverity)}`}
+          >
+            {report.overallSeverity}
+          </span>
+          <span
+            className={`rounded-full border px-2.5 py-1 text-xs uppercase tracking-wide ${confidenceClasses(report.overallConfidence)}`}
+          >
+            {report.overallConfidence} confidence ({report.overallConfidenceScore}/100)
+          </span>
+          <span className='rounded-full border border-white/20 bg-black/25 px-2.5 py-1 text-xs uppercase tracking-wide text-white/80'>
+            {nonSparseFindings.length} signals
+          </span>
+        </div>
         {actions ? <div className='ml-auto flex flex-wrap gap-2'>{actions}</div> : null}
       </div>
 
       <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-xs text-white/75'>
-        <p className='mb-2 text-sm text-white/85'>{report.summary}</p>
-        <p>
+        <p className='mb-2 text-sm text-white/85'>{tightenCopy(report.summary)}</p>
+        <p className='text-sm text-white/85'>
+          <span className='font-semibold text-white'>Why this matters: </span>
+          {whyThisMatters}
+        </p>
+        <p className='mt-2'>
           <span className='font-semibold text-white/90'>Severity</span> estimates the strength of
           overlap/caution signals across your selected items.
         </p>
         <p className='mt-1'>
           <span className='font-semibold text-white/90'>Confidence</span> reflects confidence in the
-          available structured mechanism/safety data, not certainty of real-world outcomes.
+          available structured mechanism/safety data, not certainty of outcomes.
         </p>
       </div>
 
-      {report.keySignals.length > 0 && (
+      {prioritizedSignals.length > 0 && (
         <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-white/80'>
           <h3 className='mb-2 text-xs font-semibold uppercase tracking-wide text-white/70'>
-            Key interaction signals
+            Top signals to act on
+          </h3>
+          <ul className='space-y-2'>
+            {prioritizedSignals.map(signal => (
+              <li
+                key={signal}
+                className='rounded-lg border border-white/15 bg-black/25 px-3 py-2 font-medium text-white'
+              >
+                {tightenCopy(signal)}
+              </li>
+            ))}
+          </ul>
+          {secondarySignals.length > 0 && (
+            <details className='mt-3 rounded-lg border border-white/10 bg-black/20 p-3'>
+              <summary className='cursor-pointer text-xs font-semibold uppercase tracking-wide text-white/75'>
+                More details
+              </summary>
+              <ul className='mt-2 list-disc space-y-1 pl-5 text-sm text-white/75'>
+                {secondarySignals.map(signal => (
+                  <li key={signal}>{tightenCopy(signal)}</li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </div>
+      )}
+
+      {watchFors.length > 0 && (
+        <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-white/80'>
+          <h3 className='mb-2 text-xs font-semibold uppercase tracking-wide text-white/70'>
+            What to watch for
           </h3>
           <ul className='list-disc space-y-1 pl-5'>
-            {report.keySignals.map(signal => (
-              <li key={signal}>{signal}</li>
+            {watchFors.map(note => (
+              <li key={note}>{note}</li>
             ))}
           </ul>
         </div>
@@ -173,7 +301,7 @@ export default function InteractionReportCard({
 
       <ul className='list-disc space-y-1 pl-5 text-xs text-white/65'>
         {report.notes.map(note => (
-          <li key={note}>{note}</li>
+          <li key={note}>{tightenCopy(note)}</li>
         ))}
       </ul>
 
