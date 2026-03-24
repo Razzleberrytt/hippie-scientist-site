@@ -8,6 +8,7 @@ import {
   getTopItemsAddedToStack,
 } from '@/utils/analytics/aggregateEvents'
 import { clearAnalyticsEvents, readAnalyticsEvents } from '@/utils/analytics/eventStorage'
+import { seedAnalyticsData } from '@/utils/analytics/seedAnalytics'
 
 type DashboardState = {
   totalEvents: number
@@ -94,16 +95,31 @@ export default function AnalyticsPage() {
           Internal dashboard powered by localStorage events only. Data is browser-specific and
           resets when local data is cleared.
         </p>
-        <button
-          type='button'
-          onClick={() => {
-            clearAnalyticsEvents()
-            refresh()
-          }}
-          className='btn-secondary mt-4 text-xs'
-        >
-          Reset analytics
-        </button>
+        <div className='mt-4 flex flex-wrap gap-2'>
+          {import.meta.env.DEV ? (
+            <button
+              type='button'
+              onClick={() => {
+                seedAnalyticsData()
+                refresh()
+              }}
+              className='btn-secondary text-xs'
+            >
+              Seed test data
+            </button>
+          ) : null}
+
+          <button
+            type='button'
+            onClick={() => {
+              clearAnalyticsEvents()
+              refresh()
+            }}
+            className='btn-secondary text-xs'
+          >
+            Reset analytics
+          </button>
+        </div>
       </header>
 
       <section className='mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4'>
