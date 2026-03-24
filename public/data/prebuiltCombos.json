@@ -1,0 +1,107 @@
+[
+  {
+    "id": "relaxation-stack-1",
+    "name": "Deep Relaxation Stack",
+    "items": ["ashwagandha", "passionflower"],
+    "goal": "relaxation",
+    "description": "Common calming combination used for stress and sleep support."
+  },
+  {
+    "id": "focus-stack-1",
+    "name": "Focus Stack",
+    "items": ["caffeine", "l-theanine"],
+    "goal": "focus",
+    "description": "Popular combo for smoother stimulation and reduced jitters."
+  },
+  {
+    "id": "sleep-stack-1",
+    "name": "Night Wind-Down",
+    "items": ["valerian", "passionflower", "skullcap"],
+    "goal": "sleep",
+    "description": "Frequently explored evening blend for easier transition to sleep."
+  },
+  {
+    "id": "mood-stack-1",
+    "name": "Calm Mood Support",
+    "items": ["kanna", "lemon balm"],
+    "goal": "mood",
+    "description": "A gentle pairing for emotional steadiness and daily stress relief."
+  },
+  {
+    "id": "energy-stack-1",
+    "name": "Adaptogen Lift",
+    "items": ["rhodiola", "cordyceps"],
+    "goal": "energy",
+    "description": "Classic daytime adaptogen combo for stamina and resilience."
+  },
+  {
+    "id": "focus-stack-2",
+    "name": "Study Flow",
+    "items": ["lion's mane", "rhodiola"],
+    "goal": "focus",
+    "description": "Popular nootropic-style stack for concentration and mental clarity."
+  },
+  {
+    "id": "sleep-stack-2",
+    "name": "Quiet Mind Combo",
+    "items": ["lemon balm", "valerian"],
+    "goal": "sleep",
+    "description": "Often used to reduce evening restlessness before bed."
+  },
+  {
+    "id": "mood-stack-2",
+    "name": "Social Ease Blend",
+    "items": ["kava", "kanna"],
+    "goal": "mood",
+    "description": "Commonly explored for tension release and smoother social energy."
+  },
+  {
+    "id": "energy-stack-2",
+    "name": "Morning Spark",
+    "items": ["caffeine", "cordyceps"],
+    "goal": "energy",
+    "description": "Widely used for alertness with a steadier energy profile."
+  },
+  {
+    "id": "relaxation-stack-2",
+    "name": "Evening Reset",
+    "items": ["reishi mushroom", "ashwagandha"],
+    "goal": "relaxation",
+    "description": "A calming adaptogenic pair people try to unwind after long days."
+  },
+  {
+    "id": "focus-stack-3",
+    "name": "Clean Focus Duo",
+    "items": ["l-theanine", "rhodiola"],
+    "goal": "focus",
+    "description": "A balanced option for concentration without harsh stimulation."
+  },
+  {
+    "id": "sleep-stack-3",
+    "name": "Dream Support Mix",
+    "items": ["mugwort", "passionflower"],
+    "goal": "sleep",
+    "description": "Frequently explored for nighttime relaxation and dream rituals."
+  },
+  {
+    "id": "mood-stack-3",
+    "name": "Gentle Uplift",
+    "items": ["theobroma cacao", "kanna"],
+    "goal": "mood",
+    "description": "An uplifting blend often used for mood and positive affect."
+  },
+  {
+    "id": "energy-stack-3",
+    "name": "Performance Stack",
+    "items": ["cordyceps", "rhodiola", "caffeine"],
+    "goal": "energy",
+    "description": "A higher-drive combo for demanding work blocks and training days."
+  },
+  {
+    "id": "relaxation-stack-3",
+    "name": "Stress Buffer Pair",
+    "items": ["ashwagandha", "lemon balm"],
+    "goal": "relaxation",
+    "description": "A simple foundational combo for daily calm support."
+  }
+]
