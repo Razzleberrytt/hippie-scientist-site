@@ -30,6 +30,13 @@ function humanizeEvidence(entry: string): string {
 }
 
 function FindingRow({ finding }: { finding: InteractionFinding }) {
+  const basisLabel =
+    finding.basis === 'structured'
+      ? 'based on structured data'
+      : finding.basis === 'mixed'
+        ? 'based on structured + inferred signals'
+        : 'based on inferred signals'
+
   return (
     <article className='space-y-2 rounded-xl border border-white/10 bg-white/[0.03] p-4'>
       <div className='flex flex-wrap items-center gap-2'>
@@ -43,6 +50,9 @@ function FindingRow({ finding }: { finding: InteractionFinding }) {
           className={`rounded-full border px-2 py-0.5 text-[11px] uppercase tracking-wide ${confidenceClasses(finding.confidence)}`}
         >
           confidence: {finding.confidence}
+        </span>
+        <span className='rounded-full border border-white/20 bg-black/25 px-2 py-0.5 text-[11px] uppercase tracking-wide text-white/80'>
+          {basisLabel}
         </span>
       </div>
       <p className='text-sm text-white/85'>{finding.summary}</p>

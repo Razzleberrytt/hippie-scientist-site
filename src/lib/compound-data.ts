@@ -25,6 +25,8 @@ export type CompoundRecord = {
   preparation: string
   legalStatus: string
   sideEffects: string[]
+  interactionTags?: string[]
+  interactionNotes?: string[]
   herbs: string[]
   sources: SourceRef[]
   lastUpdated: string
@@ -73,6 +75,8 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     therapeuticUses: splitClean(raw.therapeuticUses),
     contraindications: splitClean(raw.contraindications),
     interactions: splitClean(raw.interactions),
+    interactionTags: splitClean(raw.interactionTags),
+    interactionNotes: splitClean(raw.interactionNotes),
     dosage: cleanText(raw.dosage) || '',
     duration: cleanText(raw.duration) || '',
     region: cleanText(raw.region) || '',

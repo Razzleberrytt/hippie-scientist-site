@@ -77,6 +77,8 @@ export default function InteractionsPage() {
         effects: normalizeTextArray(herb.effects),
         contraindications: normalizeTextArray(herb.contraindications),
         interactions: normalizeTextArray(herb.interactions),
+        interactionTags: normalizeTextArray((herb as Record<string, unknown>).interactionTags),
+        interactionNotes: normalizeTextArray((herb as Record<string, unknown>).interactionNotes),
         safety: normalizeTextArray([herb.safety, herb.sideEffects, herb.toxicity]),
         confidence: herb.confidence,
       })
@@ -93,6 +95,8 @@ export default function InteractionsPage() {
         effects: normalizeTextArray(compound.effects),
         contraindications: normalizeTextArray(compound.contraindications),
         interactions: normalizeTextArray(compound.interactions),
+        interactionTags: normalizeTextArray(compound.interactionTags),
+        interactionNotes: normalizeTextArray(compound.interactionNotes),
         safety: normalizeTextArray(compound.sideEffects),
         confidence: compound.confidence,
       })

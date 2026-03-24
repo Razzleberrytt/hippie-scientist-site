@@ -53,6 +53,8 @@ export type Herb = {
   interactions?: string[] | string
   interactionsText?: string
   drugInteractions?: string
+  interactionTags?: string[]
+  interactionNotes?: string[]
   contraindications?: string[] | string
   contraindicationsText?: string
   dosage?: string
