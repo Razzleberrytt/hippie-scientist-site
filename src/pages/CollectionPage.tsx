@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useMemo, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import {
   SEO_COLLECTIONS,
@@ -136,6 +136,33 @@ function buildInteractionsLink(tokens: string[]): string {
   return `/interactions?items=${tokens.join(',')}`
 }
 
+function toGoalLabel(collection: SeoCollection): string {
+  return collection.title
+    .replace(/^Herbs for\s*/i, '')
+    .replace(/^Compounds for\s*/i, '')
+    .trim()
+}
+
+function buildSeoDescription(collection: SeoCollection): string {
+  const goal = toGoalLabel(collection)
+  return `Compare herbs for ${goal.toLowerCase()}, spot interaction risks fast, and build a safer stack in minutes.`
+}
+
+function summarizeItemValue(item: CollectionEntity): string {
+  const rawEffects = 'common' in item ? item.effects : item.effects
+  if (Array.isArray(rawEffects) && rawEffects.length > 0) {
+    return rawEffects[0]
+  }
+
+  const description = 'common' in item ? item.description : item.description
+  if (typeof description === 'string') {
+    const [first] = description.split(/[.;]/)
+    if (first?.trim()) return first.trim()
+  }
+
+  return 'general wellness support'
+}
+
 function CollectionFunnelCta({
   title,
   description,
@@ -182,6 +209,7 @@ function CollectionFunnelCta({
 
 export default function CollectionPage() {
   const { slug = '' } = useParams<{ slug: string }>()
+  const location = useLocation()
   const collection = getCollectionBySlug(slug)
   const herbs = useHerbData()
   const compounds = useCompoundData()
@@ -191,6 +219,7 @@ export default function CollectionPage() {
   const [leadEmail, setLeadEmail] = useState('')
   const [leadStatus, setLeadStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle')
   const [leadMessage, setLeadMessage] = useState('')
+  const [shareToast, setShareToast] = useState('')
 
   useEffect(() => {
     let alive = true
@@ -305,6 +334,31 @@ export default function CollectionPage() {
   const checkerHref = buildInteractionsLink(primaryTokens)
   const stackHref = buildInteractionsLink(primaryTokens)
   const featuredComboHref = buildInteractionsLink(featuredTokens)
+  const peopleAlsoExplore = useMemo(() => {
+    if (!collection) return []
+    return SEO_COLLECTIONS.filter(entry => entry.slug !== collection.slug)
+      .filter(entry => entry.itemType === collection.itemType || entry.itemType === 'herb')
+      .slice(0, 6)
+  }, [collection])
+  const quickValueItems = useMemo(
+    () =>
+      topItems.map(item => ({
+        name: getEntityName(item),
+        value: summarizeItemValue(item),
+        slug: item.slug,
+      })),
+    [topItems]
+  )
+  const pageTitle = collection
+    ? `Best Herbs for ${toGoalLabel(collection)} (Interactions + Stack Builder)`
+    : 'Best Herbs Collections'
+  const pageDescription = collection ? buildSeoDescription(collection) : ''
+
+  useEffect(() => {
+    if (!shareToast) return
+    const timer = window.setTimeout(() => setShareToast(''), 2200)
+    return () => window.clearTimeout(timer)
+  }, [shareToast])
 
   useEffect(() => {
     if (!collection) return
@@ -402,6 +456,25 @@ export default function CollectionPage() {
     })
   }
 
+  const getShareUrl = () => {
+    if (typeof window !== 'undefined') return window.location.href
+    return `https://thehippiescientist.net${location.pathname}${location.search}`
+  }
+
+  const handleCopyLink = async () => {
+    const shareUrl = getShareUrl()
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareUrl)
+        setShareToast('Link copied')
+        return
+      }
+    } catch {
+      // no-op fallback below
+    }
+    setShareToast('Copy failed — copy URL from address bar')
+  }
+
   const pagePath = `/collections/${collection.slug}`
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -437,13 +510,15 @@ export default function CollectionPage() {
   return (
     <main className='container-page py-8'>
       <Meta
-        title={`${collection.title} | The Hippie Scientist`}
-        description={collection.description}
+        title={pageTitle}
+        description={pageDescription}
         path={pagePath}
         jsonLd={jsonLd}
+        image='/og/default.png'
         og={{
-          title: `${collection.title} | The Hippie Scientist`,
-          description: collection.description,
+          title: pageTitle,
+          description: pageDescription,
+          image: '/og/default.png',
         }}
       />
 
@@ -464,7 +539,55 @@ export default function CollectionPage() {
             flow.
           </p>
         </div>
+
+        <div className='mt-4 flex flex-wrap items-center gap-2'>
+          <button type='button' onClick={handleCopyLink} className='btn-secondary text-xs'>
+            Copy Link
+          </button>
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${pageTitle} — ${pageDescription}`)}&url=${encodeURIComponent(getShareUrl())}`}
+            target='_blank'
+            rel='noreferrer'
+            className='btn-secondary text-xs'
+          >
+            Share (Twitter)
+          </a>
+          <a
+            href={`https://www.reddit.com/submit?url=${encodeURIComponent(getShareUrl())}&title=${encodeURIComponent(pageTitle)}`}
+            target='_blank'
+            rel='noreferrer'
+            className='btn-secondary text-xs'
+          >
+            Share (Reddit)
+          </a>
+          {shareToast ? (
+            <span className='rounded-full border border-emerald-300/35 bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-100'>
+              {shareToast}
+            </span>
+          ) : null}
+        </div>
       </header>
+
+      {quickValueItems.length > 0 && (
+        <section className='mt-4 rounded-xl border border-cyan-300/25 bg-cyan-500/5 p-3'>
+          <h2 className='text-sm font-semibold text-cyan-100'>
+            Top 3 herbs people use for {toGoalLabel(collection).toLowerCase()}:
+          </h2>
+          <div className='mt-3 grid gap-2 sm:grid-cols-3'>
+            {quickValueItems.slice(0, 3).map((item, index) => (
+              <article
+                key={item.slug}
+                className='rounded-lg border border-cyan-200/20 bg-slate-900/60 p-2 text-xs'
+              >
+                <p className='text-cyan-100'>
+                  {index + 1}. {item.name}
+                </p>
+                <p className='mt-1 text-white/70'>→ {item.value}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className='mt-4'>
         <CollectionFunnelCta
@@ -763,9 +886,25 @@ export default function CollectionPage() {
       <section className='mt-8 grid gap-4 lg:grid-cols-2'>
         {relatedCollections.length > 0 && (
           <div className='ds-card p-4'>
-            <h2 className='text-sm font-semibold text-white'>Related collections</h2>
+            <h2 className='text-sm font-semibold text-white'>Related goals</h2>
             <div className='mt-3 flex flex-wrap gap-2'>
               {relatedCollections.map(related => (
+                <Link
+                  key={related.slug}
+                  to={`/collections/${related.slug}`}
+                  className='btn-secondary text-xs'
+                >
+                  {related.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+        {peopleAlsoExplore.length > 0 && (
+          <div className='ds-card p-4'>
+            <h2 className='text-sm font-semibold text-white'>People also explore</h2>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              {peopleAlsoExplore.map(related => (
                 <Link
                   key={related.slug}
                   to={`/collections/${related.slug}`}
@@ -803,6 +942,22 @@ export default function CollectionPage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className='mt-8 rounded-xl border border-fuchsia-300/30 bg-fuchsia-500/10 p-4'>
+        <h2 className='text-base font-semibold text-fuchsia-100'>
+          Have you tried any of these together?
+        </h2>
+        <p className='mt-1 text-sm text-white/80'>
+          Most people miss interactions — check your stack here.
+        </p>
+        <Link
+          to={checkerHref}
+          className='btn-primary mt-3 text-xs'
+          onClick={() => handleFunnelClick('checker')}
+        >
+          Check your stack
+        </Link>
       </section>
     </main>
   )
