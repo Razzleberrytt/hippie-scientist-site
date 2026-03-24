@@ -3,6 +3,10 @@ import {
   type InteractionSignals,
   type InteractionSourceItem,
 } from '@/types/interactions'
+import {
+  mergeStructuredAndInferredSignals,
+  normalizeInteractionTagVocabulary,
+} from './interactionTagUtils'
 import { normalizeMechanismText } from './normalizeMechanismText'
 
 type SignalRule = {
@@ -66,27 +70,46 @@ function getNormalizedTextByField(item: InteractionSourceItem): Record<string, s
 
 export function extractInteractionSignals(item: InteractionSourceItem): InteractionSignals {
   const textByField = getNormalizedTextByField(item)
-  const matchedSignals: InteractionSignal[] = []
+  const inferredSignals: InteractionSignal[] = []
 
-  SIGNAL_RULES.forEach(rule => {
-    const evidence = new Set<string>()
+  const structuredTags = normalizeInteractionTagVocabulary(item.interactionTags ?? [])
+  const hasStructuredTags = structuredTags.length > 0
 
-    for (const field of DATA_FIELDS) {
-      const snippets = textByField[field] ?? []
-      snippets.forEach(snippet => {
-        const matchedKeyword = rule.keywords.find(keyword => snippet.includes(keyword))
-        if (!matchedKeyword) return
-        evidence.add(`${field}: ${matchedKeyword}`)
-      })
-    }
+  if (!hasStructuredTags) {
+    SIGNAL_RULES.forEach(rule => {
+      const evidence = new Set<string>()
 
-    if (evidence.size > 0) {
-      matchedSignals.push({ tag: rule.tag, basis: Array.from(evidence) })
-    }
+      for (const field of DATA_FIELDS) {
+        const snippets = textByField[field] ?? []
+        snippets.forEach(snippet => {
+          const matchedKeyword = rule.keywords.find(keyword => snippet.includes(keyword))
+          if (!matchedKeyword) return
+          evidence.add(`${field}: ${matchedKeyword} (inferred)`)
+        })
+      }
+
+      if (evidence.size > 0) {
+        inferredSignals.push({ tag: rule.tag, source: 'inferred', basis: Array.from(evidence) })
+      }
+    })
+  }
+
+  const merged = mergeStructuredAndInferredSignals({
+    structuredTags,
+    inferredTags: inferredSignals.map(signal => signal.tag),
+  })
+  const evidenceByTag = new Map<string, string[]>()
+
+  structuredTags.forEach(tag => {
+    const notes = (item.interactionNotes ?? []).slice(0, 2)
+    const noteText = notes.length > 0 ? ` (${notes.join(' | ')})` : ''
+    evidenceByTag.set(tag, [`interactionTags: ${tag} (structured)${noteText}`])
   })
 
-  const tags = new Set(matchedSignals.map(signal => signal.tag))
-  const evidenceByTag = new Map(matchedSignals.map(signal => [signal.tag, signal.basis]))
+  inferredSignals.forEach(signal => {
+    if (!merged.tags.has(signal.tag) || merged.sourceByTag.get(signal.tag) !== 'inferred') return
+    evidenceByTag.set(signal.tag, signal.basis)
+  })
 
   let dataCoverageScore = 0
   if (textByField.mechanism.length > 0) dataCoverageScore += 1
@@ -96,8 +119,11 @@ export function extractInteractionSignals(item: InteractionSourceItem): Interact
 
   return {
     item,
-    tags,
+    tags: merged.tags,
+    structuredTags: new Set(structuredTags),
+    inferredTags: new Set(inferredSignals.map(signal => signal.tag)),
     evidenceByTag,
+    sourceByTag: merged.sourceByTag,
     dataCoverageScore,
   }
 }

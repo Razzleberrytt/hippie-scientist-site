@@ -16,6 +16,8 @@ export type Compound = {
   mechanism?: string
   effects?: string[]
   safety?: string[]
+  interactionTags?: string[]
+  interactionNotes?: string[]
   herbs?: string[]
   confidence?: ConfidenceLevel
   type?: string
