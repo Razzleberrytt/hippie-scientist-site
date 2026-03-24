@@ -47,9 +47,9 @@ export default function Downloads() {
       />
 
       <header className='space-y-3'>
-        <p className='text-sub text-xs uppercase tracking-[0.3em]'>Digital library</p>
+        <p className='text-xs uppercase tracking-[0.3em] text-white/60'>Digital library</p>
         <h1 className='h1-grad text-3xl font-semibold md:text-4xl'>My Guides</h1>
-        <p className='text-sub max-w-2xl text-sm leading-relaxed sm:text-base'>
+        <p className='max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base'>
           Your saved Starter Packs and generated blend downloads.
         </p>
       </header>
@@ -57,13 +57,13 @@ export default function Downloads() {
       <BundleUpgradeCard sourcePage='downloads' currentBlendName={sortedGuides[0]?.blendName} />
 
       {!hasGuides && (
-        <Card className='border-border/80 from-panel/92 to-panel/70 flex flex-col items-center gap-4 rounded-2xl border bg-gradient-to-br p-8 text-center'>
-          <p className='text-text text-xl font-semibold'>No guides saved yet</p>
-          <p className='text-sub max-w-lg text-sm leading-relaxed'>
+        <Card className='border-white/15/80 from-black/40/92 to-black/40/70 flex flex-col items-center gap-4 rounded-2xl border bg-gradient-to-br p-8 text-center'>
+          <p className='text-xl font-semibold text-white'>No guides saved yet</p>
+          <p className='max-w-lg text-sm leading-relaxed text-white/60'>
             Once you generate a Starter Pack, it will appear here so you can download it any time.
           </p>
           <Link to='/blend'>
-            <Button className='border-brand-lime/40 bg-brand-lime/20 text-brand-lime hover:bg-brand-lime/30 border shadow-[0_0_24px_-12px_rgba(163,230,53,0.95)]'>
+            <Button className='border border-lime-400/40 bg-lime-400/20 text-lime-300 shadow-[0_0_24px_-12px_rgba(163,230,53,0.95)] hover:bg-lime-400/30'>
               Build Your First Blend
             </Button>
           </Link>
@@ -73,7 +73,11 @@ export default function Downloads() {
       {hasGuides && (
         <>
           <div className='flex justify-end'>
-            <Button variant='ghost' onClick={handleClearAll} className='text-sub hover:text-text'>
+            <Button
+              variant='ghost'
+              onClick={handleClearAll}
+              className='text-white/60 hover:text-white'
+            >
               Clear All
             </Button>
           </div>
@@ -95,7 +99,7 @@ export default function Downloads() {
                     <Button
                       variant='ghost'
                       onClick={() => handleDelete(guide.id)}
-                      className='text-sub hover:text-text justify-center'
+                      className='justify-center text-white/60 hover:text-white'
                     >
                       Delete
                     </Button>

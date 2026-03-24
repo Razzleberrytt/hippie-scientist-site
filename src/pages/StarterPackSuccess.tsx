@@ -55,10 +55,10 @@ export default function StarterPackSuccess() {
 
   return (
     <main className='container space-y-8 py-8 sm:py-10'>
-      <section className='border-white/12 from-brand-lime/14 via-panel to-brand-lime/5 rounded-3xl border bg-gradient-to-br p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.07),0_18px_38px_-22px_rgba(163,230,53,0.7)] sm:p-7'>
-        <p className='text-sub text-xs uppercase tracking-[0.3em]'>Starter Pack</p>
+      <section className='border-white/12 from-lime-400/14 rounded-3xl border bg-gradient-to-br via-black/40 to-lime-400/5 p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.07),0_18px_38px_-22px_rgba(163,230,53,0.7)] sm:p-7'>
+        <p className='text-xs uppercase tracking-[0.3em] text-white/60'>Starter Pack</p>
         <h1 className='h1-grad mt-2 text-3xl font-semibold md:text-4xl'>You&apos;re in.</h1>
-        <p className='text-sub mt-3 max-w-2xl text-sm leading-relaxed sm:text-base'>
+        <p className='mt-3 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base'>
           Your Starter Pack is on the way. Here&apos;s what to do next.
         </p>
 
@@ -66,20 +66,20 @@ export default function StarterPackSuccess() {
           {CHECKLIST_ITEMS.map((item, index) => (
             <div
               key={item}
-              className='border-border/80 bg-panel/70 flex items-start gap-3 rounded-xl border p-3.5'
+              className='border-white/15/80 bg-white/[0.04]/70 flex items-start gap-3 rounded-xl border p-3.5'
             >
-              <span className='text-brand-lime bg-brand-lime/15 mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-semibold'>
+              <span className='mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-lime-400/15 text-sm font-semibold text-lime-300'>
                 {index + 1}
               </span>
-              <p className='text-text text-sm'>{item}</p>
+              <p className='text-sm text-white'>{item}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className='grid gap-5 lg:grid-cols-[1.25fr_1fr]'>
-        <Card className='border-border/80 space-y-4 bg-black/25 p-5 sm:p-6'>
-          <h2 className='text-text text-lg font-semibold'>Your saved blend</h2>
+        <Card className='border-white/15/80 space-y-4 bg-black/25 p-5 sm:p-6'>
+          <h2 className='text-lg font-semibold text-white'>Your saved blend</h2>
 
           {hasSavedBlend ? (
             <ResultsSummaryCard
@@ -90,8 +90,8 @@ export default function StarterPackSuccess() {
               variant='expanded'
             />
           ) : (
-            <div className='border-border/80 bg-panel/65 rounded-xl border p-3.5'>
-              <p className='text-sub text-sm'>
+            <div className='border-white/15/80 bg-white/[0.04]/65 rounded-xl border p-3.5'>
+              <p className='text-sm text-white/60'>
                 No saved blend found yet. Pick a goal and get your Starter Pack to see your
                 personalized handoff details here.
               </p>
@@ -101,7 +101,7 @@ export default function StarterPackSuccess() {
           <div className='flex flex-col gap-2.5 pt-1 sm:flex-row'>
             <Link
               to='/herbs'
-              className='btn border-brand-lime/35 bg-brand-lime/20 text-brand-lime hover:bg-brand-lime/30 justify-center border'
+              className='btn justify-center border border-lime-400/35 bg-lime-400/20 text-lime-300 hover:bg-lime-400/30'
             >
               Explore These Herbs
             </Link>
@@ -111,13 +111,13 @@ export default function StarterPackSuccess() {
           </div>
         </Card>
 
-        <Card className='border-border/80 space-y-3.5 bg-black/25 p-5 sm:p-6'>
-          <h2 className='text-text text-lg font-semibold'>What you&apos;ll get</h2>
+        <Card className='border-white/15/80 space-y-3.5 bg-black/25 p-5 sm:p-6'>
+          <h2 className='text-lg font-semibold text-white'>What you&apos;ll get</h2>
           <ul className='space-y-2'>
             {includedItems.map(item => (
               <li
                 key={item}
-                className='border-border/80 bg-panel/65 text-sub rounded-lg border px-3 py-2 text-sm'
+                className='border-white/15/80 bg-white/[0.04]/65 rounded-lg border px-3 py-2 text-sm text-white/60'
               >
                 {item}
               </li>

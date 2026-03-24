@@ -75,7 +75,7 @@ export default function RotatingHerbCard() {
         aria-live='polite'
         className='relative mx-auto mt-6 flex min-h-[16rem] min-w-[280px] justify-center'
       >
-        <div className='glass-card hover-glow absolute inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'>
+        <div className='glass-card absolute inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'>
           {imageProps && (
             <img
               {...imageProps}
@@ -92,11 +92,11 @@ export default function RotatingHerbCard() {
           </h3>
           {(() => {
             const effects = splitField(herb.effects).slice(0, 3).join(', ')
-            return effects ? <p className='text-sand mt-1 text-sm'>{effects}</p> : null
+            return effects ? <p className='mt-1 text-sm text-white/70'>{effects}</p> : null
           })()}
           <Link
             to={herb.slug ? `/herb/${herb.slug}` : `/herbs#${slugify(herbName(herb))}`}
-            className='hover-glow text-sand mt-3 inline-block rounded-md bg-black/30 px-4 py-2 backdrop-blur-md hover:rotate-1'
+            className='mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-white/70 backdrop-blur-md hover:rotate-1'
           >
             More Info
           </Link>
@@ -119,7 +119,7 @@ export default function RotatingHerbCard() {
             const eff = splitField(herb.effects).slice(0, 2).join(', ')
             return eff ? ` – ${eff}` : ''
           })()}`}
-          className='glass-card hover-glow absolute inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
+          className='glass-card absolute inset-0 flex w-full flex-col justify-center rounded-xl p-4 text-center shadow-lg'
           initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
@@ -148,12 +148,12 @@ export default function RotatingHerbCard() {
             </h3>
             {(() => {
               const effects = splitField(herb.effects).slice(0, 3).join(', ')
-              return effects ? <p className='text-sand mt-1 text-sm'>{effects}</p> : null
+              return effects ? <p className='mt-1 text-sm text-white/70'>{effects}</p> : null
             })()}
           </button>
           <Link
             to={herb.slug ? `/herb/${herb.slug}` : `/herbs#${slugify(herbName(herb))}`}
-            className='hover-glow text-sand mt-3 inline-block rounded-md bg-black/30 px-4 py-2 backdrop-blur-md hover:rotate-1'
+            className='mt-3 inline-block rounded-md bg-black/30 px-4 py-2 text-white/70 backdrop-blur-md hover:rotate-1'
           >
             More Info
           </Link>

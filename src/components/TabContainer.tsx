@@ -41,7 +41,7 @@ export default function TabContainer({ tabs }: Props) {
 
   return (
     <div>
-      <div className='border-comet/30 flex gap-2 border-b'>
+      <div className='border-white/20/30 flex gap-2 border-b'>
         {tabs.map((t, i) => (
           <button
             key={t.id}

@@ -80,7 +80,7 @@ export default function HerbBlender() {
       />
       <div className='mx-auto max-w-6xl space-y-6'>
         <MotionH1
-          className='text-gradient text-center text-5xl font-bold'
+          className='gradient-text text-center text-5xl font-bold'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
         >

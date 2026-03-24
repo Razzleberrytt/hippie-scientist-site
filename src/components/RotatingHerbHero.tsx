@@ -48,7 +48,7 @@ export default function RotatingHerbHero() {
   }, [items, index])
 
   if (loading) {
-    return <div className='text-sand mx-auto mt-8 text-center'>Loading featured herb...</div>
+    return <div className='mx-auto mt-8 text-center text-white/70'>Loading featured herb...</div>
   }
 
   const herb = items[index]
@@ -93,7 +93,7 @@ export default function RotatingHerbHero() {
           )}
           {(() => {
             const effects = splitField(herb.effects).slice(0, 3).join(', ')
-            return effects ? <p className='text-sand mt-1 text-sm'>{effects}</p> : null
+            return effects ? <p className='mt-1 text-sm text-white/70'>{effects}</p> : null
           })()}
           <motion.div
             className='pointer-events-none absolute inset-0 rounded-2xl border-2 border-fuchsia-500/40'

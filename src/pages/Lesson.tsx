@@ -8,7 +8,7 @@ const Lesson: React.FC = () => {
       <h1 className='mb-4 text-3xl font-bold text-white'>
         {slug ? `Lesson: ${slug}` : 'Lesson not found'}
       </h1>
-      <p className='text-sand mb-4'>
+      <p className='mb-4 text-white/70'>
         {slug ? `We couldn't find the lesson "${slug}".` : "We couldn't find that lesson."}
       </p>
       <Link to='/learn' className='text-comet underline'>
