@@ -50,6 +50,9 @@ export default function NavBar() {
             <NavLink to='/learning' className={`${linkBase} ${linkDim}`}>
               Learning Paths
             </NavLink>
+            <NavLink to='/interactions' className={`${linkBase} ${linkSolid}`}>
+              Interaction Checker
+            </NavLink>
             <NavLink to='/favorites' className={`${linkBase} ${linkDim}`}>
               Saved
             </NavLink>
@@ -90,6 +93,13 @@ export default function NavBar() {
               onClick={() => setMenuOpen(false)}
             >
               Learning Paths
+            </NavLink>
+            <NavLink
+              to='/interactions'
+              className={`${linkBase} ${linkSolid} justify-start`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Interaction Checker
             </NavLink>
             <NavLink
               to='/favorites'
