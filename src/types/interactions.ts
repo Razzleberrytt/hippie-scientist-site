@@ -8,16 +8,24 @@ export type InteractionFinding = {
   title: string
   severity: InteractionSeverity
   confidence: InteractionConfidence
+  confidenceScore: number
   basis: InteractionFindingBasis
   summary: string
+  explanation: string
+  sharedTagCount: number
+  overlappingMechanismCount: number
+  overlappingMechanisms: string[]
   evidenceBasis: string[]
 }
 
 export type InteractionReport = {
   items: string[]
   findings: InteractionFinding[]
+  summary: string
+  keySignals: string[]
   overallSeverity: InteractionSeverity
   overallConfidence: InteractionConfidence
+  overallConfidenceScore: number
   dataLimited: boolean
   notes: string[]
 }

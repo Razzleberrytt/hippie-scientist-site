@@ -57,6 +57,13 @@ function FindingRow({ finding }: { finding: InteractionFinding }) {
         </span>
       </div>
       <p className='text-sm text-white/85'>{finding.summary}</p>
+      <p className='rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white/80'>
+        {finding.explanation}
+      </p>
+      <p className='text-xs text-white/70'>
+        signal strength: shared tags {finding.sharedTagCount} · overlapping mechanisms{' '}
+        {finding.overlappingMechanismCount} · confidence score {finding.confidenceScore}/100
+      </p>
       {finding.evidenceBasis.length > 0 && (
         <details className='rounded-lg border border-white/10 bg-black/20 p-3'>
           <summary className='cursor-pointer text-xs font-medium uppercase tracking-wide text-white/75'>
@@ -109,12 +116,13 @@ export default function InteractionReportCard({
         <span
           className={`rounded-full border px-2.5 py-1 text-xs uppercase tracking-wide ${confidenceClasses(report.overallConfidence)}`}
         >
-          overall confidence: {report.overallConfidence}
+          overall confidence: {report.overallConfidence} ({report.overallConfidenceScore}/100)
         </span>
         {actions ? <div className='ml-auto flex flex-wrap gap-2'>{actions}</div> : null}
       </div>
 
       <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-xs text-white/75'>
+        <p className='mb-2 text-sm text-white/85'>{report.summary}</p>
         <p>
           <span className='font-semibold text-white/90'>Severity</span> estimates the strength of
           overlap/caution signals across your selected items.
@@ -124,6 +132,19 @@ export default function InteractionReportCard({
           available structured mechanism/safety data, not certainty of real-world outcomes.
         </p>
       </div>
+
+      {report.keySignals.length > 0 && (
+        <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-white/80'>
+          <h3 className='mb-2 text-xs font-semibold uppercase tracking-wide text-white/70'>
+            Key interaction signals
+          </h3>
+          <ul className='list-disc space-y-1 pl-5'>
+            {report.keySignals.map(signal => (
+              <li key={signal}>{signal}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {report.dataLimited && (
         <p className='rounded-xl border border-amber-300/35 bg-amber-500/10 px-4 py-3 text-sm text-amber-100'>
