@@ -1,13 +1,31 @@
 import React from 'react'
 import { motion } from '@/lib/motion'
 import PanelWrapper from '../components/PanelWrapper'
-import LearnTabs from '../components/LearnTabs'
+import LearnTabs, { type LearnSection } from '../components/LearnTabs'
 import StarfieldBackground from '../components/StarfieldBackground'
 import FloatingParticles from '../components/FloatingParticles'
-import { learnSections } from '../data/learnContent.enrichedXL'
 import Meta from '../components/Meta'
 
 export default function Learn() {
+  const [sections, setSections] = React.useState<LearnSection[] | null>(null)
+
+  React.useEffect(() => {
+    let alive = true
+    import('../data/learnContent.enrichedXL')
+      .then(module => {
+        if (!alive) return
+        setSections(module.learnSections as LearnSection[])
+      })
+      .catch(() => {
+        if (!alive) return
+        setSections([])
+      })
+
+    return () => {
+      alive = false
+    }
+  }, [])
+
   return (
     <div className='relative min-h-screen px-4 pt-20'>
       <StarfieldBackground />
@@ -16,7 +34,7 @@ export default function Learn() {
         <Meta
           title='Learn - The Hippie Scientist'
           description='Educational resources on psychoactive herbs and practices.'
-          path='/learn'
+          path='/learning'
         />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +50,14 @@ export default function Learn() {
           </p>
         </motion.div>
         <PanelWrapper className='mx-auto max-w-5xl'>
-          <LearnTabs sections={learnSections} />
+          {sections ? (
+            <LearnTabs sections={sections} />
+          ) : (
+            <div className='animate-pulse space-y-4' aria-busy='true' aria-live='polite'>
+              <div className='h-8 w-64 rounded bg-white/10' />
+              <div className='h-40 rounded-xl bg-white/10' />
+            </div>
+          )}
         </PanelWrapper>
       </div>
     </div>

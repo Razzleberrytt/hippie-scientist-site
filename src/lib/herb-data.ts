@@ -119,18 +119,31 @@ export async function loadHerbData(): Promise<Herb[]> {
 }
 
 export function useHerbData() {
+  const { herbs } = useHerbDataState()
+  return herbs
+}
+
+export function useHerbDataState() {
   const [herbs, setHerbs] = useState<Herb[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
     let alive = true
+    setIsLoading(true)
+    setError(null)
+
     loadHerbData()
       .then(items => {
         if (!alive) return
         setHerbs(items)
+        setIsLoading(false)
       })
-      .catch(() => {
+      .catch(cause => {
         if (!alive) return
         setHerbs([])
+        setError(cause instanceof Error ? cause : new Error('Failed to load herb data'))
+        setIsLoading(false)
       })
 
     return () => {
@@ -138,5 +151,5 @@ export function useHerbData() {
     }
   }, [])
 
-  return herbs
+  return { herbs, isLoading, error }
 }

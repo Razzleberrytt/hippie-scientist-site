@@ -120,18 +120,31 @@ export async function loadCompoundData(): Promise<CompoundRecord[]> {
 }
 
 export function useCompoundData() {
+  const { compounds } = useCompoundDataState()
+  return compounds
+}
+
+export function useCompoundDataState() {
   const [compounds, setCompounds] = useState<CompoundRecord[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
     let alive = true
+    setIsLoading(true)
+    setError(null)
+
     loadCompoundData()
       .then(items => {
         if (!alive) return
         setCompounds(items)
+        setIsLoading(false)
       })
-      .catch(() => {
+      .catch(cause => {
         if (!alive) return
         setCompounds([])
+        setError(cause instanceof Error ? cause : new Error('Failed to load compound data'))
+        setIsLoading(false)
       })
 
     return () => {
@@ -139,5 +152,5 @@ export function useCompoundData() {
     }
   }, [])
 
-  return compounds
+  return { compounds, isLoading, error }
 }
