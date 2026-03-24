@@ -1,3 +1,5 @@
+import { appendAnalyticsEvent, readAnalyticsEvents } from '@/utils/analytics/eventStorage'
+
 export type CollectionEventName =
   | 'collection_page_view'
   | 'collection_cta_click'
@@ -13,48 +15,41 @@ export type CollectionEventPayload = {
 }
 
 export type CollectionTrackedEvent = {
-  name: CollectionEventName
-  at: string
-  payload: CollectionEventPayload
+  type: CollectionEventName
+  slug?: string
+  item?: string
+  comboId?: string
+  timestamp: number
 }
 
-const COLLECTION_EVENTS_KEY = 'hs_collection_funnel_events_v1'
-const COLLECTION_EVENT_LIMIT = 300
-
-function readEvents(): CollectionTrackedEvent[] {
-  if (typeof window === 'undefined') return []
-
-  try {
-    const parsed = JSON.parse(window.localStorage.getItem(COLLECTION_EVENTS_KEY) || '[]')
-    return Array.isArray(parsed) ? (parsed as CollectionTrackedEvent[]) : []
-  } catch {
-    return []
+function inferItem(payload: CollectionEventPayload) {
+  if (typeof payload.itemName === 'string' && payload.itemName.trim()) {
+    return payload.itemName
   }
-}
 
-function persistEvents(events: CollectionTrackedEvent[]) {
-  if (typeof window === 'undefined') return
-  window.localStorage.setItem(
-    COLLECTION_EVENTS_KEY,
-    JSON.stringify(events.slice(0, COLLECTION_EVENT_LIMIT))
-  )
+  if (typeof payload.itemSlug === 'string' && payload.itemSlug.trim()) {
+    return payload.itemSlug
+  }
+
+  return undefined
 }
 
 export function trackCollectionEvent(name: CollectionEventName, payload: CollectionEventPayload) {
   if (typeof window === 'undefined') return
 
-  const event: CollectionTrackedEvent = {
-    name,
-    at: new Date().toISOString(),
-    payload,
-  }
-
-  persistEvents([event, ...readEvents()])
+  const event = appendAnalyticsEvent({
+    type: name,
+    slug: payload.slug,
+    item: inferItem(payload),
+    comboId: typeof payload.comboId === 'string' ? payload.comboId : undefined,
+  })
 
   if (import.meta.env.DEV) {
     // eslint-disable-next-line no-console
     console.info('[collection-funnel]', name, payload)
   }
+
+  if (!event) return
 
   window.dispatchEvent(
     new CustomEvent('hs:collection-funnel', {
@@ -63,6 +58,8 @@ export function trackCollectionEvent(name: CollectionEventName, payload: Collect
   )
 }
 
-export function getTrackedCollectionEvents() {
-  return readEvents()
+export function getTrackedCollectionEvents(): CollectionTrackedEvent[] {
+  return readAnalyticsEvents().filter((event): event is CollectionTrackedEvent =>
+    event.type.startsWith('collection_')
+  )
 }

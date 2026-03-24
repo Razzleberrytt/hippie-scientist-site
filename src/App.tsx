@@ -38,6 +38,7 @@ const HerbGoalPage = lazy(() => import('./pages/HerbGoalPage'))
 const Methodology = lazy(() => import('./pages/Methodology'))
 const InteractionsPage = lazy(() => import('./pages/InteractionsPage'))
 const CollectionPage = lazy(() => import('./pages/CollectionPage'))
+const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'))
 import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
 // Import other pages as needed
@@ -77,6 +78,7 @@ export default function App() {
                 <Route path='/methodology' element={<Methodology />} />
                 <Route path='/interactions' element={<InteractionsPage />} />
                 <Route path='/collections/:slug' element={<CollectionPage />} />
+                <Route path='/analytics' element={<AnalyticsPage />} />
                 {/* Add other routes here */}
                 <Route path='/blog' element={<BlogList />} />
                 <Route path='/blog/page/:page' element={<BlogList />} />
