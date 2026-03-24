@@ -116,6 +116,9 @@ export function saveReport(items: InteractionCatalogItem[]): SavedInteractionRep
 
 export function buildReportSummary(report: InteractionReport): string {
   const itemLine = report.items.join(' + ')
+  const keySignalLines = report.keySignals.length
+    ? report.keySignals.map(signal => `- ${signal}`)
+    : ['- No key interaction signals were generated.']
   const summaryLines = report.findings.length
     ? report.findings.map(finding => {
         const confidenceDetail =
@@ -124,7 +127,7 @@ export function buildReportSummary(report: InteractionReport): string {
             : finding.basis === 'mixed'
               ? 'structured + inferred signals'
               : 'inferred signals'
-        return `- ${finding.title}: ${finding.summary} (Severity: ${finding.severity}; Confidence: ${finding.confidence} - ${confidenceDetail})`
+        return `- ${finding.title}: ${finding.summary} ${finding.explanation} (Severity: ${finding.severity}; Confidence: ${finding.confidence} [${finding.confidenceScore}/100] - ${confidenceDetail})`
       })
     : ['- No strong structured interaction signals were detected in the current dataset.']
 
@@ -132,10 +135,16 @@ export function buildReportSummary(report: InteractionReport): string {
     itemLine,
     '',
     'Summary:',
+    report.summary,
+    '',
+    'Key interaction signals:',
+    ...keySignalLines,
+    '',
+    'Detailed signals:',
     ...summaryLines,
     '',
     `Overall severity: ${report.overallSeverity}`,
-    `Overall confidence: ${report.overallConfidence}`,
+    `Overall confidence: ${report.overallConfidence} (${report.overallConfidenceScore}/100)`,
     '',
     'Note:',
     'This tool is for harm reduction and educational purposes only.',
