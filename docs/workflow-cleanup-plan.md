@@ -240,3 +240,14 @@ To keep maintenance low while preserving core automation:
   1. `deploy.yml`
   2. `daily-blog.yml`
   3. `data-audit.yml` (optional)
+
+## 2026-03-25 update: production deploy target mismatch and SPA routing fix
+
+- Confirmed live production for `thehippiescientist.net` is served by **Vercel** (response headers include `x-vercel-id`), not GitHub Pages.
+- This explains why GitHub Actions `gh-pages` deployment success did not guarantee live-route behavior.
+- Kept the workflow set minimal and unchanged (`deploy.yml`, `daily-blog.yml`, `data-audit.yml`) while documenting runtime host reality.
+- Added explicit `vercel.json` deployment contract:
+  - `buildCommand: npm run build`
+  - `outputDirectory: dist`
+  - filesystem-first routing + catch-all SPA fallback to `/index.html` for BrowserRouter routes.
+- Removed obsolete root-level static route folders (`about`, `blog`, `contact`, `disclaimer`, `privacy-policy`, `herb-index`) that could mask SPA behavior on static hosting.
