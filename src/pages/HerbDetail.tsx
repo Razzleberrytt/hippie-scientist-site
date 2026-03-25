@@ -4,6 +4,7 @@ import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useHerbDataState } from '@/lib/herb-data'
+import { useCompoundDataState } from '@/lib/compound-data'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
@@ -87,9 +88,14 @@ function ListSection({ items }: { items: string[] }) {
   )
 }
 
+function normalizeKey(value: string) {
+  return value.trim().toLowerCase()
+}
+
 export default function HerbDetail() {
   const { slug = '' } = useParams()
   const { herbs, isLoading } = useHerbDataState()
+  const { compounds } = useCompoundDataState()
   const herb = herbs.find(item => item.slug === slug)
 
   if (isLoading) {
@@ -126,6 +132,32 @@ export default function HerbDetail() {
     : splitClean(herb.sideeffects)
   const sources = toSources(herb.sources)
   const primaryEffects = extractPrimaryEffects(effects, 4)
+  const compoundByName = new Map(compounds.map(compound => [normalizeKey(compound.name), compound]))
+  const linkedCompounds = activeCompounds.map(name => {
+    const record = compoundByName.get(normalizeKey(name))
+    return {
+      name,
+      slug: record?.slug || '',
+      explanation: record?.mechanism || record?.description || '',
+      whyItMatters: record?.effects?.slice(0, 2).join(' + ') || '',
+    }
+  })
+
+  const compoundKeys = new Set(activeCompounds.map(normalizeKey))
+  const relatedHerbs = herbs
+    .filter(other => other.slug !== herb.slug)
+    .map(other => {
+      const otherCompounds = Array.isArray(other.activeCompounds) ? other.activeCompounds : []
+      const sharedCompounds = otherCompounds.filter(item => compoundKeys.has(normalizeKey(item)))
+      return {
+        slug: String(other.slug || ''),
+        name: String(other.common || other.name || other.slug),
+        sharedCompounds,
+      }
+    })
+    .filter(item => item.slug && item.sharedCompounds.length > 0)
+    .sort((a, b) => b.sharedCompounds.length - a.sharedCompounds.length)
+    .slice(0, 4)
 
   // Scalar fields already cleaned by normalization
   const description = herb.description || ''
@@ -231,9 +263,51 @@ export default function HerbDetail() {
 
         {mechanism && <Section title='Mechanism of Action'>{mechanism}</Section>}
 
-        {activeCompounds.length > 0 && (
-          <Section title='Active Compounds'>
-            <TagList items={activeCompounds} />
+        {linkedCompounds.length > 0 && (
+          <Section title='Key Active Compounds'>
+            <div className='space-y-3'>
+              <div className='flex flex-wrap gap-2'>
+                {linkedCompounds.map(compound =>
+                  compound.slug ? (
+                    <Link
+                      key={compound.name}
+                      to={`/compounds/${encodeURIComponent(compound.slug)}`}
+                      className='ds-pill transition hover:border-white/30'
+                    >
+                      {compound.name}
+                    </Link>
+                  ) : (
+                    <span key={compound.name} className='ds-pill'>
+                      {compound.name}
+                    </span>
+                  )
+                )}
+              </div>
+              <div className='space-y-2 text-white/75'>
+                {linkedCompounds.slice(0, 3).map(compound => (
+                  <p key={`${compound.name}-summary`}>
+                    <span className='font-semibold text-white'>{compound.name}:</span>{' '}
+                    {compound.explanation || 'Mechanism summary is still being expanded.'}{' '}
+                    {compound.whyItMatters ? `Why it matters: ${compound.whyItMatters}.` : ''}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </Section>
+        )}
+
+        {relatedHerbs.length > 0 && (
+          <Section title='Herb Overlap via Shared Compounds'>
+            <div className='space-y-2'>
+              {relatedHerbs.map(other => (
+                <p key={other.slug}>
+                  <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
+                    {other.name}
+                  </Link>{' '}
+                  shares {other.sharedCompounds.join(', ')}.
+                </p>
+              ))}
+            </div>
           </Section>
         )}
 
