@@ -36,6 +36,10 @@ function ListSection({ items }: { items: string[] }) {
   )
 }
 
+function normalizeKey(value: string) {
+  return value.trim().toLowerCase()
+}
+
 export default function CompoundDetail() {
   const { slug = '' } = useParams()
   const { compounds, isLoading: isCompoundLoading } = useCompoundDataState()
@@ -57,13 +61,37 @@ export default function CompoundDetail() {
     )
   }
 
+  const compoundNameKey = normalizeKey(compound.name)
   const herbMap = new Map(
-    herbs.map(herb => [String(herb.common || herb.name || herb.slug).toLowerCase(), herb.slug])
+    herbs.map(herb => [normalizeKey(String(herb.common || herb.name || herb.slug)), herb.slug])
   )
-  const linkedHerbs = compound.herbs.map(name => ({
+
+  const herbsFromCompound = compound.herbs.map(name => ({
     name,
-    slug: herbMap.get(name.toLowerCase()) || slugify(name),
+    slug: herbMap.get(normalizeKey(name)) || slugify(name),
   }))
+
+  const herbsFromConstituentMatch = herbs
+    .filter(herb => {
+      const compounds = Array.isArray(herb.activeCompounds) ? herb.activeCompounds : []
+      return compounds.some(item => normalizeKey(item) === compoundNameKey)
+    })
+    .map(herb => ({
+      name: String(herb.common || herb.name || herb.slug),
+      slug: String(herb.slug),
+    }))
+
+  const linkedHerbs = Array.from(
+    new Map(
+      [...herbsFromCompound, ...herbsFromConstituentMatch].map(herb => [
+        normalizeKey(herb.name),
+        herb,
+      ])
+    ).values()
+  )
+
+  const whyItMatters = compound.effects.slice(0, 2).join(' + ')
+  const doesText = compound.mechanism || compound.description
 
   const confidence =
     compound.confidence ??
@@ -140,6 +168,26 @@ export default function CompoundDetail() {
         {/* Core fields — only render when value is present */}
         {compound.description && <Section title='Overview'>{compound.description}</Section>}
 
+        {(doesText || whyItMatters) && (
+          <Section title='Why This Compound Matters'>
+            <div className='space-y-2'>
+              {doesText && (
+                <p>
+                  <span className='font-semibold text-white'>What it does:</span> {doesText}
+                </p>
+              )}
+              {whyItMatters && (
+                <p>
+                  <span className='font-semibold text-white'>Why it matters:</span> This helps
+                  explain why {compound.name} is discussed in herbal profiles for{' '}
+                  {linkedHerbs.length > 0 ? `${linkedHerbs.length} herb(s)` : 'multiple herbs'}.
+                  Commonly tracked outcomes include {whyItMatters}.
+                </p>
+              )}
+            </div>
+          </Section>
+        )}
+
         {compound.mechanism && <Section title='Mechanism of Action'>{compound.mechanism}</Section>}
 
         {compound.effects.length > 0 && (
@@ -187,7 +235,7 @@ export default function CompoundDetail() {
 
         {/* Associated herbs */}
         {linkedHerbs.length > 0 && (
-          <Section title='Found In'>
+          <Section title='Herbs Containing This Compound'>
             <div className='flex flex-wrap gap-2'>
               {linkedHerbs.map(herb => (
                 <Link
