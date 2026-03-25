@@ -1,100 +1,30 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { LearningPanelSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { useLearningProgress } from '@/lib/growth'
-
-type PathItem = { id: string; title: string; href: string; type: 'herb' | 'compound' | 'article' }
-type LearningPath = { id: string; title: string; description: string; items: PathItem[] }
-
-const PATHS: LearningPath[] = [
-  {
-    id: 'beginner-effects',
-    title: 'Beginner: Understanding Herbal Effects',
-    description: 'Start with gentle profiles, then compare mechanism claims with observed effects.',
-    items: [
-      {
-        id: 'h-passionflower',
-        title: 'Passionflower profile',
-        href: '/herbs/passionflower',
-        type: 'herb',
-      },
-      { id: 'h-gotu-kola', title: 'Gotu Kola profile', href: '/herbs/gotu-kola', type: 'herb' },
-      {
-        id: 'c-apigenin',
-        title: 'Apigenin mechanism',
-        href: '/compounds/apigenin',
-        type: 'compound',
-      },
-      {
-        id: 'a-read-research',
-        title: 'How to read herbal research',
-        href: '/blog/how-to-read-herbal-research',
-        type: 'article',
-      },
-    ],
-  },
-  {
-    id: 'psychedelic-mechanisms',
-    title: 'Psychedelic Mechanisms 101',
-    description: 'Map receptor hypotheses and uncertainty boundaries before interpreting outcomes.',
-    items: [
-      { id: 'h-blue-lotus', title: 'Blue Lotus profile', href: '/herbs/blue-lotus', type: 'herb' },
-      {
-        id: 'h-calea',
-        title: 'Calea zacatechichi profile',
-        href: '/herbs/calea-zacatechichi',
-        type: 'herb',
-      },
-      {
-        id: 'c-muscimol',
-        title: 'Muscimol profile',
-        href: '/compounds/muscimol',
-        type: 'compound',
-      },
-      {
-        id: 'a-what-psychoactive-herb',
-        title: 'What is a psychoactive herb?',
-        href: '/blog/what-is-a-psychoactive-herb',
-        type: 'article',
-      },
-    ],
-  },
-  {
-    id: 'safety-risk',
-    title: 'Safety & Risk Awareness',
-    description: 'Build a repeatable process for contraindications, side effects, and context.',
-    items: [
-      { id: 'h-valerian', title: 'Valerian profile', href: '/herbs/valerian', type: 'herb' },
-      { id: 'h-kava', title: 'Kava profile', href: '/herbs/kava', type: 'herb' },
-      {
-        id: 'c-kavalactones',
-        title: 'Kavalactones overview',
-        href: '/blog/kava-safety-kavalactones',
-        type: 'article',
-      },
-    ],
-  },
-  {
-    id: 'traditional-modern',
-    title: 'Traditional vs Modern Use',
-    description: 'Compare ethnobotanical context with modern extraction and dosing assumptions.',
-    items: [
-      {
-        id: 'h-ashwagandha',
-        title: 'Ashwagandha profile',
-        href: '/herbs/ashwagandha',
-        type: 'herb',
-      },
-      { id: 'h-rhodiola', title: 'Rhodiola profile', href: '/herbs/rhodiola-rosea', type: 'herb' },
-      {
-        id: 'a-traditional-use',
-        title: 'Traditional use notes',
-        href: '/blog/2026-03-17-traditional-use-ashwagandha',
-        type: 'article',
-      },
-    ],
-  },
-]
+import type { LearningPath } from '@/data/learning-paths'
 
 export default function LearningPaths() {
+  const [paths, setPaths] = useState<LearningPath[] | null>(null)
+
+  useEffect(() => {
+    let alive = true
+
+    import('@/data/learning-paths')
+      .then(module => {
+        if (!alive) return
+        setPaths(module.learningPaths)
+      })
+      .catch(() => {
+        if (!alive) return
+        setPaths([])
+      })
+
+    return () => {
+      alive = false
+    }
+  }, [])
+
   return (
     <main className='container mx-auto max-w-5xl px-4 py-8'>
       <header className='card p-6'>
@@ -107,11 +37,17 @@ export default function LearningPaths() {
         </p>
       </header>
 
-      <section className='mt-6 grid gap-5'>
-        {PATHS.map(path => (
-          <PathCard key={path.id} path={path} />
-        ))}
-      </section>
+      {paths === null ? (
+        <section className='mt-6'>
+          <LearningPanelSkeleton />
+        </section>
+      ) : (
+        <section className='mt-6 grid gap-5'>
+          {paths.map(path => (
+            <PathCard key={path.id} path={path} />
+          ))}
+        </section>
+      )}
     </main>
   )
 }

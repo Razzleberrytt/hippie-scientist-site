@@ -1,8 +1,0 @@
-std = "roblox"
-[rules]
-global_usage = "warn"
-shadowing = "warn"
-unused_variable = "warn"
-# elevate obvious foot-guns
-unscoped_variables = "deny"
-mixed_table = "deny"
