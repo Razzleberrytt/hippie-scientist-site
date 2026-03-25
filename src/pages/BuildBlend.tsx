@@ -30,6 +30,7 @@ type StackOutput = {
 }
 
 const LOCAL_STACK_KEY = 'ths:personal-herb-stack'
+const STACK_SHARE_PARAM = 's'
 const MAX_NOTES = 6
 
 const INTENT_COPY: Record<StackIntent, { label: string; timing: string[] }> = {
@@ -75,15 +76,30 @@ function normalizeList(value: unknown): string[] {
 }
 
 function encodeStackPlan(plan: StackPlan): string {
-  const serialized = JSON.stringify(plan)
-  return btoa(encodeURIComponent(serialized))
+  const compact = [plan.intent, ...plan.herbSlugs].map(item => item.trim().toLowerCase()).join('.')
+  return encodeURIComponent(compact)
 }
 
 function decodeStackPlan(input: string | null): StackPlan | null {
   if (!input) return null
   try {
-    const raw = decodeURIComponent(atob(input))
-    const parsed = JSON.parse(raw) as StackPlan
+    const raw = decodeURIComponent(input).trim()
+    const [intentToken, ...slugTokens] = raw.split('.')
+    const isIntent =
+      intentToken === 'sleep' || intentToken === 'focus' || intentToken === 'relaxation'
+    if (isIntent && slugTokens.length > 0) {
+      return {
+        intent: intentToken,
+        herbSlugs: slugTokens.map(item => item.trim().toLowerCase()).filter(Boolean),
+      }
+    }
+  } catch {
+    // Continue into legacy decoder.
+  }
+
+  try {
+    const legacyRaw = decodeURIComponent(atob(input))
+    const parsed = JSON.parse(legacyRaw) as StackPlan
     const isIntent =
       parsed.intent === 'sleep' || parsed.intent === 'focus' || parsed.intent === 'relaxation'
     if (!isIntent || !Array.isArray(parsed.herbSlugs)) return null
@@ -178,7 +194,9 @@ export default function BuildBlend() {
 
   useEffect(() => {
     if (!herbs.length) return
-    const fromQuery = decodeStackPlan(searchParams.get('stack'))
+    const fromQuery = decodeStackPlan(
+      searchParams.get(STACK_SHARE_PARAM) ?? searchParams.get('stack')
+    )
     const fromStorage = decodeStackPlan(window.localStorage.getItem(LOCAL_STACK_KEY))
     const restored = fromQuery || fromStorage
     if (!restored) return
@@ -226,19 +244,32 @@ export default function BuildBlend() {
 
     const plan: StackPlan = { intent, herbSlugs: selectedSlugs }
     const serialized = encodeStackPlan(plan)
-    setSearchParams({ stack: serialized }, { replace: true })
+    setSearchParams({ [STACK_SHARE_PARAM]: serialized }, { replace: true })
     window.localStorage.setItem(LOCAL_STACK_KEY, serialized)
   }
 
   const handleCopyShareLink = async () => {
+    const serialized = encodeStackPlan({ intent, herbSlugs: selectedSlugs })
+    const shareLink = `${window.location.origin}${window.location.pathname}${window.location.hash.split('?')[0]}?${STACK_SHARE_PARAM}=${serialized}`
     try {
-      await navigator.clipboard.writeText(window.location.href)
+      await navigator.clipboard.writeText(shareLink)
       setShareStatus('copied')
       window.setTimeout(() => setShareStatus('idle'), 1800)
     } catch {
-      window.prompt('Copy stack link', window.location.href)
+      window.prompt('Copy stack link', shareLink)
     }
   }
+  const shareLink =
+    typeof window === 'undefined'
+      ? ''
+      : `${window.location.origin}${window.location.pathname}${window.location.hash.split('?')[0]}?${STACK_SHARE_PARAM}=${encodeStackPlan(
+          {
+            intent,
+            herbSlugs: selectedSlugs,
+          }
+        )}`
+  const encodedShareLink = encodeURIComponent(shareLink)
+  const shareText = encodeURIComponent('Custom herb stack from The Hippie Scientist')
 
   const exportPdf = () => {
     if (!result) return
@@ -461,6 +492,24 @@ export default function BuildBlend() {
                 {shareStatus === 'copied' ? (
                   <p className='text-xs text-emerald-300'>Link copied.</p>
                 ) : null}
+              </div>
+              <div className='mt-3 flex flex-wrap gap-2 text-xs'>
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${shareText}&url=${encodedShareLink}`}
+                  target='_blank'
+                  rel='noreferrer'
+                  className='rounded-full border border-white/20 px-3 py-1.5 text-white/80 hover:bg-white/[0.08]'
+                >
+                  Share on X
+                </a>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodedShareLink}`}
+                  target='_blank'
+                  rel='noreferrer'
+                  className='rounded-full border border-white/20 px-3 py-1.5 text-white/80 hover:bg-white/[0.08]'
+                >
+                  Share on Facebook
+                </a>
               </div>
             </Card>
 

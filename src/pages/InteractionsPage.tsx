@@ -21,8 +21,10 @@ import {
   buildShareCardText,
   buildShareItemsValue,
   buildShareUrl,
+  buildStackShareToken,
   getSavedReports,
   parseItemsFromSearch,
+  parseStackShareToken,
   saveReport,
   type SavedInteractionReport,
 } from '@/utils/interactions/reportSharing'
@@ -62,6 +64,7 @@ const INTERACTION_ENGAGEMENT_KEY = 'hs_interaction_engagement_v1'
 const INTERACTION_LEAD_CAPTURED_KEY = 'hs_interaction_lead_captured_v1'
 const INTERACTION_COMBO_USAGE_KEY = 'hs_interaction_combo_usage_v1'
 const STACK_EMAIL_GATE_KEY = 'hs_stack_builder_email_v1'
+const STACK_SHARE_PARAM = 'stack'
 const MAX_SELECTION = 3
 
 const DEFAULT_ENGAGEMENT: InteractionEngagementCounters = {
@@ -321,7 +324,7 @@ export default function InteractionsPage() {
 
     const sharedItems = buildShareItemsValue(entry.resolvedItems, catalog)
     if (sharedItems) {
-      navigate(`/interactions?items=${sharedItems}`, { replace: true })
+      navigate(`/interactions?r=${sharedItems}`, { replace: true })
     }
 
     setComboUsage(prev => {
@@ -371,7 +374,7 @@ export default function InteractionsPage() {
     setLeadContext('after-report')
     const sharedItems = buildShareItemsValue(selectedItems, catalog)
     if (sharedItems) {
-      navigate(`/interactions?items=${sharedItems}`, { replace: true })
+      navigate(`/interactions?r=${sharedItems}`, { replace: true })
     }
   }
 
@@ -412,6 +415,8 @@ export default function InteractionsPage() {
   useEffect(() => {
     if (!catalog.length) return
     const parsed = parseItemsFromSearch(location.search, catalog)
+    const params = new URLSearchParams(location.search)
+    const stackShared = parseStackShareToken(params.get(STACK_SHARE_PARAM))
     if (parsed.items.length > 0) {
       setSelectedItems(parsed.items)
       if (parsed.items.length >= 2) {
@@ -421,6 +426,30 @@ export default function InteractionsPage() {
         setReport(checkInteractions(sourceItems))
       } else {
         setReport(null)
+      }
+    }
+    if (stackShared?.items?.length) {
+      const stackItems = stackShared.items
+        .map(id => catalog.find(item => item.id === id))
+        .filter((item): item is InteractionCatalogItem => Boolean(item))
+      if (stackItems.length) {
+        setSelectedItems(stackItems)
+      }
+      if (
+        stackShared.intent === 'sleep' ||
+        stackShared.intent === 'focus' ||
+        stackShared.intent === 'relaxation'
+      ) {
+        setStackIntent(stackShared.intent)
+      }
+      if (stackShared.name) {
+        setStackName(stackShared.name)
+      }
+      if (stackItems.length >= 2) {
+        const sourceItems = stackItems
+          .map(item => sourceItemMap.get(item.id))
+          .filter((item): item is InteractionSourceItem => Boolean(item))
+        setReport(checkInteractions(sourceItems))
       }
     }
 
@@ -443,6 +472,15 @@ export default function InteractionsPage() {
       return next
     })
   }
+  const reportShareUrl = useMemo(
+    () =>
+      typeof window === 'undefined' || selectedItems.length < 2
+        ? ''
+        : buildShareUrl(selectedItems, catalog),
+    [catalog, selectedItems]
+  )
+  const reportShareText = encodeURIComponent('Interaction report from The Hippie Scientist')
+  const encodedReportUrl = encodeURIComponent(reportShareUrl)
 
   const onSaveReport = () => {
     if (selectedItems.length < 2) return
@@ -472,7 +510,7 @@ export default function InteractionsPage() {
       .filter((item): item is InteractionSourceItem => Boolean(item))
     setReport(checkInteractions(sourceItems))
     const sharedItems = buildShareItemsValue(reloaded, catalog)
-    navigate(`/interactions?items=${sharedItems}`, { replace: true })
+    navigate(`/interactions?r=${sharedItems}`, { replace: true })
   }
 
   const copyShareCard = async () => {
@@ -567,6 +605,34 @@ export default function InteractionsPage() {
     setStackCopyStatus('copied')
     window.setTimeout(() => setStackCopyStatus('idle'), 1800)
   }
+
+  const buildStackShareUrl = () => {
+    const token = buildStackShareToken({
+      items: activeStackItems.map(item => item.id),
+      intent: stackIntent,
+      name: stackName,
+    })
+    const base = `${window.location.origin}${window.location.pathname}${window.location.hash.split('?')[0]}`
+    return `${base}?${STACK_SHARE_PARAM}=${token}`
+  }
+
+  const copyStackShareLink = async () => {
+    if (activeStackItems.length === 0) return
+    const shareUrl = buildStackShareUrl()
+    await navigator.clipboard.writeText(shareUrl)
+    setStackCopyStatus('copied')
+    window.setTimeout(() => setStackCopyStatus('idle'), 1800)
+  }
+
+  const stackShareUrl = useMemo(
+    () =>
+      typeof window === 'undefined' || activeStackItems.length === 0 ? '' : buildStackShareUrl(),
+    [activeStackItems, stackIntent, stackName]
+  )
+  const stackShareText = encodeURIComponent(
+    `Check out this herb stack on The Hippie Scientist: ${stackName || 'My stack'}`
+  )
+  const encodedStackUrl = encodeURIComponent(stackShareUrl)
 
   const runExport = () => {
     if (activeStackItems.length < 2) return
@@ -808,6 +874,36 @@ export default function InteractionsPage() {
         />
       )}
 
+      {selectedItems.length >= 2 && (
+        <section className='rounded-2xl border border-white/10 bg-black/25 p-5'>
+          <h2 className='text-lg font-semibold text-white'>Share this report</h2>
+          <p className='mt-1 text-xs text-white/65'>
+            Copy and share this link so others can open the same interaction report.
+          </p>
+          <div className='mt-3 flex flex-wrap gap-2 text-xs'>
+            <Button variant='default' onClick={copyShareLink} className='px-3 py-1.5 text-xs'>
+              {copyLinkStatus === 'copied' ? 'Copied!' : 'Copy Report Link'}
+            </Button>
+            <a
+              href={`https://twitter.com/intent/tweet?text=${reportShareText}&url=${encodedReportUrl}`}
+              target='_blank'
+              rel='noreferrer'
+              className='rounded-full border border-white/20 px-3 py-1.5 text-white/80 hover:bg-white/[0.08]'
+            >
+              Share on X
+            </a>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedReportUrl}`}
+              target='_blank'
+              rel='noreferrer'
+              className='rounded-full border border-white/20 px-3 py-1.5 text-white/80 hover:bg-white/[0.08]'
+            >
+              Share on Facebook
+            </a>
+          </div>
+        </section>
+      )}
+
       <section className='space-y-4 rounded-2xl border border-white/10 bg-black/30 p-5'>
         <div className='space-y-1'>
           <h2 className='text-lg font-semibold text-white'>Your Stack</h2>
@@ -880,11 +976,19 @@ export default function InteractionsPage() {
           </Button>
           <Button
             variant='default'
+            onClick={copyStackShareLink}
+            disabled={activeStackItems.length < 1}
+            className='px-3 py-1.5 text-xs'
+          >
+            {stackCopyStatus === 'copied' ? 'Copied!' : 'Copy Stack Link'}
+          </Button>
+          <Button
+            variant='default'
             onClick={copyStack}
             disabled={activeStackItems.length < 1}
             className='px-3 py-1.5 text-xs'
           >
-            {stackCopyStatus === 'copied' ? 'Copied!' : 'Copy Stack'}
+            Copy Stack Notes
           </Button>
           <Button
             variant='default'
@@ -895,6 +999,42 @@ export default function InteractionsPage() {
             Clear Stack
           </Button>
         </div>
+
+        {activeStackItems.length >= 1 && (
+          <div className='rounded-xl border border-white/10 bg-black/20 p-4'>
+            <h3 className='text-sm font-semibold text-white'>Share</h3>
+            <p className='mt-1 text-xs text-white/65'>
+              Share this stack with a clean link. It includes only selected items, intent, and
+              optional stack name.
+            </p>
+            <div className='mt-3 flex flex-wrap gap-2 text-xs'>
+              <a
+                href={`https://twitter.com/intent/tweet?text=${stackShareText}&url=${encodedStackUrl}`}
+                target='_blank'
+                rel='noreferrer'
+                className='rounded-full border border-white/20 px-3 py-1.5 text-white/80 hover:bg-white/[0.08]'
+              >
+                Share on X
+              </a>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodedStackUrl}`}
+                target='_blank'
+                rel='noreferrer'
+                className='rounded-full border border-white/20 px-3 py-1.5 text-white/80 hover:bg-white/[0.08]'
+              >
+                Share on Facebook
+              </a>
+              <a
+                href={`https://www.reddit.com/submit?url=${encodedStackUrl}&title=${stackShareText}`}
+                target='_blank'
+                rel='noreferrer'
+                className='rounded-full border border-white/20 px-3 py-1.5 text-white/80 hover:bg-white/[0.08]'
+              >
+                Share on Reddit
+              </a>
+            </div>
+          </div>
+        )}
 
         {activeStackItems.length >= 2 && (
           <div className='grid gap-3 rounded-xl border border-white/10 bg-black/20 p-4 sm:grid-cols-2'>
