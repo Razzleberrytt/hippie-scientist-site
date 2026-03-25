@@ -8,6 +8,8 @@ export type StackSummary = {
   safetySummary: string
   interactionVerdict: string
   topSignals: string[]
+  watchFor: string[]
+  saferAlternatives: string[]
   basicDosageGuidance: string | null
   disclaimers: string[]
 }
@@ -59,6 +61,12 @@ export function buildStackSummary({
   )[0]
 
   const topSignals = (report?.keySignals || []).slice(0, 4)
+  const watchFor = unique(
+    report?.findings.flatMap(finding => finding.whatToWatchFor || []) || []
+  ).slice(0, 6)
+  const saferAlternatives = unique(
+    report?.findings.flatMap(finding => finding.saferAlternatives || []) || []
+  ).slice(0, 6)
 
   const disclaimers = [
     'Educational use only. Not medical advice.',
@@ -74,6 +82,8 @@ export function buildStackSummary({
     safetySummary,
     interactionVerdict: getVerdict(report?.overallSeverity),
     topSignals,
+    watchFor,
+    saferAlternatives,
     basicDosageGuidance: dosageGuidance || null,
     disclaimers,
   }

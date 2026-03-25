@@ -12,9 +12,14 @@ export type InteractionFinding = {
   basis: InteractionFindingBasis
   summary: string
   explanation: string
+  whatThisMeans: string
+  whatToWatchFor: string[]
+  saferAlternatives: string[]
   sharedTagCount: number
   overlappingMechanismCount: number
   overlappingMechanisms: string[]
+  knownPatternCount: number
+  compoundSimilarityCount: number
   evidenceBasis: string[]
 }
 

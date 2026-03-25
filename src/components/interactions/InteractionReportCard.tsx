@@ -117,6 +117,17 @@ function getWatchFors(report: InteractionReport): string[] {
   return watchFors
 }
 
+function getSaferAlternatives(report: InteractionReport): string[] {
+  return Array.from(
+    new Set(
+      report.findings
+        .flatMap(finding => finding.saferAlternatives || [])
+        .map(entry => entry.trim())
+        .filter(Boolean)
+    )
+  ).slice(0, 6)
+}
+
 function FindingRow({ finding }: { finding: InteractionFinding }) {
   const basisLabel =
     finding.basis === 'structured'
@@ -126,7 +137,7 @@ function FindingRow({ finding }: { finding: InteractionFinding }) {
         : 'based on inferred signals'
 
   return (
-    <article className='space-y-2 rounded-xl border border-white/10 bg-white/[0.03] p-4'>
+    <article className='space-y-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 sm:p-5'>
       <div className='flex flex-wrap items-center gap-2'>
         <h3 className='text-base font-semibold text-white'>{finding.title}</h3>
         <span
@@ -147,9 +158,41 @@ function FindingRow({ finding }: { finding: InteractionFinding }) {
       <p className='rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white/80'>
         {tightenCopy(finding.explanation)}
       </p>
+      <div className='rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white/85'>
+        <p className='text-xs font-semibold uppercase tracking-wide text-white/65'>
+          What this means
+        </p>
+        <p className='mt-1'>{tightenCopy(finding.whatThisMeans)}</p>
+      </div>
+      {finding.whatToWatchFor.length > 0 && (
+        <div className='rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white/80'>
+          <p className='text-xs font-semibold uppercase tracking-wide text-white/65'>
+            What to watch for
+          </p>
+          <ul className='mt-1 list-disc space-y-1 pl-5'>
+            {finding.whatToWatchFor.map(note => (
+              <li key={`${finding.title}-${note}`}>{tightenCopy(note)}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {finding.saferAlternatives.length > 0 && (
+        <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-100'>
+          <p className='text-xs font-semibold uppercase tracking-wide text-emerald-200/90'>
+            Safer alternatives
+          </p>
+          <ul className='mt-1 list-disc space-y-1 pl-5'>
+            {finding.saferAlternatives.map(option => (
+              <li key={`${finding.title}-${option}`}>{tightenCopy(option)}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       <p className='text-xs text-white/70'>
         signal strength: shared tags {finding.sharedTagCount} · overlapping mechanisms{' '}
-        {finding.overlappingMechanismCount} · confidence score {finding.confidenceScore}/100
+        {finding.overlappingMechanismCount} · known patterns {finding.knownPatternCount} · similar
+        item pairs {finding.compoundSimilarityCount} · confidence score {finding.confidenceScore}
+        /100
       </p>
       {finding.evidenceBasis.length > 0 && (
         <details className='rounded-lg border border-white/10 bg-black/20 p-3'>
@@ -201,6 +244,7 @@ export default function InteractionReportCard({
   const verdict = getSeverityVerdict(report.overallSeverity)
   const whyThisMatters = buildWhyThisMatters(report)
   const watchFors = getWatchFors(report)
+  const saferAlternatives = getSaferAlternatives(report)
   const prioritizedSignals = report.keySignals.slice(0, 2)
   const secondarySignals = report.keySignals.slice(2)
 
@@ -266,7 +310,7 @@ export default function InteractionReportCard({
   }
 
   return (
-    <section className='space-y-4 rounded-2xl border border-white/10 bg-black/35 p-5'>
+    <section className='space-y-5 rounded-2xl border border-white/10 bg-black/35 p-5 sm:p-6'>
       <div className='flex flex-wrap items-center justify-end gap-2'>
         {onCopyShareCard ? (
           <button
@@ -313,7 +357,7 @@ export default function InteractionReportCard({
         {actions ? <div className='ml-auto flex flex-wrap gap-2'>{actions}</div> : null}
       </div>
 
-      <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-xs text-white/75'>
+      <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-4 text-xs text-white/75'>
         <p className='mb-2 text-sm text-white/85'>{tightenCopy(report.summary)}</p>
         <p className='text-sm text-white/85'>
           <span className='font-semibold text-white'>Why this matters: </span>
@@ -367,6 +411,19 @@ export default function InteractionReportCard({
           <ul className='list-disc space-y-1 pl-5'>
             {watchFors.map(note => (
               <li key={note}>{note}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {saferAlternatives.length > 0 && (
+        <div className='rounded-xl border border-emerald-300/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100'>
+          <h3 className='mb-2 text-xs font-semibold uppercase tracking-wide text-emerald-200/95'>
+            Safer alternatives
+          </h3>
+          <ul className='list-disc space-y-1 pl-5'>
+            {saferAlternatives.map(option => (
+              <li key={option}>{tightenCopy(option)}</li>
             ))}
           </ul>
         </div>

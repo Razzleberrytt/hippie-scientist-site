@@ -54,8 +54,14 @@ export function exportStackPDF(summary: StackSummary) {
     <h2>Safety Notes</h2>
     <p>${escapeHtml(summary.safetySummary)}</p>
 
-    <h2>What to watch for</h2>
+    <h2>Top signals</h2>
     <ul>${asList(summary.topSignals)}</ul>
+
+    <h2>What to watch for</h2>
+    <ul>${asList(summary.watchFor)}</ul>
+
+    <h2>Safer alternatives</h2>
+    <ul>${asList(summary.saferAlternatives)}</ul>
 
     <h2>Basic Dosage Guidance</h2>
     <p>${escapeHtml(summary.basicDosageGuidance || 'Start low, adjust slowly, and avoid introducing multiple new items at once.')}</p>
