@@ -3,6 +3,7 @@ import { slugify } from '@/lib/slug'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 import { cleanText, splitClean } from '@/lib/sanitize'
 import { getCompoundSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
+import { sanitizeCompoundRecord } from '@/utils/sanitizeData'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -56,14 +57,15 @@ function normalizeSources(value: unknown): SourceRef[] {
 }
 
 function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
-  const name = cleanText(raw.name ?? raw.commonName ?? raw.id) || ''
-  const slug = String(raw.slug || slugify(name))
-  const effects = splitClean(raw.effects)
-  const herbs = splitClean(raw.associatedHerbs ?? raw.foundInHerbs ?? raw.herbs ?? raw.foundIn)
-  const mechanism = cleanText(raw.mechanism ?? raw.mechanismOfAction) || ''
-  const rawInteractionTags = splitClean(raw.interactionTags)
-  const rawInteractionNotes = splitClean(raw.interactionNotes)
-  const seededInteraction = getCompoundSeedInteractionData(raw)
+  const { data } = sanitizeCompoundRecord(raw, { debug: import.meta.env.DEV })
+  const name = cleanText(data.name ?? data.commonName ?? data.id) || ''
+  const slug = String(data.slug || slugify(name))
+  const effects = splitClean(data.effects)
+  const herbs = splitClean(data.associatedHerbs ?? data.foundInHerbs ?? data.herbs ?? data.foundIn)
+  const mechanism = cleanText(data.mechanism ?? data.mechanismOfAction) || ''
+  const rawInteractionTags = splitClean(data.interactionTags)
+  const rawInteractionNotes = splitClean(data.interactionNotes)
+  const seededInteraction = getCompoundSeedInteractionData(data)
   const mergedInteraction = mergeInteractionData({
     rawTags: rawInteractionTags,
     rawNotes: rawInteractionNotes,
@@ -71,31 +73,31 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   })
 
   return {
-    id: String(raw.id || slug),
+    id: String(data.id || slug),
     slug,
     name,
-    description: cleanText(raw.description ?? raw.summary) || '',
-    className: cleanText(raw.class ?? raw.type) || '',
-    category: cleanText(raw.category ?? raw.class ?? raw.type) || '',
-    intensity: cleanText(raw.intensity) || '',
+    description: cleanText(data.description ?? data.summary) || '',
+    className: cleanText(data.class ?? data.type ?? data.className) || '',
+    category: cleanText(data.category ?? data.class ?? data.type ?? data.className) || '',
+    intensity: cleanText(data.intensity) || '',
     mechanism,
-    activeCompounds: splitClean(raw.activeCompounds),
+    activeCompounds: splitClean(data.activeCompounds),
     effects,
-    therapeuticUses: splitClean(raw.therapeuticUses),
-    contraindications: splitClean(raw.contraindications),
-    interactions: splitClean(raw.interactions),
+    therapeuticUses: splitClean(data.therapeuticUses),
+    contraindications: splitClean(data.contraindications),
+    interactions: splitClean(data.interactions),
     interactionTags: mergedInteraction.interactionTags,
     interactionNotes: mergedInteraction.interactionNotes,
-    dosage: cleanText(raw.dosage) || '',
-    duration: cleanText(raw.duration) || '',
-    region: cleanText(raw.region) || '',
-    preparation: cleanText(raw.preparation) || '',
-    legalStatus: cleanText(raw.legalStatus) || '',
-    sideEffects: splitClean(raw.sideEffects),
+    dosage: cleanText(data.dosage) || '',
+    duration: cleanText(data.duration) || '',
+    region: cleanText(data.region) || '',
+    preparation: cleanText(data.preparation) || '',
+    legalStatus: cleanText(data.legalStatus) || '',
+    sideEffects: splitClean(data.sideEffects),
     herbs,
     confidence: calculateCompoundConfidence({ mechanism, effects, compounds: herbs }),
-    sources: normalizeSources(raw.sources),
-    lastUpdated: String(raw.lastUpdated || raw.updatedAt || '').trim(),
+    sources: normalizeSources(data.sources),
+    lastUpdated: String(data.lastUpdated || data.updatedAt || '').trim(),
   }
 }
 
