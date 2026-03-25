@@ -228,3 +228,15 @@ To keep maintenance low while preserving core automation:
   - Uses one herb consistently across title + summary.
   - Keeps generated posts as `draft: true` by default pending editorial review.
   - Throws if generated post fails consistency checks.
+
+## 2026-03-25 update: part-1 patch intake check
+
+- During part-1 zip merge, re-ran stale-path scan across active workflows for:
+  - `src/content/blog`
+  - `src/data/blog`
+  - `src/data/herbs`
+- Result: no stale path references found.
+- Active workflow set remains unchanged in this step:
+  1. `deploy.yml`
+  2. `daily-blog.yml`
+  3. `data-audit.yml` (optional)
