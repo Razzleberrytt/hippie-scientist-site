@@ -1,415 +1,444 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { jsPDF } from 'jspdf'
 import Card from '@/components/ui/Card'
-import Badge from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import Meta from '@/components/Meta'
 import Disclaimer from '@/components/Disclaimer'
-import { GOALS, type GoalDefinition } from '@/data/goals'
 import { useHerbData } from '@/lib/herb-data'
+import { herbDisplayName } from '@/utils/herbSignals'
 import type { Herb } from '@/types/herb'
-import type { BlendFilters, BlendState } from '@/types/blend'
-import type { ConfidenceLevel } from '@/types/confidence'
-import { generateBlend, type BlendRecommendation } from '@/utils/generateBlend'
-import { deserializeBlend } from '@/utils/deserializeBlend'
-import { serializeBlend } from '@/utils/serializeBlend'
-import { getHerbConfidence, getHerbEffects, herbDisplayName } from '@/utils/herbSignals'
 
-type ConfidenceFilter = BlendFilters['confidence']
-const LAST_BLEND_KEY = 'ths:last-build-blend'
+type StackIntent = 'sleep' | 'focus' | 'relaxation'
 
-function isConfidenceLevel(value: string): value is ConfidenceLevel {
-  return value === 'high' || value === 'medium' || value === 'low'
+type StackPlan = {
+  intent: StackIntent
+  herbSlugs: string[]
 }
 
-function HerbMiniCard({ herb }: { herb: Herb }) {
-  const effects = getHerbEffects(herb).slice(0, 3)
-  const confidence = getHerbConfidence(herb)
+type StackOutput = {
+  selectedHerbs: Herb[]
+  timing: string[]
+  dosage: {
+    light: string
+    moderate: string
+    strong: string
+  }
+  safetyNotes: string[]
+  interactionWarnings: string[]
+}
 
-  return (
-    <Card className='rounded-2xl border border-white/10 p-4 transition-all duration-300 hover:shadow-[0_0_24px_rgba(56,189,248,0.2)]'>
-      <div className='space-y-2.5'>
-        <div className='flex items-start justify-between gap-3'>
-          <h4 className='line-clamp-2 text-base font-semibold text-white'>
-            {herbDisplayName(herb)}
-          </h4>
-          <span className='rounded-full border border-cyan-300/30 bg-cyan-500/15 px-2 py-0.5 text-[11px] uppercase tracking-wide text-cyan-100'>
-            {confidence}
-          </span>
-        </div>
-        <div className='flex flex-wrap gap-2'>
-          {effects.length ? (
-            effects.map(effect => (
-              <Badge key={`${herb.slug}-${effect}`} className='bg-slate-800/70 text-slate-100'>
-                {effect}
-              </Badge>
-            ))
-          ) : (
-            <p className='text-xs text-slate-400'>No effect tags available.</p>
-          )}
-        </div>
-      </div>
-    </Card>
-  )
+const LOCAL_STACK_KEY = 'ths:personal-herb-stack'
+const MAX_NOTES = 6
+
+const INTENT_COPY: Record<StackIntent, { label: string; timing: string[] }> = {
+  sleep: {
+    label: 'Sleep',
+    timing: [
+      'Primary window: 45–90 minutes before bedtime.',
+      'Avoid new combinations on nights before critical obligations.',
+      'Keep timing consistent for 3–5 nights before adjusting dose range.',
+    ],
+  },
+  focus: {
+    label: 'Focus',
+    timing: [
+      'Primary window: morning or early work block.',
+      'Avoid dosing within 8 hours of planned bedtime.',
+      'Use once daily first, then evaluate concentration quality after 1 week.',
+    ],
+  },
+  relaxation: {
+    label: 'Relaxation',
+    timing: [
+      'Primary window: late afternoon or early evening.',
+      'Use on low-demand days first to observe sedation sensitivity.',
+      'If combining calming herbs, increase spacing between doses.',
+    ],
+  },
+}
+
+function normalizeList(value: unknown): string[] {
+  if (Array.isArray(value))
+    return value
+      .map(String)
+      .map(item => item.trim())
+      .filter(Boolean)
+  if (typeof value === 'string') {
+    return value
+      .split(/[\n,;]+/)
+      .map(item => item.trim())
+      .filter(Boolean)
+  }
+  return []
+}
+
+function encodeStackPlan(plan: StackPlan): string {
+  const serialized = JSON.stringify(plan)
+  return btoa(encodeURIComponent(serialized))
+}
+
+function decodeStackPlan(input: string | null): StackPlan | null {
+  if (!input) return null
+  try {
+    const raw = decodeURIComponent(atob(input))
+    const parsed = JSON.parse(raw) as StackPlan
+    const isIntent =
+      parsed.intent === 'sleep' || parsed.intent === 'focus' || parsed.intent === 'relaxation'
+    if (!isIntent || !Array.isArray(parsed.herbSlugs)) return null
+    return {
+      intent: parsed.intent,
+      herbSlugs: parsed.herbSlugs.map(item => String(item).trim().toLowerCase()).filter(Boolean),
+    }
+  } catch {
+    return null
+  }
+}
+
+function buildDosageGuidance(selectedHerbs: Herb[]) {
+  const weights = selectedHerbs.map(herb => {
+    const intensity = String(herb.intensityLevel || herb.intensity || '').toLowerCase()
+    if (intensity.includes('strong')) return 3
+    if (intensity.includes('moderate')) return 2
+    return 1
+  })
+  const averageWeight = weights.length
+    ? weights.reduce((acc, current) => acc + current, 0) / weights.length
+    : 1
+  const stackSize = Math.max(selectedHerbs.length, 1)
+
+  const lightUnits = Math.max(0.5, Number((0.6 * averageWeight).toFixed(1)))
+  const moderateUnits = Number((lightUnits * (1.5 + stackSize * 0.05)).toFixed(1))
+  const strongUnits = Number((moderateUnits * 1.4).toFixed(1))
+
+  return {
+    light: `${lightUnits} total stack units/day (start here; split into 1–2 servings).`,
+    moderate: `${moderateUnits} total stack units/day (after 3+ stable sessions).`,
+    strong: `${strongUnits} total stack units/day (advanced users only; avoid rapid escalation).`,
+  }
+}
+
+function buildStackOutput(intent: StackIntent, selectedHerbs: Herb[]): StackOutput {
+  const safetyNotes = Array.from(
+    new Set(
+      selectedHerbs
+        .flatMap(herb => [
+          ...normalizeList(herb.safety),
+          ...normalizeList(herb.contraindications),
+          ...normalizeList(herb.sideeffects),
+        ])
+        .map(note => note.replace(/\s+/g, ' ').trim())
+        .filter(Boolean)
+    )
+  ).slice(0, MAX_NOTES)
+
+  const interactionWarnings = Array.from(
+    new Set(
+      selectedHerbs
+        .flatMap(herb => [
+          ...normalizeList(herb.interactions),
+          ...normalizeList(herb.interactionNotes),
+          ...normalizeList(herb.interactionTags),
+        ])
+        .map(note => note.replace(/\s+/g, ' ').trim())
+        .filter(Boolean)
+    )
+  ).slice(0, MAX_NOTES)
+
+  return {
+    selectedHerbs,
+    timing: INTENT_COPY[intent].timing,
+    dosage: buildDosageGuidance(selectedHerbs),
+    safetyNotes: safetyNotes.length
+      ? safetyNotes
+      : [
+          'Safety profile is incomplete for one or more herbs. Start low and review source data before use.',
+        ],
+    interactionWarnings: interactionWarnings.length
+      ? interactionWarnings
+      : [
+          'No explicit interaction warnings were detected in structured data. This does not guarantee no interactions.',
+        ],
+  }
 }
 
 export default function BuildBlend() {
   const herbs = useHerbData()
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const [selectedGoalId, setSelectedGoalId] = useState<string>(GOALS[0].id)
-  const [experienceLevel, setExperienceLevel] =
-    useState<NonNullable<BlendFilters['experience']>>('beginner')
-  const [confidenceFilter, setConfidenceFilter] = useState<ConfidenceFilter>('all')
-  const [excludeInput, setExcludeInput] = useState('')
-  const [result, setResult] = useState<BlendRecommendation | null>(null)
-  const [blendLoadError, setBlendLoadError] = useState(false)
-  const [shareStatus, setShareStatus] = useState<'idle' | 'copied' | 'shared'>('idle')
-
-  const selectedGoal = useMemo<GoalDefinition | undefined>(
-    () => GOALS.find(goal => goal.id === selectedGoalId),
-    [selectedGoalId]
-  )
-
-  const excludedHerbIds = useMemo(
-    () =>
-      excludeInput
-        .split(',')
-        .map(value => value.trim().toLowerCase())
-        .filter(Boolean),
-    [excludeInput]
-  )
-
-  const beginnerPsychedelicWarning =
-    selectedGoal?.id === 'introspection' && experienceLevel === 'beginner'
-  const lowConfidenceCount = result
-    ? [result.primary, ...result.supporting].filter(herb => getHerbConfidence(herb) === 'low')
-        .length
-    : 0
-
-  const buildRecommendationFromState = (
-    state: BlendState,
-    allHerbs: Herb[]
-  ): BlendRecommendation | null => {
-    const herbMap = new Map(
-      allHerbs.map(herb => [String(herb.slug || herb.id || '').toLowerCase(), herb])
-    )
-    const primary = herbMap.get(state.primary.toLowerCase())
-    const supporting = state.supporting
-      .map(item => herbMap.get(item.toLowerCase()))
-      .filter((item): item is Herb => Boolean(item))
-
-    if (!primary || supporting.length === 0) return null
-
-    const goalLabel = GOALS.find(goal => goal.id === state.goal)?.label ?? state.goal
-    const usedLowConfidenceData = [primary, ...supporting].some(
-      herb => getHerbConfidence(herb) === 'low'
-    )
-
-    return {
-      primary,
-      supporting,
-      reasoning: [
-        `Restored blend for ${goalLabel}.`,
-        `Primary herb and ${supporting.length} supporting herbs are loaded from the shared link.`,
-        usedLowConfidenceData
-          ? 'Some selected herbs have limited confidence data, so review sources and safety notes.'
-          : 'This blend emphasizes stronger-confidence data where possible.',
-      ],
-      usedLowConfidenceData,
-    }
-  }
+  const [intent, setIntent] = useState<StackIntent>('sleep')
+  const [query, setQuery] = useState('')
+  const [selectedSlugs, setSelectedSlugs] = useState<string[]>([])
+  const [result, setResult] = useState<StackOutput | null>(null)
+  const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle')
 
   useEffect(() => {
     if (!herbs.length) return
+    const fromQuery = decodeStackPlan(searchParams.get('stack'))
+    const fromStorage = decodeStackPlan(window.localStorage.getItem(LOCAL_STACK_KEY))
+    const restored = fromQuery || fromStorage
+    if (!restored) return
 
-    const blendParam = searchParams.get('blend')
-    const rawBlend = blendParam || window.localStorage.getItem(LAST_BLEND_KEY)
-    if (!rawBlend) return
+    const allowedSlugs = new Set(herbs.map(herb => herb.slug?.toLowerCase()).filter(Boolean))
+    const cleanSlugs = restored.herbSlugs.filter(slug => allowedSlugs.has(slug))
+    if (!cleanSlugs.length) return
 
-    const restored = deserializeBlend(rawBlend)
-    if (!restored) {
-      if (blendParam) setBlendLoadError(true)
-      return
-    }
-
-    const recommendation = buildRecommendationFromState(restored, herbs)
-    if (!recommendation) {
-      setBlendLoadError(true)
-      return
-    }
-
-    const restoredGoal = GOALS.some(goal => goal.id === restored.goal) ? restored.goal : GOALS[0].id
-    setSelectedGoalId(restoredGoal)
-    if (restored.confidence && isConfidenceLevel(restored.confidence)) {
-      setConfidenceFilter(restored.confidence)
-    }
-    setResult(recommendation)
-    setBlendLoadError(false)
+    setIntent(restored.intent)
+    setSelectedSlugs(cleanSlugs)
+    const selectedHerbs = herbs.filter(herb => cleanSlugs.includes((herb.slug || '').toLowerCase()))
+    setResult(buildStackOutput(restored.intent, selectedHerbs))
   }, [herbs, searchParams])
 
-  const onGenerate = () => {
-    if (!selectedGoal) return
-    const recommendation = generateBlend(
-      selectedGoal,
-      {
-        confidence: confidenceFilter,
-        excludeHerbs: excludedHerbIds,
-        experience: experienceLevel,
-      },
-      herbs
-    )
-    setResult(recommendation)
-    if (!recommendation) return
-
-    const blendState: BlendState = {
-      goal: selectedGoal.id,
-      primary: String(
-        recommendation.primary.slug ??
-          recommendation.primary.id ??
-          recommendation.primary.name ??
-          ''
-      ),
-      supporting: recommendation.supporting.map(herb =>
-        String(herb.slug ?? herb.id ?? herb.name ?? '')
-      ),
-      ...(confidenceFilter !== 'all' ? { confidence: confidenceFilter } : {}),
-    }
-    const serialized = serializeBlend(blendState)
-    setSearchParams({ blend: serialized }, { replace: true })
-    window.localStorage.setItem(LAST_BLEND_KEY, serialized)
-    setBlendLoadError(false)
-  }
-
-  const handleCopyLink = async () => {
-    const fullUrl = window.location.href
-    try {
-      await navigator.clipboard.writeText(fullUrl)
-      setShareStatus('copied')
-    } catch {
-      window.prompt('Copy blend link', fullUrl)
-    } finally {
-      window.setTimeout(() => setShareStatus('idle'), 1800)
-    }
-  }
-
-  const handleShare = async () => {
-    if (!navigator.share || !result) return
-    try {
-      await navigator.share({
-        title: `${selectedGoal?.label ?? 'Custom'} Blend`,
-        text: `Blend with ${herbDisplayName(result.primary)} + ${result.supporting
-          .map(herb => herbDisplayName(herb))
-          .join(', ')}`,
-        url: window.location.href,
+  const filteredHerbs = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    if (!q) return herbs.slice(0, 120)
+    return herbs
+      .filter(herb => {
+        const haystack = [herbDisplayName(herb), herb.scientific, herb.effects]
+          .flat()
+          .filter(Boolean)
+          .join(' ')
+          .toLowerCase()
+        return haystack.includes(q)
       })
-      setShareStatus('shared')
+      .slice(0, 120)
+  }, [herbs, query])
+
+  const selectedHerbs = useMemo(
+    () => herbs.filter(herb => selectedSlugs.includes((herb.slug || '').toLowerCase())),
+    [herbs, selectedSlugs]
+  )
+
+  const toggleHerb = (slug: string) => {
+    setSelectedSlugs(current =>
+      current.includes(slug) ? current.filter(item => item !== slug) : [...current, slug]
+    )
+  }
+
+  const handleGenerate = () => {
+    if (!selectedHerbs.length) return
+    const nextResult = buildStackOutput(intent, selectedHerbs)
+    setResult(nextResult)
+
+    const plan: StackPlan = { intent, herbSlugs: selectedSlugs }
+    const serialized = encodeStackPlan(plan)
+    setSearchParams({ stack: serialized }, { replace: true })
+    window.localStorage.setItem(LOCAL_STACK_KEY, serialized)
+  }
+
+  const handleCopyShareLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href)
+      setShareStatus('copied')
       window.setTimeout(() => setShareStatus('idle'), 1800)
     } catch {
-      // user canceled share
+      window.prompt('Copy stack link', window.location.href)
     }
+  }
+
+  const exportPdf = () => {
+    if (!result) return
+    const doc = new jsPDF()
+    const herbNames = result.selectedHerbs.map(herb => `• ${herbDisplayName(herb)}`)
+    const lines = [
+      `Intent: ${INTENT_COPY[intent].label}`,
+      '',
+      'Selected Herbs:',
+      ...herbNames,
+      '',
+      'Recommended Timing:',
+      ...result.timing.map(line => `• ${line}`),
+      '',
+      'Dosage Guidance:',
+      `• Light: ${result.dosage.light}`,
+      `• Moderate: ${result.dosage.moderate}`,
+      `• Strong: ${result.dosage.strong}`,
+      '',
+      'Safety Notes:',
+      ...result.safetyNotes.map(note => `• ${note}`),
+      '',
+      'Interaction Warnings:',
+      ...result.interactionWarnings.map(note => `• ${note}`),
+    ]
+
+    const wrapped = doc.splitTextToSize(lines.join('\n'), 180)
+    doc.setFontSize(11)
+    doc.text(wrapped, 14, 18)
+    doc.save(`herb-stack-${intent}.pdf`)
   }
 
   return (
     <main className='mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 sm:py-10'>
       <Meta
-        title='Build a Custom Herbal Blend'
-        description='Generate, restore, and share deterministic herbal blends for your goal.'
+        title='Personalized Herb Stack Builder'
+        description='Select herbs, choose an intent, and generate timing, dosage guidance, safety notes, and interaction warnings.'
         path='/build'
       />
       <header className='space-y-2'>
         <p className='text-xs uppercase tracking-[0.25em] text-cyan-300'>Build</p>
         <h1 className='text-3xl font-bold text-white sm:text-4xl'>
-          Smart Guided Blend Recommender
+          Personalized Herb Stack Builder
         </h1>
         <p className='max-w-2xl text-sm text-slate-300 sm:text-base'>
-          Pick a goal, tune your constraints, and generate a deterministic blend recommendation with
-          clear reasoning.
+          Choose your intent, select multiple herbs, and export a clean plan with timing, dosage
+          ranges, safety notes, and interaction warnings.
         </p>
       </header>
 
       <Card className='space-y-5 rounded-2xl p-5 sm:p-6'>
         <section className='space-y-3'>
           <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>
-            Step 1 · Goal Selection
+            Step 1 · Define Intent
           </p>
-          <div className='grid grid-cols-2 gap-3 sm:grid-cols-3'>
-            {GOALS.map(goal => {
-              const isSelected = selectedGoalId === goal.id
+          <div className='grid gap-3 sm:grid-cols-3'>
+            {(Object.keys(INTENT_COPY) as StackIntent[]).map(item => {
+              const isSelected = intent === item
               return (
                 <button
-                  key={goal.id}
+                  key={item}
                   type='button'
-                  onClick={() => setSelectedGoalId(goal.id)}
-                  className={`min-h-20 rounded-xl border px-3 py-4 text-left text-sm transition-all duration-300 ${
+                  onClick={() => setIntent(item)}
+                  className={`rounded-xl border px-3 py-4 text-left text-sm transition-all duration-300 ${
                     isSelected
-                      ? 'border-cyan-300 bg-cyan-500/20 text-cyan-100 shadow-[0_0_24px_rgba(34,211,238,0.25)]'
-                      : 'border-slate-700 bg-slate-900/60 text-slate-200 hover:border-cyan-500/50 hover:bg-slate-800/80'
+                      ? 'border-cyan-300 bg-cyan-500/20 text-cyan-100'
+                      : 'border-slate-700 bg-slate-900/60 text-slate-200 hover:border-cyan-500/50'
                   }`}
                 >
-                  <span className='block text-base font-semibold'>{goal.label}</span>
-                  <span className='mt-1 block text-xs text-slate-400'>
-                    {goal.targetEffects.slice(0, 2).join(' · ')}
-                  </span>
+                  <span className='text-base font-semibold'>{INTENT_COPY[item].label}</span>
                 </button>
               )
             })}
           </div>
         </section>
 
-        <section className='grid gap-4 sm:grid-cols-2'>
-          <div className='space-y-2'>
-            <label className='text-xs uppercase tracking-[0.2em] text-slate-400'>
-              Step 2 · Experience Level
-            </label>
-            <select
-              value={experienceLevel}
-              onChange={event =>
-                setExperienceLevel(event.target.value as NonNullable<BlendFilters['experience']>)
-              }
-              className='w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 text-sm text-slate-100'
-            >
-              <option value='beginner'>Beginner</option>
-              <option value='intermediate'>Intermediate</option>
-              <option value='advanced'>Advanced</option>
-            </select>
+        <section className='space-y-3'>
+          <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>
+            Step 2 · Select Herbs
+          </p>
+          <input
+            value={query}
+            onChange={event => setQuery(event.target.value)}
+            placeholder='Search herbs by name, scientific name, or effects'
+            className='w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500'
+          />
+          <div className='max-h-80 space-y-2 overflow-auto rounded-xl border border-slate-700/80 p-3'>
+            {filteredHerbs.map(herb => {
+              const slug = (herb.slug || '').toLowerCase()
+              const checked = selectedSlugs.includes(slug)
+              return (
+                <label
+                  key={slug}
+                  className='flex cursor-pointer items-center gap-3 rounded-lg border border-slate-700/70 bg-slate-900/50 p-2 text-sm text-slate-100'
+                >
+                  <input type='checkbox' checked={checked} onChange={() => toggleHerb(slug)} />
+                  <span>{herbDisplayName(herb)}</span>
+                </label>
+              )
+            })}
           </div>
-
-          <div className='space-y-2'>
-            <label className='text-xs uppercase tracking-[0.2em] text-slate-400'>
-              Step 2 · Confidence Filter
-            </label>
-            <select
-              value={confidenceFilter}
-              onChange={event => setConfidenceFilter(event.target.value as ConfidenceFilter)}
-              className='w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 text-sm text-slate-100'
-            >
-              <option value='all'>All confidence</option>
-              <option value='high'>High only</option>
-              <option value='medium'>Medium only</option>
-              <option value='low'>Low only</option>
-            </select>
-          </div>
-
-          <div className='space-y-2 sm:col-span-2'>
-            <label className='text-xs uppercase tracking-[0.2em] text-slate-400'>
-              Optional Exclude List (comma-separated slug or name)
-            </label>
-            <input
-              value={excludeInput}
-              onChange={event => setExcludeInput(event.target.value)}
-              placeholder='kava, blue-lotus'
-              className='w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500'
-            />
-          </div>
+          <p className='text-xs text-slate-300'>Selected: {selectedSlugs.length} herb(s)</p>
         </section>
 
-        {beginnerPsychedelicWarning ? (
-          <div className='rounded-xl border border-amber-400/40 bg-amber-500/10 p-3 text-sm text-amber-100'>
-            Beginner + introspection can involve high-intensity herbs. Start with non-psychedelic
-            goals first and review safety information.
-          </div>
-        ) : null}
-
-        <div>
+        <div className='flex flex-wrap items-center gap-2'>
           <Button
             type='button'
             variant='primary'
-            onClick={onGenerate}
-            disabled={!herbs.length || !selectedGoal}
-            className='w-full rounded-xl py-3 text-sm font-semibold sm:w-auto sm:px-8'
+            onClick={handleGenerate}
+            disabled={!selectedHerbs.length}
           >
-            Step 3 · Generate Recommendation
+            Step 3 · Generate Stack Output
+          </Button>
+          <Button
+            type='button'
+            variant='ghost'
+            onClick={() => {
+              setSelectedSlugs([])
+              setResult(null)
+              setSearchParams({}, { replace: true })
+              window.localStorage.removeItem(LOCAL_STACK_KEY)
+            }}
+          >
+            Reset
           </Button>
         </div>
       </Card>
 
-      <section className='space-y-4 transition-all duration-300'>
-        <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>Step 4 · Results</p>
-
+      <section className='space-y-4'>
+        <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>
+          Step 4 · Personalized Output
+        </p>
         {!result ? (
           <Card className='rounded-2xl border border-white/10 p-6 text-sm text-slate-300'>
-            Generate a blend to see a polished recommendation with primary herb, supporting stack,
-            and reasoning.
+            Select at least one herb and generate your personalized stack output.
           </Card>
         ) : (
-          <div className='space-y-4 transition-all duration-300'>
-            <Card className='rounded-2xl border border-cyan-400/30 p-6 shadow-[0_0_30px_rgba(34,211,238,0.18)]'>
-              <div className='flex flex-wrap items-start justify-between gap-3'>
-                <div>
-                  <p className='text-xs uppercase tracking-[0.24em] text-cyan-300'>Primary Herb</p>
-                  <h2 className='mt-2 text-2xl font-bold text-cyan-50'>
-                    {herbDisplayName(result.primary)}
-                  </h2>
-                </div>
-                <span className='rounded-full border border-cyan-200/35 bg-cyan-500/20 px-2.5 py-1 text-[11px] uppercase tracking-wide text-cyan-100'>
-                  {getHerbConfidence(result.primary)} confidence
-                </span>
-              </div>
-              <div className='mt-4 flex flex-wrap gap-2'>
-                {getHerbEffects(result.primary)
-                  .slice(0, 6)
-                  .map(effect => (
-                    <Badge key={`primary-${effect}`} className='bg-cyan-600/20 text-cyan-50'>
-                      {effect}
-                    </Badge>
-                  ))}
-                {getHerbEffects(result.primary).length === 0 && (
-                  <p className='text-xs text-cyan-100/75'>Primary herb has no effect tags yet.</p>
-                )}
-              </div>
-            </Card>
-
-            <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
-              {result.supporting.map(herb => (
-                <HerbMiniCard key={herb.slug ?? herb.id ?? herbDisplayName(herb)} herb={herb} />
-              ))}
-            </div>
-
-            <Card className='rounded-2xl border border-white/10 p-5'>
-              <p className='text-xs uppercase tracking-[0.22em] text-slate-400'>Reasoning</p>
+          <div className='space-y-4'>
+            <Card className='rounded-2xl p-5'>
+              <h2 className='text-lg font-semibold text-white'>Recommended Usage Timing</h2>
               <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-200'>
-                {result.reasoning.map(line => (
-                  <li key={line}>{line}</li>
+                {result.timing.map(item => (
+                  <li key={item}>{item}</li>
                 ))}
               </ul>
             </Card>
 
-            {result.usedLowConfidenceData || lowConfidenceCount >= 2 ? (
-              <Card className='rounded-2xl border border-amber-400/40 bg-amber-500/10 p-4 text-sm text-amber-100'>
-                Recommendation confidence is limited.{' '}
-                {lowConfidenceCount > 0
-                  ? `${lowConfidenceCount} selected herb${lowConfidenceCount > 1 ? 's are' : ' is'} currently low confidence.`
-                  : 'One or more selected herbs are supported by low-confidence data.'}{' '}
-                Use this as a draft stack and verify safety references before use.
-              </Card>
-            ) : null}
+            <Card className='rounded-2xl p-5'>
+              <h2 className='text-lg font-semibold text-white'>Dosage Guidance</h2>
+              <ul className='mt-3 space-y-2 text-sm text-slate-200'>
+                <li>
+                  <strong>Light:</strong> {result.dosage.light}
+                </li>
+                <li>
+                  <strong>Moderate:</strong> {result.dosage.moderate}
+                </li>
+                <li>
+                  <strong>Strong:</strong> {result.dosage.strong}
+                </li>
+              </ul>
+            </Card>
 
-            <Card className='rounded-2xl p-4 sm:p-5'>
+            <Card className='rounded-2xl p-5'>
+              <h2 className='text-lg font-semibold text-white'>Safety Notes</h2>
+              <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-200'>
+                {result.safetyNotes.map(note => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card className='rounded-2xl border border-amber-400/40 bg-amber-500/10 p-5'>
+              <h2 className='text-lg font-semibold text-amber-100'>Interaction Warnings</h2>
+              <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-amber-50'>
+                {result.interactionWarnings.map(note => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card className='rounded-2xl p-5'>
+              <h2 className='text-lg font-semibold text-white'>Selected Herbs</h2>
+              <ul className='mt-3 list-disc space-y-1 pl-5 text-sm text-slate-200'>
+                {result.selectedHerbs.map(herb => (
+                  <li key={herb.slug}>{herbDisplayName(herb)}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card className='rounded-2xl p-5'>
               <div className='flex flex-wrap items-center gap-2'>
-                <Button type='button' variant='default' onClick={handleCopyLink}>
-                  Copy Link
+                <Button type='button' variant='default' onClick={handleCopyShareLink}>
+                  Copy Shareable Page Link
                 </Button>
-                {typeof navigator !== 'undefined' && typeof navigator.share === 'function' ? (
-                  <Button type='button' variant='ghost' onClick={handleShare}>
-                    Share
-                  </Button>
-                ) : null}
+                <Button type='button' variant='primary' onClick={exportPdf}>
+                  Export PDF
+                </Button>
                 {shareStatus === 'copied' ? (
                   <p className='text-xs text-emerald-300'>Link copied.</p>
-                ) : null}
-                {shareStatus === 'shared' ? (
-                  <p className='text-xs text-emerald-300'>Shared successfully.</p>
                 ) : null}
               </div>
             </Card>
           </div>
         )}
-        {blendLoadError ? (
-          <Card className='rounded-2xl border border-rose-400/40 bg-rose-500/10 p-4 text-sm text-rose-100'>
-            Invalid or outdated blend link.
-          </Card>
-        ) : null}
       </section>
 
       <Disclaimer />
