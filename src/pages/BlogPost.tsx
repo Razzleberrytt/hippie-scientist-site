@@ -143,6 +143,19 @@ export default function BlogPost() {
             mechanism-first explanation with practical safety framing.
           </p>
         </section>
+        <section className='rounded-2xl border border-emerald-200/30 bg-emerald-500/10 p-4 sm:p-5'>
+          <h2 className='text-sm font-semibold uppercase tracking-[0.14em] text-emerald-100'>
+            About the author
+          </h2>
+          <p className='mt-2 text-sm leading-7 text-white/85'>
+            Written by {meta?.author || 'the Hippie Scientist Team'}, focused on evidence review,
+            harm-reduction communication, and practical herbal literacy.
+          </p>
+          <p className='mt-2 text-xs leading-6 text-emerald-100/90'>
+            Editorial standard: mechanism-first explanations, source-linked references, and clear
+            uncertainty labels. Educational content only, not medical advice.
+          </p>
+        </section>
         {meta?.slug && (
           <div className='flex flex-wrap gap-2'>
             <button
