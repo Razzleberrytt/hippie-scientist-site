@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { trackEvent } from '@/lib/growth'
+import { Button } from '@/components/ui/Button'
 
 type ShareInsightCardProps = {
   title: string
@@ -19,12 +20,12 @@ export default function ShareInsightCard({ title, insight, kind, slug }: ShareIn
 
   return (
     <div className='mt-3 flex flex-wrap gap-2'>
-      <button className='btn-secondary' onClick={() => setOpen(value => !value)}>
+      <Button variant='secondary' onClick={() => setOpen(value => !value)}>
         Share insight
-      </button>
-      <button className='btn-ghost text-sm' onClick={copyLink}>
+      </Button>
+      <Button variant='ghost' className='text-sm' onClick={copyLink}>
         Copy link
-      </button>
+      </Button>
       {open && (
         <article className='w-full max-w-xl rounded-2xl border border-white/20 bg-black/45 p-4'>
           <p className='text-xs uppercase tracking-[0.16em] text-emerald-200/80'>

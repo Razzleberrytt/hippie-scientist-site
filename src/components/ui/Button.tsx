@@ -2,15 +2,16 @@ import type { ReactNode } from 'react'
 import { motion } from '@/lib/motion'
 import type { HTMLMotionProps } from '@/lib/motion'
 
-const variantClasses: Record<'default' | 'primary' | 'ghost', string> = {
+const variantClasses: Record<'default' | 'primary' | 'secondary' | 'ghost', string> = {
   default: 'btn',
   primary: 'btn btn-primary',
+  secondary: 'btn btn-secondary',
   ghost: 'btn btn-ghost',
 }
 
 type ButtonProps = {
   children: ReactNode
-  variant?: 'default' | 'primary' | 'ghost'
+  variant?: 'default' | 'primary' | 'secondary' | 'ghost'
   className?: string
 } & Omit<HTMLMotionProps<'button'>, 'children' | 'className'>
 

@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
+import { Button } from '@/components/ui/Button'
 import {
   SEO_COLLECTIONS,
   getCollectionBySlug,
@@ -519,9 +520,9 @@ export default function CollectionPage() {
         </div>
 
         <div className='mt-4 flex flex-wrap items-center gap-2'>
-          <button type='button' onClick={handleCopyLink} className='btn-secondary text-xs'>
+          <Button type='button' variant='secondary' onClick={handleCopyLink} className='text-xs'>
             Copy Link
-          </button>
+          </Button>
           <a
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${pageTitle} — ${pageDescription}`)}&url=${encodeURIComponent(getShareUrl())}`}
             target='_blank'
@@ -795,8 +796,9 @@ export default function CollectionPage() {
                     </span>
                   </div>
                   <p className='mt-2 text-xs text-white/75'>{combo.description}</p>
-                  <button
+                  <Button
                     type='button'
+                    variant='secondary'
                     onClick={() => {
                       handleFunnelClick('combo')
                       trackCollectionEvent('collection_combo_run', {
@@ -806,10 +808,10 @@ export default function CollectionPage() {
                       })
                       window.location.assign(buildInteractionsLink(comboTokens))
                     }}
-                    className='btn-secondary mt-3 text-xs'
+                    className='mt-3 text-xs'
                   >
                     Run this combo
-                  </button>
+                  </Button>
                 </article>
               )
             })}
@@ -841,13 +843,14 @@ export default function CollectionPage() {
                 required
                 className='w-full rounded-lg border border-white/20 bg-white/[0.05] px-3 py-2 text-sm text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-cyan-200/45'
               />
-              <button
+              <Button
                 type='submit'
+                variant='primary'
                 disabled={leadStatus === 'loading'}
-                className='btn-primary whitespace-nowrap text-xs disabled:opacity-70'
+                className='whitespace-nowrap text-xs disabled:opacity-70'
               >
                 {leadStatus === 'loading' ? 'Saving…' : 'Keep me updated'}
-              </button>
+              </Button>
             </form>
           )}
           {leadStatus === 'error' && <p className='mt-2 text-xs text-rose-200'>{leadMessage}</p>}

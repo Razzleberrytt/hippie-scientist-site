@@ -1,4 +1,5 @@
 import Magnetic from './Magnetic'
+import { Button } from '@/components/ui/Button'
 
 export default function NewsletterCard() {
   return (
@@ -22,9 +23,9 @@ export default function NewsletterCard() {
             className='bg-white/14 w-full rounded-2xl px-4 py-3 text-base text-white/90 placeholder-white/60 ring-1 ring-white/20 backdrop-blur-xl focus:ring-white/40 sm:flex-1'
           />
           <Magnetic strength={12}>
-            <button type='submit' className='btn-primary rounded-2xl px-6 py-3'>
+            <Button type='submit' variant='primary' className='rounded-2xl px-6 py-3'>
               Join the newsletter
-            </button>
+            </Button>
           </Magnetic>
         </form>
       </div>

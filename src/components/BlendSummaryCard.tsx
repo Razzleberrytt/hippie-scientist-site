@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
+import { Button } from '@/components/ui/Button'
 import { herbName, splitField } from '../utils/herb'
 
 interface Props {
@@ -39,9 +40,9 @@ export default function BlendSummaryCard({ herbs, onSave }: Props) {
         ))}
       </div>
       {herbs.length >= 2 && (
-        <button type='button' onClick={onSave} className='btn-secondary'>
+        <Button type='button' variant='secondary' onClick={onSave}>
           Save Blend
-        </button>
+        </Button>
       )}
     </div>
   )
