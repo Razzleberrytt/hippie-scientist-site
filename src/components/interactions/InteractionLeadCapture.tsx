@@ -11,10 +11,10 @@ type InteractionLeadCaptureProps = {
 }
 
 const contextCopy: Record<LeadCaptureContext, string> = {
-  'after-report': 'Get updates when interaction coverage improves for checks like this.',
-  'after-save': 'Save your progress as the checker gets smarter and your saved library expands.',
-  'after-share': 'Be first to access deeper interaction and blend safety tools for shared reports.',
-  'after-export': 'Get notified when report exports include richer structure and safety context.',
+  'after-report': 'Get safer combinations and updates as interaction coverage expands.',
+  'after-save': 'Get safer combinations and updates as your saved report library grows.',
+  'after-share': 'Get safer combinations and updates for shared stacks and reports.',
+  'after-export': 'Get safer combinations and updates when new export and safety tools land.',
 }
 
 export default function InteractionLeadCapture({
@@ -76,7 +76,7 @@ export default function InteractionLeadCapture({
       }`}
     >
       <h3 className='text-sm font-semibold text-white sm:text-base'>
-        Want to keep your saved interaction checks and get future safety tools?
+        Download your stack as a PDF + get safer combinations and updates
       </h3>
       <p className='mt-1 text-xs text-white/75 sm:text-sm'>{supportingCopy}</p>
 
@@ -102,7 +102,7 @@ export default function InteractionLeadCapture({
           disabled={status === 'loading'}
           className='whitespace-nowrap px-4 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-70'
         >
-          {status === 'loading' ? 'Saving…' : 'Keep me updated'}
+          {status === 'loading' ? 'Saving…' : 'Email me the updates'}
         </Button>
       </form>
 

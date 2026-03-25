@@ -1,6 +1,6 @@
 export type LeadCaptureInput = {
   email: string
-  source: 'interaction-checker'
+  source: 'interaction-checker' | 'stack-builder'
   context?: 'after-report' | 'after-save' | 'after-share' | 'after-export' | string
 }
 

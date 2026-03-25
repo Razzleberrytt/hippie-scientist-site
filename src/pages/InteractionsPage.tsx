@@ -613,7 +613,8 @@ export default function InteractionsPage() {
     engagementCounters.shareCount >= 2 ||
     engagementCounters.exportCount >= 2
 
-  const shouldShowLeadCapture = Boolean(leadContext) && !leadCaptured
+  const shouldShowLeadCapture = Boolean(report) && !leadCaptured
+  const activeLeadContext: LeadCaptureActionContext = leadContext || 'after-report'
   const isCatalogLoading = isHerbsLoading || isCompoundsLoading
 
   return (
@@ -996,9 +997,9 @@ export default function InteractionsPage() {
         </section>
       )}
 
-      {shouldShowLeadCapture && leadContext && (
+      {shouldShowLeadCapture && (
         <InteractionLeadCapture
-          context={leadContext}
+          context={activeLeadContext}
           emphasized={powerUserPrompt}
           onSuccess={() => {
             setLeadCaptured(true)

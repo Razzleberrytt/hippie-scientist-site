@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { jsPDF } from 'jspdf'
 import Card from '@/components/ui/Card'
@@ -8,6 +8,7 @@ import Disclaimer from '@/components/Disclaimer'
 import { useHerbData } from '@/lib/herb-data'
 import { herbDisplayName } from '@/utils/herbSignals'
 import type { Herb } from '@/types/herb'
+import { submitLeadCapture } from '@/lib/leadCapture'
 
 type StackIntent = 'sleep' | 'focus' | 'relaxation'
 
@@ -171,6 +172,9 @@ export default function BuildBlend() {
   const [selectedSlugs, setSelectedSlugs] = useState<string[]>([])
   const [result, setResult] = useState<StackOutput | null>(null)
   const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle')
+  const [leadEmail, setLeadEmail] = useState('')
+  const [leadStatus, setLeadStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [leadMessage, setLeadMessage] = useState('')
 
   useEffect(() => {
     if (!herbs.length) return
@@ -265,6 +269,28 @@ export default function BuildBlend() {
     doc.setFontSize(11)
     doc.text(wrapped, 14, 18)
     doc.save(`herb-stack-${intent}.pdf`)
+  }
+
+  const handleLeadSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setLeadStatus('loading')
+    setLeadMessage('')
+
+    const submitResult = await submitLeadCapture({
+      email: leadEmail,
+      source: 'stack-builder',
+      context: 'stack-output',
+    })
+
+    if (!submitResult.ok) {
+      setLeadStatus('error')
+      setLeadMessage(submitResult.message || 'Please check your email and try again.')
+      return
+    }
+
+    setLeadStatus('success')
+    setLeadMessage('You’re in. We’ll send safer combinations and practical updates.')
+    setLeadEmail('')
   }
 
   return (
@@ -430,12 +456,53 @@ export default function BuildBlend() {
                   Copy Shareable Page Link
                 </Button>
                 <Button type='button' variant='primary' onClick={exportPdf}>
-                  Export PDF
+                  Download your stack as a PDF
                 </Button>
                 {shareStatus === 'copied' ? (
                   <p className='text-xs text-emerald-300'>Link copied.</p>
                 ) : null}
               </div>
+            </Card>
+
+            <Card className='rounded-2xl border border-cyan-300/25 bg-cyan-500/5 p-5'>
+              <h2 className='text-lg font-semibold text-white'>
+                Get safer combinations and updates
+              </h2>
+              <p className='mt-1 text-sm text-slate-200'>
+                Optional: subscribe for safer combo guidance and stack updates. No spam, just
+                practical notes.
+              </p>
+              <form onSubmit={handleLeadSubmit} className='mt-3 flex flex-col gap-2 sm:flex-row'>
+                <label className='sr-only' htmlFor='stack-lead-email'>
+                  Email address
+                </label>
+                <input
+                  id='stack-lead-email'
+                  type='email'
+                  inputMode='email'
+                  autoComplete='email'
+                  value={leadEmail}
+                  onChange={event => setLeadEmail(event.target.value)}
+                  placeholder='you@example.com'
+                  className='w-full rounded-lg border border-white/20 bg-white/[0.05] px-3 py-2 text-sm text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-cyan-200/45'
+                  aria-invalid={leadStatus === 'error'}
+                  required
+                />
+                <Button
+                  variant='primary'
+                  type='submit'
+                  disabled={leadStatus === 'loading'}
+                  className='whitespace-nowrap px-4 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-70'
+                >
+                  {leadStatus === 'loading' ? 'Saving…' : 'Get updates'}
+                </Button>
+              </form>
+              {leadStatus === 'error' && (
+                <p className='mt-2 text-xs text-rose-200'>{leadMessage}</p>
+              )}
+              {leadStatus === 'success' && (
+                <p className='mt-2 text-xs text-emerald-200'>{leadMessage}</p>
+              )}
             </Card>
           </div>
         )}
