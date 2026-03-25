@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /data-fix
-Disallow: /theme
-Disallow: /graph
-Disallow: /analytics
-Sitemap: https://thehippiescientist.net/sitemap.xml

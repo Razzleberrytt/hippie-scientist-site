@@ -251,3 +251,9 @@ To keep maintenance low while preserving core automation:
   - `outputDirectory: dist`
   - filesystem-first routing + catch-all SPA fallback to `/index.html` for BrowserRouter routes.
 - Removed obsolete root-level static route folders (`about`, `blog`, `contact`, `disclaimer`, `privacy-policy`, `herb-index`) that could mask SPA behavior on static hosting.
+
+## 2026-03-25 deployment-bundle audit note
+
+- Audited `hippie-scientist-patched.zip` and found it mixes source files with deploy-only artifacts.
+- Standardized repository direction to source-repo deployment flow (Netlify build from source, deploy `dist/` only).
+- Confirmed `BrowserRouter` remains appropriate due to SPA rewrite fallback via `public/_redirects`.

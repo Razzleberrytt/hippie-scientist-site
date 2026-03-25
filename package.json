@@ -24,7 +24,6 @@
     "format": "prettier --write .",
     "stylelint": "stylelint \"**/*.{css,scss}\"",
     "prepare": "husky install",
-    "deploy": "gh-pages -d dist",
     "test": "echo \"No tests specified\" && exit 0",
     "validate-herbs": "node scripts/validateHerbs.js",
     "verify:data": "npm run autofill:data && npm run audit:data",
