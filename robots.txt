@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /data-fix
+Disallow: /theme
+Disallow: /graph
 Sitemap: https://thehippiescientist.net/sitemap.xml
-Sitemap: https://thehippiescientist.net/feed.xml
