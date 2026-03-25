@@ -257,3 +257,11 @@ To keep maintenance low while preserving core automation:
 - Audited `hippie-scientist-patched.zip` and found it mixes source files with deploy-only artifacts.
 - Standardized repository direction to source-repo deployment flow (Netlify build from source, deploy `dist/` only).
 - Confirmed `BrowserRouter` remains appropriate due to SPA rewrite fallback via `public/_redirects`.
+
+## 2026-03-25 update: pre-deploy source-only hygiene
+
+- Reconfirmed the active workflow strategy remains deploy + one daily content workflow + optional audit workflow.
+- Added source-control hygiene to prevent large build output diffs:
+  - ensured `dist/` stays ignored
+  - added explicit ignore patterns for `assets/` and `dist-clean/*` (with `dist-clean/README.md` allowed)
+- Confirmed no tracked files under `dist/`.
