@@ -84,3 +84,14 @@ Optional environment variables for production URL shaping:
 
 - `SITE_URL` (default: `https://thehippiescientist.net`)
 - `BASE_PATH` (default: `/`; useful for GitHub Pages subpath deployments)
+
+## Deployment strategy (clean)
+
+This repository is a **source repo**.
+
+- Build output is generated into `dist/` via `npm run build`.
+- Deploy target is **Netlify** using `netlify.toml` (`publish = "dist"`).
+- SPA routing is handled with `public/_redirects` (`/* /index.html 200`), so `BrowserRouter` is appropriate.
+- Do **not** commit or upload root-level build artifacts (for example top-level `assets/`, `sitemap.xml`, `feed.xml`, `robots.txt`, route HTML folders).
+
+If you need a deploy-only bundle, upload only the contents of `dist/` after a fresh build.
