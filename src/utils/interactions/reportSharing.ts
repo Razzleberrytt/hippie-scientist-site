@@ -152,7 +152,13 @@ export function buildReportSummary(report: InteractionReport): string {
             : finding.basis === 'mixed'
               ? 'structured + inferred signals'
               : 'inferred signals'
-        return `- ${finding.title}: ${finding.summary} ${finding.explanation} (Severity: ${finding.severity}; Confidence: ${finding.confidence} [${finding.confidenceScore}/100] - ${confidenceDetail})`
+        const watchFor = finding.whatToWatchFor?.[0]
+          ? ` Watch for: ${finding.whatToWatchFor[0]}`
+          : ''
+        const saferOption = finding.saferAlternatives?.[0]
+          ? ` Safer alternative: ${finding.saferAlternatives[0]}`
+          : ''
+        return `- ${finding.title}: ${finding.summary} ${finding.explanation} What this means: ${finding.whatThisMeans}.${watchFor}${saferOption} (Severity: ${finding.severity}; Confidence: ${finding.confidence} [${finding.confidenceScore}/100] - ${confidenceDetail})`
       })
     : ['- No strong structured interaction signals were detected in the current dataset.']
 

@@ -24,14 +24,14 @@ function clampScore(value: number, min = 0, max = 100): number {
 }
 
 function severityToBaseScore(severity: InteractionSeverity): number {
-  if (severity === 'high') return 90
-  if (severity === 'moderate') return 62
-  if (severity === 'low') return 38
+  if (severity === 'high') return 70
+  if (severity === 'moderate') return 52
+  if (severity === 'low') return 34
   return 20
 }
 
 function scoreToSeverity(score: number): InteractionSeverity {
-  if (score >= 75) return 'high'
+  if (score >= 74) return 'high'
   if (score >= 48) return 'moderate'
   return 'low'
 }
@@ -100,6 +100,73 @@ function getOverlappingMechanisms(
     .slice(0, 3)
 }
 
+type InteractionPattern = {
+  id: string
+  tags: string[]
+}
+
+const KNOWN_INTERACTION_PATTERNS: InteractionPattern[] = [
+  { id: 'sedative-cns', tags: ['sedative', 'cns-depressant'] },
+  { id: 'sedative-gabaergic', tags: ['sedative', 'gabaergic'] },
+  { id: 'stimulant-cardioactive', tags: ['stimulant', 'cardioactive'] },
+  { id: 'maoi-serotonergic', tags: ['maoi', 'serotonergic'] },
+  { id: 'maoi-stimulant', tags: ['maoi', 'stimulant'] },
+  { id: 'serotonergic-psychedelic', tags: ['serotonergic', 'psychedelic'] },
+  { id: 'hepatotoxic-sedative', tags: ['hepatotoxic', 'sedative'] },
+]
+
+function getKnownPatternCount(
+  matchedItems: ReturnType<typeof extractInteractionSignals>[],
+  signalTags: string[]
+): number {
+  const availableTags = new Set<string>()
+  matchedItems.forEach(item => {
+    item.tags.forEach(tag => {
+      if (signalTags.includes(tag)) availableTags.add(tag)
+    })
+  })
+
+  return KNOWN_INTERACTION_PATTERNS.filter(pattern =>
+    pattern.tags.every(tag => availableTags.has(tag))
+  ).length
+}
+
+function tokenize(value: string): Set<string> {
+  return new Set(
+    normalizePhrase(value)
+      .split(' ')
+      .map(part => part.trim())
+      .filter(part => part.length >= 4)
+  )
+}
+
+function getCompoundSimilarityCount(
+  matchedItems: ReturnType<typeof extractInteractionSignals>[]
+): number {
+  if (matchedItems.length < 2) return 0
+
+  let similarPairs = 0
+  for (let i = 0; i < matchedItems.length; i += 1) {
+    for (let j = i + 1; j < matchedItems.length; j += 1) {
+      const first = matchedItems[i].item
+      const second = matchedItems[j].item
+      const firstTokens = new Set<string>([
+        ...tokenize(first.category ?? ''),
+        ...tokenize(first.mechanism ?? ''),
+      ])
+      const secondTokens = new Set<string>([
+        ...tokenize(second.category ?? ''),
+        ...tokenize(second.mechanism ?? ''),
+      ])
+
+      const overlap = Array.from(firstTokens).filter(token => secondTokens.has(token))
+      if (overlap.length >= 2) similarPairs += 1
+    }
+  }
+
+  return similarPairs
+}
+
 function resolveFindingBasisAndConfidence(
   matchedItems: ReturnType<typeof extractInteractionSignals>[],
   signalTags: string[]
@@ -138,15 +205,21 @@ function toDisplayMechanismLabel(phrase: string): string {
   return phrase.replace(/\b\w/g, char => char.toUpperCase())
 }
 
-function buildFindingExplanation(
-  signalLabel: string,
-  sharedTags: number,
+function buildFindingExplanation({
+  signalLabel,
+  sharedTags,
+  overlappingMechanisms,
+  knownPatternCount,
+  compoundSimilarityCount,
+}: {
+  signalLabel: string
+  sharedTags: number
   overlappingMechanisms: string[]
-): string {
+  knownPatternCount: number
+  compoundSimilarityCount: number
+}): string {
   const mechanismClause = overlappingMechanisms.length
-    ? ` They also share mechanism clues (${overlappingMechanisms
-        .map(toDisplayMechanismLabel)
-        .join(', ')}), which supports this signal.`
+    ? ` Shared mechanism clues include ${overlappingMechanisms.map(toDisplayMechanismLabel).join(', ')}.`
     : ''
 
   const sharedTagClause =
@@ -156,7 +229,17 @@ function buildFindingExplanation(
         ? ' One aligned interaction tag appears across the selected items.'
         : ''
 
-  return `${signalLabel}${sharedTagClause}${mechanismClause}`
+  const patternClause =
+    knownPatternCount > 0
+      ? ` This also matches ${knownPatternCount} known interaction pattern${knownPatternCount > 1 ? 's' : ''} used in this checker.`
+      : ''
+
+  const similarityClause =
+    compoundSimilarityCount > 0
+      ? ` Similarity between item mechanisms/categories was found in ${compoundSimilarityCount} pair${compoundSimilarityCount > 1 ? 's' : ''}, increasing trust in this signal.`
+      : ''
+
+  return `${signalLabel}${sharedTagClause}${mechanismClause}${patternClause}${similarityClause}`.trim()
 }
 
 function createScoredFinding({
@@ -167,6 +250,9 @@ function createScoredFinding({
   matchedItems,
   signalTags,
   evidenceBasis,
+  whatThisMeans,
+  whatToWatchFor,
+  saferAlternatives = [],
 }: {
   title: string
   summary: string
@@ -175,17 +261,24 @@ function createScoredFinding({
   matchedItems: ReturnType<typeof extractInteractionSignals>[]
   signalTags: string[]
   evidenceBasis: string[]
+  whatThisMeans: string
+  whatToWatchFor: string[]
+  saferAlternatives?: string[]
 }): InteractionFinding {
   const { basis, sourceConfidence } = resolveFindingBasisAndConfidence(matchedItems, signalTags)
   const sharedTagCount = getSharedTagCount(matchedItems)
   const overlappingMechanisms = getOverlappingMechanisms(matchedItems)
   const overlappingMechanismCount = overlappingMechanisms.length
+  const knownPatternCount = getKnownPatternCount(matchedItems, signalTags)
+  const compoundSimilarityCount = getCompoundSimilarityCount(matchedItems)
 
   const weightedScore = clampScore(
     severityToBaseScore(baseSeverity) +
-      sharedTagCount * 6 +
+      sharedTagCount * 9 +
       overlappingMechanismCount * 8 +
-      (sourceConfidence === 'high' ? 6 : sourceConfidence === 'medium' ? 2 : -6)
+      knownPatternCount * 10 +
+      compoundSimilarityCount * 7 +
+      (sourceConfidence === 'high' ? 5 : sourceConfidence === 'medium' ? 1 : -7)
   )
 
   return {
@@ -195,10 +288,21 @@ function createScoredFinding({
     confidenceScore: weightedScore,
     basis,
     summary,
-    explanation: buildFindingExplanation(signalLabel, sharedTagCount, overlappingMechanisms),
+    explanation: buildFindingExplanation({
+      signalLabel,
+      sharedTags: sharedTagCount,
+      overlappingMechanisms,
+      knownPatternCount,
+      compoundSimilarityCount,
+    }),
+    whatThisMeans,
+    whatToWatchFor,
+    saferAlternatives,
     sharedTagCount,
     overlappingMechanismCount,
     overlappingMechanisms,
+    knownPatternCount,
+    compoundSimilarityCount,
     evidenceBasis,
   }
 }
@@ -243,6 +347,17 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
         matchedItems: sedativeItems,
         signalTags: ['sedative', 'cns-depressant', 'gabaergic'],
         evidenceBasis: collectEvidence(sedativeItems, ['sedative', 'cns-depressant', 'gabaergic']),
+        whatThisMeans:
+          'This combination may feel heavier than expected, especially if doses are close together or taken late in the day.',
+        whatToWatchFor: [
+          'Unusual daytime sleepiness or trouble concentrating.',
+          'Slower reaction time during driving, training, or work tasks.',
+          'Next-morning grogginess after evening use.',
+        ],
+        saferAlternatives: [
+          'Keep only one sedative-leaning item in the same time window.',
+          'Use lower doses and separate by several hours before stacking.',
+        ],
       })
     )
   }
@@ -261,6 +376,17 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
         matchedItems: stimulantItems,
         signalTags: ['stimulant'],
         evidenceBasis: collectEvidence(stimulantItems, ['stimulant']),
+        whatThisMeans:
+          'Energy effects may stack faster than expected, making the combo feel harsher than each item alone.',
+        whatToWatchFor: [
+          'Jitters, nervousness, or feeling “wired but tired.”',
+          'Racing heart, restlessness, or difficulty winding down.',
+          'Sleep onset delay if used later in the day.',
+        ],
+        saferAlternatives: [
+          'Use one stimulant-forward item at a time.',
+          'Move stimulating items to earlier hours and avoid late-day overlap.',
+        ],
       })
     )
   }
@@ -279,6 +405,16 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
         matchedItems: serotonergicItems,
         signalTags: ['serotonergic'],
         evidenceBasis: collectEvidence(serotonergicItems, ['serotonergic']),
+        whatThisMeans:
+          'Stacking serotonin-active items can make effects less predictable and increase side-effect burden.',
+        whatToWatchFor: [
+          'Restlessness, sweating, GI upset, tremor, or unusual agitation.',
+          'Rapid mood swings or feeling overstimulated at low doses.',
+        ],
+        saferAlternatives: [
+          'Avoid introducing multiple serotonergic items in the same week.',
+          'Use single-item trials before any combination attempt.',
+        ],
       })
     )
   }
@@ -306,6 +442,17 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
           ...collectEvidence(serotonergicItems, ['serotonergic']),
           ...collectEvidence(stimulantItems, ['stimulant']),
         ],
+        whatThisMeans:
+          'This is a higher-complexity combination where small dose changes can produce outsized effects.',
+        whatToWatchFor: [
+          'Stronger-than-expected response to normal doses.',
+          'Headache, blood pressure shifts, or unusual agitation.',
+          'Any rapidly escalating symptoms after combination use.',
+        ],
+        saferAlternatives: [
+          'Avoid combining MAOI-like items with serotonergic or strong stimulant items.',
+          'If uncertain, do not stack—seek clinician guidance first.',
+        ],
       })
     )
   }
@@ -324,6 +471,17 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
         matchedItems: cardioItems,
         signalTags: ['cardioactive', 'stimulant'],
         evidenceBasis: collectEvidence(cardioItems, ['cardioactive', 'stimulant']),
+        whatThisMeans:
+          'Cardiovascular load may increase when these are used together, especially with higher doses or dehydration.',
+        whatToWatchFor: [
+          'Noticeably elevated resting heart rate.',
+          'Palpitations or uncomfortable blood pressure sensations.',
+          'Exercise intolerance versus your normal baseline.',
+        ],
+        saferAlternatives: [
+          'Avoid stacking multiple activating items in one serving.',
+          'Use hydration, food timing, and conservative dose steps.',
+        ],
       })
     )
   }
@@ -342,6 +500,16 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
         matchedItems: hepaticItems,
         signalTags: ['hepatotoxic'],
         evidenceBasis: collectEvidence(hepaticItems, ['hepatotoxic']),
+        whatThisMeans:
+          'The liver may need to process a heavier combined load, making longer-term use riskier without monitoring.',
+        whatToWatchFor: [
+          'Persistent nausea, unusual fatigue, or upper-right abdominal discomfort.',
+          'Dark urine, pale stool, or yellowing symptoms that need urgent evaluation.',
+        ],
+        saferAlternatives: [
+          'Do not layer multiple liver-stressing items in the same routine.',
+          'Use shorter cycles and pause promptly if warning signs appear.',
+        ],
       })
     )
   }
@@ -360,9 +528,20 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
         'At least one selected item has limited structured mechanism or safety data, so this report has lower reliability and may miss signals.',
       explanation:
         'The dataset for one or more selected items is thin, so absence of signals should not be treated as absence of risk.',
+      whatThisMeans:
+        'Treat this report as preliminary. Unknowns are higher than usual for this combination.',
+      whatToWatchFor: [
+        'Unexpected effects even at low doses.',
+        'Any symptom pattern that differs from your prior single-item experience.',
+      ],
+      saferAlternatives: [
+        'Prioritize combinations with better-documented items and clearer safety tags.',
+      ],
       sharedTagCount: 0,
       overlappingMechanismCount: 0,
       overlappingMechanisms: [],
+      knownPatternCount: 0,
+      compoundSimilarityCount: 0,
       evidenceBasis: sparseDataItems.map(item => `${item.item.name}: limited structured fields`),
     })
   }
@@ -386,6 +565,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
     'This tool highlights overlap patterns for harm reduction planning; it is not medical advice.',
     'These results are caution signals, not proof that a specific adverse outcome will occur.',
     'If you choose to combine items, consider lower starting amounts and wider spacing to reduce risk.',
+    'Scoring combines mechanism overlap, known interaction patterns, and compound similarity to improve consistency.',
   ]
 
   if (dataLimited) {
