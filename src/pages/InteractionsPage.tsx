@@ -51,6 +51,12 @@ const GOAL_FILTERS: Array<{ label: string; value: ComboGoal }> = [
   { label: 'Mood', value: 'mood' },
   { label: 'Energy', value: 'energy' },
 ]
+const STACK_INTENTS = [
+  { label: 'Sleep', value: 'sleep' },
+  { label: 'Focus', value: 'focus' },
+  { label: 'Relaxation', value: 'relaxation' },
+] as const
+type StackIntent = (typeof STACK_INTENTS)[number]['value']
 
 const INTERACTION_ENGAGEMENT_KEY = 'hs_interaction_engagement_v1'
 const INTERACTION_LEAD_CAPTURED_KEY = 'hs_interaction_lead_captured_v1'
@@ -134,6 +140,7 @@ export default function InteractionsPage() {
   const [activeGoalFilter, setActiveGoalFilter] = useState<ComboGoal | null>(null)
   const [activeComboId, setActiveComboId] = useState<string | null>(null)
   const [stackName, setStackName] = useState('')
+  const [stackIntent, setStackIntent] = useState<StackIntent>('relaxation')
   const [stackCopyStatus, setStackCopyStatus] = useState<'idle' | 'copied'>('idle')
   const [showEmailGate, setShowEmailGate] = useState(false)
   const [pendingExport, setPendingExport] = useState(false)
@@ -304,6 +311,13 @@ export default function InteractionsPage() {
     setSelectionMessage('')
     setLeadContext('after-report')
     setActiveComboId(entry.combo.id)
+    if (
+      entry.combo.goal === 'sleep' ||
+      entry.combo.goal === 'focus' ||
+      entry.combo.goal === 'relaxation'
+    ) {
+      setStackIntent(entry.combo.goal)
+    }
 
     const sharedItems = buildShareItemsValue(entry.resolvedItems, catalog)
     if (sharedItems) {
@@ -497,13 +511,16 @@ export default function InteractionsPage() {
   )
 
   const activeGoalLabel = useMemo(() => {
+    const selectedIntent = STACK_INTENTS.find(intent => intent.value === stackIntent)?.label
+    if (selectedIntent) return selectedIntent
+
     if (activeComboId) {
       const activeCombo = resolvedCombos.find(entry => entry.combo.id === activeComboId)
       if (activeCombo) return COMBO_GOAL_LABELS[activeCombo.combo.goal]
     }
 
     return null
-  }, [activeComboId, resolvedCombos])
+  }, [activeComboId, resolvedCombos, stackIntent])
 
   const stackSummary = useMemo(
     () =>
@@ -534,6 +551,11 @@ export default function InteractionsPage() {
       ...activeStackItems.map(item => `- ${item.name}`),
       '',
       `Goal: ${stackSummary.goal || 'Not specified'}`,
+      `Timing: ${stackSummary.recommendedTiming}`,
+      'Dosage ranges:',
+      `- Light: ${stackSummary.dosageRanges.light}`,
+      `- Moderate: ${stackSummary.dosageRanges.moderate}`,
+      `- Strong: ${stackSummary.dosageRanges.strong}`,
       '',
       `Verdict: ${stackSummary.interactionVerdict}`,
       '',
@@ -802,6 +824,25 @@ export default function InteractionsPage() {
             className='w-full rounded-lg border border-white/15 bg-black/40 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:border-cyan-300/60 focus:outline-none'
           />
         </label>
+        <div className='space-y-2'>
+          <span className='text-xs font-medium uppercase tracking-wide text-white/70'>Intent</span>
+          <div className='flex flex-wrap gap-2'>
+            {STACK_INTENTS.map(intent => (
+              <button
+                key={intent.value}
+                type='button'
+                onClick={() => setStackIntent(intent.value)}
+                className={`rounded-full border px-3 py-1 text-xs transition ${
+                  stackIntent === intent.value
+                    ? 'border-cyan-300/70 bg-cyan-400/20 text-cyan-100'
+                    : 'border-white/20 bg-white/[0.03] text-white/70 hover:bg-white/[0.08]'
+                }`}
+              >
+                {intent.label}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {activeStackItems.length === 0 ? (
           <p className='rounded-lg border border-dashed border-white/20 bg-white/[0.02] px-3 py-3 text-sm text-white/65'>
@@ -853,6 +894,53 @@ export default function InteractionsPage() {
             Clear Stack
           </Button>
         </div>
+
+        {activeStackItems.length >= 2 && (
+          <div className='grid gap-3 rounded-xl border border-white/10 bg-black/20 p-4 sm:grid-cols-2'>
+            <div className='space-y-1'>
+              <p className='text-xs uppercase tracking-wide text-cyan-200/80'>Usage timing</p>
+              <p className='text-sm text-white/90'>{stackSummary.recommendedTiming}</p>
+            </div>
+            <div className='space-y-1'>
+              <p className='text-xs uppercase tracking-wide text-cyan-200/80'>Dosage guidance</p>
+              <ul className='space-y-1 text-xs text-white/80'>
+                <li>
+                  <strong>Light:</strong> {stackSummary.dosageRanges.light}
+                </li>
+                <li>
+                  <strong>Moderate:</strong> {stackSummary.dosageRanges.moderate}
+                </li>
+                <li>
+                  <strong>Strong:</strong> {stackSummary.dosageRanges.strong}
+                </li>
+              </ul>
+            </div>
+            <div className='space-y-1'>
+              <p className='text-xs uppercase tracking-wide text-cyan-200/80'>Safety notes</p>
+              <ul className='list-disc space-y-1 pl-4 text-xs text-white/80'>
+                {(stackSummary.safetyNotes.length
+                  ? stackSummary.safetyNotes
+                  : [stackSummary.safetySummary]
+                ).map(note => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </div>
+            <div className='space-y-1'>
+              <p className='text-xs uppercase tracking-wide text-cyan-200/80'>
+                Interaction warnings
+              </p>
+              <ul className='list-disc space-y-1 pl-4 text-xs text-white/80'>
+                {(stackSummary.interactionWarnings.length
+                  ? stackSummary.interactionWarnings
+                  : [stackSummary.interactionVerdict]
+                ).map(warning => (
+                  <li key={warning}>{warning}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
       </section>
 
       {showEmailGate && (

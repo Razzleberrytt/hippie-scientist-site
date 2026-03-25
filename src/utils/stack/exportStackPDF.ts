@@ -45,6 +45,16 @@ export function exportStackPDF(summary: StackSummary) {
     <h2>Intended Goal</h2>
     <p>${escapeHtml(summary.goal || 'Not specified')}</p>
 
+    <h2>Recommended Usage Timing</h2>
+    <p>${escapeHtml(summary.recommendedTiming)}</p>
+
+    <h2>Dosage Guidance</h2>
+    <ul>
+      <li><strong>Light:</strong> ${escapeHtml(summary.dosageRanges.light)}</li>
+      <li><strong>Moderate:</strong> ${escapeHtml(summary.dosageRanges.moderate)}</li>
+      <li><strong>Strong:</strong> ${escapeHtml(summary.dosageRanges.strong)}</li>
+    </ul>
+
     <h2>Effects Summary</h2>
     <p>${escapeHtml(summary.effectsSummary)}</p>
 
@@ -53,6 +63,10 @@ export function exportStackPDF(summary: StackSummary) {
 
     <h2>Safety Notes</h2>
     <p>${escapeHtml(summary.safetySummary)}</p>
+    <ul>${asList(summary.safetyNotes)}</ul>
+
+    <h2>Interaction Warnings</h2>
+    <ul>${asList(summary.interactionWarnings)}</ul>
 
     <h2>Top signals</h2>
     <ul>${asList(summary.topSignals)}</ul>
