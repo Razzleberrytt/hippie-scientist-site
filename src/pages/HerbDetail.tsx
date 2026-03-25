@@ -15,6 +15,7 @@ const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
 
 type SourceRef = { title: string; url: string; note?: string }
+type AffiliateLink = { label: string; url: string; merchant?: string }
 
 function toSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
@@ -90,6 +91,17 @@ function ListSection({ items }: { items: string[] }) {
 
 function normalizeKey(value: string) {
   return value.trim().toLowerCase()
+}
+
+function toAffiliateLink(value: unknown): AffiliateLink | null {
+  if (typeof value !== 'string') return null
+  const url = value.trim()
+  if (!/^https?:\/\//i.test(url)) return null
+  return {
+    label: 'Find product options',
+    url,
+    merchant: /amazon/i.test(url) ? 'Amazon' : undefined,
+  }
 }
 
 export default function HerbDetail() {
@@ -170,6 +182,7 @@ export default function HerbDetail() {
   const legalStatus = herb.legalStatus || ''
   const herbClass = String(herb.class || herb.category || '')
   const lastUpdated = String((herb as Record<string, unknown>).lastUpdated || '').trim()
+  const affiliateLink = toAffiliateLink(herb.affiliatelink)
 
   const confidence =
     herb.confidence === 'high' || herb.confidence === 'medium' ? herb.confidence : 'low'
@@ -346,6 +359,28 @@ export default function HerbDetail() {
         {dosage && <Section title='Dosage'>{dosage}</Section>}
         {duration && <Section title='Duration'>{duration}</Section>}
         {preparation && <Section title='Preparation'>{preparation}</Section>}
+        {affiliateLink && (
+          <Section title='Where to Buy (Optional)'>
+            <div className='space-y-2 rounded-xl border border-white/10 bg-white/[0.03] p-3'>
+              <p className='text-white/75'>
+                If you decide to purchase this herb, here is one optional external link
+                {affiliateLink.merchant ? ` (${affiliateLink.merchant})` : ''}.
+              </p>
+              <a
+                href={affiliateLink.url}
+                target='_blank'
+                rel='noreferrer nofollow sponsored'
+                className='btn-secondary inline-flex'
+              >
+                {affiliateLink.label} ↗
+              </a>
+              <p className='text-xs text-white/55'>
+                Affiliate disclosure: We may earn a commission from qualifying purchases. This does
+                not change our safety guidance, evidence standards, or editorial priorities.
+              </p>
+            </div>
+          </Section>
+        )}
         {region && <Section title='Region'>{region}</Section>}
         {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 
