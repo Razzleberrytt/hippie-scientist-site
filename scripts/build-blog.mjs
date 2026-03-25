@@ -18,6 +18,7 @@ const OUT = path.join(ROOT, "public", "blogdata");
 const POSTS_OUT = path.join(OUT, "posts");
 const DATA_OUT = path.join(ROOT, "src", "data", "blog", "posts.json");
 const PUBLIC_POSTS = path.join(ROOT, "public", "blog", "posts.json");
+const DEFAULT_AUTHOR = "The Hippie Scientist";
 
 function iso(d) {
   const date = new Date(d);
@@ -399,7 +400,7 @@ for (const file of files) {
   const readingTime = `${Math.max(1, Math.round(words / 225))} min read`;
   const created = getCreatedDate(filePath, data?.date);
   const tags = Array.isArray(data.tags) ? data.tags.map((tag) => String(tag)) : [];
-  const author = data.author ? String(data.author) : "The Hippie Scientist";
+  const author = data.author ? String(data.author) : DEFAULT_AUTHOR;
   const sources = Array.isArray(data.sources)
     ? data.sources
         .map((source) => {
