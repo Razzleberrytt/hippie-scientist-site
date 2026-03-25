@@ -38,7 +38,7 @@ export default function Hero() {
                 viewport={{ once: true }}
                 className='text-xs font-semibold uppercase tracking-[0.24em] text-white/65'
               >
-                Clarity-first herbal intelligence
+                The Hippie Scientist
               </motion.p>
               <motion.h1
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -51,7 +51,7 @@ export default function Hero() {
                 }
                 className='text-[2.05rem] font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl'
               >
-                Understand what a herb does, how confident the data is, and what safety gaps remain
+                Plant pharmacology and safety, explained clearly
               </motion.h1>
               <motion.p
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -64,8 +64,22 @@ export default function Hero() {
                 }
                 className='max-w-2xl text-[0.98rem] leading-[1.72] text-white/80 sm:text-lg'
               >
-                Compare mechanisms, primary effects, and contraindications in one place—then build
-                goal-based blends with clearer evidence signals.
+                For curious beginners, practitioners, and safety-minded explorers comparing herbs
+                before they experiment.
+              </motion.p>
+              <motion.p
+                initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={
+                  reduceMotion
+                    ? undefined
+                    : { delay: 0.17, duration: 0.4, ease: [0.22, 1, 0.36, 1] }
+                }
+                className='max-w-2xl text-sm leading-[1.75] text-white/75 sm:text-base'
+              >
+                Browse evidence-backed herb and compound profiles, review interaction risks, and use
+                confidence labels to make safety-first decisions.
               </motion.p>
             </div>
 

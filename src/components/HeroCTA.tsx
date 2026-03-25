@@ -6,15 +6,12 @@ const baseButtonClasses =
 export default function HeroCTA() {
   return (
     <div className='w-full'>
-      <div className='grid grid-cols-1 gap-3 sm:max-w-3xl sm:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-3 sm:max-w-xl sm:grid-cols-2'>
         <Link to='/herbs' className={`${baseButtonClasses} btn-primary`}>
-          Explore Herbs
+          Browse Herbs
         </Link>
-        <Link to='/compounds' className={`${baseButtonClasses} btn-secondary`}>
-          View Compounds
-        </Link>
-        <Link to='/build' className={`${baseButtonClasses} btn-ghost`}>
-          Build a Blend
+        <Link to='/interactions' className={`${baseButtonClasses} btn-secondary`}>
+          Check Interactions
         </Link>
       </div>
     </div>
