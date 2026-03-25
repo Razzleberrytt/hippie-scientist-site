@@ -13,6 +13,8 @@ import { useUrlFilterState } from '@/hooks/useUrlFilterState'
 import { filterHerbs } from '@/utils/filterHerbs'
 import { DEFAULT_FILTER_STATE } from '@/utils/filterModel'
 import { extractFilterOptions } from '@/utils/extractFilterOptions'
+import { buildEffectIndex } from '@/utils/effectSearch'
+import EffectExplorer from '@/components/EffectExplorer'
 
 export default function HerbsPage() {
   const herbs = useHerbData()
@@ -20,6 +22,7 @@ export default function HerbsPage() {
   const [filters, setFilters] = useUrlFilterState(DEFAULT_FILTER_STATE)
 
   const options = useMemo(() => extractFilterOptions({ herbs: decoratedHerbs }), [decoratedHerbs])
+  const effectIndex = useMemo(() => buildEffectIndex(decoratedHerbs), [decoratedHerbs])
   const filtered = useMemo(() => filterHerbs(decoratedHerbs, filters), [decoratedHerbs, filters])
 
   const toggleEffect = (effect: string) => {
@@ -47,6 +50,8 @@ export default function HerbsPage() {
           Search and filter herbs by effect tags, confidence, and class to quickly compare entries.
         </p>
       </header>
+
+      <EffectExplorer herbs={decoratedHerbs} />
 
       <section className='mb-4 space-y-3'>
         <SearchBar
@@ -89,7 +94,9 @@ export default function HerbsPage() {
         />
       </section>
 
-      <p className='mb-4 text-sm text-white/70'>{filtered.length} results</p>
+      <p className='mb-4 text-sm text-white/70'>
+        {filtered.length} results · {effectIndex.size} indexed effects
+      </p>
 
       {filtered.length === 0 ? (
         <div className='rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center text-white/80'>
