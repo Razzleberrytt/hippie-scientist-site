@@ -8,6 +8,7 @@ import { normalizeScientificTags } from '@/lib/tags'
 import { trackEvent, useSavedItems } from '@/lib/growth'
 import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
 import { CTA } from '@/lib/cta'
+import Disclaimer from '@/components/Disclaimer'
 
 type PostMeta = {
   slug: string
@@ -23,6 +24,9 @@ type PostMeta = {
 }
 
 const compounds = decorateCompounds()
+const DEFAULT_AUTHOR = 'The Hippie Scientist'
+const AUTHOR_BIO =
+  'Ari is an independent researcher focused on plant pharmacology literacy, safety communication, and evidence synthesis. Each post translates available research into practical, uncertainty-aware notes for readers who want grounded context over hype.'
 
 export default function BlogPost() {
   const { slug = '' } = useParams()
@@ -122,7 +126,7 @@ export default function BlogPost() {
           {meta?.title || 'Loading…'}
         </h1>
 
-        <p className='-mt-1 text-sm text-white/75'>By {meta?.author || 'Hippie Scientist Team'}</p>
+        <p className='-mt-1 text-sm text-white/75'>By {meta?.author || DEFAULT_AUTHOR}</p>
 
         <div className='flex flex-wrap items-center gap-2 text-sm text-white/65'>
           {meta?.date && <time dateTime={meta.date}>{formatDate(meta.date)}</time>}
@@ -148,12 +152,14 @@ export default function BlogPost() {
             About the author
           </h2>
           <p className='mt-2 text-sm leading-7 text-white/85'>
-            Written by {meta?.author || 'the Hippie Scientist Team'}, focused on evidence review,
-            harm-reduction communication, and practical herbal literacy.
+            Written by {meta?.author || DEFAULT_AUTHOR}. {AUTHOR_BIO}
           </p>
           <p className='mt-2 text-xs leading-6 text-emerald-100/90'>
-            Editorial standard: mechanism-first explanations, source-linked references, and clear
-            uncertainty labels. Educational content only, not medical advice.
+            Read the full editorial approach and methodology on the{' '}
+            <Link to='/about' className='underline decoration-dotted underline-offset-4'>
+              About page
+            </Link>
+            .
           </p>
         </section>
         {meta?.slug && (
@@ -228,6 +234,7 @@ export default function BlogPost() {
           </ol>
         </section>
       )}
+      <Disclaimer className='mt-8' />
       <ContextualLeadMagnet
         context='blog'
         title='Download the full guide'

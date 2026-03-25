@@ -16,52 +16,55 @@ export default function About() {
             </p>
             <h1 className='ds-heading'>Independent research for safer herbal decision-making</h1>
             <p className='ds-text'>
-              Hippie Scientist is an education-first project built by an independent researcher. The
-              goal is to make herbal and compound information easier to evaluate without hype.
+              I&apos;m Ari, the researcher and writer behind Hippie Scientist. This project is built
+              to make plant pharmacology and safety information easier to evaluate with clear
+              language, transparent uncertainty, and no hype.
             </p>
           </header>
 
           <section className='ds-stack border-t border-white/10 pt-4'>
-            <h2 className='ds-subheading'>Mission</h2>
+            <h2 className='ds-subheading'>Who this is for</h2>
             <p className='ds-text'>
-              The mission is to help readers make safer, evidence-aware decisions by translating
-              complex herbal research into plain language while preserving uncertainty and context.
+              This site is for curious readers, students, and cautious experimenters who want a
+              grounded view of herbs and psychoactive compounds. It is especially for people trying
+              to understand tradeoffs, interaction risks, and evidence quality before acting.
             </p>
+          </section>
+
+          <section className='ds-stack border-t border-white/10 pt-4'>
+            <h2 className='ds-subheading'>What this site does</h2>
             <ul className='text-white/82 list-disc space-y-2 pl-5 text-sm leading-7'>
-              <li>Education first: explain what is known, unknown, and still unresolved.</li>
-              <li>Harm reduction: surface risks, contraindications, and caution points early.</li>
-              <li>Clarity over hype: prefer mechanism-first summaries over bold claims.</li>
-              <li>Transparency: cite source quality and limits whenever conclusions are shared.</li>
+              <li>Summarizes plant pharmacology and mechanism-level evidence in plain language.</li>
+              <li>Highlights safety notes, contraindications, and interaction awareness.</li>
+              <li>Separates stronger findings from weaker or unresolved claims.</li>
+              <li>Provides practical context while keeping confidence boundaries visible.</li>
             </ul>
           </section>
 
           <section className='ds-stack border-t border-white/10 pt-4'>
-            <h2 className='ds-subheading'>Background</h2>
+            <h2 className='ds-subheading'>Why it exists</h2>
             <p className='ds-text'>
-              Hippie Scientist is maintained by an independent researcher focused on herbal
-              pharmacology literacy, scientific communication, and practical safety framing. Content
-              draws from public literature, pharmacology summaries, traditional-use references, and
-              published research notes when available.
+              Most herbal content online is either too technical to use or too confident to trust.
+              Hippie Scientist exists to bridge that gap through harm-reduction framing and
+              education-first writing.
             </p>
             <p className='ds-text'>
-              Because evidence quality varies widely across herbs and compounds, each profile is
-              designed to highlight confidence level, limitations, and open questions rather than
-              imply certainty where it does not exist.
+              The focus is independent research and synthesis: reading across pharmacology papers,
+              review articles, and traditional-use context, then translating that into clear, usable
+              notes with explicit limits.
             </p>
           </section>
 
           <section className='ds-stack border-t border-white/10 pt-4'>
-            <h2 className='ds-subheading'>Disclaimer</h2>
+            <h2 className='ds-subheading'>Methodology and editorial standard</h2>
             <p className='ds-text'>
-              This site is for education and research literacy only. It does not provide medical
-              diagnosis, treatment, or personalized recommendations. Information here should not
-              replace advice from a qualified clinician who can evaluate your personal history,
-              medications, and risk profile.
+              Content is data-driven where possible, references are included when source material is
+              available, and confidence is stated conservatively. Posts prioritize mechanism-first
+              interpretation, practical safety context, and explicit unknowns.
             </p>
             <p className='ds-text'>
-              If you are pregnant, breastfeeding, have a health condition, or take prescription
-              medications, consult a licensed healthcare professional before trying any herb,
-              compound, or supplement protocol.
+              This site is educational only and is not medical advice. It does not diagnose, treat,
+              or replace care from qualified professionals.
             </p>
           </section>
         </article>

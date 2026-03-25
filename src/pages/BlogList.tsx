@@ -27,6 +27,7 @@ type PostIndex = {
 }
 
 const PER_PAGE = 12
+const DEFAULT_AUTHOR = 'The Hippie Scientist'
 const FALLBACK_GRADIENTS = [
   'from-emerald-300/35 via-cyan-300/25 to-indigo-400/35',
   'from-violet-300/30 via-fuchsia-300/20 to-cyan-300/35',
@@ -165,9 +166,7 @@ export default function BlogList() {
               <p className='line-clamp-3 max-w-3xl overflow-hidden text-sm leading-7 text-white/90 sm:text-base'>
                 {cleanBlogExcerpt(post.summary, post.description)}
               </p>
-              <p className='text-xs text-emerald-100'>
-                By {post.author || 'Hippie Scientist Team'}
-              </p>
+              <p className='text-xs text-emerald-100'>By {post.author || DEFAULT_AUTHOR}</p>
             </div>
             <div className='pt-1'>
               <Link
