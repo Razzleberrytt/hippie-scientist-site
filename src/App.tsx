@@ -39,6 +39,8 @@ const Methodology = lazy(() => import('./pages/Methodology'))
 const InteractionsPage = lazy(() => import('./pages/InteractionsPage'))
 const CollectionPage = lazy(() => import('./pages/CollectionPage'))
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'))
 import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
@@ -75,6 +77,9 @@ export default function App() {
                 <Route path='/favorites' element={<Favorites />} />
                 <Route path='/newsletter' element={<Newsletter />} />
                 <Route path='/contact' element={<Contact />} />
+                <Route path='/privacy' element={<PrivacyPolicy />} />
+                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                <Route path='/disclaimer' element={<DisclaimerPage />} />
                 <Route path='/contribute' element={<Contribute />} />
                 <Route path='/methodology' element={<Methodology />} />
                 <Route path='/interactions' element={<InteractionsPage />} />
