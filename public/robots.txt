@@ -1,6 +1,15 @@
 User-agent: *
 Allow: /
+Disallow: /analytics
 Disallow: /data-fix
-Disallow: /theme
 Disallow: /graph
+Disallow: /theme
+Disallow: /sitemap
+Disallow: /preview
+Disallow: /drafts
+Disallow: /tmp
+Disallow: /temp
+Disallow: /test
+Disallow: /dev
+Disallow: /herb-index
 Sitemap: https://thehippiescientist.net/sitemap.xml
