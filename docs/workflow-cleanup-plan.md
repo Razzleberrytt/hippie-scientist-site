@@ -218,3 +218,13 @@ To keep maintenance low while preserving core automation:
   - `src/content/blog` → none
   - `src/data/blog` → none
   - `src/data/herbs` → none
+
+## 2026-03-25 update: blog trust cleanup safeguards
+
+- Audited low-quality "Notes" style posts in `content/blog` for title/summary/body herb consistency.
+- Marked 24 mismatched posts as `draft: true` so they are excluded from the build and public blog index.
+- Added a publish-time guard in `scripts/build-blog.mjs` that skips targeted "Notes" posts when title, summary, and body herb references do not align.
+- Added a generation-time guard in `scripts/generate-daily-post.mjs`:
+  - Uses one herb consistently across title + summary.
+  - Keeps generated posts as `draft: true` by default pending editorial review.
+  - Throws if generated post fails consistency checks.
