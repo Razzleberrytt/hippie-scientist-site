@@ -11,6 +11,7 @@ import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { submitLeadCapture } from '@/lib/leadCapture'
 import { trackCollectionEvent } from '@/lib/collectionTracking'
+import { splitClean } from '@/lib/sanitize'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import { type ComboGoal, type PrebuiltCombo } from '@/types/combos'
 import { normalizeLookupToken } from '@/utils/normalizeToken'
@@ -19,17 +20,10 @@ type CollectionHerb = ReturnType<typeof useHerbData>[number]
 type CollectionCompound = ReturnType<typeof useCompoundData>[number]
 type CollectionEntity = CollectionHerb | CollectionCompound
 
-function toTokens(value: unknown): string[] {
-  if (Array.isArray(value)) return value.map(item => String(item).toLowerCase())
-  if (typeof value === 'string') return value.toLowerCase().split(/[;,|]/)
-  return []
-}
-
 function toSearchBlob(fields: unknown[]): string {
   return fields
-    .flatMap(field => toTokens(field))
-    .map(token => token.trim())
-    .filter(Boolean)
+    .flatMap(field => splitClean(field))
+    .map(token => token.toLowerCase())
     .join(' ')
 }
 

@@ -80,7 +80,7 @@ export function splitClean(value: unknown): string[] {
 
   if (typeof value === 'string') {
     const parts = value
-      .split(/[\n;|]/)
+      .split(/[\n,;|]/)
       .map(part => part.trim())
       .filter(Boolean)
     return cleanList(parts)

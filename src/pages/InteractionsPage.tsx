@@ -28,21 +28,7 @@ import {
 import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
 import { type ComboGoal, type PrebuiltCombo, COMBO_GOAL_LABELS } from '@/types/combos'
 import { normalizeLookupToken } from '@/utils/normalizeToken'
-
-function normalizeTextArray(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value.map(entry => String(entry).trim()).filter(Boolean)
-  }
-
-  if (typeof value === 'string') {
-    return value
-      .split(/[;,|]/)
-      .map(entry => entry.trim())
-      .filter(Boolean)
-  }
-
-  return []
-}
+import { splitClean } from '@/lib/sanitize'
 
 type LeadCaptureActionContext = 'after-report' | 'after-save' | 'after-share' | 'after-export'
 
@@ -168,7 +154,7 @@ export default function InteractionsPage() {
         name: herb.common || herb.scientific || herb.name || herb.slug,
         kind: 'herb',
         category: String(herb.class || herb.category || ''),
-        effects: normalizeTextArray(herb.effects),
+        effects: splitClean(herb.effects),
       })),
     [herbs]
   )
@@ -180,7 +166,7 @@ export default function InteractionsPage() {
         name: compound.name,
         kind: 'compound',
         category: compound.category || compound.className,
-        effects: normalizeTextArray(compound.effects),
+        effects: splitClean(compound.effects),
       })),
     [compounds]
   )
@@ -201,12 +187,12 @@ export default function InteractionsPage() {
         kind: 'herb',
         category: String(herb.class || herb.category || ''),
         mechanism: String(herb.mechanism || herb.mechanismOfAction || ''),
-        effects: normalizeTextArray(herb.effects),
-        contraindications: normalizeTextArray(herb.contraindications),
-        interactions: normalizeTextArray(herb.interactions),
-        interactionTags: normalizeTextArray((herb as Record<string, unknown>).interactionTags),
-        interactionNotes: normalizeTextArray((herb as Record<string, unknown>).interactionNotes),
-        safety: normalizeTextArray([herb.safety, herb.sideEffects, herb.toxicity]),
+        effects: splitClean(herb.effects),
+        contraindications: splitClean(herb.contraindications),
+        interactions: splitClean(herb.interactions),
+        interactionTags: splitClean((herb as Record<string, unknown>).interactionTags),
+        interactionNotes: splitClean((herb as Record<string, unknown>).interactionNotes),
+        safety: splitClean([herb.safety, herb.sideEffects, herb.toxicity]),
         confidence: herb.confidence,
       })
     })
@@ -219,12 +205,12 @@ export default function InteractionsPage() {
         kind: 'compound',
         category: compound.category || compound.className,
         mechanism: compound.mechanism,
-        effects: normalizeTextArray(compound.effects),
-        contraindications: normalizeTextArray(compound.contraindications),
-        interactions: normalizeTextArray(compound.interactions),
-        interactionTags: normalizeTextArray(compound.interactionTags),
-        interactionNotes: normalizeTextArray(compound.interactionNotes),
-        safety: normalizeTextArray(compound.sideEffects),
+        effects: splitClean(compound.effects),
+        contraindications: splitClean(compound.contraindications),
+        interactions: splitClean(compound.interactions),
+        interactionTags: splitClean(compound.interactionTags),
+        interactionNotes: splitClean(compound.interactionNotes),
+        safety: splitClean(compound.sideEffects),
         confidence: compound.confidence,
       })
     })
