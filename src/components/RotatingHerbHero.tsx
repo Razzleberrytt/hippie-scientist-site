@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from '@/lib/motion'
 import { Link } from 'react-router-dom'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
@@ -19,7 +19,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export default function RotatingHerbHero() {
-  const source = useHerbsFull()
+  const source = useHerbData()
   const [items, setItems] = useState<Herb[]>([])
   const [index, setIndex] = useState(0)
   const [loading, setLoading] = useState(true)

@@ -1,13 +1,13 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import ErrorBoundary from '../components/ErrorBoundary'
 import { slugify } from '../utils/slugify'
 
 export default function HerbCardPage() {
   const { herbId } = useParams<{ herbId?: string }>()
-  const herbs = useHerbsFull()
+  const herbs = useHerbData()
   const id = herbId?.toLowerCase() || ''
   const herb = React.useMemo(() => {
     return herbs.find(h => {

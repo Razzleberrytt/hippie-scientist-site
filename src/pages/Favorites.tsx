@@ -46,7 +46,11 @@ export default function Favorites() {
               <SavedCard
                 key={`herb-${h.slug}`}
                 title={h.common || h.scientific || h.slug}
-                description={h.effects || 'Saved herb profile'}
+                description={
+                  Array.isArray(h.effects)
+                    ? h.effects.join(', ')
+                    : (h.effects ?? 'Saved herb profile')
+                }
                 href={`/herbs/${h.slug}`}
                 onRemove={() => remove('herb', h.slug)}
               />
@@ -57,7 +61,11 @@ export default function Favorites() {
               <SavedCard
                 key={`compound-${c.slug}`}
                 title={c.common || c.name || c.slug}
-                description={c.effects || 'Saved compound profile'}
+                description={
+                  Array.isArray(c.effects)
+                    ? c.effects.join(', ')
+                    : (c.effects ?? 'Saved compound profile')
+                }
                 href={`/compounds/${c.slug}`}
                 onRemove={() => remove('compound', c.slug)}
               />

@@ -23,7 +23,7 @@ export type Herb = {
   legalstatusClean?: string | null
   schedule?: string
   description?: string
-  effects?: string
+  effects?: string[] | string
   effectsSummary?: string | null
   mechanism?: string
   mechanismofaction?: string
@@ -47,7 +47,7 @@ export type Herb = {
   dosage?: string
   dosage_notes?: string | null
   therapeutic?: string
-  therapeuticUses?: string
+  therapeuticUses?: string | string[]
   sideeffects?: string[] | string
   sideEffects?: string
   safety?: string

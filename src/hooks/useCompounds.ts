@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { compounds } from '../data/compounds/compounds'
 import type { CompoundEntry } from '../data/compounds/compounds'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import { recordDevMessage } from '../utils/devMessages'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 
@@ -22,7 +22,7 @@ export function useCompounds(): Compound[] {
       }),
     }))
   )
-  const herbs = useHerbsFull()
+  const herbs = useHerbData()
 
   useEffect(() => {
     list.forEach(c => {

@@ -6,7 +6,6 @@ import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useHerbDataState } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
 import { splitClean } from '@/lib/sanitize'
 
@@ -151,11 +150,11 @@ export default function HerbDetail() {
   const dosage = herb.dosage || ''
   const preparation = herb.preparation || ''
   const legalStatus = herb.legalStatus || ''
-  const herbClass = herb.class || herb.category || ''
+  const herbClass = String(herb.class || herb.category || '')
   const lastUpdated = String((herb as Record<string, unknown>).lastUpdated || '').trim()
 
   const confidence =
-    herb.confidence ?? calculateHerbConfidence({ mechanism, effects, compounds: activeCompounds })
+    herb.confidence === 'high' || herb.confidence === 'medium' ? herb.confidence : 'low'
 
   const completeness = getHerbDataCompleteness({
     mechanism,

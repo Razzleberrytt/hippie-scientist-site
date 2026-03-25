@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from '@/lib/motion'
 import { Link } from 'react-router-dom'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
 import { slugify } from '../utils/slugify'
@@ -15,7 +15,7 @@ interface Props {
 
 export default function FeaturedHerbTeaser({ fixedId = '' }: Props) {
   const [herb, setHerb] = useState<Herb | null>(null)
-  const herbs = useHerbsFull()
+  const herbs = useHerbData()
 
   useEffect(() => {
     if (!herbs.length) return

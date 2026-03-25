@@ -1,4 +1,4 @@
-import { calculateCompoundConfidence, calculateHerbConfidence } from '@/utils/calculateConfidence'
+import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { splitClean } from '@/lib/sanitize'
 import type { CompoundRecord } from '@/lib/compound-data'
 import type { Herb } from '@/types'
@@ -13,15 +13,6 @@ function normalizeText(value: unknown): string {
   return String(value ?? '')
     .toLowerCase()
     .trim()
-}
-
-  const text = String(value ?? '').trim()
-  if (!text) return []
-
-  return text
-    .split(/[,;|\n]/)
-    .map(item => item.trim())
-    .filter(Boolean)
 }
 
 function confidenceRank(level: string): number {
@@ -57,11 +48,9 @@ function scoreCompoundCompleteness(compound: CompoundRecord): number {
 }
 
 function getHerbConfidence(herb: Herb): string {
-  return calculateHerbConfidence({
-    mechanism: herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
-    effects: herb.effects,
-    compounds: herb.activeCompounds || herb.active_compounds || herb.compounds,
-  })
+  const confidenceValue = String(herb.confidence ?? '').toLowerCase()
+  if (confidenceValue === 'high' || confidenceValue === 'medium') return confidenceValue
+  return 'low'
 }
 
 function getCompoundConfidence(compound: CompoundRecord): string {

@@ -1,14 +1,14 @@
 // src/pages/HerbDetailPage.tsx
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import ErrorBoundary from '../components/ErrorBoundary'
 import { herbName } from '../utils/herb'
 
 export default function HerbDetailPage() {
   const { herbId } = useParams()
-  const herbs = useHerbsFull()
+  const herbs = useHerbData()
 
   const herb = herbs.find(
     h => h.slug === herbId || h.nameNorm?.toLowerCase().replace(/\s+/g, '-') === herbId
