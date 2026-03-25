@@ -4,6 +4,7 @@ import type { Herb } from '@/types'
 import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { cleanText, splitClean } from '@/lib/sanitize'
 import { getHerbSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
+import { sanitizeHerbRecord } from '@/utils/sanitizeData'
 
 let herbsPromise: Promise<Herb[]> | null = null
 type SourceRef = { title: string; url?: string; note?: string }
@@ -33,49 +34,52 @@ function normalizeSources(value: unknown): SourceRef[] {
 }
 
 function normalizeHerbRow(raw: Record<string, unknown>): Herb {
-  const common = cleanText(raw.common ?? raw.commonName ?? raw.name) || ''
+  const { data } = sanitizeHerbRecord(raw, { debug: import.meta.env.DEV })
+  const common = cleanText(data.common ?? data.commonName ?? data.name) || ''
   const scientific =
-    cleanText(raw.scientific ?? raw.latin ?? raw.latinName ?? raw.scientificName) || ''
-  const slug = String(raw.slug || raw.id || slugify(common || scientific || ''))
+    cleanText(data.scientific ?? data.latin ?? data.latinName ?? data.scientificName) || ''
+  const slug = String(data.slug || data.id || slugify(common || scientific || ''))
     .trim()
     .toLowerCase()
 
-  const effects = splitClean(raw.effects)
-  const contraindications = splitClean(raw.contraindications)
-  const interactions = splitClean(raw.interactions)
-  const sideeffects = splitClean(raw.sideEffects ?? raw.sideeffects)
-  const rawInteractionTags = splitClean(raw.interactionTags)
-  const rawInteractionNotes = splitClean(raw.interactionNotes)
-  const therapeuticUses = splitClean(raw.therapeuticUses)
-  const activeCompounds = splitClean(raw.activeCompounds ?? raw.active_compounds ?? raw.compounds)
-  const sources = normalizeSources(raw.sources)
-  const seededInteraction = getHerbSeedInteractionData(raw)
+  const effects = splitClean(data.effects)
+  const contraindications = splitClean(data.contraindications)
+  const interactions = splitClean(data.interactions)
+  const sideeffects = splitClean(data.sideEffects ?? data.sideeffects)
+  const rawInteractionTags = splitClean(data.interactionTags)
+  const rawInteractionNotes = splitClean(data.interactionNotes)
+  const therapeuticUses = splitClean(data.therapeuticUses)
+  const activeCompounds = splitClean(
+    data.activeCompounds ?? data.active_compounds ?? data.compounds
+  )
+  const sources = normalizeSources(data.sources)
+  const seededInteraction = getHerbSeedInteractionData(data)
   const mergedInteraction = mergeInteractionData({
     rawTags: rawInteractionTags,
     rawNotes: rawInteractionNotes,
     seed: seededInteraction,
   })
 
-  const mechanism = cleanText(raw.mechanism ?? raw.mechanismOfAction) || ''
-  const description = cleanText(raw.description ?? raw.summary) || ''
-  const duration = cleanText(raw.duration) || ''
-  const dosage = cleanText(raw.dosage) || ''
-  const preparation = cleanText(raw.preparation) || ''
-  const legalStatus = cleanText(raw.legalStatus ?? raw.legalstatus) || ''
-  const region = cleanText(raw.region) || ''
-  const category = cleanText(raw.class ?? raw.category) || ''
-  const intensity = cleanText(raw.intensity) || ''
+  const mechanism = cleanText(data.mechanism ?? data.mechanismOfAction) || ''
+  const description = cleanText(data.description ?? data.summary) || ''
+  const duration = cleanText(data.duration) || ''
+  const dosage = cleanText(data.dosage) || ''
+  const preparation = cleanText(data.preparation) || ''
+  const legalStatus = cleanText(data.legalStatus ?? data.legalstatus) || ''
+  const region = cleanText(data.region) || ''
+  const category = cleanText(data.class ?? data.category) || ''
+  const intensity = cleanText(data.intensity) || ''
 
   return {
-    ...(raw as Herb),
-    id: String(raw.id || slug),
+    ...(data as Herb),
+    id: String(data.id || slug),
     slug,
     name: common || scientific,
     common,
     scientific,
     description,
     category,
-    class: cleanText(raw.class) || '',
+    class: cleanText(data.class) || '',
     intensity,
     region,
     mechanism,
