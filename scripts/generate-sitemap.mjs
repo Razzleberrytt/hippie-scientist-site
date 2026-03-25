@@ -20,7 +20,6 @@ const disallowedPaths = [
   '/data-fix',
   '/graph',
   '/theme',
-  '/sitemap',
   '/preview',
   '/drafts',
   '/tmp',
@@ -233,6 +232,8 @@ function buildRobotsTxt() {
   }
 
   lines.push(`Sitemap: ${sitemapUrl}`)
+  lines.push(`Sitemap: ${toPublicUrl('/rss.xml')}`)
+  lines.push(`Sitemap: ${toPublicUrl('/feed.xml')}`)
   return `${lines.join('\n')}\n`
 }
 

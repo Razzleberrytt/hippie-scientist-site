@@ -1,5 +1,4 @@
 node_modules
-/dist/
 /src/**/*.js
 
 
@@ -43,3 +42,7 @@ hippie-scientist-fixes*.zip
 # Logs and reports (keep in local dev, not repo)
 logs/
 reports/
+dist/
+assets/
+dist-clean/*
+!dist-clean/README.md
