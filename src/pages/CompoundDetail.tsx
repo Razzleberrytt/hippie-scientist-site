@@ -39,10 +39,10 @@ function ListSection({ items }: { items: string[] }) {
 export default function CompoundDetail() {
   const { slug = '' } = useParams()
   const { compounds, isLoading: isCompoundLoading } = useCompoundDataState()
-  const { herbs } = useHerbDataState()
+  const { herbs, isLoading: isHerbLoading } = useHerbDataState()
   const compound = compounds.find(item => item.slug === slug)
 
-  if (isCompoundLoading) {
+  if (isCompoundLoading || isHerbLoading) {
     return <CompoundDetailSkeleton />
   }
 

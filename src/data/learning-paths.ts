@@ -1,0 +1,107 @@
+export type PathItem = {
+  id: string
+  title: string
+  href: string
+  type: 'herb' | 'compound' | 'article'
+}
+export type LearningPath = { id: string; title: string; description: string; items: PathItem[] }
+
+export const learningPaths: LearningPath[] = [
+  {
+    id: 'beginner-effects',
+    title: 'Beginner: Understanding Herbal Effects',
+    description: 'Start with gentle profiles, then compare mechanism claims with observed effects.',
+    items: [
+      {
+        id: 'h-passionflower',
+        title: 'Passionflower profile',
+        href: '/herbs/passionflower',
+        type: 'herb',
+      },
+      {
+        id: 'h-bacopa',
+        title: 'Bacopa monnieri profile',
+        href: '/herbs/bacopa-monnieri',
+        type: 'herb',
+      },
+      {
+        id: 'c-apigenin',
+        title: 'Apigenin mechanism',
+        href: '/compounds/apigenin',
+        type: 'compound',
+      },
+      {
+        id: 'a-nightly-blend-guide',
+        title: 'Nightly blend guide',
+        href: '/blog/nightly-blend-guide',
+        type: 'article',
+      },
+    ],
+  },
+  {
+    id: 'psychedelic-mechanisms',
+    title: 'Psychedelic Mechanisms 101',
+    description: 'Map receptor hypotheses and uncertainty boundaries before interpreting outcomes.',
+    items: [
+      {
+        id: 'h-calea',
+        title: 'Calea zacatechichi profile',
+        href: '/herbs/calea-zacatechichi',
+        type: 'herb',
+      },
+      {
+        id: 'h-acacia-confusa',
+        title: 'Acacia confusa profile',
+        href: '/herbs/acacia-confusa',
+        type: 'herb',
+      },
+      {
+        id: 'c-muscimol',
+        title: 'Muscimol profile',
+        href: '/compounds/muscimol',
+        type: 'compound',
+      },
+      {
+        id: 'a-blue-lotus-aporphines',
+        title: 'Blue lotus & aporphines',
+        href: '/blog/blue-lotus-aporphines',
+        type: 'article',
+      },
+    ],
+  },
+  {
+    id: 'safety-risk',
+    title: 'Safety & Risk Awareness',
+    description: 'Build a repeatable process for contraindications, side effects, and context.',
+    items: [
+      { id: 'h-valerian', title: 'Valerian profile', href: '/herbs/valerian', type: 'herb' },
+      { id: 'h-kava', title: 'Kava profile', href: '/herbs/kava', type: 'herb' },
+      {
+        id: 'a-kava-safety',
+        title: 'Kava safety and kavalactones',
+        href: '/blog/kava-safety-kavalactones',
+        type: 'article',
+      },
+    ],
+  },
+  {
+    id: 'traditional-modern',
+    title: 'Traditional vs Modern Use',
+    description: 'Compare ethnobotanical context with modern extraction and dosing assumptions.',
+    items: [
+      {
+        id: 'h-ashwagandha',
+        title: 'Ashwagandha profile',
+        href: '/herbs/ashwagandha',
+        type: 'herb',
+      },
+      { id: 'h-rhodiola', title: 'Rhodiola profile', href: '/herbs/rhodiola', type: 'herb' },
+      {
+        id: 'a-rhodiola-vs-ashwagandha',
+        title: 'Rhodiola vs. Ashwagandha',
+        href: '/blog/rhodiola-vs-ashwagandha',
+        type: 'article',
+      },
+    ],
+  },
+]

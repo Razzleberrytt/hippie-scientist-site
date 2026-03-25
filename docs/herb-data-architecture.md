@@ -34,5 +34,5 @@ The canonical normalized herb object guarantees these fields for UI use:
 
 ## Legacy compatibility
 
-- `src/data/herbs/herbsfull.ts` is now a compatibility wrapper and is deprecated.
-- `src/lib/data.ts` now resolves herbs from `loadHerbData()` so legacy `loadHerbs()` entity views still consume canonical herb normalization.
+- Runtime UI code should consume `useHerbData()` / `useHerbDataState()` directly from `src/lib/herb-data.ts`.
+- `src/lib/data.ts` remains only for legacy entity-index paths and still delegates herb loading to `loadHerbData()`.

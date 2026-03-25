@@ -119,7 +119,7 @@ export default function HerbDetail() {
     ? herb.interactions
     : splitClean(herb.interactions)
   const therapeuticUses = Array.isArray(herb.therapeuticUses)
-    ? (herb.therapeuticUses as string[])
+    ? herb.therapeuticUses
     : splitClean(herb.therapeuticUses)
   const sideEffects = Array.isArray(herb.sideeffects)
     ? herb.sideeffects
