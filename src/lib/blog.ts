@@ -9,6 +9,9 @@ export type BlogIndexPost = {
   summary?: string | null
   tags?: string[]
   readingTime?: string | null
+  cover?: string | null
+  featuredImage?: string | null
+  image?: string | null
 }
 
 export type PaginationResult<T> = {

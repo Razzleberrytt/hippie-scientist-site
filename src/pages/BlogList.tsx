@@ -22,6 +22,8 @@ type PostIndex = {
   tags?: string[]
   readingTime?: string | null
   cover?: string | null
+  featuredImage?: string | null
+  image?: string | null
 }
 
 const PER_PAGE = 12
@@ -128,23 +130,23 @@ export default function BlogList() {
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='ds-card-lg flex h-full min-h-[28rem] flex-col space-y-3 text-white shadow-[var(--glow-lg)] transition-transform duration-300'
+            className='ds-card-lg flex h-full min-h-[25rem] flex-col space-y-3 text-white shadow-[var(--glow-lg)] transition-transform duration-300'
           >
             <div
-              className={`h-24 w-full overflow-hidden rounded-xl bg-gradient-to-r sm:h-36 ${coverGradients[index % coverGradients.length]}`}
+              className={`relative h-32 w-full overflow-hidden rounded-xl bg-gradient-to-r sm:h-40 ${coverGradients[index % coverGradients.length]}`}
             >
-              {post.cover ? (
+              {resolvePostImage(post) ? (
                 <img
-                  src={post.cover}
+                  src={resolvePostImage(post) || ''}
                   alt={`Cover image for ${post.title || 'blog post'}`}
-                  className='h-full w-full object-cover opacity-80 transition-transform duration-500'
+                  className='h-full w-full object-cover opacity-85 transition-transform duration-500'
                 />
               ) : null}
+              <div className='absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent' />
             </div>
             <div className='flex flex-wrap items-center gap-2 text-xs text-white/85'>
               <span className='ds-pill bg-white/8'>{resolveCategory(post.tags)}</span>
               <time dateTime={post.date || undefined}>{formatDate(post.date || '')}</time>
-              <span>• Last updated {formatDate(post.lastUpdated || post.date || '')}</span>
               {post.readingTime && <span>• {post.readingTime}</span>}
             </div>
             <h2 className='min-h-[3.5rem] text-xl font-semibold tracking-tight sm:text-2xl'>
@@ -157,11 +159,7 @@ export default function BlogList() {
                 {cleanBlogExcerpt(post.summary, post.description)}
               </p>
               <p className='text-xs text-emerald-100'>
-                Last updated {formatDate(post.lastUpdated || post.date || '')} · By{' '}
-                {post.author || 'Hippie Scientist Team'}
-              </p>
-              <p className='text-xs text-white/80'>
-                References: {Array.isArray(post.sources) ? post.sources.length : 0}
+                By {post.author || 'Hippie Scientist Team'}
               </p>
             </div>
             <div className='pt-1'>
@@ -176,6 +174,10 @@ export default function BlogList() {
       <PaginationNav current={pagination.page} totalPages={pagination.totalPages} />
     </div>
   )
+}
+
+function resolvePostImage(post: PostIndex): string | null {
+  return post.cover || post.featuredImage || post.image || null
 }
 
 function buildSeriesBuckets(posts: PostIndex[]) {

@@ -289,7 +289,7 @@ for (const file of files) {
         .filter(Boolean)
     : [];
   const summary = excerpt;
-  const cover = data.cover || data.hero || null;
+  const cover = data.cover || data.featuredImage || data.image || data.hero || null;
   const title = data.title || rawSlug;
   const description = toExcerpt(data.description || contentWithoutTitle || sanitizedMarkdown, 200);
   const ogImage = data.ogImage || cover || null;
@@ -309,6 +309,7 @@ for (const file of files) {
     tags,
     readingTime,
     cover: cover || undefined,
+    featuredImage: cover || undefined,
     ogImage: ogImage || undefined,
   };
 
@@ -352,6 +353,7 @@ const metadata = rows.map((row) => ({
   tags: row.tags,
   readingTime: row.readingTime,
   cover: row.cover,
+  featuredImage: row.featuredImage,
   ogImage: row.ogImage,
 }));
 
