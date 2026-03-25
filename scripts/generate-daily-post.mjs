@@ -46,6 +46,20 @@ function yaml(str) {
   return String(str).replace(/"/g, '\\"').replace(/:/g, '\\:');
 }
 
+function titleHerb(title = '') {
+  const match = String(title).match(/—\s*(.+)$/);
+  return match ? match[1].trim() : '';
+}
+
+function isConsistentPost(title = '', summary = '', body = '') {
+  const herb = titleHerb(title);
+  if (!herb) return false;
+  const normalizedHerb = herb.toLowerCase();
+  const summaryMatches = String(summary).toLowerCase().includes(normalizedHerb);
+  const bodyMatches = String(body).toLowerCase().includes(normalizedHerb);
+  return summaryMatches && bodyMatches;
+}
+
 function svg(seed) {
   const h1 = (seed * 59) % 360;
   const h2 = (seed * 97) % 360;
@@ -67,8 +81,9 @@ function run() {
     return;
   }
 
-  const title = `${rand(topics)} — ${rand(herbs)}`;
-  const summary = `Daily notes on ${rand(herbs)} with attention to active compounds like ${rand(compounds)} and safe practice.`;
+  const herb = rand(herbs);
+  const title = `${rand(topics)} — ${herb}`;
+  const summary = `Daily notes on ${herb} with attention to active compounds like ${rand(compounds)} and safe practice.`;
   const slug = `${date}-${slugify(title)}`;
   const coverRel = `/blog/${slug}.svg`;
 
@@ -81,7 +96,7 @@ summary: "${yaml(summary)}"
 sources: []
 tags: ["Daily","Field Notes","Herbs"]
 cover: "${coverRel}"
-draft: false
+draft: true
 ---`;
 
   const body = `
@@ -98,6 +113,10 @@ _${summary}_
 - Placeholder reference A
 - Placeholder reference B
 `;
+
+  if (!isConsistentPost(title, summary, body)) {
+    throw new Error('Generated post failed consistency check (title/summary/body herb mismatch).');
+  }
 
   fs.writeFileSync(path.join(BLOG_DIR, `${slug}.mdx`), `${frontmatter}\n${body}`, 'utf8');
   fs.writeFileSync(path.join(PUBLIC_BLOG_DIR, `${slug}.svg`), svg(Date.now()), 'utf8');

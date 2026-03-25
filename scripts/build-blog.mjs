@@ -221,6 +221,44 @@ function toExcerpt(markdown, max = 220) {
   return `${clean.slice(0, max - 1).trimEnd()}…`;
 }
 
+function isTargetedNotesTitle(title = "") {
+  const normalized = String(title).toLowerCase();
+  return [
+    "tuesday notes",
+    "wednesday notes",
+    "daily notes",
+    "field notes",
+    "cultivar notes",
+    "safety & set/setting",
+  ].some((pattern) => normalized.includes(pattern));
+}
+
+function extractPrimaryHerbFromTitle(title = "") {
+  const match = String(title).match(/—\s*([^(\n]+?)(?:\s*\(|$)/);
+  return match ? match[1].trim() : "";
+}
+
+function includesTerm(haystack = "", needle = "") {
+  const source = String(haystack).toLowerCase();
+  const value = String(needle).toLowerCase().trim();
+  if (!value) return false;
+  return source.includes(value);
+}
+
+function hasNotesConsistencyMismatch({ title = "", summary = "", content = "" }) {
+  if (!isTargetedNotesTitle(title)) return false;
+  const herb = extractPrimaryHerbFromTitle(title);
+  if (!herb) return true;
+
+  const summaryMatches = includesTerm(summary, herb);
+  const contentMatches = includesTerm(content, herb);
+  const dailyClause =
+    summary.toLowerCase().includes("daily notes on") &&
+    !summary.toLowerCase().includes(`daily notes on ${herb.toLowerCase()}`);
+
+  return !summaryMatches || !contentMatches || dailyClause;
+}
+
 /**
  * Resolve the post's creation date with this precedence:
  * 1) front-matter 'date'
@@ -255,13 +293,34 @@ const files = fs.existsSync(BLOG_SRC)
       .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
   : [];
 const rows = [];
+let consistencyBlocked = 0;
 
 for (const file of files) {
   const rawSlug = file.replace(/\.(md|mdx)$/, "");
   const filePath = path.join(BLOG_SRC, file);
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
-  if (data?.draft) continue;
+  const slug = String(rawSlug || "").replace(/^\/+|\/+$/g, "");
+  const staleDir = path.resolve("public", "blog", slug);
+  const staleLegacy = path.resolve("public", "blog", `${slug}.html`);
+  if (data?.draft) {
+    fs.rmSync(staleDir, { recursive: true, force: true });
+    fs.rmSync(staleLegacy, { force: true });
+    continue;
+  }
+  if (
+    hasNotesConsistencyMismatch({
+      title: data?.title || rawSlug,
+      summary: data?.summary || data?.description || "",
+      content,
+    })
+  ) {
+    consistencyBlocked += 1;
+    fs.rmSync(staleDir, { recursive: true, force: true });
+    fs.rmSync(staleLegacy, { force: true });
+    console.warn(`[blog:consistency] Skipping ${file}: title/summary/content herb mismatch.`);
+    continue;
+  }
   const sanitizedMarkdown = stripUnsafeMarkdownSyntax(content);
   const postHtml = marked.parse(sanitizedMarkdown);
   const contentWithoutTitle = sanitizedMarkdown.replace(/^\s*#\s+.+$/m, '').trim();
@@ -321,7 +380,6 @@ for (const file of files) {
     ogImage,
   });
 
-  const slug = String(post.slug || "").replace(/^\/+|\/+$/g, "");
   html = ensureCanonical(html, slug);
   html = ensureSocialMeta(html, { slug, ogImage });
   html = ensureTitleAndDescription(html, { title: post.title, description: post.description });
@@ -366,3 +424,6 @@ fs.writeFileSync(PUBLIC_POSTS, JSON.stringify(metadata, null, 2), "utf-8");
 console.log(
   `Built ${rows.length} posts → /public/blogdata & /public/blog/{slug}/index.html`
 );
+if (consistencyBlocked > 0) {
+  console.log(`[blog:consistency] Blocked ${consistencyBlocked} mismatched notes posts from publishing.`);
+}
