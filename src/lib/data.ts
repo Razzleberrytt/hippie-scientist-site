@@ -1,10 +1,9 @@
-import rawHerbs from '../../public/data/herbs.json'
 import rawCompounds from '../../public/data/compounds.json'
 import type { Herb } from '@/types/herb'
 import type { Compound } from '../types/compound'
+import { loadHerbData } from '@/lib/herb-data'
 import { asStringArray } from '@/utils/asStringArray'
 import { isNonEmptyString } from '@/utils/isNonEmptyString'
-import { slugify } from '@/utils/slugify'
 
 type Intensity = 'MILD' | 'MODERATE' | 'STRONG'
 
@@ -34,45 +33,6 @@ function pickFirstNonEmptyString(...values: unknown[]): string {
   return ''
 }
 
-function normalizeHerb(raw: unknown): Herb | null {
-  const item = asRecord(raw)
-  if (!item) return null
-
-  const name = pickFirstNonEmptyString(item.name, item.common, item.commonName)
-  if (!name) return null
-
-  const slug = pickFirstNonEmptyString(item.slug) || slugify(name)
-  const id = pickFirstNonEmptyString(item.id) || slug || name
-
-  return {
-    ...item,
-    id,
-    slug,
-    name,
-    common: pickFirstNonEmptyString(item.common, item.commonName),
-    scientific: pickFirstNonEmptyString(item.scientific, item.scientificName, item.latin),
-    category: pickFirstNonEmptyString(item.category, item.class),
-    intensity: pickFirstNonEmptyString(item.intensity),
-    description: pickFirstNonEmptyString(item.description, item.summary),
-    mechanism: pickFirstNonEmptyString(
-      item.mechanism,
-      item.mechanismOfAction,
-      item.mechanismofaction
-    ),
-    region: pickFirstNonEmptyString(item.region),
-    effects: asStringArray(item.effects),
-    tags: asStringArray(item.tags),
-    compounds: asStringArray(item.compounds ?? item.activeCompounds ?? item.active_compounds),
-    active_compounds: asStringArray(
-      item.active_compounds ?? item.activeCompounds ?? item.compounds
-    ),
-    contraindications: asStringArray(item.contraindications),
-    interactions: asStringArray(item.interactions),
-    preparations: asStringArray(item.preparations),
-    sources: Array.isArray(item.sources) ? item.sources : [],
-  }
-}
-
 function normalizeCompound(raw: unknown): Compound | null {
   const item = asRecord(raw)
   if (!item) return null
@@ -92,10 +52,6 @@ function normalizeCompound(raw: unknown): Compound | null {
     foundIn: asStringArray(item.foundIn ?? item.herbs),
   }
 }
-
-export const herbs: Herb[] = (Array.isArray(rawHerbs) ? rawHerbs : [])
-  .map(normalizeHerb)
-  .filter((item): item is Herb => item !== null)
 
 export const compounds: Compound[] = (Array.isArray(rawCompounds) ? rawCompounds : [])
   .map(normalizeCompound)
@@ -148,7 +104,10 @@ function toEntity(item: unknown, kind: 'herb' | 'compound'): Entity | null {
 }
 
 export async function loadHerbs() {
-  return herbs.map(herb => toEntity(herb, 'herb')).filter((item): item is Entity => Boolean(item))
+  const canonicalHerbs = await loadHerbData()
+  return canonicalHerbs
+    .map(herb => toEntity(herb, 'herb'))
+    .filter((item): item is Entity => Boolean(item))
 }
 
 export async function loadCompounds() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import { metaCategory } from '../hooks/useFilteredHerbs'
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function CategoryFilter({ selected, onChange }: Props) {
-  const herbs = useHerbsFull()
+  const herbs = useHerbData()
   const counts = React.useMemo(() => {
     const c: Record<string, number> = {}
     herbs.forEach(h => {

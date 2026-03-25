@@ -7,7 +7,7 @@ import { chipClassFor } from '../lib/tags'
 import { slugify } from '../lib/slug'
 import { buildCardSummary, sanitizeSurfaceText } from '@/lib/summary'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
-import { calculateHerbConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
+import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import './HerbCard.css'
 
 interface HerbCardProps {
@@ -55,13 +55,10 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
   )
   // Suppress if it's too short, all-caps junk, or just repeats the herb name
   const benefits = rawBenefits.length > 8 && !/^[A-Z\s]+$/.test(rawBenefits) ? rawBenefits : ''
-  const confidence =
-    herb.confidence ??
-    calculateHerbConfidence({
-      mechanism: herb.mechanism || herb.mechanismofaction || herb.mechanismOfAction,
-      effects: herb.effects,
-      compounds: herb.compounds || herb.active_compounds,
-    })
+  const confidence: ConfidenceLevel =
+    herb.confidence === 'high' || herb.confidence === 'medium' || herb.confidence === 'low'
+      ? herb.confidence
+      : 'low'
   const effectsArray: string[] = Array.isArray(herb.effects) ? herb.effects : []
   const primaryEffects = extractPrimaryEffects(effectsArray, 3)
 

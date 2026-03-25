@@ -1,6 +1,5 @@
 import type { Herb } from '@/types/herb'
 import { asStringArray } from '@/utils/asStringArray'
-import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { isNonEmptyString } from '@/utils/isNonEmptyString'
 
 export type ConfidenceLevel = 'high' | 'medium' | 'low'
@@ -44,11 +43,7 @@ export function getHerbConfidence(herb: Herb): ConfidenceLevel {
   if (confidenceValue.includes('low')) return 'low'
   if (confidenceValue.includes('med')) return 'medium'
 
-  return calculateHerbConfidence({
-    mechanism: herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
-    effects: herb.effects,
-    compounds: herb.activeCompounds || herb.active_compounds || herb.compounds,
-  })
+  return 'low'
 }
 
 export function herbDisplayName(herb: Herb): string {

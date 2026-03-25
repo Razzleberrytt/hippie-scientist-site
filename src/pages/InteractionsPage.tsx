@@ -413,7 +413,6 @@ export default function InteractionsPage() {
     const parsed = parseItemsFromSearch(location.search, catalog)
     if (parsed.items.length > 0) {
       setSelectedItems(parsed.items)
-      setCurrentStack(parsed.items)
       if (parsed.items.length >= 2) {
         const sourceItems = parsed.items
           .map(item => sourceItemMap.get(item.id))
@@ -728,7 +727,11 @@ export default function InteractionsPage() {
           maxSelection={MAX_SELECTION}
         />
 
-        <SelectedInteractionItems items={selectedItems} onRemove={removeItem} maxSelection={MAX_SELECTION} />
+        <SelectedInteractionItems
+          items={selectedItems}
+          onRemove={removeItem}
+          maxSelection={MAX_SELECTION}
+        />
 
         {selectionMessage && (
           <p className='rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-100'>

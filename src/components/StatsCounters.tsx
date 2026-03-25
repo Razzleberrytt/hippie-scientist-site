@@ -1,6 +1,6 @@
 import React from 'react'
 import CountUp from 'react-countup'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import { baseCompounds } from '../data/compounds/compoundData'
 import posts from '../data/blog/posts.json'
 import { formatKpis } from '../lib/stats'
@@ -8,7 +8,7 @@ import { formatKpis } from '../lib/stats'
 type BlogPost = { slug?: string }
 
 export default function StatsCounters({ className = '' }: { className?: string }) {
-  const herbs = useHerbsFull()
+  const herbs = useHerbData()
   const herbCount = herbs.length
   const compoundCount = baseCompounds.length
   const postCount = (posts as BlogPost[]).filter(post => Boolean(post?.slug)).length

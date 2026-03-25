@@ -640,7 +640,9 @@ export default function CollectionPage() {
                 </div>
                 <p className='mt-2 text-xs text-white/75'>
                   {herb.description ||
-                    herb.effects?.slice(0, 2).join(' · ') ||
+                    (Array.isArray(herb.effects)
+                      ? herb.effects.slice(0, 2).join(' · ')
+                      : herb.effects) ||
                     'See herb profile for details.'}
                 </p>
                 <p className='mt-2 text-[11px] text-white/55'>{tone.note}</p>

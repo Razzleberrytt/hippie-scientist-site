@@ -1,11 +1,11 @@
 import React, { type CSSProperties } from 'react'
 import { motion } from '@/lib/motion'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 
 const TOP_N = 5
 
 export default function CategoryAnalytics() {
-  const herbs = useHerbsFull()
+  const herbs = useHerbData()
   const counts = React.useMemo(() => {
     const c: Record<string, number> = {}
     herbs.forEach(h => {

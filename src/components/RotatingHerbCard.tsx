@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from '@/lib/motion'
 import { Link } from 'react-router-dom'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import { slugify } from '../utils/slugify'
 import type { Herb } from '../types'
 import { herbName, splitField } from '../utils/herb'
@@ -20,7 +20,7 @@ const INTERVAL = 4500
 
 export default function RotatingHerbCard() {
   const reduceMotion = useReducedMotion()
-  const source = useHerbsFull()
+  const source = useHerbData()
   const [items, setItems] = useState<Herb[]>([])
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)

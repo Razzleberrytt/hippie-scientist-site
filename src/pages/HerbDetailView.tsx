@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from '@/lib/motion'
-import { useHerbsFull } from '../data/herbs/herbsfull'
+import { useHerbData } from '@/lib/herb-data'
 import TagBadge from '../components/TagBadge'
 import { decodeTag, tagVariant } from '../utils/format'
 import { slugify } from '../utils/slugify'
@@ -12,7 +12,7 @@ import Meta from '../components/Meta'
 
 export default function HerbDetailView() {
   const { id } = useParams<{ id: string }>()
-  const herbs = useHerbsFull()
+  const herbs = useHerbData()
   const herb = React.useMemo(() => herbs.find(h => h.id === id), [herbs, id])
   const [notes, setNotes] = useLocalStorage(`notes-${id}`, '')
   const [copied, setCopied] = React.useState(false)
