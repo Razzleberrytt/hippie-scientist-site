@@ -43,6 +43,9 @@ hippie-scientist-fixes*.zip
 logs/
 reports/
 dist/
+build/
+.netlify/
+*.log
 assets/
 dist-clean/*
 !dist-clean/README.md
