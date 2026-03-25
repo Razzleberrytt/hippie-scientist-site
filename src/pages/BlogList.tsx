@@ -27,6 +27,12 @@ type PostIndex = {
 }
 
 const PER_PAGE = 12
+const FALLBACK_GRADIENTS = [
+  'from-emerald-300/35 via-cyan-300/25 to-indigo-400/35',
+  'from-violet-300/30 via-fuchsia-300/20 to-cyan-300/35',
+  'from-lime-300/30 via-emerald-300/20 to-teal-300/35',
+  'from-sky-300/30 via-blue-300/20 to-violet-300/30',
+]
 
 export default function BlogList() {
   const { page: pageParam } = useParams<{ page?: string }>()
@@ -96,12 +102,6 @@ export default function BlogList() {
   const heading =
     pagination.page > 1 ? `Research Notebook — Page ${pagination.page}` : 'Research Notebook'
   const series = buildSeriesBuckets(posts)
-  const coverGradients = [
-    'from-emerald-300/35 via-cyan-300/25 to-indigo-400/35',
-    'from-violet-300/30 via-fuchsia-300/20 to-cyan-300/35',
-    'from-lime-300/30 via-emerald-300/20 to-teal-300/35',
-    'from-sky-300/30 via-blue-300/20 to-violet-300/30',
-  ]
 
   return (
     <div className='container-page space-y-6 py-7 sm:py-8'>
@@ -130,18 +130,25 @@ export default function BlogList() {
             initial={reduceMotion ? false : { opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className='ds-card-lg flex h-full min-h-[25rem] flex-col space-y-3 text-white shadow-[var(--glow-lg)] transition-transform duration-300'
+            className='ds-card-lg group relative flex h-full min-h-[25rem] flex-col space-y-3 text-white shadow-[var(--glow-lg)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_30px_color-mix(in_oklab,var(--accent)_30%,transparent)]'
           >
+            <Link
+              to={`/blog/${post.slug}`}
+              aria-label={`Read ${post.title || 'research note'}`}
+              className='absolute inset-0 z-10 rounded-xl'
+            />
             <div
-              className={`relative h-32 w-full overflow-hidden rounded-xl bg-gradient-to-r sm:h-40 ${coverGradients[index % coverGradients.length]}`}
+              className={`relative h-32 w-full overflow-hidden rounded-xl bg-gradient-to-r sm:h-40 ${FALLBACK_GRADIENTS[index % FALLBACK_GRADIENTS.length]}`}
             >
               {resolvePostImage(post) ? (
                 <img
                   src={resolvePostImage(post) || ''}
                   alt={`Cover image for ${post.title || 'blog post'}`}
-                  className='h-full w-full object-cover opacity-85 transition-transform duration-500'
+                  className='h-full w-full object-cover opacity-85 transition-transform duration-500 group-hover:scale-[1.03]'
                 />
-              ) : null}
+              ) : (
+                <FallbackCover title={post.title} tags={post.tags} />
+              )}
               <div className='absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent' />
             </div>
             <div className='flex flex-wrap items-center gap-2 text-xs text-white/85'>
@@ -150,7 +157,7 @@ export default function BlogList() {
               {post.readingTime && <span>• {post.readingTime}</span>}
             </div>
             <h2 className='min-h-[3.5rem] text-xl font-semibold tracking-tight sm:text-2xl'>
-              <Link to={`/blog/${post.slug}`} className='hover:text-emerald-200'>
+              <Link to={`/blog/${post.slug}`} className='relative z-20 hover:text-emerald-200'>
                 {post.title || 'Research note'}
               </Link>
             </h2>
@@ -163,7 +170,10 @@ export default function BlogList() {
               </p>
             </div>
             <div className='pt-1'>
-              <Link to={`/blog/${post.slug}`} className='btn-primary min-w-28 self-start'>
+              <Link
+                to={`/blog/${post.slug}`}
+                className='btn-primary relative z-20 min-w-28 self-start'
+              >
                 {CTA.primary.learn}
               </Link>
             </div>
@@ -178,6 +188,17 @@ export default function BlogList() {
 
 function resolvePostImage(post: PostIndex): string | null {
   return post.cover || post.featuredImage || post.image || null
+}
+
+function FallbackCover({ title, tags }: { title?: string; tags?: string[] }) {
+  const herb = resolveHerbLabel(title, tags)
+  return (
+    <div className='absolute inset-0 flex items-end p-3 sm:p-4'>
+      <div className='rounded-lg border border-white/20 bg-black/25 px-3 py-1.5 text-xs font-medium tracking-wide text-white/95 backdrop-blur-sm sm:text-sm'>
+        {herb}
+      </div>
+    </div>
+  )
 }
 
 function buildSeriesBuckets(posts: PostIndex[]) {
@@ -197,6 +218,24 @@ function resolveCategory(tags?: string[]) {
   if (/traditional|culture|ethno/.test(joined)) return 'Traditional Context'
   if (/safety/.test(joined)) return 'Safety Notes'
   return 'Field Notes'
+}
+
+function resolveHerbLabel(title?: string, tags?: string[]) {
+  const fromTag = (tags || []).find(tag => /herb:/.test(tag.toLowerCase()))
+  if (fromTag) {
+    return fromTag.replace(/herb:/i, '').replace(/[-_]/g, ' ').trim() || 'Herbal Field Note'
+  }
+  const match = title?.match(
+    /\b(?:ashwagandha|rhodiola|reishi|skullcap|cordyceps|mugwort|kava|valerian|gotu kola|passionflower|damiana|blue lotus|calea zacatechichi|lion(?:'|’)s mane)\b/i
+  )
+  return match?.[0] ? toTitleCase(match[0]) : 'Herbal Field Note'
+}
+
+function toTitleCase(value: string) {
+  return value.replace(
+    /\w\S*/g,
+    token => token.charAt(0).toUpperCase() + token.slice(1).toLowerCase()
+  )
 }
 
 function PaginationNav({ current, totalPages }: { current: number; totalPages: number }) {
