@@ -5,6 +5,7 @@ import LearnTabs, { type LearnSection } from '../components/LearnTabs'
 import StarfieldBackground from '../components/StarfieldBackground'
 import FloatingParticles from '../components/FloatingParticles'
 import Meta from '../components/Meta'
+import { LearningPanelSkeleton } from '@/components/skeletons/DetailSkeletons'
 
 export default function Learn() {
   const [sections, setSections] = React.useState<LearnSection[] | null>(null)
@@ -50,14 +51,7 @@ export default function Learn() {
           </p>
         </motion.div>
         <PanelWrapper className='mx-auto max-w-5xl'>
-          {sections ? (
-            <LearnTabs sections={sections} />
-          ) : (
-            <div className='animate-pulse space-y-4' aria-busy='true' aria-live='polite'>
-              <div className='h-8 w-64 rounded bg-white/10' />
-              <div className='h-40 rounded-xl bg-white/10' />
-            </div>
-          )}
+          {sections ? <LearnTabs sections={sections} /> : <LearningPanelSkeleton />}
         </PanelWrapper>
       </div>
     </div>

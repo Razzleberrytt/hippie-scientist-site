@@ -4,6 +4,7 @@ import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useHerbDataState } from '@/lib/herb-data'
+import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
@@ -92,22 +93,7 @@ export default function HerbDetail() {
   const herb = herbs.find(item => item.slug === slug)
 
   if (isLoading) {
-    return (
-      <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
-        <div className='btn-secondary inline-flex items-center opacity-70'>← Back to herbs</div>
-        <article className='ds-card-lg mt-4 animate-pulse'>
-          <div className='h-10 w-2/3 rounded bg-white/10' />
-          <div className='mt-3 h-4 w-1/3 rounded bg-white/10' />
-          <div className='mt-6 h-24 rounded-xl bg-white/10' />
-          <div className='mt-6 h-5 w-32 rounded bg-white/10' />
-          <div className='mt-3 space-y-2'>
-            <div className='h-4 w-full rounded bg-white/10' />
-            <div className='h-4 w-11/12 rounded bg-white/10' />
-            <div className='h-4 w-10/12 rounded bg-white/10' />
-          </div>
-        </article>
-      </main>
-    )
+    return <HerbDetailSkeleton />
   }
 
   if (!herb) {

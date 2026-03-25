@@ -9,6 +9,7 @@ import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -42,20 +43,7 @@ export default function CompoundDetail() {
   const compound = compounds.find(item => item.slug === slug)
 
   if (isCompoundLoading) {
-    return (
-      <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
-        <div className='btn-secondary inline-flex items-center opacity-70'>← Back to compounds</div>
-        <article className='ds-card-lg mt-4 animate-pulse'>
-          <div className='h-10 w-2/3 rounded bg-white/10' />
-          <div className='mt-6 h-24 rounded-xl bg-white/10' />
-          <div className='mt-6 h-5 w-36 rounded bg-white/10' />
-          <div className='mt-3 space-y-2'>
-            <div className='h-4 w-full rounded bg-white/10' />
-            <div className='h-4 w-11/12 rounded bg-white/10' />
-          </div>
-        </article>
-      </main>
-    )
+    return <CompoundDetailSkeleton />
   }
 
   if (!compound) {

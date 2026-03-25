@@ -9,8 +9,9 @@ import InteractionSearch, {
 import SelectedInteractionItems from '@/components/interactions/SelectedInteractionItems'
 import InteractionDisclaimer from '@/components/interactions/InteractionDisclaimer'
 import InteractionLeadCapture from '@/components/interactions/InteractionLeadCapture'
-import { useCompoundData } from '@/lib/compound-data'
-import { useHerbData } from '@/lib/herb-data'
+import { useCompoundDataState } from '@/lib/compound-data'
+import { useHerbDataState } from '@/lib/herb-data'
+import { InteractionReportSkeleton } from '@/components/skeletons/DetailSkeletons'
 import type { InteractionReport, InteractionSourceItem } from '@/types/interactions'
 import { checkInteractions } from '@/utils/interactions/checkInteractions'
 import { buildStackSummary } from '@/utils/stack/buildStackSummary'
@@ -114,8 +115,8 @@ function persistComboUsage(value: ComboUsageState) {
 export default function InteractionsPage() {
   const location = useLocation()
   const navigate = useNavigate()
-  const herbs = useHerbData()
-  const compounds = useCompoundData()
+  const { herbs, isLoading: isHerbsLoading } = useHerbDataState()
+  const { compounds, isLoading: isCompoundsLoading } = useCompoundDataState()
   const [selectedItems, setSelectedItems] = useState<InteractionCatalogItem[]>([])
   const [report, setReport] = useState<InteractionReport | null>(null)
   const [selectionMessage, setSelectionMessage] = useState<string>('')
@@ -591,6 +592,7 @@ export default function InteractionsPage() {
     engagementCounters.exportCount >= 2
 
   const shouldShowLeadCapture = Boolean(leadContext) && !leadCaptured
+  const isCatalogLoading = isHerbsLoading || isCompoundsLoading
 
   return (
     <main className='mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 sm:py-10'>
@@ -742,42 +744,46 @@ export default function InteractionsPage() {
         </div>
       </section>
 
-      <InteractionReportCard
-        report={report}
-        screenshotMode={screenshotMode}
-        onToggleScreenshotMode={() => setScreenshotMode(prev => !prev)}
-        onCopyShareCard={copyShareCard}
-        shareCopyStatus={copyShareCardStatus}
-        actions={
-          <>
-            <Button
-              variant='default'
-              onClick={copyShareLink}
-              disabled={selectedItems.length < 2}
-              className='px-3 py-1.5 text-xs'
-            >
-              {copyLinkStatus === 'copied' ? 'Copied!' : 'Copy Share Link'}
-            </Button>
-            <Button
-              variant='default'
-              onClick={onSaveReport}
-              disabled={selectedItems.length < 2}
-              className='px-3 py-1.5 text-xs'
-            >
-              Save Report
-            </Button>
-            <Button
-              variant='default'
-              onClick={copyReportSummary}
-              disabled={!report}
-              className='px-3 py-1.5 text-xs'
-            >
-              {copySummaryStatus === 'copied' ? 'Copied!' : 'Copy Report Summary'}
-            </Button>
-          </>
-        }
-        footerPrompt='Know someone combining similar herbs? Share this report.'
-      />
+      {isCatalogLoading ? (
+        <InteractionReportSkeleton />
+      ) : (
+        <InteractionReportCard
+          report={report}
+          screenshotMode={screenshotMode}
+          onToggleScreenshotMode={() => setScreenshotMode(prev => !prev)}
+          onCopyShareCard={copyShareCard}
+          shareCopyStatus={copyShareCardStatus}
+          actions={
+            <>
+              <Button
+                variant='default'
+                onClick={copyShareLink}
+                disabled={selectedItems.length < 2}
+                className='px-3 py-1.5 text-xs'
+              >
+                {copyLinkStatus === 'copied' ? 'Copied!' : 'Copy Share Link'}
+              </Button>
+              <Button
+                variant='default'
+                onClick={onSaveReport}
+                disabled={selectedItems.length < 2}
+                className='px-3 py-1.5 text-xs'
+              >
+                Save Report
+              </Button>
+              <Button
+                variant='default'
+                onClick={copyReportSummary}
+                disabled={!report}
+                className='px-3 py-1.5 text-xs'
+              >
+                {copySummaryStatus === 'copied' ? 'Copied!' : 'Copy Report Summary'}
+              </Button>
+            </>
+          }
+          footerPrompt='Know someone combining similar herbs? Share this report.'
+        />
+      )}
 
       <section className='space-y-4 rounded-2xl border border-white/10 bg-black/30 p-5'>
         <div className='space-y-1'>
