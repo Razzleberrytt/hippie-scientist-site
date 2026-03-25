@@ -3,6 +3,7 @@ import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
 import NonEmpty from './NonEmpty'
 import { normalizeHref } from '../lib/routing'
+import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
 
 const exploreLinks = [
   { href: '/herbs', label: 'Herb Database' },
@@ -20,11 +21,13 @@ const legalLinks = [
   { href: '/disclaimer', label: 'Disclaimer' },
   { href: '/contact', label: 'Contact' },
   { href: '/sitemap', label: 'Sitemap' },
-  { href: '/analytics', label: 'Site Analytics' },
 ]
 
 export default function Footer() {
   const [open, setOpen] = useState(false)
+  const availableLegalLinks = isAnalyticsRouteEnabled()
+    ? [...legalLinks, { href: '/analytics', label: 'Site Analytics' }]
+    : legalLinks
 
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
@@ -51,13 +54,13 @@ export default function Footer() {
             )}
           </NonEmpty>
           <NonEmpty>
-            {legalLinks.length > 0 && (
+            {availableLegalLinks.length > 0 && (
               <div>
                 <h4 className='text-white/62 mb-3 text-xs font-semibold uppercase tracking-[0.24em]'>
                   Trust & safety
                 </h4>
                 <ul className='text-white/78 space-y-2 text-sm'>
-                  {legalLinks.map(link => (
+                  {availableLegalLinks.map(link => (
                     <li key={link.href}>
                       <a className='transition hover:text-white' href={normalizeHref(link.href)}>
                         {link.label}

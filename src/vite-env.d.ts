@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   readonly DEV: boolean
   readonly PROD: boolean
   readonly BASE_URL: string
+  readonly VITE_ENABLE_ANALYTICS_ROUTE?: string
 }
 
 interface ImportMeta {
