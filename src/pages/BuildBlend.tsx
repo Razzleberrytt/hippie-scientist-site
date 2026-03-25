@@ -17,6 +17,18 @@ type StackPlan = {
   herbSlugs: string[]
 }
 
+type RecentStackPlan = StackPlan & {
+  id: string
+  createdAt: string
+}
+
+type InteractionCheckHistory = {
+  id: string
+  checkedAt: string
+  herbSlugs: string[]
+  warningCount: number
+}
+
 type StackOutput = {
   selectedHerbs: Herb[]
   timing: string[]
@@ -30,8 +42,13 @@ type StackOutput = {
 }
 
 const LOCAL_STACK_KEY = 'ths:personal-herb-stack'
+const RECENT_STACKS_KEY = 'ths:recent-herb-stacks'
+const FAVORITE_HERBS_KEY = 'ths:favorite-herbs'
+const INTERACTION_HISTORY_KEY = 'ths:interaction-check-history'
 const STACK_SHARE_PARAM = 's'
 const MAX_NOTES = 6
+const MAX_RECENT_STACKS = 6
+const MAX_INTERACTION_HISTORY = 12
 
 const INTENT_COPY: Record<StackIntent, { label: string; timing: string[] }> = {
   sleep: {
@@ -78,6 +95,16 @@ function normalizeList(value: unknown): string[] {
 function encodeStackPlan(plan: StackPlan): string {
   const compact = [plan.intent, ...plan.herbSlugs].map(item => item.trim().toLowerCase()).join('.')
   return encodeURIComponent(compact)
+}
+
+function parseJson<T>(key: string, fallback: T): T {
+  if (typeof window === 'undefined') return fallback
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(key) || 'null')
+    return parsed ?? fallback
+  } catch {
+    return fallback
+  }
 }
 
 function decodeStackPlan(input: string | null): StackPlan | null {
@@ -191,6 +218,15 @@ export default function BuildBlend() {
   const [leadEmail, setLeadEmail] = useState('')
   const [leadStatus, setLeadStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [leadMessage, setLeadMessage] = useState('')
+  const [favoriteSlugs, setFavoriteSlugs] = useState<string[]>([])
+  const [recentStacks, setRecentStacks] = useState<RecentStackPlan[]>([])
+  const [interactionHistory, setInteractionHistory] = useState<InteractionCheckHistory[]>([])
+
+  useEffect(() => {
+    setFavoriteSlugs(parseJson<string[]>(FAVORITE_HERBS_KEY, []))
+    setRecentStacks(parseJson<RecentStackPlan[]>(RECENT_STACKS_KEY, []))
+    setInteractionHistory(parseJson<InteractionCheckHistory[]>(INTERACTION_HISTORY_KEY, []))
+  }, [])
 
   useEffect(() => {
     if (!herbs.length) return
@@ -231,6 +267,64 @@ export default function BuildBlend() {
     [herbs, selectedSlugs]
   )
 
+  const favoriteHerbs = useMemo(
+    () => herbs.filter(herb => favoriteSlugs.includes((herb.slug || '').toLowerCase())),
+    [favoriteSlugs, herbs]
+  )
+
+  const suggestedHerbs = useMemo(() => {
+    const seedHerbs = selectedHerbs.length ? selectedHerbs : favoriteHerbs
+    if (!seedHerbs.length) return []
+
+    const signalSet = new Set(
+      seedHerbs.flatMap(herb =>
+        [herb.effects, herb.tags]
+          .flat()
+          .flatMap(item => (Array.isArray(item) ? item : [item]))
+          .map(item =>
+            String(item || '')
+              .trim()
+              .toLowerCase()
+          )
+          .filter(Boolean)
+      )
+    )
+
+    return herbs
+      .filter(herb => {
+        const slug = (herb.slug || '').toLowerCase()
+        return slug && !selectedSlugs.includes(slug)
+      })
+      .map(herb => {
+        const score = [herb.effects, herb.tags]
+          .flat()
+          .flatMap(item => (Array.isArray(item) ? item : [item]))
+          .map(item =>
+            String(item || '')
+              .trim()
+              .toLowerCase()
+          )
+          .filter(Boolean)
+          .reduce((acc, signal) => (signalSet.has(signal) ? acc + 1 : acc), 0)
+
+        return { herb, score }
+      })
+      .filter(item => item.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 6)
+      .map(item => item.herb)
+  }, [favoriteHerbs, herbs, selectedHerbs, selectedSlugs])
+
+  const toggleFavoriteHerb = (slug: string) => {
+    setFavoriteSlugs(current => {
+      const next = current.includes(slug)
+        ? current.filter(item => item !== slug)
+        : [...current, slug]
+      window.localStorage.setItem(FAVORITE_HERBS_KEY, JSON.stringify(next))
+      return next
+    })
+  }
+
   const toggleHerb = (slug: string) => {
     setSelectedSlugs(current =>
       current.includes(slug) ? current.filter(item => item !== slug) : [...current, slug]
@@ -246,6 +340,40 @@ export default function BuildBlend() {
     const serialized = encodeStackPlan(plan)
     setSearchParams({ [STACK_SHARE_PARAM]: serialized }, { replace: true })
     window.localStorage.setItem(LOCAL_STACK_KEY, serialized)
+
+    const nextRecentEntry: RecentStackPlan = {
+      ...plan,
+      id: `${intent}:${[...selectedSlugs].sort().join('|')}`,
+      createdAt: new Date().toISOString(),
+    }
+    setRecentStacks(current => {
+      const next = [
+        nextRecentEntry,
+        ...current.filter(item => item.id !== nextRecentEntry.id),
+      ].slice(0, MAX_RECENT_STACKS)
+      window.localStorage.setItem(RECENT_STACKS_KEY, JSON.stringify(next))
+      return next
+    })
+
+    const historyEntry: InteractionCheckHistory = {
+      id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      checkedAt: new Date().toISOString(),
+      herbSlugs: selectedSlugs,
+      warningCount: nextResult.interactionWarnings.length,
+    }
+    setInteractionHistory(current => {
+      const next = [historyEntry, ...current].slice(0, MAX_INTERACTION_HISTORY)
+      window.localStorage.setItem(INTERACTION_HISTORY_KEY, JSON.stringify(next))
+      return next
+    })
+  }
+
+  const applyRecentStack = (stack: RecentStackPlan) => {
+    setIntent(stack.intent)
+    setSelectedSlugs(stack.herbSlugs)
+    const selected = herbs.filter(herb => stack.herbSlugs.includes((herb.slug || '').toLowerCase()))
+    setResult(buildStackOutput(stack.intent, selected))
+    setSearchParams({ [STACK_SHARE_PARAM]: encodeStackPlan(stack) }, { replace: true })
   }
 
   const handleCopyShareLink = async () => {
@@ -382,18 +510,47 @@ export default function BuildBlend() {
             {filteredHerbs.map(herb => {
               const slug = (herb.slug || '').toLowerCase()
               const checked = selectedSlugs.includes(slug)
+              const favorite = favoriteSlugs.includes(slug)
               return (
                 <label
                   key={slug}
                   className='flex cursor-pointer items-center gap-3 rounded-lg border border-slate-700/70 bg-slate-900/50 p-2 text-sm text-slate-100'
                 >
                   <input type='checkbox' checked={checked} onChange={() => toggleHerb(slug)} />
-                  <span>{herbDisplayName(herb)}</span>
+                  <span className='flex-1'>{herbDisplayName(herb)}</span>
+                  <button
+                    type='button'
+                    onClick={event => {
+                      event.preventDefault()
+                      toggleFavoriteHerb(slug)
+                    }}
+                    className={`rounded-md border px-2 py-0.5 text-xs ${
+                      favorite
+                        ? 'border-amber-300/60 bg-amber-500/20 text-amber-100'
+                        : 'border-white/20 text-slate-300'
+                    }`}
+                  >
+                    {favorite ? '★ Saved' : '☆ Save'}
+                  </button>
                 </label>
               )
             })}
           </div>
-          <p className='text-xs text-slate-300'>Selected: {selectedSlugs.length} herb(s)</p>
+          <div className='flex flex-wrap items-center gap-2'>
+            <p className='text-xs text-slate-300'>Selected: {selectedSlugs.length} herb(s)</p>
+            <p className='text-xs text-slate-400'>Saved herbs: {favoriteSlugs.length}</p>
+            <Button
+              type='button'
+              variant='ghost'
+              onClick={() => {
+                if (!favoriteSlugs.length) return
+                setSelectedSlugs(current => Array.from(new Set([...current, ...favoriteSlugs])))
+              }}
+              disabled={!favoriteSlugs.length}
+            >
+              Add saved herbs
+            </Button>
+          </div>
         </section>
 
         <div className='flex flex-wrap items-center gap-2'>
@@ -418,6 +575,68 @@ export default function BuildBlend() {
             Reset
           </Button>
         </div>
+      </Card>
+
+      <Card className='space-y-3 rounded-2xl p-5 sm:p-6'>
+        <div className='flex items-center justify-between gap-2'>
+          <h2 className='text-lg font-semibold text-white'>Recent stacks</h2>
+          <p className='text-xs text-slate-400'>Saved on this device</p>
+        </div>
+        {recentStacks.length === 0 ? (
+          <p className='text-sm text-slate-300'>
+            No recent stacks yet. Generate one and it will appear here for quick resume.
+          </p>
+        ) : (
+          <div className='grid gap-2 sm:grid-cols-2'>
+            {recentStacks.map(stack => (
+              <button
+                key={stack.id}
+                type='button'
+                onClick={() => applyRecentStack(stack)}
+                className='rounded-xl border border-slate-700/80 bg-slate-900/60 p-3 text-left text-sm text-slate-100 hover:border-cyan-500/60'
+              >
+                <p className='font-semibold text-cyan-200'>
+                  {INTENT_COPY[stack.intent].label} stack
+                </p>
+                <p className='mt-1 text-xs text-slate-300'>
+                  {stack.herbSlugs.length} herbs selected
+                </p>
+                <p className='mt-1 text-xs text-slate-400'>
+                  {new Date(stack.createdAt).toLocaleString()}
+                </p>
+              </button>
+            ))}
+          </div>
+        )}
+      </Card>
+
+      <Card className='space-y-3 rounded-2xl p-5 sm:p-6'>
+        <h2 className='text-lg font-semibold text-white'>You might also like</h2>
+        <p className='text-sm text-slate-300'>
+          Suggestions are based on overlap with your currently selected or saved herbs.
+        </p>
+        {suggestedHerbs.length === 0 ? (
+          <p className='text-sm text-slate-400'>
+            Save or select herbs to unlock personalized suggestions.
+          </p>
+        ) : (
+          <div className='grid gap-2 sm:grid-cols-2'>
+            {suggestedHerbs.map(herb => {
+              const slug = (herb.slug || '').toLowerCase()
+              return (
+                <div
+                  key={slug}
+                  className='flex items-center justify-between rounded-xl border border-slate-700/80 bg-slate-900/60 p-3'
+                >
+                  <span className='text-sm text-slate-100'>{herbDisplayName(herb)}</span>
+                  <Button type='button' variant='ghost' onClick={() => toggleHerb(slug)}>
+                    Add
+                  </Button>
+                </div>
+              )
+            })}
+          </div>
+        )}
       </Card>
 
       <section className='space-y-4'>
@@ -556,6 +775,24 @@ export default function BuildBlend() {
           </div>
         )}
       </section>
+
+      {interactionHistory.length > 0 && (
+        <Card className='rounded-2xl p-5'>
+          <h2 className='text-lg font-semibold text-white'>Recent interaction checks</h2>
+          <ul className='mt-3 space-y-2 text-sm text-slate-200'>
+            {interactionHistory.slice(0, 5).map(item => (
+              <li
+                key={item.id}
+                className='rounded-lg border border-slate-700/70 bg-slate-900/50 p-2'
+              >
+                Checked {item.herbSlugs.length} herbs · {item.warningCount} warning
+                {item.warningCount === 1 ? '' : 's'} ·{' '}
+                <span className='text-slate-400'>{new Date(item.checkedAt).toLocaleString()}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      )}
 
       <Disclaimer />
     </main>
