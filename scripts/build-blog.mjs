@@ -259,6 +259,70 @@ function hasNotesConsistencyMismatch({ title = "", summary = "", content = "" })
   return !summaryMatches || !contentMatches || dailyClause;
 }
 
+function normalizeTitleForSimilarity(title = "") {
+  return String(title)
+    .toLowerCase()
+    .replace(/\([^)]*notes\)/g, "")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function validateDuplicatePostMetadata(rows = []) {
+  const duplicateTitles = new Map();
+  const duplicateSlugs = new Map();
+  const nearDuplicateBuckets = new Map();
+
+  for (const row of rows) {
+    const titleKey = String(row.title || "").trim().toLowerCase();
+    const slugKey = String(row.slug || "").trim().toLowerCase();
+    const nearTitleKey = normalizeTitleForSimilarity(row.title || "");
+
+    if (titleKey) {
+      const entries = duplicateTitles.get(titleKey) || [];
+      entries.push(row.slug);
+      duplicateTitles.set(titleKey, entries);
+    }
+
+    if (slugKey) {
+      const entries = duplicateSlugs.get(slugKey) || [];
+      entries.push(row.title);
+      duplicateSlugs.set(slugKey, entries);
+    }
+
+    if (nearTitleKey) {
+      const entries = nearDuplicateBuckets.get(nearTitleKey) || [];
+      entries.push({ title: row.title, slug: row.slug });
+      nearDuplicateBuckets.set(nearTitleKey, entries);
+    }
+  }
+
+  const exactTitleDuplicates = [...duplicateTitles.entries()].filter(([, entries]) => entries.length > 1);
+  const exactSlugDuplicates = [...duplicateSlugs.entries()].filter(([, entries]) => entries.length > 1);
+  const nearDuplicates = [...nearDuplicateBuckets.entries()].filter(([, entries]) => {
+    if (entries.length <= 1) return false;
+    const uniqueTitles = new Set(entries.map((entry) => entry.title));
+    return uniqueTitles.size > 1;
+  });
+
+  if (nearDuplicates.length) {
+    for (const [, entries] of nearDuplicates) {
+      const summary = entries.map((entry) => `"${entry.title}" (${entry.slug})`).join(", ");
+      console.warn(`[blog:validation] Near-duplicate titles detected: ${summary}`);
+    }
+  }
+
+  if (exactTitleDuplicates.length || exactSlugDuplicates.length) {
+    for (const [titleKey, entries] of exactTitleDuplicates) {
+      console.error(`[blog:validation] Duplicate title "${titleKey}" used by slugs: ${entries.join(", ")}`);
+    }
+    for (const [slugKey, entries] of exactSlugDuplicates) {
+      console.error(`[blog:validation] Duplicate slug "${slugKey}" used by titles: ${entries.join(" | ")}`);
+    }
+    process.exit(1);
+  }
+}
+
 /**
  * Resolve the post's creation date with this precedence:
  * 1) front-matter 'date'
@@ -300,12 +364,16 @@ for (const file of files) {
   const filePath = path.join(BLOG_SRC, file);
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
-  const slug = String(rawSlug || "").replace(/^\/+|\/+$/g, "");
+  const slug = String(data?.slug || rawSlug || "").replace(/^\/+|\/+$/g, "");
   const staleDir = path.resolve("public", "blog", slug);
   const staleLegacy = path.resolve("public", "blog", `${slug}.html`);
+  const fileSlugDir = path.resolve("public", "blog", rawSlug);
+  const fileSlugLegacy = path.resolve("public", "blog", `${rawSlug}.html`);
   if (data?.draft) {
     fs.rmSync(staleDir, { recursive: true, force: true });
     fs.rmSync(staleLegacy, { force: true });
+    fs.rmSync(fileSlugDir, { recursive: true, force: true });
+    fs.rmSync(fileSlugLegacy, { force: true });
     continue;
   }
   if (
@@ -318,6 +386,8 @@ for (const file of files) {
     consistencyBlocked += 1;
     fs.rmSync(staleDir, { recursive: true, force: true });
     fs.rmSync(staleLegacy, { force: true });
+    fs.rmSync(fileSlugDir, { recursive: true, force: true });
+    fs.rmSync(fileSlugLegacy, { force: true });
     console.warn(`[blog:consistency] Skipping ${file}: title/summary/content herb mismatch.`);
     continue;
   }
@@ -354,10 +424,10 @@ for (const file of files) {
   const ogImage = data.ogImage || cover || null;
   const lastUpdated = iso(data.lastUpdated) || statISO(filePath);
 
-  fs.writeFileSync(path.join(POSTS_OUT, `${rawSlug}.html`), postHtml, "utf-8");
+  fs.writeFileSync(path.join(POSTS_OUT, `${slug}.html`), postHtml, "utf-8");
 
   const post = {
-    slug: rawSlug,
+    slug,
     title,
     date: created,
     lastUpdated,
@@ -395,6 +465,8 @@ for (const file of files) {
   rows.push(post);
 }
 
+validateDuplicatePostMetadata(rows);
+
 rows.sort((a, b) => (a.date < b.date ? 1 : -1));
 fs.writeFileSync(path.join(OUT, "index.json"), JSON.stringify(rows, null, 2), "utf-8");
 
@@ -422,7 +494,7 @@ fs.mkdirSync(path.dirname(PUBLIC_POSTS), { recursive: true });
 fs.writeFileSync(PUBLIC_POSTS, JSON.stringify(metadata, null, 2), "utf-8");
 
 console.log(
-  `Built ${rows.length} posts → /public/blogdata & /public/blog/{slug}/index.html`
+  `Built ${rows.length} posts → /public/blogdata & /public/blog/{slug}/index.html (duplicates validated)`
 );
 if (consistencyBlocked > 0) {
   console.log(`[blog:consistency] Blocked ${consistencyBlocked} mismatched notes posts from publishing.`);
