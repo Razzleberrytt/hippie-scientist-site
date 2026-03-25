@@ -117,6 +117,19 @@ channels.
 
 [![Daily Blog Post](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/daily-blog.yml/badge.svg)](https://github.com/Razzleberrytt/survive-99-evolved/actions/workflows/daily-blog.yml)
 
+## Analytics route access (`/analytics`)
+
+`/analytics` is disabled by default in production builds so anonymous visitors cannot read local analytics dashboards.
+
+- **Development (`npm run dev`)**: route is enabled automatically.
+- **Production**: explicitly enable the route by setting:
+
+```bash
+VITE_ENABLE_ANALYTICS_ROUTE=true
+```
+
+If this variable is not set to `true`, visitors to `/analytics` will see a "not available" fallback page.
+
 ## Data enrichment from CSV
 
 Run the enrichment pipeline (expects CSV files at `/home/oai/share/psychoactive_herbs_enriched_full.csv` and `/home/oai/share/psychoactive_herbs_enriched_full 3.csv`):

@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react'
-import { Routes, Route, Outlet, useLocation, Navigate, useParams } from 'react-router-dom'
+import { Routes, Route, Outlet, useLocation, Navigate, useParams, Link } from 'react-router-dom'
 import { AnimatePresence, motion } from '@/lib/motion'
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -41,6 +41,7 @@ const CollectionPage = lazy(() => import('./pages/CollectionPage'))
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'))
 import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
+import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
 // Import other pages as needed
 
 export default function App() {
@@ -78,7 +79,12 @@ export default function App() {
                 <Route path='/methodology' element={<Methodology />} />
                 <Route path='/interactions' element={<InteractionsPage />} />
                 <Route path='/collections/:slug' element={<CollectionPage />} />
-                <Route path='/analytics' element={<AnalyticsPage />} />
+                <Route
+                  path='/analytics'
+                  element={
+                    isAnalyticsRouteEnabled() ? <AnalyticsPage /> : <AnalyticsNotAvailable />
+                  }
+                />
                 {/* Add other routes here */}
                 <Route path='/blog' element={<BlogList />} />
                 <Route path='/blog/page/:page' element={<BlogList />} />
@@ -101,6 +107,25 @@ export default function App() {
         </div>
       </SiteLayout>
     </div>
+  )
+}
+
+function AnalyticsNotAvailable() {
+  return (
+    <section className='container-page py-16 text-center'>
+      <div className='mx-auto max-w-lg rounded-2xl border border-white/15 bg-white/5 p-6 text-white/85'>
+        <h1 className='text-2xl font-semibold text-white'>Analytics not available</h1>
+        <p className='mt-3 text-sm text-white/70'>
+          This page is disabled for public visitors in production.
+        </p>
+        <Link
+          className='mt-5 inline-block text-sm font-medium text-emerald-300 hover:text-emerald-200'
+          to='/'
+        >
+          Return home
+        </Link>
+      </div>
+    </section>
   )
 }
 
