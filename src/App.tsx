@@ -91,7 +91,8 @@ export default function App() {
                 <Route path='/blog/:slug' element={<BlogPost />} />
                 <Route path='/blog/:slug/' element={<LegacyBlogRedirect />} />
                 <Route path='/theme' element={<Theme />} />
-                <Route path='/herb-index' element={<HerbIndex />} />
+                <Route path='/herb-index' element={<Navigate to='/herbs' replace />} />
+                <Route path='/herb-index/*' element={<Navigate to='/herbs' replace />} />
                 <Route path='/herb/:slug' element={<LegacyHerbRedirect />} />
                 <Route path='/herbs/:slug' element={<HerbDetail />} />
                 <Route path='/compounds/:slug' element={<CompoundDetail />} />
@@ -99,9 +100,9 @@ export default function App() {
                 <Route path='/data-report' element={<DataReport />} />
                 <Route path='/data-fix' element={<DataFix />} />
                 <Route path='/sitemap' element={<Sitemap />} />
+                <Route path='*' element={<NotFound />} />
               </Route>
               <Route path='/graph' element={<GraphPage />} />
-              <Route path='*' element={<NotFound />} />
             </Routes>
           </Suspense>
         </div>
