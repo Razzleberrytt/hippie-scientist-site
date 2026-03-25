@@ -22,3 +22,24 @@ src/data/backups/
 *.temp
 *~
 .DS_Store
+
+# Interim data pipeline artifacts
+herbs_final.json
+herbs_final_merged_and_normalized*.csv
+herbs_consolidated.json
+herbs_enriched.csv
+herbs_stage3_merged.json
+compounds_final.json
+compounds_stage3_merged.json
+merge_report.json
+stage3_enrichment_patch.json
+valid_patch.json
+rejected_patch.json
+validation_report.json
+
+# Fix archive zips
+hippie-scientist-fixes*.zip
+
+# Logs and reports (keep in local dev, not repo)
+logs/
+reports/
