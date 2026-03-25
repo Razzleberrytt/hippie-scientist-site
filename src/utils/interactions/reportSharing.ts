@@ -1,7 +1,7 @@
 import type { InteractionCatalogItem } from '@/components/interactions/InteractionSearch'
 import type { InteractionReport } from '@/types/interactions'
 
-const SHARE_PARAM = 'items'
+const SHARE_PARAM = 'r'
 export const SAVED_REPORTS_KEY = 'hs_interaction_reports'
 const MAX_SAVED_REPORTS = 10
 
@@ -9,6 +9,26 @@ export type SavedInteractionReport = {
   id: number
   items: string[]
   createdAt: string
+}
+
+type SharedStackState = {
+  items: string[]
+  intent?: string
+  name?: string
+}
+
+function encodeBase64Url(value: string): string {
+  return btoa(value).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '')
+}
+
+function decodeBase64Url(value: string): string | null {
+  const normalized = value.replace(/-/g, '+').replace(/_/g, '/')
+  const padded = normalized + '='.repeat((4 - (normalized.length % 4)) % 4)
+  try {
+    return atob(padded)
+  } catch {
+    return null
+  }
 }
 
 function toShareToken(item: InteractionCatalogItem, catalog: InteractionCatalogItem[]): string {
@@ -21,10 +41,8 @@ export function buildShareItemsValue(
   selectedItems: InteractionCatalogItem[],
   catalog: InteractionCatalogItem[]
 ): string {
-  return selectedItems
-    .map(item => toShareToken(item, catalog))
-    .map(token => encodeURIComponent(token))
-    .join(',')
+  const raw = selectedItems.map(item => toShareToken(item, catalog)).join(',')
+  return raw ? encodeBase64Url(raw) : ''
 }
 
 export function buildShareUrl(
@@ -39,12 +57,14 @@ export function buildShareUrl(
 
 export function parseItemsFromSearch(search: string, catalog: InteractionCatalogItem[]) {
   const params = new URLSearchParams(search)
-  const raw = params.get(SHARE_PARAM)
+  const compact = params.get(SHARE_PARAM)
+  const legacy = params.get('items')
+  const raw = compact ? decodeBase64Url(compact) : legacy
   if (!raw) return { items: [] as InteractionCatalogItem[], invalidTokens: [] as string[] }
 
   const tokens = raw
     .split(',')
-    .map(token => decodeURIComponent(token).trim())
+    .map(token => token.trim())
     .filter(Boolean)
 
   const items: InteractionCatalogItem[] = []
@@ -70,6 +90,35 @@ export function parseItemsFromSearch(search: string, catalog: InteractionCatalog
   })
 
   return { items, invalidTokens }
+}
+
+export function buildStackShareToken(state: SharedStackState): string {
+  const payload = {
+    i: state.items.slice(0, 3),
+    t: state.intent?.trim() || '',
+    n: state.name?.trim().slice(0, 64) || '',
+  }
+  return encodeBase64Url(JSON.stringify(payload))
+}
+
+export function parseStackShareToken(token: string | null): SharedStackState | null {
+  if (!token) return null
+  const decoded = decodeBase64Url(token)
+  if (!decoded) return null
+  try {
+    const parsed = JSON.parse(decoded) as { i?: unknown; t?: unknown; n?: unknown }
+    if (!Array.isArray(parsed.i)) return null
+    return {
+      items: parsed.i
+        .map(item => String(item).trim())
+        .filter(Boolean)
+        .slice(0, 3),
+      intent: typeof parsed.t === 'string' ? parsed.t.trim() : undefined,
+      name: typeof parsed.n === 'string' ? parsed.n.trim() : undefined,
+    }
+  } catch {
+    return null
+  }
 }
 
 function safeParseSavedReports(raw: string | null): SavedInteractionReport[] {
