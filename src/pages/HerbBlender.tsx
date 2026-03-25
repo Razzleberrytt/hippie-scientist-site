@@ -4,6 +4,7 @@ import type { MotionProps } from '@/lib/motion'
 import BlendSummaryCard from '../components/BlendSummaryCard'
 import HerbCardAccordion from '../components/HerbCardAccordion'
 import TagBadge from '../components/TagBadge'
+import { Button } from '@/components/ui/Button'
 import { useHerbs } from '../hooks/useHerbs'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { herbName, splitField } from '../utils/herb'
@@ -100,15 +101,15 @@ export default function HerbBlender() {
                 <option key={h.id} value={herbName(h)} />
               ))}
             </datalist>
-            <button type='button' onClick={addHerb} className='btn-primary'>
+            <Button type='button' variant='primary' onClick={addHerb}>
               Add Herb
-            </button>
-            <button type='button' onClick={clearAll} className='btn-secondary'>
+            </Button>
+            <Button type='button' variant='secondary' onClick={clearAll}>
               Clear
-            </button>
-            <button type='button' onClick={randomize} className='btn-secondary'>
+            </Button>
+            <Button type='button' variant='secondary' onClick={randomize}>
               Randomize
-            </button>
+            </Button>
           </div>
           <div className='flex flex-wrap gap-2'>
             {selectedHerbs.map(h => (
