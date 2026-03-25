@@ -23,27 +23,45 @@ export default function About() {
 
           <section className='ds-stack border-t border-white/10 pt-4'>
             <h2 className='ds-subheading'>Mission</h2>
+            <p className='ds-text'>
+              The mission is to help readers make safer, evidence-aware decisions by translating
+              complex herbal research into plain language while preserving uncertainty and context.
+            </p>
             <ul className='text-white/82 list-disc space-y-2 pl-5 text-sm leading-7'>
-              <li>Education first: explain what is known, unknown, and uncertain.</li>
+              <li>Education first: explain what is known, unknown, and still unresolved.</li>
               <li>Harm reduction: surface risks, contraindications, and caution points early.</li>
-              <li>Clarity over hype: use structured language instead of strong claims.</li>
+              <li>Clarity over hype: prefer mechanism-first summaries over bold claims.</li>
+              <li>Transparency: cite source quality and limits whenever conclusions are shared.</li>
             </ul>
           </section>
 
           <section className='ds-stack border-t border-white/10 pt-4'>
-            <h2 className='ds-subheading'>How sources are used</h2>
+            <h2 className='ds-subheading'>Background</h2>
             <p className='ds-text'>
-              Profiles are compiled from public literature, pharmacology summaries, traditional-use
-              references, and published research notes where available. Evidence strength is uneven
-              across herbs and compounds, so each profile aims to label confidence and gaps.
+              Hippie Scientist is maintained by an independent researcher focused on herbal
+              pharmacology literacy, scientific communication, and practical safety framing. Content
+              draws from public literature, pharmacology summaries, traditional-use references, and
+              published research notes when available.
+            </p>
+            <p className='ds-text'>
+              Because evidence quality varies widely across herbs and compounds, each profile is
+              designed to highlight confidence level, limitations, and open questions rather than
+              imply certainty where it does not exist.
             </p>
           </section>
 
           <section className='ds-stack border-t border-white/10 pt-4'>
-            <h2 className='ds-subheading'>Scope and intent</h2>
+            <h2 className='ds-subheading'>Disclaimer</h2>
             <p className='ds-text'>
-              This site is for education and research literacy. It is not medical advice, and it is
-              not a substitute for professional care.
+              This site is for education and research literacy only. It does not provide medical
+              diagnosis, treatment, or personalized recommendations. Information here should not
+              replace advice from a qualified clinician who can evaluate your personal history,
+              medications, and risk profile.
+            </p>
+            <p className='ds-text'>
+              If you are pregnant, breastfeeding, have a health condition, or take prescription
+              medications, consult a licensed healthcare professional before trying any herb,
+              compound, or supplement protocol.
             </p>
           </section>
         </article>
