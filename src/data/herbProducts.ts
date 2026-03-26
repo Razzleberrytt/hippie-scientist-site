@@ -1,30 +1,69 @@
 export const AMAZON_AFFILIATE_TRACKING_ID = 'razzleberry02-20'
 
-export type ProductForm = 'capsule' | 'powder' | 'tea' | 'tincture'
+export type ProductForm = 'capsule' | 'powder' | 'tea' | 'loose herb'
 
-export type ReviewedHerbProduct = {
-  herbSlug: string
-  herbName: string
+export type HerbProduct = {
   label: string
   form: ProductForm
   asin: string
-  note?: string
+  note: string
 }
 
-// Manual-only list of reviewed products. Add entries here after ASIN review.
-export const reviewedHerbProducts: ReviewedHerbProduct[] = [
-  // Example entry shape:
-  // {
-  //   herbSlug: 'ashwagandha',
-  //   herbName: 'Ashwagandha',
-  //   label: 'Product label',
-  //   form: 'capsule',
-  //   asin: 'B000000000',
-  //   note: 'Optional short note.',
-  // },
+export type HerbProductCatalogEntry = {
+  herb: string
+  products: HerbProduct[]
+}
+
+export const herbProductCatalog: HerbProductCatalogEntry[] = [
+  {
+    herb: 'ashwagandha',
+    products: [
+      {
+        label: 'Himalaya Organic Ashwagandha Capsules',
+        form: 'capsule',
+        asin: 'B003ODIZL6',
+        note: 'Convenient daily use, standardized extract',
+      },
+      {
+        label: 'Ashwagandha Root Powder',
+        form: 'powder',
+        asin: 'B01M0KJX7E',
+        note: 'Traditional form for tea or mixing',
+      },
+    ],
+  },
+  {
+    herb: 'lions mane',
+    products: [
+      {
+        label: 'Host Defense Lion’s Mane Capsules',
+        form: 'capsule',
+        asin: 'B002WJ2ALA',
+        note: 'Trusted brand, widely used',
+      },
+      {
+        label: 'Lion’s Mane Mushroom Powder',
+        form: 'powder',
+        asin: 'B01BK871DE',
+        note: 'Mixable powder for coffee or smoothies',
+      },
+    ],
+  },
+  {
+    herb: 'chamomile',
+    products: [
+      {
+        label: 'Traditional Medicinals Chamomile Tea',
+        form: 'tea',
+        asin: 'B0009F3POO',
+        note: 'Easy entry point, calming herbal tea',
+      },
+      {
+        label: 'Organic Chamomile Flowers',
+        form: 'loose herb',
+        asin: 'B0001M0Z6A',
+        note: 'Loose flowers for traditional preparation',
+      },
+    ],
+  },
 ]
-
-export function getReviewedProductsForHerb(herbSlug: string): ReviewedHerbProduct[] {
-  const normalizedSlug = herbSlug.trim().toLowerCase()
-  return reviewedHerbProducts.filter(product => product.herbSlug === normalizedSlug).slice(0, 2)
-}
