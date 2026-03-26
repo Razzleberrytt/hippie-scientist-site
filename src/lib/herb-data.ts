@@ -8,6 +8,7 @@ import { sanitizeHerbRecord } from '@/utils/sanitizeData'
 
 let herbsPromise: Promise<Herb[]> | null = null
 type SourceRef = { title: string; url?: string; note?: string }
+type ProductRecommendation = { label: string; type: string; url: string }
 
 function normalizeSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
@@ -33,6 +34,24 @@ function normalizeSources(value: unknown): SourceRef[] {
     .filter((entry): entry is SourceRef => entry !== null)
 }
 
+function normalizeProductRecommendations(value: unknown): ProductRecommendation[] {
+  if (!Array.isArray(value)) return []
+  return value
+    .map(item => {
+      if (!item || typeof item !== 'object') return null
+      const rec = item as Record<string, unknown>
+      const label = String(rec.label || '').trim()
+      const type = String(rec.type || '')
+        .trim()
+        .toLowerCase()
+      const url = String(rec.url || '').trim()
+      if (!label || !type) return null
+      return { label, type, url }
+    })
+    .filter((item): item is ProductRecommendation => item !== null)
+    .slice(0, 2)
+}
+
 function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const { data } = sanitizeHerbRecord(raw, { debug: import.meta.env.DEV })
   const common = cleanText(data.common ?? data.commonName ?? data.name) || ''
@@ -53,6 +72,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     data.activeCompounds ?? data.active_compounds ?? data.compounds
   )
   const sources = normalizeSources(data.sources)
+  const productRecommendations = normalizeProductRecommendations(data.productRecommendations)
   const seededInteraction = getHerbSeedInteractionData(data)
   const mergedInteraction = mergeInteractionData({
     rawTags: rawInteractionTags,
@@ -98,6 +118,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     active_compounds: activeCompounds,
     legalStatus,
     sources,
+    productRecommendations,
     confidence: calculateHerbConfidence({ mechanism, effects, compounds: activeCompounds }),
   }
 }

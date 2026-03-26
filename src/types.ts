@@ -72,6 +72,11 @@ export type Herb = {
   commonnames?: string
   scientificname?: string
   affiliatelink?: string | null
+  productRecommendations?: Array<{
+    label: string
+    type: string
+    url: string
+  }>
   compoundClasses?: string[]
   pharmCategories?: string[]
   [key: string]: unknown
