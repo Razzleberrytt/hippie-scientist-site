@@ -374,7 +374,7 @@ export default function HerbDetail() {
         {dosage && <Section title='Dosage'>{dosage}</Section>}
         {duration && <Section title='Duration'>{duration}</Section>}
         {preparation && <Section title='Preparation'>{preparation}</Section>}
-        <Section title='Recommended Products'>
+        <Section title='Recommended Ways to Try This Herb'>
           <RecommendedProducts herb={herb} showTitle={false} />
         </Section>
         {region && <Section title='Region'>{region}</Section>}
