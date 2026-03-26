@@ -31,6 +31,7 @@ import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollection
 import { type ComboGoal, type PrebuiltCombo, COMBO_GOAL_LABELS } from '@/types/combos'
 import { normalizeLookupToken } from '@/utils/normalizeToken'
 import { splitClean } from '@/lib/sanitize'
+import { pushRecentUnique } from '@/utils/storageState'
 
 type LeadCaptureActionContext = 'after-report' | 'after-save' | 'after-share' | 'after-export'
 
@@ -64,7 +65,16 @@ const INTERACTION_LEAD_CAPTURED_KEY = 'hs_interaction_lead_captured_v1'
 const INTERACTION_COMBO_USAGE_KEY = 'hs_interaction_combo_usage_v1'
 const STACK_EMAIL_GATE_KEY = 'hs_stack_builder_email_v1'
 const STACK_SHARE_PARAM = 'stack'
+const INTERACTION_HISTORY_KEY = 'ths:interaction-check-history'
 const MAX_SELECTION = 3
+const MAX_INTERACTION_HISTORY = 12
+
+type InteractionCheckHistory = {
+  id: string
+  checkedAt: string
+  herbSlugs: string[]
+  warningCount: number
+}
 
 const DEFAULT_ENGAGEMENT: InteractionEngagementCounters = {
   saveCount: 0,
@@ -118,6 +128,21 @@ function loadComboUsage(): ComboUsageState {
 function persistComboUsage(value: ComboUsageState) {
   if (typeof window === 'undefined') return
   window.localStorage.setItem(INTERACTION_COMBO_USAGE_KEY, JSON.stringify(value))
+}
+
+function trackInteractionCheck(items: InteractionCatalogItem[], report: InteractionReport) {
+  const herbSlugs = items
+    .filter(item => item.kind === 'herb')
+    .map(item => item.id.replace(/^herb:/, ''))
+    .filter(Boolean)
+  if (!herbSlugs.length) return
+  const entry: InteractionCheckHistory = {
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    checkedAt: new Date().toISOString(),
+    herbSlugs,
+    warningCount: report.warnings.length,
+  }
+  pushRecentUnique(INTERACTION_HISTORY_KEY, entry, MAX_INTERACTION_HISTORY)
 }
 
 export default function InteractionsPage() {
@@ -279,7 +304,9 @@ export default function InteractionsPage() {
     const sourceItems = entry.resolvedItems
       .map(item => sourceItemMap.get(item.id))
       .filter((item): item is InteractionSourceItem => Boolean(item))
-    setReport(checkInteractions(sourceItems))
+    const nextReport = checkInteractions(sourceItems)
+    setReport(nextReport)
+    trackInteractionCheck(entry.resolvedItems, nextReport)
     setSelectionMessage('')
     setLeadContext('after-report')
     setActiveComboId(entry.combo.id)
@@ -339,7 +366,9 @@ export default function InteractionsPage() {
       .map(item => sourceItemMap.get(item.id))
       .filter((item): item is InteractionSourceItem => Boolean(item))
 
-    setReport(checkInteractions(sourceItems))
+    const nextReport = checkInteractions(sourceItems)
+    setReport(nextReport)
+    trackInteractionCheck(selectedItems, nextReport)
     setLeadContext('after-report')
     const sharedItems = buildShareItemsValue(selectedItems, catalog)
     if (sharedItems) {

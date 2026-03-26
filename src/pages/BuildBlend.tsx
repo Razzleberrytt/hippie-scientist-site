@@ -9,6 +9,7 @@ import { useHerbData } from '@/lib/herb-data'
 import { herbDisplayName } from '@/utils/herbSignals'
 import type { Herb } from '@/types/herb'
 import { submitLeadCapture } from '@/lib/leadCapture'
+import { pushRecentUnique, readStorage, removeStorage, writeStorage } from '@/utils/storageState'
 
 type StackIntent = 'sleep' | 'focus' | 'relaxation'
 
@@ -97,16 +98,6 @@ function normalizeList(value: unknown): string[] {
 function encodeStackPlan(plan: StackPlan): string {
   const compact = [plan.intent, ...plan.herbSlugs].map(item => item.trim().toLowerCase()).join('.')
   return encodeURIComponent(compact)
-}
-
-function parseJson<T>(key: string, fallback: T): T {
-  if (typeof window === 'undefined') return fallback
-  try {
-    const parsed = JSON.parse(window.localStorage.getItem(key) || 'null')
-    return parsed ?? fallback
-  } catch {
-    return fallback
-  }
 }
 
 function decodeStackPlan(input: string | null): StackPlan | null {
@@ -246,9 +237,9 @@ export default function BuildBlend() {
   const [interactionHistory, setInteractionHistory] = useState<InteractionCheckHistory[]>([])
 
   useEffect(() => {
-    setFavoriteSlugs(parseJson<string[]>(FAVORITE_HERBS_KEY, []))
-    setRecentStacks(parseJson<RecentStackPlan[]>(RECENT_STACKS_KEY, []))
-    setInteractionHistory(parseJson<InteractionCheckHistory[]>(INTERACTION_HISTORY_KEY, []))
+    setFavoriteSlugs(readStorage<string[]>(FAVORITE_HERBS_KEY, []))
+    setRecentStacks(readStorage<RecentStackPlan[]>(RECENT_STACKS_KEY, []))
+    setInteractionHistory(readStorage<InteractionCheckHistory[]>(INTERACTION_HISTORY_KEY, []))
   }, [])
 
   useEffect(() => {
@@ -343,7 +334,7 @@ export default function BuildBlend() {
       const next = current.includes(slug)
         ? current.filter(item => item !== slug)
         : [...current, slug]
-      window.localStorage.setItem(FAVORITE_HERBS_KEY, JSON.stringify(next))
+      writeStorage(FAVORITE_HERBS_KEY, next)
       return next
     })
   }
@@ -362,21 +353,14 @@ export default function BuildBlend() {
     const plan: StackPlan = { intent, herbSlugs: selectedSlugs }
     const serialized = encodeStackPlan(plan)
     setSearchParams({ [STACK_SHARE_PARAM]: serialized }, { replace: true })
-    window.localStorage.setItem(LOCAL_STACK_KEY, serialized)
+    writeStorage(LOCAL_STACK_KEY, serialized)
 
     const nextRecentEntry: RecentStackPlan = {
       ...plan,
       id: `${intent}:${[...selectedSlugs].sort().join('|')}`,
       createdAt: new Date().toISOString(),
     }
-    setRecentStacks(current => {
-      const next = [
-        nextRecentEntry,
-        ...current.filter(item => item.id !== nextRecentEntry.id),
-      ].slice(0, MAX_RECENT_STACKS)
-      window.localStorage.setItem(RECENT_STACKS_KEY, JSON.stringify(next))
-      return next
-    })
+    setRecentStacks(pushRecentUnique(RECENT_STACKS_KEY, nextRecentEntry, MAX_RECENT_STACKS))
 
     const historyEntry: InteractionCheckHistory = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -384,11 +368,9 @@ export default function BuildBlend() {
       herbSlugs: selectedSlugs,
       warningCount: nextResult.interactionWarnings.length,
     }
-    setInteractionHistory(current => {
-      const next = [historyEntry, ...current].slice(0, MAX_INTERACTION_HISTORY)
-      window.localStorage.setItem(INTERACTION_HISTORY_KEY, JSON.stringify(next))
-      return next
-    })
+    setInteractionHistory(
+      pushRecentUnique(INTERACTION_HISTORY_KEY, historyEntry, MAX_INTERACTION_HISTORY)
+    )
   }
 
   const applyRecentStack = (stack: RecentStackPlan) => {
@@ -597,7 +579,7 @@ export default function BuildBlend() {
               setSelectedSlugs([])
               setResult(null)
               setSearchParams({}, { replace: true })
-              window.localStorage.removeItem(LOCAL_STACK_KEY)
+              removeStorage(LOCAL_STACK_KEY)
             }}
           >
             Reset

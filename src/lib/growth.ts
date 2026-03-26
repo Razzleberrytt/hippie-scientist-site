@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { readStorage, writeStorage } from '@/utils/storageState'
 import { useLocation } from 'react-router-dom'
 
 export type SavedEntityType = 'herb' | 'compound' | 'article' | 'blend'
@@ -40,20 +41,8 @@ export type RecentlyViewed = {
   at: string
 }
 
-function readJson<T>(key: string, fallback: T): T {
-  if (typeof window === 'undefined') return fallback
-  try {
-    const parsed = JSON.parse(window.localStorage.getItem(key) || 'null')
-    return parsed ?? fallback
-  } catch {
-    return fallback
-  }
-}
-
-function writeJson(key: string, value: unknown) {
-  if (typeof window === 'undefined') return
-  window.localStorage.setItem(key, JSON.stringify(value))
-}
+const readJson = readStorage
+const writeJson = writeStorage
 
 export function useSavedItems() {
   const [items, setItems] = useState<SavedEntity[]>([])

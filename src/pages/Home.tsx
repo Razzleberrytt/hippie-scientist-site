@@ -10,6 +10,7 @@ import { loadHerbData } from '@/lib/herb-data'
 import { loadCompoundData } from '@/lib/compound-data'
 import { getCommonName } from '@/lib/herbName'
 import { useRecentlyViewed, useSavedItems } from '@/lib/growth'
+import { readStorage } from '@/utils/storageState'
 import { buildHerbViralHooks } from '@/lib/viralContent'
 import { buildCardSummary } from '@/lib/summary'
 import {
@@ -28,6 +29,20 @@ type FeaturedItem = {
   kind: 'herb' | 'compound'
   whyItMatters: string
   quality: QualityResult
+}
+
+type RecentBlend = {
+  id: string
+  intent: 'sleep' | 'focus' | 'relaxation'
+  herbSlugs: string[]
+  createdAt: string
+}
+
+type RecentInteractionCheck = {
+  id: string
+  checkedAt: string
+  herbSlugs: string[]
+  warningCount: number
 }
 
 const CURATED_FALLBACK = [
@@ -53,6 +68,9 @@ function sortByScore<T extends { quality: QualityResult }>(items: T[]) {
   return [...items].sort((a, b) => b.quality.score - a.quality.score)
 }
 
+const RECENT_STACKS_KEY = 'ths:recent-herb-stacks'
+const INTERACTION_HISTORY_KEY = 'ths:interaction-check-history'
+
 export default function Home() {
   const [counts, setCounts] = useState(siteStats)
   const [featured, setFeatured] = useState<FeaturedItem[]>([])
@@ -60,6 +78,8 @@ export default function Home() {
   const [herbs, setHerbs] = useState<Herb[]>([])
   const { items } = useSavedItems()
   const recent = useRecentlyViewed()
+  const [recentBlends, setRecentBlends] = useState<RecentBlend[]>([])
+  const [recentChecks, setRecentChecks] = useState<RecentInteractionCheck[]>([])
 
   useEffect(() => {
     let alive = true
@@ -175,6 +195,11 @@ export default function Home() {
     return () => {
       alive = false
     }
+  }, [])
+
+  useEffect(() => {
+    setRecentBlends(readStorage<RecentBlend[]>(RECENT_STACKS_KEY, []))
+    setRecentChecks(readStorage<RecentInteractionCheck[]>(INTERACTION_HISTORY_KEY, []))
   }, [])
 
   const dailyDiscovery = useMemo(() => featured[0] ?? null, [featured])
@@ -441,19 +466,56 @@ export default function Home() {
         </div>
       </section>
 
-      {recent.length > 0 && (
+      {(recent.length > 0 || recentBlends.length > 0 || recentChecks.length > 0) && (
         <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
           <div className='ds-card-lg ds-stack'>
             <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-              Recently viewed
+              Recent activity
             </p>
-            <div className='grid gap-3 sm:grid-cols-2'>
-              {recent.slice(0, 4).map(item => (
-                <Link key={`${item.type}-${item.slug}`} to={item.href} className='ds-card p-4'>
-                  <p className='text-xs uppercase tracking-[0.14em] text-white/55'>{item.type}</p>
-                  <p className='mt-1 text-sm font-semibold text-white'>{item.title}</p>
-                </Link>
-              ))}
+            <div className='grid gap-4 sm:grid-cols-3'>
+              <div className='ds-card p-4'>
+                <p className='text-xs uppercase tracking-[0.14em] text-white/55'>Viewed herbs</p>
+                <div className='mt-2 grid gap-2'>
+                  {recent
+                    .filter(item => item.type === 'herb')
+                    .slice(0, 3)
+                    .map(item => (
+                      <Link
+                        key={`${item.type}-${item.slug}`}
+                        to={item.href}
+                        className='text-sm font-medium text-white/90 hover:text-white'
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                </div>
+              </div>
+              <div className='ds-card p-4'>
+                <p className='text-xs uppercase tracking-[0.14em] text-white/55'>Recent blends</p>
+                <div className='mt-2 grid gap-2'>
+                  {recentBlends.slice(0, 3).map(item => (
+                    <Link key={item.id} to='/build' className='text-sm font-medium text-white/90'>
+                      {item.intent} · {item.herbSlugs.length} herbs
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <div className='ds-card p-4'>
+                <p className='text-xs uppercase tracking-[0.14em] text-white/55'>
+                  Interaction checks
+                </p>
+                <div className='mt-2 grid gap-2'>
+                  {recentChecks.slice(0, 3).map(item => (
+                    <Link
+                      key={item.id}
+                      to='/interactions'
+                      className='text-sm font-medium text-white/90 hover:text-white'
+                    >
+                      {item.herbSlugs.length} herbs · {item.warningCount} warnings
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
