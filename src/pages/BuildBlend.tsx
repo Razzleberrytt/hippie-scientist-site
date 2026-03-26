@@ -31,7 +31,9 @@ type InteractionCheckHistory = {
 
 type StackOutput = {
   selectedHerbs: Herb[]
+  intentLabel: string
   timing: string[]
+  usageNotes: string[]
   dosage: {
     light: string
     moderate: string
@@ -163,6 +165,25 @@ function buildDosageGuidance(selectedHerbs: Herb[]) {
 }
 
 function buildStackOutput(intent: StackIntent, selectedHerbs: Herb[]): StackOutput {
+  const usageNotes = selectedHerbs
+    .flatMap(herb => {
+      const herbName = herbDisplayName(herb)
+      const preparationItems = [
+        ...normalizeList(herb.preparations),
+        ...normalizeList(herb.preparation),
+        ...normalizeList(herb.preparationsText),
+      ]
+      const dosageItems = [...normalizeList(herb.dosage), ...normalizeList(herb.dosage_notes)]
+      const prepSummary = preparationItems.length
+        ? `${herbName}: ${preparationItems.slice(0, 2).join('; ')}`
+        : null
+      const dosageSummary = dosageItems.length ? `${herbName} dose note: ${dosageItems[0]}` : null
+      return [prepSummary, dosageSummary].filter(Boolean) as string[]
+    })
+    .map(note => note.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .slice(0, MAX_NOTES)
+
   const safetyNotes = Array.from(
     new Set(
       selectedHerbs
@@ -191,7 +212,9 @@ function buildStackOutput(intent: StackIntent, selectedHerbs: Herb[]): StackOutp
 
   return {
     selectedHerbs,
+    intentLabel: INTENT_COPY[intent].label,
     timing: INTENT_COPY[intent].timing,
+    usageNotes,
     dosage: buildDosageGuidance(selectedHerbs),
     safetyNotes: safetyNotes.length
       ? safetyNotes
@@ -404,13 +427,18 @@ export default function BuildBlend() {
     const doc = new jsPDF()
     const herbNames = result.selectedHerbs.map(herb => `• ${herbDisplayName(herb)}`)
     const lines = [
-      `Intent: ${INTENT_COPY[intent].label}`,
+      `Intent: ${result.intentLabel}`,
       '',
       'Selected Herbs:',
       ...herbNames,
       '',
       'Recommended Timing:',
       ...result.timing.map(line => `• ${line}`),
+      '',
+      'Preparation & Usage Notes:',
+      ...(result.usageNotes.length
+        ? result.usageNotes.map(note => `• ${note}`)
+        : ['• No preparation-specific notes were found in this herb data.']),
       '',
       'Dosage Guidance:',
       `• Light: ${result.dosage.light}`,
@@ -427,7 +455,7 @@ export default function BuildBlend() {
     const wrapped = doc.splitTextToSize(lines.join('\n'), 180)
     doc.setFontSize(11)
     doc.text(wrapped, 14, 18)
-    doc.save(`herb-stack-${intent}.pdf`)
+    doc.save(`blend-summary-${intent}.pdf`)
   }
 
   const handleLeadSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -650,12 +678,34 @@ export default function BuildBlend() {
         ) : (
           <div className='space-y-4'>
             <Card className='rounded-2xl p-5'>
+              <h2 className='text-lg font-semibold text-white'>Blend Summary</h2>
+              <p className='mt-2 text-sm text-slate-300'>
+                Goal: <span className='font-medium text-slate-100'>{result.intentLabel}</span>
+              </p>
+            </Card>
+
+            <Card className='rounded-2xl p-5'>
               <h2 className='text-lg font-semibold text-white'>Recommended Usage Timing</h2>
               <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-200'>
                 {result.timing.map(item => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+            </Card>
+
+            <Card className='rounded-2xl p-5'>
+              <h2 className='text-lg font-semibold text-white'>Preparation & Usage Notes</h2>
+              {result.usageNotes.length ? (
+                <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-slate-200'>
+                  {result.usageNotes.map(note => (
+                    <li key={note}>{note}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className='mt-3 text-sm text-slate-300'>
+                  No preparation-specific notes were found in this herb data.
+                </p>
+              )}
             </Card>
 
             <Card className='rounded-2xl p-5'>
@@ -703,10 +753,13 @@ export default function BuildBlend() {
             <Card className='rounded-2xl p-5'>
               <div className='flex flex-wrap items-center gap-2'>
                 <Button type='button' variant='default' onClick={handleCopyShareLink}>
-                  Copy Shareable Page Link
+                  Copy Share Link
                 </Button>
                 <Button type='button' variant='primary' onClick={exportPdf}>
-                  Download your stack as a PDF
+                  Export Blend
+                </Button>
+                <Button type='button' variant='ghost' onClick={() => window.print()}>
+                  Print Summary
                 </Button>
                 {shareStatus === 'copied' ? (
                   <p className='text-xs text-emerald-300'>Link copied.</p>
