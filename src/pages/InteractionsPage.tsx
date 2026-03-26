@@ -9,7 +9,6 @@ import InteractionSearch, {
 import SelectedInteractionItems from '@/components/interactions/SelectedInteractionItems'
 import InteractionDisclaimer from '@/components/interactions/InteractionDisclaimer'
 import InteractionLeadCapture from '@/components/interactions/InteractionLeadCapture'
-import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState } from '@/lib/herb-data'
 import { InteractionReportSkeleton } from '@/components/skeletons/DetailSkeletons'
 import type { InteractionReport, InteractionSourceItem } from '@/types/interactions'
@@ -125,7 +124,6 @@ export default function InteractionsPage() {
   const location = useLocation()
   const navigate = useNavigate()
   const { herbs, isLoading: isHerbsLoading } = useHerbDataState()
-  const { compounds, isLoading: isCompoundsLoading } = useCompoundDataState()
   const [selectedItems, setSelectedItems] = useState<InteractionCatalogItem[]>([])
   const [report, setReport] = useState<InteractionReport | null>(null)
   const [selectionMessage, setSelectionMessage] = useState<string>('')
@@ -170,21 +168,9 @@ export default function InteractionsPage() {
     [herbs]
   )
 
-  const compoundCatalog = useMemo<InteractionCatalogItem[]>(
-    () =>
-      compounds.map(compound => ({
-        id: `compound:${compound.slug}`,
-        name: compound.name,
-        kind: 'compound',
-        category: compound.category || compound.className,
-        effects: splitClean(compound.effects),
-      })),
-    [compounds]
-  )
-
   const catalog = useMemo(
-    () => [...herbCatalog, ...compoundCatalog].sort((a, b) => a.name.localeCompare(b.name)),
-    [compoundCatalog, herbCatalog]
+    () => [...herbCatalog].sort((a, b) => a.name.localeCompare(b.name)),
+    [herbCatalog]
   )
 
   const sourceItemMap = useMemo(() => {
@@ -199,6 +185,7 @@ export default function InteractionsPage() {
         category: String(herb.class || herb.category || ''),
         mechanism: String(herb.mechanism || herb.mechanismOfAction || ''),
         effects: splitClean(herb.effects),
+        activeCompounds: splitClean((herb as Record<string, unknown>).activeCompounds),
         contraindications: splitClean(herb.contraindications),
         interactions: splitClean(herb.interactions),
         interactionTags: splitClean((herb as Record<string, unknown>).interactionTags),
@@ -208,26 +195,8 @@ export default function InteractionsPage() {
       })
     })
 
-    compounds.forEach(compound => {
-      const id = `compound:${compound.slug}`
-      map.set(id, {
-        id,
-        name: compound.name,
-        kind: 'compound',
-        category: compound.category || compound.className,
-        mechanism: compound.mechanism,
-        effects: splitClean(compound.effects),
-        contraindications: splitClean(compound.contraindications),
-        interactions: splitClean(compound.interactions),
-        interactionTags: splitClean(compound.interactionTags),
-        interactionNotes: splitClean(compound.interactionNotes),
-        safety: splitClean(compound.sideEffects),
-        confidence: compound.confidence,
-      })
-    })
-
     return map
-  }, [compounds, herbs])
+  }, [herbs])
 
   const catalogLookup = useMemo(() => {
     const map = new Map<string, InteractionCatalogItem>()
@@ -681,20 +650,20 @@ export default function InteractionsPage() {
 
   const shouldShowLeadCapture = Boolean(report) && !leadCaptured
   const activeLeadContext: LeadCaptureActionContext = leadContext || 'after-report'
-  const isCatalogLoading = isHerbsLoading || isCompoundsLoading
+  const isCatalogLoading = isHerbsLoading
 
   return (
     <main className='mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 sm:py-10'>
       <Meta
         title='Interaction Checker | The Hippie Scientist'
-        description='Check potential overlap signals between herbs and compounds using structured normalized data.'
+        description='Check potential overlap signals between 2-3 herbs using structured normalized data.'
         path='/interactions'
       />
 
       <header className='space-y-2 rounded-2xl border border-white/10 bg-black/35 p-5'>
         <h1 className='text-3xl font-bold text-white sm:text-4xl'>Interaction Checker</h1>
         <p className='max-w-3xl text-sm text-white/80 sm:text-base'>
-          Check potential overlap signals between herbs and compounds.
+          Compare 2-3 herbs for overlap signals, safety warnings, and stacking concerns.
         </p>
       </header>
 
@@ -827,7 +796,7 @@ export default function InteractionsPage() {
           </Button>
           {selectedItems.length < 2 && (
             <p className='text-sm text-white/65'>
-              Select at least two items to generate an interaction report.
+              Select at least two herbs to generate an interaction report.
             </p>
           )}
         </div>
@@ -943,7 +912,7 @@ export default function InteractionsPage() {
 
         {activeStackItems.length === 0 ? (
           <p className='rounded-lg border border-dashed border-white/20 bg-white/[0.02] px-3 py-3 text-sm text-white/65'>
-            Add at least two herbs or compounds to build your stack.
+            Add at least two herbs to build your stack.
           </p>
         ) : (
           <ul className='space-y-2'>

@@ -21,12 +21,16 @@ export type InteractionFinding = {
   knownPatternCount: number
   compoundSimilarityCount: number
   evidenceBasis: string[]
+  section?: 'summary' | 'effects' | 'compounds' | 'safety' | 'stacking' | 'data'
 }
+
+export type InteractionVerdict = 'Low concern' | 'Use caution' | 'Avoid / high concern'
 
 export type InteractionReport = {
   items: string[]
   findings: InteractionFinding[]
   summary: string
+  verdict: InteractionVerdict
   keySignals: string[]
   overallSeverity: InteractionSeverity
   overallConfidence: InteractionConfidence
@@ -42,6 +46,7 @@ export type InteractionSourceItem = {
   category?: string
   mechanism?: string
   effects?: string[]
+  activeCompounds?: string[]
   contraindications?: string[]
   safety?: string[]
   interactions?: string[]
