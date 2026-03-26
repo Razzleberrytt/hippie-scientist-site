@@ -2,154 +2,25 @@ import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 import { getCommonName } from '@/lib/herbName'
-import { splitClean } from '@/lib/sanitize'
-import type { Herb } from '@/types/herb'
+import {
+  buildEffectCollectionFeed,
+  EFFECT_COLLECTION_CONFIGS,
+  effectCollectionChips,
+  type EffectCollectionIntent,
+} from '@/utils/effectCollections'
 
-type GoalConfig = {
-  label: string
-  intro: string
-  seoDescription: string
-  primaryKeywords: string[]
-  supportKeywords: string[]
-  cautionKeywords: string[]
-}
+const COLLECTION_ORDER: EffectCollectionIntent[] = ['sleep', 'focus', 'relaxation']
 
-type RankedHerb = {
-  herb: Herb
-  score: number
-  matched: string[]
-  safetyNotes: string[]
-}
-
-const GOALS: Record<string, GoalConfig> = {
-  sleep: {
-    label: 'Best Herbs for Sleep',
-    intro:
-      'Sleep-focused herbs are not all the same: some help with sleep onset (calming racing thoughts), while others support sleep depth or reduce overnight awakenings. This list prioritizes herbs with clear sleep, sedative, or nighttime-calming signals in their effect fields and includes practical cautions so readers can avoid common stacking mistakes.',
-    seoDescription:
-      'Ranked, evidence-structured list of the best herbs for sleep, including practical safety notes and when each herb may fit.',
-    primaryKeywords: ['sleep', 'insomnia', 'sedative', 'night', 'restful'],
-    supportKeywords: ['calm', 'relax', 'anxiolytic', 'nervine', 'gaba'],
-    cautionKeywords: ['sedative', 'cns depressant', 'drowsy', 'alcohol'],
-  },
-  anxiety: {
-    label: 'Herbs for Anxiety',
-    intro:
-      'Anxiety-support herbs vary by profile: some are better for physical tension, others for rumination or stress reactivity. This page ranks herbs by anxiety-related effects first, then boosts entries with stronger mechanism and safety detail so the list is useful for comparing options instead of generic browsing.',
-    seoDescription:
-      'Explore a ranked list of herbs for anxiety support with concise safety notes and data-backed effect matching.',
-    primaryKeywords: ['anxiety', 'anxiolytic', 'calm', 'stress', 'tension'],
-    supportKeywords: ['relax', 'nervine', 'mood', 'cortisol', 'gaba'],
-    cautionKeywords: ['ssri', 'sedative', 'benzodiazepine', 'pregnancy'],
-  },
-  focus: {
-    label: 'Focus and Cognition Herbs',
-    intro:
-      'For focus and cognition, stimulation alone is not enough. The strongest candidates usually combine attentional support with manageable stimulation and low cognitive “noise.” This ranking emphasizes focus and clarity signals, then favors records with richer mechanism details so users can compare nootropic-style options more intelligently.',
-    seoDescription:
-      'Compare focus and cognition herbs ranked by effect match quality, with quick notes on stimulation and interaction cautions.',
-    primaryKeywords: ['focus', 'attention', 'clarity', 'cognitive', 'nootropic'],
-    supportKeywords: ['memory', 'alertness', 'stimulation', 'dopamine', 'acetylcholine'],
-    cautionKeywords: ['insomnia', 'hypertension', 'stimulant', 'anxiety'],
-  },
-}
-
-function confidencePoints(herb: Herb): number {
-  const level = String(herb.confidence ?? '').toLowerCase()
-  if (level === 'high') return 3
-  if (level === 'medium') return 2
-  return 1
-}
-
-function getBlob(herb: Herb): string {
-  return [
-    ...splitClean(herb.effects),
-    ...splitClean(herb.effectsSummary),
-    ...splitClean(herb.description),
-    ...splitClean(herb.tags),
-    ...splitClean(herb.mechanism),
-    ...splitClean(herb.mechanismOfAction),
-    ...splitClean(herb.mechanismofaction),
-  ]
-    .join(' ')
-    .toLowerCase()
-}
-
-function getSafetyBlob(herb: Herb): string {
-  return [
-    ...splitClean(herb.safety),
-    ...splitClean(herb.contraindications),
-    ...splitClean(herb.interactions),
-    ...splitClean(herb.sideeffects),
-    ...splitClean(herb.sideEffects),
-  ]
-    .join(' ')
-    .toLowerCase()
-}
-
-function createSafetyNotes(herb: Herb, config: GoalConfig): string[] {
-  const safetyBlob = getSafetyBlob(herb)
-  const notes: string[] = []
-
-  if (config.cautionKeywords.some(keyword => safetyBlob.includes(keyword))) {
-    notes.push('Potential interaction/sedation caution flagged in safety fields.')
-  }
-  if (safetyBlob.includes('pregnan')) {
-    notes.push('Pregnancy caution appears in record; verify with a clinician.')
-  }
-  if (safetyBlob.includes('liver')) {
-    notes.push('Liver-related caution mentioned; avoid high or prolonged dosing.')
-  }
-  if (safetyBlob.includes('blood pressure') || safetyBlob.includes('hypertension')) {
-    notes.push('Blood-pressure-related caution noted in interactions/safety data.')
-  }
-
-  if (!notes.length) {
-    notes.push('Review herb profile for contraindications, interactions, and dosing context.')
-  }
-
-  return notes.slice(0, 2)
-}
-
-function rankHerbs(herbs: Herb[], config: GoalConfig): RankedHerb[] {
-  return herbs
-    .map(herb => {
-      const blob = getBlob(herb)
-      const primaryMatches = config.primaryKeywords.filter(keyword => blob.includes(keyword))
-      const supportMatches = config.supportKeywords.filter(keyword => blob.includes(keyword))
-      const completeness = [
-        herb.description,
-        herb.effects,
-        herb.mechanism || herb.mechanismOfAction || herb.mechanismofaction,
-        herb.safety || herb.contraindications || herb.interactions,
-      ].filter(field => splitClean(field).length > 0).length
-
-      const score =
-        primaryMatches.length * 4 +
-        supportMatches.length * 2 +
-        confidencePoints(herb) +
-        completeness
-
-      return {
-        herb,
-        score,
-        matched: [...primaryMatches, ...supportMatches],
-        safetyNotes: createSafetyNotes(herb, config),
-      }
-    })
-    .filter(item => item.matched.length > 0)
-    .sort((a, b) => {
-      if (b.score !== a.score) return b.score - a.score
-      const nameA = getCommonName(a.herb) || a.herb.scientific || a.herb.slug || ''
-      const nameB = getCommonName(b.herb) || b.herb.scientific || b.herb.slug || ''
-      return nameA.localeCompare(nameB)
-    })
-    .slice(0, 18)
+function confidenceTone(level: string) {
+  if (level === 'high') return 'border-emerald-300/40 bg-emerald-500/15 text-emerald-100'
+  if (level === 'medium') return 'border-amber-300/40 bg-amber-500/15 text-amber-100'
+  return 'border-rose-300/40 bg-rose-500/15 text-rose-100'
 }
 
 export default function HerbGoalPage() {
   const { goal = '' } = useParams<{ goal: string }>()
-  const config = GOALS[goal]
+  const intent = goal as EffectCollectionIntent
+  const config = EFFECT_COLLECTION_CONFIGS[intent]
   const herbs = useHerbData()
 
   if (!config) {
@@ -160,68 +31,108 @@ export default function HerbGoalPage() {
     )
   }
 
-  const ranked = rankHerbs(herbs, config)
+  const ranked = buildEffectCollectionFeed(herbs, intent, 18)
 
   return (
     <main className='container-page py-8'>
       <Meta
-        title={`${config.label} | The Hippie Scientist`}
+        title={`${config.title} | The Hippie Scientist`}
         description={config.seoDescription}
-        path={`/herbs-for-${goal}`}
+        path={`/herbs-for-${intent}`}
       />
 
       <section className='ds-card-lg'>
-        <h1 className='text-3xl font-semibold text-white'>{config.label}</h1>
+        <h1 className='text-3xl font-semibold text-white'>{config.title}</h1>
         <p className='mt-3 text-sm leading-7 text-white/80'>{config.intro}</p>
       </section>
 
       <section className='ds-card mt-5'>
-        <h2 className='text-lg font-semibold text-white'>Ranked herb list</h2>
+        <div className='flex flex-wrap items-center justify-between gap-3'>
+          <h2 className='text-lg font-semibold text-white'>Ranked herb list</h2>
+          <p className='text-xs text-white/70'>{ranked.length} ranked matches</p>
+        </div>
+
         <ol className='mt-3 space-y-3'>
-          {ranked.map((item, index) => (
-            <li
-              key={item.herb.slug || index}
-              className='rounded-xl border border-white/10 bg-white/5 p-4'
-            >
-              <div className='flex items-start justify-between gap-3'>
-                <div>
-                  <p className='text-xs uppercase tracking-wide text-cyan-200/90'>#{index + 1}</p>
-                  <Link
-                    to={`/herbs/${item.herb.slug}`}
-                    className='text-base font-semibold text-white hover:text-cyan-200'
-                  >
-                    {getCommonName(item.herb) || item.herb.scientific || item.herb.slug}
-                  </Link>
+          {ranked.map(item => {
+            const slug = String(item.herb.slug || '').trim()
+            return (
+              <li
+                key={slug || item.rank}
+                className='rounded-xl border border-white/10 bg-white/5 p-4'
+              >
+                <div className='flex items-start justify-between gap-3'>
+                  <div>
+                    <p className='text-xs uppercase tracking-wide text-cyan-200/90'>#{item.rank}</p>
+                    <Link
+                      to={`/herbs/${encodeURIComponent(slug)}`}
+                      className='text-base font-semibold text-white hover:text-cyan-200'
+                    >
+                      {getCommonName(item.herb) || item.herb.scientific || slug}
+                    </Link>
+                  </div>
+                  <p className='text-xs text-white/70'>Effect score: {item.score}</p>
                 </div>
-                <p className='text-xs text-white/70'>Effect score: {item.score}</p>
-              </div>
-              <p className='mt-2 text-sm text-white/80'>
-                {(item.herb.effectsSummary as string) ||
-                  item.herb.description ||
-                  'See full herb profile.'}
-              </p>
-              <p className='mt-2 text-xs text-white/65'>
-                Match drivers: {item.matched.slice(0, 4).join(', ')}
-              </p>
-              <ul className='mt-2 list-disc pl-5 text-xs text-amber-100/85'>
-                {item.safetyNotes.map(note => (
-                  <li key={note}>{note}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
+
+                <div className='mt-2 flex flex-wrap items-center gap-2'>
+                  <span
+                    className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceTone(item.confidence)}`}
+                  >
+                    confidence: {item.confidence}
+                  </span>
+                  <span className='rounded-full border border-sky-300/35 bg-sky-500/10 px-2.5 py-1 text-[11px] text-sky-100'>
+                    compounds: {item.compoundSupportCount}
+                  </span>
+                </div>
+
+                <p className='mt-2 text-sm text-white/80'>{item.summary}</p>
+                <p className='mt-2 text-xs text-white/65'>
+                  Matched effects: {item.matchedEffects.slice(0, 3).join(', ') || config.query}
+                </p>
+
+                <div className='mt-2 flex flex-wrap gap-1.5'>
+                  {effectCollectionChips(item.herb).map(effect => (
+                    <span
+                      key={`${slug}-${effect}`}
+                      className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100'
+                    >
+                      {effect}
+                    </span>
+                  ))}
+                </div>
+
+                <ul className='mt-2 list-disc pl-5 text-xs text-amber-100/85'>
+                  {item.safetyNotes.map(note => (
+                    <li key={`${slug}-${note}`}>{note}</li>
+                  ))}
+                </ul>
+              </li>
+            )
+          })}
         </ol>
       </section>
 
       <section className='ds-card mt-5'>
-        <h2 className='text-lg font-semibold text-white'>Quick safety notes</h2>
+        <h2 className='text-lg font-semibold text-white'>Safety framing</h2>
         <ul className='mt-3 list-disc space-y-2 pl-5 text-sm text-white/80'>
-          <li>These pages are educational indexes, not a diagnosis or prescription.</li>
-          <li>Start low, avoid stacking multiple sedative or stimulant herbs at once.</li>
-          <li>
-            Check medication interactions, especially for SSRIs, benzodiazepines, and sleep meds.
-          </li>
+          {config.safetyFraming.map(note => (
+            <li key={note}>{note}</li>
+          ))}
         </ul>
+      </section>
+
+      <section className='ds-card mt-5'>
+        <h2 className='text-lg font-semibold text-white'>Explore related effect collections</h2>
+        <div className='mt-3 flex flex-wrap gap-2'>
+          {COLLECTION_ORDER.filter(item => item !== intent).map(item => (
+            <Link
+              key={item}
+              to={`/herbs-for-${item}`}
+              className='rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs capitalize text-white/85 transition hover:border-cyan-300/50 hover:text-cyan-100'
+            >
+              Herbs for {item}
+            </Link>
+          ))}
+        </div>
       </section>
     </main>
   )
