@@ -4,12 +4,13 @@ import Meta from '@/components/Meta'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState } from '@/lib/herb-data'
-import { slugify } from '@/lib/slug'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { getCompoundDataCompleteness } from '@/utils/getDataCompleteness'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
+import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
+import RelatedHerbCard from '@/components/RelatedHerbCard'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -36,10 +37,6 @@ function ListSection({ items }: { items: string[] }) {
   )
 }
 
-function normalizeKey(value: string) {
-  return value.trim().toLowerCase()
-}
-
 export default function CompoundDetail() {
   const { slug = '' } = useParams()
   const { compounds, isLoading: isCompoundLoading } = useCompoundDataState()
@@ -61,34 +58,7 @@ export default function CompoundDetail() {
     )
   }
 
-  const compoundNameKey = normalizeKey(compound.name)
-  const herbMap = new Map(
-    herbs.map(herb => [normalizeKey(String(herb.common || herb.name || herb.slug)), herb.slug])
-  )
-
-  const herbsFromCompound = compound.herbs.map(name => ({
-    name,
-    slug: herbMap.get(normalizeKey(name)) || slugify(name),
-  }))
-
-  const herbsFromConstituentMatch = herbs
-    .filter(herb => {
-      const compounds = Array.isArray(herb.activeCompounds) ? herb.activeCompounds : []
-      return compounds.some(item => normalizeKey(item) === compoundNameKey)
-    })
-    .map(herb => ({
-      name: String(herb.common || herb.name || herb.slug),
-      slug: String(herb.slug),
-    }))
-
-  const linkedHerbs = Array.from(
-    new Map(
-      [...herbsFromCompound, ...herbsFromConstituentMatch].map(herb => [
-        normalizeKey(herb.name),
-        herb,
-      ])
-    ).values()
-  )
+  const linkedHerbs = mapRelatedHerbsForCompound(compound, herbs)
 
   const whyItMatters = compound.effects.slice(0, 2).join(' + ')
   const doesText = compound.mechanism || compound.description
@@ -234,21 +204,19 @@ export default function CompoundDetail() {
         )}
 
         {/* Associated herbs */}
-        {linkedHerbs.length > 0 && (
-          <Section title='Herbs Containing This Compound'>
-            <div className='flex flex-wrap gap-2'>
+        <Section title='Found in these herbs'>
+          {linkedHerbs.length > 0 ? (
+            <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
               {linkedHerbs.map(herb => (
-                <Link
-                  key={herb.name}
-                  to={`/herbs/${encodeURIComponent(herb.slug)}`}
-                  className='ds-pill transition hover:border-white/30'
-                >
-                  {herb.name}
-                </Link>
+                <RelatedHerbCard key={herb.slug} herb={herb} />
               ))}
             </div>
-          </Section>
-        )}
+          ) : (
+            <div className='rounded-2xl border border-dashed border-white/20 bg-white/5 px-4 py-5 text-sm text-white/65'>
+              No related herb profiles found yet for this compound.
+            </div>
+          )}
+        </Section>
 
         {/* Practical info */}
         {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
