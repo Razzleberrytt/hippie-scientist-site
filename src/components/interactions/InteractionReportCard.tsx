@@ -18,6 +18,16 @@ function confidenceClasses(confidence: 'high' | 'medium' | 'low'): string {
   return 'border-slate-300/30 bg-slate-500/10 text-slate-100'
 }
 
+function verdictClasses(verdict: string): string {
+  if (verdict.toLowerCase().includes('avoid')) {
+    return 'border-rose-300/45 bg-rose-500/15 text-rose-100'
+  }
+  if (verdict.toLowerCase().includes('caution')) {
+    return 'border-amber-300/45 bg-amber-500/15 text-amber-100'
+  }
+  return 'border-emerald-300/40 bg-emerald-500/10 text-emerald-100'
+}
+
 function humanizeEvidence(entry: string): string {
   return entry
     .replace(': effects mention', ' — effect signal')
@@ -31,9 +41,9 @@ function humanizeEvidence(entry: string): string {
 }
 
 function getSeverityVerdict(severity: InteractionSeverity): string {
-  if (severity === 'high') return 'Potentially risky combination'
+  if (severity === 'high') return 'Avoid / high concern'
   if (severity === 'moderate') return 'Use caution'
-  return 'Low risk combination'
+  return 'Low concern'
 }
 
 function toTitleCase(value: string): string {
@@ -337,7 +347,7 @@ export default function InteractionReportCard({
       <div className='flex flex-wrap items-start gap-2'>
         <div className='space-y-2'>
           <h2 className='text-xl font-semibold text-white'>Interaction Report</h2>
-          <p className='text-lg font-bold text-white'>{verdict}</p>
+          <p className='text-lg font-bold text-white'>{report.verdict || verdict}</p>
         </div>
         <div className='flex flex-wrap gap-2'>
           <span
@@ -357,7 +367,13 @@ export default function InteractionReportCard({
         {actions ? <div className='ml-auto flex flex-wrap gap-2'>{actions}</div> : null}
       </div>
 
+      <div className={`rounded-xl border px-4 py-3 ${verdictClasses(report.verdict || verdict)}`}>
+        <p className='text-xs uppercase tracking-wide opacity-85'>Verdict</p>
+        <p className='text-lg font-semibold'>{report.verdict || verdict}</p>
+      </div>
+
       <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-4 text-xs text-white/75'>
+        <p className='mb-2 text-xs font-semibold uppercase tracking-wide text-white/70'>Summary</p>
         <p className='mb-2 text-sm text-white/85'>{tightenCopy(report.summary)}</p>
         <p className='text-sm text-white/85'>
           <span className='font-semibold text-white'>Why this matters: </span>
@@ -376,7 +392,7 @@ export default function InteractionReportCard({
       {prioritizedSignals.length > 0 && (
         <div className='rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-white/80'>
           <h3 className='mb-2 text-xs font-semibold uppercase tracking-wide text-white/70'>
-            Top signals to act on
+            Why this combination was flagged
           </h3>
           <ul className='space-y-2'>
             {prioritizedSignals.map(signal => (
@@ -419,7 +435,7 @@ export default function InteractionReportCard({
       {saferAlternatives.length > 0 && (
         <div className='rounded-xl border border-emerald-300/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100'>
           <h3 className='mb-2 text-xs font-semibold uppercase tracking-wide text-emerald-200/95'>
-            Safer alternatives
+            Safer notes / cautions
           </h3>
           <ul className='list-disc space-y-1 pl-5'>
             {saferAlternatives.map(option => (

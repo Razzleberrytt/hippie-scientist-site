@@ -56,7 +56,7 @@ export default function InteractionSearch({
   return (
     <section className='space-y-3'>
       <div className='flex items-center justify-between gap-3'>
-        <label className='text-xs uppercase tracking-[0.2em] text-white/65'>Search items</label>
+        <label className='text-xs uppercase tracking-[0.2em] text-white/65'>Search herbs</label>
         <p className='text-xs text-white/60'>
           {selectedIds.length}/{maxSelection} selected
         </p>
@@ -64,7 +64,7 @@ export default function InteractionSearch({
       <input
         value={query}
         onChange={event => setQuery(event.target.value)}
-        placeholder='Search herbs or compounds by name, class, or effects'
+        placeholder='Search herbs by name, class, or effects'
         className='w-full rounded-xl border border-white/15 bg-black/35 px-4 py-3 text-sm text-white outline-none transition focus:border-cyan-300/50 focus:ring-2 focus:ring-cyan-400/20'
       />
       {limitReached && (
@@ -76,7 +76,7 @@ export default function InteractionSearch({
       {query.trim() && (
         <div className='rounded-2xl border border-white/10 bg-black/35 p-2'>
           {filtered.length === 0 ? (
-            <p className='px-3 py-2 text-sm text-white/70'>No matching herbs or compounds found.</p>
+            <p className='px-3 py-2 text-sm text-white/70'>No matching herbs found.</p>
           ) : (
             <ul className='space-y-1'>
               {filtered.map(item => {

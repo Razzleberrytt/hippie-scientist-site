@@ -6,6 +6,7 @@ import {
   type InteractionSignalSource,
   type InteractionSeverity,
   type InteractionSourceItem,
+  type InteractionVerdict,
 } from '@/types/interactions'
 import { extractInteractionSignals } from './extractInteractionSignals'
 
@@ -56,6 +57,11 @@ function normalizePhrase(phrase: string): string {
     .replace(/[^\w\s-]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
+}
+
+function normalizeList(values: string[] | undefined): string[] {
+  if (!values?.length) return []
+  return values.map(value => normalizePhrase(value)).filter(Boolean)
 }
 
 function extractMechanismPhrases(item: InteractionSourceItem): string[] {
@@ -253,6 +259,7 @@ function createScoredFinding({
   whatThisMeans,
   whatToWatchFor,
   saferAlternatives = [],
+  section = 'summary',
 }: {
   title: string
   summary: string
@@ -264,6 +271,7 @@ function createScoredFinding({
   whatThisMeans: string
   whatToWatchFor: string[]
   saferAlternatives?: string[]
+  section?: InteractionFinding['section']
 }): InteractionFinding {
   const { basis, sourceConfidence } = resolveFindingBasisAndConfidence(matchedItems, signalTags)
   const sharedTagCount = getSharedTagCount(matchedItems)
@@ -304,6 +312,7 @@ function createScoredFinding({
     knownPatternCount,
     compoundSimilarityCount,
     evidenceBasis,
+    section,
   }
 }
 
@@ -324,6 +333,34 @@ function buildReportSummary(reportFindings: InteractionFinding[], dataLimited: b
     return `${moderateCount} moderate interaction signal(s) were detected. Consider dose spacing and avoid rapid dose escalation.`
   }
   return 'Only low-strength overlap signals were detected, but caution is still appropriate when combining items.'
+}
+
+function getVerdict(severity: InteractionSeverity): InteractionVerdict {
+  if (severity === 'high') return 'Avoid / high concern'
+  if (severity === 'moderate') return 'Use caution'
+  return 'Low concern'
+}
+
+function getSharedPhrases(
+  items: InteractionSourceItem[],
+  field: 'effects' | 'activeCompounds'
+): string[] {
+  const phraseCounts = new Map<string, number>()
+  items.forEach(item => {
+    const unique = new Set(normalizeList(item[field]))
+    unique.forEach(phrase => {
+      phraseCounts.set(phrase, (phraseCounts.get(phrase) ?? 0) + 1)
+    })
+  })
+  return Array.from(phraseCounts.entries())
+    .filter(([, count]) => count >= 2)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([phrase]) => phrase)
+    .slice(0, 5)
+}
+
+function toLabelList(values: string[]): string {
+  return values.map(toDisplayMechanismLabel).join(', ')
 }
 
 export function checkInteractions(items: InteractionSourceItem[]): InteractionReport {
@@ -358,6 +395,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
           'Keep only one sedative-leaning item in the same time window.',
           'Use lower doses and separate by several hours before stacking.',
         ],
+        section: 'stacking',
       })
     )
   }
@@ -387,6 +425,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
           'Use one stimulant-forward item at a time.',
           'Move stimulating items to earlier hours and avoid late-day overlap.',
         ],
+        section: 'stacking',
       })
     )
   }
@@ -415,6 +454,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
           'Avoid introducing multiple serotonergic items in the same week.',
           'Use single-item trials before any combination attempt.',
         ],
+        section: 'safety',
       })
     )
   }
@@ -453,6 +493,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
           'Avoid combining MAOI-like items with serotonergic or strong stimulant items.',
           'If uncertain, do not stack—seek clinician guidance first.',
         ],
+        section: 'safety',
       })
     )
   }
@@ -482,6 +523,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
           'Avoid stacking multiple activating items in one serving.',
           'Use hydration, food timing, and conservative dose steps.',
         ],
+        section: 'safety',
       })
     )
   }
@@ -510,6 +552,92 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
           'Do not layer multiple liver-stressing items in the same routine.',
           'Use shorter cycles and pause promptly if warning signs appear.',
         ],
+        section: 'safety',
+      })
+    )
+  }
+
+  const selectedSourceItems = extracted.map(entry => entry.item)
+  const overlappingEffects = getSharedPhrases(selectedSourceItems, 'effects')
+  if (overlappingEffects.length > 0) {
+    findings.push(
+      createScoredFinding({
+        title: 'Overlapping effects',
+        baseSeverity: overlappingEffects.length >= 3 ? 'moderate' : 'low',
+        signalLabel: `Shared effect descriptors were found across selected herbs: ${toLabelList(overlappingEffects)}.`,
+        summary:
+          'Two or more selected herbs share effect descriptors. This can make outcome intensity less predictable when doses are combined.',
+        matchedItems: extracted,
+        signalTags: [],
+        evidenceBasis: overlappingEffects.map(effect => `shared effect: ${effect}`),
+        whatThisMeans:
+          'Similar effects can stack, so a combination may feel stronger than each herb used separately.',
+        whatToWatchFor: [
+          'Effects arriving faster than expected after normal single-herb doses.',
+          'Combination feeling stronger or longer-lasting than expected.',
+        ],
+        saferAlternatives: [
+          'Start with one herb as the anchor and add only one new herb at a low amount.',
+          'Increase spacing between herbs before increasing amount.',
+        ],
+        section: 'effects',
+      })
+    )
+  }
+
+  const overlappingCompounds = getSharedPhrases(selectedSourceItems, 'activeCompounds')
+  if (overlappingCompounds.length > 0) {
+    findings.push(
+      createScoredFinding({
+        title: 'Overlapping compounds',
+        baseSeverity: overlappingCompounds.length >= 3 ? 'moderate' : 'low',
+        signalLabel: `Shared compound labels were found across selected herbs: ${toLabelList(overlappingCompounds)}.`,
+        summary:
+          'The selected herbs share one or more compound labels, which can increase overlap in biological signaling.',
+        matchedItems: extracted,
+        signalTags: [],
+        evidenceBasis: overlappingCompounds.map(compound => `shared compound: ${compound}`),
+        whatThisMeans:
+          'When herbs share compounds or close analogs, overlap is more plausible and effects can be less independent.',
+        whatToWatchFor: [
+          'A stronger-than-expected response from standard doses.',
+          'Repeated overlap symptoms each time this pair/trio is used.',
+        ],
+        saferAlternatives: [
+          'Prefer combinations that diversify, rather than duplicate, major active compounds.',
+        ],
+        section: 'compounds',
+      })
+    )
+  }
+
+  if (sedativeItems.length >= 1 && stimulantItems.length >= 1) {
+    const mergedItems = [...new Set([...sedativeItems, ...stimulantItems])]
+    findings.push(
+      createScoredFinding({
+        title: 'Stimulation/sedation push-pull',
+        baseSeverity: 'moderate',
+        signalLabel:
+          'This set mixes activating and sedating signals, which can create an unstable push-pull effect profile.',
+        summary:
+          'The selected herbs include both stimulating and sedating signals. That push-pull can feel inconsistent and harder to self-titrate.',
+        matchedItems: mergedItems,
+        signalTags: ['sedative', 'cns-depressant', 'gabaergic', 'stimulant'],
+        evidenceBasis: [
+          ...collectEvidence(sedativeItems, ['sedative', 'cns-depressant', 'gabaergic']),
+          ...collectEvidence(stimulantItems, ['stimulant']),
+        ],
+        whatThisMeans:
+          'A push-pull profile can mask early warning signs and increase the chance of over-correction dosing.',
+        whatToWatchFor: [
+          'Alternating wired and sleepy periods in the same session.',
+          'Repeated redosing to chase balance.',
+        ],
+        saferAlternatives: [
+          'Use a clearly calming or clearly activating profile per session, not both.',
+          'If combining anyway, lower both doses and widen timing intervals.',
+        ],
+        section: 'stacking',
       })
     )
   }
@@ -543,6 +671,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
       knownPatternCount: 0,
       compoundSimilarityCount: 0,
       evidenceBasis: sparseDataItems.map(item => `${item.item.name}: limited structured fields`),
+      section: 'data',
     })
   }
 
@@ -576,6 +705,7 @@ export function checkInteractions(items: InteractionSourceItem[]): InteractionRe
     items: selected.map(item => item.name),
     findings,
     summary: buildReportSummary(primaryFindings, dataLimited),
+    verdict: getVerdict(overallSeverity),
     keySignals,
     overallSeverity,
     overallConfidence,
