@@ -1,7 +1,7 @@
 import type { Herb } from '@/types'
 import {
   AMAZON_AFFILIATE_TRACKING_ID,
-  getReviewedProductsForHerb,
+  herbProductCatalog,
   type ProductForm,
 } from '@/data/herbProducts'
 
@@ -9,24 +9,31 @@ export type ProductRecommendation = {
   label: string
   form: ProductForm
   asin: string
-  note?: string
+  note: string
   url: string
 }
 
-const AMAZON_BASE_URL = 'https://www.amazon.com/dp'
 const ASIN_PATTERN = /^[A-Z0-9]{10}$/
 
 const PRODUCT_FORM_EXPLANATIONS: Record<ProductForm, string> = {
   capsule: 'Capsules are easy to use and help keep routines consistent.',
   powder: 'Powders are flexible for mixing into drinks and custom serving sizes.',
   tea: 'Tea preparations offer a gentle, ritual-friendly format.',
-  tincture: 'Tinctures are concentrated liquid extracts in small-volume servings.',
+  'loose herb': 'Loose herbs are ideal for traditional tea and decoction preparation.',
 }
 
-export function buildAmazonAffiliateUrl(asin: string): string {
+function normalizeHerbName(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[’']/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
+export function buildAmazonLink(asin: string): string {
   const normalizedAsin = asin.trim().toUpperCase()
   if (!ASIN_PATTERN.test(normalizedAsin)) return ''
-  return `${AMAZON_BASE_URL}/${normalizedAsin}?tag=${AMAZON_AFFILIATE_TRACKING_ID}`
+  return `https://www.amazon.com/dp/${normalizedAsin}?tag=${AMAZON_AFFILIATE_TRACKING_ID}`
 }
 
 export function getProductFormExplanation(form: ProductForm): string {
@@ -37,18 +44,26 @@ export function getProductFormExplanation(form: ProductForm): string {
 }
 
 export function getHerbProductRecommendations(herb: Herb): ProductRecommendation[] {
-  const slug = String(herb.slug || '')
-    .trim()
-    .toLowerCase()
-  if (!slug) return []
+  const candidates = [herb.slug, herb.common, herb.name]
+    .map(value => normalizeHerbName(String(value || '')))
+    .filter(Boolean)
 
-  return getReviewedProductsForHerb(slug)
+  if (!candidates.length) return []
+
+  const match = herbProductCatalog.find(entry => {
+    const normalized = normalizeHerbName(entry.herb)
+    return candidates.includes(normalized)
+  })
+
+  if (!match) return []
+
+  return match.products
     .map(product => ({
       label: product.label,
       form: product.form,
       asin: product.asin,
-      note: product.note,
-      url: buildAmazonAffiliateUrl(product.asin),
+      note: product.note || getProductFormExplanation(product.form),
+      url: buildAmazonLink(product.asin),
     }))
     .filter(item => item.label && item.form && item.url)
     .slice(0, 2)
