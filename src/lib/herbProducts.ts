@@ -10,6 +10,7 @@ export type ProductRecommendation = {
   form: ProductForm
   asin: string
   note: string
+  bestFor: string
   url: string
 }
 
@@ -63,8 +64,9 @@ export function getHerbProductRecommendations(herb: Herb): ProductRecommendation
       form: product.form,
       asin: product.asin,
       note: product.note || getProductFormExplanation(product.form),
+      bestFor: product.bestFor,
       url: buildAmazonLink(product.asin),
     }))
-    .filter(item => item.label && item.form && item.url)
+    .filter(item => item.label && item.form && item.bestFor && item.url)
     .slice(0, 2)
 }

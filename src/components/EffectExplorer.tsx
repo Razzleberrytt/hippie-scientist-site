@@ -196,7 +196,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
                       {showProducts ? 'Hide products' : 'View products'}
                     </button>
 
-                    {showProducts && <RecommendedProducts herb={herb} compact showTitle={false} />}
+                    {showProducts && <RecommendedProducts herb={herb} compact />}
 
                     {slug && (
                       <Link
