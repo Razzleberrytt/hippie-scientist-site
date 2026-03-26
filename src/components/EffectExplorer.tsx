@@ -4,6 +4,7 @@ import { effectSuggestions, rankHerbsByEffect } from '@/utils/effectSearch'
 import type { Herb } from '@/types'
 import { asStringArray } from '@/utils/asStringArray'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
+import RecommendedProducts from '@/components/RecommendedProducts'
 
 type EffectExplorerProps = {
   herbs: Herb[]
@@ -17,6 +18,7 @@ function confidenceTone(level: string) {
 
 export default function EffectExplorer({ herbs }: EffectExplorerProps) {
   const [query, setQuery] = useState('')
+  const [expandedProducts, setExpandedProducts] = useState<Record<string, boolean>>({})
   const defaultQuery = 'relaxation'
   const normalizedQuery = query.trim()
   const activeQuery = normalizedQuery || defaultQuery
@@ -117,6 +119,8 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
                     ? 'moderate'
                     : 'traditional'
               const isTopThree = index < 3
+              const productKey = slug || `${herbLabel}-${index}`
+              const showProducts = Boolean(expandedProducts[productKey])
               return (
                 <article
                   key={`${slug}-${index}`}
@@ -178,14 +182,31 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
 
                   <p className='line-clamp-2 text-xs text-white/65'>Safety: {safetyNote}</p>
 
-                  {slug && (
-                    <Link
-                      to={`/herbs/${encodeURIComponent(slug)}`}
-                      className='mt-auto inline-flex text-sm text-violet-200 underline underline-offset-4 hover:text-violet-100'
+                  <div className='mt-auto space-y-2'>
+                    <button
+                      type='button'
+                      onClick={() =>
+                        setExpandedProducts(prev => ({
+                          ...prev,
+                          [productKey]: !prev[productKey],
+                        }))
+                      }
+                      className='inline-flex text-xs text-white/75 underline underline-offset-4 hover:text-white'
                     >
-                      View herb details
-                    </Link>
-                  )}
+                      {showProducts ? 'Hide products' : 'View products'}
+                    </button>
+
+                    {showProducts && <RecommendedProducts herb={herb} compact showTitle={false} />}
+
+                    {slug && (
+                      <Link
+                        to={`/herbs/${encodeURIComponent(slug)}`}
+                        className='inline-flex text-sm text-violet-200 underline underline-offset-4 hover:text-violet-100'
+                      >
+                        View herb details
+                      </Link>
+                    )}
+                  </div>
                 </article>
               )
             })}
