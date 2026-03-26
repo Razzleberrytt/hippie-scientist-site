@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { type ReactNode, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
@@ -10,6 +10,7 @@ import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
 import { splitClean } from '@/lib/sanitize'
+import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -108,7 +109,18 @@ export default function HerbDetail() {
   const { slug = '' } = useParams()
   const { herbs, isLoading } = useHerbDataState()
   const { compounds } = useCompoundDataState()
+  const { toggle, isSaved } = useSavedItems()
   const herb = herbs.find(item => item.slug === slug)
+
+  useEffect(() => {
+    if (!herb?.slug) return
+    pushRecentlyViewed({
+      type: 'herb',
+      slug: herb.slug,
+      title: herb.common || herb.name || herb.slug,
+      href: `/herbs/${herb.slug}`,
+    })
+  }, [herb?.slug, herb?.common, herb?.name])
 
   if (isLoading) {
     return <HerbDetailSkeleton />
@@ -224,6 +236,21 @@ export default function HerbDetail() {
       <Link to='/herbs' className='btn-secondary inline-flex items-center'>
         ← Back to herbs
       </Link>
+      <button
+        type='button'
+        className='ml-2 inline-flex rounded-full border border-white/20 px-3 py-1 text-sm text-white/85'
+        onClick={() =>
+          toggle({
+            type: 'herb',
+            slug: herb.slug,
+            title: herb.common || herb.name || herb.slug,
+            href: `/herbs/${herb.slug}`,
+            note: description,
+          })
+        }
+      >
+        {isSaved('herb', herb.slug) ? '★ Favorited' : '☆ Favorite'}
+      </button>
 
       <article className='ds-card-lg mt-4'>
         {/* Header */}
