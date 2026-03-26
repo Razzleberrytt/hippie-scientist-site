@@ -23,7 +23,7 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
   const popularChips = useMemo(() => ['relaxation', 'focus', 'sleep', 'mood', 'energy'], [])
 
   return (
-    <section className='container mx-auto max-w-4xl px-4 pt-5 sm:px-6'>
+    <section id='effect-search' className='container mx-auto max-w-4xl px-4 pt-5 sm:px-6'>
       <div className='ds-card-lg border-violet-300/30 bg-violet-500/10'>
         <p className='text-xs font-semibold uppercase tracking-[0.24em] text-violet-100/85'>
           Effect search

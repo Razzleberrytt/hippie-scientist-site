@@ -51,7 +51,7 @@ export default function Hero() {
                 }
                 className='text-[2.05rem] font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl'
               >
-                Plant pharmacology and safety, explained clearly
+                Find the right herb tools in under a minute
               </motion.h1>
               <motion.p
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -64,8 +64,7 @@ export default function Hero() {
                 }
                 className='max-w-2xl text-[0.98rem] leading-[1.72] text-white/80 sm:text-lg'
               >
-                For curious beginners, practitioners, and safety-minded explorers comparing herbs
-                before they experiment.
+                Understand effects, compare options, and check safety before you try anything.
               </motion.p>
               <motion.p
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -78,8 +77,7 @@ export default function Hero() {
                 }
                 className='max-w-2xl text-sm leading-[1.75] text-white/75 sm:text-base'
               >
-                Browse evidence-backed herb and compound profiles, review interaction risks, and use
-                confidence labels to make safety-first decisions.
+                Start with Browse Herbs or run Effect Search to get ranked matches instantly.
               </motion.p>
             </div>
 
