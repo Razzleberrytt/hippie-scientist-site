@@ -25,6 +25,8 @@ describe('effectSearch', () => {
   it('normalizes synonyms to a canonical term', () => {
     expect(normalizeEffectTerm('calming')).toBe('relaxation')
     expect(normalizeEffectTerm('anxiolytic')).toBe('relaxation')
+    expect(normalizeEffectTerm('cognition')).toBe('focus')
+    expect(normalizeEffectTerm('nighttime support')).toBe('sleep')
   })
 
   it('builds an effect index from herb effects', () => {

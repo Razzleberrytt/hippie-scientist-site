@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Meta from '../components/Meta'
 import EmailCapture from '@/components/EmailCapture'
 import Hero from '@/components/Hero'
+import EffectExplorer from '@/components/EffectExplorer'
 import StatPill from '@/components/StatPill'
 import { loadSiteCounts, siteStats } from '@/lib/stats'
 import { loadHerbData } from '@/lib/herb-data'
@@ -20,6 +21,7 @@ import {
   type QualityResult,
 } from '@/lib/data-quality'
 import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
+import type { Herb } from '@/types'
 
 type FeaturedItem = {
   slug: string
@@ -55,6 +57,7 @@ export default function Home() {
   const [counts, setCounts] = useState(siteStats)
   const [featured, setFeatured] = useState<FeaturedItem[]>([])
   const [curated, setCurated] = useState<FeaturedItem[]>([])
+  const [herbs, setHerbs] = useState<Herb[]>([])
   const { items } = useSavedItems()
   const recent = useRecentlyViewed()
 
@@ -67,6 +70,7 @@ export default function Home() {
     Promise.all([loadHerbData(), loadCompoundData()])
       .then(([herbs, compounds]) => {
         if (!alive) return
+        setHerbs(herbs)
 
         const herbItems: FeaturedItem[] = herbs
           .filter(herb => herb.slug)
@@ -192,6 +196,7 @@ export default function Home() {
       />
 
       <Hero />
+      <EffectExplorer herbs={herbs} />
 
       {dailyDiscovery && (
         <section className='container mx-auto max-w-4xl px-4 pt-5 sm:px-6'>

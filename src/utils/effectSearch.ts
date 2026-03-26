@@ -19,12 +19,13 @@ const EFFECT_SYNONYMS: Record<string, string[]> = {
     'calm',
     'relax',
     'sedative',
+    'sedation',
     'anxiolytic',
     'stress relief',
     'anti-anxiety',
   ],
-  sleep: ['sleep', 'insomnia', 'sedative', 'night', 'bedtime'],
-  focus: ['focus', 'attention', 'concentration', 'cognitive', 'nootropic'],
+  sleep: ['sleep', 'insomnia', 'sedative', 'sedation', 'night', 'bedtime', 'nighttime support'],
+  focus: ['focus', 'attention', 'concentration', 'cognitive', 'cognition', 'nootropic'],
   energy: ['energy', 'stimulant', 'alertness', 'uplift'],
   mood: ['mood', 'euphoria', 'antidepressant', 'uplifting'],
 }
@@ -117,7 +118,10 @@ export function rankHerbsByEffect(herbs: Herb[], query: string): RankedEffectHer
 
       const exactMatches = normalizedEffects.filter(effect => effect === normalizedQuery).length
       const fuzzyMatches = matchedEffects.length - exactMatches
-      const matchStrength = exactMatches * 45 + fuzzyMatches * 20
+      // Weighted ranking: exact canonical matches matter most, then breadth of effect overlap.
+      const exactMatchScore = exactMatches * 55
+      const multiEffectScore = matchedEffects.length * 18
+      const fuzzyMatchScore = Math.max(fuzzyMatches, 0) * 6
 
       const compounds = asStringArray(
         herb.activeCompounds || herb.active_compounds || herb.compounds || herb.compoundsDetailed
@@ -125,11 +129,13 @@ export function rankHerbsByEffect(herbs: Herb[], query: string): RankedEffectHer
       const compoundSupportCount = compounds.length
       const compoundStrength = Math.min(compoundSupportCount, 6) * 5
 
-      const confidenceScore = confidenceWeight(herb.confidence) * 20
+      // Confidence boosts ranking when available so high-quality entries float upward.
+      const confidenceScore = confidenceWeight(herb.confidence) * 22
 
       return {
         herb,
-        score: matchStrength + confidenceScore + compoundStrength,
+        score:
+          exactMatchScore + multiEffectScore + fuzzyMatchScore + confidenceScore + compoundStrength,
         matchedEffects,
         normalizedQuery,
         compoundSupportCount,
