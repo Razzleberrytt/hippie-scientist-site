@@ -17,9 +17,21 @@ function confidenceTone(level: string) {
 
 export default function EffectExplorer({ herbs }: EffectExplorerProps) {
   const [query, setQuery] = useState('')
+  const defaultQuery = 'relaxation'
+  const normalizedQuery = query.trim()
+  const activeQuery = normalizedQuery || defaultQuery
 
   const suggestions = useMemo(() => effectSuggestions(herbs, 12), [herbs])
-  const results = useMemo(() => rankHerbsByEffect(herbs, query).slice(0, 9), [herbs, query])
+  const activeResults = useMemo(
+    () => rankHerbsByEffect(herbs, activeQuery).slice(0, 9),
+    [herbs, activeQuery]
+  )
+  const fallbackResults = useMemo(
+    () => rankHerbsByEffect(herbs, defaultQuery).slice(0, 9),
+    [herbs, defaultQuery]
+  )
+  const hasExactQueryResults = normalizedQuery ? activeResults.length > 0 : true
+  const results = hasExactQueryResults ? activeResults : fallbackResults
   const popularChips = useMemo(() => ['relaxation', 'focus', 'sleep', 'mood', 'energy'], [])
 
   return (
@@ -51,6 +63,13 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
               <option key={suggestion} value={suggestion} />
             ))}
           </datalist>
+          {!normalizedQuery && (
+            <p className='mt-2 text-xs text-violet-100/75'>
+              Showing top matches for{' '}
+              <span className='font-semibold text-violet-100'>relaxation</span> to help you start
+              quickly.
+            </p>
+          )}
         </div>
 
         <div className='mt-3 flex flex-wrap gap-2'>
@@ -66,81 +85,135 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
           ))}
         </div>
 
-        {query.trim() && (
-          <div className='mt-5'>
-            <p className='mb-3 text-sm text-white/70'>{results.length} ranked matches</p>
+        <div className='mt-5'>
+          <p className='mb-3 text-sm text-white/70'>
+            {results.length} ranked matches for <span className='font-semibold'>{activeQuery}</span>
+          </p>
+          {!hasExactQueryResults && (
+            <p className='mb-3 text-xs text-amber-100/85'>
+              No close matches for “{normalizedQuery}” yet. Showing strong relaxation fits instead.
+            </p>
+          )}
 
-            {results.length === 0 ? (
-              <div className='rounded-xl border border-white/10 bg-white/5 p-4 text-sm text-white/70'>
-                No close matches yet. Try another effect term.
-              </div>
-            ) : (
-              <div className='grid gap-3 sm:grid-cols-2'>
-                {results.map((result, index) => {
-                  const herb = result.herb
-                  const herbLabel = herb.common || herb.name || herb.scientific || 'Herb'
-                  const slug = String(herb.slug || '').trim()
-                  const topEffects = extractPrimaryEffects(asStringArray(herb.effects), 4)
-                  const safetyNote =
-                    String(herb.safety || herb.sideEffects || herb.contraindicationsText || '')
-                      .replace(/\s+/g, ' ')
-                      .trim() || 'Review contraindications and interactions before use.'
-                  return (
-                    <article
-                      key={`${slug}-${index}`}
-                      className='ds-card flex h-full flex-col gap-3 p-4'
+          <div className='grid gap-3 sm:grid-cols-2'>
+            {results.map((result, index) => {
+              const herb = result.herb
+              const herbLabel = herb.common || herb.name || herb.scientific || 'Herb'
+              const slug = String(herb.slug || '').trim()
+              const topEffects = extractPrimaryEffects(asStringArray(herb.effects), 4)
+              const summary =
+                String(herb.effectsSummary || herb.description || herb.mechanism || '')
+                  .replace(/\s+/g, ' ')
+                  .trim() || 'Traditionally used for relaxation and nervous-system support.'
+              const safetyNote =
+                String(herb.safety || herb.sideEffects || herb.contraindicationsText || '')
+                  .replace(/\s+/g, ' ')
+                  .trim() || 'Review contraindications and interactions before use.'
+              const tags = asStringArray(herb.tags).slice(0, 3)
+              const confidenceLabel =
+                result.confidence === 'high'
+                  ? 'high'
+                  : result.confidence === 'medium'
+                    ? 'moderate'
+                    : 'traditional'
+              const isTopThree = index < 3
+              return (
+                <article
+                  key={`${slug}-${index}`}
+                  className={`ds-card flex h-full flex-col gap-3 p-4 ${
+                    isTopThree
+                      ? 'border-violet-200/45 bg-violet-500/15 shadow-lg shadow-violet-900/30'
+                      : ''
+                  }`}
+                >
+                  <div className='flex items-start justify-between gap-2'>
+                    <h3 className='text-base font-semibold text-white'>{herbLabel}</h3>
+                    <span
+                      className={`rounded-full border px-2 py-0.5 text-xs ${isTopThree ? 'border-violet-200/60 bg-violet-400/20 text-violet-50' : 'border-violet-300/40 bg-violet-500/10 text-violet-100'}`}
                     >
-                      <div className='flex items-start justify-between gap-2'>
-                        <h3 className='text-base font-semibold text-white'>{herbLabel}</h3>
-                        <span className='rounded-full border border-violet-300/40 bg-violet-500/10 px-2 py-0.5 text-xs text-violet-100'>
-                          #{index + 1}
-                        </span>
-                      </div>
+                      #{index + 1} {isTopThree ? 'Top match' : ''}
+                    </span>
+                  </div>
 
-                      <div className='flex flex-wrap gap-1.5'>
-                        {topEffects.slice(0, 4).map(effect => (
-                          <span
-                            key={`${slug}-${effect}`}
-                            className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100'
-                          >
-                            {effect}
-                          </span>
-                        ))}
-                      </div>
+                  <p className='line-clamp-1 text-sm text-white/80'>{summary}</p>
 
-                      <p className='text-xs text-white/75'>
-                        Match:{' '}
-                        {result.matchedEffects.slice(0, 2).join(', ') || result.normalizedQuery}
-                      </p>
-
-                      <div className='flex flex-wrap items-center gap-2'>
+                  {tags.length > 0 && (
+                    <div className='flex flex-wrap gap-1.5'>
+                      {tags.map(tag => (
                         <span
-                          className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceTone(result.confidence)}`}
+                          key={`${slug}-${tag}`}
+                          className='rounded-full border border-fuchsia-300/35 bg-fuchsia-500/10 px-2.5 py-1 text-[11px] text-fuchsia-100'
                         >
-                          confidence: {result.confidence}
+                          {tag}
                         </span>
-                        <span className='rounded-full border border-sky-300/35 bg-sky-500/10 px-2.5 py-1 text-[11px] text-sky-100'>
-                          compounds: {result.compoundSupportCount}
-                        </span>
-                      </div>
+                      ))}
+                    </div>
+                  )}
 
-                      <p className='line-clamp-2 text-xs text-white/65'>Safety: {safetyNote}</p>
+                  <div className='flex flex-wrap gap-1.5'>
+                    {topEffects.slice(0, 3).map(effect => (
+                      <span
+                        key={`${slug}-${effect}`}
+                        className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100'
+                      >
+                        {effect}
+                      </span>
+                    ))}
+                  </div>
 
-                      {slug && (
-                        <Link
-                          to={`/herbs/${encodeURIComponent(slug)}`}
-                          className='mt-auto inline-flex text-sm text-violet-200 underline underline-offset-4 hover:text-violet-100'
-                        >
-                          View herb details
-                        </Link>
-                      )}
-                    </article>
-                  )
-                })}
-              </div>
-            )}
+                  <p className='text-xs text-white/75'>
+                    Match: {result.matchedEffects.slice(0, 2).join(', ') || result.normalizedQuery}
+                  </p>
+
+                  <div className='flex flex-wrap items-center gap-2'>
+                    <span
+                      className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceTone(result.confidence)}`}
+                    >
+                      confidence: {confidenceLabel}
+                    </span>
+                    <span className='rounded-full border border-sky-300/35 bg-sky-500/10 px-2.5 py-1 text-[11px] text-sky-100'>
+                      compounds: {result.compoundSupportCount}
+                    </span>
+                  </div>
+
+                  <p className='line-clamp-2 text-xs text-white/65'>Safety: {safetyNote}</p>
+
+                  {slug && (
+                    <Link
+                      to={`/herbs/${encodeURIComponent(slug)}`}
+                      className='mt-auto inline-flex text-sm text-violet-200 underline underline-offset-4 hover:text-violet-100'
+                    >
+                      View herb details
+                    </Link>
+                  )}
+                </article>
+              )
+            })}
           </div>
-        )}
+
+          <div className='mt-5 rounded-xl border border-violet-300/35 bg-violet-500/10 p-4'>
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-violet-100/85'>
+              Next actions
+            </p>
+            <div className='mt-3 grid gap-2 text-sm'>
+              <Link
+                className='underline underline-offset-4 hover:text-violet-100'
+                to='/build-blend'
+              >
+                Build a blend with these herbs
+              </Link>
+              <Link className='underline underline-offset-4 hover:text-violet-100' to='/compare'>
+                Compare top herbs
+              </Link>
+              <Link
+                className='underline underline-offset-4 hover:text-violet-100'
+                to='/interactions'
+              >
+                Check interactions
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
