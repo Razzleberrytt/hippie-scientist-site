@@ -10,8 +10,20 @@ export default function HeroCTA() {
         <Link to='/herbs' className={`${baseButtonClasses} btn-primary`}>
           Browse Herbs
         </Link>
-        <Link to='/interactions' className={`${baseButtonClasses} btn-secondary`}>
-          Check Interactions
+        <a href='#effect-search' className={`${baseButtonClasses} btn-secondary`}>
+          Effect Search
+        </a>
+      </div>
+      <div className='mt-3 flex flex-wrap gap-2'>
+        <Link
+          to='/interactions'
+          className='text-xs text-white/75 underline-offset-4 hover:underline'
+        >
+          Interaction Checker
+        </Link>
+        <span className='text-white/40'>•</span>
+        <Link to='/build' className='text-xs text-white/75 underline-offset-4 hover:underline'>
+          Blend Builder
         </Link>
       </div>
     </div>
