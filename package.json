@@ -13,7 +13,7 @@
     "rebuild:data": "npm run data:refresh",
     "prebuild": "node scripts/generate-site-counts.mjs && node scripts/sync-updated-datasets.mjs && node scripts/generate-rss.mjs",
     "build": "npm run prebuild && vite build",
-    "postbuild": "node scripts/generate-sitemap.mjs dist && node scripts/ensure-dist-redirects.mjs",
+    "postbuild": "node scripts/prerender-static.mjs && node scripts/generate-sitemap.mjs dist && node scripts/ensure-dist-redirects.mjs && node scripts/verify-prerender.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs dist",
     "build:blog": "node scripts/build-blog.mjs",
     "build:graph": "node scripts/build-graph.mjs",
@@ -50,7 +50,10 @@
     "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint --fix",
     "data:enrich": "tsx scripts/convert-herbs-csv.ts",
     "prerender:entities": "node scripts/prerender-entities.mjs",
-    "data:missing": "node scripts/check-missing-fields.mjs --write"
+    "data:missing": "node scripts/check-missing-fields.mjs --write",
+    "prerender:routes": "node scripts/prerender-routes.mjs",
+    "verify:prerender": "node scripts/verify-prerender.mjs",
+    "prerender:static": "node scripts/prerender-static.mjs"
   },
   "engines": {
     "node": ">=20 <21"
