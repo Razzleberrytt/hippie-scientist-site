@@ -1,5 +1,7 @@
 # Zip Patch Merge Report — Part 1
 
+> Superseded note (2026-03-27): Deployment assumptions in this merge report were interim; canonical deploy path is Netlify static hosting with SPA rewrites.
+
 Date: 2026-03-25
 Archive: `hippie-scientist-patch-part-1-code.zip`
 

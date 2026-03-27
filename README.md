@@ -83,18 +83,21 @@ npm run build
 Optional environment variables for production URL shaping:
 
 - `SITE_URL` (default: `https://thehippiescientist.net`)
-- `BASE_PATH` (default: `/`; useful for GitHub Pages subpath deployments)
+- `BASE_PATH` (default: `/`; optional path prefix for non-root hosting)
 
-## Deployment strategy (clean)
+## Deployment strategy (source of truth)
 
 This repository is a **source repo**.
 
 - Build output is generated into `dist/` via `npm run build`.
-- Deploy target is **Netlify** using `netlify.toml` (`publish = "dist"`).
-- SPA routing is handled with `public/_redirects` (`/* /index.html 200`), so `BrowserRouter` is appropriate.
-- Do **not** commit or upload root-level build artifacts (for example top-level `assets/`, `sitemap.xml`, `feed.xml`, `robots.txt`, route HTML folders).
+- Canonical host is **Netlify**. `netlify.toml` is the deployment contract (`command = npm ci && npm run build`, `publish = dist`).
+- GitHub Actions runs validation/build and can trigger `NETLIFY_DEPLOY_HOOK_URL`; it does **not** publish to `gh-pages`.
+- SPA routing is handled with `public/_redirects` (`/* /index.html 200`), so `BrowserRouter` is the correct router mode.
+- Do **not** commit deploy output folders as source.
 
-If you need a deploy-only bundle, upload only the contents of `dist/` after a fresh build.
+Legacy/secondary notes:
+
+- `api/subscribe.ts` is a legacy serverless endpoint example and is not used by the current form flow unless you wire `VITE_FORM_ENDPOINT` to it on a compatible host.
 
 ## Form submissions (newsletter/contact/lead capture)
 
