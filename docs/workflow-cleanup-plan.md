@@ -265,3 +265,17 @@ To keep maintenance low while preserving core automation:
   - ensured `dist/` stays ignored
   - added explicit ignore patterns for `assets/` and `dist-clean/*` (with `dist-clean/README.md` allowed)
 - Confirmed no tracked files under `dist/`.
+
+## 2026-03-27 update: Netlify-aligned deploy workflow
+
+- Reworked `.github/workflows/deploy.yml` to keep CI focused on source-branch validation and Netlify deployment flow:
+  - triggers on `push` to `main` and `workflow_dispatch`
+  - runs `npm ci`, `npm run build`, and `npm run verify:redirects`
+  - removed `peaceiris/actions-gh-pages` publish step entirely
+  - added conditional Netlify deploy hook trigger with `curl -X POST ${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}` when secret is set
+- Verified `netlify.toml` remains correct as-is for SPA fallback (`/* -> /index.html`, status `200`).
+- Verified `public/_redirects` is exactly `/* /index.html 200`.
+- Audited `public/_headers`:
+  - no `Cache-Control` header is set on `/*`
+  - long-term caching remains scoped to static assets (including `/assets/*`)
+- Checked `README.md` for `gh-pages` branch references/comments and found none.
