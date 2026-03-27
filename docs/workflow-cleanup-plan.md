@@ -290,3 +290,12 @@ To keep maintenance low while preserving core automation:
   - no `Cache-Control` header is set on `/*`
   - long-term caching remains scoped to static assets (including `/assets/*`)
 - Checked `README.md` for `gh-pages` branch references/comments and found none.
+
+## 2026-03-27 update: prerender crawlability audit
+
+- Audited build stack and confirmed existing prerender tooling already present:
+  - `vite-plugin-prerender` is already listed in `devDependencies`.
+  - existing entity static page script: `scripts/prerender-entities.mjs`.
+- Implemented build-integrated prerender route planning for high-value public routes and capped entity routes.
+- Added verification step to assert prerendered HTML artifacts exist in `dist/` for every intended prerender route.
+- Kept deploy model intact (no workflow churn in this step).
