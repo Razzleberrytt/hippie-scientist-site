@@ -12,6 +12,7 @@ import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
 import { splitClean } from '@/lib/sanitize'
 import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
 import RecommendedProducts from '@/components/RecommendedProducts'
+import Collapse from '@/components/ui/Collapse'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -292,51 +293,55 @@ export default function HerbDetail() {
         {mechanism && <Section title='Mechanism of Action'>{mechanism}</Section>}
 
         {linkedCompounds.length > 0 && (
-          <Section title='Key Active Compounds'>
-            <div className='space-y-3'>
-              <div className='flex flex-wrap gap-2'>
-                {linkedCompounds.map(compound =>
-                  compound.slug ? (
-                    <Link
-                      key={compound.name}
-                      to={`/compounds/${encodeURIComponent(compound.slug)}`}
-                      className='ds-pill transition hover:border-white/30'
-                    >
-                      {compound.name}
-                    </Link>
-                  ) : (
-                    <span key={compound.name} className='ds-pill'>
-                      {compound.name}
-                    </span>
-                  )
-                )}
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Key Active Compounds'>
+              <div className='space-y-3 text-sm leading-relaxed text-white/85'>
+                <div className='flex flex-wrap gap-2'>
+                  {linkedCompounds.map(compound =>
+                    compound.slug ? (
+                      <Link
+                        key={compound.name}
+                        to={`/compounds/${encodeURIComponent(compound.slug)}`}
+                        className='ds-pill transition hover:border-white/30'
+                      >
+                        {compound.name}
+                      </Link>
+                    ) : (
+                      <span key={compound.name} className='ds-pill'>
+                        {compound.name}
+                      </span>
+                    )
+                  )}
+                </div>
+                <div className='space-y-2 text-white/75'>
+                  {linkedCompounds.slice(0, 3).map(compound => (
+                    <p key={`${compound.name}-summary`}>
+                      <span className='font-semibold text-white'>{compound.name}:</span>{' '}
+                      {compound.explanation || 'Mechanism summary is still being expanded.'}{' '}
+                      {compound.whyItMatters ? `Why it matters: ${compound.whyItMatters}.` : ''}
+                    </p>
+                  ))}
+                </div>
               </div>
-              <div className='space-y-2 text-white/75'>
-                {linkedCompounds.slice(0, 3).map(compound => (
-                  <p key={`${compound.name}-summary`}>
-                    <span className='font-semibold text-white'>{compound.name}:</span>{' '}
-                    {compound.explanation || 'Mechanism summary is still being expanded.'}{' '}
-                    {compound.whyItMatters ? `Why it matters: ${compound.whyItMatters}.` : ''}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </Section>
+            </Collapse>
+          </section>
         )}
 
         {relatedHerbs.length > 0 && (
-          <Section title='Herb Overlap via Shared Compounds'>
-            <div className='space-y-2'>
-              {relatedHerbs.map(other => (
-                <p key={other.slug}>
-                  <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
-                    {other.name}
-                  </Link>{' '}
-                  shares {other.sharedCompounds.join(', ')}.
-                </p>
-              ))}
-            </div>
-          </Section>
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Related Herbs via Shared Compounds'>
+              <div className='space-y-2 text-sm leading-relaxed text-white/85'>
+                {relatedHerbs.map(other => (
+                  <p key={other.slug}>
+                    <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
+                      {other.name}
+                    </Link>{' '}
+                    shares {other.sharedCompounds.join(', ')}.
+                  </p>
+                ))}
+              </div>
+            </Collapse>
+          </section>
         )}
 
         {effects.length > 0 && (
@@ -346,9 +351,13 @@ export default function HerbDetail() {
         )}
 
         {therapeuticUses.length > 0 && (
-          <Section title='Therapeutic Uses'>
-            <ListSection items={therapeuticUses} />
-          </Section>
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Traditional & Therapeutic Use'>
+              <div className='text-sm leading-relaxed text-white/85'>
+                <ListSection items={therapeuticUses} />
+              </div>
+            </Collapse>
+          </section>
         )}
 
         {/* Safety — always prominent if present */}
@@ -358,46 +367,65 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {interactions.length > 0 && (
-          <Section title='Drug Interactions'>
-            <ListSection items={interactions} />
-          </Section>
-        )}
-
-        {sideEffects.length > 0 && (
-          <Section title='Side Effects'>
-            <ListSection items={sideEffects} />
-          </Section>
+        {(interactions.length > 0 || sideEffects.length > 0) && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Additional Safety Notes'>
+              <div className='space-y-4 text-sm leading-relaxed text-white/85'>
+                {interactions.length > 0 && (
+                  <div>
+                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
+                      Drug Interactions
+                    </h3>
+                    <ListSection items={interactions} />
+                  </div>
+                )}
+                {sideEffects.length > 0 && (
+                  <div>
+                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
+                      Side Effects
+                    </h3>
+                    <ListSection items={sideEffects} />
+                  </div>
+                )}
+              </div>
+            </Collapse>
+          </section>
         )}
 
         {/* Practical info — only render if value exists */}
         {dosage && <Section title='Dosage'>{dosage}</Section>}
         {duration && <Section title='Duration'>{duration}</Section>}
         {preparation && <Section title='Preparation'>{preparation}</Section>}
-        <Section title='Recommended Ways to Try This Herb'>
-          <RecommendedProducts herb={herb} showTitle={false} />
-        </Section>
+        <section className='border-white/8 mt-6 border-t pt-5'>
+          <Collapse title='Product Recommendations'>
+            <div className='text-sm leading-relaxed text-white/85'>
+              <RecommendedProducts herb={herb} showTitle={false} />
+            </div>
+          </Collapse>
+        </section>
         {region && <Section title='Region'>{region}</Section>}
         {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 
         {/* Sources */}
         {sources.length > 0 && (
-          <Section title='Sources'>
-            <ol className='list-decimal space-y-1 pl-5'>
-              {sources.map((source, index) => (
-                <li key={`${source.url}-${index}`}>
-                  {/^https?:\/\//i.test(source.url) ? (
-                    <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-                      {source.title}
-                    </a>
-                  ) : (
-                    source.title
-                  )}
-                  {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
-                </li>
-              ))}
-            </ol>
-          </Section>
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='References'>
+              <ol className='list-decimal space-y-1 pl-5 text-sm leading-relaxed text-white/85'>
+                {sources.map((source, index) => (
+                  <li key={`${source.url}-${index}`}>
+                    {/^https?:\/\//i.test(source.url) ? (
+                      <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+                        {source.title}
+                      </a>
+                    ) : (
+                      source.title
+                    )}
+                    {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
+                  </li>
+                ))}
+              </ol>
+            </Collapse>
+          </section>
         )}
 
         {lastUpdated && (
