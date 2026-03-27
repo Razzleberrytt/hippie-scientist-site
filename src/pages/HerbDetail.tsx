@@ -1,6 +1,6 @@
 import { type ReactNode, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import Meta from '@/components/Meta'
+import { Helmet } from 'react-helmet-async'
 import InfoTooltip from '@/components/InfoTooltip'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useHerbDataState } from '@/lib/herb-data'
@@ -157,6 +157,11 @@ export default function HerbDetail() {
     }
   })
 
+  const herbDisplayName = herb.commonName || herb.common || herb.name || herb.slug
+  const herbMetaDescriptionSource = (herb.summary || herb.description || '').trim()
+  const herbMetaDescription =
+    herbMetaDescriptionSource.slice(0, 155) || `Herb profile for ${herbDisplayName}.`
+
   const compoundKeys = new Set(activeCompounds.map(normalizeKey))
   const relatedHerbs = herbs
     .filter(other => other.slug !== herb.slug)
@@ -217,11 +222,11 @@ export default function HerbDetail() {
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
-      <Meta
-        title={`${herb.common || herb.name} | The Hippie Scientist`}
-        description={description || `Herb profile for ${herb.common || herb.name}.`}
-        path={`/herbs/${herb.slug}`}
-      />
+      <Helmet>
+        <title>{`${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`}</title>
+        <meta name='description' content={herbMetaDescription} />
+        <link rel='canonical' href={`https://thehippiescientist.net/herbs/${herb.slug}`} />
+      </Helmet>
       <Link to='/herbs' className='btn-secondary inline-flex items-center'>
         ← Back to herbs
       </Link>

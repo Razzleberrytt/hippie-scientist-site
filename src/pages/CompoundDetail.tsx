@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import Meta from '@/components/Meta'
+import { Helmet } from 'react-helmet-async'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState } from '@/lib/herb-data'
@@ -96,14 +96,20 @@ export default function CompoundDetail() {
   // Derive a display class — category only if it's meaningful
   const displayClass =
     compound.className || (compound.category !== 'Uncategorized' ? compound.category : '')
+  const compoundEffectsMetaText = Array.isArray(compound.effects)
+    ? compound.effects.join(', ').slice(0, 155)
+    : ''
+  const compoundMetaDescription =
+    (compound.mechanism?.slice(0, 155) || compoundEffectsMetaText).trim() ||
+    `Compound profile for ${compound.name}.`
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
-      <Meta
-        title={`${compound.name} | The Hippie Scientist`}
-        description={compound.description || `Compound profile for ${compound.name}.`}
-        path={`/compounds/${compound.slug}`}
-      />
+      <Helmet>
+        <title>{`${compound.name} — Pharmacology & Effects | The Hippie Scientist`}</title>
+        <meta name='description' content={compoundMetaDescription} />
+        <link rel='canonical' href={`https://thehippiescientist.net/compounds/${compound.slug}`} />
+      </Helmet>
       <Link to='/compounds' className='btn-secondary inline-flex items-center'>
         ← Back to compounds
       </Link>
