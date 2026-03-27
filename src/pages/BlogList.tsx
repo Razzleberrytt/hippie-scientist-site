@@ -145,6 +145,9 @@ export default function BlogList() {
                 <img
                   src={resolvePostImage(post) || ''}
                   alt={`Cover image for ${post.title || 'blog post'}`}
+                  loading='lazy'
+                  decoding='async'
+                  sizes='(min-width: 768px) 50vw, 100vw'
                   className='h-full w-full object-cover opacity-85 transition-transform duration-500 group-hover:scale-[1.03]'
                 />
               ) : (

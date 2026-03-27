@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import ActiveFiltersBar from '@/components/filters/ActiveFiltersBar'
@@ -30,11 +30,20 @@ function summarize(compound: { description: string; effects: string[] }) {
 }
 
 export default function CompoundsPage() {
+  const INITIAL_RESULTS = 18
+  const LOAD_MORE_STEP = 18
   const compounds = useCompoundData()
   const [filters, setFilters] = useUrlFilterState(DEFAULT_FILTER_STATE)
+  const [visibleCount, setVisibleCount] = useState(INITIAL_RESULTS)
 
   const options = useMemo(() => extractFilterOptions({ compounds }), [compounds])
   const filtered = useMemo(() => filterCompounds(compounds, filters), [compounds, filters])
+  const visibleCompounds = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount])
+  const hasMore = filtered.length > visibleCount
+
+  useEffect(() => {
+    setVisibleCount(INITIAL_RESULTS)
+  }, [filters])
 
   const toggleEffect = (effect: string) => {
     setFilters(prev => ({
@@ -111,7 +120,7 @@ export default function CompoundsPage() {
         </div>
       ) : (
         <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-          {filtered.map(compound => {
+          {visibleCompounds.map(compound => {
             const confidence =
               compound.confidence ??
               calculateCompoundConfidence({
@@ -162,6 +171,17 @@ export default function CompoundsPage() {
             )
           })}
         </section>
+      )}
+      {hasMore && (
+        <div className='mt-6 flex justify-center'>
+          <button
+            type='button'
+            className='btn-primary'
+            onClick={() => setVisibleCount(prev => prev + LOAD_MORE_STEP)}
+          >
+            Load more compounds ({filtered.length - visibleCount} remaining)
+          </button>
+        </div>
       )}
     </main>
   )

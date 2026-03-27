@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Meta from '@/components/Meta'
 import HerbCard from '@/components/HerbCard'
 import ActiveFiltersBar from '@/components/filters/ActiveFiltersBar'
@@ -17,13 +17,24 @@ import { buildEffectIndex } from '@/utils/effectSearch'
 import EffectExplorer from '@/components/EffectExplorer'
 
 export default function HerbsPage() {
+  const INITIAL_RESULTS = 18
+  const LOAD_MORE_STEP = 18
   const herbs = useHerbData()
   const decoratedHerbs = useMemo(() => decorateHerbs(herbs), [herbs])
   const [filters, setFilters] = useUrlFilterState(DEFAULT_FILTER_STATE)
+  const [visibleCount, setVisibleCount] = useState(INITIAL_RESULTS)
+  const [showEffectExplorer, setShowEffectExplorer] = useState(false)
 
   const options = useMemo(() => extractFilterOptions({ herbs: decoratedHerbs }), [decoratedHerbs])
   const effectIndex = useMemo(() => buildEffectIndex(decoratedHerbs), [decoratedHerbs])
   const filtered = useMemo(() => filterHerbs(decoratedHerbs, filters), [decoratedHerbs, filters])
+  const visibleHerbs = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount])
+  const hasMore = filtered.length > visibleCount
+  const performanceMode = filtered.length > 24
+
+  useEffect(() => {
+    setVisibleCount(INITIAL_RESULTS)
+  }, [filters])
 
   const toggleEffect = (effect: string) => {
     setFilters(prev => ({
@@ -51,7 +62,25 @@ export default function HerbsPage() {
         </p>
       </header>
 
-      <EffectExplorer herbs={decoratedHerbs} />
+      <section className='mb-4 rounded-2xl border border-violet-300/25 bg-violet-500/10 p-4'>
+        <div className='flex flex-wrap items-center justify-between gap-3'>
+          <div>
+            <h2 className='text-lg font-semibold text-violet-100'>Effect Explorer</h2>
+            <p className='text-sm text-white/75'>
+              Open on demand for ranked matches by outcome (sleep, focus, relaxation).
+            </p>
+          </div>
+          <button
+            type='button'
+            className='btn-secondary'
+            onClick={() => setShowEffectExplorer(value => !value)}
+            aria-expanded={showEffectExplorer}
+          >
+            {showEffectExplorer ? 'Hide explorer' : 'Open explorer'}
+          </button>
+        </div>
+        {showEffectExplorer && <EffectExplorer herbs={decoratedHerbs} />}
+      </section>
 
       <section className='mb-4 space-y-3'>
         <SearchBar
@@ -104,14 +133,26 @@ export default function HerbsPage() {
         </div>
       ) : (
         <section className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-          {filtered.map((herb, index) => (
+          {visibleHerbs.map((herb, index) => (
             <HerbCard
               key={herb.slug || herb.id || `${herb.common}-${index}`}
               herb={herb}
               index={index}
+              performanceMode={performanceMode}
             />
           ))}
         </section>
+      )}
+      {hasMore && (
+        <div className='mt-6 flex justify-center'>
+          <button
+            type='button'
+            className='btn-primary'
+            onClick={() => setVisibleCount(prev => prev + LOAD_MORE_STEP)}
+          >
+            Load more herbs ({filtered.length - visibleCount} remaining)
+          </button>
+        </div>
       )}
     </main>
   )
