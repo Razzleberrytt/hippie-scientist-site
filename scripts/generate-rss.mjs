@@ -14,11 +14,15 @@ try {
 }
 
 const now = new Date().toUTCString();
+const normalizedPosts = posts
+  .slice()
+  .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
+  .slice(0, 50);
 
-const items = posts.map(p => {
+const items = normalizedPosts.map(p => {
   const url = `${SITE}/blog/${p.slug}`;
   const title = p.title || "Untitled";
-  const desc = p.description || "";
+  const desc = p.description || p.summary || "";
   const pub = new Date(p.date || Date.now()).toUTCString();
   return `
     <item>
@@ -49,4 +53,4 @@ try {
   console.warn("Unable to mirror RSS feed to", OUT2, error);
 }
 
-console.log("RSS feed written to", OUT, "with", posts.length);
+console.log("RSS feed written to", OUT, "with", normalizedPosts.length);
