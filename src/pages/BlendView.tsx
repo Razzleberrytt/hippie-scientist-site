@@ -47,7 +47,7 @@ export default function BlendView() {
 
   return (
     <main className='mx-auto flex w-full max-w-4xl flex-col gap-5 px-4 py-6 sm:px-6 sm:py-10'>
-      <Meta title={metaTitle} description={metaDescription} path='/blend' />
+      <Meta title={metaTitle} description={metaDescription} path='/blend' noindex />
       <header className='space-y-2'>
         <p className='text-xs uppercase tracking-[0.24em] text-cyan-300'>Shared Blend</p>
         <h1 className='text-3xl font-bold text-white sm:text-4xl'>{metaTitle}</h1>

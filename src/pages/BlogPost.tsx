@@ -1,12 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import DOMPurify from 'dompurify'
-import { Helmet } from 'react-helmet-async'
+import Meta from '@/components/Meta'
 import { cleanBlogExcerpt, ensureTrailingSlash, resolveBlogIndexUrl } from '@/lib/blog'
 import { useHerbData } from '@/lib/herb-data'
 import { decorateCompounds } from '@/lib/compounds'
 import { normalizeScientificTags } from '@/lib/tags'
 import { trackEvent, useSavedItems } from '@/lib/growth'
+import { blogJsonLd } from '@/lib/seo'
 import ContextualLeadMagnet from '@/components/ContextualLeadMagnet'
 import { CTA } from '@/lib/cta'
 import Disclaimer from '@/components/Disclaimer'
@@ -117,14 +118,24 @@ export default function BlogPost() {
   return (
     <main className='container-page py-7 sm:py-8'>
       {meta && (
-        <Helmet>
-          <title>{`${meta.title} | The Hippie Scientist`}</title>
-          <meta
-            name='description'
-            content={cleanBlogExcerpt(meta.summary, meta.description).slice(0, 155)}
-          />
-          <link rel='canonical' href={`https://thehippiescientist.net/blog/${meta.slug}`} />
-        </Helmet>
+        <Meta
+          title={`${meta.title} | The Hippie Scientist`}
+          description={cleanBlogExcerpt(meta.summary, meta.description).slice(0, 155)}
+          path={`/blog/${meta.slug}`}
+          pageType='article'
+          og={{ articlePublishedTime: meta.date }}
+          jsonLd={blogJsonLd(
+            {
+              title: meta.title,
+              slug: meta.slug,
+              date: meta.date,
+              updated: meta.lastUpdated,
+              description: meta.description,
+              excerpt: meta.summary,
+            },
+            `/blog/${meta.slug}`
+          )}
+        />
       )}
       <div className='mb-4'>
         <Link to='/blog' className='btn-secondary inline-flex items-center gap-2 rounded-full px-4'>

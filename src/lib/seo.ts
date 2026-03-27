@@ -1,4 +1,5 @@
-const SITE_URL = 'https://thehippiescientist.net'
+export const SITE_URL = 'https://thehippiescientist.net'
+export const SITE_NAME = 'The Hippie Scientist'
 
 export type PageType = 'website' | 'article'
 
@@ -7,6 +8,7 @@ export type BuildMetaArgs = {
   description: string
   path?: string
   image?: string
+  keepQueryParams?: string[]
 }
 
 type NormalizedMeta = {
@@ -22,16 +24,46 @@ const withLeadingSlash = (value: string) => {
   return value.startsWith('/') || isAbsoluteUrl(value) ? value : `/${value}`
 }
 
+const NON_CANONICAL_PARAM_PATTERNS: RegExp[] = [
+  /^utm_/i,
+  /^fbclid$/i,
+  /^gclid$/i,
+  /^msclkid$/i,
+  /^ref$/i,
+  /^source$/i,
+]
+
+export function normalizeCanonicalPath(path: string, keepQueryParams: string[] = []): string {
+  const url = new URL(withLeadingSlash(path), SITE_URL)
+  const allowed = new Set(keepQueryParams.map(value => value.toLowerCase()))
+  const nextSearch = new URLSearchParams()
+
+  for (const [key, value] of url.searchParams.entries()) {
+    const keyLc = key.toLowerCase()
+    const isBlocked = NON_CANONICAL_PARAM_PATTERNS.some(pattern => pattern.test(keyLc))
+    if (isBlocked) continue
+    if (allowed.has(keyLc)) {
+      nextSearch.append(key, value)
+    }
+  }
+
+  const sorted = [...nextSearch.entries()].sort(([a], [b]) => a.localeCompare(b))
+  const finalSearch = new URLSearchParams(sorted)
+  const search = finalSearch.toString()
+  return `${url.pathname}${search ? `?${search}` : ''}`
+}
+
 export function buildMeta({
   title,
   description,
   path = '/',
-  image = '/og/default.png',
+  image = '/icon-512x512.png',
+  keepQueryParams = [],
 }: BuildMetaArgs): NormalizedMeta {
-  const canonicalPath = withLeadingSlash(path)
+  const canonicalPath = normalizeCanonicalPath(path, keepQueryParams)
   const url = new URL(canonicalPath, SITE_URL).toString()
 
-  const fallbackImage = image || '/og/default.png'
+  const fallbackImage = image || '/icon-512x512.png'
   const imageUrl = isAbsoluteUrl(fallbackImage)
     ? fallbackImage
     : new URL(withLeadingSlash(fallbackImage), SITE_URL).toString()
@@ -41,6 +73,30 @@ export function buildMeta({
     description,
     url,
     image: imageUrl,
+  }
+}
+
+export function websiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE_URL}/herbs?query={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  }
+}
+
+export function organizationJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.svg`,
   }
 }
 
@@ -80,7 +136,7 @@ export function blogJsonLd(post: BlogJsonLdPost, path: string) {
     image: imageUrl,
     publisher: {
       '@type': 'Organization',
-      name: 'The Hippie Scientist',
+      name: SITE_NAME,
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',

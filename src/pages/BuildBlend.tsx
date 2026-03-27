@@ -468,6 +468,7 @@ export default function BuildBlend() {
         title='Personalized Herb Stack Builder'
         description='Select herbs, choose an intent, and generate timing, dosage guidance, safety notes, and interaction warnings.'
         path='/build'
+        noindex
       />
       <header className='space-y-2'>
         <p className='text-xs uppercase tracking-[0.25em] text-cyan-300'>Build</p>

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 import type { Herb } from '@/types'
 import { useDrafts } from '../lib/useDrafts'
@@ -144,6 +145,12 @@ export default function DataFix() {
 
   return (
     <main className='mx-auto max-w-6xl space-y-6 px-4 py-8'>
+      <Meta
+        title='Data Fix Utility | The Hippie Scientist'
+        description='Internal data maintenance utility.'
+        path='/data-fix'
+        noindex
+      />
       <div className='flex flex-col gap-2 md:flex-row md:items-center md:justify-between'>
         <h1 className='text-2xl font-bold'>🛠️ Fix Missing Data</h1>
         <div className='flex flex-wrap gap-2 text-sm'>

@@ -21,6 +21,7 @@ import {
 } from '@/lib/data-quality'
 import Collapse from '@/components/ui/Collapse'
 import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
+import { organizationJsonLd, websiteJsonLd } from '@/lib/seo'
 import type { Herb } from '@/types'
 
 type FeaturedItem = {
@@ -219,6 +220,7 @@ export default function Home() {
         description='Independent research on psychoactive herbs, entheogens, and natural neurochemistry.'
         path='/'
         pageType='website'
+        jsonLd={[websiteJsonLd(), organizationJsonLd()]}
       />
 
       <Hero />

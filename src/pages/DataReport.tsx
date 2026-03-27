@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import QuickFillModal from '../components/QuickFillModal'
+import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 import type { Herb } from '../types'
 
@@ -274,6 +275,12 @@ export default function DataReport() {
 
   return (
     <main className='mx-auto max-w-6xl px-4 py-10 text-white/70'>
+      <Meta
+        title='Data Coverage Report | The Hippie Scientist'
+        description='Internal herb data coverage report.'
+        path='/data-report'
+        noindex
+      />
       <header className='mb-10'>
         <h1 className='gradient-text mb-3 text-4xl font-bold'>📊 Herb Dataset Coverage</h1>
         <p className='text-white/70/80 max-w-3xl text-sm'>

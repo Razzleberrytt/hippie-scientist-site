@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import Meta from '@/components/Meta'
 import { LearningPanelSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { useLearningProgress } from '@/lib/growth'
 import type { LearningPath } from '@/data/learning-paths'
@@ -27,6 +28,11 @@ export default function LearningPaths() {
 
   return (
     <main className='container mx-auto max-w-5xl px-4 py-8'>
+      <Meta
+        title='Learning Paths | The Hippie Scientist'
+        description='Guided learning paths that connect herbs, compounds, and safety context.'
+        path='/learning'
+      />
       <header className='card p-6'>
         <p className='text-xs uppercase tracking-[0.2em] text-white/60'>Learning paths</p>
         <h1 className='mt-2 text-3xl font-semibold text-white'>

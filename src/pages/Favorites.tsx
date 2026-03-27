@@ -1,5 +1,6 @@
 import { useMemo, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 import { decorateCompounds } from '@/lib/compounds'
 import posts from '../../public/blogdata/index.json'
@@ -32,6 +33,12 @@ export default function Favorites() {
 
   return (
     <main className='mx-auto max-w-5xl px-4 py-8'>
+      <Meta
+        title='Saved Items | The Hippie Scientist'
+        description='Saved herbs, compounds, and articles.'
+        path='/favorites'
+        noindex
+      />
       <div className='mb-4 flex items-center justify-between'>
         <h1 className='text-2xl font-bold'>Saved items ({items.length})</h1>
       </div>

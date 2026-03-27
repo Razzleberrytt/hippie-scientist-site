@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Card from '@/components/ui/Card'
 import ResultsSummaryCard from '@/components/ResultsSummaryCard'
+import Meta from '@/components/Meta'
 
 type LastSelectedBlend = {
   goal?: string
@@ -55,6 +56,12 @@ export default function StarterPackSuccess() {
 
   return (
     <main className='container space-y-8 py-8 sm:py-10'>
+      <Meta
+        title='Starter Pack Confirmation | The Hippie Scientist'
+        description='Starter pack confirmation and next steps.'
+        path='/starter-pack-success'
+        noindex
+      />
       <section className='border-white/12 from-lime-400/14 rounded-3xl border bg-gradient-to-br via-black/40 to-lime-400/5 p-5 shadow-[0_0_0_1px_rgba(163,230,53,0.07),0_18px_38px_-22px_rgba(163,230,53,0.7)] sm:p-7'>
         <p className='text-xs uppercase tracking-[0.3em] text-white/60'>Starter Pack</p>
         <h1 className='h1-grad mt-2 text-3xl font-semibold md:text-4xl'>You&apos;re in.</h1>
