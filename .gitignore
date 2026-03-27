@@ -49,3 +49,13 @@ build/
 assets/
 dist-clean/*
 !dist-clean/README.md
+
+# Build reports / temp artifacts
+*_REPORT.md
+*_NOTES.md
+*.md.bak
+*_patch.json
+*_merged.json
+*_final.json
+validation_report.json
+scripts/out/
