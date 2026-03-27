@@ -43,7 +43,21 @@ export function validateEmail(email: string): string | null {
 
 function resolveFormEndpoint(): string {
   const env = import.meta.env as Record<string, string | undefined>
-  return env.VITE_FORM_ENDPOINT || ''
+
+  if (env.VITE_FORM_ENDPOINT) {
+    return env.VITE_FORM_ENDPOINT
+  }
+
+  // Backward-compatible fallback for older deployments.
+  const legacyEndpoint = env.VITE_LEAD_CAPTURE_ENDPOINT || env.VITE_NEWSLETTER_ENDPOINT || ''
+
+  if (legacyEndpoint && env.DEV) {
+    console.warn(
+      '[formSubmission] Using deprecated env key for form endpoint. Migrate to VITE_FORM_ENDPOINT.'
+    )
+  }
+
+  return legacyEndpoint
 }
 
 export async function submitFormPayload(

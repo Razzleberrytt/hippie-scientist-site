@@ -1,23 +1,46 @@
-# Validation — Clean URLs & Crawlability
+# Validation — Build, Prerender, and Crawlability
 
-## Routing (server-side)
+This project validates clean URLs and crawler-visible HTML from the **built output** (`dist/`), not from ad hoc hand-authored static pages.
 
-- Direct-load (new tab/private): /blog/, /about, /privacy-policy, /disclaimer, /contact, /herb-index
-  Expect HTTP 200 (not 404) + app content.
+## Build pipeline checks
 
-## Blog
+Run:
 
-- GET /blog/ returns static HTML list with links to /blog/{slug}/ (view source: contains <ul> items).
-- GET /blog/{slug}/ returns HTTP 200; page renders.
+```bash
+npm run build
+```
 
-## SEO
+What this covers:
 
-- GET /sitemap.xml lists top pages and each post (clean URLs).
-- GET /robots.txt includes Sitemap: line.
-- View-source on a blog post contains title/description/canonical + OG/Twitter tags.
-- GET /feed.xml is accessible; <link rel="alternate" ...> exists on root.
+- `prebuild`: data sync/quality + RSS generation.
+- `vite build`: app bundle creation.
+- `postbuild`:
+  - `scripts/prerender-static.mjs` (writes route HTML files into `dist/`)
+  - `scripts/generate-sitemap.mjs dist` (writes `dist/sitemap.xml` + `dist/robots.txt`)
+  - `scripts/ensure-dist-redirects.mjs`
+  - `scripts/verify-prerender.mjs` (route-manifest parity + sample content/meta checks)
 
-## Privacy/Security
+## Route/content validation
 
-- No GA/GTM requests before consent accept.
-- DOMPurify present; simple "<script>alert(1)</script>" in a draft post does not execute.
+After `npm run build`:
+
+- Confirm `dist/blog/index.html` exists and contains prerendered list content.
+- Confirm at least one `dist/blog/<slug>/index.html` exists and has body copy + canonical/title metadata.
+- Confirm herb/compound detail pages exist under `dist/herbs/*/index.html` and `dist/compounds/*/index.html`.
+- Confirm `dist/route-manifest-report.json` exists and reports no sitemap/prerender mismatches.
+
+## SEO/crawl artifacts
+
+After `npm run build`:
+
+- `dist/sitemap.xml` includes approved public routes.
+- `dist/robots.txt` includes `Sitemap:` entries for `/sitemap.xml`, `/rss.xml`, and `/feed.xml`.
+- Root `index.html` includes alternate feed link metadata (from app head output).
+
+## Runtime checks on deployed site
+
+On Netlify production/staging deploy:
+
+- Direct-load core routes (`/blog`, `/about`, `/privacy-policy`, `/contact`, `/herb-index`) return HTTP 200.
+- Deep links (for example `/blog/<slug>`) resolve without 404 due to SPA rewrite + prerendered route files.
+- Form submissions without `VITE_FORM_ENDPOINT` show configured error state (no optimistic success).
