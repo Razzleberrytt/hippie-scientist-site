@@ -11,7 +11,7 @@
     "prebuild:validate": "node scripts/validate-herbs.mjs",
     "check:images": "node tools/check-images.mjs",
     "rebuild:data": "npm run data:refresh",
-    "prebuild": "node scripts/generate-site-counts.mjs && node scripts/sync-updated-datasets.mjs && node scripts/generate-rss.mjs",
+    "prebuild": "node scripts/generate-site-counts.mjs && node scripts/sync-updated-datasets.mjs && node scripts/quality-gate-data.mjs && node scripts/generate-rss.mjs",
     "build": "npm run prebuild && vite build",
     "postbuild": "node scripts/prerender-static.mjs && node scripts/generate-sitemap.mjs dist && node scripts/ensure-dist-redirects.mjs && node scripts/verify-prerender.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs dist",

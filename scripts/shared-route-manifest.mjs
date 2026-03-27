@@ -82,6 +82,17 @@ const readJson = relativePath => {
   }
 }
 
+const readObject = (relativePath, fallback = {}) => {
+  const fullPath = path.join(ROOT, relativePath)
+  if (!fs.existsSync(fullPath)) return fallback
+  try {
+    const parsed = JSON.parse(fs.readFileSync(fullPath, 'utf8'))
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : fallback
+  } catch {
+    return fallback
+  }
+}
+
 const readText = relativePath => {
   const fullPath = path.join(ROOT, relativePath)
   return fs.existsSync(fullPath) ? fs.readFileSync(fullPath, 'utf8') : ''
@@ -248,15 +259,29 @@ export function getSharedRouteManifest() {
   })
 
   const learningAllowlist = extractLearningRouteAllowlist()
-  const herbs = readJson('public/data/herbs_combined_updated.json').length
-    ? readJson('public/data/herbs_combined_updated.json')
-    : readJson('public/data/herbs.json')
-  const compounds = readJson('public/data/compounds_combined_updated.json').length
-    ? readJson('public/data/compounds_combined_updated.json')
-    : readJson('public/data/compounds.json')
+  const herbs = readJson('public/data/herbs.json')
+  const compounds = readJson('public/data/compounds.json')
 
-  const herbEntries = pickTopEntities(herbs, '/herbs', learningAllowlist, DEFAULT_ENTITY_CAP, 'herb')
-  const compoundEntries = pickTopEntities(compounds, '/compounds', learningAllowlist, DEFAULT_ENTITY_CAP, 'compound')
+  const indexableHerbRoutes = new Set(
+    readJson('public/data/indexable-herbs.json')
+      .map(item => normalizePath(item?.route || `/herbs/${item?.slug || ''}`))
+      .filter(route => route.startsWith('/herbs/'))
+  )
+  const indexableCompoundRoutes = new Set(
+    readJson('public/data/indexable-compounds.json')
+      .map(item => normalizePath(item?.route || `/compounds/${item?.slug || ''}`))
+      .filter(route => route.startsWith('/compounds/'))
+  )
+
+  const herbCandidates = pickTopEntities(herbs, '/herbs', learningAllowlist, Number.MAX_SAFE_INTEGER, 'herb')
+  const compoundCandidates = pickTopEntities(compounds, '/compounds', learningAllowlist, Number.MAX_SAFE_INTEGER, 'compound')
+
+  const herbEntries = herbCandidates.filter(entry => indexableHerbRoutes.has(entry.route)).slice(0, DEFAULT_ENTITY_CAP)
+  const compoundEntries = compoundCandidates
+    .filter(entry => indexableCompoundRoutes.has(entry.route))
+    .slice(0, DEFAULT_ENTITY_CAP)
+
+  const qualityReport = readObject('public/data/quality-report.json', {})
 
   herbEntries.forEach(entry => {
     putRouteMeta(entry.route, entry.title, entry.description)
@@ -300,6 +325,15 @@ export function getSharedRouteManifest() {
       compoundAllowlist: compoundEntries
         .map(entry => entry.route)
         .filter(route => learningAllowlist.includes(route)),
+      herbCandidatesBeforeQuality: herbCandidates.length,
+      compoundCandidatesBeforeQuality: compoundCandidates.length,
+      herbRoutesAfterQuality: herbEntries.length,
+      compoundRoutesAfterQuality: compoundEntries.length,
+      qualityThresholds: qualityReport?.thresholds || null,
+      qualityExclusions: {
+        herbs: qualityReport?.herbs?.excludedByReason || {},
+        compounds: qualityReport?.compounds?.excludedByReason || {},
+      },
     },
   }
 }
