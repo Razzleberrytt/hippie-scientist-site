@@ -42,6 +42,7 @@ const CollectionPage = lazy(() => import('./pages/CollectionPage'))
 const AnalyticsPage = lazy(() => import('./pages/AnalyticsPage'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'))
+const UnknownCompoundSurvivalGuide = lazy(() => import('./pages/UnknownCompoundSurvivalGuide'))
 import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
@@ -83,6 +84,10 @@ export default function App() {
                 <Route path='/build' element={<BuildBlend />} />
                 <Route path='/starter-pack-success' element={<StarterPackSuccess />} />
                 <Route path='/downloads' element={<Downloads />} />
+                <Route
+                  path='/guides/unknown-compound-survival-guide'
+                  element={<UnknownCompoundSurvivalGuide />}
+                />
                 <Route path='/learning' element={<LearningPaths />} />
                 <Route path='/herbs-for-:goal' element={<HerbGoalPage />} />
                 <Route path='/favorites' element={<Favorites />} />
