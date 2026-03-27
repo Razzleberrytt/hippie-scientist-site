@@ -49,6 +49,8 @@ function pickDataFile(primary, fallback) {
 const blogPosts = readJson('src/data/blog/posts.json')
 const herbs = pickDataFile('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
 const compounds = pickDataFile('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
+const indexableHerbs = readJson('public/data/indexable-herbs.json')
+const indexableCompounds = readJson('public/data/indexable-compounds.json')
 
 const blogBySlug = new Map(blogPosts.map(post => [String(post?.slug || ''), post]))
 const herbBySlug = new Map(
@@ -63,6 +65,30 @@ const compoundBySlug = new Map(
     return [slug, record]
   })
 )
+
+const indexableHerbCards = indexableHerbs
+  .map(item => {
+    const route = String(item?.route || '').trim()
+    const slugFromRoute = route.startsWith('/herbs/') ? route.slice('/herbs/'.length) : ''
+    const slug = String(item?.slug || slugFromRoute).trim()
+    if (!slug) return null
+    const herb = herbBySlug.get(slug) || item
+    return { slug, herb }
+  })
+  .filter(Boolean)
+  .slice(0, 20)
+
+const indexableCompoundCards = indexableCompounds
+  .map(item => {
+    const route = String(item?.route || '').trim()
+    const slugFromRoute = route.startsWith('/compounds/') ? route.slice('/compounds/'.length) : ''
+    const slug = String(item?.slug || slugFromRoute).trim()
+    if (!slug) return null
+    const compound = compoundBySlug.get(slug) || item
+    return { slug, compound }
+  })
+  .filter(Boolean)
+  .slice(0, 20)
 
 function textList(value, limit = 5) {
   const list = Array.isArray(value) ? value : []
@@ -159,7 +185,7 @@ function buildHead(route) {
 function makeCardList(items, fallbackText = 'Content is being updated.') {
   if (!items.length) return `<p>${escapeHtml(fallbackText)}</p>`
   return `<ul>${items
-    .map(item => `<li>${item}</li>`)
+    .map(item => item)
     .join('')}</ul>`
 }
 
@@ -210,14 +236,14 @@ function renderRouteContent(route) {
   }
 
   if (route === '/herbs') {
-    const herbCards = herbs.slice(0, 20).map(record => {
-      const slug = escapeHtml(record?.slug || '')
-      const name = escapeHtml(textFrom(record?.common, record?.commonName, record?.name, slug))
-      const description = escapeHtml(textFrom(record?.summary, record?.description, 'Herb profile'))
+    const herbCards = indexableHerbCards.map(item => {
+      const slug = escapeHtml(item.slug)
+      const name = escapeHtml(textFrom(item.herb?.common, item.herb?.commonName, item.herb?.name, slug))
+      const description = escapeHtml(textFrom(item.herb?.summary, item.herb?.description, 'Herb profile'))
       return `<li><article><h2><a href="/herbs/${slug}">${name}</a></h2><p>${description}</p></article></li>`
     })
 
-    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1>${makeCardList(herbCards)}</main>`
+    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1>${makeCardList(herbCards, 'Indexable herb profiles are currently unavailable.')}</main>`
   }
 
   if (route.startsWith('/herbs/')) {
@@ -232,14 +258,14 @@ function renderRouteContent(route) {
   }
 
   if (route === '/compounds') {
-    const compoundCards = compounds.slice(0, 20).map(record => {
-      const slug = escapeHtml(record?.slug || '')
-      const name = escapeHtml(textFrom(record?.name, slug))
-      const description = escapeHtml(textFrom(record?.description, record?.summary, 'Compound profile'))
+    const compoundCards = indexableCompoundCards.map(item => {
+      const slug = escapeHtml(item.slug)
+      const name = escapeHtml(textFrom(item.compound?.name, slug))
+      const description = escapeHtml(textFrom(item.compound?.description, item.compound?.summary, 'Compound profile'))
       return `<li><article><h2><a href="/compounds/${slug}">${name}</a></h2><p>${description}</p></article></li>`
     })
 
-    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1>${makeCardList(compoundCards)}</main>`
+    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1>${makeCardList(compoundCards, 'No indexable compounds currently pass quality thresholds.')}</main>`
   }
 
   if (route.startsWith('/compounds/')) {
