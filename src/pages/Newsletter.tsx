@@ -1,51 +1,40 @@
-import React, { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Meta from '../components/Meta'
-
-function encodeForm(data: FormData) {
-  const params = new URLSearchParams()
-  data.forEach((value, key) => {
-    params.append(key, value.toString())
-  })
-  return params.toString()
-}
+import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 
 export default function Newsletter() {
-  const [sent, setSent] = useState(false)
+  const [email, setEmail] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [honeypot, setHoneypot] = useState('')
 
-  useEffect(() => {
-    if (sent) {
-      try {
-        ;(window as any).gtag?.('event', 'newsletter_signup_success')
-      } catch {
-        /* noop */
-      }
-    }
-  }, [sent])
+  const { status, message, submit, clearFeedback } = useSubmissionForm({
+    successMessage: "You're on the list ✦ Check your inbox for confirmation.",
+    buildPayload: (fields: { email: string; firstName: string }) => ({
+      formType: 'newsletter',
+      email: fields.email,
+      firstName: fields.firstName.trim() || undefined,
+      source: 'newsletter-page',
+      pagePath: '/newsletter',
+    }),
+    onSuccess: () => {
+      ;(window as any).gtag?.('event', 'newsletter_signup_success')
+    },
+  })
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-
-    const form = event.currentTarget
-    const formData = new FormData(form)
-    formData.set('form-name', 'newsletter')
-
-    try {
-      ;(window as any).gtag?.('event', 'newsletter_signup_submit', { method: 'netlify' })
-    } catch {
-      /* noop */
+    const didSubmit = await submit({ email, firstName }, { honeypot })
+    if (didSubmit) {
+      setEmail('')
+      setFirstName('')
+      setHoneypot('')
     }
+  }
 
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodeForm(formData),
-    }).catch(() => {
-      /* Netlify will still capture submission on navigation fallback */
-    })
-
-    setSent(true)
-    form.reset()
+  const handleFieldChange = (setter: (value: string) => void, value: string) => {
+    setter(value)
+    clearFeedback()
   }
 
   return (
@@ -66,21 +55,21 @@ export default function Newsletter() {
           </p>
         </header>
 
-        {!sent ? (
-          <form
-            name='newsletter'
-            method='POST'
-            data-netlify='true'
-            netlify-honeypot='bot-field'
-            className='glass-soft space-y-4 rounded-2xl p-6'
-            onSubmit={handleSubmit}
-          >
-            <input type='hidden' name='form-name' value='newsletter' />
-            <p className='hidden'>
-              <label>
-                Don’t fill this out: <input name='bot-field' aria-label='Spam trap field' />
-              </label>
+        {status !== 'success' ? (
+          <form className='glass-soft space-y-4 rounded-2xl p-6' onSubmit={handleSubmit} noValidate>
+            <p className='sr-only' aria-hidden='true'>
+              <label htmlFor='newsletter-bot-field'>Leave this field empty</label>
             </p>
+            <input
+              id='newsletter-bot-field'
+              type='text'
+              tabIndex={-1}
+              autoComplete='off'
+              value={honeypot}
+              onChange={event => setHoneypot(event.target.value)}
+              className='sr-only'
+              aria-hidden='true'
+            />
 
             <label className='block'>
               <span className='text-sm text-white/80'>Email address</span>
@@ -89,8 +78,11 @@ export default function Newsletter() {
                 type='email'
                 name='email'
                 autoComplete='email'
+                value={email}
+                onChange={event => handleFieldChange(setEmail, event.target.value)}
                 placeholder='you@example.com'
                 aria-label='Email address'
+                aria-describedby='newsletter-form-status'
                 className='mt-1 w-full rounded-lg border border-white/30 bg-slate-900/70 px-3 py-2 text-white placeholder-white/60 backdrop-blur focus:outline-none focus:ring-2 focus:ring-cyan-300/60'
               />
             </label>
@@ -101,15 +93,29 @@ export default function Newsletter() {
                 type='text'
                 name='firstName'
                 autoComplete='given-name'
+                value={firstName}
+                onChange={event => handleFieldChange(setFirstName, event.target.value)}
                 placeholder='Will'
                 aria-label='First name'
                 className='mt-1 w-full rounded-lg border border-white/30 bg-slate-900/70 px-3 py-2 text-white placeholder-white/60 backdrop-blur focus:outline-none focus:ring-2 focus:ring-cyan-300/60'
               />
             </label>
 
-            <button className='rounded-lg border border-lime-300/45 bg-gradient-to-r from-lime-300/85 to-cyan-300/80 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:from-lime-200 hover:to-cyan-200 focus:outline-none focus:ring-2 focus:ring-lime-200/80'>
-              Subscribe
+            <button
+              disabled={status === 'pending'}
+              className='rounded-lg border border-lime-300/45 bg-gradient-to-r from-lime-300/85 to-cyan-300/80 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:from-lime-200 hover:to-cyan-200 focus:outline-none focus:ring-2 focus:ring-lime-200/80 disabled:cursor-not-allowed disabled:opacity-70'
+            >
+              {status === 'pending' ? 'Submitting…' : 'Subscribe'}
             </button>
+
+            <p
+              id='newsletter-form-status'
+              className={`text-xs ${status === 'error' ? 'text-rose-300' : 'text-emerald-200'}`}
+              role={status === 'error' ? 'alert' : 'status'}
+              aria-live={status === 'error' ? 'assertive' : 'polite'}
+            >
+              {message}
+            </p>
 
             <p className='pt-2 text-xs text-white/60'>
               By subscribing, you agree to our{' '}
@@ -122,22 +128,12 @@ export default function Newsletter() {
               </Link>
               .
             </p>
-
-            <p className='text-xs text-white/50'>
-              Not using Netlify? Email us instead:{' '}
-              <a
-                className='underline'
-                href='mailto:hello@thehippiescientist.net?subject=Newsletter%20Signup'
-              >
-                hello@thehippiescientist.net
-              </a>
-            </p>
           </form>
         ) : (
           <div className='glass-soft rounded-2xl p-6'>
             <h2 className='font-semibold text-lime-300'>You're on the list ✦</h2>
-            <p className='mt-1 text-white/75'>
-              Check your inbox for a confirmation. Welcome aboard.
+            <p className='mt-1 text-white/75' role='status' aria-live='polite'>
+              {message}
             </p>
             <nav className='mt-4 text-sm'>
               <Link className='mr-3 underline' to='/herbs'>
