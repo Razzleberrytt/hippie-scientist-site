@@ -15,8 +15,14 @@ const CANDIDATE_DIRS = [
 ]
 
 const FILES = [
-  { source: 'herbs_combined_updated.json', target: 'herbs.json' },
-  { source: 'compounds_combined_updated.json', target: 'compounds.json' },
+  {
+    source: 'herbs_combined_updated.json',
+    targets: ['herbs.json', 'herbs_combined_updated.json'],
+  },
+  {
+    source: 'compounds_combined_updated.json',
+    targets: ['compounds.json', 'compounds_combined_updated.json'],
+  },
 ]
 
 function firstExistingPath(fileName) {
@@ -27,17 +33,68 @@ function firstExistingPath(fileName) {
   return null
 }
 
+function slugify(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function readJson(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'))
+}
+
+function writeJson(filePath, data) {
+  fs.writeFileSync(filePath, `${JSON.stringify(data, null, 2)}\n`, 'utf8')
+}
+
+function withSlugs(records, entity) {
+  if (!Array.isArray(records)) return records
+
+  return records.map(record => {
+    if (!record || typeof record !== 'object') return record
+
+    const slugSource =
+      entity === 'herbs'
+        ? record.common ?? record.commonName ?? record.name ?? record.scientific ?? ''
+        : record.name ?? record.commonName ?? ''
+
+    return {
+      ...record,
+      slug: slugify(slugSource),
+    }
+  })
+}
+
+function hydrateUpdatedDatasetSlugs(fileName, entity) {
+  const filePath = path.join(outDir, fileName)
+  if (!fs.existsSync(filePath)) {
+    console.log(`[data-sync] Skipping slug hydration for ${fileName}; file not found.`)
+    return
+  }
+
+  const records = readJson(filePath)
+  const hydrated = withSlugs(records, entity)
+  writeJson(filePath, hydrated)
+  console.log(`[data-sync] Hydrated ${entity} slugs in ${filePath}`)
+}
+
 fs.mkdirSync(outDir, { recursive: true })
 
 for (const file of FILES) {
   const sourcePath = firstExistingPath(file.source)
-  const targetPath = path.join(outDir, file.target)
 
   if (!sourcePath) {
-    console.log(`[data-sync] Skipping ${file.source}; source file not found. Keeping existing ${file.target}.`)
+    console.log(`[data-sync] Skipping ${file.source}; source file not found. Keeping existing targets.`)
     continue
   }
 
-  fs.copyFileSync(sourcePath, targetPath)
-  console.log(`[data-sync] Copied ${sourcePath} -> ${targetPath}`)
+  for (const target of file.targets) {
+    const targetPath = path.join(outDir, target)
+    fs.copyFileSync(sourcePath, targetPath)
+    console.log(`[data-sync] Copied ${sourcePath} -> ${targetPath}`)
+  }
 }
+
+hydrateUpdatedDatasetSlugs('herbs_combined_updated.json', 'herbs')
+hydrateUpdatedDatasetSlugs('compounds_combined_updated.json', 'compounds')
