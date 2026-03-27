@@ -38,6 +38,7 @@ validation_report.json
 
 # Fix archive zips
 hippie-scientist-fixes*.zip
+hippie-scientist-patch-*.zip
 
 # Logs and reports (keep in local dev, not repo)
 logs/
