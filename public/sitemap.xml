@@ -1026,7 +1026,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/anadenanthera-colubrina-cebil</loc>
+    <loc>https://thehippiescientist.net/herbs/anadenanthera-colubrina-ceb-l</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1962,6 +1962,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://thehippiescientist.net/herbs/guaran</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://thehippiescientist.net/herbs/guarana</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -2436,7 +2442,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/lions-mane</loc>
+    <loc>https://thehippiescientist.net/herbs/lion-s-mane</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3222,7 +3228,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/herbs/redblue-water-lily</loc>
+    <loc>https://thehippiescientist.net/herbs/red-blue-water-lily</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -4170,13 +4176,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/syringaresnol-4-o-d-apiofuranosyl-12-d-glucopyranoside</loc>
+    <loc>https://thehippiescientist.net/compounds/syringaresnol-4-o-d-apiofuranosyl-1-2-d-glucopyranoside</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/245-trimethoxybenzaldehyde</loc>
+    <loc>https://thehippiescientist.net/compounds/2-4-5-trimethoxybenzaldehyde</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -4194,7 +4200,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/7a-hydroxybaruol</loc>
+    <loc>https://thehippiescientist.net/compounds/7-hydroxybaruol</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -4416,7 +4422,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/asarone-alpha-and-beta</loc>
+    <loc>https://thehippiescientist.net/compounds/asarone-alpha-beta</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -4698,7 +4704,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/cocaine-alkaloids-02-1percent</loc>
+    <loc>https://thehippiescientist.net/compounds/cocaine-alkaloids-0-2-1</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -4824,7 +4830,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/dmt-03-07percent</loc>
+    <loc>https://thehippiescientist.net/compounds/dmt-0-3-0-7</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -5688,13 +5694,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/nicotine-9-15percent</loc>
+    <loc>https://thehippiescientist.net/compounds/nicotine-9-15</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/nicotine-up-to-9percent</loc>
+    <loc>https://thehippiescientist.net/compounds/nicotine-up-to-9</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -6444,67 +6450,43 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/a-asarone</loc>
+    <loc>https://thehippiescientist.net/compounds/calacorene</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/a-calacorene</loc>
+    <loc>https://thehippiescientist.net/compounds/pinene</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/a-pinene</loc>
+    <loc>https://thehippiescientist.net/compounds/terpinene</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/a-terpinene</loc>
+    <loc>https://thehippiescientist.net/compounds/terpineol</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/a-terpineol</loc>
+    <loc>https://thehippiescientist.net/compounds/carbolines</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/b-asarone</loc>
+    <loc>https://thehippiescientist.net/compounds/caryophyllene</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thehippiescientist.net/compounds/b-carbolines</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/compounds/b-caryophyllene</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/compounds/b-pinene</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/compounds/b-sitosteryl-acetate</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://thehippiescientist.net/compounds/g-terpinene</loc>
+    <loc>https://thehippiescientist.net/compounds/sitosteryl-acetate</loc>
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
