@@ -92,6 +92,7 @@ function routeExists(routePath) {
 }
 
 function toSlug(value) {
+  // Keep sitemap entity URLs in sync with src/lib/slug.ts runtime routing logic.
   return String(value || '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
