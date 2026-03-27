@@ -59,3 +59,5 @@ dist-clean/*
 *_final.json
 validation_report.json
 scripts/out/
+
+.eslintcache
