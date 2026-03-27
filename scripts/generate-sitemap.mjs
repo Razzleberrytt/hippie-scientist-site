@@ -1,7 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import slugify from 'slugify'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -93,9 +92,10 @@ function routeExists(routePath) {
 }
 
 function toSlug(value) {
-  const input = String(value || '').trim()
-  if (!input) return ''
-  return slugify(input, { lower: true, strict: true })
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 function getIndexableEntityRoutes(entityType) {
