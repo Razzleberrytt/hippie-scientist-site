@@ -1,20 +1,38 @@
 // Legacy/non-canonical endpoint.
 // Canonical production form flow is client-side POST to VITE_FORM_ENDPOINT on Netlify static hosting.
-type ApiRequest = {
-  method?: string
-  body?: unknown
+function getHeader(headers, name) {
+  if (!headers) return ''
+  const key = Object.keys(headers).find(k => k.toLowerCase() === name.toLowerCase())
+  if (!key) return ''
+  const value = headers[key]
+  return Array.isArray(value) ? value[0] ?? '' : value ?? ''
 }
 
-type ApiResponse = {
-  status: (code: number) => ApiResponse
-  json: (payload: unknown) => ApiResponse
-  setHeader: (name: string, value: string) => void
+function parseAllowedOrigins() {
+  const raw = process.env.ALLOWED_ORIGINS || process.env.SITE_URL || ''
+  return raw
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(Boolean)
 }
 
-export default async function handler(req: ApiRequest, res: ApiResponse) {
-  res.setHeader('Access-Control-Allow-Origin', '*')
+function applyCors(req, res) {
+  const origin = getHeader(req.headers, 'origin')
+  const allowedOrigins = parseAllowedOrigins()
+
+  // Security hardening: avoid permissive `*` CORS on this legacy handler.
+  // If no explicit allowlist is configured, default to same-origin behavior (no ACAO header).
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin)
+    res.setHeader('Vary', 'Origin')
+  }
+
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+}
+
+export default async function handler(req, res) {
+  applyCors(req, res)
 
   const hasApiKey = Boolean(process.env.RESEND_API_KEY)
 
@@ -44,7 +62,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     })
   }
 
-  let payload: unknown
+  let payload
 
   try {
     payload = typeof req.body === 'string' ? JSON.parse(req.body) : req.body
@@ -59,8 +77,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   const email =
     payload &&
     typeof payload === 'object' &&
-    typeof (payload as { email?: unknown }).email === 'string'
-      ? (payload as { email: string }).email.trim().toLowerCase()
+    typeof payload.email === 'string'
+      ? payload.email.trim().toLowerCase()
       : ''
 
   return res.status(200).json({
