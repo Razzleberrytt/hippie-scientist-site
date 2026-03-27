@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useDeferredValue, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { effectSuggestions, rankHerbsByEffect } from '@/utils/effectSearch'
 import type { Herb } from '@/types'
@@ -20,18 +20,16 @@ export default function EffectExplorer({ herbs }: EffectExplorerProps) {
   const [query, setQuery] = useState('')
   const [expandedProducts, setExpandedProducts] = useState<Record<string, boolean>>({})
   const defaultQuery = 'relaxation'
-  const normalizedQuery = query.trim()
+  const deferredQuery = useDeferredValue(query)
+  const normalizedQuery = deferredQuery.trim()
   const activeQuery = normalizedQuery || defaultQuery
 
   const suggestions = useMemo(() => effectSuggestions(herbs, 12), [herbs])
-  const activeResults = useMemo(
-    () => rankHerbsByEffect(herbs, activeQuery).slice(0, 9),
-    [herbs, activeQuery]
-  )
-  const fallbackResults = useMemo(
-    () => rankHerbsByEffect(herbs, defaultQuery).slice(0, 9),
-    [herbs, defaultQuery]
-  )
+  const fallbackResults = useMemo(() => rankHerbsByEffect(herbs, defaultQuery).slice(0, 9), [herbs])
+  const activeResults = useMemo(() => {
+    if (!normalizedQuery) return fallbackResults
+    return rankHerbsByEffect(herbs, activeQuery).slice(0, 9)
+  }, [herbs, activeQuery, normalizedQuery, fallbackResults])
   const hasExactQueryResults = normalizedQuery ? activeResults.length > 0 : true
   const results = hasExactQueryResults ? activeResults : fallbackResults
   const popularChips = useMemo(() => ['relaxation', 'focus', 'sleep', 'mood', 'energy'], [])

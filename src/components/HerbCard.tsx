@@ -14,6 +14,7 @@ interface HerbCardProps {
   herb: Record<string, any>
   index?: number
   compact?: boolean
+  performanceMode?: boolean
 }
 
 function confidenceBadgeClass(level: ConfidenceLevel) {
@@ -24,7 +25,7 @@ function confidenceBadgeClass(level: ConfidenceLevel) {
   return 'border-rose-300/50 bg-rose-500/15 text-rose-100 shadow-[0_0_18px_rgba(244,63,94,0.35)]'
 }
 
-function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
+function HerbCard({ herb, index = 0, compact = false, performanceMode = false }: HerbCardProps) {
   const [expanded, setExpanded] = useState(false)
 
   const scientific = String(herb.scientific ?? '').trim()
@@ -96,6 +97,148 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
       'perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))'
   }
 
+  const cardContent = (
+    <div
+      onPointerMove={
+        performanceMode
+          ? undefined
+          : event => {
+              const element = event.currentTarget as HTMLElement
+              const rect = element.getBoundingClientRect()
+              const percentX = ((event.clientX - rect.left) / rect.width) * 100
+              const percentY = ((event.clientY - rect.top) / rect.height) * 100
+              const tiltX = ((percentY - 50) / -12).toFixed(2)
+              const tiltY = ((percentX - 50) / 12).toFixed(2)
+              element.style.setProperty('--rx', `${tiltX}deg`)
+              element.style.setProperty('--ry', `${tiltY}deg`)
+              element.style.setProperty('--glowX', `${percentX.toFixed(2)}%`)
+              element.style.setProperty('--glowY', `${percentY.toFixed(2)}%`)
+            }
+      }
+      onPointerLeave={
+        performanceMode
+          ? undefined
+          : event => {
+              resetTilt(event.currentTarget as HTMLElement)
+            }
+      }
+      onPointerUp={
+        performanceMode
+          ? undefined
+          : event => {
+              resetTilt(event.currentTarget as HTMLElement)
+            }
+      }
+      onPointerCancel={
+        performanceMode
+          ? undefined
+          : event => {
+              resetTilt(event.currentTarget as HTMLElement)
+            }
+      }
+      className={`group relative h-full transition-transform duration-200 ${performanceMode ? '' : 'HerbCardTilt'}`}
+    >
+      {!performanceMode && (
+        <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
+      )}
+      <Card
+        className={`relative flex h-full flex-col ${compact ? 'mini-card gap-3' : 'gap-4'} card-pad hover:shadow-glow transition-shadow duration-200`}
+      >
+        <header className='stack relative pr-20'>
+          <span
+            className={`absolute right-0 top-0 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
+          >
+            {confidence}
+          </span>
+          {compact ? (
+            <h3 className='font-semibold text-lime-300'>{heading}</h3>
+          ) : (
+            <h2 className='h2 text-lime-300'>{heading}</h2>
+          )}
+          {hasVal(subheading) && <p className='small italic text-white/65'>{subheading}</p>}
+          <div className='flex flex-wrap gap-2'>
+            {hasVal(intensityLabel) && (
+              <span className={`pill ${intensityTone} text-[12px]`}>
+                <span className='text-[11px] font-semibold uppercase tracking-wide text-white/80'>
+                  INTENSITY:
+                </span>
+                &nbsp;{intensityLabel}
+              </span>
+            )}
+            {hasVal(benefits) && <span className='pill text-[12px]'>{benefits}</span>}
+          </div>
+        </header>
+
+        <section className='stack text-white/80'>
+          {hasSummaryContent && (
+            <p className={`small text-white/85 ${expanded ? '' : 'line-clamp-3'}`}>
+              {surfaceSummary}
+            </p>
+          )}
+          {showLegal && (
+            <p className='small text-white/60'>
+              <span className='text-white/75'>Legal:</span> {cleanLine(herb.legalstatus)}
+            </p>
+          )}
+          {primaryEffects.length > 0 && (
+            <div className='flex flex-wrap gap-1.5'>
+              {primaryEffects.map(effect => (
+                <span
+                  key={effect}
+                  className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
+                >
+                  {effect}
+                </span>
+              ))}
+            </div>
+          )}
+          {confidence === 'low' && (
+            <p className='small rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-amber-100'>
+              ⚠️ This entry is incomplete. Data is still being verified.
+            </p>
+          )}
+          {tags.length > 0 && (
+            <div className='cluster'>
+              {tags.map((t: string, i: number) => (
+                <span key={i} className={`${chipClassFor(t)} text-[12px]`}>
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+          {showCompounds && (
+            <p className='small text-cyan-200'>Active Compounds: {compounds.join(', ')}</p>
+          )}
+        </section>
+
+        <footer
+          className={`mt-auto flex items-center justify-between text-sm ${compact ? 'pt-1' : ''}`}
+        >
+          {showShowMore && (
+            <button
+              type='button'
+              className='text-white/55 underline decoration-dotted underline-offset-4 transition hover:text-white/85'
+              onClick={() => setExpanded(value => !value)}
+              aria-expanded={expanded}
+            >
+              {expanded ? 'Show less' : 'Show more'}
+            </button>
+          )}
+          <Link
+            to={detailHref}
+            className='text-white/55 underline underline-offset-4 transition hover:text-white/85'
+          >
+            View details
+          </Link>
+        </footer>
+      </Card>
+    </div>
+  )
+
+  if (performanceMode) {
+    return <div className='h-full'>{cardContent}</div>
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 16, scale: 0.98 }}
@@ -105,123 +248,7 @@ function HerbCard({ herb, index = 0, compact = false }: HerbCardProps) {
       whileTap={{ scale: 0.985 }}
       className='h-full'
     >
-      <div
-        onPointerMove={event => {
-          const element = event.currentTarget as HTMLElement
-          const rect = element.getBoundingClientRect()
-          const percentX = ((event.clientX - rect.left) / rect.width) * 100
-          const percentY = ((event.clientY - rect.top) / rect.height) * 100
-          const tiltX = ((percentY - 50) / -12).toFixed(2)
-          const tiltY = ((percentX - 50) / 12).toFixed(2)
-          element.style.setProperty('--rx', `${tiltX}deg`)
-          element.style.setProperty('--ry', `${tiltY}deg`)
-          element.style.setProperty('--glowX', `${percentX.toFixed(2)}%`)
-          element.style.setProperty('--glowY', `${percentY.toFixed(2)}%`)
-        }}
-        onPointerLeave={event => {
-          resetTilt(event.currentTarget as HTMLElement)
-        }}
-        onPointerUp={event => {
-          resetTilt(event.currentTarget as HTMLElement)
-        }}
-        onPointerCancel={event => {
-          resetTilt(event.currentTarget as HTMLElement)
-        }}
-        className='HerbCardTilt group relative h-full transition-transform duration-200'
-      >
-        <div className='HerbCardGlow pointer-events-none absolute inset-0 rounded-[1.25rem] opacity-0 transition-opacity duration-200 group-hover:opacity-100' />
-        <Card
-          className={`relative flex h-full flex-col ${compact ? 'mini-card gap-3' : 'gap-4'} card-pad hover:shadow-glow transition-shadow duration-200`}
-        >
-          <header className='stack relative pr-20'>
-            <span
-              className={`absolute right-0 top-0 rounded-full border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${confidenceBadgeClass(confidence)}`}
-            >
-              {confidence}
-            </span>
-            {compact ? (
-              <h3 className='font-semibold text-lime-300'>{heading}</h3>
-            ) : (
-              <h2 className='h2 text-lime-300'>{heading}</h2>
-            )}
-            {hasVal(subheading) && <p className='small italic text-white/65'>{subheading}</p>}
-            <div className='flex flex-wrap gap-2'>
-              {hasVal(intensityLabel) && (
-                <span className={`pill ${intensityTone} text-[12px]`}>
-                  <span className='text-[11px] font-semibold uppercase tracking-wide text-white/80'>
-                    INTENSITY:
-                  </span>
-                  &nbsp;{intensityLabel}
-                </span>
-              )}
-              {hasVal(benefits) && <span className='pill text-[12px]'>{benefits}</span>}
-            </div>
-          </header>
-
-          <section className='stack text-white/80'>
-            {hasSummaryContent && (
-              <p className={`small text-white/85 ${expanded ? '' : 'line-clamp-3'}`}>
-                {surfaceSummary}
-              </p>
-            )}
-            {showLegal && (
-              <p className='small text-white/60'>
-                <span className='text-white/75'>Legal:</span> {cleanLine(herb.legalstatus)}
-              </p>
-            )}
-            {primaryEffects.length > 0 && (
-              <div className='flex flex-wrap gap-1.5'>
-                {primaryEffects.map(effect => (
-                  <span
-                    key={effect}
-                    className='rounded-full border border-violet-300/35 bg-violet-500/15 px-2.5 py-1 text-[11px] text-violet-100 shadow-[0_0_14px_rgba(139,92,246,0.3)]'
-                  >
-                    {effect}
-                  </span>
-                ))}
-              </div>
-            )}
-            {confidence === 'low' && (
-              <p className='small rounded-lg border border-amber-300/35 bg-amber-500/10 px-2.5 py-1.5 text-amber-100'>
-                ⚠️ This entry is incomplete. Data is still being verified.
-              </p>
-            )}
-            {tags.length > 0 && (
-              <div className='cluster'>
-                {tags.map((t: string, i: number) => (
-                  <span key={i} className={`${chipClassFor(t)} text-[12px]`}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-            )}
-            {showCompounds && (
-              <p className='small text-cyan-200'>Active Compounds: {compounds.join(', ')}</p>
-            )}
-          </section>
-
-          <footer
-            className={`mt-auto flex items-center justify-between text-sm ${compact ? 'pt-1' : ''}`}
-          >
-            {showShowMore && (
-              <button
-                type='button'
-                className='text-white/55 underline decoration-dotted underline-offset-4 transition hover:text-white/85'
-                onClick={() => setExpanded(value => !value)}
-                aria-expanded={expanded}
-              >
-                {expanded ? 'Show less' : 'Show more'}
-              </button>
-            )}
-            <Link
-              to={detailHref}
-              className='text-white/55 underline underline-offset-4 transition hover:text-white/85'
-            >
-              View details
-            </Link>
-          </footer>
-        </Card>
-      </div>
+      {cardContent}
     </motion.div>
   )
 }
