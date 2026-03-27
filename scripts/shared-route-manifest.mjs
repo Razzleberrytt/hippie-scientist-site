@@ -185,11 +185,144 @@ function extractGoalRoutes() {
   return dedupe(matches.map(match => `/herbs-for-${match[1]}`))
 }
 
-function extractCollectionRoutes() {
+function parseSeoCollections() {
   const file = readText('src/data/seoCollections.ts')
   if (!file) return []
-  const matches = [...file.matchAll(/slug:\s*'([^']+)'/g)]
-  return dedupe(matches.map(match => `/collections/${match[1]}`))
+
+  const match = file.match(/export const SEO_COLLECTIONS:\s*SeoCollection\[\]\s*=\s*(\[[\s\S]*?\n\])/)
+  if (!match?.[1]) return []
+
+  try {
+    const parsed = Function(`"use strict"; return (${match[1]});`)()
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    return []
+  }
+}
+
+function toSearchBlob(fields) {
+  return fields
+    .flatMap(field => {
+      if (Array.isArray(field)) return field
+      if (typeof field === 'string') return field.split(/[\n,;|]+/)
+      return []
+    })
+    .map(token => String(token || '').trim().toLowerCase())
+    .filter(Boolean)
+    .join(' ')
+}
+
+function matchesAny(blob, terms = []) {
+  if (!Array.isArray(terms) || terms.length === 0) return true
+  return terms.some(term => blob.includes(String(term || '').toLowerCase()))
+}
+
+function hasStableSlug(value) {
+  return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(value || ''))
+}
+
+function filterHerbByCollection(herb, filters = {}) {
+  const effectBlob = toSearchBlob([herb?.effects, herb?.description])
+  const mechanismBlob = toSearchBlob([herb?.mechanism, herb?.mechanismOfAction])
+  const interactionBlob = toSearchBlob([herb?.interactionTags, herb?.interactions, herb?.tags])
+
+  return (
+    matchesAny(effectBlob, filters.effectsAny) &&
+    matchesAny(mechanismBlob, filters.mechanismAny) &&
+    matchesAny(interactionBlob, filters.interactionTagsAny)
+  )
+}
+
+function filterCompoundByCollection(compound, filters = {}) {
+  const effectBlob = toSearchBlob([compound?.effects, compound?.description])
+  const mechanismBlob = toSearchBlob([compound?.mechanism])
+  const interactionBlob = toSearchBlob([
+    compound?.interactionTags,
+    compound?.interactions,
+    compound?.category,
+  ])
+
+  return (
+    matchesAny(effectBlob, filters.effectsAny) &&
+    matchesAny(mechanismBlob, filters.mechanismAny) &&
+    matchesAny(interactionBlob, filters.interactionTagsAny)
+  )
+}
+
+function filterComboByCollection(combo, filters = {}) {
+  const goals = Array.isArray(filters.comboGoalsAny) ? filters.comboGoalsAny : []
+  const goalMatch = goals.length === 0 || goals.includes(combo?.goal)
+  const nameBlob = String(combo?.name || '').toLowerCase()
+  const descriptionBlob = String(combo?.description || '').toLowerCase()
+  const nameMatch = matchesAny(nameBlob, filters.comboNameAny)
+  const descriptionMatch = matchesAny(descriptionBlob, filters.comboDescriptionAny)
+  return goalMatch && (nameMatch || descriptionMatch)
+}
+
+function auditCollectionRoutes({ herbs, compounds, combos }) {
+  const COLLECTION_QUALITY = {
+    introMinLength: 40,
+    descriptionMinLength: 40,
+    minItemsByType: {
+      herb: 6,
+      compound: 6,
+      combo: 3,
+    },
+  }
+
+  const collections = parseSeoCollections()
+  const slugCounts = new Map()
+  collections.forEach(collection => {
+    const slug = String(collection?.slug || '')
+    slugCounts.set(slug, (slugCounts.get(slug) || 0) + 1)
+  })
+
+  const audits = collections.map(collection => {
+    const slug = String(collection?.slug || '')
+    const route = `/collections/${slug}`
+    const intro = String(collection?.intro || '').trim()
+    const description = String(collection?.description || '').trim()
+    const filters = collection?.filters || {}
+    const itemType = collection?.itemType || 'herb'
+
+    const matchCount =
+      itemType === 'herb'
+        ? herbs.filter(entry => filterHerbByCollection(entry, filters)).length
+        : itemType === 'compound'
+          ? compounds.filter(entry => filterCompoundByCollection(entry, filters)).length
+          : combos.filter(entry => filterComboByCollection(entry, filters)).length
+
+    const reasons = []
+
+    if (!hasStableSlug(slug)) reasons.push('unstable-slug')
+    if ((slugCounts.get(slug) || 0) !== 1) reasons.push('duplicate-slug')
+    if (intro.length < COLLECTION_QUALITY.introMinLength) reasons.push('missing-intro')
+    if (description.length < COLLECTION_QUALITY.descriptionMinLength) reasons.push('missing-description')
+
+    const minItems = COLLECTION_QUALITY.minItemsByType[itemType] || 6
+    if (matchCount < minItems) reasons.push('insufficient-matching-items')
+
+    return {
+      slug,
+      route,
+      itemType,
+      matchCount,
+      minRequired: minItems,
+      hasStableSlug: hasStableSlug(slug),
+      introLength: intro.length,
+      descriptionLength: description.length,
+      approved: reasons.length === 0,
+      reasons,
+    }
+  })
+
+  const approved = audits.filter(audit => audit.approved)
+
+  return {
+    routes: approved.map(audit => audit.route),
+    audits,
+    thresholds: COLLECTION_QUALITY,
+  }
 }
 
 function getBlogEntries() {
@@ -238,7 +371,12 @@ export function getSharedRouteManifest() {
     putSitemapMeta(route, { priority: 0.7, changefreq: 'weekly' })
   })
 
-  const collectionRoutes = extractCollectionRoutes()
+  const collectionQuality = auditCollectionRoutes({
+    herbs: readJson('public/data/herbs.json'),
+    compounds: readJson('public/data/compounds.json'),
+    combos: readJson('public/data/prebuiltCombos.json'),
+  })
+  const collectionRoutes = collectionQuality.routes
   collectionRoutes.forEach(route => {
     putRouteMeta(route, 'Collection Guide | The Hippie Scientist', 'Topic-focused collections for herb and compound exploration.')
     putSitemapMeta(route, { priority: 0.7, changefreq: 'weekly' })
@@ -319,6 +457,7 @@ export function getSharedRouteManifest() {
       coreRoutes: CORE_STATIC_ROUTES.length,
       goalRoutes: goalRoutes.length,
       collectionRoutes: collectionRoutes.length,
+      collectionRoutesBeforeQuality: collectionQuality.audits.length,
       herbRoutes: herbEntries.length,
       compoundRoutes: compoundEntries.length,
       herbAllowlist: herbEntries.map(entry => entry.route).filter(route => learningAllowlist.includes(route)),
@@ -333,7 +472,18 @@ export function getSharedRouteManifest() {
       qualityExclusions: {
         herbs: qualityReport?.herbs?.excludedByReason || {},
         compounds: qualityReport?.compounds?.excludedByReason || {},
+        collections: collectionQuality.audits
+          .filter(audit => !audit.approved)
+          .reduce((acc, audit) => {
+            audit.reasons.forEach(reason => {
+              acc[reason] = (acc[reason] || 0) + 1
+            })
+            return acc
+          }, {}),
       },
+      indexableCollections: collectionQuality.audits.filter(audit => audit.approved),
+      excludedCollections: collectionQuality.audits.filter(audit => !audit.approved),
+      collectionQualityThresholds: collectionQuality.thresholds,
     },
   }
 }

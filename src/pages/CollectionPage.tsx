@@ -5,94 +5,25 @@ import { Button } from '@/components/ui/Button'
 import {
   SEO_COLLECTIONS,
   getCollectionBySlug,
-  type SeoCollection,
-  type SeoCollectionFilters,
+  type SeoCollection
 } from '@/data/seoCollections'
 import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 import { trackCollectionEvent } from '@/lib/collectionTracking'
-import { splitClean } from '@/lib/sanitize'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import { type ComboGoal, type PrebuiltCombo } from '@/types/combos'
 import { normalizeLookupToken } from '@/utils/normalizeToken'
+import {
+  auditCollectionForIndexing,
+  filterComboByCollection,
+  filterCompoundByCollection,
+  filterHerbByCollection,
+} from '@/lib/collectionQuality'
 
 type CollectionHerb = ReturnType<typeof useHerbData>[number]
 type CollectionCompound = ReturnType<typeof useCompoundData>[number]
 type CollectionEntity = CollectionHerb | CollectionCompound
-
-function toSearchBlob(fields: unknown[]): string {
-  return fields
-    .flatMap(field => splitClean(field))
-    .map(token => token.toLowerCase())
-    .join(' ')
-}
-
-function matchesAny(blob: string, terms?: string[]) {
-  if (!terms?.length) return true
-  return terms.some(term => blob.includes(term.toLowerCase()))
-}
-
-function confidenceTone(level?: ConfidenceLevel) {
-  if (level === 'high')
-    return {
-      label: 'High confidence',
-      className: 'border-emerald-300/45 bg-emerald-500/12 text-emerald-100',
-      note: 'Structured fields are more complete for this entry.',
-    }
-  if (level === 'medium')
-    return {
-      label: 'Medium confidence',
-      className: 'border-amber-300/40 bg-amber-500/12 text-amber-100',
-      note: 'Some key fields are present, but context is still partial.',
-    }
-  return {
-    label: 'Low confidence',
-    className: 'border-rose-300/45 bg-rose-500/12 text-rose-100',
-    note: 'Use extra caution: this entry has limited structured detail.',
-  }
-}
-
-function filterHerbByCollection(
-  herb: Record<string, unknown>,
-  filters: SeoCollectionFilters
-): boolean {
-  const effectBlob = toSearchBlob([herb.effects, herb.description])
-  const mechanismBlob = toSearchBlob([herb.mechanism, herb.mechanismOfAction])
-  const interactionBlob = toSearchBlob([herb.interactionTags, herb.interactions, herb.tags])
-
-  const effectsMatch = matchesAny(effectBlob, filters.effectsAny)
-  const mechanismMatch = matchesAny(mechanismBlob, filters.mechanismAny)
-  const interactionMatch = matchesAny(interactionBlob, filters.interactionTagsAny)
-
-  return effectsMatch && mechanismMatch && interactionMatch
-}
-
-function filterCompoundByCollection(
-  compound: Record<string, unknown>,
-  filters: SeoCollectionFilters
-): boolean {
-  const effectBlob = toSearchBlob([compound.effects, compound.description])
-  const mechanismBlob = toSearchBlob([compound.mechanism])
-  const interactionBlob = toSearchBlob([
-    compound.interactionTags,
-    compound.interactions,
-    compound.category,
-  ])
-
-  const effectsMatch = matchesAny(effectBlob, filters.effectsAny)
-  const mechanismMatch = matchesAny(mechanismBlob, filters.mechanismAny)
-  const interactionMatch = matchesAny(interactionBlob, filters.interactionTagsAny)
-
-  return effectsMatch && mechanismMatch && interactionMatch
-}
-
-function filterComboByCollection(combo: PrebuiltCombo, filters: SeoCollectionFilters): boolean {
-  const goalMatch = !filters.comboGoalsAny?.length || filters.comboGoalsAny.includes(combo.goal)
-  const nameMatch = matchesAny(combo.name.toLowerCase(), filters.comboNameAny)
-  const descriptionMatch = matchesAny(combo.description.toLowerCase(), filters.comboDescriptionAny)
-  return goalMatch && (nameMatch || descriptionMatch)
-}
 
 function inferGoalFromCollection(collection: SeoCollection): ComboGoal | null {
   const source = `${collection.slug} ${collection.title}`.toLowerCase()
@@ -268,6 +199,10 @@ export default function CollectionPage() {
   }, [collection, combos])
 
   const itemCount = herbMatches.length + compoundMatches.length + comboMatches.length
+  const collectionQuality = useMemo(() => {
+    if (!collection) return { approved: false, reasons: ['missing-collection'], minRequired: 0 }
+    return auditCollectionForIndexing(collection, itemCount)
+  }, [collection, itemCount])
 
   const topItems = useMemo(() => {
     if (collection?.itemType === 'herb') return herbMatches.slice(0, 3)
@@ -503,6 +438,7 @@ export default function CollectionPage() {
           description: pageDescription,
           image: '/og/default.png',
         }}
+        noindex={!collectionQuality.approved}
       />
 
       <header className='ds-card-lg'>
@@ -511,6 +447,12 @@ export default function CollectionPage() {
         <p className='mt-3 text-xs text-white/65'>
           {itemCount} matching entries in this collection.
         </p>
+        {!collectionQuality.approved ? (
+          <p className='mt-2 text-xs text-amber-200/90'>
+            This collection is available for browsing but excluded from indexing until it meets
+            quality thresholds ({collectionQuality.reasons.join(', ')}).
+          </p>
+        ) : null}
 
         <div className='border-white/12 mt-4 rounded-xl border bg-black/20 p-3'>
           <p className='text-xs font-semibold uppercase tracking-[0.14em] text-cyan-200'>
