@@ -1,0 +1,1 @@
+const r={"‘":"'","’":"'","‛":"'","′":"'","“":'"',"”":'"',"„":'"',"″":'"',"`":"'"};function e(n){return n==null?"":String(n).split("").map(t=>r[t]??t).join("").toLowerCase().replace(/\s+/g," ").trim()}export{e as n};

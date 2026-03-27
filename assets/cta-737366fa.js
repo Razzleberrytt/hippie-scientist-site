@@ -1,0 +1,1 @@
+const e={primary:{explore:"Explore",learn:"Learn",viewDetails:"View details"},secondary:{save:"Save",compare:"Compare",download:"Download"},conversion:{getGuide:"Get guide",saveBlend:"Save blend"}};export{e as C};

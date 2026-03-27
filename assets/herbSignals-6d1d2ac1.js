@@ -1,0 +1,1 @@
+import{a as i}from"./asStringArray-e2a3e246.js";import{i as o}from"./isNonEmptyString-6f968cfd.js";function s(r){return Array.isArray(r)?i(r):o(r)?r.split(/[;,|\n]/).map(t=>t.trim()).filter(Boolean):[]}function f(r){const t=r.effects;return s(t).map(n=>n.toLowerCase())}function m(r){return String(r.common??r.name??r.scientific??r.id??"Unknown herb")}export{f as g,m as h};

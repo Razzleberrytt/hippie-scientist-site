@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /analytics
+Disallow: /data-fix
+Disallow: /graph
+Disallow: /theme
+Disallow: /preview
+Disallow: /drafts
+Disallow: /tmp
+Disallow: /temp
+Disallow: /test
+Disallow: /dev
+Disallow: /herb-index
+Sitemap: https://thehippiescientist.net/sitemap.xml
+Sitemap: https://thehippiescientist.net/rss.xml
+Sitemap: https://thehippiescientist.net/feed.xml

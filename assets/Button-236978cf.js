@@ -1,0 +1,1 @@
+import{A as a,B as r}from"./index-41ff7edf.js";const e={default:"btn",primary:"btn btn-primary",secondary:"btn btn-secondary",ghost:"btn btn-ghost"},i=r.button;function m({children:t,variant:n="default",className:o="",...s}){return a.jsx(i,{whileTap:{scale:.985},whileHover:{y:-1},className:`${e[n]} ${o}`.trim(),...s,children:t})}export{m as B};
