@@ -20,6 +20,7 @@ import {
   type QualityResult,
 } from '@/lib/data-quality'
 import Collapse from '@/components/ui/Collapse'
+import GuideDownloadCard from '@/components/GuideDownloadCard'
 import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo'
 import type { Herb } from '@/types'
@@ -281,6 +282,24 @@ export default function Home() {
             </p>
           </div>
         </div>
+      </section>
+
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+        <GuideDownloadCard
+          eyebrow='Safety download'
+          title='Unknown Compound Survival Guide'
+          description='Get a practical framework for unknown or uncertain compounds, including a decision tree and stop/go checks.'
+          buttonText='Download the Free Guide'
+          fileUrl='/downloads/unknown-compound-survival-guide.pdf'
+          footer={
+            <Link
+              to='/guides/unknown-compound-survival-guide'
+              className='text-emerald-200 hover:text-emerald-100'
+            >
+              See full guide overview →
+            </Link>
+          }
+        />
       </section>
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
