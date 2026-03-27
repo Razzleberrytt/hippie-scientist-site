@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   deploy:
@@ -30,9 +30,6 @@ jobs:
       - name: Verify redirects
         run: npm run verify:redirects
 
-      - name: Publish to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
+      - name: Trigger Netlify deploy hook
+        if: ${{ secrets.NETLIFY_DEPLOY_HOOK_URL != '' }}
+        run: curl -X POST "${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}"
