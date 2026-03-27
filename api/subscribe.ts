@@ -1,3 +1,5 @@
+// Legacy/non-canonical endpoint.
+// Canonical production form flow is client-side POST to VITE_FORM_ENDPOINT on Netlify static hosting.
 type ApiRequest = {
   method?: string
   body?: unknown

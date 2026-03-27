@@ -10,7 +10,7 @@ import {
 } from '@/data/seoCollections'
 import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
-import { submitLeadCapture } from '@/lib/leadCapture'
+import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 import { trackCollectionEvent } from '@/lib/collectionTracking'
 import { splitClean } from '@/lib/sanitize'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
@@ -196,9 +196,34 @@ export default function CollectionPage() {
   const [showLeadCapture, setShowLeadCapture] = useState(false)
   const [leadCaptured, setLeadCaptured] = useState(false)
   const [leadEmail, setLeadEmail] = useState('')
-  const [leadStatus, setLeadStatus] = useState<'idle' | 'loading' | 'error' | 'success'>('idle')
-  const [leadMessage, setLeadMessage] = useState('')
+  const [leadHoneypot, setLeadHoneypot] = useState('')
   const [shareToast, setShareToast] = useState('')
+
+  const {
+    status: leadStatus,
+    message: leadMessage,
+    submit: submitLead,
+    clearFeedback: clearLeadFeedback,
+  } = useSubmissionForm({
+    successMessage: 'Thanks — you will get practical safety and stack-tool updates.',
+    buildPayload: (fields: { email: string }) => ({
+      formType: 'lead-capture',
+      email: fields.email,
+      source: 'interaction-checker',
+      context: 'collection-page',
+      pagePath: `/collections/${slug}`,
+    }),
+    onSuccess: () => {
+      setLeadCaptured(true)
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem(`hs_collection_lead_captured:${slug}`, '1')
+      }
+      trackCollectionEvent('collection_lead_capture_submit', {
+        slug: collection?.slug || slug,
+        itemType: collection?.itemType || 'herb',
+      })
+    },
+  })
 
   useEffect(() => {
     let alive = true
@@ -407,32 +432,11 @@ export default function CollectionPage() {
 
   const submitCollectionLead = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setLeadStatus('loading')
-    setLeadMessage('')
-
-    const result = await submitLeadCapture({
-      email: leadEmail,
-      source: 'interaction-checker',
-      context: 'collection-page',
-    })
-
-    if (!result.ok) {
-      setLeadStatus('error')
-      setLeadMessage(result.message || 'Please check your email and try again.')
-      return
+    const didSubmit = await submitLead({ email: leadEmail }, { honeypot: leadHoneypot })
+    if (didSubmit) {
+      setLeadEmail('')
+      setLeadHoneypot('')
     }
-
-    setLeadStatus('success')
-    setLeadCaptured(true)
-    setLeadMessage('Thanks — you will get practical safety and stack-tool updates.')
-    setLeadEmail('')
-    if (typeof window !== 'undefined') {
-      window.localStorage.setItem(`hs_collection_lead_captured:${slug}`, '1')
-    }
-    trackCollectionEvent('collection_lead_capture_submit', {
-      slug: collection.slug,
-      itemType: collection.itemType,
-    })
   }
 
   const getShareUrl = () => {
@@ -833,30 +837,51 @@ export default function CollectionPage() {
             </p>
           ) : (
             <form onSubmit={submitCollectionLead} className='mt-3 flex flex-col gap-2 sm:flex-row'>
+              <label htmlFor='collection-lead-email' className='sr-only'>
+                Email address
+              </label>
               <input
+                id='collection-lead-email'
                 type='email'
                 inputMode='email'
                 autoComplete='email'
                 value={leadEmail}
-                onChange={event => setLeadEmail(event.target.value)}
+                onChange={event => {
+                  setLeadEmail(event.target.value)
+                  clearLeadFeedback()
+                }}
                 placeholder='you@example.com'
                 required
+                aria-describedby='collection-lead-status'
                 className='w-full rounded-lg border border-white/20 bg-white/[0.05] px-3 py-2 text-sm text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-cyan-200/45'
+              />
+              <input
+                type='text'
+                tabIndex={-1}
+                autoComplete='off'
+                value={leadHoneypot}
+                onChange={event => setLeadHoneypot(event.target.value)}
+                className='sr-only'
+                aria-hidden='true'
               />
               <Button
                 type='submit'
                 variant='primary'
-                disabled={leadStatus === 'loading'}
+                disabled={leadStatus === 'pending'}
                 className='whitespace-nowrap text-xs disabled:opacity-70'
               >
-                {leadStatus === 'loading' ? 'Saving…' : 'Keep me updated'}
+                {leadStatus === 'pending' ? 'Saving…' : 'Keep me updated'}
               </Button>
             </form>
           )}
-          {leadStatus === 'error' && <p className='mt-2 text-xs text-rose-200'>{leadMessage}</p>}
-          {leadStatus === 'success' && (
-            <p className='mt-2 text-xs text-emerald-200'>{leadMessage}</p>
-          )}
+          <p
+            id='collection-lead-status'
+            className={`mt-2 text-xs ${leadStatus === 'error' ? 'text-rose-200' : 'text-emerald-200'}`}
+            role={leadStatus === 'error' ? 'alert' : 'status'}
+            aria-live={leadStatus === 'error' ? 'assertive' : 'polite'}
+          >
+            {leadMessage}
+          </p>
         </section>
       )}
 
