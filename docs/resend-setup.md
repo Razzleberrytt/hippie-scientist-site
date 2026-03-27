@@ -15,9 +15,21 @@ If `VITE_FORM_ENDPOINT` is not set, forms show an error and do not fake a succes
 Client submissions include:
 
 - `formType` (`newsletter`, `contact`, `lead-capture`)
-- `email`
+- `email` (normalized to lowercase and trimmed)
 - optional metadata fields (`name`, `subject`, `message`, `source`, `context`, `pagePath`)
 - `submittedAt` timestamp
+
+## Local testing expectations
+
+Use any request inspector endpoint (webhook.site, Beeceptor, RequestBin, etc.) as
+`VITE_FORM_ENDPOINT` during local development.
+
+Expected behavior:
+
+- HTTP `2xx`: success state is shown.
+- HTTP non-`2xx` or network failure: error state is shown.
+- Honeypot filled: error state is shown and request is blocked.
+- Missing `VITE_FORM_ENDPOINT`: error state is shown (no optimistic success).
 
 ## Legacy endpoint note
 

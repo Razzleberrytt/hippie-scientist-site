@@ -102,6 +102,10 @@ Legacy/secondary notes:
 ## Form submissions (newsletter/contact/lead capture)
 
 All user-facing forms submit to a single JSON endpoint via `VITE_FORM_ENDPOINT`.
+The shared submission layer lives in:
+
+- `src/lib/formSubmission.ts` (endpoint resolution, email normalization, POST request)
+- `src/hooks/useSubmissionForm.ts` (pending/success/error state machine for UI forms)
 
 ### Required environment variable
 
@@ -143,3 +147,4 @@ Then submit each form and verify:
 - HTTP 2xx => in-app success state
 - Non-2xx/network failure => in-app error state
 - Honeypot field populated => blocked submission/error state
+- Missing `VITE_FORM_ENDPOINT` => clear in-app error state (no fake success)
