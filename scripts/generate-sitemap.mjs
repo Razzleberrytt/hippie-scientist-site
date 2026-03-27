@@ -102,69 +102,37 @@ function getIndexableEntityRoutes(entityType) {
   const dirName = entityType === 'herb' ? 'herbs' : 'compounds'
   const dataFile = entityType === 'herb' ? 'public/data/herbs.json' : 'public/data/compounds.json'
   const records = readJson(dataFile)
-  const fromData = []
+  const today = new Date().toISOString().slice(0, 10)
 
-  for (const row of records) {
-    const explicitIndexable = row?.indexable
-    const explicitNoindex = row?.noindex
-    const explicitDraft = row?.draft
-    const explicitExcluded = row?.excluded
-    if (explicitIndexable === false || explicitNoindex === true || explicitDraft === true || explicitExcluded === true) {
-      continue
-    }
+  return dedupeByPath(
+    records
+      .map((row) => {
+        const fallbackName = entityType === 'herb' ? row?.commonName || row?.name : row?.name
+        const slug = toSlug(row?.slug || fallbackName)
+        if (!slug) return null
 
-    const slug = toSlug(row?.slug || row?.id || row?.name || row?.common || row?.latin)
-    if (!slug) continue
-
-    const route = `/${dirName}/${slug}`
-    if (!routeExists(route)) continue
-
-    fromData.push({
-      path: route,
-      lastmod: normalizeDate(row?.lastUpdated || row?.updatedAt || row?.date),
-    })
-  }
-
-  if (fromData.length > 0) return dedupeByPath(fromData)
-
-  const fallbackDir = buildExists(dirName) ? path.join(outDir, dirName) : path.resolve(__dirname, '..', 'public', dirName)
-  if (!fs.existsSync(fallbackDir)) return []
-
-  return fs
-    .readdirSync(fallbackDir, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => {
-      const indexPath = path.join(fallbackDir, entry.name, 'index.html')
-      return {
-        path: `/${dirName}/${entry.name}`,
-        lastmod: statDate(indexPath),
-      }
-    })
+        return {
+          path: `/${dirName}/${slug}`,
+          lastmod: today,
+        }
+      })
+      .filter(Boolean),
+  )
 }
 
 function getIndexableBlogRoutes() {
-  const posts = readJson('public/blogdata/index.json')
+  const posts = readJson('src/data/blog/posts.json')
   const allowed = []
 
   for (const post of posts) {
     const slug = String(post?.slug || '').replace(/^\/+|\/+$/g, '')
     if (!slug) continue
 
-    const explicitIndexable = post?.indexable
-    const explicitNoindex = post?.noindex
-    const explicitDraft = post?.draft
-    const explicitExcluded = post?.excluded
-
-    if (explicitIndexable === false || explicitNoindex === true || explicitDraft === true || explicitExcluded === true) {
-      continue
-    }
-
     const route = `/blog/${slug}`
-    if (!routeExists(route)) continue
 
     allowed.push({
       path: route,
-      lastmod: normalizeDate(post?.lastUpdated || post?.updatedAt || post?.date),
+      lastmod: normalizeDate(post?.date),
     })
   }
 
@@ -189,15 +157,13 @@ function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}
   const normalized = normalizePathname(loc)
   if (!normalized) return null
   const tags = [
-    `<loc>${toPublicUrl(normalized)}</loc>`,
-    lastmod ? `<lastmod>${lastmod}</lastmod>` : null,
-    `<changefreq>${changefreq}</changefreq>`,
-    `<priority>${priority.toFixed(1)}</priority>`,
-  ]
-    .filter(Boolean)
-    .join('')
+    `    <loc>${toPublicUrl(normalized)}</loc>`,
+    lastmod ? `    <lastmod>${lastmod}</lastmod>` : null,
+    `    <changefreq>${changefreq}</changefreq>`,
+    `    <priority>${priority.toFixed(1)}</priority>`,
+  ].filter(Boolean)
 
-  return `<url>${tags}</url>`
+  return ['  <url>', ...tags, '  </url>'].join('\n')
 }
 
 function buildSitemapXml() {
@@ -211,9 +177,9 @@ function buildSitemapXml() {
     })
   }
 
-  entries.push(...getIndexableEntityRoutes('herb').map((row) => ({ ...row, priority: 0.7, changefreq: 'weekly' })))
-  entries.push(...getIndexableEntityRoutes('compound').map((row) => ({ ...row, priority: 0.7, changefreq: 'weekly' })))
-  entries.push(...getIndexableBlogRoutes().map((row) => ({ ...row, priority: 0.7, changefreq: 'weekly' })))
+  entries.push(...getIndexableEntityRoutes('herb').map((row) => ({ ...row, priority: 0.7, changefreq: 'monthly' })))
+  entries.push(...getIndexableEntityRoutes('compound').map((row) => ({ ...row, priority: 0.7, changefreq: 'monthly' })))
+  entries.push(...getIndexableBlogRoutes().map((row) => ({ ...row, priority: 0.6, changefreq: 'weekly' })))
 
   const urlEntries = dedupeByPath(entries)
     .map((entry) => toUrlEntry(entry.path, entry))
