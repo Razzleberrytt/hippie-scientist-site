@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { motion, useReducedMotion } from '@/lib/motion'
+import Meta from '@/components/Meta'
 
 import {
   cleanBlogExcerpt,
@@ -9,6 +10,7 @@ import {
   sortPostsByDateDesc,
 } from '@/lib/blog'
 import { CTA } from '@/lib/cta'
+import { SITE_URL } from '@/lib/seo'
 
 type PostIndex = {
   author?: string | null
@@ -103,9 +105,36 @@ export default function BlogList() {
   const heading =
     pagination.page > 1 ? `Research Notebook — Page ${pagination.page}` : 'Research Notebook'
   const series = buildSeriesBuckets(posts)
+  const isPrimaryPage = pagination.page === 1
+  const listJsonLd = isPrimaryPage
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'The Hippie Scientist Blog',
+        url: `${SITE_URL}/blog`,
+        itemListElement: pagination.items.slice(0, 10).map((post, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          url: `${SITE_URL}/blog/${post.slug}`,
+          name: post.title,
+        })),
+      }
+    : undefined
 
   return (
     <div className='container-page space-y-6 py-7 sm:py-8'>
+      <Meta
+        title={
+          isPrimaryPage
+            ? 'Research Notebook | The Hippie Scientist'
+            : `Research Notebook — Page ${pagination.page} | The Hippie Scientist`
+        }
+        description='Mechanism-focused research notes with practical interpretation, safety framing, and uncertainty markers.'
+        path={isPrimaryPage ? '/blog' : '/blog'}
+        noindex={!isPrimaryPage}
+        pageType='website'
+        jsonLd={listJsonLd}
+      />
       <header className='ds-card-lg space-y-3'>
         <h1 className='text-3xl font-semibold tracking-tight text-white sm:text-4xl'>{heading}</h1>
         <p className='max-w-2xl text-white/85'>

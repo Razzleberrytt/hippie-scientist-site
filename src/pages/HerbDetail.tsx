@@ -1,6 +1,6 @@
 import { type ReactNode, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useHerbDataState } from '@/lib/herb-data'
@@ -222,11 +222,11 @@ export default function HerbDetail() {
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
-      <Helmet>
-        <title>{`${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`}</title>
-        <meta name='description' content={herbMetaDescription} />
-        <link rel='canonical' href={`https://thehippiescientist.net/herbs/${herb.slug}`} />
-      </Helmet>
+      <Meta
+        title={`${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`}
+        description={herbMetaDescription}
+        path={`/herbs/${herb.slug}`}
+      />
       <Link to='/herbs' className='btn-secondary inline-flex items-center'>
         ← Back to herbs
       </Link>

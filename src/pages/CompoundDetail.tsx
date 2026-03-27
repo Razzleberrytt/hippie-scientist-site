@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import Meta from '@/components/Meta'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { useHerbDataState } from '@/lib/herb-data'
@@ -105,11 +105,11 @@ export default function CompoundDetail() {
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
-      <Helmet>
-        <title>{`${compound.name} — Pharmacology & Effects | The Hippie Scientist`}</title>
-        <meta name='description' content={compoundMetaDescription} />
-        <link rel='canonical' href={`https://thehippiescientist.net/compounds/${compound.slug}`} />
-      </Helmet>
+      <Meta
+        title={`${compound.name} — Pharmacology & Effects | The Hippie Scientist`}
+        description={compoundMetaDescription}
+        path={`/compounds/${compound.slug}`}
+      />
       <Link to='/compounds' className='btn-secondary inline-flex items-center'>
         ← Back to compounds
       </Link>

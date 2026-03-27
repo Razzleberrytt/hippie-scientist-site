@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import Meta from '@/components/Meta'
 import {
   getConversionRates,
   getEventCountsByType,
@@ -89,6 +90,12 @@ export default function AnalyticsPage() {
 
   return (
     <main className='container-page py-8'>
+      <Meta
+        title='Analytics Dashboard | The Hippie Scientist'
+        description='Internal analytics dashboard.'
+        path='/analytics'
+        noindex
+      />
       <header className='ds-card-lg'>
         <h1 className='text-3xl font-semibold text-white'>Collection Analytics (Local)</h1>
         <p className='mt-3 max-w-2xl text-sm leading-7 text-white/75'>

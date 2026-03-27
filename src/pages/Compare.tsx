@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
+import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 import type { Herb } from '@/types'
 
@@ -36,6 +37,12 @@ export default function Compare() {
 
   return (
     <main className='mx-auto max-w-6xl px-4 py-8'>
+      <Meta
+        title='Compare Herbs | The Hippie Scientist'
+        description='Compare herb data side-by-side.'
+        path='/compare'
+        noindex
+      />
       <div className='flex flex-wrap items-baseline justify-between gap-4'>
         <h1 className='text-2xl font-bold'>Compare Herbs</h1>
         <Link className='underline' to='/herbs'>

@@ -26,6 +26,7 @@ import ConsentBanner from './components/ConsentBanner'
 import AmbientCursor from './components/AmbientCursor'
 import SiteLayout from '@/components/SiteLayout'
 import NavBar from './components/NavBar'
+import Meta from '@/components/Meta'
 const BlogList = lazy(() => import('./pages/BlogList'))
 const BlogPost = lazy(() => import('./pages/BlogPost'))
 const GraphPage = lazy(() => import('./pages/Graph'))
@@ -119,6 +120,12 @@ export default function App() {
 function AnalyticsNotAvailable() {
   return (
     <section className='container-page py-16 text-center'>
+      <Meta
+        title='Analytics Not Available | The Hippie Scientist'
+        description='This internal analytics page is disabled for public visitors.'
+        path='/analytics'
+        noindex
+      />
       <div className='mx-auto max-w-lg rounded-2xl border border-white/15 bg-white/5 p-6 text-white/85'>
         <h1 className='text-2xl font-semibold text-white'>Analytics not available</h1>
         <p className='mt-3 text-sm text-white/70'>

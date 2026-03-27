@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import { useLocation } from 'react-router-dom'
 import { buildMeta } from '../lib/seo'
 import type { PageType } from '../lib/seo'
 
@@ -21,26 +22,23 @@ type MetaProps = {
   pageType?: PageType
   noindex?: boolean
   og?: OpenGraphOverrides
+  canonicalQueryAllowlist?: string[]
 }
 
 export default function Meta({
   title,
   description,
-  path = '/',
-  image = '/og/default.png',
+  path,
+  image = '/icon-512x512.png',
   jsonLd,
   pageType = 'website',
   noindex = false,
   og,
+  canonicalQueryAllowlist = [],
 }: MetaProps) {
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  const slug = normalizedPath.split('/').filter(Boolean).pop()
-  const inferredOg =
-    normalizedPath.startsWith('/blog/') && slug
-      ? `/og/blog/${slug}.png`
-      : normalizedPath.startsWith('/herb/') && slug
-        ? `/og/herb/${slug}.png`
-        : '/og/default.png'
+  const location = useLocation()
+  const resolvedPath = path ?? `${location.pathname}${location.search}`
+  const normalizedPath = resolvedPath.startsWith('/') ? resolvedPath : `/${resolvedPath}`
 
   const extractJsonLdImage = (value: unknown): string | undefined => {
     if (!value) return undefined
@@ -66,16 +64,22 @@ export default function Meta({
   }
 
   const jsonLdImage = extractJsonLdImage(jsonLd)
-  const providedImage = image && image !== '/og/default.png' ? image : undefined
+  const providedImage = image && image !== '/icon-512x512.png' ? image : undefined
   const overrideImage = og?.image
-  const preferredImage = overrideImage ?? jsonLdImage ?? providedImage ?? inferredOg
+  const preferredImage = overrideImage ?? jsonLdImage ?? providedImage ?? '/icon-512x512.png'
 
-  const meta = buildMeta({ title, description, path, image: preferredImage })
+  const meta = buildMeta({
+    title,
+    description,
+    path: resolvedPath,
+    image: preferredImage,
+    keepQueryParams: canonicalQueryAllowlist,
+  })
   const shouldNoIndex = noindex || normalizedPath.startsWith('/search')
   const ogTitle = og?.title ?? meta.title
   const ogDescription = og?.description ?? meta.description
   const ogImage = meta.image
-  const ogUrl = og?.url ?? meta.url
+  const ogUrl = og?.url ? buildMeta({ title, description, path: og.url }).url : meta.url
   const ogType = og?.type ?? pageType
   const articlePublishedTime = og?.articlePublishedTime
     ? new Date(og.articlePublishedTime).toISOString()
