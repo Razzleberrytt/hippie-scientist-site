@@ -45,19 +45,29 @@ const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'))
 import { useTrippy } from '@/lib/trippy'
 import { useGrowthTracking } from '@/lib/growth'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
+import { getAmbientRoutePolicy, useAmbientEnvironmentGate } from '@/lib/ambientEffects'
 // Import other pages as needed
 
 export default function App() {
   useGA()
   useGrowthTracking()
-  const { level } = useTrippy()
+  const location = useLocation()
+  const { level, enabled: trippyEnabled } = useTrippy()
+  const { disableAmbientEffects } = useAmbientEnvironmentGate()
+  const ambientRoutePolicy = getAmbientRoutePolicy(location.pathname)
+
+  const enableAmbientBackground =
+    trippyEnabled && level !== 'off' && ambientRoutePolicy.background && !disableAmbientEffects
+  const enableAmbientCursor =
+    trippyEnabled && level !== 'off' && ambientRoutePolicy.cursor && !disableAmbientEffects
+
   return (
     <div id='app-root'>
-      <SiteLayout>
+      <SiteLayout ambientEnabled={enableAmbientBackground}>
         <NavBar />
         <div className='relative z-10 flex-1'>
           <RedirectHandler />
-          {level !== 'off' && <AmbientCursor />}
+          {enableAmbientCursor && <AmbientCursor />}
           <Suspense fallback={<div className='container-page py-8 text-white/75'>Loading…</div>}>
             <Routes>
               <Route element={<RootLayout />}>

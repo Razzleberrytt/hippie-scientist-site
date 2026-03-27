@@ -118,6 +118,8 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
   }, [])
 
   useEffect(() => {
+    if (!enabled) return
+
     const onMove = (event: PointerEvent) => {
       const { innerWidth, innerHeight } = window
       pointer.current.x = Math.max(0, Math.min(1, event.clientX / innerWidth))
@@ -136,7 +138,7 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
       window.removeEventListener('pointermove', onMove)
       window.removeEventListener('scroll', onScroll)
     }
-  }, [])
+  }, [enabled])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -196,7 +198,7 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
     return (
       <div
         aria-hidden
-        className='motion-safe:animate-breathe fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black'
+        className='fixed inset-0 -z-20 bg-gradient-to-br from-indigo-950 via-slate-950 to-black'
       />
     )
   }
