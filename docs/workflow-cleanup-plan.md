@@ -241,6 +241,17 @@ To keep maintenance low while preserving core automation:
   2. `daily-blog.yml`
   3. `data-audit.yml` (optional)
 
+## 2026-03-27 update: daily publish + deploy hook follow-up
+
+- Re-validated `scripts/generate-daily-post.mjs` frontmatter generation: `draft: false` is explicitly set at source for generated posts.
+- Updated `.github/workflows/daily-blog.yml` to add a post-push Netlify trigger step:
+  - Step name: `Trigger Netlify deploy`
+  - Runs only on successful prior steps (`if: success()`).
+  - Calls `curl -s -X POST "$NETLIFY_DEPLOY_HOOK_URL"` when `NETLIFY_DEPLOY_HOOK_URL` is set.
+  - Gracefully exits without failure when the deploy hook secret is unset.
+- Confirmed daily workflow `git add` scope still includes `content/blog` and remains unchanged:
+  - `git add content/blog public/blog public/blogdata public/data/herbs.json public/data/compounds.json public/sitemap.xml`
+
 ## 2026-03-25 update: production deploy target mismatch and SPA routing fix
 
 - Confirmed live production for `thehippiescientist.net` is served by **Vercel** (response headers include `x-vercel-id`), not GitHub Pages.
