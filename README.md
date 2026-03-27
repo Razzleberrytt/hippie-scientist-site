@@ -95,3 +95,48 @@ This repository is a **source repo**.
 - Do **not** commit or upload root-level build artifacts (for example top-level `assets/`, `sitemap.xml`, `feed.xml`, `robots.txt`, route HTML folders).
 
 If you need a deploy-only bundle, upload only the contents of `dist/` after a fresh build.
+
+## Form submissions (newsletter/contact/lead capture)
+
+All user-facing forms submit to a single JSON endpoint via `VITE_FORM_ENDPOINT`.
+
+### Required environment variable
+
+- `VITE_FORM_ENDPOINT` (required for real submissions)
+
+Without this variable, forms will show an error and will **not** report a successful submission.
+
+### Request payload shape
+
+Each form sends `POST` JSON with:
+
+```json
+{
+  "formType": "newsletter | contact | lead-capture",
+  "email": "normalized-lowercase@example.com",
+  "name": "optional",
+  "firstName": "optional",
+  "subject": "optional",
+  "message": "optional",
+  "source": "component/page identifier",
+  "context": "optional context string",
+  "pagePath": "/current-route",
+  "submittedAt": "ISO-8601 timestamp"
+}
+```
+
+### Local testing without a real endpoint
+
+You can point `VITE_FORM_ENDPOINT` at a request bin / webhook inspector (for example, Beeceptor, RequestBin, or webhook.site).
+
+Example:
+
+```bash
+VITE_FORM_ENDPOINT="https://<your-test-endpoint>" npm run dev
+```
+
+Then submit each form and verify:
+
+- HTTP 2xx => in-app success state
+- Non-2xx/network failure => in-app error state
+- Honeypot field populated => blocked submission/error state
