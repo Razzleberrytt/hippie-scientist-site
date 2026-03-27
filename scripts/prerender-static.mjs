@@ -179,7 +179,7 @@ function renderRouteContent(route) {
           <li><a href="/blog">Research Notebook</a></li>
           <li><a href="/herbs">Herb database</a></li>
           <li><a href="/compounds">Compound database</a></li>
-          <li><a href="/collections/sleep-support">SEO collections</a></li>
+          <li><a href="/collections/herbs-for-sleep">SEO collections</a></li>
         </ul>
       </section>
     </main>`

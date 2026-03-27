@@ -72,7 +72,7 @@ const samples = []
 const blogDetail = prerenderRoutes.find(route => route.startsWith('/blog/') && !route.includes('/page/'))
 const herbDetail = prerenderRoutes.find(route => route.startsWith('/herbs/'))
 const compoundDetail = prerenderRoutes.find(route => route.startsWith('/compounds/'))
-const collectionDetail = prerenderRoutes.find(route => route.startsWith('/collections/'))
+const collectionDetail = metadata.indexableCollections?.[0]?.route || prerenderRoutes.find(route => route.startsWith('/collections/'))
 for (const route of ['/', '/blog', blogDetail, '/herbs', herbDetail, '/compounds', compoundDetail, collectionDetail]) {
   if (route && !samples.includes(route)) samples.push(route)
 }
