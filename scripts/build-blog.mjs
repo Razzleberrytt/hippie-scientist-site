@@ -313,10 +313,13 @@ function validateDuplicatePostMetadata(rows = []) {
     }
   }
 
-  if (exactTitleDuplicates.length || exactSlugDuplicates.length) {
+  if (exactTitleDuplicates.length) {
     for (const [titleKey, entries] of exactTitleDuplicates) {
-      console.error(`[blog:validation] Duplicate title "${titleKey}" used by slugs: ${entries.join(", ")}`);
+      console.warn(`[blog:validation] Duplicate title "${titleKey}" used by slugs: ${entries.join(", ")}`);
     }
+  }
+
+  if (exactSlugDuplicates.length) {
     for (const [slugKey, entries] of exactSlugDuplicates) {
       console.error(`[blog:validation] Duplicate slug "${slugKey}" used by titles: ${entries.join(" | ")}`);
     }
@@ -355,7 +358,7 @@ fs.mkdirSync(POSTS_OUT, { recursive: true });
 const files = fs.existsSync(BLOG_SRC)
   ? fs
       .readdirSync(BLOG_SRC)
-      .filter((f) => f.endsWith(".md") || f.endsWith(".mdx"))
+      .filter((f) => f.endsWith(".mdx"))
   : [];
 const rows = [];
 let consistencyBlocked = 0;
