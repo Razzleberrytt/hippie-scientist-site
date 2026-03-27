@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import DOMPurify from 'dompurify'
+import { Helmet } from 'react-helmet-async'
 import { cleanBlogExcerpt, ensureTrailingSlash, resolveBlogIndexUrl } from '@/lib/blog'
 import { useHerbData } from '@/lib/herb-data'
 import { decorateCompounds } from '@/lib/compounds'
@@ -115,6 +116,16 @@ export default function BlogPost() {
 
   return (
     <main className='container-page py-7 sm:py-8'>
+      {meta && (
+        <Helmet>
+          <title>{`${meta.title} | The Hippie Scientist`}</title>
+          <meta
+            name='description'
+            content={cleanBlogExcerpt(meta.summary, meta.description).slice(0, 155)}
+          />
+          <link rel='canonical' href={`https://thehippiescientist.net/blog/${meta.slug}`} />
+        </Helmet>
+      )}
       <div className='mb-4'>
         <Link to='/blog' className='btn-secondary inline-flex items-center gap-2 rounded-full px-4'>
           ← Back to Blog
