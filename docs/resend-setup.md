@@ -1,42 +1,26 @@
-# Resend subscribe endpoint setup
+# Form endpoint setup (current model)
 
-This project includes a Vercel serverless endpoint at `/api/subscribe`.
+Canonical deployment for this repository is Netlify static hosting.
 
-## What it does
+## Current form flow
 
-- Accepts `POST` requests with JSON body: `{ "email": "you@example.com" }`
-- Validates email input
-- Sends a notification email through Resend
-- Returns a JSON success/error response
+All user-facing forms (newsletter, contact, lead capture) submit JSON to the URL configured in:
 
-## Required environment variables (Vercel)
+- `VITE_FORM_ENDPOINT`
 
-Set these in **Vercel → Project Settings → Environment Variables**:
+If `VITE_FORM_ENDPOINT` is not set, forms show an error and do not fake a success state.
 
-- `RESEND_API_KEY` - your Resend API key
-- One destination inbox variable (pick one):
-  - `RESEND_AUDIENCE_EMAIL` (preferred)
-  - `RESEND_TO_EMAIL`
-  - `OWNER_EMAIL`
-  - `CONTACT_EMAIL`
+## Payload shape
 
-The endpoint sends new signups to whichever destination variable is set first in the list above.
+Client submissions include:
 
-## API file
+- `formType` (`newsletter`, `contact`, `lead-capture`)
+- `email`
+- optional metadata fields (`name`, `subject`, `message`, `source`, `context`, `pagePath`)
+- `submittedAt` timestamp
 
-- `api/subscribe.ts` handles the secure backend request.
-- The frontend never receives the Resend key.
+## Legacy endpoint note
 
-## Frontend behavior
-
-- `EmailCapture` posts to `/api/subscribe` after localStorage is updated.
-- UI success/download flow stays intact even if the network request fails.
-
-## Quick deployment checklist
-
-1. Push this repo to GitHub.
-2. Import the repo into Vercel.
-3. In Vercel, add `RESEND_API_KEY`.
-4. Add one destination variable (recommended: `RESEND_AUDIENCE_EMAIL`).
-5. Deploy.
-6. Submit a test email and verify the destination inbox receives subject `New Hippie Scientist signup`.
+- `api/subscribe.ts` is still present as a legacy serverless handler sample.
+- It is **not** a canonical deploy dependency for the Netlify static flow.
+- Use it only if you explicitly deploy on a platform that serves `/api/*` functions and point `VITE_FORM_ENDPOINT` at that route.

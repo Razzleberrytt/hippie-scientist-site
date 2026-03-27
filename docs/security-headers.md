@@ -1,6 +1,6 @@
 # Security Header Configuration References
 
-This project ships ready-to-use configuration for Netlify (`public/_headers`) and Vercel (`vercel.json`). If you deploy to other platforms, you can adapt the following snippets to keep equivalent security and caching behavior.
+This project ships ready-to-use configuration for Netlify via `public/_headers`. If you deploy to other platforms, adapt the following snippets to keep equivalent security and caching behavior.
 
 ## Nginx
 
