@@ -11,6 +11,7 @@ import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
 import RelatedHerbCard from '@/components/RelatedHerbCard'
+import Collapse from '@/components/ui/Collapse'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -167,56 +168,81 @@ export default function CompoundDetail() {
         )}
 
         {compound.therapeuticUses.length > 0 && (
-          <Section title='Therapeutic Uses'>
-            <ListSection items={compound.therapeuticUses} />
-          </Section>
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Traditional & Therapeutic Use'>
+              <div className='text-sm leading-relaxed text-white/85'>
+                <ListSection items={compound.therapeuticUses} />
+              </div>
+            </Collapse>
+          </section>
         )}
 
         {/* Safety */}
-        {compound.contraindications.length > 0 && (
-          <Section title='Contraindications'>
-            <ul className='space-y-2'>
-              {compound.contraindications.map(item => (
-                <li
-                  key={item}
-                  className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
-                >
-                  <span aria-hidden='true' className='mr-1'>
-                    ⚠
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Section>
-        )}
-
-        {compound.interactions.length > 0 && (
-          <Section title='Drug Interactions'>
-            <ListSection items={compound.interactions} />
-          </Section>
-        )}
-
-        {compound.sideEffects.length > 0 && (
-          <Section title='Side Effects'>
-            <ListSection items={compound.sideEffects} />
-          </Section>
+        {(compound.contraindications.length > 0 ||
+          compound.interactions.length > 0 ||
+          compound.sideEffects.length > 0) && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Safety Notes'>
+              <div className='space-y-4 text-sm leading-relaxed text-white/85'>
+                {compound.contraindications.length > 0 && (
+                  <div>
+                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
+                      Contraindications
+                    </h3>
+                    <ul className='space-y-2'>
+                      {compound.contraindications.map(item => (
+                        <li
+                          key={item}
+                          className='rounded-xl border border-rose-400/40 bg-rose-500/10 px-3 py-2 text-rose-100'
+                        >
+                          <span aria-hidden='true' className='mr-1'>
+                            ⚠
+                          </span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {compound.interactions.length > 0 && (
+                  <div>
+                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
+                      Drug Interactions
+                    </h3>
+                    <ListSection items={compound.interactions} />
+                  </div>
+                )}
+                {compound.sideEffects.length > 0 && (
+                  <div>
+                    <h3 className='mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/55'>
+                      Side Effects
+                    </h3>
+                    <ListSection items={compound.sideEffects} />
+                  </div>
+                )}
+              </div>
+            </Collapse>
+          </section>
         )}
 
         {/* Associated herbs */}
-        <Section title='Found in these herbs'>
-          {linkedHerbs.length > 0 ? (
-            <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
-              {linkedHerbs.map(herb => (
-                <RelatedHerbCard key={herb.slug} herb={herb} />
-              ))}
+        <section className='border-white/8 mt-6 border-t pt-5'>
+          <Collapse title='Related Herbs'>
+            <div className='text-sm leading-relaxed text-white/85'>
+              {linkedHerbs.length > 0 ? (
+                <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+                  {linkedHerbs.map(herb => (
+                    <RelatedHerbCard key={herb.slug} herb={herb} />
+                  ))}
+                </div>
+              ) : (
+                <div className='rounded-2xl border border-dashed border-white/20 bg-white/5 px-4 py-5 text-sm text-white/65'>
+                  No related herb profiles found yet for this compound.
+                </div>
+              )}
             </div>
-          ) : (
-            <div className='rounded-2xl border border-dashed border-white/20 bg-white/5 px-4 py-5 text-sm text-white/65'>
-              No related herb profiles found yet for this compound.
-            </div>
-          )}
-        </Section>
+          </Collapse>
+        </section>
 
         {/* Practical info */}
         {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
@@ -224,22 +250,24 @@ export default function CompoundDetail() {
 
         {/* Sources */}
         {compound.sources.length > 0 && (
-          <Section title='Sources'>
-            <ol className='list-decimal space-y-1 pl-5'>
-              {compound.sources.map((source, index) => (
-                <li key={`${source.url}-${index}`}>
-                  {/^https?:\/\//i.test(source.url) ? (
-                    <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-                      {source.title}
-                    </a>
-                  ) : (
-                    source.title
-                  )}
-                  {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
-                </li>
-              ))}
-            </ol>
-          </Section>
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='References'>
+              <ol className='list-decimal space-y-1 pl-5 text-sm leading-relaxed text-white/85'>
+                {compound.sources.map((source, index) => (
+                  <li key={`${source.url}-${index}`}>
+                    {/^https?:\/\//i.test(source.url) ? (
+                      <a href={source.url} target='_blank' rel='noreferrer' className='link'>
+                        {source.title}
+                      </a>
+                    ) : (
+                      source.title
+                    )}
+                    {source.note && <span className='ml-2 text-white/55'>— {source.note}</span>}
+                  </li>
+                ))}
+              </ol>
+            </Collapse>
+          </section>
         )}
 
         {compound.lastUpdated && (

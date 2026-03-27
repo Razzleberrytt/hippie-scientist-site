@@ -19,6 +19,7 @@ import {
   toQualityBadge,
   type QualityResult,
 } from '@/lib/data-quality'
+import Collapse from '@/components/ui/Collapse'
 import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
 import type { Herb } from '@/types'
 
@@ -281,52 +282,50 @@ export default function Home() {
       </section>
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card-lg ds-stack'>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-            Popular effects and starter paths
-          </p>
-          <div className='flex flex-wrap gap-2'>
-            {POPULAR_EFFECTS.map(effect => (
-              <a
-                key={effect}
-                href='#effect-search'
-                className='rounded-full border border-violet-300/40 bg-violet-500/10 px-3 py-1.5 text-xs font-medium capitalize text-violet-100 transition hover:border-violet-200/60 hover:bg-violet-500/15'
-              >
-                {effect}
-              </a>
-            ))}
-          </div>
-          <div className='grid gap-3 sm:grid-cols-3'>
-            {curated.map(item => (
-              <article key={`starter-${item.kind}-${item.slug}`} className='ds-card p-4'>
-                <p className='text-xs uppercase tracking-[0.12em] text-white/55'>starter profile</p>
-                <h3 className='mt-1 text-sm font-semibold text-white'>{item.name}</h3>
-                <p className='mt-2 line-clamp-3 text-xs text-white/80'>{item.blurb}</p>
-                <Link
-                  to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
-                  className='mt-3 inline-flex text-xs text-emerald-200 hover:text-emerald-100'
+        <Collapse title='Popular effects and starter paths'>
+          <div className='ds-stack'>
+            <div className='flex flex-wrap gap-2'>
+              {POPULAR_EFFECTS.map(effect => (
+                <a
+                  key={effect}
+                  href='#effect-search'
+                  className='rounded-full border border-violet-300/40 bg-violet-500/10 px-3 py-1.5 text-xs font-medium capitalize text-violet-100 transition hover:border-violet-200/60 hover:bg-violet-500/15'
                 >
-                  Start here →
-                </Link>
-              </article>
-            ))}
+                  {effect}
+                </a>
+              ))}
+            </div>
+            <div className='grid gap-3 sm:grid-cols-3'>
+              {curated.map(item => (
+                <article key={`starter-${item.kind}-${item.slug}`} className='ds-card p-4'>
+                  <p className='text-xs uppercase tracking-[0.12em] text-white/55'>
+                    starter profile
+                  </p>
+                  <h3 className='mt-1 text-sm font-semibold text-white'>{item.name}</h3>
+                  <p className='mt-2 line-clamp-3 text-xs text-white/80'>{item.blurb}</p>
+                  <Link
+                    to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
+                    className='mt-3 inline-flex text-xs text-emerald-200 hover:text-emerald-100'
+                  >
+                    Start here →
+                  </Link>
+                </article>
+              ))}
+            </div>
+            <div className='flex flex-wrap gap-2'>
+              <Link to='/learning' className='btn-secondary'>
+                Beginner learning paths
+              </Link>
+              <Link to='/herbs' className='btn-secondary'>
+                Full herb index
+              </Link>
+            </div>
           </div>
-          <div className='flex flex-wrap gap-2'>
-            <Link to='/learning' className='btn-secondary'>
-              Beginner learning paths
-            </Link>
-            <Link to='/herbs' className='btn-secondary'>
-              Full herb index
-            </Link>
-          </div>
-        </div>
+        </Collapse>
       </section>
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card-lg ds-stack'>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-            Core tools
-          </p>
+        <Collapse title='Core tools'>
           <div className='grid gap-3 sm:grid-cols-3'>
             <article className='ds-card p-4'>
               <h3 className='text-sm font-semibold text-white'>Effect Search</h3>
@@ -356,7 +355,7 @@ export default function Home() {
               </Link>
             </article>
           </div>
-        </div>
+        </Collapse>
       </section>
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
@@ -440,10 +439,7 @@ export default function Home() {
       )}
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card-lg ds-stack'>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-            Featured discoveries
-          </p>
+        <Collapse title='Featured discoveries'>
           <div className='no-scrollbar flex snap-x gap-3 overflow-x-auto pb-1'>
             {featured.map(item => (
               <Link
@@ -463,15 +459,12 @@ export default function Home() {
               </Link>
             ))}
           </div>
-        </div>
+        </Collapse>
       </section>
 
       {(recent.length > 0 || recentBlends.length > 0 || recentChecks.length > 0) && (
         <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-          <div className='ds-card-lg ds-stack'>
-            <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-              Recent activity
-            </p>
+          <Collapse title='Recent activity'>
             <div className='grid gap-4 sm:grid-cols-3'>
               <div className='ds-card p-4'>
                 <p className='text-xs uppercase tracking-[0.14em] text-white/55'>Viewed herbs</p>
@@ -517,31 +510,30 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </Collapse>
         </section>
       )}
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <div className='ds-card-lg ds-stack'>
-          <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
-            Programmatic collections
-          </p>
-          <p className='text-sm text-white/75'>
-            Discover focused landing pages generated from the same herb and compound dataset used by
-            our tools.
-          </p>
-          <div className='grid gap-2 sm:grid-cols-2'>
-            {featuredCollections.map(collection => (
-              <Link
-                key={collection.slug}
-                to={`/collections/${collection.slug}`}
-                className='ds-card p-3 text-sm font-medium text-white transition hover:border-white/25'
-              >
-                {collection.title}
-              </Link>
-            ))}
+        <Collapse title='Programmatic collections'>
+          <div className='ds-stack'>
+            <p className='text-sm text-white/75'>
+              Discover focused landing pages generated from the same herb and compound dataset used
+              by our tools.
+            </p>
+            <div className='grid gap-2 sm:grid-cols-2'>
+              {featuredCollections.map(collection => (
+                <Link
+                  key={collection.slug}
+                  to={`/collections/${collection.slug}`}
+                  className='ds-card p-3 text-sm font-medium text-white transition hover:border-white/25'
+                >
+                  {collection.title}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        </Collapse>
       </section>
 
       <EmailCapture
