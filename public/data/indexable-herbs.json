@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "alectra-sessiliflora",
+    "route": "/herbs/alectra-sessiliflora",
+    "name": "alectra sessiliflora",
+    "flags": {
+      "hasValidName": true,
+      "hasUsableDescription": true,
+      "hasPlaceholderText": false,
+      "hasNanArtifacts": false,
+      "sourceCount": 0,
+      "effectCount": 6
+    },
+    "completenessScore": 10,
+    "passesIndexThreshold": true,
+    "exclusionReasons": []
+  },
+  {
+    "slug": "calliandra-anomala",
+    "route": "/herbs/calliandra-anomala",
+    "name": "calliandra anomala",
+    "flags": {
+      "hasValidName": true,
+      "hasUsableDescription": true,
+      "hasPlaceholderText": false,
+      "hasNanArtifacts": false,
+      "sourceCount": 0,
+      "effectCount": 7
+    },
+    "completenessScore": 12,
+    "passesIndexThreshold": true,
+    "exclusionReasons": []
+  },
+  {
+    "slug": "mandrake-root",
+    "route": "/herbs/mandrake-root",
+    "name": "mandrake root",
+    "flags": {
+      "hasValidName": true,
+      "hasUsableDescription": true,
+      "hasPlaceholderText": false,
+      "hasNanArtifacts": false,
+      "sourceCount": 0,
+      "effectCount": 5
+    },
+    "completenessScore": 10,
+    "passesIndexThreshold": true,
+    "exclusionReasons": []
+  },
+  {
+    "slug": "myristica-fragrans-houtt",
+    "route": "/herbs/myristica-fragrans-houtt",
+    "name": "myristica fragrans houtt",
+    "flags": {
+      "hasValidName": true,
+      "hasUsableDescription": true,
+      "hasPlaceholderText": false,
+      "hasNanArtifacts": false,
+      "sourceCount": 0,
+      "effectCount": 6
+    },
+    "completenessScore": 11,
+    "passesIndexThreshold": true,
+    "exclusionReasons": []
+  },
+  {
+    "slug": "nicotiana-rustica-l",
+    "route": "/herbs/nicotiana-rustica-l",
+    "name": "nicotiana rustica l",
+    "flags": {
+      "hasValidName": true,
+      "hasUsableDescription": true,
+      "hasPlaceholderText": false,
+      "hasNanArtifacts": false,
+      "sourceCount": 0,
+      "effectCount": 5
+    },
+    "completenessScore": 10,
+    "passesIndexThreshold": true,
+    "exclusionReasons": []
+  },
+  {
+    "slug": "rivea-corymbosa",
+    "route": "/herbs/rivea-corymbosa",
+    "name": "rivea corymbosa",
+    "flags": {
+      "hasValidName": true,
+      "hasUsableDescription": true,
+      "hasPlaceholderText": false,
+      "hasNanArtifacts": false,
+      "sourceCount": 0,
+      "effectCount": 5
+    },
+    "completenessScore": 10,
+    "passesIndexThreshold": true,
+    "exclusionReasons": []
+  }
+]
