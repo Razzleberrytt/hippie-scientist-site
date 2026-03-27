@@ -19,7 +19,7 @@
     "build:graph": "node scripts/build-graph.mjs",
     "build:compounds": "tsx scripts/extract-compounds.ts",
     "preview": "vite preview",
-    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "lint": "eslint . --max-warnings=0",
     "verify:redirects": "node scripts/verify-redirects.mjs",
     "format": "prettier --write .",
     "stylelint": "stylelint \"**/*.{css,scss}\"",
