@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { getSharedRouteManifest } from './shared-route-manifest.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -11,22 +12,6 @@ const outDir = process.argv[2]
 
 const site = (process.env.SITE_URL || 'https://thehippiescientist.net').replace(/\/+$/, '')
 const basePath = normalizeBasePath(process.env.BASE_PATH || process.env.VITE_BASE_PATH || '/')
-
-const corePaths = ['/', '/herbs', '/compounds', '/build', '/blog', '/learning', '/about']
-
-const disallowedPaths = [
-  '/analytics',
-  '/data-fix',
-  '/graph',
-  '/theme',
-  '/preview',
-  '/drafts',
-  '/tmp',
-  '/temp',
-  '/test',
-  '/dev',
-  '/herb-index',
-]
 
 function normalizeBasePath(value) {
   if (!value || value === '/') return '/'
@@ -45,115 +30,6 @@ function toPublicUrl(pathname) {
   return `${site}${withBase === '/' ? '/' : withBase}`
 }
 
-function normalizeDate(value) {
-  if (!value) return null
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return null
-  return date.toISOString().slice(0, 10)
-}
-
-function statDate(filePath) {
-  try {
-    return normalizeDate(fs.statSync(filePath).mtimeMs)
-  } catch {
-    return null
-  }
-}
-
-function readJson(relPath, fallback = []) {
-  const full = path.resolve(__dirname, '..', relPath)
-  if (!fs.existsSync(full)) return fallback
-  try {
-    const parsed = JSON.parse(fs.readFileSync(full, 'utf-8'))
-    return Array.isArray(parsed) ? parsed : fallback
-  } catch {
-    return fallback
-  }
-}
-
-function buildExists(...segments) {
-  return fs.existsSync(path.join(outDir, ...segments))
-}
-
-function publicExists(...segments) {
-  return fs.existsSync(path.resolve(__dirname, '..', 'public', ...segments))
-}
-
-function routeExists(routePath) {
-  const clean = String(routePath || '').replace(/^\/+|\/+$/g, '')
-  if (!clean) return buildExists('index.html') || publicExists('index.html')
-
-  return (
-    buildExists(clean, 'index.html') ||
-    buildExists(`${clean}.html`) ||
-    publicExists(clean, 'index.html') ||
-    publicExists(`${clean}.html`)
-  )
-}
-
-function toSlug(value) {
-  // Keep sitemap entity URLs in sync with src/lib/slug.ts runtime routing logic.
-  return String(value || '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
-
-function getIndexableEntityRoutes(entityType) {
-  const dirName = entityType === 'herb' ? 'herbs' : 'compounds'
-  const dataFile = entityType === 'herb' ? 'public/data/herbs.json' : 'public/data/compounds.json'
-  const records = readJson(dataFile)
-  const today = new Date().toISOString().slice(0, 10)
-
-  return dedupeByPath(
-    records
-      .map((row) => {
-        const fallbackName = entityType === 'herb' ? row?.commonName || row?.name : row?.name
-        const slug = toSlug(row?.slug || fallbackName)
-        if (!slug) return null
-
-        return {
-          path: `/${dirName}/${slug}`,
-          lastmod: today,
-        }
-      })
-      .filter(Boolean),
-  )
-}
-
-function getIndexableBlogRoutes() {
-  const posts = readJson('src/data/blog/posts.json')
-  const allowed = []
-
-  for (const post of posts) {
-    const slug = String(post?.slug || '').replace(/^\/+|\/+$/g, '')
-    if (!slug) continue
-
-    const route = `/blog/${slug}`
-
-    allowed.push({
-      path: route,
-      lastmod: normalizeDate(post?.date),
-    })
-  }
-
-  return dedupeByPath(allowed)
-}
-
-function dedupeByPath(rows) {
-  const seen = new Set()
-  const unique = []
-
-  for (const row of rows) {
-    const normalized = normalizePathname(row.path)
-    if (!normalized || seen.has(normalized)) continue
-    seen.add(normalized)
-    unique.push({ ...row, path: normalized })
-  }
-
-  return unique
-}
-
 function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}) {
   const normalized = normalizePathname(loc)
   if (!normalized) return null
@@ -168,22 +44,9 @@ function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}
 }
 
 function buildSitemapXml() {
-  const entries = []
-
-  for (const corePath of corePaths) {
-    entries.push({
-      path: corePath,
-      changefreq: corePath === '/blog' ? 'daily' : 'weekly',
-      priority: corePath === '/' ? 1.0 : corePath === '/herbs' || corePath === '/compounds' ? 0.9 : 0.8,
-    })
-  }
-
-  entries.push(...getIndexableEntityRoutes('herb').map((row) => ({ ...row, priority: 0.7, changefreq: 'monthly' })))
-  entries.push(...getIndexableEntityRoutes('compound').map((row) => ({ ...row, priority: 0.7, changefreq: 'monthly' })))
-  entries.push(...getIndexableBlogRoutes().map((row) => ({ ...row, priority: 0.6, changefreq: 'weekly' })))
-
-  const urlEntries = dedupeByPath(entries)
-    .map((entry) => toUrlEntry(entry.path, entry))
+  const { sitemapRoutes, sitemapMeta } = getSharedRouteManifest()
+  const urlEntries = sitemapRoutes
+    .map(route => toUrlEntry(route, sitemapMeta.get(route) || {}))
     .filter(Boolean)
     .join('\n')
 
@@ -191,10 +54,11 @@ function buildSitemapXml() {
 }
 
 function buildRobotsTxt() {
+  const { disallowedRoutes } = getSharedRouteManifest()
   const sitemapUrl = toPublicUrl('/sitemap.xml')
   const lines = ['User-agent: *', 'Allow: /']
 
-  for (const blocked of disallowedPaths) {
+  for (const blocked of disallowedRoutes) {
     lines.push(`Disallow: ${blocked}`)
   }
 
