@@ -12,6 +12,7 @@ import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
 import RelatedHerbCard from '@/components/RelatedHerbCard'
 import Collapse from '@/components/ui/Collapse'
+import { compoundJsonLd } from '@/lib/seo'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -109,6 +110,12 @@ export default function CompoundDetail() {
         title={`${compound.name} — Pharmacology & Effects | The Hippie Scientist`}
         description={compoundMetaDescription}
         path={`/compounds/${compound.slug}`}
+        jsonLd={compoundJsonLd({
+          name: compound.name,
+          slug: compound.slug,
+          description: compoundMetaDescription,
+          category: compound.category,
+        })}
       />
       <Link to='/compounds' className='btn-secondary inline-flex items-center'>
         ← Back to compounds
