@@ -22,7 +22,9 @@ const OG_DIR = path.resolve("public/og");
 const BLOG_DIR = path.join(OG_DIR, "blog");
 const HERB_DIR = path.join(OG_DIR, "herb");
 const DEFAULT_PATH = path.join(OG_DIR, "default.png");
+const MANIFEST_PATH = path.resolve("src/data/og-manifest.json");
 const MAX_AGE_MS = 1000 * 60 * 60 * 24 * 7; // 7 days
+const SKIP_EXISTING = process.argv.includes("--skip-existing");
 
 fs.mkdirSync(BLOG_DIR, { recursive: true });
 fs.mkdirSync(HERB_DIR, { recursive: true });
@@ -253,8 +255,28 @@ function createFrame({ title, subtitle, palette }) {
 
 function shouldGenerate(filePath) {
   if (!fs.existsSync(filePath)) return true;
+  if (SKIP_EXISTING) return false;
   const stats = fs.statSync(filePath);
   return Date.now() - stats.mtimeMs > MAX_AGE_MS;
+}
+
+function writeManifest() {
+  const toSlugSet = (directory) =>
+    new Set(
+      fs.existsSync(directory)
+        ? fs
+            .readdirSync(directory)
+            .filter((file) => file.endsWith(".png"))
+            .map((file) => file.replace(/\.png$/, ""))
+        : [],
+    );
+  const manifest = {
+    generatedAt: new Date().toISOString(),
+    default: fs.existsSync(DEFAULT_PATH),
+    blog: [...toSlugSet(BLOG_DIR)].sort(),
+    herb: [...toSlugSet(HERB_DIR)].sort(),
+  };
+  fs.writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
 async function renderOg({ title, subtitle, outPath, gradientKey }) {
@@ -371,6 +393,7 @@ async function main() {
   const herbs = await loadJsonMaybe("src/data/herbs/herbs.normalized.json");
   const posts = await loadJsonMaybe("src/data/blog/posts.json");
   const results = await generateAllOgImages({ posts, herbs });
+  writeManifest();
   console.log(
     `OG images updated → default:${results.default ? "yes" : "skip"} | blog:${results.blog} | herb:${results.herb}`,
   );

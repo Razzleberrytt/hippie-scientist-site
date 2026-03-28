@@ -2,6 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 import { TWITTER_HANDLE, buildMeta } from '@/lib/seo'
+import ogManifest from '@/data/og-manifest.json'
 import type { PageType } from '@/lib/seo'
 
 type OpenGraphOverrides = {
@@ -66,7 +67,24 @@ export default function Meta({
   const jsonLdImage = extractJsonLdImage(jsonLd)
   const providedImage = image && image !== '/icon-512x512.png' ? image : undefined
   const overrideImage = og?.image
-  const preferredImage = overrideImage ?? jsonLdImage ?? providedImage ?? '/icon-512x512.png'
+  const resolveExistingOgImage = (candidate?: string) => {
+    if (!candidate?.startsWith('/og/')) return candidate
+    if (candidate === '/og/default.png') {
+      return ogManifest.default ? candidate : '/icon-512x512.png'
+    }
+    const herbMatch = candidate.match(/^\/og\/herb\/([^/]+)\.png$/)
+    if (herbMatch) {
+      return ogManifest.herb.includes(herbMatch[1]) ? candidate : '/og/default.png'
+    }
+    const blogMatch = candidate.match(/^\/og\/blog\/([^/]+)\.png$/)
+    if (blogMatch) {
+      return ogManifest.blog.includes(blogMatch[1]) ? candidate : '/og/default.png'
+    }
+    return candidate
+  }
+  const preferredImage = resolveExistingOgImage(
+    overrideImage ?? jsonLdImage ?? providedImage ?? '/icon-512x512.png'
+  )
 
   const meta = buildMeta({
     title,
