@@ -460,7 +460,10 @@ export function getSharedRouteManifest() {
   ]).filter(route => !DISALLOWED_ROUTES.includes(route))
 
   const prerenderRoutes = approvedRoutes
-  const sitemapRoutes = approvedRoutes
+  const sitemapRoutes = approvedRoutes.filter(route => {
+    if (!route.startsWith('/herbs/')) return true
+    return indexableHerbRoutes.has(route)
+  })
 
   return {
     approvedRoutes,
