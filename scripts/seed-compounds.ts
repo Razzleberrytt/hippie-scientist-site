@@ -30,7 +30,9 @@ const today = () => new Date().toISOString().slice(0, 10);
 let list: Entity[] = [];
 try {
   list = JSON.parse(fs.readFileSync(OUT, "utf8")) as Entity[];
-} catch {}
+} catch {
+  // Ignore missing/invalid existing compounds file and initialize from seed.
+}
 const have = new Set(list.map((x) => x.id));
 
 // Curated seed (concise, non-controversial summaries)

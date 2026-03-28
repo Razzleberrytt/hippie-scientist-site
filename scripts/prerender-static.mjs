@@ -28,7 +28,7 @@ const escapeHtml = value =>
 
 const normalize = route => (route === '/' ? '/' : `/${route.replace(/^\/+|\/+$/g, '')}`)
 const canonicalUrl = route => `${SITE_URL}${route === '/' ? '/' : route}`
-const NAN_TOKEN_PATTERN = /(^|[\s;,.()\-])nan([\s;,.()\-]|$)/i
+const NAN_TOKEN_PATTERN = /(^|[\s;,.()-])nan([\s;,.()-]|$)/i
 
 function readJson(relativePath) {
   const file = path.join(ROOT, relativePath)
