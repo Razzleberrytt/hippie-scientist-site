@@ -93,6 +93,15 @@ export default function BlogPost() {
   }, [meta?.tags])
   const targetKeyword = useMemo(() => deriveKeyword(meta?.title || ''), [meta?.title])
   const targetQuestion = useMemo(() => deriveQuestion(meta?.title || ''), [meta?.title])
+  const blogMetaTitle = useMemo(
+    () => (meta?.title ? `${meta.title} | The Hippie Scientist` : ''),
+    [meta?.title]
+  )
+  const blogMetaDescription = useMemo(() => {
+    if (!meta) return ''
+    const excerpt = cleanBlogExcerpt(meta.summary, meta.description).slice(0, 155).trim()
+    return excerpt || `Read ${meta.title} on The Hippie Scientist.`
+  }, [meta])
 
   if (loading) {
     return <main className='container-page py-7 text-white/75 sm:py-8'>Loading post…</main>
@@ -117,10 +126,10 @@ export default function BlogPost() {
 
   return (
     <main className='container-page py-7 sm:py-8'>
-      {meta && (
+      {meta && blogMetaTitle && blogMetaDescription && (
         <Meta
-          title={`${meta.title} | The Hippie Scientist`}
-          description={cleanBlogExcerpt(meta.summary, meta.description).slice(0, 155)}
+          title={blogMetaTitle}
+          description={blogMetaDescription}
           path={`/blog/${meta.slug}`}
           pageType='article'
           og={{ articlePublishedTime: meta.date }}
