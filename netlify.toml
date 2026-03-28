@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  PRERENDER_ENTITY_CAP = "2000"
 
 [[redirects]]
   from = "/*"
