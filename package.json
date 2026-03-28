@@ -59,17 +59,8 @@
     "node": ">=20 <21"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "npm run lint:fix --",
-      "prettier --write"
-    ],
-    "*.{css,scss}": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.{md,json}": [
-      "prettier --write"
-    ]
+    "*.{ts,tsx}": "eslint --max-warnings=0",
+    "*.{js,mjs,cjs}": "eslint --max-warnings=0"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
