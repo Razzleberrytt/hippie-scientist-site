@@ -28,6 +28,7 @@ const escapeHtml = value =>
 
 const normalize = route => (route === '/' ? '/' : `/${route.replace(/^\/+|\/+$/g, '')}`)
 const canonicalUrl = route => `${SITE_URL}${route === '/' ? '/' : route}`
+const NAN_TOKEN_PATTERN = /(^|[\s;,.()\-])nan([\s;,.()\-]|$)/i
 
 function readJson(relativePath) {
   const file = path.join(ROOT, relativePath)
@@ -106,6 +107,13 @@ function textFrom(...values) {
   return ''
 }
 
+function safeStr(value) {
+  if (!value || typeof value === 'number' || value !== value) return ''
+  const normalized = String(value).trim()
+  if (!normalized || NAN_TOKEN_PATTERN.test(normalized)) return ''
+  return normalized
+}
+
 function blogPostJsonLd(post, route, title, description) {
   const published = post?.date ? new Date(post.date).toISOString() : undefined
   const modified = post?.lastUpdated ? new Date(post.lastUpdated).toISOString() : published
@@ -141,9 +149,9 @@ function websiteJsonLd() {
 
 function buildHead(route) {
   const meta = routeMeta.get(route) || {}
-  const title = escapeHtml(meta.title || SITE_NAME)
+  const title = escapeHtml(safeStr(meta.title) || SITE_NAME)
   const description = escapeHtml(
-    meta.description || 'Evidence-aware herbal education and safety context.'
+    safeStr(meta.description) || 'Evidence-aware herbal education and safety context.'
   )
   const canonical = canonicalUrl(route)
 
@@ -249,8 +257,11 @@ function renderRouteContent(route) {
   if (route.startsWith('/herbs/')) {
     const slug = route.split('/').pop() || ''
     const herb = herbBySlug.get(slug)
-    const name = escapeHtml(textFrom(herb?.common, herb?.commonName, herb?.name, slug))
-    const description = escapeHtml(textFrom(herb?.description, herb?.summary, 'Herb profile'))
+    const displayName = safeStr(herb?.common) || safeStr(herb?.commonName) || safeStr(herb?.name) || slug
+    const name = escapeHtml(displayName)
+    const description = escapeHtml(
+      safeStr(herb?.summary) || safeStr(herb?.description) || `${displayName} herb profile.`
+    )
     const effects = textList(herb?.effects, 8).map(effect => `<li>${escapeHtml(effect)}</li>`)
     const warnings = textList(herb?.contraindications, 6).map(item => `<li>${escapeHtml(item)}</li>`)
 

@@ -70,6 +70,14 @@ const normalizePath = route => {
 
 const dedupe = routes => [...new Set(routes.map(normalizePath))]
 const clip = (value, max = 155) => String(value || '').trim().slice(0, max)
+const NAN_TOKEN_PATTERN = /(^|[\s;,.()\-])nan([\s;,.()\-]|$)/i
+
+function safeStr(value) {
+  if (!value || typeof value === 'number' || value !== value) return ''
+  const normalized = String(value).trim()
+  if (!normalized || NAN_TOKEN_PATTERN.test(normalized)) return ''
+  return normalized
+}
 
 const readJson = relativePath => {
   const fullPath = path.join(ROOT, relativePath)
@@ -133,8 +141,15 @@ function pickTopEntities(records, basePath, explicitAllowlist, cap, label) {
       )
       if (!slug) return null
       const displayName =
-        record?.commonName || record?.common || record?.name || record?.latinName || record?.latin || slug
-      const description = clip(record?.summary || record?.description || `${displayName} reference profile.`)
+        safeStr(record?.commonName) ||
+        safeStr(record?.common) ||
+        safeStr(record?.name) ||
+        safeStr(record?.latinName) ||
+        safeStr(record?.latin) ||
+        slug
+      const description = clip(
+        safeStr(record?.summary) || safeStr(record?.description) || `${displayName} reference profile.`
+      )
       return {
         route: `${basePath}/${slug}`,
         score: scoreEntity(record),
