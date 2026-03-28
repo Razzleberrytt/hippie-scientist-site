@@ -145,3 +145,65 @@ export function blogJsonLd(post: BlogJsonLdPost, path: string) {
     },
   }
 }
+
+export type HerbJsonLdArgs = {
+  name: string
+  slug: string
+  description?: string
+  latinName?: string
+  image?: string
+}
+
+export function herbJsonLd(herb: HerbJsonLdArgs) {
+  const url = `${SITE_URL}/herbs/${herb.slug}`
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: herb.name,
+    description: herb.description || `${herb.name} herb profile — effects, safety, and pharmacology.`,
+    url,
+    mainEntityOfPage: url,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.svg` },
+    },
+    ...(herb.image ? { image: herb.image } : {}),
+    about: {
+      '@type': 'Thing',
+      name: herb.latinName || herb.name,
+    },
+  }
+}
+
+export type CompoundJsonLdArgs = {
+  name: string
+  slug: string
+  description?: string
+  category?: string
+}
+
+export function compoundJsonLd(compound: CompoundJsonLdArgs) {
+  const url = `${SITE_URL}/compounds/${compound.slug}`
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: compound.name,
+    description: compound.description || `${compound.name} pharmacology, effects, and safety profile.`,
+    url,
+    mainEntityOfPage: url,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.svg` },
+    },
+    about: {
+      '@type': 'ChemicalSubstance',
+      name: compound.name,
+      ...(compound.category ? { description: compound.category } : {}),
+    },
+  }
+}
+
