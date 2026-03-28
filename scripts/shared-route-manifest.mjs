@@ -3,7 +3,7 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const BLOG_PER_PAGE = 12
-const DEFAULT_ENTITY_CAP = Number.parseInt(process.env.PRERENDER_ENTITY_CAP || '500', 10)
+const DEFAULT_ENTITY_CAP = Number.parseInt(process.env.PRERENDER_ENTITY_CAP || '2000', 10)
 
 const CORE_STATIC_ROUTES = [
   '/',
