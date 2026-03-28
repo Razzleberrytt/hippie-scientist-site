@@ -1,5 +1,6 @@
 export const SITE_URL = 'https://thehippiescientist.net'
 export const SITE_NAME = 'The Hippie Scientist'
+export const TWITTER_HANDLE = '@thehippiescientist'
 
 export type PageType = 'website' | 'article'
 
