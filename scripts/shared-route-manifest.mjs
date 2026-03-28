@@ -457,13 +457,14 @@ export function getSharedRouteManifest() {
     ...blogEntries.map(entry => entry.route),
     ...herbEntries.map(entry => entry.route),
     ...compoundEntries.map(entry => entry.route),
-  ]).filter(route => !DISALLOWED_ROUTES.includes(route))
+  ])
+    .filter(route => (route.startsWith('/herbs/') ? indexableHerbRoutes.has(route) : true))
+    .filter(route => !DISALLOWED_ROUTES.includes(route))
 
   const prerenderRoutes = approvedRoutes
-  const sitemapRoutes = approvedRoutes.filter(route => {
-    if (!route.startsWith('/herbs/')) return true
-    return indexableHerbRoutes.has(route)
-  })
+  const sitemapRoutes = approvedRoutes.filter(route =>
+    route.startsWith('/herbs/') ? indexableHerbRoutes.has(route) : true
+  )
 
   return {
     approvedRoutes,
