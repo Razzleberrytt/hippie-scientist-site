@@ -11,7 +11,7 @@ import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
 import { splitClean } from '@/lib/sanitize'
 import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
-import { herbJsonLd } from '@/lib/seo'
+import { breadcrumbJsonLd, herbJsonLd, SITE_URL } from '@/lib/seo'
 import RecommendedProducts from '@/components/RecommendedProducts'
 import Collapse from '@/components/ui/Collapse'
 
@@ -227,12 +227,19 @@ export default function HerbDetail() {
         title={`${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`}
         description={herbMetaDescription}
         path={`/herbs/${herb.slug}`}
-        jsonLd={herbJsonLd({
-          name: herbDisplayName,
-          slug: herb.slug,
-          description: herbMetaDescription,
-          latinName: herb.scientific || herb.latinName,
-        })}
+        jsonLd={[
+          herbJsonLd({
+            name: herbDisplayName,
+            slug: herb.slug,
+            description: herbMetaDescription,
+            latinName: herb.scientific || herb.latinName,
+          }),
+          breadcrumbJsonLd([
+            { name: 'Home', url: SITE_URL },
+            { name: 'Herbs', url: `${SITE_URL}/herbs` },
+            { name: herbDisplayName, url: `${SITE_URL}/herbs/${herb.slug}` },
+          ]),
+        ]}
       />
       <Link to='/herbs' className='btn-secondary inline-flex items-center'>
         ← Back to herbs
