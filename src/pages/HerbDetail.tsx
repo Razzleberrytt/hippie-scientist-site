@@ -227,6 +227,7 @@ export default function HerbDetail() {
         title={`${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`}
         description={herbMetaDescription}
         path={`/herbs/${herb.slug}`}
+        image={`/og/herb/${herb.slug}.png`}
         jsonLd={[
           herbJsonLd({
             name: herbDisplayName,

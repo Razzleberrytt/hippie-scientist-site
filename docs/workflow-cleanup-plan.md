@@ -19,11 +19,12 @@ Date: 2026-03-27
 - SPA fallback: `public/_redirects` and `netlify.toml` rewrite `/* -> /index.html`
 - Canonical deployment: Netlify static deploy (GitHub Actions builds/validates and optionally triggers Netlify deploy hook)
 
-## Active workflow inventory (minimal)
+## Active workflow inventory
 
 1. `deploy.yml` (deploy/CI build + redirects verification + optional Netlify deploy hook)
 2. `daily-blog.yml` (daily content generation + optional Netlify deploy hook)
 3. `data-audit.yml` (optional audit workflow)
+4. `weekly-og-images.yml` (weekly OG image/manifest refresh; keeps expensive OG rendering out of `npm run build`)
 
 No active workflow references stale paths:
 
