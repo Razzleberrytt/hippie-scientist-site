@@ -128,6 +128,7 @@ function scoreEntity(record) {
 }
 
 function pickTopEntities(records, basePath, explicitAllowlist, cap, label) {
+  const fallbackLastmod = new Date().toISOString().slice(0, 10)
   const byScore = records
     .map(record => {
       const slug = slugify(
@@ -150,12 +151,15 @@ function pickTopEntities(records, basePath, explicitAllowlist, cap, label) {
       const description = clip(
         safeStr(record?.summary) || safeStr(record?.description) || `${displayName} reference profile.`
       )
+      const resolvedDate =
+        normalizeDate(record?.updated_at) || normalizeDate(record?.lastmod) || normalizeDate(record?.date) || fallbackLastmod
       return {
         route: `${basePath}/${slug}`,
         score: scoreEntity(record),
         title: `${displayName} | The Hippie Scientist`,
         description,
         kind: label,
+        lastmod: resolvedDate,
       }
     })
     .filter(Boolean)
@@ -438,11 +442,11 @@ export function getSharedRouteManifest() {
 
   herbEntries.forEach(entry => {
     putRouteMeta(entry.route, entry.title, entry.description)
-    putSitemapMeta(entry.route, { priority: 0.7, changefreq: 'monthly' })
+    putSitemapMeta(entry.route, { priority: 0.7, changefreq: 'monthly', lastmod: entry.lastmod })
   })
   compoundEntries.forEach(entry => {
     putRouteMeta(entry.route, entry.title, entry.description)
-    putSitemapMeta(entry.route, { priority: 0.7, changefreq: 'monthly' })
+    putSitemapMeta(entry.route, { priority: 0.7, changefreq: 'monthly', lastmod: entry.lastmod })
   })
 
   const approvedRoutes = dedupe([
