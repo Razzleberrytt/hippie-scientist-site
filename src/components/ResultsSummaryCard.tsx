@@ -36,7 +36,7 @@ export default function ResultsSummaryCard({
   const shareGoal = goal
     .toLowerCase()
     .replace(/[^a-z\s/-]/g, '')
-    .split(/[\/\s-]+/)
+    .split(/[/\s-]+/)
     .find(Boolean)
   const shareUrl = useMemo(() => {
     const goalParam = shareGoal || 'calm'

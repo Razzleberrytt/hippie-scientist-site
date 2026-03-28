@@ -23,11 +23,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   })
 
-  // apply theme immediately on mount
-  useEffect(() => {
-    applyTheme(theme)
-  }, [])
-
   // Function to apply theme class
   const applyTheme = useCallback((theme: Theme) => {
     document.documentElement.classList.remove('light', 'dark')
@@ -40,6 +35,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       document.body.classList.remove('psychedelic-bg')
     }
   }, [])
+
+  // apply theme immediately on mount
+  useEffect(() => {
+    applyTheme(theme)
+  }, [applyTheme, theme])
 
   // Update DOM and localStorage on theme change
   const setTheme = useCallback(

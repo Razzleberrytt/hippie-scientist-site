@@ -9,7 +9,9 @@ export function useFavorites() {
     try {
       const saved = JSON.parse(localStorage.getItem(KEY) || "[]");
       if (Array.isArray(saved)) setFavs(saved);
-    } catch {}
+    } catch {
+      // no-op: fallback to empty favorites
+    }
   }, []);
 
   useEffect(() => {

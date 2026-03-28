@@ -7,6 +7,15 @@ type AnyEntity = {
   kind?: 'herb' | 'compound'
 }
 
+type FrontmatterModule = {
+  frontmatter?: {
+    id?: string
+    latinName?: string
+    title?: string
+    commonName?: string
+  }
+}
+
 async function safeGet<T>(url: string): Promise<T | null> {
   try {
     const r = await fetch(url, { cache: 'no-store' })
@@ -45,12 +54,12 @@ async function loadHerbCandidates(): Promise<AnyEntity[]> {
   if (idx?.length) return idx
 
   try {
-    // @ts-ignore – Vite glob
+    // @ts-expect-error -- Vite glob is provided at build time
     const files = import.meta.glob('/src/content/herbs/*.mdx', { eager: true }) as Record<
       string,
-      any
+      FrontmatterModule
     >
-    const entries = Object.values(files).map((m: any) => ({
+    const entries = Object.values(files).map(m => ({
       id: m?.frontmatter?.id,
       latinName: m?.frontmatter?.latinName ?? m?.frontmatter?.title,
       commonName: m?.frontmatter?.commonName,
@@ -72,12 +81,12 @@ async function loadCompoundCandidates(): Promise<AnyEntity[]> {
   if (idx?.length) return idx
 
   try {
-    // @ts-ignore – Vite glob
+    // @ts-expect-error -- Vite glob is provided at build time
     const files = import.meta.glob('/src/content/compounds/*.mdx', { eager: true }) as Record<
       string,
-      any
+      FrontmatterModule
     >
-    const entries = Object.values(files).map((m: any) => ({
+    const entries = Object.values(files).map(m => ({
       id: m?.frontmatter?.id,
       latinName: m?.frontmatter?.latinName ?? m?.frontmatter?.title,
       commonName: m?.frontmatter?.commonName,
