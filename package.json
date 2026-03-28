@@ -103,7 +103,6 @@
     "tailwindcss": "^3.4.3",
     "three": "^0.180.0",
     "tsparticles": "^3.8.1",
-    "vite-plugin-pwa": "^1.0.1",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
