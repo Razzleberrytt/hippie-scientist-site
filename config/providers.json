@@ -1,0 +1,17 @@
+{
+  "default": "openai-responses",
+  "providers": [
+    {
+      "id": "openai-responses",
+      "enabled": true,
+      "model": "gpt-5.1",
+      "env": ["OPENAI_API_KEY"]
+    },
+    {
+      "id": "anthropic-structured",
+      "enabled": false,
+      "model": "claude-sonnet-4.5",
+      "env": ["ANTHROPIC_API_KEY"]
+    }
+  ]
+}
