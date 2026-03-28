@@ -1,8 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
-import { buildMeta } from '../lib/seo'
-import type { PageType } from '../lib/seo'
+import { TWITTER_HANDLE, buildMeta } from '@/lib/seo'
+import type { PageType } from '@/lib/seo'
 
 type OpenGraphOverrides = {
   title?: string
@@ -100,6 +100,7 @@ export default function Meta({
         <meta property='article:published_time' content={articlePublishedTime} />
       )}
       <meta name='twitter:card' content='summary_large_image' />
+      <meta name='twitter:site' content={TWITTER_HANDLE} />
       <meta name='twitter:title' content={ogTitle} />
       <meta name='twitter:description' content={ogDescription} />
       <meta name='twitter:image' content={ogImage} />
