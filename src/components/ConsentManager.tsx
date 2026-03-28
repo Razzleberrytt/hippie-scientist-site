@@ -46,7 +46,9 @@ export default function ConsentManager({ open, onClose }: Props) {
 
     try {
       (await import("../lib/loadAnalytics")).loadAnalytics();
-    } catch {}
+    } catch {
+      // Ignore analytics load failures.
+    }
 
     onClose();
   }
@@ -63,11 +65,13 @@ export default function ConsentManager({ open, onClose }: Props) {
       role="dialog"
       aria-labelledby="consent-title"
       className="fixed inset-0 z-50 flex items-center justify-center"
-      onMouseDown={(event) => {
-        if (event.target === event.currentTarget) onClose();
-      }}
     >
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      <button
+        type="button"
+        aria-label="Close privacy settings"
+        onClick={onClose}
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+      />
       <div
         ref={dialogRef}
         className="relative z-10 w-[min(92vw,560px)] rounded-2xl border border-white/10 bg-black/90 p-5"

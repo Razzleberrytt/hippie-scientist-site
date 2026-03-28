@@ -153,11 +153,13 @@ export default function AdvancedSearch({
       role='dialog'
       aria-modal='true'
       className='fixed inset-0 z-50'
-      onMouseDown={event => {
-        if (event.target === event.currentTarget) onClose()
-      }}
     >
-      <div className='absolute inset-0 bg-black/60 backdrop-blur-sm' />
+      <button
+        type='button'
+        aria-label='Close advanced search'
+        onClick={onClose}
+        className='absolute inset-0 bg-black/60 backdrop-blur-sm'
+      />
       <div className='ds-card-lg relative z-10 mx-auto mt-10 w-[min(92vw,780px)] text-white'>
         <div className='flex items-start justify-between gap-3'>
           <h2 className='bg-gradient-to-r from-lime-300 via-cyan-300 to-pink-400 bg-clip-text text-lg font-semibold text-transparent'>
