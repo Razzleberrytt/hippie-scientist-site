@@ -12,6 +12,7 @@ const outDir = process.argv[2]
 
 const site = (process.env.SITE_URL || 'https://thehippiescientist.net').replace(/\/+$/, '')
 const basePath = normalizeBasePath(process.env.BASE_PATH || process.env.VITE_BASE_PATH || '/')
+const today = new Date().toISOString().slice(0, 10)
 
 function normalizeBasePath(value) {
   if (!value || value === '/') return '/'
@@ -30,6 +31,48 @@ function toPublicUrl(pathname) {
   return `${site}${withBase === '/' ? '/' : withBase}`
 }
 
+function readJson(relativePath) {
+  const full = path.resolve(__dirname, '..', relativePath)
+  if (!fs.existsSync(full)) return []
+
+  try {
+    const parsed = JSON.parse(fs.readFileSync(full, 'utf-8'))
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    return []
+  }
+}
+
+function normalizeDate(value) {
+  if (!value) return null
+  const date = new Date(value)
+  return Number.isNaN(date.getTime()) ? null : date.toISOString().slice(0, 10)
+}
+
+function uniq(list) {
+  return [...new Set(list)]
+}
+
+function getEntityRoutes(records, prefix) {
+  return records
+    .map(item => String(item?.slug || '').trim())
+    .filter(Boolean)
+    .map(slug => normalizePathname(`${prefix}/${slug}`))
+}
+
+function getBlogEntries(records) {
+  return records
+    .map(item => {
+      const slug = String(item?.slug || '').trim()
+      if (!slug) return null
+      return {
+        route: normalizePathname(`/blog/${slug}`),
+        lastmod: normalizeDate(item?.date),
+      }
+    })
+    .filter(Boolean)
+}
+
 function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}) {
   const normalized = normalizePathname(loc)
   if (!normalized) return null
@@ -44,8 +87,34 @@ function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}
 }
 
 function buildSitemapXml() {
-  const { sitemapRoutes, sitemapMeta } = getSharedRouteManifest()
-  const urlEntries = sitemapRoutes
+  const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
+
+  const herbs = getEntityRoutes(readJson('public/data/herbs.json'), '/herbs')
+  const compounds = getEntityRoutes(readJson('public/data/compounds.json'), '/compounds')
+  const blogEntries = getBlogEntries(readJson('src/data/blog/posts.json'))
+  const blogRoutes = blogEntries.map(entry => entry.route)
+
+  const allRoutes = uniq([...sitemapRoutes, ...herbs, ...compounds, ...blogRoutes]).filter(
+    route => !disallowedRoutes.includes(route)
+  )
+
+  for (const route of herbs) {
+    sitemapMeta.set(route, { priority: 0.7, changefreq: 'monthly', lastmod: today })
+  }
+
+  for (const route of compounds) {
+    sitemapMeta.set(route, { priority: 0.7, changefreq: 'monthly', lastmod: today })
+  }
+
+  for (const entry of blogEntries) {
+    sitemapMeta.set(entry.route, {
+      priority: 0.6,
+      changefreq: 'weekly',
+      lastmod: entry.lastmod || today,
+    })
+  }
+
+  const urlEntries = allRoutes
     .map(route => toUrlEntry(route, sitemapMeta.get(route) || {}))
     .filter(Boolean)
     .join('\n')

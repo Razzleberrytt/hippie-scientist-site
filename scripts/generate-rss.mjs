@@ -1,38 +1,53 @@
-import fs from "fs";
-import path from "path";
+import fs from 'node:fs'
+import path from 'node:path'
 
-const SITE = "https://thehippiescientist.net";
-const OUT  = path.resolve("public/feed.xml");
-const OUT2 = path.resolve("public/rss.xml");
+const SITE = 'https://thehippiescientist.net'
+const OUT = path.resolve('public/feed.xml')
+const OUT2 = path.resolve('public/rss.xml')
+const POSTS_PATH = path.resolve('src/data/blog/posts.json')
 
-let posts = [];
+let posts = []
 try {
-  posts = JSON.parse(fs.readFileSync("src/data/blog/posts.json", "utf-8"));
+  posts = JSON.parse(fs.readFileSync(POSTS_PATH, 'utf-8'))
 } catch {
-  console.warn("No blog posts found, skipping RSS feed.");
-  process.exit(0);
+  console.warn('No blog posts found, skipping RSS feed.')
+  process.exit(0)
 }
 
-const now = new Date().toUTCString();
-const normalizedPosts = posts
-  .slice()
-  .sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0))
-  .slice(0, 50);
+const now = new Date().toUTCString()
 
-const items = normalizedPosts.map(p => {
-  const url = `${SITE}/blog/${p.slug}`;
-  const title = p.title || "Untitled";
-  const desc = p.description || p.summary || "";
-  const pub = new Date(p.date || Date.now()).toUTCString();
-  return `
+const normalizedPosts = (Array.isArray(posts) ? posts : [])
+  .map(post => {
+    const slug = String(post?.slug || '').trim().replace(/^\/+|\/+$/g, '')
+    if (!slug) return null
+
+    const parsedDate = new Date(post?.date || 0)
+    const date = Number.isNaN(parsedDate.getTime()) ? new Date(0) : parsedDate
+
+    return {
+      slug,
+      title: post?.title || 'Untitled',
+      description: post?.description || post?.summary || '',
+      date,
+    }
+  })
+  .filter(Boolean)
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
+  .slice(0, 50)
+
+const items = normalizedPosts
+  .map(post => {
+    const url = `${SITE}/blog/${post.slug}`
+    return `
     <item>
-      <title><![CDATA[${title}]]></title>
+      <title><![CDATA[${post.title}]]></title>
       <link>${url}</link>
       <guid>${url}</guid>
-      <pubDate>${pub}</pubDate>
-      <description><![CDATA[${desc}]]></description>
-    </item>`;
-}).join("\n");
+      <pubDate>${post.date.toUTCString()}</pubDate>
+      <description><![CDATA[${post.description}]]></description>
+    </item>`
+  })
+  .join('\n')
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -44,13 +59,13 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
   <lastBuildDate>${now}</lastBuildDate>
   ${items}
 </channel>
-</rss>`;
+</rss>`
 
-fs.writeFileSync(OUT, xml);
+fs.writeFileSync(OUT, xml)
 try {
-  fs.writeFileSync(OUT2, xml);
+  fs.writeFileSync(OUT2, xml)
 } catch (error) {
-  console.warn("Unable to mirror RSS feed to", OUT2, error);
+  console.warn('Unable to mirror RSS feed to', OUT2, error)
 }
 
-console.log("RSS feed written to", OUT, "with", normalizedPosts.length);
+console.log('RSS feed written to', OUT, 'with', normalizedPosts.length)
