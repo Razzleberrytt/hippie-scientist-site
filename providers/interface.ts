@@ -2,8 +2,13 @@ export type ProviderName = 'openai-responses' | 'anthropic-structured';
 
 export interface ProviderRequest {
   task: string;
+  taskId: string;
+  promptVersion: string;
   prompt: string;
-  temperature?: number;
+  schema: unknown;
+  model: string;
+  temperature: number;
+  temperatureSource: string;
   metadata?: Record<string, unknown>;
 }
 

@@ -5,6 +5,13 @@ on:
     branches: [ main ]
   push:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      require_refresh:
+        description: 'Fail if herb CSV inputs are missing and force data:refresh.'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   audit:
@@ -16,12 +23,55 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npm run data:refresh
-      - run: npm run data:report
+
+      - name: Detect herb CSV inputs for convert-herbs
+        id: herb_csv
+        run: |
+          candidates=(
+            "herbs_final_merged_and_normalized 2.csv"
+            "src/data/herbs/herbs_final_merged_and_normalized 2.csv"
+            "src/data/herbs/herb_index_normalized_v1.28.csv"
+            "src/data/herbs/deep_audited_subset_updated_v1.28.csv"
+          )
+
+          found=""
+          for p in "${candidates[@]}"; do
+            if [ -f "$p" ]; then
+              found="$p"
+              break
+            fi
+          done
+
+          if [ -n "$found" ]; then
+            echo "has_inputs=true" >> "$GITHUB_OUTPUT"
+            echo "input_path=$found" >> "$GITHUB_OUTPUT"
+            echo "[data-audit] Found herb CSV input: $found"
+          else
+            echo "has_inputs=false" >> "$GITHUB_OUTPUT"
+            echo "[data-audit] No herb CSV inputs present. Skipping npm run data:refresh in CI."
+            echo "[data-audit] Local/operator refresh remains strict and unchanged when CSVs are expected."
+          fi
+
+      - name: Enforce refresh inputs when explicitly requested
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.require_refresh && steps.herb_csv.outputs.has_inputs != 'true' }}
+        run: |
+          echo "[data-audit] require_refresh=true but no herb CSV inputs were found."
+          echo "[data-audit] Expected one of:"
+          echo "  - herbs_final_merged_and_normalized 2.csv"
+          echo "  - src/data/herbs/herbs_final_merged_and_normalized 2.csv"
+          echo "  - src/data/herbs/herb_index_normalized_v1.28.csv"
+          echo "  - src/data/herbs/deep_audited_subset_updated_v1.28.csv"
+          exit 1
+
+      - name: Refresh data when CSV inputs exist
+        if: ${{ steps.herb_csv.outputs.has_inputs == 'true' }}
+        run: npm run data:refresh
+
+      - name: Report data coverage
+        run: npm run data:report
+
       - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
         with:
           name: herb-data-coverage
           path: scripts/out/
-      # If you want to build on CI too, uncomment:
-      # - run: npm run data:refresh+build
