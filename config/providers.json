@@ -5,12 +5,14 @@
       "id": "openai-responses",
       "enabled": true,
       "model": "gpt-5.1",
+      "temperature": 0.2,
       "env": ["OPENAI_API_KEY"]
     },
     {
       "id": "anthropic-structured",
       "enabled": false,
       "model": "claude-sonnet-4.5",
+      "temperature": 0.2,
       "env": ["ANTHROPIC_API_KEY"]
     }
   ]
