@@ -1,0 +1,11 @@
+{
+  "entityTypes": ["herb", "compound"],
+  "tasks": [
+    "herb_mechanism",
+    "compound_mechanism",
+    "dosage",
+    "interactions",
+    "sources_suggestion"
+  ],
+  "scoreFormula": "sources*3 + effects + mechanism*2 + description*2 + contraindications"
+}

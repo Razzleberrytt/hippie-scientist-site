@@ -53,7 +53,16 @@
     "data:missing": "node scripts/check-missing-fields.mjs --write",
     "prerender:routes": "node scripts/prerender-routes.mjs",
     "verify:prerender": "node scripts/verify-prerender.mjs",
-    "prerender:static": "node scripts/prerender-static.mjs"
+    "prerender:static": "node scripts/prerender-static.mjs",
+    "enrichment:plan": "node scripts/enrichment/plan-run.mjs",
+    "enrichment:run": "node scripts/enrichment/run-batch.mjs",
+    "enrichment:validate:schema": "node scripts/enrichment/validate-schema.mjs",
+    "enrichment:validate:domain": "node scripts/enrichment/validate-domain.mjs",
+    "enrichment:validate": "npm run enrichment:validate:schema && npm run enrichment:validate:domain",
+    "enrichment:apply": "node scripts/enrichment/apply-patches.mjs",
+    "enrichment:score": "node scripts/enrichment/score-entities.mjs",
+    "enrichment:coverage": "node scripts/enrichment/report-coverage.mjs",
+    "enrichment:evals": "node scripts/enrichment/run-evals.mjs"
   },
   "engines": {
     "node": ">=20 <21"
@@ -94,7 +103,9 @@
     "tailwindcss": "^3.4.3",
     "three": "^0.180.0",
     "tsparticles": "^3.8.1",
-    "zustand": "^5.0.8"
+    "zustand": "^5.0.8",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
   },
   "devDependencies": {
     "@fontsource/inter": "^5.1.0",
