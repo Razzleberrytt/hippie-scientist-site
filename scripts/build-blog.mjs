@@ -358,7 +358,7 @@ fs.mkdirSync(POSTS_OUT, { recursive: true });
 const files = fs.existsSync(BLOG_SRC)
   ? fs
       .readdirSync(BLOG_SRC)
-      .filter((f) => f.endsWith(".mdx"))
+      .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
   : [];
 const rows = [];
 let consistencyBlocked = 0;
