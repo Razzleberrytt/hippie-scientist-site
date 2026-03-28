@@ -48,11 +48,16 @@ export default [
     },
   },
   {
-    files: [
-      'scripts/**/*.{js,mjs,cjs,ts,tsx}',
-      'tools/**/*.{js,mjs,cjs,ts,tsx}',
-      '**/*.config.{js,mjs,cjs,ts}',
-    ],
+    files: ['scripts/**/*.{js,mjs,cjs}', 'api/**/*.{js,ts}'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.es2022,
+      },
+    },
+  },
+  {
+    files: ['tools/**/*.{js,mjs,cjs,ts,tsx}', '**/*.config.{js,mjs,cjs,ts}'],
     languageOptions: {
       globals: {
         ...globals.node,
