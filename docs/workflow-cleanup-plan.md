@@ -65,3 +65,10 @@ No active workflow references stale paths:
 - `.github/workflows/deploy.yml` should remain CI + optional Netlify deploy-hook trigger only; no branch publishing.
 - `public/_redirects` should contain only SPA fallback rule: `/* /index.html 200`.
 - Root-level cache rules for `/*.js` and `/*.css` were removed from `public/_headers` to reduce stale shell risk while retaining immutable `/assets/*` caching.
+
+## Phase B2 follow-up (2026-03-28)
+
+- `scripts/convert-herbs.mjs` expects one of several herb CSV inputs, including legacy local paths under `src/data/herbs/*`.
+- In GitHub-hosted CI these CSVs are normally absent (they are local/manual and ignored by `.gitignore`), so unconditional `npm run data:refresh` in `data-audit.yml` fails.
+- Updated `data-audit.yml` to detect CSV presence and run `data:refresh` only when inputs exist.
+- Added a strict manual override for workflow_dispatch (`require_refresh=true`) that fails fast if CSVs are missing, preserving strict behavior when refresh is explicitly required.
