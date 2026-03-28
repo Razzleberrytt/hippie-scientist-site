@@ -100,14 +100,20 @@ export default function CompoundDetail() {
   const compoundEffectsMetaText = Array.isArray(compound.effects)
     ? compound.effects.join(', ').slice(0, 155)
     : ''
+  const compoundDescriptionSource = (
+    compound.description ||
+    compound.mechanism ||
+    compoundEffectsMetaText
+  ).trim()
   const compoundMetaDescription =
-    (compound.mechanism?.slice(0, 155) || compoundEffectsMetaText).trim() ||
-    `Compound profile for ${compound.name}.`
+    compoundDescriptionSource.slice(0, 155) ||
+    `${compound.name} compound profile with pharmacology, effects, and safety notes.`
+  const compoundMetaTitle = `${compound.name} — Pharmacology & Effects | The Hippie Scientist`
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
       <Meta
-        title={`${compound.name} — Pharmacology & Effects | The Hippie Scientist`}
+        title={compoundMetaTitle}
         description={compoundMetaDescription}
         path={`/compounds/${compound.slug}`}
         jsonLd={[

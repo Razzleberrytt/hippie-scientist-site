@@ -62,3 +62,17 @@ validation_report.json
 scripts/out/
 
 .eslintcache
+
+# Root-level cleanup artifacts (do not commit)
+DEPLOY_FIX_REPORT.md
+DEPLOY_STRATEGY_REPORT.md
+DEPLOY_SUCCESS_REPORT.md
+FINAL_FIX_DIFF.md
+FINAL_PREDEPLOY_REPORT.md
+NETLIFY_DEPLOY_CHECKLIST.md
+PERF_NOTES.md
+PR.md
+READY_TO_DEPLOY.md
+REFACTOR_SUMMARY.md
+CLEANUP_NOTES.md
+DATA_QUALITY_REPORT.md

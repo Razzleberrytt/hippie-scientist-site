@@ -159,9 +159,16 @@ export default function HerbDetail() {
   })
 
   const herbDisplayName = herb.commonName || herb.common || herb.name || herb.slug
-  const herbMetaDescriptionSource = (herb.summary || herb.description || '').trim()
+  const herbMetaDescriptionSource = (
+    herb.summary ||
+    herb.description ||
+    therapeuticUses[0] ||
+    effects.slice(0, 2).join(', ')
+  ).trim()
   const herbMetaDescription =
-    herbMetaDescriptionSource.slice(0, 155) || `Herb profile for ${herbDisplayName}.`
+    herbMetaDescriptionSource.slice(0, 155) ||
+    `${herbDisplayName} herb profile with effects, safety notes, and practical context.`
+  const herbMetaTitle = `${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`
 
   const compoundKeys = new Set(activeCompounds.map(normalizeKey))
   const relatedHerbs = herbs
@@ -224,7 +231,7 @@ export default function HerbDetail() {
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
       <Meta
-        title={`${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`}
+        title={herbMetaTitle}
         description={herbMetaDescription}
         path={`/herbs/${herb.slug}`}
         image={`/og/herb/${herb.slug}.png`}
