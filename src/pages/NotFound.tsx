@@ -68,7 +68,6 @@ export default function NotFound() {
               placeholder='Search herbs, compounds, effects…'
               value={q}
               onChange={e => setQ(e.target.value)}
-              autoFocus
             />
           </div>
 
