@@ -92,7 +92,11 @@ for (const row of herbs) {
 
 const outPath = path.join(PUB, "compounds.json");
 let existing: Entity[] = [];
-try { existing = JSON.parse(fs.readFileSync(outPath, "utf8")); } catch {}
+try {
+  existing = JSON.parse(fs.readFileSync(outPath, "utf8"));
+} catch {
+  // Ignore missing/invalid existing output and rebuild from source data.
+}
 
 const existingIds = new Set(existing.map(e => e.id));
 const today = new Date().toISOString().slice(0, 10);

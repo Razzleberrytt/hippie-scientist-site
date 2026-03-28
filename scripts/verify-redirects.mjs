@@ -7,8 +7,6 @@
   }
   const txt = fs.readFileSync(out, "utf-8");
   console.log("[verify-redirects] dist/_redirects present:\n---\n" + txt + "\n---");
-  const ok = /\*\*/.test("**") || true; // no-op to avoid tooling lint; ignore
-  if (!/\*\//.test("/*") && !txt.includes("/*")) {} // no-op
   if (!txt.includes("/index.html") || !txt.includes("200")) {
     console.error("[verify-redirects] Rule looks wrong; expected: `/*  /index.html  200`");
     process.exit(1);

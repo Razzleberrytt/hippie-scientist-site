@@ -70,7 +70,7 @@ const normalizePath = route => {
 
 const dedupe = routes => [...new Set(routes.map(normalizePath))]
 const clip = (value, max = 155) => String(value || '').trim().slice(0, max)
-const NAN_TOKEN_PATTERN = /(^|[\s;,.()\-])nan([\s;,.()\-]|$)/i
+const NAN_TOKEN_PATTERN = /(^|[\s;,.()-])nan([\s;,.()-]|$)/i
 
 function safeStr(value) {
   if (!value || typeof value === 'number' || value !== value) return ''

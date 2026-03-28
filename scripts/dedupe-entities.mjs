@@ -29,7 +29,7 @@ const AUTHOR_SUFFIX_PATTERN = new RegExp(
   'gi'
 )
 
-const NOISE_PUNCTUATION_PATTERN = /[()\[\]{},;:]+/g
+const NOISE_PUNCTUATION_PATTERN = /[(),{};:]|\[|\]/g
 const DASH_PATTERN = /[–—−]/g
 const DIACRITICS_PATTERN = /[\u0300-\u036f]/g
 

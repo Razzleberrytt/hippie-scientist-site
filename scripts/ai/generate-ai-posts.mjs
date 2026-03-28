@@ -356,13 +356,13 @@ async function aiArticle(){
     { role: "user", content: polishPrompt(draft) }
   ], { maxTokens: 2600, temperature: 0.2 });
 
-  let longMd = await extendIfShort(finalMd, topic, contextBlob);
+  const longMd = await extendIfShort(finalMd, topic, contextBlob);
 
   // --- Source gating & auto-repair ---
   let gatedMd = longMd;
   {
     const { srcBlock } = extractLinks(gatedMd);
-    let { ok, block } = filterSourcesBlock(srcBlock);
+    const { ok, block } = filterSourcesBlock(srcBlock);
 
     if (ok < 3) {
       try {

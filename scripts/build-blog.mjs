@@ -34,7 +34,9 @@ function statISO(p) {
       const formatted = iso(fallback);
       if (formatted) return formatted;
     }
-  } catch {}
+  } catch {
+    // Ignore file stat failures and fall back to current date.
+  }
   return iso(Date.now()) ?? new Date().toISOString().slice(0, 10);
 }
 
@@ -343,7 +345,9 @@ function getCreatedDate(fp, fmDate) {
     const out = execSync(cmd, { stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
     const gitDate = out ? iso(out) : null;
     if (gitDate) return gitDate;
-  } catch {}
+  } catch {
+    // Ignore git date resolution errors and fall back to filesystem date.
+  }
 
   const fsDate = statISO(fp);
   if (fsDate) return fsDate;
