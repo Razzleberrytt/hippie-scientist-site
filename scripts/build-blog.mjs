@@ -432,7 +432,9 @@ for (const file of files) {
   const ogImage = data.ogImage || cover || null;
   const lastUpdated = iso(data.lastUpdated) || statISO(filePath);
 
-  fs.writeFileSync(path.join(POSTS_OUT, `${slug}.html`), postHtml, "utf-8");
+  const postHtmlPath = path.join(POSTS_OUT, `${slug}.html`);
+  fs.mkdirSync(path.dirname(postHtmlPath), { recursive: true });
+  fs.writeFileSync(postHtmlPath, postHtml, "utf-8");
 
   const post = {
     slug,
