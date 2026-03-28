@@ -24,9 +24,22 @@ function writeJson(fileName, data) {
   fs.writeFileSync(path.join(DATA_DIR, fileName), `${JSON.stringify(data, null, 2)}\n`, 'utf8')
 }
 
+function resolveSlug(record) {
+  return slugify(
+    record?.slug ||
+      record?.commonName ||
+      record?.common ||
+      record?.name ||
+      record?.latinName ||
+      record?.latin ||
+      record?.id ||
+      record?.scientific
+  )
+}
+
 function toIndexableEntry(record, type) {
   const name = asText(record?.common || record?.commonName || record?.name || record?.scientific)
-  const slug = slugify(record?.slug)
+  const slug = resolveSlug(record)
   const description = asText(record?.description || record?.summary)
   const mechanism = asText(record?.mechanism || record?.mechanismOfAction || record?.mechanismofaction)
 
@@ -51,20 +64,38 @@ function toIndexableEntry(record, type) {
   }
 }
 
-function buildIndexable(fileName, type) {
+function buildIndexable(fileName, type, allowedSlugs = null) {
   const rows = readJson(fileName)
-  return rows
+  const dedupedBySlug = new Map()
+
+  rows
     .map(record => toIndexableEntry(record, type))
+    .filter(entry => !allowedSlugs || allowedSlugs.has(entry.slug))
     .filter(entry => entry.passesIndexThreshold)
+    .forEach(entry => {
+      const existing = dedupedBySlug.get(entry.slug)
+      if (!existing || entry.completenessScore > existing.completenessScore) {
+        dedupedBySlug.set(entry.slug, entry)
+      }
+    })
+
+  return [...dedupedBySlug.values()]
 }
 
 function run() {
-  const herbs = buildIndexable('herbs_combined_updated.json', 'herbs')
+  const herbRuntimeRows = readJson('herbs.json')
+  const runtimeHerbSlugs = new Set(herbRuntimeRows.map(resolveSlug).filter(Boolean))
+  const herbSourceFile = fs.existsSync(path.join(DATA_DIR, 'herbs_combined_updated.json'))
+    ? 'herbs_combined_updated.json'
+    : 'herbs.json'
+  const herbs = buildIndexable(herbSourceFile, 'herbs', runtimeHerbSlugs)
   const compounds = buildIndexable('compounds_combined_updated.json', 'compounds')
 
   writeJson('indexable-herbs.json', herbs)
   writeJson('indexable-compounds.json', compounds)
 
+  console.log(`[indexable] herbs source=${herbSourceFile}`)
+  console.log(`[indexable] herbs runtime=${runtimeHerbSlugs.size}`)
   console.log(`[indexable] herbs indexable=${herbs.length}`)
   console.log(`[indexable] compounds indexable=${compounds.length}`)
 }
