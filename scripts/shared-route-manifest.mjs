@@ -429,6 +429,7 @@ export function getSharedRouteManifest() {
       .map(item => normalizePath(item?.route || `/compounds/${item?.slug || ''}`))
       .filter(route => route.startsWith('/compounds/'))
   )
+  const isIndexableHerbRoute = route => (route.startsWith('/herbs/') ? indexableHerbRoutes.has(route) : true)
 
   const herbCandidates = pickTopEntities(herbs, '/herbs', learningAllowlist, Number.MAX_SAFE_INTEGER, 'herb')
   const compoundCandidates = pickTopEntities(compounds, '/compounds', learningAllowlist, Number.MAX_SAFE_INTEGER, 'compound')
@@ -457,13 +458,12 @@ export function getSharedRouteManifest() {
     ...blogEntries.map(entry => entry.route),
     ...herbEntries.map(entry => entry.route),
     ...compoundEntries.map(entry => entry.route),
-  ]).filter(route => !DISALLOWED_ROUTES.includes(route))
+  ])
+    .filter(route => !DISALLOWED_ROUTES.includes(route))
+    .filter(isIndexableHerbRoute)
 
-  const prerenderRoutes = approvedRoutes
-  const sitemapRoutes = approvedRoutes.filter(route => {
-    if (!route.startsWith('/herbs/')) return true
-    return indexableHerbRoutes.has(route)
-  })
+  const prerenderRoutes = approvedRoutes.filter(isIndexableHerbRoute)
+  const sitemapRoutes = approvedRoutes.filter(isIndexableHerbRoute)
 
   return {
     approvedRoutes,
