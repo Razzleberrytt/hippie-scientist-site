@@ -15,5 +15,7 @@ export function setLS<T>(key: string, value: T) {
   try {
     const v = typeof value === "string" ? value : JSON.stringify(value);
     localStorage.setItem(key, v);
-  } catch {}
+  } catch {
+    // no-op: storage can fail in private browsing
+  }
 }

@@ -50,7 +50,9 @@ export function applyGaConsent(status: ConsentStatus) {
       functionality_storage: 'granted', // essential
       security_storage: 'granted',
     })
-  } catch {}
+  } catch {
+    // no-op: consent API is optional
+  }
 }
 
 export function debugConsent() {

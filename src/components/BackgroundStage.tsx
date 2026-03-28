@@ -178,7 +178,7 @@ export default function BackgroundStage({ effect = 'aura', enabled = true }: Bac
       }
     }
 
-    let start = performance.now()
+    const start = performance.now()
     const tick = (now: number) => {
       const t = (now - start) / 1000
       renderFrame(t)
