@@ -58,3 +58,10 @@ No active workflow references stale paths:
 - `npm run lint`
 - `npm run build`
 - `npm run verify:redirects`
+
+## Phase A1 findings (2026-03-28)
+
+- `gh-pages` is redundant with this repository's Netlify deployment contract.
+- `.github/workflows/deploy.yml` should remain CI + optional Netlify deploy-hook trigger only; no branch publishing.
+- `public/_redirects` should contain only SPA fallback rule: `/* /index.html 200`.
+- Root-level cache rules for `/*.js` and `/*.css` were removed from `public/_headers` to reduce stale shell risk while retaining immutable `/assets/*` caching.
