@@ -151,6 +151,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://thehippiescientist.net/blog/page/7</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://thehippiescientist.net/blog/2026-03-21-extraction-101-skullcap</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -537,6 +542,66 @@
   <url>
     <loc>https://thehippiescientist.net/blog/2025-08-16-psychoactive-botany-rhodiola-saturday-notes</loc>
     <lastmod>2025-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/kava-safety-kavalactones</loc>
+    <lastmod>2024-05-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/cacao-theobromine-stimulant</loc>
+    <lastmod>2024-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/blue-lotus-aporphines</loc>
+    <lastmod>2024-05-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/nightly-blend-guide</loc>
+    <lastmod>2024-05-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/lions-mane-bdnf</loc>
+    <lastmod>2024-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/yerba-mate-vs-green-tea</loc>
+    <lastmod>2024-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/kanna-mood-focus</loc>
+    <lastmod>2024-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/reishi-sleep-immunity</loc>
+    <lastmod>2024-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thehippiescientist.net/blog/mugwort-dreaming-tradition</loc>
+    <lastmod>2024-05-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -96,7 +96,6 @@ summary: "${yaml(summary)}"
 sources: []
 tags: ["Daily","Field Notes","Herbs"]
 cover: "${coverRel}"
-draft: false
 ---`;
 
   const body = `
