@@ -71,4 +71,5 @@ No active workflow references stale paths:
 - `scripts/convert-herbs.mjs` expects one of several herb CSV inputs, including legacy local paths under `src/data/herbs/*`.
 - In GitHub-hosted CI these CSVs are normally absent (they are local/manual and ignored by `.gitignore`), so unconditional `npm run data:refresh` in `data-audit.yml` fails.
 - Updated `data-audit.yml` to detect CSV presence and run `data:refresh` only when inputs exist.
+- When CSVs are absent in CI, the workflow now validates checked-in derived data (`npm run prebuild:validate && npm run audit:data`) instead of attempting a refresh.
 - Added a strict manual override for workflow_dispatch (`require_refresh=true`) that fails fast if CSVs are missing, preserving strict behavior when refresh is explicitly required.
