@@ -30,18 +30,35 @@ function findEntityIndex(data, entityId) {
 }
 
 function applyOperation(entity, operation) {
+  const fieldPath = String(operation.field ?? '');
+  const isPointer = fieldPath.startsWith('/');
+  const parts = isPointer ? fieldPath.split('/').slice(1).map((part) => part.replace(/~1/g, '/').replace(/~0/g, '~')) : [fieldPath];
+  const last = parts.at(-1);
+  const parent = parts.slice(0, -1).reduce((cursor, part) => {
+    if (!cursor[part] || typeof cursor[part] !== 'object') cursor[part] = {};
+    return cursor[part];
+  }, entity);
+
   if (operation.op === 'set') {
-    entity[operation.field] = operation.value;
+    parent[last] = operation.value;
     return;
   }
   if (operation.op === 'append') {
-    const current = Array.isArray(entity[operation.field]) ? entity[operation.field] : [];
-    entity[operation.field] = [...current, operation.value];
+    if (last === '-') {
+      const arrayKey = parts.at(-2);
+      const container = parts.slice(0, -2).reduce((cursor, part) => {
+        if (!cursor[part] || typeof cursor[part] !== 'object') cursor[part] = {};
+        return cursor[part];
+      }, entity);
+      if (!Array.isArray(container[arrayKey])) container[arrayKey] = [];
+      container[arrayKey] = [...container[arrayKey], operation.value];
+      return;
+    }
+    if (!Array.isArray(parent[last])) parent[last] = [];
+    parent[last] = [...parent[last], operation.value];
     return;
   }
-  if (operation.op === 'remove') {
-    delete entity[operation.field];
-  }
+  if (operation.op === 'remove') delete parent[last];
 }
 
 const manifestsDir = join(REPO_ROOT, 'ops', 'manifests');

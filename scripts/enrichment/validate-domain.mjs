@@ -32,8 +32,82 @@ function hasString(value) {
   return typeof value === 'string' && value.trim().length > 0;
 }
 
+const PHARMACOLOGY_RE =
+  /\b(5-ht(?:1a|2a|2c|3|4|7)?|serotonin|dopamin(?:e|ergic)|gaba(?:ergic)?|nmda|ampar?|adrenergic|muscarinic|nicotinic|opioid|cb1|cb2|trpv1|voltage-gated|ion channel|calcium channel|sodium channel|potassium channel|monoamine oxidase|mao[- ]?[ab]?|acetylcholinesterase|cyp\d+[a-z0-9]*|kinase|phosphodiesterase|alkaloid|terpene|flavonoid|lignan|coumarin)\b/iu;
+const FORBIDDEN_MECHANISM_RE = /\b(dose|dosage|mg\b|legal|schedule\s*[ivx]+|brand|price|\$)\b/iu;
+
+function countSentences(text) {
+  const normalized = String(text ?? '').trim();
+  if (!normalized) return 0;
+  return normalized
+    .split(/(?<=[.!?])\s+/u)
+    .map((segment) => segment.trim())
+    .filter(Boolean).length;
+}
+
+function validateMechanismText(task, text) {
+  if (!hasString(text)) return 'mechanism text is required.';
+  const sentenceCount = countSentences(text);
+  const [minSentences, maxSentences] = task === 'herb_mechanism' ? [2, 4] : [2, 5];
+  if (sentenceCount < minSentences || sentenceCount > maxSentences) {
+    return `mechanism must be ${minSentences}-${maxSentences} sentences for ${task}.`;
+  }
+  if (!PHARMACOLOGY_RE.test(text)) return 'mechanism must include at least one pharmacology-specific reference.';
+  if (FORBIDDEN_MECHANISM_RE.test(text)) return 'mechanism includes forbidden content (dose/legal/brand/price).';
+  const defaultCap = task === 'herb_mechanism' ? 700 : 850;
+  const envCapName = task === 'herb_mechanism' ? 'MECHANISM_HERB_CHAR_CAP' : 'MECHANISM_COMPOUND_CHAR_CAP';
+  const configuredCap = Number.parseInt(process.env[envCapName] ?? '', 10);
+  const cap = Number.isFinite(configuredCap) && configuredCap > 0 ? configuredCap : defaultCap;
+  if (String(text).length > cap) return `mechanism exceeds ${cap} character cap.`;
+  return null;
+}
+
+function validateClaimValue(value) {
+  if (!value || typeof value !== 'object') return 'claims append value must be an object.';
+  if (!hasString(value.id) || !value.id.startsWith('clm_')) return 'claim id must start with clm_.';
+  if (!hasString(value.claim)) return 'claim text is required.';
+  if (!Array.isArray(value.source_ids) || value.source_ids.length === 0) return 'claim source_ids must be a non-empty array.';
+  if (!value.source_ids.every((entry) => hasString(entry) && entry.startsWith('src_'))) return 'claim source_ids must use src_ IDs.';
+  return null;
+}
+
+function validateProvenanceValue(value) {
+  if (!value || typeof value !== 'object') return '_provenance set value must be an object.';
+  if (!hasString(value.run_id) || !value.run_id.startsWith('run_')) return '_provenance.run_id must use run_ ID.';
+  if (!Array.isArray(value.sources) || value.sources.length === 0) return '_provenance.sources must be a non-empty array.';
+  for (const source of value.sources) {
+    if (!source || typeof source !== 'object' || !hasString(source.id) || !source.id.startsWith('src_')) {
+      return '_provenance.sources entries must include src_ id.';
+    }
+  }
+  return null;
+}
+
+function validateReviewValue(value) {
+  if (!value || typeof value !== 'object') return '_review set value must be an object.';
+  if (!['pending', 'approved', 'rejected'].includes(value.status)) return '_review.status must be pending|approved|rejected.';
+  return null;
+}
+
 function validateMechanism(operation) {
-  if (!hasString(operation.value?.mechanism_summary)) return 'mechanism_summary is required.';
+  const allowedFields = new Set(['/mechanism', '/claims/-', '/_provenance', '/_review']);
+  if (!allowedFields.has(operation.field)) return 'mechanism patch field must be one of /mechanism|/claims/-|/_provenance|/_review.';
+  if (operation.field === '/mechanism') {
+    if (operation.op !== 'set') return '/mechanism requires op=set.';
+    return validateMechanismText(operation.task, operation.value);
+  }
+  if (operation.field === '/claims/-') {
+    if (operation.op !== 'append') return '/claims/- requires op=append.';
+    return validateClaimValue(operation.value);
+  }
+  if (operation.field === '/_provenance') {
+    if (operation.op !== 'set') return '/_provenance requires op=set.';
+    return validateProvenanceValue(operation.value);
+  }
+  if (operation.field === '/_review') {
+    if (operation.op !== 'set') return '/_review requires op=set.';
+    return validateReviewValue(operation.value);
+  }
   return null;
 }
 
@@ -74,38 +148,44 @@ function validatePatchDomain(patch) {
   return errors;
 }
 
-const options = parseArgs(process.argv);
-bootstrapStateDb();
-const patchesDir = join(REPO_ROOT, 'patches');
-const patchFiles = readdirSync(patchesDir)
-  .filter((name) => name.endsWith('.json'))
-  .map((name) => join(patchesDir, name));
+function main() {
+  const options = parseArgs(process.argv);
+  bootstrapStateDb();
+  const patchesDir = join(REPO_ROOT, 'patches');
+  const patchFiles = readdirSync(patchesDir)
+    .filter((name) => name.endsWith('.json'))
+    .map((name) => join(patchesDir, name));
 
-if (patchFiles.length === 0) {
-  console.log('[validate-domain] No patch files found.');
-  process.exit(0);
-}
-
-let failed = 0;
-for (const patchFile of patchFiles) {
-  const patch = JSON.parse(readFileSync(patchFile, 'utf8'));
-  const errors = validatePatchDomain(patch);
-  runSqlite({
-    sql: 'INSERT INTO validation_results(patch_id, validation_type, ok, details_json) VALUES(?, ?, ?, ?)',
-    args: [
-      patch.patch_id,
-      options.dryRun ? 'domain-dry-run' : 'domain',
-      errors.length === 0 ? 1 : 0,
-      JSON.stringify({ runId: options.runId, file: patchFile, errors }),
-    ],
-  });
-  if (errors.length > 0) {
-    failed += 1;
-    console.error(`[validate-domain] FAIL ${patchFile}`);
-    errors.forEach((entry) => console.error(`  - ${entry}`));
-  } else {
-    console.log(`[validate-domain] PASS ${patchFile}`);
+  if (patchFiles.length === 0) {
+    console.log('[validate-domain] No patch files found.');
+    process.exit(0);
   }
+
+  let failed = 0;
+  for (const patchFile of patchFiles) {
+    const patch = JSON.parse(readFileSync(patchFile, 'utf8'));
+    const errors = validatePatchDomain(patch);
+    runSqlite({
+      sql: 'INSERT INTO validation_results(patch_id, validation_type, ok, details_json) VALUES(?, ?, ?, ?)',
+      args: [
+        patch.patch_id,
+        options.dryRun ? 'domain-dry-run' : 'domain',
+        errors.length === 0 ? 1 : 0,
+        JSON.stringify({ runId: options.runId, file: patchFile, errors }),
+      ],
+    });
+    if (errors.length > 0) {
+      failed += 1;
+      console.error(`[validate-domain] FAIL ${patchFile}`);
+      errors.forEach((entry) => console.error(`  - ${entry}`));
+    } else {
+      console.log(`[validate-domain] PASS ${patchFile}`);
+    }
+  }
+
+  if (failed > 0) process.exit(1);
 }
 
-if (failed > 0) process.exit(1);
+if (import.meta.url === `file://${process.argv[1]}`) main();
+
+export { validateMechanismText, validatePatchDomain };

@@ -66,7 +66,8 @@
     "enrichment:plan:dry": "node scripts/enrichment/plan-run.mjs --dry-run",
     "enrichment:run:dry": "node scripts/enrichment/run-batch.mjs --dry-run",
     "enrichment:validate:dry": "npm run enrichment:validate:schema -- --dry-run && npm run enrichment:validate:domain -- --dry-run",
-    "enrichment:apply:dry": "node scripts/enrichment/apply-patches.mjs --dry-run"
+    "enrichment:apply:dry": "node scripts/enrichment/apply-patches.mjs --dry-run",
+    "enrichment:test:mechanism": "node scripts/enrichment/test-mechanism-validation.mjs"
   },
   "engines": {
     "node": ">=20 <21"

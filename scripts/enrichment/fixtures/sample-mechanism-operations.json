@@ -1,0 +1,41 @@
+{
+  "operations": [
+    {
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "acacia-nilotica",
+      "field": "/mechanism",
+      "op": "set",
+      "value": "Acacia nilotica tannin fractions appear to inhibit cyclooxygenase-related inflammatory signaling in vitro. Flavonoid constituents also show antioxidant activity that can attenuate NF-kB-mediated cytokine expression."
+    },
+    {
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "acacia-nilotica",
+      "field": "/claims/-",
+      "op": "append",
+      "value": {
+        "claim": "Tannin-rich fractions inhibit inflammatory enzyme signaling in cell assays.",
+        "source_ids": ["manual-source-id"]
+      }
+    },
+    {
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "acacia-nilotica",
+      "field": "/_provenance",
+      "op": "set",
+      "value": {
+        "sources": [{ "title": "PubMed indexed in vitro study", "url": "https://pubmed.ncbi.nlm.nih.gov/" }]
+      }
+    },
+    {
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "acacia-nilotica",
+      "field": "/_review",
+      "op": "set",
+      "value": { "status": "pending", "notes": "Awaiting reviewer verification." }
+    }
+  ]
+}

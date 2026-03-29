@@ -15,12 +15,14 @@ input:
     - context.classification
 rules:
   - Return JSON only that validates against schemaRef.
+  - Return exactly: slug, mechanism, claims, _provenance, _review.
   - Prioritize biochemical mechanism language over consumer-facing claims.
-  - Use only supplied evidence and mark uncertainty in notes.
-  - Set confidence between 0 and 1.
-failureMode: If sources are weak or non-specific, keep summary conservative and record limitations in notes.
+  - mechanism must be 2-5 sentences and include pharmacology-specific detail.
+  - Do not mention dose, legal status, brands, or price.
+  - Use only supplied evidence and encode uncertainty in claim wording.
+failureMode: If sources are weak or non-specific, keep _review.status as pending and produce conservative claims.
 ---
 
 You are completing **mechanism-compound** for a single compound entity.
 
-Generate a mechanism summary that emphasizes known or plausible pathways and confidence calibration.
+Generate a mechanism summary that emphasizes known or plausible pathways with patch-ready claims and provenance.

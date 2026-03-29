@@ -3,8 +3,11 @@
  * Usage:
  *   node scripts/enrichment/run-batch.mjs --task mechanism-herb --batch-size 5 --dry-run
  *   node scripts/enrichment/run-batch.mjs --task mechanism-herb --operations-file ./ops/sample-operations.json --dry-run
+ * Identity model:
+ *   runId: unique ULID-like run identifier for operational rows and provenance links.
+ *   deterministicRunKey: reproducible key from stable planning inputs for replay/audit.
  * Notes:
- *   This script resolves provider + prompt metadata and writes deterministic run manifests.
+ *   This script resolves provider + prompt metadata and writes run manifests.
  *   It only creates patch files when --operations-file is provided (no mocked provider output).
  */
 import { join } from 'node:path';
@@ -13,7 +16,9 @@ import matter from 'gray-matter';
 import {
   bootstrapStateDb,
   deterministicRunId,
+  deterministicRunKey,
   ensureDir,
+  generatePrefixedUlid,
   loadJson,
   nowIso,
   REPO_ROOT,
@@ -165,6 +170,43 @@ function selectEntities(task, batchSize) {
   return rows.map((row) => `${row.entity_type}:${row.entity_id}`);
 }
 
+const ULID_PAYLOAD_RE = /^[0-9A-HJKMNP-TV-Z]{26}$/u;
+function hasPrefixedUlid(value, prefix) {
+  return typeof value === 'string' && value.startsWith(`${prefix}_`) && ULID_PAYLOAD_RE.test(value.slice(prefix.length + 1));
+}
+
+function normalizeMechanismOperation(operation, runId) {
+  if (operation.field === '/claims/-') {
+    const claim = operation.value && typeof operation.value === 'object' ? { ...operation.value } : { claim: String(operation.value ?? '') };
+    if (!hasPrefixedUlid(claim.id, 'clm')) claim.id = generatePrefixedUlid('clm');
+    if (!Array.isArray(claim.source_ids) || claim.source_ids.length === 0) claim.source_ids = [generatePrefixedUlid('src')];
+    claim.source_ids = claim.source_ids.map((id) => (hasPrefixedUlid(id, 'src') ? id : generatePrefixedUlid('src')));
+    return { ...operation, value: claim };
+  }
+
+  if (operation.field === '/_provenance') {
+    const provenance = operation.value && typeof operation.value === 'object' ? { ...operation.value } : {};
+    provenance.run_id = hasPrefixedUlid(provenance.run_id, 'run') ? provenance.run_id : runId;
+    const sources = Array.isArray(provenance.sources) ? provenance.sources : [];
+    provenance.sources = sources.map((source) => {
+      const next = source && typeof source === 'object' ? { ...source } : {};
+      if (!hasPrefixedUlid(next.id, 'src')) next.id = generatePrefixedUlid('src');
+      return next;
+    });
+    if (provenance.sources.length === 0) provenance.sources = [{ id: generatePrefixedUlid('src') }];
+    return { ...operation, value: provenance };
+  }
+
+  return operation;
+}
+
+function normalizeOperation(operation, runId) {
+  if (operation.task === 'herb_mechanism' || operation.task === 'compound_mechanism') {
+    return normalizeMechanismOperation(operation, runId);
+  }
+  return operation;
+}
+
 const providersConfigPath = join(REPO_ROOT, 'config', 'providers.json');
 const options = parseArgs(process.argv);
 const migrationState = bootstrapStateDb();
@@ -186,6 +228,22 @@ const runId = deterministicRunId({
   selectedEntities,
   batchSize: options.batchSize,
 });
+const deterministicKey = deterministicRunKey(
+  {
+    phase: 'batch',
+    task: options.task,
+    dryRun: options.dryRun,
+    provider: provider.id,
+    model: provider.model,
+    temperature: provider.temperature,
+    promptVersion: pack.promptVersion,
+    schemaVersion: pack.schema.$id ?? pack.schemaRef,
+    selectedEntities,
+    batchSize: options.batchSize,
+    operationsFile: options.operationsFile ?? null,
+  },
+  'batch',
+);
 
 const providerRequest = {
   task: pack.prompt.task,
@@ -203,6 +261,7 @@ const providerRequest = {
     failureMode: pack.prompt.failureMode,
     schemaRef: pack.schemaRef,
     runId,
+    deterministicRunKey: deterministicKey,
     dryRun: options.dryRun,
   },
 };
@@ -214,6 +273,7 @@ ensureDir(patchesDir);
 
 const batchManifest = {
   runId,
+  deterministicRunKey: deterministicKey,
   phase: 'batch',
   task: options.task,
   createdAt: nowIso(),
@@ -229,7 +289,8 @@ const batchManifest = {
 
 if (options.operationsFile) {
   const operationsPayload = loadJson(join(REPO_ROOT, options.operationsFile));
-  const operations = Array.isArray(operationsPayload) ? operationsPayload : operationsPayload.operations;
+  const operationsRaw = Array.isArray(operationsPayload) ? operationsPayload : operationsPayload.operations;
+  const operations = operationsRaw.map((operation) => normalizeOperation(operation, runId));
   if (!Array.isArray(operations) || operations.length === 0) {
     throw new Error('--operations-file must contain an array or {operations:[...]} with at least one operation.');
   }
@@ -252,7 +313,12 @@ if (options.operationsFile) {
 writeJson(join(manifestsDir, `${runId}.batch.json`), batchManifest);
 runSqlite({
   sql: 'INSERT OR REPLACE INTO runs(run_uuid, status, provider_id, notes) VALUES(?, ?, ?, ?)',
-  args: [runId, options.dryRun ? 'dry-run' : 'running', provider.id, JSON.stringify({ dryRun: options.dryRun, phase: 'batch', task: options.task })],
+  args: [
+    runId,
+    options.dryRun ? 'dry-run' : 'running',
+    provider.id,
+    JSON.stringify({ dryRun: options.dryRun, phase: 'batch', task: options.task, deterministicRunKey: deterministicKey }),
+  ],
 });
 
 console.log(
@@ -262,6 +328,7 @@ console.log(
       message: 'Task resolved to prompt pack, schema, and provider config.',
       migrationCount: migrationState.count,
       runId,
+      deterministicRunKey: deterministicKey,
       dryRun: options.dryRun,
       resolution: {
         task: options.task,
