@@ -67,6 +67,10 @@ jobs:
         if: ${{ steps.herb_csv.outputs.has_inputs == 'true' }}
         run: npm run data:refresh
 
+      - name: Validate checked-in herb data when CSV inputs are absent
+        if: ${{ steps.herb_csv.outputs.has_inputs != 'true' }}
+        run: npm run prebuild:validate && npm run audit:data
+
       - name: Report data coverage
         run: npm run data:report
 
