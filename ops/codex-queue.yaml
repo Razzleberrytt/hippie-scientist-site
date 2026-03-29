@@ -91,6 +91,10 @@ steps:
     title: Dry-run mechanism batch for top entities
     status: ready
     risk: low
+    execution_notes:
+      - "Run dry-run mechanism batches only (no apply step)."
+      - "Use `mechanism-herb` with `--batch-size 30` and `mechanism-compound` with `--batch-size 20`."
+      - "Then run dry-run schema/domain validation and a coverage report for the same run outputs."
     success_checks:
       - "top 30 herbs selected"
       - "top 20 compounds selected"

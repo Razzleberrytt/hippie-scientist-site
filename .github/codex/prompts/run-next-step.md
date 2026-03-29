@@ -1,4 +1,4 @@
-Read `AGENTS.md`, `ops/codex-queue.yaml`, and `$run-enrichment-step`.
+Read `AGENTS.md`, `ops/codex-queue.yaml`, and `skills/run-enrichment-step/SKILL.md`.
 
 Your job is to execute exactly one queue step: the step whose `id` matches the top-level `current` field in `ops/codex-queue.yaml`.
 
@@ -16,6 +16,7 @@ When deciding what to do, rely on:
 1. the current queue step,
 2. the repository files referenced by that step,
 3. the standing rules in `AGENTS.md`.
+4. any `execution_notes` on the current queue step.
 
 At the end of the run, provide:
 1. changed-file list
