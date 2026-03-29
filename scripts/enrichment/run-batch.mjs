@@ -207,6 +207,17 @@ function normalizeOperation(operation, runId) {
   return operation;
 }
 
+function detectLaneForOperations(operations) {
+  const hasInteractionSet = operations.some(
+    (operation) => operation.task === 'interactions' && operation.field === '/interactions',
+  );
+  if (hasInteractionSet) return 'C';
+  const hasInteractionTagsSet = operations.some(
+    (operation) => operation.task === 'interactions' && operation.field === '/interactionTags',
+  );
+  if (hasInteractionTagsSet) return 'B';
+  return 'A';
+}
 
 function toTaskName(task) {
   if (task === 'mechanism-herb') return 'herb_mechanism';
@@ -375,10 +386,12 @@ if (options.operationsFile || shouldAutogenerateMechanismDryRun) {
   }
   const patchInputId = options.operationsFile ?? `autogen:${options.task}:${selectedEntities.join('|')}`;
   const patchId = `patch-${createHash('sha256').update(`${runId}:${patchInputId}`).digest('hex').slice(0, 16)}`;
+  const lane = detectLaneForOperations(operations);
   const patch = {
     patch_id: patchId,
     created_at: nowIso(),
-    producer: `${provider.id}:${provider.model}`,
+    lane,
+    producer: `${provider.id}:${provider.model}:lane-${lane.toLowerCase()}`,
     operations,
   };
   const patchFile = `${patchId}.json`;

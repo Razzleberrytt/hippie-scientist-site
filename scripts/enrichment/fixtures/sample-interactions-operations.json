@@ -1,0 +1,62 @@
+[
+  {
+    "task": "interactions",
+    "entity_type": "herb",
+    "entity_id": "hypericum-perforatum",
+    "field": "/interactionTags",
+    "op": "set",
+    "value": ["cyp3a4", "serotonergic"]
+  },
+  {
+    "task": "interactions",
+    "entity_type": "herb",
+    "entity_id": "hypericum-perforatum",
+    "field": "/interactions",
+    "op": "set",
+    "value": [
+      {
+        "substance": "sertraline",
+        "severity": "severe",
+        "evidence": "clinical",
+        "mechanism": "Combined serotonergic activity may increase serotonin toxicity risk.",
+        "tags": ["serotonergic"],
+        "notes": "Use only with specialist supervision."
+      },
+      {
+        "substance": "warfarin",
+        "severity": "moderate",
+        "evidence": "case_report",
+        "mechanism": "Enzyme induction may reduce anticoagulant effect in some patients.",
+        "tags": ["cyp3a4", "anticoagulant"]
+      }
+    ]
+  },
+  {
+    "task": "interactions",
+    "entity_type": "herb",
+    "entity_id": "hypericum-perforatum",
+    "field": "/_provenance",
+    "op": "set",
+    "value": {
+      "run_id": "run_01J0W3K4G8KPW3V8G6Q0B0V9A1",
+      "sources": [
+        {
+          "id": "src_01J0W3K4G8KPW3V8G6Q0B0V9A2",
+          "title": "Interaction review dataset",
+          "verified": true
+        }
+      ]
+    }
+  },
+  {
+    "task": "interactions",
+    "entity_type": "herb",
+    "entity_id": "hypericum-perforatum",
+    "field": "/_review",
+    "op": "set",
+    "value": {
+      "status": "pending",
+      "notes": "Lane C interaction patch requires human review."
+    }
+  }
+]

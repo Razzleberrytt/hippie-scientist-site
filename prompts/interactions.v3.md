@@ -2,7 +2,7 @@
 id: interactions.v3
 task: interactions
 schemaRef: schemas/interactions.schema.json
-objective: Produce one structured interaction assessment with severity, mechanism, and tags.
+objective: Produce interaction tags and herb-drug interaction records with severity/evidence grading.
 input:
   required:
     - entity.name
@@ -14,12 +14,13 @@ input:
     - context.monitoring
 rules:
   - Return JSON only that validates against schemaRef.
-  - Severity must be one of: low, moderate, high, unknown.
-  - Mechanism must describe the interaction pathway, not advice text.
-  - Include at least one concise interaction tag.
-failureMode: If evidence is sparse, use severity=unknown and document the uncertainty in notes.
+  - interactionTags and all nested tags must use only the controlled vocabulary enum values.
+  - "Each interaction severity must be one of: mild, moderate, severe, contraindicated."
+  - "Each interaction evidence must be one of: theoretical, anecdotal, case_report, clinical."
+  - "Maximum interactions per payload: 8."
+failureMode: If evidence is sparse, prefer theoretical/anecdotal with explicit notes; never invent verification status.
 ---
 
-You are completing **interactions** for one co-exposure scenario.
+You are completing **interactions** for herb-drug safety review.
 
-Summarize interaction risk with schema-compliant severity, mechanism, and tags.
+Return structured interactionTags plus interaction entries with schema-compliant severity, evidence, mechanism, and notes.
