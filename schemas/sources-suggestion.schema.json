@@ -11,12 +11,21 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["title", "url"],
+        "required": ["title"],
         "properties": {
           "title": { "type": "string", "minLength": 1 },
-          "url": { "type": "string", "format": "uri" },
-          "year": { "type": "integer", "minimum": 1800 }
-        }
+          "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "doi": { "type": "string", "pattern": "^10\\.\\d{4,9}\\/[\\w.()/:;<>-]+$" },
+          "journal": { "type": "string", "minLength": 1 },
+          "year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+          "suggested": { "type": "boolean", "const": true },
+          "verified": { "type": "boolean", "const": false },
+          "notes": { "type": "string", "minLength": 1 }
+        },
+        "anyOf": [
+          { "required": ["url"], "properties": { "url": { "type": "string" } } },
+          { "required": ["doi"], "properties": { "doi": { "type": "string" } } }
+        ]
       }
     }
   }

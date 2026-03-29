@@ -206,9 +206,48 @@ function validateInteractionTagArray(value, label) {
 }
 
 function validateSources(operation) {
-  const sources = operation.value?.sources;
-  if (!Array.isArray(sources) || sources.length === 0) return 'sources must be a non-empty array.';
+  if (operation.field !== '/sources/-') return 'sources_suggestion field must be /sources/-.';
+  if (operation.op !== 'append') return 'sources_suggestion operations must use op=append.';
+  if (!operation.value || typeof operation.value !== 'object') return 'source value must be an object.';
+
+  const source = operation.value;
+  if (!hasString(source.title)) return 'source title is required.';
+  if (source.suggested !== true) return 'model-generated source suggestions must set suggested=true.';
+  if (source.verified !== false) return 'model-generated source suggestions must set verified=false.';
+
+  const doi = hasString(source.doi) ? source.doi.trim() : '';
+  const url = hasString(source.url) ? source.url.trim() : '';
+  if (!doi && !url) return 'source must include at least one of url or doi.';
+
+  const DOI_RE = /^10\.\d{4,9}\/[\w.()/:;<>-]+$/u;
+  if (doi && !DOI_RE.test(doi)) return 'source doi must be a valid DOI string.';
+
+  if (url && !/^https?:\/\/\S+$/iu.test(url)) return 'source url must be an absolute http(s) URL.';
+
+  if (hasString(source.journal) && !url && !doi) return 'bare journal-only references are not allowed without url or doi.';
+
+  if (url) {
+    const existingUrls = getExistingEntitySourceUrls(operation.entity_type, operation.entity_id);
+    if (existingUrls.has(url.toLowerCase())) return 'source url duplicates an existing entity source.';
+  }
+
   return null;
+}
+
+function getExistingEntitySourceUrls(entityType, entityId) {
+  const dataset = loadEntityDataset(entityType);
+  const target = dataset.find((entry) =>
+    [entry?.id, entry?.slug, entry?.name, entry?.displayName].some(
+      (value) => String(value ?? '').trim().toLowerCase() === String(entityId ?? '').trim().toLowerCase(),
+    ),
+  );
+  const urls = new Set();
+  if (!target || !Array.isArray(target.sources)) return urls;
+  for (const source of target.sources) {
+    const url = String(source?.url ?? '').trim().toLowerCase();
+    if (url) urls.add(url);
+  }
+  return urls;
 }
 
 function validateLinkIntegrity(operation) {
