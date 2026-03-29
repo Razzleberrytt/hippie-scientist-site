@@ -1,0 +1,18 @@
+[
+  {
+    "task": "dosage",
+    "entity_type": "herb",
+    "entity_id": "acacia-confusa",
+    "field": "/dosageNormalized",
+    "op": "set",
+    "value": {
+      "range": {
+        "low": 250,
+        "high": 500
+      },
+      "unit": "mg/day",
+      "route": "oral",
+      "notes": "Dry-run generated; requires Lane B human review before apply."
+    }
+  }
+]
