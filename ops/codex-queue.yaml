@@ -1,5 +1,5 @@
 version: 1
-current: none
+current: H1
 default_branch: main
 pr_branch_prefix: codex/
 notes:
@@ -166,3 +166,111 @@ steps:
       - "spec gap list written"
       - "small required gaps closed"
       - "final readiness summary produced"
+
+  - id: H1
+    title: Provider runtime failure classification and retry boundaries
+    status: ready
+    risk: medium
+    success_checks:
+      - "provider runtime distinguishes retryable, fatal, and auth/config failures"
+      - "batch reports expose failure class without mutating source data"
+      - "retry behavior stays explicit and lane guards remain unchanged"
+
+  - id: H2
+    title: Run-keyed coverage baselines and baseline diff artifacts
+    status: queued
+    risk: low
+    success_checks:
+      - "coverage reports can write named run-keyed baselines"
+      - "baseline-to-current diff artifacts are emitted deterministically"
+      - "dry-run reporting stays read-only"
+
+  - id: H3
+    title: Run-keyed eval baselines and release-gate comparison wiring
+    status: queued
+    risk: medium
+    success_checks:
+      - "eval outputs support named run-keyed baselines"
+      - "release gate can compare current eval metrics against a selected baseline"
+      - "baseline misses fail clearly without weakening checks"
+
+  - id: H4
+    title: Reviewed compound narrative backfill seed set
+    status: queued
+    risk: medium
+    success_checks:
+      - "a small reviewed compound seed set is defined for backfill"
+      - "review-ready artifacts are scoped to approved compound pages only"
+      - "existing quality thresholds stay intact unless explicitly documented"
+
+  - id: H5
+    title: Reviewed herb evidence backfill starter batch
+    status: queued
+    risk: medium
+    success_checks:
+      - "a small reviewed herb evidence batch is prepared in queue-compatible form"
+      - "unverified sources remain excluded from accepted evidence"
+      - "backfill output is reviewable without auto-apply behavior"
+
+  - id: H6
+    title: Controlled bidirectional link backlog reduction batches
+    status: queued
+    risk: medium
+    success_checks:
+      - "strict-match link backlog batches are generated in controlled scope"
+      - "mismatch and no-match cases remain surfaced for human review"
+      - "link backlog count is measurable before and after each batch"
+
+  - id: H7
+    title: Lane B and Lane C review throughput reporting
+    status: queued
+    risk: medium
+    success_checks:
+      - "review decision reporting summarizes throughput by lane and run"
+      - "claim backlog visibility improves without bypassing human review"
+      - "reports are written to stable ops reporting locations"
+
+  - id: H8
+    title: Patch and review manifest ergonomics
+    status: queued
+    risk: medium
+    success_checks:
+      - "patch manifests surface review-critical fields more clearly"
+      - "rollback and apply metadata remain lossless"
+      - "ergonomic changes do not alter patch semantics"
+
+  - id: H9
+    title: Fixture expansion for provider and validator edge cases
+    status: queued
+    risk: low
+    success_checks:
+      - "provider runtime failure modes have targeted fixtures or tests"
+      - "schema and domain validator edge cases gain regression coverage"
+      - "fixtures stay minimal and representative"
+
+  - id: H10
+    title: Operator docs for review queues and local-only refresh boundaries
+    status: queued
+    risk: low
+    success_checks:
+      - "operator docs clearly separate CI-safe validation from local-only refresh flows"
+      - "review queue steps and approval expectations are easier to follow"
+      - "docs reference existing commands rather than inventing new workflow paths"
+
+  - id: H11
+    title: Deploy workflow validation for build and redirect realism
+    status: queued
+    risk: medium
+    success_checks:
+      - "deploy validation checks match the documented release path"
+      - "redirect and prerender verification run in the right stage"
+      - "workflow changes do not introduce local-only data refresh requirements"
+
+  - id: H12
+    title: Release hardening pass across baselines reports and docs
+    status: queued
+    risk: medium
+    success_checks:
+      - "release checklist reflects baseline comparison and review-report expectations"
+      - "final hardening pass verifies the new reporting path end to end"
+      - "no lane safety or approval guard is weakened"
