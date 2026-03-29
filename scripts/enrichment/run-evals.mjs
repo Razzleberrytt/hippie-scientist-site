@@ -41,6 +41,7 @@ function parseArgs(argv) {
 }
 
 function findLatestValidationMap(type, runId = null) {
+  const runClause = runId ? 'AND json_extract(details_json, "$.runId") = ?' : '';
   const filterSql = runId ? 'WHERE json_extract(vr.details_json, "$.runId") = ?' : '';
   const rows = runSqlite({
     select: true,
@@ -49,11 +50,11 @@ function findLatestValidationMap(type, runId = null) {
       INNER JOIN (
         SELECT patch_id, MAX(id) AS max_id
         FROM validation_results
-        WHERE validation_type IN (?, ?)
+        WHERE validation_type IN (?, ?) ${runClause}
         GROUP BY patch_id
       ) latest ON latest.max_id = vr.id
       ${filterSql}`,
-    args: [type, `${type}-dry-run`, ...(runId ? [runId] : [])],
+    args: [type, `${type}-dry-run`, ...(runId ? [runId, runId] : [])],
   });
   const map = new Map();
   for (const row of rows) map.set(row.patch_id, Number(row.ok) === 1);
