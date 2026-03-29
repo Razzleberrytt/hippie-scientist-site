@@ -1,5 +1,5 @@
 version: 1
-current: G1
+current: none
 default_branch: main
 pr_branch_prefix: codex/
 notes:
@@ -160,7 +160,7 @@ steps:
 
   - id: G1
     title: End-to-end audit and gap close
-    status: ready
+    status: done
     risk: medium
     success_checks:
       - "spec gap list written"
