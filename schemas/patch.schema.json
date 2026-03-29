@@ -31,7 +31,27 @@
           "field": { "type": "string", "minLength": 1 },
           "op": { "type": "string", "enum": ["set", "append", "remove"] },
           "value": {}
-        }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "task": { "const": "herb_mechanism" } }, "required": ["task"] },
+            "then": {
+              "properties": {
+                "entity_type": { "const": "herb" },
+                "field": { "enum": ["/mechanism", "/claims/-", "/_provenance", "/_review"] }
+              }
+            }
+          },
+          {
+            "if": { "properties": { "task": { "const": "compound_mechanism" } }, "required": ["task"] },
+            "then": {
+              "properties": {
+                "entity_type": { "const": "compound" },
+                "field": { "enum": ["/mechanism", "/claims/-", "/_provenance", "/_review"] }
+              }
+            }
+          }
+        ]
       }
     }
   }

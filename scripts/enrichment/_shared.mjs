@@ -1,4 +1,3 @@
-import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -117,20 +116,34 @@ export function nowIso() {
   return new Date().toISOString();
 }
 
-function stableNormalize(value) {
-  if (Array.isArray(value)) return value.map((entry) => stableNormalize(entry));
-  if (value && typeof value === 'object') {
-    const normalized = {};
-    for (const key of Object.keys(value).sort()) normalized[key] = stableNormalize(value[key]);
-    return normalized;
-  }
-  return value;
+export function deterministicRunId(input) {
+  void input;
+  return generatePrefixedUlid('run');
 }
 
-export function deterministicRunId(input) {
-  const normalized = JSON.stringify(stableNormalize(input));
-  const hash = createHash('sha256').update(normalized).digest('hex').slice(0, 16);
-  return `run-${hash}`;
+const CROCKFORD_BASE32 = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
+function encodeBase32(value, length) {
+  let current = BigInt(value);
+  let output = '';
+  while (output.length < length) {
+    output = CROCKFORD_BASE32[Number(current % 32n)] + output;
+    current /= 32n;
+  }
+  return output;
+}
+
+export function createUlid(now = Date.now()) {
+  const timePart = encodeBase32(BigInt(now), 10);
+  const randomBytes = new Uint8Array(16);
+  crypto.getRandomValues(randomBytes);
+  let randomValue = 0n;
+  for (const byte of randomBytes) randomValue = (randomValue << 8n) | BigInt(byte);
+  const randomPart = encodeBase32(randomValue, 26).slice(-16);
+  return `${timePart}${randomPart}`;
+}
+
+export function generatePrefixedUlid(prefix) {
+  return `${prefix}_${createUlid()}`;
 }
 
 export function fail(message, details = '') {

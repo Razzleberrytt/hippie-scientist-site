@@ -1,0 +1,38 @@
+{
+  "valid": [
+    {
+      "task": "herb_mechanism",
+      "text": "Rosmarinic acid-rich fractions show partial inhibition of acetylcholinesterase in vitro. Additional data suggests mild modulation of GABAergic signaling via GABAA receptor-associated pathways."
+    },
+    {
+      "task": "herb_mechanism",
+      "text": "Standardized extracts appear to reduce NF-kB-linked cytokine signaling in cell models. The profile is consistent with flavonoid-mediated antioxidant effects and weak PDE-related enzyme modulation. Reported receptor-level data remains limited, so the mechanism is treated as provisional."
+    },
+    {
+      "task": "compound_mechanism",
+      "text": "The compound acts as a partial agonist at 5-HT1A receptors and weak antagonist at 5-HT2A receptors. Electrophysiology studies also indicate modulation of voltage-gated calcium channel activity. Downstream signaling includes reduced cAMP production in selected neuronal assays."
+    }
+  ],
+  "invalid": [
+    {
+      "task": "herb_mechanism",
+      "text": "It helps with wellness and daily balance. Users often report feeling better overall.",
+      "reason": "insufficient pharmacology specificity"
+    },
+    {
+      "task": "compound_mechanism",
+      "text": "Typical dose is 50 mg and premium brands cost more but work faster. Legal status varies by state.",
+      "reason": "forbidden content"
+    },
+    {
+      "task": "herb_mechanism",
+      "text": "This alkaloid influences serotonin transporters.",
+      "reason": "sentence-count failure"
+    },
+    {
+      "task": "compound_mechanism",
+      "text": "The compound modulates serotonergic signaling through receptor subtype crosstalk in cortical networks while altering downstream kinase pathways and persistent ion channel gating kinetics in a way that remains context-dependent across tissue microenvironments and disease states. Secondary observations suggest enzyme-class interactions with monoamine oxidase and phosphodiesterase systems that may change synaptic gain with repeated exposure and sustained inflammatory stress models, although exact occupancy is still uncertain. Additional reports describe dopaminergic and glutamatergic cross-regulation that depends on transcriptional timing and receptor reserve, with broad effects on intracellular calcium flux and cyclic nucleotide tone. A fourth sentence extends the mechanistic description with pathway-level caveats to increase total length. A fifth sentence further expands this detail with extra qualifiers and mechanistic notes. A sixth sentence intentionally exceeds the configured caps while retaining receptor and enzyme terminology.",
+      "reason": "over-limit length and sentence-count failure"
+    }
+  ]
+}

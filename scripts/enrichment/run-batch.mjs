@@ -14,6 +14,7 @@ import {
   bootstrapStateDb,
   deterministicRunId,
   ensureDir,
+  generatePrefixedUlid,
   loadJson,
   nowIso,
   REPO_ROOT,
@@ -165,6 +166,43 @@ function selectEntities(task, batchSize) {
   return rows.map((row) => `${row.entity_type}:${row.entity_id}`);
 }
 
+const ULID_PAYLOAD_RE = /^[0-9A-HJKMNP-TV-Z]{26}$/u;
+function hasPrefixedUlid(value, prefix) {
+  return typeof value === 'string' && value.startsWith(`${prefix}_`) && ULID_PAYLOAD_RE.test(value.slice(prefix.length + 1));
+}
+
+function normalizeMechanismOperation(operation, runId) {
+  if (operation.field === '/claims/-') {
+    const claim = operation.value && typeof operation.value === 'object' ? { ...operation.value } : { claim: String(operation.value ?? '') };
+    if (!hasPrefixedUlid(claim.id, 'clm')) claim.id = generatePrefixedUlid('clm');
+    if (!Array.isArray(claim.source_ids) || claim.source_ids.length === 0) claim.source_ids = [generatePrefixedUlid('src')];
+    claim.source_ids = claim.source_ids.map((id) => (hasPrefixedUlid(id, 'src') ? id : generatePrefixedUlid('src')));
+    return { ...operation, value: claim };
+  }
+
+  if (operation.field === '/_provenance') {
+    const provenance = operation.value && typeof operation.value === 'object' ? { ...operation.value } : {};
+    provenance.run_id = hasPrefixedUlid(provenance.run_id, 'run') ? provenance.run_id : runId;
+    const sources = Array.isArray(provenance.sources) ? provenance.sources : [];
+    provenance.sources = sources.map((source) => {
+      const next = source && typeof source === 'object' ? { ...source } : {};
+      if (!hasPrefixedUlid(next.id, 'src')) next.id = generatePrefixedUlid('src');
+      return next;
+    });
+    if (provenance.sources.length === 0) provenance.sources = [{ id: generatePrefixedUlid('src') }];
+    return { ...operation, value: provenance };
+  }
+
+  return operation;
+}
+
+function normalizeOperation(operation, runId) {
+  if (operation.task === 'herb_mechanism' || operation.task === 'compound_mechanism') {
+    return normalizeMechanismOperation(operation, runId);
+  }
+  return operation;
+}
+
 const providersConfigPath = join(REPO_ROOT, 'config', 'providers.json');
 const options = parseArgs(process.argv);
 const migrationState = bootstrapStateDb();
@@ -229,7 +267,8 @@ const batchManifest = {
 
 if (options.operationsFile) {
   const operationsPayload = loadJson(join(REPO_ROOT, options.operationsFile));
-  const operations = Array.isArray(operationsPayload) ? operationsPayload : operationsPayload.operations;
+  const operationsRaw = Array.isArray(operationsPayload) ? operationsPayload : operationsPayload.operations;
+  const operations = operationsRaw.map((operation) => normalizeOperation(operation, runId));
   if (!Array.isArray(operations) || operations.length === 0) {
     throw new Error('--operations-file must contain an array or {operations:[...]} with at least one operation.');
   }

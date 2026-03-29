@@ -15,15 +15,17 @@ input:
     - context.interactions
 rules:
   - Return JSON only that validates against schemaRef.
+  - Return exactly: slug, mechanism, claims, _provenance, _review.
   - Ground mechanism claims in supplied evidence; avoid unsupported extrapolation.
-  - Keep mechanism_summary factual, concise, and free of marketing language.
-  - Set confidence between 0 and 1 based on evidence quality and consistency.
-failureMode: If evidence is insufficient or contradictory, lower confidence and explain uncertainty in notes.
+  - Keep mechanism factual, concise, and free of marketing language.
+  - mechanism must be 2-4 sentences and include pharmacology-specific detail.
+  - Do not mention dose, legal status, brands, or price.
+failureMode: If evidence is insufficient or contradictory, keep _review.status as pending and encode uncertainty conservatively in mechanism claims.
 ---
 
 You are completing **mechanism-herb** for a single herb entity.
 
 Generate a mechanism-focused output that is safe for downstream patching:
 - Prefer mechanism-level statements over therapeutic promises.
-- Distinguish observed evidence from inferred pathways.
-- Use `notes` to capture caveats, conflicts, or missing evidence.
+- Distinguish observed evidence from inferred pathways in the wording of each claim.
+- Every claim must include a clm_ id and src_ references.
