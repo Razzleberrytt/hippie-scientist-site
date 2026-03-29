@@ -76,11 +76,11 @@ jobs:
         if: ${{ steps.queue.outputs.has_work == 'true' }}
         uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: codex: advance ${{ steps.queue.outputs.current_step }}
-          branch: codex/${{ steps.queue.outputs.current_step }}
+          token: ${{ github.token }}
+          commit-message: "codex: advance ${{ steps.queue.outputs.current_step }}"
+          branch: "codex/${{ steps.queue.outputs.current_step }}"
           delete-branch: true
-          title: codex: advance ${{ steps.queue.outputs.current_step }}
+          title: "codex: advance ${{ steps.queue.outputs.current_step }}"
           body-path: codex-output.md
           labels: |
             codex-managed
