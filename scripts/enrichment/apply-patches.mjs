@@ -24,6 +24,28 @@ function isLaneCPatch(patchFile, patch) {
   return fingerprint.includes('lane-c') || fingerprint.includes('lane_c') || fingerprint.includes('lanec');
 }
 
+function detectLane(patchFile, patch) {
+  const fingerprint = `${patchFile} ${patch.patch_id ?? ''} ${patch.producer ?? ''}`.toLowerCase();
+  if (fingerprint.includes('lane-a') || fingerprint.includes('lane_a') || fingerprint.includes('lanea')) return 'A';
+  if (fingerprint.includes('lane-b') || fingerprint.includes('lane_b') || fingerprint.includes('laneb')) return 'B';
+  if (fingerprint.includes('lane-c') || fingerprint.includes('lane_c') || fingerprint.includes('lanec')) return 'C';
+  return 'unknown';
+}
+
+function collectReviewStatuses(patch) {
+  const statuses = [];
+  for (const operation of patch.operations ?? []) {
+    if (operation.field === '/_review' && operation.op === 'set' && operation.value && typeof operation.value === 'object') {
+      statuses.push(String(operation.value.status ?? '').toLowerCase());
+    }
+  }
+  return statuses;
+}
+
+function hasMechanismOperations(patch) {
+  return (patch.operations ?? []).some((operation) => operation.task === 'herb_mechanism' || operation.task === 'compound_mechanism');
+}
+
 function findEntityIndex(data, entityId) {
   const target = String(entityId).toLowerCase();
   return data.findIndex((entry) => [entry.id, entry.slug, entry.name, entry.displayName].some((value) => String(value ?? '').toLowerCase() === target));
@@ -87,6 +109,13 @@ const manifest = {
   appliedPatches: [],
   blockedPatches: [],
   writes: [],
+  skippedByReason: {
+    pending: 0,
+    rejected: 0,
+    'non-lane-a': 0,
+    'non-mechanism': 0,
+    'missing-approval': 0,
+  },
 };
 const rollbackManifest = {
   runId,
@@ -110,6 +139,47 @@ function loadTarget(entityType) {
 for (const patchFile of patchFiles) {
   const patchPath = join(patchesDir, patchFile);
   const payload = JSON.parse(readFileSync(patchPath, 'utf8'));
+  const lane = detectLane(patchFile, payload);
+  const reviewStatuses = collectReviewStatuses(payload);
+
+  if (!hasMechanismOperations(payload)) {
+    manifest.blockedPatches.push({ patchFile, patchId: payload.patch_id, reason: 'non-mechanism' });
+    manifest.skippedByReason['non-mechanism'] += 1;
+    continue;
+  }
+
+  if (lane !== 'A') {
+    manifest.blockedPatches.push({ patchFile, patchId: payload.patch_id, reason: 'non-lane-a', lane });
+    manifest.skippedByReason['non-lane-a'] += 1;
+    continue;
+  }
+
+  if (reviewStatuses.includes('rejected')) {
+    manifest.blockedPatches.push({ patchFile, patchId: payload.patch_id, reason: 'rejected' });
+    manifest.skippedByReason.rejected += 1;
+    continue;
+  }
+
+  if (reviewStatuses.includes('pending')) {
+    manifest.blockedPatches.push({ patchFile, patchId: payload.patch_id, reason: 'pending' });
+    manifest.skippedByReason.pending += 1;
+    continue;
+  }
+
+  const laneAApproval = runSqlite({
+    select: true,
+    sql: `SELECT id FROM review_decisions
+      WHERE patch_id = ? AND lane = 'A' AND decision = 'approved'
+      ORDER BY created_at DESC LIMIT 1`,
+    args: [payload.patch_id],
+  });
+  const approvedInPatch = reviewStatuses.includes('approved');
+  const approved = approvedInPatch || laneAApproval.length > 0;
+  if (!approved) {
+    manifest.blockedPatches.push({ patchFile, patchId: payload.patch_id, reason: 'missing-approval' });
+    manifest.skippedByReason['missing-approval'] += 1;
+    continue;
+  }
 
   if (isLaneCPatch(patchFile, payload)) {
     const rows = runSqlite({
@@ -145,6 +215,9 @@ for (const patchFile of patchFiles) {
     }
 
     applyOperation(target.data[entityIndex], operation);
+    if (Object.prototype.hasOwnProperty.call(target.data[entityIndex], 'lastUpdated')) {
+      target.data[entityIndex].lastUpdated = nowIso().slice(0, 10);
+    }
     target.changed = true;
     manifest.writes.push({ patchFile, entityType: operation.entity_type, entityId: operation.entity_id, field: operation.field, status: 'applied' });
   }
@@ -175,4 +248,9 @@ writeJson(join(rollbackDir, `${runId}.json`), rollbackManifest);
 
 console.log(`[apply-patches] Wrote apply manifest ops/manifests/${runId}.apply.json`);
 console.log(`[apply-patches] Wrote rollback manifest ops/rollback-manifests/${runId}.json`);
+console.log(`[apply-patches] Applied patches: ${manifest.appliedPatches.length}`);
+console.log(
+  `[apply-patches] Skipped patches: pending=${manifest.skippedByReason.pending} rejected=${manifest.skippedByReason.rejected} non-lane-a=${manifest.skippedByReason['non-lane-a']}`,
+);
+console.log(`[apply-patches] Mutated targets: ${rollbackManifest.mutatedTargets.map((entry) => entry.file).join(', ') || '(none)'}`);
 if (options.dryRun) console.log('[apply-patches] Dry-run enabled; no public/data files were mutated.');
