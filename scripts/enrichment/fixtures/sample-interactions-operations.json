@@ -16,7 +16,7 @@
     "value": [
       {
         "substance": "sertraline",
-        "severity": "severe",
+        "severity": "moderate",
         "evidence": "clinical",
         "mechanism": "Combined serotonergic activity may increase serotonin toxicity risk.",
         "tags": ["serotonergic"],

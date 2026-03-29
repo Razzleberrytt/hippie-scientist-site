@@ -145,10 +145,9 @@ function validateInteraction(operation, _index, patch) {
     if (tagError) return tagError;
     if (item.severity === 'severe' || item.severity === 'contraindicated') {
       const hasVerifiedEvidence = hasVerifiedEntitySource(operation.entity_type, operation.entity_id);
-      const hasVerifiedPatchProvenance = hasVerifiedPatchSource(patch, operation.entity_type, operation.entity_id);
       const hasPriorityBacklog = hasHighPriorityInteractionBacklog(operation.entity_type, operation.entity_id);
-      if (!hasVerifiedEvidence && !hasVerifiedPatchProvenance && !hasPriorityBacklog) {
-        return `/interactions[${index}] severe|contraindicated requires verified entity source or high-priority claim_backlog entry.`;
+      if (!hasVerifiedEvidence && !hasPriorityBacklog) {
+        return `/interactions[${index}] severe|contraindicated requires verified entity source or high-priority claim_backlog entry (patch provenance does not satisfy this gate).`;
       }
     }
   }
@@ -193,20 +192,6 @@ function hasHighPriorityInteractionBacklog(entityType, entityId) {
     args: [entityType, entityId],
   });
   return rows.length > 0;
-}
-
-function hasVerifiedPatchSource(patch, entityType, entityId) {
-  const operation = (patch?.operations ?? []).find(
-    (entry) =>
-      entry?.task === 'interactions' &&
-      entry?.entity_type === entityType &&
-      entry?.entity_id === entityId &&
-      entry?.field === '/_provenance' &&
-      entry?.op === 'set',
-  );
-  const sources = operation?.value?.sources;
-  if (!Array.isArray(sources)) return false;
-  return sources.some((source) => source && typeof source === 'object' && source.verified === true);
 }
 
 function validateInteractionTagArray(value, label) {
