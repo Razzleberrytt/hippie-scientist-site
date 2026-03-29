@@ -1,5 +1,5 @@
 version: 1
-current: F2
+current: G1
 default_branch: main
 pr_branch_prefix: codex/
 notes:
@@ -151,7 +151,7 @@ steps:
 
   - id: F2
     title: Evals, coverage, and deployment gates
-    status: ready
+    status: done
     risk: medium
     success_checks:
       - "goldens scaffolded"
@@ -160,7 +160,7 @@ steps:
 
   - id: G1
     title: End-to-end audit and gap close
-    status: queued
+    status: ready
     risk: medium
     success_checks:
       - "spec gap list written"

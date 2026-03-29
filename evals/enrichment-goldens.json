@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "description": "Starter golden set for enrichment v3 evals. Keep entries small and inspectable.",
+  "samples": [
+    {
+      "id": "gold-herb-mechanism-ashwagandha",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "ashwagandha",
+      "expect": {
+        "schema_valid": true,
+        "domain_valid": true,
+        "accepted_by_human": true
+      }
+    },
+    {
+      "id": "gold-compound-mechanism-curcumin",
+      "task": "compound_mechanism",
+      "entity_type": "compound",
+      "entity_id": "curcumin",
+      "expect": {
+        "schema_valid": true,
+        "domain_valid": true
+      }
+    },
+    {
+      "id": "gold-dosage-lions-mane",
+      "task": "dosage",
+      "entity_type": "herb",
+      "entity_id": "lion-s-mane",
+      "expect": {
+        "dosage_normalized": true
+      }
+    },
+    {
+      "id": "gold-interaction-warfarin",
+      "task": "interactions",
+      "entity_type": "herb",
+      "entity_id": "ginkgo-biloba",
+      "expect": {
+        "severe_interaction_present": true,
+        "accepted_by_human": true
+      }
+    },
+    {
+      "id": "gold-source-suggestion-rhodiola",
+      "task": "sources_suggestion",
+      "entity_type": "herb",
+      "entity_id": "rhodiola-rosea",
+      "expect": {
+        "schema_valid": true,
+        "domain_valid": true
+      }
+    },
+    {
+      "id": "gold-link-integrity-theanine",
+      "task": "link_integrity",
+      "entity_type": "compound",
+      "entity_id": "l-theanine",
+      "expect": {
+        "no_broken_internal_links": true,
+        "bidirectional_complete": true
+      }
+    }
+  ]
+}

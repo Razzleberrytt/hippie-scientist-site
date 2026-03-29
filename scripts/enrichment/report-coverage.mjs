@@ -35,12 +35,36 @@ function loadCoverageSnapshot() {
   const compoundCovered = compounds.filter(hasMechanismCoverage).length;
 
   return {
-    herbs: { total: herbs.length, covered: herbCovered, coveragePct: Number(((herbCovered / Math.max(herbs.length, 1)) * 100).toFixed(2)) },
-    compounds: {
-      total: compounds.length,
-      covered: compoundCovered,
-      coveragePct: Number(((compoundCovered / Math.max(compounds.length, 1)) * 100).toFixed(2)),
+    mechanismCoverage: {
+      herbs: {
+        total: herbs.length,
+        covered: herbCovered,
+        coveragePct: Number(((herbCovered / Math.max(herbs.length, 1)) * 100).toFixed(2)),
+      },
+      compounds: {
+        total: compounds.length,
+        covered: compoundCovered,
+        coveragePct: Number(((compoundCovered / Math.max(compounds.length, 1)) * 100).toFixed(2)),
+      },
     },
+    verifiedSourceCount: {
+      herbs: herbs.reduce((acc, herb) => acc + (Array.isArray(herb.sources) ? herb.sources.filter((src) => src?.verified === true).length : 0), 0),
+      compounds: compounds.reduce(
+        (acc, compound) => acc + (Array.isArray(compound.sources) ? compound.sources.filter((src) => src?.verified === true).length : 0),
+        0,
+      ),
+    },
+  };
+}
+
+function normalizeSnapshotShape(snapshot) {
+  if (snapshot?.mechanismCoverage?.herbs && snapshot?.mechanismCoverage?.compounds) return snapshot;
+  return {
+    mechanismCoverage: {
+      herbs: snapshot?.herbs ?? { total: 0, covered: 0, coveragePct: 0 },
+      compounds: snapshot?.compounds ?? { total: 0, covered: 0, coveragePct: 0 },
+    },
+    verifiedSourceCount: snapshot?.verifiedSourceCount ?? { herbs: 0, compounds: 0 },
   };
 }
 
@@ -86,10 +110,18 @@ function derivePatchStatusCounts(runId) {
     const byEntity = new Map();
     for (const op of patch.operations ?? []) {
       const key = `${op.entity_type}:${op.entity_id}`;
-      if (!byEntity.has(key)) byEntity.set(key, { review: null, hasMechanism: false });
+      if (!byEntity.has(key)) byEntity.set(key, { review: null, hasMechanism: false, hasSevereInteraction: false });
       const item = byEntity.get(key);
       if (op.field === '/_review' && op.value && typeof op.value === 'object') item.review = op.value.status;
       if (op.field === '/mechanism' && op.op === 'set') item.hasMechanism = true;
+      if (
+        op.task === 'interactions' &&
+        op.field === '/interactions' &&
+        Array.isArray(op.value) &&
+        op.value.some((interaction) => ['severe', 'contraindicated'].includes(String(interaction?.severity ?? '').toLowerCase()))
+      ) {
+        item.hasSevereInteraction = true;
+      }
     }
     for (const item of byEntity.values()) {
       if (item.review === 'pending') reviewPending += 1;
@@ -103,12 +135,20 @@ function derivePatchStatusCounts(runId) {
   const rejected = new Set([...schemaFailSet, ...domainFailSet]).size;
   const rejectionRate = generated === 0 ? 0 : Number(((rejected / generated) * 100).toFixed(2));
 
+  const severeReviewRows = runSqlite({
+    select: true,
+    sql: `SELECT decision FROM review_decisions WHERE lane='C' ${
+      selectedPatchIds.length ? `AND patch_id IN (${selectedPatchIds.map(() => '?').join(',')})` : ''
+    }`,
+    args: selectedPatchIds,
+  });
+
   return {
     planned: runId
       ? (() => {
           const rows = runSqlite({
             select: true,
-            sql: "SELECT notes FROM runs WHERE run_uuid=? ORDER BY id DESC LIMIT 1",
+            sql: 'SELECT notes FROM runs WHERE run_uuid=? ORDER BY id DESC LIMIT 1',
             args: [runId],
           });
           if (rows.length === 0) return null;
@@ -126,10 +166,13 @@ function derivePatchStatusCounts(runId) {
     review_pending: reviewPending,
     eligible_for_apply: eligibleForApply,
     patch_rejection_rate_pct: rejectionRate,
+    severe_interaction_review_completion_pct:
+      severeReviewRows.length === 0
+        ? 0
+        : Number(((severeReviewRows.filter((row) => ['approved', 'rejected'].includes(row.decision)).length / severeReviewRows.length) * 100).toFixed(2)),
     patchFiles,
   };
 }
-
 
 function buildLinkIntegrityReport() {
   const herbs = loadJson(join(REPO_ROOT, 'public', 'data', 'herbs.json'));
@@ -144,13 +187,41 @@ function buildLinkIntegrityReport() {
   });
 
   const generatedPatchFile = writeLinkPatch(audit.patch);
+  const totalLinks =
+    herbs.reduce((sum, herb) => sum + (Array.isArray(herb.activeCompounds) ? herb.activeCompounds.length : 0), 0) +
+    compounds.reduce(
+      (sum, compound) => sum + (Array.isArray(compound.foundIn) ? compound.foundIn.length : 0) + (Array.isArray(compound.herbs) ? compound.herbs.length : 0),
+      0,
+    );
+  const completeLinks = Math.max(totalLinks - audit.mismatchCount, 0);
 
   return {
     canonicalCompoundCount: audit.canonicalCompounds.length,
     bidirectionalMismatchOps: audit.mismatchCount,
+    totalLinks,
+    bidirectionalLinkCompletenessPct: Number(((completeLinks / Math.max(totalLinks, 1)) * 100).toFixed(2)),
     unmatchedCount: audit.unmatched.length,
     unmatched: audit.unmatched.slice(0, 25),
     generatedPatchFile,
+  };
+}
+
+function buildClaimBacklogBurnDown() {
+  const rows = runSqlite({
+    select: true,
+    sql: 'SELECT status, COUNT(*) AS count FROM claim_backlog GROUP BY status',
+  });
+  const byStatus = Object.fromEntries(rows.map((row) => [row.status, Number(row.count)]));
+  const total = Object.values(byStatus).reduce((sum, value) => sum + Number(value || 0), 0);
+  const done = Number(byStatus.completed ?? 0);
+  const pending = Number(byStatus.pending ?? 0);
+
+  return {
+    total,
+    pending,
+    completed: done,
+    completionPct: total === 0 ? 0 : Number(((done / total) * 100).toFixed(2)),
+    byStatus,
   };
 }
 
@@ -160,24 +231,38 @@ bootstrapStateDb();
 const reportsDir = join(REPO_ROOT, 'ops', 'reports');
 ensureDir(reportsDir);
 
-const before = options.baselineFile
-  ? JSON.parse(readFileSync(join(REPO_ROOT, options.baselineFile), 'utf8')).snapshot
-  : loadCoverageSnapshot();
+const beforeRaw = options.baselineFile ? JSON.parse(readFileSync(join(REPO_ROOT, options.baselineFile), 'utf8')).snapshot : loadCoverageSnapshot();
+const before = normalizeSnapshotShape(beforeRaw);
 const after = loadCoverageSnapshot();
 const statuses = derivePatchStatusCounts(options.runId);
 const linkIntegrity = buildLinkIntegrityReport();
+const claimBacklogBurnDown = buildClaimBacklogBurnDown();
 
 const report = {
   generatedAt: nowIso(),
   mode: 'lane-a-mechanism-dry-run',
   runId: options.runId,
-  snapshot: after,
+  snapshot: {
+    mechanismCoverage: after.mechanismCoverage,
+    verifiedSourceCount: {
+      ...after.verifiedSourceCount,
+      total: after.verifiedSourceCount.herbs + after.verifiedSourceCount.compounds,
+    },
+    severeInteractionReviewCompletionPct: statuses.severe_interaction_review_completion_pct,
+    bidirectionalLinkCompletenessPct: linkIntegrity.bidirectionalLinkCompletenessPct,
+    claimBacklogBurnDown,
+    patchRejectionRatePct: statuses.patch_rejection_rate_pct,
+  },
   beforeAfter: {
     before,
     after,
     delta: {
-      herbCoveragePct: Number((after.herbs.coveragePct - before.herbs.coveragePct).toFixed(2)),
-      compoundCoveragePct: Number((after.compounds.coveragePct - before.compounds.coveragePct).toFixed(2)),
+      herbCoveragePct: Number((after.mechanismCoverage.herbs.coveragePct - before.mechanismCoverage.herbs.coveragePct).toFixed(2)),
+      compoundCoveragePct: Number((after.mechanismCoverage.compounds.coveragePct - before.mechanismCoverage.compounds.coveragePct).toFixed(2)),
+      verifiedSourceCount:
+        after.verifiedSourceCount.herbs +
+        after.verifiedSourceCount.compounds -
+        ((before.verifiedSourceCount?.herbs ?? 0) + (before.verifiedSourceCount?.compounds ?? 0)),
     },
   },
   statuses,
@@ -187,4 +272,8 @@ const report = {
 const tag = options.runId ?? 'latest';
 const target = join(reportsDir, `coverage-${tag}.json`);
 writeJson(target, report);
+
 console.log(`[report-coverage] Wrote ${target}`);
+console.log(
+  `[report-coverage] mechanism.herbs=${report.snapshot.mechanismCoverage.herbs.coveragePct}% mechanism.compounds=${report.snapshot.mechanismCoverage.compounds.coveragePct}% verified_sources=${report.snapshot.verifiedSourceCount.total} severe_review=${report.snapshot.severeInteractionReviewCompletionPct}% bidirectional=${report.snapshot.bidirectionalLinkCompletenessPct}% claim_backlog_completion=${report.snapshot.claimBacklogBurnDown.completionPct}% patch_rejection=${report.snapshot.patchRejectionRatePct}%`,
+);

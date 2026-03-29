@@ -67,7 +67,9 @@
     "enrichment:run:dry": "node scripts/enrichment/run-batch.mjs --dry-run",
     "enrichment:validate:dry": "npm run enrichment:validate:schema -- --dry-run && npm run enrichment:validate:domain -- --dry-run",
     "enrichment:apply:dry": "node scripts/enrichment/apply-patches.mjs --dry-run",
-    "enrichment:test:mechanism": "node scripts/enrichment/test-mechanism-validation.mjs"
+    "enrichment:test:mechanism": "node scripts/enrichment/test-mechanism-validation.mjs",
+    "validate:structured-data:smoke": "node scripts/validate-structured-data-smoke.mjs",
+    "enrichment:release:gate": "node scripts/enrichment/release-gate.mjs"
   },
   "engines": {
     "node": ">=20 <21"
