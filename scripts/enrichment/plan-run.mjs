@@ -133,7 +133,7 @@ const manifest = {
 writeJson(join(manifestsDir, `${runId}.plan.json`), manifest);
 runSqlite({
   sql: 'INSERT OR REPLACE INTO runs(run_uuid, status, provider_id, notes) VALUES(?, ?, ?, ?)',
-  args: [runId, 'planned', provider.id, JSON.stringify({ dryRun: options.dryRun, phase: 'plan', task: options.task, deterministicRunKey: deterministicKey })],
+  args: [runId, 'planned', provider.id, JSON.stringify({ dryRun: options.dryRun, phase: 'plan', task: options.task, deterministicRunKey: deterministicKey, selectedEntities })],
 });
 
 console.log(

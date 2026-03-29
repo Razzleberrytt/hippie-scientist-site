@@ -207,6 +207,80 @@ function normalizeOperation(operation, runId) {
   return operation;
 }
 
+
+function toTaskName(task) {
+  if (task === 'mechanism-herb') return 'herb_mechanism';
+  if (task === 'mechanism-compound') return 'compound_mechanism';
+  return task;
+}
+
+function loadEntityIndex(entityType) {
+  const file = entityType === 'herb' ? join(REPO_ROOT, 'public', 'data', 'herbs.json') : join(REPO_ROOT, 'public', 'data', 'compounds.json');
+  const entries = loadJson(file);
+  const index = new Map();
+  for (const entry of entries) {
+    const id = String(entry.id ?? '').trim();
+    if (id) index.set(id, entry);
+  }
+  return index;
+}
+
+function buildMechanismText(entityType, entity) {
+  const name = entity.displayName || entity.name || entity.slug || entity.id;
+  if (entityType === 'herb') {
+    return `${name} appears to modulate neurotransmitter and inflammatory signaling pathways through multi-compound activity. Reported alkaloid and flavonoid fractions suggest interaction with serotonergic or GABAergic tone, while evidence quality remains mixed across preparations.`;
+  }
+  return `${name} is described as a bioactive molecule that can influence receptor-level or enzyme-linked signaling pathways in preclinical models. Available evidence suggests plausible pharmacology involving kinase, CYP, or neurotransmitter-associated mechanisms, but human-effect certainty remains limited.`;
+}
+
+function generateDryRunOperations(task, selectedEntities, runId) {
+  const entityType = task === 'mechanism-herb' ? 'herb' : task === 'mechanism-compound' ? 'compound' : null;
+  if (!entityType) return [];
+  const taskName = toTaskName(task);
+  const entityIndex = loadEntityIndex(entityType);
+  const operations = [];
+
+  for (const token of selectedEntities) {
+    const [, entityIdRaw] = String(token).split(':');
+    const entityId = String(entityIdRaw ?? '').trim();
+    const entity = entityIndex.get(entityId);
+    if (!entity) continue;
+
+    const mechanism = buildMechanismText(entityType, entity);
+    const claimText = `${entity.displayName || entity.name || entity.slug || entityId} has mechanism evidence consistent with pharmacology-linked pathway modulation.`;
+
+    operations.push(
+      { task: taskName, entity_type: entityType, entity_id: entityId, field: '/mechanism', op: 'set', value: mechanism },
+      {
+        task: taskName,
+        entity_type: entityType,
+        entity_id: entityId,
+        field: '/claims/-',
+        op: 'append',
+        value: { claim: claimText, source_ids: ['src_PLACEHOLDER'] },
+      },
+      {
+        task: taskName,
+        entity_type: entityType,
+        entity_id: entityId,
+        field: '/_provenance',
+        op: 'set',
+        value: { run_id: runId, sources: [{ id: 'src_PLACEHOLDER', title: 'Dry-run synthetic evidence' }] },
+      },
+      {
+        task: taskName,
+        entity_type: entityType,
+        entity_id: entityId,
+        field: '/_review',
+        op: 'set',
+        value: { status: 'pending', notes: 'Dry-run generated; requires human review before apply.' },
+      },
+    );
+  }
+
+  return operations;
+}
+
 const providersConfigPath = join(REPO_ROOT, 'config', 'providers.json');
 const options = parseArgs(process.argv);
 const migrationState = bootstrapStateDb();
@@ -287,14 +361,20 @@ const batchManifest = {
   generatedPatchFiles: [],
 };
 
-if (options.operationsFile) {
-  const operationsPayload = loadJson(join(REPO_ROOT, options.operationsFile));
-  const operationsRaw = Array.isArray(operationsPayload) ? operationsPayload : operationsPayload.operations;
+const shouldAutogenerateMechanismDryRun = options.dryRun && !options.operationsFile && (options.task === 'mechanism-herb' || options.task === 'mechanism-compound');
+if (options.operationsFile || shouldAutogenerateMechanismDryRun) {
+  const operationsRaw = options.operationsFile
+    ? (() => {
+        const operationsPayload = loadJson(join(REPO_ROOT, options.operationsFile));
+        return Array.isArray(operationsPayload) ? operationsPayload : operationsPayload.operations;
+      })()
+    : generateDryRunOperations(options.task, selectedEntities, runId);
   const operations = operationsRaw.map((operation) => normalizeOperation(operation, runId));
   if (!Array.isArray(operations) || operations.length === 0) {
     throw new Error('--operations-file must contain an array or {operations:[...]} with at least one operation.');
   }
-  const patchId = `patch-${createHash('sha256').update(`${runId}:${options.operationsFile}`).digest('hex').slice(0, 16)}`;
+  const patchInputId = options.operationsFile ?? `autogen:${options.task}:${selectedEntities.join('|')}`;
+  const patchId = `patch-${createHash('sha256').update(`${runId}:${patchInputId}`).digest('hex').slice(0, 16)}`;
   const patch = {
     patch_id: patchId,
     created_at: nowIso(),
@@ -306,7 +386,7 @@ if (options.operationsFile) {
   batchManifest.generatedPatchFiles.push(`patches/${patchFile}`);
   runSqlite({
     sql: 'INSERT OR REPLACE INTO patches(patch_id, patch_file, patch_sha256, status) VALUES(?, ?, ?, ?)',
-    args: [patchId, patchFile, createHash('sha256').update(JSON.stringify(patch)).digest('hex'), 'staged'],
+    args: [patchId, patchFile, createHash('sha256').update(JSON.stringify(patch)).digest('hex'), options.dryRun ? 'dry-run-staged' : 'staged'],
   });
 }
 
@@ -317,7 +397,7 @@ runSqlite({
     runId,
     options.dryRun ? 'dry-run' : 'running',
     provider.id,
-    JSON.stringify({ dryRun: options.dryRun, phase: 'batch', task: options.task, deterministicRunKey: deterministicKey }),
+    JSON.stringify({ dryRun: options.dryRun, phase: 'batch', task: options.task, deterministicRunKey: deterministicKey, selectedEntities }),
   ],
 });
 
