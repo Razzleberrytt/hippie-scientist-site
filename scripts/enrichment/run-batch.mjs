@@ -208,6 +208,8 @@ function normalizeOperation(operation, runId) {
 }
 
 function detectLaneForOperations(operations) {
+  const hasSourceSuggestions = operations.some((operation) => operation.task === 'sources_suggestion');
+  if (hasSourceSuggestions) return 'C';
   const hasInteractionSet = operations.some(
     (operation) => operation.task === 'interactions' && operation.field === '/interactions',
   );
@@ -222,7 +224,36 @@ function detectLaneForOperations(operations) {
 function toTaskName(task) {
   if (task === 'mechanism-herb') return 'herb_mechanism';
   if (task === 'mechanism-compound') return 'compound_mechanism';
+  if (task === 'sources') return 'sources_suggestion';
   return task;
+}
+
+function queueSourceBacklogFromClaims(operations) {
+  const claimRows = [];
+  for (const operation of operations) {
+    if (operation.field !== '/claims/-' || operation.op !== 'append') continue;
+    if (operation.task !== 'herb_mechanism' && operation.task !== 'compound_mechanism') continue;
+    const claimId = String(operation.value?.id ?? '').trim();
+    if (!claimId) continue;
+    claimRows.push([
+      operation.entity_type,
+      operation.entity_id,
+      'sources',
+      30,
+      'pending',
+      claimId,
+      `/claims/${claimId}`,
+    ]);
+  }
+
+  if (claimRows.length === 0) return 0;
+  runSqlite({
+    many: true,
+    sql: `INSERT OR IGNORE INTO claim_backlog(entity_type, entity_id, task, priority, status, claim_id, field_path)
+      VALUES(?, ?, ?, ?, ?, ?, ?)`,
+    args: claimRows,
+  });
+  return claimRows.length;
 }
 
 function loadEntityIndex(entityType) {
@@ -401,6 +432,7 @@ if (options.operationsFile || shouldAutogenerateMechanismDryRun) {
     sql: 'INSERT OR REPLACE INTO patches(patch_id, patch_file, patch_sha256, status) VALUES(?, ?, ?, ?)',
     args: [patchId, patchFile, createHash('sha256').update(JSON.stringify(patch)).digest('hex'), options.dryRun ? 'dry-run-staged' : 'staged'],
   });
+  queueSourceBacklogFromClaims(operations);
 }
 
 writeJson(join(manifestsDir, `${runId}.batch.json`), batchManifest);
