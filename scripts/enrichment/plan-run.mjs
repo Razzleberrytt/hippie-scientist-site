@@ -2,14 +2,16 @@
 /**
  * Usage:
  *   node scripts/enrichment/plan-run.mjs --task mechanism-herb --batch-size 10 --dry-run
- * Deterministic runId shape:
- *   run-<16 hex chars from sha256 of {phase,task,dryRun,provider,model,temperature,promptVersion,schemaVersion,selectedEntities,batchSize}>
+ * Identity model:
+ *   runId: unique ULID-like run identifier for operational rows and provenance links.
+ *   deterministicRunKey: reproducible key from stable planning inputs for replay/audit.
  */
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import {
   bootstrapStateDb,
   deterministicRunId,
+  deterministicRunKey,
   ensureDir,
   loadJson,
   nowIso,
@@ -108,9 +110,11 @@ const runKey = {
   batchSize: options.batchSize,
 };
 const runId = deterministicRunId(runKey);
+const deterministicKey = deterministicRunKey(runKey, 'plan');
 
 const manifest = {
   runId,
+  deterministicRunKey: deterministicKey,
   phase: 'plan',
   task: options.task,
   createdAt: nowIso(),
@@ -129,7 +133,7 @@ const manifest = {
 writeJson(join(manifestsDir, `${runId}.plan.json`), manifest);
 runSqlite({
   sql: 'INSERT OR REPLACE INTO runs(run_uuid, status, provider_id, notes) VALUES(?, ?, ?, ?)',
-  args: [runId, 'planned', provider.id, JSON.stringify({ dryRun: options.dryRun, phase: 'plan', task: options.task })],
+  args: [runId, 'planned', provider.id, JSON.stringify({ dryRun: options.dryRun, phase: 'plan', task: options.task, deterministicRunKey: deterministicKey })],
 });
 
 console.log(
@@ -138,6 +142,7 @@ console.log(
       status: 'planned',
       migrationCount: migrationState.count,
       runId,
+      deterministicRunKey: deterministicKey,
       manifest: `ops/manifests/${runId}.plan.json`,
       selectedEntities: selectedEntities.length,
       dryRun: options.dryRun,

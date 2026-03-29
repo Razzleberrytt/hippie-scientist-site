@@ -1,6 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 
@@ -116,8 +117,24 @@ export function nowIso() {
   return new Date().toISOString();
 }
 
-export function deterministicRunId(input) {
-  void input;
+function stableNormalize(value) {
+  if (Array.isArray(value)) return value.map((entry) => stableNormalize(entry));
+  if (value && typeof value === 'object') {
+    const normalized = {};
+    for (const key of Object.keys(value).sort()) normalized[key] = stableNormalize(value[key]);
+    return normalized;
+  }
+  return value;
+}
+
+export function deterministicRunKey(input, prefix = 'det') {
+  const normalized = JSON.stringify(stableNormalize(input));
+  const hash = createHash('sha256').update(normalized).digest('hex').slice(0, 16);
+  return `${prefix}_${hash}`;
+}
+
+export function deterministicRunId(_input) {
+  void _input;
   return generatePrefixedUlid('run');
 }
 

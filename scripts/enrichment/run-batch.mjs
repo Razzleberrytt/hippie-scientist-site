@@ -3,8 +3,11 @@
  * Usage:
  *   node scripts/enrichment/run-batch.mjs --task mechanism-herb --batch-size 5 --dry-run
  *   node scripts/enrichment/run-batch.mjs --task mechanism-herb --operations-file ./ops/sample-operations.json --dry-run
+ * Identity model:
+ *   runId: unique ULID-like run identifier for operational rows and provenance links.
+ *   deterministicRunKey: reproducible key from stable planning inputs for replay/audit.
  * Notes:
- *   This script resolves provider + prompt metadata and writes deterministic run manifests.
+ *   This script resolves provider + prompt metadata and writes run manifests.
  *   It only creates patch files when --operations-file is provided (no mocked provider output).
  */
 import { join } from 'node:path';
@@ -13,6 +16,7 @@ import matter from 'gray-matter';
 import {
   bootstrapStateDb,
   deterministicRunId,
+  deterministicRunKey,
   ensureDir,
   generatePrefixedUlid,
   loadJson,
@@ -224,6 +228,22 @@ const runId = deterministicRunId({
   selectedEntities,
   batchSize: options.batchSize,
 });
+const deterministicKey = deterministicRunKey(
+  {
+    phase: 'batch',
+    task: options.task,
+    dryRun: options.dryRun,
+    provider: provider.id,
+    model: provider.model,
+    temperature: provider.temperature,
+    promptVersion: pack.promptVersion,
+    schemaVersion: pack.schema.$id ?? pack.schemaRef,
+    selectedEntities,
+    batchSize: options.batchSize,
+    operationsFile: options.operationsFile ?? null,
+  },
+  'batch',
+);
 
 const providerRequest = {
   task: pack.prompt.task,
@@ -241,6 +261,7 @@ const providerRequest = {
     failureMode: pack.prompt.failureMode,
     schemaRef: pack.schemaRef,
     runId,
+    deterministicRunKey: deterministicKey,
     dryRun: options.dryRun,
   },
 };
@@ -252,6 +273,7 @@ ensureDir(patchesDir);
 
 const batchManifest = {
   runId,
+  deterministicRunKey: deterministicKey,
   phase: 'batch',
   task: options.task,
   createdAt: nowIso(),
@@ -291,7 +313,12 @@ if (options.operationsFile) {
 writeJson(join(manifestsDir, `${runId}.batch.json`), batchManifest);
 runSqlite({
   sql: 'INSERT OR REPLACE INTO runs(run_uuid, status, provider_id, notes) VALUES(?, ?, ?, ?)',
-  args: [runId, options.dryRun ? 'dry-run' : 'running', provider.id, JSON.stringify({ dryRun: options.dryRun, phase: 'batch', task: options.task })],
+  args: [
+    runId,
+    options.dryRun ? 'dry-run' : 'running',
+    provider.id,
+    JSON.stringify({ dryRun: options.dryRun, phase: 'batch', task: options.task, deterministicRunKey: deterministicKey }),
+  ],
 });
 
 console.log(
@@ -301,6 +328,7 @@ console.log(
       message: 'Task resolved to prompt pack, schema, and provider config.',
       migrationCount: migrationState.count,
       runId,
+      deterministicRunKey: deterministicKey,
       dryRun: options.dryRun,
       resolution: {
         task: options.task,
