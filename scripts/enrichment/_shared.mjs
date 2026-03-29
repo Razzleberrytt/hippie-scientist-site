@@ -1,4 +1,5 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import Ajv2020 from 'ajv/dist/2020.js';
@@ -17,10 +18,48 @@ export function loadJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
+export function writeJson(path, value) {
+  writeFileSync(path, JSON.stringify(value, null, 2));
+}
+
 export function listMigrationFiles() {
   return readdirSync(MIGRATIONS_DIR)
     .filter((file) => /^\d+.*\.sql$/u.test(file))
     .sort();
+}
+
+export function runSqlite(payload) {
+  const runner = `
+import json, sqlite3, sys
+payload = json.loads(sys.stdin.read())
+conn = sqlite3.connect(payload['dbPath'])
+conn.row_factory = sqlite3.Row
+cur = conn.cursor()
+args = payload.get('args') or []
+if payload.get('many'):
+    cur.executemany(payload['sql'], args)
+    conn.commit()
+    print(json.dumps({'changes': conn.total_changes}))
+elif payload.get('select'):
+    rows = cur.execute(payload['sql'], args).fetchall()
+    print(json.dumps([dict(r) for r in rows]))
+else:
+    cur.execute(payload['sql'], args)
+    conn.commit()
+    print(json.dumps({'changes': conn.total_changes, 'lastrowid': cur.lastrowid}))
+conn.close()
+`;
+
+  const result = spawnSync('python3', ['-c', runner], {
+    input: JSON.stringify({ dbPath: STATE_DB_PATH, ...payload }),
+    encoding: 'utf8',
+  });
+
+  if (result.status !== 0) {
+    throw new Error(`SQLite command failed: ${result.stderr || result.stdout}`);
+  }
+
+  return JSON.parse(result.stdout.trim() || 'null');
 }
 
 export function bootstrapStateDb() {
@@ -76,6 +115,22 @@ export function compileSchema(schemaPath) {
 
 export function nowIso() {
   return new Date().toISOString();
+}
+
+function stableNormalize(value) {
+  if (Array.isArray(value)) return value.map((entry) => stableNormalize(entry));
+  if (value && typeof value === 'object') {
+    const normalized = {};
+    for (const key of Object.keys(value).sort()) normalized[key] = stableNormalize(value[key]);
+    return normalized;
+  }
+  return value;
+}
+
+export function deterministicRunId(input) {
+  const normalized = JSON.stringify(stableNormalize(input));
+  const hash = createHash('sha256').update(normalized).digest('hex').slice(0, 16);
+  return `run-${hash}`;
 }
 
 export function fail(message, details = '') {

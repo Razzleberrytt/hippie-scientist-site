@@ -1,7 +1,11 @@
 #!/usr/bin/env node
+/**
+ * Usage:
+ *   node scripts/enrichment/validate-domain.mjs [--run-id run-xxxx] [--dry-run]
+ */
 import { join } from 'node:path';
 import { readdirSync, readFileSync } from 'node:fs';
-import { REPO_ROOT } from './_shared.mjs';
+import { REPO_ROOT, bootstrapStateDb, runSqlite } from './_shared.mjs';
 
 const TASK_VALIDATORS = {
   herb_mechanism: validateMechanism,
@@ -10,6 +14,19 @@ const TASK_VALIDATORS = {
   interactions: validateInteraction,
   sources_suggestion: validateSources,
 };
+
+function parseArgs(argv) {
+  const out = { runId: null, dryRun: false };
+  for (let i = 2; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === '--run-id' && argv[i + 1]) {
+      out.runId = argv[i + 1];
+      i += 1;
+    } else if (arg.startsWith('--run-id=')) out.runId = arg.slice('--run-id='.length);
+    else if (arg === '--dry-run') out.dryRun = true;
+  }
+  return out;
+}
 
 function hasString(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -57,6 +74,8 @@ function validatePatchDomain(patch) {
   return errors;
 }
 
+const options = parseArgs(process.argv);
+bootstrapStateDb();
 const patchesDir = join(REPO_ROOT, 'patches');
 const patchFiles = readdirSync(patchesDir)
   .filter((name) => name.endsWith('.json'))
@@ -71,6 +90,15 @@ let failed = 0;
 for (const patchFile of patchFiles) {
   const patch = JSON.parse(readFileSync(patchFile, 'utf8'));
   const errors = validatePatchDomain(patch);
+  runSqlite({
+    sql: 'INSERT INTO validation_results(patch_id, validation_type, ok, details_json) VALUES(?, ?, ?, ?)',
+    args: [
+      patch.patch_id,
+      options.dryRun ? 'domain-dry-run' : 'domain',
+      errors.length === 0 ? 1 : 0,
+      JSON.stringify({ runId: options.runId, file: patchFile, errors }),
+    ],
+  });
   if (errors.length > 0) {
     failed += 1;
     console.error(`[validate-domain] FAIL ${patchFile}`);

@@ -62,7 +62,11 @@
     "enrichment:apply": "node scripts/enrichment/apply-patches.mjs",
     "enrichment:score": "node scripts/enrichment/score-entities.mjs",
     "enrichment:coverage": "node scripts/enrichment/report-coverage.mjs",
-    "enrichment:evals": "node scripts/enrichment/run-evals.mjs"
+    "enrichment:evals": "node scripts/enrichment/run-evals.mjs",
+    "enrichment:plan:dry": "node scripts/enrichment/plan-run.mjs --dry-run",
+    "enrichment:run:dry": "node scripts/enrichment/run-batch.mjs --dry-run",
+    "enrichment:validate:dry": "npm run enrichment:validate:schema -- --dry-run && npm run enrichment:validate:domain -- --dry-run",
+    "enrichment:apply:dry": "node scripts/enrichment/apply-patches.mjs --dry-run"
   },
   "engines": {
     "node": ">=20 <21"

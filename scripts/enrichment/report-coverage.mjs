@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+/**
+ * Usage: node scripts/enrichment/report-coverage.mjs
+ */
 import { join } from 'node:path';
 import { ensureDir, nowIso, REPO_ROOT } from './_shared.mjs';
 import { writeFileSync } from 'node:fs';

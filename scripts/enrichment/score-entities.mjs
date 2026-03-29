@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+/**
+ * Usage: node scripts/enrichment/score-entities.mjs
+ */
 import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { REPO_ROOT } from './_shared.mjs';

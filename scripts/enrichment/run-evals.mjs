@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+/**
+ * Usage: node scripts/enrichment/run-evals.mjs
+ */
 console.log(
   JSON.stringify(
     {
