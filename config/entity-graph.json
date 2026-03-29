@@ -7,5 +7,42 @@
     "interactions",
     "sources_suggestion"
   ],
-  "scoreFormula": "sources*3 + effects + mechanism*2 + description*2 + contraindications"
+  "scoreFormula": "sources*3 + effects + mechanism*2 + description*2 + contraindications",
+  "canonicalCompounds": [
+    {
+      "id": "dmt",
+      "slug": "dmt",
+      "name": "DMT",
+      "synonyms": ["n,n-dimethyltryptamine", "dimethyltryptamine"],
+      "foundIn": ["acacia confusa", "acacia maidenii", "acacia phlebophylla"]
+    },
+    {
+      "id": "n-methyltryptamine",
+      "slug": "n-methyltryptamine",
+      "name": "N-methyltryptamine",
+      "synonyms": ["nmt"],
+      "foundIn": ["acacia confusa", "acacia phlebophylla"]
+    },
+    {
+      "id": "5-meo-dmt",
+      "slug": "5-meo-dmt",
+      "name": "5-MeO-DMT",
+      "synonyms": ["5 methoxy dmt", "5-methoxy-dmt"],
+      "foundIn": []
+    },
+    {
+      "id": "7-hydroxymitragynine",
+      "slug": "7-hydroxymitragynine",
+      "name": "7-hydroxymitragynine",
+      "synonyms": ["7-oh-mitragynine"],
+      "foundIn": []
+    },
+    {
+      "id": "quercetin",
+      "slug": "quercetin",
+      "name": "quercetin",
+      "synonyms": [],
+      "foundIn": ["acacia nilotica"]
+    }
+  ]
 }
