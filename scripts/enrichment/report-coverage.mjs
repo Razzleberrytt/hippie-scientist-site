@@ -4,7 +4,8 @@
  */
 import { join } from 'node:path';
 import { readdirSync, readFileSync } from 'node:fs';
-import { ensureDir, nowIso, REPO_ROOT, bootstrapStateDb, runSqlite, writeJson } from './_shared.mjs';
+import { ensureDir, nowIso, REPO_ROOT, bootstrapStateDb, runSqlite, writeJson, loadJson } from './_shared.mjs';
+import { auditCompoundLinks, writeLinkPatch } from './_compound-linking.mjs';
 
 function parseArgs(argv) {
   const out = { runId: null, baselineFile: null };
@@ -129,6 +130,30 @@ function derivePatchStatusCounts(runId) {
   };
 }
 
+
+function buildLinkIntegrityReport() {
+  const herbs = loadJson(join(REPO_ROOT, 'public', 'data', 'herbs.json'));
+  const compounds = loadJson(join(REPO_ROOT, 'public', 'data', 'compounds.json'));
+  const entityGraph = loadJson(join(REPO_ROOT, 'config', 'entity-graph.json'));
+
+  const audit = auditCompoundLinks({
+    herbs,
+    compounds,
+    entityGraph,
+    producer: 'report-coverage:link-integrity',
+  });
+
+  const generatedPatchFile = writeLinkPatch(audit.patch);
+
+  return {
+    canonicalCompoundCount: audit.canonicalCompounds.length,
+    bidirectionalMismatchOps: audit.mismatchCount,
+    unmatchedCount: audit.unmatched.length,
+    unmatched: audit.unmatched.slice(0, 25),
+    generatedPatchFile,
+  };
+}
+
 const options = parseArgs(process.argv);
 bootstrapStateDb();
 
@@ -140,6 +165,7 @@ const before = options.baselineFile
   : loadCoverageSnapshot();
 const after = loadCoverageSnapshot();
 const statuses = derivePatchStatusCounts(options.runId);
+const linkIntegrity = buildLinkIntegrityReport();
 
 const report = {
   generatedAt: nowIso(),
@@ -155,6 +181,7 @@ const report = {
     },
   },
   statuses,
+  linkIntegrity,
 };
 
 const tag = options.runId ?? 'latest';

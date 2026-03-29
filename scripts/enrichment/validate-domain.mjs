@@ -13,6 +13,7 @@ const TASK_VALIDATORS = {
   dosage: validateDosage,
   interactions: validateInteraction,
   sources_suggestion: validateSources,
+  link_integrity: validateLinkIntegrity,
 };
 
 function parseArgs(argv) {
@@ -128,6 +129,19 @@ function validateInteraction(operation) {
 function validateSources(operation) {
   const sources = operation.value?.sources;
   if (!Array.isArray(sources) || sources.length === 0) return 'sources must be a non-empty array.';
+  return null;
+}
+
+function validateLinkIntegrity(operation) {
+  const allowedFields = new Set(['/activeCompounds', '/herbs', '/foundIn', '/_review']);
+  if (!allowedFields.has(operation.field)) return 'link_integrity field must be /activeCompounds|/herbs|/foundIn|/_review.';
+  if (operation.op !== 'set') return 'link_integrity operations must use op=set.';
+
+  if (operation.field === '/_review') return validateReviewValue(operation.value);
+
+  if (!Array.isArray(operation.value)) return `${operation.field} value must be an array.`;
+  const values = operation.value.map((entry) => String(entry ?? '').trim()).filter(Boolean);
+  if (values.length !== operation.value.length) return `${operation.field} entries must be non-empty strings.`;
   return null;
 }
 

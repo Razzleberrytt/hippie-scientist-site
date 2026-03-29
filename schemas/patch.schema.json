@@ -23,7 +23,8 @@
               "compound_mechanism",
               "dosage",
               "interactions",
-              "sources_suggestion"
+              "sources_suggestion",
+              "link_integrity"
             ]
           },
           "entity_type": { "type": "string", "enum": ["herb", "compound"] },
@@ -48,6 +49,16 @@
               "properties": {
                 "entity_type": { "const": "compound" },
                 "field": { "enum": ["/mechanism", "/claims/-", "/_provenance", "/_review"] }
+              }
+            }
+          },
+          {
+            "if": { "properties": { "task": { "const": "link_integrity" } }, "required": ["task"] },
+            "then": {
+              "properties": {
+                "entity_type": { "enum": ["herb", "compound"] },
+                "field": { "enum": ["/activeCompounds", "/herbs", "/foundIn", "/_review"] },
+                "op": { "const": "set" }
               }
             }
           }
