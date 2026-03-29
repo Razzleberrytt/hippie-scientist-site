@@ -120,9 +120,103 @@ function validateDosage(operation) {
   return null;
 }
 
-function validateInteraction(operation) {
-  const severity = operation.value?.severity;
-  if (!['low', 'moderate', 'high', 'unknown'].includes(severity)) return 'severity must be one of low|moderate|high|unknown.';
+function validateInteraction(operation, _index, patch) {
+  const allowedFields = new Set(['/interactions', '/interactionTags', '/_review', '/_provenance']);
+  if (!allowedFields.has(operation.field)) return 'interactions field must be /interactions|/interactionTags|/_review|/_provenance.';
+  if (operation.op !== 'set') return 'interactions operations must use op=set.';
+  if (operation.field === '/_review') return validateReviewValue(operation.value);
+  if (operation.field === '/_provenance') return validateProvenanceValue(operation.value);
+  if (operation.field === '/interactionTags') return validateInteractionTagArray(operation.value, 'interactionTags');
+
+  if (!Array.isArray(operation.value)) return '/interactions value must be an array.';
+  if (operation.value.length === 0 || operation.value.length > 8) return '/interactions must include 1-8 items.';
+  for (let index = 0; index < operation.value.length; index += 1) {
+    const item = operation.value[index];
+    if (!item || typeof item !== 'object') return `/interactions[${index}] must be an object.`;
+    if (!hasString(item.substance)) return `/interactions[${index}].substance is required.`;
+    if (!['mild', 'moderate', 'severe', 'contraindicated'].includes(item.severity)) {
+      return `/interactions[${index}].severity must be mild|moderate|severe|contraindicated.`;
+    }
+    if (!['theoretical', 'anecdotal', 'case_report', 'clinical'].includes(item.evidence)) {
+      return `/interactions[${index}].evidence must be theoretical|anecdotal|case_report|clinical.`;
+    }
+    if (!hasString(item.mechanism)) return `/interactions[${index}].mechanism is required.`;
+    const tagError = validateInteractionTagArray(item.tags, `/interactions[${index}].tags`);
+    if (tagError) return tagError;
+    if (item.severity === 'severe' || item.severity === 'contraindicated') {
+      const hasVerifiedEvidence = hasVerifiedEntitySource(operation.entity_type, operation.entity_id);
+      const hasVerifiedPatchProvenance = hasVerifiedPatchSource(patch, operation.entity_type, operation.entity_id);
+      const hasPriorityBacklog = hasHighPriorityInteractionBacklog(operation.entity_type, operation.entity_id);
+      if (!hasVerifiedEvidence && !hasVerifiedPatchProvenance && !hasPriorityBacklog) {
+        return `/interactions[${index}] severe|contraindicated requires verified entity source or high-priority claim_backlog entry.`;
+      }
+    }
+  }
+  return null;
+}
+
+const interactionTagVocab = JSON.parse(
+  readFileSync(join(REPO_ROOT, 'schemas', 'interaction-tags.vocab.json'), 'utf8'),
+).enum;
+
+const entityCache = {
+  herb: null,
+  compound: null,
+};
+
+function loadEntityDataset(entityType) {
+  if (entityCache[entityType]) return entityCache[entityType];
+  const file = entityType === 'herb' ? 'herbs.json' : 'compounds.json';
+  const payload = JSON.parse(readFileSync(join(REPO_ROOT, 'public', 'data', file), 'utf8'));
+  entityCache[entityType] = Array.isArray(payload) ? payload : [];
+  return entityCache[entityType];
+}
+
+function hasVerifiedEntitySource(entityType, entityId) {
+  const dataset = loadEntityDataset(entityType);
+  const target = dataset.find((entry) =>
+    [entry?.id, entry?.slug, entry?.name, entry?.displayName].some(
+      (value) => String(value ?? '').trim().toLowerCase() === String(entityId ?? '').trim().toLowerCase(),
+    ),
+  );
+  if (!target || !Array.isArray(target.sources)) return false;
+  return target.sources.some((source) => source && typeof source === 'object' && source.verified === true);
+}
+
+function hasHighPriorityInteractionBacklog(entityType, entityId) {
+  const rows = runSqlite({
+    select: true,
+    sql: `SELECT id FROM claim_backlog
+      WHERE entity_type = ? AND entity_id = ? AND task = 'interactions' AND status = 'pending' AND priority <= 20
+      ORDER BY priority ASC, created_at ASC
+      LIMIT 1`,
+    args: [entityType, entityId],
+  });
+  return rows.length > 0;
+}
+
+function hasVerifiedPatchSource(patch, entityType, entityId) {
+  const operation = (patch?.operations ?? []).find(
+    (entry) =>
+      entry?.task === 'interactions' &&
+      entry?.entity_type === entityType &&
+      entry?.entity_id === entityId &&
+      entry?.field === '/_provenance' &&
+      entry?.op === 'set',
+  );
+  const sources = operation?.value?.sources;
+  if (!Array.isArray(sources)) return false;
+  return sources.some((source) => source && typeof source === 'object' && source.verified === true);
+}
+
+function validateInteractionTagArray(value, label) {
+  if (!Array.isArray(value) || value.length === 0) return `${label} must be a non-empty array.`;
+  const tags = value.map((entry) => String(entry ?? '').trim());
+  if (tags.some((tag) => !tag)) return `${label} entries must be non-empty strings.`;
+  if (new Set(tags).size !== tags.length) return `${label} must not contain duplicates.`;
+  for (const tag of tags) {
+    if (!interactionTagVocab.includes(tag)) return `${label} contains unsupported tag "${tag}".`;
+  }
   return null;
 }
 
@@ -155,7 +249,7 @@ function validatePatchDomain(patch) {
       errors.push(`operations[${index}]: no validator for task ${operation.task}`);
       return;
     }
-    const error = validator(operation);
+    const error = validator(operation, index, patch);
     if (error) errors.push(`operations[${index}]: ${error}`);
   });
 

@@ -19,12 +19,18 @@ function sha256(value) {
   return createHash('sha256').update(value).digest('hex');
 }
 
-function isLaneCPatch(patchFile, patch) {
-  const fingerprint = `${patchFile} ${patch.patch_id ?? ''} ${patch.producer ?? ''}`.toLowerCase();
-  return fingerprint.includes('lane-c') || fingerprint.includes('lane_c') || fingerprint.includes('lanec');
-}
-
 function detectLane(patchFile, patch) {
+  const explicitLane = String(patch?.lane ?? '').toUpperCase();
+  if (['A', 'B', 'C'].includes(explicitLane)) return explicitLane;
+  const hasInteractionPatch = (patch.operations ?? []).some((operation) => operation.task === 'interactions');
+  const hasInteractionsField = (patch.operations ?? []).some(
+    (operation) => operation.task === 'interactions' && operation.field === '/interactions',
+  );
+  const hasInteractionTagsField = (patch.operations ?? []).some(
+    (operation) => operation.task === 'interactions' && operation.field === '/interactionTags',
+  );
+  if (hasInteractionsField) return 'C';
+  if (hasInteractionPatch && hasInteractionTagsField) return 'B';
   const fingerprint = `${patchFile} ${patch.patch_id ?? ''} ${patch.producer ?? ''}`.toLowerCase();
   if (fingerprint.includes('lane-a') || fingerprint.includes('lane_a') || fingerprint.includes('lanea')) return 'A';
   if (fingerprint.includes('lane-b') || fingerprint.includes('lane_b') || fingerprint.includes('laneb')) return 'B';
@@ -142,6 +148,25 @@ for (const patchFile of patchFiles) {
   const lane = detectLane(patchFile, payload);
   const reviewStatuses = collectReviewStatuses(payload);
 
+  if (lane === 'C') {
+    const laneCApproval = runSqlite({
+      select: true,
+      sql: `SELECT id FROM review_decisions
+        WHERE patch_id = ? AND lane = 'C' AND decision = 'approved'
+        ORDER BY created_at DESC LIMIT 1`,
+      args: [payload.patch_id],
+    });
+    if (laneCApproval.length === 0) {
+      manifest.blockedPatches.push({
+        patchFile,
+        patchId: payload.patch_id,
+        reason: 'lane-c-explicit-approval-required',
+      });
+      manifest.skippedByReason['missing-approval'] += 1;
+      continue;
+    }
+  }
+
   if (!hasMechanismOperations(payload)) {
     manifest.blockedPatches.push({ patchFile, patchId: payload.patch_id, reason: 'non-mechanism' });
     manifest.skippedByReason['non-mechanism'] += 1;
@@ -179,23 +204,6 @@ for (const patchFile of patchFiles) {
     manifest.blockedPatches.push({ patchFile, patchId: payload.patch_id, reason: 'missing-approval' });
     manifest.skippedByReason['missing-approval'] += 1;
     continue;
-  }
-
-  if (isLaneCPatch(patchFile, payload)) {
-    const rows = runSqlite({
-      select: true,
-      sql: `SELECT id FROM review_decisions
-        WHERE patch_id = ? AND lane = 'C' AND decision = 'approved'
-        ORDER BY created_at DESC LIMIT 1`,
-      args: [payload.patch_id],
-    });
-    if (rows.length === 0) {
-      manifest.blockedPatches.push({ patchFile, reason: 'lane-c-without-approval' });
-      writeJson(join(manifestsDir, `${runId}.apply.json`), manifest);
-      writeJson(join(rollbackDir, `${runId}.json`), rollbackManifest);
-      console.error(`[apply-patches] Lane C guard blocked patch ${patchFile}: missing approved review_decisions row.`);
-      process.exit(1);
-    }
   }
 
   manifest.appliedPatches.push(patchFile);

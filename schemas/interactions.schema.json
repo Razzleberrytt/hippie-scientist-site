@@ -3,15 +3,76 @@
   "$id": "https://hippiescientist.app/schemas/interactions.schema.json",
   "type": "object",
   "additionalProperties": false,
-  "required": ["severity", "mechanism", "tags"],
+  "required": [
+    "interactionTags",
+    "interactions"
+  ],
   "properties": {
-    "severity": { "type": "string", "enum": ["low", "moderate", "high", "unknown"] },
-    "mechanism": { "type": "string", "minLength": 1 },
-    "tags": {
+    "interactionTags": {
       "type": "array",
       "minItems": 1,
-      "items": { "type": "string" }
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://hippiescientist.app/schemas/interaction-tags.vocab.json"
+      }
     },
-    "notes": { "type": "string" }
+    "interactions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "substance",
+          "severity",
+          "evidence",
+          "mechanism",
+          "tags"
+        ],
+        "properties": {
+          "substance": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "mild",
+              "moderate",
+              "severe",
+              "contraindicated"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "enum": [
+              "theoretical",
+              "anecdotal",
+              "case_report",
+              "clinical"
+            ]
+          },
+          "mechanism": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tags": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$ref": "https://hippiescientist.app/schemas/interaction-tags.vocab.json"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
   }
 }
