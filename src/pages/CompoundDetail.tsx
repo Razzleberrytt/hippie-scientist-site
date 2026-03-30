@@ -55,12 +55,21 @@ function firstSentence(value: string, fallback: string) {
   return sentence.length > 180 ? `${sentence.slice(0, 177).trimEnd()}…` : sentence
 }
 
+function normalizeKey(value: string) {
+  return value.trim().toLowerCase()
+}
+
+function overlapByKey(items: string[], pool: Set<string>) {
+  return items.filter(item => pool.has(normalizeKey(item)))
+}
+
 export default function CompoundDetail() {
   const { slug = '' } = useParams()
   const { compound, isLoading: isCompoundLoading } = useCompoundDetailState(slug)
+  const { compounds, isLoading: isCompoundsLoading } = useCompoundDataState()
   const { herbs, isLoading: isHerbLoading } = useHerbDataState()
 
-  if (isCompoundLoading || isHerbLoading) {
+  if (isCompoundLoading || isCompoundsLoading || isHerbLoading) {
     return <CompoundDetailSkeleton />
   }
 
@@ -154,6 +163,55 @@ export default function CompoundDetail() {
         compound.sideEffects[0] ||
         'Review contraindications and interaction notes before use.'
       : undefined
+  const effectKeys = new Set(compound.effects.map(normalizeKey))
+  const herbKeys = new Set(compound.herbs.map(normalizeKey))
+  const useKeys = new Set(compound.therapeuticUses.map(normalizeKey))
+  const cautionKeys = new Set(
+    [...compound.contraindications, ...compound.interactions, ...compound.sideEffects].map(normalizeKey)
+  )
+  const similarCompounds = compounds
+    .filter(other => other.slug !== compound.slug)
+    .map(other => {
+      const otherEffects = other.effects || []
+      const otherHerbs = other.herbs || []
+      const otherUses = other.effects
+      const sharedEffects = overlapByKey(otherEffects, effectKeys)
+      const sharedHerbs = overlapByKey(otherHerbs, herbKeys)
+      const sharedUses = overlapByKey(otherUses, useKeys)
+      const sameCategory = normalizeKey(other.category || '') === normalizeKey(compound.category || '')
+      const score =
+        sharedEffects.length * 4 + sharedHerbs.length * 3 + sharedUses.length * 2 + (sameCategory ? 1 : 0)
+      return {
+        slug: other.slug,
+        name: other.name,
+        sharedEffects,
+        sharedHerbs,
+        sharedUses,
+        score,
+      }
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 4)
+  const cautionRelatedHerbs = herbs
+    .filter(other => String(other.slug || '') !== compound.slug)
+    .map(other => {
+      const herbCautions = [
+        ...((Array.isArray(other.contraindications) ? other.contraindications : []) as string[]),
+        ...((Array.isArray(other.interactions) ? other.interactions : []) as string[]),
+        ...((Array.isArray(other.sideeffects) ? other.sideeffects : []) as string[]),
+      ]
+      const sharedCautions = overlapByKey(herbCautions, cautionKeys)
+      return {
+        slug: String(other.slug || ''),
+        name: String(other.common || other.name || other.slug || '').trim(),
+        sharedCautions,
+      }
+    })
+    .filter(item => item.slug)
+    .filter(item => item.sharedCautions.length > 0)
+    .sort((a, b) => b.sharedCautions.length - a.sharedCautions.length)
+    .slice(0, 3)
 
   // Derive a display class — category only if it's meaningful
   const displayClass =
@@ -382,6 +440,67 @@ export default function CompoundDetail() {
                     </Link>
                   ))}
                 </div>
+              </div>
+            </Collapse>
+          </section>
+        )}
+
+        {similarCompounds.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Similar Compounds to Compare Next'>
+              <div className='space-y-2 text-sm text-white/85'>
+                {similarCompounds.map(other => (
+                  <p key={`similar-${other.slug}`}>
+                    <Link className='link' to={`/compounds/${encodeURIComponent(other.slug)}`}>
+                      {other.name}
+                    </Link>{' '}
+                    {other.sharedEffects.length
+                      ? `shares effects (${other.sharedEffects.slice(0, 2).join(', ')})`
+                      : 'shares related context'}{' '}
+                    {other.sharedHerbs.length
+                      ? `and appears in similar herbs (${other.sharedHerbs.slice(0, 2).join(', ')}).`
+                      : '.'}
+                  </p>
+                ))}
+              </div>
+            </Collapse>
+          </section>
+        )}
+
+        {cautionRelatedHerbs.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Caution-Related Herbs'>
+              <div className='space-y-2 text-sm text-white/85'>
+                <p className='text-xs text-white/65'>
+                  These herbs share caution language with this compound profile and are useful next safety checks.
+                </p>
+                {cautionRelatedHerbs.map(other => (
+                  <p key={`caution-${other.slug}`}>
+                    <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
+                      {other.name}
+                    </Link>{' '}
+                    overlaps caution terms ({other.sharedCautions.slice(0, 2).join(', ')}).
+                  </p>
+                ))}
+                {similarCompounds.length > 0 && (
+                  <div className='pt-1 text-xs text-white/60'>
+                    Compare caution overlap in the checker:{' '}
+                    {similarCompounds.slice(0, 2).map((other, index) => (
+                      <span key={`pair-${other.slug}`}>
+                        {index > 0 ? ' · ' : ''}
+                        <Link
+                          className='link'
+                          to={buildInteractionsLink([
+                            compoundToken,
+                            encodeURIComponent(`compound:${other.slug}`),
+                          ])}
+                        >
+                          {compound.name} + {other.name}
+                        </Link>
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </Collapse>
           </section>
