@@ -45,6 +45,14 @@ function writeJson(relativePath, data) {
 
 const asArray = value => (Array.isArray(value) ? value : [])
 const asText = value => String(value || '').trim()
+const clip = (value, max = 155) => asText(value).slice(0, max)
+
+function normalizeDate(value) {
+  if (!value) return null
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return null
+  return date.toISOString().slice(0, 10)
+}
 
 function countSources(record) {
   return asArray(record?.sources)
@@ -165,6 +173,28 @@ function auditEntity(record, type) {
   }
 }
 
+
+function buildPublicationEntry(record, type, audit) {
+  const displayName = asText(record?.commonName || record?.common || record?.name || record?.latinName || record?.latin || audit.slug)
+  const description = clip(asText(record?.summary || record?.description || record?.mechanism || `${displayName} reference profile.`))
+  const lastmod =
+    normalizeDate(record?.updated_at) ||
+    normalizeDate(record?.lastmod) ||
+    normalizeDate(record?.date) ||
+    new Date().toISOString().slice(0, 10)
+
+  return {
+    slug: audit.slug,
+    route: audit.route,
+    name: displayName,
+    kind: type,
+    title: `${displayName} | The Hippie Scientist`,
+    description,
+    completenessScore: audit.completenessScore,
+    lastmod,
+  }
+}
+
 function summarizeAudits(audits) {
   const excludedByReason = {}
   let indexable = 0
@@ -226,8 +256,38 @@ function run() {
   const compoundSummary = summarizeAudits(compoundAudits)
   const blogSummary = auditBlogIndex(asArray(blogIndex))
 
-  const qualityReport = {
+  const indexableHerbEntries = herbAudits
+    .map((audit, index) => ({ audit, record: herbs[index] }))
+    .filter(item => item.audit.passesIndexThreshold)
+    .map(item => buildPublicationEntry(item.record, 'herb', item.audit))
+    .sort((a, b) => b.completenessScore - a.completenessScore)
+
+  const indexableCompoundEntries = compoundAudits
+    .map((audit, index) => ({ audit, record: compounds[index] }))
+    .filter(item => item.audit.passesIndexThreshold)
+    .map(item => buildPublicationEntry(item.record, 'compound', item.audit))
+    .sort((a, b) => b.completenessScore - a.completenessScore)
+
+  const publicationManifest = {
     generatedAt: new Date().toISOString(),
+    thresholds: QUALITY_THRESHOLDS,
+    entities: {
+      herbs: indexableHerbEntries,
+      compounds: indexableCompoundEntries,
+    },
+    routes: {
+      herbs: indexableHerbEntries.map(entry => entry.route),
+      compounds: indexableCompoundEntries.map(entry => entry.route),
+    },
+    summaries: {
+      herbs: herbSummary,
+      compounds: compoundSummary,
+      blogIndex: blogSummary,
+    },
+  }
+
+  const qualityReport = {
+    generatedAt: publicationManifest.generatedAt,
     thresholds: QUALITY_THRESHOLDS,
     herbs: herbSummary,
     compounds: compoundSummary,
@@ -235,8 +295,9 @@ function run() {
   }
 
   writeJson('public/data/quality-report.json', qualityReport)
-  writeJson('public/data/indexable-herbs.json', herbAudits.filter(audit => audit.passesIndexThreshold))
-  writeJson('public/data/indexable-compounds.json', compoundAudits.filter(audit => audit.passesIndexThreshold))
+  writeJson('public/data/publication-manifest.json', publicationManifest)
+  writeJson('public/data/indexable-herbs.json', indexableHerbEntries)
+  writeJson('public/data/indexable-compounds.json', indexableCompoundEntries)
 
   console.log('[quality-gate] thresholds', JSON.stringify(QUALITY_THRESHOLDS))
   console.log(

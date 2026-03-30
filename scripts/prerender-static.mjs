@@ -41,6 +41,17 @@ function readJson(relativePath) {
   }
 }
 
+function readObject(relativePath) {
+  const file = path.join(ROOT, relativePath)
+  if (!fs.existsSync(file)) return {}
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'))
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {}
+  } catch {
+    return {}
+  }
+}
+
 function pickDataFile(primary, fallback) {
   const primaryData = readJson(primary)
   if (primaryData.length > 0) return primaryData
@@ -50,8 +61,9 @@ function pickDataFile(primary, fallback) {
 const blogPosts = readJson('src/data/blog/posts.json')
 const herbs = pickDataFile('public/data/herbs_combined_updated.json', 'public/data/herbs.json')
 const compounds = pickDataFile('public/data/compounds_combined_updated.json', 'public/data/compounds.json')
-const indexableHerbs = readJson('public/data/indexable-herbs.json')
-const indexableCompounds = readJson('public/data/indexable-compounds.json')
+const publicationManifest = readObject('public/data/publication-manifest.json')
+const indexableHerbs = Array.isArray(publicationManifest?.entities?.herbs) ? publicationManifest.entities.herbs : []
+const indexableCompounds = Array.isArray(publicationManifest?.entities?.compounds) ? publicationManifest.entities.compounds : []
 
 const blogBySlug = new Map(blogPosts.map(post => [String(post?.slug || ''), post]))
 const herbBySlug = new Map(

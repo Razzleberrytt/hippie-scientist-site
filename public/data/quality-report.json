@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-27T17:45:52.405Z",
+  "generatedAt": "2026-03-30T11:49:44.014Z",
   "thresholds": {
     "minDescriptionLength": 60,
     "minSources": 2,
@@ -8,33 +8,33 @@
     "minSlugLength": 2
   },
   "herbs": {
-    "total": 690,
-    "indexable": 6,
-    "excluded": 684,
+    "total": 699,
+    "indexable": 12,
+    "excluded": 687,
     "excludedByReason": {
-      "placeholderText": 656,
-      "nanArtifacts": 543,
-      "insufficientEvidenceOrCompleteness": 615,
-      "insufficientEffects": 192,
-      "weakDescription": 564,
-      "invalidNameOrSlug": 3
+      "weakDescription": 651,
+      "placeholderText": 667,
+      "nanArtifacts": 572,
+      "insufficientEffects": 201,
+      "insufficientEvidenceOrCompleteness": 468,
+      "invalidNameOrSlug": 28
     }
   },
   "compounds": {
-    "total": 437,
-    "indexable": 112,
-    "excluded": 325,
+    "total": 393,
+    "indexable": 0,
+    "excluded": 393,
     "excludedByReason": {
-      "invalidNameOrSlug": 8,
-      "placeholderText": 212,
-      "nanArtifacts": 79,
-      "insufficientEffects": 85,
-      "insufficientEvidenceOrCompleteness": 209,
-      "weakDescription": 21
+      "invalidNameOrSlug": 12,
+      "weakDescription": 393,
+      "placeholderText": 222,
+      "nanArtifacts": 86,
+      "insufficientEffects": 52,
+      "insufficientEvidenceOrCompleteness": 296
     }
   },
   "blogIndex": {
-    "total": 65,
+    "total": 15,
     "invalidSlug": 0,
     "weakSummary": 0,
     "placeholderText": 0,
