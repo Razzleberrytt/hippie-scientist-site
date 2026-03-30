@@ -112,6 +112,60 @@ function firstSentence(value: string, fallback: string) {
   return sentence.length > 180 ? `${sentence.slice(0, 177).trimEnd()}…` : sentence
 }
 
+type HerbLinkCandidate = {
+  slug: string
+  name: string
+  sharedEffects: string[]
+  sharedCompounds: string[]
+  sharedUses: string[]
+  score: number
+}
+
+function overlapByKey(items: string[], pool: Set<string>) {
+  return items.filter(item => pool.has(normalizeKey(item)))
+}
+
+function topHerbCandidates(
+  herb: { slug: string; class?: unknown },
+  herbs: Array<Record<string, unknown>>,
+  options: {
+    effectKeys: Set<string>
+    compoundKeys: Set<string>
+    useKeys: Set<string>
+    limit: number
+  }
+) {
+  return herbs
+    .filter(other => String(other.slug || '') !== herb.slug)
+    .map(other => {
+      const otherEffects = splitClean(other.effects)
+      const otherCompounds = splitClean(other.activeCompounds ?? other.active_compounds ?? other.compounds)
+      const otherUses = splitClean(other.therapeuticUses ?? other.therapeutic)
+      const sharedEffects = overlapByKey(otherEffects, options.effectKeys)
+      const sharedCompounds = overlapByKey(otherCompounds, options.compoundKeys)
+      const sharedUses = overlapByKey(otherUses, options.useKeys)
+      const sameClass =
+        normalizeKey(String(other.class || other.category || '')) ===
+        normalizeKey(String(herb.class || ''))
+      const score =
+        sharedCompounds.length * 4 +
+        sharedEffects.length * 3 +
+        sharedUses.length * 2 +
+        (sameClass ? 1 : 0)
+      return {
+        slug: String(other.slug || ''),
+        name: String(other.common || other.name || other.slug || '').trim(),
+        sharedEffects,
+        sharedCompounds,
+        sharedUses,
+        score,
+      } satisfies HerbLinkCandidate
+    })
+    .filter(item => item.slug && item.name && item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, options.limit)
+}
+
 export default function HerbDetail() {
   const { slug = '' } = useParams()
   const { herb, isLoading } = useHerbDetailState(slug)
@@ -187,20 +241,32 @@ export default function HerbDetail() {
   const herbMetaTitle = `${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`
 
   const compoundKeys = new Set(activeCompounds.map(normalizeKey))
-  const relatedHerbs = herbs
+  const effectKeys = new Set(effects.map(normalizeKey))
+  const useKeys = new Set(therapeuticUses.map(normalizeKey))
+  const similarHerbs = topHerbCandidates(
+    { slug: herb.slug, class: herb.class || herb.category },
+    herbs as Array<Record<string, unknown>>,
+    { effectKeys, compoundKeys, useKeys, limit: 4 }
+  )
+  const cautionKeys = new Set([...contraindications, ...interactions, ...sideEffects].map(normalizeKey))
+  const cautionRelatedHerbs = herbs
     .filter(other => other.slug !== herb.slug)
     .map(other => {
-      const otherCompounds = Array.isArray(other.activeCompounds) ? other.activeCompounds : []
-      const sharedCompounds = otherCompounds.filter(item => compoundKeys.has(normalizeKey(item)))
+      const otherCautions = [
+        ...splitClean(other.contraindications),
+        ...splitClean(other.interactions),
+        ...splitClean(other.sideeffects ?? other.sideEffects),
+      ]
+      const sharedCautions = overlapByKey(otherCautions, cautionKeys)
       return {
         slug: String(other.slug || ''),
-        name: String(other.common || other.name || other.slug),
-        sharedCompounds,
+        name: String(other.common || other.name || other.slug || '').trim(),
+        sharedCautions,
       }
     })
-    .filter(item => item.slug && item.sharedCompounds.length > 0)
-    .sort((a, b) => b.sharedCompounds.length - a.sharedCompounds.length)
-    .slice(0, 4)
+    .filter(item => item.slug && item.sharedCautions.length > 0)
+    .sort((a, b) => b.sharedCautions.length - a.sharedCautions.length)
+    .slice(0, 3)
 
   // Scalar fields already cleaned by normalization
   const description = herb.description || ''
@@ -445,16 +511,55 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {relatedHerbs.length > 0 && (
+        {similarHerbs.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Related Herbs via Shared Compounds'>
+            <Collapse title='Similar Herbs to Compare Next'>
               <div className='space-y-2 text-sm leading-relaxed text-white/85'>
-                {relatedHerbs.map(other => (
+                {similarHerbs.map(other => (
                   <p key={other.slug}>
                     <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
                       {other.name}
                     </Link>{' '}
-                    shares {other.sharedCompounds.join(', ')}.
+                    {other.sharedCompounds.length > 0
+                      ? `shares compounds (${other.sharedCompounds.slice(0, 2).join(', ')})`
+                      : 'has overlapping effects'}{' '}
+                    {other.sharedEffects.length > 0
+                      ? `and effects (${other.sharedEffects.slice(0, 2).join(', ')}).`
+                      : '.'}
+                  </p>
+                ))}
+                <div className='pt-1 text-xs text-white/60'>
+                  Compare two entries quickly:{' '}
+                  {similarHerbs.slice(0, 2).map((item, index) => (
+                    <span key={`${item.slug}-compare`}>
+                      {index > 0 ? ' · ' : ''}
+                      <Link
+                        className='link'
+                        to={`/compare?ids=${encodeURIComponent(`${herb.slug},${item.slug}`)}`}
+                      >
+                        {herbDisplayName} vs {item.name}
+                      </Link>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Collapse>
+          </section>
+        )}
+
+        {cautionRelatedHerbs.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Caution-Related Herbs'>
+              <div className='space-y-2 text-sm leading-relaxed text-white/85'>
+                <p className='text-xs text-white/65'>
+                  These links share contraindication or interaction language, so review safety overlap before stacking.
+                </p>
+                {cautionRelatedHerbs.map(other => (
+                  <p key={`caution-${other.slug}`}>
+                    <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
+                      {other.name}
+                    </Link>{' '}
+                    overlaps caution notes such as {other.sharedCautions.slice(0, 2).join(', ')}.
                   </p>
                 ))}
               </div>
