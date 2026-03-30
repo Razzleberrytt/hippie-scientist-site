@@ -56,6 +56,26 @@
     "populationSpecificNotes": { "$ref": "#/$defs/claimArray" },
     "conflictNotes": { "$ref": "#/$defs/claimArray" },
     "researchGaps": { "$ref": "#/$defs/claimArray" },
+    "topicEvidenceJudgments": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "supported_use",
+          "unsupported_or_unclear_use",
+          "mechanism",
+          "constituent",
+          "interaction",
+          "contraindication",
+          "adverse_effect",
+          "dosage_context",
+          "population_specific_note",
+          "conflict_note",
+          "research_gap"
+        ]
+      },
+      "additionalProperties": { "$ref": "#/$defs/evidenceJudgment" }
+    },
+    "pageEvidenceJudgment": { "$ref": "#/$defs/evidenceJudgment" },
     "sourceRegistryIds": {
       "type": "array",
       "items": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
@@ -127,6 +147,73 @@
         "extractConfidence": { "type": "string", "enum": ["high", "medium", "low"] },
         "reviewer": { "type": "string", "minLength": 1 },
         "notes": { "type": "string" }
+      }
+    },
+    "evidenceJudgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidenceLabel", "grading", "conflictNotes", "uncertaintyNotes", "toneGuidance"],
+      "properties": {
+        "evidenceLabel": {
+          "type": "string",
+          "enum": [
+            "stronger_human_support",
+            "limited_human_support",
+            "observational_only",
+            "preclinical_only",
+            "traditional_use_only",
+            "mixed_or_uncertain",
+            "conflicting_evidence",
+            "insufficient_evidence"
+          ]
+        },
+        "grading": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "evidenceClass",
+            "studyDesignWeight",
+            "humanRelevance",
+            "directnessToClaim",
+            "replicationDepth",
+            "sourceReliabilityTier",
+            "recencyWeight",
+            "editorialConfidence",
+            "conflictState",
+            "confidenceIndex"
+          ],
+          "properties": {
+            "evidenceClass": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "human-clinical",
+                  "human-observational",
+                  "preclinical-mechanistic",
+                  "traditional-use",
+                  "regulatory-monograph"
+                ]
+              },
+              "uniqueItems": true
+            },
+            "studyDesignWeight": { "type": "integer", "minimum": 0, "maximum": 5 },
+            "humanRelevance": {
+              "type": "string",
+              "enum": ["none", "direct-human", "human-observational", "preclinical-proxy", "traditional-context"]
+            },
+            "directnessToClaim": { "type": "string", "enum": ["direct", "proximal", "indirect", "contextual"] },
+            "replicationDepth": { "type": "integer", "minimum": 0 },
+            "sourceReliabilityTier": { "type": "string", "enum": ["tier-a", "tier-b", "tier-c", "tier-d"] },
+            "recencyWeight": { "type": "integer", "minimum": 0, "maximum": 2 },
+            "editorialConfidence": { "type": "string", "enum": ["high", "medium", "low"] },
+            "conflictState": { "type": "string", "enum": ["none", "mixed_or_uncertain", "conflicting_evidence"] },
+            "confidenceIndex": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "conflictNotes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "uncertaintyNotes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "toneGuidance": { "type": "string", "minLength": 1 }
       }
     }
   }

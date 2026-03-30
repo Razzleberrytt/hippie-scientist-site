@@ -91,7 +91,8 @@
     "report:source-registry": "node scripts/report-source-registry.mjs",
     "enrichment:normalize": "node scripts/enrichment/normalize-enrichment-entries.mjs",
     "enrichment:validate:normalized": "node scripts/enrichment/validate-normalized-enrichment.mjs",
-    "enrichment:test:normalized": "node scripts/enrichment/test-normalized-enrichment.mjs"
+    "enrichment:test:normalized": "node scripts/enrichment/test-normalized-enrichment.mjs",
+    "enrichment:test:evidence": "node scripts/enrichment/test-evidence-grading.mjs"
   },
   "engines": {
     "node": ">=20 <21"

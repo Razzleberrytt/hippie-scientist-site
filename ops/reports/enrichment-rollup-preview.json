@@ -28,6 +28,54 @@
       "populationSpecificNotes": [],
       "conflictNotes": [],
       "researchGaps": [],
+      "topicEvidenceJudgments": {
+        "mechanism": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "mixed_or_uncertain",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 1,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "mixed_or_uncertain",
+          "confidenceIndex": 15
+        },
+        "conflictNotes": [],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review.",
+          "Evidence is sourced from a single source record; replication depth is limited."
+        ],
+        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+      },
       "sourceRegistryIds": [
         "src_pubmed-clinical-template"
       ],
@@ -65,6 +113,54 @@
       "populationSpecificNotes": [],
       "conflictNotes": [],
       "researchGaps": [],
+      "topicEvidenceJudgments": {
+        "supported_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "mixed_or_uncertain",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 1,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "mixed_or_uncertain",
+          "confidenceIndex": 15
+        },
+        "conflictNotes": [],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review.",
+          "Evidence is sourced from a single source record; replication depth is limited."
+        ],
+        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+      },
       "sourceRegistryIds": [
         "src_pubmed-clinical-template"
       ],

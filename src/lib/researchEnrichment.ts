@@ -1,7 +1,10 @@
 import { cleanText } from '@/lib/sanitize'
 import type {
+  ConflictState,
+  EvidenceJudgment,
   EditorialStatus,
   EvidenceClass,
+  EvidenceLabel,
   EvidenceTier,
   ExtractConfidence,
   ResearchClaim,
@@ -45,6 +48,78 @@ const SOURCE_TYPES = new Set<SourceRefType>([
 ])
 
 const EXTRACT_CONFIDENCE_VALUES = new Set<ExtractConfidence>(['high', 'medium', 'low'])
+const EVIDENCE_LABELS = new Set<EvidenceLabel>([
+  'stronger_human_support',
+  'limited_human_support',
+  'observational_only',
+  'preclinical_only',
+  'traditional_use_only',
+  'mixed_or_uncertain',
+  'conflicting_evidence',
+  'insufficient_evidence',
+])
+const CONFLICT_STATES = new Set<ConflictState>(['none', 'mixed_or_uncertain', 'conflicting_evidence'])
+
+function asEvidenceJudgment(value: unknown): EvidenceJudgment | null {
+  if (!value || typeof value !== 'object') return null
+  const row = value as Record<string, unknown>
+  const evidenceLabelText = cleanText(row.evidenceLabel)
+  if (!EVIDENCE_LABELS.has(evidenceLabelText as EvidenceLabel)) return null
+  const grading = row.grading && typeof row.grading === 'object' ? (row.grading as Record<string, unknown>) : null
+  if (!grading) return null
+  const evidenceClass = Array.isArray(grading.evidenceClass)
+    ? Array.from(new Set(grading.evidenceClass.map(item => asEvidenceClass(item)).filter(Boolean)))
+    : []
+  const studyDesignWeight = Number(grading.studyDesignWeight)
+  const humanRelevance = cleanText(grading.humanRelevance)
+  const directnessToClaim = cleanText(grading.directnessToClaim)
+  const replicationDepth = Number(grading.replicationDepth)
+  const sourceReliabilityTier = cleanText(grading.sourceReliabilityTier)
+  const recencyWeight = Number(grading.recencyWeight)
+  const editorialConfidence = cleanText(grading.editorialConfidence)
+  const conflictStateText = cleanText(grading.conflictState)
+  const confidenceIndex = Number(grading.confidenceIndex)
+  const toneGuidance = cleanText(row.toneGuidance)
+  const conflictNotes = Array.isArray(row.conflictNotes)
+    ? row.conflictNotes.map(item => cleanText(item)).filter(Boolean)
+    : []
+  const uncertaintyNotes = Array.isArray(row.uncertaintyNotes)
+    ? row.uncertaintyNotes.map(item => cleanText(item)).filter(Boolean)
+    : []
+  if (
+    evidenceClass.length === 0 ||
+    !Number.isFinite(studyDesignWeight) ||
+    !humanRelevance ||
+    !directnessToClaim ||
+    !Number.isFinite(replicationDepth) ||
+    !sourceReliabilityTier ||
+    !Number.isFinite(recencyWeight) ||
+    !['high', 'medium', 'low'].includes(editorialConfidence) ||
+    !CONFLICT_STATES.has(conflictStateText as ConflictState) ||
+    !Number.isFinite(confidenceIndex) ||
+    !toneGuidance
+  ) {
+    return null
+  }
+  return {
+    evidenceLabel: evidenceLabelText as EvidenceLabel,
+    grading: {
+      evidenceClass,
+      studyDesignWeight,
+      humanRelevance: humanRelevance as EvidenceJudgment['grading']['humanRelevance'],
+      directnessToClaim: directnessToClaim as EvidenceJudgment['grading']['directnessToClaim'],
+      replicationDepth,
+      sourceReliabilityTier: sourceReliabilityTier as EvidenceJudgment['grading']['sourceReliabilityTier'],
+      recencyWeight,
+      editorialConfidence: editorialConfidence as EvidenceJudgment['grading']['editorialConfidence'],
+      conflictState: conflictStateText as ConflictState,
+      confidenceIndex,
+    },
+    conflictNotes,
+    uncertaintyNotes,
+    toneGuidance,
+  }
+}
 
 function asEvidenceClass(value: unknown): EvidenceClass | null {
   const text = cleanText(value)
@@ -147,6 +222,15 @@ export function normalizeResearchEnrichment(value: unknown): ResearchEnrichment 
     : []
 
   const sourceRefs = asSourceRefs(raw.sourceRefs)
+  const pageEvidenceJudgment = asEvidenceJudgment(raw.pageEvidenceJudgment)
+  const topicEvidenceJudgments =
+    raw.topicEvidenceJudgments && typeof raw.topicEvidenceJudgments === 'object'
+      ? Object.fromEntries(
+          Object.entries(raw.topicEvidenceJudgments as Record<string, unknown>)
+            .map(([topicType, judgment]) => [topicType, asEvidenceJudgment(judgment)])
+            .filter(([, judgment]) => Boolean(judgment)),
+        )
+      : {}
   const reviewedBy = cleanText(raw.reviewedBy)
   const lastReviewedAt = cleanText(raw.lastReviewedAt)
 
@@ -196,6 +280,25 @@ export function normalizeResearchEnrichment(value: unknown): ResearchEnrichment 
     populationSpecificNotes: asClaims(raw.populationSpecificNotes),
     conflictNotes: asClaims(raw.conflictNotes),
     researchGaps: asClaims(raw.researchGaps),
+    topicEvidenceJudgments,
+    pageEvidenceJudgment: pageEvidenceJudgment ?? {
+      evidenceLabel: 'insufficient_evidence',
+      grading: {
+        evidenceClass: evidenceClassesPresent,
+        studyDesignWeight: 0,
+        humanRelevance: 'none',
+        directnessToClaim: 'indirect',
+        replicationDepth: 0,
+        sourceReliabilityTier: 'tier-d',
+        recencyWeight: 0,
+        editorialConfidence: 'low',
+        conflictState: 'none',
+        confidenceIndex: 0,
+      },
+      conflictNotes: [],
+      uncertaintyNotes: ['Evidence grading not available in this dataset version.'],
+      toneGuidance: 'State that evidence is insufficient and avoid efficacy implications.',
+    },
     sourceRefs,
     lastReviewedAt,
     reviewedBy,

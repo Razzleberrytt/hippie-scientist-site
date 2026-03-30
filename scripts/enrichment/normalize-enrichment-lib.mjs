@@ -4,6 +4,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
+import { gradeEvidenceByTopic, gradeEvidenceEntries } from './evidence-grading.mjs'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..')
 
@@ -11,6 +12,7 @@ export const NORMALIZED_ENTRY_SCHEMA_PATH = path.join(ROOT, 'schemas', 'normaliz
 export const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
 export const INPUT_PATH_DEFAULT = path.join(ROOT, 'public', 'data', 'enrichment-normalized.jsonl')
 export const SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-normalization-summary.json')
+export const EVIDENCE_GRADING_SUMMARY_PATH = path.join(ROOT, 'ops', 'reports', 'evidence-grading-summary.json')
 
 export const TOPIC_TO_ROLLUP_FIELD = {
   supported_use: 'supportedUses',
@@ -253,7 +255,7 @@ function pickEditorialStatus(statuses) {
   return 'draft'
 }
 
-export function rollupToResearchEnrichment(entries) {
+export function rollupToResearchEnrichment(entries, sourceById = null) {
   const grouped = new Map()
   for (const entry of entries) {
     if (entry.active !== true || entry.editorialStatus !== 'approved') continue
@@ -287,6 +289,10 @@ export function rollupToResearchEnrichment(entries) {
       })
     }
 
+    const sourceMap = sourceById ?? sourceByIdFromEntries(entityEntries)
+    const topicEvidenceJudgments = gradeEvidenceByTopic(entityEntries, sourceMap)
+    const pageEvidenceJudgment = gradeEvidenceEntries(entityEntries, sourceMap)
+
     const evidenceClassList = Array.from(evidenceClassesPresent).sort()
     output.push({
       entityType,
@@ -306,6 +312,8 @@ export function rollupToResearchEnrichment(entries) {
         populationSpecificNotes: claimsByField.populationSpecificNotes,
         conflictNotes: claimsByField.conflictNotes,
         researchGaps: claimsByField.researchGaps,
+        topicEvidenceJudgments,
+        pageEvidenceJudgment,
         sourceRegistryIds: Array.from(sourceRegistryIds).sort(),
         lastReviewedAt,
         reviewedBy: 'normalized-enrichment-pipeline',
@@ -316,6 +324,17 @@ export function rollupToResearchEnrichment(entries) {
 
   output.sort((a, b) => `${a.entityType}:${a.entitySlug}`.localeCompare(`${b.entityType}:${b.entitySlug}`))
   return output
+}
+
+function sourceByIdFromEntries(entries) {
+  const sourceRegistry = readJson(SOURCE_REGISTRY_PATH)
+  const registry = new Map(sourceRegistry.map(source => [source.sourceId, source]))
+  const active = new Map()
+  for (const entry of entries) {
+    const source = registry.get(entry.sourceId)
+    if (source) active.set(source.sourceId, source)
+  }
+  return active
 }
 
 export function buildSummary(entries) {
