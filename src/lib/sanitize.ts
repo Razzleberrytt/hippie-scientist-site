@@ -13,18 +13,33 @@
 const JUNK_PATTERNS: RegExp[] = [
   /no direct \w+ data[^.]*\./gi,
   /contextual inference[^.]*\./gi,
+  /\[object\s+object\]/gi,
   /\bnan\b/gi,
   /;\s*nan/gi,
   /nan\s*;/gi,
 ]
 
-const JUNK_WHOLE_VALUE: RegExp[] = [/^[\s;,.|nan]+$/i, /^no direct/i, /^contextual inference/i]
+const JUNK_WHOLE_VALUE: RegExp[] = [
+  /^[\s;,.|nan]+$/i,
+  /^no direct/i,
+  /^contextual inference/i,
+  /^\[object\s+object\]$/i,
+  /^placeholder$/i,
+  /^tbd$/i,
+  /^to be determined$/i,
+  /^unknown$/i,
+  /^n\/?a$/i,
+  /^none$/i,
+]
+
+const NUMERIC_ONLY = /^\d+(?:[\s.,/-]\d+)*$/
 
 /** True if a string is entirely junk — should not be rendered at all. */
 export function isJunk(value: unknown): boolean {
   if (!value) return true
   const text = String(value).trim()
   if (!text) return true
+  if (NUMERIC_ONLY.test(text)) return true
   return JUNK_WHOLE_VALUE.some(pattern => pattern.test(text))
 }
 
@@ -47,6 +62,7 @@ export function cleanText(value: unknown): string {
 
   // If after stripping there's not enough real content, discard
   if (text.length < 3) return ''
+  if (NUMERIC_ONLY.test(text)) return ''
   if (JUNK_WHOLE_VALUE.some(pattern => pattern.test(text))) return ''
 
   return text

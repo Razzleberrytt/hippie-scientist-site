@@ -3,7 +3,7 @@ import { slugify } from '@/lib/slug'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 import { cleanText, splitClean } from '@/lib/sanitize'
 import { getCompoundSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
-import { sanitizeCompoundRecord } from '@/utils/sanitizeData'
+import { hasInvalidEntityName, sanitizeCompoundRecord } from '@/utils/sanitizeData'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -101,6 +101,11 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   }
 }
 
+function isRenderableCompound(raw: Record<string, unknown>): boolean {
+  const { data } = sanitizeCompoundRecord(raw)
+  return !hasInvalidEntityName(data)
+}
+
 export async function loadCompoundData(): Promise<CompoundRecord[]> {
   if (!compoundsPromise) {
     compoundsPromise = fetch('/data/compounds.json', { cache: 'no-store' })
@@ -110,7 +115,9 @@ export async function loadCompoundData(): Promise<CompoundRecord[]> {
       })
       .then(payload => {
         const rows = Array.isArray(payload) ? payload : []
-        return rows.map(row => normalizeCompound(row as Record<string, unknown>))
+        return rows
+          .filter(row => isRenderableCompound(row as Record<string, unknown>))
+          .map(row => normalizeCompound(row as Record<string, unknown>))
       })
       .catch(error => {
         compoundsPromise = null

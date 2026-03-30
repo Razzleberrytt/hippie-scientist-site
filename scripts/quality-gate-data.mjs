@@ -17,9 +17,12 @@ const PLACEHOLDER_PATTERNS = [
   /\bnot established\b/i,
   /\binsufficient data\b/i,
   /\bunknown\b/i,
+  /\[object\s+object\]/i,
+  /\bplaceholder\b/i,
 ]
 
 const NAN_PATTERN = /(^|[^a-z0-9])nan([^a-z0-9]|$)/i
+const NUMERIC_ONLY_NAME = /^\d+(?:[\s.,/-]\d+)*$/
 const VALID_NAME_CHARS = /^[\p{L}\p{N}][\p{L}\p{N}\s\-,'()./]*[\p{L}\p{N})]$/u
 
 const slugify = value =>
@@ -103,6 +106,9 @@ function hasValidName(record) {
   if (slug.length < QUALITY_THRESHOLDS.minSlugLength) return false
   if (!VALID_NAME_CHARS.test(name)) return false
   if (NAN_PATTERN.test(name)) return false
+  if (/^\[object\s+object\]$/i.test(name)) return false
+  if (NUMERIC_ONLY_NAME.test(name)) return false
+  if (PLACEHOLDER_PATTERNS.some(pattern => pattern.test(name))) return false
   return true
 }
 
