@@ -1,0 +1,1078 @@
+[
+  {
+    "entityType": "compound",
+    "entitySlug": "cbd",
+    "researchEnrichment": {
+      "evidenceSummary": "4 approved normalized findings across 4 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical",
+        "regulatory-monograph"
+      ],
+      "supportedUses": [],
+      "unsupportedOrUnclearUses": [],
+      "mechanisms": [
+        {
+          "claim": "Regulatory interaction guidance describes cannabidiol as having clinically relevant interaction potential with CYP2C19-mediated metabolism pathways.",
+          "evidenceClass": "regulatory-monograph",
+          "sourceRefIds": [
+            "src_fda-epidiolex-label-2021"
+          ],
+          "relationType": "may_modulate",
+          "targetType": "enzyme",
+          "targetName": "CYP2C19",
+          "biologicalContext": "Hepatic drug metabolism",
+          "mechanismEntryId": "menr_cbd-enzyme-cyp2c19",
+          "mechanismStrengthLabel": "moderate"
+        }
+      ],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [
+        {
+          "claim": "Human randomized safety data and prescribing context indicate cannabidiol exposure may increase transaminase elevations in susceptible treated populations.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-40622698"
+          ],
+          "targetType": "population",
+          "targetName": "patients with baseline hepatic risk"
+        }
+      ],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [
+        {
+          "claim": "Regulatory prescribing information indicates cannabidiol can increase sedation risk when co-administered with central nervous system depressants.",
+          "evidenceClass": "regulatory-monograph",
+          "sourceRefIds": [
+            "src_fda-epidiolex-label-2021"
+          ],
+          "targetType": "drug_class",
+          "targetName": "central nervous system depressants"
+        }
+      ],
+      "conflictNotes": [],
+      "researchGaps": [
+        {
+          "claim": "Long-term dose-response, comparative effectiveness, and safety characterization for cannabidiol outside approved neurologic indications remain insufficiently resolved.",
+          "evidenceClass": "regulatory-monograph",
+          "sourceRefIds": [
+            "src_fda-epidiolex-label-2021"
+          ],
+          "uncertaintyNote": "Current high-quality evidence is concentrated in specific indication populations and may not generalize broadly."
+        }
+      ],
+      "safetyProfile": {
+        "safetyEntries": [
+          {
+            "safetyEntryId": "senr_cbd-medication-class-caution-cns-depressants",
+            "sourceId": "src_fda-epidiolex-label-2021",
+            "safetyTopicType": "medication_class_caution",
+            "targetType": "drug_class",
+            "targetName": "central nervous system depressants",
+            "severityLabel": "moderate",
+            "urgencyLabel": "caution",
+            "evidenceClass": "regulatory-monograph",
+            "findingTextShort": "CBD can increase sedation risk with CNS depressants.",
+            "findingTextNormalized": "Regulatory prescribing information indicates cannabidiol can increase sedation risk when co-administered with central nervous system depressants.",
+            "mechanismKnown": true,
+            "medicationClassContext": "Additive sedation and central nervous system depression potential",
+            "reviewer": "ops-editor",
+            "reviewedAt": "2026-03-30T18:35:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
+          },
+          {
+            "safetyEntryId": "senr_cbd-adverse-effect-transaminase",
+            "sourceId": "src_pubmed-40622698",
+            "safetyTopicType": "adverse_effect",
+            "targetType": "population",
+            "targetName": "patients with baseline hepatic risk",
+            "severityLabel": "high",
+            "urgencyLabel": "prompt_review",
+            "evidenceClass": "human-clinical",
+            "findingTextShort": "CBD may increase liver enzyme elevations in treated populations.",
+            "findingTextNormalized": "Human randomized safety data and prescribing context indicate cannabidiol exposure may increase transaminase elevations in susceptible treated populations.",
+            "mechanismKnown": true,
+            "populationContext": "People using concomitant hepatically active drugs",
+            "reviewer": "ops-editor",
+            "reviewedAt": "2026-03-30T18:35:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
+          }
+        ],
+        "summary": {
+          "total": 2,
+          "byTopicType": {
+            "medication_class_caution": 1,
+            "adverse_effect": 1
+          },
+          "bySeverity": {
+            "moderate": 1,
+            "high": 1
+          }
+        }
+      },
+      "topicEvidenceJudgments": {
+        "adverse_effect": {
+          "evidenceLabel": "limited_human_support",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 2,
+            "editorialConfidence": "high",
+            "conflictState": "none",
+            "confidenceIndex": 16
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Describe as preliminary human evidence and avoid definitive efficacy claims."
+        },
+        "enzyme_interaction": {
+          "evidenceLabel": "insufficient_evidence",
+          "grading": {
+            "evidenceClass": [
+              "regulatory-monograph"
+            ],
+            "studyDesignWeight": 3,
+            "humanRelevance": "none",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "high",
+            "conflictState": "none",
+            "confidenceIndex": 13
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "State that evidence is insufficient and avoid efficacy implications."
+        },
+        "medication_class_caution": {
+          "evidenceLabel": "insufficient_evidence",
+          "grading": {
+            "evidenceClass": [
+              "regulatory-monograph"
+            ],
+            "studyDesignWeight": 3,
+            "humanRelevance": "none",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "high",
+            "conflictState": "none",
+            "confidenceIndex": 13
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "State that evidence is insufficient and avoid efficacy implications."
+        },
+        "research_gap": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "regulatory-monograph"
+            ],
+            "studyDesignWeight": 3,
+            "humanRelevance": "none",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 11
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "conflicting_evidence",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical",
+            "regulatory-monograph"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 2,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "conflicting_evidence",
+          "confidenceIndex": 14
+        },
+        "conflictNotes": [
+          "Regulatory or monograph guidance is directionally mixed across cited sources."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review."
+        ],
+        "toneGuidance": "Lead with disagreement across sources and avoid directional conclusions."
+      },
+      "editorialReadiness": {
+        "publishable": false,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": false,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_fda-epidiolex-label-2021",
+        "src_pubmed-40622698"
+      ],
+      "lastReviewedAt": "2026-03-30T18:35:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
+    "entityType": "compound",
+    "entitySlug": "luteolin",
+    "researchEnrichment": {
+      "evidenceSummary": "5 approved normalized findings across 5 topic types.",
+      "evidenceTier": "tier-4-insufficient",
+      "evidenceClassesPresent": [
+        "preclinical-mechanistic"
+      ],
+      "supportedUses": [],
+      "unsupportedOrUnclearUses": [
+        {
+          "claim": "Current evidence does not establish luteolin as a standalone anxiety treatment because direct human clinical outcome trials remain limited.",
+          "evidenceClass": "preclinical-mechanistic",
+          "sourceRefIds": [
+            "src_pubmed-29801717"
+          ],
+          "uncertaintyNote": "Most available data are mechanistic or preclinical and cannot independently confirm clinical benefit.",
+          "strengthNote": "insufficient"
+        }
+      ],
+      "mechanisms": [
+        {
+          "claim": "Preclinical mechanistic studies report that luteolin may modulate inflammatory signaling pathways including NF-kB-associated transcription activity.",
+          "evidenceClass": "preclinical-mechanistic",
+          "sourceRefIds": [
+            "src_pubmed-29801717"
+          ],
+          "relationType": "may_modulate",
+          "targetType": "pathway",
+          "targetName": "NF-kB inflammatory signaling",
+          "biologicalContext": "Inflammatory signaling",
+          "uncertaintyNote": "Mechanistic evidence is predominantly preclinical and should not be interpreted as confirmed human clinical efficacy.",
+          "mechanismEntryId": "menr_luteolin-pathway-nfkb",
+          "mechanismStrengthLabel": "limited"
+        }
+      ],
+      "constituents": [
+        {
+          "claim": "Reviewed mechanistic literature classifies luteolin as a flavone-class polyphenolic constituent within broader dietary and botanical phytochemical profiles.",
+          "evidenceClass": "preclinical-mechanistic",
+          "sourceRefIds": [
+            "src_pubmed-29801717"
+          ],
+          "relationType": "contains",
+          "targetType": "constituent",
+          "targetName": "flavone-class polyphenols",
+          "constituentRoleContext": "Core scaffold in flavone subgroup discussions",
+          "uncertaintyNote": "Classification is robust, but source matrices and concentrations vary by plant material and preparation.",
+          "mechanismEntryId": "menr_luteolin-constituent-flavonoid"
+        }
+      ],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [
+        {
+          "claim": "Pregnancy and lactation use should remain cautious for concentrated luteolin products because direct controlled human safety datasets are limited.",
+          "evidenceClass": "preclinical-mechanistic",
+          "sourceRefIds": [
+            "src_pubmed-29801717"
+          ],
+          "uncertaintyNote": "Population-level recommendation is precautionary due to sparse direct human reproductive safety evidence."
+        }
+      ],
+      "conflictNotes": [
+        {
+          "claim": "Luteolin evidence has a translational tension where strong mechanistic plausibility exceeds the depth of direct human clinical outcome evidence.",
+          "evidenceClass": "preclinical-mechanistic",
+          "sourceRefIds": [
+            "src_pubmed-29801717"
+          ],
+          "uncertaintyNote": "Clinical translation remains uncertain without larger controlled human trials.",
+          "conflictNote": "Preclinical signaling depth is greater than current human outcomes evidence depth."
+        }
+      ],
+      "researchGaps": [],
+      "safetyProfile": {
+        "safetyEntries": [],
+        "summary": {
+          "total": 0,
+          "byTopicType": {},
+          "bySeverity": {}
+        }
+      },
+      "topicEvidenceJudgments": {
+        "conflict_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "preclinical-mechanistic"
+            ],
+            "studyDesignWeight": 2,
+            "humanRelevance": "preclinical-proxy",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "low",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 7
+          },
+          "conflictNotes": [
+            "Source-backed conflict notes are present for this topic."
+          ],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited.",
+            "No direct human evidence was identified for this topic."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "constituent": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "preclinical-mechanistic"
+            ],
+            "studyDesignWeight": 2,
+            "humanRelevance": "preclinical-proxy",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "low",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 7
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited.",
+            "No direct human evidence was identified for this topic."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "pathway": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "preclinical-mechanistic"
+            ],
+            "studyDesignWeight": 2,
+            "humanRelevance": "preclinical-proxy",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "low",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 7
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited.",
+            "No direct human evidence was identified for this topic."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "population_specific_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "preclinical-mechanistic"
+            ],
+            "studyDesignWeight": 2,
+            "humanRelevance": "preclinical-proxy",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "low",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 7
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited.",
+            "No direct human evidence was identified for this topic."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "unsupported_or_unclear_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "preclinical-mechanistic"
+            ],
+            "studyDesignWeight": 2,
+            "humanRelevance": "preclinical-proxy",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-b",
+            "recencyWeight": 1,
+            "editorialConfidence": "low",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 7
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited.",
+            "No direct human evidence was identified for this topic."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "mixed_or_uncertain",
+        "grading": {
+          "evidenceClass": [
+            "preclinical-mechanistic"
+          ],
+          "studyDesignWeight": 2,
+          "humanRelevance": "preclinical-proxy",
+          "directnessToClaim": "indirect",
+          "replicationDepth": 1,
+          "sourceReliabilityTier": "tier-b",
+          "recencyWeight": 1,
+          "editorialConfidence": "low",
+          "conflictState": "mixed_or_uncertain",
+          "confidenceIndex": 7
+        },
+        "conflictNotes": [
+          "Source-backed conflict notes are present for this topic."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review.",
+          "Evidence is sourced from a single source record; replication depth is limited.",
+          "No direct human evidence was identified for this topic."
+        ],
+        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+      },
+      "editorialReadiness": {
+        "publishable": true,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": true,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_pubmed-29801717"
+      ],
+      "lastReviewedAt": "2026-03-30T18:35:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
+    "entityType": "herb",
+    "entitySlug": "ashwagandha",
+    "researchEnrichment": {
+      "evidenceSummary": "3 approved normalized findings across 3 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical",
+        "regulatory-monograph"
+      ],
+      "supportedUses": [
+        {
+          "claim": "In a randomized placebo-controlled adult trial, standardized ashwagandha extract reduced validated stress and anxiety symptom scores versus placebo over eight weeks.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-31517876"
+          ],
+          "strengthNote": "moderate"
+        }
+      ],
+      "unsupportedOrUnclearUses": [],
+      "mechanisms": [
+        {
+          "claim": "Human trial context supports a hypothesis that ashwagandha may modulate stress-response pathway signaling relevant to cortisol-associated symptom burden.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-31517876"
+          ],
+          "relationType": "may_modulate",
+          "targetType": "pathway",
+          "targetName": "hypothalamic-pituitary-adrenal stress response signaling",
+          "biologicalContext": "Stress physiology",
+          "uncertaintyNote": "Mechanistic attribution is indirect and based on pathway-level interpretation of clinical outcomes.",
+          "mechanismEntryId": "menr_ashwagandha-mechanism-hpa-axis",
+          "mechanismStrengthLabel": "limited"
+        }
+      ],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [
+        {
+          "claim": "Pregnancy use should be treated cautiously because direct controlled safety evidence is limited and product quality variability can change exposure risk.",
+          "evidenceClass": "regulatory-monograph",
+          "sourceRefIds": [
+            "src_fda-epidiolex-label-2021"
+          ],
+          "targetType": "population",
+          "targetName": "pregnant individuals",
+          "uncertaintyNote": "Evidence is precautionary and not based on robust herb-specific pregnancy trials."
+        }
+      ],
+      "conflictNotes": [],
+      "researchGaps": [],
+      "safetyProfile": {
+        "safetyEntries": [
+          {
+            "safetyEntryId": "senr_ashwagandha-pregnancy-caution",
+            "sourceId": "src_fda-epidiolex-label-2021",
+            "safetyTopicType": "pregnancy_note",
+            "targetType": "population",
+            "targetName": "pregnant individuals",
+            "severityLabel": "moderate",
+            "urgencyLabel": "caution",
+            "evidenceClass": "regulatory-monograph",
+            "findingTextShort": "Use in pregnancy should be clinician-reviewed due to limited direct data.",
+            "findingTextNormalized": "Pregnancy use should be treated cautiously because direct controlled safety evidence is limited and product quality variability can change exposure risk.",
+            "mechanismKnown": false,
+            "populationContext": "Pregnancy",
+            "uncertaintyNote": "Evidence is precautionary and not based on robust herb-specific pregnancy trials.",
+            "reviewer": "ops-editor",
+            "reviewedAt": "2026-03-30T18:35:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
+          }
+        ],
+        "summary": {
+          "total": 1,
+          "byTopicType": {
+            "pregnancy_note": 1
+          },
+          "bySeverity": {
+            "moderate": 1
+          }
+        }
+      },
+      "topicEvidenceJudgments": {
+        "pathway": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 1,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "pregnancy_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "regulatory-monograph"
+            ],
+            "studyDesignWeight": 3,
+            "humanRelevance": "none",
+            "directnessToClaim": "indirect",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 11
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "supported_use": {
+          "evidenceLabel": "limited_human_support",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 1,
+            "editorialConfidence": "high",
+            "conflictState": "none",
+            "confidenceIndex": 16
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Describe as preliminary human evidence and avoid definitive efficacy claims."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "mixed_or_uncertain",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical",
+            "regulatory-monograph"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 2,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 2,
+          "editorialConfidence": "medium",
+          "conflictState": "mixed_or_uncertain",
+          "confidenceIndex": 16
+        },
+        "conflictNotes": [],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review."
+        ],
+        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+      },
+      "editorialReadiness": {
+        "publishable": false,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": false,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_fda-epidiolex-label-2021",
+        "src_pubmed-31517876"
+      ],
+      "lastReviewedAt": "2026-03-30T18:35:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
+    "entityType": "herb",
+    "entitySlug": "chamomile",
+    "researchEnrichment": {
+      "evidenceSummary": "3 approved normalized findings across 3 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical"
+      ],
+      "supportedUses": [
+        {
+          "claim": "Systematic review evidence indicates oral chamomile has modest symptom improvement signals for generalized anxiety disorder and anxiety symptoms in adults.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-31006899"
+          ],
+          "uncertaintyNote": "Effect size consistency and formulation standardization vary across included studies.",
+          "strengthNote": "limited"
+        }
+      ],
+      "unsupportedOrUnclearUses": [
+        {
+          "claim": "Current reviewed chamomile anxiety studies do not establish durable remission or long-term relapse prevention outcomes with high certainty.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-31006899"
+          ],
+          "uncertaintyNote": "Existing studies are limited by sample size and follow-up duration for remission endpoints.",
+          "strengthNote": "insufficient"
+        }
+      ],
+      "mechanisms": [],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [
+        {
+          "claim": "Reviewed chamomile anxiety data and clinical context indicate sedation or somnolence may occur, especially when combined with other sedating exposures.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-31006899"
+          ],
+          "targetType": "population",
+          "targetName": "sedation-sensitive adults"
+        }
+      ],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [],
+      "conflictNotes": [],
+      "researchGaps": [],
+      "safetyProfile": {
+        "safetyEntries": [
+          {
+            "safetyEntryId": "senr_chamomile-adverse-effect-sedation",
+            "sourceId": "src_pubmed-31006899",
+            "safetyTopicType": "adverse_effect",
+            "targetType": "population",
+            "targetName": "sedation-sensitive adults",
+            "severityLabel": "low",
+            "urgencyLabel": "routine",
+            "evidenceClass": "human-clinical",
+            "findingTextShort": "Sedation and somnolence can occur in susceptible users.",
+            "findingTextNormalized": "Reviewed chamomile anxiety data and clinical context indicate sedation or somnolence may occur, especially when combined with other sedating exposures.",
+            "mechanismKnown": true,
+            "populationContext": "Adults using sedating co-therapies",
+            "reviewer": "ops-editor",
+            "reviewedAt": "2026-03-30T18:35:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
+          }
+        ],
+        "summary": {
+          "total": 1,
+          "byTopicType": {
+            "adverse_effect": 1
+          },
+          "bySeverity": {
+            "low": 1
+          }
+        }
+      },
+      "topicEvidenceJudgments": {
+        "adverse_effect": {
+          "evidenceLabel": "limited_human_support",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 1,
+            "editorialConfidence": "high",
+            "conflictState": "none",
+            "confidenceIndex": 16
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Describe as preliminary human evidence and avoid definitive efficacy claims."
+        },
+        "supported_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 1,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "unsupported_or_unclear_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 1,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 14
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "conflicting_evidence",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 1,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 1,
+          "editorialConfidence": "medium",
+          "conflictState": "conflicting_evidence",
+          "confidenceIndex": 12
+        },
+        "conflictNotes": [
+          "Human evidence includes both efficacy-supporting and null/mixed findings."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review.",
+          "Evidence is sourced from a single source record; replication depth is limited."
+        ],
+        "toneGuidance": "Lead with disagreement across sources and avoid directional conclusions."
+      },
+      "editorialReadiness": {
+        "publishable": false,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": false,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_pubmed-31006899"
+      ],
+      "lastReviewedAt": "2026-03-30T18:35:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
+    "entityType": "herb",
+    "entitySlug": "kava",
+    "researchEnrichment": {
+      "evidenceSummary": "3 approved normalized findings across 3 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical"
+      ],
+      "supportedUses": [
+        {
+          "claim": "Systematic review synthesis of controlled trials found kava extract had an anxiety symptom reduction signal compared with placebo in short-duration treatment settings.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_cochrane-cd003383"
+          ],
+          "uncertaintyNote": "Trial quality and sample sizes varied and most data were short-term.",
+          "strengthNote": "limited"
+        }
+      ],
+      "unsupportedOrUnclearUses": [],
+      "mechanisms": [],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [
+        {
+          "claim": "Given unresolved hepatic risk heterogeneity in reviewed data, individuals with liver disease should avoid unsupervised kava use and require clinician oversight.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_cochrane-cd003383"
+          ],
+          "targetType": "condition",
+          "targetName": "pre-existing liver disease",
+          "uncertaintyNote": "Observed hepatic risk patterns are heterogeneous across extract types and surveillance systems."
+        }
+      ],
+      "conflictNotes": [
+        {
+          "claim": "Kava safety interpretation remains mixed because reviewed efficacy data are positive in some contexts while hepatic adverse-event reporting and regulatory responses have been heterogeneous.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_cochrane-cd003383"
+          ],
+          "uncertaintyNote": "Product chemistry and extraction differences complicate direct risk attribution.",
+          "conflictNote": "Human efficacy signals coexist with unresolved safety heterogeneity across products and jurisdictions."
+        }
+      ],
+      "researchGaps": [],
+      "safetyProfile": {
+        "safetyEntries": [
+          {
+            "safetyEntryId": "senr_kava-condition-caution-liver-disease",
+            "sourceId": "src_cochrane-cd003383",
+            "safetyTopicType": "condition_caution",
+            "targetType": "condition",
+            "targetName": "pre-existing liver disease",
+            "severityLabel": "high",
+            "urgencyLabel": "prompt_review",
+            "evidenceClass": "human-clinical",
+            "findingTextShort": "People with liver disease should avoid unsupervised kava use.",
+            "findingTextNormalized": "Given unresolved hepatic risk heterogeneity in reviewed data, individuals with liver disease should avoid unsupervised kava use and require clinician oversight.",
+            "mechanismKnown": false,
+            "uncertaintyNote": "Observed hepatic risk patterns are heterogeneous across extract types and surveillance systems.",
+            "reviewer": "ops-editor",
+            "reviewedAt": "2026-03-30T18:35:00.000Z",
+            "editorialStatus": "approved",
+            "active": true
+          }
+        ],
+        "summary": {
+          "total": 1,
+          "byTopicType": {
+            "condition_caution": 1
+          },
+          "bySeverity": {
+            "high": 1
+          }
+        }
+      },
+      "topicEvidenceJudgments": {
+        "condition_caution": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 0,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 13
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "conflict_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 0,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 13
+          },
+          "conflictNotes": [
+            "Source-backed conflict notes are present for this topic."
+          ],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "supported_use": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 0,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 13
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        }
+      },
+      "pageEvidenceJudgment": {
+        "evidenceLabel": "mixed_or_uncertain",
+        "grading": {
+          "evidenceClass": [
+            "human-clinical"
+          ],
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 1,
+          "sourceReliabilityTier": "tier-a",
+          "recencyWeight": 0,
+          "editorialConfidence": "medium",
+          "conflictState": "mixed_or_uncertain",
+          "confidenceIndex": 13
+        },
+        "conflictNotes": [
+          "Source-backed conflict notes are present for this topic."
+        ],
+        "uncertaintyNotes": [
+          "One or more findings carry explicit uncertainty notes from editorial review.",
+          "Evidence is sourced from a single source record; replication depth is limited."
+        ],
+        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+      },
+      "editorialReadiness": {
+        "publishable": true,
+        "hasConflictOrWeakEvidence": true,
+        "conflictLabelingPresent": true,
+        "weakEvidenceClaimsLabeled": true
+      },
+      "sourceRegistryIds": [
+        "src_cochrane-cd003383"
+      ],
+      "lastReviewedAt": "2026-03-30T18:35:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  }
+]

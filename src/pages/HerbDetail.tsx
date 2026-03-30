@@ -19,9 +19,11 @@ import Collapse from '@/components/ui/Collapse'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterHerbByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
+import GovernedResearchSections from '@/components/detail/GovernedResearchSections'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
+import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -386,6 +388,7 @@ export default function HerbDetail() {
     cautionCount,
   })
   const ctaVariantId = ctaExperiment.activeVariantId
+  const governedResearch = getGovernedResearchEnrichment('herb', herb.slug)
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -635,6 +638,8 @@ export default function HerbDetail() {
             ))}
           </div>
         )}
+
+        {governedResearch && <GovernedResearchSections enrichment={governedResearch} />}
 
         {/* Core content */}
         {description && (

@@ -91,6 +91,7 @@ To keep contractor extraction deterministic and source-backed before direct enti
 - Entry schema: `schemas/normalized-enrichment-entry.schema.json`
 - Validation: `node scripts/enrichment/validate-normalized-enrichment.mjs`
 - Normalize + rollup preview: `node scripts/enrichment/normalize-enrichment-entries.mjs`
+- Canonical public runtime artifact (governed, publish-gated): `public/data/enrichment-governed.json`
 
 This pipeline enforces:
 

@@ -17,11 +17,13 @@ import { countCautionSignals, inferContentFlags } from '@/lib/trust'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterCompoundByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
+import GovernedResearchSections from '@/components/detail/GovernedResearchSections'
 import CuratedProductModule from '@/components/CuratedProductModule'
 import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
+import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -251,6 +253,7 @@ export default function CompoundDetail() {
     .filter(item => item.sharedCautions.length > 0)
     .sort((a, b) => b.sharedCautions.length - a.sharedCautions.length)
     .slice(0, 3)
+  const governedResearch = getGovernedResearchEnrichment('compound', compound.slug)
 
   // Derive a display class — category only if it's meaningful
   const displayClass =
@@ -476,6 +479,8 @@ export default function CompoundDetail() {
             ))}
           </div>
         )}
+
+        {governedResearch && <GovernedResearchSections enrichment={governedResearch} />}
 
         {/* Core fields — only render when value is present */}
         {compound.description && (
