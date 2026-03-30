@@ -77,7 +77,9 @@ const COLLECTION_REASON_LABELS: Record<string, string> = {
   'missing-editorial-brief': 'no editorial guide sections were provided',
   'missing-who-for': 'missing "who this is for" guidance',
   'missing-selection-rationale': 'selection rationale is too thin',
+  'missing-tradeoffs': 'missing key tradeoff guidance',
   'missing-caution': 'missing caution or scope note',
+  'missing-best-fit-items': 'missing best-fit guidance',
   'missing-alternatives': 'missing related alternatives',
   'missing-cta-guidance': 'missing clear next-step CTA guidance',
   'insufficient-matching-items': 'not enough matching entities to make the page useful',
@@ -513,13 +515,33 @@ export default function CollectionPage() {
                 <dd className='mt-1 leading-6'>{editorial.selectionRationale}</dd>
               </div>
               <div>
-                <dt className='font-semibold text-cyan-100'>Cautions and scope</dt>
+                <dt className='font-semibold text-cyan-100'>Key tradeoffs</dt>
+                <dd className='mt-1'>
+                  <ul className='list-disc space-y-1 pl-5'>
+                    {editorial.keyTradeoffs.map(note => (
+                      <li key={note}>{note}</li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt className='font-semibold text-cyan-100'>Exclusions and cautions</dt>
                 <dd className='mt-1'>
                   <ul className='list-disc space-y-1 pl-5'>
                     {editorial.cautions.map(note => (
                       <li key={note}>{note}</li>
                     ))}
                     {editorial.exclusions.map(note => (
+                      <li key={note}>{note}</li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt className='font-semibold text-cyan-100'>Best-fit use cases</dt>
+                <dd className='mt-1'>
+                  <ul className='list-disc space-y-1 pl-5'>
+                    {editorial.bestFitItems.map(note => (
                       <li key={note}>{note}</li>
                     ))}
                   </ul>
@@ -578,8 +600,12 @@ export default function CollectionPage() {
       {quickValueItems.length > 0 && editorial && (
         <section className='mt-4 rounded-xl border border-cyan-300/25 bg-cyan-500/5 p-3'>
           <h2 className='text-sm font-semibold text-cyan-100'>
-            Useful starting points for {toGoalLabel(collection).toLowerCase()}
+            Best-fit item examples for {toGoalLabel(collection).toLowerCase()}
           </h2>
+          <p className='mt-1 text-xs text-white/70'>
+            These are examples from the strongest matching entries in canonical data, not blanket
+            recommendations.
+          </p>
           <div className='mt-3 grid gap-2 sm:grid-cols-3'>
             {quickValueItems.slice(0, 3).map((item, index) => (
               <article

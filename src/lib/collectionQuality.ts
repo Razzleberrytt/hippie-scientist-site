@@ -9,7 +9,9 @@ export const COLLECTION_QUALITY_RULE = {
   descriptionMinLength: 40,
   whoForMinLength: 70,
   selectionRationaleMinLength: 90,
+  minTradeoffs: 2,
   minCautions: 1,
+  minBestFitItems: 1,
   minAlternatives: 2,
   ctaLabelMinLength: 24,
   minItemsByType: {
@@ -98,6 +100,18 @@ export function auditCollectionForIndexing(collection: SeoCollection, itemCount:
     }
     if (editorial.cautions.filter(note => note.trim().length > 0).length < COLLECTION_QUALITY_RULE.minCautions) {
       reasons.push('missing-caution')
+    }
+    if (
+      editorial.keyTradeoffs.filter(note => note.trim().length > 0).length <
+      COLLECTION_QUALITY_RULE.minTradeoffs
+    ) {
+      reasons.push('missing-tradeoffs')
+    }
+    if (
+      editorial.bestFitItems.filter(note => note.trim().length > 0).length <
+      COLLECTION_QUALITY_RULE.minBestFitItems
+    ) {
+      reasons.push('missing-best-fit-items')
     }
     if (
       editorial.alternatives.filter(item => item.trim().length > 0).length <

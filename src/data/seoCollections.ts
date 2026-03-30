@@ -14,8 +14,10 @@ export type SeoCollectionFilters = {
 export type CollectionEditorial = {
   whoFor: string
   selectionRationale: string
+  keyTradeoffs: string[]
   cautions: string[]
   exclusions: string[]
+  bestFitItems: string[]
   alternatives: string[]
   ctaLabel: string
 }
@@ -53,11 +55,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'Adults comparing calming herbs for evening stress or wind-down decisions, especially when they need to review sedation overlap.',
       selectionRationale:
         'Only herbs with relaxation/anxiolytic effect language plus sedative, GABAergic, or CNS-depressant interaction signals are included.',
+      keyTradeoffs: [
+        'Broader calming signal capture improves discovery, but it can pull in herbs that feel too sedating for daytime use.',
+        'Prioritizing sedation-aware tags helps safety screening, but it does not estimate comparative efficacy between herbs.',
+      ],
       cautions: [
         'Sedative overlap can raise impairment risk when layered with sleep aids, alcohol, or sedating medications.',
       ],
       exclusions: [
         'This is not a diagnosis-specific protocol and does not rank herbs by efficacy for anxiety disorders.',
+      ],
+      bestFitItems: [
+        'Best fit when you need evening calm and can tolerate next-day sedation tradeoffs.',
+        'Use relaxation-without-sedation instead when daytime clarity matters more than stronger wind-down effects.',
       ],
       alternatives: ['relaxation-without-sedation', 'herbs-for-sleep', 'gabaergic-herbs'],
       ctaLabel:
@@ -84,11 +94,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'People exploring daytime focus support who want attention-oriented options without ignoring stimulant interactions.',
       selectionRationale:
         'Herbs appear here when records include focus/clarity effects and/or stimulant interaction tags used in the dataset.',
+      keyTradeoffs: [
+        'Stimulant-tagged coverage broadens useful options for attention goals, but increases risk of jittery or overstimulating picks.',
+        'Focus-oriented labels improve targeting, but they do not guarantee benefit across different cognitive workloads.',
+      ],
       cautions: [
         'Even non-caffeine stimulatory herbs may conflict with anxiety-prone states, blood pressure concerns, or stimulant medications.',
       ],
       exclusions: [
         'This page does not replace ADHD treatment planning and is not a performance-maximization checklist.',
+      ],
+      bestFitItems: [
+        'Best fit for morning or early-day comparison when you need concentration support with explicit interaction screening.',
+        'Use natural-focus-without-caffeine when you want a narrower shortlist with less emphasis on stimulant-heavy options.',
       ],
       alternatives: ['natural-focus-without-caffeine', 'herbs-for-energy', 'compounds-for-focus'],
       ctaLabel:
@@ -120,11 +138,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'Readers narrowing options for sleep onset or nighttime calming while trying to avoid risky sedative combinations.',
       selectionRationale:
         'Included herbs must carry sleep/sedation effects and sedative or CNS-depressant style interaction signals in canonical records.',
+      keyTradeoffs: [
+        'Strong sleep-signal filters improve nighttime relevance, but may surface entries that are too impairing for next-morning performance.',
+        'Sedative interaction emphasis improves safety triage, but does not replace diagnosis-level sleep-disorder evaluation.',
+      ],
       cautions: [
         'Combining multiple sedative agents can increase next-day grogginess and coordination risk.',
       ],
       exclusions: [
         'This guide is not a substitute for insomnia evaluation, sleep apnea care, or emergency mental health support.',
+      ],
+      bestFitItems: [
+        'Best fit when sleep onset and nighttime calming are primary goals and bedtime-only usage is feasible.',
+        'Switch to herbs-for-relaxation for broader stress support, or deep-sleep-recovery for stronger restorative-night framing.',
       ],
       alternatives: ['herbs-for-relaxation', 'calming-herb-combinations', 'herbs-for-deep-sleep-recovery'],
       ctaLabel:
@@ -151,11 +177,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'People who want daytime energy support options and need to screen for overstimulation or cardioactive interaction flags.',
       selectionRationale:
         'Entries are selected from energy/alertness effect terms combined with stimulant or cardioactive interaction tags.',
+      keyTradeoffs: [
+        'Including cardioactive and stimulant tags catches higher-risk options early, but can make the set feel conservative for advanced users.',
+        'Energy terms improve breadth, but they do not distinguish between smooth endurance support and rapid stimulation.',
+      ],
       cautions: [
         'Energy-targeted stacks can worsen jitteriness, sleep timing, or cardiovascular strain when layered aggressively.',
       ],
       exclusions: [
         'This list does not promise fatigue treatment and should not replace workup for persistent exhaustion causes.',
+      ],
+      bestFitItems: [
+        'Best fit for daytime energy planning when you can monitor sleep timing and stimulation load.',
+        'Use energy-without-crash for a steadier profile if rebound fatigue or late-day stimulation is a concern.',
       ],
       alternatives: ['energy-without-crash', 'herbs-for-focus', 'stimulant-herb-combinations'],
       ctaLabel:
@@ -182,11 +216,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'Users reviewing isolated compounds for calming goals who need a mechanism-aware starting point before stacking.',
       selectionRationale:
         'Compounds qualify through calming/sedative effect language plus sedative, GABAergic, or CNS-depressant interaction markers.',
+      keyTradeoffs: [
+        'Compound-level specificity can improve mechanistic comparisons, but dose/formulation variability still changes real-world effect size.',
+        'Sedative-pathway coverage improves caution framing, but cannot replace clinician review for prescribed medication substitution.',
+      ],
       cautions: [
         'Compound-level products can be potent; dose and formulation differences matter more than name matching.',
       ],
       exclusions: [
         'This page is educational and does not endorse self-directed substitution for prescribed anxiolytics.',
+      ],
+      bestFitItems: [
+        'Best fit when you are comparing single-compound calming options before layering with herbs.',
+        'Use herbs-for-relaxation when whole-herb profiles are preferred over isolate-focused decision making.',
       ],
       alternatives: ['serotonergic-compounds', 'herbs-for-relaxation', 'calming-herb-combinations'],
       ctaLabel:
@@ -214,11 +256,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'Readers evaluating cognition-oriented compounds who want a shortlist tied to mechanism and interaction metadata.',
       selectionRationale:
         'Included compounds carry focus/stimulation effects and dopaminergic/cholinergic mechanism cues in canonical fields.',
+      keyTradeoffs: [
+        'Mechanism-aware filters improve explainability, but can exclude compounds with weakly documented or mixed mechanisms.',
+        'Focus and stimulation cues increase practical relevance, but can bias toward options with higher adverse-effect potential.',
+      ],
       cautions: [
         'Focus compounds can still carry stimulant-like adverse effects and may conflict with psychiatric or cardiovascular meds.',
       ],
       exclusions: [
         'Not a nootropic ranking list and not a replacement for individualized medical advice.',
+      ],
+      bestFitItems: [
+        'Best fit when you need mechanism-linked focus compounds and plan to check med conflicts first.',
+        'Use herbs-for-focus or natural-focus-without-caffeine when you prefer herb-first options over isolates.',
       ],
       alternatives: ['herbs-for-focus', 'natural-focus-without-caffeine', 'stimulant-herb-combinations'],
       ctaLabel:
@@ -246,11 +296,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'People who want prebuilt evening-oriented combos and need a quick safety screen before trying them.',
       selectionRationale:
         'Combos must be tagged for relaxation or sleep and match calming or wind-down language in names/descriptions.',
+      keyTradeoffs: [
+        'Prebuilt combos speed exploration, but may include ingredients that are unnecessary for your specific sleep or stress target.',
+        'Goal-tag filtering improves relevance, but can miss quieter combinations that are useful yet described with neutral language.',
+      ],
       cautions: [
         'Prebuilt combos can hide duplicate sedative activity across ingredients, so review full component overlap.',
       ],
       exclusions: [
         'These examples are not personalized recommendations and may not fit shift-work or daytime use.',
+      ],
+      bestFitItems: [
+        'Best fit for users who want a fast evening template, then plan to trim ingredients after a checker run.',
+        'Use herbs-for-relaxation or herbs-for-sleep when you want to build from single ingredients first.',
       ],
       alternatives: ['herbs-for-sleep', 'herbs-for-relaxation', 'relaxation-without-sedation'],
       ctaLabel:
@@ -278,11 +336,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'Users looking for daytime combo templates for focus or energy while keeping interaction checks upfront.',
       selectionRationale:
         'Only prebuilt combos with focus/energy goals plus stimulation-oriented name/description terms are surfaced.',
+      keyTradeoffs: [
+        'Combo templates reduce setup time, but can bundle multiple stimulatory agents that exceed your tolerance window.',
+        'Energy/focus tag constraints improve precision, but they do not account for dosing timing or sleep debt context.',
+      ],
       cautions: [
         'Stacked stimulatory ingredients can compound sleep disruption and anxiety risk, especially later in the day.',
       ],
       exclusions: [
         'This is not an athletic-performance protocol and does not account for sport anti-doping rules.',
+      ],
+      bestFitItems: [
+        'Best fit for early-day productivity experiments where you can monitor anxiety and sleep effects.',
+        'Use energy-without-crash or natural-focus-without-caffeine when you need a less aggressive stimulant profile.',
       ],
       alternatives: ['herbs-for-focus', 'energy-without-crash', 'natural-focus-without-caffeine'],
       ctaLabel:
@@ -359,11 +425,19 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
         'People focused on nighttime recovery who want to compare stronger sleep-oriented herbs with explicit sedative framing.',
       selectionRationale:
         'Records are selected for sleep/restorative language and sedative or GABA-related interaction tags in the herb dataset.',
+      keyTradeoffs: [
+        'Deep-sleep emphasis improves restorative-night targeting, but increases the chance of selecting herbs that are too heavy for occasional use.',
+        'Sedative-tag coverage improves risk awareness, but does not indicate suitability for complex sleep disorders.',
+      ],
       cautions: [
         'This set intentionally captures stronger nighttime signals, so daytime use may be inappropriate for many users.',
       ],
       exclusions: [
         'Not intended for pediatric use planning, pregnancy-specific decisions, or emergency insomnia crises.',
+      ],
+      bestFitItems: [
+        'Best fit when nighttime recovery is the top goal and you can reserve use for bedtime windows.',
+        'Use herbs-for-sleep for broader coverage or relaxation-without-sedation when residual sedation is unacceptable.',
       ],
       alternatives: ['herbs-for-sleep', 'herbs-for-relaxation', 'calming-herb-combinations'],
       ctaLabel:
