@@ -18,6 +18,11 @@ import Collapse from '@/components/ui/Collapse'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterHerbByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
+import {
+  trackDetailBuilderClick,
+  trackDetailCheckerClick,
+  trackDetailRelatedEntityClick,
+} from '@/lib/contentJourneyTracking'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -442,6 +447,22 @@ export default function HerbDetail() {
               { label: 'Review active compounds', to: '#key-active-compounds', variant: 'secondary' },
               { label: 'Add to stack builder', to: '/build', variant: 'secondary' },
             ]}
+            onStepClick={step => {
+              if (step.to.startsWith('/interactions')) {
+                trackDetailCheckerClick({
+                  detailType: 'herb',
+                  detailSlug: herb.slug,
+                  placement: 'quick_intro_next_steps',
+                })
+              }
+              if (step.to === '/build') {
+                trackDetailBuilderClick({
+                  detailType: 'herb',
+                  detailSlug: herb.slug,
+                  placement: 'quick_intro_next_steps',
+                })
+              }
+            }}
           />
         </header>
 
@@ -487,6 +508,15 @@ export default function HerbDetail() {
                         key={compound.name}
                         to={`/compounds/${encodeURIComponent(compound.slug)}`}
                         className='ds-pill transition hover:border-white/30'
+                        onClick={() =>
+                          trackDetailRelatedEntityClick({
+                            detailType: 'herb',
+                            detailSlug: herb.slug,
+                            targetType: 'compound',
+                            targetSlug: compound.slug,
+                            placement: 'key_active_compounds',
+                          })
+                        }
                       >
                         {compound.name}
                       </Link>
@@ -517,7 +547,19 @@ export default function HerbDetail() {
               <div className='space-y-2 text-sm leading-relaxed text-white/85'>
                 {similarHerbs.map(other => (
                   <p key={other.slug}>
-                    <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
+                    <Link
+                      className='link'
+                      to={`/herbs/${encodeURIComponent(other.slug)}`}
+                      onClick={() =>
+                        trackDetailRelatedEntityClick({
+                          detailType: 'herb',
+                          detailSlug: herb.slug,
+                          targetType: 'herb',
+                          targetSlug: other.slug,
+                          placement: 'similar_herbs',
+                        })
+                      }
+                    >
                       {other.name}
                     </Link>{' '}
                     {other.sharedCompounds.length > 0
@@ -556,7 +598,19 @@ export default function HerbDetail() {
                 </p>
                 {cautionRelatedHerbs.map(other => (
                   <p key={`caution-${other.slug}`}>
-                    <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
+                    <Link
+                      className='link'
+                      to={`/herbs/${encodeURIComponent(other.slug)}`}
+                      onClick={() =>
+                        trackDetailRelatedEntityClick({
+                          detailType: 'herb',
+                          detailSlug: herb.slug,
+                          targetType: 'herb',
+                          targetSlug: other.slug,
+                          placement: 'caution_related_herbs',
+                        })
+                      }
+                    >
                       {other.name}
                     </Link>{' '}
                     overlaps caution notes such as {other.sharedCautions.slice(0, 2).join(', ')}.
@@ -580,6 +634,15 @@ export default function HerbDetail() {
                       key={collection.slug}
                       to={`/collections/${collection.slug}`}
                       className='btn-secondary text-xs'
+                      onClick={() =>
+                        trackDetailRelatedEntityClick({
+                          detailType: 'herb',
+                          detailSlug: herb.slug,
+                          targetType: 'collection',
+                          targetSlug: collection.slug,
+                          placement: 'related_collections',
+                        })
+                      }
                     >
                       {collection.title}
                     </Link>

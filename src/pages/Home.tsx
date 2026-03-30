@@ -12,6 +12,7 @@ import Collapse from '@/components/ui/Collapse'
 import GuideDownloadCard from '@/components/GuideDownloadCard'
 import { FEATURED_COLLECTION_SLUGS, SEO_COLLECTIONS } from '@/data/seoCollections'
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo'
+import { trackHomepageEntityClick } from '@/lib/contentJourneyTracking'
 
 type RecentBlend = {
   id: string
@@ -85,7 +86,17 @@ export default function Home() {
             </p>
             <h2 className='mt-2 text-lg font-semibold text-white'>Pick your next tool</h2>
             <div className='mt-3 flex flex-wrap gap-2'>
-              <Link to='/herbs' className='btn-secondary'>
+              <Link
+                to='/herbs'
+                className='btn-secondary'
+                onClick={() =>
+                  trackHomepageEntityClick({
+                    targetType: 'herb',
+                    targetSlug: 'index',
+                    placement: 'quick_actions',
+                  })
+                }
+              >
                 Browse Herbs
               </Link>
               <Link to='/interactions' className='btn-secondary'>
@@ -162,6 +173,13 @@ export default function Home() {
                   <Link
                     to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
                     className='mt-3 inline-flex text-xs text-emerald-200 hover:text-emerald-100'
+                    onClick={() =>
+                      trackHomepageEntityClick({
+                        targetType: item.kind,
+                        targetSlug: item.slug,
+                        placement: 'popular_paths_starter_profile',
+                      })
+                    }
                   >
                     Start here →
                   </Link>
@@ -228,12 +246,26 @@ export default function Home() {
               value={homepageData.counts.herbs}
               label='psychoactive herbs'
               testId='pill-herbs'
+              onClick={() =>
+                trackHomepageEntityClick({
+                  targetType: 'herb',
+                  targetSlug: 'index',
+                  placement: 'knowledge_scope_pill',
+                })
+              }
             />
             <StatPill
               to='/compounds'
               value={homepageData.counts.compounds}
               label='active compounds'
               testId='pill-compounds'
+              onClick={() =>
+                trackHomepageEntityClick({
+                  targetType: 'compound',
+                  targetSlug: 'index',
+                  placement: 'knowledge_scope_pill',
+                })
+              }
             />
             <StatPill
               to='/blog'
@@ -261,6 +293,13 @@ export default function Home() {
                     : `/compounds/${dailyDiscovery.slug}`
                 }
                 className='btn-primary'
+                onClick={() =>
+                  trackHomepageEntityClick({
+                    targetType: dailyDiscovery.kind,
+                    targetSlug: dailyDiscovery.slug,
+                    placement: 'daily_discovery',
+                  })
+                }
               >
                 Read full breakdown
               </Link>
@@ -302,6 +341,13 @@ export default function Home() {
                 key={`${item.kind}-${item.slug}`}
                 to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
                 className='ds-card min-w-[230px] snap-start p-5 transition hover:border-white/25'
+                onClick={() =>
+                  trackHomepageEntityClick({
+                    targetType: item.kind,
+                    targetSlug: item.slug,
+                    placement: 'featured_discoveries',
+                  })
+                }
               >
                 <p className='text-xs uppercase tracking-[0.18em] text-emerald-200/80'>
                   {item.kind}
@@ -383,6 +429,13 @@ export default function Home() {
                   key={collection.slug}
                   to={`/collections/${collection.slug}`}
                   className='ds-card p-3 text-sm font-medium text-white transition hover:border-white/25'
+                  onClick={() =>
+                    trackHomepageEntityClick({
+                      targetType: 'collection',
+                      targetSlug: collection.slug,
+                      placement: 'programmatic_collections',
+                    })
+                  }
                 >
                   {collection.title}
                 </Link>

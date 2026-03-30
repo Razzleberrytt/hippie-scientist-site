@@ -8,6 +8,9 @@ export type StoredAnalyticsEvent = {
   slug?: string
   item?: string
   comboId?: string
+  context?: string
+  sourceType?: string
+  targetType?: string
   timestamp: number
 }
 
@@ -30,6 +33,9 @@ function normalizeStoredEvent(event: StoredAnalyticsEvent): StoredAnalyticsEvent
   if (event.slug) normalized.slug = event.slug
   if (event.item) normalized.item = event.item
   if (event.comboId) normalized.comboId = event.comboId
+  if (event.context) normalized.context = event.context
+  if (event.sourceType) normalized.sourceType = event.sourceType
+  if (event.targetType) normalized.targetType = event.targetType
 
   return normalized
 }
@@ -80,7 +86,10 @@ function isRapidDuplicate(previous: StoredAnalyticsEvent | undefined, next: Stor
     previous.type === next.type &&
     previous.slug === next.slug &&
     previous.item === next.item &&
-    previous.comboId === next.comboId
+    previous.comboId === next.comboId &&
+    previous.context === next.context &&
+    previous.sourceType === next.sourceType &&
+    previous.targetType === next.targetType
 
   if (!sameCoreIdentity) return false
 
