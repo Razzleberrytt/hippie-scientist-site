@@ -1,0 +1,67 @@
+{
+  "name": "pedicularis groenlandica",
+  "latin": "pedicularis groenlandica",
+  "class": "dissociative / sedative",
+  "intensity": "Mild to moderate.",
+  "mechanism": "May modulate GABA receptors.",
+  "activeCompounds": [],
+  "effects": [
+    "Relieves tension",
+    "anxiety",
+    "and spasms."
+  ],
+  "contraindications": [
+    "pregnancy",
+    "lactation [0",
+    "7]."
+  ],
+  "safetyNotes": [
+    "rare",
+    "possible gi upset [0",
+    "7].",
+    "Low.",
+    "Low",
+    "no significant toxicity reported [0"
+  ],
+  "sources": [
+    {
+      "title": "Inferred from Unknown"
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "High-altitude flowering plant known for CNS and muscle relaxation.",
+  "dosage": [
+    "Similar to P. densiflora",
+    "tea or tincture."
+  ],
+  "duration": "1–3 hours when taken as tea or tincture.",
+  "interactions": [
+    "additive with cns depressants [0",
+    "7]."
+  ],
+  "legalStatus": "Legal / Unregulated",
+  "preparation": "Dried flower infusions or tinctures.",
+  "region": "Rocky Mountains and western North America",
+  "therapeuticUses": [
+    "muscle relaxant",
+    "antioxidant",
+    "antimicrobial",
+    "traditional remedy for pain and inflammation [0",
+    "7]."
+  ],
+  "traditionalUse": "Used by herbalists for musculoskeletal and emotional tension.",
+  "sideEffects": [
+    "rare",
+    "possible gi upset [0",
+    "7]."
+  ],
+  "slug": "pedicularis-groenlandica",
+  "id": "pedicularis-groenlandica",
+  "displayName": "pedicularis groenlandica",
+  "displayScientificName": "pedicularis groenlandica",
+  "scientificNormalized": "pedicularis groenlandica"
+}

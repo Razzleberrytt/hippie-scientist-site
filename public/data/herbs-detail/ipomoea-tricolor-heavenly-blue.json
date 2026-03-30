@@ -1,0 +1,73 @@
+{
+  "name": "ipomoea tricolor (heavenly blue)",
+  "latin": "ipomoea tricolor (heavenly blue)",
+  "class": "ethnobotanical / rare",
+  "intensity": "Medium-high.",
+  "mechanism": "LSA affects 5-HT2A serotonin receptors.",
+  "activeCompounds": [],
+  "effects": [
+    "Altered states",
+    "euphoria",
+    "introspection",
+    "visual distortions."
+  ],
+  "contraindications": [
+    "cardiovascular disorders",
+    "psychiatric conditions [0",
+    "5].",
+    "Pregnancy",
+    "liver",
+    "kidney issues"
+  ],
+  "safetyNotes": [
+    "nausea",
+    "vasoconstriction",
+    "headache [0",
+    "5].",
+    "Mild",
+    "GI discomfort from seed coatings.",
+    "Low",
+    "rodent LD50 ~200–300 mg/kg [0"
+  ],
+  "sources": [
+    {
+      "title": "Inferred from Unknown"
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Ornamental morning glory whose seeds contain LSA.",
+  "dosage": [
+    "100",
+    "300 seeds ground and soaked."
+  ],
+  "duration": "121.0",
+  "interactions": [
+    "ssris/maois [0",
+    "5].",
+    "May potentiate serotonergic substances"
+  ],
+  "legalStatus": "Restricted in some countries",
+  "preparation": "Cold water extraction of crushed seeds.",
+  "region": "Central America",
+  "therapeuticUses": [
+    "visionary experiences",
+    "ethnobotanical use [0",
+    "5]."
+  ],
+  "traditionalUse": "Aztec ceremonies; dream and healing rituals.",
+  "sideEffects": [
+    "nausea",
+    "vasoconstriction",
+    "headache [0",
+    "5]."
+  ],
+  "slug": "ipomoea-tricolor-heavenly-blue",
+  "id": "ipomoea-tricolor-heavenly-blue",
+  "displayName": "ipomoea tricolor (heavenly blue)",
+  "displayScientificName": "ipomoea tricolor (heavenly blue)",
+  "scientificNormalized": "ipomoea tricolor heavenly blue"
+}

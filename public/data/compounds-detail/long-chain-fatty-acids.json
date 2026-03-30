@@ -1,0 +1,33 @@
+{
+  "name": "long-chain fatty acids",
+  "herbs": [
+    "Muira Puama",
+    "nan"
+  ],
+  "effects": [
+    "Improved libido",
+    "enhanced cognition",
+    "mood elevation",
+    "anti-fatigue",
+    "Aphrodisiac",
+    "stimulant",
+    "nerve tonic"
+  ],
+  "contraindications": [
+    "Avoid in patients with hypertension or cardiac issues",
+    "consult physician during pregnancy",
+    "hypertension",
+    "pregnancy."
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "long-chain-fatty-acids",
+  "id": "long-chain-fatty-acids",
+  "displayName": "long-chain fatty acids"
+}

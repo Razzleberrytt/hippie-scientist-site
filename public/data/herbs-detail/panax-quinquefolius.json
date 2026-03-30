@@ -1,0 +1,59 @@
+{
+  "name": "panax quinquefolius",
+  "latin": "Panax quinquefolius",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Adaptogen, immune modulator, energy support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy support. No direct region data. Contextual inference: Adaptogen, immune modulator, energy support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy support. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Adaptogen",
+    "immune modulator",
+    "energy support"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "safe",
+    "Similar to Panax ginseng",
+    "may cause bleeding risk",
+    "No direct toxicity data. Contextual inference: Adaptogen",
+    "immune modulator",
+    "energy support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Adaptogen",
+    "energy support. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Adaptogen, immune modulator, energy support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "1000 mg",
+    "day root extract"
+  ],
+  "duration": "4–8 hours",
+  "interactions": [],
+  "legalStatus": "Legal; widely available in North America",
+  "preparation": "Roots dried and used in teas or capsules; American ginseng; adaptogenic and immune-stimulating",
+  "region": "No direct region data. Contextual inference: Adaptogen, immune modulator, energy support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, immune modulator, energy support. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Similar to Panax ginseng",
+    "may cause bleeding risk"
+  ],
+  "slug": "panax-quinquefolius",
+  "id": "panax-quinquefolius",
+  "displayName": "panax quinquefolius",
+  "displayScientificName": "Panax quinquefolius",
+  "scientificNormalized": "panax quinquefolius"
+}

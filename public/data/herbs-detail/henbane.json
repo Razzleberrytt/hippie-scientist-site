@@ -1,0 +1,63 @@
+{
+  "name": "henbane",
+  "latin": "henbane",
+  "class": "deliriant / toxic",
+  "intensity": "High; causes strong psychoactive and anticholinergic effects.",
+  "mechanism": "Antagonist at muscarinic acetylcholine receptors.",
+  "activeCompounds": [],
+  "effects": [
+    "Hallucinations",
+    "dry mouth",
+    "blurred vision",
+    "delirium."
+  ],
+  "contraindications": [
+    "not well documented",
+    "Glaucoma",
+    "heart disease",
+    "elderly",
+    "children",
+    "pregnancy"
+  ],
+  "safetyNotes": [
+    "not well documented",
+    "Contains tropane alkaloids (hyoscyamine",
+    "scopolamine) – highly toxic."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from Unknown"
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "A toxic plant used historically as an anesthetic, sedative, and hallucinogen.",
+  "dosage": [
+    "Not recommended",
+    "very narrow therapeutic window."
+  ],
+  "duration": "121.0",
+  "interactions": [
+    "not well documented",
+    "Enhances effects of anticholinergics",
+    "sedatives"
+  ],
+  "legalStatus": "Controlled / Toxic",
+  "preparation": "Smoked, made into salves or extracts; extremely dangerous.",
+  "region": "Eurasia",
+  "therapeuticUses": [
+    "not well documented"
+  ],
+  "traditionalUse": "Used by ancient Greeks, witches, and shamans for visions or pain relief.",
+  "sideEffects": [
+    "not well documented"
+  ],
+  "slug": "henbane",
+  "id": "henbane",
+  "displayName": "henbane",
+  "displayScientificName": "henbane",
+  "scientificNormalized": "henbane"
+}

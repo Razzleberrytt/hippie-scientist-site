@@ -1,0 +1,68 @@
+{
+  "name": "althaea officinalis",
+  "latin": "Althaea officinalis",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. No direct region data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Demulcent",
+    "anti-inflammatory",
+    "soothing for mucous membranes",
+    "anti",
+    "inflammatory"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "Generally safe",
+    "may delay absorption of other drugs if taken simultaneously",
+    "No direct toxicity data. Contextual inference: Demulcent",
+    "anti-inflammatory",
+    "soothing for mucous membranes. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Demulcent",
+    "soothing for mucous membranes. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Demulcent",
+    "anti",
+    "inflammatory",
+    "soothing for mucous membranes. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Demulcent",
+    "soothing for mucous membranes. No direct region data. Contextual inference: Demulcent",
+    "soothing for mucous membranes. none.",
+    "nan."
+  ],
+  "duration": "2–4 hours",
+  "interactions": [],
+  "legalStatus": "Legal in herbal medicine globally",
+  "preparation": "Roots, leaves, and flowers infused or decocted; cold infusion common for demulcent properties",
+  "region": "No direct region data. Contextual inference: Demulcent, anti-inflammatory, soothing for mucous membranes. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Demulcent, anti-inflammatory, soothing for mucous membranes. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Generally safe",
+    "may delay absorption of other drugs if taken simultaneously"
+  ],
+  "slug": "althaea-officinalis",
+  "id": "althaea-officinalis",
+  "displayName": "althaea officinalis",
+  "displayScientificName": "Althaea officinalis",
+  "scientificNormalized": "althaea officinalis"
+}

@@ -1,0 +1,66 @@
+{
+  "name": "aconitum napellus",
+  "latin": "Aconitum napellus",
+  "class": "Herb",
+  "intensity": "No direct intensity data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. No direct region data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Toxic diterpenoid alkaloids such as aconitine open voltage-gated sodium channels, increasing sodium influx and delaying repolarization, causing cardiotoxicity and neurotoxicity【472555319349189†L263-L265】【472555319349189†L307-L310】.",
+  "activeCompounds": [
+    "aconitine",
+    "mesaconitine",
+    "hypaconitine",
+    "jesaconitine",
+    "neoline",
+    "songoramine",
+    "indaconitine",
+    "deoxyaconitine",
+    "ephedrine",
+    "aconine",
+    "picraconitine",
+    "benzaconine",
+    "napelline"
+  ],
+  "effects": [
+    "Potent analgesic and anti-inflammatory",
+    "extremely toxic",
+    "Potent analgesic and anti",
+    "inflammatory"
+  ],
+  "contraindications": "Highly toxic; ingestion can cause severe arrhythmias, paralysis and death; avoid internal use; handling requires caution.",
+  "safetyNotes": [
+    "Toxic – avoid oral use",
+    "No direct toxicity data. Contextual inference: Potent analgesic and anti-inflammatory",
+    "extremely toxic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Potent analgesic and anti-inflammatory",
+    "extremely toxic. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Toxic",
+    "used in homeopathy only"
+  ],
+  "duration": "4–8 hours",
+  "interactions": [],
+  "legalStatus": "Restricted or banned in many countries",
+  "preparation": "No direct preparation data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. No direct region data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. none. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. none. ; nan; nan",
+  "therapeuticUses": "Historically used in homeopathy and herbal medicine for pain, fever and inflammation; due to high toxicity, medicinal use is extremely limited and requires expert supervision.",
+  "traditionalUse": "; nan; nan",
+  "slug": "aconitum-napellus",
+  "id": "aconitum-napellus",
+  "displayName": "aconitum napellus",
+  "displayScientificName": "Aconitum napellus",
+  "scientificNormalized": "aconitum napellus"
+}

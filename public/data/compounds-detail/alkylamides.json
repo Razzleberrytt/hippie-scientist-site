@@ -1,0 +1,31 @@
+{
+  "name": "alkylamides",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Local anesthesia",
+    "salivation",
+    "antimicrobial",
+    "immune stimulation",
+    "Oral tingling",
+    "mild euphoria",
+    "muscle relaxation",
+    "Analgesic",
+    "sialagogue",
+    "anti-inflammatory"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "oral surgery",
+    "allergy to Asteraceae",
+    "None established",
+    "avoid overuse on broken skin"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "alkylamides",
+  "id": "alkylamides",
+  "displayName": "alkylamides"
+}

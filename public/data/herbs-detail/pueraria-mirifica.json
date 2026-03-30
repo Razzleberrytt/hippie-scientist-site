@@ -1,0 +1,58 @@
+{
+  "name": "pueraria mirifica",
+  "latin": "Pueraria mirifica",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Phytoestrogenic, menopausal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, menopausal support. No direct region data. Contextual inference: Phytoestrogenic, menopausal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, menopausal support. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Phytoestrogenic",
+    "menopausal support"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "caution",
+    "Estrogenic effects",
+    "avoid in hormone-sensitive conditions",
+    "No direct toxicity data. Contextual inference: Phytoestrogenic",
+    "menopausal support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Phytoestrogenic",
+    "menopausal support. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Phytoestrogenic, menopausal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "20",
+    "50 mg",
+    "day extract (standardized)"
+  ],
+  "duration": "Weeks to months",
+  "interactions": [],
+  "legalStatus": "Legal with restrictions in some countries",
+  "preparation": "Root powdered or tinctured; used in traditional Thai medicine and supplements for phytoestrogenic effects",
+  "region": "No direct region data. Contextual inference: Phytoestrogenic, menopausal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Phytoestrogenic, menopausal support. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Estrogenic effects",
+    "avoid in hormone",
+    "sensitive conditions"
+  ],
+  "slug": "pueraria-mirifica",
+  "id": "pueraria-mirifica",
+  "displayName": "pueraria mirifica",
+  "displayScientificName": "Pueraria mirifica",
+  "scientificNormalized": "pueraria mirifica"
+}

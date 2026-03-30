@@ -1,0 +1,27 @@
+{
+  "name": "THC",
+  "herbs": [
+    "nan",
+    "cannabis sativa"
+  ],
+  "effects": [
+    "Euphoria",
+    "altered perception",
+    "sedation or stimulation",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "Psychosis",
+    "schizophrenia",
+    "pregnancy"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "thc",
+  "id": "thc",
+  "displayName": "THC"
+}

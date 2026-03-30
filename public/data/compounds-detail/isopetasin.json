@@ -1,0 +1,26 @@
+{
+  "name": "isopetasin",
+  "herbs": [
+    "nan",
+    "petasites hybridus"
+  ],
+  "effects": [
+    "Mild sedation",
+    "muscle relaxation",
+    "No direct effects data. Contextual inference: Used historically to treat pain",
+    "migraines",
+    "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+    "and spasms... Used historically to treat pain",
+    "and spasms.. Used historically to treat pain",
+    "and spasms."
+  ],
+  "contraindications": [
+    "Avoid unpurified extracts due to liver-toxic alkaloids"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "isopetasin",
+  "id": "isopetasin",
+  "displayName": "isopetasin"
+}

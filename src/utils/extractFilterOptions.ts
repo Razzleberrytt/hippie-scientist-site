@@ -1,5 +1,5 @@
 import type { Herb } from '@/types'
-import type { CompoundRecord } from '@/lib/compound-data'
+import type { CompoundSummaryRecord } from '@/lib/compound-data'
 import { normalizeText } from './normalizeText'
 import { asStringArray } from './asStringArray'
 import { isNonEmptyString } from './isNonEmptyString'
@@ -30,7 +30,7 @@ function toCleanUnique(values: string[]) {
   return Array.from(seen.values()).sort((a, b) => a.localeCompare(b))
 }
 
-export function extractFilterOptions(input: { herbs?: Herb[]; compounds?: CompoundRecord[] }): {
+export function extractFilterOptions(input: { herbs?: Herb[]; compounds?: CompoundSummaryRecord[] }): {
   effects: string[]
   classes: string[]
   categories: string[]

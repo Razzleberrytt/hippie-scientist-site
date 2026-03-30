@@ -1,0 +1,52 @@
+{
+  "name": "alectra sessiliflora",
+  "latin": "Alectra sessiliflora",
+  "class": null,
+  "intensity": "Low to none.",
+  "mechanism": "Possibly modulates host-root absorption biochemistry.",
+  "activeCompounds": [],
+  "effects": [
+    "Not well-documented",
+    "likely non-psychoactive.",
+    "Not well",
+    "documented",
+    "likely non",
+    "psychoactive."
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "Limited data",
+    "no common adverse effects reported",
+    "presumed low due to traditional use."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Parasitic herb in the Orobanchaceae family; possibly used in traditional African medicine.",
+  "dosage": [
+    "Not established."
+  ],
+  "duration": "Acute topical application.",
+  "interactions": [],
+  "legalStatus": "Unregulated",
+  "preparation": "Crushed leaves in poultice or decoction.",
+  "region": "Sub-Saharan Africa",
+  "therapeuticUses": [],
+  "traditionalUse": "Used in local remedies for fever and inflammatory conditions.",
+  "sideEffects": [
+    "Limited data",
+    "no common adverse effects reported"
+  ],
+  "slug": "alectra-sessiliflora",
+  "id": "alectra-sessiliflora",
+  "displayName": "alectra sessiliflora",
+  "displayScientificName": "Alectra sessiliflora",
+  "scientificNormalized": "alectra sessiliflora"
+}

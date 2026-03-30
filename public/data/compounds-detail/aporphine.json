@@ -1,0 +1,42 @@
+{
+  "name": "Aporphine",
+  "herbs": [
+    "blue lotus",
+    "nan"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
+    "Relaxation",
+    "mild euphoria",
+    "lucid dreaming",
+    "increased tactile sensation",
+    "Euphoria",
+    "relaxation",
+    "dream intensification",
+    "mild sedation",
+    "dream enhancement",
+    "aphrodisiac",
+    "Mild euphoria",
+    "heightened awareness",
+    "Mild sedative",
+    "mood enhancement",
+    "possible aphrodisiac"
+  ],
+  "contraindications": [
+    "Avoid use with CNS depressants",
+    "sedatives",
+    "and alcohol",
+    "caution during pregnancy",
+    "Avoid combining with MAOIs or sedatives",
+    "Pregnancy",
+    "liver conditions",
+    "concurrent CNS depressants",
+    "driving or operating machinery"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "aporphine",
+  "id": "aporphine",
+  "displayName": "Aporphine"
+}

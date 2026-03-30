@@ -1,0 +1,24 @@
+{
+  "name": "corynanthine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Stimulation",
+    "increased blood flow",
+    "heightened alertness",
+    "sexual arousal"
+  ],
+  "contraindications": [
+    "Heart disease",
+    "anxiety",
+    "hypertension",
+    "psychiatric conditions"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "corynanthine",
+  "id": "corynanthine",
+  "displayName": "corynanthine"
+}

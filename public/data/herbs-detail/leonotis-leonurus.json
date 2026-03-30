@@ -1,0 +1,116 @@
+{
+  "name": "leonotis leonurus",
+  "latin": "Leonotis leonurus",
+  "class": "Anxiolytic, Mild Psychoactive",
+  "intensity": "No direct intensity data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute. No direct region data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute. ; nan; nan. ; nan; nan",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [
+    "Marrubiin",
+    "leonurine",
+    "scopoletin"
+  ],
+  "effects": [
+    "Relaxation",
+    "mild euphoria",
+    "dream enhancement",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan.",
+    "Mild euphoric and calming",
+    "used as cannabis substitute"
+  ],
+  "contraindications": [
+    "Not recommended for pregnancy or liver conditions",
+    "pregnancy",
+    "psychiatric conditions."
+  ],
+  "safetyNotes": [
+    "Generally regarded as safe in moderation",
+    "Dry mouth",
+    "mild lethargy",
+    "Low",
+    "No human LD50 established",
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "dry mouth",
+    "sedation.",
+    "No direct toxicity data. Contextual inference: Mild euphoric and calming",
+    "used as cannabis substitute. Acts on cannabinoid receptors",
+    "may offer sedative and euphoric effects..",
+    "nan.. Acts on cannabinoid receptors",
+    "may offer sedative and euphoric effects.. Mild euphoric and calming",
+    "used as cannabis substitute."
+  ],
+  "sources": [
+    {
+      "title": "FAO Agris"
+    },
+    {
+      "title": "SAGE Journals"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:",
+    "No direct dosage data. Contextual inference: Mild euphoric and calming",
+    "used as cannabis substitute. Acts on cannabinoid receptors",
+    "may offer sedative and euphoric effects..",
+    "nan.. Acts on cannabinoid receptors",
+    "may offer sedative and euphoric effects.. Mild euphoric and calming",
+    "used as cannabis substitute. No direct region data. Contextual inference: Mild euphoric and calming",
+    "used as cannabis substitute."
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Possible potentiation with CNS depressants",
+    "cannabis",
+    "cns depressants."
+  ],
+  "legalStatus": "Legal in most countries",
+  "preparation": "No direct preparation data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute. No direct region data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Mild euphoric and calming; used as cannabis substitute. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. ; nan; nan.. Acts on cannabinoid receptors; may offer sedative and euphoric effects.. Mild euphoric and calming; used as cannabis substitute. ; nan; nan",
+  "therapeuticUses": [
+    "Anxiety relief",
+    "muscle tension",
+    "sleep aid",
+    "anxiety relief",
+    "mood boost",
+    "mild pain relief."
+  ],
+  "traditionalUse": "; nan; nan",
+  "slug": "leonotis-leonurus",
+  "sideEffects": [
+    "dry mouth",
+    "sedation."
+  ],
+  "displayName": "leonotis leonurus",
+  "displayScientificName": "Leonotis leonurus",
+  "scientificNormalized": "leonotis leonurus",
+  "id": "leonotis-leonurus",
+  "aliases": [
+    "nan",
+    "lion’s tail"
+  ],
+  "slugAliases": [
+    "lion-s-tail",
+    "nan"
+  ]
+}

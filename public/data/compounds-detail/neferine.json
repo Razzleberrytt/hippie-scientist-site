@@ -1,0 +1,25 @@
+{
+  "name": "neferine",
+  "herbs": [
+    "nan",
+    "nelumbo nucifera"
+  ],
+  "effects": [
+    "Calming",
+    "antioxidant",
+    "anti-inflammatory",
+    "lipid-lowering",
+    "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion."
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "hypotension",
+    "sedation"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "neferine",
+  "id": "neferine",
+  "displayName": "neferine"
+}

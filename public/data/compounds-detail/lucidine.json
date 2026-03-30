@@ -1,0 +1,21 @@
+{
+  "name": "Lucidine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Lucid dreaming",
+    "relaxation",
+    "altered states of consciousness"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "epilepsy"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "lucidine",
+  "id": "lucidine",
+  "displayName": "Lucidine"
+}

@@ -1,0 +1,60 @@
+{
+  "name": "conium maculatum",
+  "latin": "Conium maculatum",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Toxic alkaloid; historically used as sedative. No direct region data. Contextual inference: Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Toxic alkaloid; historically used as sedative. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Toxic alkaloid",
+    "historically used as sedative"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "Toxic – avoid internal use",
+    "Extremely toxic",
+    "respiratory paralysis",
+    "tremors",
+    "death in high doses",
+    "No direct toxicity data. Contextual inference: Toxic alkaloid",
+    "historically used as sedative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Toxic alkaloid",
+    "historically used as sedative. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Toxic",
+    "homeopathic use only"
+  ],
+  "duration": "4–8 hours",
+  "interactions": [],
+  "legalStatus": "Restricted or banned in most countries",
+  "preparation": "Highly toxic; formerly used in minuscule amounts; now avoided in modern herbalism",
+  "region": "No direct region data. Contextual inference: Toxic alkaloid; historically used as sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Toxic alkaloid; historically used as sedative. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Extremely toxic",
+    "respiratory paralysis",
+    "tremors",
+    "death in high doses"
+  ],
+  "slug": "conium-maculatum",
+  "id": "conium-maculatum",
+  "displayName": "conium maculatum",
+  "displayScientificName": "Conium maculatum",
+  "scientificNormalized": "conium maculatum"
+}

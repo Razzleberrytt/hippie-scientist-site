@@ -1,0 +1,24 @@
+{
+  "name": "gramine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Visual stimulation",
+    "introspection",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "MAOIs",
+    "pregnancy"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "gramine",
+  "id": "gramine",
+  "displayName": "gramine"
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Thujone",
+  "herbs": [
+    "artemisia abrotanum",
+    "artemisia absinthium",
+    "artemisia ludoviciana",
+    "nan"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine",
+    "No direct effects data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... No direct mechanismofaction data. Contextual inference: Used in absinthe and traditional medicine for digestion and stimulation... Used in absinthe and traditional medicine for digestion and stimulation.. Used in absinthe and traditional medicine for digestion and stimulation.",
+    "Anti-inflammatory",
+    "astringent",
+    "digestive aid",
+    "hemostatic",
+    "Mental clarity",
+    "mood boost",
+    "mild stimulation",
+    "Antimicrobial",
+    "memory enhancer",
+    "Vivid dreams",
+    "mild calm",
+    "enhanced intuition",
+    "Digestive aid",
+    "menstrual regulator",
+    "mild sedative"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "allergies to Asteraceae",
+    "bleeding disorders",
+    "Avoid in high doses",
+    "epilepsy",
+    "or during pregnancy",
+    "thujone sensitivity"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "thujone",
+  "id": "thujone",
+  "displayName": "Thujone"
+}

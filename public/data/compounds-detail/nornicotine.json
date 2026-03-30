@@ -1,0 +1,34 @@
+{
+  "name": "nornicotine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Stimulation",
+    "mood elevation",
+    "alertness",
+    "Intense stimulation",
+    "purging",
+    "altered consciousness",
+    "clarity",
+    "Potent tobacco",
+    "used in Amazonian rituals for purification and divination",
+    "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
+  ],
+  "contraindications": [
+    "Heart disease",
+    "pregnancy",
+    "epilepsy",
+    "Cardiac issues",
+    "MAOIs",
+    "CNS stimulants",
+    "cardiovascular disease",
+    "pregnancy."
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "nornicotine",
+  "id": "nornicotine",
+  "displayName": "nornicotine"
+}
