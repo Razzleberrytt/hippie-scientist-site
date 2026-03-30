@@ -17,6 +17,7 @@ import RecommendedProducts from '@/components/RecommendedProducts'
 import Collapse from '@/components/ui/Collapse'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterHerbByCollection } from '@/lib/collectionQuality'
+import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -102,6 +103,13 @@ function normalizeKey(value: string) {
 function buildInteractionsLink(tokens: string[]) {
   if (!tokens.length) return '/interactions'
   return `/interactions?items=${tokens.join(',')}`
+}
+
+function firstSentence(value: string, fallback: string) {
+  const cleaned = value.replace(/\s+/g, ' ').trim()
+  if (!cleaned) return fallback
+  const sentence = cleaned.match(/[^.!?]+[.!?]?/)?.[0]?.trim() || cleaned
+  return sentence.length > 180 ? `${sentence.slice(0, 177).trimEnd()}…` : sentence
 }
 
 export default function HerbDetail() {
@@ -255,10 +263,28 @@ export default function HerbDetail() {
     )
     .slice(0, 5)
   const introFacts = [
-    `Confidence: ${confidence}`,
     sourceCount > 0 ? `${sourceCount} source${sourceCount === 1 ? '' : 's'} listed` : 'sources pending',
     cautionCount > 0 ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}` : 'no caution flags listed',
   ]
+  const whatItIsSummary = firstSentence(
+    description || mechanism,
+    `${herbDisplayName} is an herbal profile with limited descriptive context so far.`
+  )
+  const commonUseSummary = therapeuticUses.length
+    ? `Commonly referenced for ${therapeuticUses.slice(0, 2).join(' and ')}${therapeuticUses.length > 2 ? ', among other uses' : ''}.`
+    : primaryEffects.length
+      ? `Most often tracked for ${primaryEffects.slice(0, 2).join(' and ')} outcomes.`
+      : 'Traditional use context is still being expanded for this entry.'
+  const evidenceSummary =
+    confidence === 'high'
+      ? `Confidence is high with ${sourceCount || 'no'} listed source${sourceCount === 1 ? '' : 's'}; still validate fit for your context.`
+      : confidence === 'medium'
+        ? `Confidence is mixed; this profile combines known signals with areas that still need stronger sourcing.`
+        : `Confidence is low, so treat this page as preliminary and cross-check primary references before acting.`
+  const cautionSummary =
+    cautionCount > 0
+      ? contraindications[0] || interactions[0] || sideEffects[0] || 'Review contraindications and interaction notes before use.'
+      : undefined
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -338,24 +364,19 @@ export default function HerbDetail() {
             </div>
           )}
 
-          <div className='mt-4 rounded-xl border border-emerald-300/25 bg-emerald-500/10 p-3 text-sm text-emerald-50'>
-            <p className='text-xs font-semibold uppercase tracking-[0.12em] text-emerald-100/90'>
-              Quick take
-            </p>
-            <p className='mt-2 leading-7 text-emerald-50/95'>
-              {herbDisplayName} is tracked for {primaryEffects.slice(0, 2).join(' and ') || 'traditional use patterns'}.
-              Use this profile to compare mechanism, safety boundaries, and related compounds before stacking.
-            </p>
-            <p className='mt-2 text-xs text-emerald-100/85'>{introFacts.join(' · ')}</p>
-            <div className='mt-3 flex flex-wrap gap-2'>
-              <Link to={herbCheckerHref} className='btn-primary text-xs'>
-                Check this herb in interactions
-              </Link>
-              <Link to='/build' className='btn-secondary text-xs'>
-                Add it to a draft stack
-              </Link>
-            </div>
-          </div>
+          <StructuredDetailIntro
+            confidence={confidence}
+            whatItIs={whatItIsSummary}
+            commonUse={commonUseSummary}
+            evidenceContext={evidenceSummary}
+            cautionNote={cautionSummary}
+            quickFacts={introFacts}
+            nextSteps={[
+              { label: 'Check this herb in interactions', to: herbCheckerHref },
+              { label: 'Review active compounds', to: '#key-active-compounds', variant: 'secondary' },
+              { label: 'Add to stack builder', to: '/build', variant: 'secondary' },
+            ]}
+          />
         </header>
 
         {/* Primary effects pills — high-signal summary */}
@@ -390,7 +411,7 @@ export default function HerbDetail() {
         {mechanism && <Section title='Mechanism of Action'>{mechanism}</Section>}
 
         {linkedCompounds.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
+          <section id='key-active-compounds' className='border-white/8 mt-6 border-t pt-5'>
             <Collapse title='Key Active Compounds'>
               <div className='space-y-3 text-sm leading-relaxed text-white/85'>
                 <div className='flex flex-wrap gap-2'>
