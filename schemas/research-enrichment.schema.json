@@ -20,7 +20,7 @@
     "populationSpecificNotes",
     "conflictNotes",
     "researchGaps",
-    "sourceRefs",
+    "sourceRegistryIds",
     "lastReviewedAt",
     "reviewedBy",
     "editorialStatus"
@@ -56,6 +56,12 @@
     "populationSpecificNotes": { "$ref": "#/$defs/claimArray" },
     "conflictNotes": { "$ref": "#/$defs/claimArray" },
     "researchGaps": { "$ref": "#/$defs/claimArray" },
+    "sourceRegistryIds": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
     "sourceRefs": {
       "type": "array",
       "items": { "$ref": "#/$defs/sourceRef" },
@@ -106,7 +112,7 @@
         "strengthNote": { "type": "string" },
         "sourceRefIds": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 },
+          "items": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
           "minItems": 1,
           "uniqueItems": true
         }
@@ -115,52 +121,13 @@
     "sourceRef": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "sourceId",
-        "sourceType",
-        "title",
-        "evidenceClass",
-        "extractConfidence",
-        "reviewer"
-      ],
+      "required": ["sourceId", "extractConfidence", "reviewer"],
       "properties": {
-        "sourceId": { "type": "string", "minLength": 1 },
-        "sourceType": {
-          "type": "string",
-          "enum": [
-            "rct",
-            "systematic-review",
-            "observational",
-            "preclinical",
-            "monograph",
-            "traditional-text",
-            "regulatory",
-            "other"
-          ]
-        },
-        "title": { "type": "string", "minLength": 1 },
-        "organization": { "type": "string" },
-        "publicationYear": { "type": "integer", "minimum": 1800, "maximum": 2100 },
-        "url": { "type": "string", "format": "uri" },
-        "citationKey": { "type": "string" },
-        "evidenceClass": {
-          "type": "string",
-          "enum": [
-            "human-clinical",
-            "human-observational",
-            "preclinical-mechanistic",
-            "traditional-use",
-            "regulatory-monograph"
-          ]
-        },
-        "notes": { "type": "string" },
+        "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
         "extractConfidence": { "type": "string", "enum": ["high", "medium", "low"] },
-        "reviewer": { "type": "string", "minLength": 1 }
-      },
-      "anyOf": [
-        { "properties": { "url": { "type": "string", "format": "uri" } }, "required": ["url"] },
-        { "properties": { "citationKey": { "type": "string" } }, "required": ["citationKey"] }
-      ]
+        "reviewer": { "type": "string", "minLength": 1 },
+        "notes": { "type": "string" }
+      }
     }
   }
 }

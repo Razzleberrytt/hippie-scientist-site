@@ -8,8 +8,8 @@ The model is designed so contractors can add research notes without mixing unlik
 
 Two explicit guardrails:
 
-1. **Scientific/clinical evidence is separate from traditional-use evidence** via `evidenceClass` on every claim and every source.
-2. **Every substantive claim is traceable** via `sourceRefIds[]` that must map to entries in `sourceRefs[]`.
+1. **Scientific/clinical evidence is separate from traditional-use evidence** via `evidenceClass` on every claim.
+2. **Every substantive claim is traceable** via `sourceRefIds[]` that must map to a source ID in `sourceRegistryIds[]` (and ultimately in `public/data/source-registry.json`).
 
 ## Where to store it
 
@@ -25,7 +25,7 @@ Two explicit guardrails:
     "evidenceTier": "tier-2-moderate",
     "evidenceClassesPresent": ["human-clinical", "traditional-use"],
     "supportedUses": [
-      { "claim": "...", "evidenceClass": "human-clinical", "sourceRefIds": ["src-1"] }
+      { "claim": "...", "evidenceClass": "human-clinical", "sourceRefIds": ["src_pubmed-clinical-template"] }
     ],
     "unsupportedOrUnclearUses": [],
     "mechanisms": [],
@@ -37,15 +37,13 @@ Two explicit guardrails:
     "populationSpecificNotes": [],
     "conflictNotes": [],
     "researchGaps": [],
+    "sourceRegistryIds": ["src_pubmed-clinical-template"],
     "sourceRefs": [
       {
-        "sourceId": "src-1",
-        "sourceType": "rct",
-        "title": "...",
-        "url": "https://...",
-        "evidenceClass": "human-clinical",
+        "sourceId": "src_pubmed-clinical-template",
         "extractConfidence": "high",
-        "reviewer": "initials-or-name"
+        "reviewer": "initials-or-name",
+        "notes": "Optional claim extraction notes"
       }
     ],
     "lastReviewedAt": "2026-03-30T00:00:00.000Z",
@@ -57,13 +55,9 @@ Two explicit guardrails:
 
 ## Field-by-field guidance
 
-- `evidenceSummary`: Short non-hype summary of what is known and uncertain.
-- `evidenceTier`: Overall confidence bucket for this entity (`tier-1-strong` to `tier-4-insufficient`).
-- `evidenceClassesPresent[]`: Which evidence classes appear in this entry.
-- Claim arrays (`supportedUses`, `mechanisms`, `interactions`, etc.): structured, claim-level statements with required provenance links.
-- `sourceRefs[]`: bibliographic/provenance records used by claims.
-- `lastReviewedAt`, `reviewedBy`, `editorialStatus`: editorial freshness and status controls.
-- `relatedEntities[]` (optional): future herb↔compound mapping notes.
+- `sourceRegistryIds[]`: required registry source IDs used by this entity.
+- `sourceRefs[]`: optional local extraction annotations only (confidence/reviewer/notes), keyed by `sourceId`.
+- `sourceRefIds[]` in every claim: IDs that must resolve through `sourceRegistryIds[]`.
 
 ## Allowed evidence classes
 
@@ -75,37 +69,10 @@ Two explicit guardrails:
 
 > Do not infer that a traditional-use source is clinical efficacy evidence. Keep these classes explicit.
 
-## Source reference requirements
-
-Each `sourceRefs[]` item must include:
-
-- `sourceId`
-- `sourceType`
-- `title`
-- `evidenceClass`
-- `extractConfidence`
-- `reviewer`
-- at least one of: `url` or `citationKey`
-
-## Claim requirements
-
-Each claim item must include:
-
-- `claim`
-- `evidenceClass`
-- `sourceRefIds[]` (minimum one ID)
-
 ## Validation
 
 - JSON Schema: `schemas/research-enrichment.schema.json`
 - Scripted validation: `node scripts/validate-research-enrichment.mjs`
   - Validates shape for every detail file that includes `researchEnrichment`.
-  - Validates claim provenance links (`sourceRefIds`) resolve to `sourceRefs.sourceId`.
-
-## Notes for contractors
-
-- Keep claims specific and atomic; avoid dense paragraph blobs.
-- Use `unsupportedOrUnclearUses` when evidence is negative, weak, or conflicting.
-- Use `conflictNotes` when source conclusions disagree.
-- Use `researchGaps` to document missing populations, small samples, or absent replication.
-- Do not backfill entire catalog in one pass; this model is designed for incremental enrichment.
+  - Validates `sourceRegistryIds` against the source registry.
+  - Validates claim provenance links (`sourceRefIds`) resolve to declared source IDs.

@@ -5,6 +5,7 @@ import addFormats from 'ajv-formats'
 
 const ROOT = process.cwd()
 const SCHEMA_PATH = path.join(ROOT, 'schemas', 'research-enrichment.schema.json')
+const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const DETAIL_DIRECTORIES = [
   path.join(ROOT, 'public', 'data', 'herbs-detail'),
   path.join(ROOT, 'public', 'data', 'compounds-detail'),
@@ -37,6 +38,8 @@ function getDetailFiles(dir) {
 }
 
 const schema = readJson(SCHEMA_PATH)
+const sourceRegistry = readJson(SOURCE_REGISTRY_PATH)
+const globalSourceIdSet = new Set(sourceRegistry.map(item => item.sourceId))
 const ajv = new Ajv2020({ allErrors: true, strict: true, strictRequired: true })
 addFormats(ajv)
 const validate = ajv.compile(schema)
@@ -58,13 +61,32 @@ for (const file of files) {
     continue
   }
 
-  const sourceIdSet = new Set(enrichment.sourceRefs.map(item => item.sourceId))
+  const localSourceRefs = Array.isArray(enrichment.sourceRefs) ? enrichment.sourceRefs : []
+  const localSourceIdSet = new Set(localSourceRefs.map(item => item.sourceId))
+  const registryIdSet = new Set(enrichment.sourceRegistryIds)
 
+  for (const sourceId of registryIdSet) {
+    if (!globalSourceIdSet.has(sourceId)) {
+      errors.push(
+        `[registry] ${path.relative(ROOT, file)} sourceRegistryIds includes unknown sourceId=${sourceId}`,
+      )
+    }
+  }
+
+  for (const sourceId of localSourceIdSet) {
+    if (!registryIdSet.has(sourceId)) {
+      errors.push(
+        `[registry] ${path.relative(ROOT, file)} sourceRefs.sourceId=${sourceId} must also appear in sourceRegistryIds`,
+      )
+    }
+  }
+
+  const availableSourceIds = new Set([...registryIdSet, ...localSourceIdSet])
   for (const field of CLAIM_ARRAY_FIELDS) {
     const items = Array.isArray(enrichment[field]) ? enrichment[field] : []
     for (const item of items) {
       for (const sourceRefId of item.sourceRefIds) {
-        if (!sourceIdSet.has(sourceRefId)) {
+        if (!availableSourceIds.has(sourceRefId)) {
           errors.push(
             `[provenance] ${path.relative(ROOT, file)} field=${field} missing sourceRefId=${sourceRefId}`,
           )
@@ -85,4 +107,6 @@ if (errors.length > 0) {
   process.exit(1)
 }
 
-console.log(`[validate-research-enrichment] PASS checked=${checked} files_with_research_enrichment`)
+console.log(
+  `[validate-research-enrichment] PASS checked=${checked} files_with_research_enrichment registry_sources=${globalSourceIdSet.size}`,
+)
