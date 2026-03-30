@@ -1,4 +1,4 @@
-import rollupPreview from '../../ops/reports/enrichment-rollup-preview.json'
+import governedRollup from '../../public/data/enrichment-governed.json'
 import sourceRegistry from '../../public/data/source-registry.json'
 import type {
   EvidenceJudgment,
@@ -120,7 +120,7 @@ export function isPublishableGovernedEnrichment(enrichment: ResearchEnrichment |
 }
 
 const rollupMap = new Map(
-  (rollupPreview as RollupEntry[]).map(entry => {
+  (governedRollup as RollupEntry[]).map(entry => {
     const researchEnrichment = {
       ...entry.researchEnrichment,
       sourceRefs: toSourceRefs(entry.researchEnrichment.sourceRegistryIds),

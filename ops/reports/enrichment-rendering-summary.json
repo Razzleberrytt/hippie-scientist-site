@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-30T19:11:20Z",
+  "generatedAt": "2026-03-30T19:36:37Z",
   "renderingPolicy": {
     "allowedEditorialStatuses": [
       "approved",
@@ -98,5 +98,6 @@
       "editorialStatus": "approved",
       "publishable": false
     }
-  ]
+  ],
+  "canonicalRuntimeArtifact": "public/data/enrichment-governed.json"
 }

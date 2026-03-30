@@ -79,6 +79,7 @@
     "data:entity-payloads": "node scripts/generate-entity-payloads.mjs",
     "verify:entity-payloads": "node scripts/verify-entity-payloads.mjs",
     "verify:research-enrichment": "node scripts/validate-research-enrichment.mjs",
+    "verify:governed-enrichment-rendering": "tsx scripts/verify-governed-enrichment-rendering.ts",
     "report:entity-route-payloads": "node scripts/report-entity-route-payloads.mjs",
     "verify:bundles": "node scripts/verify-bundle-splits.mjs",
     "verify:publishing": "node scripts/verify-publishing.mjs",
