@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-03-30T17:47:52.763Z",
+  "registryPath": "public/data/source-registry.json",
+  "totalSources": 4,
+  "activeSources": 0,
+  "inactiveSources": 4,
+  "counts": {
+    "bySourceClass": {
+      "randomized-human-trial": 1,
+      "regulatory-agency-monograph-guidance": 1,
+      "traditional-use-monograph": 1,
+      "reference-database-authority": 1
+    },
+    "bySourceType": {
+      "journal-article": 1,
+      "regulatory-guidance": 1,
+      "monograph": 1,
+      "reference-database": 1
+    },
+    "byEvidenceClass": {
+      "human-clinical": 1,
+      "regulatory-monograph": 2,
+      "traditional-use": 1
+    },
+    "byReliabilityTier": {
+      "tier-a": 2,
+      "tier-b": 2
+    }
+  }
+}
