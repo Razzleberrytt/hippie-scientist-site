@@ -103,7 +103,8 @@
     "report:enrichment-backlog": "npm run report:enrichment-health && tsx scripts/report-enrichment-backlog.ts",
     "report:enrichment-review-cycle": "npm run report:enrichment-backlog && tsx scripts/report-enrichment-review-cycle.ts",
     "report:enrichment-workpacks": "npm run report:enrichment-review-cycle && tsx scripts/report-enrichment-workpacks.ts",
-    "report:source-gaps": "npm run report:enrichment-workpacks && tsx scripts/report-source-gaps.ts"
+    "report:source-gaps": "npm run report:enrichment-workpacks && tsx scripts/report-source-gaps.ts",
+    "report:source-intake-queue": "npm run report:source-gaps && tsx scripts/report-source-intake-queue.ts"
   },
   "engines": {
     "node": ">=20 <21"
