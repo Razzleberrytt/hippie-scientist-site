@@ -6,6 +6,7 @@ import { cleanText, splitClean } from '@/lib/sanitize'
 import { getHerbSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
 import { hasInvalidEntityName, sanitizeHerbRecord } from '@/utils/sanitizeData'
 import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
+import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
 
 type SourceRef = { title: string; url?: string; note?: string }
 type ProductRecommendation = { label: string; type: string; url: string }
@@ -31,6 +32,29 @@ export type HerbSummary = {
   hasEvidenceNotes: boolean
   image: string
   aliases: string[]
+  researchEnrichmentSummary?: PublishSafeEnrichmentSummary
+}
+
+function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummary | undefined {
+  if (!value || typeof value !== 'object') return undefined
+  const summary = value as Record<string, unknown>
+  const evidenceLabel = String(summary.evidenceLabel || '').trim()
+  const evidenceLabelTitle = String(summary.evidenceLabelTitle || '').trim()
+  const lastReviewedAt = String(summary.lastReviewedAt || '').trim()
+  if (!evidenceLabel || !evidenceLabelTitle || !lastReviewedAt) return undefined
+
+  return {
+    evidenceLabel: evidenceLabel as PublishSafeEnrichmentSummary['evidenceLabel'],
+    evidenceLabelTitle,
+    hasHumanEvidence: Boolean(summary.hasHumanEvidence),
+    safetyCautionsPresent: Boolean(summary.safetyCautionsPresent),
+    supportedUseCoveragePresent: Boolean(summary.supportedUseCoveragePresent),
+    mechanismOrConstituentCoveragePresent: Boolean(summary.mechanismOrConstituentCoveragePresent),
+    traditionalUseOnly: Boolean(summary.traditionalUseOnly),
+    conflictingEvidence: Boolean(summary.conflictingEvidence),
+    enrichedAndReviewed: Boolean(summary.enrichedAndReviewed),
+    lastReviewedAt,
+  }
 }
 
 let herbSummariesPromise: Promise<HerbSummary[]> | null = null
@@ -213,6 +237,7 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),
     image: cleanText(raw.image) || '',
     aliases: splitClean(raw.aliases),
+    researchEnrichmentSummary: normalizeEnrichmentSummary(raw.researchEnrichmentSummary),
   }
 }
 

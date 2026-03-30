@@ -14,6 +14,16 @@ import { filterCompounds } from '@/utils/filterCompounds'
 import { DEFAULT_FILTER_STATE } from '@/utils/filterModel'
 import { extractFilterOptions } from '@/utils/extractFilterOptions'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
+import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
+
+const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
+  { value: 'all', label: 'All research states' },
+  { value: 'enriched_reviewed', label: 'Enriched & reviewed' },
+  { value: 'has_human_evidence', label: 'Has human evidence' },
+  { value: 'safety_cautions', label: 'Safety cautions present' },
+  { value: 'traditional_only', label: 'Traditional-use only' },
+  { value: 'conflicting_evidence', label: 'Conflicting evidence' },
+]
 
 function confidenceBadgeClass(level: ConfidenceLevel) {
   if (level === 'high')
@@ -94,6 +104,15 @@ export default function CompoundsPage() {
             onChange={value => setFilters(prev => ({ ...prev, sort: value }))}
           />
         </div>
+        <TypeFilter
+          label='Research signal'
+          options={ENRICHMENT_FILTER_OPTIONS.map(option => option.label)}
+          value={ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label || ENRICHMENT_FILTER_OPTIONS[0].label}
+          onChange={label => {
+            const next = ENRICHMENT_FILTER_OPTIONS.find(option => option.label === label)
+            setFilters(prev => ({ ...prev, enrichment: next?.value || 'all' }))
+          }}
+        />
 
         <EffectFilter
           options={options.effects}
@@ -109,6 +128,10 @@ export default function CompoundsPage() {
           onClearQuery={() => setFilters(prev => ({ ...prev, query: '' }))}
           onClearType={() => setFilters(prev => ({ ...prev, type: 'all' }))}
           onClearConfidence={() => setFilters(prev => ({ ...prev, confidence: 'all' }))}
+          onClearEnrichment={() => setFilters(prev => ({ ...prev, enrichment: 'all' }))}
+          enrichmentLabel={
+            ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label
+          }
         />
       </section>
 
@@ -153,6 +176,28 @@ export default function CompoundsPage() {
                         {effect}
                       </span>
                     ))}
+                  </div>
+                )}
+                {compound.researchEnrichmentSummary && (
+                  <div className='mt-3 flex flex-wrap gap-1.5'>
+                    <span className='rounded-full border border-cyan-300/35 bg-cyan-500/15 px-2.5 py-1 text-[11px] text-cyan-100'>
+                      {compound.researchEnrichmentSummary.evidenceLabelTitle}
+                    </span>
+                    {compound.researchEnrichmentSummary.safetyCautionsPresent && (
+                      <span className='rounded-full border border-amber-300/35 bg-amber-500/15 px-2.5 py-1 text-[11px] text-amber-100'>
+                        Safety cautions noted
+                      </span>
+                    )}
+                    {compound.researchEnrichmentSummary.conflictingEvidence && (
+                      <span className='rounded-full border border-rose-300/35 bg-rose-500/15 px-2.5 py-1 text-[11px] text-rose-100'>
+                        Conflicting evidence
+                      </span>
+                    )}
+                    {compound.researchEnrichmentSummary.traditionalUseOnly && (
+                      <span className='rounded-full border border-yellow-300/35 bg-yellow-500/15 px-2.5 py-1 text-[11px] text-yellow-100'>
+                        Traditional-use context
+                      </span>
+                    )}
                   </div>
                 )}
                 {confidence === 'low' && (

@@ -8,6 +8,8 @@ type ActiveFiltersBarProps = {
   onClearQuery: () => void
   onClearType: () => void
   onClearConfidence: () => void
+  onClearEnrichment: () => void
+  enrichmentLabel?: string
 }
 
 export default function ActiveFiltersBar({
@@ -18,12 +20,15 @@ export default function ActiveFiltersBar({
   onClearQuery,
   onClearType,
   onClearConfidence,
+  onClearEnrichment,
+  enrichmentLabel,
 }: ActiveFiltersBarProps) {
   const hasActive =
     Boolean(state.query) ||
     state.selectedEffects.length > 0 ||
     state.confidence !== 'all' ||
-    state.type !== 'all'
+    state.type !== 'all' ||
+    state.enrichment !== 'all'
 
   if (!hasActive) return null
 
@@ -64,6 +69,15 @@ export default function ActiveFiltersBar({
           className='rounded-full border border-emerald-300/40 bg-emerald-500/15 px-3 py-1 text-xs text-emerald-100'
         >
           {typeLabel}: {state.type} ×
+        </button>
+      )}
+      {state.enrichment !== 'all' && (
+        <button
+          type='button'
+          onClick={onClearEnrichment}
+          className='rounded-full border border-amber-300/40 bg-amber-500/15 px-3 py-1 text-xs text-amber-100'
+        >
+          Research: {enrichmentLabel || state.enrichment} ×
         </button>
       )}
       <button

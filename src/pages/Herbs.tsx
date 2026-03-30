@@ -15,6 +15,16 @@ import { DEFAULT_FILTER_STATE } from '@/utils/filterModel'
 import { extractFilterOptions } from '@/utils/extractFilterOptions'
 import { buildEffectIndex } from '@/utils/effectSearch'
 import EffectExplorer from '@/components/EffectExplorer'
+import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
+
+const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
+  { value: 'all', label: 'All research states' },
+  { value: 'enriched_reviewed', label: 'Enriched & reviewed' },
+  { value: 'has_human_evidence', label: 'Has human evidence' },
+  { value: 'safety_cautions', label: 'Safety cautions present' },
+  { value: 'traditional_only', label: 'Traditional-use only' },
+  { value: 'conflicting_evidence', label: 'Conflicting evidence' },
+]
 
 export default function HerbsPage() {
   const INITIAL_RESULTS = 18
@@ -105,6 +115,15 @@ export default function HerbsPage() {
             onChange={value => setFilters(prev => ({ ...prev, sort: value }))}
           />
         </div>
+        <TypeFilter
+          label='Research signal'
+          options={ENRICHMENT_FILTER_OPTIONS.map(option => option.label)}
+          value={ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label || ENRICHMENT_FILTER_OPTIONS[0].label}
+          onChange={label => {
+            const next = ENRICHMENT_FILTER_OPTIONS.find(option => option.label === label)
+            setFilters(prev => ({ ...prev, enrichment: next?.value || 'all' }))
+          }}
+        />
 
         <EffectFilter
           options={options.effects}
@@ -120,6 +139,10 @@ export default function HerbsPage() {
           onClearQuery={() => setFilters(prev => ({ ...prev, query: '' }))}
           onClearType={() => setFilters(prev => ({ ...prev, type: 'all' }))}
           onClearConfidence={() => setFilters(prev => ({ ...prev, confidence: 'all' }))}
+          onClearEnrichment={() => setFilters(prev => ({ ...prev, enrichment: 'all' }))}
+          enrichmentLabel={
+            ENRICHMENT_FILTER_OPTIONS.find(option => option.value === filters.enrichment)?.label
+          }
         />
       </section>
 

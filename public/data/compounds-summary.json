@@ -1529,8 +1529,8 @@
     ]
   },
   {
-    "id": "asarone-alpha-beta",
-    "slug": "asarone-alpha-beta",
+    "id": "asarone-alpha-and-beta",
+    "slug": "asarone-alpha-and-beta",
     "name": "Asarone (alpha & beta)",
     "summaryShort": "",
     "description": "",
@@ -7677,6 +7677,18 @@
     "confidence": "low",
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "researchEnrichmentSummary": {
+      "evidenceLabel": "mixed_or_uncertain",
+      "evidenceLabelTitle": "Mixed or uncertain",
+      "hasHumanEvidence": false,
+      "safetyCautionsPresent": false,
+      "supportedUseCoveragePresent": true,
+      "mechanismOrConstituentCoveragePresent": true,
+      "traditionalUseOnly": false,
+      "conflictingEvidence": false,
+      "enrichedAndReviewed": true,
+      "lastReviewedAt": "2026-03-30T18:35:00.000Z"
+    },
     "aliases": [
       "luteolin"
     ]

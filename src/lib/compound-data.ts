@@ -5,6 +5,7 @@ import { cleanText, splitClean } from '@/lib/sanitize'
 import { getCompoundSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
 import { hasInvalidEntityName, sanitizeCompoundRecord } from '@/utils/sanitizeData'
 import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
+import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -52,6 +53,29 @@ export type CompoundSummaryRecord = {
   hasInteractionData: boolean
   hasEvidenceNotes: boolean
   aliases: string[]
+  researchEnrichmentSummary?: PublishSafeEnrichmentSummary
+}
+
+function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummary | undefined {
+  if (!value || typeof value !== 'object') return undefined
+  const summary = value as Record<string, unknown>
+  const evidenceLabel = String(summary.evidenceLabel || '').trim()
+  const evidenceLabelTitle = String(summary.evidenceLabelTitle || '').trim()
+  const lastReviewedAt = String(summary.lastReviewedAt || '').trim()
+  if (!evidenceLabel || !evidenceLabelTitle || !lastReviewedAt) return undefined
+
+  return {
+    evidenceLabel: evidenceLabel as PublishSafeEnrichmentSummary['evidenceLabel'],
+    evidenceLabelTitle,
+    hasHumanEvidence: Boolean(summary.hasHumanEvidence),
+    safetyCautionsPresent: Boolean(summary.safetyCautionsPresent),
+    supportedUseCoveragePresent: Boolean(summary.supportedUseCoveragePresent),
+    mechanismOrConstituentCoveragePresent: Boolean(summary.mechanismOrConstituentCoveragePresent),
+    traditionalUseOnly: Boolean(summary.traditionalUseOnly),
+    conflictingEvidence: Boolean(summary.conflictingEvidence),
+    enrichedAndReviewed: Boolean(summary.enrichedAndReviewed),
+    lastReviewedAt,
+  }
 }
 
 let compoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
@@ -170,6 +194,7 @@ function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummary
     hasInteractionData: Boolean(raw.hasInteractionData),
     hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),
     aliases: splitClean(raw.aliases),
+    researchEnrichmentSummary: normalizeEnrichmentSummary(raw.researchEnrichmentSummary),
   }
 }
 

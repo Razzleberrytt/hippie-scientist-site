@@ -64,6 +64,10 @@ function HerbCard({ herb, index = 0, compact = false, performanceMode = false }:
   const primaryEffects = extractPrimaryEffects(effectsArray, 3)
 
   const compounds = Array.isArray(herb.compounds) ? herb.compounds.slice(0, 3) : []
+  const enrichmentSummary =
+    herb.researchEnrichmentSummary && typeof herb.researchEnrichmentSummary === 'object'
+      ? herb.researchEnrichmentSummary
+      : null
   const tagLimit = compact ? 3 : 6
   const tags = Array.isArray(herb.tags) ? herb.tags.slice(0, tagLimit) : []
   const showLegal = !compact && hasVal(herb.legalstatus)
@@ -190,6 +194,28 @@ function HerbCard({ herb, index = 0, compact = false, performanceMode = false }:
                   {effect}
                 </span>
               ))}
+            </div>
+          )}
+          {enrichmentSummary && (
+            <div className='flex flex-wrap gap-1.5'>
+              <span className='rounded-full border border-cyan-300/40 bg-cyan-500/15 px-2.5 py-1 text-[11px] text-cyan-100'>
+                {enrichmentSummary.evidenceLabelTitle}
+              </span>
+              {enrichmentSummary.safetyCautionsPresent && (
+                <span className='rounded-full border border-amber-300/40 bg-amber-500/15 px-2.5 py-1 text-[11px] text-amber-100'>
+                  Safety cautions noted
+                </span>
+              )}
+              {enrichmentSummary.conflictingEvidence && (
+                <span className='rounded-full border border-rose-300/40 bg-rose-500/15 px-2.5 py-1 text-[11px] text-rose-100'>
+                  Conflicting evidence
+                </span>
+              )}
+              {enrichmentSummary.traditionalUseOnly && (
+                <span className='rounded-full border border-yellow-300/40 bg-yellow-500/15 px-2.5 py-1 text-[11px] text-yellow-100'>
+                  Traditional-use context
+                </span>
+              )}
             </div>
           )}
           {confidence === 'low' && (
