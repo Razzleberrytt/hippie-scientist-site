@@ -302,6 +302,11 @@ function auditCollectionRoutes({ herbs, compounds, combos }) {
   const COLLECTION_QUALITY = {
     introMinLength: 40,
     descriptionMinLength: 40,
+    whoForMinLength: 70,
+    selectionRationaleMinLength: 90,
+    minCautions: 1,
+    minAlternatives: 2,
+    ctaLabelMinLength: 24,
     minItemsByType: {
       herb: 6,
       compound: 6,
@@ -321,6 +326,7 @@ function auditCollectionRoutes({ herbs, compounds, combos }) {
     const route = `/collections/${slug}`
     const intro = String(collection?.intro || '').trim()
     const description = String(collection?.description || '').trim()
+    const editorial = collection?.editorial || null
     const filters = collection?.filters || {}
     const itemType = collection?.itemType || 'herb'
 
@@ -337,6 +343,32 @@ function auditCollectionRoutes({ herbs, compounds, combos }) {
     if ((slugCounts.get(slug) || 0) !== 1) reasons.push('duplicate-slug')
     if (intro.length < COLLECTION_QUALITY.introMinLength) reasons.push('missing-intro')
     if (description.length < COLLECTION_QUALITY.descriptionMinLength) reasons.push('missing-description')
+    if (!editorial) {
+      reasons.push('missing-editorial-brief')
+    } else {
+      if (String(editorial?.whoFor || '').trim().length < COLLECTION_QUALITY.whoForMinLength) {
+        reasons.push('missing-who-for')
+      }
+      if (
+        String(editorial?.selectionRationale || '').trim().length <
+        COLLECTION_QUALITY.selectionRationaleMinLength
+      ) {
+        reasons.push('missing-selection-rationale')
+      }
+      const cautionCount = Array.isArray(editorial?.cautions)
+        ? editorial.cautions.filter(note => String(note || '').trim().length > 0).length
+        : 0
+      if (cautionCount < COLLECTION_QUALITY.minCautions) reasons.push('missing-caution')
+
+      const alternativeCount = Array.isArray(editorial?.alternatives)
+        ? editorial.alternatives.filter(item => String(item || '').trim().length > 0).length
+        : 0
+      if (alternativeCount < COLLECTION_QUALITY.minAlternatives) reasons.push('missing-alternatives')
+
+      if (String(editorial?.ctaLabel || '').trim().length < COLLECTION_QUALITY.ctaLabelMinLength) {
+        reasons.push('missing-cta-guidance')
+      }
+    }
 
     const minItems = COLLECTION_QUALITY.minItemsByType[itemType] || 6
     if (matchCount < minItems) reasons.push('insufficient-matching-items')

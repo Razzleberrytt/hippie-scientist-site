@@ -11,6 +11,15 @@ export type SeoCollectionFilters = {
   comboDescriptionAny?: string[]
 }
 
+export type CollectionEditorial = {
+  whoFor: string
+  selectionRationale: string
+  cautions: string[]
+  exclusions: string[]
+  alternatives: string[]
+  ctaLabel: string
+}
+
 export type SeoCollection = {
   slug: string
   title: string
@@ -20,6 +29,7 @@ export type SeoCollection = {
   filters: SeoCollectionFilters
   cta?: CollectionCtaTarget
   secondaryCta?: CollectionCtaTarget
+  editorial?: CollectionEditorial
   relatedSlugs: string[]
 }
 
@@ -38,6 +48,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     },
     cta: 'interaction-checker',
     secondaryCta: 'stack-builder',
+    editorial: {
+      whoFor:
+        'Adults comparing calming herbs for evening stress or wind-down decisions, especially when they need to review sedation overlap.',
+      selectionRationale:
+        'Only herbs with relaxation/anxiolytic effect language plus sedative, GABAergic, or CNS-depressant interaction signals are included.',
+      cautions: [
+        'Sedative overlap can raise impairment risk when layered with sleep aids, alcohol, or sedating medications.',
+      ],
+      exclusions: [
+        'This is not a diagnosis-specific protocol and does not rank herbs by efficacy for anxiety disorders.',
+      ],
+      alternatives: ['relaxation-without-sedation', 'herbs-for-sleep', 'gabaergic-herbs'],
+      ctaLabel:
+        'Start in the interaction checker with 2-3 candidates before deciding on any nightly stack.',
+    },
     relatedSlugs: ['compounds-for-relaxation', 'calming-herb-combinations', 'gabaergic-herbs'],
   },
   {
@@ -54,6 +79,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     },
     cta: 'interaction-checker',
     secondaryCta: 'stack-builder',
+    editorial: {
+      whoFor:
+        'People exploring daytime focus support who want attention-oriented options without ignoring stimulant interactions.',
+      selectionRationale:
+        'Herbs appear here when records include focus/clarity effects and/or stimulant interaction tags used in the dataset.',
+      cautions: [
+        'Even non-caffeine stimulatory herbs may conflict with anxiety-prone states, blood pressure concerns, or stimulant medications.',
+      ],
+      exclusions: [
+        'This page does not replace ADHD treatment planning and is not a performance-maximization checklist.',
+      ],
+      alternatives: ['natural-focus-without-caffeine', 'herbs-for-energy', 'compounds-for-focus'],
+      ctaLabel:
+        'Open the checker to compare your shortlist against current meds before building a workday stack.',
+    },
     relatedSlugs: [
       'compounds-for-focus',
       'stimulant-herb-combinations',
@@ -75,6 +115,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     },
     cta: 'interaction-checker',
     secondaryCta: 'stack-builder',
+    editorial: {
+      whoFor:
+        'Readers narrowing options for sleep onset or nighttime calming while trying to avoid risky sedative combinations.',
+      selectionRationale:
+        'Included herbs must carry sleep/sedation effects and sedative or CNS-depressant style interaction signals in canonical records.',
+      cautions: [
+        'Combining multiple sedative agents can increase next-day grogginess and coordination risk.',
+      ],
+      exclusions: [
+        'This guide is not a substitute for insomnia evaluation, sleep apnea care, or emergency mental health support.',
+      ],
+      alternatives: ['herbs-for-relaxation', 'calming-herb-combinations', 'herbs-for-deep-sleep-recovery'],
+      ctaLabel:
+        'Run your evening plan through the checker first, then keep stack size conservative in the builder.',
+    },
     relatedSlugs: ['calming-herb-combinations', 'herbs-for-relaxation', 'gabaergic-herbs'],
   },
   {
@@ -91,6 +146,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     },
     cta: 'interaction-checker',
     secondaryCta: 'stack-builder',
+    editorial: {
+      whoFor:
+        'People who want daytime energy support options and need to screen for overstimulation or cardioactive interaction flags.',
+      selectionRationale:
+        'Entries are selected from energy/alertness effect terms combined with stimulant or cardioactive interaction tags.',
+      cautions: [
+        'Energy-targeted stacks can worsen jitteriness, sleep timing, or cardiovascular strain when layered aggressively.',
+      ],
+      exclusions: [
+        'This list does not promise fatigue treatment and should not replace workup for persistent exhaustion causes.',
+      ],
+      alternatives: ['energy-without-crash', 'herbs-for-focus', 'stimulant-herb-combinations'],
+      ctaLabel:
+        'Use the checker to stress-test your morning candidates before adding them into a recurring stack.',
+    },
     relatedSlugs: ['compounds-for-focus', 'stimulant-herb-combinations', 'herbs-for-focus'],
   },
   {
@@ -107,6 +177,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     },
     cta: 'interaction-checker',
     secondaryCta: 'stack-builder',
+    editorial: {
+      whoFor:
+        'Users reviewing isolated compounds for calming goals who need a mechanism-aware starting point before stacking.',
+      selectionRationale:
+        'Compounds qualify through calming/sedative effect language plus sedative, GABAergic, or CNS-depressant interaction markers.',
+      cautions: [
+        'Compound-level products can be potent; dose and formulation differences matter more than name matching.',
+      ],
+      exclusions: [
+        'This page is educational and does not endorse self-directed substitution for prescribed anxiolytics.',
+      ],
+      alternatives: ['serotonergic-compounds', 'herbs-for-relaxation', 'calming-herb-combinations'],
+      ctaLabel:
+        'Compare candidate compounds in the checker before combining them with sedating herbs or prescriptions.',
+    },
     relatedSlugs: ['herbs-for-relaxation', 'gabaergic-herbs', 'calming-herb-combinations'],
   },
   {
@@ -124,6 +209,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     },
     cta: 'interaction-checker',
     secondaryCta: 'stack-builder',
+    editorial: {
+      whoFor:
+        'Readers evaluating cognition-oriented compounds who want a shortlist tied to mechanism and interaction metadata.',
+      selectionRationale:
+        'Included compounds carry focus/stimulation effects and dopaminergic/cholinergic mechanism cues in canonical fields.',
+      cautions: [
+        'Focus compounds can still carry stimulant-like adverse effects and may conflict with psychiatric or cardiovascular meds.',
+      ],
+      exclusions: [
+        'Not a nootropic ranking list and not a replacement for individualized medical advice.',
+      ],
+      alternatives: ['herbs-for-focus', 'natural-focus-without-caffeine', 'stimulant-herb-combinations'],
+      ctaLabel:
+        'Launch the checker with one compound plus your baseline meds before trying multi-compound stacks.',
+    },
     relatedSlugs: ['herbs-for-focus', 'stimulant-herb-combinations', 'herbs-for-energy'],
   },
   {
@@ -141,6 +241,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     },
     cta: 'interaction-checker',
     secondaryCta: 'stack-builder',
+    editorial: {
+      whoFor:
+        'People who want prebuilt evening-oriented combos and need a quick safety screen before trying them.',
+      selectionRationale:
+        'Combos must be tagged for relaxation or sleep and match calming or wind-down language in names/descriptions.',
+      cautions: [
+        'Prebuilt combos can hide duplicate sedative activity across ingredients, so review full component overlap.',
+      ],
+      exclusions: [
+        'These examples are not personalized recommendations and may not fit shift-work or daytime use.',
+      ],
+      alternatives: ['herbs-for-sleep', 'herbs-for-relaxation', 'relaxation-without-sedation'],
+      ctaLabel:
+        'Run the combo in the checker and inspect each ingredient before importing it into your saved stack.',
+    },
     relatedSlugs: ['herbs-for-relaxation', 'herbs-for-sleep', 'compounds-for-relaxation'],
   },
   {
@@ -158,6 +273,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     },
     cta: 'interaction-checker',
     secondaryCta: 'stack-builder',
+    editorial: {
+      whoFor:
+        'Users looking for daytime combo templates for focus or energy while keeping interaction checks upfront.',
+      selectionRationale:
+        'Only prebuilt combos with focus/energy goals plus stimulation-oriented name/description terms are surfaced.',
+      cautions: [
+        'Stacked stimulatory ingredients can compound sleep disruption and anxiety risk, especially later in the day.',
+      ],
+      exclusions: [
+        'This is not an athletic-performance protocol and does not account for sport anti-doping rules.',
+      ],
+      alternatives: ['herbs-for-focus', 'energy-without-crash', 'natural-focus-without-caffeine'],
+      ctaLabel:
+        'Open each combo in the checker first, then trim ingredients before saving a repeatable daytime stack.',
+    },
     relatedSlugs: ['herbs-for-focus', 'herbs-for-energy', 'compounds-for-focus'],
   },
   {
@@ -223,6 +353,21 @@ export const SEO_COLLECTIONS: SeoCollection[] = [
     filters: {
       effectsAny: ['sleep', 'insomnia', 'deep sleep', 'restorative', 'sedative'],
       interactionTagsAny: ['sedative', 'gabaergic', 'cns-depressant'],
+    },
+    editorial: {
+      whoFor:
+        'People focused on nighttime recovery who want to compare stronger sleep-oriented herbs with explicit sedative framing.',
+      selectionRationale:
+        'Records are selected for sleep/restorative language and sedative or GABA-related interaction tags in the herb dataset.',
+      cautions: [
+        'This set intentionally captures stronger nighttime signals, so daytime use may be inappropriate for many users.',
+      ],
+      exclusions: [
+        'Not intended for pediatric use planning, pregnancy-specific decisions, or emergency insomnia crises.',
+      ],
+      alternatives: ['herbs-for-sleep', 'herbs-for-relaxation', 'calming-herb-combinations'],
+      ctaLabel:
+        'Check any proposed bedtime combination in the interaction tool before adding additional sedative agents.',
     },
     relatedSlugs: ['herbs-for-sleep', 'relaxation-without-sedation', 'herbs-for-burnout-recovery'],
   },

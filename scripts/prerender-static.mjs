@@ -382,13 +382,33 @@ function renderRouteContent(route) {
   if (route.startsWith('/collections/')) {
     const slug = route.split('/').pop() || ''
     const collection = collectionBySlug.get(slug)
-    const intro = escapeHtml(
-      safeStr(collection?.intro) ||
-        'This curated collection groups routes by a shared evidence-informed outcome and safety profile.'
-    )
-    const description = escapeHtml(
-      safeStr(collection?.description) || 'Use this page to review entities, then open the interactive workflow to compare interactions.'
-    )
+    const intro = escapeHtml(safeStr(collection?.intro))
+    const description = escapeHtml(safeStr(collection?.description))
+    const whoFor = escapeHtml(safeStr(collection?.editorial?.whoFor))
+    const selectionRationale = escapeHtml(safeStr(collection?.editorial?.selectionRationale))
+    const cautions = Array.isArray(collection?.editorial?.cautions)
+      ? collection.editorial.cautions
+          .map(item => escapeHtml(safeStr(item)))
+          .filter(Boolean)
+          .map(item => `<li>${item}</li>`)
+      : []
+    const exclusions = Array.isArray(collection?.editorial?.exclusions)
+      ? collection.editorial.exclusions
+          .map(item => escapeHtml(safeStr(item)))
+          .filter(Boolean)
+          .map(item => `<li>${item}</li>`)
+      : []
+    const ctaLabel = escapeHtml(safeStr(collection?.editorial?.ctaLabel))
+    const alternatives = Array.isArray(collection?.editorial?.alternatives)
+      ? collection.editorial.alternatives
+          .slice(0, 8)
+          .map(item => {
+            const nextSlug = escapeHtml(String(item))
+            const nextCollection = collectionBySlug.get(String(item))
+            const label = escapeHtml(safeStr(nextCollection?.title) || String(item).replace(/-/g, ' '))
+            return `<li><a href="/collections/${nextSlug}">${label}</a></li>`
+          })
+      : []
     const relatedLinks = Array.isArray(collection?.relatedSlugs)
       ? collection.relatedSlugs
           .slice(0, 8)
@@ -412,7 +432,7 @@ function renderRouteContent(route) {
         return `<li><a href="/compounds/${escapeHtml(item.slug)}">${name}</a></li>`
       })
 
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>${intro}</p><p>${description}</p><section><h2>Related collections</h2>${makeCardList(relatedLinks, 'Related collections are being curated.')}</section><section><h2>Indexable herb profiles</h2>${makeCardList(topHerbs, 'No herb profiles currently meet publication thresholds.')}</section><section><h2>Indexable compound profiles</h2>${makeCardList(topCompounds, 'No compound profiles currently meet publication thresholds.')}</section></article></main>`
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>${intro}</p><p>${description}</p><section><h2>Who this page is for</h2><p>${whoFor || 'Audience guidance is being revised.'}</p></section><section><h2>How items were selected</h2><p>${selectionRationale || 'Selection criteria are being revised.'}</p></section><section><h2>Cautions and scope</h2>${makeCardList([...cautions, ...exclusions], 'Caution framing is being reviewed before publication.')}</section><section><h2>What to do next</h2><p>${ctaLabel || 'Open the interaction checker before trying combinations.'}</p></section><section><h2>Related alternatives</h2>${makeCardList(alternatives, 'Related alternatives are being curated.')}</section><section><h2>Related collections</h2>${makeCardList(relatedLinks, 'Related collections are being curated.')}</section><section><h2>Indexable herb profiles</h2>${makeCardList(topHerbs, 'No herb profiles currently meet publication thresholds.')}</section><section><h2>Indexable compound profiles</h2>${makeCardList(topCompounds, 'No compound profiles currently meet publication thresholds.')}</section></article></main>`
   }
 
   return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1><p>This route is prerendered for SEO metadata. Interactive content loads after hydration.</p></main>`
