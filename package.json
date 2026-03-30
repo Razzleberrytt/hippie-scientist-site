@@ -95,7 +95,8 @@
     "enrichment:normalize": "node scripts/enrichment/normalize-enrichment-entries.mjs",
     "enrichment:validate:normalized": "node scripts/enrichment/validate-normalized-enrichment.mjs",
     "enrichment:test:normalized": "node scripts/enrichment/test-normalized-enrichment.mjs",
-    "enrichment:test:evidence": "node scripts/enrichment/test-evidence-grading.mjs"
+    "enrichment:test:evidence": "node scripts/enrichment/test-evidence-grading.mjs",
+    "verify:enrichment-linking": "tsx scripts/verify-enrichment-linking.ts"
   },
   "engines": {
     "node": ">=20 <21"
