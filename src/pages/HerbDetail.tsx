@@ -12,7 +12,7 @@ import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
 import { splitClean } from '@/lib/sanitize'
 import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
-import { breadcrumbJsonLd, herbJsonLd, SITE_URL } from '@/lib/seo'
+import { breadcrumbJsonLd, formatMetaDescription, herbJsonLd, SITE_URL } from '@/lib/seo'
 import CuratedProductModule from '@/components/CuratedProductModule'
 import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
 import Collapse from '@/components/ui/Collapse'
@@ -21,6 +21,7 @@ import { filterHerbByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
+import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -142,13 +143,15 @@ function topHerbCandidates(
     compoundKeys: Set<string>
     useKeys: Set<string>
     limit: number
-  }
+  },
 ) {
   return herbs
     .filter(other => String(other.slug || '') !== herb.slug)
     .map(other => {
       const otherEffects = splitClean(other.effects)
-      const otherCompounds = splitClean(other.activeCompounds ?? other.active_compounds ?? other.compounds)
+      const otherCompounds = splitClean(
+        other.activeCompounds ?? other.active_compounds ?? other.compounds,
+      )
       const otherUses = splitClean(other.therapeuticUses ?? other.therapeutic)
       const sharedEffects = overlapByKey(otherEffects, options.effectKeys)
       const sharedCompounds = overlapByKey(otherCompounds, options.compoundKeys)
@@ -244,10 +247,11 @@ export default function HerbDetail() {
     therapeuticUses[0] ||
     effects.slice(0, 2).join(', ')
   ).trim()
-  const herbMetaDescription =
-    herbMetaDescriptionSource.slice(0, 155) ||
-    `${herbDisplayName} herb profile with effects, safety notes, and practical context.`
-  const herbMetaTitle = `${herbDisplayName} — Uses, Effects & Safety | The Hippie Scientist`
+  const herbMetaDescription = formatMetaDescription(
+    herbMetaDescriptionSource,
+    `${herbDisplayName} herb guide with effects, safety notes, and practical context.`,
+  )
+  const herbMetaTitle = `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
 
   const compoundKeys = new Set(activeCompounds.map(normalizeKey))
   const effectKeys = new Set(effects.map(normalizeKey))
@@ -255,9 +259,11 @@ export default function HerbDetail() {
   const similarHerbs = topHerbCandidates(
     { slug: herb.slug, class: herb.class || herb.category },
     herbs as Array<Record<string, unknown>>,
-    { effectKeys, compoundKeys, useKeys, limit: 4 }
+    { effectKeys, compoundKeys, useKeys, limit: 4 },
   )
-  const cautionKeys = new Set([...contraindications, ...interactions, ...sideEffects].map(normalizeKey))
+  const cautionKeys = new Set(
+    [...contraindications, ...interactions, ...sideEffects].map(normalizeKey),
+  )
   const cautionRelatedHerbs = herbs
     .filter(other => other.slug !== herb.slug)
     .map(other => {
@@ -313,7 +319,7 @@ export default function HerbDetail() {
 
   const keyFields = pickNonEmptyKeys(
     { mechanism, effects, activeCompounds, contraindications, interactions, sources },
-    ['mechanism', 'effects', 'activeCompounds', 'contraindications', 'interactions', 'sources']
+    ['mechanism', 'effects', 'activeCompounds', 'contraindications', 'interactions', 'sources'],
   )
   const isDataIncomplete = keyFields.length < 3
 
@@ -326,7 +332,7 @@ export default function HerbDetail() {
       'contraindications',
       'interactions',
       'legalStatus',
-    ]
+    ],
   )
   const missingFieldCount = 6 - renderableKeys.length
   const shouldShowContributionCta = renderableKeys.length < 5
@@ -334,16 +340,20 @@ export default function HerbDetail() {
   const herbCheckerHref = buildInteractionsLink([herbToken])
   const relatedCollections = SEO_COLLECTIONS.filter(collection => collection.itemType === 'herb')
     .filter(collection =>
-      filterHerbByCollection(herb as unknown as Record<string, unknown>, collection.filters)
+      filterHerbByCollection(herb as unknown as Record<string, unknown>, collection.filters),
     )
     .slice(0, 5)
   const introFacts = [
-    sourceCount > 0 ? `${sourceCount} source${sourceCount === 1 ? '' : 's'} listed` : 'sources pending',
-    cautionCount > 0 ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}` : 'no caution flags listed',
+    sourceCount > 0
+      ? `${sourceCount} source${sourceCount === 1 ? '' : 's'} listed`
+      : 'sources pending',
+    cautionCount > 0
+      ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}`
+      : 'no caution flags listed',
   ]
   const whatItIsSummary = firstSentence(
     description || mechanism,
-    `${herbDisplayName} is an herbal profile with limited descriptive context so far.`
+    `${herbDisplayName} is an herbal profile with limited descriptive context so far.`,
   )
   const commonUseSummary = therapeuticUses.length
     ? `Commonly referenced for ${therapeuticUses.slice(0, 2).join(' and ')}${therapeuticUses.length > 2 ? ', among other uses' : ''}.`
@@ -358,7 +368,10 @@ export default function HerbDetail() {
         : `Confidence is low, so treat this page as preliminary and cross-check primary references before acting.`
   const cautionSummary =
     cautionCount > 0
-      ? contraindications[0] || interactions[0] || sideEffects[0] || 'Review contraindications and interaction notes before use.'
+      ? contraindications[0] ||
+        interactions[0] ||
+        sideEffects[0] ||
+        'Review contraindications and interaction notes before use.'
       : undefined
   const curatedProducts = getRenderableCuratedProducts({
     entityType: 'herb',
@@ -393,6 +406,13 @@ export default function HerbDetail() {
             { name: 'Herbs', url: `${SITE_URL}/herbs` },
             { name: herbDisplayName, url: `${SITE_URL}/herbs/${herb.slug}` },
           ]),
+        ]}
+      />
+      <BreadcrumbTrail
+        items={[
+          { label: 'Home', to: '/' },
+          { label: 'Herbs', to: '/herbs' },
+          { label: herbDisplayName },
         ]}
       />
       <Link to='/herbs' className='btn-secondary inline-flex items-center'>
@@ -461,7 +481,11 @@ export default function HerbDetail() {
             quickFacts={introFacts}
             nextSteps={[
               { label: 'Check this herb in interactions', to: herbCheckerHref },
-              { label: 'Review active compounds', to: '#key-active-compounds', variant: 'secondary' },
+              {
+                label: 'Review active compounds',
+                to: '#key-active-compounds',
+                variant: 'secondary',
+              },
               { label: 'Add to stack builder', to: '/build', variant: 'secondary' },
             ]}
             onStepClick={step => {
@@ -485,7 +509,14 @@ export default function HerbDetail() {
           <CtaVariantLayout
             variant={ctaExperiment.variant}
             onSlotImpression={(slot, position) => {
-              const ctaType = slot === 'tool' ? 'tool' : slot === 'builder' ? 'builder' : slot === 'affiliate' ? 'affiliate' : null
+              const ctaType =
+                slot === 'tool'
+                  ? 'tool'
+                  : slot === 'builder'
+                    ? 'builder'
+                    : slot === 'affiliate'
+                      ? 'affiliate'
+                      : null
               if (!ctaType) return
               trackCtaSlotImpression({
                 sourceType: 'detail',
@@ -560,10 +591,16 @@ export default function HerbDetail() {
               ),
               related: relatedCollections.length > 0 && (
                 <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
-                  <p className='text-xs font-semibold text-white'>Compare adjacent goal collections</p>
+                  <p className='text-xs font-semibold text-white'>
+                    Compare adjacent goal collections
+                  </p>
                   <div className='mt-2 flex flex-wrap gap-2'>
                     {relatedCollections.slice(0, 3).map(collection => (
-                      <Link key={`cta-${collection.slug}`} to={`/collections/${collection.slug}`} className='btn-secondary text-xs'>
+                      <Link
+                        key={`cta-${collection.slug}`}
+                        to={`/collections/${collection.slug}`}
+                        className='btn-secondary text-xs'
+                      >
                         {collection.title}
                       </Link>
                     ))}
@@ -604,8 +641,8 @@ export default function HerbDetail() {
           <Section title='Overview'>
             {confidence === 'low' ? (
               <p className='mb-2 rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-amber-100'>
-                Evidence context: this overview is low-confidence and may rely on limited or indirect
-                data.
+                Evidence context: this overview is low-confidence and may rely on limited or
+                indirect data.
               </p>
             ) : null}
             {description}
@@ -643,7 +680,7 @@ export default function HerbDetail() {
                       <span key={compound.name} className='ds-pill'>
                         {compound.name}
                       </span>
-                    )
+                    ),
                   )}
                 </div>
                 <div className='space-y-2 text-white/75'>
@@ -713,7 +750,8 @@ export default function HerbDetail() {
             <Collapse title='Caution-Related Herbs'>
               <div className='space-y-2 text-sm leading-relaxed text-white/85'>
                 <p className='text-xs text-white/65'>
-                  These links share contraindication or interaction language, so review safety overlap before stacking.
+                  These links share contraindication or interaction language, so review safety
+                  overlap before stacking.
                 </p>
                 {cautionRelatedHerbs.map(other => (
                   <p key={`caution-${other.slug}`}>
@@ -745,7 +783,8 @@ export default function HerbDetail() {
             <Collapse title='Explore Related Goal Collections'>
               <div className='space-y-2 text-sm text-white/85'>
                 <p className='text-xs text-white/65'>
-                  Use these goal pages to compare alternatives with similar effect and interaction signatures.
+                  Use these goal pages to compare alternatives with similar effect and interaction
+                  signatures.
                 </p>
                 <div className='flex flex-wrap gap-2'>
                   {relatedCollections.map(collection => (
@@ -848,7 +887,6 @@ export default function HerbDetail() {
             </Collapse>
           </section>
         )}
-
 
         {/* Contribute CTA — only when data is thin */}
         {shouldShowContributionCta && (
