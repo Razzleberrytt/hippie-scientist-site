@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.app/schemas/enrichment-submission.schema.json",
+  "title": "Enrichment submission",
+  "description": "Contractor-authored enrichment submission staged for governance review and deterministic promotion.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "submissionId",
+      "authoringPackId",
+      "workpackId",
+      "entityType",
+      "sourceId",
+      "topicType",
+      "claimType",
+      "evidenceClass",
+      "findingTextShort",
+      "findingTextNormalized",
+      "reviewStatus",
+      "active"
+    ],
+    "properties": {
+      "submissionId": {
+        "type": "string",
+        "pattern": "^sub_[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "authoringPackId": {
+        "type": "string",
+        "pattern": "^ap_[a-z0-9_]+$"
+      },
+      "workpackId": {
+        "type": "string",
+        "pattern": "^wp_[a-z0-9_]+$"
+      },
+      "entityType": {
+        "type": "string",
+        "enum": [
+          "herb",
+          "compound",
+          "surface"
+        ]
+      },
+      "entitySlug": {
+        "type": "string",
+        "minLength": 1
+      },
+      "surfaceId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "sourceId": {
+        "type": "string",
+        "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "topicType": {
+        "type": "string",
+        "enum": [
+          "supported_use",
+          "unsupported_or_unclear_use",
+          "mechanism",
+          "constituent",
+          "interaction",
+          "contraindication",
+          "adverse_effect",
+          "pregnancy_note",
+          "lactation_note",
+          "pediatric_note",
+          "geriatric_note",
+          "condition_caution",
+          "surgery_caution",
+          "medication_class_caution",
+          "dosage_context",
+          "population_specific_note",
+          "conflict_note",
+          "research_gap",
+          "constituent_relationship",
+          "pathway",
+          "receptor_activity",
+          "enzyme_interaction",
+          "transporter_interaction",
+          "herb_compound_link",
+          "compound_origin_note"
+        ]
+      },
+      "claimType": {
+        "type": "string",
+        "enum": [
+          "efficacy_signal",
+          "efficacy_null_or_mixed",
+          "mechanistic_signal",
+          "constituent_profile",
+          "safety_risk",
+          "dosing_note",
+          "population_note",
+          "evidence_conflict",
+          "research_gap",
+          "relationship_signal",
+          "origin_note"
+        ]
+      },
+      "evidenceClass": {
+        "type": "string",
+        "enum": [
+          "human-clinical",
+          "human-observational",
+          "preclinical-mechanistic",
+          "traditional-use",
+          "regulatory-monograph"
+        ]
+      },
+      "findingTextShort": {
+        "type": "string",
+        "minLength": 12
+      },
+      "findingTextNormalized": {
+        "type": "string",
+        "minLength": 24
+      },
+      "strengthLabel": {
+        "type": "string",
+        "enum": [
+          "strong",
+          "moderate",
+          "limited",
+          "insufficient"
+        ]
+      },
+      "populationContext": {
+        "type": "string"
+      },
+      "usageContext": {
+        "type": "string"
+      },
+      "safetyContext": {
+        "type": "string"
+      },
+      "mechanismContext": {
+        "type": "string"
+      },
+      "traditionalUseContext": {
+        "type": "string"
+      },
+      "uncertaintyNote": {
+        "type": "string"
+      },
+      "reviewer": {
+        "type": "string",
+        "minLength": 1
+      },
+      "reviewedAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "reviewStatus": {
+        "type": "string",
+        "enum": [
+          "draft_submission",
+          "needs_validation_fix",
+          "ready_for_review",
+          "under_review",
+          "approved_for_rollup",
+          "revision_requested",
+          "rejected",
+          "deprecated_submission"
+        ]
+      },
+      "approvalNotes": {
+        "type": "string"
+      },
+      "revisionReasons": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "rejectedReasons": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "editorialStatus": {
+        "type": "string",
+        "enum": [
+          "draft",
+          "needs_review",
+          "reviewed",
+          "in-review",
+          "approved",
+          "published",
+          "blocked",
+          "needs-update",
+          "deprecated"
+        ]
+      },
+      "active": {
+        "type": "boolean"
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "entityType": {
+              "const": "surface"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "surfaceId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "surfaceId"
+          ]
+        },
+        "else": {
+          "properties": {
+            "entitySlug": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "entitySlug"
+          ]
+        }
+      }
+    ]
+  }
+}
