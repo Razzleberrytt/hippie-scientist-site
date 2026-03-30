@@ -2,7 +2,8 @@ import { recordDevMessage } from '../utils/devMessages'
 
 export type ConsentStatus = 'granted' | 'denied'
 
-const KEY = 'consent.v1'
+export const CONSENT_STORAGE_KEY = 'consent.v1'
+export const CONSENT_GRANTED_EVENT = 'hs:consent-granted'
 
 export function getSystemNoTracking(): boolean {
   const dnt =
@@ -13,7 +14,7 @@ export function getSystemNoTracking(): boolean {
 
 export function getConsent(): ConsentStatus | null {
   try {
-    const raw = localStorage.getItem(KEY)
+    const raw = localStorage.getItem(CONSENT_STORAGE_KEY)
     if (!raw) return null
     const parsed = JSON.parse(raw)
     return parsed?.status === 'granted' ? 'granted' : 'denied'
@@ -23,7 +24,10 @@ export function getConsent(): ConsentStatus | null {
 }
 
 export function setConsent(status: ConsentStatus) {
-  localStorage.setItem(KEY, JSON.stringify({ status, ts: Date.now() }))
+  localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify({ status, ts: Date.now() }))
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent(CONSENT_GRANTED_EVENT, { detail: { status } }))
+  }
   applyGaConsent(status)
 }
 
