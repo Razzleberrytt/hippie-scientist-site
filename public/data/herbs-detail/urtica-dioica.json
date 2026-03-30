@@ -1,0 +1,83 @@
+{
+  "name": "urtica dioica",
+  "latin": "Urtica dioica",
+  "class": "Nutritional Tonic, Mild Stimulant",
+  "intensity": "Very mild",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [
+    "Histamine",
+    "serotonin",
+    "acetylcholine",
+    "flavonoids"
+  ],
+  "effects": [
+    "Mild stimulation",
+    "increased circulation",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "Pregnancy (caution)",
+    "diuretics"
+  ],
+  "safetyNotes": [
+    "Very safe",
+    "stings from fresh plant can irritate skin",
+    "Skin irritation",
+    "urticaria from contact",
+    "Low",
+    "considered non-toxic",
+    "safe",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [
+    {
+      "title": "Herbal texts"
+    },
+    {
+      "title": "folk medicine"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Nutritive herb with minor stimulant and revitalizing effects when fresh",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Diuretics",
+    "antihypertensives"
+  ],
+  "legalStatus": "Legal",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "Fatigue",
+    "anemia",
+    "joint support"
+  ],
+  "traditionalUse": "; nan; nan",
+  "slug": "urtica-dioica",
+  "sideEffects": [],
+  "displayName": "urtica dioica",
+  "displayScientificName": "Urtica dioica",
+  "scientificNormalized": "urtica dioica",
+  "id": "urtica-dioica",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}

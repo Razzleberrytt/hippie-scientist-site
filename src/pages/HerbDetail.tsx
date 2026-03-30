@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
-import { useHerbDataState } from '@/lib/herb-data'
+import { useHerbDataState, useHerbDetailState } from '@/lib/herb-data'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
@@ -98,10 +98,10 @@ function normalizeKey(value: string) {
 
 export default function HerbDetail() {
   const { slug = '' } = useParams()
-  const { herbs, isLoading } = useHerbDataState()
+  const { herb, isLoading } = useHerbDetailState(slug)
+  const { herbs } = useHerbDataState()
   const { compounds } = useCompoundDataState()
   const { toggle, isSaved } = useSavedItems()
-  const herb = herbs.find(item => item.slug === slug)
 
   useEffect(() => {
     if (!herb?.slug) return

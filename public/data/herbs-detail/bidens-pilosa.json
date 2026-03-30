@@ -1,0 +1,66 @@
+{
+  "name": "bidens pilosa",
+  "latin": "Bidens pilosa",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Antibacterial, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, anti-inflammatory, immune support. No direct region data. Contextual inference: Antibacterial, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, anti-inflammatory, immune support. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Antibacterial",
+    "anti-inflammatory",
+    "immune support",
+    "anti",
+    "inflammatory"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "Mild GI disturbances or allergic reactions in sensitive individuals",
+    "No direct toxicity data. Contextual inference: Antibacterial",
+    "anti-inflammatory",
+    "immune support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antibacterial",
+    "immune support. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Antibacterial, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Antibacterial",
+    "anti",
+    "inflammatory",
+    "immune support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antibacterial",
+    "immune support. No direct region data. Contextual inference: Antibacterial",
+    "immune support. none.",
+    "nan."
+  ],
+  "duration": "4–6 hours",
+  "interactions": [],
+  "legalStatus": "Unregulated; commonly used in folk medicine",
+  "preparation": "Leaves and stems decocted or made into tinctures; also consumed as tea",
+  "region": "No direct region data. Contextual inference: Antibacterial, anti-inflammatory, immune support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antibacterial, anti-inflammatory, immune support. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Mild GI disturbances or allergic reactions in sensitive individuals"
+  ],
+  "slug": "bidens-pilosa",
+  "id": "bidens-pilosa",
+  "displayName": "bidens pilosa",
+  "displayScientificName": "Bidens pilosa",
+  "scientificNormalized": "bidens pilosa"
+}

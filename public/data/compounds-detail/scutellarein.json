@@ -1,0 +1,28 @@
+{
+  "name": "scutellarein",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Mild sedation",
+    "calm mood",
+    "anxiety relief",
+    "No direct effects data. Contextual inference: Used by native american tribes for anxiety and insomnia... No direct mechanismofaction data. Contextual inference: Used by native american tribes for anxiety and insomnia... Used by Native American tribes for anxiety and insomnia.. Used by Native American tribes for anxiety and insomnia.",
+    "Nervine",
+    "anxiolytic",
+    "anti-inflammatory",
+    "used for insomnia and anxiety"
+  ],
+  "contraindications": [
+    "Avoid during pregnancy",
+    "caution with sedatives",
+    "pregnancy",
+    "sedative sensitivity."
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "scutellarein",
+  "id": "scutellarein",
+  "displayName": "scutellarein"
+}

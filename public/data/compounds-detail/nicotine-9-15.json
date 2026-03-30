@@ -1,0 +1,25 @@
+{
+  "name": "Nicotine (9–15%)",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Intense stimulation",
+    "nausea",
+    "dizziness",
+    "spiritual visions",
+    "relaxation"
+  ],
+  "contraindications": [
+    "Cardiovascular disease",
+    "hypertension",
+    "pregnancy",
+    "psychiatric conditions"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "nicotine-9-15",
+  "id": "nicotine-9-15",
+  "displayName": "Nicotine (9–15%)"
+}

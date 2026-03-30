@@ -1,0 +1,37 @@
+{
+  "name": "gallic acid",
+  "herbs": [
+    "alchemilla vulgaris",
+    "nan"
+  ],
+  "effects": [
+    "Uterine tonic",
+    "astringent",
+    "anti-inflammatory",
+    "regulates menstruation and bleeding.",
+    "anti",
+    "inflammatory",
+    "Detoxification",
+    "improved glucose tolerance",
+    "Antioxidant",
+    "hepatoprotective"
+  ],
+  "contraindications": [
+    "Excessive internal use may cause constipation or dry mucous membranes",
+    "caution in pregnancy or lactation",
+    "may interact with blood thinners due to tannin content【859641390196180†L297",
+    "L313】.",
+    "Avoid during pregnancy due to uterine stimulation potential"
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "gallic-acid",
+  "id": "gallic-acid",
+  "displayName": "gallic acid"
+}

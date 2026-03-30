@@ -1,0 +1,59 @@
+{
+  "name": "jatropha podagrica",
+  "latin": "Jatropha podagrica",
+  "class": "Topical anti-inflammatory",
+  "intensity": "Mild therapeutic effects externally, severe toxicity if ingested.",
+  "mechanism": "Curcin inhibits protein synthesis.",
+  "activeCompounds": [],
+  "effects": [
+    "Antibacterial",
+    "antifungal",
+    "seeds are toxic."
+  ],
+  "contraindications": [
+    "Oral use contraindicated due to toxicity"
+  ],
+  "safetyNotes": [
+    "Toxic if ingested",
+    "severe vomiting",
+    "diarrhea",
+    "respiratory failure",
+    "High",
+    "contains curcin and phorbol esters."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Ornamental and medicinal plant with thick stem and red flowers.",
+  "dosage": [
+    "Not safe for ingestion",
+    "used externally in traditional remedies."
+  ],
+  "duration": "Topical effects within hours; no systemic duration due to toxicity.",
+  "interactions": [
+    "avoid with protein synthesis inhibitors"
+  ],
+  "legalStatus": "Toxic plant; not approved for medical use",
+  "preparation": "Topical poultices or latex extracts.",
+  "region": "Central America",
+  "therapeuticUses": [],
+  "traditionalUse": "Used externally for joint pain and inflammation in folk medicine.",
+  "sideEffects": [
+    "Toxic if ingested",
+    "severe vomiting",
+    "diarrhea",
+    "respiratory failure"
+  ],
+  "slug": "jatropha-podagrica",
+  "id": "jatropha-podagrica",
+  "displayName": "jatropha podagrica",
+  "displayScientificName": "Jatropha podagrica",
+  "scientificNormalized": "jatropha podagrica"
+}

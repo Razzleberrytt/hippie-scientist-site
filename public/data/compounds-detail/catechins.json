@@ -1,0 +1,61 @@
+{
+  "name": "catechins",
+  "herbs": [
+    "albizia lebbeck",
+    "byrsonima crassifolia",
+    "nan"
+  ],
+  "effects": [
+    "Used in Ayurveda for asthma",
+    "allergies",
+    "and anxiety",
+    "No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
+    "Mental alertness",
+    "energy",
+    "appetite suppression",
+    "Increased alertness",
+    "mood enhancement",
+    "stimulation",
+    "Stimulant",
+    "cognitive enhancer",
+    "antioxidant",
+    "Detoxification",
+    "improved glucose tolerance",
+    "Antioxidant",
+    "anti-inflammatory",
+    "hepatoprotective",
+    "Alertness",
+    "calm focus",
+    "mood lift",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "No well‑documented contraindications",
+    "due to saponins and alkaloids",
+    "excessive intake may cause gastrointestinal irritation or interact with medications.",
+    "Anxiety",
+    "hypertension",
+    "pregnancy",
+    "heart conditions",
+    "Pregnancy",
+    "anxiety disorders",
+    "Avoid during pregnancy due to uterine stimulation potential",
+    "Insomnia",
+    "anxiety",
+    "heart issues"
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "catechins",
+  "id": "catechins",
+  "displayName": "catechins"
+}

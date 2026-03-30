@@ -1,0 +1,38 @@
+{
+  "name": "vasicinone",
+  "herbs": [
+    "adhatoda vasica",
+    "justicia adhatoda",
+    "nan"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan.",
+    "Increased energy",
+    "focus",
+    "thermogenesis",
+    "alertness",
+    "bronchodilation",
+    "Stimulant",
+    "anti-inflammatory",
+    "traditionally used for asthma and weight loss"
+  ],
+  "contraindications": [
+    "High doses may cause nausea or vomiting",
+    "Not recommended during pregnancy or lactation without medical guidance",
+    "Use cautiously in individuals with bleeding disorders or on anticoagulant medications",
+    "Hypertension",
+    "cardiac conditions",
+    "MAOIs",
+    "heart conditions",
+    "pregnancy"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "vasicinone",
+  "id": "vasicinone",
+  "displayName": "vasicinone"
+}

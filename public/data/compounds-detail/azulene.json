@@ -1,0 +1,23 @@
+{
+  "name": "Azulene",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Anti-inflammatory",
+    "astringent",
+    "digestive aid",
+    "hemostatic"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "allergies to Asteraceae",
+    "bleeding disorders"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "azulene",
+  "id": "azulene",
+  "displayName": "Azulene"
+}

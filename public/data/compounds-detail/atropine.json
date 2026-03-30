@@ -1,0 +1,51 @@
+{
+  "name": "Atropine",
+  "herbs": [
+    "datura metel",
+    "nan"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
+    "Complete dissociation",
+    "hallucinations",
+    "amnesia",
+    "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use",
+    "Intense hallucinations",
+    "delirium",
+    "Strong anticholinergic and hallucinogenic effects",
+    "toxic",
+    "traditionally used in shamanic contexts.",
+    "True hallucinations",
+    "confusion",
+    "Anticholinergic",
+    "hallucinogenic",
+    "sedative",
+    "Visual and auditory hallucinations",
+    "Delirium",
+    "visual hallucinations",
+    "Hallucinogenic",
+    "anticholinergic",
+    "historically used in rituals",
+    "Hallucinations",
+    "dry mouth",
+    "contains scopolamine and atropine"
+  ],
+  "contraindications": [
+    "Extremely dangerous",
+    "avoid recreational use",
+    "fatal at high doses",
+    "All use discouraged without medical oversight",
+    "Cardiac conditions",
+    "glaucoma",
+    "pregnancy",
+    "Cardiac issues",
+    "mental illness",
+    "Heart conditions"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "atropine",
+  "id": "atropine",
+  "displayName": "Atropine"
+}

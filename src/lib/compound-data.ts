@@ -35,7 +35,26 @@ export type CompoundRecord = {
   confidence: ConfidenceLevel
 }
 
-let compoundsPromise: Promise<CompoundRecord[]> | null = null
+export type CompoundSummaryRecord = {
+  id: string
+  slug: string
+  name: string
+  summaryShort: string
+  description: string
+  className: string
+  category: string
+  mechanism: string
+  effects: string[]
+  primaryEffects: string[]
+  herbs: string[]
+  confidence: ConfidenceLevel
+  hasInteractionData: boolean
+  hasEvidenceNotes: boolean
+  aliases: string[]
+}
+
+let compoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
+const compoundDetailPromiseBySlug = new Map<string, Promise<CompoundRecord | null>>()
 
 function normalizeSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
@@ -101,31 +120,88 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   }
 }
 
+function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummaryRecord {
+  const effects = splitClean(raw.effects)
+  const herbs = splitClean(raw.herbs)
+  const confidence = String(raw.confidence || '').trim().toLowerCase()
+
+  return {
+    id: String(raw.id || raw.slug || ''),
+    slug: String(raw.slug || '').trim().toLowerCase(),
+    name: cleanText(raw.name) || '',
+    summaryShort: cleanText(raw.summaryShort ?? raw.description) || '',
+    description: cleanText(raw.description ?? raw.summaryShort) || '',
+    className: cleanText(raw.className) || '',
+    category: cleanText(raw.category ?? raw.className) || '',
+    mechanism: cleanText(raw.mechanism) || '',
+    effects,
+    primaryEffects: splitClean(raw.primaryEffects ?? effects).slice(0, 4),
+    herbs,
+    confidence: confidence === 'high' || confidence === 'medium' ? confidence : 'low',
+    hasInteractionData: Boolean(raw.hasInteractionData),
+    hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),
+    aliases: splitClean(raw.aliases),
+  }
+}
+
 export function isRenderableCompound(raw: Record<string, unknown>): boolean {
   const { data } = sanitizeCompoundRecord(raw)
   return !hasInvalidEntityName(data)
 }
 
-export async function loadCompoundData(): Promise<CompoundRecord[]> {
-  if (!compoundsPromise) {
-    compoundsPromise = fetch('/data/compounds.json', { cache: 'no-store' })
+export async function loadCompoundSummaryData(): Promise<CompoundSummaryRecord[]> {
+  if (!compoundsSummaryPromise) {
+    compoundsSummaryPromise = fetch('/data/compounds-summary.json', { cache: 'no-store' })
       .then(response => {
-        if (!response.ok) throw new Error('Failed to load /data/compounds.json')
+        if (!response.ok) throw new Error('Failed to load /data/compounds-summary.json')
         return response.json()
       })
       .then(payload => {
         const rows = Array.isArray(payload) ? payload : []
-        return rows
-          .filter(row => isRenderableCompound(row as Record<string, unknown>))
-          .map(row => normalizeCompound(row as Record<string, unknown>))
+        return rows.map(row => normalizeCompoundSummary(row as Record<string, unknown>))
       })
       .catch(error => {
-        compoundsPromise = null
+        compoundsSummaryPromise = null
         throw error
       })
   }
 
-  return compoundsPromise
+  return compoundsSummaryPromise
+}
+
+export async function loadCompoundDetailBySlug(slug: string): Promise<CompoundRecord | null> {
+  const slugKey = slug.trim().toLowerCase()
+  if (!slugKey) return null
+
+  const cached = compoundDetailPromiseBySlug.get(slugKey)
+  if (cached) return cached
+
+  const request = fetch(`/data/compounds-detail/${encodeURIComponent(slugKey)}.json`, {
+    cache: 'no-store',
+  })
+    .then(response => {
+      if (response.status === 404) return null
+      if (!response.ok) {
+        throw new Error(`Failed to load /data/compounds-detail/${slugKey}.json`)
+      }
+      return response.json()
+    })
+    .then(payload => {
+      if (!payload || typeof payload !== 'object') return null
+      return normalizeCompound(payload as Record<string, unknown>)
+    })
+    .catch(error => {
+      compoundDetailPromiseBySlug.delete(slugKey)
+      throw error
+    })
+
+  compoundDetailPromiseBySlug.set(slugKey, request)
+  return request
+}
+
+// Back-compat alias.
+export async function loadCompoundData(): Promise<CompoundSummaryRecord[]> {
+  return loadCompoundSummaryData()
 }
 
 export function useCompoundData() {
@@ -134,7 +210,7 @@ export function useCompoundData() {
 }
 
 export function useCompoundDataState() {
-  const [compounds, setCompounds] = useState<CompoundRecord[]>([])
+  const [compounds, setCompounds] = useState<CompoundSummaryRecord[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
 
@@ -143,7 +219,7 @@ export function useCompoundDataState() {
     setIsLoading(true)
     setError(null)
 
-    loadCompoundData()
+    loadCompoundSummaryData()
       .then(items => {
         if (!alive) return
         setCompounds(items)
@@ -152,7 +228,7 @@ export function useCompoundDataState() {
       .catch(cause => {
         if (!alive) return
         setCompounds([])
-        setError(cause instanceof Error ? cause : new Error('Failed to load compound data'))
+        setError(cause instanceof Error ? cause : new Error('Failed to load compound summary data'))
         setIsLoading(false)
       })
 
@@ -162,4 +238,35 @@ export function useCompoundDataState() {
   }, [])
 
   return { compounds, isLoading, error }
+}
+
+export function useCompoundDetailState(slug: string) {
+  const [compound, setCompound] = useState<CompoundRecord | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
+
+  useEffect(() => {
+    let alive = true
+    setIsLoading(true)
+    setError(null)
+
+    loadCompoundDetailBySlug(slug)
+      .then(item => {
+        if (!alive) return
+        setCompound(item)
+        setIsLoading(false)
+      })
+      .catch(cause => {
+        if (!alive) return
+        setCompound(null)
+        setError(cause instanceof Error ? cause : new Error('Failed to load compound detail'))
+        setIsLoading(false)
+      })
+
+    return () => {
+      alive = false
+    }
+  }, [slug])
+
+  return { compound, isLoading, error }
 }

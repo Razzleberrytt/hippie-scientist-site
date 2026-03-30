@@ -1,0 +1,96 @@
+{
+  "name": "nepeta cataria",
+  "latin": "Nepeta cataria",
+  "class": "Traditional, Sedative, Recreational",
+  "intensity": "No direct intensity data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. No direct region data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [
+    "Nepetalactone",
+    "thymol",
+    "citral",
+    "limonene",
+    "rosmarinic acid"
+  ],
+  "effects": [
+    "Mild sedation",
+    "relaxation",
+    "antispasmodic",
+    "Mild sedative",
+    "carminative"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "sedation-sensitive individuals"
+  ],
+  "safetyNotes": [
+    "Generally safe in moderate doses",
+    "Drowsiness",
+    "nausea (high doses)",
+    "Low",
+    "Not established",
+    "safe",
+    "avoid in pregnancy due to uterine stimulation",
+    "No direct toxicity data. Contextual inference: Mild sedative",
+    "antispasmodic",
+    "carminative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Mild sedative",
+    "carminative. none."
+  ],
+  "sources": [
+    {
+      "title": "PubMed"
+    },
+    {
+      "title": "Traditional Herbal Compendia"
+    },
+    {
+      "title": "NIH"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and cramps.",
+  "dosage": [
+    "250",
+    "500 mg",
+    "day aerial parts"
+  ],
+  "duration": "1–3 hours",
+  "interactions": [
+    "Sedatives",
+    "CNS depressants"
+  ],
+  "legalStatus": "Legal worldwide",
+  "preparation": "Leaves and flowers dried for tea or tincture; calming and digestive herb (catnip)",
+  "region": "No direct region data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. none. ; nan; nan",
+  "therapeuticUses": [
+    "Anxiety",
+    "insomnia",
+    "digestive cramps"
+  ],
+  "traditionalUse": "; nan; nan",
+  "slug": "nepeta-cataria",
+  "sideEffects": [
+    "Drowsiness",
+    "avoid in pregnancy due to uterine stimulation"
+  ],
+  "displayName": "nepeta cataria",
+  "displayScientificName": "Nepeta cataria",
+  "scientificNormalized": "nepeta cataria",
+  "id": "nepeta-cataria",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}

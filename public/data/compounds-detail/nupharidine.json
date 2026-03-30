@@ -1,0 +1,41 @@
+{
+  "name": "nupharidine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Relaxation",
+    "mild euphoria",
+    "dream enhancement",
+    "anxiolytic",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan.",
+    "Euphoria",
+    "relaxation",
+    "dream intensification",
+    "mild sedation",
+    "aphrodisiac",
+    "Mild euphoria",
+    "heightened awareness",
+    "Mild sedative",
+    "mood enhancement",
+    "possible aphrodisiac"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "sedative sensitivity",
+    "liver dysfunction (high doses)",
+    "Avoid combining with MAOIs or sedatives",
+    "liver conditions",
+    "concurrent CNS depressants",
+    "driving or operating machinery"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "nupharidine",
+  "id": "nupharidine",
+  "displayName": "nupharidine"
+}

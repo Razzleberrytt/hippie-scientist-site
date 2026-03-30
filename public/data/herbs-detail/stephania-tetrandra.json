@@ -1,0 +1,70 @@
+{
+  "name": "stephania tetrandra",
+  "latin": "Stephania tetrandra",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, antihypertensive, used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antihypertensive, used in TCM. No direct region data. Contextual inference: Anti-inflammatory, antihypertensive, used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antihypertensive, used in TCM. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Anti-inflammatory",
+    "antihypertensive",
+    "used in TCM",
+    "Anti",
+    "inflammatory"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "Nephrotoxic at high doses",
+    "dizziness",
+    "GI effects",
+    "No direct toxicity data. Contextual inference: Anti-inflammatory",
+    "antihypertensive",
+    "used in tcm. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti-inflammatory",
+    "used in TCM. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Anti-inflammatory, antihypertensive, used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Anti",
+    "inflammatory",
+    "antihypertensive",
+    "used in tcm. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti",
+    "used in TCM. No direct region data. Contextual inference: Anti",
+    "used in TCM. none.",
+    "nan."
+  ],
+  "duration": "4–6 hours",
+  "interactions": [],
+  "legalStatus": "Legal in Chinese and Western herbal practices",
+  "preparation": "Root decocted in TCM (Han Fang Ji); used for edema, inflammation, and hypertension",
+  "region": "No direct region data. Contextual inference: Anti-inflammatory, antihypertensive, used in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, antihypertensive, used in TCM. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Nephrotoxic at high doses",
+    "dizziness",
+    "GI effects"
+  ],
+  "slug": "stephania-tetrandra",
+  "id": "stephania-tetrandra",
+  "displayName": "stephania tetrandra",
+  "displayScientificName": "Stephania tetrandra",
+  "scientificNormalized": "stephania tetrandra"
+}

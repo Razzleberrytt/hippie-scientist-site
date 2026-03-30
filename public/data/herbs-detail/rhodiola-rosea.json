@@ -1,0 +1,90 @@
+{
+  "name": "rhodiola rosea",
+  "latin": "Rhodiola rosea",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [],
+  "effects": [
+    "Adaptogen",
+    "mental performance enhancer",
+    "antidepressant",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "bipolar disorder",
+    "pregnancy."
+  ],
+  "safetyNotes": [
+    "safe",
+    "irritability",
+    "dry mouth.",
+    "No direct toxicity data. Contextual inference: Adaptogen",
+    "mental performance enhancer",
+    "antidepressant. Inhibits monoamine oxidase",
+    "modulates cortisol and neurotransmitters..",
+    "nan.. Inhibits monoamine oxidase",
+    "modulates cortisol and neurotransmitters.. Adaptogen",
+    "antidepressant.",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.",
+  "dosage": [
+    "100",
+    "400 mg",
+    "day extract (standardized)",
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "ssris",
+    "maois",
+    "stimulants."
+  ],
+  "legalStatus": "Legal globally",
+  "preparation": "No direct preparation data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Adaptogen, mental performance enhancer, antidepressant. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. ; nan; nan.. Inhibits monoamine oxidase; modulates cortisol and neurotransmitters.. Adaptogen, mental performance enhancer, antidepressant. ; nan; nan",
+  "therapeuticUses": [
+    "fatigue",
+    "depression",
+    "cognitive support."
+  ],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "irritability",
+    "dry mouth."
+  ],
+  "slug": "rhodiola-rosea",
+  "displayName": "rhodiola rosea",
+  "displayScientificName": "Rhodiola rosea",
+  "scientificNormalized": "rhodiola rosea",
+  "id": "rhodiola-rosea",
+  "aliases": [
+    "rhodiola"
+  ],
+  "slugAliases": [
+    "rhodiola"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "indole alkaloids",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Stimulation",
+    "increased blood flow",
+    "heightened alertness",
+    "sexual arousal"
+  ],
+  "contraindications": [
+    "Heart disease",
+    "anxiety",
+    "hypertension",
+    "psychiatric conditions"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "indole-alkaloids",
+  "id": "indole-alkaloids",
+  "displayName": "indole alkaloids"
+}

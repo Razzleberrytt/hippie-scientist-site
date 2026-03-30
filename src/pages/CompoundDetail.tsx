@@ -2,7 +2,7 @@ import { type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
-import { useCompoundDataState } from '@/lib/compound-data'
+import { useCompoundDataState, useCompoundDetailState } from '@/lib/compound-data'
 import { useHerbDataState } from '@/lib/herb-data'
 import { pickNonEmptyKeys } from '@/lib/nonEmptyFields'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
@@ -41,9 +41,8 @@ function ListSection({ items }: { items: string[] }) {
 
 export default function CompoundDetail() {
   const { slug = '' } = useParams()
-  const { compounds, isLoading: isCompoundLoading } = useCompoundDataState()
+  const { compound, isLoading: isCompoundLoading } = useCompoundDetailState(slug)
   const { herbs, isLoading: isHerbLoading } = useHerbDataState()
-  const compound = compounds.find(item => item.slug === slug)
 
   if (isCompoundLoading || isHerbLoading) {
     return <CompoundDetailSkeleton />

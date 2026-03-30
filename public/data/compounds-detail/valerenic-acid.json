@@ -1,0 +1,25 @@
+{
+  "name": "Valerenic acid",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Sedation",
+    "muscle relaxation",
+    "sleep support",
+    "Sedative",
+    "anxiolytic",
+    "sleep aid"
+  ],
+  "contraindications": [
+    "Avoid with alcohol",
+    "benzodiazepines",
+    "or barbiturates"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "valerenic-acid",
+  "id": "valerenic-acid",
+  "displayName": "Valerenic acid"
+}

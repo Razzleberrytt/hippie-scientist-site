@@ -1,0 +1,83 @@
+{
+  "name": "piper methysticum",
+  "latin": "Piper methysticum",
+  "class": "Anxiolytic, Sedative",
+  "intensity": "Moderate",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [
+    "Kavalactones (kavain",
+    "methysticin",
+    "yangonin)"
+  ],
+  "effects": [
+    "Euphoria",
+    "calmness",
+    "muscle relaxation",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "Liver conditions",
+    "concurrent alcohol use"
+  ],
+  "safetyNotes": [
+    "Safe with proper preparation",
+    "hepatotoxicity risk with extracts",
+    "Nausea",
+    "drowsiness",
+    "liver toxicity with overuse",
+    "Low to moderate",
+    "Not precisely known",
+    "caution",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [
+    {
+      "title": "Pacific ethnobotany"
+    },
+    {
+      "title": "WHO reports"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Traditional Polynesian root beverage known for relaxation and social bonding",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "Potentiates CNS depressants and sedatives"
+  ],
+  "legalStatus": "Regulated or restricted in some countries",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "Anxiety",
+    "stress",
+    "social lubrication"
+  ],
+  "traditionalUse": "; nan; nan",
+  "slug": "piper-methysticum",
+  "sideEffects": [],
+  "displayName": "piper methysticum",
+  "displayScientificName": "Piper methysticum",
+  "scientificNormalized": "piper methysticum",
+  "id": "piper-methysticum",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}

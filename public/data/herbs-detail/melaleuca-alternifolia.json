@@ -1,0 +1,59 @@
+{
+  "name": "melaleuca alternifolia",
+  "latin": "Melaleuca alternifolia",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Antimicrobial, antifungal, used topically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antifungal, used topically. No direct region data. Contextual inference: Antimicrobial, antifungal, used topically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antifungal, used topically. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Antimicrobial",
+    "antifungal",
+    "used topically"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "safe",
+    "Toxic if ingested",
+    "skin irritation possible with topical use",
+    "No direct toxicity data. Contextual inference: Antimicrobial",
+    "antifungal",
+    "used topically. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "used topically. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Antimicrobial, antifungal, used topically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Topical only",
+    "1",
+    "2 mL essential oil"
+  ],
+  "duration": "2–4 hours",
+  "interactions": [],
+  "legalStatus": "Legal in topical products worldwide",
+  "preparation": "Leaves steam-distilled to yield tea tree oil; topical application only, not for internal use",
+  "region": "No direct region data. Contextual inference: Antimicrobial, antifungal, used topically. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antifungal, used topically. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Toxic if ingested",
+    "skin irritation possible with topical use"
+  ],
+  "slug": "melaleuca-alternifolia",
+  "id": "melaleuca-alternifolia",
+  "displayName": "melaleuca alternifolia",
+  "displayScientificName": "Melaleuca alternifolia",
+  "scientificNormalized": "melaleuca alternifolia"
+}

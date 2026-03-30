@@ -1,0 +1,53 @@
+{
+  "name": "acacia nilotica",
+  "latin": "acacia nilotica",
+  "class": "Tree",
+  "intensity": "mild",
+  "mechanism": "High tannin content gives potent astringent properties; flavonoids and tannins provide antioxidant and anti-inflammatory effects; polysaccharide-rich gum arabic may have immunomodulatory benefits.",
+  "activeCompounds": [
+    "tannins (gallic acid, ellagic acid, catechin)",
+    "quercetin",
+    "myricetin",
+    "saponins",
+    "alkaloids (nicotine, leucocyanidin)",
+    "polysaccharides (arabinose, rhamnose)"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
+  ],
+  "contraindications": [
+    "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
+    "Avoid during pregnancy or lactation due to potential anti-fertility effects",
+    "Not recommended for children under 12"
+  ],
+  "safetyNotes": [
+    "safe",
+    "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
+  ],
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "description": "Folk medicine.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine"
+  ],
+  "duration": "No direct duration data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "interactions": [],
+  "legalStatus": "legal",
+  "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
+  "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
+  "therapeuticUses": [
+    "Oral health (reducing plaque and gingival inflammation)",
+    "Gastrointestinal disorders such as diarrhea and dysentery",
+    "Wound healing and skin ulcers",
+    "Reproductive health and spermicidal applications",
+    "Respiratory support and asthma relief",
+    "Liver protection and blood sugar regulation",
+    "Immune support"
+  ],
+  "traditionalUse": "Folk medicine",
+  "slug": "acacia-nilotica",
+  "id": "acacia-nilotica",
+  "displayName": "acacia nilotica",
+  "displayScientificName": "acacia nilotica",
+  "scientificNormalized": "acacia nilotica"
+}

@@ -1,0 +1,97 @@
+{
+  "name": "ervatamia coronaria",
+  "latin": "Ervatamia coronaria",
+  "class": "Entheogen, Sedative",
+  "intensity": "No direct intensity data. Contextual inference: Antimicrobial, antioxidant; toxic in high doses. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antioxidant; toxic in high doses. No direct region data. Contextual inference: Antimicrobial, antioxidant; toxic in high doses. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antioxidant; toxic in high doses. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [
+    "Voacamine",
+    "ibogamine"
+  ],
+  "effects": [
+    "Tranquility",
+    "mild distortion of time",
+    "Antimicrobial",
+    "antioxidant",
+    "toxic in high doses"
+  ],
+  "contraindications": [
+    "Heart conditions",
+    "psychotropics"
+  ],
+  "safetyNotes": [
+    "Low safety margin at higher doses",
+    "Bradycardia",
+    "nausea",
+    "Moderate",
+    "Not formally studied",
+    "Toxic",
+    "contains cardiac glycosides",
+    "bradycardia",
+    "fatal at high doses",
+    "No direct toxicity data. Contextual inference: Antimicrobial",
+    "antioxidant",
+    "toxic in high doses. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "toxic in high doses. none."
+  ],
+  "sources": [
+    {
+      "title": "Ayurvedic and folk sources"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Antimicrobial, antioxidant; toxic in high doses. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Antimicrobial",
+    "antioxidant",
+    "toxic in high doses. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "toxic in high doses. No direct region data. Contextual inference: Antimicrobial",
+    "toxic in high doses. none.",
+    "nan."
+  ],
+  "duration": "2–4 hours",
+  "interactions": [
+    "MAOIs",
+    "CNS depressants"
+  ],
+  "legalStatus": "Traditional use; not regulated",
+  "preparation": "Flowers and leaves occasionally used in decoctions or oils; traditionally for skin and nervous complaints (contains alkaloids)",
+  "region": "No direct region data. Contextual inference: Antimicrobial, antioxidant; toxic in high doses. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, antioxidant; toxic in high doses. none. ; nan; nan",
+  "therapeuticUses": [
+    "Anxiety reduction"
+  ],
+  "traditionalUse": "; nan; nan",
+  "slug": "ervatamia-coronaria",
+  "sideEffects": [
+    "Toxic",
+    "contains cardiac glycosides",
+    "nausea",
+    "bradycardia",
+    "fatal at high doses"
+  ],
+  "displayName": "ervatamia coronaria",
+  "displayScientificName": "Ervatamia coronaria",
+  "scientificNormalized": "ervatamia coronaria",
+  "id": "ervatamia-coronaria",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}

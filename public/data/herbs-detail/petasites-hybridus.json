@@ -1,0 +1,87 @@
+{
+  "name": "petasites hybridus",
+  "latin": "Petasites hybridus",
+  "class": "Sedative, Herbal remedy",
+  "intensity": "Mild",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.",
+  "activeCompounds": [
+    "Petasin",
+    "isopetasin",
+    "pyrrolizidine alkaloids (toxic)",
+    "Isopetasin"
+  ],
+  "effects": [
+    "Mild sedation",
+    "muscle relaxation",
+    "No direct effects data. Contextual inference: Used historically to treat pain",
+    "migraines",
+    "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+    "and spasms... Used historically to treat pain",
+    "and spasms.. Used historically to treat pain",
+    "and spasms."
+  ],
+  "contraindications": [
+    "Avoid unpurified extracts due to liver-toxic alkaloids"
+  ],
+  "safetyNotes": [
+    "Unpurified form hepatotoxic",
+    "Drowsiness",
+    "nausea",
+    "liver risk (raw)",
+    "High (unpurified)",
+    "Petasin: ~400 mg/kg (rats)",
+    "safe",
+    "No direct toxicity data. Contextual inference: Used historically to treat pain",
+    "migraines",
+    "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+    "and spasms... Used historically to treat pain",
+    "and spasms.. No direct effects data. Contextual inference: Used historically to treat pain",
+    "and spasms.. Used historically to treat pain",
+    "and spasms."
+  ],
+  "sources": [
+    {
+      "title": "Natural medicine texts"
+    },
+    {
+      "title": "PubMed"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Traditional herb for migraine and anxiety with calming effects",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Used historically to treat pain",
+    "migraines",
+    "and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain",
+    "and spasms... Used historically to treat pain",
+    "and spasms.. No direct effects data. Contextual inference: Used historically to treat pain",
+    "and spasms.. Used historically to treat pain",
+    "and spasms.. No direct region data. Contextual inference: Used historically to treat pain",
+    "and spasms."
+  ],
+  "duration": "No direct duration data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
+  "interactions": [
+    "May potentiate CNS depressants"
+  ],
+  "legalStatus": "Restricted in some countries unless purified",
+  "preparation": "No direct preparation data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
+  "region": "No direct region data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. No direct effects data. Contextual inference: Used historically to treat pain, migraines, and spasms... No direct mechanismofaction data. Contextual inference: Used historically to treat pain, migraines, and spasms... Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.. Used historically to treat pain, migraines, and spasms.",
+  "therapeuticUses": [
+    "Migraine",
+    "anxiety",
+    "muscle tension"
+  ],
+  "traditionalUse": "Used historically to treat pain, migraines, and spasms.",
+  "slug": "petasites-hybridus",
+  "sideEffects": [],
+  "displayName": "petasites hybridus",
+  "displayScientificName": "Petasites hybridus",
+  "scientificNormalized": "petasites hybridus",
+  "id": "petasites-hybridus",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "name": "thc",
+  "latin": "Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. ; nan; nan. ; nan; nan",
+  "mechanism": "Agonist at CB1 receptors; modulates dopamine and GABA release.",
+  "activeCompounds": [],
+  "effects": [
+    "Psychoactive compound in cannabis",
+    "euphoric",
+    "analgesic",
+    "antiemetic"
+  ],
+  "contraindications": [
+    "psychosis",
+    "pregnancy",
+    "heart disease."
+  ],
+  "safetyNotes": [
+    "euphoria",
+    "anxiety",
+    "dry mouth",
+    "impaired cognition.",
+    "No direct toxicity data. Contextual inference: Psychoactive compound in cannabis",
+    "euphoric",
+    "analgesic",
+    "antiemetic. Agonist at cb1 receptors",
+    "modulates dopamine and gaba release..",
+    "nan.. Agonist at CB1 receptors",
+    "modulates dopamine and GABA release.. Psychoactive compound in cannabis",
+    "antiemetic."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Psychoactive compound in cannabis",
+    "euphoric",
+    "analgesic",
+    "antiemetic. Agonist at cb1 receptors",
+    "modulates dopamine and gaba release..",
+    "nan.. Agonist at CB1 receptors",
+    "modulates dopamine and GABA release.. Psychoactive compound in cannabis",
+    "antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis",
+    "antiemetic.",
+    "nan."
+  ],
+  "duration": "2–6 hours",
+  "interactions": [
+    "cns depressants",
+    "alcohol",
+    "ssris."
+  ],
+  "legalStatus": "Legal, medical or recreational in some jurisdictions; controlled elsewhere",
+  "preparation": "No direct preparation data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. No direct region data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. Agonist at cb1 receptors; modulates dopamine and gaba release.. ; nan; nan.. Agonist at CB1 receptors; modulates dopamine and GABA release.. Psychoactive compound in cannabis; euphoric, analgesic, antiemetic. ; nan; nan",
+  "therapeuticUses": [
+    "pain",
+    "appetite stimulation",
+    "nausea",
+    "anxiety relief (low doses)."
+  ],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "euphoria",
+    "anxiety",
+    "dry mouth",
+    "impaired cognition."
+  ],
+  "slug": "thc",
+  "id": "thc",
+  "displayName": "thc",
+  "displayScientificName": "Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica)",
+  "scientificNormalized": "δ9-tetrahydrocannabinol from cannabis sativa/indica"
+}

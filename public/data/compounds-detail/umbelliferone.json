@@ -1,0 +1,38 @@
+{
+  "name": "umbelliferone",
+  "herbs": [
+    "adenostoma fasciculatum",
+    "nan"
+  ],
+  "effects": [
+    "Traditional uses include skin and respiratory conditions",
+    "contains tannins",
+    "Calming",
+    "mild euphoria",
+    "spiritual insight",
+    "Mild euphoria",
+    "sedation",
+    "muscle relaxation",
+    "spiritual openness",
+    "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
+  ],
+  "contraindications": [
+    "Limited safety data",
+    "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone.",
+    "Avoid large doses",
+    "coumarin toxicity risk",
+    "Pregnancy",
+    "anticoagulant therapy due to coumarin content"
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "umbelliferone",
+  "id": "umbelliferone",
+  "displayName": "umbelliferone"
+}
