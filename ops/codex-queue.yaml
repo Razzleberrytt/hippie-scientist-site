@@ -1,5 +1,5 @@
 version: 1
-current: H2
+current: H13
 default_branch: main
 pr_branch_prefix: codex/
 notes:
@@ -180,7 +180,7 @@ steps:
     title: Run-keyed coverage baselines and baseline diff artifacts
     status: blocked
     risk: low
-    blocker: "Requested work targets deploy release-gate workflow change (H11), but queue protocol only allows executing current step H2."
+    blocker: "Requested work targets NavBar UI changes (PROMPT 06), but queue protocol only allows executing current step H2."
     success_checks:
       - "coverage reports can write named run-keyed baselines"
       - "baseline-to-current diff artifacts are emitted deterministically"
@@ -275,3 +275,12 @@ steps:
       - "release checklist reflects baseline comparison and review-report expectations"
       - "final hardening pass verifies the new reporting path end to end"
       - "no lane safety or approval guard is weakened"
+
+  - id: H13
+    title: NavBar active link, mobile close behavior, and icon toggle polish
+    status: ready
+    risk: low
+    success_checks:
+      - "active nav links render highlighted state across desktop and mobile"
+      - "mobile menu closes on route changes including browser history navigation"
+      - "menu toggle uses iconography while retaining aria attributes"
