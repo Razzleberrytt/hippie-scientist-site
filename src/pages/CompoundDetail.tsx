@@ -14,6 +14,8 @@ import RelatedHerbCard from '@/components/RelatedHerbCard'
 import Collapse from '@/components/ui/Collapse'
 import { breadcrumbJsonLd, compoundJsonLd, SITE_URL } from '@/lib/seo'
 import { countCautionSignals, inferContentFlags } from '@/lib/trust'
+import { SEO_COLLECTIONS } from '@/data/seoCollections'
+import { filterCompoundByCollection } from '@/lib/collectionQuality'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -38,6 +40,11 @@ function ListSection({ items }: { items: string[] }) {
       ))}
     </ul>
   )
+}
+
+function buildInteractionsLink(tokens: string[]) {
+  if (!tokens.length) return '/interactions'
+  return `/interactions?items=${tokens.join(',')}`
 }
 
 export default function CompoundDetail() {
@@ -106,6 +113,18 @@ export default function CompoundDetail() {
     ['mechanism', 'effects', 'contraindications', 'herbs']
   )
   const shouldShowContributionCta = keyFields.length < 3
+  const compoundToken = encodeURIComponent(`compound:${compound.slug}`)
+  const compoundCheckerHref = buildInteractionsLink([compoundToken])
+  const relatedCollections = SEO_COLLECTIONS.filter(collection => collection.itemType === 'compound')
+    .filter(collection =>
+      filterCompoundByCollection(compound as unknown as Record<string, unknown>, collection.filters)
+    )
+    .slice(0, 5)
+  const introFacts = [
+    `Confidence: ${confidence}`,
+    sourceCount > 0 ? `${sourceCount} source${sourceCount === 1 ? '' : 's'} listed` : 'sources pending',
+    cautionCount > 0 ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}` : 'no caution flags listed',
+  ]
 
   // Derive a display class — category only if it's meaningful
   const displayClass =
@@ -168,6 +187,26 @@ export default function CompoundDetail() {
             hasInferredContent={hasInferredContent}
             hasFallbackContent={hasFallbackContent}
           />
+
+          <div className='mt-4 rounded-xl border border-emerald-300/25 bg-emerald-500/10 p-3 text-sm text-emerald-50'>
+            <p className='text-xs font-semibold uppercase tracking-[0.12em] text-emerald-100/90'>
+              Quick take
+            </p>
+            <p className='mt-2 leading-7 text-emerald-50/95'>
+              {compound.name} appears in {linkedHerbs.length} herb profile
+              {linkedHerbs.length === 1 ? '' : 's'} and is tracked for {primaryEffects.slice(0, 2).join(' and ') || 'multiple outcomes'}.
+              Use this page to validate mechanism and interaction boundaries before adding it to a stack.
+            </p>
+            <p className='mt-2 text-xs text-emerald-100/85'>{introFacts.join(' · ')}</p>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              <Link to={compoundCheckerHref} className='btn-primary text-xs'>
+                Check this compound in interactions
+              </Link>
+              <Link to='/build' className='btn-secondary text-xs'>
+                Continue to stack builder
+              </Link>
+            </div>
+          </div>
         </header>
 
         {/* Primary effects pills */}
@@ -301,6 +340,29 @@ export default function CompoundDetail() {
             </div>
           </Collapse>
         </section>
+
+        {relatedCollections.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Compare in Related Collections'>
+              <div className='space-y-2 text-sm text-white/85'>
+                <p className='text-xs text-white/65'>
+                  Jump to these collection pages to compare adjacent compounds for similar goals.
+                </p>
+                <div className='flex flex-wrap gap-2'>
+                  {relatedCollections.map(collection => (
+                    <Link
+                      key={collection.slug}
+                      to={`/collections/${collection.slug}`}
+                      className='btn-secondary text-xs'
+                    >
+                      {collection.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </Collapse>
+          </section>
+        )}
 
         {/* Practical info */}
         {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}

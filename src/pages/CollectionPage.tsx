@@ -461,6 +461,29 @@ export default function CollectionPage() {
         <p className='mt-3 text-xs text-white/65'>
           {itemCount} matching entries in this collection.
         </p>
+        <section className='border-white/12 mt-4 rounded-xl border bg-emerald-500/10 p-3'>
+          <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100/95'>
+            Quick strategy
+          </h2>
+          <div className='mt-2 grid gap-2 text-xs text-emerald-50/95 sm:grid-cols-3'>
+            <p>
+              <span className='font-semibold text-white'>1) Shortlist:</span> compare 2-3 entries
+              from this page based on effect fit.
+            </p>
+            <p>
+              <span className='font-semibold text-white'>2) Verify safety:</span> run the
+              interaction checker before combining anything.
+            </p>
+            <p>
+              <span className='font-semibold text-white'>3) Build conservatively:</span> move to
+              stack builder only after reviewing cautions and overlap.
+            </p>
+          </div>
+          <p className='mt-2 text-[11px] text-emerald-100/85'>
+            Trust framing: this page is generated from canonical herb/compound records and editorial
+            rules. Review methodology and references before making decisions.
+          </p>
+        </section>
         {!collectionQuality.approved ? (
           <p className='mt-2 text-xs text-amber-200/90'>
             This collection is available for browsing but excluded from indexing until it meets
@@ -511,6 +534,12 @@ export default function CollectionPage() {
         ) : null}
 
         <div className='mt-4 flex flex-wrap items-center gap-2'>
+          <Link to={checkerHref} className='btn-primary text-xs' onClick={() => handleFunnelClick('checker')}>
+            Start with Interaction Checker
+          </Link>
+          <Link to={stackHref} className='btn-secondary text-xs' onClick={() => handleFunnelClick('stack')}>
+            Continue to Stack Builder
+          </Link>
           <Button type='button' variant='secondary' onClick={handleCopyLink} className='text-xs'>
             Copy Link
           </Button>
@@ -535,6 +564,14 @@ export default function CollectionPage() {
               {shareToast}
             </span>
           ) : null}
+        </div>
+        <div className='mt-3 flex flex-wrap gap-2'>
+          <Link to='/methodology' className='inline-flex text-xs text-cyan-200 hover:text-cyan-100'>
+            How this collection is scored →
+          </Link>
+          <Link to='/disclaimer' className='inline-flex text-xs text-cyan-200 hover:text-cyan-100'>
+            Educational-use disclaimer →
+          </Link>
         </div>
       </header>
 

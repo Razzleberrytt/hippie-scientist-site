@@ -1,0 +1,541 @@
+{
+  "generatedAt": "2026-03-30T15:29:33.978Z",
+  "generatedOn": "2026-03-30",
+  "signalsUsed": [
+    "homepage feature/curated prominence",
+    "publication-manifest completeness + indexable route status",
+    "collection match frequency (search-intent + internal-link utility proxy)",
+    "entity depth signals (sources/effects/mechanism/linked entities)",
+    "collection quality + homepage featured collection list"
+  ],
+  "sourceSnapshots": {
+    "publicationManifestGeneratedAt": "2026-03-30T11:49:44.014Z",
+    "homepageDataGeneratedAt": "2026-03-30T13:23:39.443Z",
+    "routeManifest": {
+      "herbRoutes": 12,
+      "compoundRoutes": 0,
+      "collectionRoutes": 7
+    }
+  },
+  "topHerbs": [
+    {
+      "slug": "calliandra-anomala",
+      "route": "/herbs/calliandra-anomala",
+      "name": "calliandra anomala",
+      "score": 49.7,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 21,
+        "homepageProminenceSignals": [
+          "homepage:curated",
+          "homepage:featured-pool",
+          "homepage:diverse-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 4,
+        "activeCompoundCount": 3,
+        "searchIntentSignal": 6
+      }
+    },
+    {
+      "slug": "rivea-corymbosa",
+      "route": "/herbs/rivea-corymbosa",
+      "name": "rivea corymbosa",
+      "score": 43.4,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 22,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool",
+          "homepage:diverse-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 5,
+        "activeCompoundCount": 2,
+        "searchIntentSignal": 5
+      }
+    },
+    {
+      "slug": "henbane",
+      "route": "/herbs/henbane",
+      "name": "henbane",
+      "score": 38.4,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 12,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 3,
+        "sourceCount": 2,
+        "activeCompoundCount": 0,
+        "searchIntentSignal": 4
+      }
+    },
+    {
+      "slug": "alectra-sessiliflora",
+      "route": "/herbs/alectra-sessiliflora",
+      "name": "alectra sessiliflora",
+      "score": 34.1,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 13,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool",
+          "homepage:diverse-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 2,
+        "activeCompoundCount": 0,
+        "searchIntentSignal": 6
+      }
+    },
+    {
+      "slug": "nepeta-cataria",
+      "route": "/herbs/nepeta-cataria",
+      "name": "nepeta cataria",
+      "score": 32,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [
+          "homepage:curated",
+          "homepage:featured-pool",
+          "homepage:diverse-pool"
+        ],
+        "matchingCollections": 3,
+        "sourceCount": 5,
+        "activeCompoundCount": 5,
+        "searchIntentSignal": 5
+      }
+    },
+    {
+      "slug": "mandrake-root",
+      "route": "/herbs/mandrake-root",
+      "name": "mandrake root",
+      "score": 31.1,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 13,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 2,
+        "activeCompoundCount": 0,
+        "searchIntentSignal": 5
+      }
+    },
+    {
+      "slug": "ipomoea-tricolor-heavenly-blue",
+      "route": "/herbs/ipomoea-tricolor-heavenly-blue",
+      "name": "ipomoea tricolor (heavenly blue)",
+      "score": 29.4,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 12,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 2,
+        "activeCompoundCount": 0,
+        "searchIntentSignal": 4
+      }
+    },
+    {
+      "slug": "mistletoe",
+      "route": "/herbs/mistletoe",
+      "name": "mistletoe",
+      "score": 29.4,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 12,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 2,
+        "activeCompoundCount": 0,
+        "searchIntentSignal": 4
+      }
+    },
+    {
+      "slug": "acorus-calamus",
+      "route": "/herbs/acorus-calamus",
+      "name": "acorus calamus",
+      "score": 29,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [],
+        "matchingCollections": 5,
+        "sourceCount": 5,
+        "activeCompoundCount": 7,
+        "searchIntentSignal": 6
+      }
+    },
+    {
+      "slug": "anisoptera-thurifera",
+      "route": "/herbs/anisoptera-thurifera",
+      "name": "anisoptera thurifera",
+      "score": 28.7,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 11,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 2,
+        "activeCompoundCount": 0,
+        "searchIntentSignal": 4
+      }
+    },
+    {
+      "slug": "iresine-herbstii",
+      "route": "/herbs/iresine-herbstii",
+      "name": "iresine herbstii",
+      "score": 28.7,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 11,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 2,
+        "activeCompoundCount": 0,
+        "searchIntentSignal": 4
+      }
+    },
+    {
+      "slug": "jatropha-podagrica",
+      "route": "/herbs/jatropha-podagrica",
+      "name": "jatropha podagrica",
+      "score": 27.7,
+      "why": {
+        "indexable": true,
+        "publicationCompleteness": 11,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "sourceCount": 2,
+        "activeCompoundCount": 0,
+        "searchIntentSignal": 3
+      }
+    }
+  ],
+  "topCompounds": [
+    {
+      "slug": "flavonoids",
+      "route": "/compounds/flavonoids",
+      "name": "flavonoids",
+      "score": 20.1,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [],
+        "matchingCollections": 0,
+        "linkedHerbCount": 9,
+        "effectCount": 137,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "quercetin",
+      "route": "/compounds/quercetin",
+      "name": "quercetin",
+      "score": 18.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [],
+        "matchingCollections": 0,
+        "linkedHerbCount": 8,
+        "effectCount": 20,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "asarone",
+      "route": "/compounds/asarone",
+      "name": "asarone",
+      "score": 16.1,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "linkedHerbCount": 3,
+        "effectCount": 23,
+        "sourceCount": 0,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "saponins",
+      "route": "/compounds/saponins",
+      "name": "saponins",
+      "score": 14.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [],
+        "matchingCollections": 0,
+        "linkedHerbCount": 6,
+        "effectCount": 49,
+        "sourceCount": 0,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "volatile-oils",
+      "route": "/compounds/volatile-oils",
+      "name": "volatile oils",
+      "score": 14.1,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [],
+        "matchingCollections": 0,
+        "linkedHerbCount": 5,
+        "effectCount": 14,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "alkaloids",
+      "route": "/compounds/alkaloids",
+      "name": "alkaloids",
+      "score": 12.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [],
+        "matchingCollections": 0,
+        "linkedHerbCount": 4,
+        "effectCount": 86,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "camphor",
+      "route": "/compounds/camphor",
+      "name": "camphor",
+      "score": 12.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [],
+        "matchingCollections": 0,
+        "linkedHerbCount": 4,
+        "effectCount": 20,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "catechin",
+      "route": "/compounds/catechin",
+      "name": "catechin",
+      "score": 12.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "linkedHerbCount": 2,
+        "effectCount": 8,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "ephedrine",
+      "route": "/compounds/ephedrine",
+      "name": "ephedrine",
+      "score": 12.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "linkedHerbCount": 2,
+        "effectCount": 12,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "gallic-acid",
+      "route": "/compounds/gallic-acid",
+      "name": "gallic acid",
+      "score": 12.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "linkedHerbCount": 2,
+        "effectCount": 10,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "kaempferol",
+      "route": "/compounds/kaempferol",
+      "name": "kaempferol",
+      "score": 12.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [],
+        "matchingCollections": 0,
+        "linkedHerbCount": 4,
+        "effectCount": 17,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    },
+    {
+      "slug": "limonene",
+      "route": "/compounds/limonene",
+      "name": "limonene",
+      "score": 12.6,
+      "why": {
+        "indexable": false,
+        "publicationCompleteness": 0,
+        "homepageProminenceSignals": [
+          "homepage:featured-pool"
+        ],
+        "matchingCollections": 0,
+        "linkedHerbCount": 2,
+        "effectCount": 16,
+        "sourceCount": 1,
+        "hasMechanismNarrative": false
+      }
+    }
+  ],
+  "topCollections": [
+    {
+      "slug": "herbs-for-relaxation",
+      "route": "/collections/herbs-for-relaxation",
+      "name": "Herbs for Relaxation",
+      "score": 35.78,
+      "why": {
+        "indexable": true,
+        "matchCount": 25,
+        "itemType": "herb",
+        "homepageFeaturedCollection": true,
+        "relatedCollections": 3,
+        "hasEditorialBrief": true,
+        "qualityExclusionReasons": []
+      }
+    },
+    {
+      "slug": "herbs-for-sleep",
+      "route": "/collections/herbs-for-sleep",
+      "name": "Herbs for Sleep",
+      "score": 32.53,
+      "why": {
+        "indexable": true,
+        "matchCount": 16,
+        "itemType": "herb",
+        "homepageFeaturedCollection": true,
+        "relatedCollections": 3,
+        "hasEditorialBrief": true,
+        "qualityExclusionReasons": []
+      }
+    },
+    {
+      "slug": "herbs-for-focus",
+      "route": "/collections/herbs-for-focus",
+      "name": "Herbs for Focus",
+      "score": 30.82,
+      "why": {
+        "indexable": true,
+        "matchCount": 9,
+        "itemType": "herb",
+        "homepageFeaturedCollection": true,
+        "relatedCollections": 4,
+        "hasEditorialBrief": true,
+        "qualityExclusionReasons": []
+      }
+    },
+    {
+      "slug": "calming-herb-combinations",
+      "route": "/collections/calming-herb-combinations",
+      "name": "Calming Herb Combinations",
+      "score": 28.07,
+      "why": {
+        "indexable": true,
+        "matchCount": 6,
+        "itemType": "combo",
+        "homepageFeaturedCollection": true,
+        "relatedCollections": 3,
+        "hasEditorialBrief": true,
+        "qualityExclusionReasons": []
+      }
+    },
+    {
+      "slug": "herbs-for-energy",
+      "route": "/collections/herbs-for-energy",
+      "name": "Herbs for Energy",
+      "score": 27.64,
+      "why": {
+        "indexable": true,
+        "matchCount": 18,
+        "itemType": "herb",
+        "homepageFeaturedCollection": false,
+        "relatedCollections": 3,
+        "hasEditorialBrief": true,
+        "qualityExclusionReasons": []
+      }
+    },
+    {
+      "slug": "stimulant-herb-combinations",
+      "route": "/collections/stimulant-herb-combinations",
+      "name": "Stimulant Herb Combinations",
+      "score": 27.49,
+      "why": {
+        "indexable": true,
+        "matchCount": 5,
+        "itemType": "combo",
+        "homepageFeaturedCollection": true,
+        "relatedCollections": 3,
+        "hasEditorialBrief": true,
+        "qualityExclusionReasons": []
+      }
+    },
+    {
+      "slug": "herbs-for-deep-sleep-recovery",
+      "route": "/collections/herbs-for-deep-sleep-recovery",
+      "name": "Herbs for Deep Sleep Recovery",
+      "score": 25.64,
+      "why": {
+        "indexable": true,
+        "matchCount": 15,
+        "itemType": "herb",
+        "homepageFeaturedCollection": false,
+        "relatedCollections": 3,
+        "hasEditorialBrief": true,
+        "qualityExclusionReasons": []
+      }
+    }
+  ]
+}
