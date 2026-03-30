@@ -56,6 +56,13 @@ Optional context fields:
 - `population_specific_note`
 - `conflict_note`
 - `research_gap`
+- `pregnancy_note`
+- `lactation_note`
+- `pediatric_note`
+- `geriatric_note`
+- `condition_caution`
+- `surgery_caution`
+- `medication_class_caution`
 
 ## Deterministic validation rules
 
@@ -79,6 +86,13 @@ Approved, active entries are mapped into `researchEnrichment` fields:
 - `interaction` → `interactions`
 - `contraindication` → `contraindications`
 - `adverse_effect` → `adverseEffects`
+- `pregnancy_note` → `populationSpecificNotes` (+ `safetyProfile`)
+- `lactation_note` → `populationSpecificNotes` (+ `safetyProfile`)
+- `pediatric_note` → `populationSpecificNotes` (+ `safetyProfile`)
+- `geriatric_note` → `populationSpecificNotes` (+ `safetyProfile`)
+- `condition_caution` → `populationSpecificNotes` (+ `safetyProfile`)
+- `surgery_caution` → `populationSpecificNotes` (+ `safetyProfile`)
+- `medication_class_caution` → `populationSpecificNotes` (+ `safetyProfile`)
 - `dosage_context` → `dosageContextNotes`
 - `population_specific_note` → `populationSpecificNotes`
 - `conflict_note` → `conflictNotes`
@@ -96,3 +110,5 @@ Each rolled-up claim keeps evidence class and source traceability:
   - counts by entity, topic type, evidence class, editorial status
 - `ops/reports/enrichment-rollup-preview.json`
   - entity-level research enrichment preview object
+- `ops/reports/safety-enrichment-summary.json`
+  - safety counts by entity/topic/target/severity/evidence/conflict

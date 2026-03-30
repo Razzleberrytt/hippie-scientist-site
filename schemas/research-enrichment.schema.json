@@ -67,6 +67,13 @@
           "interaction",
           "contraindication",
           "adverse_effect",
+          "pregnancy_note",
+          "lactation_note",
+          "pediatric_note",
+          "geriatric_note",
+          "condition_caution",
+          "surgery_caution",
+          "medication_class_caution",
           "dosage_context",
           "population_specific_note",
           "conflict_note",
@@ -75,6 +82,7 @@
       },
       "additionalProperties": { "$ref": "#/$defs/evidenceJudgment" }
     },
+    "safetyProfile": { "$ref": "#/$defs/safetyProfile" },
     "pageEvidenceJudgment": { "$ref": "#/$defs/evidenceJudgment" },
     "sourceRegistryIds": {
       "type": "array",
@@ -214,6 +222,101 @@
         "conflictNotes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
         "uncertaintyNotes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
         "toneGuidance": { "type": "string", "minLength": 1 }
+      }
+    },
+    "safetyProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["safetyEntries", "summary"],
+      "properties": {
+        "safetyEntries": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/safetyEntry" }
+        },
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["total", "byTopicType", "bySeverity"],
+          "properties": {
+            "total": { "type": "integer", "minimum": 0 },
+            "byTopicType": {
+              "type": "object",
+              "additionalProperties": { "type": "integer", "minimum": 0 }
+            },
+            "bySeverity": {
+              "type": "object",
+              "additionalProperties": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "safetyEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "safetyEntryId",
+        "sourceId",
+        "safetyTopicType",
+        "targetType",
+        "targetName",
+        "severityLabel",
+        "urgencyLabel",
+        "evidenceClass",
+        "findingTextShort",
+        "findingTextNormalized",
+        "mechanismKnown",
+        "reviewer",
+        "reviewedAt",
+        "editorialStatus",
+        "active"
+      ],
+      "properties": {
+        "safetyEntryId": { "type": "string", "pattern": "^senr_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "safetyTopicType": {
+          "type": "string",
+          "enum": [
+            "interaction",
+            "contraindication",
+            "adverse_effect",
+            "pregnancy_note",
+            "lactation_note",
+            "pediatric_note",
+            "geriatric_note",
+            "condition_caution",
+            "surgery_caution",
+            "medication_class_caution"
+          ]
+        },
+        "targetType": { "type": "string", "enum": ["drug", "drug_class", "herb", "condition", "population"] },
+        "targetName": { "type": "string", "minLength": 1 },
+        "severityLabel": { "type": "string", "enum": ["none_known", "low", "moderate", "high", "severe", "contraindicated"] },
+        "urgencyLabel": { "type": "string", "enum": ["routine", "caution", "prompt_review", "urgent"] },
+        "evidenceClass": {
+          "type": "string",
+          "enum": [
+            "human-clinical",
+            "human-observational",
+            "preclinical-mechanistic",
+            "traditional-use",
+            "regulatory-monograph"
+          ]
+        },
+        "findingTextShort": { "type": "string", "minLength": 1 },
+        "findingTextNormalized": { "type": "string", "minLength": 1 },
+        "mechanismKnown": { "type": "boolean" },
+        "populationContext": { "type": "string" },
+        "medicationClassContext": { "type": "string" },
+        "uncertaintyNote": { "type": "string" },
+        "conflictNote": { "type": "string" },
+        "reviewer": { "type": "string", "minLength": 1 },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "editorialStatus": {
+          "type": "string",
+          "enum": ["draft", "in-review", "approved", "needs-update", "deprecated"]
+        },
+        "active": { "type": "boolean" }
       }
     }
   }

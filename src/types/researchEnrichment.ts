@@ -99,6 +99,44 @@ export type ResearchEnrichment = {
   populationSpecificNotes: ResearchClaim[]
   conflictNotes: ResearchClaim[]
   researchGaps: ResearchClaim[]
+  safetyProfile?: {
+    safetyEntries: Array<{
+      safetyEntryId: string
+      sourceId: string
+      safetyTopicType:
+        | 'interaction'
+        | 'contraindication'
+        | 'adverse_effect'
+        | 'pregnancy_note'
+        | 'lactation_note'
+        | 'pediatric_note'
+        | 'geriatric_note'
+        | 'condition_caution'
+        | 'surgery_caution'
+        | 'medication_class_caution'
+      targetType: 'drug' | 'drug_class' | 'herb' | 'condition' | 'population'
+      targetName: string
+      severityLabel: 'none_known' | 'low' | 'moderate' | 'high' | 'severe' | 'contraindicated'
+      urgencyLabel: 'routine' | 'caution' | 'prompt_review' | 'urgent'
+      evidenceClass: EvidenceClass
+      findingTextShort: string
+      findingTextNormalized: string
+      mechanismKnown: boolean
+      populationContext?: string
+      medicationClassContext?: string
+      uncertaintyNote?: string
+      conflictNote?: string
+      reviewer: string
+      reviewedAt: string
+      editorialStatus: EditorialStatus
+      active: boolean
+    }>
+    summary: {
+      total: number
+      byTopicType: Record<string, number>
+      bySeverity: Record<string, number>
+    }
+  }
   topicEvidenceJudgments: Partial<Record<string, EvidenceJudgment>>
   pageEvidenceJudgment: EvidenceJudgment
   sourceRefs: ResearchSourceRef[]
