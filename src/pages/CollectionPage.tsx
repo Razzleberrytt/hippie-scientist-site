@@ -649,10 +649,13 @@ export default function CollectionPage() {
           tool: (
             <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
               <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
-                Step 1: interaction checker
+                Step 1: validate interactions now
+              </p>
+              <p className='mt-1 text-xs text-emerald-50/90'>
+                Run the checker before you exit this page to reduce avoidable stack-risk.
               </p>
               <Link to={checkerHref} className='btn-primary mt-2 inline-flex text-xs' onClick={() => handleFunnelClick('checker')}>
-                Start with Interaction Checker
+                Check this collection in Interaction Checker
               </Link>
             </div>
           ),
@@ -675,7 +678,7 @@ export default function CollectionPage() {
           ),
           related: relatedCollections.length > 0 && (
             <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
-              <p className='text-xs font-semibold text-white'>Related collections</p>
+              <p className='text-xs font-semibold text-white'>Compare adjacent collections next</p>
               <div className='mt-2 flex flex-wrap gap-2'>
                 {relatedCollections.slice(0, 3).map(entry => (
                   <Link key={`related-${entry.slug}`} to={`/collections/${entry.slug}`} className='btn-secondary text-xs'>
