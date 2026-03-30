@@ -278,8 +278,9 @@ steps:
 
   - id: H13
     title: NavBar active link, mobile close behavior, and icon toggle polish
-    status: ready
+    status: blocked
     risk: low
+    blocker: "Requested work targets blog builder .md/.mdx support (PROMPT 07), but queue protocol only allows executing current step H13."
     success_checks:
       - "active nav links render highlighted state across desktop and mobile"
       - "mobile menu closes on route changes including browser history navigation"
