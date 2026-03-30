@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.app/schemas/enrichment-bootstrap-pack.schema.json",
+  "title": "Enrichment authoring bootstrap pack report",
+  "description": "Deterministic scaffolds linking approved source registry rows to governed enrichment authoring tasks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "deterministicModelVersion",
+    "sources",
+    "sourceToEnrichmentAudit",
+    "summary",
+    "skippedSources",
+    "bootstrapPacks"
+  ],
+  "properties": {
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "deterministicModelVersion": { "type": "string", "const": "enrichment-bootstrap-packs-v1" },
+    "sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enrichmentWorkpacks", "sourceRegistry"],
+      "properties": {
+        "enrichmentWorkpacks": { "type": "string", "minLength": 1 },
+        "sourceRegistry": { "type": "string", "minLength": 1 }
+      }
+    },
+    "sourceToEnrichmentAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requiredAuthoringInputs", "hardStops"],
+      "properties": {
+        "requiredAuthoringInputs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        },
+        "hardStops": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "totalBootstrapPacks",
+        "readyForAuthoringCount",
+        "blockedGovernanceCount",
+        "blockedSourceCount",
+        "reviewerNeededCount"
+      ],
+      "properties": {
+        "totalBootstrapPacks": { "type": "integer", "minimum": 0 },
+        "readyForAuthoringCount": { "type": "integer", "minimum": 0 },
+        "blockedGovernanceCount": { "type": "integer", "minimum": 0 },
+        "blockedSourceCount": { "type": "integer", "minimum": 0 },
+        "reviewerNeededCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "skippedSources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["workpackId", "sourceId", "reasons"],
+        "properties": {
+          "workpackId": { "type": "string", "minLength": 1 },
+          "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "reasons": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 }
+        }
+      }
+    },
+    "bootstrapPacks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "bootstrapPackId",
+          "workpackId",
+          "entityType",
+          "sourceId",
+          "sourceClass",
+          "evidenceClass",
+          "candidateTopicTypes",
+          "candidateClaimTypes",
+          "sourceUseNotes",
+          "requiredMetadataChecks",
+          "requiredGovernanceChecks",
+          "suggestedEntrySkeletons",
+          "blockedTopicTypes",
+          "completionCriteria",
+          "reviewerNeeded",
+          "status",
+          "notesForContractor"
+        ],
+        "properties": {
+          "bootstrapPackId": { "type": "string", "pattern": "^bp_[a-z0-9_]+$" },
+          "workpackId": { "type": "string", "minLength": 1 },
+          "entityType": { "type": "string", "enum": ["herb", "compound", "surface"] },
+          "entitySlug": { "type": ["string", "null"] },
+          "surfaceId": { "type": ["string", "null"] },
+          "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "sourceClass": { "type": "string", "minLength": 1 },
+          "evidenceClass": { "type": "string", "minLength": 1 },
+          "candidateTopicTypes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "candidateClaimTypes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "sourceUseNotes": { "type": "string", "minLength": 1 },
+          "requiredMetadataChecks": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+          "requiredGovernanceChecks": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+          "suggestedEntrySkeletons": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["topicType", "claimType", "skeletonChecklist"],
+              "properties": {
+                "topicType": { "type": "string", "minLength": 1 },
+                "claimType": { "type": "string", "minLength": 1 },
+                "skeletonChecklist": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 }
+              }
+            }
+          },
+          "blockedTopicTypes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "completionCriteria": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1 },
+          "reviewerNeeded": { "type": "boolean" },
+          "status": { "type": "string", "enum": ["ready_for_authoring", "blocked_source", "blocked_governance"] },
+          "notesForContractor": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
