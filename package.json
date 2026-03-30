@@ -100,7 +100,8 @@
     "enrichment:test:evidence": "node scripts/enrichment/test-evidence-grading.mjs",
     "verify:enrichment-linking": "tsx scripts/verify-enrichment-linking.ts",
     "report:enrichment-health": "tsx scripts/report-enrichment-health.ts",
-    "report:enrichment-backlog": "npm run report:enrichment-health && tsx scripts/report-enrichment-backlog.ts"
+    "report:enrichment-backlog": "npm run report:enrichment-health && tsx scripts/report-enrichment-backlog.ts",
+    "report:enrichment-review-cycle": "npm run report:enrichment-backlog && tsx scripts/report-enrichment-review-cycle.ts"
   },
   "engines": {
     "node": ">=20 <21"
