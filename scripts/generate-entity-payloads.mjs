@@ -41,19 +41,35 @@ function cleanDir(dir) {
 
 function hasEvidenceNotes(record) {
   const sources = Array.isArray(record.sources) ? record.sources : []
+  const enrichmentSources = Array.isArray(record.researchEnrichment?.sourceRefs)
+    ? record.researchEnrichment.sourceRefs
+    : []
   const sourceCount = sources
     .map(item => (typeof item === 'string' ? item : item?.url || item?.title || ''))
     .map(asText)
     .filter(Boolean).length
-  return sourceCount > 0 || asText(record.lastUpdated || record.updatedAt).length > 0
+  const enrichmentSourceCount = enrichmentSources
+    .map(item => (typeof item === 'object' ? item?.sourceId || item?.url || item?.title || '' : ''))
+    .map(asText)
+    .filter(Boolean).length
+  return (
+    sourceCount > 0 ||
+    enrichmentSourceCount > 0 ||
+    asText(record.lastUpdated || record.updatedAt || record.researchEnrichment?.lastReviewedAt)
+      .length > 0
+  )
 }
 
 function buildHerbSummary(record) {
-  const slug = slugify(record.slug || record.id || record.common || record.name || record.scientific)
+  const slug = slugify(
+    record.slug || record.id || record.common || record.name || record.scientific,
+  )
   const common = asText(record.common || record.commonName || record.name)
   const scientific = asText(record.scientific || record.scientificName || record.latin)
   const effects = splitList(record.effects)
-  const activeCompounds = splitList(record.activeCompounds || record.active_compounds || record.compounds)
+  const activeCompounds = splitList(
+    record.activeCompounds || record.active_compounds || record.compounds,
+  )
   const interactionTags = splitList(record.interactionTags)
 
   return {
@@ -74,7 +90,8 @@ function buildHerbSummary(record) {
     compounds: activeCompounds,
     interactionTags,
     hasInteractionData:
-      interactionTags.length > 0 || splitList(record.interactionNotes || record.interactions).length > 0,
+      interactionTags.length > 0 ||
+      splitList(record.interactionNotes || record.interactions).length > 0,
     hasEvidenceNotes: hasEvidenceNotes(record),
     image: asText(record.image),
     aliases: [common, scientific, asText(record.name)].map(asText).filter(Boolean),
@@ -101,14 +118,14 @@ function buildCompoundSummary(record) {
     herbs,
     confidence: asText(record.confidence || 'low').toLowerCase(),
     hasInteractionData:
-      interactionTags.length > 0 || splitList(record.interactionNotes || record.interactions).length > 0,
+      interactionTags.length > 0 ||
+      splitList(record.interactionNotes || record.interactions).length > 0,
     hasEvidenceNotes: hasEvidenceNotes(record),
     aliases: [asText(record.name), asText(record.className), asText(record.category)]
       .map(asText)
       .filter(Boolean),
   }
 }
-
 
 function dedupeBySlug(entries) {
   const seen = new Set()
@@ -150,7 +167,9 @@ function run() {
   const compoundDetailCount = writeEntityDetails(compounds, COMPOUND_DETAIL_DIR)
 
   console.log(`[entity-payloads] herbs summary=${herbSummaries.length} detail=${herbDetailCount}`)
-  console.log(`[entity-payloads] compounds summary=${compoundSummaries.length} detail=${compoundDetailCount}`)
+  console.log(
+    `[entity-payloads] compounds summary=${compoundSummaries.length} detail=${compoundDetailCount}`,
+  )
 }
 
 run()
