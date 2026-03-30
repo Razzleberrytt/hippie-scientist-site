@@ -1,28 +1,37 @@
 {
-  "generatedAt": "2026-03-30T18:54:07.953Z",
+  "generatedAt": "2026-03-30T19:03:27.734Z",
   "inputPath": "public/data/enrichment-normalized.jsonl",
-  "totalEntries": 6,
+  "totalEntries": 18,
   "counts": {
     "byEntity": {
-      "herb:kava": 4,
-      "compound:cbd": 2
+      "herb:ashwagandha": 3,
+      "herb:chamomile": 3,
+      "herb:kava": 3,
+      "compound:cbd": 4,
+      "compound:luteolin": 5
     },
     "byTopicType": {
-      "supported_use": 1,
+      "supported_use": 3,
+      "pathway": 2,
+      "pregnancy_note": 1,
+      "unsupported_or_unclear_use": 2,
+      "adverse_effect": 2,
+      "conflict_note": 2,
+      "condition_caution": 1,
+      "medication_class_caution": 1,
+      "enzyme_interaction": 1,
+      "research_gap": 1,
       "constituent": 1,
-      "receptor_activity": 1,
-      "compound_origin_note": 1,
-      "population_specific_note": 1,
-      "interaction": 1
+      "population_specific_note": 1
     },
     "byEvidenceClass": {
-      "human-clinical": 5,
-      "traditional-use": 1
+      "human-clinical": 9,
+      "regulatory-monograph": 4,
+      "preclinical-mechanistic": 5
     },
     "byEditorialStatus": {
-      "approved": 5,
-      "in-review": 1
+      "approved": 18
     }
   },
-  "rollupEntityCount": 0
+  "rollupEntityCount": 5
 }

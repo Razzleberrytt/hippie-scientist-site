@@ -1,30 +1,34 @@
 {
-  "generatedAt": "2026-03-30T17:47:52.763Z",
+  "generatedAt": "2026-03-30T19:04:18.704Z",
   "registryPath": "public/data/source-registry.json",
-  "totalSources": 4,
-  "activeSources": 0,
+  "totalSources": 10,
+  "activeSources": 6,
   "inactiveSources": 4,
   "counts": {
     "bySourceClass": {
-      "randomized-human-trial": 1,
-      "regulatory-agency-monograph-guidance": 1,
+      "randomized-human-trial": 3,
+      "regulatory-agency-monograph-guidance": 2,
       "traditional-use-monograph": 1,
-      "reference-database-authority": 1
+      "reference-database-authority": 1,
+      "systematic-review-meta-analysis": 2,
+      "preclinical-mechanistic-study": 1
     },
     "bySourceType": {
-      "journal-article": 1,
-      "regulatory-guidance": 1,
+      "journal-article": 4,
+      "regulatory-guidance": 2,
       "monograph": 1,
-      "reference-database": 1
+      "reference-database": 1,
+      "systematic-review": 2
     },
     "byEvidenceClass": {
-      "human-clinical": 1,
-      "regulatory-monograph": 2,
-      "traditional-use": 1
+      "human-clinical": 5,
+      "regulatory-monograph": 3,
+      "traditional-use": 1,
+      "preclinical-mechanistic": 1
     },
     "byReliabilityTier": {
-      "tier-a": 2,
-      "tier-b": 2
+      "tier-a": 6,
+      "tier-b": 4
     }
   }
 }
