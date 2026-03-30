@@ -6,7 +6,8 @@ import { getSharedRouteManifest } from './shared-route-manifest.mjs'
 const DIST = path.resolve(process.cwd(), 'dist')
 const REPORT_PATH = path.join(DIST, 'route-manifest-report.json')
 
-const { approvedRoutes, prerenderRoutes, sitemapRoutes, metadata, routeMeta } = getSharedRouteManifest()
+const { approvedRoutes, prerenderRoutes, sitemapRoutes, metadata, routeMeta, routeDirectives } =
+  getSharedRouteManifest()
 
 function routeHtmlPath(route) {
   if (route === '/') return path.join(DIST, 'index.html')
@@ -65,6 +66,64 @@ function verifySampleRoute(route) {
   return { route, ok: true, bodyLength: rootText.length }
 }
 
+function verifyHeadTags(route) {
+  const htmlPath = routeHtmlPath(route)
+  if (!fs.existsSync(htmlPath)) {
+    return { route, ok: false, reason: 'missing-html-file' }
+  }
+  const html = fs.readFileSync(htmlPath, 'utf8')
+  const expectedCanonical = `https://thehippiescientist.net${route === '/' ? '/' : route}`
+  const directives = routeDirectives.get(route) || {}
+
+  const titleCount = (html.match(/<title[\s>]/gi) || []).length
+  if (titleCount !== 1) return { route, ok: false, reason: `duplicate-or-missing-title:${titleCount}` }
+
+  const requiredTagPatterns = [
+    /<meta[^>]+name=["']description["'][^>]*>/i,
+    /<meta[^>]+property=["']og:title["'][^>]*>/i,
+    /<meta[^>]+property=["']og:description["'][^>]*>/i,
+    /<meta[^>]+property=["']og:image["'][^>]*>/i,
+    /<meta[^>]+name=["']twitter:card["'][^>]*>/i,
+    /<meta[^>]+name=["']twitter:title["'][^>]*>/i,
+    /<meta[^>]+name=["']twitter:description["'][^>]*>/i,
+    /<meta[^>]+name=["']twitter:image["'][^>]*>/i,
+  ]
+
+  for (const pattern of requiredTagPatterns) {
+    if (!pattern.test(html)) return { route, ok: false, reason: `missing-tag:${pattern}` }
+  }
+
+  const canonicalRegex = new RegExp(
+    `<link[^>]+rel=["']canonical["'][^>]+href=["']${escapePattern(expectedCanonical)}["']`,
+    'i'
+  )
+  if (!canonicalRegex.test(html)) return { route, ok: false, reason: 'missing-canonical' }
+
+  const robotsNoindex = /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html)
+  if (Boolean(directives.noindex) !== robotsNoindex) {
+    return { route, ok: false, reason: 'noindex-directive-mismatch' }
+  }
+
+  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+  const bodyScope = mainMatch?.[1] || html
+  const bodyText = stripTags(bodyScope)
+  const thinPlaceholderSignals = [
+    'Interactive content loads after hydration',
+    'metadata. Interactive content loads',
+    'Content is being updated.',
+    'not available in prerender assets',
+  ]
+  const hasPlaceholder = thinPlaceholderSignals.some(signal =>
+    bodyText.toLowerCase().includes(signal.toLowerCase())
+  )
+  const isIndexable = !directives.noindex
+  if (isIndexable && (bodyText.length < 160 || hasPlaceholder)) {
+    return { route, ok: false, reason: 'thin-indexable-body' }
+  }
+
+  return { route, ok: true, bodyLength: bodyText.length, titleCount }
+}
+
 const onlyInSitemap = difference(sitemapRoutes, prerenderRoutes)
 const onlyInPrerender = difference(prerenderRoutes, sitemapRoutes)
 
@@ -78,6 +137,7 @@ for (const route of ['/', '/blog', blogDetail, '/herbs', herbDetail, '/compounds
 }
 
 const sampleChecks = samples.map(verifySampleRoute)
+const headChecks = prerenderRoutes.map(verifyHeadTags)
 
 const report = {
   approvedRouteCount: approvedRoutes.length,
@@ -86,6 +146,10 @@ const report = {
   onlyInSitemap,
   onlyInPrerender,
   sampleChecks,
+  headChecksSummary: {
+    checked: headChecks.length,
+    failures: headChecks.filter(check => !check.ok).length,
+  },
 }
 
 fs.mkdirSync(DIST, { recursive: true })
@@ -117,6 +181,16 @@ const failingSamples = sampleChecks.filter(item => !item.ok)
 if (failingSamples.length > 0) {
   console.error('[verify-prerender] Sample content checks failed:')
   failingSamples.forEach(item => console.error(` - ${item.route}: ${item.reason}`))
+  process.exit(1)
+}
+
+const failingHeadChecks = headChecks.filter(item => !item.ok)
+if (failingHeadChecks.length > 0) {
+  console.error('[verify-prerender] Full-route SEO checks failed:')
+  failingHeadChecks.slice(0, 40).forEach(item => console.error(` - ${item.route}: ${item.reason}`))
+  if (failingHeadChecks.length > 40) {
+    console.error(` ...and ${failingHeadChecks.length - 40} more`)
+  }
   process.exit(1)
 }
 

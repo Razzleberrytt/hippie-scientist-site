@@ -1,10 +1,11 @@
 import { getSharedRouteManifest } from './shared-route-manifest.mjs'
 
 export function getPrerenderPlan() {
-  const { prerenderRoutes, routeMeta, metadata } = getSharedRouteManifest()
+  const { prerenderRoutes, routeMeta, routeDirectives, metadata } = getSharedRouteManifest()
   return {
     routes: prerenderRoutes,
     routeMeta,
+    routeDirectives,
     metadata,
   }
 }
