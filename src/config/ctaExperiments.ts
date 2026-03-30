@@ -48,7 +48,13 @@ export const CTA_EXPERIMENT_CONFIG: CtaExperimentConfig = {
     compound_detail: 'B',
     collection_page: 'C',
   },
-  pageOverrides: {},
+  pageOverrides: {
+    'collection:herbs-for-relaxation': 'A',
+    'collection:herbs-for-sleep': 'A',
+    'collection:herbs-for-focus': 'A',
+    'collection:calming-herb-combinations': 'A',
+    'collection:stimulant-herb-combinations': 'A',
+  },
   trustFirstGuard: {
     pageTypes: ['herb_detail', 'compound_detail'],
     cautionThreshold: 1,

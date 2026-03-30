@@ -108,15 +108,6 @@ export default function CuratedProductModule({
             <p className='mt-1 text-xs text-white/75'>{product.rationaleShort}</p>
             <p className='mt-2 text-xs text-white/65'>{product.rationaleLong}</p>
 
-            <div className='mt-2'>
-              <p className='text-xs font-medium text-white/80'>Who it may fit</p>
-              <ul className='mt-1 list-disc space-y-1 pl-4 text-xs text-white/70'>
-                {product.bestFor.map(item => (
-                  <li key={`${product.productId}-fit-${item}`}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
             {(product.cautionNotes.length > 0 || product.avoidIf.length > 0) && (
               <div className='mt-2 rounded-lg border border-rose-300/30 bg-rose-500/10 p-2'>
                 <p className='text-xs font-medium text-rose-100'>Caution / avoidance notes</p>
@@ -130,6 +121,15 @@ export default function CuratedProductModule({
                 </ul>
               </div>
             )}
+
+            <div className='mt-2'>
+              <p className='text-xs font-medium text-white/80'>Who it may fit</p>
+              <ul className='mt-1 list-disc space-y-1 pl-4 text-xs text-white/70'>
+                {product.bestFor.map(item => (
+                  <li key={`${product.productId}-fit-${item}`}>{item}</li>
+                ))}
+              </ul>
+            </div>
 
             <p className='mt-2 text-[11px] text-white/50'>
               Reviewed by {product.reviewedBy} on {product.reviewedAt}
@@ -152,7 +152,7 @@ export default function CuratedProductModule({
                 })
               }}
             >
-              View researched product
+              Review product fit & disclosure
             </a>
           </article>
         ))}
