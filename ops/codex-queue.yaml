@@ -1,5 +1,5 @@
 version: 1
-current: H2
+current: H13
 default_branch: main
 pr_branch_prefix: codex/
 notes:
@@ -275,3 +275,12 @@ steps:
       - "release checklist reflects baseline comparison and review-report expectations"
       - "final hardening pass verifies the new reporting path end to end"
       - "no lane safety or approval guard is weakened"
+
+  - id: H13
+    title: NavBar active link, mobile close behavior, and icon toggle polish
+    status: ready
+    risk: low
+    success_checks:
+      - "active nav links render highlighted state across desktop and mobile"
+      - "mobile menu closes on route changes including browser history navigation"
+      - "menu toggle uses iconography while retaining aria attributes"
