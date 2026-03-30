@@ -1,0 +1,144 @@
+{
+  "generatedAt": "2026-03-30T18:54:30.347Z",
+  "summary": {
+    "totalEntries": 6,
+    "totalEntities": 2,
+    "entitiesReadyForEnrichedPublish": 0,
+    "entitiesPartiallyBlocked": 0,
+    "entitiesBlocked": 2,
+    "blockedEntries": 6,
+    "countsByEditorialState": {
+      "approved": 5,
+      "in-review": 1
+    }
+  },
+  "entitiesReadyForEnrichedPublish": [],
+  "entitiesPartiallyEnrichedButBlocked": [],
+  "entitiesBlocked": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "entriesTotal": 2,
+      "publishableEntries": 0,
+      "blockedEntries": 2,
+      "readinessState": "blocked",
+      "editorialStates": [
+        "approved"
+      ],
+      "blockedReasons": [
+        "source_inactive"
+      ]
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "entriesTotal": 4,
+      "publishableEntries": 0,
+      "blockedEntries": 4,
+      "readinessState": "blocked",
+      "editorialStates": [
+        "approved",
+        "in-review"
+      ],
+      "blockedReasons": [
+        "editorial_status_not_publishable",
+        "source_inactive",
+        "weak_evidence_requires_uncertainty_note"
+      ]
+    }
+  ],
+  "blockedEntries": [
+    {
+      "index": 0,
+      "enrichmentId": "enr_kava-supported-use-anxiety-rct",
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "sourceId": "src_pubmed-clinical-template",
+      "topicType": "supported_use",
+      "editorialStatus": "approved",
+      "active": true,
+      "publishable": false,
+      "readinessState": "publishable",
+      "blockedReasons": [
+        "source_inactive"
+      ]
+    },
+    {
+      "index": 1,
+      "enrichmentId": "enr_kava-constituent-kavalactones",
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "sourceId": "src_pubmed-clinical-template",
+      "topicType": "constituent",
+      "editorialStatus": "approved",
+      "active": true,
+      "publishable": false,
+      "readinessState": "publishable",
+      "blockedReasons": [
+        "source_inactive"
+      ]
+    },
+    {
+      "index": 2,
+      "enrichmentId": "enr_cbd-mechanism-cb1-cb2",
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "sourceId": "src_pubmed-clinical-template",
+      "topicType": "receptor_activity",
+      "editorialStatus": "approved",
+      "active": true,
+      "publishable": false,
+      "readinessState": "publishable",
+      "blockedReasons": [
+        "source_inactive"
+      ]
+    },
+    {
+      "index": 3,
+      "enrichmentId": "enr_cbd-origin-cannabis-sativa",
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "sourceId": "src_pubmed-clinical-template",
+      "topicType": "compound_origin_note",
+      "editorialStatus": "approved",
+      "active": true,
+      "publishable": false,
+      "readinessState": "publishable",
+      "blockedReasons": [
+        "source_inactive"
+      ]
+    },
+    {
+      "index": 4,
+      "enrichmentId": "enr_kava-population-note-traditional",
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "sourceId": "src_who-traditional-monograph-template",
+      "topicType": "population_specific_note",
+      "editorialStatus": "in-review",
+      "active": true,
+      "publishable": false,
+      "readinessState": "review-ready",
+      "blockedReasons": [
+        "source_inactive",
+        "editorial_status_not_publishable",
+        "weak_evidence_requires_uncertainty_note"
+      ]
+    },
+    {
+      "index": 5,
+      "enrichmentId": "enr_kava-interaction-warfarin-template",
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "sourceId": "src_pubmed-clinical-template",
+      "topicType": "interaction",
+      "editorialStatus": "approved",
+      "active": true,
+      "publishable": false,
+      "readinessState": "publishable",
+      "blockedReasons": [
+        "source_inactive"
+      ]
+    }
+  ]
+}

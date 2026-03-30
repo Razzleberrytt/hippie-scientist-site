@@ -33,6 +33,8 @@ Each row must include:
 - `editorialStatus`
 - `active`
 
+Editorial workflow states are defined in `docs/enrichment-editorial-workflow.md`.
+
 Optional context fields:
 
 - `strengthLabel`
@@ -94,7 +96,7 @@ The validator enforces:
 
 ## Rollup mapping (Prompt 26 schema)
 
-Approved, active entries are mapped into `researchEnrichment` fields:
+Only publish-ready entries (active, reviewed metadata present, publish-allowed editorial status, valid active provenance) are mapped into `researchEnrichment` fields:
 
 - `supported_use` → `supportedUses`
 - `unsupported_or_unclear_use` → `unsupportedOrUnclearUses`
@@ -129,3 +131,5 @@ Each rolled-up claim keeps evidence class and source traceability:
   - entity-level research enrichment preview object
 - `ops/reports/safety-enrichment-summary.json`
   - safety counts by entity/topic/target/severity/evidence/conflict
+- `ops/reports/enrichment-editorial-readiness.json`
+  - entity/entry publish readiness and blocked reasons

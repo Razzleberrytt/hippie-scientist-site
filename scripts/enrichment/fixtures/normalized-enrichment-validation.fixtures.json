@@ -327,6 +327,24 @@
           "active": true
         }
       ]
+    },
+    {
+      "reason": "publishable weak evidence rows require uncertainty note",
+      "entry": {
+        "enrichmentId": "enr_weak-evidence-no-uncertainty",
+        "entityType": "compound",
+        "entitySlug": "cbd",
+        "sourceId": "src_who-traditional-monograph-template",
+        "topicType": "population_specific_note",
+        "claimType": "population_note",
+        "evidenceClass": "traditional-use",
+        "findingTextShort": "Traditional use context for CBD in selected monographs.",
+        "findingTextNormalized": "Traditional-use monograph sources describe context-specific CBD population notes but do not include modern clinical certainty.",
+        "reviewer": "ops-editor",
+        "reviewedAt": "2026-03-30T00:00:00.000Z",
+        "editorialStatus": "approved",
+        "active": true
+      }
     }
   ]
 }

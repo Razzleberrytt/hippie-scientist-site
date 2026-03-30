@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 import path from 'node:path'
 import {
+  EDITORIAL_READINESS_REPORT_PATH,
   EVIDENCE_GRADING_SUMMARY_PATH,
   INPUT_PATH_DEFAULT,
   MECHANISM_SUMMARY_REPORT_PATH,
   SAFETY_SUMMARY_REPORT_PATH,
   SUMMARY_REPORT_PATH,
+  buildEditorialReadinessReport,
   buildMechanismSummary,
   buildSafetySummary,
   buildSummary,
@@ -32,6 +34,7 @@ const rollup = rollupToResearchEnrichment(normalizedEntries, sourceById)
 const summary = buildSummary(normalizedEntries)
 const safetySummary = buildSafetySummary(normalizedEntries)
 const mechanismSummary = buildMechanismSummary(normalizedEntries)
+const editorialReadinessReport = buildEditorialReadinessReport(normalizedEntries, sourceById)
 summary.rollupEntityCount = rollup.length
 const evidenceGradingSummary = summarizeEvidenceRollup(rollup)
 
@@ -41,6 +44,7 @@ writeJson(SAFETY_SUMMARY_REPORT_PATH, safetySummary)
 writeJson(MECHANISM_SUMMARY_REPORT_PATH, mechanismSummary)
 writeJson(rollupPath, rollup)
 writeJson(EVIDENCE_GRADING_SUMMARY_PATH, evidenceGradingSummary)
+writeJson(EDITORIAL_READINESS_REPORT_PATH, editorialReadinessReport)
 
 console.log(
   `[normalize-enrichment-entries] PASS entries=${normalizedEntries.length} rollup_entities=${rollup.length} summary=${path.relative(process.cwd(), SUMMARY_REPORT_PATH)}`,

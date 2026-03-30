@@ -143,8 +143,12 @@
       "type": "string",
       "enum": [
         "draft",
+        "needs_review",
+        "reviewed",
         "in-review",
         "approved",
+        "published",
+        "blocked",
         "needs-update",
         "deprecated"
       ]

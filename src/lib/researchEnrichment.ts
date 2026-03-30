@@ -30,8 +30,12 @@ const EVIDENCE_TIERS = new Set<EvidenceTier>([
 
 const EDITORIAL_STATUSES = new Set<EditorialStatus>([
   'draft',
+  'needs_review',
+  'reviewed',
   'in-review',
   'approved',
+  'published',
+  'blocked',
   'needs-update',
   'deprecated',
 ])
@@ -233,6 +237,10 @@ export function normalizeResearchEnrichment(value: unknown): ResearchEnrichment 
       : {}
   const reviewedBy = cleanText(raw.reviewedBy)
   const lastReviewedAt = cleanText(raw.lastReviewedAt)
+  const editorialReadinessRaw =
+    raw.editorialReadiness && typeof raw.editorialReadiness === 'object'
+      ? (raw.editorialReadiness as Record<string, unknown>)
+      : null
 
   const editorialStatusText = cleanText(raw.editorialStatus)
   const editorialStatus = EDITORIAL_STATUSES.has(editorialStatusText as EditorialStatus)
@@ -299,6 +307,20 @@ export function normalizeResearchEnrichment(value: unknown): ResearchEnrichment 
       uncertaintyNotes: ['Evidence grading not available in this dataset version.'],
       toneGuidance: 'State that evidence is insufficient and avoid efficacy implications.',
     },
+    ...(editorialReadinessRaw &&
+    typeof editorialReadinessRaw.publishable === 'boolean' &&
+    typeof editorialReadinessRaw.hasConflictOrWeakEvidence === 'boolean' &&
+    typeof editorialReadinessRaw.conflictLabelingPresent === 'boolean' &&
+    typeof editorialReadinessRaw.weakEvidenceClaimsLabeled === 'boolean'
+      ? {
+          editorialReadiness: {
+            publishable: editorialReadinessRaw.publishable,
+            hasConflictOrWeakEvidence: editorialReadinessRaw.hasConflictOrWeakEvidence,
+            conflictLabelingPresent: editorialReadinessRaw.conflictLabelingPresent,
+            weakEvidenceClaimsLabeled: editorialReadinessRaw.weakEvidenceClaimsLabeled,
+          },
+        }
+      : {}),
     sourceRefs,
     lastReviewedAt,
     reviewedBy,
