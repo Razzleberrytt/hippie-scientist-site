@@ -1,5 +1,6 @@
 import type { ResearchEnrichment } from './researchEnrichment'
 import type { ConfidenceLevel } from './confidence'
+import type { PublishSafeEnrichmentSummary } from './enrichmentDiscovery'
 
 export type CanonicalCompound = {
   name: string
@@ -23,6 +24,7 @@ export type Compound = {
   confidence?: ConfidenceLevel
   type?: string
   researchEnrichment?: ResearchEnrichment
+  researchEnrichmentSummary?: PublishSafeEnrichmentSummary
   foundIn?: string[]
   [key: string]: unknown
 }

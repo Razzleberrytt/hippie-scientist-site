@@ -2061,8 +2061,8 @@
     ]
   },
   {
-    "id": "anadenanthera-colubrina-ceb-l",
-    "slug": "anadenanthera-colubrina-ceb-l",
+    "id": "anadenanthera-colubrina-cebil",
+    "slug": "anadenanthera-colubrina-cebil",
     "name": "anadenanthera colubrina (cebíl)",
     "common": "anadenanthera colubrina (cebíl)",
     "scientific": "anadenanthera colubrina (cebíl)",
@@ -13881,6 +13881,18 @@
     "interactionTags": [],
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
+    "researchEnrichmentSummary": {
+      "evidenceLabel": "mixed_or_uncertain",
+      "evidenceLabelTitle": "Mixed or uncertain",
+      "hasHumanEvidence": true,
+      "safetyCautionsPresent": true,
+      "supportedUseCoveragePresent": true,
+      "mechanismOrConstituentCoveragePresent": false,
+      "traditionalUseOnly": false,
+      "conflictingEvidence": false,
+      "enrichedAndReviewed": true,
+      "lastReviewedAt": "2026-03-30T18:35:00.000Z"
+    },
     "image": "",
     "aliases": [
       "kava",

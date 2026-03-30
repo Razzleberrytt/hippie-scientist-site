@@ -1,5 +1,6 @@
 import governedRollup from '../../public/data/enrichment-governed.json'
 import sourceRegistry from '../../public/data/source-registry.json'
+import { buildPublishSafeEnrichmentSummary } from '@/lib/enrichmentDiscovery'
 import type {
   EvidenceJudgment,
   EvidenceLabel,
@@ -132,6 +133,11 @@ const rollupMap = new Map(
 export function getGovernedResearchEnrichment(entityType: GovernedEntityType, entitySlug: string) {
   const enrichment = rollupMap.get(`${entityType}:${entitySlug}`)
   return isPublishableGovernedEnrichment(enrichment) ? enrichment : null
+}
+
+export function getGovernedEnrichmentSummary(entityType: GovernedEntityType, entitySlug: string) {
+  const enrichment = getGovernedResearchEnrichment(entityType, entitySlug)
+  return enrichment ? buildPublishSafeEnrichmentSummary(enrichment) : null
 }
 
 export function getEvidenceLabelMeta(label: EvidenceLabel) {

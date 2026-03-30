@@ -4,6 +4,7 @@ import { normalizeText } from './normalizeText'
 import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
 import { asStringArray } from './asStringArray'
+import { matchesEnrichmentFilter } from '@/lib/enrichmentDiscovery'
 
 function getConfidenceRank(level: string) {
   if (level === 'high') return 3
@@ -50,6 +51,7 @@ export function filterCompounds(
 
     if (filters.confidence !== 'all' && confidence !== filters.confidence) return false
     if (typeNeedle !== 'all' && typeNeedle && category !== typeNeedle) return false
+    if (!matchesEnrichmentFilter(compound.researchEnrichmentSummary, filters.enrichment)) return false
 
     return true
   })

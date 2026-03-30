@@ -9,6 +9,7 @@ const HERB_SUMMARY_PATH = path.join(DATA_DIR, 'herbs-summary.json')
 const COMPOUND_SUMMARY_PATH = path.join(DATA_DIR, 'compounds-summary.json')
 const HERB_DETAIL_DIR = path.join(DATA_DIR, 'herbs-detail')
 const COMPOUND_DETAIL_DIR = path.join(DATA_DIR, 'compounds-detail')
+const GOVERNED_ENRICHMENT_PATH = path.join(DATA_DIR, 'enrichment-governed.json')
 
 const asText = value => String(value || '').trim()
 const splitList = value => {
@@ -28,6 +29,76 @@ const slugify = value =>
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
+
+const PUBLISHABLE_EDITORIAL_STATUSES = new Set(['approved', 'published'])
+
+function isPublishableGovernedEnrichment(enrichment) {
+  if (!enrichment || typeof enrichment !== 'object') return false
+  if (!PUBLISHABLE_EDITORIAL_STATUSES.has(String(enrichment.editorialStatus || ''))) return false
+  return enrichment.editorialReadiness?.publishable === true
+}
+
+const EVIDENCE_LABEL_TITLES = {
+  stronger_human_support: 'Stronger human support',
+  limited_human_support: 'Limited human support',
+  observational_only: 'Observational only',
+  preclinical_only: 'Preclinical only',
+  traditional_use_only: 'Traditional use only',
+  mixed_or_uncertain: 'Mixed or uncertain',
+  conflicting_evidence: 'Conflicting evidence',
+  insufficient_evidence: 'Insufficient evidence',
+}
+
+function buildPublishSafeSummary(enrichment) {
+  const evidenceLabel = String(enrichment?.pageEvidenceJudgment?.evidenceLabel || 'insufficient_evidence')
+  const evidenceClasses = Array.isArray(enrichment.evidenceClassesPresent)
+    ? enrichment.evidenceClassesPresent
+    : []
+  const hasHumanEvidence = evidenceClasses.some(
+    evidenceClass => evidenceClass === 'human-clinical' || evidenceClass === 'human-observational',
+  )
+
+  return {
+    evidenceLabel,
+    evidenceLabelTitle:
+      EVIDENCE_LABEL_TITLES[evidenceLabel] || EVIDENCE_LABEL_TITLES.insufficient_evidence,
+    hasHumanEvidence,
+    safetyCautionsPresent:
+      (enrichment?.safetyProfile?.summary?.total ?? 0) > 0 ||
+      (Array.isArray(enrichment.interactions) && enrichment.interactions.length > 0) ||
+      (Array.isArray(enrichment.contraindications) && enrichment.contraindications.length > 0) ||
+      (Array.isArray(enrichment.adverseEffects) && enrichment.adverseEffects.length > 0),
+    supportedUseCoveragePresent:
+      (Array.isArray(enrichment.supportedUses) && enrichment.supportedUses.length > 0) ||
+      (Array.isArray(enrichment.unsupportedOrUnclearUses) &&
+        enrichment.unsupportedOrUnclearUses.length > 0),
+    mechanismOrConstituentCoveragePresent:
+      (Array.isArray(enrichment.mechanisms) && enrichment.mechanisms.length > 0) ||
+      (Array.isArray(enrichment.constituents) && enrichment.constituents.length > 0),
+    traditionalUseOnly: evidenceLabel === 'traditional_use_only',
+    conflictingEvidence:
+      evidenceLabel === 'conflicting_evidence' ||
+      enrichment?.pageEvidenceJudgment?.grading?.conflictState === 'conflicting_evidence',
+    enrichedAndReviewed: true,
+    lastReviewedAt: asText(enrichment.lastReviewedAt),
+  }
+}
+
+function buildGovernedSummaryIndex() {
+  if (!fs.existsSync(GOVERNED_ENRICHMENT_PATH)) return new Map()
+  const rows = JSON.parse(fs.readFileSync(GOVERNED_ENRICHMENT_PATH, 'utf8'))
+  if (!Array.isArray(rows)) return new Map()
+
+  const map = new Map()
+  for (const row of rows) {
+    const entityType = asText(row?.entityType).toLowerCase()
+    const entitySlug = slugify(row?.entitySlug)
+    const enrichment = row?.researchEnrichment
+    if (!entityType || !entitySlug || !isPublishableGovernedEnrichment(enrichment)) continue
+    map.set(`${entityType}:${entitySlug}`, buildPublishSafeSummary(enrichment))
+  }
+  return map
+}
 
 function writeJson(targetPath, payload) {
   fs.mkdirSync(path.dirname(targetPath), { recursive: true })
@@ -60,7 +131,7 @@ function hasEvidenceNotes(record) {
   )
 }
 
-function buildHerbSummary(record) {
+function buildHerbSummary(record, governedSummaryByEntity) {
   const slug = slugify(
     record.slug || record.id || record.common || record.name || record.scientific,
   )
@@ -93,12 +164,14 @@ function buildHerbSummary(record) {
       interactionTags.length > 0 ||
       splitList(record.interactionNotes || record.interactions).length > 0,
     hasEvidenceNotes: hasEvidenceNotes(record),
+    researchEnrichmentSummary:
+      governedSummaryByEntity.get(`herb:${slug}`) || undefined,
     image: asText(record.image),
     aliases: [common, scientific, asText(record.name)].map(asText).filter(Boolean),
   }
 }
 
-function buildCompoundSummary(record) {
+function buildCompoundSummary(record, governedSummaryByEntity) {
   const slug = slugify(record.slug || record.id || record.name)
   const effects = splitList(record.effects)
   const herbs = splitList(record.herbs || record.foundInHerbs || record.associatedHerbs)
@@ -121,6 +194,8 @@ function buildCompoundSummary(record) {
       interactionTags.length > 0 ||
       splitList(record.interactionNotes || record.interactions).length > 0,
     hasEvidenceNotes: hasEvidenceNotes(record),
+    researchEnrichmentSummary:
+      governedSummaryByEntity.get(`compound:${slug}`) || undefined,
     aliases: [asText(record.name), asText(record.className), asText(record.category)]
       .map(asText)
       .filter(Boolean),
@@ -156,9 +231,14 @@ function writeEntityDetails(records, targetDir) {
 function run() {
   const herbs = JSON.parse(fs.readFileSync(HERBS_PATH, 'utf8'))
   const compounds = JSON.parse(fs.readFileSync(COMPOUNDS_PATH, 'utf8'))
+  const governedSummaryByEntity = buildGovernedSummaryIndex()
 
-  const herbSummaries = dedupeBySlug(herbs.map(buildHerbSummary))
-  const compoundSummaries = dedupeBySlug(compounds.map(buildCompoundSummary))
+  const herbSummaries = dedupeBySlug(
+    herbs.map(record => buildHerbSummary(record, governedSummaryByEntity)),
+  )
+  const compoundSummaries = dedupeBySlug(
+    compounds.map(record => buildCompoundSummary(record, governedSummaryByEntity)),
+  )
 
   writeJson(HERB_SUMMARY_PATH, herbSummaries)
   writeJson(COMPOUND_SUMMARY_PATH, compoundSummaries)
