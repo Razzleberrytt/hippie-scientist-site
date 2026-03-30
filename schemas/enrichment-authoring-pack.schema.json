@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.com/schemas/enrichment-authoring-pack.schema.json",
+  "title": "Enrichment Authoring Pack Report",
+  "type": "object",
+  "required": [
+    "generatedAt",
+    "deterministicModelVersion",
+    "sources",
+    "summary",
+    "authoringPacks"
+  ],
+  "properties": {
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deterministicModelVersion": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "object",
+      "required": ["enrichmentBootstrapPacks", "sourceRegistry"],
+      "properties": {
+        "enrichmentBootstrapPacks": { "type": "string" },
+        "sourceRegistry": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "totalAuthoringPacks",
+        "readyForAuthoringCount",
+        "blockedGovernanceCount",
+        "blockedSourceCount",
+        "blockedPolicyCount",
+        "reviewerNeededCount",
+        "byTopicArea"
+      ],
+      "properties": {
+        "totalAuthoringPacks": { "type": "integer", "minimum": 0 },
+        "readyForAuthoringCount": { "type": "integer", "minimum": 0 },
+        "blockedGovernanceCount": { "type": "integer", "minimum": 0 },
+        "blockedSourceCount": { "type": "integer", "minimum": 0 },
+        "blockedPolicyCount": { "type": "integer", "minimum": 0 },
+        "reviewerNeededCount": { "type": "integer", "minimum": 0 },
+        "byTopicArea": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "authoringPacks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "authoringPackId",
+          "bootstrapPackId",
+          "workpackId",
+          "entityType",
+          "sourceId",
+          "sourceClass",
+          "evidenceClass",
+          "allowedTopicTypes",
+          "allowedClaimTypes",
+          "requiredEntryFields",
+          "requiredGovernanceChecks",
+          "blockedTopicTypes",
+          "blockedFramingNotes",
+          "entryTemplates",
+          "completionCriteria",
+          "reviewerNeeded",
+          "status",
+          "notesForContractor"
+        ],
+        "properties": {
+          "authoringPackId": { "type": "string" },
+          "bootstrapPackId": { "type": "string" },
+          "workpackId": { "type": "string" },
+          "entityType": { "type": "string" },
+          "entitySlug": { "type": ["string", "null"] },
+          "surfaceId": { "type": ["string", "null"] },
+          "sourceId": { "type": "string" },
+          "sourceClass": { "type": "string" },
+          "evidenceClass": { "type": "string" },
+          "allowedTopicTypes": { "type": "array", "items": { "type": "string" } },
+          "allowedClaimTypes": { "type": "array", "items": { "type": "string" } },
+          "requiredEntryFields": { "type": "array", "items": { "type": "string" } },
+          "requiredGovernanceChecks": { "type": "array", "items": { "type": "string" } },
+          "blockedTopicTypes": { "type": "array", "items": { "type": "string" } },
+          "blockedFramingNotes": { "type": "array", "items": { "type": "string" } },
+          "entryTemplates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "templateId",
+                "topicArea",
+                "topicType",
+                "claimType",
+                "title",
+                "scaffoldChecklist",
+                "blockedClaimFraming"
+              ],
+              "properties": {
+                "templateId": { "type": "string" },
+                "topicArea": { "type": "string" },
+                "topicType": { "type": "string" },
+                "claimType": { "type": "string" },
+                "title": { "type": "string" },
+                "scaffoldChecklist": { "type": "array", "items": { "type": "string" } },
+                "blockedClaimFraming": { "type": "array", "items": { "type": "string" } }
+              },
+              "additionalProperties": false
+            }
+          },
+          "completionCriteria": { "type": "array", "items": { "type": "string" } },
+          "reviewerNeeded": { "type": "boolean" },
+          "status": { "type": "string" },
+          "notesForContractor": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}
