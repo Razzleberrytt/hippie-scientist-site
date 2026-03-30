@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-03-30T19:04:06.618Z",
+  "waveId": "enrichment-wave-1",
+  "targetedEntities": [
+    {
+      "entityType": "herb",
+      "entitySlug": "ashwagandha",
+      "priorityRank": 1,
+      "entryCount": 3
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "chamomile",
+      "priorityRank": 2,
+      "entryCount": 3
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "priorityRank": 3,
+      "entryCount": 3
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "priorityRank": 4,
+      "entryCount": 5
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "priorityRank": 5,
+      "entryCount": 4
+    }
+  ],
+  "coverageByTopicType": {
+    "supported_use": 3,
+    "pathway": 2,
+    "pregnancy_note": 1,
+    "unsupported_or_unclear_use": 2,
+    "adverse_effect": 2,
+    "conflict_note": 2,
+    "condition_caution": 1,
+    "medication_class_caution": 1,
+    "enzyme_interaction": 1,
+    "research_gap": 1,
+    "constituent": 1,
+    "population_specific_note": 1
+  },
+  "evidenceClassDistribution": {
+    "human-clinical": 9,
+    "regulatory-monograph": 4,
+    "preclinical-mechanistic": 5
+  },
+  "evidenceLabelDistribution": {
+    "limited_human_support": 3,
+    "insufficient_evidence": 2,
+    "mixed_or_uncertain": 13
+  },
+  "blockedOrIncomplete": {
+    "blockedEntries": 0,
+    "entitiesBlocked": 0,
+    "entitiesPartiallyBlocked": 0,
+    "blockedReasons": []
+  },
+  "entitiesEligibleForEnrichedPublish": [
+    "compound:cbd",
+    "compound:luteolin",
+    "herb:ashwagandha",
+    "herb:chamomile",
+    "herb:kava"
+  ]
+}

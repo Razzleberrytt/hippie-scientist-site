@@ -1,25 +1,36 @@
 {
-  "generatedAt": "2026-03-30T18:54:07.954Z",
+  "generatedAt": "2026-03-30T19:03:27.735Z",
   "inputPath": "public/data/enrichment-normalized.jsonl",
-  "totalSafetyEntries": 1,
+  "totalSafetyEntries": 5,
   "counts": {
     "byEntity": {
-      "herb:kava": 1
+      "herb:ashwagandha": 1,
+      "herb:chamomile": 1,
+      "herb:kava": 1,
+      "compound:cbd": 2
     },
     "bySafetyTopicType": {
-      "interaction": 1
+      "pregnancy_note": 1,
+      "adverse_effect": 2,
+      "condition_caution": 1,
+      "medication_class_caution": 1
     },
     "byTargetType": {
-      "drug": 1
+      "population": 3,
+      "condition": 1,
+      "drug_class": 1
     },
     "bySeverity": {
-      "high": 1
+      "moderate": 2,
+      "low": 1,
+      "high": 2
     },
     "byEvidenceClass": {
-      "human-clinical": 1
+      "regulatory-monograph": 2,
+      "human-clinical": 3
     },
     "byConflictState": {
-      "none": 1
+      "none": 5
     }
   }
 }

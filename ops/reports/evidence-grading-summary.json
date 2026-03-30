@@ -1,8 +1,243 @@
 {
-  "generatedAt": "2026-03-30T18:54:07.968Z",
-  "totalEntities": 0,
-  "evidenceLabelCounts": {},
-  "byEntityTopic": {},
-  "conflictCases": [],
-  "downgradedTopics": []
+  "generatedAt": "2026-03-30T19:03:27.737Z",
+  "totalEntities": 5,
+  "evidenceLabelCounts": {
+    "limited_human_support": 3,
+    "insufficient_evidence": 2,
+    "mixed_or_uncertain": 13
+  },
+  "byEntityTopic": {
+    "compound:cbd": {
+      "adverse_effect": "limited_human_support",
+      "enzyme_interaction": "insufficient_evidence",
+      "medication_class_caution": "insufficient_evidence",
+      "research_gap": "mixed_or_uncertain"
+    },
+    "compound:luteolin": {
+      "conflict_note": "mixed_or_uncertain",
+      "constituent": "mixed_or_uncertain",
+      "pathway": "mixed_or_uncertain",
+      "population_specific_note": "mixed_or_uncertain",
+      "unsupported_or_unclear_use": "mixed_or_uncertain"
+    },
+    "herb:ashwagandha": {
+      "pathway": "mixed_or_uncertain",
+      "pregnancy_note": "mixed_or_uncertain",
+      "supported_use": "limited_human_support"
+    },
+    "herb:chamomile": {
+      "adverse_effect": "limited_human_support",
+      "supported_use": "mixed_or_uncertain",
+      "unsupported_or_unclear_use": "mixed_or_uncertain"
+    },
+    "herb:kava": {
+      "condition_caution": "mixed_or_uncertain",
+      "conflict_note": "mixed_or_uncertain",
+      "supported_use": "mixed_or_uncertain"
+    }
+  },
+  "conflictCases": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "topicType": "research_gap",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "conflict_note",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": [
+        "Source-backed conflict notes are present for this topic."
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "constituent",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "pathway",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "population_specific_note",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "unsupported_or_unclear_use",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ashwagandha",
+      "topicType": "pathway",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ashwagandha",
+      "topicType": "pregnancy_note",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "chamomile",
+      "topicType": "supported_use",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "chamomile",
+      "topicType": "unsupported_or_unclear_use",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "topicType": "condition_caution",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "topicType": "conflict_note",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": [
+        "Source-backed conflict notes are present for this topic."
+      ]
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "topicType": "supported_use",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    }
+  ],
+  "downgradedTopics": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "topicType": "enzyme_interaction",
+      "evidenceLabel": "insufficient_evidence",
+      "reason": "State that evidence is insufficient and avoid efficacy implications."
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "topicType": "medication_class_caution",
+      "evidenceLabel": "insufficient_evidence",
+      "reason": "State that evidence is insufficient and avoid efficacy implications."
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "topicType": "research_gap",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "conflict_note",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "constituent",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "pathway",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "population_specific_note",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "topicType": "unsupported_or_unclear_use",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ashwagandha",
+      "topicType": "pathway",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ashwagandha",
+      "topicType": "pregnancy_note",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "chamomile",
+      "topicType": "supported_use",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "chamomile",
+      "topicType": "unsupported_or_unclear_use",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "topicType": "condition_caution",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "topicType": "conflict_note",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "topicType": "supported_use",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    }
+  ]
 }

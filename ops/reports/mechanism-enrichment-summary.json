@@ -1,32 +1,37 @@
 {
-  "generatedAt": "2026-03-30T18:54:07.954Z",
+  "generatedAt": "2026-03-30T19:03:27.735Z",
   "inputPath": "public/data/enrichment-normalized.jsonl",
-  "totalMechanismEntries": 3,
+  "totalMechanismEntries": 5,
   "counts": {
     "byEntity": {
-      "herb:kava": 1,
-      "compound:cbd": 2
+      "herb:ashwagandha": 1,
+      "compound:cbd": 2,
+      "compound:luteolin": 2
     },
     "byTopicType": {
-      "constituent": 1,
-      "receptor_activity": 1,
-      "compound_origin_note": 1
+      "pathway": 2,
+      "enzyme_interaction": 1,
+      "research_gap": 1,
+      "constituent": 1
     },
     "byRelationType": {
-      "contains": 1,
-      "may_modulate": 1,
-      "derived_from": 1
+      "may_modulate": 3,
+      "unspecified": 1,
+      "contains": 1
     },
     "byTargetType": {
-      "constituent": 1,
-      "receptor": 1,
-      "herb": 1
+      "pathway": 2,
+      "enzyme": 1,
+      "unspecified": 1,
+      "constituent": 1
     },
     "byEvidenceClass": {
-      "human-clinical": 3
+      "human-clinical": 1,
+      "regulatory-monograph": 2,
+      "preclinical-mechanistic": 2
     },
     "byConflictState": {
-      "none": 3
+      "none": 5
     }
   }
 }
