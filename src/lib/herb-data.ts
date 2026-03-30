@@ -35,6 +35,28 @@ export type HerbSummary = {
 let herbSummariesPromise: Promise<HerbSummary[]> | null = null
 const herbDetailPromiseBySlug = new Map<string, Promise<Herb | null>>()
 
+function normalizeSlugCandidate(value: string): string {
+  return value
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/\band\b/g, '')
+    .replace(/[^a-z0-9]+/g, '')
+}
+
+async function resolveHerbDetailSlug(slug: string): Promise<string | null> {
+  const needle = normalizeSlugCandidate(slug)
+  if (!needle) return null
+
+  const summaries = await loadHerbSummaryData()
+  const match = summaries.find(item => {
+    const candidates = [item.slug, item.id, item.common, item.scientific, item.name, ...item.aliases]
+    return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
+  })
+
+  return match?.slug || null
+}
+
 function normalizeSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
   return value
@@ -215,8 +237,19 @@ export async function loadHerbDetailBySlug(slug: string): Promise<Herb | null> {
   if (cached) return cached
 
   const request = fetch(`/data/herbs-detail/${encodeURIComponent(slugKey)}.json`, { cache: 'no-store' })
-    .then(response => {
-      if (response.status === 404) return null
+    .then(async response => {
+      if (response.status === 404) {
+        const resolvedSlug = await resolveHerbDetailSlug(slugKey)
+        if (!resolvedSlug || resolvedSlug === slugKey) return null
+        const fallbackResponse = await fetch(`/data/herbs-detail/${encodeURIComponent(resolvedSlug)}.json`, {
+          cache: 'no-store',
+        })
+        if (fallbackResponse.status === 404) return null
+        if (!fallbackResponse.ok) {
+          throw new Error(`Failed to load /data/herbs-detail/${resolvedSlug}.json`)
+        }
+        return fallbackResponse.json()
+      }
       if (!response.ok) {
         throw new Error(`Failed to load /data/herbs-detail/${slugKey}.json`)
       }
