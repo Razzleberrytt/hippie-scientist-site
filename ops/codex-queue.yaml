@@ -180,7 +180,7 @@ steps:
     title: Run-keyed coverage baselines and baseline diff artifacts
     status: blocked
     risk: low
-    blocker: "Requested work targets deploy release-gate workflow change (H11), but queue protocol only allows executing current step H2."
+    blocker: "Requested work targets NavBar UI changes (PROMPT 06), but queue protocol only allows executing current step H2."
     success_checks:
       - "coverage reports can write named run-keyed baselines"
       - "baseline-to-current diff artifacts are emitted deterministically"
