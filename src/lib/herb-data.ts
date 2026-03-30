@@ -123,7 +123,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   }
 }
 
-function isRenderableHerbRow(raw: Record<string, unknown>): boolean {
+export function isRenderableHerbRow(raw: Record<string, unknown>): boolean {
   const { data } = sanitizeHerbRecord(raw)
   return !hasInvalidEntityName(data)
 }

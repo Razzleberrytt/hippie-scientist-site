@@ -83,8 +83,6 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
-    "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1",
     "autoprefixer": "^10.4.19",
     "clsx": "^2.1.1",
     "csv-parse": "^5.5.6",
@@ -112,13 +110,13 @@
     "tailwindcss": "^3.4.3",
     "three": "^0.180.0",
     "tsparticles": "^3.8.1",
-    "zustand": "^5.0.8"
+    "zustand": "^5.0.8",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
   },
   "devDependencies": {
     "@fontsource/inter": "^5.1.0",
     "@resvg/resvg-js": "^2.6.2",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
     "@types/dompurify": "^3.0.5",
     "@types/node": "^24.1.0",
     "@types/react": "^18.3.12",
@@ -135,7 +133,6 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
     "husky": "^9.1.6",
-    "jsdom": "^25.0.1",
     "lint-staged": "^15.2.7",
     "postcss": "^8.4.31",
     "prettier": "^3.3.3",
@@ -149,7 +146,6 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.57.2",
     "vite": "^6.0.0",
-    "vite-plugin-prerender": "^1.0.8",
-    "vitest": "^2.1.9"
+    "vite-plugin-prerender": "^1.0.8"
   }
 }

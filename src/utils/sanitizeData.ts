@@ -15,11 +15,15 @@ type SanitizeOptions = {
 const NULLISH_STRINGS = new Set(['nan', 'null', 'undefined', 'n/a', 'na'])
 const PLACEHOLDER_STRINGS = new Set([
   '[object object]',
+  '[objectobject]',
   'placeholder',
   'unknown',
   'none',
   'tbd',
   'to be determined',
+  'not established',
+  'insufficient data',
+  'data pending',
   'no direct data',
 ])
 const NUMERIC_ONLY_NAME = /^\d+(?:[\s.,/-]\d+)*$/

@@ -101,7 +101,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   }
 }
 
-function isRenderableCompound(raw: Record<string, unknown>): boolean {
+export function isRenderableCompound(raw: Record<string, unknown>): boolean {
   const { data } = sanitizeCompoundRecord(raw)
   return !hasInvalidEntityName(data)
 }

@@ -13,6 +13,7 @@
 const JUNK_PATTERNS: RegExp[] = [
   /no direct \w+ data[^.]*\./gi,
   /contextual inference[^.]*\./gi,
+  /\b(?:mechanism|effects?|description)\s+(?:not established|unknown|insufficient(?:\s+data)?)\b/gi,
   /\[object\s+object\]/gi,
   /\bnan\b/gi,
   /;\s*nan/gi,
@@ -28,6 +29,9 @@ const JUNK_WHOLE_VALUE: RegExp[] = [
   /^tbd$/i,
   /^to be determined$/i,
   /^unknown$/i,
+  /^not established$/i,
+  /^insufficient data$/i,
+  /^data pending$/i,
   /^n\/?a$/i,
   /^none$/i,
 ]
