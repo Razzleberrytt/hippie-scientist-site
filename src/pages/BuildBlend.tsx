@@ -1,6 +1,5 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { jsPDF } from 'jspdf'
 import Card from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 import Meta from '@/components/Meta'
@@ -229,6 +228,7 @@ export default function BuildBlend() {
   const [selectedSlugs, setSelectedSlugs] = useState<string[]>([])
   const [result, setResult] = useState<StackOutput | null>(null)
   const [shareStatus, setShareStatus] = useState<'idle' | 'copied'>('idle')
+  const [isExportingPdf, setIsExportingPdf] = useState(false)
   const [leadEmail, setLeadEmail] = useState('')
   const [leadHoneypot, setLeadHoneypot] = useState('')
   const [favoriteSlugs, setFavoriteSlugs] = useState<string[]>([])
@@ -419,40 +419,46 @@ export default function BuildBlend() {
   const encodedShareLink = encodeURIComponent(shareLink)
   const shareText = encodeURIComponent('Custom herb stack from The Hippie Scientist')
 
-  const exportPdf = () => {
+  const exportPdf = async () => {
     if (!result) return
-    const doc = new jsPDF()
-    const herbNames = result.selectedHerbs.map(herb => `• ${herbDisplayName(herb)}`)
-    const lines = [
-      `Intent: ${result.intentLabel}`,
-      '',
-      'Selected Herbs:',
-      ...herbNames,
-      '',
-      'Recommended Timing:',
-      ...result.timing.map(line => `• ${line}`),
-      '',
-      'Preparation & Usage Notes:',
-      ...(result.usageNotes.length
-        ? result.usageNotes.map(note => `• ${note}`)
-        : ['• No preparation-specific notes were found in this herb data.']),
-      '',
-      'Dosage Guidance:',
-      `• Light: ${result.dosage.light}`,
-      `• Moderate: ${result.dosage.moderate}`,
-      `• Strong: ${result.dosage.strong}`,
-      '',
-      'Safety Notes:',
-      ...result.safetyNotes.map(note => `• ${note}`),
-      '',
-      'Interaction Warnings:',
-      ...result.interactionWarnings.map(note => `• ${note}`),
-    ]
+    setIsExportingPdf(true)
+    try {
+      const { jsPDF } = await import('jspdf')
+      const doc = new jsPDF()
+      const herbNames = result.selectedHerbs.map(herb => `• ${herbDisplayName(herb)}`)
+      const lines = [
+        `Intent: ${result.intentLabel}`,
+        '',
+        'Selected Herbs:',
+        ...herbNames,
+        '',
+        'Recommended Timing:',
+        ...result.timing.map(line => `• ${line}`),
+        '',
+        'Preparation & Usage Notes:',
+        ...(result.usageNotes.length
+          ? result.usageNotes.map(note => `• ${note}`)
+          : ['• No preparation-specific notes were found in this herb data.']),
+        '',
+        'Dosage Guidance:',
+        `• Light: ${result.dosage.light}`,
+        `• Moderate: ${result.dosage.moderate}`,
+        `• Strong: ${result.dosage.strong}`,
+        '',
+        'Safety Notes:',
+        ...result.safetyNotes.map(note => `• ${note}`),
+        '',
+        'Interaction Warnings:',
+        ...result.interactionWarnings.map(note => `• ${note}`),
+      ]
 
-    const wrapped = doc.splitTextToSize(lines.join('\n'), 180)
-    doc.setFontSize(11)
-    doc.text(wrapped, 14, 18)
-    doc.save(`blend-summary-${intent}.pdf`)
+      const wrapped = doc.splitTextToSize(lines.join('\n'), 180)
+      doc.setFontSize(11)
+      doc.text(wrapped, 14, 18)
+      doc.save(`blend-summary-${intent}.pdf`)
+    } finally {
+      setIsExportingPdf(false)
+    }
   }
 
   const handleLeadSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -740,8 +746,8 @@ export default function BuildBlend() {
                 <Button type='button' variant='default' onClick={handleCopyShareLink}>
                   Copy Share Link
                 </Button>
-                <Button type='button' variant='primary' onClick={exportPdf}>
-                  Export Blend
+                <Button type='button' variant='primary' onClick={exportPdf} disabled={isExportingPdf}>
+                  {isExportingPdf ? 'Preparing export…' : 'Export Blend'}
                 </Button>
                 <Button type='button' variant='ghost' onClick={() => window.print()}>
                   Print Summary
