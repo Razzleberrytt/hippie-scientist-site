@@ -5,11 +5,7 @@ import { Button } from '@/components/ui/Button'
 import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
 import CuratedProductModule from '@/components/CuratedProductModule'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
-import {
-  SEO_COLLECTIONS,
-  getCollectionBySlug,
-  type SeoCollection
-} from '@/data/seoCollections'
+import { SEO_COLLECTIONS, getCollectionBySlug, type SeoCollection } from '@/data/seoCollections'
 import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { useSubmissionForm } from '@/hooks/useSubmissionForm'
@@ -25,6 +21,14 @@ import {
   filterHerbByCollection,
 } from '@/lib/collectionQuality'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
+import {
+  breadcrumbJsonLd,
+  collectionPageJsonLd,
+  formatMetaDescription,
+  itemListJsonLd,
+  SITE_URL,
+} from '@/lib/seo'
+import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 
 type CollectionHerb = ReturnType<typeof useHerbData>[number]
 type CollectionCompound = ReturnType<typeof useCompoundData>[number]
@@ -58,9 +62,20 @@ function toGoalLabel(collection: SeoCollection): string {
     .trim()
 }
 
-function buildSeoDescription(collection: SeoCollection): string {
+function buildSeoDescription(collection: SeoCollection, topItems: CollectionEntity[]): string {
   const goal = toGoalLabel(collection)
-  return `Compare herbs for ${goal.toLowerCase()}, spot interaction risks fast, and build a safer stack in minutes.`
+  const focusLabel =
+    collection.itemType === 'compound'
+      ? 'compounds'
+      : collection.itemType === 'combo'
+        ? 'combinations'
+        : 'herbs'
+  const examples = topItems.slice(0, 2).map(item => getEntityName(item))
+  const examplesText = examples.length ? ` Top picks include ${examples.join(' and ')}.` : ''
+  return formatMetaDescription(
+    `Compare ${focusLabel} for ${goal.toLowerCase()} with evidence-first notes, safety tradeoffs, and interaction-checker workflow.${examplesText} Educational reference only.`,
+    `Compare ${focusLabel} for ${goal.toLowerCase()} with safety-first notes and interaction-checker guidance.`,
+  )
 }
 
 function summarizeItemValue(item: CollectionEntity): string {
@@ -157,14 +172,14 @@ export default function CollectionPage() {
   const herbMatches = useMemo(() => {
     if (!collection || collection.itemType !== 'herb') return []
     return herbs.filter(herb =>
-      filterHerbByCollection(herb as Record<string, unknown>, collection.filters)
+      filterHerbByCollection(herb as Record<string, unknown>, collection.filters),
     )
   }, [collection, herbs])
 
   const compoundMatches = useMemo(() => {
     if (!collection || collection.itemType !== 'compound') return []
     return compounds.filter(compound =>
-      filterCompoundByCollection(compound as Record<string, unknown>, collection.filters)
+      filterCompoundByCollection(compound as Record<string, unknown>, collection.filters),
     )
   }, [collection, compounds])
 
@@ -180,7 +195,7 @@ export default function CollectionPage() {
   }, [collection, itemCount])
   const editorial = collection?.editorial
   const qualityMessages = collectionQuality.reasons.map(
-    reason => COLLECTION_REASON_LABELS[reason] || reason
+    reason => COLLECTION_REASON_LABELS[reason] || reason,
   )
 
   const topItems = useMemo(() => {
@@ -196,7 +211,7 @@ export default function CollectionPage() {
         entitySlug: collection?.slug || slug,
         cautionCount: 0,
       }),
-    [collection?.slug, slug]
+    [collection?.slug, slug],
   )
 
   const collectionCuratedProducts = useMemo(() => {
@@ -204,7 +219,10 @@ export default function CollectionPage() {
     const firstTopItem = topItems[0]
     if (collection.itemType === 'herb') {
       const herbItem = firstTopItem as CollectionHerb
-      const confidence = herbItem.confidence === 'high' || herbItem.confidence === 'medium' ? herbItem.confidence : 'low'
+      const confidence =
+        herbItem.confidence === 'high' || herbItem.confidence === 'medium'
+          ? herbItem.confidence
+          : 'low'
       return getRenderableCuratedProducts({
         entityType: 'herb',
         entitySlug: herbItem.slug,
@@ -304,10 +322,10 @@ export default function CollectionPage() {
         value: summarizeItemValue(item),
         slug: item.slug,
       })),
-    [topItems]
+    [topItems],
   )
-  const pageTitle = collection ? `${collection.title} | The Hippie Scientist` : 'Collections'
-  const pageDescription = collection ? buildSeoDescription(collection) : ''
+  const pageTitle = collection ? `${collection.title} Collection Guide` : 'Collections'
+  const pageDescription = collection ? buildSeoDescription(collection, topItems) : ''
 
   useEffect(() => {
     if (!shareToast) return
@@ -375,7 +393,7 @@ export default function CollectionPage() {
 
   const onItemAction = (
     action: 'collection_item_add_to_checker' | 'collection_item_add_to_stack',
-    item: CollectionEntity
+    item: CollectionEntity,
   ) => {
     setShowLeadCapture(true)
     trackCollectionEvent(action, {
@@ -415,36 +433,42 @@ export default function CollectionPage() {
   }
 
   const pagePath = `/collections/${collection.slug}`
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: collection.title,
-    description: collection.description,
-    url: `https://thehippiescientist.net${pagePath}`,
-    mainEntity: {
-      '@type': 'ItemList',
-      itemListElement: [
-        ...herbMatches.map((herb, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          name: herb.common || herb.scientific || herb.name || herb.slug,
-          url: `https://thehippiescientist.net/herbs/${herb.slug}`,
-        })),
-        ...compoundMatches.map((compound, index) => ({
-          '@type': 'ListItem',
-          position: herbMatches.length + index + 1,
-          name: compound.name,
-          url: `https://thehippiescientist.net/compounds/${compound.slug}`,
-        })),
-        ...comboMatches.map((combo, index) => ({
-          '@type': 'ListItem',
-          position: herbMatches.length + compoundMatches.length + index + 1,
-          name: combo.name,
-          url: 'https://thehippiescientist.net/interactions',
-        })),
-      ],
-    },
-  }
+  const schemaItems = [
+    ...herbMatches.map(herb => ({
+      name: herb.common || herb.scientific || herb.name || herb.slug,
+      url: `/herbs/${herb.slug}`,
+    })),
+    ...compoundMatches.map(compound => ({
+      name: compound.name,
+      url: `/compounds/${compound.slug}`,
+    })),
+    ...comboMatches.map(combo => ({
+      name: combo.name,
+      url: '/interactions',
+    })),
+  ]
+  const listSchemaId = `${SITE_URL}${pagePath}#items`
+  const jsonLd = collectionQuality.approved
+    ? [
+        collectionPageJsonLd({
+          title: collection.title,
+          description: pageDescription,
+          path: pagePath,
+          itemListId: listSchemaId,
+        }),
+        itemListJsonLd({
+          id: listSchemaId,
+          name: `${collection.title} shortlist`,
+          path: pagePath,
+          items: schemaItems,
+        }),
+        breadcrumbJsonLd([
+          { name: 'Home', url: SITE_URL },
+          { name: 'Collections', url: `${SITE_URL}/collections` },
+          { name: collection.title, url: `${SITE_URL}${pagePath}` },
+        ]),
+      ]
+    : undefined
 
   return (
     <main className='container-page py-8'>
@@ -463,6 +487,13 @@ export default function CollectionPage() {
       />
 
       <header className='ds-card-lg'>
+        <BreadcrumbTrail
+          items={[
+            { label: 'Home', to: '/' },
+            { label: 'Collections', to: '/collections' },
+            { label: collection.title },
+          ]}
+        />
         <h1 className='text-3xl font-semibold text-white'>{collection.title}</h1>
         <p className='mt-3 max-w-3xl text-sm leading-7 text-white/80'>{collection.intro}</p>
         <p className='mt-3 text-xs text-white/65'>
@@ -561,10 +592,18 @@ export default function CollectionPage() {
         ) : null}
 
         <div className='mt-4 flex flex-wrap items-center gap-2'>
-          <Link to={checkerHref} className='btn-primary text-xs' onClick={() => handleFunnelClick('checker')}>
+          <Link
+            to={checkerHref}
+            className='btn-primary text-xs'
+            onClick={() => handleFunnelClick('checker')}
+          >
             Start with Interaction Checker
           </Link>
-          <Link to={stackHref} className='btn-secondary text-xs' onClick={() => handleFunnelClick('stack')}>
+          <Link
+            to={stackHref}
+            className='btn-secondary text-xs'
+            onClick={() => handleFunnelClick('stack')}
+          >
             Continue to Stack Builder
           </Link>
           <Button type='button' variant='secondary' onClick={handleCopyLink} className='text-xs'>
@@ -630,7 +669,14 @@ export default function CollectionPage() {
       <CtaVariantLayout
         variant={ctaExperiment.variant}
         onSlotImpression={(slot, position) => {
-          const ctaType = slot === 'tool' ? 'tool' : slot === 'builder' ? 'builder' : slot === 'affiliate' ? 'affiliate' : null
+          const ctaType =
+            slot === 'tool'
+              ? 'tool'
+              : slot === 'builder'
+                ? 'builder'
+                : slot === 'affiliate'
+                  ? 'affiliate'
+                  : null
           if (!ctaType) return
           trackCtaSlotImpression({
             sourceType: 'collection',
@@ -654,15 +700,25 @@ export default function CollectionPage() {
               <p className='mt-1 text-xs text-emerald-50/90'>
                 Run the checker before you exit this page to reduce avoidable stack-risk.
               </p>
-              <Link to={checkerHref} className='btn-primary mt-2 inline-flex text-xs' onClick={() => handleFunnelClick('checker')}>
+              <Link
+                to={checkerHref}
+                className='btn-primary mt-2 inline-flex text-xs'
+                onClick={() => handleFunnelClick('checker')}
+              >
                 Check this collection in Interaction Checker
               </Link>
             </div>
           ),
           builder: (
             <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
-              <p className='text-xs text-white/75'>Step 2: move shortlisted items into stack builder.</p>
-              <Link to={stackHref} className='btn-secondary mt-2 inline-flex text-xs' onClick={() => handleFunnelClick('stack')}>
+              <p className='text-xs text-white/75'>
+                Step 2: move shortlisted items into stack builder.
+              </p>
+              <Link
+                to={stackHref}
+                className='btn-secondary mt-2 inline-flex text-xs'
+                onClick={() => handleFunnelClick('stack')}
+              >
                 Continue to Stack Builder
               </Link>
               {featuredTokens.length ? (
@@ -681,7 +737,11 @@ export default function CollectionPage() {
               <p className='text-xs font-semibold text-white'>Compare adjacent collections next</p>
               <div className='mt-2 flex flex-wrap gap-2'>
                 {relatedCollections.slice(0, 3).map(entry => (
-                  <Link key={`related-${entry.slug}`} to={`/collections/${entry.slug}`} className='btn-secondary text-xs'>
+                  <Link
+                    key={`related-${entry.slug}`}
+                    to={`/collections/${entry.slug}`}
+                    className='btn-secondary text-xs'
+                  >
                     {entry.title}
                   </Link>
                 ))}
@@ -689,7 +749,9 @@ export default function CollectionPage() {
             </div>
           ),
           affiliate:
-            collectionCuratedProducts.length > 0 && collection.itemType !== 'combo' && topItems.length > 0 ? (
+            collectionCuratedProducts.length > 0 &&
+            collection.itemType !== 'combo' &&
+            topItems.length > 0 ? (
               <CuratedProductModule
                 entityType={collection.itemType}
                 entitySlug={topItems[0].slug}

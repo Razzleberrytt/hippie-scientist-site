@@ -12,7 +12,7 @@ import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
 import RelatedHerbCard from '@/components/RelatedHerbCard'
 import Collapse from '@/components/ui/Collapse'
-import { breadcrumbJsonLd, compoundJsonLd, SITE_URL } from '@/lib/seo'
+import { breadcrumbJsonLd, compoundJsonLd, formatMetaDescription, SITE_URL } from '@/lib/seo'
 import { countCautionSignals, inferContentFlags } from '@/lib/trust'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterCompoundByCollection } from '@/lib/collectionQuality'
@@ -21,6 +21,7 @@ import CuratedProductModule from '@/components/CuratedProductModule'
 import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
+import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -137,23 +138,32 @@ export default function CompoundDetail() {
       contraindications: compound.contraindications,
       herbs: compound.herbs,
     },
-    ['mechanism', 'effects', 'contraindications', 'herbs']
+    ['mechanism', 'effects', 'contraindications', 'herbs'],
   )
   const shouldShowContributionCta = keyFields.length < 3
   const compoundToken = encodeURIComponent(`compound:${compound.slug}`)
   const compoundCheckerHref = buildInteractionsLink([compoundToken])
-  const relatedCollections = SEO_COLLECTIONS.filter(collection => collection.itemType === 'compound')
+  const relatedCollections = SEO_COLLECTIONS.filter(
+    collection => collection.itemType === 'compound',
+  )
     .filter(collection =>
-      filterCompoundByCollection(compound as unknown as Record<string, unknown>, collection.filters)
+      filterCompoundByCollection(
+        compound as unknown as Record<string, unknown>,
+        collection.filters,
+      ),
     )
     .slice(0, 5)
   const introFacts = [
-    sourceCount > 0 ? `${sourceCount} source${sourceCount === 1 ? '' : 's'} listed` : 'sources pending',
-    cautionCount > 0 ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}` : 'no caution flags listed',
+    sourceCount > 0
+      ? `${sourceCount} source${sourceCount === 1 ? '' : 's'} listed`
+      : 'sources pending',
+    cautionCount > 0
+      ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}`
+      : 'no caution flags listed',
   ]
   const whatItIsSummary = firstSentence(
     compound.description || compound.mechanism,
-    `${compound.name} is a compound entry with sparse descriptive context so far.`
+    `${compound.name} is a compound entry with sparse descriptive context so far.`,
   )
   const commonUseSummary = compound.therapeuticUses.length
     ? `Commonly discussed in connection with ${compound.therapeuticUses.slice(0, 2).join(' and ')}.`
@@ -190,7 +200,9 @@ export default function CompoundDetail() {
   const herbKeys = new Set(compound.herbs.map(normalizeKey))
   const useKeys = new Set(compound.therapeuticUses.map(normalizeKey))
   const cautionKeys = new Set(
-    [...compound.contraindications, ...compound.interactions, ...compound.sideEffects].map(normalizeKey)
+    [...compound.contraindications, ...compound.interactions, ...compound.sideEffects].map(
+      normalizeKey,
+    ),
   )
   const similarCompounds = compounds
     .filter(other => other.slug !== compound.slug)
@@ -201,9 +213,13 @@ export default function CompoundDetail() {
       const sharedEffects = overlapByKey(otherEffects, effectKeys)
       const sharedHerbs = overlapByKey(otherHerbs, herbKeys)
       const sharedUses = overlapByKey(otherUses, useKeys)
-      const sameCategory = normalizeKey(other.category || '') === normalizeKey(compound.category || '')
+      const sameCategory =
+        normalizeKey(other.category || '') === normalizeKey(compound.category || '')
       const score =
-        sharedEffects.length * 4 + sharedHerbs.length * 3 + sharedUses.length * 2 + (sameCategory ? 1 : 0)
+        sharedEffects.length * 4 +
+        sharedHerbs.length * 3 +
+        sharedUses.length * 2 +
+        (sameCategory ? 1 : 0)
       return {
         slug: other.slug,
         name: other.name,
@@ -247,10 +263,11 @@ export default function CompoundDetail() {
     compound.mechanism ||
     compoundEffectsMetaText
   ).trim()
-  const compoundMetaDescription =
-    compoundDescriptionSource.slice(0, 155) ||
-    `${compound.name} compound profile with pharmacology, effects, and safety notes.`
-  const compoundMetaTitle = `${compound.name} — Pharmacology & Effects | The Hippie Scientist`
+  const compoundMetaDescription = formatMetaDescription(
+    compoundDescriptionSource,
+    `${compound.name} compound guide with pharmacology, effects, and safety notes.`,
+  )
+  const compoundMetaTitle = `${compound.name} Compound Guide: Mechanism, Effects & Safety`
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -270,6 +287,13 @@ export default function CompoundDetail() {
             { name: 'Compounds', url: `${SITE_URL}/compounds` },
             { name: compound.name, url: `${SITE_URL}/compounds/${compound.slug}` },
           ]),
+        ]}
+      />
+      <BreadcrumbTrail
+        items={[
+          { label: 'Home', to: '/' },
+          { label: 'Compounds', to: '/compounds' },
+          { label: compound.name },
         ]}
       />
       <Link to='/compounds' className='btn-secondary inline-flex items-center'>
@@ -331,7 +355,14 @@ export default function CompoundDetail() {
           <CtaVariantLayout
             variant={ctaExperiment.variant}
             onSlotImpression={(slot, position) => {
-              const ctaType = slot === 'tool' ? 'tool' : slot === 'builder' ? 'builder' : slot === 'affiliate' ? 'affiliate' : null
+              const ctaType =
+                slot === 'tool'
+                  ? 'tool'
+                  : slot === 'builder'
+                    ? 'builder'
+                    : slot === 'affiliate'
+                      ? 'affiliate'
+                      : null
               if (!ctaType) return
               trackCtaSlotImpression({
                 sourceType: 'detail',
@@ -376,7 +407,9 @@ export default function CompoundDetail() {
               ),
               builder: (
                 <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
-                  <p className='text-xs text-white/75'>Then move this compound into the builder workflow.</p>
+                  <p className='text-xs text-white/75'>
+                    Then move this compound into the builder workflow.
+                  </p>
                   <Link
                     to='/build'
                     className='btn-secondary mt-2 inline-flex text-xs'
@@ -404,7 +437,11 @@ export default function CompoundDetail() {
                   <p className='text-xs font-semibold text-white'>Compare related collections</p>
                   <div className='mt-2 flex flex-wrap gap-2'>
                     {relatedCollections.slice(0, 3).map(collection => (
-                      <Link key={`cta-${collection.slug}`} to={`/collections/${collection.slug}`} className='btn-secondary text-xs'>
+                      <Link
+                        key={`cta-${collection.slug}`}
+                        to={`/collections/${collection.slug}`}
+                        className='btn-secondary text-xs'
+                      >
                         {collection.title}
                       </Link>
                     ))}
@@ -629,7 +666,8 @@ export default function CompoundDetail() {
             <Collapse title='Caution-Related Herbs'>
               <div className='space-y-2 text-sm text-white/85'>
                 <p className='text-xs text-white/65'>
-                  These herbs share caution language with this compound profile and are useful next safety checks.
+                  These herbs share caution language with this compound profile and are useful next
+                  safety checks.
                 </p>
                 {cautionRelatedHerbs.map(other => (
                   <p key={`caution-${other.slug}`}>
@@ -699,7 +737,6 @@ export default function CompoundDetail() {
             </Collapse>
           </section>
         )}
-
 
         {shouldShowContributionCta && (
           <div className='bg-cyan-300/8 mt-8 rounded-2xl border border-cyan-300/30 p-4 text-sm text-cyan-50'>

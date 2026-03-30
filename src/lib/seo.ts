@@ -25,6 +25,11 @@ const withLeadingSlash = (value: string) => {
   return value.startsWith('/') || isAbsoluteUrl(value) ? value : `/${value}`
 }
 
+export function toAbsoluteUrl(path: string): string {
+  if (!path) return SITE_URL
+  return isAbsoluteUrl(path) ? path : new URL(withLeadingSlash(path), SITE_URL).toString()
+}
+
 const NON_CANONICAL_PARAM_PATTERNS: RegExp[] = [
   /^utm_/i,
   /^fbclid$/i,
@@ -62,12 +67,10 @@ export function buildMeta({
   keepQueryParams = [],
 }: BuildMetaArgs): NormalizedMeta {
   const canonicalPath = normalizeCanonicalPath(path, keepQueryParams)
-  const url = new URL(canonicalPath, SITE_URL).toString()
+  const url = toAbsoluteUrl(canonicalPath)
 
   const fallbackImage = image || '/icon-512x512.png'
-  const imageUrl = isAbsoluteUrl(fallbackImage)
-    ? fallbackImage
-    : new URL(withLeadingSlash(fallbackImage), SITE_URL).toString()
+  const imageUrl = toAbsoluteUrl(fallbackImage)
 
   return {
     title,
@@ -75,6 +78,22 @@ export function buildMeta({
     url,
     image: imageUrl,
   }
+}
+
+export function formatMetaDescription(value: string, fallback: string, maxLength = 155): string {
+  const cleaned = String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!cleaned) return fallback
+  if (cleaned.length <= maxLength) return cleaned
+  const cutoff = cleaned.slice(0, maxLength - 1)
+  const lastBreak = Math.max(
+    cutoff.lastIndexOf(' '),
+    cutoff.lastIndexOf(','),
+    cutoff.lastIndexOf(';'),
+  )
+  const compact = (lastBreak > 90 ? cutoff.slice(0, lastBreak) : cutoff).trim()
+  return `${compact}…`
 }
 
 export function websiteJsonLd() {
@@ -159,17 +178,13 @@ export function herbJsonLd(herb: HerbJsonLdArgs) {
   const url = `${SITE_URL}/herbs/${herb.slug}`
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: herb.name,
-    description: herb.description || `${herb.name} herb profile — effects, safety, and pharmacology.`,
+    '@type': 'WebPage',
+    name: `${herb.name} Herb Guide`,
+    description:
+      herb.description || `${herb.name} herb profile — effects, safety, and pharmacology.`,
     url,
     mainEntityOfPage: url,
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.svg` },
-    },
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
     ...(herb.image ? { image: herb.image } : {}),
     about: {
       '@type': 'Thing',
@@ -189,17 +204,13 @@ export function compoundJsonLd(compound: CompoundJsonLdArgs) {
   const url = `${SITE_URL}/compounds/${compound.slug}`
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: compound.name,
-    description: compound.description || `${compound.name} pharmacology, effects, and safety profile.`,
+    '@type': 'WebPage',
+    name: `${compound.name} Compound Guide`,
+    description:
+      compound.description || `${compound.name} pharmacology, effects, and safety profile.`,
     url,
     mainEntityOfPage: url,
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.svg` },
-    },
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
     about: {
       '@type': 'ChemicalSubstance',
       name: compound.name,
@@ -217,6 +228,50 @@ export function breadcrumbJsonLd(crumbs: Array<{ name: string; url: string }>) {
       position: i + 1,
       name: crumb.name,
       item: crumb.url,
+    })),
+  }
+}
+
+export function collectionPageJsonLd(args: {
+  title: string
+  description: string
+  path: string
+  itemListId?: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: args.title,
+    description: args.description,
+    url: toAbsoluteUrl(args.path),
+    ...(args.itemListId
+      ? {
+          mainEntity: {
+            '@id': args.itemListId,
+          },
+        }
+      : {}),
+  }
+}
+
+export function itemListJsonLd(args: {
+  id?: string
+  name: string
+  path: string
+  items: Array<{ name: string; url: string }>
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    ...(args.id ? { '@id': args.id } : {}),
+    name: args.name,
+    url: toAbsoluteUrl(args.path),
+    numberOfItems: args.items.length,
+    itemListElement: args.items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: toAbsoluteUrl(item.url),
     })),
   }
 }
