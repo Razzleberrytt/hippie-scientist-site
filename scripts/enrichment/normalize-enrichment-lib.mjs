@@ -13,6 +13,7 @@ export const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-re
 export const INPUT_PATH_DEFAULT = path.join(ROOT, 'public', 'data', 'enrichment-normalized.jsonl')
 export const SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-normalization-summary.json')
 export const EVIDENCE_GRADING_SUMMARY_PATH = path.join(ROOT, 'ops', 'reports', 'evidence-grading-summary.json')
+export const SAFETY_SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'safety-enrichment-summary.json')
 
 export const TOPIC_TO_ROLLUP_FIELD = {
   supported_use: 'supportedUses',
@@ -22,10 +23,55 @@ export const TOPIC_TO_ROLLUP_FIELD = {
   interaction: 'interactions',
   contraindication: 'contraindications',
   adverse_effect: 'adverseEffects',
+  pregnancy_note: 'populationSpecificNotes',
+  lactation_note: 'populationSpecificNotes',
+  pediatric_note: 'populationSpecificNotes',
+  geriatric_note: 'populationSpecificNotes',
+  condition_caution: 'populationSpecificNotes',
+  surgery_caution: 'populationSpecificNotes',
+  medication_class_caution: 'populationSpecificNotes',
   dosage_context: 'dosageContextNotes',
   population_specific_note: 'populationSpecificNotes',
   conflict_note: 'conflictNotes',
   research_gap: 'researchGaps',
+}
+
+export const SAFETY_TOPIC_TYPES = new Set([
+  'interaction',
+  'contraindication',
+  'adverse_effect',
+  'pregnancy_note',
+  'lactation_note',
+  'pediatric_note',
+  'geriatric_note',
+  'condition_caution',
+  'surgery_caution',
+  'medication_class_caution',
+])
+
+const SAFETY_TARGET_TYPES = new Set(['drug', 'drug_class', 'herb', 'condition', 'population'])
+const SEVERITY_LABELS = new Set(['none_known', 'low', 'moderate', 'high', 'severe', 'contraindicated'])
+const URGENCY_LABELS = new Set(['routine', 'caution', 'prompt_review', 'urgent'])
+const SEVERITY_RANK = {
+  none_known: 0,
+  low: 1,
+  moderate: 2,
+  high: 3,
+  severe: 4,
+  contraindicated: 5,
+}
+
+const TOPIC_ALLOWED_TARGET_TYPES = {
+  interaction: new Set(['drug', 'drug_class', 'herb']),
+  contraindication: new Set(['condition', 'population']),
+  adverse_effect: new Set(['population']),
+  pregnancy_note: new Set(['population']),
+  lactation_note: new Set(['population']),
+  pediatric_note: new Set(['population']),
+  geriatric_note: new Set(['population']),
+  condition_caution: new Set(['condition', 'population']),
+  surgery_caution: new Set(['condition', 'population']),
+  medication_class_caution: new Set(['drug_class']),
 }
 
 const NON_EMPTY_FIELDS = [
@@ -35,6 +81,9 @@ const NON_EMPTY_FIELDS = [
   'mechanismContext',
   'traditionalUseContext',
   'uncertaintyNote',
+  'targetName',
+  'medicationClassContext',
+  'conflictNote',
 ]
 
 const VAGUE_FINDING_PATTERNS = new Set([
@@ -138,6 +187,11 @@ function normalizeEntry(entry) {
   normalized.reviewer = normalizeWhitespace(normalized.reviewer)
   normalized.claimType = normalizeWhitespace(normalized.claimType)
   normalized.topicType = normalizeWhitespace(normalized.topicType)
+  normalized.safetyTopicType = normalizeWhitespace(normalized.safetyTopicType)
+  normalized.targetType = normalizeWhitespace(normalized.targetType)
+  normalized.severityLabel = normalizeWhitespace(normalized.severityLabel)
+  normalized.urgencyLabel = normalizeWhitespace(normalized.urgencyLabel)
+  normalized.safetyEntryId = normalizeWhitespace(normalized.safetyEntryId)
   for (const key of NON_EMPTY_FIELDS) {
     if (normalized[key] == null) continue
     normalized[key] = normalizeWhitespace(normalized[key])
@@ -157,6 +211,7 @@ export function validateAndNormalizeEntries(entries, options = {}) {
   const normalizedEntries = []
   const exactDupeKeys = new Set()
   const nearDupeBuckets = new Map()
+  const safetySeverityByTarget = new Map()
 
   for (const [index, rawEntry] of entries.entries()) {
     const entry = normalizeEntry(rawEntry)
@@ -198,12 +253,83 @@ export function validateAndNormalizeEntries(entries, options = {}) {
       issues.push(`${prefix} unsupported topicType=${entry.topicType}.`)
     }
 
+    const isSafetyTopic = SAFETY_TOPIC_TYPES.has(entry.topicType)
+    const effectiveSafetyTopic = entry.safetyTopicType ?? entry.topicType
+    if (entry.safetyTopicType && !SAFETY_TOPIC_TYPES.has(entry.safetyTopicType)) {
+      issues.push(`${prefix} invalid safetyTopicType=${entry.safetyTopicType}.`)
+    }
+    if (isSafetyTopic && entry.safetyTopicType && entry.safetyTopicType !== entry.topicType) {
+      issues.push(`${prefix} safetyTopicType must match topicType for safety topics.`)
+    }
+
+    if (isSafetyTopic) {
+      if (!entry.targetType || !SAFETY_TARGET_TYPES.has(entry.targetType)) {
+        issues.push(`${prefix} safety entry requires valid targetType (${Array.from(SAFETY_TARGET_TYPES).join('|')}).`)
+      }
+      if (!entry.targetName || entry.targetName.length < 2) {
+        issues.push(`${prefix} safety entry requires targetName with at least 2 characters.`)
+      }
+      if (!entry.severityLabel || !SEVERITY_LABELS.has(entry.severityLabel)) {
+        issues.push(`${prefix} safety entry requires valid severityLabel (${Array.from(SEVERITY_LABELS).join('|')}).`)
+      }
+      if (!entry.urgencyLabel || !URGENCY_LABELS.has(entry.urgencyLabel)) {
+        issues.push(`${prefix} safety entry requires valid urgencyLabel (${Array.from(URGENCY_LABELS).join('|')}).`)
+      }
+      if (typeof entry.mechanismKnown !== 'boolean') {
+        issues.push(`${prefix} safety entry requires mechanismKnown boolean.`)
+      }
+      const allowedTargetTypes = TOPIC_ALLOWED_TARGET_TYPES[effectiveSafetyTopic]
+      if (allowedTargetTypes && entry.targetType && !allowedTargetTypes.has(entry.targetType)) {
+        issues.push(
+          `${prefix} targetType=${entry.targetType} is not allowed for topic=${effectiveSafetyTopic}; expected ${Array.from(
+            allowedTargetTypes,
+          ).join('|')}.`,
+        )
+      }
+
+      if (effectiveSafetyTopic === 'medication_class_caution' && !entry.medicationClassContext) {
+        issues.push(`${prefix} medication_class_caution entries require medicationClassContext.`)
+      }
+      if ((effectiveSafetyTopic === 'pregnancy_note' || effectiveSafetyTopic === 'lactation_note') && entry.targetType !== 'population') {
+        issues.push(`${prefix} ${effectiveSafetyTopic} entries must target population.`)
+      }
+      if (effectiveSafetyTopic === 'adverse_effect' && entry.claimType !== 'safety_risk') {
+        issues.push(`${prefix} adverse_effect entries must use claimType=safety_risk.`)
+      }
+
+      if (
+        (entry.evidenceClass === 'preclinical-mechanistic' || entry.evidenceClass === 'traditional-use') &&
+        !entry.uncertaintyNote
+      ) {
+        issues.push(`${prefix} ${entry.evidenceClass} safety entries require uncertaintyNote to avoid overstating certainty.`)
+      }
+
+      const safetySeverityKey = [
+        entry.entityType,
+        entry.entitySlug,
+        effectiveSafetyTopic,
+        normalizeForNearDuplicate(entry.targetType ?? ''),
+        normalizeForNearDuplicate(entry.targetName ?? ''),
+      ].join('|')
+      const severityRank = SEVERITY_RANK[entry.severityLabel]
+      const prior = safetySeverityByTarget.get(safetySeverityKey)
+      if (prior && prior.rank !== severityRank) {
+        issues.push(
+          `${prefix} contradictory severity assignment for same safety target (existing=${prior.label}, current=${entry.severityLabel}).`,
+        )
+      } else if (!prior) {
+        safetySeverityByTarget.set(safetySeverityKey, { rank: severityRank, label: entry.severityLabel })
+      }
+    }
+
     const exactKey = [
       entry.entityType,
       entry.entitySlug,
       entry.sourceId,
       entry.topicType,
       entry.claimType,
+      normalizeForNearDuplicate(entry.targetType ?? ''),
+      normalizeForNearDuplicate(entry.targetName ?? ''),
       findingNormalizedLc,
     ].join('|')
     if (exactDupeKeys.has(exactKey)) {
@@ -213,7 +339,14 @@ export function validateAndNormalizeEntries(entries, options = {}) {
     }
 
     if (includeNearDuplicateCheck) {
-      const nearBucketKey = [entry.entityType, entry.entitySlug, entry.sourceId, entry.topicType].join('|')
+      const nearBucketKey = [
+        entry.entityType,
+        entry.entitySlug,
+        entry.sourceId,
+        entry.topicType,
+        normalizeForNearDuplicate(entry.targetType ?? ''),
+        normalizeForNearDuplicate(entry.targetName ?? ''),
+      ].join('|')
       const bucket = nearDupeBuckets.get(nearBucketKey) ?? []
       const candidateText = entry.findingTextNormalized
       for (const existing of bucket) {
@@ -292,6 +425,7 @@ export function rollupToResearchEnrichment(entries, sourceById = null) {
     const sourceMap = sourceById ?? sourceByIdFromEntries(entityEntries)
     const topicEvidenceJudgments = gradeEvidenceByTopic(entityEntries, sourceMap)
     const pageEvidenceJudgment = gradeEvidenceEntries(entityEntries, sourceMap)
+    const safetyProfile = buildSafetyProfile(entityEntries)
 
     const evidenceClassList = Array.from(evidenceClassesPresent).sort()
     output.push({
@@ -312,6 +446,7 @@ export function rollupToResearchEnrichment(entries, sourceById = null) {
         populationSpecificNotes: claimsByField.populationSpecificNotes,
         conflictNotes: claimsByField.conflictNotes,
         researchGaps: claimsByField.researchGaps,
+        safetyProfile,
         topicEvidenceJudgments,
         pageEvidenceJudgment,
         sourceRegistryIds: Array.from(sourceRegistryIds).sort(),
@@ -356,6 +491,78 @@ export function buildSummary(entries) {
     inputPath: path.relative(ROOT, INPUT_PATH_DEFAULT),
     totalEntries: entries.length,
     counts: { byEntity, byTopicType, byEvidenceClass, byEditorialStatus },
+  }
+}
+
+function buildSafetyProfile(entries) {
+  const safetyEntries = entries
+    .filter(entry => SAFETY_TOPIC_TYPES.has(entry.topicType))
+    .map(entry => ({
+      safetyEntryId: entry.safetyEntryId ?? `senr_${entry.enrichmentId.replace(/^enr_/u, '')}`,
+      sourceId: entry.sourceId,
+      safetyTopicType: entry.safetyTopicType ?? entry.topicType,
+      targetType: entry.targetType,
+      targetName: entry.targetName,
+      severityLabel: entry.severityLabel,
+      urgencyLabel: entry.urgencyLabel,
+      evidenceClass: entry.evidenceClass,
+      findingTextShort: entry.findingTextShort,
+      findingTextNormalized: entry.findingTextNormalized,
+      mechanismKnown: entry.mechanismKnown,
+      populationContext: entry.populationContext,
+      medicationClassContext: entry.medicationClassContext,
+      uncertaintyNote: entry.uncertaintyNote,
+      conflictNote: entry.conflictNote,
+      reviewer: entry.reviewer,
+      reviewedAt: entry.reviewedAt,
+      editorialStatus: entry.editorialStatus,
+      active: entry.active,
+    }))
+  const severityCounts = {}
+  const topicCounts = {}
+  for (const row of safetyEntries) {
+    topicCounts[row.safetyTopicType] = (topicCounts[row.safetyTopicType] ?? 0) + 1
+    severityCounts[row.severityLabel] = (severityCounts[row.severityLabel] ?? 0) + 1
+  }
+  return {
+    safetyEntries,
+    summary: {
+      total: safetyEntries.length,
+      byTopicType: topicCounts,
+      bySeverity: severityCounts,
+    },
+  }
+}
+
+export function buildSafetySummary(entries) {
+  const counts = {
+    byEntity: {},
+    bySafetyTopicType: {},
+    byTargetType: {},
+    bySeverity: {},
+    byEvidenceClass: {},
+    byConflictState: {},
+  }
+
+  for (const entry of entries) {
+    if (!SAFETY_TOPIC_TYPES.has(entry.topicType)) continue
+    const entityKey = `${entry.entityType}:${entry.entitySlug}`
+    const conflictState = entry.conflictNote ? 'conflict_noted' : 'none'
+    const safetyTopicType = entry.safetyTopicType ?? entry.topicType
+
+    counts.byEntity[entityKey] = (counts.byEntity[entityKey] ?? 0) + 1
+    counts.bySafetyTopicType[safetyTopicType] = (counts.bySafetyTopicType[safetyTopicType] ?? 0) + 1
+    counts.byTargetType[entry.targetType] = (counts.byTargetType[entry.targetType] ?? 0) + 1
+    counts.bySeverity[entry.severityLabel] = (counts.bySeverity[entry.severityLabel] ?? 0) + 1
+    counts.byEvidenceClass[entry.evidenceClass] = (counts.byEvidenceClass[entry.evidenceClass] ?? 0) + 1
+    counts.byConflictState[conflictState] = (counts.byConflictState[conflictState] ?? 0) + 1
+  }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    inputPath: path.relative(ROOT, INPUT_PATH_DEFAULT),
+    totalSafetyEntries: Object.values(counts.byEntity).reduce((sum, value) => sum + value, 0),
+    counts,
   }
 }
 

@@ -1,23 +1,24 @@
 {
-  "generatedAt": "2026-03-30T18:05:10.376Z",
+  "generatedAt": "2026-03-30T18:17:36.386Z",
   "inputPath": "public/data/enrichment-normalized.jsonl",
-  "totalEntries": 3,
+  "totalEntries": 4,
   "counts": {
     "byEntity": {
-      "herb:kava": 2,
+      "herb:kava": 3,
       "compound:cbd": 1
     },
     "byTopicType": {
       "supported_use": 1,
       "mechanism": 1,
-      "population_specific_note": 1
+      "population_specific_note": 1,
+      "interaction": 1
     },
     "byEvidenceClass": {
-      "human-clinical": 2,
+      "human-clinical": 3,
       "traditional-use": 1
     },
     "byEditorialStatus": {
-      "approved": 2,
+      "approved": 3,
       "in-review": 1
     }
   },

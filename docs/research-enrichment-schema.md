@@ -35,6 +35,10 @@ Two explicit guardrails:
     "adverseEffects": [],
     "dosageContextNotes": [],
     "populationSpecificNotes": [],
+    "safetyProfile": {
+      "safetyEntries": [],
+      "summary": { "total": 0, "byTopicType": {}, "bySeverity": {} }
+    },
     "conflictNotes": [],
     "researchGaps": [],
     "sourceRegistryIds": ["src_pubmed-clinical-template"],
@@ -58,6 +62,7 @@ Two explicit guardrails:
 - `sourceRegistryIds[]`: required registry source IDs used by this entity.
 - `sourceRefs[]`: optional local extraction annotations only (confidence/reviewer/notes), keyed by `sourceId`.
 - `sourceRefIds[]` in every claim: IDs that must resolve through `sourceRegistryIds[]`.
+- `safetyProfile.safetyEntries[]`: structured safety rows for interactions/contraindications/adverse effects/population cautions with deterministic severity + uncertainty metadata.
 
 ## Allowed evidence classes
 
@@ -94,3 +99,4 @@ This pipeline enforces:
 - strict topic and claim normalization
 - duplicate and near-duplicate rejection
 - reviewer/date/editorial-state requirements before rollup
+- topic-specific safety normalization (target type, severity, urgency, mechanism-known flags)

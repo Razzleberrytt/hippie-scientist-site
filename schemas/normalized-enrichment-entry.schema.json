@@ -21,10 +21,25 @@
     "active"
   ],
   "properties": {
-    "enrichmentId": { "type": "string", "pattern": "^enr_[a-z0-9]+(?:-[a-z0-9]+)*$" },
-    "entityType": { "type": "string", "enum": ["herb", "compound"] },
-    "entitySlug": { "type": "string", "minLength": 1 },
-    "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "enrichmentId": {
+      "type": "string",
+      "pattern": "^enr_[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "entityType": {
+      "type": "string",
+      "enum": [
+        "herb",
+        "compound"
+      ]
+    },
+    "entitySlug": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceId": {
+      "type": "string",
+      "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
     "topicType": {
       "type": "string",
       "enum": [
@@ -35,6 +50,13 @@
         "interaction",
         "contraindication",
         "adverse_effect",
+        "pregnancy_note",
+        "lactation_note",
+        "pediatric_note",
+        "geriatric_note",
+        "condition_caution",
+        "surgery_caution",
+        "medication_class_caution",
         "dosage_context",
         "population_specific_note",
         "conflict_note",
@@ -65,21 +87,123 @@
         "regulatory-monograph"
       ]
     },
-    "findingTextShort": { "type": "string", "minLength": 12 },
-    "findingTextNormalized": { "type": "string", "minLength": 24 },
-    "strengthLabel": { "type": "string", "enum": ["strong", "moderate", "limited", "insufficient"] },
-    "populationContext": { "type": "string" },
-    "usageContext": { "type": "string" },
-    "safetyContext": { "type": "string" },
-    "mechanismContext": { "type": "string" },
-    "traditionalUseContext": { "type": "string" },
-    "uncertaintyNote": { "type": "string" },
-    "reviewer": { "type": "string", "minLength": 1 },
-    "reviewedAt": { "type": "string", "format": "date-time" },
+    "findingTextShort": {
+      "type": "string",
+      "minLength": 12
+    },
+    "findingTextNormalized": {
+      "type": "string",
+      "minLength": 24
+    },
+    "strengthLabel": {
+      "type": "string",
+      "enum": [
+        "strong",
+        "moderate",
+        "limited",
+        "insufficient"
+      ]
+    },
+    "populationContext": {
+      "type": "string"
+    },
+    "usageContext": {
+      "type": "string"
+    },
+    "safetyContext": {
+      "type": "string"
+    },
+    "mechanismContext": {
+      "type": "string"
+    },
+    "traditionalUseContext": {
+      "type": "string"
+    },
+    "uncertaintyNote": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
     "editorialStatus": {
       "type": "string",
-      "enum": ["draft", "in-review", "approved", "needs-update", "deprecated"]
+      "enum": [
+        "draft",
+        "in-review",
+        "approved",
+        "needs-update",
+        "deprecated"
+      ]
     },
-    "active": { "type": "boolean" }
+    "active": {
+      "type": "boolean"
+    },
+    "safetyEntryId": {
+      "type": "string",
+      "pattern": "^senr_[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "safetyTopicType": {
+      "type": "string",
+      "enum": [
+        "interaction",
+        "contraindication",
+        "adverse_effect",
+        "pregnancy_note",
+        "lactation_note",
+        "pediatric_note",
+        "geriatric_note",
+        "condition_caution",
+        "surgery_caution",
+        "medication_class_caution"
+      ]
+    },
+    "targetType": {
+      "type": "string",
+      "enum": [
+        "drug",
+        "drug_class",
+        "herb",
+        "condition",
+        "population"
+      ]
+    },
+    "targetName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "severityLabel": {
+      "type": "string",
+      "enum": [
+        "none_known",
+        "low",
+        "moderate",
+        "high",
+        "severe",
+        "contraindicated"
+      ]
+    },
+    "urgencyLabel": {
+      "type": "string",
+      "enum": [
+        "routine",
+        "caution",
+        "prompt_review",
+        "urgent"
+      ]
+    },
+    "mechanismKnown": {
+      "type": "boolean"
+    },
+    "medicationClassContext": {
+      "type": "string"
+    },
+    "conflictNote": {
+      "type": "string"
+    }
   }
 }
