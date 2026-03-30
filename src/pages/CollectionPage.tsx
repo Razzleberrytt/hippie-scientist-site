@@ -73,6 +73,18 @@ function summarizeItemValue(item: CollectionEntity): string {
   return 'general wellness support'
 }
 
+const COLLECTION_REASON_LABELS: Record<string, string> = {
+  'missing-editorial-brief': 'no editorial guide sections were provided',
+  'missing-who-for': 'missing "who this is for" guidance',
+  'missing-selection-rationale': 'selection rationale is too thin',
+  'missing-caution': 'missing caution or scope note',
+  'missing-alternatives': 'missing related alternatives',
+  'missing-cta-guidance': 'missing clear next-step CTA guidance',
+  'insufficient-matching-items': 'not enough matching entities to make the page useful',
+  'missing-intro': 'intro text is too short',
+  'missing-description': 'meta description is too short',
+}
+
 function CollectionFunnelCta({
   title,
   description,
@@ -203,6 +215,10 @@ export default function CollectionPage() {
     if (!collection) return { approved: false, reasons: ['missing-collection'], minRequired: 0 }
     return auditCollectionForIndexing(collection, itemCount)
   }, [collection, itemCount])
+  const editorial = collection?.editorial
+  const qualityMessages = collectionQuality.reasons.map(
+    reason => COLLECTION_REASON_LABELS[reason] || reason
+  )
 
   const topItems = useMemo(() => {
     if (collection?.itemType === 'herb') return herbMatches.slice(0, 3)
@@ -288,9 +304,7 @@ export default function CollectionPage() {
       })),
     [topItems]
   )
-  const pageTitle = collection
-    ? `Best Herbs for ${toGoalLabel(collection)} (Interactions + Stack Builder)`
-    : 'Best Herbs Collections'
+  const pageTitle = collection ? `${collection.title} | The Hippie Scientist` : 'Collections'
   const pageDescription = collection ? buildSeoDescription(collection) : ''
 
   useEffect(() => {
@@ -450,20 +464,51 @@ export default function CollectionPage() {
         {!collectionQuality.approved ? (
           <p className='mt-2 text-xs text-amber-200/90'>
             This collection is available for browsing but excluded from indexing until it meets
-            quality thresholds ({collectionQuality.reasons.join(', ')}).
+            quality thresholds.
           </p>
         ) : null}
+        {!collectionQuality.approved && qualityMessages.length > 0 ? (
+          <ul className='mt-2 list-disc space-y-1 pl-5 text-xs text-amber-100/90'>
+            {qualityMessages.map(reason => (
+              <li key={reason}>{reason}</li>
+            ))}
+          </ul>
+        ) : null}
 
-        <div className='border-white/12 mt-4 rounded-xl border bg-black/20 p-3'>
-          <p className='text-xs font-semibold uppercase tracking-[0.14em] text-cyan-200'>
-            Why this page exists
-          </p>
-          <p className='mt-1 text-xs leading-6 text-white/75'>
-            This collection is generated from real herb/compound records to speed up discovery, but
-            decisions should still be validated item-by-item in the interaction checker and stack
-            flow.
-          </p>
-        </div>
+        {editorial ? (
+          <section className='border-white/12 mt-4 rounded-xl border bg-black/20 p-3'>
+            <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-cyan-200'>
+              Editorial guide
+            </h2>
+            <dl className='mt-2 space-y-3 text-xs text-white/80'>
+              <div>
+                <dt className='font-semibold text-cyan-100'>Who this page is for</dt>
+                <dd className='mt-1 leading-6'>{editorial.whoFor}</dd>
+              </div>
+              <div>
+                <dt className='font-semibold text-cyan-100'>How items were selected</dt>
+                <dd className='mt-1 leading-6'>{editorial.selectionRationale}</dd>
+              </div>
+              <div>
+                <dt className='font-semibold text-cyan-100'>Cautions and scope</dt>
+                <dd className='mt-1'>
+                  <ul className='list-disc space-y-1 pl-5'>
+                    {editorial.cautions.map(note => (
+                      <li key={note}>{note}</li>
+                    ))}
+                    {editorial.exclusions.map(note => (
+                      <li key={note}>{note}</li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt className='font-semibold text-cyan-100'>Use this page effectively</dt>
+                <dd className='mt-1 leading-6'>{editorial.ctaLabel}</dd>
+              </div>
+            </dl>
+          </section>
+        ) : null}
 
         <div className='mt-4 flex flex-wrap items-center gap-2'>
           <Button type='button' variant='secondary' onClick={handleCopyLink} className='text-xs'>
@@ -493,10 +538,10 @@ export default function CollectionPage() {
         </div>
       </header>
 
-      {quickValueItems.length > 0 && (
+      {quickValueItems.length > 0 && editorial && (
         <section className='mt-4 rounded-xl border border-cyan-300/25 bg-cyan-500/5 p-3'>
           <h2 className='text-sm font-semibold text-cyan-100'>
-            Top 3 herbs people use for {toGoalLabel(collection).toLowerCase()}:
+            Useful starting points for {toGoalLabel(collection).toLowerCase()}
           </h2>
           <div className='mt-3 grid gap-2 sm:grid-cols-3'>
             {quickValueItems.slice(0, 3).map((item, index) => (
@@ -517,7 +562,10 @@ export default function CollectionPage() {
       <section className='mt-4'>
         <CollectionFunnelCta
           title='Move from browsing to action'
-          description='Open the checker with relevant items prefilled, then continue to stack + export.'
+          description={
+            editorial?.ctaLabel ||
+            'Open the checker with relevant items prefilled, then continue to stack + export.'
+          }
           checkerHref={checkerHref}
           stackHref={stackHref}
           comboHref={featuredTokens.length ? featuredComboHref : undefined}
@@ -618,7 +666,9 @@ export default function CollectionPage() {
       <section className='mt-5'>
         <CollectionFunnelCta
           title='Ready to check this set?'
-          description='Run the interaction checker now, then continue into stack export.'
+          description={
+            editorial?.ctaLabel || 'Run the interaction checker now, then continue into stack export.'
+          }
           checkerHref={checkerHref}
           stackHref={stackHref}
           comboHref={featuredTokens.length ? featuredComboHref : undefined}
@@ -834,6 +884,21 @@ export default function CollectionPage() {
       )}
 
       <section className='mt-8 grid gap-4 lg:grid-cols-2'>
+        {editorial?.alternatives?.length ? (
+          <div className='ds-card p-4'>
+            <h2 className='text-sm font-semibold text-white'>Related alternatives</h2>
+            <p className='mt-2 text-xs text-white/70'>
+              Compare adjacent collections before finalizing your shortlist.
+            </p>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              {editorial.alternatives.map(option => (
+                <Link key={option} to={`/collections/${option}`} className='btn-secondary text-xs'>
+                  {SEO_COLLECTIONS.find(entry => entry.slug === option)?.title || option}
+                </Link>
+              ))}
+            </div>
+          </div>
+        ) : null}
         {relatedCollections.length > 0 && (
           <div className='ds-card p-4'>
             <h2 className='text-sm font-semibold text-white'>Related goals</h2>
@@ -892,22 +957,6 @@ export default function CollectionPage() {
             </Link>
           </div>
         </div>
-      </section>
-
-      <section className='mt-8 rounded-xl border border-fuchsia-300/30 bg-fuchsia-500/10 p-4'>
-        <h2 className='text-base font-semibold text-fuchsia-100'>
-          Have you tried any of these together?
-        </h2>
-        <p className='mt-1 text-sm text-white/80'>
-          Most people miss interactions — check your stack here.
-        </p>
-        <Link
-          to={checkerHref}
-          className='btn-primary mt-3 text-xs'
-          onClick={() => handleFunnelClick('checker')}
-        >
-          Check your stack
-        </Link>
       </section>
     </main>
   )

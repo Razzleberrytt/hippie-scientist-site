@@ -7,6 +7,11 @@ type CollectionRecord = Record<string, unknown>
 export const COLLECTION_QUALITY_RULE = {
   introMinLength: 40,
   descriptionMinLength: 40,
+  whoForMinLength: 70,
+  selectionRationaleMinLength: 90,
+  minCautions: 1,
+  minAlternatives: 2,
+  ctaLabelMinLength: 24,
   minItemsByType: {
     herb: 6,
     compound: 6,
@@ -70,6 +75,7 @@ export function filterComboByCollection(combo: PrebuiltCombo, filters: SeoCollec
 
 export function auditCollectionForIndexing(collection: SeoCollection, itemCount: number) {
   const reasons: string[] = []
+  const editorial = collection.editorial
 
   if (!hasStableCollectionSlug(collection.slug)) reasons.push('unstable-slug')
   if (collection.intro.trim().length < COLLECTION_QUALITY_RULE.introMinLength) {
@@ -77,6 +83,31 @@ export function auditCollectionForIndexing(collection: SeoCollection, itemCount:
   }
   if (collection.description.trim().length < COLLECTION_QUALITY_RULE.descriptionMinLength) {
     reasons.push('missing-description')
+  }
+  if (!editorial) {
+    reasons.push('missing-editorial-brief')
+  } else {
+    if (editorial.whoFor.trim().length < COLLECTION_QUALITY_RULE.whoForMinLength) {
+      reasons.push('missing-who-for')
+    }
+    if (
+      editorial.selectionRationale.trim().length <
+      COLLECTION_QUALITY_RULE.selectionRationaleMinLength
+    ) {
+      reasons.push('missing-selection-rationale')
+    }
+    if (editorial.cautions.filter(note => note.trim().length > 0).length < COLLECTION_QUALITY_RULE.minCautions) {
+      reasons.push('missing-caution')
+    }
+    if (
+      editorial.alternatives.filter(item => item.trim().length > 0).length <
+      COLLECTION_QUALITY_RULE.minAlternatives
+    ) {
+      reasons.push('missing-alternatives')
+    }
+    if (editorial.ctaLabel.trim().length < COLLECTION_QUALITY_RULE.ctaLabelMinLength) {
+      reasons.push('missing-cta-guidance')
+    }
   }
 
   const minRequired = COLLECTION_QUALITY_RULE.minItemsByType[collection.itemType]
