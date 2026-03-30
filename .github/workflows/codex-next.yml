@@ -40,24 +40,8 @@ jobs:
         if: ${{ hashFiles('package-lock.json') != '' }}
         run: npm ci
 
-      - name: Read current queue step
-        id: queue
-        shell: bash
-        run: |
-          CURRENT_STEP=$(sed -n 's/^current:[[:space:]]*//p' ops/codex-queue.yaml | head -n 1 | tr -d '"')
-          if [ -z "$CURRENT_STEP" ] || [ "$CURRENT_STEP" = "none" ]; then
-            echo "has_work=false" >> "$GITHUB_OUTPUT"
-            echo "current_step=" >> "$GITHUB_OUTPUT"
-            echo "No current queue step found."
-          else
-            echo "has_work=true" >> "$GITHUB_OUTPUT"
-            echo "current_step=$CURRENT_STEP" >> "$GITHUB_OUTPUT"
-            echo "Current step: $CURRENT_STEP"
-          fi
-
       # Requires OPENAI_API_KEY secret — disabled until re-enabled intentionally.
-      # - name: Run Codex for the current step
-      #   if: ${{ steps.queue.outputs.has_work == 'true' }}
+      # - name: Run Codex for the requested task
       #   id: run_codex
       #   uses: openai/codex-action@v1
       #   with:
@@ -68,26 +52,26 @@ jobs:
       #     safety-strategy: drop-sudo
 
       - name: Upload Codex output
-        if: ${{ steps.queue.outputs.has_work == 'true' && hashFiles('codex-output.md') != '' }}
+        if: ${{ hashFiles('codex-output.md') != '' }}
         uses: actions/upload-artifact@v4
         with:
-          name: codex-output-${{ steps.queue.outputs.current_step }}
+          name: codex-output-manual
           path: codex-output.md
 
       - name: Create or update pull request
-        if: ${{ steps.queue.outputs.has_work == 'true' }}
+        if: ${{ hashFiles('codex-output.md') != '' }}
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ github.token }}
-          commit-message: "codex: advance ${{ steps.queue.outputs.current_step }}"
-          branch: "codex/${{ steps.queue.outputs.current_step }}"
+          commit-message: "codex: manual update"
+          branch: "codex/manual-update"
           delete-branch: true
-          title: "codex: advance ${{ steps.queue.outputs.current_step }}"
+          title: "codex: manual update"
           body-path: codex-output.md
           labels: |
             codex-managed
             automation
 
-      - name: Queue complete
-        if: ${{ steps.queue.outputs.has_work != 'true' }}
-        run: echo "Queue is complete or current step is not set."
+      - name: No Codex output
+        if: ${{ hashFiles('codex-output.md') == '' }}
+        run: echo "No codex-output.md found; skipping artifact upload and PR creation."
