@@ -61,11 +61,13 @@ npm run build
 
 Use these npm scripts as the operational source of truth:
 
-- Data refresh: `npm run data:refresh`
-- Build (includes prebuild and postbuild): `npm run build`
+- Data refresh (local operator mode): `npm run data:refresh`
+- Canonical build (includes prebuild + postbuild via npm lifecycle): `npm run build`
+- Build verification bundle: `npm run verify:build`
 - Prerender only: `npm run prerender:static`
 - Sitemap/robots generation: `npm run sitemap`
-- Verification: `npm run verify:prerender` and `npm run verify:redirects`
+
+See `docs/build-and-verification.md` for the full workflow and generated-artifact policy.
 
 ## Crawl + indexing files
 
