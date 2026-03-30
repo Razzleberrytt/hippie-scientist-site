@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.app/schemas/research-enrichment.schema.json",
+  "title": "Research enrichment profile",
+  "description": "Structured enrichment model used by both herb and compound detail records.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidenceSummary",
+    "evidenceTier",
+    "evidenceClassesPresent",
+    "supportedUses",
+    "unsupportedOrUnclearUses",
+    "mechanisms",
+    "constituents",
+    "interactions",
+    "contraindications",
+    "adverseEffects",
+    "dosageContextNotes",
+    "populationSpecificNotes",
+    "conflictNotes",
+    "researchGaps",
+    "sourceRefs",
+    "lastReviewedAt",
+    "reviewedBy",
+    "editorialStatus"
+  ],
+  "properties": {
+    "evidenceSummary": { "type": "string", "minLength": 1 },
+    "evidenceTier": {
+      "type": "string",
+      "enum": ["tier-1-strong", "tier-2-moderate", "tier-3-limited", "tier-4-insufficient"]
+    },
+    "evidenceClassesPresent": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "human-clinical",
+          "human-observational",
+          "preclinical-mechanistic",
+          "traditional-use",
+          "regulatory-monograph"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "supportedUses": { "$ref": "#/$defs/claimArray" },
+    "unsupportedOrUnclearUses": { "$ref": "#/$defs/claimArray" },
+    "mechanisms": { "$ref": "#/$defs/claimArray" },
+    "constituents": { "$ref": "#/$defs/claimArray" },
+    "interactions": { "$ref": "#/$defs/claimArray" },
+    "contraindications": { "$ref": "#/$defs/claimArray" },
+    "adverseEffects": { "$ref": "#/$defs/claimArray" },
+    "dosageContextNotes": { "$ref": "#/$defs/claimArray" },
+    "populationSpecificNotes": { "$ref": "#/$defs/claimArray" },
+    "conflictNotes": { "$ref": "#/$defs/claimArray" },
+    "researchGaps": { "$ref": "#/$defs/claimArray" },
+    "sourceRefs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/sourceRef" },
+      "uniqueItems": true
+    },
+    "lastReviewedAt": { "type": "string", "format": "date-time" },
+    "reviewedBy": { "type": "string", "minLength": 1 },
+    "editorialStatus": {
+      "type": "string",
+      "enum": ["draft", "in-review", "approved", "needs-update", "deprecated"]
+    },
+    "relatedEntities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["entityType", "slug", "relationshipType"],
+        "properties": {
+          "entityType": { "type": "string", "enum": ["herb", "compound"] },
+          "slug": { "type": "string", "minLength": 1 },
+          "relationshipType": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "claimArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/enrichmentClaim" }
+    },
+    "enrichmentClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim", "evidenceClass", "sourceRefIds"],
+      "properties": {
+        "claim": { "type": "string", "minLength": 1 },
+        "evidenceClass": {
+          "type": "string",
+          "enum": [
+            "human-clinical",
+            "human-observational",
+            "preclinical-mechanistic",
+            "traditional-use",
+            "regulatory-monograph"
+          ]
+        },
+        "strengthNote": { "type": "string" },
+        "sourceRefIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "sourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceId",
+        "sourceType",
+        "title",
+        "evidenceClass",
+        "extractConfidence",
+        "reviewer"
+      ],
+      "properties": {
+        "sourceId": { "type": "string", "minLength": 1 },
+        "sourceType": {
+          "type": "string",
+          "enum": [
+            "rct",
+            "systematic-review",
+            "observational",
+            "preclinical",
+            "monograph",
+            "traditional-text",
+            "regulatory",
+            "other"
+          ]
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "organization": { "type": "string" },
+        "publicationYear": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+        "url": { "type": "string", "format": "uri" },
+        "citationKey": { "type": "string" },
+        "evidenceClass": {
+          "type": "string",
+          "enum": [
+            "human-clinical",
+            "human-observational",
+            "preclinical-mechanistic",
+            "traditional-use",
+            "regulatory-monograph"
+          ]
+        },
+        "notes": { "type": "string" },
+        "extractConfidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "reviewer": { "type": "string", "minLength": 1 }
+      },
+      "anyOf": [
+        { "properties": { "url": { "type": "string", "format": "uri" } }, "required": ["url"] },
+        { "properties": { "citationKey": { "type": "string" } }, "required": ["citationKey"] }
+      ]
+    }
+  }
+}

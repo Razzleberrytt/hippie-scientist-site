@@ -1,3 +1,5 @@
+import type { ResearchEnrichment } from '@/types/researchEnrichment'
+
 export type Herb = {
   slug: string
   id?: string
@@ -79,5 +81,6 @@ export type Herb = {
   }>
   compoundClasses?: string[]
   pharmCategories?: string[]
+  researchEnrichment?: ResearchEnrichment
   [key: string]: unknown
 }

@@ -4,6 +4,7 @@ import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calcu
 import { cleanText, splitClean } from '@/lib/sanitize'
 import { getCompoundSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
 import { hasInvalidEntityName, sanitizeCompoundRecord } from '@/utils/sanitizeData'
+import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
 
 export type SourceRef = { title: string; url: string; note?: string }
 
@@ -104,6 +105,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
   const effects = splitClean(data.effects)
   const herbs = splitClean(data.associatedHerbs ?? data.foundInHerbs ?? data.herbs ?? data.foundIn)
   const mechanism = cleanText(data.mechanism ?? data.mechanismOfAction) || ''
+  const researchEnrichment = normalizeResearchEnrichment(data.researchEnrichment)
   const rawInteractionTags = splitClean(data.interactionTags)
   const rawInteractionNotes = splitClean(data.interactionNotes)
   const seededInteraction = getCompoundSeedInteractionData(data)
@@ -138,6 +140,7 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
     herbs,
     confidence: calculateCompoundConfidence({ mechanism, effects, compounds: herbs }),
     sources: normalizeSources(data.sources),
+    researchEnrichment: researchEnrichment || undefined,
     lastUpdated: String(data.lastUpdated || data.updatedAt || '').trim(),
   }
 }
@@ -145,11 +148,15 @@ function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
 function normalizeCompoundSummary(raw: Record<string, unknown>): CompoundSummaryRecord {
   const effects = splitClean(raw.effects)
   const herbs = splitClean(raw.herbs)
-  const confidence = String(raw.confidence || '').trim().toLowerCase()
+  const confidence = String(raw.confidence || '')
+    .trim()
+    .toLowerCase()
 
   return {
     id: String(raw.id || raw.slug || ''),
-    slug: String(raw.slug || '').trim().toLowerCase(),
+    slug: String(raw.slug || '')
+      .trim()
+      .toLowerCase(),
     name: cleanText(raw.name) || '',
     summaryShort: cleanText(raw.summaryShort ?? raw.description) || '',
     description: cleanText(raw.description ?? raw.summaryShort) || '',
@@ -209,7 +216,7 @@ export async function loadCompoundDetailBySlug(slug: string): Promise<CompoundRe
           `/data/compounds-detail/${encodeURIComponent(resolvedSlug)}.json`,
           {
             cache: 'no-store',
-          }
+          },
         )
         if (fallbackResponse.status === 404) return null
         if (!fallbackResponse.ok) {

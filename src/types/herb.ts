@@ -1,3 +1,4 @@
+import type { ResearchEnrichment } from './researchEnrichment'
 import type { ConfidenceLevel } from './confidence'
 
 export type CanonicalHerb = {
@@ -93,6 +94,7 @@ export type Herb = {
   compoundClasses?: string[]
   pharmCategories?: string[]
   class?: string
+  researchEnrichment?: ResearchEnrichment
   activeCompounds?: string[]
   contraindications_raw?: string
   [key: string]: unknown

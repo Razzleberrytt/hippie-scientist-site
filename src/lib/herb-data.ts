@@ -5,6 +5,7 @@ import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { cleanText, splitClean } from '@/lib/sanitize'
 import { getHerbSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
 import { hasInvalidEntityName, sanitizeHerbRecord } from '@/utils/sanitizeData'
+import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
 
 type SourceRef = { title: string; url?: string; note?: string }
 type ProductRecommendation = { label: string; type: string; url: string }
@@ -50,7 +51,14 @@ async function resolveHerbDetailSlug(slug: string): Promise<string | null> {
 
   const summaries = await loadHerbSummaryData()
   const match = summaries.find(item => {
-    const candidates = [item.slug, item.id, item.common, item.scientific, item.name, ...item.aliases]
+    const candidates = [
+      item.slug,
+      item.id,
+      item.common,
+      item.scientific,
+      item.name,
+      ...item.aliases,
+    ]
     return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
   })
 
@@ -116,9 +124,10 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const rawInteractionNotes = splitClean(data.interactionNotes)
   const therapeuticUses = splitClean(data.therapeuticUses)
   const activeCompounds = splitClean(
-    data.activeCompounds ?? data.active_compounds ?? data.compounds
+    data.activeCompounds ?? data.active_compounds ?? data.compounds,
   )
   const sources = normalizeSources(data.sources)
+  const researchEnrichment = normalizeResearchEnrichment(data.researchEnrichment)
   const productRecommendations = normalizeProductRecommendations(data.productRecommendations)
   const seededInteraction = getHerbSeedInteractionData(data)
   const mergedInteraction = mergeInteractionData({
@@ -165,13 +174,16 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     active_compounds: activeCompounds,
     legalStatus,
     sources,
+    researchEnrichment: researchEnrichment || undefined,
     productRecommendations,
     confidence: calculateHerbConfidence({ mechanism, effects, compounds: activeCompounds }),
   }
 }
 
 function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
-  const slug = String(raw.slug || '').trim().toLowerCase()
+  const slug = String(raw.slug || '')
+    .trim()
+    .toLowerCase()
   const common = cleanText(raw.common ?? raw.commonName ?? raw.name) || ''
   const scientific = cleanText(raw.scientific ?? raw.latin ?? raw.scientificName) || ''
   const effects = splitClean(raw.effects)
@@ -236,14 +248,19 @@ export async function loadHerbDetailBySlug(slug: string): Promise<Herb | null> {
   const cached = herbDetailPromiseBySlug.get(slugKey)
   if (cached) return cached
 
-  const request = fetch(`/data/herbs-detail/${encodeURIComponent(slugKey)}.json`, { cache: 'no-store' })
+  const request = fetch(`/data/herbs-detail/${encodeURIComponent(slugKey)}.json`, {
+    cache: 'no-store',
+  })
     .then(async response => {
       if (response.status === 404) {
         const resolvedSlug = await resolveHerbDetailSlug(slugKey)
         if (!resolvedSlug || resolvedSlug === slugKey) return null
-        const fallbackResponse = await fetch(`/data/herbs-detail/${encodeURIComponent(resolvedSlug)}.json`, {
-          cache: 'no-store',
-        })
+        const fallbackResponse = await fetch(
+          `/data/herbs-detail/${encodeURIComponent(resolvedSlug)}.json`,
+          {
+            cache: 'no-store',
+          },
+        )
         if (fallbackResponse.status === 404) return null
         if (!fallbackResponse.ok) {
           throw new Error(`Failed to load /data/herbs-detail/${resolvedSlug}.json`)
