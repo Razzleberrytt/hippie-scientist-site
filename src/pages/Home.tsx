@@ -218,7 +218,7 @@ export default function Home() {
     <>
       <Meta
         title='The Hippie Scientist — Mindful Exploration of Psychoactive Herbs'
-        description='Independent research on psychoactive herbs, entheogens, and natural neurochemistry.'
+        description='Science-based harm-reduction research on psychoactive herbs and plant compounds. Browse 100+ herbs, check interactions, build blends, and read independent field notes.'
         path='/'
         pageType='website'
         jsonLd={[websiteJsonLd(), organizationJsonLd()]}
