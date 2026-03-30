@@ -14,13 +14,16 @@ import { splitClean } from '@/lib/sanitize'
 import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
 import { breadcrumbJsonLd, herbJsonLd, SITE_URL } from '@/lib/seo'
 import CuratedProductModule from '@/components/CuratedProductModule'
+import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
 import Collapse from '@/components/ui/Collapse'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterHerbByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
+import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import {
   trackDetailBuilderClick,
+  trackCtaSlotImpression,
   trackDetailCheckerClick,
   trackDetailRelatedEntityClick,
 } from '@/lib/contentJourneyTracking'
@@ -363,6 +366,13 @@ export default function HerbDetail() {
     confidence,
     sourceCount,
   })
+  const ctaExperiment = resolveCtaVariant({
+    pageType: 'herb_detail',
+    entityType: 'herb',
+    entitySlug: herb.slug,
+    cautionCount,
+  })
+  const ctaVariantId = ctaExperiment.activeVariantId
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -469,6 +479,108 @@ export default function HerbDetail() {
                   placement: 'quick_intro_next_steps',
                 })
               }
+            }}
+          />
+
+          <CtaVariantLayout
+            variant={ctaExperiment.variant}
+            onSlotImpression={(slot, position) => {
+              const ctaType = slot === 'tool' ? 'tool' : slot === 'builder' ? 'builder' : slot === 'affiliate' ? 'affiliate' : null
+              if (!ctaType) return
+              trackCtaSlotImpression({
+                sourceType: 'detail',
+                source: `herb:${herb.slug}`,
+                placement: 'cta_experiment_slot',
+                ctaMetadata: {
+                  pageType: 'herb_detail',
+                  entitySlug: herb.slug,
+                  ctaType,
+                  ctaPosition: `position_${position}`,
+                  variantId: ctaVariantId,
+                },
+              })
+            }}
+            slots={{
+              tool: (
+                <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
+                  <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
+                    Interaction check first
+                  </p>
+                  <p className='mt-1 text-xs text-white/75'>
+                    Run this herb in the checker before combining with other items.
+                  </p>
+                  <Link
+                    to={herbCheckerHref}
+                    className='btn-primary mt-2 inline-flex text-xs'
+                    onClick={() =>
+                      trackDetailCheckerClick({
+                        detailType: 'herb',
+                        detailSlug: herb.slug,
+                        placement: 'cta_variant_tool',
+                        ctaMetadata: {
+                          pageType: 'herb_detail',
+                          entitySlug: herb.slug,
+                          ctaType: 'tool',
+                          ctaPosition: 'detail_tool_checker',
+                          variantId: ctaVariantId,
+                        },
+                      })
+                    }
+                  >
+                    Open Interaction Checker
+                  </Link>
+                </div>
+              ),
+              builder: (
+                <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
+                  <p className='text-xs text-white/75'>
+                    Continue to builder only after reviewing cautions and overlap.
+                  </p>
+                  <Link
+                    to='/build'
+                    className='btn-secondary mt-2 inline-flex text-xs'
+                    onClick={() =>
+                      trackDetailBuilderClick({
+                        detailType: 'herb',
+                        detailSlug: herb.slug,
+                        placement: 'cta_variant_builder',
+                        ctaMetadata: {
+                          pageType: 'herb_detail',
+                          entitySlug: herb.slug,
+                          ctaType: 'builder',
+                          ctaPosition: 'detail_stack_builder',
+                          variantId: ctaVariantId,
+                        },
+                      })
+                    }
+                  >
+                    Add to Stack Builder
+                  </Link>
+                </div>
+              ),
+              related: relatedCollections.length > 0 && (
+                <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
+                  <p className='text-xs font-semibold text-white'>Compare adjacent goal collections</p>
+                  <div className='mt-2 flex flex-wrap gap-2'>
+                    {relatedCollections.slice(0, 3).map(collection => (
+                      <Link key={`cta-${collection.slug}`} to={`/collections/${collection.slug}`} className='btn-secondary text-xs'>
+                        {collection.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ),
+              affiliate: curatedProducts.length > 0 && (
+                <CuratedProductModule
+                  entityType='herb'
+                  entitySlug={herb.slug}
+                  products={curatedProducts}
+                  positionContext='herb_detail_cta_variant'
+                  pageType='herb_detail'
+                  variantId={ctaVariantId}
+                  ctaPosition='detail_affiliate_module'
+                />
+              ),
             }}
           />
         </header>
@@ -712,20 +824,6 @@ export default function HerbDetail() {
         {dosage && <Section title='Dosage'>{dosage}</Section>}
         {duration && <Section title='Duration'>{duration}</Section>}
         {preparation && <Section title='Preparation'>{preparation}</Section>}
-        {curatedProducts.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Curated Product Recommendations'>
-              <div className='text-sm leading-relaxed text-white/85'>
-                <CuratedProductModule
-                  entityType='herb'
-                  entitySlug={herb.slug}
-                  products={curatedProducts}
-                  positionContext='herb_detail_after_safety'
-                />
-              </div>
-            </Collapse>
-          </section>
-        )}
         {region && <Section title='Region'>{region}</Section>}
         {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 

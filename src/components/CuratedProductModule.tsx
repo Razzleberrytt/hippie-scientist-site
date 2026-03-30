@@ -8,6 +8,9 @@ type CuratedProductModuleProps = {
   entitySlug: string
   products: RenderableCuratedProduct[]
   positionContext: string
+  pageType?: 'herb_detail' | 'compound_detail' | 'collection_page'
+  variantId?: string
+  ctaPosition?: string
 }
 
 function trackProductImpression(params: {
@@ -15,6 +18,9 @@ function trackProductImpression(params: {
   entitySlug: string
   productId: string
   positionContext: string
+  pageType?: string
+  variantId?: string
+  ctaPosition?: string
 }) {
   appendAnalyticsEvent({
     type: 'curated_product_impression',
@@ -23,6 +29,11 @@ function trackProductImpression(params: {
     context: params.positionContext,
     sourceType: 'detail',
     targetType: 'product',
+    pageType: params.pageType,
+    entitySlug: params.entitySlug,
+    ctaType: 'affiliate',
+    ctaPosition: params.ctaPosition,
+    variantId: params.variantId,
   })
 }
 
@@ -31,6 +42,9 @@ function trackProductClick(params: {
   entitySlug: string
   productId: string
   positionContext: string
+  pageType?: string
+  variantId?: string
+  ctaPosition?: string
 }) {
   appendAnalyticsEvent({
     type: 'curated_product_click',
@@ -39,6 +53,11 @@ function trackProductClick(params: {
     context: params.positionContext,
     sourceType: 'detail',
     targetType: 'product',
+    pageType: params.pageType,
+    entitySlug: params.entitySlug,
+    ctaType: 'affiliate',
+    ctaPosition: params.ctaPosition,
+    variantId: params.variantId,
   })
 }
 
@@ -47,6 +66,9 @@ export default function CuratedProductModule({
   entitySlug,
   products,
   positionContext,
+  pageType,
+  variantId,
+  ctaPosition,
 }: CuratedProductModuleProps) {
   useEffect(() => {
     products.forEach(product => {
@@ -55,9 +77,12 @@ export default function CuratedProductModule({
         entitySlug,
         productId: product.productId,
         positionContext,
+        pageType,
+        variantId,
+        ctaPosition,
       })
     })
-  }, [entityType, entitySlug, positionContext, products])
+  }, [ctaPosition, entitySlug, entityType, pageType, positionContext, products, variantId])
 
   if (!products.length) return null
 
@@ -121,6 +146,9 @@ export default function CuratedProductModule({
                   entitySlug,
                   productId: product.productId,
                   positionContext,
+                  pageType,
+                  variantId,
+                  ctaPosition,
                 })
               }}
             >

@@ -2,6 +2,13 @@ import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
 
 type EntityType = 'herb' | 'compound' | 'collection'
 type DetailType = 'herb' | 'compound'
+type CtaMetadata = {
+  pageType: 'herb_detail' | 'compound_detail' | 'collection_page'
+  entitySlug: string
+  ctaType: 'tool' | 'builder' | 'affiliate'
+  ctaPosition: string
+  variantId: string
+}
 
 function trackJourneyEvent(params: {
   type:
@@ -15,6 +22,7 @@ function trackJourneyEvent(params: {
   targetType: EntityType | 'interaction_checker' | 'builder'
   target: string
   placement: string
+  ctaMetadata?: CtaMetadata
 }) {
   if (typeof window === 'undefined') return
 
@@ -25,6 +33,11 @@ function trackJourneyEvent(params: {
     context: params.placement,
     sourceType: params.sourceType,
     targetType: params.targetType,
+    pageType: params.ctaMetadata?.pageType,
+    entitySlug: params.ctaMetadata?.entitySlug,
+    ctaType: params.ctaMetadata?.ctaType,
+    ctaPosition: params.ctaMetadata?.ctaPosition,
+    variantId: params.ctaMetadata?.variantId,
   })
 }
 
@@ -63,6 +76,7 @@ export function trackDetailCheckerClick(params: {
   detailType: DetailType
   detailSlug: string
   placement: string
+  ctaMetadata?: CtaMetadata
 }) {
   trackJourneyEvent({
     type: 'detail_interaction_checker_click',
@@ -71,6 +85,7 @@ export function trackDetailCheckerClick(params: {
     targetType: 'interaction_checker',
     target: 'interaction-checker',
     placement: params.placement,
+    ctaMetadata: params.ctaMetadata,
   })
 }
 
@@ -78,6 +93,7 @@ export function trackDetailBuilderClick(params: {
   detailType: DetailType
   detailSlug: string
   placement: string
+  ctaMetadata?: CtaMetadata
 }) {
   trackJourneyEvent({
     type: 'detail_builder_click',
@@ -86,6 +102,30 @@ export function trackDetailBuilderClick(params: {
     targetType: 'builder',
     target: 'build',
     placement: params.placement,
+    ctaMetadata: params.ctaMetadata,
+  })
+}
+
+export function trackCtaSlotImpression(params: {
+  sourceType: 'collection' | 'detail'
+  source: string
+  placement: string
+  ctaMetadata: CtaMetadata
+}) {
+  if (typeof window === 'undefined') return
+
+  appendAnalyticsEvent({
+    type: 'cta_slot_impression',
+    slug: params.source,
+    item: params.ctaMetadata.ctaType,
+    context: params.placement,
+    sourceType: params.sourceType,
+    targetType: 'cta_slot',
+    pageType: params.ctaMetadata.pageType,
+    entitySlug: params.ctaMetadata.entitySlug,
+    ctaType: params.ctaMetadata.ctaType,
+    ctaPosition: params.ctaMetadata.ctaPosition,
+    variantId: params.ctaMetadata.variantId,
   })
 }
 

@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-03-30",
+  "configSource": "src/config/ctaExperiments.ts",
+  "pageDefaults": {
+    "herb_detail": "B",
+    "compound_detail": "B",
+    "collection_page": "C"
+  },
+  "pageOverrides": {},
+  "trustFirstGuard": {
+    "pageTypes": ["herb_detail", "compound_detail"],
+    "cautionThreshold": 1,
+    "fallbackVariantId": "B"
+  },
+  "variants": [
+    {
+      "id": "A",
+      "label": "Tool-first compact",
+      "slotOrder": ["tool", "builder", "affiliate", "related"]
+    },
+    {
+      "id": "B",
+      "label": "Trust-first guided",
+      "slotOrder": ["tool", "related", "builder", "affiliate"]
+    },
+    {
+      "id": "C",
+      "label": "Editorial compare path",
+      "slotOrder": ["related", "tool", "builder", "affiliate"]
+    }
+  ],
+  "eventSchema": {
+    "impressionEvent": "cta_slot_impression",
+    "clickEvents": [
+      "detail_interaction_checker_click",
+      "detail_builder_click",
+      "collection_cta_click",
+      "curated_product_click"
+    ],
+    "dimensions": ["pageType", "entitySlug", "ctaType", "ctaPosition", "variantId"]
+  }
+}
