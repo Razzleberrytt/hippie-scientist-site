@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-03-30T17:55:36.702Z",
+  "inputPath": "public/data/enrichment-normalized.jsonl",
+  "totalEntries": 3,
+  "counts": {
+    "byEntity": {
+      "herb:kava": 2,
+      "compound:cbd": 1
+    },
+    "byTopicType": {
+      "supported_use": 1,
+      "mechanism": 1,
+      "population_specific_note": 1
+    },
+    "byEvidenceClass": {
+      "human-clinical": 2,
+      "traditional-use": 1
+    },
+    "byEditorialStatus": {
+      "approved": 2,
+      "in-review": 1
+    }
+  },
+  "rollupEntityCount": 2
+}

@@ -1,0 +1,129 @@
+{
+  "valid": [
+    {
+      "enrichmentId": "enr_kava-supported-use-anxiety-rct",
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "sourceId": "src_pubmed-clinical-template",
+      "topicType": "supported_use",
+      "claimType": "efficacy_signal",
+      "evidenceClass": "human-clinical",
+      "findingTextShort": "Kava reduced anxiety symptom scores in adults.",
+      "findingTextNormalized": "Kava extract showed lower anxiety symptom scores than comparator in reviewed adult human clinical data.",
+      "strengthLabel": "moderate",
+      "populationContext": "Adults with mild to moderate anxiety symptoms",
+      "usageContext": "Standardized oral extract",
+      "uncertaintyNote": "Template source requires replacement with study-level citation before publication.",
+      "reviewer": "ops-editor",
+      "reviewedAt": "2026-03-30T00:00:00.000Z",
+      "editorialStatus": "approved",
+      "active": true
+    }
+  ],
+  "invalid": [
+    {
+      "reason": "invalid source reference",
+      "entry": {
+        "enrichmentId": "enr_invalid-source",
+        "entityType": "herb",
+        "entitySlug": "kava",
+        "sourceId": "src_missing-record",
+        "topicType": "supported_use",
+        "claimType": "efficacy_signal",
+        "evidenceClass": "human-clinical",
+        "findingTextShort": "Kava finding.",
+        "findingTextNormalized": "Kava extract lowered anxiety scores in adults.",
+        "reviewer": "ops-editor",
+        "reviewedAt": "2026-03-30T00:00:00.000Z",
+        "editorialStatus": "approved",
+        "active": true
+      }
+    },
+    {
+      "reason": "contradictory evidence class",
+      "entry": {
+        "enrichmentId": "enr_invalid-evidence-class",
+        "entityType": "herb",
+        "entitySlug": "kava",
+        "sourceId": "src_pubmed-clinical-template",
+        "topicType": "supported_use",
+        "claimType": "efficacy_signal",
+        "evidenceClass": "traditional-use",
+        "findingTextShort": "Kava finding text.",
+        "findingTextNormalized": "Kava extract lowered anxiety scores in adults from controlled trial reports.",
+        "reviewer": "ops-editor",
+        "reviewedAt": "2026-03-30T00:00:00.000Z",
+        "editorialStatus": "approved",
+        "active": true
+      }
+    },
+    {
+      "reason": "duplicate / near-duplicate entry",
+      "entries": [
+        {
+          "enrichmentId": "enr_duplicate-a",
+          "entityType": "herb",
+          "entitySlug": "kava",
+          "sourceId": "src_pubmed-clinical-template",
+          "topicType": "supported_use",
+          "claimType": "efficacy_signal",
+          "evidenceClass": "human-clinical",
+          "findingTextShort": "Kava reduced anxiety in adults.",
+          "findingTextNormalized": "Kava extract reduced anxiety symptoms versus control in adults across reviewed clinical studies.",
+          "reviewer": "ops-editor",
+          "reviewedAt": "2026-03-30T00:00:00.000Z",
+          "editorialStatus": "approved",
+          "active": true
+        },
+        {
+          "enrichmentId": "enr_duplicate-b",
+          "entityType": "herb",
+          "entitySlug": "kava",
+          "sourceId": "src_pubmed-clinical-template",
+          "topicType": "supported_use",
+          "claimType": "efficacy_signal",
+          "evidenceClass": "human-clinical",
+          "findingTextShort": "Very similar kava anxiety finding.",
+          "findingTextNormalized": "Kava extract reduced anxiety symptoms versus control in adults across reviewed clinical studies.",
+          "reviewer": "ops-editor",
+          "reviewedAt": "2026-03-30T00:00:00.000Z",
+          "editorialStatus": "approved",
+          "active": true
+        }
+      ]
+    },
+    {
+      "reason": "missing reviewer/reviewedAt/editorialStatus",
+      "entry": {
+        "enrichmentId": "enr_missing-review-fields",
+        "entityType": "compound",
+        "entitySlug": "cbd",
+        "sourceId": "src_pubmed-clinical-template",
+        "topicType": "mechanism",
+        "claimType": "mechanistic_signal",
+        "evidenceClass": "human-clinical",
+        "findingTextShort": "CBD mechanism finding.",
+        "findingTextNormalized": "CBD evidence includes reported activity across endocannabinoid related signaling pathways.",
+        "active": true
+      }
+    },
+    {
+      "reason": "unsupported topic type",
+      "entry": {
+        "enrichmentId": "enr_unsupported-topic",
+        "entityType": "compound",
+        "entitySlug": "cbd",
+        "sourceId": "src_pubmed-clinical-template",
+        "topicType": "marketing_claim",
+        "claimType": "efficacy_signal",
+        "evidenceClass": "human-clinical",
+        "findingTextShort": "CBD marketing claim.",
+        "findingTextNormalized": "CBD was marketed as universally effective for every symptom regardless of evidence class.",
+        "reviewer": "ops-editor",
+        "reviewedAt": "2026-03-30T00:00:00.000Z",
+        "editorialStatus": "approved",
+        "active": true
+      }
+    }
+  ]
+}

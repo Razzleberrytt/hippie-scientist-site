@@ -76,3 +76,21 @@ Two explicit guardrails:
   - Validates shape for every detail file that includes `researchEnrichment`.
   - Validates `sourceRegistryIds` against the source registry.
   - Validates claim provenance links (`sourceRefIds`) resolve to declared source IDs.
+
+
+## Normalized extraction pipeline (Prompt 28)
+
+To keep contractor extraction deterministic and source-backed before direct entity patching, use normalized entries:
+
+- Input: `public/data/enrichment-normalized.jsonl`
+- Entry schema: `schemas/normalized-enrichment-entry.schema.json`
+- Validation: `node scripts/enrichment/validate-normalized-enrichment.mjs`
+- Normalize + rollup preview: `node scripts/enrichment/normalize-enrichment-entries.mjs`
+
+This pipeline enforces:
+
+- `sourceId` registry linkage (no duplicated source metadata in entries)
+- `evidenceClass` consistency with source registry classification
+- strict topic and claim normalization
+- duplicate and near-duplicate rejection
+- reviewer/date/editorial-state requirements before rollup

@@ -88,7 +88,10 @@
     "report:conversion-scorecard": "tsx scripts/report-conversion-scorecard.ts",
     "report:phase2-roadmap": "node scripts/report-phase2-roadmap.mjs",
     "verify:source-registry": "node scripts/validate-source-registry.mjs",
-    "report:source-registry": "node scripts/report-source-registry.mjs"
+    "report:source-registry": "node scripts/report-source-registry.mjs",
+    "enrichment:normalize": "node scripts/enrichment/normalize-enrichment-entries.mjs",
+    "enrichment:validate:normalized": "node scripts/enrichment/validate-normalized-enrichment.mjs",
+    "enrichment:test:normalized": "node scripts/enrichment/test-normalized-enrichment.mjs"
   },
   "engines": {
     "node": ">=20 <21"

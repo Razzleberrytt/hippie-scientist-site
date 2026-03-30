@@ -1,0 +1,76 @@
+[
+  {
+    "entityType": "compound",
+    "entitySlug": "cbd",
+    "researchEnrichment": {
+      "evidenceSummary": "1 approved normalized findings across 1 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical"
+      ],
+      "supportedUses": [],
+      "unsupportedOrUnclearUses": [],
+      "mechanisms": [
+        {
+          "claim": "Reviewed source-backed records describe CBD mechanism context involving endocannabinoid signaling modulation.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-clinical-template"
+          ],
+          "strengthNote": "limited"
+        }
+      ],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [],
+      "conflictNotes": [],
+      "researchGaps": [],
+      "sourceRegistryIds": [
+        "src_pubmed-clinical-template"
+      ],
+      "lastReviewedAt": "2026-03-30T00:00:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  },
+  {
+    "entityType": "herb",
+    "entitySlug": "kava",
+    "researchEnrichment": {
+      "evidenceSummary": "1 approved normalized findings across 1 topic types.",
+      "evidenceTier": "tier-1-strong",
+      "evidenceClassesPresent": [
+        "human-clinical"
+      ],
+      "supportedUses": [
+        {
+          "claim": "Kava extract showed lower anxiety symptom scores than comparator in reviewed adult human clinical data.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-clinical-template"
+          ],
+          "strengthNote": "moderate"
+        }
+      ],
+      "unsupportedOrUnclearUses": [],
+      "mechanisms": [],
+      "constituents": [],
+      "interactions": [],
+      "contraindications": [],
+      "adverseEffects": [],
+      "dosageContextNotes": [],
+      "populationSpecificNotes": [],
+      "conflictNotes": [],
+      "researchGaps": [],
+      "sourceRegistryIds": [
+        "src_pubmed-clinical-template"
+      ],
+      "lastReviewedAt": "2026-03-30T00:00:00.000Z",
+      "reviewedBy": "normalized-enrichment-pipeline",
+      "editorialStatus": "approved"
+    }
+  }
+]

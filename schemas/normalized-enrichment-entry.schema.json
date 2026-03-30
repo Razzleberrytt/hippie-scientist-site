@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.app/schemas/normalized-enrichment-entry.schema.json",
+  "title": "Normalized enrichment entry",
+  "description": "Deterministic source-backed finding entry keyed to source registry records.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "enrichmentId",
+    "entityType",
+    "entitySlug",
+    "sourceId",
+    "topicType",
+    "claimType",
+    "evidenceClass",
+    "findingTextShort",
+    "findingTextNormalized",
+    "reviewer",
+    "reviewedAt",
+    "editorialStatus",
+    "active"
+  ],
+  "properties": {
+    "enrichmentId": { "type": "string", "pattern": "^enr_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "entityType": { "type": "string", "enum": ["herb", "compound"] },
+    "entitySlug": { "type": "string", "minLength": 1 },
+    "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "topicType": {
+      "type": "string",
+      "enum": [
+        "supported_use",
+        "unsupported_or_unclear_use",
+        "mechanism",
+        "constituent",
+        "interaction",
+        "contraindication",
+        "adverse_effect",
+        "dosage_context",
+        "population_specific_note",
+        "conflict_note",
+        "research_gap"
+      ]
+    },
+    "claimType": {
+      "type": "string",
+      "enum": [
+        "efficacy_signal",
+        "efficacy_null_or_mixed",
+        "mechanistic_signal",
+        "constituent_profile",
+        "safety_risk",
+        "dosing_note",
+        "population_note",
+        "evidence_conflict",
+        "research_gap"
+      ]
+    },
+    "evidenceClass": {
+      "type": "string",
+      "enum": [
+        "human-clinical",
+        "human-observational",
+        "preclinical-mechanistic",
+        "traditional-use",
+        "regulatory-monograph"
+      ]
+    },
+    "findingTextShort": { "type": "string", "minLength": 12 },
+    "findingTextNormalized": { "type": "string", "minLength": 24 },
+    "strengthLabel": { "type": "string", "enum": ["strong", "moderate", "limited", "insufficient"] },
+    "populationContext": { "type": "string" },
+    "usageContext": { "type": "string" },
+    "safetyContext": { "type": "string" },
+    "mechanismContext": { "type": "string" },
+    "traditionalUseContext": { "type": "string" },
+    "uncertaintyNote": { "type": "string" },
+    "reviewer": { "type": "string", "minLength": 1 },
+    "reviewedAt": { "type": "string", "format": "date-time" },
+    "editorialStatus": {
+      "type": "string",
+      "enum": ["draft", "in-review", "approved", "needs-update", "deprecated"]
+    },
+    "active": { "type": "boolean" }
+  }
+}
