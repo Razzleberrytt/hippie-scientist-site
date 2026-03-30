@@ -13,6 +13,7 @@ import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
 import RelatedHerbCard from '@/components/RelatedHerbCard'
 import Collapse from '@/components/ui/Collapse'
 import { breadcrumbJsonLd, compoundJsonLd, SITE_URL } from '@/lib/seo'
+import { countCautionSignals, inferContentFlags } from '@/lib/trust'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -82,6 +83,19 @@ export default function CompoundDetail() {
 
   const primaryEffects = extractPrimaryEffects(compound.effects, 4)
 
+  const sourceCount = compound.sources.length
+  const cautionCount = countCautionSignals({
+    contraindications: compound.contraindications,
+    interactions: compound.interactions,
+    sideEffects: compound.sideEffects,
+  })
+  const { hasInferredContent, hasFallbackContent } = inferContentFlags({
+    description: compound.description,
+    mechanism: compound.mechanism,
+    effects: compound.effects,
+    therapeuticUses: compound.therapeuticUses,
+  })
+
   const keyFields = pickNonEmptyKeys(
     {
       mechanism: compound.mechanism,
@@ -144,7 +158,16 @@ export default function CompoundDetail() {
               </span>
             )}
           </div>
-          <DataTrustPanel entity='compound' confidence={confidence} completeness={completeness} />
+          <DataTrustPanel
+            entity='compound'
+            confidence={confidence}
+            completeness={completeness}
+            sourceCount={sourceCount}
+            lastReviewed={compound.lastUpdated}
+            cautionCount={cautionCount}
+            hasInferredContent={hasInferredContent}
+            hasFallbackContent={hasFallbackContent}
+          />
         </header>
 
         {/* Primary effects pills */}
@@ -162,7 +185,17 @@ export default function CompoundDetail() {
         )}
 
         {/* Core fields — only render when value is present */}
-        {compound.description && <Section title='Overview'>{compound.description}</Section>}
+        {compound.description && (
+          <Section title='Overview'>
+            {confidence === 'low' ? (
+              <p className='mb-2 rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-amber-100'>
+                Evidence context: this overview is low-confidence and may include inferred or sparse
+                findings.
+              </p>
+            ) : null}
+            {compound.description}
+          </Section>
+        )}
 
         {(doesText || whyItMatters) && (
           <Section title='Why This Compound Matters'>
@@ -295,11 +328,6 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        {compound.lastUpdated && (
-          <Section title='Last Updated'>
-            <span className='text-white/50'>{compound.lastUpdated}</span>
-          </Section>
-        )}
 
         {shouldShowContributionCta && (
           <div className='bg-cyan-300/8 mt-8 rounded-2xl border border-cyan-300/30 p-4 text-sm text-cyan-50'>
