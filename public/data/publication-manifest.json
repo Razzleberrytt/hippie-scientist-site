@@ -1,0 +1,187 @@
+{
+  "generatedAt": "2026-03-30T11:49:44.014Z",
+  "thresholds": {
+    "minDescriptionLength": 60,
+    "minSources": 2,
+    "minEffects": 1,
+    "minCompletenessScore": 10,
+    "minSlugLength": 2
+  },
+  "entities": {
+    "herbs": [
+      {
+        "slug": "rivea-corymbosa",
+        "route": "/herbs/rivea-corymbosa",
+        "name": "rivea corymbosa",
+        "kind": "herb",
+        "title": "rivea corymbosa | The Hippie Scientist",
+        "description": "Morning glory species used in Mesoamerican rituals.",
+        "completenessScore": 22,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "calliandra-anomala",
+        "route": "/herbs/calliandra-anomala",
+        "name": "calliandra anomala",
+        "kind": "herb",
+        "title": "calliandra anomala | The Hippie Scientist",
+        "description": "Shrubby Fabaceae species with bright pink flowers; limited pharmacological research.",
+        "completenessScore": 21,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "alectra-sessiliflora",
+        "route": "/herbs/alectra-sessiliflora",
+        "name": "alectra sessiliflora",
+        "kind": "herb",
+        "title": "alectra sessiliflora | The Hippie Scientist",
+        "description": "Parasitic herb in the Orobanchaceae family; possibly used in traditional African medicine.",
+        "completenessScore": 13,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "mandrake-root",
+        "route": "/herbs/mandrake-root",
+        "name": "mandrake root",
+        "kind": "herb",
+        "title": "mandrake root | The Hippie Scientist",
+        "description": "A legendary plant with anthropomorphic root; used as sedative and aphrodisiac.",
+        "completenessScore": 13,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "henbane",
+        "route": "/herbs/henbane",
+        "name": "henbane",
+        "kind": "herb",
+        "title": "henbane | The Hippie Scientist",
+        "description": "A toxic plant used historically as an anesthetic, sedative, and hallucinogen.",
+        "completenessScore": 12,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "ipomoea-tricolor-heavenly-blue",
+        "route": "/herbs/ipomoea-tricolor-heavenly-blue",
+        "name": "ipomoea tricolor (heavenly blue)",
+        "kind": "herb",
+        "title": "ipomoea tricolor (heavenly blue) | The Hippie Scientist",
+        "description": "Ornamental morning glory whose seeds contain LSA.",
+        "completenessScore": 12,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "mistletoe",
+        "route": "/herbs/mistletoe",
+        "name": "mistletoe",
+        "kind": "herb",
+        "title": "mistletoe | The Hippie Scientist",
+        "description": "a sacred plant in ancient druidic and european traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and",
+        "completenessScore": 12,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "anisoptera-thurifera",
+        "route": "/herbs/anisoptera-thurifera",
+        "name": "anisoptera thurifera",
+        "kind": "herb",
+        "title": "anisoptera thurifera | The Hippie Scientist",
+        "description": "Dipterocarpaceae tree native to Southeast Asia; known for aromatic resin.",
+        "completenessScore": 11,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "iresine-herbstii",
+        "route": "/herbs/iresine-herbstii",
+        "name": "iresine herbstii",
+        "kind": "herb",
+        "title": "iresine herbstii | The Hippie Scientist",
+        "description": "Vibrant ornamental plant; used in folk remedies.",
+        "completenessScore": 11,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "jatropha-podagrica",
+        "route": "/herbs/jatropha-podagrica",
+        "name": "jatropha podagrica",
+        "kind": "herb",
+        "title": "jatropha podagrica | The Hippie Scientist",
+        "description": "Ornamental and medicinal plant with thick stem and red flowers.",
+        "completenessScore": 11,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "pedicularis-groenlandica",
+        "route": "/herbs/pedicularis-groenlandica",
+        "name": "pedicularis groenlandica",
+        "kind": "herb",
+        "title": "pedicularis groenlandica | The Hippie Scientist",
+        "description": "High-altitude flowering plant known for CNS and muscle relaxation.",
+        "completenessScore": 11,
+        "lastmod": "2026-03-30"
+      },
+      {
+        "slug": "delosperma-cooperi",
+        "route": "/herbs/delosperma-cooperi",
+        "name": "delosperma cooperi",
+        "kind": "herb",
+        "title": "delosperma cooperi | The Hippie Scientist",
+        "description": "Succulent used as groundcover; mild traditional use.",
+        "completenessScore": 10,
+        "lastmod": "2026-03-30"
+      }
+    ],
+    "compounds": []
+  },
+  "routes": {
+    "herbs": [
+      "/herbs/rivea-corymbosa",
+      "/herbs/calliandra-anomala",
+      "/herbs/alectra-sessiliflora",
+      "/herbs/mandrake-root",
+      "/herbs/henbane",
+      "/herbs/ipomoea-tricolor-heavenly-blue",
+      "/herbs/mistletoe",
+      "/herbs/anisoptera-thurifera",
+      "/herbs/iresine-herbstii",
+      "/herbs/jatropha-podagrica",
+      "/herbs/pedicularis-groenlandica",
+      "/herbs/delosperma-cooperi"
+    ],
+    "compounds": []
+  },
+  "summaries": {
+    "herbs": {
+      "total": 699,
+      "indexable": 12,
+      "excluded": 687,
+      "excludedByReason": {
+        "weakDescription": 651,
+        "placeholderText": 667,
+        "nanArtifacts": 572,
+        "insufficientEffects": 201,
+        "insufficientEvidenceOrCompleteness": 468,
+        "invalidNameOrSlug": 28
+      }
+    },
+    "compounds": {
+      "total": 393,
+      "indexable": 0,
+      "excluded": 393,
+      "excludedByReason": {
+        "invalidNameOrSlug": 12,
+        "weakDescription": 393,
+        "placeholderText": 222,
+        "nanArtifacts": 86,
+        "insufficientEffects": 52,
+        "insufficientEvidenceOrCompleteness": 296
+      }
+    },
+    "blogIndex": {
+      "total": 15,
+      "invalidSlug": 0,
+      "weakSummary": 0,
+      "placeholderText": 0,
+      "nanArtifacts": 0
+    }
+  }
+}

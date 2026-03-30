@@ -43,6 +43,7 @@ function readJson(relativePath) {
   }
 }
 
+
 function normalizeDate(value) {
   if (!value) return null
   const date = new Date(value)
@@ -53,12 +54,6 @@ function uniq(list) {
   return [...new Set(list)]
 }
 
-function getEntityRoutes(records, prefix) {
-  return records
-    .map(item => String(item?.slug || '').trim())
-    .filter(Boolean)
-    .map(slug => normalizePathname(`${prefix}/${slug}`))
-}
 
 function getBlogEntries(records) {
   return records
@@ -89,22 +84,9 @@ function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}
 function buildSitemapXml() {
   const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
 
-  const herbs = getEntityRoutes(readJson('public/data/herbs.json'), '/herbs')
-  const compounds = getEntityRoutes(readJson('public/data/compounds.json'), '/compounds')
   const blogEntries = getBlogEntries(readJson('src/data/blog/posts.json'))
-  const blogRoutes = blogEntries.map(entry => entry.route)
 
-  const allRoutes = uniq([...sitemapRoutes, ...herbs, ...compounds, ...blogRoutes]).filter(
-    route => !disallowedRoutes.includes(route)
-  )
-
-  for (const route of herbs) {
-    sitemapMeta.set(route, { priority: 0.7, changefreq: 'monthly', lastmod: today })
-  }
-
-  for (const route of compounds) {
-    sitemapMeta.set(route, { priority: 0.7, changefreq: 'monthly', lastmod: today })
-  }
+  const allRoutes = uniq(sitemapRoutes).filter(route => !disallowedRoutes.includes(route))
 
   for (const entry of blogEntries) {
     sitemapMeta.set(entry.route, {
