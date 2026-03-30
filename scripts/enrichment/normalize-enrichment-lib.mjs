@@ -14,12 +14,20 @@ export const INPUT_PATH_DEFAULT = path.join(ROOT, 'public', 'data', 'enrichment-
 export const SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-normalization-summary.json')
 export const EVIDENCE_GRADING_SUMMARY_PATH = path.join(ROOT, 'ops', 'reports', 'evidence-grading-summary.json')
 export const SAFETY_SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'safety-enrichment-summary.json')
+export const MECHANISM_SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'mechanism-enrichment-summary.json')
 
 export const TOPIC_TO_ROLLUP_FIELD = {
   supported_use: 'supportedUses',
   unsupported_or_unclear_use: 'unsupportedOrUnclearUses',
   mechanism: 'mechanisms',
   constituent: 'constituents',
+  constituent_relationship: 'constituents',
+  pathway: 'mechanisms',
+  receptor_activity: 'mechanisms',
+  enzyme_interaction: 'mechanisms',
+  transporter_interaction: 'mechanisms',
+  herb_compound_link: 'constituents',
+  compound_origin_note: 'constituents',
   interaction: 'interactions',
   contraindication: 'contraindications',
   adverse_effect: 'adverseEffects',
@@ -74,6 +82,35 @@ const TOPIC_ALLOWED_TARGET_TYPES = {
   medication_class_caution: new Set(['drug_class']),
 }
 
+const TOPIC_RELATION_RULES = {
+  constituent: { relationTypes: new Set(['contains', 'enriched_for', 'linked_to', 'traditional_association']), targetTypes: new Set(['constituent']) },
+  constituent_relationship: {
+    relationTypes: new Set(['contains', 'enriched_for', 'linked_to', 'traditional_association', 'related_to']),
+    targetTypes: new Set(['constituent', 'compound']),
+  },
+  mechanism: {
+    relationTypes: new Set(['may_modulate', 'observed_to_affect', 'linked_to', 'related_to']),
+    targetTypes: new Set(['pathway', 'receptor', 'enzyme', 'transporter', 'biological_process', 'compound', 'constituent']),
+  },
+  pathway: { relationTypes: new Set(['may_modulate', 'observed_to_affect', 'linked_to']), targetTypes: new Set(['pathway', 'biological_process']) },
+  receptor_activity: { relationTypes: new Set(['may_modulate', 'observed_to_affect', 'linked_to']), targetTypes: new Set(['receptor']) },
+  enzyme_interaction: { relationTypes: new Set(['may_modulate', 'observed_to_affect', 'linked_to']), targetTypes: new Set(['enzyme']) },
+  transporter_interaction: { relationTypes: new Set(['may_modulate', 'observed_to_affect', 'linked_to']), targetTypes: new Set(['transporter']) },
+  herb_compound_link: { relationTypes: new Set(['contains', 'derived_from', 'linked_to', 'related_to']), targetTypes: new Set(['herb', 'compound']) },
+  compound_origin_note: { relationTypes: new Set(['derived_from', 'linked_to', 'related_to', 'traditional_association']), targetTypes: new Set(['herb']) },
+}
+
+const CONSTITUENT_ALIAS_NORMALIZATION = new Map([
+  ['beta caryophyllene', 'beta-caryophyllene'],
+  ['β-caryophyllene', 'beta-caryophyllene'],
+  ['a-pinene', 'alpha-pinene'],
+  ['α-pinene', 'alpha-pinene'],
+  ['b-pinene', 'beta-pinene'],
+  ['β-pinene', 'beta-pinene'],
+  ['thc', 'tetrahydrocannabinol'],
+  ['cbd', 'cannabidiol'],
+])
+
 const NON_EMPTY_FIELDS = [
   'populationContext',
   'usageContext',
@@ -82,6 +119,13 @@ const NON_EMPTY_FIELDS = [
   'traditionalUseContext',
   'uncertaintyNote',
   'targetName',
+  'targetSlug',
+  'relationType',
+  'topicTypeDetail',
+  'constituentRoleContext',
+  'biologicalContext',
+  'mechanismEntryId',
+  'mechanismStrengthLabel',
   'medicationClassContext',
   'conflictNote',
 ]
@@ -141,6 +185,11 @@ function normalizeForNearDuplicate(value) {
   return normalizeWhitespace(String(value).toLowerCase()).replace(/[^a-z0-9\s]/gu, '')
 }
 
+function normalizeConstituentAlias(value) {
+  const key = normalizeWhitespace(String(value).toLowerCase())
+  return CONSTITUENT_ALIAS_NORMALIZATION.get(key) ?? value
+}
+
 function similarityScore(a, b) {
   const tokensA = new Set(normalizeForNearDuplicate(a).split(' ').filter(Boolean))
   const tokensB = new Set(normalizeForNearDuplicate(b).split(' ').filter(Boolean))
@@ -189,6 +238,13 @@ function normalizeEntry(entry) {
   normalized.topicType = normalizeWhitespace(normalized.topicType)
   normalized.safetyTopicType = normalizeWhitespace(normalized.safetyTopicType)
   normalized.targetType = normalizeWhitespace(normalized.targetType)
+  normalized.targetSlug = normalizeWhitespace(normalized.targetSlug)
+  normalized.relationType = normalizeWhitespace(normalized.relationType)
+  normalized.topicTypeDetail = normalizeWhitespace(normalized.topicTypeDetail)
+  normalized.constituentRoleContext = normalizeWhitespace(normalized.constituentRoleContext)
+  normalized.biologicalContext = normalizeWhitespace(normalized.biologicalContext)
+  normalized.mechanismEntryId = normalizeWhitespace(normalized.mechanismEntryId)
+  normalized.mechanismStrengthLabel = normalizeWhitespace(normalized.mechanismStrengthLabel)
   normalized.severityLabel = normalizeWhitespace(normalized.severityLabel)
   normalized.urgencyLabel = normalizeWhitespace(normalized.urgencyLabel)
   normalized.safetyEntryId = normalizeWhitespace(normalized.safetyEntryId)
@@ -196,6 +252,9 @@ function normalizeEntry(entry) {
     if (normalized[key] == null) continue
     normalized[key] = normalizeWhitespace(normalized[key])
     if (!normalized[key]) delete normalized[key]
+  }
+  if (normalized.targetType === 'constituent' && normalized.targetName) {
+    normalized.targetName = normalizeConstituentAlias(normalized.targetName)
   }
   return normalized
 }
@@ -251,6 +310,44 @@ export function validateAndNormalizeEntries(entries, options = {}) {
 
     if (!TOPIC_TO_ROLLUP_FIELD[entry.topicType]) {
       issues.push(`${prefix} unsupported topicType=${entry.topicType}.`)
+    }
+
+    const relationRule = TOPIC_RELATION_RULES[entry.topicType]
+    if (relationRule) {
+      if (!entry.relationType) {
+        issues.push(`${prefix} topicType=${entry.topicType} requires relationType.`)
+      } else if (!relationRule.relationTypes.has(entry.relationType)) {
+        issues.push(
+          `${prefix} relationType=${entry.relationType} is not allowed for topicType=${entry.topicType}; expected ${Array.from(
+            relationRule.relationTypes,
+          ).join('|')}.`,
+        )
+      }
+
+      if (!entry.targetType) {
+        issues.push(`${prefix} topicType=${entry.topicType} requires targetType.`)
+      } else if (!relationRule.targetTypes.has(entry.targetType)) {
+        issues.push(
+          `${prefix} targetType=${entry.targetType} is not allowed for topicType=${entry.topicType}; expected ${Array.from(
+            relationRule.targetTypes,
+          ).join('|')}.`,
+        )
+      }
+    }
+
+    if (entry.topicType === 'herb_compound_link' || entry.topicType === 'compound_origin_note') {
+      if (!entry.targetSlug) {
+        issues.push(`${prefix} topicType=${entry.topicType} requires targetSlug when targetType is an internal entity.`)
+      } else if (!entitySlugs[entry.targetType]?.has(entry.targetSlug)) {
+        issues.push(`${prefix} target reference ${entry.targetType}:${entry.targetSlug} was not found in detail data.`)
+      }
+    }
+
+    if (entry.topicType === 'herb_compound_link' && entry.targetType) {
+      const expected = entry.entityType === 'herb' ? 'compound' : 'herb'
+      if (entry.targetType !== expected) {
+        issues.push(`${prefix} herb_compound_link requires targetType=${expected} for entityType=${entry.entityType}.`)
+      }
     }
 
     const isSafetyTopic = SAFETY_TOPIC_TYPES.has(entry.topicType)
@@ -327,6 +424,7 @@ export function validateAndNormalizeEntries(entries, options = {}) {
       entry.entitySlug,
       entry.sourceId,
       entry.topicType,
+      normalizeForNearDuplicate(entry.relationType ?? ''),
       entry.claimType,
       normalizeForNearDuplicate(entry.targetType ?? ''),
       normalizeForNearDuplicate(entry.targetName ?? ''),
@@ -344,6 +442,7 @@ export function validateAndNormalizeEntries(entries, options = {}) {
         entry.entitySlug,
         entry.sourceId,
         entry.topicType,
+        normalizeForNearDuplicate(entry.relationType ?? ''),
         normalizeForNearDuplicate(entry.targetType ?? ''),
         normalizeForNearDuplicate(entry.targetName ?? ''),
       ].join('|')
@@ -418,7 +517,17 @@ export function rollupToResearchEnrichment(entries, sourceById = null) {
         claim: entry.findingTextNormalized,
         evidenceClass: entry.evidenceClass,
         sourceRefIds: [entry.sourceId],
+        ...(entry.relationType ? { relationType: entry.relationType } : {}),
+        ...(entry.targetType ? { targetType: entry.targetType } : {}),
+        ...(entry.targetName ? { targetName: entry.targetName } : {}),
+        ...(entry.targetSlug ? { targetSlug: entry.targetSlug } : {}),
+        ...(entry.biologicalContext ? { biologicalContext: entry.biologicalContext } : {}),
+        ...(entry.constituentRoleContext ? { constituentRoleContext: entry.constituentRoleContext } : {}),
+        ...(entry.uncertaintyNote ? { uncertaintyNote: entry.uncertaintyNote } : {}),
+        ...(entry.conflictNote ? { conflictNote: entry.conflictNote } : {}),
+        ...(entry.mechanismEntryId ? { mechanismEntryId: entry.mechanismEntryId } : {}),
         ...(entry.strengthLabel ? { strengthNote: entry.strengthLabel } : {}),
+        ...(entry.mechanismStrengthLabel ? { mechanismStrengthLabel: entry.mechanismStrengthLabel } : {}),
       })
     }
 
@@ -562,6 +671,52 @@ export function buildSafetySummary(entries) {
     generatedAt: new Date().toISOString(),
     inputPath: path.relative(ROOT, INPUT_PATH_DEFAULT),
     totalSafetyEntries: Object.values(counts.byEntity).reduce((sum, value) => sum + value, 0),
+    counts,
+  }
+}
+
+export function buildMechanismSummary(entries) {
+  const counts = {
+    byEntity: {},
+    byTopicType: {},
+    byRelationType: {},
+    byTargetType: {},
+    byEvidenceClass: {},
+    byConflictState: {},
+  }
+
+  const mechanismTopics = new Set([
+    'constituent',
+    'constituent_relationship',
+    'mechanism',
+    'pathway',
+    'receptor_activity',
+    'enzyme_interaction',
+    'transporter_interaction',
+    'herb_compound_link',
+    'compound_origin_note',
+    'research_gap',
+  ])
+
+  for (const entry of entries) {
+    if (!mechanismTopics.has(entry.topicType)) continue
+    const entityKey = `${entry.entityType}:${entry.entitySlug}`
+    const relationType = entry.relationType ?? 'unspecified'
+    const targetType = entry.targetType ?? 'unspecified'
+    const conflictState = entry.conflictNote ? 'conflict_noted' : 'none'
+
+    counts.byEntity[entityKey] = (counts.byEntity[entityKey] ?? 0) + 1
+    counts.byTopicType[entry.topicType] = (counts.byTopicType[entry.topicType] ?? 0) + 1
+    counts.byRelationType[relationType] = (counts.byRelationType[relationType] ?? 0) + 1
+    counts.byTargetType[targetType] = (counts.byTargetType[targetType] ?? 0) + 1
+    counts.byEvidenceClass[entry.evidenceClass] = (counts.byEvidenceClass[entry.evidenceClass] ?? 0) + 1
+    counts.byConflictState[conflictState] = (counts.byConflictState[conflictState] ?? 0) + 1
+  }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    inputPath: path.relative(ROOT, INPUT_PATH_DEFAULT),
+    totalMechanismEntries: Object.values(counts.byEntity).reduce((sum, value) => sum + value, 0),
     counts,
   }
 }

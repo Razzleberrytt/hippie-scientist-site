@@ -1,14 +1,16 @@
 {
-  "generatedAt": "2026-03-30T18:17:36.388Z",
+  "generatedAt": "2026-03-30T18:34:14.225Z",
   "totalEntities": 2,
   "evidenceLabelCounts": {
-    "mixed_or_uncertain": 3
+    "mixed_or_uncertain": 5
   },
   "byEntityTopic": {
     "compound:cbd": {
-      "mechanism": "mixed_or_uncertain"
+      "compound_origin_note": "mixed_or_uncertain",
+      "receptor_activity": "mixed_or_uncertain"
     },
     "herb:kava": {
+      "constituent": "mixed_or_uncertain",
       "interaction": "mixed_or_uncertain",
       "supported_use": "mixed_or_uncertain"
     }
@@ -17,7 +19,21 @@
     {
       "entityType": "compound",
       "entitySlug": "cbd",
-      "topicType": "mechanism",
+      "topicType": "compound_origin_note",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "topicType": "receptor_activity",
+      "conflictState": "mixed_or_uncertain",
+      "conflictNotes": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "topicType": "constituent",
       "conflictState": "mixed_or_uncertain",
       "conflictNotes": []
     },
@@ -40,7 +56,21 @@
     {
       "entityType": "compound",
       "entitySlug": "cbd",
-      "topicType": "mechanism",
+      "topicType": "compound_origin_note",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "topicType": "receptor_activity",
+      "evidenceLabel": "mixed_or_uncertain",
+      "reason": "Use uncertainty-forward copy and clarify where findings diverge."
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "topicType": "constituent",
       "evidenceLabel": "mixed_or_uncertain",
       "reason": "Use uncertainty-forward copy and clarify where findings diverge."
     },

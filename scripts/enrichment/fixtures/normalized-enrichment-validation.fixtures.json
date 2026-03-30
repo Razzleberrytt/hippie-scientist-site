@@ -239,6 +239,94 @@
         "editorialStatus": "approved",
         "active": true
       }
+    },
+    {
+      "reason": "invalid relation/target combination for receptor activity",
+      "entry": {
+        "enrichmentId": "enr_invalid-receptor-target",
+        "mechanismEntryId": "menr_invalid-receptor-target",
+        "entityType": "compound",
+        "entitySlug": "cbd",
+        "sourceId": "src_pubmed-clinical-template",
+        "topicType": "receptor_activity",
+        "relationType": "contains",
+        "targetType": "enzyme",
+        "targetName": "FAAH",
+        "claimType": "mechanistic_signal",
+        "evidenceClass": "human-clinical",
+        "findingTextShort": "CBD receptor activity context.",
+        "findingTextNormalized": "Reviewed source-backed records describe receptor-focused context for CBD, but this fixture intentionally sets invalid relation and target pairing.",
+        "reviewer": "ops-editor",
+        "reviewedAt": "2026-03-30T00:00:00.000Z",
+        "editorialStatus": "approved",
+        "active": true
+      }
+    },
+    {
+      "reason": "broken herb-compound target slug reference",
+      "entry": {
+        "enrichmentId": "enr_invalid-compound-origin-target",
+        "mechanismEntryId": "menr_invalid-compound-origin-target",
+        "entityType": "compound",
+        "entitySlug": "cbd",
+        "sourceId": "src_pubmed-clinical-template",
+        "topicType": "compound_origin_note",
+        "relationType": "derived_from",
+        "targetType": "herb",
+        "targetName": "Missing herb",
+        "targetSlug": "missing-herb",
+        "claimType": "origin_note",
+        "evidenceClass": "human-clinical",
+        "findingTextShort": "CBD origin note with missing herb.",
+        "findingTextNormalized": "Reviewed source-backed context indicates cannabidiol origin, but this fixture intentionally uses a missing herb slug for validation failure.",
+        "reviewer": "ops-editor",
+        "reviewedAt": "2026-03-30T00:00:00.000Z",
+        "editorialStatus": "approved",
+        "active": true
+      }
+    },
+    {
+      "reason": "near-duplicate mechanism claims detected for same relation/target",
+      "entries": [
+        {
+          "enrichmentId": "enr_duplicate-mechanism-a",
+          "mechanismEntryId": "menr_duplicate-mechanism-a",
+          "entityType": "compound",
+          "entitySlug": "cbd",
+          "sourceId": "src_pubmed-clinical-template",
+          "topicType": "receptor_activity",
+          "relationType": "may_modulate",
+          "targetType": "receptor",
+          "targetName": "CB1 receptor",
+          "claimType": "mechanistic_signal",
+          "evidenceClass": "human-clinical",
+          "findingTextShort": "CBD receptor modulation statement A.",
+          "findingTextNormalized": "Reviewed source-backed records describe CBD as potentially modulating CB1 receptor signaling in mechanistic contexts.",
+          "reviewer": "ops-editor",
+          "reviewedAt": "2026-03-30T00:00:00.000Z",
+          "editorialStatus": "approved",
+          "active": true
+        },
+        {
+          "enrichmentId": "enr_duplicate-mechanism-b",
+          "mechanismEntryId": "menr_duplicate-mechanism-b",
+          "entityType": "compound",
+          "entitySlug": "cbd",
+          "sourceId": "src_pubmed-clinical-template",
+          "topicType": "receptor_activity",
+          "relationType": "may_modulate",
+          "targetType": "receptor",
+          "targetName": "CB1 receptor",
+          "claimType": "mechanistic_signal",
+          "evidenceClass": "human-clinical",
+          "findingTextShort": "CBD receptor modulation statement B.",
+          "findingTextNormalized": "Reviewed source-backed records describe CBD as potentially modulating CB1 receptor signaling in mechanistic contexts.",
+          "reviewer": "ops-editor",
+          "reviewedAt": "2026-03-30T00:00:00.000Z",
+          "editorialStatus": "approved",
+          "active": true
+        }
+      ]
     }
   ]
 }

@@ -3,8 +3,10 @@ import path from 'node:path'
 import {
   EVIDENCE_GRADING_SUMMARY_PATH,
   INPUT_PATH_DEFAULT,
+  MECHANISM_SUMMARY_REPORT_PATH,
   SAFETY_SUMMARY_REPORT_PATH,
   SUMMARY_REPORT_PATH,
+  buildMechanismSummary,
   buildSafetySummary,
   buildSummary,
   parseNormalizedInput,
@@ -29,12 +31,14 @@ if (issues.length > 0) {
 const rollup = rollupToResearchEnrichment(normalizedEntries, sourceById)
 const summary = buildSummary(normalizedEntries)
 const safetySummary = buildSafetySummary(normalizedEntries)
+const mechanismSummary = buildMechanismSummary(normalizedEntries)
 summary.rollupEntityCount = rollup.length
 const evidenceGradingSummary = summarizeEvidenceRollup(rollup)
 
 const rollupPath = path.join(process.cwd(), 'ops', 'reports', 'enrichment-rollup-preview.json')
 writeJson(SUMMARY_REPORT_PATH, summary)
 writeJson(SAFETY_SUMMARY_REPORT_PATH, safetySummary)
+writeJson(MECHANISM_SUMMARY_REPORT_PATH, mechanismSummary)
 writeJson(rollupPath, rollup)
 writeJson(EVIDENCE_GRADING_SUMMARY_PATH, evidenceGradingSummary)
 

@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-03-30T18:34:14.225Z",
+  "inputPath": "public/data/enrichment-normalized.jsonl",
+  "totalMechanismEntries": 3,
+  "counts": {
+    "byEntity": {
+      "herb:kava": 1,
+      "compound:cbd": 2
+    },
+    "byTopicType": {
+      "constituent": 1,
+      "receptor_activity": 1,
+      "compound_origin_note": 1
+    },
+    "byRelationType": {
+      "contains": 1,
+      "may_modulate": 1,
+      "derived_from": 1
+    },
+    "byTargetType": {
+      "constituent": 1,
+      "receptor": 1,
+      "herb": 1
+    },
+    "byEvidenceClass": {
+      "human-clinical": 3
+    },
+    "byConflictState": {
+      "none": 3
+    }
+  }
+}

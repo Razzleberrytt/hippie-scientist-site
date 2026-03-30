@@ -60,7 +60,14 @@
         "dosage_context",
         "population_specific_note",
         "conflict_note",
-        "research_gap"
+        "research_gap",
+        "constituent_relationship",
+        "pathway",
+        "receptor_activity",
+        "enzyme_interaction",
+        "transporter_interaction",
+        "herb_compound_link",
+        "compound_origin_note"
       ]
     },
     "claimType": {
@@ -74,7 +81,9 @@
         "dosing_note",
         "population_note",
         "evidence_conflict",
-        "research_gap"
+        "research_gap",
+        "relationship_signal",
+        "origin_note"
       ]
     },
     "evidenceClass": {
@@ -168,8 +177,15 @@
         "drug",
         "drug_class",
         "herb",
+        "compound",
+        "constituent",
+        "pathway",
+        "receptor",
+        "enzyme",
+        "transporter",
         "condition",
-        "population"
+        "population",
+        "biological_process"
       ]
     },
     "targetName": {
@@ -204,6 +220,57 @@
     },
     "conflictNote": {
       "type": "string"
+    },
+    "mechanismEntryId": {
+      "type": "string",
+      "pattern": "^menr_[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "relationType": {
+      "type": "string",
+      "enum": [
+        "contains",
+        "enriched_for",
+        "linked_to",
+        "may_modulate",
+        "observed_to_affect",
+        "traditional_association",
+        "derived_from",
+        "related_to"
+      ]
+    },
+    "targetSlug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "topicTypeDetail": {
+      "type": "string",
+      "enum": [
+        "constituent",
+        "constituent_relationship",
+        "mechanism",
+        "pathway",
+        "receptor_activity",
+        "enzyme_interaction",
+        "transporter_interaction",
+        "herb_compound_link",
+        "compound_origin_note",
+        "research_gap"
+      ]
+    },
+    "constituentRoleContext": {
+      "type": "string"
+    },
+    "biologicalContext": {
+      "type": "string"
+    },
+    "mechanismStrengthLabel": {
+      "type": "string",
+      "enum": [
+        "strong",
+        "moderate",
+        "limited",
+        "insufficient"
+      ]
     }
   }
 }
