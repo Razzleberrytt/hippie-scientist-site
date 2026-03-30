@@ -1,0 +1,29 @@
+{
+  "name": "Coumarin",
+  "herbs": [
+    "nan",
+    "justicia pectoralis"
+  ],
+  "effects": [
+    "Calming",
+    "mild euphoria",
+    "spiritual insight",
+    "Mild euphoria",
+    "sedation",
+    "muscle relaxation",
+    "spiritual openness",
+    "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
+  ],
+  "contraindications": [
+    "Avoid large doses",
+    "coumarin toxicity risk",
+    "Pregnancy",
+    "anticoagulant therapy due to coumarin content"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "coumarin",
+  "id": "coumarin",
+  "displayName": "Coumarin"
+}

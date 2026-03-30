@@ -1,0 +1,35 @@
+{
+  "name": "Farnesol",
+  "herbs": [
+    "linden",
+    "nan",
+    "Silver Linden"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference: Used as a calming tea for sleep",
+    "anxiety",
+    "and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep",
+    "and tension... Used as a calming tea for sleep",
+    "and tension.. Used as a calming tea for sleep",
+    "and tension.",
+    "Mild sedative",
+    "hallucinogenic in high doses",
+    "Anxiolytic",
+    "relaxing",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "high doses",
+    "None known"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "farnesol",
+  "id": "farnesol",
+  "displayName": "Farnesol"
+}

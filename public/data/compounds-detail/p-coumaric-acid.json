@@ -1,0 +1,34 @@
+{
+  "name": "p-coumaric acid",
+  "herbs": [
+    "adenostoma fasciculatum",
+    "agrimonia eupatoria"
+  ],
+  "effects": [
+    "Traditional uses include skin and respiratory conditions",
+    "contains tannins",
+    "Astringent",
+    "anti-inflammatory",
+    "digestive tonic",
+    "anti",
+    "inflammatory"
+  ],
+  "contraindications": [
+    "Limited safety data",
+    "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone.",
+    "Generally safe when used as tea",
+    "due to tannins may cause constipation or reduce absorption of minerals",
+    "avoid large doses during pregnancy."
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "p-coumaric-acid",
+  "id": "p-coumaric-acid",
+  "displayName": "p-coumaric acid"
+}

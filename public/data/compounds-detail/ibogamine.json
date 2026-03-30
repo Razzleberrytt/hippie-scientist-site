@@ -1,0 +1,23 @@
+{
+  "name": "ibogamine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Tranquility",
+    "mild distortion of time",
+    "Antimicrobial",
+    "antioxidant",
+    "toxic in high doses"
+  ],
+  "contraindications": [
+    "Heart conditions",
+    "psychotropics"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "ibogamine",
+  "id": "ibogamine",
+  "displayName": "ibogamine"
+}

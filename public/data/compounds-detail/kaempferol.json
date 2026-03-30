@@ -1,0 +1,50 @@
+{
+  "name": "kaempferol",
+  "herbs": [
+    "aerva lanata",
+    "albizia lebbeck",
+    "alchemilla vulgaris",
+    "linden"
+  ],
+  "effects": [
+    "Diuretic",
+    "anti-inflammatory",
+    "antimicrobial",
+    "anti",
+    "inflammatory",
+    "Used in Ayurveda for asthma",
+    "allergies",
+    "and anxiety",
+    "Uterine tonic",
+    "astringent",
+    "regulates menstruation and bleeding.",
+    "No direct effects data. Contextual inference: Used as a calming tea for sleep",
+    "anxiety",
+    "and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep",
+    "and tension... Used as a calming tea for sleep",
+    "and tension.. Used as a calming tea for sleep",
+    "and tension."
+  ],
+  "contraindications": [
+    "Limited safety data; some alkaloids may be toxic at high doses",
+    "Pregnant women should use cautiously",
+    "No well‑documented contraindications",
+    "due to saponins and alkaloids",
+    "excessive intake may cause gastrointestinal irritation or interact with medications.",
+    "Excessive internal use may cause constipation or dry mucous membranes",
+    "caution in pregnancy or lactation",
+    "may interact with blood thinners due to tannin content【859641390196180†L297",
+    "L313】."
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "kaempferol",
+  "id": "kaempferol",
+  "displayName": "kaempferol"
+}

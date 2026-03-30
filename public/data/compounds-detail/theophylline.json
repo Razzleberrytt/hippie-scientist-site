@@ -1,0 +1,31 @@
+{
+  "name": "theophylline",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Mental alertness",
+    "energy",
+    "appetite suppression",
+    "Increased alertness",
+    "mood enhancement",
+    "stimulation",
+    "Stimulant",
+    "cognitive enhancer",
+    "antioxidant"
+  ],
+  "contraindications": [
+    "Anxiety",
+    "hypertension",
+    "pregnancy",
+    "heart conditions",
+    "Pregnancy",
+    "anxiety disorders"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "theophylline",
+  "id": "theophylline",
+  "displayName": "theophylline"
+}

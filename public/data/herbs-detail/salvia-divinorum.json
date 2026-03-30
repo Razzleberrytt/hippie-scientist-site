@@ -1,0 +1,119 @@
+{
+  "name": "salvia divinorum",
+  "latin": "Salvia divinorum",
+  "class": "dissociative / sedative",
+  "intensity": "No direct intensity data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. No direct region data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. ; nan; nan. ; nan; nan",
+  "mechanism": "Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.",
+  "activeCompounds": [],
+  "effects": [
+    "Intense dissociative hallucinogen",
+    "short-acting visionary states",
+    "Visual hallucinations",
+    "altered sense of reality",
+    "dissociation.",
+    "short",
+    "acting visionary states"
+  ],
+  "contraindications": [
+    "mental health disorders.",
+    "psychiatric disorders",
+    "cardiovascular instability",
+    "avoid in those at risk for psychosis [3",
+    "2].",
+    "Psychosis",
+    "schizophrenia",
+    "pregnancy"
+  ],
+  "safetyNotes": [
+    "dysphoria",
+    "confusion.",
+    "No direct toxicity data. Contextual inference: Intense dissociative hallucinogen",
+    "short-acting visionary states. Salvinorin a is a kappa-opioid agonist",
+    "dissociative hallucinogen..",
+    "nan.. Salvinorin A is a kappa-opioid agonist",
+    "dissociative hallucinogen.. Intense dissociative hallucinogen",
+    "short-acting visionary states.",
+    "tiredness",
+    "dizziness",
+    "amnesia",
+    "potential for transient psychosis in vulnerable individuals [3",
+    "2].",
+    "Low physiological toxicity",
+    "intense psychological effects.",
+    "Low toxicity",
+    "animal studies show minimal organ damage even at high doses [3",
+    "3]."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Intense dissociative hallucinogen",
+    "short",
+    "acting visionary states. Salvinorin a is a kappa",
+    "opioid agonist",
+    "dissociative hallucinogen..",
+    "nan.. Salvinorin A is a kappa",
+    "dissociative hallucinogen.. Intense dissociative hallucinogen",
+    "acting visionary states. No direct region data. Contextual inference: Intense dissociative hallucinogen",
+    "acting visionary states.",
+    "nan.",
+    "200",
+    "500 mcg salvinorin A for effects",
+    "varies based on method."
+  ],
+  "duration": "5–30 minutes (smoked), 1–2 hours (oral)",
+  "interactions": [
+    "opioids",
+    "depressants.",
+    "cns depressants may potentiate sedative effects",
+    "caution when coadministered [3",
+    "3].",
+    "May intensify effects of sedatives and dissociatives"
+  ],
+  "legalStatus": "Controlled or restricted in many countries",
+  "preparation": "No direct preparation data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. No direct region data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: Intense dissociative hallucinogen; short-acting visionary states. Salvinorin a is a kappa-opioid agonist; dissociative hallucinogen.. ; nan; nan.. Salvinorin A is a kappa-opioid agonist; dissociative hallucinogen.. Intense dissociative hallucinogen; short-acting visionary states. ; nan; nan",
+  "therapeuticUses": [
+    "shamanic rituals",
+    "research on consciousness.",
+    "visionary experiences in traditional mazatec rituals",
+    "investigated for analgesic and anti-inflammatory properties [3",
+    "0].",
+    "investigated for analgesic and anti",
+    "inflammatory properties [3"
+  ],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "dysphoria",
+    "confusion.",
+    "tiredness",
+    "dizziness",
+    "amnesia",
+    "potential for transient psychosis in vulnerable individuals [3",
+    "2]."
+  ],
+  "slug": "salvia-divinorum",
+  "displayName": "salvia divinorum",
+  "displayScientificName": "Salvia divinorum",
+  "scientificNormalized": "salvia divinorum",
+  "id": "salvia-divinorum",
+  "aliases": [
+    "salvia"
+  ],
+  "slugAliases": [
+    "salvia"
+  ]
+}

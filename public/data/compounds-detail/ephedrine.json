@@ -1,0 +1,44 @@
+{
+  "name": "ephedrine",
+  "herbs": [
+    "aconitum napellus",
+    "nan"
+  ],
+  "effects": [
+    "Potent analgesic and anti-inflammatory",
+    "extremely toxic",
+    "Potent analgesic and anti",
+    "inflammatory",
+    "Increased energy",
+    "focus",
+    "thermogenesis",
+    "alertness",
+    "bronchodilation",
+    "Stimulant",
+    "anti-inflammatory",
+    "traditionally used for asthma and weight loss"
+  ],
+  "contraindications": [
+    "Highly toxic",
+    "ingestion can cause severe arrhythmias",
+    "paralysis and death",
+    "avoid internal use",
+    "handling requires caution.",
+    "Hypertension",
+    "cardiac conditions",
+    "MAOIs",
+    "heart conditions",
+    "pregnancy"
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "ephedrine",
+  "id": "ephedrine",
+  "displayName": "ephedrine"
+}

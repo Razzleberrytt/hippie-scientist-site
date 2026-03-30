@@ -1,0 +1,68 @@
+{
+  "name": "linum usitatissimum",
+  "latin": "Linum usitatissimum",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Laxative, anti-inflammatory, omega-3 source. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, anti-inflammatory, omega-3 source. No direct region data. Contextual inference: Laxative, anti-inflammatory, omega-3 source. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, anti-inflammatory, omega-3 source. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Laxative",
+    "anti-inflammatory",
+    "omega-3 source",
+    "anti",
+    "inflammatory",
+    "omega",
+    "3 source"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "safe",
+    "May cause bloating",
+    "gas",
+    "or allergic reactions",
+    "avoid in bowel obstruction",
+    "No direct toxicity data. Contextual inference: Laxative",
+    "anti-inflammatory",
+    "omega-3 source. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Laxative",
+    "omega-3 source. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Laxative, anti-inflammatory, omega-3 source. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "5",
+    "15 g",
+    "day ground seed or 500",
+    "1000 mg extract"
+  ],
+  "duration": "12+ hours",
+  "interactions": [],
+  "legalStatus": "Legal globally",
+  "preparation": "Seeds crushed or whole, soaked as mucilage, or ground for use in food and poultices; flaxseed oil also extracted",
+  "region": "No direct region data. Contextual inference: Laxative, anti-inflammatory, omega-3 source. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, anti-inflammatory, omega-3 source. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "May cause bloating",
+    "gas",
+    "or allergic reactions",
+    "avoid in bowel obstruction"
+  ],
+  "slug": "linum-usitatissimum",
+  "id": "linum-usitatissimum",
+  "displayName": "linum usitatissimum",
+  "displayScientificName": "Linum usitatissimum",
+  "scientificNormalized": "linum usitatissimum"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Nicotine",
+  "herbs": [
+    "nan",
+    "nicotiana rustica"
+  ],
+  "effects": [
+    "Stimulation",
+    "mood elevation",
+    "alertness",
+    "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
+  ],
+  "contraindications": [
+    "Heart disease",
+    "pregnancy",
+    "epilepsy"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "nicotine",
+  "id": "nicotine",
+  "displayName": "Nicotine"
+}

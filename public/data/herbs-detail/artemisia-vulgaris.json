@@ -1,0 +1,96 @@
+{
+  "name": "artemisia vulgaris",
+  "latin": "Artemisia vulgaris",
+  "class": "Oneirogen, Digestive Tonic",
+  "intensity": "No direct intensity data. Contextual inference: Digestive aid, menstrual regulator, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, menstrual regulator, mild sedative. No direct region data. Contextual inference: Digestive aid, menstrual regulator, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, menstrual regulator, mild sedative. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [
+    "Thujone",
+    "cineole",
+    "flavonoids"
+  ],
+  "effects": [
+    "Vivid dreams",
+    "mild calm",
+    "enhanced intuition",
+    "Digestive aid",
+    "menstrual regulator",
+    "mild sedative"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "epilepsy",
+    "thujone sensitivity"
+  ],
+  "safetyNotes": [
+    "Safe in small doses",
+    "avoid high thujone exposure",
+    "Headache",
+    "nausea with excess",
+    "Mild (thujone content)",
+    "Not clearly established",
+    "caution",
+    "Allergic reactions",
+    "especially in individuals sensitive to ragweed",
+    "potential uterine stimulation",
+    "No direct toxicity data. Contextual inference: Digestive aid",
+    "menstrual regulator",
+    "mild sedative. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Digestive aid",
+    "mild sedative. none."
+  ],
+  "sources": [
+    {
+      "title": "Herbal folklore"
+    },
+    {
+      "title": "oneirogen ethnobotany"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Digestive aid, menstrual regulator, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "0.5",
+    "1.5 g",
+    "day dried herb or extract"
+  ],
+  "duration": "2–5 hours",
+  "interactions": [
+    "Avoid with alcohol",
+    "CNS stimulants"
+  ],
+  "legalStatus": "Legal; traditional herbal use",
+  "preparation": "Aerial parts dried and used in teas, smudging, or tinctures; also used in moxibustion",
+  "region": "No direct region data. Contextual inference: Digestive aid, menstrual regulator, mild sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, menstrual regulator, mild sedative. none. ; nan; nan",
+  "therapeuticUses": [
+    "Digestive aid",
+    "dream enhancement"
+  ],
+  "traditionalUse": "; nan; nan",
+  "slug": "artemisia-vulgaris",
+  "sideEffects": [
+    "Allergic reactions",
+    "especially in individuals sensitive to ragweed",
+    "potential uterine stimulation"
+  ],
+  "displayName": "artemisia vulgaris",
+  "displayScientificName": "Artemisia vulgaris",
+  "scientificNormalized": "artemisia vulgaris",
+  "id": "artemisia-vulgaris",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}

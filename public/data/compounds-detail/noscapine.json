@@ -1,0 +1,26 @@
+{
+  "name": "noscapine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Euphoria",
+    "analgesia",
+    "sedation",
+    "cough suppression",
+    "Source of opiates",
+    "analgesic and sedative"
+  ],
+  "contraindications": [
+    "Respiratory issues",
+    "liver impairment",
+    "pregnancy",
+    "opioid use"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "noscapine",
+  "id": "noscapine",
+  "displayName": "noscapine"
+}

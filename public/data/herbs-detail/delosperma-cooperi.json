@@ -1,0 +1,55 @@
+{
+  "name": "delosperma cooperi",
+  "latin": "Delosperma cooperi",
+  "class": "Ornamental, antioxidant (mild)",
+  "intensity": "Very mild.",
+  "mechanism": "Contains phenolic compounds.",
+  "activeCompounds": [],
+  "effects": [
+    "Antioxidant",
+    "antimicrobial."
+  ],
+  "contraindications": [
+    "None known"
+  ],
+  "safetyNotes": [
+    "Generally non-toxic",
+    "rare allergic reaction in sensitive individuals",
+    "Non-toxic",
+    "edible flowers."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Succulent used as groundcover; mild traditional use.",
+  "dosage": [
+    "Not typically dosed",
+    "used ornamentally."
+  ],
+  "duration": "Short-acting; external application only.",
+  "interactions": [
+    "None documented"
+  ],
+  "legalStatus": "Unregulated",
+  "preparation": "Occasionally juiced or crushed for skin.",
+  "region": "South Africa",
+  "therapeuticUses": [],
+  "traditionalUse": "Minimal; some use in skin treatments.",
+  "sideEffects": [
+    "Generally non",
+    "toxic",
+    "rare allergic reaction in sensitive individuals"
+  ],
+  "slug": "delosperma-cooperi",
+  "id": "delosperma-cooperi",
+  "displayName": "delosperma cooperi",
+  "displayScientificName": "Delosperma cooperi",
+  "scientificNormalized": "delosperma cooperi"
+}

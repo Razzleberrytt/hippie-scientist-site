@@ -1,0 +1,23 @@
+{
+  "name": "julibroside C1",
+  "herbs": [
+    "albizia julibrissin"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "Limited safety data",
+    "may potentiate sedative or antidepressant drugs",
+    "avoid in pregnancy or lactation unless supervised."
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "julibroside-c1",
+  "id": "julibroside-c1",
+  "displayName": "julibroside C1"
+}

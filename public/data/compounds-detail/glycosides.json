@@ -1,0 +1,33 @@
+{
+  "name": "glycosides",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Relaxation",
+    "mild euphoria",
+    "lucid dreaming",
+    "increased tactile sensation",
+    "dream enhancement",
+    "anxiolytic",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "Avoid use with CNS depressants",
+    "sedatives",
+    "and alcohol",
+    "caution during pregnancy",
+    "Pregnancy",
+    "sedative sensitivity",
+    "liver dysfunction (high doses)"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "glycosides",
+  "id": "glycosides",
+  "displayName": "glycosides"
+}

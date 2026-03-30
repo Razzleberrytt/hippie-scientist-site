@@ -1,0 +1,24 @@
+{
+  "name": "Sulfur compounds",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Calmness",
+    "clarity",
+    "mild sedation",
+    "Immunomodulatory",
+    "anti-inflammatory",
+    "analgesic"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "blood disorders"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "sulfur-compounds",
+  "id": "sulfur-compounds",
+  "displayName": "Sulfur compounds"
+}

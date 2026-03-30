@@ -1,0 +1,92 @@
+{
+  "name": "lactuca virosa",
+  "latin": "Lactuca virosa",
+  "class": "Sedative, Analgesic, Nervine",
+  "intensity": "No direct intensity data. Contextual inference: Sedative, analgesic, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, antispasmodic. No direct region data. Contextual inference: Sedative, analgesic, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, antispasmodic. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [
+    "Lactucin",
+    "lactucopicrin",
+    "sesquiterpene lactones"
+  ],
+  "effects": [
+    "Sedation",
+    "analgesia",
+    "calming",
+    "Sedative",
+    "analgesic",
+    "antispasmodic"
+  ],
+  "contraindications": [
+    "Not recommended during pregnancy or with sedatives"
+  ],
+  "safetyNotes": [
+    "Low toxicity at normal doses",
+    "Nausea",
+    "dizziness",
+    "Low",
+    "Not reported",
+    "safe",
+    "Drowsiness",
+    "allergic reactions in sensitive individuals",
+    "No direct toxicity data. Contextual inference: Sedative",
+    "analgesic",
+    "antispasmodic. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Sedative",
+    "antispasmodic. none."
+  ],
+  "sources": [
+    {
+      "title": "Herbal Safety Compendium"
+    },
+    {
+      "title": "PubChem"
+    },
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Sedative, analgesic, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "750 mg",
+    "day leaf extract"
+  ],
+  "duration": "4–8 hours",
+  "interactions": [
+    "May enhance sedative drugs"
+  ],
+  "legalStatus": "Unregulated; used in herbal sleep aids",
+  "preparation": "Aerial parts dried and tinctured or decocted; “wild lettuce” used historically as sedative and pain reliever",
+  "region": "No direct region data. Contextual inference: Sedative, analgesic, antispasmodic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, analgesic, antispasmodic. none. ; nan; nan",
+  "therapeuticUses": [
+    "Pain relief",
+    "insomnia",
+    "nervousness"
+  ],
+  "traditionalUse": "; nan; nan",
+  "slug": "lactuca-virosa",
+  "sideEffects": [
+    "Drowsiness",
+    "dizziness",
+    "allergic reactions in sensitive individuals"
+  ],
+  "displayName": "lactuca virosa",
+  "displayScientificName": "Lactuca virosa",
+  "scientificNormalized": "lactuca virosa",
+  "id": "lactuca-virosa",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Cytisine (nicotinic agonist)",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Delirium",
+    "nausea",
+    "visionary trance",
+    "paralysis",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "Highly toxic",
+    "ceremonial use only"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "cytisine-nicotinic-agonist",
+  "id": "cytisine-nicotinic-agonist",
+  "displayName": "Cytisine (nicotinic agonist)"
+}
