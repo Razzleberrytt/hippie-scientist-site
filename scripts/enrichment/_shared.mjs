@@ -2,10 +2,11 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 
-export const REPO_ROOT = resolve(dirname(new URL(import.meta.url).pathname), '..', '..');
+export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const OPS_DIR = join(REPO_ROOT, 'ops');
 export const STATE_DB_PATH = join(OPS_DIR, 'state.db');
 export const MIGRATIONS_DIR = join(OPS_DIR, 'migrations');
@@ -50,16 +51,40 @@ else:
 conn.close()
 `;
 
-  const result = spawnSync('python3', ['-c', runner], {
-    input: JSON.stringify({ dbPath: STATE_DB_PATH, ...payload }),
-    encoding: 'utf8',
-  });
-
+  const result = runPython(['-c', runner], JSON.stringify({ dbPath: STATE_DB_PATH, ...payload }));
   if (result.status !== 0) {
     throw new Error(`SQLite command failed: ${result.stderr || result.stdout}`);
   }
 
   return JSON.parse(result.stdout.trim() || 'null');
+}
+
+function runPython(args, input) {
+  const attempts = [
+    { command: 'python3', args },
+    { command: 'py', args: ['-3', ...args] },
+  ];
+
+  let lastResult = null;
+  for (const attempt of attempts) {
+    const result = spawnSync(attempt.command, attempt.args, {
+      input,
+      encoding: 'utf8',
+    });
+    lastResult = result;
+    const combinedOutput = `${result.stderr || ''}\n${result.stdout || ''}`;
+    const isWindowsStoreAliasMiss =
+      attempt.command === 'python3' &&
+      result.status !== 0 &&
+      /Python was not found; run without arguments to install from the Microsoft Store/i.test(combinedOutput);
+    if (result.error?.code === 'ENOENT' || isWindowsStoreAliasMiss) continue;
+    return result;
+  }
+
+  return lastResult ?? spawnSync('python3', args, {
+    input,
+    encoding: 'utf8',
+  });
 }
 
 export function bootstrapStateDb() {
@@ -94,10 +119,7 @@ print(json.dumps({'applied': [r[0] for r in rows], 'count': len(rows)}))
 conn.close()
 `;
 
-  const result = spawnSync('python3', ['-c', runner], {
-    input: JSON.stringify(payload),
-    encoding: 'utf8',
-  });
+  const result = runPython(['-c', runner], JSON.stringify(payload));
 
   if (result.status !== 0) {
     throw new Error(`Failed to bootstrap SQLite state DB: ${result.stderr || result.stdout}`);

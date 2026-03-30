@@ -25,6 +25,7 @@ import {
   runSqlite,
   writeJson,
 } from './_shared.mjs';
+import { classifyProviderFailure, createRetryBoundary, evaluateProviderPreflight } from './provider-runtime.mjs';
 
 const TASK_PACKS = {
   'mechanism-herb': 'mechanism-herb.v3.md',
@@ -323,157 +324,325 @@ function generateDryRunOperations(task, selectedEntities, runId) {
   return operations;
 }
 
-const providersConfigPath = join(REPO_ROOT, 'config', 'providers.json');
-const options = parseArgs(process.argv);
-const migrationState = bootstrapStateDb();
-const providersConfig = loadJson(providersConfigPath);
+async function main() {
+  const providersConfigPath = join(REPO_ROOT, 'config', 'providers.json');
+  const options = parseArgs(process.argv);
+  const migrationState = bootstrapStateDb();
+  const providersConfig = loadJson(providersConfigPath);
+  const manifestsDir = join(REPO_ROOT, 'ops', 'manifests');
+  const patchesDir = join(REPO_ROOT, 'patches');
+  ensureDir(manifestsDir);
+  ensureDir(patchesDir);
 
-const pack = loadPromptPack(options.task);
-const provider = resolveProvider(providersConfig, options.provider);
-const selectedEntities = selectEntities(options.task, options.batchSize);
+  let runId = null;
+  let providerId = 'unresolved';
+  let deterministicKey = null;
+  let provider = null;
+  let selectedEntities = [];
+  let pack = null;
+  let batchManifest = null;
 
-const runId = deterministicRunId({
-  phase: 'batch',
-  task: options.task,
-  dryRun: options.dryRun,
-  provider: provider.id,
-  model: provider.model,
-  temperature: provider.temperature,
-  promptVersion: pack.promptVersion,
-  schemaVersion: pack.schema.$id ?? pack.schemaRef,
-  selectedEntities,
-  batchSize: options.batchSize,
-});
-const deterministicKey = deterministicRunKey(
-  {
-    phase: 'batch',
-    task: options.task,
-    dryRun: options.dryRun,
-    provider: provider.id,
-    model: provider.model,
-    temperature: provider.temperature,
-    promptVersion: pack.promptVersion,
-    schemaVersion: pack.schema.$id ?? pack.schemaRef,
-    selectedEntities,
-    batchSize: options.batchSize,
-    operationsFile: options.operationsFile ?? null,
-  },
-  'batch',
-);
+  try {
+    pack = loadPromptPack(options.task);
+    provider = resolveProvider(providersConfig, options.provider);
+    providerId = provider.id;
+    selectedEntities = selectEntities(options.task, options.batchSize);
 
-const providerRequest = {
-  task: pack.prompt.task,
-  taskId: pack.taskId,
-  promptVersion: pack.promptVersion,
-  prompt: pack.prompt.body,
-  schema: pack.schema,
-  model: provider.model,
-  temperature: provider.temperature,
-  temperatureSource: provider.temperatureSource,
-  metadata: {
-    objective: pack.prompt.objective,
-    input: pack.prompt.input,
-    rules: pack.prompt.rules,
-    failureMode: pack.prompt.failureMode,
-    schemaRef: pack.schemaRef,
-    runId,
-    deterministicRunKey: deterministicKey,
-    dryRun: options.dryRun,
-  },
-};
+    runId = deterministicRunId({
+      phase: 'batch',
+      task: options.task,
+      dryRun: options.dryRun,
+      provider: provider.id,
+      model: provider.model,
+      temperature: provider.temperature,
+      promptVersion: pack.promptVersion,
+      schemaVersion: pack.schema.$id ?? pack.schemaRef,
+      selectedEntities,
+      batchSize: options.batchSize,
+    });
+    deterministicKey = deterministicRunKey(
+      {
+        phase: 'batch',
+        task: options.task,
+        dryRun: options.dryRun,
+        provider: provider.id,
+        model: provider.model,
+        temperature: provider.temperature,
+        promptVersion: pack.promptVersion,
+        schemaVersion: pack.schema.$id ?? pack.schemaRef,
+        selectedEntities,
+        batchSize: options.batchSize,
+        operationsFile: options.operationsFile ?? null,
+      },
+      'batch',
+    );
 
-const manifestsDir = join(REPO_ROOT, 'ops', 'manifests');
-const patchesDir = join(REPO_ROOT, 'patches');
-ensureDir(manifestsDir);
-ensureDir(patchesDir);
+    const providerRequest = {
+      task: pack.prompt.task,
+      taskId: pack.taskId,
+      promptVersion: pack.promptVersion,
+      prompt: pack.prompt.body,
+      schema: pack.schema,
+      model: provider.model,
+      temperature: provider.temperature,
+      temperatureSource: provider.temperatureSource,
+      metadata: {
+        objective: pack.prompt.objective,
+        input: pack.prompt.input,
+        rules: pack.prompt.rules,
+        failureMode: pack.prompt.failureMode,
+        schemaRef: pack.schemaRef,
+        runId,
+        deterministicRunKey: deterministicKey,
+        dryRun: options.dryRun,
+      },
+    };
 
-const batchManifest = {
-  runId,
-  deterministicRunKey: deterministicKey,
-  phase: 'batch',
-  task: options.task,
-  createdAt: nowIso(),
-  dryRun: options.dryRun,
-  provider: { id: provider.id, model: provider.model, temperature: provider.temperature },
-  selectedEntities,
-  batchSize: options.batchSize,
-  promptVersion: pack.promptVersion,
-  schemaVersion: pack.schema.$id ?? pack.schemaRef,
-  operationsFile: options.operationsFile ?? null,
-  generatedPatchFiles: [],
-};
-
-const shouldAutogenerateMechanismDryRun = options.dryRun && !options.operationsFile && (options.task === 'mechanism-herb' || options.task === 'mechanism-compound');
-if (options.operationsFile || shouldAutogenerateMechanismDryRun) {
-  const operationsRaw = options.operationsFile
-    ? (() => {
-        const operationsPayload = loadJson(join(REPO_ROOT, options.operationsFile));
-        return Array.isArray(operationsPayload) ? operationsPayload : operationsPayload.operations;
-      })()
-    : generateDryRunOperations(options.task, selectedEntities, runId);
-  const operations = operationsRaw.map((operation) => normalizeOperation(operation, runId));
-  if (!Array.isArray(operations) || operations.length === 0) {
-    throw new Error('--operations-file must contain an array or {operations:[...]} with at least one operation.');
-  }
-  const patchInputId = options.operationsFile ?? `autogen:${options.task}:${selectedEntities.join('|')}`;
-  const patchId = `patch-${createHash('sha256').update(`${runId}:${patchInputId}`).digest('hex').slice(0, 16)}`;
-  const lane = detectLaneForOperations(operations);
-  const patch = {
-    patch_id: patchId,
-    created_at: nowIso(),
-    lane,
-    producer: `${provider.id}:${provider.model}:lane-${lane.toLowerCase()}`,
-    operations,
-  };
-  const patchFile = `${patchId}.json`;
-  writeJson(join(patchesDir, patchFile), patch);
-  batchManifest.generatedPatchFiles.push(`patches/${patchFile}`);
-  runSqlite({
-    sql: 'INSERT OR REPLACE INTO patches(patch_id, patch_file, patch_sha256, status) VALUES(?, ?, ?, ?)',
-    args: [patchId, patchFile, createHash('sha256').update(JSON.stringify(patch)).digest('hex'), options.dryRun ? 'dry-run-staged' : 'staged'],
-  });
-  queueSourceBacklogFromClaims(operations);
-}
-
-writeJson(join(manifestsDir, `${runId}.batch.json`), batchManifest);
-runSqlite({
-  sql: 'INSERT OR REPLACE INTO runs(run_uuid, status, provider_id, notes) VALUES(?, ?, ?, ?)',
-  args: [
-    runId,
-    options.dryRun ? 'dry-run' : 'running',
-    provider.id,
-    JSON.stringify({ dryRun: options.dryRun, phase: 'batch', task: options.task, deterministicRunKey: deterministicKey, selectedEntities }),
-  ],
-});
-
-console.log(
-  JSON.stringify(
-    {
-      status: 'resolved',
-      message: 'Task resolved to prompt pack, schema, and provider config.',
-      migrationCount: migrationState.count,
+    batchManifest = {
       runId,
       deterministicRunKey: deterministicKey,
+      phase: 'batch',
+      task: options.task,
+      createdAt: nowIso(),
       dryRun: options.dryRun,
-      resolution: {
-        task: options.task,
-        promptPack: {
-          id: pack.prompt.id,
-          file: `prompts/${pack.file}`,
-          schemaRef: pack.schemaRef,
-        },
-        schema: {
-          path: pack.schemaPath.replace(`${REPO_ROOT}/`, ''),
-          id: pack.schema.$id,
-          required: pack.schema.required ?? [],
-        },
-        provider,
+      provider: { id: provider.id, model: provider.model, temperature: provider.temperature },
+      selectedEntities,
+      batchSize: options.batchSize,
+      promptVersion: pack.promptVersion,
+      schemaVersion: pack.schema.$id ?? pack.schemaRef,
+      operationsFile: options.operationsFile ?? null,
+      generatedPatchFiles: [],
+      providerRuntime: {
+        state: 'resolved',
+        invocation: 'not-attempted',
+        failure: null,
+        retryBoundary: createRetryBoundary(null),
       },
-      providerRequest,
-      manifest: `ops/manifests/${runId}.batch.json`,
-      todo: ['Dispatch providerRequest to provider adapters in /providers.', 'Write model outputs to /patches only.'],
-    },
-    null,
-    2,
-  ),
-);
+    };
+
+    const shouldAutogenerateMechanismDryRun =
+      options.dryRun && !options.operationsFile && (options.task === 'mechanism-herb' || options.task === 'mechanism-compound');
+    const preflight = evaluateProviderPreflight(provider, process.env);
+    if (!preflight.ok && !options.operationsFile && !shouldAutogenerateMechanismDryRun) {
+      batchManifest.providerRuntime = {
+        state: 'failed-preflight',
+        invocation: 'blocked',
+        failure: preflight.failure,
+        retryBoundary: preflight.failure.retryBoundary,
+      };
+      writeJson(join(manifestsDir, `${runId}.batch.json`), batchManifest);
+      runSqlite({
+        sql: 'INSERT OR REPLACE INTO runs(run_uuid, status, provider_id, notes, finished_at) VALUES(?, ?, ?, ?, CURRENT_TIMESTAMP)',
+        args: [
+          runId,
+          'provider-failed',
+          provider.id,
+          JSON.stringify({
+            dryRun: options.dryRun,
+            phase: 'batch',
+            task: options.task,
+            deterministicRunKey: deterministicKey,
+            selectedEntities,
+            providerRuntime: batchManifest.providerRuntime,
+          }),
+        ],
+      });
+      console.log(
+        JSON.stringify(
+          {
+            status: 'provider-failed',
+            message: 'Provider preflight failed before batch dispatch.',
+            migrationCount: migrationState.count,
+            runId,
+            deterministicRunKey: deterministicKey,
+            dryRun: options.dryRun,
+            resolution: {
+              task: options.task,
+              promptPack: {
+                id: pack.prompt.id,
+                file: `prompts/${pack.file}`,
+                schemaRef: pack.schemaRef,
+              },
+              schema: {
+                path: pack.schemaPath.replace(`${REPO_ROOT}/`, ''),
+                id: pack.schema.$id,
+                required: pack.schema.required ?? [],
+              },
+              provider,
+            },
+            providerRequest,
+            providerRuntime: batchManifest.providerRuntime,
+            manifest: `ops/manifests/${runId}.batch.json`,
+          },
+          null,
+          2,
+        ),
+      );
+      process.exitCode = 1;
+      return;
+    }
+
+    if (options.operationsFile || shouldAutogenerateMechanismDryRun) {
+      batchManifest.providerRuntime.invocation = options.operationsFile ? 'skipped-via-operations-file' : 'skipped-via-dry-run-autogen';
+      const operationsRaw = options.operationsFile
+        ? (() => {
+            const operationsPayload = loadJson(join(REPO_ROOT, options.operationsFile));
+            return Array.isArray(operationsPayload) ? operationsPayload : operationsPayload.operations;
+          })()
+        : generateDryRunOperations(options.task, selectedEntities, runId);
+      const operations = operationsRaw.map((operation) => normalizeOperation(operation, runId));
+      if (!Array.isArray(operations) || operations.length === 0) {
+        throw new Error('--operations-file must contain an array or {operations:[...]} with at least one operation.');
+      }
+      const patchInputId = options.operationsFile ?? `autogen:${options.task}:${selectedEntities.join('|')}`;
+      const patchId = `patch-${createHash('sha256').update(`${runId}:${patchInputId}`).digest('hex').slice(0, 16)}`;
+      const lane = detectLaneForOperations(operations);
+      const patch = {
+        patch_id: patchId,
+        created_at: nowIso(),
+        lane,
+        producer: `${provider.id}:${provider.model}:lane-${lane.toLowerCase()}`,
+        operations,
+      };
+      const patchFile = `${patchId}.json`;
+      writeJson(join(patchesDir, patchFile), patch);
+      batchManifest.generatedPatchFiles.push(`patches/${patchFile}`);
+      runSqlite({
+        sql: 'INSERT OR REPLACE INTO patches(patch_id, patch_file, patch_sha256, status) VALUES(?, ?, ?, ?)',
+        args: [patchId, patchFile, createHash('sha256').update(JSON.stringify(patch)).digest('hex'), options.dryRun ? 'dry-run-staged' : 'staged'],
+      });
+      queueSourceBacklogFromClaims(operations);
+    }
+
+    writeJson(join(manifestsDir, `${runId}.batch.json`), batchManifest);
+    runSqlite({
+      sql: 'INSERT OR REPLACE INTO runs(run_uuid, status, provider_id, notes) VALUES(?, ?, ?, ?)',
+      args: [
+        runId,
+        options.dryRun ? 'dry-run' : 'running',
+        provider.id,
+        JSON.stringify({
+          dryRun: options.dryRun,
+          phase: 'batch',
+          task: options.task,
+          deterministicRunKey: deterministicKey,
+          selectedEntities,
+          providerRuntime: batchManifest.providerRuntime,
+        }),
+      ],
+    });
+
+    console.log(
+      JSON.stringify(
+        {
+          status: 'resolved',
+          message: 'Task resolved to prompt pack, schema, and provider config.',
+          migrationCount: migrationState.count,
+          runId,
+          deterministicRunKey: deterministicKey,
+          dryRun: options.dryRun,
+          resolution: {
+            task: options.task,
+            promptPack: {
+              id: pack.prompt.id,
+              file: `prompts/${pack.file}`,
+              schemaRef: pack.schemaRef,
+            },
+            schema: {
+              path: pack.schemaPath.replace(`${REPO_ROOT}/`, ''),
+              id: pack.schema.$id,
+              required: pack.schema.required ?? [],
+            },
+            provider,
+          },
+          providerRequest,
+          providerRuntime: batchManifest.providerRuntime,
+          manifest: `ops/manifests/${runId}.batch.json`,
+          todo: ['Dispatch providerRequest to provider adapters in /providers.', 'Write model outputs to /patches only.'],
+        },
+        null,
+        2,
+      ),
+    );
+  } catch (error) {
+    const failure = classifyProviderFailure(error, { providerId });
+    if (!runId) runId = deterministicRunId({ phase: 'batch-failure', task: options.task, provider: providerId });
+    if (!deterministicKey) {
+      deterministicKey = deterministicRunKey(
+        {
+          phase: 'batch',
+          task: options.task,
+          dryRun: options.dryRun,
+          provider: providerId,
+          batchSize: options.batchSize,
+          operationsFile: options.operationsFile ?? null,
+          failedBeforeResolution: true,
+        },
+        'batch',
+      );
+    }
+    const failureManifest = batchManifest ?? {
+      runId,
+      deterministicRunKey: deterministicKey,
+      phase: 'batch',
+      task: options.task,
+      createdAt: nowIso(),
+      dryRun: options.dryRun,
+      provider: provider ? { id: provider.id, model: provider.model, temperature: provider.temperature } : { id: providerId },
+      selectedEntities,
+      batchSize: options.batchSize,
+      promptVersion: pack?.promptVersion ?? null,
+      schemaVersion: pack?.schema?.$id ?? pack?.schemaRef ?? null,
+      operationsFile: options.operationsFile ?? null,
+      generatedPatchFiles: [],
+      providerRuntime: {
+        state: 'failed',
+        invocation: 'failed',
+        failure,
+        retryBoundary: failure.retryBoundary,
+      },
+    };
+    if (!failureManifest.providerRuntime?.failure) {
+      failureManifest.providerRuntime = {
+        state: 'failed',
+        invocation: 'failed',
+        failure,
+        retryBoundary: failure.retryBoundary,
+      };
+    }
+    writeJson(join(manifestsDir, `${runId}.batch.json`), failureManifest);
+    runSqlite({
+      sql: 'INSERT OR REPLACE INTO runs(run_uuid, status, provider_id, notes, finished_at) VALUES(?, ?, ?, ?, CURRENT_TIMESTAMP)',
+      args: [
+        runId,
+        'provider-failed',
+        providerId,
+        JSON.stringify({
+          dryRun: options.dryRun,
+          phase: 'batch',
+          task: options.task,
+          deterministicRunKey: deterministicKey,
+          selectedEntities,
+          providerRuntime: failureManifest.providerRuntime,
+        }),
+      ],
+    });
+    console.error(
+      JSON.stringify(
+        {
+          status: 'provider-failed',
+          runId,
+          deterministicRunKey: deterministicKey,
+          task: options.task,
+          providerRuntime: failureManifest.providerRuntime,
+          manifest: `ops/manifests/${runId}.batch.json`,
+        },
+        null,
+        2,
+      ),
+    );
+    process.exitCode = 1;
+  }
+}
+
+await main();
