@@ -1,5 +1,6 @@
 import { createElement, forwardRef } from 'react'
 import type { ComponentPropsWithoutRef } from 'react'
+// Re-export shim: allows centralized import control and future test mocking.
 import {
   AnimatePresence,
   animate,
