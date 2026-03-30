@@ -14,6 +14,7 @@ export type CuratedProductRecommendation = {
   brand: string
   amazonUrl: string
   affiliateTagStrategy: AffiliateTagStrategy
+  affiliateDisclosure: string
   imageUrl?: string
   assetKey?: string
   productType: string
@@ -32,6 +33,10 @@ export type CuratedProductRecommendation = {
 }
 
 export const DEFAULT_AMAZON_AFFILIATE_TAG = 'razzleberry02-20'
+export const CURATED_PRODUCT_STALE_REVIEW_DAYS = 120
+
+const STANDARD_AFFILIATE_DISCLOSURE =
+  'Affiliate disclosure: The Hippie Scientist may earn from qualifying purchases. Recommendations are manually researched and reviewed for evidence-fit.'
 
 export const curatedProductRecommendations: CuratedProductRecommendation[] = [
   {
@@ -42,6 +47,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
     brand: 'Sports Research',
     amazonUrl: 'https://www.amazon.com/dp/B07N7S35N5',
     affiliateTagStrategy: 'append_default_tag',
+    affiliateDisclosure: STANDARD_AFFILIATE_DISCLOSURE,
     productType: 'standardized extract capsules',
     rationaleShort: 'Standardized extract format aligned with common study protocols.',
     rationaleLong:
@@ -49,7 +55,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
     researchStatus: 'approved',
     reviewedBy: 'THS Editorial Review Desk',
     reviewedAt: '2026-03-25',
-    confidenceTierRequired: 'medium',
+    confidenceTierRequired: 'low',
     cautionNotes: ['May increase sedation with CNS depressants.', 'Avoid during pregnancy unless clinician-directed.'],
     bestFor: ['People prioritizing consistent daily dosing', 'Users comparing routines across weeks'],
     avoidIf: ['You are pregnant or breastfeeding without medical guidance', 'You take sedating medications'],
@@ -65,6 +71,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
     brand: 'Traditional Medicinals',
     amazonUrl: 'https://www.amazon.com/dp/B0009F3POO',
     affiliateTagStrategy: 'append_default_tag',
+    affiliateDisclosure: STANDARD_AFFILIATE_DISCLOSURE,
     productType: 'tea bags',
     rationaleShort: 'Simple single-herb preparation with low-friction entry format.',
     rationaleLong:
@@ -72,7 +79,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
     researchStatus: 'approved',
     reviewedBy: 'THS Editorial Review Desk',
     reviewedAt: '2026-03-24',
-    confidenceTierRequired: 'medium',
+    confidenceTierRequired: 'low',
     cautionNotes: ['Potential ragweed-family cross-reactivity in sensitive users.'],
     bestFor: ['Evening wind-down routines', 'New users starting low and tracking tolerance'],
     avoidIf: ['You have known Asteraceae allergy sensitivity'],
@@ -88,6 +95,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
     brand: 'Double Wood Supplements',
     amazonUrl: 'https://www.amazon.com/dp/B0B5VQYQQY',
     affiliateTagStrategy: 'append_default_tag',
+    affiliateDisclosure: STANDARD_AFFILIATE_DISCLOSURE,
     productType: 'compound-focused capsules',
     rationaleShort: 'Formulation emphasizes labeled luteolin delivery per serving.',
     rationaleLong:
@@ -95,7 +103,7 @@ export const curatedProductRecommendations: CuratedProductRecommendation[] = [
     researchStatus: 'approved',
     reviewedBy: 'THS Editorial Review Desk',
     reviewedAt: '2026-03-26',
-    confidenceTierRequired: 'high',
+    confidenceTierRequired: 'low',
     cautionNotes: ['Polyphenol supplements can interact with anticoagulants in some users.'],
     bestFor: ['Users comparing compound-specific formulations', 'People logging dose-response in detail'],
     avoidIf: ['You take anticoagulant or antiplatelet medications without clinician review'],
