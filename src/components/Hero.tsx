@@ -51,7 +51,7 @@ export default function Hero() {
                 }
                 className='text-[2.05rem] font-semibold leading-[1.06] tracking-tight text-white sm:text-6xl'
               >
-                Find the right herb tools in under a minute
+                Understand psychoactive herbs before you try them
               </motion.h1>
               <motion.p
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -64,7 +64,8 @@ export default function Hero() {
                 }
                 className='max-w-2xl text-[0.98rem] leading-[1.72] text-white/80 sm:text-lg'
               >
-                Understand effects, compare options, and check safety before you try anything.
+                Independent research on psychoactive herbs, entheogens, and plant compounds —
+                effects, mechanisms, interactions, and safety context in one place.
               </motion.p>
               <motion.p
                 initial={reduceMotion ? undefined : { opacity: 0, y: 12 }}
@@ -77,7 +78,8 @@ export default function Hero() {
                 }
                 className='max-w-2xl text-sm leading-[1.75] text-white/75 sm:text-base'
               >
-                Start with Browse Herbs or run Effect Search to get ranked matches instantly.
+                Start with Effect Search to match herbs to your goals, or browse the full database
+                with interaction checker and blend builder.
               </motion.p>
             </div>
 
