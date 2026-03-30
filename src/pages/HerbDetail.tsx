@@ -15,6 +15,8 @@ import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
 import { breadcrumbJsonLd, herbJsonLd, SITE_URL } from '@/lib/seo'
 import RecommendedProducts from '@/components/RecommendedProducts'
 import Collapse from '@/components/ui/Collapse'
+import { SEO_COLLECTIONS } from '@/data/seoCollections'
+import { filterHerbByCollection } from '@/lib/collectionQuality'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -95,6 +97,11 @@ function ListSection({ items }: { items: string[] }) {
 
 function normalizeKey(value: string) {
   return value.trim().toLowerCase()
+}
+
+function buildInteractionsLink(tokens: string[]) {
+  if (!tokens.length) return '/interactions'
+  return `/interactions?items=${tokens.join(',')}`
 }
 
 export default function HerbDetail() {
@@ -240,6 +247,18 @@ export default function HerbDetail() {
   )
   const missingFieldCount = 6 - renderableKeys.length
   const shouldShowContributionCta = renderableKeys.length < 5
+  const herbToken = encodeURIComponent(`herb:${herb.slug}`)
+  const herbCheckerHref = buildInteractionsLink([herbToken])
+  const relatedCollections = SEO_COLLECTIONS.filter(collection => collection.itemType === 'herb')
+    .filter(collection =>
+      filterHerbByCollection(herb as unknown as Record<string, unknown>, collection.filters)
+    )
+    .slice(0, 5)
+  const introFacts = [
+    `Confidence: ${confidence}`,
+    sourceCount > 0 ? `${sourceCount} source${sourceCount === 1 ? '' : 's'} listed` : 'sources pending',
+    cautionCount > 0 ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}` : 'no caution flags listed',
+  ]
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -318,6 +337,25 @@ export default function HerbDetail() {
               </p>
             </div>
           )}
+
+          <div className='mt-4 rounded-xl border border-emerald-300/25 bg-emerald-500/10 p-3 text-sm text-emerald-50'>
+            <p className='text-xs font-semibold uppercase tracking-[0.12em] text-emerald-100/90'>
+              Quick take
+            </p>
+            <p className='mt-2 leading-7 text-emerald-50/95'>
+              {herbDisplayName} is tracked for {primaryEffects.slice(0, 2).join(' and ') || 'traditional use patterns'}.
+              Use this profile to compare mechanism, safety boundaries, and related compounds before stacking.
+            </p>
+            <p className='mt-2 text-xs text-emerald-100/85'>{introFacts.join(' · ')}</p>
+            <div className='mt-3 flex flex-wrap gap-2'>
+              <Link to={herbCheckerHref} className='btn-primary text-xs'>
+                Check this herb in interactions
+              </Link>
+              <Link to='/build' className='btn-secondary text-xs'>
+                Add it to a draft stack
+              </Link>
+            </div>
+          </div>
         </header>
 
         {/* Primary effects pills — high-signal summary */}
@@ -398,6 +436,29 @@ export default function HerbDetail() {
                     shares {other.sharedCompounds.join(', ')}.
                   </p>
                 ))}
+              </div>
+            </Collapse>
+          </section>
+        )}
+
+        {relatedCollections.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Explore Related Goal Collections'>
+              <div className='space-y-2 text-sm text-white/85'>
+                <p className='text-xs text-white/65'>
+                  Use these goal pages to compare alternatives with similar effect and interaction signatures.
+                </p>
+                <div className='flex flex-wrap gap-2'>
+                  {relatedCollections.map(collection => (
+                    <Link
+                      key={collection.slug}
+                      to={`/collections/${collection.slug}`}
+                      className='btn-secondary text-xs'
+                    >
+                      {collection.title}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </Collapse>
           </section>
