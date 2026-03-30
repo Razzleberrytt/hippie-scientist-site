@@ -82,7 +82,8 @@
     "verify:publishing": "node scripts/verify-publishing.mjs",
     "verify:curated-affiliates": "tsx scripts/verify-curated-affiliates.ts",
     "verify:affiliate-products": "tsx scripts/verify-curated-affiliates.ts",
-    "report:affiliate-inventory": "tsx scripts/report-affiliate-inventory.ts"
+    "report:affiliate-inventory": "tsx scripts/report-affiliate-inventory.ts",
+    "report:conversion-scorecard": "tsx scripts/report-conversion-scorecard.ts"
   },
   "engines": {
     "node": ">=20 <21"
