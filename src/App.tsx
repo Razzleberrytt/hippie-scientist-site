@@ -24,6 +24,7 @@ import Footer from './components/Footer'
 import AppToaster from './components/ui/Toaster'
 import ConsentBanner from './components/ConsentBanner'
 import AmbientCursor from './components/AmbientCursor'
+import ErrorBoundary from './components/ErrorBoundary'
 import SiteLayout from '@/components/SiteLayout'
 import NavBar from './components/NavBar'
 import Meta from '@/components/Meta'
@@ -49,6 +50,18 @@ import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
 import { getAmbientRoutePolicy, useAmbientEnvironmentGate } from '@/lib/ambientEffects'
 // Import other pages as needed
 
+function ChunkErrorFallback() {
+  return (
+    <div className='container-page flex min-h-screen flex-col items-center justify-center gap-4 text-center'>
+      <p className='text-lg font-semibold text-white'>Something went wrong loading this page.</p>
+      <p className='text-sm text-white/65'>This can happen after a site update. Try refreshing.</p>
+      <button onClick={() => window.location.reload()} className='btn-primary mt-2'>
+        Refresh page
+      </button>
+    </div>
+  )
+}
+
 export default function App() {
   useGA()
   useGrowthTracking()
@@ -69,63 +82,65 @@ export default function App() {
         <div className='relative z-10 flex-1'>
           <RedirectHandler />
           {enableAmbientCursor && <AmbientCursor />}
-          <Suspense fallback={<div className='container-page py-8 text-white/75'>Loading…</div>}>
-            <Routes>
-              <Route element={<RootLayout />}>
-                <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/database' element={<Navigate to='/herbs' replace />} />
-                <Route path='/herbs' element={<HerbsPage />} />
-                <Route path='/compounds' element={<CompoundsPage />} />
-                <Route path='/browse' element={<Navigate to='/browse/herbs' replace />} />
-                <Route path='/browse/herbs' element={<HerbIndex />} />
-                <Route path='/browse/compounds' element={<Navigate to='/compounds' replace />} />
-                <Route path='/blend' element={<BlendView />} />
-                <Route path='/build' element={<BuildBlend />} />
-                <Route path='/starter-pack-success' element={<StarterPackSuccess />} />
-                <Route path='/downloads' element={<Downloads />} />
-                <Route
-                  path='/guides/unknown-compound-survival-guide'
-                  element={<UnknownCompoundSurvivalGuide />}
-                />
-                <Route path='/learning' element={<LearningPaths />} />
-                <Route path='/herbs-for-:goal' element={<HerbGoalPage />} />
-                <Route path='/favorites' element={<Favorites />} />
-                <Route path='/newsletter' element={<Newsletter />} />
-                <Route path='/contact' element={<Contact />} />
-                <Route path='/privacy' element={<PrivacyPolicy />} />
-                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
-                <Route path='/disclaimer' element={<DisclaimerPage />} />
-                <Route path='/contribute' element={<Contribute />} />
-                <Route path='/methodology' element={<Methodology />} />
-                <Route path='/interactions' element={<InteractionsPage />} />
-                <Route path='/collections/:slug' element={<CollectionPage />} />
-                <Route
-                  path='/analytics'
-                  element={
-                    isAnalyticsRouteEnabled() ? <AnalyticsPage /> : <AnalyticsNotAvailable />
-                  }
-                />
-                {/* Add other routes here */}
-                <Route path='/blog' element={<BlogList />} />
-                <Route path='/blog/page/:page' element={<BlogList />} />
-                <Route path='/blog/:slug' element={<BlogPost />} />
-                <Route path='/blog/:slug/' element={<LegacyBlogRedirect />} />
-                <Route path='/theme' element={<Theme />} />
-                <Route path='/herb-index' element={<Navigate to='/herbs' replace />} />
-                <Route path='/herb-index/*' element={<Navigate to='/herbs' replace />} />
-                <Route path='/herb/:slug' element={<LegacyHerbRedirect />} />
-                <Route path='/herbs/:slug' element={<HerbDetail />} />
-                <Route path='/compounds/:slug' element={<CompoundDetail />} />
-                <Route path='/compare' element={<Compare />} />
-                <Route path='/data-report' element={<DataReport />} />
-                <Route path='/data-fix' element={<DataFix />} />
-                <Route path='/sitemap' element={<Sitemap />} />
-                <Route path='*' element={<NotFound />} />
-              </Route>
-              <Route path='/graph' element={<GraphPage />} />
-            </Routes>
-          </Suspense>
+          <ErrorBoundary fallback={<ChunkErrorFallback />}>
+            <Suspense fallback={<div className='container-page py-8 text-white/75'>Loading…</div>}>
+              <Routes>
+                <Route element={<RootLayout />}>
+                  <Route path='/' element={<Home />} />
+                  <Route path='/about' element={<About />} />
+                  <Route path='/database' element={<Navigate to='/herbs' replace />} />
+                  <Route path='/herbs' element={<HerbsPage />} />
+                  <Route path='/compounds' element={<CompoundsPage />} />
+                  <Route path='/browse' element={<Navigate to='/browse/herbs' replace />} />
+                  <Route path='/browse/herbs' element={<HerbIndex />} />
+                  <Route path='/browse/compounds' element={<Navigate to='/compounds' replace />} />
+                  <Route path='/blend' element={<BlendView />} />
+                  <Route path='/build' element={<BuildBlend />} />
+                  <Route path='/starter-pack-success' element={<StarterPackSuccess />} />
+                  <Route path='/downloads' element={<Downloads />} />
+                  <Route
+                    path='/guides/unknown-compound-survival-guide'
+                    element={<UnknownCompoundSurvivalGuide />}
+                  />
+                  <Route path='/learning' element={<LearningPaths />} />
+                  <Route path='/herbs-for-:goal' element={<HerbGoalPage />} />
+                  <Route path='/favorites' element={<Favorites />} />
+                  <Route path='/newsletter' element={<Newsletter />} />
+                  <Route path='/contact' element={<Contact />} />
+                  <Route path='/privacy' element={<PrivacyPolicy />} />
+                  <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                  <Route path='/disclaimer' element={<DisclaimerPage />} />
+                  <Route path='/contribute' element={<Contribute />} />
+                  <Route path='/methodology' element={<Methodology />} />
+                  <Route path='/interactions' element={<InteractionsPage />} />
+                  <Route path='/collections/:slug' element={<CollectionPage />} />
+                  <Route
+                    path='/analytics'
+                    element={
+                      isAnalyticsRouteEnabled() ? <AnalyticsPage /> : <AnalyticsNotAvailable />
+                    }
+                  />
+                  {/* Add other routes here */}
+                  <Route path='/blog' element={<BlogList />} />
+                  <Route path='/blog/page/:page' element={<BlogList />} />
+                  <Route path='/blog/:slug' element={<BlogPost />} />
+                  <Route path='/blog/:slug/' element={<LegacyBlogRedirect />} />
+                  <Route path='/theme' element={<Theme />} />
+                  <Route path='/herb-index' element={<Navigate to='/herbs' replace />} />
+                  <Route path='/herb-index/*' element={<Navigate to='/herbs' replace />} />
+                  <Route path='/herb/:slug' element={<LegacyHerbRedirect />} />
+                  <Route path='/herbs/:slug' element={<HerbDetail />} />
+                  <Route path='/compounds/:slug' element={<CompoundDetail />} />
+                  <Route path='/compare' element={<Compare />} />
+                  <Route path='/data-report' element={<DataReport />} />
+                  <Route path='/data-fix' element={<DataFix />} />
+                  <Route path='/sitemap' element={<Sitemap />} />
+                  <Route path='*' element={<NotFound />} />
+                </Route>
+                <Route path='/graph' element={<GraphPage />} />
+              </Routes>
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </SiteLayout>
     </div>
