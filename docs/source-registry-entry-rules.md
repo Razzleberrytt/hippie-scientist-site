@@ -11,6 +11,24 @@ Validate it with:
 Generate inventory summary with:
 
 - `node scripts/report-source-registry.mjs`
+- `npm run report:source-candidate-review` (candidate review + promotion preview)
+
+## Governed intake-to-registry promotion flow
+
+Use the source-intake queue + candidate queue together:
+
+- Intake planning queue: `ops/reports/source-intake-queue.json`
+- Candidate queue input: `ops/source-candidates.json`
+- Candidate schema: `schemas/source-candidate.schema.json`
+- Deterministic review + promotion preview outputs:
+  - `ops/reports/source-candidate-review.json`
+  - `ops/reports/source-candidate-review.md`
+
+Promotion preview is fail-closed:
+
+- rejected, duplicate, deprecated, and metadata-incomplete candidates are never promotable
+- duplicate detection checks DOI/PMID/canonical URL against active registry entries
+- promoted preview rows carry audit notes with `intakeTaskId` and `candidateSourceId`
 
 ## Source classes and when to use them
 
