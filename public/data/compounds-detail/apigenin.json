@@ -1,0 +1,45 @@
+{
+  "name": "apigenin",
+  "herbs": [
+    "alchemilla vulgaris",
+    "nan"
+  ],
+  "effects": [
+    "Uterine tonic",
+    "astringent",
+    "anti-inflammatory",
+    "regulates menstruation and bleeding.",
+    "anti",
+    "inflammatory",
+    "Mood lift",
+    "mild stimulation",
+    "aphrodisiac",
+    "Mild euphoria",
+    "stimulation",
+    "relaxation",
+    "increased libido",
+    "Mild stimulation",
+    "mood enhancement",
+    "No direct effects data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... No direct mechanismofaction data. Contextual inference: Used as an aphrodisiac and mood enhancer in mexican herbalism... Used as an aphrodisiac and mood enhancer in Mexican herbalism.. Used as an aphrodisiac and mood enhancer in Mexican herbalism."
+  ],
+  "contraindications": [
+    "Excessive internal use may cause constipation or dry mucous membranes",
+    "caution in pregnancy or lactation",
+    "may interact with blood thinners due to tannin content【859641390196180†L297",
+    "L313】.",
+    "Avoid in bipolar disorder and pregnancy",
+    "Pregnancy",
+    "hormone-sensitive conditions"
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "apigenin",
+  "id": "apigenin",
+  "displayName": "apigenin"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Nepetalactone",
+  "herbs": [
+    "catnip",
+    "nan"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference: Used in folk medicine for relaxation",
+    "colds",
+    "and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation",
+    "and digestive issues... Used in folk medicine for relaxation",
+    "and digestive issues.. Used in folk medicine for relaxation",
+    "and digestive issues.",
+    "Mild sedation",
+    "relaxation",
+    "antispasmodic",
+    "Mild sedative",
+    "carminative"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "sedation-sensitive individuals"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "nepetalactone",
+  "id": "nepetalactone",
+  "displayName": "Nepetalactone"
+}

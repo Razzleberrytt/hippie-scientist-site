@@ -1,0 +1,66 @@
+{
+  "name": "bryonia alba",
+  "latin": "Bryonia alba",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Purgative, anti-inflammatory (homeopathic use); toxic in crude form. No direct region data. Contextual inference: Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Purgative, anti-inflammatory (homeopathic use); toxic in crude form. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Purgative",
+    "anti-inflammatory (homeopathic use)",
+    "toxic in crude form",
+    "anti",
+    "inflammatory (homeopathic use)"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "Toxic – avoid oral use",
+    "Toxic",
+    "can cause severe vomiting",
+    "diarrhea",
+    "dizziness",
+    "and paralysis if ingested",
+    "No direct toxicity data. Contextual inference: Purgative",
+    "anti-inflammatory (homeopathic use)",
+    "toxic in crude form. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Purgative",
+    "toxic in crude form. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "Toxic",
+    "homeopathic only"
+  ],
+  "duration": "6–8 hours",
+  "interactions": [],
+  "legalStatus": "Restricted for internal use; used in homeopathy",
+  "preparation": "Roots dried and tinctured; use is very limited due to toxic glycosides",
+  "region": "No direct region data. Contextual inference: Purgative, anti-inflammatory (homeopathic use); toxic in crude form. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Purgative, anti-inflammatory (homeopathic use); toxic in crude form. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Toxic",
+    "can cause severe vomiting",
+    "diarrhea",
+    "dizziness",
+    "and paralysis if ingested"
+  ],
+  "slug": "bryonia-alba",
+  "id": "bryonia-alba",
+  "displayName": "bryonia alba",
+  "displayScientificName": "Bryonia alba",
+  "scientificNormalized": "bryonia alba"
+}

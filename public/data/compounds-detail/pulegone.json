@@ -1,0 +1,26 @@
+{
+  "name": "pulegone",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Soothes GI tract",
+    "reduces bloating",
+    "cools skin and mucosa",
+    "mild analgesic",
+    "Digestive aid",
+    "antispasmodic",
+    "cooling"
+  ],
+  "contraindications": [
+    "GERD",
+    "gallbladder disorders",
+    "infants (menthol sensitivity)"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "pulegone",
+  "id": "pulegone",
+  "displayName": "pulegone"
+}

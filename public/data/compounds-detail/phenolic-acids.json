@@ -1,0 +1,34 @@
+{
+  "name": "phenolic acids",
+  "herbs": [
+    "agrimonia eupatoria",
+    "nan"
+  ],
+  "effects": [
+    "Astringent",
+    "anti-inflammatory",
+    "digestive tonic",
+    "anti",
+    "inflammatory",
+    "Pain relief",
+    "immune modulation"
+  ],
+  "contraindications": [
+    "Generally safe when used as tea",
+    "due to tannins may cause constipation or reduce absorption of minerals",
+    "avoid large doses during pregnancy.",
+    "Pregnancy",
+    "hormone-sensitive conditions"
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "phenolic-acids",
+  "id": "phenolic-acids",
+  "displayName": "phenolic acids"
+}

@@ -1,0 +1,49 @@
+{
+  "name": "limonene",
+  "herbs": [
+    "acorus tatarinowii",
+    "nan"
+  ],
+  "effects": [
+    "CNS stimulant",
+    "memory aid",
+    "and anti-epileptic in TCM",
+    "and anti",
+    "epileptic in TCM",
+    "Mild sedation",
+    "relaxation",
+    "antispasmodic",
+    "Mild sedative",
+    "carminative",
+    "Soothes GI tract",
+    "reduces bloating",
+    "cools skin and mucosa",
+    "mild analgesic",
+    "Digestive aid",
+    "cooling"
+  ],
+  "contraindications": [
+    "β",
+    "asarone is potentially carcinogenic",
+    "avoid long",
+    "term or high",
+    "dose use",
+    "contraindicated in pregnancy and children.",
+    "Pregnancy",
+    "sedation-sensitive individuals",
+    "GERD",
+    "gallbladder disorders",
+    "infants (menthol sensitivity)"
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "limonene",
+  "id": "limonene",
+  "displayName": "limonene"
+}

@@ -1,0 +1,65 @@
+{
+  "name": "tagetes lucida",
+  "latin": "Tagetes lucida",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Mild euphoric, digestive aid, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild euphoric, digestive aid, calming. No direct region data. Contextual inference: Mild euphoric, digestive aid, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild euphoric, digestive aid, calming. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Mild euphoric",
+    "digestive aid",
+    "calming"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "Photosensitivity",
+    "mild allergic reactions",
+    "No direct toxicity data. Contextual inference: Mild euphoric",
+    "digestive aid",
+    "calming. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Mild euphoric",
+    "calming. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Mild euphoric, digestive aid, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "No direct dosage data. Contextual inference: Mild euphoric",
+    "digestive aid",
+    "calming. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Mild euphoric",
+    "calming. No direct region data. Contextual inference: Mild euphoric",
+    "calming. none.",
+    "nan."
+  ],
+  "duration": "3–5 hours",
+  "interactions": [],
+  "legalStatus": "Legal globally",
+  "preparation": "Leaves and flowers used fresh or dried in teas or tinctures; mild sedative and digestive tonic",
+  "region": "No direct region data. Contextual inference: Mild euphoric, digestive aid, calming. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild euphoric, digestive aid, calming. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Photosensitivity",
+    "mild allergic reactions"
+  ],
+  "slug": "tagetes-lucida",
+  "id": "tagetes-lucida",
+  "displayName": "tagetes lucida",
+  "displayScientificName": "Tagetes lucida",
+  "scientificNormalized": "tagetes lucida"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "carvacrol",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Stress relief",
+    "respiratory support",
+    "antioxidant",
+    "mild energy boost",
+    "Adaptogen",
+    "anti-stress",
+    "immune support"
+  ],
+  "contraindications": [
+    "Pregnancy (high doses)",
+    "blood clotting disorders"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "carvacrol",
+  "id": "carvacrol",
+  "displayName": "carvacrol"
+}

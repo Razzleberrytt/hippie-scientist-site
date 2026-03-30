@@ -1,0 +1,76 @@
+{
+  "name": "mandrake root",
+  "latin": "mandrake root",
+  "class": "deliriant / toxic",
+  "intensity": "High, dose-dependent.",
+  "mechanism": "Anticholinergic activity.",
+  "activeCompounds": [],
+  "effects": [
+    "Hallucinations",
+    "stupor",
+    "anti-spasmodic.",
+    "anti",
+    "spasmodic."
+  ],
+  "contraindications": [
+    "pregnancy",
+    "glaucoma",
+    "heart conditions.",
+    "Pregnancy",
+    "mental health disorders",
+    "cardiovascular issues"
+  ],
+  "safetyNotes": [
+    "dry mouth",
+    "confusion",
+    "hallucinations",
+    "elevated heart rate.",
+    "High",
+    "contains atropine",
+    "scopolamine",
+    "hyoscyamine.",
+    "Highly toxic in moderate doses."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from Unknown"
+    },
+    {
+      "note": "Inferred from Unknown",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "A legendary plant with anthropomorphic root; used as sedative and aphrodisiac.",
+  "dosage": [
+    "Extremely risky",
+    "used historically in small root slices."
+  ],
+  "duration": "121.0",
+  "interactions": [
+    "potentiates other anticholinergics",
+    "cns depressants.",
+    "Interacts with CNS depressants",
+    "anticholinergic drugs"
+  ],
+  "legalStatus": "Controlled / Toxic",
+  "preparation": "Decoction, salve, wine tincture.",
+  "region": "Mediterranean and Middle East",
+  "therapeuticUses": [
+    "historically used as anesthetic",
+    "antispasmodic",
+    "and in witchcraft."
+  ],
+  "traditionalUse": "Medieval anesthetic; fertility and magical rites.",
+  "sideEffects": [
+    "dry mouth",
+    "confusion",
+    "hallucinations",
+    "elevated heart rate."
+  ],
+  "slug": "mandrake-root",
+  "id": "mandrake-root",
+  "displayName": "mandrake root",
+  "displayScientificName": "mandrake root",
+  "scientificNormalized": "mandrake root"
+}

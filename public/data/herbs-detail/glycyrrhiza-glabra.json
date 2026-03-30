@@ -1,0 +1,64 @@
+{
+  "name": "glycyrrhiza glabra",
+  "latin": "Glycyrrhiza glabra",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. No direct region data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Anti-inflammatory",
+    "expectorant",
+    "adrenal support",
+    "Anti",
+    "inflammatory"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "safe",
+    "Hypertension",
+    "hypokalemia",
+    "edema with chronic or high-dose use",
+    "No direct toxicity data. Contextual inference: Anti-inflammatory",
+    "expectorant",
+    "adrenal support. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Anti-inflammatory",
+    "adrenal support. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "1000 mg",
+    "day root extract"
+  ],
+  "duration": "4–6 hours",
+  "interactions": [],
+  "legalStatus": "Legal with warnings for chronic use",
+  "preparation": "Roots dried and decocted or powdered; commonly used in teas, extracts, and tablets",
+  "region": "No direct region data. Contextual inference: Anti-inflammatory, expectorant, adrenal support. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory, expectorant, adrenal support. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Hypertension",
+    "hypokalemia",
+    "edema with chronic or high",
+    "dose use"
+  ],
+  "slug": "glycyrrhiza-glabra",
+  "id": "glycyrrhiza-glabra",
+  "displayName": "glycyrrhiza glabra",
+  "displayScientificName": "Glycyrrhiza glabra",
+  "scientificNormalized": "glycyrrhiza glabra"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Safrole",
+  "herbs": [
+    "mexican pepperleaf",
+    "nan"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine",
+    "Euphoria",
+    "hallucinations",
+    "nausea",
+    "dry mouth",
+    "sedation",
+    "altered perception",
+    "disorientation",
+    "No direct effects data. Contextual inference: Used in spice blends",
+    "aphrodisiacs",
+    "and as a psychoactive in folk rituals... No direct mechanismofaction data. Contextual inference: Used in spice blends",
+    "and as a psychoactive in folk rituals... Used in spice blends",
+    "and as a psychoactive in folk rituals.. Used in spice blends",
+    "and as a psychoactive in folk rituals."
+  ],
+  "contraindications": [
+    "Avoid in pregnancy",
+    "psychiatric conditions",
+    "or with antidepressants",
+    "hepatotoxic in large doses",
+    "Avoid high doses",
+    "dangerous interactions with MAOIs",
+    "SSRIs"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "safrole",
+  "id": "safrole",
+  "displayName": "Safrole"
+}

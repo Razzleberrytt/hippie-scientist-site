@@ -1,4 +1,4 @@
-import type { CompoundRecord } from '@/lib/compound-data'
+import type { CompoundSummaryRecord } from '@/lib/compound-data'
 import { calculateCompoundConfidence } from '@/utils/calculateConfidence'
 import { normalizeText } from './normalizeText'
 import { searchEntries } from './searchEntries'
@@ -11,7 +11,7 @@ function getConfidenceRank(level: string) {
   return 1
 }
 
-function getCompoundConfidence(compound: CompoundRecord) {
+function getCompoundConfidence(compound: CompoundSummaryRecord) {
   return calculateCompoundConfidence({
     mechanism: compound.mechanism,
     effects: asStringArray(compound.effects),
@@ -20,17 +20,17 @@ function getCompoundConfidence(compound: CompoundRecord) {
 }
 
 export function filterCompounds(
-  compounds: CompoundRecord[],
+  compounds: CompoundSummaryRecord[],
   filters: EntryFilterState
-): CompoundRecord[] {
+): CompoundSummaryRecord[] {
   const searched = searchEntries(compounds, filters.query, compound => ({
     name: compound.name,
     type: compound.category || compound.className,
     mechanism: compound.mechanism,
     effects: asStringArray(compound.effects),
-    activeCompounds: asStringArray(compound.activeCompounds),
-    contraindications: asStringArray(compound.contraindications),
-    safety: asStringArray(compound.legalStatus),
+    activeCompounds: asStringArray(compound.herbs),
+    contraindications: [],
+    safety: [],
   })).map(result => result.entry)
 
   const effectNeedles = filters.selectedEffects.map(effect => normalizeText(effect))

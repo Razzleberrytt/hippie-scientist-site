@@ -1,0 +1,27 @@
+{
+  "name": "speciogynine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Stimulation",
+    "mild euphoria",
+    "analgesia",
+    "Mild stimulation",
+    "mood lift",
+    "Mild sedative",
+    "analgesic (less potent than M. speciosa)"
+  ],
+  "contraindications": [
+    "None well documented",
+    "Pregnancy",
+    "MAOI use",
+    "liver conditions"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "speciogynine",
+  "id": "speciogynine",
+  "displayName": "speciogynine"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "codeine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Pain relief",
+    "euphoria",
+    "sedation",
+    "Euphoria",
+    "analgesia",
+    "cough suppression",
+    "Source of opiates",
+    "analgesic and sedative"
+  ],
+  "contraindications": [
+    "Respiratory disorders",
+    "pregnancy",
+    "MAOIs",
+    "addiction history",
+    "Respiratory issues",
+    "liver impairment",
+    "opioid use"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "codeine",
+  "id": "codeine",
+  "displayName": "codeine"
+}

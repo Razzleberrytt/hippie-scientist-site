@@ -1,0 +1,96 @@
+{
+  "name": "nan",
+  "latin": "Achillea millefolium L.",
+  "class": "Medicinal, Aromatic, Traditional Herb",
+  "intensity": "Mild to moderate",
+  "mechanism": "Flavonoids and sesquiterpenes modulate inflammatory pathways and smooth muscle activity",
+  "activeCompounds": [
+    "Azulene",
+    "Chamazulene",
+    "Cineole",
+    "Thujone",
+    "Flavonoids",
+    "Tannins",
+    "sesquiterpenes",
+    "alkaloids",
+    "tannins"
+  ],
+  "effects": [
+    "Anti-inflammatory",
+    "astringent",
+    "digestive aid",
+    "hemostatic",
+    "diuretic",
+    "antispasmodic"
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "allergies to Asteraceae",
+    "bleeding disorders",
+    "allergy to Asteraceae",
+    "anticoagulant use"
+  ],
+  "safetyNotes": [
+    "Generally safe in moderate amounts",
+    "monitor for allergic reactions",
+    "Allergic rash",
+    "dizziness",
+    "photosensitivity",
+    "Low",
+    "Not established",
+    "Generally safe",
+    "may cause skin irritation",
+    "Headache"
+  ],
+  "sources": [
+    {
+      "title": "PubMed"
+    },
+    {
+      "title": "WHO monographs"
+    },
+    {
+      "title": "herbal pharmacopoeias"
+    },
+    {
+      "title": "WHO"
+    },
+    {
+      "title": "ESCOP"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "A flowering plant native to temperate regions, used for centuries in traditional medicine for wound healing, digestion, and fever reduction.",
+  "dosage": "Tea: 1–2g dried herb per cup, 1–3 times daily",
+  "duration": "Several hours depending on use",
+  "interactions": [
+    "Anticoagulants",
+    "sedatives",
+    "NSAIDs",
+    "diuretics"
+  ],
+  "legalStatus": "Legal worldwide",
+  "preparation": "Infusion, tincture, poultice",
+  "region": "Europe, North America, Asia",
+  "therapeuticUses": [
+    "Wound care",
+    "digestive disorders",
+    "menstrual cramps",
+    "fever",
+    "Wound healing",
+    "cramps",
+    "digestion"
+  ],
+  "traditionalUse": null,
+  "slug": "achillea-millefolium",
+  "displayName": "nan",
+  "displayScientificName": "Achillea millefolium L.",
+  "scientificNormalized": "achillea millefolium",
+  "id": "achillea-millefolium",
+  "aliases": [
+    "Achillea millefolium"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}

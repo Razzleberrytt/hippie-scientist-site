@@ -1,0 +1,61 @@
+{
+  "name": "quercetin",
+  "herbs": [
+    "acacia nilotica",
+    "aerva lanata",
+    "albizia lebbeck",
+    "alchemilla vulgaris",
+    "byrsonima crassifolia",
+    "pimenta dioica",
+    "Silver Linden",
+    "tilia tomentosa"
+  ],
+  "effects": [
+    "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine",
+    "Diuretic",
+    "anti-inflammatory",
+    "antimicrobial",
+    "anti",
+    "inflammatory",
+    "Used in Ayurveda for asthma",
+    "allergies",
+    "and anxiety",
+    "Uterine tonic",
+    "astringent",
+    "regulates menstruation and bleeding.",
+    "No direct effects data. Contextual inference: Used in folk medicine to promote calm and wellness... No direct mechanismofaction data. Contextual inference: Used in folk medicine to promote calm and wellness... Used in folk medicine to promote calm and wellness.. Used in folk medicine to promote calm and wellness.",
+    "No direct effects data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... No direct mechanismofaction data. Contextual inference: Used as a digestive tonic and flavoring spice with subtle psychoactivity... Used as a digestive tonic and flavoring spice with subtle psychoactivity.. Used as a digestive tonic and flavoring spice with subtle psychoactivity.",
+    "Anxiolytic",
+    "relaxing",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "High doses of bark decoction can irritate the digestive tract and cause constipation or nausea",
+    "Avoid during pregnancy or lactation due to potential anti-fertility effects",
+    "Not recommended for children under 12",
+    "Limited safety data; some alkaloids may be toxic at high doses",
+    "Pregnant women should use cautiously",
+    "No well‑documented contraindications",
+    "due to saponins and alkaloids",
+    "excessive intake may cause gastrointestinal irritation or interact with medications.",
+    "Excessive internal use may cause constipation or dry mucous membranes",
+    "caution in pregnancy or lactation",
+    "may interact with blood thinners due to tannin content【859641390196180†L297",
+    "L313】.",
+    "None known"
+  ],
+  "category": null,
+  "sources": [
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "slug": "quercetin",
+  "id": "quercetin",
+  "displayName": "quercetin"
+}

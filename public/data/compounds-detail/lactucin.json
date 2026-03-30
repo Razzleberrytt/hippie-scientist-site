@@ -1,0 +1,30 @@
+{
+  "name": "Lactucin",
+  "herbs": [
+    "nan",
+    "wild lettuce"
+  ],
+  "effects": [
+    "Sedation",
+    "analgesia",
+    "calming",
+    "Sedative",
+    "analgesic",
+    "antispasmodic",
+    "No direct effects data. Contextual inference: Used in 19th-century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th-century medicine for pain and insomnia... Used in 19th-century medicine for pain and insomnia.. Used in 19th-century medicine for pain and insomnia.",
+    "No direct effects data. Contextual inference: Used in 19th",
+    "century medicine for pain and insomnia... No direct mechanismofaction data. Contextual inference: Used in 19th",
+    "century medicine for pain and insomnia... Used in 19th",
+    "century medicine for pain and insomnia.. Used in 19th",
+    "century medicine for pain and insomnia."
+  ],
+  "contraindications": [
+    "Not recommended during pregnancy or with sedatives"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "lactucin",
+  "id": "lactucin",
+  "displayName": "Lactucin"
+}

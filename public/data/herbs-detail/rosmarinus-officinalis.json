@@ -1,0 +1,59 @@
+{
+  "name": "rosmarinus officinalis",
+  "latin": "Rosmarinus officinalis",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Cognitive support, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cognitive support, antimicrobial, digestive aid. No direct region data. Contextual inference: Cognitive support, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cognitive support, antimicrobial, digestive aid. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Cognitive support",
+    "antimicrobial",
+    "digestive aid"
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "safe",
+    "Allergic reactions",
+    "seizures in high doses",
+    "No direct toxicity data. Contextual inference: Cognitive support",
+    "antimicrobial",
+    "digestive aid. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Cognitive support",
+    "digestive aid. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Cognitive support, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "250",
+    "750 mg",
+    "day leaf extract"
+  ],
+  "duration": "2–4 hours",
+  "interactions": [],
+  "legalStatus": "Legal; used in food and medicine",
+  "preparation": "Leaves used fresh or dried in teas, tinctures, and essential oil; stimulating and antimicrobial",
+  "region": "No direct region data. Contextual inference: Cognitive support, antimicrobial, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cognitive support, antimicrobial, digestive aid. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "Allergic reactions",
+    "seizures in high doses"
+  ],
+  "slug": "rosmarinus-officinalis",
+  "id": "rosmarinus-officinalis",
+  "displayName": "rosmarinus officinalis",
+  "displayScientificName": "Rosmarinus officinalis",
+  "scientificNormalized": "rosmarinus officinalis"
+}

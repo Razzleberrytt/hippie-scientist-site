@@ -1,0 +1,77 @@
+{
+  "name": "tylophora indica",
+  "latin": "Tylophora indica",
+  "class": "respiratory / immunomodulator / ayurvedic",
+  "intensity": "Moderate",
+  "mechanism": "Contains tylophorine alkaloids with immunosuppressive, anti-inflammatory, and antiallergic properties. Reduces histamine release and cytokine activity.",
+  "activeCompounds": [],
+  "effects": [
+    "Asthma relief",
+    "Anti-allergy",
+    "Immunoregulation",
+    "Expectorant",
+    "Anti",
+    "allergy"
+  ],
+  "contraindications": [
+    "avoid during pregnancy",
+    "with immunosuppressants",
+    "or in emaciated individuals. not for long-term high-dose use.",
+    "or in emaciated individuals. not for long",
+    "term high",
+    "dose use."
+  ],
+  "safetyNotes": [
+    "caution",
+    "nausea and vomiting in higher doses. gi discomfort is common early in treatment.",
+    "Moderate in high doses. Emetic effects limit overuse."
+  ],
+  "sources": [
+    {
+      "title": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887322/"
+    },
+    {
+      "note": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3887322/;Ayurvedic Pharmacopoeia of India;Journal of Ethnopharmacology",
+      "url": ""
+    },
+    {
+      "note": "2004",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "an ayurvedic herb used for bronchial conditions, immune regulation, and allergic responses. known as indian ipecac for its traditional role in treating asthma and respiratory issues.",
+  "dosage": [
+    "200",
+    "400 mg",
+    "day extract or 1",
+    "2 g dried leaf"
+  ],
+  "duration": "Short-term (up to 2 weeks)",
+  "interactions": [
+    "may interfere with immune therapies",
+    "steroids",
+    "or antihistamines."
+  ],
+  "legalStatus": "Legal in India; regulated in some countries due to emetic effects",
+  "preparation": "Leaves chewed raw, powdered for capsules, or used in low-dose decoctions. Often combined with other expectorants.",
+  "region": "india, sri lanka, southeast asia",
+  "therapeuticUses": [
+    "used for asthma",
+    "allergies",
+    "bronchitis",
+    "autoimmune flare-ups",
+    "and inflammation. sometimes used topically for skin disorders.",
+    "autoimmune flare",
+    "ups"
+  ],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "nausea and vomiting in higher doses. gi discomfort is common early in treatment."
+  ],
+  "slug": "tylophora-indica",
+  "id": "tylophora-indica",
+  "displayName": "tylophora indica",
+  "displayScientificName": "Tylophora indica",
+  "scientificNormalized": "tylophora indica"
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Voacamine",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Tranquility",
+    "mild distortion of time",
+    "Antimicrobial",
+    "antioxidant",
+    "toxic in high doses",
+    "Altered perception",
+    "stimulation",
+    "euphoria",
+    "potential visionary states",
+    "No direct effects data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
+    "dreaming or folk medicine.. Used in ritual",
+    "dreaming or folk medicine. Used in ritual",
+    "dreaming or folk medicine"
+  ],
+  "contraindications": [
+    "Heart conditions",
+    "psychotropics",
+    "Pregnancy",
+    "cardiovascular conditions",
+    "MAOI use"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "voacamine",
+  "id": "voacamine",
+  "displayName": "Voacamine"
+}

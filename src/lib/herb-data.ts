@@ -6,9 +6,34 @@ import { cleanText, splitClean } from '@/lib/sanitize'
 import { getHerbSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
 import { hasInvalidEntityName, sanitizeHerbRecord } from '@/utils/sanitizeData'
 
-let herbsPromise: Promise<Herb[]> | null = null
 type SourceRef = { title: string; url?: string; note?: string }
 type ProductRecommendation = { label: string; type: string; url: string }
+
+export type HerbSummary = {
+  id: string
+  slug: string
+  name: string
+  common: string
+  scientific: string
+  category: string
+  class: string
+  confidence: Herb['confidence']
+  summaryShort: string
+  description: string
+  mechanism: string
+  effects: string[]
+  primaryEffects: string[]
+  activeCompounds: string[]
+  compounds: string[]
+  interactionTags: string[]
+  hasInteractionData: boolean
+  hasEvidenceNotes: boolean
+  image: string
+  aliases: string[]
+}
+
+let herbSummariesPromise: Promise<HerbSummary[]> | null = null
+const herbDetailPromiseBySlug = new Map<string, Promise<Herb | null>>()
 
 function normalizeSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
@@ -123,31 +148,96 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   }
 }
 
+function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
+  const slug = String(raw.slug || '').trim().toLowerCase()
+  const common = cleanText(raw.common ?? raw.commonName ?? raw.name) || ''
+  const scientific = cleanText(raw.scientific ?? raw.latin ?? raw.scientificName) || ''
+  const effects = splitClean(raw.effects)
+  const activeCompounds = splitClean(raw.activeCompounds ?? raw.compounds)
+  const confidence = String(raw.confidence || '').toLowerCase()
+  const confidenceLevel: Herb['confidence'] =
+    confidence === 'high' || confidence === 'medium' ? confidence : 'low'
+
+  return {
+    id: String(raw.id || slug),
+    slug,
+    name: common || scientific || slug,
+    common,
+    scientific,
+    category: cleanText(raw.category) || '',
+    class: cleanText(raw.class) || '',
+    confidence: confidenceLevel,
+    summaryShort: cleanText(raw.summaryShort ?? raw.description) || '',
+    description: cleanText(raw.description ?? raw.summaryShort) || '',
+    mechanism: cleanText(raw.mechanism) || '',
+    effects,
+    primaryEffects: splitClean(raw.primaryEffects ?? effects).slice(0, 4),
+    activeCompounds,
+    compounds: activeCompounds,
+    interactionTags: splitClean(raw.interactionTags),
+    hasInteractionData: Boolean(raw.hasInteractionData),
+    hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),
+    image: cleanText(raw.image) || '',
+    aliases: splitClean(raw.aliases),
+  }
+}
+
 export function isRenderableHerbRow(raw: Record<string, unknown>): boolean {
   const { data } = sanitizeHerbRecord(raw)
   return !hasInvalidEntityName(data)
 }
 
-export async function loadHerbData(): Promise<Herb[]> {
-  if (!herbsPromise) {
-    herbsPromise = fetch('/data/herbs.json', { cache: 'no-store' })
+export async function loadHerbSummaryData(): Promise<HerbSummary[]> {
+  if (!herbSummariesPromise) {
+    herbSummariesPromise = fetch('/data/herbs-summary.json', { cache: 'no-store' })
       .then(response => {
-        if (!response.ok) throw new Error('Failed to load /data/herbs.json')
+        if (!response.ok) throw new Error('Failed to load /data/herbs-summary.json')
         return response.json()
       })
       .then(payload => {
         const rows = Array.isArray(payload) ? payload : []
-        return rows
-          .filter(row => isRenderableHerbRow(row as Record<string, unknown>))
-          .map(row => normalizeHerbRow(row as Record<string, unknown>))
+        return rows.map(row => normalizeHerbSummaryRow(row as Record<string, unknown>))
       })
       .catch(error => {
-        herbsPromise = null
+        herbSummariesPromise = null
         throw error
       })
   }
 
-  return herbsPromise
+  return herbSummariesPromise
+}
+
+export async function loadHerbDetailBySlug(slug: string): Promise<Herb | null> {
+  const slugKey = slug.trim().toLowerCase()
+  if (!slugKey) return null
+
+  const cached = herbDetailPromiseBySlug.get(slugKey)
+  if (cached) return cached
+
+  const request = fetch(`/data/herbs-detail/${encodeURIComponent(slugKey)}.json`, { cache: 'no-store' })
+    .then(response => {
+      if (response.status === 404) return null
+      if (!response.ok) {
+        throw new Error(`Failed to load /data/herbs-detail/${slugKey}.json`)
+      }
+      return response.json()
+    })
+    .then(payload => {
+      if (!payload || typeof payload !== 'object') return null
+      return normalizeHerbRow(payload as Record<string, unknown>)
+    })
+    .catch(error => {
+      herbDetailPromiseBySlug.delete(slugKey)
+      throw error
+    })
+
+  herbDetailPromiseBySlug.set(slugKey, request)
+  return request
+}
+
+// Back-compat aliases.
+export async function loadHerbData(): Promise<HerbSummary[]> {
+  return loadHerbSummaryData()
 }
 
 export function useHerbData() {
@@ -156,7 +246,7 @@ export function useHerbData() {
 }
 
 export function useHerbDataState() {
-  const [herbs, setHerbs] = useState<Herb[]>([])
+  const [herbs, setHerbs] = useState<HerbSummary[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
 
@@ -165,7 +255,7 @@ export function useHerbDataState() {
     setIsLoading(true)
     setError(null)
 
-    loadHerbData()
+    loadHerbSummaryData()
       .then(items => {
         if (!alive) return
         setHerbs(items)
@@ -174,7 +264,7 @@ export function useHerbDataState() {
       .catch(cause => {
         if (!alive) return
         setHerbs([])
-        setError(cause instanceof Error ? cause : new Error('Failed to load herb data'))
+        setError(cause instanceof Error ? cause : new Error('Failed to load herb summary data'))
         setIsLoading(false)
       })
 
@@ -184,4 +274,35 @@ export function useHerbDataState() {
   }, [])
 
   return { herbs, isLoading, error }
+}
+
+export function useHerbDetailState(slug: string) {
+  const [herb, setHerb] = useState<Herb | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<Error | null>(null)
+
+  useEffect(() => {
+    let alive = true
+    setIsLoading(true)
+    setError(null)
+
+    loadHerbDetailBySlug(slug)
+      .then(item => {
+        if (!alive) return
+        setHerb(item)
+        setIsLoading(false)
+      })
+      .catch(cause => {
+        if (!alive) return
+        setHerb(null)
+        setError(cause instanceof Error ? cause : new Error('Failed to load herb detail'))
+        setIsLoading(false)
+      })
+
+    return () => {
+      alive = false
+    }
+  }, [slug])
+
+  return { herb, isLoading, error }
 }

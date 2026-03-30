@@ -1,0 +1,22 @@
+{
+  "name": "terpenoids",
+  "herbs": [
+    "nan"
+  ],
+  "effects": [
+    "Skin healing",
+    "antiparasitic action",
+    "Joint pain relief",
+    "antibacterial"
+  ],
+  "contraindications": [
+    "May cause allergic dermatitis",
+    "Avoid use in bleeding disorders"
+  ],
+  "category": null,
+  "sources": [],
+  "lastUpdated": "2026-03-21",
+  "slug": "terpenoids",
+  "id": "terpenoids",
+  "displayName": "terpenoids"
+}

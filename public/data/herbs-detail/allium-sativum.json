@@ -1,0 +1,72 @@
+{
+  "name": "allium sativum",
+  "latin": "Allium sativum",
+  "class": null,
+  "intensity": "No direct intensity data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan. ; nan; nan",
+  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "activeCompounds": [],
+  "effects": [
+    "Antimicrobial",
+    "hypotensive",
+    "cholesterol-lowering",
+    "antioxidant",
+    "immune-stimulating effects.",
+    "cholesterol",
+    "lowering",
+    "immune",
+    "stimulating effects."
+  ],
+  "contraindications": [],
+  "safetyNotes": [
+    "safe",
+    "GI discomfort",
+    "bad breath",
+    "body odor",
+    "may cause bleeding in high doses (anticoagulant effect)",
+    "No direct toxicity data. Contextual inference: Antimicrobial",
+    "hypotensive",
+    "cholesterol-lowering",
+    "antioxidant",
+    "immune-stimulating effects.. Herbs often act via neurotransmitter modulation",
+    "antioxidant effects",
+    "or enzyme inhibition.. None.",
+    "nan.. Herbs often act via neurotransmitter modulation",
+    "or enzyme inhibition.. Antimicrobial",
+    "immune-stimulating effects.. none."
+  ],
+  "sources": [
+    {
+      "title": "Inferred from scientific name:"
+    },
+    {
+      "note": "Inferred from scientific name:",
+      "url": ""
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "dosage": [
+    "300",
+    "900 mg",
+    "day extract or 1",
+    "2 cloves"
+  ],
+  "duration": "Daily use safe, long-term",
+  "interactions": [],
+  "legalStatus": "Widely approved as food and supplement globally (GRAS).",
+  "preparation": "Cloves consumed raw, cooked, or in capsules; also tinctured or oil extracted",
+  "region": "No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan",
+  "therapeuticUses": [],
+  "traditionalUse": "; nan; nan",
+  "sideEffects": [
+    "GI discomfort",
+    "bad breath",
+    "body odor",
+    "may cause bleeding in high doses (anticoagulant effect)"
+  ],
+  "slug": "allium-sativum",
+  "id": "allium-sativum",
+  "displayName": "allium sativum",
+  "displayScientificName": "Allium sativum",
+  "scientificNormalized": "allium sativum"
+}

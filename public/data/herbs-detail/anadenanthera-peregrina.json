@@ -1,0 +1,109 @@
+{
+  "name": "anadenanthera peregrina",
+  "latin": "Anadenanthera peregrina",
+  "class": "Tryptamine Entheogen",
+  "intensity": "Strong",
+  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "activeCompounds": [
+    "Bufotenine",
+    "DMT",
+    "5-MeO-DMT",
+    "Bufotenin"
+  ],
+  "effects": [
+    "Visuals",
+    "nausea",
+    "euphoria",
+    "altered states",
+    "stimulation",
+    "altered perception",
+    "No direct effects data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan."
+  ],
+  "contraindications": [
+    "Asthma",
+    "MAOIs",
+    "psychiatric conditions",
+    "Heart conditions",
+    "SSRIs",
+    "schizophrenia"
+  ],
+  "safetyNotes": [
+    "Intense effects",
+    "used in tribal contexts",
+    "Disorientation",
+    "nausea",
+    "tremors",
+    "Moderate",
+    "Not clearly documented",
+    "Use with caution",
+    "intense psychoactive profile",
+    "Nausea",
+    "vomiting",
+    "anxiety",
+    "respiratory irritation",
+    "Potentially high in overdose",
+    "Not clearly established",
+    "Toxic – oneirogenic and emetic effects",
+    "No direct toxicity data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan."
+  ],
+  "sources": [
+    {
+      "title": "Shamanic snuff literature"
+    },
+    {
+      "title": "ethnobotanical records"
+    },
+    {
+      "title": "Shamanic records"
+    },
+    {
+      "title": "pharmacological studies"
+    }
+  ],
+  "lastUpdated": "2026-03-21",
+  "description": "South American snuff prepared from seeds, used for intense visionary states",
+  "dosage": [
+    "No direct dosage data. Contextual inference:",
+    "nan.. No direct mechanismofaction data. Contextual inference:",
+    "nan..",
+    "nan. No direct effects data. Contextual inference:",
+    "nan.",
+    "nan. No direct region data. Contextual inference:"
+  ],
+  "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "interactions": [
+    "MAOIs",
+    "SSRIs",
+    "other tryptamines",
+    "stimulants"
+  ],
+  "legalStatus": "Unregulated; some tryptamines controlled",
+  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
+  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "therapeuticUses": [
+    "Spiritual insight",
+    "ceremonial use",
+    "Vision quests",
+    "psycho-spiritual exploration"
+  ],
+  "traditionalUse": "Used as snuff by tribes in Venezuela and Amazon basin",
+  "slug": "anadenanthera-peregrina",
+  "sideEffects": [],
+  "displayName": "anadenanthera peregrina",
+  "displayScientificName": "Anadenanthera peregrina",
+  "scientificNormalized": "anadenanthera peregrina",
+  "id": "anadenanthera-peregrina",
+  "aliases": [
+    "nan"
+  ],
+  "slugAliases": [
+    "nan"
+  ]
+}
