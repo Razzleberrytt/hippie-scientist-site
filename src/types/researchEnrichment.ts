@@ -11,7 +11,16 @@ export type EvidenceTier =
   | 'tier-3-limited'
   | 'tier-4-insufficient'
 
-export type EditorialStatus = 'draft' | 'in-review' | 'approved' | 'needs-update' | 'deprecated'
+export type EditorialStatus =
+  | 'draft'
+  | 'needs_review'
+  | 'reviewed'
+  | 'in-review'
+  | 'approved'
+  | 'published'
+  | 'blocked'
+  | 'needs-update'
+  | 'deprecated'
 
 export type SourceRefType =
   | 'rct'
@@ -139,6 +148,12 @@ export type ResearchEnrichment = {
   }
   topicEvidenceJudgments: Partial<Record<string, EvidenceJudgment>>
   pageEvidenceJudgment: EvidenceJudgment
+  editorialReadiness?: {
+    publishable: boolean
+    hasConflictOrWeakEvidence: boolean
+    conflictLabelingPresent: boolean
+    weakEvidenceClaimsLabeled: boolean
+  }
   sourceRefs: ResearchSourceRef[]
   lastReviewedAt: string
   reviewedBy: string

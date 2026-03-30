@@ -84,6 +84,22 @@
     },
     "safetyProfile": { "$ref": "#/$defs/safetyProfile" },
     "pageEvidenceJudgment": { "$ref": "#/$defs/evidenceJudgment" },
+    "editorialReadiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publishable",
+        "hasConflictOrWeakEvidence",
+        "conflictLabelingPresent",
+        "weakEvidenceClaimsLabeled"
+      ],
+      "properties": {
+        "publishable": { "type": "boolean" },
+        "hasConflictOrWeakEvidence": { "type": "boolean" },
+        "conflictLabelingPresent": { "type": "boolean" },
+        "weakEvidenceClaimsLabeled": { "type": "boolean" }
+      }
+    },
     "sourceRegistryIds": {
       "type": "array",
       "items": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
@@ -99,7 +115,17 @@
     "reviewedBy": { "type": "string", "minLength": 1 },
     "editorialStatus": {
       "type": "string",
-      "enum": ["draft", "in-review", "approved", "needs-update", "deprecated"]
+      "enum": [
+        "draft",
+        "needs_review",
+        "reviewed",
+        "in-review",
+        "approved",
+        "published",
+        "blocked",
+        "needs-update",
+        "deprecated"
+      ]
     },
     "relatedEntities": {
       "type": "array",

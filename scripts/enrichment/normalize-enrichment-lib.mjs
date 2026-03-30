@@ -15,6 +15,23 @@ export const SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment
 export const EVIDENCE_GRADING_SUMMARY_PATH = path.join(ROOT, 'ops', 'reports', 'evidence-grading-summary.json')
 export const SAFETY_SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'safety-enrichment-summary.json')
 export const MECHANISM_SUMMARY_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'mechanism-enrichment-summary.json')
+export const EDITORIAL_READINESS_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-editorial-readiness.json')
+
+export const EDITORIAL_STATUS = {
+  DRAFT: 'draft',
+  NEEDS_REVIEW: 'needs_review',
+  REVIEWED: 'reviewed',
+  IN_REVIEW: 'in-review',
+  APPROVED: 'approved',
+  PUBLISHED: 'published',
+  BLOCKED: 'blocked',
+  NEEDS_UPDATE: 'needs-update',
+  DEPRECATED: 'deprecated',
+}
+
+export const PUBLISH_ALLOWED_EDITORIAL_STATES = new Set([EDITORIAL_STATUS.APPROVED, EDITORIAL_STATUS.PUBLISHED])
+const WEAK_EVIDENCE_CLASSES = new Set(['preclinical-mechanistic', 'traditional-use'])
+const CRITICAL_SOURCE_PUBLICATION_STATUSES = new Set(['withdrawn', 'superseded'])
 
 export const TOPIC_TO_ROLLUP_FIELD = {
   supported_use: 'supportedUses',
@@ -259,6 +276,74 @@ function normalizeEntry(entry) {
   return normalized
 }
 
+function isNonEmptyText(value) {
+  return typeof value === 'string' && value.trim().length > 0
+}
+
+function classifyEditorialBucket(editorialStatus) {
+  if (editorialStatus === EDITORIAL_STATUS.BLOCKED || editorialStatus === EDITORIAL_STATUS.DEPRECATED) return 'blocked'
+  if (PUBLISH_ALLOWED_EDITORIAL_STATES.has(editorialStatus)) return 'publishable'
+  if (
+    editorialStatus === EDITORIAL_STATUS.NEEDS_REVIEW ||
+    editorialStatus === EDITORIAL_STATUS.REVIEWED ||
+    editorialStatus === EDITORIAL_STATUS.IN_REVIEW
+  ) {
+    return 'review-ready'
+  }
+  return 'draft-only'
+}
+
+export function evaluateEntryReadiness(entry, source, validationIssues = []) {
+  const reasons = []
+  const criticalReasons = []
+
+  if (entry.active !== true) {
+    reasons.push('entry_inactive')
+    criticalReasons.push('entry_inactive')
+  }
+
+  if (!source) {
+    reasons.push('missing_source_registry_reference')
+    criticalReasons.push('missing_source_registry_reference')
+  } else {
+    if (source.active !== true) {
+      reasons.push('source_inactive')
+      criticalReasons.push('source_inactive')
+    }
+    if (CRITICAL_SOURCE_PUBLICATION_STATUSES.has(source.publicationStatus)) {
+      reasons.push(`source_publication_status_${source.publicationStatus}`)
+      criticalReasons.push(`source_publication_status_${source.publicationStatus}`)
+    }
+  }
+
+  if (!isNonEmptyText(entry.reviewer)) {
+    reasons.push('missing_reviewer')
+    criticalReasons.push('missing_reviewer')
+  }
+  if (!isNonEmptyText(entry.reviewedAt)) {
+    reasons.push('missing_reviewed_at')
+    criticalReasons.push('missing_reviewed_at')
+  }
+  if (!PUBLISH_ALLOWED_EDITORIAL_STATES.has(entry.editorialStatus)) {
+    reasons.push('editorial_status_not_publishable')
+  }
+  if (WEAK_EVIDENCE_CLASSES.has(entry.evidenceClass) && !isNonEmptyText(entry.uncertaintyNote)) {
+    reasons.push('weak_evidence_requires_uncertainty_note')
+    criticalReasons.push('weak_evidence_requires_uncertainty_note')
+  }
+  if (validationIssues.length > 0) {
+    reasons.push('validation_failures_present')
+    criticalReasons.push('validation_failures_present')
+  }
+
+  return {
+    publishable: reasons.length === 0,
+    editorialBucket: classifyEditorialBucket(entry.editorialStatus),
+    reasons,
+    criticalReasons,
+  }
+}
+
 export function validateAndNormalizeEntries(entries, options = {}) {
   const validate = compileValidator()
   const sourceRegistry = readJson(SOURCE_REGISTRY_PATH)
@@ -306,6 +391,16 @@ export function validateAndNormalizeEntries(entries, options = {}) {
     const tokenCount = findingNormalizedLc.split(' ').filter(Boolean).length
     if (tokenCount < 5) {
       issues.push(`${prefix} findingTextNormalized must include at least 5 words.`)
+    }
+
+    if (
+      PUBLISH_ALLOWED_EDITORIAL_STATES.has(entry.editorialStatus) &&
+      WEAK_EVIDENCE_CLASSES.has(entry.evidenceClass) &&
+      !entry.uncertaintyNote
+    ) {
+      issues.push(
+        `${prefix} editorialStatus=${entry.editorialStatus} with evidenceClass=${entry.evidenceClass} requires uncertaintyNote.`,
+      )
     }
 
     if (!TOPIC_TO_ROLLUP_FIELD[entry.topicType]) {
@@ -480,17 +575,22 @@ function rankEvidenceTier(evidenceClasses) {
 }
 
 function pickEditorialStatus(statuses) {
-  if (statuses.has('in-review')) return 'in-review'
-  if (statuses.has('approved') && statuses.size === 1) return 'approved'
-  if (statuses.has('needs-update')) return 'needs-update'
-  if (statuses.has('deprecated') && statuses.size === 1) return 'deprecated'
-  return 'draft'
+  if (statuses.has(EDITORIAL_STATUS.BLOCKED)) return EDITORIAL_STATUS.BLOCKED
+  if (statuses.has(EDITORIAL_STATUS.DEPRECATED) && statuses.size === 1) return EDITORIAL_STATUS.DEPRECATED
+  if (statuses.has(EDITORIAL_STATUS.PUBLISHED) && statuses.size === 1) return EDITORIAL_STATUS.PUBLISHED
+  if (statuses.has(EDITORIAL_STATUS.APPROVED) && statuses.size === 1) return EDITORIAL_STATUS.APPROVED
+  if (statuses.has(EDITORIAL_STATUS.NEEDS_UPDATE)) return EDITORIAL_STATUS.NEEDS_UPDATE
+  if (statuses.has(EDITORIAL_STATUS.IN_REVIEW) || statuses.has(EDITORIAL_STATUS.NEEDS_REVIEW)) return EDITORIAL_STATUS.IN_REVIEW
+  if (statuses.has(EDITORIAL_STATUS.REVIEWED)) return EDITORIAL_STATUS.REVIEWED
+  return EDITORIAL_STATUS.DRAFT
 }
 
 export function rollupToResearchEnrichment(entries, sourceById = null) {
   const grouped = new Map()
   for (const entry of entries) {
-    if (entry.active !== true || entry.editorialStatus !== 'approved') continue
+    const source = sourceById?.get(entry.sourceId) ?? null
+    const readiness = evaluateEntryReadiness(entry, source)
+    if (entry.active !== true || !readiness.publishable) continue
     const key = `${entry.entityType}:${entry.entitySlug}`
     if (!grouped.has(key)) grouped.set(key, [])
     grouped.get(key).push(entry)
@@ -535,6 +635,17 @@ export function rollupToResearchEnrichment(entries, sourceById = null) {
     const topicEvidenceJudgments = gradeEvidenceByTopic(entityEntries, sourceMap)
     const pageEvidenceJudgment = gradeEvidenceEntries(entityEntries, sourceMap)
     const safetyProfile = buildSafetyProfile(entityEntries)
+    const hasConflictOrWeakEvidence =
+      pageEvidenceJudgment.conflictNotes.length > 0 ||
+      pageEvidenceJudgment.grading.conflictState !== 'none' ||
+      pageEvidenceJudgment.evidenceLabel === 'mixed_or_uncertain' ||
+      pageEvidenceJudgment.evidenceLabel === 'conflicting_evidence' ||
+      pageEvidenceJudgment.evidenceLabel === 'preclinical_only' ||
+      pageEvidenceJudgment.evidenceLabel === 'traditional_use_only'
+    const weakEvidenceClaimsLabeled = entityEntries
+      .filter(entry => WEAK_EVIDENCE_CLASSES.has(entry.evidenceClass))
+      .every(entry => isNonEmptyText(entry.uncertaintyNote))
+    const conflictLabelingPresent = !hasConflictOrWeakEvidence || claimsByField.conflictNotes.length > 0
 
     const evidenceClassList = Array.from(evidenceClassesPresent).sort()
     output.push({
@@ -558,6 +669,12 @@ export function rollupToResearchEnrichment(entries, sourceById = null) {
         safetyProfile,
         topicEvidenceJudgments,
         pageEvidenceJudgment,
+        editorialReadiness: {
+          publishable: conflictLabelingPresent && weakEvidenceClaimsLabeled,
+          hasConflictOrWeakEvidence,
+          conflictLabelingPresent,
+          weakEvidenceClaimsLabeled,
+        },
         sourceRegistryIds: Array.from(sourceRegistryIds).sort(),
         lastReviewedAt,
         reviewedBy: 'normalized-enrichment-pipeline',
@@ -718,6 +835,91 @@ export function buildMechanismSummary(entries) {
     inputPath: path.relative(ROOT, INPUT_PATH_DEFAULT),
     totalMechanismEntries: Object.values(counts.byEntity).reduce((sum, value) => sum + value, 0),
     counts,
+  }
+}
+
+export function buildEditorialReadinessReport(entries, sourceById) {
+  const byEditorialState = {}
+  const readinessRows = []
+  const entityMap = new Map()
+
+  for (const [index, entry] of entries.entries()) {
+    byEditorialState[entry.editorialStatus] = (byEditorialState[entry.editorialStatus] ?? 0) + 1
+    const source = sourceById.get(entry.sourceId) ?? null
+    const readiness = evaluateEntryReadiness(entry, source)
+    const entryKey = `${entry.entityType}:${entry.entitySlug}`
+    const row = {
+      index,
+      enrichmentId: entry.enrichmentId,
+      entityType: entry.entityType,
+      entitySlug: entry.entitySlug,
+      sourceId: entry.sourceId,
+      topicType: entry.topicType,
+      editorialStatus: entry.editorialStatus,
+      active: entry.active,
+      publishable: readiness.publishable,
+      readinessState: readiness.editorialBucket,
+      blockedReasons: readiness.reasons,
+    }
+    readinessRows.push(row)
+
+    const entity = entityMap.get(entryKey) ?? {
+      entityType: entry.entityType,
+      entitySlug: entry.entitySlug,
+      entriesTotal: 0,
+      publishableEntries: 0,
+      blockedEntries: 0,
+      blockedReasons: new Set(),
+      editorialStates: new Set(),
+      readinessState: 'blocked',
+    }
+    entity.entriesTotal += 1
+    entity.editorialStates.add(entry.editorialStatus)
+    if (readiness.publishable && entry.active === true) entity.publishableEntries += 1
+    else {
+      entity.blockedEntries += 1
+      for (const reason of readiness.reasons) entity.blockedReasons.add(reason)
+    }
+    entityMap.set(entryKey, entity)
+  }
+
+  const entities = Array.from(entityMap.values())
+    .map(entity => {
+      const allPublishable = entity.entriesTotal > 0 && entity.blockedEntries === 0 && entity.publishableEntries === entity.entriesTotal
+      const partiallyEnrichedBlocked = entity.publishableEntries > 0 && entity.blockedEntries > 0
+      return {
+        entityType: entity.entityType,
+        entitySlug: entity.entitySlug,
+        entriesTotal: entity.entriesTotal,
+        publishableEntries: entity.publishableEntries,
+        blockedEntries: entity.blockedEntries,
+        readinessState: allPublishable ? 'ready' : partiallyEnrichedBlocked ? 'partially_blocked' : 'blocked',
+        editorialStates: Array.from(entity.editorialStates).sort(),
+        blockedReasons: Array.from(entity.blockedReasons).sort(),
+      }
+    })
+    .sort((a, b) => `${a.entityType}:${a.entitySlug}`.localeCompare(`${b.entityType}:${b.entitySlug}`))
+
+  const readyForEnrichedPublish = entities.filter(entity => entity.readinessState === 'ready')
+  const partiallyEnrichedBlocked = entities.filter(entity => entity.readinessState === 'partially_blocked')
+  const fullyBlocked = entities.filter(entity => entity.readinessState === 'blocked')
+  const blockedEntries = readinessRows.filter(row => row.publishable === false)
+
+  return {
+    generatedAt: new Date().toISOString(),
+    summary: {
+      totalEntries: entries.length,
+      totalEntities: entities.length,
+      entitiesReadyForEnrichedPublish: readyForEnrichedPublish.length,
+      entitiesPartiallyBlocked: partiallyEnrichedBlocked.length,
+      entitiesBlocked: fullyBlocked.length,
+      blockedEntries: blockedEntries.length,
+      countsByEditorialState: byEditorialState,
+    },
+    entitiesReadyForEnrichedPublish: readyForEnrichedPublish,
+    entitiesPartiallyEnrichedButBlocked: partiallyEnrichedBlocked,
+    entitiesBlocked: fullyBlocked,
+    blockedEntries,
   }
 }
 
