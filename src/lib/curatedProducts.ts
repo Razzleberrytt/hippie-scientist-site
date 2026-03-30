@@ -24,7 +24,9 @@ const GENERIC_AFFILIATE_PATTERNS: RegExp[] = [
   /amazon\.[^/]+\/s[/?]/i,
   /amazon\.[^/]+\/gp\/search/i,
   /amazon\.[^/]+\/b\?/i,
+  /amazon\.[^/]+\/gp\/bestsellers/i,
   /amazon\.[^/]+\/best-sellers/i,
+  /amazon\.[^/]+\/gp\/aw\/s/i,
   /etsy\.com\/market\//i,
   /\bsearch\b/i,
   /placeholder/i,
@@ -58,14 +60,28 @@ function parseDate(value: string): Date | null {
   return date
 }
 
-function isStaleReview(product: CuratedProductRecommendation, now: Date = new Date()): boolean {
-  if (!CURATED_PRODUCT_STALE_REVIEW_DAYS || CURATED_PRODUCT_STALE_REVIEW_DAYS <= 0) return false
+const REVIEW_GRACE_PERIOD_DAYS = 30
+
+export type ReviewRecencyState = 'fresh' | 'stale_grace' | 'stale_expired' | 'missing_reviewed_at'
+
+function getReviewAgeDays(product: CuratedProductRecommendation, now: Date = new Date()): number | null {
   const reviewedAt = parseDate(product.reviewedAt)
-  if (!reviewedAt) return true
+  if (!reviewedAt) return null
 
   const elapsedMs = now.getTime() - reviewedAt.getTime()
-  const elapsedDays = elapsedMs / (1000 * 60 * 60 * 24)
-  return elapsedDays > CURATED_PRODUCT_STALE_REVIEW_DAYS
+  return elapsedMs / (1000 * 60 * 60 * 24)
+}
+
+export function getReviewRecencyState(
+  product: CuratedProductRecommendation,
+  now: Date = new Date()
+): ReviewRecencyState {
+  if (!CURATED_PRODUCT_STALE_REVIEW_DAYS || CURATED_PRODUCT_STALE_REVIEW_DAYS <= 0) return 'fresh'
+  const elapsedDays = getReviewAgeDays(product, now)
+  if (elapsedDays === null) return 'missing_reviewed_at'
+  if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS) return 'fresh'
+  if (elapsedDays <= CURATED_PRODUCT_STALE_REVIEW_DAYS + REVIEW_GRACE_PERIOD_DAYS) return 'stale_grace'
+  return 'stale_expired'
 }
 
 export function resolveAffiliateUrl(product: CuratedProductRecommendation): string {
@@ -81,6 +97,26 @@ export function hasGenericAffiliateLink(url: string): boolean {
   return GENERIC_AFFILIATE_PATTERNS.some(pattern => pattern.test(trimmed))
 }
 
+function isAmazonDomain(hostname: string): boolean {
+  const normalized = hostname.toLowerCase()
+  return normalized === 'amazon.com' || normalized === 'www.amazon.com'
+}
+
+export function isMalformedAmazonProductUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url)
+    if (!isAmazonDomain(parsed.hostname)) return true
+
+    const path = parsed.pathname.trim()
+    if (!path || path === '/') return true
+
+    const asinMatch = path.match(/\/(?:dp|gp\/product)\/([a-zA-Z0-9]{10})(?:[/?]|$)/)
+    return !asinMatch
+  } catch {
+    return true
+  }
+}
+
 export type CuratedProductReadinessFailureReason =
   | 'missing_disclosure'
   | 'missing_rationale'
@@ -89,9 +125,11 @@ export type CuratedProductReadinessFailureReason =
   | 'inactive'
   | 'entity_page_mismatch'
   | 'confidence_tier_not_met'
-  | 'stale_review'
+  | 'stale_review_expired'
   | 'generic_affiliate_link'
+  | 'malformed_amazon_url'
   | 'missing_best_for'
+  | 'duplicate_product_mapping'
 
 export type CuratedProductReadiness = {
   entitySlug: string
@@ -106,23 +144,35 @@ export type CuratedProductReadiness = {
   active: boolean
   confidenceTierRequired: ConfidenceLevel
   pageConfidenceTier: ConfidenceLevel
+  reviewRecencyState: ReviewRecencyState
+  reviewAgeDays: number | null
   stale: boolean
+  staleWithinGracePeriod: boolean
   genericLinkDetected: boolean
+  malformedUrlDetected: boolean
+  requiresManualReview: boolean
+  warningReasons: string[]
 }
 
 export function assessCuratedProductReadiness(params: {
   product: CuratedProductRecommendation
   pageContext: CuratedProductPageContext
   now?: Date
+  duplicateProductMappingDetected?: boolean
 }): CuratedProductReadiness {
-  const { product, pageContext, now } = params
+  const { product, pageContext, now, duplicateProductMappingDetected = false } = params
   const affiliateUrl = resolveAffiliateUrl(product)
   const disclosurePresent = hasTrimmedText(product.affiliateDisclosure)
   const rationalePresent = hasTrimmedText(product.rationaleShort) && hasTrimmedText(product.rationaleLong)
   const researchedReviewedStatusPresent = hasTrimmedText(product.researchStatus)
   const reviewedAtPresent = hasTrimmedText(product.reviewedAt)
-  const stale = isStaleReview(product, now)
+  const reviewRecencyState = getReviewRecencyState(product, now)
+  const reviewAgeDays = getReviewAgeDays(product, now)
+  const stale = reviewRecencyState === 'stale_grace' || reviewRecencyState === 'stale_expired'
+  const staleWithinGracePeriod = reviewRecencyState === 'stale_grace'
   const genericLinkDetected = hasGenericAffiliateLink(affiliateUrl)
+  const malformedUrlDetected = isMalformedAmazonProductUrl(product.amazonUrl)
+  const warningReasons: string[] = []
 
   const failureReasons: CuratedProductReadinessFailureReason[] = []
 
@@ -141,9 +191,19 @@ export function assessCuratedProductReadiness(params: {
       failureReasons.push('missing_research_status')
     }
   }
-  if (stale) failureReasons.push('stale_review')
+  if (reviewRecencyState === 'stale_grace') warningReasons.push('stale_review_grace_period')
+  if (reviewRecencyState === 'stale_expired') failureReasons.push('stale_review_expired')
   if (genericLinkDetected) failureReasons.push('generic_affiliate_link')
+  if (malformedUrlDetected) failureReasons.push('malformed_amazon_url')
   if (!Array.isArray(product.bestFor) || product.bestFor.length === 0) failureReasons.push('missing_best_for')
+  if (duplicateProductMappingDetected) failureReasons.push('duplicate_product_mapping')
+
+  const requiresManualReview =
+    warningReasons.length > 0 ||
+    staleWithinGracePeriod ||
+    genericLinkDetected ||
+    malformedUrlDetected ||
+    reviewRecencyState === 'missing_reviewed_at'
 
   return {
     entitySlug: product.entitySlug,
@@ -158,8 +218,14 @@ export function assessCuratedProductReadiness(params: {
     active: product.active,
     confidenceTierRequired: product.confidenceTierRequired,
     pageConfidenceTier: pageContext.confidence,
+    reviewRecencyState,
+    reviewAgeDays,
     stale,
+    staleWithinGracePeriod,
     genericLinkDetected,
+    malformedUrlDetected,
+    requiresManualReview,
+    warningReasons,
   }
 }
 

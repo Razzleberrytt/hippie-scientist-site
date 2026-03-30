@@ -1,6 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { curatedProductRecommendations } from '../src/data/curatedProducts'
+import {
+  curatedProductRecommendations,
+  CURATED_PRODUCT_STALE_REVIEW_DAYS,
+} from '../src/data/curatedProducts'
 import {
   assessCuratedProductReadiness,
   resolveAffiliateUrl,
@@ -14,7 +17,7 @@ type SummaryRow = {
 }
 
 const ROOT = process.cwd()
-const REPORT_PATH = path.join(ROOT, 'public', 'data', 'affiliate-recommendation-readiness.json')
+const REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'affiliate-product-health.json')
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T
@@ -45,6 +48,16 @@ function buildReadinessRows(): CuratedProductReadiness[] {
   const herbConfidence = buildConfidenceMap(path.join(ROOT, 'public', 'data', 'herbs-summary.json'))
   const compoundConfidence = buildConfidenceMap(path.join(ROOT, 'public', 'data', 'compounds-summary.json'))
 
+  const duplicateKeys = new Set<string>()
+  const duplicatePairs = new Set<string>()
+
+  curatedProductRecommendations.forEach(product => {
+    const normalizedUrl = resolveAffiliateUrl(product).trim().toLowerCase()
+    const key = [product.entityType, product.entitySlug, normalizedUrl || product.productId].join('|')
+    if (duplicateKeys.has(key)) duplicatePairs.add(key)
+    duplicateKeys.add(key)
+  })
+
   return curatedProductRecommendations.map(product => {
     const pageConfidenceTier =
       product.entityType === 'herb'
@@ -59,6 +72,11 @@ function buildReadinessRows(): CuratedProductReadiness[] {
         confidence: pageConfidenceTier,
         sourceCount: 1,
       },
+      duplicateProductMappingDetected: duplicatePairs.has(
+        [product.entityType, product.entitySlug, resolveAffiliateUrl(product).trim().toLowerCase() || product.productId].join(
+          '|'
+        )
+      ),
     })
 
     const entityExists =
@@ -83,12 +101,28 @@ function buildReadinessRows(): CuratedProductReadiness[] {
 function main() {
   const rows = buildReadinessRows()
   const failures = rows.filter(row => !row.renderEligible)
+  const warnings = rows.filter(row => row.renderEligible && row.warningReasons.length > 0)
+  const manualReview = rows.filter(row => row.requiresManualReview)
 
   const report = {
     generatedAt: new Date().toISOString(),
+    policy: {
+      reviewedAtRequired: true,
+      staleReviewDays: CURATED_PRODUCT_STALE_REVIEW_DAYS,
+      staleGraceDays: 30,
+      staleGraceRendersWithWarning: true,
+      invalidProductsRender: false,
+      urlChecks: {
+        malformedAmazonUrl: 'strict_dp_or_gp_product_only',
+        genericCategoryOrSearchLinksBlocked: true,
+        networkChecks: 'disabled_for_deterministic_ci',
+      },
+    },
     total: rows.length,
     pass: rows.length - failures.length,
+    warn: warnings.length,
     fail: failures.length,
+    requiresManualReview: manualReview.length,
     entries: rows,
   }
 
@@ -106,7 +140,9 @@ function main() {
     process.exit(1)
   }
 
-  console.log(`[verify-curated-affiliates] OK ${rows.length} entries render-eligible.`)
+  console.log(
+    `[verify-curated-affiliates] OK ${rows.length} checked | pass=${report.pass} warn=${warnings.length} fail=${report.fail} manual_review=${manualReview.length}`
+  )
   console.log(`[verify-curated-affiliates] report: ${path.relative(ROOT, REPORT_PATH)}`)
 }
 

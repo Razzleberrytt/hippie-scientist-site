@@ -3,11 +3,15 @@ import { curatedProductRecommendations } from '@/data/curatedProducts'
 import {
   assessCuratedProductReadiness,
   getRenderableCuratedProducts,
+  getReviewRecencyState,
   hasGenericAffiliateLink,
+  isMalformedAmazonProductUrl,
   resolveAffiliateUrl,
 } from '@/lib/curatedProducts'
 
 async function run() {
+  const base = curatedProductRecommendations[0]
+
   const herbRows = getRenderableCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
@@ -46,8 +50,10 @@ async function run() {
 
   assert.match(resolveAffiliateUrl(herbRows[0]), /tag=razzleberry02-20/)
   assert.equal(hasGenericAffiliateLink('https://www.amazon.com/s?k=ashwagandha'), true)
+  assert.equal(isMalformedAmazonProductUrl('https://www.amazon.com/s?k=ashwagandha'), true)
+  assert.equal(isMalformedAmazonProductUrl('https://www.amazon.com/dp/B07N7S35N5'), false)
+  assert.equal(getReviewRecencyState(base, new Date('2026-03-30T00:00:00.000Z')), 'fresh')
 
-  const base = curatedProductRecommendations[0]
   const invalid = {
     ...base,
     affiliateDisclosure: '',
@@ -67,6 +73,7 @@ async function run() {
   assert.equal(readiness.renderEligible, false)
   assert.equal(readiness.failureReasons.includes('missing_disclosure'), true)
   assert.equal(readiness.failureReasons.includes('missing_reviewed_at'), true)
+  assert.equal(readiness.reviewRecencyState, 'missing_reviewed_at')
 }
 
 run()
