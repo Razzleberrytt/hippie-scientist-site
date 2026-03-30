@@ -20,10 +20,12 @@ import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterHerbByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 import GovernedResearchSections from '@/components/detail/GovernedResearchSections'
+import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
+import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -124,62 +126,6 @@ function firstSentence(value: string, fallback: string) {
   return sentence.length > 180 ? `${sentence.slice(0, 177).trimEnd()}…` : sentence
 }
 
-type HerbLinkCandidate = {
-  slug: string
-  name: string
-  sharedEffects: string[]
-  sharedCompounds: string[]
-  sharedUses: string[]
-  score: number
-}
-
-function overlapByKey(items: string[], pool: Set<string>) {
-  return items.filter(item => pool.has(normalizeKey(item)))
-}
-
-function topHerbCandidates(
-  herb: { slug: string; class?: unknown },
-  herbs: Array<Record<string, unknown>>,
-  options: {
-    effectKeys: Set<string>
-    compoundKeys: Set<string>
-    useKeys: Set<string>
-    limit: number
-  },
-) {
-  return herbs
-    .filter(other => String(other.slug || '') !== herb.slug)
-    .map(other => {
-      const otherEffects = splitClean(other.effects)
-      const otherCompounds = splitClean(
-        other.activeCompounds ?? other.active_compounds ?? other.compounds,
-      )
-      const otherUses = splitClean(other.therapeuticUses ?? other.therapeutic)
-      const sharedEffects = overlapByKey(otherEffects, options.effectKeys)
-      const sharedCompounds = overlapByKey(otherCompounds, options.compoundKeys)
-      const sharedUses = overlapByKey(otherUses, options.useKeys)
-      const sameClass =
-        normalizeKey(String(other.class || other.category || '')) ===
-        normalizeKey(String(herb.class || ''))
-      const score =
-        sharedCompounds.length * 4 +
-        sharedEffects.length * 3 +
-        sharedUses.length * 2 +
-        (sameClass ? 1 : 0)
-      return {
-        slug: String(other.slug || ''),
-        name: String(other.common || other.name || other.slug || '').trim(),
-        sharedEffects,
-        sharedCompounds,
-        sharedUses,
-        score,
-      } satisfies HerbLinkCandidate
-    })
-    .filter(item => item.slug && item.name && item.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, options.limit)
-}
-
 export default function HerbDetail() {
   const { slug = '' } = useParams()
   const { herb, isLoading } = useHerbDetailState(slug)
@@ -254,36 +200,6 @@ export default function HerbDetail() {
     `${herbDisplayName} herb guide with effects, safety notes, and practical context.`,
   )
   const herbMetaTitle = `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
-
-  const compoundKeys = new Set(activeCompounds.map(normalizeKey))
-  const effectKeys = new Set(effects.map(normalizeKey))
-  const useKeys = new Set(therapeuticUses.map(normalizeKey))
-  const similarHerbs = topHerbCandidates(
-    { slug: herb.slug, class: herb.class || herb.category },
-    herbs as Array<Record<string, unknown>>,
-    { effectKeys, compoundKeys, useKeys, limit: 4 },
-  )
-  const cautionKeys = new Set(
-    [...contraindications, ...interactions, ...sideEffects].map(normalizeKey),
-  )
-  const cautionRelatedHerbs = herbs
-    .filter(other => other.slug !== herb.slug)
-    .map(other => {
-      const otherCautions = [
-        ...splitClean(other.contraindications),
-        ...splitClean(other.interactions),
-        ...splitClean(other.sideeffects ?? other.sideEffects),
-      ]
-      const sharedCautions = overlapByKey(otherCautions, cautionKeys)
-      return {
-        slug: String(other.slug || ''),
-        name: String(other.common || other.name || other.slug || '').trim(),
-        sharedCautions,
-      }
-    })
-    .filter(item => item.slug && item.sharedCautions.length > 0)
-    .sort((a, b) => b.sharedCautions.length - a.sharedCautions.length)
-    .slice(0, 3)
 
   // Scalar fields already cleaned by normalization
   const description = herb.description || ''
@@ -389,6 +305,11 @@ export default function HerbDetail() {
   })
   const ctaVariantId = ctaExperiment.activeVariantId
   const governedResearch = getGovernedResearchEnrichment('herb', herb.slug)
+  const enrichmentRecommendations = buildEnrichmentRecommendations('herb', herb.slug)
+  const recommendationNames = {
+    herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
+    compound: new Map(compounds.map(item => [item.slug, item.name || item.slug])),
+  }
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -702,86 +623,19 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {similarHerbs.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Similar Herbs to Compare Next'>
-              <div className='space-y-2 text-sm leading-relaxed text-white/85'>
-                {similarHerbs.map(other => (
-                  <p key={other.slug}>
-                    <Link
-                      className='link'
-                      to={`/herbs/${encodeURIComponent(other.slug)}`}
-                      onClick={() =>
-                        trackDetailRelatedEntityClick({
-                          detailType: 'herb',
-                          detailSlug: herb.slug,
-                          targetType: 'herb',
-                          targetSlug: other.slug,
-                          placement: 'similar_herbs',
-                        })
-                      }
-                    >
-                      {other.name}
-                    </Link>{' '}
-                    {other.sharedCompounds.length > 0
-                      ? `shares compounds (${other.sharedCompounds.slice(0, 2).join(', ')})`
-                      : 'has overlapping effects'}{' '}
-                    {other.sharedEffects.length > 0
-                      ? `and effects (${other.sharedEffects.slice(0, 2).join(', ')}).`
-                      : '.'}
-                  </p>
-                ))}
-                <div className='pt-1 text-xs text-white/60'>
-                  Compare two entries quickly:{' '}
-                  {similarHerbs.slice(0, 2).map((item, index) => (
-                    <span key={`${item.slug}-compare`}>
-                      {index > 0 ? ' · ' : ''}
-                      <Link
-                        className='link'
-                        to={`/compare?ids=${encodeURIComponent(`${herb.slug},${item.slug}`)}`}
-                      >
-                        {herbDisplayName} vs {item.name}
-                      </Link>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Collapse>
-          </section>
-        )}
-
-        {cautionRelatedHerbs.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Caution-Related Herbs'>
-              <div className='space-y-2 text-sm leading-relaxed text-white/85'>
-                <p className='text-xs text-white/65'>
-                  These links share contraindication or interaction language, so review safety
-                  overlap before stacking.
-                </p>
-                {cautionRelatedHerbs.map(other => (
-                  <p key={`caution-${other.slug}`}>
-                    <Link
-                      className='link'
-                      to={`/herbs/${encodeURIComponent(other.slug)}`}
-                      onClick={() =>
-                        trackDetailRelatedEntityClick({
-                          detailType: 'herb',
-                          detailSlug: herb.slug,
-                          targetType: 'herb',
-                          targetSlug: other.slug,
-                          placement: 'caution_related_herbs',
-                        })
-                      }
-                    >
-                      {other.name}
-                    </Link>{' '}
-                    overlaps caution notes such as {other.sharedCautions.slice(0, 2).join(', ')}.
-                  </p>
-                ))}
-              </div>
-            </Collapse>
-          </section>
-        )}
+        <EnrichmentRecommendationBlocks
+          bundle={enrichmentRecommendations}
+          names={recommendationNames}
+          onRecommendationClick={(item, placement) =>
+            trackDetailRelatedEntityClick({
+              detailType: 'herb',
+              detailSlug: herb.slug,
+              targetType: item.targetType,
+              targetSlug: item.targetSlug,
+              placement,
+            })
+          }
+        />
 
         {relatedCollections.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>

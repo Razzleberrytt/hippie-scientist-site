@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-03-30T20:07:15.107Z",
+  "pageTypes": {
+    "herb_detail": {
+      "enrichmentAwareRecommendations": true,
+      "activeSignalTypes": [
+        "contrast_conflicting_or_uncertain",
+        "shared_safety_theme"
+      ],
+      "eligibleEntities": [
+        "kava"
+      ]
+    },
+    "compound_detail": {
+      "enrichmentAwareRecommendations": true,
+      "activeSignalTypes": [
+        "contrast_conflicting_or_uncertain",
+        "shared_safety_theme"
+      ],
+      "eligibleEntities": [
+        "luteolin"
+      ]
+    }
+  },
+  "ineligibleEntities": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ashwagandha",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "chamomile",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    }
+  ]
+}

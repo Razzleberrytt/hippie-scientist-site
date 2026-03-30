@@ -34,7 +34,10 @@ type SourceRegistryEntry = {
 
 const PUBLISHABLE_EDITORIAL_STATUSES = new Set<EditorialStatus>(['approved', 'published'])
 
-const EVIDENCE_LABEL_META: Record<EvidenceLabel, { title: string; tone: string; className: string }> = {
+const EVIDENCE_LABEL_META: Record<
+  EvidenceLabel,
+  { title: string; tone: string; className: string }
+> = {
   stronger_human_support: {
     title: 'Stronger human support',
     tone: 'Human clinical evidence is stronger, but still not universal for every outcome.',
@@ -144,6 +147,21 @@ export function getEvidenceLabelMeta(label: EvidenceLabel) {
   return EVIDENCE_LABEL_META[label]
 }
 
-export function getTopicJudgment(enrichment: ResearchEnrichment, topicType: string): EvidenceJudgment {
+export function getTopicJudgment(
+  enrichment: ResearchEnrichment,
+  topicType: string,
+): EvidenceJudgment {
   return enrichment.topicEvidenceJudgments[topicType] || enrichment.pageEvidenceJudgment
+}
+
+export function getPublishableGovernedEntries() {
+  return Array.from(rollupMap.entries())
+    .map(([key, researchEnrichment]) => {
+      const [entityType, entitySlug] = key.split(':') as [GovernedEntityType, string]
+      return { entityType, entitySlug, researchEnrichment }
+    })
+    .filter(row => isPublishableGovernedEnrichment(row.researchEnrichment))
+    .sort((a, b) =>
+      `${a.entityType}:${a.entitySlug}`.localeCompare(`${b.entityType}:${b.entitySlug}`),
+    )
 }
