@@ -388,8 +388,10 @@ function getBlogEntries() {
 export function getSharedRouteManifest() {
   const routeMeta = new Map()
   const sitemapMeta = new Map()
+  const routeDirectives = new Map()
   const putRouteMeta = (route, title, description) => routeMeta.set(route, { title, description })
   const putSitemapMeta = (route, meta = {}) => sitemapMeta.set(route, meta)
+  const putRouteDirectives = (route, directives = {}) => routeDirectives.set(route, directives)
 
   CORE_STATIC_ROUTES.forEach(route => {
     const meta = CORE_ROUTE_META.get(route)
@@ -398,6 +400,10 @@ export function getSharedRouteManifest() {
       priority: CORE_SITEMAP_META.get(route)?.priority ?? 0.8,
       changefreq: CORE_SITEMAP_META.get(route)?.changefreq ?? 'weekly',
     })
+  })
+  putRouteDirectives('/build', {
+    noindex: true,
+    reason: 'utility-route',
   })
 
   const goalRoutes = extractGoalRoutes()
@@ -433,6 +439,10 @@ export function getSharedRouteManifest() {
   paginatedBlogRoutes.forEach((route, index) => {
     putRouteMeta(route, `Research Notebook — Page ${index + 2} | The Hippie Scientist`, 'Paginated archive of research posts and field notes.')
     putSitemapMeta(route, { priority: 0.6, changefreq: 'weekly' })
+    putRouteDirectives(route, {
+      noindex: true,
+      reason: 'paginated-archive',
+    })
   })
 
   const learningAllowlist = extractLearningRouteAllowlist()
@@ -518,6 +528,7 @@ export function getSharedRouteManifest() {
     prerenderRoutes,
     sitemapRoutes,
     routeMeta,
+    routeDirectives,
     sitemapMeta,
     disallowedRoutes: [...DISALLOWED_ROUTES],
     metadata: {

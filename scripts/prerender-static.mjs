@@ -8,7 +8,7 @@ const DIST = path.join(ROOT, 'dist')
 const SITE_URL = (process.env.SITE_URL || 'https://thehippiescientist.net').replace(/\/+$/, '')
 const SITE_NAME = 'The Hippie Scientist'
 
-const { routes, routeMeta, metadata } = getPrerenderPlan()
+const { routes, routeMeta, routeDirectives, metadata } = getPrerenderPlan()
 
 const baseTemplatePath = path.join(DIST, 'index.html')
 if (!fs.existsSync(baseTemplatePath)) {
@@ -29,6 +29,14 @@ const escapeHtml = value =>
 const normalize = route => (route === '/' ? '/' : `/${route.replace(/^\/+|\/+$/g, '')}`)
 const canonicalUrl = route => `${SITE_URL}${route === '/' ? '/' : route}`
 const NAN_TOKEN_PATTERN = /(^|[\s;,.()-])nan([\s;,.()-]|$)/i
+const HEAD_REPLACE_PATTERNS = [
+  /<title>[\s\S]*?<\/title>\s*/gi,
+  /<link[^>]+rel=["']canonical["'][^>]*>\s*/gi,
+  /<meta[^>]+name=["']description["'][^>]*>\s*/gi,
+  /<meta[^>]+name=["']robots["'][^>]*>\s*/gi,
+  /<meta[^>]+property=["']og:[^"']+["'][^>]*>\s*/gi,
+  /<meta[^>]+name=["']twitter:[^"']+["'][^>]*>\s*/gi,
+]
 
 function readJson(relativePath) {
   const file = path.join(ROOT, relativePath)
@@ -159,26 +167,63 @@ function websiteJsonLd() {
   }
 }
 
+function parseSeoCollections() {
+  const file = path.join(ROOT, 'src', 'data', 'seoCollections.ts')
+  if (!fs.existsSync(file)) return []
+  const source = fs.readFileSync(file, 'utf8')
+  const match = source.match(/export const SEO_COLLECTIONS:\s*SeoCollection\[\]\s*=\s*(\[[\s\S]*?\n\])/)
+  if (!match?.[1]) return []
+  try {
+    const parsed = Function(`"use strict"; return (${match[1]});`)()
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    return []
+  }
+}
+
+const seoCollections = parseSeoCollections()
+const collectionBySlug = new Map(
+  seoCollections.map(collection => [String(collection?.slug || '').trim(), collection])
+)
+
+function resolveOgImage(route) {
+  if (route.startsWith('/blog/')) {
+    const slug = route.split('/').pop() || ''
+    return `/og/blog/${slug}.png`
+  }
+  if (route.startsWith('/herbs/')) {
+    const slug = route.split('/').pop() || ''
+    return `/og/herb/${slug}.png`
+  }
+  return '/og/default.png'
+}
+
 function buildHead(route) {
   const meta = routeMeta.get(route) || {}
+  const directives = routeDirectives.get(route) || {}
   const title = escapeHtml(safeStr(meta.title) || SITE_NAME)
   const description = escapeHtml(
     safeStr(meta.description) || 'Evidence-aware herbal education and safety context.'
   )
   const canonical = canonicalUrl(route)
+  const image = canonicalUrl(resolveOgImage(route))
+  const ogType = route.startsWith('/blog/') ? 'article' : 'website'
 
   const tags = [
     `<title>${title}</title>`,
     `<meta name="description" content="${description}" />`,
     `<link rel="canonical" href="${canonical}" />`,
-    '<meta property="og:type" content="website" />',
+    directives.noindex ? '<meta name="robots" content="noindex,nofollow" />' : '',
+    `<meta property="og:type" content="${ogType}" />`,
     `<meta property="og:title" content="${title}" />`,
     `<meta property="og:description" content="${description}" />`,
     `<meta property="og:url" content="${canonical}" />`,
+    `<meta property="og:image" content="${image}" />`,
     '<meta name="twitter:card" content="summary_large_image" />',
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${description}" />`,
-  ]
+    `<meta name="twitter:image" content="${image}" />`,
+  ].filter(Boolean)
 
   if (route === '/') {
     tags.push(
@@ -190,7 +235,6 @@ function buildHead(route) {
     const slug = route.split('/').pop()
     const post = blogBySlug.get(slug || '')
     if (post) {
-      tags.push('<meta property="og:type" content="article" />')
       tags.push(
         `<script type="application/ld+json">${escapeHtml(
           JSON.stringify(blogPostJsonLd(post, route, meta.title || '', meta.description || ''))
@@ -211,6 +255,22 @@ function makeCardList(items, fallbackText = 'Content is being updated.') {
 
 function renderRouteContent(route) {
   const heading = escapeHtml(routeMeta.get(route)?.title || SITE_NAME)
+  const staticContentByRoute = {
+    '/about':
+      'The Hippie Scientist publishes evidence-aware herbal explainers focused on mechanisms, practical risk boundaries, and transparent sourcing.',
+    '/newsletter':
+      'Subscribe for new research digests, route-quality updates, and editorial notes about changes in herb and compound publication standards.',
+    '/privacy':
+      'This page summarizes analytics use, newsletter data handling, and choices users have to control stored preferences and tracking behavior.',
+    '/disclaimer':
+      'Content is educational and not medical advice. Always evaluate interactions, contraindications, and local regulation before use decisions.',
+    '/methodology':
+      'Methodology outlines source requirements, confidence signals, and the quality filters used before a route is considered publication-ready.',
+    '/contact':
+      'Use the contact route to submit corrections, suggest primary sources, and report safety-critical issues that require editorial review.',
+    '/learning':
+      'Learning paths provide structured navigation through herb profiles, compounds, and safety-first workflow pages for staged exploration.',
+  }
 
   if (route === '/') {
     return `
@@ -240,6 +300,10 @@ function renderRouteContent(route) {
     })
 
     return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1>${makeCardList(cards, 'No posts available.')}</main>`
+  }
+
+  if (staticContentByRoute[route]) {
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>${escapeHtml(staticContentByRoute[route])}</p><p>For the latest interactive modules, open this route in the app shell; this prerendered version preserves canonical metadata and an indexable editorial summary.</p></article></main>`
   }
 
   if (route.startsWith('/blog/')) {
@@ -277,7 +341,7 @@ function renderRouteContent(route) {
     const effects = textList(herb?.effects, 8).map(effect => `<li>${escapeHtml(effect)}</li>`)
     const warnings = textList(herb?.contraindications, 6).map(item => `<li>${escapeHtml(item)}</li>`)
 
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${description}</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending.')}</section><section><h2>Safety notes</h2>${makeCardList(warnings, 'No contraindications listed in the source dataset.')}</section></article></main>`
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${description}</p><p>This static profile is generated from the publication manifest and is intended to give search crawlers a readable summary before hydration adds interactive evidence controls.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending; editorial review continues as new references are validated.')}</section><section><h2>Safety notes</h2>${makeCardList(warnings, 'No contraindications listed in the source dataset yet. Use conservative assumptions and review interactions.')}</section></article></main>`
   }
 
   if (route === '/compounds') {
@@ -288,7 +352,7 @@ function renderRouteContent(route) {
       return `<li><article><h2><a href="/compounds/${slug}">${name}</a></h2><p>${description}</p></article></li>`
     })
 
-    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1>${makeCardList(compoundCards, 'No indexable compounds currently pass quality thresholds.')}</main>`
+    return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1><p>Compound pages are published only after meeting route-quality thresholds for description quality, effect coverage, and source completeness.</p>${makeCardList(compoundCards, 'No compounds currently meet publication thresholds; this index remains available for canonical routing and metadata stability.')}</main>`
   }
 
   if (route.startsWith('/compounds/')) {
@@ -299,12 +363,56 @@ function renderRouteContent(route) {
     const effects = textList(compound?.effects, 8).map(effect => `<li>${escapeHtml(effect)}</li>`)
     const interactions = textList(compound?.interactions, 6).map(item => `<li>${escapeHtml(item)}</li>`)
 
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${description}</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending.')}</section><section><h2>Interaction notes</h2>${makeCardList(interactions, 'No interactions listed in the source dataset.')}</section></article></main>`
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${description}</p><p>This prerendered route preserves canonical publication metadata and a static narrative snapshot for indexing while interactive analysis tools load after hydration.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending while this compound remains under active evidence review.')}</section><section><h2>Interaction notes</h2>${makeCardList(interactions, 'No interactions listed in the source dataset yet; verify with primary references before use decisions.')}</section></article></main>`
+  }
+
+  if (route.startsWith('/herbs-for-')) {
+    const goalName = route.replace('/herbs-for-', '').replace(/-/g, ' ')
+    const herbCards = indexableHerbCards.slice(0, 10).map(item => {
+      const slug = escapeHtml(item.slug)
+      const name = escapeHtml(textFrom(item.herb?.common, item.herb?.commonName, item.herb?.name, slug))
+      const description = escapeHtml(textFrom(item.herb?.summary, item.herb?.description, 'Evidence-aware herb profile'))
+      return `<li><article><h2><a href="/herbs/${slug}">${name}</a></h2><p>${description}</p></article></li>`
+    })
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>This goal route curates herbs linked to ${escapeHtml(
+      goalName
+    )} signals and routes readers toward full safety notes, interactions, and mechanism context.</p><section><h2>Related indexable herbs</h2>${makeCardList(herbCards, 'No herb profiles currently satisfy publication thresholds for this goal route.')}</section></article></main>`
   }
 
   if (route.startsWith('/collections/')) {
     const slug = route.split('/').pop() || ''
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>Collection route: ${escapeHtml(slug)}.</p><p>This curated page groups herbs and compounds for a targeted outcome with safety-first context.</p><p>Open the interactive version to apply filters and build a stack.</p></article></main>`
+    const collection = collectionBySlug.get(slug)
+    const intro = escapeHtml(
+      safeStr(collection?.intro) ||
+        'This curated collection groups routes by a shared evidence-informed outcome and safety profile.'
+    )
+    const description = escapeHtml(
+      safeStr(collection?.description) || 'Use this page to review entities, then open the interactive workflow to compare interactions.'
+    )
+    const relatedLinks = Array.isArray(collection?.relatedSlugs)
+      ? collection.relatedSlugs
+          .slice(0, 8)
+          .map(
+            related =>
+              `<li><a href="/collections/${escapeHtml(String(related))}">${escapeHtml(
+                String(related).replace(/-/g, ' ')
+              )}</a></li>`
+          )
+      : []
+    const topHerbs = indexableHerbCards
+      .slice(0, 8)
+      .map(item => {
+        const name = escapeHtml(textFrom(item.herb?.common, item.herb?.commonName, item.herb?.name, item.slug))
+        return `<li><a href="/herbs/${escapeHtml(item.slug)}">${name}</a></li>`
+      })
+    const topCompounds = indexableCompoundCards
+      .slice(0, 8)
+      .map(item => {
+        const name = escapeHtml(textFrom(item.compound?.name, item.slug))
+        return `<li><a href="/compounds/${escapeHtml(item.slug)}">${name}</a></li>`
+      })
+
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>${intro}</p><p>${description}</p><section><h2>Related collections</h2>${makeCardList(relatedLinks, 'Related collections are being curated.')}</section><section><h2>Indexable herb profiles</h2>${makeCardList(topHerbs, 'No herb profiles currently meet publication thresholds.')}</section><section><h2>Indexable compound profiles</h2>${makeCardList(topCompounds, 'No compound profiles currently meet publication thresholds.')}</section></article></main>`
   }
 
   return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1><p>This route is prerendered for SEO metadata. Interactive content loads after hydration.</p></main>`
@@ -313,10 +421,13 @@ function renderRouteContent(route) {
 function render(route) {
   const head = buildHead(route)
   const bodyContent = renderRouteContent(route)
+  const sanitizeHead = value =>
+    HEAD_REPLACE_PATTERNS.reduce((next, pattern) => next.replace(pattern, ''), value)
 
-  let html = indexTemplate.includes('<!--prerender-head-->')
-    ? indexTemplate.replace('<!--prerender-head-->', head)
-    : indexTemplate.replace('</head>', `    ${head}\n  </head>`)
+  let html = sanitizeHead(indexTemplate)
+  html = html.includes('<!--prerender-head-->')
+    ? html.replace('<!--prerender-head-->', head)
+    : html.replace('</head>', `    ${head}\n  </head>`)
 
   if (html.includes('<div id="root"></div>')) {
     html = html.replace('<div id="root"></div>', `<div id="root">${bodyContent}</div>`)
