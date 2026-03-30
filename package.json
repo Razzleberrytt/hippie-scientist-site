@@ -84,7 +84,8 @@
     "verify:curated-affiliates": "tsx scripts/verify-curated-affiliates.ts",
     "verify:affiliate-products": "tsx scripts/verify-curated-affiliates.ts",
     "report:affiliate-inventory": "tsx scripts/report-affiliate-inventory.ts",
-    "report:conversion-scorecard": "tsx scripts/report-conversion-scorecard.ts"
+    "report:conversion-scorecard": "tsx scripts/report-conversion-scorecard.ts",
+    "report:phase2-roadmap": "node scripts/report-phase2-roadmap.mjs"
   },
   "engines": {
     "node": ">=20 <21"

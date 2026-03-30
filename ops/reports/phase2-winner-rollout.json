@@ -1,0 +1,412 @@
+{
+  "generatedAt": "2026-03-30T17:20:48.251Z",
+  "scope": "phase-2a",
+  "evidenceWindow": {
+    "reports": {
+      "conversionScorecardGeneratedAt": "2026-03-30T17:17:48.411Z",
+      "affiliateInventoryGeneratedAt": "2026-03-30T17:17:48.463Z",
+      "ctaVariantsGeneratedAt": "2026-03-30",
+      "structuredDataInventoryGeneratedAt": "2026-03-30T17:18:16.063Z",
+      "publishingRegressionGeneratedAt": "2026-03-30T17:18:15.667Z",
+      "qualityReportGeneratedAt": "2026-03-30T17:17:53.367Z",
+      "seoPriorityGeneratedAt": "2026-03-30T15:52:09.844Z",
+      "optimizationTargetsGeneratedAt": "2026-03-30T16:58:25.093Z"
+    }
+  },
+  "classification": {
+    "provenWinnersToStandardize": [
+      {
+        "id": "publish-verification-gate",
+        "type": "technical_hardening",
+        "pageTypes": [
+          "sitewide"
+        ],
+        "decision": "standardize_now",
+        "evidence": {
+          "publishingFailureCount": 0,
+          "structuredDataFailures": 0
+        },
+        "rollout": {
+          "scripts": [
+            "verify:publishing",
+            "verify:structured-data"
+          ],
+          "expectation": "Required on every content/data release before publish."
+        },
+        "expectedValue": {
+          "trust": "high",
+          "toolUsage": "low",
+          "affiliateCtr": "low",
+          "seoQuality": "high"
+        }
+      },
+      {
+        "id": "curated-affiliate-safety-policy",
+        "type": "affiliate_operations",
+        "pageTypes": [
+          "herb_detail",
+          "compound_detail"
+        ],
+        "decision": "standardize_now",
+        "evidence": {
+          "totalRecommendations": 3,
+          "healthyRecommendations": 3,
+          "blockedRecommendations": 0
+        },
+        "rollout": {
+          "policy": "Keep readiness checks + disclosure/rationale requirements enforced before module render.",
+          "scripts": [
+            "verify:affiliate-products",
+            "report:affiliate-inventory"
+          ]
+        },
+        "expectedValue": {
+          "trust": "high",
+          "toolUsage": "low",
+          "affiliateCtr": "medium",
+          "seoQuality": "low"
+        }
+      }
+    ],
+    "promisingExperimentsToContinue": [
+      {
+        "id": "collection-tool-first-variant-a-overrides",
+        "type": "conversion_optimization",
+        "pageTypes": [
+          "collection_page"
+        ],
+        "routes": [
+          "/collections/herbs-for-relaxation",
+          "/collections/herbs-for-sleep",
+          "/collections/herbs-for-focus",
+          "/collections/calming-herb-combinations",
+          "/collections/stimulant-herb-combinations"
+        ],
+        "decision": "continue_experiment",
+        "evidence": {
+          "targetCount": 5,
+          "conversionStatusInsufficient": 23,
+          "analyticsAvailable": false
+        },
+        "rollout": {
+          "keepExperimental": true,
+          "notes": "Do not globalize variant A for all collections until event volume supports scorecard status changes."
+        },
+        "expectedValue": {
+          "trust": "medium",
+          "toolUsage": "medium",
+          "affiliateCtr": "low",
+          "seoQuality": "low"
+        }
+      },
+      {
+        "id": "affiliate-cta-copy-and-ordering",
+        "type": "conversion_optimization",
+        "pageTypes": [
+          "herb_detail",
+          "compound_detail"
+        ],
+        "routes": [
+          "/herbs/ashwagandha",
+          "/herbs/chamomile",
+          "/compounds/luteolin"
+        ],
+        "decision": "continue_experiment",
+        "evidence": {
+          "analyticsAvailable": false,
+          "mappedTargets": 3
+        },
+        "rollout": {
+          "keepExperimental": true,
+          "notes": "Keep trust-first ordering while collecting click/impression deltas after copy updates."
+        },
+        "expectedValue": {
+          "trust": "medium",
+          "toolUsage": "low",
+          "affiliateCtr": "medium",
+          "seoQuality": "low"
+        }
+      }
+    ],
+    "weakOrLowValueToStopOrDefer": [
+      {
+        "id": "broad-affiliate-expansion-before-confidence-upgrade",
+        "type": "affiliate_operations",
+        "pageTypes": [
+          "herb_detail",
+          "compound_detail"
+        ],
+        "decision": "stop_for_now",
+        "evidence": {
+          "pagesMissingCuratedProducts": {
+            "herbs": 675,
+            "compounds": 388,
+            "total": 1063
+          },
+          "lowConfidenceRequirementCount": 3
+        },
+        "rationale": "Current inventory is tiny and confidence is mostly low; scaling breadth before quality/confidence gains increases review load without proof of conversion lift."
+      },
+      {
+        "id": "compound-index-expansion-before-quality-remediation",
+        "type": "content_quality",
+        "pageTypes": [
+          "compound_detail"
+        ],
+        "decision": "defer",
+        "evidence": {
+          "compoundsTotal": 393,
+          "compoundsIndexable": 0,
+          "weakDescription": 393
+        },
+        "rationale": "Compound publication expansion is blocked by quality gates (0 indexable compounds in latest run)."
+      }
+    ]
+  },
+  "rolloutPlan": {
+    "pageTypesAffected": {
+      "herb_detail": {
+        "standardize": [
+          "affiliate readiness verification policy",
+          "trust-first guard variant default B"
+        ],
+        "experimental": [
+          "affiliate CTA copy/order adjustments on selected pages"
+        ]
+      },
+      "compound_detail": {
+        "standardize": [
+          "affiliate readiness verification policy",
+          "trust-first guard variant default B"
+        ],
+        "experimental": [
+          "affiliate CTA copy/order adjustments on selected pages"
+        ]
+      },
+      "collection_page": {
+        "standardize": [
+          "structured data + publishing verification gates"
+        ],
+        "experimental": [
+          "variant A tool-first override on priority collections"
+        ]
+      },
+      "sitewide": {
+        "standardize": [
+          "verify:publishing",
+          "verify:structured-data",
+          "verify:affiliate-products"
+        ],
+        "experimental": []
+      }
+    },
+    "blockersAndDependencies": [
+      {
+        "blocker": "Missing analytics events for CTA and affiliate performance decisions",
+        "evidence": {
+          "conversionAnalyticsAvailable": false,
+          "affiliateAnalyticsAvailable": false
+        },
+        "dependency": "Reliable export of content-journey + affiliate-product event logs into ops/reports or public/data."
+      },
+      {
+        "blocker": "Data quality gates exclude most herb and all compound pages from indexable set",
+        "evidence": {
+          "herbsIndexableRate": 1.72,
+          "compoundsIndexableRate": 0
+        },
+        "dependency": "Field-level remediation (description quality, placeholder cleanup, evidence depth)."
+      }
+    ],
+    "expectedValueSummary": {
+      "trust": "high confidence in current technical trust floor",
+      "toolUsage": "potential upside from collection tool-first experiments; not yet measured",
+      "affiliateCtr": "potential upside from trust-first affiliate copy/order experiment; not yet measured",
+      "seoQuality": "technical quality checks pass, but content quality gates constrain indexable depth"
+    }
+  },
+  "roadmap": {
+    "nextQuarterWorkstreams": [
+      {
+        "name": "content quality",
+        "objective": "Increase indexable entity pool without weakening quality gates.",
+        "tasks": [
+          "Remediate high-frequency herb exclusion causes (weakDescription, placeholderText, nanArtifacts).",
+          "Run compound description/evidence upgrades to move compounds from 0 indexable baseline.",
+          "Prioritize editorial upgrades for top SEO-priority herbs that are currently non-indexable."
+        ],
+        "kpis": [
+          "indexable herbs count",
+          "indexable compounds count",
+          "quality-gate exclusion counts by reason"
+        ]
+      },
+      {
+        "name": "conversion optimization",
+        "objective": "Turn current CTA hypotheses into measurable winners.",
+        "tasks": [
+          "Keep collection variant A overrides limited to existing target pages until event volume is sufficient.",
+          "Retain trust-first variant B on detail pages with caution-driven trust guard behavior.",
+          "Define promotion criteria: only promote variants after non-insufficient scorecard status."
+        ],
+        "kpis": [
+          "pages with non-insufficient status",
+          "tool CTR by page type",
+          "related-click rate"
+        ]
+      },
+      {
+        "name": "affiliate operations",
+        "objective": "Protect trust quality while growing curated inventory deliberately.",
+        "tasks": [
+          "Maintain confidence-tier + disclosure/rationale policy gates as hard requirements.",
+          "Expand curated modules only to pages meeting confidence + freshness policy.",
+          "Instrument and ingest affiliate click/impression exports as a release prerequisite for optimization decisions."
+        ],
+        "kpis": [
+          "healthy recommendation count",
+          "blocked/warning recommendation count",
+          "affiliate CTR with valid sample size"
+        ]
+      },
+      {
+        "name": "technical hardening",
+        "objective": "Keep publication and schema regressions near zero.",
+        "tasks": [
+          "Continue running publishing regression and structured-data inventory checks per release.",
+          "Fail release candidates on parity/head-tag/schema regressions.",
+          "Track route parity and excluded-route leakage as weekly checks."
+        ],
+        "kpis": [
+          "publishing failure count",
+          "structured-data failure count",
+          "route parity mismatch count"
+        ]
+      },
+      {
+        "name": "analytics and reporting",
+        "objective": "Close the evidence gap blocking winner decisions.",
+        "tasks": [
+          "Automate event export ingestion to ops/reports for both CTA and affiliate events.",
+          "Promote conversion scorecard + affiliate inventory + phase2 roadmap reports to weekly cadence.",
+          "Add sample-size guardrails to roadmap decisions to prevent overfitting on thin data."
+        ],
+        "kpis": [
+          "analytics source availability",
+          "event volume per report",
+          "count of decisions backed by sufficient data"
+        ]
+      }
+    ],
+    "prioritizedBacklog": {
+      "doNow": [
+        "Standardize verify:publishing + verify:structured-data + verify:affiliate-products as mandatory release checks.",
+        "Keep trust-first variant B defaults on herb/compound detail pages.",
+        "Maintain curated affiliate policy gating (review recency, disclosure, rationale, confidence tier)."
+      ],
+      "nextSprint": [
+        "Collect and ingest analytics event exports so conversion scorecard no longer reports all pages as insufficient data.",
+        "Re-evaluate five collection Variant A overrides with fresh event data before expanding scope.",
+        "Start targeted remediation of top herb quality-gate failures from SEO-priority list."
+      ],
+      "later": [
+        "Expand curated affiliate footprint beyond current three products only after confidence tiers improve.",
+        "Scale compound detail publication only after description/evidence quality thresholds are met."
+      ],
+      "stopDoing": [
+        "Stop broad rollout claims for CTA or affiliate experiments while analytics availability remains false.",
+        "Stop proposing compound index expansion without addressing zero-indexable compound baseline."
+      ]
+    },
+    "explicitRecommendations": {
+      "ctaVariantsToKeep": {
+        "keepNow": [
+          {
+            "variantId": "B",
+            "pageTypes": [
+              "herb_detail",
+              "compound_detail"
+            ],
+            "reason": "Aligned with trust-first guard policy and current caution-sensitive detail-page posture."
+          }
+        ],
+        "keepExperimental": [
+          {
+            "variantId": "A",
+            "pageTypes": [
+              "collection_page"
+            ],
+            "routes": [
+              "/collections/herbs-for-relaxation",
+              "/collections/herbs-for-sleep",
+              "/collections/herbs-for-focus",
+              "/collections/calming-herb-combinations",
+              "/collections/stimulant-herb-combinations"
+            ],
+            "reason": "Configured optimization target set exists but performance outcomes are still insufficient-data."
+          }
+        ],
+        "deferOrLimit": [
+          {
+            "variantId": "C",
+            "pageTypes": [
+              "collection_page"
+            ],
+            "reason": "Default editorial path remains fallback; defer additional investment until instrumentation closes evidence gaps."
+          }
+        ]
+      },
+      "editorialInvestmentPageTypes": [
+        {
+          "pageType": "herb_detail",
+          "recommendation": "Increase editorial investment on high SEO-priority herbs (especially non-indexable candidates with stronger source depth)."
+        },
+        {
+          "pageType": "collection_page",
+          "recommendation": "Maintain investment on the 7 currently published collections and improve conversion instrumentation before scaling new ones."
+        },
+        {
+          "pageType": "compound_detail",
+          "recommendation": "Defer broad editorial scaling until quality gates produce indexable compounds."
+        }
+      ],
+      "collectionPolicy": {
+        "expand": [
+          "/collections/herbs-for-relaxation",
+          "/collections/herbs-for-sleep",
+          "/collections/herbs-for-focus",
+          "/collections/calming-herb-combinations",
+          "/collections/herbs-for-energy",
+          "/collections/stimulant-herb-combinations",
+          "/collections/herbs-for-deep-sleep-recovery"
+        ],
+        "leaveNoindex": [
+          "Any collection not present in the current index-approved/published set until quality + route-manifest approval is met."
+        ]
+      },
+      "affiliateModulePolicyByConfidenceTier": {
+        "high": "Eligible for expansion when readiness checks are healthy and analytics sample is sufficient.",
+        "medium": "Eligible with stricter review cadence and explicit rationale/disclosure checks.",
+        "low": "Keep limited and trust-first; require manual review and avoid broad rollout claims."
+      },
+      "essentialReportingScripts": [
+        "npm run report:conversion-scorecard",
+        "npm run report:affiliate-inventory",
+        "npm run verify:affiliate-products",
+        "npm run verify:publishing",
+        "npm run verify:structured-data",
+        "npm run report:phase2-roadmap"
+      ]
+    }
+  },
+  "sourceFiles": {
+    "conversionScorecard": "ops/reports/conversion-scorecard.json",
+    "affiliateInventory": "ops/reports/affiliate-inventory.json",
+    "ctaVariants": "public/data/cta-variants.json",
+    "structuredDataInventory": "ops/reports/structured-data-inventory.json",
+    "publishingRegression": "ops/reports/publishing-regression-report.json",
+    "qualityReport": "public/data/quality-report.json",
+    "seoPriorityReport": "public/data/seo-priority-report.json",
+    "optimizationTargets": "ops/reports/optimization-targets.json"
+  }
+}
