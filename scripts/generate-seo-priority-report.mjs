@@ -92,11 +92,23 @@ function filterCompoundByCollection(compound, filters = {}) {
   )
 }
 
+function filterComboByCollection(combo, filters = {}) {
+  const goals = asList(filters.comboGoalsAny)
+  const goalMatch = !goals.length || goals.includes(combo.goal)
+  const nameMatch = matchesAny(String(combo.name || '').toLowerCase(), asList(filters.comboNameAny))
+  const descriptionMatch = matchesAny(
+    String(combo.description || '').toLowerCase(),
+    asList(filters.comboDescriptionAny)
+  )
+  return goalMatch && (nameMatch || descriptionMatch)
+}
+
 function buildReport() {
   const today = new Date().toISOString().slice(0, 10)
   const publicationManifest = readJson('public/data/publication-manifest.json')
   const herbs = readJson('public/data/herbs.json')
   const compounds = readJson('public/data/compounds.json')
+  const combos = readJson('public/data/prebuiltCombos.json')
   const homepageData = readJson('src/generated/homepage-data.json')
   const { metadata } = getSharedRouteManifest()
   const { collections, featuredSlugs } = parseSeoCollections()
@@ -273,6 +285,43 @@ function buildReport() {
     .sort((a, b) => b.score - a.score)
     .slice(0, 12)
 
+  const collectionBySlug = new Map(collections.map(collection => [collection.slug, collection]))
+  const indexableCollectionEditorialExamples = topCollections.map(entry => {
+    const collection = collectionBySlug.get(entry.slug)
+    if (!collection) return { slug: entry.slug, route: entry.route, title: entry.name, examples: [] }
+
+    const examples =
+      collection.itemType === 'herb'
+        ? herbs
+            .filter(herb => filterHerbByCollection(herb, collection.filters || {}))
+            .slice(0, 3)
+            .map(herb => herb.common || herb.name || herb.slug)
+        : collection.itemType === 'compound'
+          ? compounds
+              .filter(compound => filterCompoundByCollection(compound, collection.filters || {}))
+              .slice(0, 3)
+              .map(compound => compound.name || compound.slug)
+          : combos
+              .filter(combo => filterComboByCollection(combo, collection.filters || {}))
+              .slice(0, 3)
+              .map(combo => combo.name || combo.id)
+
+    return {
+      slug: collection.slug,
+      route: `/collections/${collection.slug}`,
+      title: collection.title,
+      itemType: collection.itemType,
+      examples,
+      keyTradeoffs: asList(collection?.editorial?.keyTradeoffs).slice(0, 2),
+      exclusionsAndCautions: [
+        ...asList(collection?.editorial?.exclusions),
+        ...asList(collection?.editorial?.cautions),
+      ].slice(0, 3),
+      alternatives: asList(collection?.editorial?.alternatives).slice(0, 3),
+      nextAction: String(collection?.editorial?.ctaLabel || ''),
+    }
+  })
+
   return {
     generatedAt: new Date().toISOString(),
     generatedOn: today,
@@ -295,6 +344,7 @@ function buildReport() {
     topHerbs,
     topCompounds,
     topCollections,
+    indexableCollectionEditorialExamples,
   }
 }
 

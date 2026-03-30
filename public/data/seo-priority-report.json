@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-30T15:29:33.978Z",
+  "generatedAt": "2026-03-30T15:52:09.844Z",
   "generatedOn": "2026-03-30",
   "signalsUsed": [
     "homepage feature/curated prominence",
@@ -536,6 +536,183 @@
         "hasEditorialBrief": true,
         "qualityExclusionReasons": []
       }
+    }
+  ],
+  "indexableCollectionEditorialExamples": [
+    {
+      "slug": "herbs-for-relaxation",
+      "route": "/collections/herbs-for-relaxation",
+      "title": "Herbs for Relaxation",
+      "itemType": "herb",
+      "examples": [
+        "acorus calamus",
+        "calea ternifolia",
+        "centella asiatica"
+      ],
+      "keyTradeoffs": [
+        "Broader calming signal capture improves discovery, but it can pull in herbs that feel too sedating for daytime use.",
+        "Prioritizing sedation-aware tags helps safety screening, but it does not estimate comparative efficacy between herbs."
+      ],
+      "exclusionsAndCautions": [
+        "This is not a diagnosis-specific protocol and does not rank herbs by efficacy for anxiety disorders.",
+        "Sedative overlap can raise impairment risk when layered with sleep aids, alcohol, or sedating medications."
+      ],
+      "alternatives": [
+        "relaxation-without-sedation",
+        "herbs-for-sleep",
+        "gabaergic-herbs"
+      ],
+      "nextAction": "Start in the interaction checker with 2-3 candidates before deciding on any nightly stack."
+    },
+    {
+      "slug": "herbs-for-sleep",
+      "route": "/collections/herbs-for-sleep",
+      "title": "Herbs for Sleep",
+      "itemType": "herb",
+      "examples": [
+        "acorus calamus",
+        "calea ternifolia",
+        "elaeagnus angustifolia"
+      ],
+      "keyTradeoffs": [
+        "Strong sleep-signal filters improve nighttime relevance, but may surface entries that are too impairing for next-morning performance.",
+        "Sedative interaction emphasis improves safety triage, but does not replace diagnosis-level sleep-disorder evaluation."
+      ],
+      "exclusionsAndCautions": [
+        "This guide is not a substitute for insomnia evaluation, sleep apnea care, or emergency mental health support.",
+        "Combining multiple sedative agents can increase next-day grogginess and coordination risk."
+      ],
+      "alternatives": [
+        "herbs-for-relaxation",
+        "calming-herb-combinations",
+        "herbs-for-deep-sleep-recovery"
+      ],
+      "nextAction": "Run your evening plan through the checker first, then keep stack size conservative in the builder."
+    },
+    {
+      "slug": "herbs-for-focus",
+      "route": "/collections/herbs-for-focus",
+      "title": "Herbs for Focus",
+      "itemType": "herb",
+      "examples": [
+        "acorus calamus",
+        "camellia sinensis",
+        "ilex paraguariensis"
+      ],
+      "keyTradeoffs": [
+        "Stimulant-tagged coverage broadens useful options for attention goals, but increases risk of jittery or overstimulating picks.",
+        "Focus-oriented labels improve targeting, but they do not guarantee benefit across different cognitive workloads."
+      ],
+      "exclusionsAndCautions": [
+        "This page does not replace ADHD treatment planning and is not a performance-maximization checklist.",
+        "Even non-caffeine stimulatory herbs may conflict with anxiety-prone states, blood pressure concerns, or stimulant medications."
+      ],
+      "alternatives": [
+        "natural-focus-without-caffeine",
+        "herbs-for-energy",
+        "compounds-for-focus"
+      ],
+      "nextAction": "Open the checker to compare your shortlist against current meds before building a workday stack."
+    },
+    {
+      "slug": "calming-herb-combinations",
+      "route": "/collections/calming-herb-combinations",
+      "title": "Calming Herb Combinations",
+      "itemType": "combo",
+      "examples": [
+        "Deep Relaxation Stack",
+        "Night Wind-Down",
+        "Quiet Mind Combo"
+      ],
+      "keyTradeoffs": [
+        "Prebuilt combos speed exploration, but may include ingredients that are unnecessary for your specific sleep or stress target.",
+        "Goal-tag filtering improves relevance, but can miss quieter combinations that are useful yet described with neutral language."
+      ],
+      "exclusionsAndCautions": [
+        "These examples are not personalized recommendations and may not fit shift-work or daytime use.",
+        "Prebuilt combos can hide duplicate sedative activity across ingredients, so review full component overlap."
+      ],
+      "alternatives": [
+        "herbs-for-sleep",
+        "herbs-for-relaxation",
+        "relaxation-without-sedation"
+      ],
+      "nextAction": "Run the combo in the checker and inspect each ingredient before importing it into your saved stack."
+    },
+    {
+      "slug": "herbs-for-energy",
+      "route": "/collections/herbs-for-energy",
+      "title": "Herbs for Energy",
+      "itemType": "herb",
+      "examples": [
+        "acorus calamus",
+        "alchornea floribunda",
+        "anadenanthera peregrina"
+      ],
+      "keyTradeoffs": [
+        "Including cardioactive and stimulant tags catches higher-risk options early, but can make the set feel conservative for advanced users.",
+        "Energy terms improve breadth, but they do not distinguish between smooth endurance support and rapid stimulation."
+      ],
+      "exclusionsAndCautions": [
+        "This list does not promise fatigue treatment and should not replace workup for persistent exhaustion causes.",
+        "Energy-targeted stacks can worsen jitteriness, sleep timing, or cardiovascular strain when layered aggressively."
+      ],
+      "alternatives": [
+        "energy-without-crash",
+        "herbs-for-focus",
+        "stimulant-herb-combinations"
+      ],
+      "nextAction": "Use the checker to stress-test your morning candidates before adding them into a recurring stack."
+    },
+    {
+      "slug": "stimulant-herb-combinations",
+      "route": "/collections/stimulant-herb-combinations",
+      "title": "Stimulant Herb Combinations",
+      "itemType": "combo",
+      "examples": [
+        "Focus Stack",
+        "Study Flow",
+        "Morning Spark"
+      ],
+      "keyTradeoffs": [
+        "Combo templates reduce setup time, but can bundle multiple stimulatory agents that exceed your tolerance window.",
+        "Energy/focus tag constraints improve precision, but they do not account for dosing timing or sleep debt context."
+      ],
+      "exclusionsAndCautions": [
+        "This is not an athletic-performance protocol and does not account for sport anti-doping rules.",
+        "Stacked stimulatory ingredients can compound sleep disruption and anxiety risk, especially later in the day."
+      ],
+      "alternatives": [
+        "herbs-for-focus",
+        "energy-without-crash",
+        "natural-focus-without-caffeine"
+      ],
+      "nextAction": "Open each combo in the checker first, then trim ingredients before saving a repeatable daytime stack."
+    },
+    {
+      "slug": "herbs-for-deep-sleep-recovery",
+      "route": "/collections/herbs-for-deep-sleep-recovery",
+      "title": "Herbs for Deep Sleep Recovery",
+      "itemType": "herb",
+      "examples": [
+        "acorus calamus",
+        "calea ternifolia",
+        "elaeagnus angustifolia"
+      ],
+      "keyTradeoffs": [
+        "Deep-sleep emphasis improves restorative-night targeting, but increases the chance of selecting herbs that are too heavy for occasional use.",
+        "Sedative-tag coverage improves risk awareness, but does not indicate suitability for complex sleep disorders."
+      ],
+      "exclusionsAndCautions": [
+        "Not intended for pediatric use planning, pregnancy-specific decisions, or emergency insomnia crises.",
+        "This set intentionally captures stronger nighttime signals, so daytime use may be inappropriate for many users."
+      ],
+      "alternatives": [
+        "herbs-for-sleep",
+        "herbs-for-relaxation",
+        "calming-herb-combinations"
+      ],
+      "nextAction": "Check any proposed bedtime combination in the interaction tool before adding additional sedative agents."
     }
   ]
 }
