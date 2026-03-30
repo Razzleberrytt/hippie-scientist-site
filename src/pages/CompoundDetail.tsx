@@ -17,6 +17,8 @@ import { countCautionSignals, inferContentFlags } from '@/lib/trust'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterCompoundByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
+import CuratedProductModule from '@/components/CuratedProductModule'
+import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import {
   trackDetailBuilderClick,
   trackDetailCheckerClick,
@@ -168,6 +170,12 @@ export default function CompoundDetail() {
         compound.sideEffects[0] ||
         'Review contraindications and interaction notes before use.'
       : undefined
+  const curatedProducts = getRenderableCuratedProducts({
+    entityType: 'compound',
+    entitySlug: compound.slug,
+    confidence,
+    sourceCount,
+  })
   const effectKeys = new Set(compound.effects.map(normalizeKey))
   const herbKeys = new Set(compound.herbs.map(normalizeKey))
   const useKeys = new Set(compound.therapeuticUses.map(normalizeKey))
@@ -563,6 +571,20 @@ export default function CompoundDetail() {
         {/* Practical info */}
         {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
         {compound.duration && <Section title='Duration'>{compound.duration}</Section>}
+        {curatedProducts.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Curated Product Recommendations'>
+              <div className='text-sm leading-relaxed text-white/85'>
+                <CuratedProductModule
+                  entityType='compound'
+                  entitySlug={compound.slug}
+                  products={curatedProducts}
+                  positionContext='compound_detail_after_safety'
+                />
+              </div>
+            </Collapse>
+          </section>
+        )}
 
         {/* Sources */}
         {compound.sources.length > 0 && (
