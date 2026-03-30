@@ -2,6 +2,9 @@ import { FormEvent, useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { Button } from '@/components/ui/Button'
+import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
+import CuratedProductModule from '@/components/CuratedProductModule'
+import { resolveCtaVariant } from '@/config/ctaExperiments'
 import {
   SEO_COLLECTIONS,
   getCollectionBySlug,
@@ -11,7 +14,7 @@ import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 import { trackCollectionEvent } from '@/lib/collectionTracking'
-import { trackCollectionDetailClick } from '@/lib/contentJourneyTracking'
+import { trackCollectionDetailClick, trackCtaSlotImpression } from '@/lib/contentJourneyTracking'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import { type ComboGoal, type PrebuiltCombo } from '@/types/combos'
 import { normalizeLookupToken } from '@/utils/normalizeToken'
@@ -21,6 +24,7 @@ import {
   filterCompoundByCollection,
   filterHerbByCollection,
 } from '@/lib/collectionQuality'
+import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 
 type CollectionHerb = ReturnType<typeof useHerbData>[number]
 type CollectionCompound = ReturnType<typeof useCompoundData>[number]
@@ -86,50 +90,6 @@ const COLLECTION_REASON_LABELS: Record<string, string> = {
   'insufficient-matching-items': 'not enough matching entities to make the page useful',
   'missing-intro': 'intro text is too short',
   'missing-description': 'meta description is too short',
-}
-
-function CollectionFunnelCta({
-  title,
-  description,
-  checkerHref,
-  stackHref,
-  comboHref,
-  onCheckerClick,
-  onStackClick,
-  onComboClick,
-}: {
-  title: string
-  description: string
-  checkerHref: string
-  stackHref: string
-  comboHref?: string
-  onCheckerClick: () => void
-  onStackClick: () => void
-  onComboClick: () => void
-}) {
-  return (
-    <section className='sticky top-16 z-20 rounded-xl border border-cyan-300/30 bg-slate-950/90 p-3 backdrop-blur md:top-20 md:p-4'>
-      <div className='flex flex-col gap-2 md:flex-row md:items-center md:justify-between'>
-        <div>
-          <h2 className='text-sm font-semibold text-white'>{title}</h2>
-          <p className='text-xs text-white/70'>{description}</p>
-        </div>
-        <div className='flex flex-wrap gap-2'>
-          <Link to={checkerHref} onClick={onCheckerClick} className='btn-primary text-xs'>
-            Check interactions for this category
-          </Link>
-          <Link to={stackHref} onClick={onStackClick} className='btn-secondary text-xs'>
-            Build a stack from these items
-          </Link>
-          {comboHref ? (
-            <Link to={comboHref} onClick={onComboClick} className='btn-secondary text-xs'>
-              Try a popular combo
-            </Link>
-          ) : null}
-        </div>
-      </div>
-    </section>
-  )
 }
 
 export default function CollectionPage() {
@@ -228,6 +188,45 @@ export default function CollectionPage() {
     if (collection?.itemType === 'compound') return compoundMatches.slice(0, 3)
     return []
   }, [collection?.itemType, herbMatches, compoundMatches])
+  const ctaExperiment = useMemo(
+    () =>
+      resolveCtaVariant({
+        pageType: 'collection_page',
+        entityType: 'collection',
+        entitySlug: collection?.slug || slug,
+        cautionCount: 0,
+      }),
+    [collection?.slug, slug]
+  )
+
+  const collectionCuratedProducts = useMemo(() => {
+    if (!collection || !topItems.length) return []
+    const firstTopItem = topItems[0]
+    if (collection.itemType === 'herb') {
+      const herbItem = firstTopItem as CollectionHerb
+      const confidence = herbItem.confidence === 'high' || herbItem.confidence === 'medium' ? herbItem.confidence : 'low'
+      return getRenderableCuratedProducts({
+        entityType: 'herb',
+        entitySlug: herbItem.slug,
+        confidence,
+        sourceCount: Number(herbItem.sourceCount || 0),
+      })
+    }
+    if (collection.itemType === 'compound') {
+      const compoundItem = firstTopItem as CollectionCompound
+      const confidence =
+        compoundItem.confidence === 'high' || compoundItem.confidence === 'medium'
+          ? compoundItem.confidence
+          : 'low'
+      return getRenderableCuratedProducts({
+        entityType: 'compound',
+        entitySlug: compoundItem.slug,
+        confidence,
+        sourceCount: Number(compoundItem.sourceCount || 0),
+      })
+    }
+    return []
+  }, [collection, topItems])
 
   const lookupByLabel = useMemo(() => {
     const map = new Map<string, string>()
@@ -358,6 +357,11 @@ export default function CollectionPage() {
       slug: collection.slug,
       itemType: collection.itemType,
       cta,
+      pageType: 'collection_page',
+      entitySlug: collection.slug,
+      ctaType: cta === 'checker' ? 'tool' : cta === 'stack' ? 'builder' : 'tool',
+      ctaPosition: 'collection_funnel',
+      variantId: ctaExperiment.activeVariantId,
     })
 
     if (cta === 'combo') {
@@ -623,21 +627,78 @@ export default function CollectionPage() {
         </section>
       )}
 
-      <section className='mt-4'>
-        <CollectionFunnelCta
-          title='Move from browsing to action'
-          description={
-            editorial?.ctaLabel ||
-            'Open the checker with relevant items prefilled, then continue to stack + export.'
-          }
-          checkerHref={checkerHref}
-          stackHref={stackHref}
-          comboHref={featuredTokens.length ? featuredComboHref : undefined}
-          onCheckerClick={() => handleFunnelClick('checker')}
-          onStackClick={() => handleFunnelClick('stack')}
-          onComboClick={() => handleFunnelClick('combo')}
-        />
-      </section>
+      <CtaVariantLayout
+        variant={ctaExperiment.variant}
+        onSlotImpression={(slot, position) => {
+          const ctaType = slot === 'tool' ? 'tool' : slot === 'builder' ? 'builder' : slot === 'affiliate' ? 'affiliate' : null
+          if (!ctaType) return
+          trackCtaSlotImpression({
+            sourceType: 'collection',
+            source: collection.slug,
+            placement: 'cta_experiment_slot',
+            ctaMetadata: {
+              pageType: 'collection_page',
+              entitySlug: collection.slug,
+              ctaType,
+              ctaPosition: `position_${position}`,
+              variantId: ctaExperiment.activeVariantId,
+            },
+          })
+        }}
+        slots={{
+          tool: (
+            <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
+              <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
+                Step 1: interaction checker
+              </p>
+              <Link to={checkerHref} className='btn-primary mt-2 inline-flex text-xs' onClick={() => handleFunnelClick('checker')}>
+                Start with Interaction Checker
+              </Link>
+            </div>
+          ),
+          builder: (
+            <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
+              <p className='text-xs text-white/75'>Step 2: move shortlisted items into stack builder.</p>
+              <Link to={stackHref} className='btn-secondary mt-2 inline-flex text-xs' onClick={() => handleFunnelClick('stack')}>
+                Continue to Stack Builder
+              </Link>
+              {featuredTokens.length ? (
+                <Link
+                  to={featuredComboHref}
+                  className='btn-secondary ml-2 mt-2 inline-flex text-xs'
+                  onClick={() => handleFunnelClick('combo')}
+                >
+                  Try a Popular Combo
+                </Link>
+              ) : null}
+            </div>
+          ),
+          related: relatedCollections.length > 0 && (
+            <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
+              <p className='text-xs font-semibold text-white'>Related collections</p>
+              <div className='mt-2 flex flex-wrap gap-2'>
+                {relatedCollections.slice(0, 3).map(entry => (
+                  <Link key={`related-${entry.slug}`} to={`/collections/${entry.slug}`} className='btn-secondary text-xs'>
+                    {entry.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ),
+          affiliate:
+            collectionCuratedProducts.length > 0 && collection.itemType !== 'combo' && topItems.length > 0 ? (
+              <CuratedProductModule
+                entityType={collection.itemType}
+                entitySlug={topItems[0].slug}
+                products={collectionCuratedProducts.slice(0, 1)}
+                positionContext='collection_cta_variant_spotlight'
+                pageType='collection_page'
+                variantId={ctaExperiment.activeVariantId}
+                ctaPosition='collection_affiliate_spotlight'
+              />
+            ) : null,
+        }}
+      />
 
       {topItems.length > 0 && (
         <section className='mt-4 rounded-xl border border-white/10 bg-black/20 p-3'>
@@ -734,21 +795,6 @@ export default function CollectionPage() {
           })}
         </section>
       )}
-
-      <section className='mt-5'>
-        <CollectionFunnelCta
-          title='Ready to check this set?'
-          description={
-            editorial?.ctaLabel || 'Run the interaction checker now, then continue into stack export.'
-          }
-          checkerHref={checkerHref}
-          stackHref={stackHref}
-          comboHref={featuredTokens.length ? featuredComboHref : undefined}
-          onCheckerClick={() => handleFunnelClick('checker')}
-          onStackClick={() => handleFunnelClick('stack')}
-          onComboClick={() => handleFunnelClick('combo')}
-        />
-      </section>
 
       {collection.itemType === 'compound' && compoundMatches.length > 0 && (
         <section className='mt-6 grid gap-3 sm:grid-cols-2'>

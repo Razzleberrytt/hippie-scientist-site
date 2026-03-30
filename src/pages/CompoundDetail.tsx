@@ -18,9 +18,12 @@ import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterCompoundByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 import CuratedProductModule from '@/components/CuratedProductModule'
+import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
+import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import {
   trackDetailBuilderClick,
+  trackCtaSlotImpression,
   trackDetailCheckerClick,
   trackDetailRelatedEntityClick,
 } from '@/lib/contentJourneyTracking'
@@ -176,6 +179,13 @@ export default function CompoundDetail() {
     confidence,
     sourceCount,
   })
+  const ctaExperiment = resolveCtaVariant({
+    pageType: 'compound_detail',
+    entityType: 'compound',
+    entitySlug: compound.slug,
+    cautionCount,
+  })
+  const ctaVariantId = ctaExperiment.activeVariantId
   const effectKeys = new Set(compound.effects.map(normalizeKey))
   const herbKeys = new Set(compound.herbs.map(normalizeKey))
   const useKeys = new Set(compound.therapeuticUses.map(normalizeKey))
@@ -315,6 +325,103 @@ export default function CompoundDetail() {
                   placement: 'quick_intro_next_steps',
                 })
               }
+            }}
+          />
+
+          <CtaVariantLayout
+            variant={ctaExperiment.variant}
+            onSlotImpression={(slot, position) => {
+              const ctaType = slot === 'tool' ? 'tool' : slot === 'builder' ? 'builder' : slot === 'affiliate' ? 'affiliate' : null
+              if (!ctaType) return
+              trackCtaSlotImpression({
+                sourceType: 'detail',
+                source: `compound:${compound.slug}`,
+                placement: 'cta_experiment_slot',
+                ctaMetadata: {
+                  pageType: 'compound_detail',
+                  entitySlug: compound.slug,
+                  ctaType,
+                  ctaPosition: `position_${position}`,
+                  variantId: ctaVariantId,
+                },
+              })
+            }}
+            slots={{
+              tool: (
+                <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
+                  <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
+                    Validate interactions first
+                  </p>
+                  <Link
+                    to={compoundCheckerHref}
+                    className='btn-primary mt-2 inline-flex text-xs'
+                    onClick={() =>
+                      trackDetailCheckerClick({
+                        detailType: 'compound',
+                        detailSlug: compound.slug,
+                        placement: 'cta_variant_tool',
+                        ctaMetadata: {
+                          pageType: 'compound_detail',
+                          entitySlug: compound.slug,
+                          ctaType: 'tool',
+                          ctaPosition: 'detail_tool_checker',
+                          variantId: ctaVariantId,
+                        },
+                      })
+                    }
+                  >
+                    Open Interaction Checker
+                  </Link>
+                </div>
+              ),
+              builder: (
+                <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
+                  <p className='text-xs text-white/75'>Then move this compound into the builder workflow.</p>
+                  <Link
+                    to='/build'
+                    className='btn-secondary mt-2 inline-flex text-xs'
+                    onClick={() =>
+                      trackDetailBuilderClick({
+                        detailType: 'compound',
+                        detailSlug: compound.slug,
+                        placement: 'cta_variant_builder',
+                        ctaMetadata: {
+                          pageType: 'compound_detail',
+                          entitySlug: compound.slug,
+                          ctaType: 'builder',
+                          ctaPosition: 'detail_stack_builder',
+                          variantId: ctaVariantId,
+                        },
+                      })
+                    }
+                  >
+                    Continue to Stack Builder
+                  </Link>
+                </div>
+              ),
+              related: relatedCollections.length > 0 && (
+                <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
+                  <p className='text-xs font-semibold text-white'>Compare related collections</p>
+                  <div className='mt-2 flex flex-wrap gap-2'>
+                    {relatedCollections.slice(0, 3).map(collection => (
+                      <Link key={`cta-${collection.slug}`} to={`/collections/${collection.slug}`} className='btn-secondary text-xs'>
+                        {collection.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ),
+              affiliate: curatedProducts.length > 0 && (
+                <CuratedProductModule
+                  entityType='compound'
+                  entitySlug={compound.slug}
+                  products={curatedProducts}
+                  positionContext='compound_detail_cta_variant'
+                  pageType='compound_detail'
+                  variantId={ctaVariantId}
+                  ctaPosition='detail_affiliate_module'
+                />
+              ),
             }}
           />
         </header>
@@ -571,21 +678,6 @@ export default function CompoundDetail() {
         {/* Practical info */}
         {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
         {compound.duration && <Section title='Duration'>{compound.duration}</Section>}
-        {curatedProducts.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <Collapse title='Curated Product Recommendations'>
-              <div className='text-sm leading-relaxed text-white/85'>
-                <CuratedProductModule
-                  entityType='compound'
-                  entitySlug={compound.slug}
-                  products={curatedProducts}
-                  positionContext='compound_detail_after_safety'
-                />
-              </div>
-            </Collapse>
-          </section>
-        )}
-
         {/* Sources */}
         {compound.sources.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>

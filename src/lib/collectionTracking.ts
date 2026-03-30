@@ -42,6 +42,11 @@ export function trackCollectionEvent(name: CollectionEventName, payload: Collect
     slug: payload.slug,
     item: inferItem(payload),
     comboId: typeof payload.comboId === 'string' ? payload.comboId : undefined,
+    pageType: typeof payload.pageType === 'string' ? payload.pageType : undefined,
+    entitySlug: typeof payload.entitySlug === 'string' ? payload.entitySlug : undefined,
+    ctaType: typeof payload.ctaType === 'string' ? payload.ctaType : undefined,
+    ctaPosition: typeof payload.ctaPosition === 'string' ? payload.ctaPosition : undefined,
+    variantId: typeof payload.variantId === 'string' ? payload.variantId : undefined,
   })
 
   if (import.meta.env.DEV) {

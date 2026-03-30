@@ -11,6 +11,11 @@ export type StoredAnalyticsEvent = {
   context?: string
   sourceType?: string
   targetType?: string
+  pageType?: string
+  entitySlug?: string
+  ctaType?: string
+  ctaPosition?: string
+  variantId?: string
   timestamp: number
 }
 
@@ -36,6 +41,11 @@ function normalizeStoredEvent(event: StoredAnalyticsEvent): StoredAnalyticsEvent
   if (event.context) normalized.context = event.context
   if (event.sourceType) normalized.sourceType = event.sourceType
   if (event.targetType) normalized.targetType = event.targetType
+  if (event.pageType) normalized.pageType = event.pageType
+  if (event.entitySlug) normalized.entitySlug = event.entitySlug
+  if (event.ctaType) normalized.ctaType = event.ctaType
+  if (event.ctaPosition) normalized.ctaPosition = event.ctaPosition
+  if (event.variantId) normalized.variantId = event.variantId
 
   return normalized
 }
@@ -89,7 +99,12 @@ function isRapidDuplicate(previous: StoredAnalyticsEvent | undefined, next: Stor
     previous.comboId === next.comboId &&
     previous.context === next.context &&
     previous.sourceType === next.sourceType &&
-    previous.targetType === next.targetType
+    previous.targetType === next.targetType &&
+    previous.pageType === next.pageType &&
+    previous.entitySlug === next.entitySlug &&
+    previous.ctaType === next.ctaType &&
+    previous.ctaPosition === next.ctaPosition &&
+    previous.variantId === next.variantId
 
   if (!sameCoreIdentity) return false
 
