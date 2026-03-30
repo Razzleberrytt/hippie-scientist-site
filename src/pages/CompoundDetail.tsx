@@ -16,6 +16,7 @@ import { breadcrumbJsonLd, compoundJsonLd, SITE_URL } from '@/lib/seo'
 import { countCautionSignals, inferContentFlags } from '@/lib/trust'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterCompoundByCollection } from '@/lib/collectionQuality'
+import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -45,6 +46,13 @@ function ListSection({ items }: { items: string[] }) {
 function buildInteractionsLink(tokens: string[]) {
   if (!tokens.length) return '/interactions'
   return `/interactions?items=${tokens.join(',')}`
+}
+
+function firstSentence(value: string, fallback: string) {
+  const cleaned = value.replace(/\s+/g, ' ').trim()
+  if (!cleaned) return fallback
+  const sentence = cleaned.match(/[^.!?]+[.!?]?/)?.[0]?.trim() || cleaned
+  return sentence.length > 180 ? `${sentence.slice(0, 177).trimEnd()}…` : sentence
 }
 
 export default function CompoundDetail() {
@@ -121,10 +129,31 @@ export default function CompoundDetail() {
     )
     .slice(0, 5)
   const introFacts = [
-    `Confidence: ${confidence}`,
     sourceCount > 0 ? `${sourceCount} source${sourceCount === 1 ? '' : 's'} listed` : 'sources pending',
     cautionCount > 0 ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}` : 'no caution flags listed',
   ]
+  const whatItIsSummary = firstSentence(
+    compound.description || compound.mechanism,
+    `${compound.name} is a compound entry with sparse descriptive context so far.`
+  )
+  const commonUseSummary = compound.therapeuticUses.length
+    ? `Commonly discussed in connection with ${compound.therapeuticUses.slice(0, 2).join(' and ')}.`
+    : primaryEffects.length
+      ? `Most often tracked for ${primaryEffects.slice(0, 2).join(' and ')} outcomes in herb profiles.`
+      : `Usage context is still being expanded; currently linked to ${linkedHerbs.length} herb profile${linkedHerbs.length === 1 ? '' : 's'}.`
+  const evidenceSummary =
+    confidence === 'high'
+      ? `Confidence is high with ${sourceCount || 'no'} listed source${sourceCount === 1 ? '' : 's'}; still review mechanism and safety fit.`
+      : confidence === 'medium'
+        ? 'Confidence is mixed; evidence is useful but not equally strong across all claims.'
+        : 'Confidence is low, so read this as a preliminary summary and verify against primary references.'
+  const cautionSummary =
+    cautionCount > 0
+      ? compound.contraindications[0] ||
+        compound.interactions[0] ||
+        compound.sideEffects[0] ||
+        'Review contraindications and interaction notes before use.'
+      : undefined
 
   // Derive a display class — category only if it's meaningful
   const displayClass =
@@ -188,25 +217,19 @@ export default function CompoundDetail() {
             hasFallbackContent={hasFallbackContent}
           />
 
-          <div className='mt-4 rounded-xl border border-emerald-300/25 bg-emerald-500/10 p-3 text-sm text-emerald-50'>
-            <p className='text-xs font-semibold uppercase tracking-[0.12em] text-emerald-100/90'>
-              Quick take
-            </p>
-            <p className='mt-2 leading-7 text-emerald-50/95'>
-              {compound.name} appears in {linkedHerbs.length} herb profile
-              {linkedHerbs.length === 1 ? '' : 's'} and is tracked for {primaryEffects.slice(0, 2).join(' and ') || 'multiple outcomes'}.
-              Use this page to validate mechanism and interaction boundaries before adding it to a stack.
-            </p>
-            <p className='mt-2 text-xs text-emerald-100/85'>{introFacts.join(' · ')}</p>
-            <div className='mt-3 flex flex-wrap gap-2'>
-              <Link to={compoundCheckerHref} className='btn-primary text-xs'>
-                Check this compound in interactions
-              </Link>
-              <Link to='/build' className='btn-secondary text-xs'>
-                Continue to stack builder
-              </Link>
-            </div>
-          </div>
+          <StructuredDetailIntro
+            confidence={confidence}
+            whatItIs={whatItIsSummary}
+            commonUse={commonUseSummary}
+            evidenceContext={evidenceSummary}
+            cautionNote={cautionSummary}
+            quickFacts={introFacts}
+            nextSteps={[
+              { label: 'Check this compound in interactions', to: compoundCheckerHref },
+              { label: 'Review related herbs', to: '#related-herbs', variant: 'secondary' },
+              { label: 'Continue to stack builder', to: '/build', variant: 'secondary' },
+            ]}
+          />
         </header>
 
         {/* Primary effects pills */}
@@ -323,7 +346,7 @@ export default function CompoundDetail() {
         )}
 
         {/* Associated herbs */}
-        <section className='border-white/8 mt-6 border-t pt-5'>
+        <section id='related-herbs' className='border-white/8 mt-6 border-t pt-5'>
           <Collapse title='Related Herbs'>
             <div className='text-sm leading-relaxed text-white/85'>
               {linkedHerbs.length > 0 ? (
