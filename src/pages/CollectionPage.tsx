@@ -11,6 +11,7 @@ import { useCompoundData } from '@/lib/compound-data'
 import { useHerbData } from '@/lib/herb-data'
 import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 import { trackCollectionEvent } from '@/lib/collectionTracking'
+import { trackCollectionDetailClick } from '@/lib/contentJourneyTracking'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import { type ComboGoal, type PrebuiltCombo } from '@/types/combos'
 import { normalizeLookupToken } from '@/utils/normalizeToken'
@@ -716,6 +717,14 @@ export default function CollectionPage() {
                   <Link
                     to={`/herbs/${herb.slug}`}
                     className='inline-flex items-center text-xs text-emerald-200 hover:text-emerald-100'
+                    onClick={() =>
+                      trackCollectionDetailClick({
+                        collectionSlug: collection.slug,
+                        targetType: 'herb',
+                        targetSlug: herb.slug,
+                        placement: 'collection_item_card',
+                      })
+                    }
                   >
                     View herb details →
                   </Link>
@@ -780,6 +789,14 @@ export default function CollectionPage() {
                   <Link
                     to={`/compounds/${compound.slug}`}
                     className='inline-flex items-center text-xs text-emerald-200 hover:text-emerald-100'
+                    onClick={() =>
+                      trackCollectionDetailClick({
+                        collectionSlug: collection.slug,
+                        targetType: 'compound',
+                        targetSlug: compound.slug,
+                        placement: 'collection_item_card',
+                      })
+                    }
                   >
                     View compound details →
                   </Link>

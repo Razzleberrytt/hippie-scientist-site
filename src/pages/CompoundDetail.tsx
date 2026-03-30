@@ -17,6 +17,11 @@ import { countCautionSignals, inferContentFlags } from '@/lib/trust'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterCompoundByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
+import {
+  trackDetailBuilderClick,
+  trackDetailCheckerClick,
+  trackDetailRelatedEntityClick,
+} from '@/lib/contentJourneyTracking'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -287,6 +292,22 @@ export default function CompoundDetail() {
               { label: 'Review related herbs', to: '#related-herbs', variant: 'secondary' },
               { label: 'Continue to stack builder', to: '/build', variant: 'secondary' },
             ]}
+            onStepClick={step => {
+              if (step.to.startsWith('/interactions')) {
+                trackDetailCheckerClick({
+                  detailType: 'compound',
+                  detailSlug: compound.slug,
+                  placement: 'quick_intro_next_steps',
+                })
+              }
+              if (step.to === '/build') {
+                trackDetailBuilderClick({
+                  detailType: 'compound',
+                  detailSlug: compound.slug,
+                  placement: 'quick_intro_next_steps',
+                })
+              }
+            }}
           />
         </header>
 
@@ -435,6 +456,15 @@ export default function CompoundDetail() {
                       key={collection.slug}
                       to={`/collections/${collection.slug}`}
                       className='btn-secondary text-xs'
+                      onClick={() =>
+                        trackDetailRelatedEntityClick({
+                          detailType: 'compound',
+                          detailSlug: compound.slug,
+                          targetType: 'collection',
+                          targetSlug: collection.slug,
+                          placement: 'related_collections',
+                        })
+                      }
                     >
                       {collection.title}
                     </Link>
@@ -451,7 +481,19 @@ export default function CompoundDetail() {
               <div className='space-y-2 text-sm text-white/85'>
                 {similarCompounds.map(other => (
                   <p key={`similar-${other.slug}`}>
-                    <Link className='link' to={`/compounds/${encodeURIComponent(other.slug)}`}>
+                    <Link
+                      className='link'
+                      to={`/compounds/${encodeURIComponent(other.slug)}`}
+                      onClick={() =>
+                        trackDetailRelatedEntityClick({
+                          detailType: 'compound',
+                          detailSlug: compound.slug,
+                          targetType: 'compound',
+                          targetSlug: other.slug,
+                          placement: 'similar_compounds',
+                        })
+                      }
+                    >
                       {other.name}
                     </Link>{' '}
                     {other.sharedEffects.length
@@ -476,7 +518,19 @@ export default function CompoundDetail() {
                 </p>
                 {cautionRelatedHerbs.map(other => (
                   <p key={`caution-${other.slug}`}>
-                    <Link className='link' to={`/herbs/${encodeURIComponent(other.slug)}`}>
+                    <Link
+                      className='link'
+                      to={`/herbs/${encodeURIComponent(other.slug)}`}
+                      onClick={() =>
+                        trackDetailRelatedEntityClick({
+                          detailType: 'compound',
+                          detailSlug: compound.slug,
+                          targetType: 'herb',
+                          targetSlug: other.slug,
+                          placement: 'caution_related_herbs',
+                        })
+                      }
+                    >
                       {other.name}
                     </Link>{' '}
                     overlaps caution terms ({other.sharedCautions.slice(0, 2).join(', ')}).

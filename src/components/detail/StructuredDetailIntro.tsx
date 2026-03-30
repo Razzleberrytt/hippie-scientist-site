@@ -15,6 +15,7 @@ type StructuredDetailIntroProps = {
   cautionNote?: string
   quickFacts?: string[]
   nextSteps: IntroLink[]
+  onStepClick?: (step: IntroLink) => void
 }
 
 function confidenceLabel(confidence: ConfidenceLevel) {
@@ -37,6 +38,7 @@ export default function StructuredDetailIntro({
   cautionNote,
   quickFacts = [],
   nextSteps,
+  onStepClick,
 }: StructuredDetailIntroProps) {
   return (
     <section className='mt-4 rounded-xl border border-sky-300/25 bg-sky-500/10 p-4 text-sm text-sky-50'>
@@ -73,6 +75,7 @@ export default function StructuredDetailIntro({
           <Link
             key={`${step.to}-${step.label}`}
             to={step.to}
+            onClick={() => onStepClick?.(step)}
             className={step.variant === 'secondary' ? 'btn-secondary text-xs' : 'btn-primary text-xs'}
           >
             {step.label}
