@@ -13,11 +13,12 @@ import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
 import { splitClean } from '@/lib/sanitize'
 import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
 import { breadcrumbJsonLd, herbJsonLd, SITE_URL } from '@/lib/seo'
-import RecommendedProducts from '@/components/RecommendedProducts'
+import CuratedProductModule from '@/components/CuratedProductModule'
 import Collapse from '@/components/ui/Collapse'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterHerbByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
+import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import {
   trackDetailBuilderClick,
   trackDetailCheckerClick,
@@ -356,6 +357,12 @@ export default function HerbDetail() {
     cautionCount > 0
       ? contraindications[0] || interactions[0] || sideEffects[0] || 'Review contraindications and interaction notes before use.'
       : undefined
+  const curatedProducts = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: herb.slug,
+    confidence,
+    sourceCount,
+  })
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
@@ -705,13 +712,20 @@ export default function HerbDetail() {
         {dosage && <Section title='Dosage'>{dosage}</Section>}
         {duration && <Section title='Duration'>{duration}</Section>}
         {preparation && <Section title='Preparation'>{preparation}</Section>}
-        <section className='border-white/8 mt-6 border-t pt-5'>
-          <Collapse title='Product Recommendations'>
-            <div className='text-sm leading-relaxed text-white/85'>
-              <RecommendedProducts herb={herb} showTitle={false} />
-            </div>
-          </Collapse>
-        </section>
+        {curatedProducts.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <Collapse title='Curated Product Recommendations'>
+              <div className='text-sm leading-relaxed text-white/85'>
+                <CuratedProductModule
+                  entityType='herb'
+                  entitySlug={herb.slug}
+                  products={curatedProducts}
+                  positionContext='herb_detail_after_safety'
+                />
+              </div>
+            </Collapse>
+          </section>
+        )}
         {region && <Section title='Region'>{region}</Section>}
         {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 
