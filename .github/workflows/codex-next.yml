@@ -7,8 +7,9 @@ on:
         description: Why this run was started
         required: false
         default: manual
-  repository_dispatch:
-    types: [codex-next]
+  # Auto-trigger disabled — runs manually only.
+  # repository_dispatch:
+  #   types: [codex-next]
 
 permissions:
   contents: write
@@ -54,16 +55,17 @@ jobs:
             echo "Current step: $CURRENT_STEP"
           fi
 
-      - name: Run Codex for the current step
-        if: ${{ steps.queue.outputs.has_work == 'true' }}
-        id: run_codex
-        uses: openai/codex-action@v1
-        with:
-          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
-          prompt-file: .github/codex/prompts/run-next-step.md
-          output-file: codex-output.md
-          sandbox: workspace-write
-          safety-strategy: drop-sudo
+      # Requires OPENAI_API_KEY secret — disabled until re-enabled intentionally.
+      # - name: Run Codex for the current step
+      #   if: ${{ steps.queue.outputs.has_work == 'true' }}
+      #   id: run_codex
+      #   uses: openai/codex-action@v1
+      #   with:
+      #     openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+      #     prompt-file: .github/codex/prompts/run-next-step.md
+      #     output-file: codex-output.md
+      #     sandbox: workspace-write
+      #     safety-strategy: drop-sudo
 
       - name: Upload Codex output
         if: ${{ steps.queue.outputs.has_work == 'true' && hashFiles('codex-output.md') != '' }}
