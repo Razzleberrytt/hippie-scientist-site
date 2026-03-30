@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
 import DataTrustPanel from '@/components/trust/DataTrustPanel'
+import { countCautionSignals, inferContentFlags } from '@/lib/trust'
 import { useHerbDataState, useHerbDetailState } from '@/lib/herb-data'
 import { useCompoundDataState } from '@/lib/compound-data'
 import { HerbDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
@@ -197,6 +198,18 @@ export default function HerbDetail() {
   const legalStatus = herb.legalStatus || ''
   const herbClass = String(herb.class || herb.category || '')
   const lastUpdated = String((herb as Record<string, unknown>).lastUpdated || '').trim()
+  const sourceCount = sources.length
+  const cautionCount = countCautionSignals({
+    contraindications,
+    interactions,
+    sideEffects,
+  })
+  const { hasInferredContent, hasFallbackContent } = inferContentFlags({
+    description,
+    mechanism,
+    effects,
+    therapeuticUses,
+  })
 
   const confidence =
     herb.confidence === 'high' || herb.confidence === 'medium' ? herb.confidence : 'low'
@@ -285,7 +298,16 @@ export default function HerbDetail() {
             )}
           </div>
 
-          <DataTrustPanel entity='herb' confidence={confidence} completeness={completeness} />
+          <DataTrustPanel
+            entity='herb'
+            confidence={confidence}
+            completeness={completeness}
+            sourceCount={sourceCount}
+            lastReviewed={lastUpdated}
+            cautionCount={cautionCount}
+            hasInferredContent={hasInferredContent}
+            hasFallbackContent={hasFallbackContent}
+          />
 
           {isDataIncomplete && (
             <div className='bg-amber-500/8 mt-4 rounded-xl border border-amber-300/30 p-3 text-sm text-amber-100'>
@@ -313,7 +335,17 @@ export default function HerbDetail() {
         )}
 
         {/* Core content */}
-        {description && <Section title='Overview'>{description}</Section>}
+        {description && (
+          <Section title='Overview'>
+            {confidence === 'low' ? (
+              <p className='mb-2 rounded-lg border border-amber-300/30 bg-amber-500/10 px-3 py-2 text-amber-100'>
+                Evidence context: this overview is low-confidence and may rely on limited or indirect
+                data.
+              </p>
+            ) : null}
+            {description}
+          </Section>
+        )}
 
         {herbClass && <Section title='Class'>{herbClass}</Section>}
 
@@ -455,11 +487,6 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {lastUpdated && (
-          <Section title='Last Updated'>
-            <span className='text-white/50'>{lastUpdated}</span>
-          </Section>
-        )}
 
         {/* Contribute CTA — only when data is thin */}
         {shouldShowContributionCta && (
