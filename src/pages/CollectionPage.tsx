@@ -20,6 +20,7 @@ import {
   filterCompoundByCollection,
   filterHerbByCollection,
 } from '@/lib/collectionQuality'
+import { buildGovernedCollectionSummary } from '@/lib/collectionEnrichment'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import {
   breadcrumbJsonLd,
@@ -33,6 +34,17 @@ import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 type CollectionHerb = ReturnType<typeof useHerbData>[number]
 type CollectionCompound = ReturnType<typeof useCompoundData>[number]
 type CollectionEntity = CollectionHerb | CollectionCompound
+
+const EVIDENCE_DISTRIBUTION_LABELS: Record<string, string> = {
+  stronger_human_support: 'stronger human support',
+  limited_human_support: 'limited human support',
+  observational_only: 'observational only',
+  preclinical_only: 'preclinical only',
+  traditional_use_only: 'traditional-use only',
+  mixed_or_uncertain: 'mixed/uncertain',
+  conflicting_evidence: 'conflicting evidence',
+  insufficient_evidence: 'insufficient evidence',
+}
 
 function inferGoalFromCollection(collection: SeoCollection): ComboGoal | null {
   const source = `${collection.slug} ${collection.title}`.toLowerCase()
@@ -203,6 +215,22 @@ export default function CollectionPage() {
     if (collection?.itemType === 'compound') return compoundMatches.slice(0, 3)
     return []
   }, [collection?.itemType, herbMatches, compoundMatches])
+  const governedCollectionSummary = useMemo(() => {
+    if (!collection || collection.itemType === 'combo') return null
+    const candidates =
+      collection.itemType === 'herb'
+        ? herbMatches.map(item => ({
+            entityType: 'herb' as const,
+            entitySlug: item.slug,
+            entityName: item.common || item.scientific || item.name || item.slug,
+          }))
+        : compoundMatches.map(item => ({
+            entityType: 'compound' as const,
+            entitySlug: item.slug,
+            entityName: item.name || item.slug,
+          }))
+    return buildGovernedCollectionSummary(candidates)
+  }, [collection, herbMatches, compoundMatches])
   const ctaExperiment = useMemo(
     () =>
       resolveCtaVariant({
@@ -588,6 +616,93 @@ export default function CollectionPage() {
                 <dd className='mt-1 leading-6'>{editorial.ctaLabel}</dd>
               </div>
             </dl>
+          </section>
+        ) : null}
+
+        {governedCollectionSummary ? (
+          <section className='border-white/12 mt-4 rounded-xl border bg-indigo-500/10 p-3'>
+            <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-indigo-100'>
+              Governed enrichment overview (collection-level)
+            </h2>
+            <p className='mt-2 text-xs leading-6 text-indigo-50/90'>
+              This summary only uses publish-approved governed enrichment. Items without approved
+              enrichment are excluded from evidence/safety comparisons.
+            </p>
+            <div className='mt-3 grid gap-2 text-xs text-indigo-50/95 sm:grid-cols-2 lg:grid-cols-3'>
+              <p>
+                <span className='font-semibold text-white'>Enriched + reviewed:</span>{' '}
+                {governedCollectionSummary.governedReviewedCount} of{' '}
+                {governedCollectionSummary.includedCount}
+              </p>
+              <p>
+                <span className='font-semibold text-white'>Safety/interactions present:</span>{' '}
+                {governedCollectionSummary.safetySignalsPresentCount}
+              </p>
+              <p>
+                <span className='font-semibold text-white'>Mechanism/constituent coverage:</span>{' '}
+                {governedCollectionSummary.mechanismCoveragePresentCount}/
+                {governedCollectionSummary.constituentCoveragePresentCount}
+              </p>
+              <p>
+                <span className='font-semibold text-white'>Uncertainty/conflict flags:</span>{' '}
+                {governedCollectionSummary.unresolvedConflictOrUncertaintyCount}
+              </p>
+              {governedCollectionSummary.lastReviewedAtMostRecent ? (
+                <p>
+                  <span className='font-semibold text-white'>Most recent review:</span>{' '}
+                  {new Date(governedCollectionSummary.lastReviewedAtMostRecent).toLocaleDateString(
+                    'en-US',
+                    { year: 'numeric', month: 'short', day: 'numeric' },
+                  )}
+                </p>
+              ) : (
+                <p>
+                  <span className='font-semibold text-white'>Most recent review:</span> no governed
+                  review yet
+                </p>
+              )}
+            </div>
+
+            <div className='mt-3 flex flex-wrap gap-2 text-[11px]'>
+              {Object.entries(governedCollectionSummary.evidenceLabelDistribution)
+                .filter(([, count]) => count > 0)
+                .map(([label, count]) => (
+                  <span
+                    key={label}
+                    className='rounded-full border border-indigo-200/25 bg-black/20 px-2 py-1 text-indigo-50'
+                  >
+                    {count} {EVIDENCE_DISTRIBUTION_LABELS[label] || label}
+                  </span>
+                ))}
+            </div>
+
+            {governedCollectionSummary.allowComparativeHighlights ? (
+              <ul className='mt-3 list-disc space-y-1 pl-5 text-xs text-indigo-50/95'>
+                <li>
+                  What the evidence looks like across this set: both stronger and limited human
+                  evidence labels are represented.
+                </li>
+                <li>
+                  Items with relatively stronger human support:{' '}
+                  {governedCollectionSummary.strongerHumanSupportCount}.
+                </li>
+                <li>
+                  Mainly traditional-use or preclinical labels:{' '}
+                  {governedCollectionSummary.preclinicalOrTraditionalOnlyCount}.
+                </li>
+                <li>
+                  Items needing extra caution/interaction review:{' '}
+                  {governedCollectionSummary.safetySignalsPresentCount}.
+                </li>
+              </ul>
+            ) : (
+              <p className='mt-3 rounded-lg border border-indigo-200/25 bg-black/20 px-3 py-2 text-xs leading-6 text-indigo-50/95'>
+                Comparative highlighting is intentionally limited for this collection because
+                governed coverage is sparse or mostly weak/uncertain. Use this page for scoped
+                discovery and run interaction checks item-by-item instead of treating it as a
+                ranking.
+              </p>
+            )}
           </section>
         ) : null}
 

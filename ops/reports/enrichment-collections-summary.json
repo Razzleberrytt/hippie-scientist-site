@@ -1,0 +1,420 @@
+{
+  "generatedAt": "2026-03-30T21:12:28.418Z",
+  "policy": {
+    "governedSource": "public/data/enrichment-governed.json",
+    "allowedEditorialStatuses": [
+      "approved",
+      "published"
+    ],
+    "excludeUnreviewedOrBlocked": true,
+    "sparseCoverageDegradesComparisons": true
+  },
+  "contexts": [
+    {
+      "contextType": "collection",
+      "contextSlug": "herbs-for-relaxation",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 25,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 25
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "herbs-for-focus",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 9,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 9
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "herbs-for-sleep",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 16,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 16
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "herbs-for-energy",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 18,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 18
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "compounds-for-relaxation",
+      "itemType": "compound",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "compounds-for-focus",
+      "itemType": "compound",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "calming-herb-combinations",
+      "itemType": "combo",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "combo-collections-not-yet-governed"
+      ],
+      "activeSignals": [],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "stimulant-herb-combinations",
+      "itemType": "combo",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "combo-collections-not-yet-governed"
+      ],
+      "activeSignals": [],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "serotonergic-compounds",
+      "itemType": "compound",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "gabaergic-herbs",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 1,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 1
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "herbs-for-anxiety-and-overthinking",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 4,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 4
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "herbs-for-deep-sleep-recovery",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 15,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 15
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "natural-focus-without-caffeine",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "mood-stabilizing-herbs",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "herbs-for-burnout-recovery",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "stress-and-cortisol-support",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "herbs-for-social-anxiety",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 2,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 2
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "cognitive-enhancement-natural",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 4,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 4
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "relaxation-without-sedation",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "collection",
+      "contextSlug": "energy-without-crash",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "no-governed-enrichment"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 0,
+      "governedReviewedCount": 0,
+      "nonGovernedCount": 0
+    },
+    {
+      "contextType": "comparison",
+      "contextSlug": "compare-page-herb-selection",
+      "itemType": "herb",
+      "enrichmentEligible": false,
+      "ineligibleReasons": [
+        "insufficient-governed-coverage",
+        "limited-human-comparative-signal"
+      ],
+      "activeSignals": [
+        "evidence_label_distribution",
+        "safety_interactions_present",
+        "mechanism_constituent_coverage",
+        "enriched_reviewed_count",
+        "uncertainty_conflict_count"
+      ],
+      "includedCount": 1,
+      "governedReviewedCount": 1,
+      "nonGovernedCount": 0
+    }
+  ]
+}
