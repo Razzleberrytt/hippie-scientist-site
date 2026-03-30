@@ -138,6 +138,47 @@
           ]
         },
         "strengthNote": { "type": "string" },
+        "mechanismStrengthLabel": {
+          "type": "string",
+          "enum": ["strong", "moderate", "limited", "insufficient"]
+        },
+        "mechanismEntryId": { "type": "string", "pattern": "^menr_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "relationType": {
+          "type": "string",
+          "enum": [
+            "contains",
+            "enriched_for",
+            "linked_to",
+            "may_modulate",
+            "observed_to_affect",
+            "traditional_association",
+            "derived_from",
+            "related_to"
+          ]
+        },
+        "targetType": {
+          "type": "string",
+          "enum": [
+            "drug",
+            "drug_class",
+            "herb",
+            "compound",
+            "constituent",
+            "pathway",
+            "receptor",
+            "enzyme",
+            "transporter",
+            "condition",
+            "population",
+            "biological_process"
+          ]
+        },
+        "targetName": { "type": "string", "minLength": 1 },
+        "targetSlug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "biologicalContext": { "type": "string" },
+        "constituentRoleContext": { "type": "string" },
+        "uncertaintyNote": { "type": "string" },
+        "conflictNote": { "type": "string" },
         "sourceRefIds": {
           "type": "array",
           "items": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },

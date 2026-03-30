@@ -42,6 +42,13 @@ Optional context fields:
 - `mechanismContext`
 - `traditionalUseContext`
 - `uncertaintyNote`
+- `relationType` (required for constituent/mechanism relationship topics)
+- `targetType` / `targetName` (required for constituent/mechanism relationship topics)
+- `targetSlug` (required when linking to internal herb/compound entities)
+- `mechanismEntryId` (`menr_*`, recommended for mechanism/constituent rows)
+- `biologicalContext`
+- `constituentRoleContext`
+- `mechanismStrengthLabel`
 
 ## Allowed topic types
 
@@ -49,6 +56,13 @@ Optional context fields:
 - `unsupported_or_unclear_use`
 - `mechanism`
 - `constituent`
+- `constituent_relationship`
+- `pathway`
+- `receptor_activity`
+- `enzyme_interaction`
+- `transporter_interaction`
+- `herb_compound_link`
+- `compound_origin_note`
 - `interaction`
 - `contraindication`
 - `adverse_effect`
@@ -74,6 +88,9 @@ The validator enforces:
 4. review controls are present (`reviewer`, `reviewedAt`, `editorialStatus`).
 5. vague/empty findings are rejected (minimum text constraints and vague phrase guardrail).
 6. duplicate and near-duplicate claims are rejected per entity/source/topic.
+7. constituent/mechanism topic rows must use allowed `relationType` + `targetType` combinations.
+8. herb↔compound links must resolve internal `targetSlug` references.
+9. common constituent aliases are normalized for deterministic matching (for example `β-caryophyllene` → `beta-caryophyllene`).
 
 ## Rollup mapping (Prompt 26 schema)
 

@@ -100,3 +100,5 @@ This pipeline enforces:
 - duplicate and near-duplicate rejection
 - reviewer/date/editorial-state requirements before rollup
 - topic-specific safety normalization (target type, severity, urgency, mechanism-known flags)
+- structured constituent/mechanism relationship normalization (`relationType`, `targetType`, `targetName`, optional `targetSlug`)
+- deterministic herb↔compound link validation for relationship topics

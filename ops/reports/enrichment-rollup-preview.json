@@ -3,7 +3,7 @@
     "entityType": "compound",
     "entitySlug": "cbd",
     "researchEnrichment": {
-      "evidenceSummary": "1 approved normalized findings across 1 topic types.",
+      "evidenceSummary": "2 approved normalized findings across 2 topic types.",
       "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
         "human-clinical"
@@ -12,15 +12,35 @@
       "unsupportedOrUnclearUses": [],
       "mechanisms": [
         {
-          "claim": "Reviewed source-backed records describe CBD mechanism context involving endocannabinoid signaling modulation.",
+          "claim": "Reviewed source-backed records describe cannabidiol as a potential modulator of CB1 and CB2 receptor signaling pathways in mechanistic contexts.",
           "evidenceClass": "human-clinical",
           "sourceRefIds": [
             "src_pubmed-clinical-template"
           ],
-          "strengthNote": "limited"
+          "relationType": "may_modulate",
+          "targetType": "receptor",
+          "targetName": "CB1 and CB2 receptors",
+          "biologicalContext": "Endocannabinoid signaling",
+          "uncertaintyNote": "Mechanism statement is constrained to template-level evidence pending specific citation imports.",
+          "mechanismEntryId": "menr_cbd-mechanism-cb1-cb2",
+          "mechanismStrengthLabel": "limited"
         }
       ],
-      "constituents": [],
+      "constituents": [
+        {
+          "claim": "Reviewed source-backed context identifies cannabidiol as a phytocannabinoid derived from Cannabis sativa plant material.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-clinical-template"
+          ],
+          "relationType": "derived_from",
+          "targetType": "herb",
+          "targetName": "Cannabis sativa",
+          "targetSlug": "cannabis-sativa",
+          "uncertaintyNote": "Relative abundance depends on chemotype and processing.",
+          "mechanismEntryId": "menr_cbd-origin-cannabis-sativa"
+        }
+      ],
       "interactions": [],
       "contraindications": [],
       "adverseEffects": [],
@@ -37,7 +57,30 @@
         }
       },
       "topicEvidenceJudgments": {
-        "mechanism": {
+        "compound_origin_note": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
+        "receptor_activity": {
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
             "evidenceClass": [
@@ -96,7 +139,7 @@
     "entityType": "herb",
     "entitySlug": "kava",
     "researchEnrichment": {
-      "evidenceSummary": "2 approved normalized findings across 2 topic types.",
+      "evidenceSummary": "3 approved normalized findings across 3 topic types.",
       "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
         "human-clinical"
@@ -108,19 +151,37 @@
           "sourceRefIds": [
             "src_pubmed-clinical-template"
           ],
+          "uncertaintyNote": "Template citation must be replaced with study-level source before publication.",
           "strengthNote": "moderate"
         }
       ],
       "unsupportedOrUnclearUses": [],
       "mechanisms": [],
-      "constituents": [],
+      "constituents": [
+        {
+          "claim": "Reviewed source-backed chemistry context identifies kavalactones as notable constituents in standardized kava preparations.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_pubmed-clinical-template"
+          ],
+          "relationType": "contains",
+          "targetType": "constituent",
+          "targetName": "kavalactones",
+          "constituentRoleContext": "Primary constituent class linked to pharmacologic profile discussions",
+          "uncertaintyNote": "Constituent concentration varies by extraction method and cultivar.",
+          "mechanismEntryId": "menr_kava-constituent-kavalactones"
+        }
+      ],
       "interactions": [
         {
           "claim": "Reviewed human clinical and monograph context indicates kava may increase bleeding risk when used with warfarin.",
           "evidenceClass": "human-clinical",
           "sourceRefIds": [
             "src_pubmed-clinical-template"
-          ]
+          ],
+          "targetType": "drug",
+          "targetName": "warfarin",
+          "uncertaintyNote": "Effect size and certainty vary by preparation, dose, and patient context."
         }
       ],
       "contraindications": [],
@@ -162,6 +223,29 @@
         }
       },
       "topicEvidenceJudgments": {
+        "constituent": {
+          "evidenceLabel": "mixed_or_uncertain",
+          "grading": {
+            "evidenceClass": [
+              "human-clinical"
+            ],
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 1,
+            "sourceReliabilityTier": "tier-a",
+            "recencyWeight": 2,
+            "editorialConfidence": "medium",
+            "conflictState": "mixed_or_uncertain",
+            "confidenceIndex": 15
+          },
+          "conflictNotes": [],
+          "uncertaintyNotes": [
+            "One or more findings carry explicit uncertainty notes from editorial review.",
+            "Evidence is sourced from a single source record; replication depth is limited."
+          ],
+          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
+        },
         "interaction": {
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
