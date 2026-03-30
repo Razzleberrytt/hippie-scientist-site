@@ -13,6 +13,20 @@ type SanitizeOptions = {
 }
 
 const NULLISH_STRINGS = new Set(['nan', 'null', 'undefined', 'n/a', 'na'])
+const PLACEHOLDER_STRINGS = new Set([
+  '[object object]',
+  '[objectobject]',
+  'placeholder',
+  'unknown',
+  'none',
+  'tbd',
+  'to be determined',
+  'not established',
+  'insufficient data',
+  'data pending',
+  'no direct data',
+])
+const NUMERIC_ONLY_NAME = /^\d+(?:[\s.,/-]\d+)*$/
 
 const FIELD_ALIASES: Record<SanitizedEntityKind, Record<string, string>> = {
   herb: {
@@ -44,8 +58,26 @@ function sanitizeString(value: unknown): string {
   if (value == null) return ''
   const text = String(value).trim()
   if (!text) return ''
-  if (NULLISH_STRINGS.has(text.toLowerCase())) return ''
+  const lower = text.toLowerCase()
+  if (NULLISH_STRINGS.has(lower)) return ''
+  if (PLACEHOLDER_STRINGS.has(lower)) return ''
+  if (NUMERIC_ONLY_NAME.test(text)) return ''
   return text
+}
+
+function getDisplayName(data: Record<string, unknown>): string {
+  return sanitizeString(data.name ?? data.common ?? data.commonName ?? data.scientific ?? data.latin)
+}
+
+export function hasInvalidEntityName(data: Record<string, unknown>): boolean {
+  const name = getDisplayName(data)
+  if (!name) return true
+
+  const normalized = name.toLowerCase()
+  if (normalized === '[object object]') return true
+  if (NUMERIC_ONLY_NAME.test(name)) return true
+
+  return false
 }
 
 function normalizeToArray(value: unknown): string[] {
@@ -110,8 +142,12 @@ function reportIssues(kind: SanitizedEntityKind, data: Record<string, unknown>):
   const id = sanitizeString(data.id ?? data.slug ?? data.name)
 
   if (!id) issues.push('Missing id/slug/name')
-  if (!sanitizeString(data.name ?? data.common ?? data.scientific)) {
+  if (!getDisplayName(data)) {
     issues.push('Missing display name')
+  }
+
+  if (hasInvalidEntityName(data)) {
+    issues.push('Invalid display name')
   }
 
   if (kind === 'compound' && normalizeToArray(data.herbs).length === 0) {

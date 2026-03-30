@@ -4,7 +4,7 @@ import type { Herb } from '@/types'
 import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { cleanText, splitClean } from '@/lib/sanitize'
 import { getHerbSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
-import { sanitizeHerbRecord } from '@/utils/sanitizeData'
+import { hasInvalidEntityName, sanitizeHerbRecord } from '@/utils/sanitizeData'
 
 let herbsPromise: Promise<Herb[]> | null = null
 type SourceRef = { title: string; url?: string; note?: string }
@@ -123,6 +123,11 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   }
 }
 
+export function isRenderableHerbRow(raw: Record<string, unknown>): boolean {
+  const { data } = sanitizeHerbRecord(raw)
+  return !hasInvalidEntityName(data)
+}
+
 export async function loadHerbData(): Promise<Herb[]> {
   if (!herbsPromise) {
     herbsPromise = fetch('/data/herbs.json', { cache: 'no-store' })
@@ -132,7 +137,9 @@ export async function loadHerbData(): Promise<Herb[]> {
       })
       .then(payload => {
         const rows = Array.isArray(payload) ? payload : []
-        return rows.map(row => normalizeHerbRow(row as Record<string, unknown>))
+        return rows
+          .filter(row => isRenderableHerbRow(row as Record<string, unknown>))
+          .map(row => normalizeHerbRow(row as Record<string, unknown>))
       })
       .catch(error => {
         herbsPromise = null
