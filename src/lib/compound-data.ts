@@ -56,6 +56,28 @@ export type CompoundSummaryRecord = {
 let compoundsSummaryPromise: Promise<CompoundSummaryRecord[]> | null = null
 const compoundDetailPromiseBySlug = new Map<string, Promise<CompoundRecord | null>>()
 
+function normalizeSlugCandidate(value: string): string {
+  return value
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/\band\b/g, '')
+    .replace(/[^a-z0-9]+/g, '')
+}
+
+async function resolveCompoundDetailSlug(slug: string): Promise<string | null> {
+  const needle = normalizeSlugCandidate(slug)
+  if (!needle) return null
+
+  const summaries = await loadCompoundSummaryData()
+  const match = summaries.find(item => {
+    const candidates = [item.slug, item.id, item.name, ...item.aliases]
+    return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
+  })
+
+  return match?.slug || null
+}
+
 function normalizeSources(value: unknown): SourceRef[] {
   if (!Array.isArray(value)) return []
   return value
@@ -179,8 +201,22 @@ export async function loadCompoundDetailBySlug(slug: string): Promise<CompoundRe
   const request = fetch(`/data/compounds-detail/${encodeURIComponent(slugKey)}.json`, {
     cache: 'no-store',
   })
-    .then(response => {
-      if (response.status === 404) return null
+    .then(async response => {
+      if (response.status === 404) {
+        const resolvedSlug = await resolveCompoundDetailSlug(slugKey)
+        if (!resolvedSlug || resolvedSlug === slugKey) return null
+        const fallbackResponse = await fetch(
+          `/data/compounds-detail/${encodeURIComponent(resolvedSlug)}.json`,
+          {
+            cache: 'no-store',
+          }
+        )
+        if (fallbackResponse.status === 404) return null
+        if (!fallbackResponse.ok) {
+          throw new Error(`Failed to load /data/compounds-detail/${resolvedSlug}.json`)
+        }
+        return fallbackResponse.json()
+      }
       if (!response.ok) {
         throw new Error(`Failed to load /data/compounds-detail/${slugKey}.json`)
       }
@@ -197,11 +233,6 @@ export async function loadCompoundDetailBySlug(slug: string): Promise<CompoundRe
 
   compoundDetailPromiseBySlug.set(slugKey, request)
   return request
-}
-
-// Back-compat alias.
-export async function loadCompoundData(): Promise<CompoundSummaryRecord[]> {
-  return loadCompoundSummaryData()
 }
 
 export function useCompoundData() {

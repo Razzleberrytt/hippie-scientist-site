@@ -1,7 +1,7 @@
-import rawCompounds from '../../public/data/compounds.json'
 import type { Herb } from '@/types/herb'
 import type { Compound } from '../types/compound'
 import { loadHerbData } from '@/lib/herb-data'
+import { loadCompoundSummaryData } from '@/lib/compound-data'
 import { asStringArray } from '@/utils/asStringArray'
 import { isNonEmptyString } from '@/utils/isNonEmptyString'
 
@@ -52,10 +52,6 @@ function normalizeCompound(raw: unknown): Compound | null {
     foundIn: asStringArray(item.foundIn ?? item.herbs),
   }
 }
-
-export const compounds: Compound[] = (Array.isArray(rawCompounds) ? rawCompounds : [])
-  .map(normalizeCompound)
-  .filter((item): item is Compound => item !== null)
 
 function toEntity(item: unknown, kind: 'herb' | 'compound'): Entity | null {
   const record = asRecord(item)
@@ -111,6 +107,11 @@ export async function loadHerbs() {
 }
 
 export async function loadCompounds() {
+  const summaryCompounds = await loadCompoundSummaryData()
+  const compounds: Compound[] = summaryCompounds
+    .map(normalizeCompound)
+    .filter((item): item is Compound => item !== null)
+
   return compounds
     .map(compound => toEntity(compound, 'compound'))
     .filter((item): item is Entity => Boolean(item))
