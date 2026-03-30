@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-03-30T16:20:07.247Z",
+  "total": 3,
+  "pass": 3,
+  "fail": 0,
+  "entries": [
+    {
+      "entitySlug": "ashwagandha",
+      "entityType": "herb",
+      "productId": "ashwagandha-ksm66-capsules",
+      "renderEligible": true,
+      "failureReasons": [],
+      "disclosurePresent": true,
+      "rationalePresent": true,
+      "researchedReviewedStatusPresent": true,
+      "reviewedAt": "2026-03-25",
+      "active": true,
+      "confidenceTierRequired": "low",
+      "pageConfidenceTier": "low",
+      "stale": false,
+      "genericLinkDetected": false
+    },
+    {
+      "entitySlug": "chamomile",
+      "entityType": "herb",
+      "productId": "chamomile-organic-tea-bags",
+      "renderEligible": true,
+      "failureReasons": [],
+      "disclosurePresent": true,
+      "rationalePresent": true,
+      "researchedReviewedStatusPresent": true,
+      "reviewedAt": "2026-03-24",
+      "active": true,
+      "confidenceTierRequired": "low",
+      "pageConfidenceTier": "low",
+      "stale": false,
+      "genericLinkDetected": false
+    },
+    {
+      "entitySlug": "luteolin",
+      "entityType": "compound",
+      "productId": "luteolin-phytosome-capsules",
+      "renderEligible": true,
+      "failureReasons": [],
+      "disclosurePresent": true,
+      "rationalePresent": true,
+      "researchedReviewedStatusPresent": true,
+      "reviewedAt": "2026-03-26",
+      "active": true,
+      "confidenceTierRequired": "low",
+      "pageConfidenceTier": "low",
+      "stale": false,
+      "genericLinkDetected": false
+    }
+  ]
+}

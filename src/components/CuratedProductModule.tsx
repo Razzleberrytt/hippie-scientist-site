@@ -67,8 +67,8 @@ export default function CuratedProductModule({
         Affiliate Disclosure
       </p>
       <p className='mt-1 text-xs leading-relaxed text-white/70'>
-        We may earn from qualifying purchases. Recommendations are manually reviewed and only shown
-        after evidence/trust context appears above.
+        {products[0]?.affiliateDisclosure ||
+          'Affiliate disclosure: We may earn from qualifying purchases. Recommendations are reviewed before publication.'}
       </p>
 
       <div className='mt-3 space-y-3'>
@@ -83,16 +83,14 @@ export default function CuratedProductModule({
             <p className='mt-1 text-xs text-white/75'>{product.rationaleShort}</p>
             <p className='mt-2 text-xs text-white/65'>{product.rationaleLong}</p>
 
-            {product.bestFor.length > 0 && (
-              <div className='mt-2'>
-                <p className='text-xs font-medium text-white/80'>Who it may fit</p>
-                <ul className='mt-1 list-disc space-y-1 pl-4 text-xs text-white/70'>
-                  {product.bestFor.map(item => (
-                    <li key={`${product.productId}-fit-${item}`}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div className='mt-2'>
+              <p className='text-xs font-medium text-white/80'>Who it may fit</p>
+              <ul className='mt-1 list-disc space-y-1 pl-4 text-xs text-white/70'>
+                {product.bestFor.map(item => (
+                  <li key={`${product.productId}-fit-${item}`}>{item}</li>
+                ))}
+              </ul>
+            </div>
 
             {(product.cautionNotes.length > 0 || product.avoidIf.length > 0) && (
               <div className='mt-2 rounded-lg border border-rose-300/30 bg-rose-500/10 p-2'>
