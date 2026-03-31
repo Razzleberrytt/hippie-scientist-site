@@ -42,11 +42,12 @@ type WaveTargetReport = {
 const ROOT = process.cwd()
 const SUBMISSIONS_PATH = path.join(ROOT, 'ops', 'enrichment-submissions.json')
 const SUBMISSION_REVIEW_REPORT_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-submission-review.json')
-const SOURCE_WAVE_TARGETS_PATH = path.join(ROOT, 'ops', 'reports', 'source-wave-2-targets.json')
-const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'enrichment-wave-2-authoring.json')
-const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'enrichment-wave-2-authoring.md')
-
-const WAVE_PREFIX = 'sub_wave2-'
+const WAVE_ID = process.env.ENRICHMENT_WAVE_ID || 'wave-2'
+const SAFE_WAVE_ID = WAVE_ID.replace(/[^a-z0-9-]+/gi, '-').toLowerCase()
+const SUBMISSION_PREFIX = process.env.ENRICHMENT_WAVE_SUBMISSION_PREFIX || `sub_${SAFE_WAVE_ID.replace(/-/g, '')}-`
+const SOURCE_WAVE_TARGETS_PATH = process.env.ENRICHMENT_WAVE_TARGETS_PATH || path.join(ROOT, 'ops', 'reports', `source-${SAFE_WAVE_ID}-targets.json`)
+const OUTPUT_JSON = process.env.ENRICHMENT_WAVE_AUTHORING_JSON_PATH || path.join(ROOT, 'ops', 'reports', `enrichment-${SAFE_WAVE_ID}-authoring.json`)
+const OUTPUT_MD = process.env.ENRICHMENT_WAVE_AUTHORING_MD_PATH || path.join(ROOT, 'ops', 'reports', `enrichment-${SAFE_WAVE_ID}-authoring.md`)
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, 'utf8')) as T
@@ -62,7 +63,7 @@ function run() {
   const targetsReport = readJson<WaveTargetReport>(SOURCE_WAVE_TARGETS_PATH)
 
   const waveSubmissions = submissions
-    .filter(submission => submission.submissionId.startsWith(WAVE_PREFIX))
+    .filter(submission => submission.submissionId.startsWith(SUBMISSION_PREFIX))
     .sort((a, b) => a.submissionId.localeCompare(b.submissionId))
 
   const reviewBySubmission = new Map(reviewReport.assessments.map(assessment => [assessment.submissionId, assessment]))
@@ -154,7 +155,7 @@ function run() {
 
   const report = {
     generatedAt: new Date().toISOString(),
-    deterministicModelVersion: 'enrichment-wave-2-authoring-v1',
+    deterministicModelVersion: `enrichment-${SAFE_WAVE_ID}-authoring-v1`,
     paths: {
       submissions: path.relative(ROOT, SUBMISSIONS_PATH),
       submissionReview: path.relative(ROOT, SUBMISSION_REVIEW_REPORT_PATH),
@@ -172,7 +173,7 @@ function run() {
   }
 
   const md: string[] = [
-    '# Enrichment Wave 2 Authoring',
+    `# Enrichment ${WAVE_ID} Authoring`,
     '',
     `Generated: ${report.generatedAt}`,
     '',
@@ -215,7 +216,7 @@ function run() {
 
   console.log(`Wrote ${path.relative(ROOT, OUTPUT_JSON)}`)
   console.log(`Wrote ${path.relative(ROOT, OUTPUT_MD)}`)
-  console.log(`[report-enrichment-wave-2-authoring] submissions=${waveSubmissions.length} promoted=${promotion.promoted}`)
+  console.log(`[report-enrichment-wave-authoring] submissions=${waveSubmissions.length} promoted=${promotion.promoted}`)
 }
 
 run()

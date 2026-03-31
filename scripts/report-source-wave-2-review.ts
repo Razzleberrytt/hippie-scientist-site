@@ -113,10 +113,12 @@ const SOURCE_CANDIDATES_PATH = path.join(ROOT, 'ops', 'source-candidates.json')
 const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
 const SOURCE_CANDIDATE_SCHEMA_PATH = path.join(ROOT, 'schemas', 'source-candidate.schema.json')
 const INTAKE_PATH = path.join(ROOT, 'ops', 'reports', 'source-intake-queue.json')
-const WAVE_TARGETS_PATH = path.join(ROOT, 'ops', 'reports', 'source-wave-2-targets.json')
-const WAVE_CANDIDATES_PATH = path.join(ROOT, 'ops', 'reports', 'source-wave-2-candidates.json')
-const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'source-wave-2-review.json')
-const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'source-wave-2-review.md')
+const WAVE_ID = process.env.ENRICHMENT_WAVE_ID || 'wave-2'
+const SAFE_WAVE_ID = WAVE_ID.replace(/[^a-z0-9-]+/gi, '-').toLowerCase()
+const WAVE_TARGETS_PATH = process.env.ENRICHMENT_WAVE_TARGETS_PATH || path.join(ROOT, 'ops', 'reports', `source-${SAFE_WAVE_ID}-targets.json`)
+const WAVE_CANDIDATES_PATH = process.env.ENRICHMENT_WAVE_CANDIDATES_PATH || path.join(ROOT, 'ops', 'reports', `source-${SAFE_WAVE_ID}-candidates.json`)
+const OUTPUT_JSON = process.env.ENRICHMENT_WAVE_SOURCE_REVIEW_JSON_PATH || path.join(ROOT, 'ops', 'reports', `source-${SAFE_WAVE_ID}-review.json`)
+const OUTPUT_MD = process.env.ENRICHMENT_WAVE_SOURCE_REVIEW_MD_PATH || path.join(ROOT, 'ops', 'reports', `source-${SAFE_WAVE_ID}-review.md`)
 
 const CLASS_RULES: Record<
   string,
@@ -456,7 +458,7 @@ function run() {
         reliabilityTier: candidate.proposedReliabilityTier,
         reviewer: 'source-review-bot',
         reviewedAt: nowIso,
-        notes: `Promoted via source-wave-2 review. intakeTaskId=${candidate.intakeTaskId}; candidateSourceId=${candidate.candidateSourceId}.`,
+        notes: `Promoted via source-${SAFE_WAVE_ID} review. intakeTaskId=${candidate.intakeTaskId}; candidateSourceId=${candidate.candidateSourceId}.`,
         active: candidate.active,
       })
       reasons.push('Approved via governed wave-1 review checks and promoted to source registry.')
@@ -548,7 +550,7 @@ function run() {
 
   const report = {
     generatedAt: nowIso,
-    deterministicModelVersion: 'source-wave-2-review-v1',
+    deterministicModelVersion: `source-${SAFE_WAVE_ID}-review-v1`,
     sources: {
       waveTargets: path.relative(ROOT, WAVE_TARGETS_PATH),
       waveCandidates: path.relative(ROOT, WAVE_CANDIDATES_PATH),
@@ -585,7 +587,7 @@ function run() {
   }
 
   const md: string[] = []
-  md.push('# Source Wave 2 Candidate Review and Registry Promotion')
+  md.push(`# Source ${WAVE_ID} Candidate Review and Registry Promotion`)
   md.push('')
   md.push(`Generated: ${report.generatedAt}`)
   md.push('')
@@ -638,7 +640,7 @@ function run() {
   console.log(`Wrote ${path.relative(ROOT, OUTPUT_JSON)}`)
   console.log(`Wrote ${path.relative(ROOT, OUTPUT_MD)}`)
   console.log(
-    `Wave1 reviewed=${report.summary.reviewedCandidateCount} approved=${report.summary.approvedCount} rejected=${report.summary.rejectedCount} duplicate=${report.summary.duplicateCount}`,
+    `[source-${SAFE_WAVE_ID}-review] reviewed=${report.summary.reviewedCandidateCount} approved=${report.summary.approvedCount} rejected=${report.summary.rejectedCount} duplicate=${report.summary.duplicateCount}`,
   )
 }
 

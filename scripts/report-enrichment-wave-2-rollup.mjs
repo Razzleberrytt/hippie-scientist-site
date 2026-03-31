@@ -11,12 +11,14 @@ import {
 } from './enrichment/normalize-enrichment-lib.mjs'
 
 const ROOT = process.cwd()
-const WAVE_PREFIX = 'sub_wave2-'
+const WAVE_ID = process.env.ENRICHMENT_WAVE_ID || 'wave-2'
+const SAFE_WAVE_ID = WAVE_ID.replace(/[^a-z0-9-]+/gi, '-').toLowerCase()
+const SUBMISSION_PREFIX = process.env.ENRICHMENT_WAVE_SUBMISSION_PREFIX || `sub_${SAFE_WAVE_ID.replace(/-/g, '')}-`
 
 const PATHS = {
   submissions: path.join(ROOT, 'ops', 'enrichment-submissions.json'),
   submissionReview: path.join(ROOT, 'ops', 'reports', 'enrichment-submission-review.json'),
-  waveTargets: path.join(ROOT, 'ops', 'reports', 'source-wave-2-targets.json'),
+  waveTargets: process.env.ENRICHMENT_WAVE_TARGETS_PATH || path.join(ROOT, 'ops', 'reports', `source-${SAFE_WAVE_ID}-targets.json`),
   canonicalGovernedInput: path.join(ROOT, 'public', 'data', 'enrichment-submissions-governed-input.jsonl'),
   governedArtifact: path.join(ROOT, 'public', 'data', 'enrichment-governed.json'),
   herbSummary: path.join(ROOT, 'public', 'data', 'herbs-summary.json'),
@@ -24,8 +26,8 @@ const PATHS = {
   linkingSummary: path.join(ROOT, 'ops', 'reports', 'enrichment-linking-summary.json'),
   discoverySummary: path.join(ROOT, 'ops', 'reports', 'enrichment-discovery-summary.json'),
   collectionsSummary: path.join(ROOT, 'ops', 'reports', 'enrichment-collections-summary.json'),
-  reportJson: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-2-rollup.json'),
-  reportMd: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-2-rollup.md'),
+  reportJson: process.env.ENRICHMENT_WAVE_ROLLUP_JSON_PATH || path.join(ROOT, 'ops', 'reports', `enrichment-${SAFE_WAVE_ID}-rollup.json`),
+  reportMd: process.env.ENRICHMENT_WAVE_ROLLUP_MD_PATH || path.join(ROOT, 'ops', 'reports', `enrichment-${SAFE_WAVE_ID}-rollup.md`),
 }
 
 const CLAIM_FIELDS = [
@@ -241,14 +243,14 @@ function verifyGovernanceIsolation(promotedEntries, submissions) {
   }
 
   const waveBlocked = submissions.filter(
-    submission => submission.submissionId.startsWith(WAVE_PREFIX) && submission.reviewStatus !== 'approved_for_rollup',
+    submission => submission.submissionId.startsWith(SUBMISSION_PREFIX) && submission.reviewStatus !== 'approved_for_rollup',
   )
 
   for (const submission of waveBlocked) {
     assert.equal(
       promotedSubmissionIds.has(submission.submissionId),
       false,
-      `Non-approved wave-2 submission leaked: ${submission.submissionId}`,
+      `Non-approved wave submission leaked: ${submission.submissionId}`,
     )
   }
 }
@@ -341,11 +343,11 @@ function run() {
       unresolvedCriticalTopics: row.unresolvedCriticalTopics,
     }))
 
-  const waveSubmissions = submissions.filter(sub => sub.submissionId.startsWith(WAVE_PREFIX))
+  const waveSubmissions = submissions.filter(sub => sub.submissionId.startsWith(SUBMISSION_PREFIX))
 
   const report = {
     generatedAt: new Date().toISOString(),
-    deterministicModelVersion: 'enrichment-wave-2-rollup-v1',
+    deterministicModelVersion: `enrichment-${SAFE_WAVE_ID}-rollup-v1`,
     paths: {
       canonicalGovernedInputPath: path.relative(ROOT, PATHS.canonicalGovernedInput),
       refreshedGovernedArtifactPath: path.relative(ROOT, PATHS.governedArtifact),
@@ -398,7 +400,7 @@ function run() {
   writeJson(PATHS.reportJson, report)
 
   const md = [
-    '# Enrichment Wave-1 Governed Rollup & Public Refresh',
+    `# Enrichment ${WAVE_ID} Governed Rollup & Public Refresh`,
     '',
     `Generated: ${report.generatedAt}`,
     `Canonical governed input: \`${report.paths.canonicalGovernedInputPath}\``,
@@ -438,8 +440,8 @@ function run() {
   fs.mkdirSync(path.dirname(PATHS.reportMd), { recursive: true })
   fs.writeFileSync(PATHS.reportMd, `${md.join('\n')}\n`, 'utf8')
 
-  console.log(`[report-enrichment-wave-2-rollup] PASS targets=${targets.length} promoted=${promotedEntries.length}`)
-  console.log(`[report-enrichment-wave-2-rollup] report=${path.relative(ROOT, PATHS.reportJson)}`)
+  console.log(`[report-enrichment-wave-rollup] PASS targets=${targets.length} promoted=${promotedEntries.length}`)
+  console.log(`[report-enrichment-wave-rollup] report=${path.relative(ROOT, PATHS.reportJson)}`)
 }
 
 run()
