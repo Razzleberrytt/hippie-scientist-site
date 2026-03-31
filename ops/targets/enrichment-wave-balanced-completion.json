@@ -1,0 +1,171 @@
+{
+  "generatedAt": "2026-03-31T20:00:56.192Z",
+  "deterministicModelVersion": "completion-aware-wave-targets-v1",
+  "selectionPolicy": {
+    "mode": "completion-aware-profile:balanced-completion",
+    "sourceProposalReport": "ops/reports/completion-aware-wave-targets.json",
+    "notes": "Deterministic completion/blocker-aware target artifact for governed enrichment wave runner input."
+  },
+  "targets": [
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "waveStatus": "carryover",
+      "selectionWhy": "indexable entity with completion=20%, blockerSeverity=72, class=high-value-but-badly-blocked.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment",
+      "proposalClass": "high-value-but-badly-blocked",
+      "completionPercent": 20,
+      "blockerSeverity": 72
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "waveStatus": "carryover",
+      "selectionWhy": "indexable entity with completion=20%, blockerSeverity=72, class=high-value-but-badly-blocked.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment",
+      "proposalClass": "high-value-but-badly-blocked",
+      "completionPercent": 20,
+      "blockerSeverity": 72
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "waveStatus": "carryover",
+      "selectionWhy": "indexable entity with completion=40%, blockerSeverity=70, class=high-value-but-badly-blocked.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked",
+      "proposalClass": "high-value-but-badly-blocked",
+      "completionPercent": 40,
+      "blockerSeverity": 70
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "waveStatus": "carryover",
+      "selectionWhy": "non_indexable entity with completion=40%, blockerSeverity=70, class=high-value-but-badly-blocked.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked",
+      "proposalClass": "high-value-but-badly-blocked",
+      "completionPercent": 40,
+      "blockerSeverity": 70
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "waveStatus": "carryover",
+      "selectionWhy": "non_indexable entity with completion=40%, blockerSeverity=70, class=high-value-but-badly-blocked.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked",
+      "proposalClass": "high-value-but-badly-blocked",
+      "completionPercent": 40,
+      "blockerSeverity": 70
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "waveStatus": "new-entity",
+      "selectionWhy": "non_indexable entity with completion=20%, blockerSeverity=66, class=high-value-but-badly-blocked.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment",
+      "proposalClass": "high-value-but-badly-blocked",
+      "completionPercent": 20,
+      "blockerSeverity": 66
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "waveStatus": "carryover",
+      "selectionWhy": "indexable entity with completion=40%, blockerSeverity=70, class=high-value-but-badly-blocked.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked",
+      "proposalClass": "high-value-but-badly-blocked",
+      "completionPercent": 40,
+      "blockerSeverity": 70
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ipomoea-tricolor-heavenly-blue",
+      "waveStatus": "new-entity",
+      "selectionWhy": "indexable entity with completion=20%, blockerSeverity=67.5, class=high-value-but-badly-blocked.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment",
+      "proposalClass": "high-value-but-badly-blocked",
+      "completionPercent": 20,
+      "blockerSeverity": 67.5
+    }
+  ]
+}
