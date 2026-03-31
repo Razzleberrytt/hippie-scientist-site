@@ -24,6 +24,11 @@ import { buildGovernedCollectionSummary } from '@/lib/collectionEnrichment'
 import { buildGovernedCollectionIntro } from '@/lib/governedCollectionIntro'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import {
+  applyGovernedDiscoveryControls,
+  type GovernedDiscoveryFilter,
+  type GovernedDiscoverySort,
+} from '@/lib/governedCollectionDiscovery'
+import {
   breadcrumbJsonLd,
   collectionPageJsonLd,
   formatMetaDescription,
@@ -148,6 +153,8 @@ export default function CollectionPage() {
   const [leadEmail, setLeadEmail] = useState('')
   const [leadHoneypot, setLeadHoneypot] = useState('')
   const [shareToast, setShareToast] = useState('')
+  const [governedFilter, setGovernedFilter] = useState<GovernedDiscoveryFilter>('all')
+  const [governedSort, setGovernedSort] = useState<GovernedDiscoverySort>('default')
 
   const {
     status: leadStatus,
@@ -216,6 +223,35 @@ export default function CollectionPage() {
     if (!collection || collection.itemType !== 'combo') return []
     return combos.filter(combo => filterComboByCollection(combo, collection.filters))
   }, [collection, combos])
+  const herbDiscovery = useMemo(
+    () =>
+      applyGovernedDiscoveryControls({
+        items: herbMatches,
+        getSummary: herb => herb.researchEnrichmentSummary,
+        filter: governedFilter,
+        sort: governedSort,
+      }),
+    [herbMatches, governedFilter, governedSort],
+  )
+  const compoundDiscovery = useMemo(
+    () =>
+      applyGovernedDiscoveryControls({
+        items: compoundMatches,
+        getSummary: compound => compound.researchEnrichmentSummary,
+        filter: governedFilter,
+        sort: governedSort,
+      }),
+    [compoundMatches, governedFilter, governedSort],
+  )
+  const displayedHerbMatches = collection?.itemType === 'herb' ? herbDiscovery.items : herbMatches
+  const displayedCompoundMatches =
+    collection?.itemType === 'compound' ? compoundDiscovery.items : compoundMatches
+  const activeDiscovery =
+    collection?.itemType === 'herb'
+      ? herbDiscovery
+      : collection?.itemType === 'compound'
+        ? compoundDiscovery
+        : null
 
   const itemCount = herbMatches.length + compoundMatches.length + comboMatches.length
   const collectionQuality = useMemo(() => {
@@ -228,10 +264,10 @@ export default function CollectionPage() {
   )
 
   const topItems = useMemo(() => {
-    if (collection?.itemType === 'herb') return herbMatches.slice(0, 3)
-    if (collection?.itemType === 'compound') return compoundMatches.slice(0, 3)
+    if (collection?.itemType === 'herb') return displayedHerbMatches.slice(0, 3)
+    if (collection?.itemType === 'compound') return displayedCompoundMatches.slice(0, 3)
     return []
-  }, [collection?.itemType, herbMatches, compoundMatches])
+  }, [collection?.itemType, displayedHerbMatches, displayedCompoundMatches])
   const governedCollectionSummary = useMemo(() => {
     if (!collection || collection.itemType === 'combo') return null
     const candidates =
@@ -756,6 +792,56 @@ export default function CollectionPage() {
             )}
           </section>
         ) : null}
+        {collection.itemType !== 'combo' && activeDiscovery ? (
+          <section className='border-white/12 mt-4 rounded-xl border bg-white/[0.03] p-3'>
+            <div className='flex flex-wrap items-center justify-between gap-2'>
+              <h2 className='text-xs font-semibold uppercase tracking-[0.14em] text-white/90'>
+                Governed discovery controls
+              </h2>
+              <p className='text-[11px] text-white/65'>
+                Eligible governed entries: {activeDiscovery.eligibility.governedEligible}/
+                {activeDiscovery.eligibility.total}
+              </p>
+            </div>
+            <div className='mt-2 grid gap-2 sm:grid-cols-2'>
+              <label className='flex flex-col gap-1 text-xs text-white/75'>
+                Filter
+                <select
+                  value={governedFilter}
+                  onChange={event => setGovernedFilter(event.target.value as GovernedDiscoveryFilter)}
+                  className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
+                >
+                  <option value='all'>All entries</option>
+                  <option value='governed_reviewed'>Enriched + reviewed only</option>
+                  <option value='human_support'>Human-support evidence labels</option>
+                  <option value='review_fresh'>Reviewed recently</option>
+                  <option value='safety_present'>Safety cautions present</option>
+                  <option value='uncertainty_or_conflict'>Uncertainty/conflict flagged</option>
+                  <option value='mechanism_or_constituent'>Mechanism/constituent coverage</option>
+                </select>
+              </label>
+              <label className='flex flex-col gap-1 text-xs text-white/75'>
+                Sort
+                <select
+                  value={governedSort}
+                  onChange={event => setGovernedSort(event.target.value as GovernedDiscoverySort)}
+                  className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
+                >
+                  <option value='default'>Default collection order</option>
+                  <option value='best_covered_first'>Best covered first (conservative)</option>
+                  <option value='evidence_strength'>Evidence strength label</option>
+                  <option value='review_freshness'>Review freshness</option>
+                </select>
+              </label>
+            </div>
+            {activeDiscovery.eligibility.governedEligible < 2 ? (
+              <p className='mt-2 text-[11px] text-amber-100/90'>
+                Governed coverage is sparse here, so controls stay conservative and may return few
+                or no matches for governed-only filters.
+              </p>
+            ) : null}
+          </section>
+        ) : null}
 
         <div className='mt-4 flex flex-wrap items-center gap-2'>
           <Link
@@ -966,9 +1052,9 @@ export default function CollectionPage() {
         </section>
       )}
 
-      {collection.itemType === 'herb' && herbMatches.length > 0 && (
+      {collection.itemType === 'herb' && displayedHerbMatches.length > 0 && (
         <section className='mt-6 grid gap-3 sm:grid-cols-2'>
-          {herbMatches.slice(0, 30).map(herb => {
+          {displayedHerbMatches.slice(0, 30).map(herb => {
             const tone = confidenceTone(herb.confidence)
             const token = encodeURIComponent(`herb:${herb.slug}`)
             const itemHref = buildInteractionsLink([token])
@@ -1027,9 +1113,9 @@ export default function CollectionPage() {
         </section>
       )}
 
-      {collection.itemType === 'compound' && compoundMatches.length > 0 && (
+      {collection.itemType === 'compound' && displayedCompoundMatches.length > 0 && (
         <section className='mt-6 grid gap-3 sm:grid-cols-2'>
-          {compoundMatches.slice(0, 30).map(compound => {
+          {displayedCompoundMatches.slice(0, 30).map(compound => {
             const tone = confidenceTone(compound.confidence)
             const token = encodeURIComponent(`compound:${compound.slug}`)
             const itemHref = buildInteractionsLink([token])
@@ -1239,6 +1325,15 @@ export default function CollectionPage() {
           This collection currently has no qualifying entries from canonical data fields.
         </section>
       )}
+      {itemCount > 0 &&
+      collection.itemType !== 'combo' &&
+      activeDiscovery &&
+      activeDiscovery.items.length === 0 ? (
+        <section className='mt-6 rounded-xl border border-amber-300/35 bg-amber-500/10 p-4 text-sm text-amber-100'>
+          No entries match the current governed filter. Try a broader filter to include more
+          entities.
+        </section>
+      ) : null}
 
       <section className='mt-8 grid gap-4 lg:grid-cols-2'>
         {editorial?.alternatives?.length ? (
