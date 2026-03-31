@@ -54,9 +54,14 @@ type EntityHealthRecord = {
   lastEvaluatedAt: string
 }
 
+type SeoPriorityReport = {
+  topCompounds?: Array<{ slug?: string }>
+}
+
 const ROOT = process.cwd()
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'enrichment-health.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'enrichment-health.md')
+const SEO_PRIORITY_PATH = 'public/data/seo-priority-report.json'
 const STALE_DAYS = 180
 const MS_PER_DAY = 24 * 60 * 60 * 1000
 
@@ -72,6 +77,14 @@ function normalizeSlug(value: unknown) {
 
 function entityKey(entityType: EntityType, slug: string) {
   return `${entityType}:${normalizeSlug(slug)}`
+}
+
+function isValidCompoundSlug(slug: string) {
+  if (!slug) return false
+  if (!/^[a-z0-9-]+$/.test(slug)) return false
+  if (/^\d+$/.test(slug)) return false
+  if (slug.includes('object-object')) return false
+  return slug.length >= 3
 }
 
 function computeCoverage(enrichment: ResearchEnrichment | null | undefined) {
@@ -156,6 +169,7 @@ function run() {
   const compoundSummary = readJson<Array<Record<string, unknown>>>('public/data/compounds-summary.json')
   const indexableHerbs = readJson<Array<{ slug: string }>>('public/data/indexable-herbs.json')
   const indexableCompounds = readJson<Array<{ slug: string }>>('public/data/indexable-compounds.json')
+  const seoPriority = readJson<SeoPriorityReport>(SEO_PRIORITY_PATH)
 
   const governedByKey = new Map<string, GovernedRow>()
   for (const row of governedRows) governedByKey.set(entityKey(row.entityType, row.entitySlug), row)
@@ -165,9 +179,50 @@ function run() {
     ...indexableCompounds.map(row => entityKey('compound', row.slug)),
   ])
 
+  const seoPriorityCompoundSlugs = new Set(
+    (seoPriority.topCompounds || [])
+      .map(row => normalizeSlug(row.slug))
+      .filter(slug => isValidCompoundSlug(slug)),
+  )
+
+  const indexableHerbSlugs = new Set(indexableHerbs.map(row => normalizeSlug(row.slug)))
+  const herbNameToSlug = new Map<string, string>()
+  for (const row of herbs) {
+    const slug = normalizeSlug(row.slug)
+    if (!slug) continue
+    for (const key of ['name', 'displayName', 'latin', 'scientificNormalized'] as const) {
+      const value = normalizeSlug(row[key])
+      if (!value) continue
+      herbNameToSlug.set(value, slug)
+    }
+  }
+
+  const expandedCompoundCandidateKeys = new Set<string>()
+  for (const row of compounds) {
+    const slug = normalizeSlug(row.slug)
+    if (!isValidCompoundSlug(slug)) continue
+
+    const linkedHerbSlugs = Array.isArray(row.herbs)
+      ? row.herbs
+          .map(value => herbNameToSlug.get(normalizeSlug(value)) || '')
+          .filter(Boolean)
+      : []
+    const linkedIndexableHerbCount = linkedHerbSlugs.filter(slug => indexableHerbSlugs.has(slug)).length
+    const safetySignalCount = Array.isArray(row.contraindications)
+      ? row.contraindications.map(value => String(value || '').trim()).filter(Boolean).length
+      : 0
+    const sourceCount = Array.isArray(row.sources) ? row.sources.map(value => String(value || '').trim()).filter(Boolean).length : 0
+
+    const prioritySignals = [seoPriorityCompoundSlugs.has(slug), linkedIndexableHerbCount >= 1 && (safetySignalCount >= 1 || sourceCount >= 1)]
+
+    if (!prioritySignals.some(Boolean)) continue
+    expandedCompoundCandidateKeys.add(entityKey('compound', slug))
+  }
+
   const allEntityKeys = new Set<string>([
     ...indexableKeys,
     ...governedRows.map(row => entityKey(row.entityType, row.entitySlug)),
+    ...expandedCompoundCandidateKeys,
   ])
 
   const entitiesByType = {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T01:29:06.349Z",
+  "generatedAt": "2026-03-31T12:12:56.317Z",
   "deterministicModelVersion": "enrichment-workpacks-v1",
   "sources": {
     "enrichmentBacklog": "ops/reports/enrichment-backlog.json",
@@ -7,21 +7,21 @@
     "enrichmentGoverned": "public/data/enrichment-governed.json"
   },
   "summary": {
-    "totalWorkpacks": 41,
+    "totalWorkpacks": 53,
     "bucketCounts": {
-      "governance_fix": 33,
+      "governance_fix": 46,
       "do_now": 0,
       "re_review": 5,
       "next_wave": 0,
-      "defer": 3
+      "defer": 2
     },
     "taskTypeCounts": {
-      "source_gathering": 30,
-      "normalization_enrichment_entry": 16,
+      "source_gathering": 42,
+      "normalization_enrichment_entry": 29,
       "review_approval": 13,
-      "governance_remediation": 36
+      "governance_remediation": 49
     },
-    "reviewerNeededCount": 38,
+    "reviewerNeededCount": 51,
     "topWorkpacks": [
       {
         "workpackId": "wp_herb_henbane",
@@ -253,9 +253,9 @@
         "publicPriorityScore": 103
       },
       {
-        "workpackId": "wp_herb_ipomoea_tricolor_heavenly_blue",
+        "workpackId": "wp_herb_mandrake_root",
         "itemType": "herb_page",
-        "entitySlug": "ipomoea-tricolor-heavenly-blue",
+        "entitySlug": "mandrake-root",
         "surfaceId": null,
         "publicStatus": "indexable",
         "enrichmentHealthState": "blocked",
@@ -290,11 +290,12 @@
           "editorialReadiness.publishable:false",
           "editorialStatus:approved",
           "governance block prevents safe publication of enrichment content",
-          "indexable_entity_without_healthy_governed_enrichment",
-          "source_linked_claims_without_publishable_status"
+          "indexable_entity_without_healthy_governed_enrichment"
         ],
         "availableSourceIds": [
-          "src_doi-10-1080-00275514-2025-2483634"
+          "src_doi-10-1002-ptrr-2023-4419",
+          "src_doi-10-1007-s13659-022-00357-w",
+          "src_doi-10-1016-j-plantsci-2019-03-013"
         ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
@@ -309,7 +310,62 @@
           "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
+        "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
+        "publicPriorityScore": 97
+      },
+      {
+        "workpackId": "wp_herb_ipomoea_tricolor_heavenly_blue",
+        "itemType": "herb_page",
+        "entitySlug": "ipomoea-tricolor-heavenly-blue",
+        "surfaceId": null,
+        "publicStatus": "indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry"
+        ],
+        "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [
+          "indexable_entity_without_healthy_governed_enrichment"
+        ],
+        "availableSourceIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Resolve governance blockers without weakening publish-gating or safety checks.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 94
       },
       {
@@ -997,50 +1053,6 @@
         "reviewerNeeded": true,
         "notesForContractor": "Scope: collection surface gabaergic-herbs. Primary task types: governance_remediation, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 58.9
-      },
-      {
-        "workpackId": "wp_collection_compounds_for_focus",
-        "itemType": "collection_page",
-        "entitySlug": null,
-        "surfaceId": "compounds-for-focus",
-        "publicStatus": "indexable_collection_surface",
-        "enrichmentHealthState": "missing_governed_enrichment",
-        "reviewCycleState": "depublish_or_hide_enriched_section",
-        "priorityLabel": "next_wave",
-        "operationalBucket": "governance_fix",
-        "taskTypes": [
-          "governance_remediation",
-          "source_gathering"
-        ],
-        "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
-        "requiredTopics": [
-          "evidence",
-          "safety",
-          "mechanism",
-          "constituent"
-        ],
-        "missingTopics": [],
-        "staleTopics": [
-          "discovery_quality"
-        ],
-        "blockedReasons": [
-          "insufficient-governed-coverage",
-          "no-governed-enrichment"
-        ],
-        "availableSourceIds": [],
-        "requiredGovernanceChecks": [
-          "verify:enrichment-collections",
-          "verify:source-registry"
-        ],
-        "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
-          "Refresh stale topics and review timestamps for: discovery_quality.",
-          "Resolve governance blockers without weakening publish-gating or safety checks.",
-          "Pass governance verification checks: verify:enrichment-collections, verify:source-registry."
-        ],
-        "reviewerNeeded": true,
-        "notesForContractor": "Scope: collection surface compounds-for-focus. Primary task types: governance_remediation, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
-        "publicPriorityScore": 58
       }
     ]
   },
@@ -1276,9 +1288,9 @@
         "publicPriorityScore": 103
       },
       {
-        "workpackId": "wp_herb_ipomoea_tricolor_heavenly_blue",
+        "workpackId": "wp_herb_mandrake_root",
         "itemType": "herb_page",
-        "entitySlug": "ipomoea-tricolor-heavenly-blue",
+        "entitySlug": "mandrake-root",
         "surfaceId": null,
         "publicStatus": "indexable",
         "enrichmentHealthState": "blocked",
@@ -1313,11 +1325,12 @@
           "editorialReadiness.publishable:false",
           "editorialStatus:approved",
           "governance block prevents safe publication of enrichment content",
-          "indexable_entity_without_healthy_governed_enrichment",
-          "source_linked_claims_without_publishable_status"
+          "indexable_entity_without_healthy_governed_enrichment"
         ],
         "availableSourceIds": [
-          "src_doi-10-1080-00275514-2025-2483634"
+          "src_doi-10-1002-ptrr-2023-4419",
+          "src_doi-10-1007-s13659-022-00357-w",
+          "src_doi-10-1016-j-plantsci-2019-03-013"
         ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
@@ -1332,7 +1345,62 @@
           "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
+        "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
+        "publicPriorityScore": 97
+      },
+      {
+        "workpackId": "wp_herb_ipomoea_tricolor_heavenly_blue",
+        "itemType": "herb_page",
+        "entitySlug": "ipomoea-tricolor-heavenly-blue",
+        "surfaceId": null,
+        "publicStatus": "indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry"
+        ],
+        "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [
+          "indexable_entity_without_healthy_governed_enrichment"
+        ],
+        "availableSourceIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Resolve governance blockers without weakening publish-gating or safety checks.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 94
       },
       {
@@ -2418,6 +2486,58 @@
         "publicPriorityScore": 58
       },
       {
+        "workpackId": "wp_compound_flavonoids",
+        "itemType": "compound_page",
+        "entitySlug": "flavonoids",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page flavonoids. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 58
+      },
+      {
         "workpackId": "wp_comparison_compare_page_herb_selection",
         "itemType": "comparison_page",
         "entitySlug": null,
@@ -2460,6 +2580,162 @@
         "reviewerNeeded": true,
         "notesForContractor": "Scope: comparison surface compare-page-herb-selection. Primary task types: governance_remediation, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 56.7
+      },
+      {
+        "workpackId": "wp_compound_quercetin",
+        "itemType": "compound_page",
+        "entitySlug": "quercetin",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page quercetin. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 55
+      },
+      {
+        "workpackId": "wp_compound_asarone",
+        "itemType": "compound_page",
+        "entitySlug": "asarone",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page asarone. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 52
+      },
+      {
+        "workpackId": "wp_compound_saponins",
+        "itemType": "compound_page",
+        "entitySlug": "saponins",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page saponins. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 49
       },
       {
         "workpackId": "wp_collection_calming_herb_combinations",
@@ -2548,6 +2824,422 @@
         "publicPriorityScore": 48
       },
       {
+        "workpackId": "wp_compound_volatile_oils",
+        "itemType": "compound_page",
+        "entitySlug": "volatile-oils",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page volatile-oils. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 46
+      },
+      {
+        "workpackId": "wp_compound_alkaloids",
+        "itemType": "compound_page",
+        "entitySlug": "alkaloids",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page alkaloids. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 43
+      },
+      {
+        "workpackId": "wp_compound_camphor",
+        "itemType": "compound_page",
+        "entitySlug": "camphor",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page camphor. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 40
+      },
+      {
+        "workpackId": "wp_compound_catechin",
+        "itemType": "compound_page",
+        "entitySlug": "catechin",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page catechin. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 37
+      },
+      {
+        "workpackId": "wp_compound_ephedrine",
+        "itemType": "compound_page",
+        "entitySlug": "ephedrine",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page ephedrine. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 34
+      },
+      {
+        "workpackId": "wp_compound_gallic_acid",
+        "itemType": "compound_page",
+        "entitySlug": "gallic-acid",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page gallic-acid. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 31
+      },
+      {
+        "workpackId": "wp_compound_kaempferol",
+        "itemType": "compound_page",
+        "entitySlug": "kaempferol",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page kaempferol. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 28
+      },
+      {
+        "workpackId": "wp_compound_limonene",
+        "itemType": "compound_page",
+        "entitySlug": "limonene",
+        "surfaceId": null,
+        "publicStatus": "non_indexable",
+        "enrichmentHealthState": "missing_governed_enrichment",
+        "reviewCycleState": "depublish_or_hide_enriched_section",
+        "priorityLabel": "re_review_needed",
+        "operationalBucket": "governance_fix",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "source_gathering"
+        ],
+        "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+        "requiredTopics": [
+          "evidence",
+          "safety",
+          "mechanism",
+          "constituent",
+          "source_registry"
+        ],
+        "missingTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "staleTopics": [
+          "constituent",
+          "evidence",
+          "mechanism",
+          "safety"
+        ],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-editorial",
+          "verify:research-enrichment",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: compound page limonene. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "publicPriorityScore": 25
+      },
+      {
         "workpackId": "wp_compound_luteolin",
         "itemType": "compound_page",
         "entitySlug": "luteolin",
@@ -2587,6 +3279,7 @@
           "governance block prevents safe publication of enrichment content"
         ],
         "availableSourceIds": [
+          "src_doi-10-3389-nprev-2024-220103",
           "src_pubmed-29801717"
         ],
         "requiredGovernanceChecks": [
@@ -2602,7 +3295,7 @@
           "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: compound page luteolin. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
+        "notesForContractor": "Scope: compound page luteolin. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
         "publicPriorityScore": 23
       },
       {
@@ -2645,6 +3338,7 @@
           "governance block prevents safe publication of enrichment content"
         ],
         "availableSourceIds": [
+          "src_doi-10-1016-j-molnpharm-2025-07-004",
           "src_doi-10-3390-ijms27062899"
         ],
         "requiredGovernanceChecks": [
@@ -2660,68 +3354,12 @@
           "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
+        "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
         "publicPriorityScore": 18
       }
     ],
     "do_now": [],
     "re_review": [
-      {
-        "workpackId": "wp_herb_mandrake_root",
-        "itemType": "herb_page",
-        "entitySlug": "mandrake-root",
-        "surfaceId": null,
-        "publicStatus": "indexable",
-        "enrichmentHealthState": "partial",
-        "reviewCycleState": "downgrade_recommended",
-        "priorityLabel": "do_now",
-        "operationalBucket": "re_review",
-        "taskTypes": [
-          "governance_remediation",
-          "normalization_enrichment_entry",
-          "review_approval"
-        ],
-        "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
-        "requiredTopics": [
-          "evidence",
-          "safety",
-          "mechanism",
-          "constituent",
-          "source_registry"
-        ],
-        "missingTopics": [
-          "constituent",
-          "mechanism",
-          "safety"
-        ],
-        "staleTopics": [
-          "constituent",
-          "mechanism",
-          "safety"
-        ],
-        "blockedReasons": [
-          "indexable_entity_without_healthy_governed_enrichment"
-        ],
-        "availableSourceIds": [
-          "src_doi-10-1007-s13659-022-00357-w",
-          "src_doi-10-1016-j-plantsci-2019-03-013"
-        ],
-        "requiredGovernanceChecks": [
-          "verify:enrichment-editorial",
-          "verify:research-enrichment",
-          "verify:source-registry"
-        ],
-        "completionCriteria": [
-          "Close missing topic coverage for: constituent, mechanism, safety.",
-          "Refresh stale topics and review timestamps for: constituent, mechanism, safety.",
-          "Resolve governance blockers without weakening publish-gating or safety checks.",
-          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry.",
-          "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
-        ],
-        "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: downgrade_recommended.",
-        "publicPriorityScore": 97
-      },
       {
         "workpackId": "wp_herb_mistletoe",
         "itemType": "herb_page",
@@ -2778,6 +3416,52 @@
         "publicPriorityScore": 91
       },
       {
+        "workpackId": "wp_browse_search_browse_herbs_summary",
+        "itemType": "discovery_surface",
+        "entitySlug": null,
+        "surfaceId": "browse-herbs-summary",
+        "publicStatus": "public_surface",
+        "enrichmentHealthState": "surface_out_of_sync",
+        "reviewCycleState": "downgrade_recommended",
+        "priorityLabel": "do_now",
+        "operationalBucket": "re_review",
+        "taskTypes": [
+          "governance_remediation",
+          "normalization_enrichment_entry",
+          "review_approval",
+          "source_gathering"
+        ],
+        "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+        "requiredTopics": [
+          "discovery_coverage",
+          "evidence",
+          "safety"
+        ],
+        "missingTopics": [],
+        "staleTopics": [
+          "discovery_quality"
+        ],
+        "blockedReasons": [
+          "summary_leak:herb:mandrake-root"
+        ],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-discovery",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Close missing topic coverage for: discovery_coverage, evidence, safety.",
+          "Refresh stale topics and review timestamps for: discovery_quality.",
+          "Resolve governance blockers without weakening publish-gating or safety checks.",
+          "Pass governance verification checks: verify:enrichment-discovery, verify:source-registry.",
+          "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
+        ],
+        "reviewerNeeded": true,
+        "notesForContractor": "Scope: browse_search surface browse-herbs-summary. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: downgrade_recommended.",
+        "publicPriorityScore": 87
+      },
+      {
         "workpackId": "wp_entity_detail_herb_pages",
         "itemType": "discovery_surface",
         "entitySlug": null,
@@ -2811,10 +3495,10 @@
           "herb:calliandra-anomala:missing_governed_enrichment",
           "herb:delosperma-cooperi:missing_governed_enrichment",
           "herb:henbane:blocked",
-          "herb:ipomoea-tricolor-heavenly-blue:blocked",
+          "herb:ipomoea-tricolor-heavenly-blue:missing_governed_enrichment",
           "herb:iresine-herbstii:blocked",
           "herb:jatropha-podagrica:blocked",
-          "herb:mandrake-root:partial",
+          "herb:mandrake-root:blocked",
           "herb:mistletoe:partial",
           "herb:pedicularis-groenlandica:blocked",
           "herb:rivea-corymbosa:blocked"
@@ -2833,7 +3517,7 @@
         ],
         "reviewerNeeded": true,
         "notesForContractor": "Scope: entity_detail surface herb-pages. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: downgrade_recommended.",
-        "publicPriorityScore": 54.8
+        "publicPriorityScore": 55.3
       },
       {
         "workpackId": "wp_entity_detail_compound_pages",
@@ -2958,41 +3642,6 @@
         ],
         "reviewerNeeded": false,
         "notesForContractor": "Scope: browse_search surface browse-compounds-summary. Primary task types: source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: fresh.",
-        "publicPriorityScore": 69
-      },
-      {
-        "workpackId": "wp_browse_search_browse_herbs_summary",
-        "itemType": "discovery_surface",
-        "entitySlug": null,
-        "surfaceId": "browse-herbs-summary",
-        "publicStatus": "public_surface",
-        "enrichmentHealthState": "healthy",
-        "reviewCycleState": "fresh",
-        "priorityLabel": "low_priority",
-        "operationalBucket": "defer",
-        "taskTypes": [
-          "source_gathering"
-        ],
-        "recommendedAction": "Monitor and refresh after next governed enrichment wave. No immediate changes; monitor as part of routine report cadence.",
-        "requiredTopics": [
-          "discovery_coverage",
-          "evidence",
-          "safety"
-        ],
-        "missingTopics": [],
-        "staleTopics": [],
-        "blockedReasons": [],
-        "availableSourceIds": [],
-        "requiredGovernanceChecks": [
-          "verify:enrichment-discovery",
-          "verify:source-registry"
-        ],
-        "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
-          "Pass governance verification checks: verify:enrichment-discovery, verify:source-registry."
-        ],
-        "reviewerNeeded": false,
-        "notesForContractor": "Scope: browse_search surface browse-herbs-summary. Primary task types: source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: fresh.",
         "publicPriorityScore": 69
       },
       {
@@ -3263,9 +3912,9 @@
       "publicPriorityScore": 103
     },
     {
-      "workpackId": "wp_herb_ipomoea_tricolor_heavenly_blue",
+      "workpackId": "wp_herb_mandrake_root",
       "itemType": "herb_page",
-      "entitySlug": "ipomoea-tricolor-heavenly-blue",
+      "entitySlug": "mandrake-root",
       "surfaceId": null,
       "publicStatus": "indexable",
       "enrichmentHealthState": "blocked",
@@ -3300,11 +3949,12 @@
         "editorialReadiness.publishable:false",
         "editorialStatus:approved",
         "governance block prevents safe publication of enrichment content",
-        "indexable_entity_without_healthy_governed_enrichment",
-        "source_linked_claims_without_publishable_status"
+        "indexable_entity_without_healthy_governed_enrichment"
       ],
       "availableSourceIds": [
-        "src_doi-10-1080-00275514-2025-2483634"
+        "src_doi-10-1002-ptrr-2023-4419",
+        "src_doi-10-1007-s13659-022-00357-w",
+        "src_doi-10-1016-j-plantsci-2019-03-013"
       ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
@@ -3319,7 +3969,62 @@
         "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
+      "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
+      "publicPriorityScore": 97
+    },
+    {
+      "workpackId": "wp_herb_ipomoea_tricolor_heavenly_blue",
+      "itemType": "herb_page",
+      "entitySlug": "ipomoea-tricolor-heavenly-blue",
+      "surfaceId": null,
+      "publicStatus": "indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry"
+      ],
+      "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "availableSourceIds": [
+        "src_doi-10-1080-00275514-2025-2483634"
+      ],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Resolve governance blockers without weakening publish-gating or safety checks.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 94
     },
     {
@@ -4405,6 +5110,58 @@
       "publicPriorityScore": 58
     },
     {
+      "workpackId": "wp_compound_flavonoids",
+      "itemType": "compound_page",
+      "entitySlug": "flavonoids",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page flavonoids. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 58
+    },
+    {
       "workpackId": "wp_comparison_compare_page_herb_selection",
       "itemType": "comparison_page",
       "entitySlug": null,
@@ -4447,6 +5204,162 @@
       "reviewerNeeded": true,
       "notesForContractor": "Scope: comparison surface compare-page-herb-selection. Primary task types: governance_remediation, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 56.7
+    },
+    {
+      "workpackId": "wp_compound_quercetin",
+      "itemType": "compound_page",
+      "entitySlug": "quercetin",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page quercetin. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 55
+    },
+    {
+      "workpackId": "wp_compound_asarone",
+      "itemType": "compound_page",
+      "entitySlug": "asarone",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page asarone. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 52
+    },
+    {
+      "workpackId": "wp_compound_saponins",
+      "itemType": "compound_page",
+      "entitySlug": "saponins",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page saponins. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 49
     },
     {
       "workpackId": "wp_collection_calming_herb_combinations",
@@ -4535,6 +5448,422 @@
       "publicPriorityScore": 48
     },
     {
+      "workpackId": "wp_compound_volatile_oils",
+      "itemType": "compound_page",
+      "entitySlug": "volatile-oils",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page volatile-oils. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 46
+    },
+    {
+      "workpackId": "wp_compound_alkaloids",
+      "itemType": "compound_page",
+      "entitySlug": "alkaloids",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page alkaloids. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 43
+    },
+    {
+      "workpackId": "wp_compound_camphor",
+      "itemType": "compound_page",
+      "entitySlug": "camphor",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page camphor. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 40
+    },
+    {
+      "workpackId": "wp_compound_catechin",
+      "itemType": "compound_page",
+      "entitySlug": "catechin",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page catechin. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 37
+    },
+    {
+      "workpackId": "wp_compound_ephedrine",
+      "itemType": "compound_page",
+      "entitySlug": "ephedrine",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page ephedrine. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 34
+    },
+    {
+      "workpackId": "wp_compound_gallic_acid",
+      "itemType": "compound_page",
+      "entitySlug": "gallic-acid",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page gallic-acid. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 31
+    },
+    {
+      "workpackId": "wp_compound_kaempferol",
+      "itemType": "compound_page",
+      "entitySlug": "kaempferol",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page kaempferol. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 28
+    },
+    {
+      "workpackId": "wp_compound_limonene",
+      "itemType": "compound_page",
+      "entitySlug": "limonene",
+      "surfaceId": null,
+      "publicStatus": "non_indexable",
+      "enrichmentHealthState": "missing_governed_enrichment",
+      "reviewCycleState": "depublish_or_hide_enriched_section",
+      "priorityLabel": "re_review_needed",
+      "operationalBucket": "governance_fix",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "source_gathering"
+      ],
+      "recommendedAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "requiredTopics": [
+        "evidence",
+        "safety",
+        "mechanism",
+        "constituent",
+        "source_registry"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "staleTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: compound page limonene. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "publicPriorityScore": 25
+    },
+    {
       "workpackId": "wp_compound_luteolin",
       "itemType": "compound_page",
       "entitySlug": "luteolin",
@@ -4574,6 +5903,7 @@
         "governance block prevents safe publication of enrichment content"
       ],
       "availableSourceIds": [
+        "src_doi-10-3389-nprev-2024-220103",
         "src_pubmed-29801717"
       ],
       "requiredGovernanceChecks": [
@@ -4589,7 +5919,7 @@
         "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: compound page luteolin. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
+      "notesForContractor": "Scope: compound page luteolin. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
       "publicPriorityScore": 23
     },
     {
@@ -4632,6 +5962,7 @@
         "governance block prevents safe publication of enrichment content"
       ],
       "availableSourceIds": [
+        "src_doi-10-1016-j-molnpharm-2025-07-004",
         "src_doi-10-3390-ijms27062899"
       ],
       "requiredGovernanceChecks": [
@@ -4647,64 +5978,8 @@
         "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
+      "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
       "publicPriorityScore": 18
-    },
-    {
-      "workpackId": "wp_herb_mandrake_root",
-      "itemType": "herb_page",
-      "entitySlug": "mandrake-root",
-      "surfaceId": null,
-      "publicStatus": "indexable",
-      "enrichmentHealthState": "partial",
-      "reviewCycleState": "downgrade_recommended",
-      "priorityLabel": "do_now",
-      "operationalBucket": "re_review",
-      "taskTypes": [
-        "governance_remediation",
-        "normalization_enrichment_entry",
-        "review_approval"
-      ],
-      "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
-      "requiredTopics": [
-        "evidence",
-        "safety",
-        "mechanism",
-        "constituent",
-        "source_registry"
-      ],
-      "missingTopics": [
-        "constituent",
-        "mechanism",
-        "safety"
-      ],
-      "staleTopics": [
-        "constituent",
-        "mechanism",
-        "safety"
-      ],
-      "blockedReasons": [
-        "indexable_entity_without_healthy_governed_enrichment"
-      ],
-      "availableSourceIds": [
-        "src_doi-10-1007-s13659-022-00357-w",
-        "src_doi-10-1016-j-plantsci-2019-03-013"
-      ],
-      "requiredGovernanceChecks": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "completionCriteria": [
-        "Close missing topic coverage for: constituent, mechanism, safety.",
-        "Refresh stale topics and review timestamps for: constituent, mechanism, safety.",
-        "Resolve governance blockers without weakening publish-gating or safety checks.",
-        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry.",
-        "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
-      ],
-      "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: downgrade_recommended.",
-      "publicPriorityScore": 97
     },
     {
       "workpackId": "wp_herb_mistletoe",
@@ -4762,6 +6037,52 @@
       "publicPriorityScore": 91
     },
     {
+      "workpackId": "wp_browse_search_browse_herbs_summary",
+      "itemType": "discovery_surface",
+      "entitySlug": null,
+      "surfaceId": "browse-herbs-summary",
+      "publicStatus": "public_surface",
+      "enrichmentHealthState": "surface_out_of_sync",
+      "reviewCycleState": "downgrade_recommended",
+      "priorityLabel": "do_now",
+      "operationalBucket": "re_review",
+      "taskTypes": [
+        "governance_remediation",
+        "normalization_enrichment_entry",
+        "review_approval",
+        "source_gathering"
+      ],
+      "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "requiredTopics": [
+        "discovery_coverage",
+        "evidence",
+        "safety"
+      ],
+      "missingTopics": [],
+      "staleTopics": [
+        "discovery_quality"
+      ],
+      "blockedReasons": [
+        "summary_leak:herb:mandrake-root"
+      ],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-discovery",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Close missing topic coverage for: discovery_coverage, evidence, safety.",
+        "Refresh stale topics and review timestamps for: discovery_quality.",
+        "Resolve governance blockers without weakening publish-gating or safety checks.",
+        "Pass governance verification checks: verify:enrichment-discovery, verify:source-registry.",
+        "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
+      ],
+      "reviewerNeeded": true,
+      "notesForContractor": "Scope: browse_search surface browse-herbs-summary. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: downgrade_recommended.",
+      "publicPriorityScore": 87
+    },
+    {
       "workpackId": "wp_entity_detail_herb_pages",
       "itemType": "discovery_surface",
       "entitySlug": null,
@@ -4795,10 +6116,10 @@
         "herb:calliandra-anomala:missing_governed_enrichment",
         "herb:delosperma-cooperi:missing_governed_enrichment",
         "herb:henbane:blocked",
-        "herb:ipomoea-tricolor-heavenly-blue:blocked",
+        "herb:ipomoea-tricolor-heavenly-blue:missing_governed_enrichment",
         "herb:iresine-herbstii:blocked",
         "herb:jatropha-podagrica:blocked",
-        "herb:mandrake-root:partial",
+        "herb:mandrake-root:blocked",
         "herb:mistletoe:partial",
         "herb:pedicularis-groenlandica:blocked",
         "herb:rivea-corymbosa:blocked"
@@ -4817,7 +6138,7 @@
       ],
       "reviewerNeeded": true,
       "notesForContractor": "Scope: entity_detail surface herb-pages. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: downgrade_recommended.",
-      "publicPriorityScore": 54.8
+      "publicPriorityScore": 55.3
     },
     {
       "workpackId": "wp_entity_detail_compound_pages",
@@ -4939,41 +6260,6 @@
       ],
       "reviewerNeeded": false,
       "notesForContractor": "Scope: browse_search surface browse-compounds-summary. Primary task types: source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: fresh.",
-      "publicPriorityScore": 69
-    },
-    {
-      "workpackId": "wp_browse_search_browse_herbs_summary",
-      "itemType": "discovery_surface",
-      "entitySlug": null,
-      "surfaceId": "browse-herbs-summary",
-      "publicStatus": "public_surface",
-      "enrichmentHealthState": "healthy",
-      "reviewCycleState": "fresh",
-      "priorityLabel": "low_priority",
-      "operationalBucket": "defer",
-      "taskTypes": [
-        "source_gathering"
-      ],
-      "recommendedAction": "Monitor and refresh after next governed enrichment wave. No immediate changes; monitor as part of routine report cadence.",
-      "requiredTopics": [
-        "discovery_coverage",
-        "evidence",
-        "safety"
-      ],
-      "missingTopics": [],
-      "staleTopics": [],
-      "blockedReasons": [],
-      "availableSourceIds": [],
-      "requiredGovernanceChecks": [
-        "verify:enrichment-discovery",
-        "verify:source-registry"
-      ],
-      "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
-        "Pass governance verification checks: verify:enrichment-discovery, verify:source-registry."
-      ],
-      "reviewerNeeded": false,
-      "notesForContractor": "Scope: browse_search surface browse-herbs-summary. Primary task types: source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: fresh.",
       "publicPriorityScore": 69
     },
     {
