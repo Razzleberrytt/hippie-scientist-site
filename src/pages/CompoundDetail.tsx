@@ -39,6 +39,7 @@ import { buildGovernedRelatedQuestions } from '@/lib/governedRelatedQuestions'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import { buildGovernedQuickCompareSection } from '@/lib/governedQuickCompare'
 import { buildFallbackCompoundIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
+import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -177,6 +178,15 @@ export default function CompoundDetail() {
   })
   const ctaVariantId = ctaExperiment.activeVariantId
   const governedResearch = getGovernedResearchEnrichment('compound', compound.slug)
+  const governedCta = resolveGovernedCtaDecision({
+    entityType: 'compound',
+    entitySlug: compound.slug,
+    cautionCount,
+    confidence,
+    sourceCount,
+    relatedCollectionCount: relatedCollections.length,
+    enrichment: governedResearch,
+  })
   const governedFaq = governedResearch
     ? buildGovernedFaqSectionContent({
         entityType: 'compound',
@@ -184,15 +194,16 @@ export default function CompoundDetail() {
         enrichment: governedResearch,
       })
     : null
-  const governedRelatedQuestions = governedResearch && governedFaq
-    ? buildGovernedRelatedQuestions({
-        entityType: 'compound',
-        entityName: compound.name,
-        enrichment: governedResearch,
-        governedFaq,
-        hasVisibleCompareSection: Boolean(linkedHerbs.length || relatedCollections.length),
-      })
-    : null
+  const governedRelatedQuestions =
+    governedResearch && governedFaq
+      ? buildGovernedRelatedQuestions({
+          entityType: 'compound',
+          entityName: compound.name,
+          enrichment: governedResearch,
+          governedFaq,
+          hasVisibleCompareSection: Boolean(linkedHerbs.length || relatedCollections.length),
+        })
+      : null
   const fallbackIntro = buildFallbackCompoundIntro({
     compoundName: compound.name,
     description: compound.description,
@@ -265,11 +276,14 @@ export default function CompoundDetail() {
             breadcrumbId,
             governedSummary: compound.researchEnrichmentSummary,
           }),
-          breadcrumbJsonLd([
-            { name: 'Home', url: SITE_URL },
-            { name: 'Compounds', url: `${SITE_URL}/compounds` },
-            { name: compound.name, url: `${SITE_URL}${pagePath}` },
-          ], { id: breadcrumbId }),
+          breadcrumbJsonLd(
+            [
+              { name: 'Home', url: SITE_URL },
+              { name: 'Compounds', url: `${SITE_URL}/compounds` },
+              { name: compound.name, url: `${SITE_URL}${pagePath}` },
+            ],
+            { id: breadcrumbId },
+          ),
           ...(governedFaq?.emitFaqSchema
             ? [
                 faqPageJsonLd({
@@ -348,6 +362,7 @@ export default function CompoundDetail() {
 
           <CtaVariantLayout
             variant={ctaExperiment.variant}
+            slotOrderOverride={governedCta.slotOrder}
             onSlotImpression={(slot, position) => {
               const ctaType =
                 slot === 'tool'
@@ -375,8 +390,9 @@ export default function CompoundDetail() {
               tool: (
                 <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
                   <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
-                    Validate interactions first
+                    {governedCta.copy.toolTitle}
                   </p>
+                  <p className='mt-1 text-xs text-white/75'>{governedCta.copy.toolBody}</p>
                   <Link
                     to={compoundCheckerHref}
                     className='btn-primary mt-2 inline-flex text-xs'
@@ -401,9 +417,7 @@ export default function CompoundDetail() {
               ),
               builder: (
                 <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
-                  <p className='text-xs text-white/75'>
-                    Then move this compound into the builder workflow.
-                  </p>
+                  <p className='text-xs text-white/75'>{governedCta.copy.builderBody}</p>
                   <Link
                     to='/build'
                     className='btn-secondary mt-2 inline-flex text-xs'
@@ -428,7 +442,9 @@ export default function CompoundDetail() {
               ),
               related: relatedCollections.length > 0 && (
                 <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
-                  <p className='text-xs font-semibold text-white'>Compare related collections</p>
+                  <p className='text-xs font-semibold text-white'>
+                    {governedCta.copy.relatedTitle}
+                  </p>
                   <div className='mt-2 flex flex-wrap gap-2'>
                     {relatedCollections.slice(0, 3).map(collection => (
                       <Link
@@ -451,6 +467,7 @@ export default function CompoundDetail() {
                   pageType='compound_detail'
                   variantId={ctaVariantId}
                   ctaPosition='detail_affiliate_module'
+                  preDisclosureGuidance={governedCta.copy.affiliateLeadIn}
                 />
               ),
             }}

@@ -11,6 +11,7 @@ type CuratedProductModuleProps = {
   pageType?: 'herb_detail' | 'compound_detail' | 'collection_page'
   variantId?: string
   ctaPosition?: string
+  preDisclosureGuidance?: string
 }
 
 function trackProductImpression(params: {
@@ -69,6 +70,7 @@ export default function CuratedProductModule({
   pageType,
   variantId,
   ctaPosition,
+  preDisclosureGuidance,
 }: CuratedProductModuleProps) {
   useEffect(() => {
     products.forEach(product => {
@@ -88,6 +90,9 @@ export default function CuratedProductModule({
 
   return (
     <section className='rounded-xl border border-white/10 bg-white/[0.03] p-3'>
+      {preDisclosureGuidance && (
+        <p className='text-xs leading-relaxed text-white/75'>{preDisclosureGuidance}</p>
+      )}
       <p className='text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-100/85'>
         Affiliate Disclosure
       </p>
