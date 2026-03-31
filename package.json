@@ -150,7 +150,8 @@
     "report:governed-analytics": "tsx scripts/report-governed-analytics.ts",
     "report:governed-scorecard": "tsx scripts/report-governed-scorecard.ts",
     "report:governed-refinement-pass": "tsx scripts/report-governed-refinement-pass.ts",
-    "report:governed-pattern-rollout": "npm run report:governed-scorecard && npm run report:governed-refinement-pass && tsx scripts/report-governed-pattern-rollout.ts"
+    "report:governed-pattern-rollout": "npm run report:governed-scorecard && npm run report:governed-refinement-pass && tsx scripts/report-governed-pattern-rollout.ts",
+    "report:governed-release-readiness": "npm run report:enrichment-review-cycle && npm run report:governed-review-freshness && npm run verify:governed-ux && tsx scripts/report-governed-release-readiness.ts"
   },
   "engines": {
     "node": ">=20 <21"
