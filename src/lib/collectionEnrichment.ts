@@ -1,4 +1,5 @@
 import { getGovernedResearchEnrichment, type GovernedEntityType } from '@/lib/governedResearch'
+import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import type { EvidenceLabel, ResearchEnrichment } from '@/types/researchEnrichment'
 
 export type EnrichmentComparableEntity = {
@@ -38,6 +39,8 @@ export type GovernedCollectionSummary = {
   hasSufficientGovernedCoverage: boolean
   allowComparativeHighlights: boolean
   degradeReasons: string[]
+  relatedGovernedCompoundCount: number
+  relatedGovernedCompoundSlugs: string[]
   governedEntities: GovernedEntitySnapshot[]
 }
 
@@ -150,6 +153,27 @@ export function buildGovernedCollectionSummary(
     degradeReasons.push('no-governed-enrichment')
   }
 
+  const relatedGovernedCompoundSlugs = new Set<string>()
+  for (const entity of governedEntities) {
+    if (entity.entityType !== 'herb') continue
+    const bundle = buildEnrichmentRecommendations('herb', entity.entitySlug)
+    for (const item of [
+      ...bundle.relatedCompounds,
+      ...bundle.safetyNextSteps,
+      ...bundle.mechanismNextSteps,
+    ]) {
+      if (item.targetType === 'compound' && item.targetSlug) {
+        relatedGovernedCompoundSlugs.add(item.targetSlug)
+      }
+    }
+  }
+  if (
+    governedEntities.some(entity => entity.entityType === 'herb') &&
+    relatedGovernedCompoundSlugs.size === 0
+  ) {
+    degradeReasons.push('no-related-governed-compound-signals')
+  }
+
   return {
     includedCount,
     governedReviewedCount,
@@ -176,7 +200,9 @@ export function buildGovernedCollectionSummary(
       reviewedDates.length > 0 ? new Date(reviewedDates[0]).toISOString() : null,
     hasSufficientGovernedCoverage,
     allowComparativeHighlights,
-    degradeReasons,
+    degradeReasons: Array.from(new Set(degradeReasons)),
+    relatedGovernedCompoundCount: relatedGovernedCompoundSlugs.size,
+    relatedGovernedCompoundSlugs: Array.from(relatedGovernedCompoundSlugs).sort(),
     governedEntities,
   }
 }

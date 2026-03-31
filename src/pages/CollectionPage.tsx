@@ -117,6 +117,8 @@ const COLLECTION_REASON_LABELS: Record<string, string> = {
   'insufficient-matching-items': 'not enough matching entities to make the page useful',
   'missing-intro': 'intro text is too short',
   'missing-description': 'meta description is too short',
+  'no-related-governed-compound-signals':
+    'no governed herb↔compound propagation signals met publication thresholds',
 }
 
 export default function CollectionPage() {
@@ -646,6 +648,10 @@ export default function CollectionPage() {
               <p>
                 <span className='font-semibold text-white'>Uncertainty/conflict flags:</span>{' '}
                 {governedCollectionSummary.unresolvedConflictOrUncertaintyCount}
+              </p>
+              <p>
+                <span className='font-semibold text-white'>Related governed compounds:</span>{' '}
+                {governedCollectionSummary.relatedGovernedCompoundCount}
               </p>
               {governedCollectionSummary.lastReviewedAtMostRecent ? (
                 <p>
