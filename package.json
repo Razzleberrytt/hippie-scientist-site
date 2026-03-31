@@ -125,7 +125,8 @@
     "report:compound-candidate-supply": "npm run report:source-intake-queue && npm run report:enrichment-bootstrap-packs && npm run report:enrichment-authoring-packs && npm run report:enrichment-wave-targets && tsx scripts/report-compound-candidate-supply.ts",
     "report:compound-enrichment-wave": "node scripts/report-compound-enrichment-wave.mjs",
     "report:compound-propagation": "tsx scripts/report-compound-propagation.ts",
-    "verify:compound-propagation": "tsx scripts/verify-compound-propagation.ts"
+    "verify:compound-propagation": "tsx scripts/verify-compound-propagation.ts",
+    "report:homepage-enrichment-refresh": "node scripts/generate-homepage-data.mjs --report-refresh && node scripts/verify-homepage-payload.mjs"
   },
   "engines": {
     "node": ">=20 <21"

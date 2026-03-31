@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-03-31T13:22:32.430Z",
+  "deterministicModelVersion": "homepage-enrichment-refresh-v1",
+  "canonicalGovernedArtifacts": {
+    "governed": "public/data/enrichment-governed.json",
+    "herbsSummary": "public/data/herbs-summary.json",
+    "compoundsSummary": "public/data/compounds-summary.json",
+    "publicationManifest": "public/data/publication-manifest.json"
+  },
+  "inputs": {
+    "previousHomepageArtifact": "src/generated/homepage-data.json",
+    "latestGovernedWaves": {
+      "wave2b": "2026-03-31T02:16:47.108Z",
+      "enrichmentHealth": null,
+      "enrichmentBacklog": null
+    },
+    "publicationManifestGeneratedAt": "2026-03-30T11:49:44.014Z"
+  },
+  "moduleChanges": {
+    "trustAndSafety": "updated",
+    "todaysDiscovery": "updated",
+    "featuredDiscoveries": "updated",
+    "popularEffectsAndStarterPaths": "updated",
+    "reviewedResearchHighlights": "added"
+  },
+  "visibility": {
+    "gainedEntityKeys": [],
+    "gainedCount": 0,
+    "governedHighlights": [
+      {
+        "entityKey": "herb:mistletoe",
+        "evidenceLabel": "limited_human_support",
+        "enrichedAndReviewed": true,
+        "safetyCautionsPresent": false,
+        "mechanismCoveragePresent": false,
+        "lastReviewedDate": "2026-03-31"
+      },
+      {
+        "entityKey": "herb:kava",
+        "evidenceLabel": "limited_human_support",
+        "enrichedAndReviewed": true,
+        "safetyCautionsPresent": false,
+        "mechanismCoveragePresent": false,
+        "lastReviewedDate": "2026-03-30"
+      }
+    ]
+  },
+  "exclusions": [
+    {
+      "entityKey": "compound:cbd",
+      "excludedReason": "non_publishable_approved"
+    },
+    {
+      "entityKey": "compound:luteolin",
+      "excludedReason": "non_publishable_approved"
+    },
+    {
+      "entityKey": "herb:henbane",
+      "excludedReason": "non_publishable_approved"
+    },
+    {
+      "entityKey": "herb:iresine-herbstii",
+      "excludedReason": "non_publishable_approved"
+    },
+    {
+      "entityKey": "herb:jatropha-podagrica",
+      "excludedReason": "non_publishable_approved"
+    },
+    {
+      "entityKey": "herb:mandrake-root",
+      "excludedReason": "non_publishable_approved"
+    },
+    {
+      "entityKey": "herb:pedicularis-groenlandica",
+      "excludedReason": "non_publishable_approved"
+    },
+    {
+      "entityKey": "herb:rivea-corymbosa",
+      "excludedReason": "non_publishable_approved"
+    }
+  ],
+  "payloadShape": {
+    "keysBefore": [
+      "generatedAt",
+      "counts",
+      "trustBadges",
+      "popularEffects",
+      "featuredPool",
+      "diverseFeatured",
+      "curated",
+      "governedHighlights",
+      "effectExplorerHerbs",
+      "governance"
+    ],
+    "keysAfter": [
+      "generatedAt",
+      "counts",
+      "trustBadges",
+      "popularEffects",
+      "featuredPool",
+      "diverseFeatured",
+      "curated",
+      "governedHighlights",
+      "effectExplorerHerbs",
+      "governance"
+    ],
+    "changed": false,
+    "bytesBefore": 531177,
+    "bytesAfter": 528069,
+    "byteDelta": -3108
+  },
+  "verification": {
+    "usesOnlyApprovedGovernedSignals": true,
+    "blockedRejectedRevisionRequestedExcluded": true,
+    "homepageArtifactStillLightweight": true,
+    "partialCoverageGracefulDegradation": true
+  }
+}
