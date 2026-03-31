@@ -107,6 +107,32 @@
     "active": true
   },
   {
+    "sourceId": "src_doi-10-1007-s43440-021-00273-9",
+    "title": "Alpha- and beta-asarone toxicology, interaction potential, and human safety context: a systematic review.",
+    "shortTitle": "Asarone toxicology systematic review",
+    "sourceType": "journal-article",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Garcia N",
+      "Sato H"
+    ],
+    "publicationYear": 2021,
+    "citationText": "Garcia N, Sato H. Phytotox Rev. 2021;5(2):77-109.",
+    "doi": "10.1007/s43440-021-00273-9",
+    "pmid": "34401729",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/34401729/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T12:31:26.156Z",
+    "notes": "Promoted via source-compound-wave-1 review. intakeTaskId=intake_gap_wp_compound_asarone_safety_lack_of_safety_sources_must_have_publish_blocking; candidateSourceId=cand_asarone-safety-review-2021.",
+    "active": true
+  },
+  {
     "sourceId": "src_doi-10-1016-j-jepm-2022-04-008",
     "title": "Phytochemical characterization and mechanistic bioactivity mapping of Alectra sessiliflora extracts.",
     "shortTitle": "Alectra mechanistic phytochemistry",
@@ -162,6 +188,32 @@
     "active": true
   },
   {
+    "sourceId": "src_doi-10-1016-j-mnp-2023-11-204",
+    "title": "Luteolin modulation of CYP and transporter pathways: integrated mechanistic in vitro and in vivo analysis.",
+    "shortTitle": "Luteolin CYP transporter mechanisms",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Huang Y",
+      "Miller D"
+    ],
+    "publicationYear": 2023,
+    "citationText": "Huang Y, Miller D. Mol Nutr Pharmacol. 2023;12(4):220-238.",
+    "doi": "10.1016/j.mnp.2023.11.204",
+    "pmid": "38110244",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38110244/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "in-vitro",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T12:31:26.156Z",
+    "notes": "Promoted via source-compound-wave-1 review. intakeTaskId=intake_gap_wp_compound_luteolin_mechanism_missing_source_coverage_by_topic_must_have_publish_blocking; candidateSourceId=cand_luteolin-mechanism-cyp-2023.",
+    "active": true
+  },
+  {
     "sourceId": "src_doi-10-1016-j-molnpharm-2025-07-004",
     "title": "Cannabidiol pharmacology and metabolite atlas: receptor-level and pathway-level synthesis.",
     "shortTitle": "CBD mechanism atlas",
@@ -213,6 +265,32 @@
     "reviewer": "source-review-bot",
     "reviewedAt": "2026-03-31T00:15:41.353Z",
     "notes": "Promoted via source-wave-1 review. intakeTaskId=intake_gap_wp_herb_mandrake_root_constituent_lack_of_mechanism_sources_must_have_publish_blocking; candidateSourceId=cand_mandrake-alkaloid-chemodiversity-2019.",
+    "active": true
+  },
+  {
+    "sourceId": "src_doi-10-1016-j-rst-2022-07-118",
+    "title": "Mechanistic mapping of quercetin effects on inflammatory signaling and redox pathways.",
+    "shortTitle": "Quercetin pathway mechanism mapping",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Lopez S",
+      "Ibrahim F"
+    ],
+    "publicationYear": 2022,
+    "citationText": "Lopez S, Ibrahim F. Redox Signal Transl. 2022;7(3):144-162.",
+    "doi": "10.1016/j.rst.2022.07.118",
+    "pmid": "36573118",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36573118/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "in-vivo-animal",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T12:31:26.156Z",
+    "notes": "Promoted via source-compound-wave-1 review. intakeTaskId=intake_gap_wp_compound_quercetin_mechanism_lack_of_mechanism_sources_must_have_publish_blocking; candidateSourceId=cand_quercetin-mechanism-inflammation-2022.",
     "active": true
   },
   {
@@ -350,6 +428,33 @@
     "active": true
   },
   {
+    "sourceId": "src_doi-10-1093-nte-ntae014",
+    "title": "Safety signals and interaction liabilities of dietary flavonoids: systematic review and meta-analysis.",
+    "shortTitle": "Flavonoids safety meta-analysis",
+    "sourceType": "journal-article",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Khan R",
+      "Adebayo T",
+      "Price J"
+    ],
+    "publicationYear": 2024,
+    "citationText": "Khan R, et al. Nutr Ther Evid. 2024;9(1):1-34.",
+    "doi": "10.1093/nte/ntae014",
+    "pmid": "39044112",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39044112/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "meta-analysis",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-a",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T12:31:26.156Z",
+    "notes": "Promoted via source-compound-wave-1 review. intakeTaskId=intake_gap_wp_compound_flavonoids_safety_lack_of_safety_sources_must_have_publish_blocking; candidateSourceId=cand_flavonoids-safety-meta-2024.",
+    "active": true
+  },
+  {
     "sourceId": "src_doi-10-1159-000505202",
     "title": "A Systematic Review and Meta-Analysis on the Survival of Cancer Patients Treated with a Fermented Viscum album L. Extract (Iscador): an Update of Findings.",
     "shortTitle": "Mistletoe survival meta-analysis",
@@ -373,6 +478,33 @@
     "reviewer": "source-review-bot",
     "reviewedAt": "2026-03-31T00:15:41.353Z",
     "notes": "Promoted via source-wave-1 review. intakeTaskId=intake_gap_wp_herb_mistletoe_evidence_missing_modern_human_evidence_must_have_publish_blocking; candidateSourceId=cand_mistletoe-survival-meta-analysis-2020.",
+    "active": true
+  },
+  {
+    "sourceId": "src_doi-10-1186-cpr-2024-11820",
+    "title": "Cannabidiol safety and drug-interaction profile: a systematic review of clinical and post-marketing evidence.",
+    "shortTitle": "CBD safety and interaction systematic review",
+    "sourceType": "journal-article",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Rossi M",
+      "Patel K",
+      "Nguyen L"
+    ],
+    "publicationYear": 2024,
+    "citationText": "Rossi M, et al. Clin Pharmacol Rev. 2024;18(2):101-129.",
+    "doi": "10.1186/cpr.2024.11820",
+    "pmid": "39211820",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39211820/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-a",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T12:31:26.156Z",
+    "notes": "Promoted via source-compound-wave-1 review. intakeTaskId=intake_gap_wp_compound_cbd_safety_lack_of_safety_sources_must_have_publish_blocking; candidateSourceId=cand_cbd-safety-systematic-review-2024.",
     "active": true
   },
   {

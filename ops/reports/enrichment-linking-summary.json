@@ -1,12 +1,11 @@
 {
-  "generatedAt": "2026-03-31T01:29:17.271Z",
+  "generatedAt": "2026-03-31T12:33:37.359Z",
   "pageTypes": {
     "herb_detail": {
       "enrichmentAwareRecommendations": true,
       "activeSignalTypes": [],
       "eligibleEntities": [
         "kava",
-        "mandrake-root",
         "mistletoe"
       ]
     },
@@ -44,6 +43,12 @@
     {
       "entityType": "herb",
       "entitySlug": "jatropha-podagrica",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
       "reason": "insufficient_governed_enrichment_or_not_publishable",
       "editorialStatus": "approved"
     },

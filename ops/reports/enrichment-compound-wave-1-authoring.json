@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-03-31T12:33:32.456Z",
+  "deterministicModelVersion": "enrichment-compound-wave-1-authoring-v1",
+  "paths": {
+    "submissions": "ops/enrichment-submissions.json",
+    "submissionReview": "ops/reports/enrichment-submission-review.json",
+    "sourceWaveTargets": "ops/reports/source-compound-wave-1-targets.json"
+  },
+  "entitiesEnriched": [
+    "compound:cbd",
+    "compound:luteolin"
+  ],
+  "entryCounts": {
+    "byEntity": {
+      "compound:cbd": 2,
+      "compound:luteolin": 2
+    },
+    "byTopicType": {
+      "research_gap": 4
+    },
+    "byEvidenceClass": {
+      "human-clinical": 2,
+      "preclinical-mechanistic": 2
+    },
+    "byReviewStatus": {
+      "approved_for_rollup": 4
+    }
+  },
+  "submissionOutcomes": {
+    "approved": 4,
+    "revisionRequested": 0,
+    "rejected": 0,
+    "promoted": 2,
+    "blocked": 2
+  },
+  "unresolvedCriticalGaps": [
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent",
+        "conflict-uncertainty"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent",
+        "conflict-uncertainty"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    }
+  ]
+}

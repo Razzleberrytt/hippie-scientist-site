@@ -122,7 +122,8 @@
     "report:enrichment-wave-2b": "tsx scripts/report-enrichment-wave-2b.ts",
     "run:enrichment-wave": "node scripts/run-enrichment-wave.mjs",
     "report:enrichment-wave-targets": "tsx scripts/report-enrichment-wave-targets.ts",
-    "report:compound-candidate-supply": "npm run report:source-intake-queue && npm run report:enrichment-bootstrap-packs && npm run report:enrichment-authoring-packs && npm run report:enrichment-wave-targets && tsx scripts/report-compound-candidate-supply.ts"
+    "report:compound-candidate-supply": "npm run report:source-intake-queue && npm run report:enrichment-bootstrap-packs && npm run report:enrichment-authoring-packs && npm run report:enrichment-wave-targets && tsx scripts/report-compound-candidate-supply.ts",
+    "report:compound-enrichment-wave": "node scripts/report-compound-enrichment-wave.mjs"
   },
   "engines": {
     "node": ">=20 <21"
