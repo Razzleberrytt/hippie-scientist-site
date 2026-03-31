@@ -26,6 +26,7 @@ import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterCompoundByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 import GovernedResearchSections from '@/components/detail/GovernedResearchSections'
+import GovernedReviewFreshnessPanel from '@/components/detail/GovernedReviewFreshnessPanel'
 import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
 import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
 import CuratedProductModule from '@/components/CuratedProductModule'
@@ -40,6 +41,7 @@ import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import { buildGovernedQuickCompareSection } from '@/lib/governedQuickCompare'
 import { buildFallbackCompoundIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import { resolveGovernedCtaDecision } from '@/lib/governedCta'
+import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -225,6 +227,7 @@ export default function CompoundDetail() {
     enrichment: governedResearch,
     sourceCount,
   })
+  const governedReviewFreshness = buildGovernedReviewFreshness(governedResearch)
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
   const quickCompareSection = buildGovernedQuickCompareSection('compound', compound.slug)
   const recommendationNames = {
@@ -359,6 +362,7 @@ export default function CompoundDetail() {
               }
             }}
           />
+          <GovernedReviewFreshnessPanel decision={governedReviewFreshness} />
 
           <CtaVariantLayout
             variant={ctaExperiment.variant}

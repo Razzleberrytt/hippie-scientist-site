@@ -28,6 +28,7 @@ import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterHerbByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 import GovernedResearchSections from '@/components/detail/GovernedResearchSections'
+import GovernedReviewFreshnessPanel from '@/components/detail/GovernedReviewFreshnessPanel'
 import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
 import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
@@ -40,6 +41,7 @@ import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import { buildGovernedQuickCompareSection } from '@/lib/governedQuickCompare'
 import { buildFallbackHerbIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import { resolveGovernedCtaDecision } from '@/lib/governedCta'
+import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -336,6 +338,7 @@ export default function HerbDetail() {
     enrichment: governedResearch,
     sourceCount,
   })
+  const governedReviewFreshness = buildGovernedReviewFreshness(governedResearch)
   const herbMetaTitle = buildGovernedMetaTitle(
     baseHerbMetaTitle,
     herbDisplayName,
@@ -489,6 +492,7 @@ export default function HerbDetail() {
               }
             }}
           />
+          <GovernedReviewFreshnessPanel decision={governedReviewFreshness} />
 
           <CtaVariantLayout
             variant={ctaExperiment.variant}
