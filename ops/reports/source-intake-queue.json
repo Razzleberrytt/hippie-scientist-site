@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T00:07:53.871Z",
+  "generatedAt": "2026-03-31T01:28:56.893Z",
   "deterministicModelVersion": "source-intake-queue-v1",
   "sources": {
     "sourceGaps": "ops/reports/source-gaps.json",
@@ -54,26 +54,130 @@
     ]
   },
   "summary": {
-    "totalTasks": 81,
+    "totalTasks": 75,
     "byTier": {
-      "must_have_publish_blocking": 74,
+      "must_have_publish_blocking": 68,
       "high_value_strengthening": 7,
       "optional_supporting": 0,
       "defer_until_later": 0
     },
-    "publishBlockingCount": 74,
-    "safetyCriticalCount": 13,
-    "reviewerNeededCount": 78,
+    "publishBlockingCount": 68,
+    "safetyCriticalCount": 15,
+    "reviewerNeededCount": 72,
     "byTopicType": {
-      "evidence": 12,
-      "safety": 13,
-      "mechanism": 14,
-      "constituent": 16,
+      "evidence": 4,
+      "safety": 15,
+      "mechanism": 15,
+      "constituent": 15,
       "source_registry": 26,
       "surface_coverage": 0
     }
   },
   "tasks": [
+    {
+      "intakeTaskId": "intake_gap_wp_compound_cbd_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "itemType": "compound_page",
+      "entitySlug": "cbd",
+      "surfaceId": null,
+      "relatedWorkpackIds": [
+        "wp_compound_cbd"
+      ],
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "priorityLabel": "governance_fix_needed",
+      "acquisitionTier": "must_have_publish_blocking",
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "recommendedOrganizations": [
+        "Cochrane Library",
+        "EMA HMPC",
+        "Health Canada NHP",
+        "JBI Evidence Synthesis",
+        "NIH ODS",
+        "PubMed",
+        "WHO Monographs"
+      ],
+      "recommendedStudyDesigns": [
+        "meta-analysis",
+        "regulatory-guidance",
+        "systematic-review"
+      ],
+      "whyThisSourceMatters": "Safety-critical claims require higher-authority references to support contraindications, interactions, and caution language.",
+      "minimumAcceptanceCriteria": [
+        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
+        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
+        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
+        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
+        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
+        "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
+        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
+      ],
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "reviewerNeeded": true,
+      "requiredGovernanceChecksBeforeRegistryEntry": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "status": "queued_for_acquisition",
+      "notesForContractor": "Target cbd has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: cbd."
+    },
+    {
+      "intakeTaskId": "intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "itemType": "compound_page",
+      "entitySlug": "luteolin",
+      "surfaceId": null,
+      "relatedWorkpackIds": [
+        "wp_compound_luteolin"
+      ],
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "priorityLabel": "governance_fix_needed",
+      "acquisitionTier": "must_have_publish_blocking",
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "recommendedOrganizations": [
+        "Cochrane Library",
+        "EMA HMPC",
+        "Health Canada NHP",
+        "JBI Evidence Synthesis",
+        "NIH ODS",
+        "PubMed",
+        "WHO Monographs"
+      ],
+      "recommendedStudyDesigns": [
+        "meta-analysis",
+        "regulatory-guidance",
+        "systematic-review"
+      ],
+      "whyThisSourceMatters": "Safety-critical claims require higher-authority references to support contraindications, interactions, and caution language.",
+      "minimumAcceptanceCriteria": [
+        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
+        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
+        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
+        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
+        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
+        "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
+        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
+      ],
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "reviewerNeeded": true,
+      "requiredGovernanceChecksBeforeRegistryEntry": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "status": "queued_for_acquisition",
+      "notesForContractor": "Target luteolin has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: luteolin."
+    },
     {
       "intakeTaskId": "intake_gap_wp_herb_alectra_sessiliflora_safety_lack_of_safety_sources_must_have_publish_blocking",
       "itemType": "herb_page",
@@ -116,7 +220,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -168,7 +272,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -220,7 +324,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -272,7 +376,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -283,7 +387,7 @@
       "notesForContractor": "Target delosperma-cooperi has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: delosperma-cooperi."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_henbane_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_henbane_safety_missing_source_coverage_by_topic_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "henbane",
       "surfaceId": null,
@@ -291,8 +395,8 @@
         "wp_herb_henbane"
       ],
       "topicType": "safety",
-      "sourceGapType": "lack_of_safety_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "missing_source_coverage_by_topic",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": true,
       "publishBlocking": true,
@@ -314,7 +418,7 @@
         "regulatory-guidance",
         "systematic-review"
       ],
-      "whyThisSourceMatters": "Safety-critical claims require higher-authority references to support contraindications, interactions, and caution language.",
+      "whyThisSourceMatters": "This topic has no adequate active source coverage and needs baseline references before enrichment can be considered complete.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -324,7 +428,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -332,7 +436,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target henbane has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: henbane."
+      "notesForContractor": "Target henbane has topic gap in safety. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: henbane."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_ipomoea_tricolor_heavenly_blue_safety_lack_of_safety_sources_must_have_publish_blocking",
@@ -344,7 +448,7 @@
       ],
       "topicType": "safety",
       "sourceGapType": "lack_of_safety_sources",
-      "priorityLabel": "re_review_needed",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": true,
       "publishBlocking": true,
@@ -376,7 +480,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -384,7 +488,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: ipomoea-tricolor-heavenly-blue."
+      "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: ipomoea-tricolor-heavenly-blue."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_iresine_herbstii_safety_lack_of_safety_sources_must_have_publish_blocking",
@@ -396,7 +500,7 @@
       ],
       "topicType": "safety",
       "sourceGapType": "lack_of_safety_sources",
-      "priorityLabel": "re_review_needed",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": true,
       "publishBlocking": true,
@@ -428,7 +532,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -436,7 +540,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target iresine-herbstii has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: iresine-herbstii."
+      "notesForContractor": "Target iresine-herbstii has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: iresine-herbstii."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_jatropha_podagrica_safety_lack_of_safety_sources_must_have_publish_blocking",
@@ -448,7 +552,7 @@
       ],
       "topicType": "safety",
       "sourceGapType": "lack_of_safety_sources",
-      "priorityLabel": "re_review_needed",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": true,
       "publishBlocking": true,
@@ -480,7 +584,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -488,10 +592,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target jatropha-podagrica has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: jatropha-podagrica."
+      "notesForContractor": "Target jatropha-podagrica has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: jatropha-podagrica."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_safety_missing_source_coverage_by_topic_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "mandrake-root",
       "surfaceId": null,
@@ -499,8 +603,8 @@
         "wp_herb_mandrake_root"
       ],
       "topicType": "safety",
-      "sourceGapType": "lack_of_safety_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "missing_source_coverage_by_topic",
+      "priorityLabel": "do_now",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": true,
       "publishBlocking": true,
@@ -522,7 +626,7 @@
         "regulatory-guidance",
         "systematic-review"
       ],
-      "whyThisSourceMatters": "Safety-critical claims require higher-authority references to support contraindications, interactions, and caution language.",
+      "whyThisSourceMatters": "This topic has no adequate active source coverage and needs baseline references before enrichment can be considered complete.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -532,7 +636,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -540,10 +644,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target mandrake-root has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mandrake-root."
+      "notesForContractor": "Target mandrake-root has topic gap in safety. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mandrake-root."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_mistletoe_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_mistletoe_safety_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "mistletoe",
       "surfaceId": null,
@@ -551,8 +655,8 @@
         "wp_herb_mistletoe"
       ],
       "topicType": "safety",
-      "sourceGapType": "lack_of_safety_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "do_now",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": true,
       "publishBlocking": true,
@@ -574,7 +678,7 @@
         "regulatory-guidance",
         "systematic-review"
       ],
-      "whyThisSourceMatters": "Safety-critical claims require higher-authority references to support contraindications, interactions, and caution language.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -584,7 +688,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -592,7 +696,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target mistletoe has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mistletoe."
+      "notesForContractor": "Target mistletoe has topic gap in safety. Current active evidence classes: human-clinical. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mistletoe."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_pedicularis_groenlandica_safety_lack_of_safety_sources_must_have_publish_blocking",
@@ -604,7 +708,7 @@
       ],
       "topicType": "safety",
       "sourceGapType": "lack_of_safety_sources",
-      "priorityLabel": "re_review_needed",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": true,
       "publishBlocking": true,
@@ -636,7 +740,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -644,7 +748,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target pedicularis-groenlandica has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: pedicularis-groenlandica."
+      "notesForContractor": "Target pedicularis-groenlandica has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: pedicularis-groenlandica."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_rivea_corymbosa_safety_lack_of_safety_sources_must_have_publish_blocking",
@@ -656,7 +760,7 @@
       ],
       "topicType": "safety",
       "sourceGapType": "lack_of_safety_sources",
-      "priorityLabel": "re_review_needed",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": true,
       "publishBlocking": true,
@@ -688,7 +792,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -696,7 +800,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target rivea-corymbosa has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: rivea-corymbosa."
+      "notesForContractor": "Target rivea-corymbosa has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: rivea-corymbosa."
     },
     {
       "intakeTaskId": "intake_gap_wp_collection_calming_herb_combinations_source_registry_missing_source_coverage_by_topic_must_have_publish_blocking",
@@ -744,7 +848,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -799,7 +903,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -854,7 +958,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -909,7 +1013,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -964,7 +1068,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1019,7 +1123,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1074,7 +1178,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1129,7 +1233,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1184,7 +1288,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1239,7 +1343,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1294,7 +1398,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1349,7 +1453,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1404,7 +1508,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1459,7 +1563,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1514,7 +1618,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1569,7 +1673,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1624,7 +1728,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1679,7 +1783,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1734,7 +1838,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1789,7 +1893,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1844,7 +1948,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-collections",
@@ -1854,7 +1958,7 @@
       "notesForContractor": "Target compare-page-herb-selection has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: compare-page-herb-selection."
     },
     {
-      "intakeTaskId": "intake_gap_wp_compound_cbd_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_compound_cbd_constituent_weak_source_diversity_must_have_publish_blocking",
       "itemType": "compound_page",
       "entitySlug": "cbd",
       "surfaceId": null,
@@ -1862,7 +1966,7 @@
         "wp_compound_cbd"
       ],
       "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
+      "sourceGapType": "weak_source_diversity",
       "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
@@ -1884,7 +1988,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -1894,7 +1998,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -1902,7 +2006,160 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target cbd has topic gap in constituent. Current active evidence classes: human-clinical, regulatory-monograph. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: cbd."
+      "notesForContractor": "Target cbd has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: cbd."
+    },
+    {
+      "intakeTaskId": "intake_gap_wp_compound_cbd_mechanism_weak_source_diversity_must_have_publish_blocking",
+      "itemType": "compound_page",
+      "entitySlug": "cbd",
+      "surfaceId": null,
+      "relatedWorkpackIds": [
+        "wp_compound_cbd"
+      ],
+      "topicType": "mechanism",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
+      "acquisitionTier": "must_have_publish_blocking",
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "recommendedOrganizations": [
+        "Drugs.com Interaction Checker",
+        "EMBL-EBI ChEMBL",
+        "NCBI PubChem",
+        "Natural Medicines",
+        "PubChem",
+        "PubMed"
+      ],
+      "recommendedStudyDesigns": [
+        "database-reference",
+        "in-vitro",
+        "in-vivo-animal"
+      ],
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
+      "minimumAcceptanceCriteria": [
+        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
+        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
+        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
+        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
+        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
+        "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
+        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
+      ],
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "reviewerNeeded": true,
+      "requiredGovernanceChecksBeforeRegistryEntry": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "status": "queued_for_acquisition",
+      "notesForContractor": "Target cbd has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: cbd."
+    },
+    {
+      "intakeTaskId": "intake_gap_wp_compound_luteolin_constituent_weak_source_diversity_must_have_publish_blocking",
+      "itemType": "compound_page",
+      "entitySlug": "luteolin",
+      "surfaceId": null,
+      "relatedWorkpackIds": [
+        "wp_compound_luteolin"
+      ],
+      "topicType": "constituent",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
+      "acquisitionTier": "must_have_publish_blocking",
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "recommendedOrganizations": [
+        "Drugs.com Interaction Checker",
+        "EMBL-EBI ChEMBL",
+        "NCBI PubChem",
+        "Natural Medicines",
+        "PubChem",
+        "PubMed"
+      ],
+      "recommendedStudyDesigns": [
+        "database-reference",
+        "in-vitro",
+        "in-vivo-animal"
+      ],
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
+      "minimumAcceptanceCriteria": [
+        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
+        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
+        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
+        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
+        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
+        "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
+        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
+      ],
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "reviewerNeeded": true,
+      "requiredGovernanceChecksBeforeRegistryEntry": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "status": "queued_for_acquisition",
+      "notesForContractor": "Target luteolin has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: luteolin."
+    },
+    {
+      "intakeTaskId": "intake_gap_wp_compound_luteolin_mechanism_weak_source_diversity_must_have_publish_blocking",
+      "itemType": "compound_page",
+      "entitySlug": "luteolin",
+      "surfaceId": null,
+      "relatedWorkpackIds": [
+        "wp_compound_luteolin"
+      ],
+      "topicType": "mechanism",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
+      "acquisitionTier": "must_have_publish_blocking",
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "recommendedOrganizations": [
+        "Drugs.com Interaction Checker",
+        "EMBL-EBI ChEMBL",
+        "NCBI PubChem",
+        "Natural Medicines",
+        "PubChem",
+        "PubMed"
+      ],
+      "recommendedStudyDesigns": [
+        "database-reference",
+        "in-vitro",
+        "in-vivo-animal"
+      ],
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
+      "minimumAcceptanceCriteria": [
+        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
+        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
+        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
+        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
+        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
+        "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
+        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
+      ],
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "reviewerNeeded": true,
+      "requiredGovernanceChecksBeforeRegistryEntry": [
+        "verify:enrichment-editorial",
+        "verify:research-enrichment",
+        "verify:source-registry"
+      ],
+      "status": "queued_for_acquisition",
+      "notesForContractor": "Target luteolin has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: luteolin."
     },
     {
       "intakeTaskId": "intake_gap_wp_entity_detail_herb_pages_source_registry_missing_source_coverage_by_topic_must_have_publish_blocking",
@@ -1950,7 +2207,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:source-registry"
@@ -1999,7 +2256,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2048,7 +2305,7 @@
         "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2099,7 +2356,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2150,7 +2407,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2199,7 +2456,7 @@
         "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2250,7 +2507,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2259,57 +2516,6 @@
       ],
       "status": "queued_for_acquisition",
       "notesForContractor": "Target anisoptera-thurifera has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: anisoptera-thurifera."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_ashwagandha_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "ashwagandha",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_ashwagandha"
-      ],
-      "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "governance_fix_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "preclinical-mechanistic-study",
-        "reference-database-authority"
-      ],
-      "recommendedOrganizations": [
-        "Drugs.com Interaction Checker",
-        "EMBL-EBI ChEMBL",
-        "NCBI PubChem",
-        "Natural Medicines",
-        "PubChem",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "database-reference",
-        "in-vitro",
-        "in-vivo-animal"
-      ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target ashwagandha has topic gap in constituent. Current active evidence classes: human-clinical, regulatory-monograph. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: ashwagandha."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_calliandra_anomala_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
@@ -2352,7 +2558,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2401,7 +2607,7 @@
         "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2452,7 +2658,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2461,108 +2667,6 @@
       ],
       "status": "queued_for_acquisition",
       "notesForContractor": "Target calliandra-anomala has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: calliandra-anomala."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_chamomile_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "chamomile",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_chamomile"
-      ],
-      "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "governance_fix_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "preclinical-mechanistic-study",
-        "reference-database-authority"
-      ],
-      "recommendedOrganizations": [
-        "Drugs.com Interaction Checker",
-        "EMBL-EBI ChEMBL",
-        "NCBI PubChem",
-        "Natural Medicines",
-        "PubChem",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "database-reference",
-        "in-vitro",
-        "in-vivo-animal"
-      ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target chamomile has topic gap in constituent. Current active evidence classes: human-clinical. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: chamomile."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_chamomile_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "chamomile",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_chamomile"
-      ],
-      "topicType": "mechanism",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "governance_fix_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "preclinical-mechanistic-study",
-        "reference-database-authority"
-      ],
-      "recommendedOrganizations": [
-        "Drugs.com Interaction Checker",
-        "EMBL-EBI ChEMBL",
-        "NCBI PubChem",
-        "Natural Medicines",
-        "PubChem",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "database-reference",
-        "in-vitro",
-        "in-vivo-animal"
-      ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target chamomile has topic gap in mechanism. Current active evidence classes: human-clinical. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: chamomile."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_delosperma_cooperi_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
@@ -2605,7 +2709,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2654,7 +2758,7 @@
         "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2705,7 +2809,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2716,7 +2820,7 @@
       "notesForContractor": "Target delosperma-cooperi has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: delosperma-cooperi."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_henbane_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_henbane_constituent_missing_source_coverage_by_topic_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "henbane",
       "surfaceId": null,
@@ -2724,8 +2828,8 @@
         "wp_herb_henbane"
       ],
       "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "missing_source_coverage_by_topic",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -2746,7 +2850,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "This topic has no adequate active source coverage and needs baseline references before enrichment can be considered complete.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -2756,7 +2860,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2764,59 +2868,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target henbane has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: henbane."
+      "notesForContractor": "Target henbane has topic gap in constituent. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: henbane."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_henbane_evidence_missing_modern_human_evidence_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "henbane",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_henbane"
-      ],
-      "topicType": "evidence",
-      "sourceGapType": "missing_modern_human_evidence",
-      "priorityLabel": "re_review_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "randomized-human-trial",
-        "systematic-review-meta-analysis"
-      ],
-      "recommendedOrganizations": [
-        "ClinicalTrials.gov",
-        "Cochrane Library",
-        "JBI Evidence Synthesis",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "meta-analysis",
-        "randomized-controlled-trial",
-        "systematic-review"
-      ],
-      "whyThisSourceMatters": "Modern human evidence is needed to support publishable supported-use claims and reduce overreliance on indirect evidence.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target henbane has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: henbane."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_henbane_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_henbane_mechanism_missing_source_coverage_by_topic_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "henbane",
       "surfaceId": null,
@@ -2824,8 +2879,8 @@
         "wp_herb_henbane"
       ],
       "topicType": "mechanism",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "missing_source_coverage_by_topic",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -2846,7 +2901,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "This topic has no adequate active source coverage and needs baseline references before enrichment can be considered complete.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -2856,7 +2911,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2864,10 +2919,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target henbane has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: henbane."
+      "notesForContractor": "Target henbane has topic gap in mechanism. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: henbane."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_ipomoea_tricolor_heavenly_blue_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_ipomoea_tricolor_heavenly_blue_constituent_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "ipomoea-tricolor-heavenly-blue",
       "surfaceId": null,
@@ -2875,8 +2930,8 @@
         "wp_herb_ipomoea_tricolor_heavenly_blue"
       ],
       "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -2897,7 +2952,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -2907,7 +2962,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -2915,59 +2970,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: ipomoea-tricolor-heavenly-blue."
+      "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: ipomoea-tricolor-heavenly-blue."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_ipomoea_tricolor_heavenly_blue_evidence_missing_modern_human_evidence_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "ipomoea-tricolor-heavenly-blue",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_ipomoea_tricolor_heavenly_blue"
-      ],
-      "topicType": "evidence",
-      "sourceGapType": "missing_modern_human_evidence",
-      "priorityLabel": "re_review_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "randomized-human-trial",
-        "systematic-review-meta-analysis"
-      ],
-      "recommendedOrganizations": [
-        "ClinicalTrials.gov",
-        "Cochrane Library",
-        "JBI Evidence Synthesis",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "meta-analysis",
-        "randomized-controlled-trial",
-        "systematic-review"
-      ],
-      "whyThisSourceMatters": "Modern human evidence is needed to support publishable supported-use claims and reduce overreliance on indirect evidence.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: ipomoea-tricolor-heavenly-blue."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_ipomoea_tricolor_heavenly_blue_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_ipomoea_tricolor_heavenly_blue_mechanism_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "ipomoea-tricolor-heavenly-blue",
       "surfaceId": null,
@@ -2975,8 +2981,8 @@
         "wp_herb_ipomoea_tricolor_heavenly_blue"
       ],
       "topicType": "mechanism",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -2997,7 +3003,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3007,7 +3013,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3015,10 +3021,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: ipomoea-tricolor-heavenly-blue."
+      "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: ipomoea-tricolor-heavenly-blue."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_iresine_herbstii_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_iresine_herbstii_constituent_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "iresine-herbstii",
       "surfaceId": null,
@@ -3026,8 +3032,8 @@
         "wp_herb_iresine_herbstii"
       ],
       "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3048,7 +3054,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3058,7 +3064,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3066,59 +3072,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target iresine-herbstii has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: iresine-herbstii."
+      "notesForContractor": "Target iresine-herbstii has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: iresine-herbstii."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_iresine_herbstii_evidence_missing_modern_human_evidence_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "iresine-herbstii",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_iresine_herbstii"
-      ],
-      "topicType": "evidence",
-      "sourceGapType": "missing_modern_human_evidence",
-      "priorityLabel": "re_review_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "randomized-human-trial",
-        "systematic-review-meta-analysis"
-      ],
-      "recommendedOrganizations": [
-        "ClinicalTrials.gov",
-        "Cochrane Library",
-        "JBI Evidence Synthesis",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "meta-analysis",
-        "randomized-controlled-trial",
-        "systematic-review"
-      ],
-      "whyThisSourceMatters": "Modern human evidence is needed to support publishable supported-use claims and reduce overreliance on indirect evidence.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target iresine-herbstii has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: iresine-herbstii."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_iresine_herbstii_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_iresine_herbstii_mechanism_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "iresine-herbstii",
       "surfaceId": null,
@@ -3126,8 +3083,8 @@
         "wp_herb_iresine_herbstii"
       ],
       "topicType": "mechanism",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3148,7 +3105,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3158,7 +3115,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3166,10 +3123,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target iresine-herbstii has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: iresine-herbstii."
+      "notesForContractor": "Target iresine-herbstii has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: iresine-herbstii."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_jatropha_podagrica_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_jatropha_podagrica_constituent_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "jatropha-podagrica",
       "surfaceId": null,
@@ -3177,8 +3134,8 @@
         "wp_herb_jatropha_podagrica"
       ],
       "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3199,7 +3156,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3209,7 +3166,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3217,59 +3174,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target jatropha-podagrica has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: jatropha-podagrica."
+      "notesForContractor": "Target jatropha-podagrica has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: jatropha-podagrica."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_jatropha_podagrica_evidence_missing_modern_human_evidence_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "jatropha-podagrica",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_jatropha_podagrica"
-      ],
-      "topicType": "evidence",
-      "sourceGapType": "missing_modern_human_evidence",
-      "priorityLabel": "re_review_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "randomized-human-trial",
-        "systematic-review-meta-analysis"
-      ],
-      "recommendedOrganizations": [
-        "ClinicalTrials.gov",
-        "Cochrane Library",
-        "JBI Evidence Synthesis",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "meta-analysis",
-        "randomized-controlled-trial",
-        "systematic-review"
-      ],
-      "whyThisSourceMatters": "Modern human evidence is needed to support publishable supported-use claims and reduce overreliance on indirect evidence.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target jatropha-podagrica has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: jatropha-podagrica."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_jatropha_podagrica_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_jatropha_podagrica_mechanism_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "jatropha-podagrica",
       "surfaceId": null,
@@ -3277,8 +3185,8 @@
         "wp_herb_jatropha_podagrica"
       ],
       "topicType": "mechanism",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3299,7 +3207,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3309,7 +3217,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3317,10 +3225,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target jatropha-podagrica has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: jatropha-podagrica."
+      "notesForContractor": "Target jatropha-podagrica has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: jatropha-podagrica."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_constituent_missing_source_coverage_by_topic_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "mandrake-root",
       "surfaceId": null,
@@ -3328,8 +3236,8 @@
         "wp_herb_mandrake_root"
       ],
       "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "missing_source_coverage_by_topic",
+      "priorityLabel": "do_now",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3350,7 +3258,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "This topic has no adequate active source coverage and needs baseline references before enrichment can be considered complete.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3360,7 +3268,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3368,59 +3276,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target mandrake-root has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mandrake-root."
+      "notesForContractor": "Target mandrake-root has topic gap in constituent. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mandrake-root."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_evidence_missing_modern_human_evidence_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "mandrake-root",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_mandrake_root"
-      ],
-      "topicType": "evidence",
-      "sourceGapType": "missing_modern_human_evidence",
-      "priorityLabel": "re_review_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "randomized-human-trial",
-        "systematic-review-meta-analysis"
-      ],
-      "recommendedOrganizations": [
-        "ClinicalTrials.gov",
-        "Cochrane Library",
-        "JBI Evidence Synthesis",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "meta-analysis",
-        "randomized-controlled-trial",
-        "systematic-review"
-      ],
-      "whyThisSourceMatters": "Modern human evidence is needed to support publishable supported-use claims and reduce overreliance on indirect evidence.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target mandrake-root has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mandrake-root."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_mechanism_missing_source_coverage_by_topic_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "mandrake-root",
       "surfaceId": null,
@@ -3428,8 +3287,8 @@
         "wp_herb_mandrake_root"
       ],
       "topicType": "mechanism",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "missing_source_coverage_by_topic",
+      "priorityLabel": "do_now",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3450,7 +3309,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "This topic has no adequate active source coverage and needs baseline references before enrichment can be considered complete.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3460,7 +3319,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3468,7 +3327,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target mandrake-root has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mandrake-root."
+      "notesForContractor": "Target mandrake-root has topic gap in mechanism. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mandrake-root."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_mistletoe_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
@@ -3480,7 +3339,7 @@
       ],
       "topicType": "constituent",
       "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "priorityLabel": "do_now",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3511,7 +3370,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3519,56 +3378,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target mistletoe has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mistletoe."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_mistletoe_evidence_missing_modern_human_evidence_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "mistletoe",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_mistletoe"
-      ],
-      "topicType": "evidence",
-      "sourceGapType": "missing_modern_human_evidence",
-      "priorityLabel": "re_review_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "randomized-human-trial",
-        "systematic-review-meta-analysis"
-      ],
-      "recommendedOrganizations": [
-        "ClinicalTrials.gov",
-        "Cochrane Library",
-        "JBI Evidence Synthesis",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "meta-analysis",
-        "randomized-controlled-trial",
-        "systematic-review"
-      ],
-      "whyThisSourceMatters": "Modern human evidence is needed to support publishable supported-use claims and reduce overreliance on indirect evidence.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target mistletoe has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mistletoe."
+      "notesForContractor": "Target mistletoe has topic gap in constituent. Current active evidence classes: human-clinical. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mistletoe."
     },
     {
       "intakeTaskId": "intake_gap_wp_herb_mistletoe_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
@@ -3580,7 +3390,7 @@
       ],
       "topicType": "mechanism",
       "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "priorityLabel": "do_now",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3611,7 +3421,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3619,10 +3429,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target mistletoe has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mistletoe."
+      "notesForContractor": "Target mistletoe has topic gap in mechanism. Current active evidence classes: human-clinical. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: mistletoe."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_pedicularis_groenlandica_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_pedicularis_groenlandica_constituent_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "pedicularis-groenlandica",
       "surfaceId": null,
@@ -3630,8 +3440,8 @@
         "wp_herb_pedicularis_groenlandica"
       ],
       "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3652,7 +3462,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3662,7 +3472,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3670,59 +3480,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target pedicularis-groenlandica has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: pedicularis-groenlandica."
+      "notesForContractor": "Target pedicularis-groenlandica has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: pedicularis-groenlandica."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_pedicularis_groenlandica_evidence_missing_modern_human_evidence_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "pedicularis-groenlandica",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_pedicularis_groenlandica"
-      ],
-      "topicType": "evidence",
-      "sourceGapType": "missing_modern_human_evidence",
-      "priorityLabel": "re_review_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "randomized-human-trial",
-        "systematic-review-meta-analysis"
-      ],
-      "recommendedOrganizations": [
-        "ClinicalTrials.gov",
-        "Cochrane Library",
-        "JBI Evidence Synthesis",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "meta-analysis",
-        "randomized-controlled-trial",
-        "systematic-review"
-      ],
-      "whyThisSourceMatters": "Modern human evidence is needed to support publishable supported-use claims and reduce overreliance on indirect evidence.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target pedicularis-groenlandica has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: pedicularis-groenlandica."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_pedicularis_groenlandica_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_pedicularis_groenlandica_mechanism_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "pedicularis-groenlandica",
       "surfaceId": null,
@@ -3730,8 +3491,8 @@
         "wp_herb_pedicularis_groenlandica"
       ],
       "topicType": "mechanism",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3752,7 +3513,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3762,7 +3523,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3770,10 +3531,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target pedicularis-groenlandica has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: pedicularis-groenlandica."
+      "notesForContractor": "Target pedicularis-groenlandica has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: pedicularis-groenlandica."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_rivea_corymbosa_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_rivea_corymbosa_constituent_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "rivea-corymbosa",
       "surfaceId": null,
@@ -3781,8 +3542,8 @@
         "wp_herb_rivea_corymbosa"
       ],
       "topicType": "constituent",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3803,7 +3564,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3813,7 +3574,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3821,59 +3582,10 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target rivea-corymbosa has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: rivea-corymbosa."
+      "notesForContractor": "Target rivea-corymbosa has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: rivea-corymbosa."
     },
     {
-      "intakeTaskId": "intake_gap_wp_herb_rivea_corymbosa_evidence_missing_modern_human_evidence_must_have_publish_blocking",
-      "itemType": "herb_page",
-      "entitySlug": "rivea-corymbosa",
-      "surfaceId": null,
-      "relatedWorkpackIds": [
-        "wp_herb_rivea_corymbosa"
-      ],
-      "topicType": "evidence",
-      "sourceGapType": "missing_modern_human_evidence",
-      "priorityLabel": "re_review_needed",
-      "acquisitionTier": "must_have_publish_blocking",
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "recommendedSourceClasses": [
-        "randomized-human-trial",
-        "systematic-review-meta-analysis"
-      ],
-      "recommendedOrganizations": [
-        "ClinicalTrials.gov",
-        "Cochrane Library",
-        "JBI Evidence Synthesis",
-        "PubMed"
-      ],
-      "recommendedStudyDesigns": [
-        "meta-analysis",
-        "randomized-controlled-trial",
-        "systematic-review"
-      ],
-      "whyThisSourceMatters": "Modern human evidence is needed to support publishable supported-use claims and reduce overreliance on indirect evidence.",
-      "minimumAcceptanceCriteria": [
-        "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
-        "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
-        "Map the source to the target topic and entity/surface in notes so reviewers can trace why it was acquired.",
-        "Use active published sources only; exclude withdrawn/superseded references for safety-critical decisions.",
-        "Provide at least one tier-a or tier-b source for safety-critical or publish-blocking tasks.",
-        "For human-claim support, include human-clinical or human-observational evidenceClass with studyDesign matching trial/observational methods.",
-        "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
-      ],
-      "duplicateRiskNotes": "High duplicate risk: 4 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
-      "reviewerNeeded": true,
-      "requiredGovernanceChecksBeforeRegistryEntry": [
-        "verify:enrichment-editorial",
-        "verify:research-enrichment",
-        "verify:source-registry"
-      ],
-      "status": "queued_for_acquisition",
-      "notesForContractor": "Target rivea-corymbosa has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: rivea-corymbosa."
-    },
-    {
-      "intakeTaskId": "intake_gap_wp_herb_rivea_corymbosa_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
+      "intakeTaskId": "intake_gap_wp_herb_rivea_corymbosa_mechanism_weak_source_diversity_must_have_publish_blocking",
       "itemType": "herb_page",
       "entitySlug": "rivea-corymbosa",
       "surfaceId": null,
@@ -3881,8 +3593,8 @@
         "wp_herb_rivea_corymbosa"
       ],
       "topicType": "mechanism",
-      "sourceGapType": "lack_of_mechanism_sources",
-      "priorityLabel": "re_review_needed",
+      "sourceGapType": "weak_source_diversity",
+      "priorityLabel": "governance_fix_needed",
       "acquisitionTier": "must_have_publish_blocking",
       "safetyCritical": false,
       "publishBlocking": true,
@@ -3903,7 +3615,7 @@
         "in-vitro",
         "in-vivo-animal"
       ],
-      "whyThisSourceMatters": "Mechanism and constituent sections require specific mechanistic or chemistry references to explain plausibility and limitations.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3913,7 +3625,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3921,18 +3633,18 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target rivea-corymbosa has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: rivea-corymbosa."
+      "notesForContractor": "Target rivea-corymbosa has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release. Treat this as an intake-planning task only; registry entry still requires governance review. Target: rivea-corymbosa."
     },
     {
-      "intakeTaskId": "intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_high_value_strengthening",
-      "itemType": "compound_page",
-      "entitySlug": "luteolin",
+      "intakeTaskId": "intake_gap_wp_herb_kava_safety_weak_source_diversity_high_value_strengthening",
+      "itemType": "herb_page",
+      "entitySlug": "kava",
       "surfaceId": null,
       "relatedWorkpackIds": [
-        "wp_compound_luteolin"
+        "wp_herb_kava"
       ],
       "topicType": "safety",
-      "sourceGapType": "lack_of_safety_sources",
+      "sourceGapType": "weak_source_diversity",
       "priorityLabel": "low_priority",
       "acquisitionTier": "high_value_strengthening",
       "safetyCritical": true,
@@ -3955,7 +3667,7 @@
         "regulatory-guidance",
         "systematic-review"
       ],
-      "whyThisSourceMatters": "Safety-critical claims require higher-authority references to support contraindications, interactions, and caution language.",
+      "whyThisSourceMatters": "Coverage is too narrow and should be widened with complementary source classes.",
       "minimumAcceptanceCriteria": [
         "Capture required source registry metadata: title, sourceType, sourceClass, evidenceClass, language, publicationStatus, reliabilityTier, reviewer, reviewedAt, active.",
         "Include at least one primary identifier: DOI, PMID, canonical URL, or monograph ID before registry review.",
@@ -3965,7 +3677,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 3 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 7 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -3973,7 +3685,7 @@
         "verify:source-registry"
       ],
       "status": "queued_for_acquisition",
-      "notesForContractor": "Target luteolin has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. Partial enrichment is acceptable, but mark uncertainty and schedule follow-up sourcing. Treat this as an intake-planning task only; registry entry still requires governance review. Target: luteolin."
+      "notesForContractor": "Target kava has topic gap in safety. Current active evidence classes: human-clinical. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. Partial enrichment is acceptable, but mark uncertainty and schedule follow-up sourcing. Treat this as an intake-planning task only; registry entry still requires governance review. Target: kava."
     },
     {
       "intakeTaskId": "intake_gap_wp_browse_search_browse_compounds_summary_source_registry_missing_source_coverage_by_topic_high_value_strengthening",
@@ -4019,7 +3731,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": false,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-discovery",
@@ -4072,7 +3784,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": false,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-discovery",
@@ -4125,7 +3837,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:source-registry"
@@ -4172,7 +3884,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -4221,7 +3933,7 @@
         "For mechanism/constituent support, include explicit mechanism relevance in notes and a preclinical-mechanistic evidenceClass entry.",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "Moderate duplicate risk: 1 active source(s) already match recommended classes; verify DOI/PMID/URL uniqueness before proposing additions.",
+      "duplicateRiskNotes": "High duplicate risk: 10 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": true,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-editorial",
@@ -4275,7 +3987,7 @@
         "For safety/regulatory context, include jurisdiction and organization metadata (agency/monograph owner).",
         "Reject duplicate candidates that repeat an existing active source with equivalent DOI/PMID/canonical URL and no stronger methodology."
       ],
-      "duplicateRiskNotes": "High duplicate risk: 5 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
+      "duplicateRiskNotes": "High duplicate risk: 9 active sources already match recommended classes; prioritize methodologically stronger or newer references only.",
       "reviewerNeeded": false,
       "requiredGovernanceChecksBeforeRegistryEntry": [
         "verify:enrichment-linking",

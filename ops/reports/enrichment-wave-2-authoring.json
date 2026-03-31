@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-03-31T01:29:10.776Z",
+  "deterministicModelVersion": "enrichment-wave-2-authoring-v1",
+  "paths": {
+    "submissions": "ops/enrichment-submissions.json",
+    "submissionReview": "ops/reports/enrichment-submission-review.json",
+    "sourceWaveTargets": "ops/reports/source-wave-2-targets.json"
+  },
+  "entitiesEnriched": [
+    "herb:henbane"
+  ],
+  "entryCounts": {
+    "byEntity": {
+      "herb:henbane": 3
+    },
+    "byTopicType": {
+      "research_gap": 3
+    },
+    "byEvidenceClass": {
+      "human-clinical": 2,
+      "preclinical-mechanistic": 1
+    },
+    "byReviewStatus": {
+      "approved_for_rollup": 3
+    }
+  },
+  "submissionOutcomes": {
+    "approved": 3,
+    "revisionRequested": 0,
+    "rejected": 0,
+    "promoted": 2,
+    "blocked": 1
+  },
+  "unresolvedCriticalGaps": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "criticality": [
+        "safety-critical",
+        "evidence-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    }
+  ]
+}

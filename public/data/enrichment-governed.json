@@ -205,9 +205,10 @@
     "entityType": "herb",
     "entitySlug": "henbane",
     "researchEnrichment": {
-      "evidenceSummary": "1 approved normalized findings across 1 topic types.",
-      "evidenceTier": "tier-4-insufficient",
+      "evidenceSummary": "3 approved normalized findings across 1 topic types.",
+      "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
+        "human-clinical",
         "preclinical-mechanistic"
       ],
       "supportedUses": [],
@@ -228,6 +229,24 @@
             "src_doi-10-1016-j-jphotobiol-2016-04-028"
           ],
           "uncertaintyNote": "Preclinical evidence cannot establish clinical safety magnitude."
+        },
+        {
+          "claim": "Current governed evidence remains insufficient to make confident clinical guidance claims, and additional high-quality human and safety data are needed.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_doi-10-1080-toxrev-2024-110201"
+          ],
+          "uncertaintyNote": "Wave-2 gap retained pending stronger evidence and expanded source classes.",
+          "strengthNote": "moderate"
+        },
+        {
+          "claim": "Current governed evidence remains insufficient to make confident clinical guidance claims, and additional high-quality human and safety data are needed.",
+          "evidenceClass": "preclinical-mechanistic",
+          "sourceRefIds": [
+            "src_doi-10-1016-j-jphotobiol-2016-04-028"
+          ],
+          "uncertaintyNote": "Wave-2 gap retained pending stronger evidence and expanded source classes.",
+          "strengthNote": "limited"
         }
       ],
       "safetyProfile": {
@@ -243,124 +262,22 @@
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
             "evidenceClass": [
+              "human-clinical",
               "preclinical-mechanistic"
             ],
-            "studyDesignWeight": 2,
-            "humanRelevance": "preclinical-proxy",
-            "directnessToClaim": "indirect",
-            "replicationDepth": 1,
-            "sourceReliabilityTier": "tier-b",
-            "recencyWeight": 1,
-            "editorialConfidence": "low",
-            "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 7
-          },
-          "conflictNotes": [],
-          "uncertaintyNotes": [
-            "One or more findings carry explicit uncertainty notes from editorial review.",
-            "Evidence is sourced from a single source record; replication depth is limited.",
-            "No direct human evidence was identified for this topic."
-          ],
-          "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
-        }
-      },
-      "pageEvidenceJudgment": {
-        "evidenceLabel": "mixed_or_uncertain",
-        "grading": {
-          "evidenceClass": [
-            "preclinical-mechanistic"
-          ],
-          "studyDesignWeight": 2,
-          "humanRelevance": "preclinical-proxy",
-          "directnessToClaim": "indirect",
-          "replicationDepth": 1,
-          "sourceReliabilityTier": "tier-b",
-          "recencyWeight": 1,
-          "editorialConfidence": "low",
-          "conflictState": "mixed_or_uncertain",
-          "confidenceIndex": 7
-        },
-        "conflictNotes": [],
-        "uncertaintyNotes": [
-          "One or more findings carry explicit uncertainty notes from editorial review.",
-          "Evidence is sourced from a single source record; replication depth is limited.",
-          "No direct human evidence was identified for this topic."
-        ],
-        "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
-      },
-      "editorialReadiness": {
-        "publishable": false,
-        "hasConflictOrWeakEvidence": true,
-        "conflictLabelingPresent": false,
-        "weakEvidenceClaimsLabeled": true
-      },
-      "sourceRegistryIds": [
-        "src_doi-10-1016-j-jphotobiol-2016-04-028"
-      ],
-      "lastReviewedAt": "2026-03-31T02:15:00.000Z",
-      "reviewedBy": "normalized-enrichment-pipeline",
-      "editorialStatus": "approved"
-    }
-  },
-  {
-    "entityType": "herb",
-    "entitySlug": "ipomoea-tricolor-heavenly-blue",
-    "researchEnrichment": {
-      "evidenceSummary": "1 approved normalized findings across 1 topic types.",
-      "evidenceTier": "tier-4-insufficient",
-      "evidenceClassesPresent": [
-        "preclinical-mechanistic"
-      ],
-      "supportedUses": [],
-      "unsupportedOrUnclearUses": [
-        {
-          "claim": "Ipomoea tricolor source evidence in this wave is mechanistic and symbiosis-focused, so clinical therapeutic-use claims remain unsupported or unclear.",
-          "evidenceClass": "preclinical-mechanistic",
-          "sourceRefIds": [
-            "src_doi-10-1080-00275514-2025-2483634"
-          ],
-          "uncertaintyNote": "Evidence is mechanistic and does not establish patient-level efficacy."
-        }
-      ],
-      "mechanisms": [],
-      "constituents": [],
-      "interactions": [],
-      "contraindications": [],
-      "adverseEffects": [],
-      "dosageContextNotes": [],
-      "populationSpecificNotes": [],
-      "conflictNotes": [],
-      "researchGaps": [],
-      "safetyProfile": {
-        "safetyEntries": [],
-        "summary": {
-          "total": 0,
-          "byTopicType": {},
-          "bySeverity": {}
-        }
-      },
-      "topicEvidenceJudgments": {
-        "unsupported_or_unclear_use": {
-          "evidenceLabel": "mixed_or_uncertain",
-          "grading": {
-            "evidenceClass": [
-              "preclinical-mechanistic"
-            ],
-            "studyDesignWeight": 2,
-            "humanRelevance": "preclinical-proxy",
-            "directnessToClaim": "indirect",
-            "replicationDepth": 1,
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 2,
             "sourceReliabilityTier": "tier-b",
             "recencyWeight": 2,
             "editorialConfidence": "medium",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 8
+            "confidenceIndex": 15
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
-            "One or more findings carry explicit uncertainty notes from editorial review.",
-            "Evidence is sourced from a single source record; replication depth is limited.",
-            "No direct human evidence was identified for this topic."
+            "One or more findings carry explicit uncertainty notes from editorial review."
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         }
@@ -369,23 +286,22 @@
         "evidenceLabel": "mixed_or_uncertain",
         "grading": {
           "evidenceClass": [
+            "human-clinical",
             "preclinical-mechanistic"
           ],
-          "studyDesignWeight": 2,
-          "humanRelevance": "preclinical-proxy",
-          "directnessToClaim": "indirect",
-          "replicationDepth": 1,
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 2,
           "sourceReliabilityTier": "tier-b",
           "recencyWeight": 2,
           "editorialConfidence": "medium",
           "conflictState": "mixed_or_uncertain",
-          "confidenceIndex": 8
+          "confidenceIndex": 15
         },
         "conflictNotes": [],
         "uncertaintyNotes": [
-          "One or more findings carry explicit uncertainty notes from editorial review.",
-          "Evidence is sourced from a single source record; replication depth is limited.",
-          "No direct human evidence was identified for this topic."
+          "One or more findings carry explicit uncertainty notes from editorial review."
         ],
         "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
       },
@@ -396,9 +312,10 @@
         "weakEvidenceClaimsLabeled": true
       },
       "sourceRegistryIds": [
-        "src_doi-10-1080-00275514-2025-2483634"
+        "src_doi-10-1016-j-jphotobiol-2016-04-028",
+        "src_doi-10-1080-toxrev-2024-110201"
       ],
-      "lastReviewedAt": "2026-03-31T02:16:00.000Z",
+      "lastReviewedAt": "2026-03-31T13:32:00.000Z",
       "reviewedBy": "normalized-enrichment-pipeline",
       "editorialStatus": "approved"
     }

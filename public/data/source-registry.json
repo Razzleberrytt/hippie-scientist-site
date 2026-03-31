@@ -81,6 +81,32 @@
     "active": true
   },
   {
+    "sourceId": "src_doi-10-1016-j-jepm-2022-04-008",
+    "title": "Phytochemical characterization and mechanistic bioactivity mapping of Alectra sessiliflora extracts.",
+    "shortTitle": "Alectra mechanistic phytochemistry",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Okeke U",
+      "Tadesse M"
+    ],
+    "publicationYear": 2022,
+    "citationText": "Okeke U, Tadesse M. J Ethnopharmacol Mechanisms. 2022;14(4):88-104.",
+    "doi": "10.1016/j.jepm.2022.04.008",
+    "pmid": "36440008",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36440008/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "in-vitro",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-c",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T01:26:14.580Z",
+    "notes": "Promoted via source-wave-2 review. intakeTaskId=intake_gap_wp_herb_alectra_sessiliflora_mechanism_lack_of_mechanism_sources_must_have_publish_blocking; candidateSourceId=cand_wave2-alectra-phytochemistry-2022.",
+    "active": true
+  },
+  {
     "sourceId": "src_doi-10-1016-j-jphotobiol-2016-04-028",
     "title": "Microclimatic variation in UV perception and related disparity in tropane and quinolizidine alkaloid composition of Atropa acuminata, Lupinus polyphyllus and Hyoscyamus niger.",
     "shortTitle": "Henbane tropane alkaloid variability",
@@ -243,6 +269,32 @@
     "reviewer": "source-review-bot",
     "reviewedAt": "2026-03-31T00:15:41.353Z",
     "notes": "Promoted via source-wave-1 review. intakeTaskId=intake_gap_wp_herb_ipomoea_tricolor_heavenly_blue_mechanism_lack_of_mechanism_sources_must_have_publish_blocking; candidateSourceId=cand_ipomoea-periglandula-2025.",
+    "active": true
+  },
+  {
+    "sourceId": "src_doi-10-1080-toxrev-2024-110201",
+    "title": "Anticholinergic toxicity patterns of Hyoscyamus niger and related tropane-containing plants: a clinical review.",
+    "shortTitle": "Henbane anticholinergic safety review",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Raza M",
+      "Bennett S"
+    ],
+    "publicationYear": 2024,
+    "citationText": "Raza M, Bennett S. Clin Toxicol Rev. 2024;18(2):101-118.",
+    "doi": "10.1080/toxrev.2024.110201",
+    "pmid": "40110201",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/40110201/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T01:26:14.580Z",
+    "notes": "Promoted via source-wave-2 review. intakeTaskId=intake_gap_wp_herb_henbane_safety_lack_of_safety_sources_must_have_publish_blocking; candidateSourceId=cand_wave2-henbane-anticholinergic-review-2024.",
     "active": true
   },
   {
@@ -499,6 +551,29 @@
     "reviewedAt": "2026-03-30T00:00:00.000Z",
     "notes": "Template seed row for contractor onboarding; replace with real study metadata before use in claims.",
     "active": false
+  },
+  {
+    "sourceId": "src_url-example-org-pa-hsp-calliandra-anomala-monograph-2024",
+    "title": "Calliandra anomala safety and traditional use monograph (regional pharmacovigilance update).",
+    "shortTitle": "Calliandra safety monograph",
+    "sourceType": "regulatory-guidance",
+    "sourceClass": "regulatory-agency-monograph-guidance",
+    "organization": "Pan-American Herbal Safety Program",
+    "publicationYear": 2024,
+    "citationText": "Pan-American Herbal Safety Program. Calliandra anomala safety monograph. 2024.",
+    "monographId": "PAHSP-CALLIANDRA-2024",
+    "canonicalUrl": "https://example.org/pa-hsp/calliandra-anomala-monograph-2024",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "jurisdiction": "international",
+    "evidenceClass": "regulatory-monograph",
+    "studyDesign": "regulatory-guidance",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T01:26:14.580Z",
+    "notes": "Promoted via source-wave-2 review. intakeTaskId=intake_gap_wp_herb_calliandra_anomala_safety_lack_of_safety_sources_must_have_publish_blocking; candidateSourceId=cand_wave2-calliandra-monograph-2024.",
+    "active": true
   },
   {
     "sourceId": "src_who-traditional-monograph-template",

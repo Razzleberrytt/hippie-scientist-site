@@ -1,16 +1,16 @@
 # Source Intake Queue
 
-Generated: 2026-03-31T00:07:53.871Z
+Generated: 2026-03-31T01:28:56.893Z
 
 ## Intake triage summary
-- totalTasks: 81
-- must_have_publish_blocking: 74
+- totalTasks: 75
+- must_have_publish_blocking: 68
 - high_value_strengthening: 7
 - optional_supporting: 0
 - defer_until_later: 0
-- publishBlockingCount: 74
-- safetyCriticalCount: 13
-- reviewerNeededCount: 78
+- publishBlockingCount: 68
+- safetyCriticalCount: 15
+- reviewerNeededCount: 72
 
 ## Gap-to-intake audit
 - fields present in source gaps: bucket, currentSourceClasses, entitySlug, gapId, itemType, notesForContractor, priorityLabel, publishBlocking, recommendedSourceClasses, relatedWorkpackIds, safetyCritical, sourceGapType, surfaceId, topicType
@@ -25,16 +25,18 @@ Generated: 2026-03-31T00:07:53.871Z
 ## Top intake tasks (first 40)
 | intakeTaskId | tier | target | topic | gap | source classes | reviewer | governance checks |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| intake_gap_wp_compound_cbd_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | cbd | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
+| intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | luteolin | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_alectra_sessiliflora_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | alectra-sessiliflora | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_anisoptera_thurifera_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | anisoptera-thurifera | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_calliandra_anomala_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | calliandra-anomala | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_delosperma_cooperi_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | delosperma-cooperi | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
-| intake_gap_wp_herb_henbane_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | henbane | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
+| intake_gap_wp_herb_henbane_safety_missing_source_coverage_by_topic_must_have_publish_blocking | must_have_publish_blocking | henbane | safety | missing_source_coverage_by_topic | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_ipomoea_tricolor_heavenly_blue_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | ipomoea-tricolor-heavenly-blue | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_iresine_herbstii_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | iresine-herbstii | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_jatropha_podagrica_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | jatropha-podagrica | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
-| intake_gap_wp_herb_mandrake_root_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | mandrake-root | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
-| intake_gap_wp_herb_mistletoe_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | mistletoe | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
+| intake_gap_wp_herb_mandrake_root_safety_missing_source_coverage_by_topic_must_have_publish_blocking | must_have_publish_blocking | mandrake-root | safety | missing_source_coverage_by_topic | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
+| intake_gap_wp_herb_mistletoe_safety_weak_source_diversity_must_have_publish_blocking | must_have_publish_blocking | mistletoe | safety | weak_source_diversity | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_pedicularis_groenlandica_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | pedicularis-groenlandica | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_herb_rivea_corymbosa_safety_lack_of_safety_sources_must_have_publish_blocking | must_have_publish_blocking | rivea-corymbosa | safety | lack_of_safety_sources | regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_collection_calming_herb_combinations_source_registry_missing_source_coverage_by_topic_must_have_publish_blocking | must_have_publish_blocking | calming-herb-combinations | source_registry | missing_source_coverage_by_topic | randomized-human-trial, regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-collections, verify:source-registry |
@@ -58,13 +60,11 @@ Generated: 2026-03-31T00:07:53.871Z
 | intake_gap_wp_collection_stimulant_herb_combinations_source_registry_missing_source_coverage_by_topic_must_have_publish_blocking | must_have_publish_blocking | stimulant-herb-combinations | source_registry | missing_source_coverage_by_topic | randomized-human-trial, regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-collections, verify:source-registry |
 | intake_gap_wp_collection_stress_and_cortisol_support_source_registry_missing_source_coverage_by_topic_must_have_publish_blocking | must_have_publish_blocking | stress-and-cortisol-support | source_registry | missing_source_coverage_by_topic | randomized-human-trial, regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-collections, verify:source-registry |
 | intake_gap_wp_comparison_compare_page_herb_selection_source_registry_missing_source_coverage_by_topic_must_have_publish_blocking | must_have_publish_blocking | compare-page-herb-selection | source_registry | missing_source_coverage_by_topic | randomized-human-trial, regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:enrichment-collections, verify:source-registry |
-| intake_gap_wp_compound_cbd_constituent_lack_of_mechanism_sources_must_have_publish_blocking | must_have_publish_blocking | cbd | constituent | lack_of_mechanism_sources | preclinical-mechanistic-study, reference-database-authority | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
+| intake_gap_wp_compound_cbd_constituent_weak_source_diversity_must_have_publish_blocking | must_have_publish_blocking | cbd | constituent | weak_source_diversity | preclinical-mechanistic-study, reference-database-authority | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
+| intake_gap_wp_compound_cbd_mechanism_weak_source_diversity_must_have_publish_blocking | must_have_publish_blocking | cbd | mechanism | weak_source_diversity | preclinical-mechanistic-study, reference-database-authority | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
+| intake_gap_wp_compound_luteolin_constituent_weak_source_diversity_must_have_publish_blocking | must_have_publish_blocking | luteolin | constituent | weak_source_diversity | preclinical-mechanistic-study, reference-database-authority | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
+| intake_gap_wp_compound_luteolin_mechanism_weak_source_diversity_must_have_publish_blocking | must_have_publish_blocking | luteolin | mechanism | weak_source_diversity | preclinical-mechanistic-study, reference-database-authority | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 | intake_gap_wp_entity_detail_herb_pages_source_registry_missing_source_coverage_by_topic_must_have_publish_blocking | must_have_publish_blocking | herb-pages | source_registry | missing_source_coverage_by_topic | randomized-human-trial, regulatory-agency-monograph-guidance, systematic-review-meta-analysis | yes | verify:source-registry |
-| intake_gap_wp_herb_alectra_sessiliflora_constituent_lack_of_mechanism_sources_must_have_publish_blocking | must_have_publish_blocking | alectra-sessiliflora | constituent | lack_of_mechanism_sources | preclinical-mechanistic-study, reference-database-authority | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
-| intake_gap_wp_herb_alectra_sessiliflora_evidence_missing_modern_human_evidence_must_have_publish_blocking | must_have_publish_blocking | alectra-sessiliflora | evidence | missing_modern_human_evidence | randomized-human-trial, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
-| intake_gap_wp_herb_alectra_sessiliflora_mechanism_lack_of_mechanism_sources_must_have_publish_blocking | must_have_publish_blocking | alectra-sessiliflora | mechanism | lack_of_mechanism_sources | preclinical-mechanistic-study, reference-database-authority | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
-| intake_gap_wp_herb_anisoptera_thurifera_constituent_lack_of_mechanism_sources_must_have_publish_blocking | must_have_publish_blocking | anisoptera-thurifera | constituent | lack_of_mechanism_sources | preclinical-mechanistic-study, reference-database-authority | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
-| intake_gap_wp_herb_anisoptera_thurifera_evidence_missing_modern_human_evidence_must_have_publish_blocking | must_have_publish_blocking | anisoptera-thurifera | evidence | missing_modern_human_evidence | randomized-human-trial, systematic-review-meta-analysis | yes | verify:enrichment-editorial, verify:research-enrichment, verify:source-registry |
 
 ## Contractor guidance
 
