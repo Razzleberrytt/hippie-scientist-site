@@ -25,10 +25,7 @@ export default function CtaVariantLayout({
 
   return (
     <section className='border-white/12 mt-5 rounded-xl border bg-black/20 p-3'>
-      <p className='text-[11px] uppercase tracking-[0.14em] text-white/45'>
-        CTA layout variant {variant.id}
-      </p>
-      <div className='mt-2 space-y-3'>
+      <div className='space-y-3'>
         {visibleSlots.map(slot => (
           <Fragment key={slot}>{slots[slot]}</Fragment>
         ))}

@@ -116,6 +116,15 @@ export default function GovernedResearchSections({
 
   return (
     <>
+      <section className='mt-5 rounded-xl border border-cyan-300/20 bg-cyan-500/5 p-3'>
+        <p className='text-xs text-cyan-100/90'>
+          Standard review flow: start with{' '}
+          <a href='#governed-safety-interactions' className='underline underline-offset-2 hover:text-cyan-100'>
+            safety & interactions
+          </a>
+          , then scan FAQ and related questions for governed context.
+        </p>
+      </section>
       <section id='governed-evidence-snapshot' className='mt-6 rounded-2xl border border-white/15 bg-white/[0.03] p-4'>
         <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/80'>
           Evidence snapshot

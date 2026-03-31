@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-03-31T17:04:16.124Z",
+  "generatedAt": "2026-03-31T17:10:37.017Z",
   "deterministicModelVersion": "governed-refinement-pass-v1",
   "inputs": {
-    "scorecardGeneratedAt": "2026-03-31T16:54:50.436Z",
+    "scorecardGeneratedAt": "2026-03-31T17:10:35.807Z",
     "analyticsGeneratedAt": "2026-03-31T16:43:16.172Z",
     "governedArtifactPaths": [
       "public/data/enrichment-governed.json",
@@ -23,7 +23,7 @@
       "surfaceId": "governed_review_freshness",
       "weakSurfaceComponent": "Review freshness visibility",
       "whyWeak": "Trust cue is visible in baseline but does not drive any observed engagement signal.",
-      "measurableSignal": "baselineVisibility=1, trackedVisibility=0, interactions=0, ctr=n/a"
+      "measurableSignal": "baselineVisibility=0, trackedVisibility=0, interactions=0, ctr=n/a"
     },
     {
       "pageType": "collection_page|compare_page",
@@ -31,8 +31,8 @@
       "entitySlug": null,
       "surfaceId": "governed_collection_compare_controls",
       "weakSurfaceComponent": "Collection/comparison controls",
-      "whyWeak": "High baseline visibility with zero interaction indicates weak follow-through on governed next steps.",
-      "measurableSignal": "baselineVisibility=19, trackedVisibility=0, interactions=0, ctr=n/a"
+      "whyWeak": "Visible governed surface currently has no measured interaction.",
+      "measurableSignal": "baselineVisibility=1, trackedVisibility=0, interactions=0, ctr=n/a"
     },
     {
       "pageType": "herb_detail|compound_detail|collection_page",
@@ -40,8 +40,8 @@
       "entitySlug": null,
       "surfaceId": "governed_cta",
       "weakSurfaceComponent": "Governed CTA clicks",
-      "whyWeak": "High baseline visibility with zero interaction indicates weak follow-through on governed next steps.",
-      "measurableSignal": "baselineVisibility=12, trackedVisibility=0, interactions=0, ctr=n/a"
+      "whyWeak": "Insufficient observed engagement in current governed scorecard snapshot.",
+      "measurableSignal": "baselineVisibility=0, trackedVisibility=0, interactions=0, ctr=n/a"
     },
     {
       "pageType": "herb_detail|compound_detail|collection_page",
@@ -49,8 +49,8 @@
       "entitySlug": null,
       "surfaceId": "tool_affiliate_related_journey",
       "weakSurfaceComponent": "Tool / affiliate / related-link journey",
-      "whyWeak": "High baseline visibility with zero interaction indicates weak follow-through on governed next steps.",
-      "measurableSignal": "baselineVisibility=12, trackedVisibility=0, interactions=0, ctr=n/a"
+      "whyWeak": "Insufficient observed engagement in current governed scorecard snapshot.",
+      "measurableSignal": "baselineVisibility=0, trackedVisibility=0, interactions=0, ctr=n/a"
     }
   ],
   "beforeAfter": [
