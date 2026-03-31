@@ -411,7 +411,7 @@ export default function CompoundDetail() {
                       })
                     }
                   >
-                    Open Interaction Checker
+                    {governedCta.copy.toolButtonLabel}
                   </Link>
                 </div>
               ),
@@ -436,7 +436,7 @@ export default function CompoundDetail() {
                       })
                     }
                   >
-                    Continue to Stack Builder
+                    {governedCta.copy.builderButtonLabel}
                   </Link>
                 </div>
               ),

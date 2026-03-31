@@ -27,6 +27,7 @@ const BLOCKED_REVIEW_STATUSES = new Set([
   'blocked',
   'rejected',
   'revision_requested',
+  'partial',
   'ready_for_review',
   'draft_submission',
 ])
@@ -185,7 +186,9 @@ function main() {
       before.copy.toolBody !== after.copy.toolBody ||
       before.copy.builderBody !== after.copy.builderBody ||
       before.copy.relatedTitle !== after.copy.relatedTitle ||
-      Boolean(after.copy.affiliateLeadIn)
+      before.copy.affiliateLeadIn !== after.copy.affiliateLeadIn ||
+      Boolean((after.copy as any).toolButtonLabel) ||
+      Boolean((after.copy as any).builderButtonLabel)
 
     if (!changed) {
       exclusions.push({ entityType, entitySlug, reason: 'no_governed_delta_after_safety_rules' })
@@ -248,6 +251,13 @@ function main() {
     const tone = String((row.after as any).tone)
     return confidence === 'low' && tone === 'evidence_forward'
   })
+  const weakPagesAffiliateAggressive = rows.filter(row => {
+    const confidence = row.confidence as ConfidenceLevel
+    const sourceCount = Number(row.sourceCount || 0)
+    const leadIn = String((row.after as any).copy?.affiliateLeadIn || '').toLowerCase()
+    if (confidence !== 'low' && sourceCount >= 2) return false
+    return /(best|buy now|top pick|must-have|guaranteed|strongest)/i.test(leadIn)
+  })
 
   const report = {
     generatedAt: new Date().toISOString(),
@@ -298,17 +308,20 @@ function main() {
       blockedRejectedRevisionRequestedExcluded: blockedRuntimeLeak.length === 0,
       affiliateDisclosureStillRenderedViaModule: true,
       weakPartialPagesRemainConservative: weakPagesAggressive.length === 0,
+      weakPartialPagesNotCommerciallyAggressive: weakPagesAffiliateAggressive.length === 0,
       analyticsInstrumentationIntact: instrumentationIntact,
     },
     verificationDetails: {
       blockedRuntimeLeak,
       weakPagesAggressive: weakPagesAggressive.map(row => row.route),
+      weakPagesAffiliateAggressive: weakPagesAffiliateAggressive.map(row => row.route),
     },
   }
 
   assert.equal(report.verification.approvedGovernedOnlyInfluence, true)
   assert.equal(report.verification.blockedRejectedRevisionRequestedExcluded, true)
   assert.equal(report.verification.weakPartialPagesRemainConservative, true)
+  assert.equal(report.verification.weakPartialPagesNotCommerciallyAggressive, true)
   assert.equal(report.verification.analyticsInstrumentationIntact, true)
 
   fs.mkdirSync(path.dirname(REPORT_JSON_PATH), { recursive: true })
