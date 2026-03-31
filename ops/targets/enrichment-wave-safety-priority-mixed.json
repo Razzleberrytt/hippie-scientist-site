@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T11:46:29.370Z",
+  "generatedAt": "2026-03-31T12:12:58.574Z",
   "deterministicModelVersion": "enrichment-wave-target-proposals-v2-balancing",
   "selectionPolicy": {
     "mode": "balancing-profile:safety-priority-mixed",
@@ -46,9 +46,9 @@
     },
     {
       "entityType": "herb",
-      "entitySlug": "henbane",
+      "entitySlug": "mandrake-root",
       "waveStatus": "carryover",
-      "selectionWhy": "indexable entity with priority score 114. Critical gaps: safety, mechanism, constituent. Carryover from wave-2.",
+      "selectionWhy": "indexable entity with priority score 97. Critical gaps: safety, mechanism, constituent. Carryover from wave-2, wave-2b.",
       "highestPriorityMissingTopics": [
         "constituent",
         "mechanism",
@@ -93,10 +93,10 @@
       "currentGovernedCoverageStatus": "blocked"
     },
     {
-      "entityType": "herb",
-      "entitySlug": "anisoptera-thurifera",
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
       "waveStatus": "new-entity",
-      "selectionWhy": "indexable entity with priority score 85. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "selectionWhy": "non_indexable entity with priority score 58. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
       "highestPriorityMissingTopics": [
         "constituent",
         "evidence",
@@ -112,9 +112,9 @@
     },
     {
       "entityType": "herb",
-      "entitySlug": "mandrake-root",
+      "entitySlug": "henbane",
       "waveStatus": "carryover",
-      "selectionWhy": "indexable entity with priority score 97. Critical gaps: safety, mechanism, constituent. Carryover from wave-2, wave-2b.",
+      "selectionWhy": "indexable entity with priority score 114. Critical gaps: safety, mechanism, constituent. Carryover from wave-2.",
       "highestPriorityMissingTopics": [
         "constituent",
         "mechanism",
@@ -124,7 +124,25 @@
         "mechanism-critical",
         "safety-critical"
       ],
-      "currentGovernedCoverageStatus": "partial"
+      "currentGovernedCoverageStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ipomoea-tricolor-heavenly-blue",
+      "waveStatus": "new-entity",
+      "selectionWhy": "indexable entity with priority score 94. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
     }
   ]
 }

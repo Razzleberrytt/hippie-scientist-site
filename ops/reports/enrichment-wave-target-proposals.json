@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T11:46:29.370Z",
+  "generatedAt": "2026-03-31T12:12:58.574Z",
   "deterministicModelVersion": "enrichment-wave-target-proposals-v2-balancing",
   "selectedProfileId": "mixed-balanced",
   "inputsUsed": [
@@ -15,18 +15,18 @@
     "public/data/publication-manifest.json"
   ],
   "summary": {
-    "totalCandidates": 15,
+    "totalCandidates": 27,
     "rawTopSetComposition": {
       "herb": 8,
       "compound": 0
     },
     "selectedProfileComposition": {
-      "total": 7,
+      "total": 8,
       "byType": {
         "herb": 5,
-        "compound": 2
+        "compound": 3
       },
-      "safetyCriticalCount": 7,
+      "safetyCriticalCount": 8,
       "carryoverCount": 6
     }
   },
@@ -126,6 +126,55 @@
       "rawRank": 2
     },
     {
+      "proposalId": "proposal_herb_mandrake-root",
+      "waveSuggestionId": "carryover-rescue",
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "blocked",
+      "rawPriorityScore": 257,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [
+        "wave-2",
+        "wave-2b"
+      ],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "indexable_entity_without_healthy_governed_enrichment",
+        "needs_metadata source set",
+        "no promotable enrichment topics",
+        "Source candidate intakeTaskId did not match queue metadata in wave-2, so no new source was promotable and no new governed entry was authored for the target."
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 97. Critical gaps: safety, mechanism, constituent. Carryover from wave-2, wave-2b.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ],
+      "rawRank": 3
+    },
+    {
       "proposalId": "proposal_herb_henbane",
       "waveSuggestionId": "carryover-rescue",
       "entityType": "herb",
@@ -171,7 +220,49 @@
         "sourceGapCount=3",
         "intakeTaskCount=3"
       ],
-      "rawRank": 3
+      "rawRank": 4
+    },
+    {
+      "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "ipomoea-tricolor-heavenly-blue",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 244,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 94. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 5
     },
     {
       "proposalId": "proposal_herb_anisoptera-thurifera",
@@ -213,7 +304,7 @@
         "sourceGapCount=4",
         "intakeTaskCount=4"
       ],
-      "rawRank": 4
+      "rawRank": 6
     },
     {
       "proposalId": "proposal_herb_rivea-corymbosa",
@@ -256,51 +347,7 @@
         "sourceGapCount=3",
         "intakeTaskCount=3"
       ],
-      "rawRank": 5
-    },
-    {
-      "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
-      "waveSuggestionId": "new-entity-priority",
-      "entityType": "herb",
-      "entitySlug": "ipomoea-tricolor-heavenly-blue",
-      "publicStatus": "indexable",
-      "currentGovernedCoverageState": "blocked",
-      "rawPriorityScore": 236,
-      "priorityBucket": "critical",
-      "carryoverFromWaveIds": [],
-      "criticalGapTypes": [
-        "mechanism-critical",
-        "safety-critical"
-      ],
-      "missingTopics": [
-        "constituent",
-        "mechanism",
-        "safety"
-      ],
-      "stale": true,
-      "blockerSignals": [
-        "editorialReadiness.publishable:false",
-        "editorialStatus:approved",
-        "governance block prevents safe publication of enrichment content",
-        "indexable_entity_without_healthy_governed_enrichment",
-        "source_linked_claims_without_publishable_status"
-      ],
-      "surfaceDependencySignals": [
-        "indexable-public-surface",
-        "publish-blocking-surface-impact",
-        "publication-manifest-indexable"
-      ],
-      "promotableSourceLikelihood": "unknown",
-      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
-      "whySelected": "indexable entity with priority score 94. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
-      "notes": [
-        "workpack bucket=governance_fix",
-        "reviewCycleState=blocked_pending_review",
-        "promotableSourceLikelihood=unknown",
-        "sourceGapCount=3",
-        "intakeTaskCount=3"
-      ],
-      "rawRank": 6
+      "rawRank": 7
     },
     {
       "proposalId": "proposal_herb_delosperma-cooperi",
@@ -341,52 +388,6 @@
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=4",
         "intakeTaskCount=4"
-      ],
-      "rawRank": 7
-    },
-    {
-      "proposalId": "proposal_herb_mandrake-root",
-      "waveSuggestionId": "carryover-rescue",
-      "entityType": "herb",
-      "entitySlug": "mandrake-root",
-      "publicStatus": "indexable",
-      "currentGovernedCoverageState": "partial",
-      "rawPriorityScore": 233,
-      "priorityBucket": "critical",
-      "carryoverFromWaveIds": [
-        "wave-2",
-        "wave-2b"
-      ],
-      "criticalGapTypes": [
-        "mechanism-critical",
-        "safety-critical"
-      ],
-      "missingTopics": [
-        "constituent",
-        "mechanism",
-        "safety"
-      ],
-      "stale": true,
-      "blockerSignals": [
-        "indexable_entity_without_healthy_governed_enrichment",
-        "needs_metadata source set",
-        "no promotable enrichment topics",
-        "Source candidate intakeTaskId did not match queue metadata in wave-2, so no new source was promotable and no new governed entry was authored for the target."
-      ],
-      "surfaceDependencySignals": [
-        "indexable-public-surface",
-        "publish-blocking-surface-impact",
-        "publication-manifest-indexable"
-      ],
-      "promotableSourceLikelihood": "unknown",
-      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
-      "whySelected": "indexable entity with priority score 97. Critical gaps: safety, mechanism, constituent. Carryover from wave-2, wave-2b.",
-      "notes": [
-        "workpack bucket=re_review",
-        "reviewCycleState=downgrade_recommended",
-        "promotableSourceLikelihood=unknown",
-        "sourceGapCount=3",
-        "intakeTaskCount=3"
       ],
       "rawRank": 8
     },
@@ -610,10 +611,205 @@
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=unknown",
-        "sourceGapCount=3",
-        "intakeTaskCount=3"
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
       ],
       "rawRank": 13
+    },
+    {
+      "proposalId": "proposal_compound_flavonoids",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 210,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 58. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 14
+    },
+    {
+      "proposalId": "proposal_compound_quercetin",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 209,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 55. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 15
+    },
+    {
+      "proposalId": "proposal_compound_asarone",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 207,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 52. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 16
+    },
+    {
+      "proposalId": "proposal_compound_saponins",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "saponins",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 206,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 49. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 17
+    },
+    {
+      "proposalId": "proposal_compound_volatile-oils",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "volatile-oils",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 205,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 46. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 18
     },
     {
       "proposalId": "proposal_herb_mistletoe",
@@ -653,7 +849,280 @@
         "sourceGapCount=3",
         "intakeTaskCount=3"
       ],
-      "rawRank": 14
+      "rawRank": 19
+    },
+    {
+      "proposalId": "proposal_compound_alkaloids",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "alkaloids",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 203,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 43. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 20
+    },
+    {
+      "proposalId": "proposal_compound_camphor",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "camphor",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 202,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 40. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 21
+    },
+    {
+      "proposalId": "proposal_compound_catechin",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "catechin",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 201,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 37. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 22
+    },
+    {
+      "proposalId": "proposal_compound_ephedrine",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "ephedrine",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 199,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 34. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 23
+    },
+    {
+      "proposalId": "proposal_compound_gallic-acid",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "gallic-acid",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 198,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 31. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 24
+    },
+    {
+      "proposalId": "proposal_compound_kaempferol",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "kaempferol",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 197,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 28. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 25
+    },
+    {
+      "proposalId": "proposal_compound_limonene",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "compound",
+      "entitySlug": "limonene",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "rawPriorityScore": 195,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Keep enriched rendering suppressed until governed enrichment and required source provenance are restored.",
+      "whySelected": "non_indexable entity with priority score 25. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ],
+      "rawRank": 26
     },
     {
       "proposalId": "proposal_herb_kava",
@@ -691,7 +1160,7 @@
         "sourceGapCount=3",
         "intakeTaskCount=3"
       ],
-      "rawRank": 15
+      "rawRank": 27
     }
   ],
   "selectedProfileDecisions": [
@@ -735,11 +1204,11 @@
     },
     {
       "profileId": "mixed-balanced",
-      "proposalId": "proposal_herb_henbane",
+      "proposalId": "proposal_herb_mandrake-root",
       "rawRank": 3,
-      "rawPriorityScore": 255,
+      "rawPriorityScore": 257,
       "balancingAdjustment": 29,
-      "finalPriorityScore": 284,
+      "finalPriorityScore": 286,
       "selected": true,
       "selectionOrder": 5,
       "selectedBecause": [
@@ -753,13 +1222,31 @@
     },
     {
       "profileId": "mixed-balanced",
-      "proposalId": "proposal_herb_anisoptera-thurifera",
+      "proposalId": "proposal_herb_henbane",
       "rawRank": 4,
-      "rawPriorityScore": 240,
-      "balancingAdjustment": 26,
-      "finalPriorityScore": 266,
+      "rawPriorityScore": 255,
+      "balancingAdjustment": 29,
+      "finalPriorityScore": 284,
       "selected": true,
-      "selectionOrder": 6,
+      "selectionOrder": 7,
+      "selectedBecause": [
+        "adjusted-score-rank",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "carryover-blocked:+9",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+      "rawRank": 5,
+      "rawPriorityScore": 244,
+      "balancingAdjustment": 26,
+      "finalPriorityScore": 270,
+      "selected": true,
+      "selectionOrder": 8,
       "selectedBecause": [
         "adjusted-score-rank",
         "topic:evidence-critical:+6",
@@ -771,14 +1258,15 @@
     },
     {
       "profileId": "mixed-balanced",
-      "proposalId": "proposal_herb_rivea-corymbosa",
-      "rawRank": 5,
+      "proposalId": "proposal_herb_anisoptera-thurifera",
+      "rawRank": 6,
       "rawPriorityScore": 240,
-      "balancingAdjustment": 20,
-      "finalPriorityScore": 260,
+      "balancingAdjustment": 26,
+      "finalPriorityScore": 266,
       "selected": false,
       "selectionOrder": null,
       "selectedBecause": [
+        "topic:evidence-critical:+6",
         "topic:mechanism-critical:+4",
         "topic:safety-critical:+12",
         "stale:+4"
@@ -787,11 +1275,11 @@
     },
     {
       "profileId": "mixed-balanced",
-      "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
-      "rawRank": 6,
-      "rawPriorityScore": 236,
+      "proposalId": "proposal_herb_rivea-corymbosa",
+      "rawRank": 7,
+      "rawPriorityScore": 240,
       "balancingAdjustment": 20,
-      "finalPriorityScore": 256,
+      "finalPriorityScore": 260,
       "selected": false,
       "selectionOrder": null,
       "selectedBecause": [
@@ -804,7 +1292,7 @@
     {
       "profileId": "mixed-balanced",
       "proposalId": "proposal_herb_delosperma-cooperi",
-      "rawRank": 7,
+      "rawRank": 8,
       "rawPriorityScore": 234,
       "balancingAdjustment": 26,
       "finalPriorityScore": 260,
@@ -817,24 +1305,6 @@
         "stale:+4"
       ],
       "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-    },
-    {
-      "profileId": "mixed-balanced",
-      "proposalId": "proposal_herb_mandrake-root",
-      "rawRank": 8,
-      "rawPriorityScore": 233,
-      "balancingAdjustment": 29,
-      "finalPriorityScore": 262,
-      "selected": true,
-      "selectionOrder": 7,
-      "selectedBecause": [
-        "adjusted-score-rank",
-        "topic:mechanism-critical:+4",
-        "topic:safety-critical:+12",
-        "carryover-blocked:+9",
-        "stale:+4"
-      ],
-      "exclusionReason": null
     },
     {
       "profileId": "mixed-balanced",
@@ -924,8 +1394,99 @@
     },
     {
       "profileId": "mixed-balanced",
-      "proposalId": "proposal_herb_mistletoe",
+      "proposalId": "proposal_compound_flavonoids",
       "rawRank": 14,
+      "rawPriorityScore": 210,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 240,
+      "selected": true,
+      "selectionOrder": 6,
+      "selectedBecause": [
+        "type-min-floor:compound",
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_quercetin",
+      "rawRank": 15,
+      "rawPriorityScore": 209,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 239,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_asarone",
+      "rawRank": 16,
+      "rawPriorityScore": 207,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 237,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_saponins",
+      "rawRank": 17,
+      "rawPriorityScore": 206,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 236,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_volatile-oils",
+      "rawRank": 18,
+      "rawPriorityScore": 205,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 235,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_mistletoe",
+      "rawRank": 19,
       "rawPriorityScore": 205,
       "balancingAdjustment": 20,
       "finalPriorityScore": 225,
@@ -940,8 +1501,134 @@
     },
     {
       "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_alkaloids",
+      "rawRank": 20,
+      "rawPriorityScore": 203,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 233,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_camphor",
+      "rawRank": 21,
+      "rawPriorityScore": 202,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 232,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_catechin",
+      "rawRank": 22,
+      "rawPriorityScore": 201,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 231,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_ephedrine",
+      "rawRank": 23,
+      "rawPriorityScore": 199,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 229,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_gallic-acid",
+      "rawRank": 24,
+      "rawPriorityScore": 198,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 228,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_kaempferol",
+      "rawRank": 25,
+      "rawPriorityScore": 197,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 227,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_limonene",
+      "rawRank": 26,
+      "rawPriorityScore": 195,
+      "balancingAdjustment": 30,
+      "finalPriorityScore": 225,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "type:compound:+4",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+    },
+    {
+      "profileId": "mixed-balanced",
       "proposalId": "proposal_herb_kava",
-      "rawRank": 15,
+      "rawRank": 27,
       "rawPriorityScore": 138,
       "balancingAdjustment": 20,
       "finalPriorityScore": 158,

@@ -1,33 +1,33 @@
 # Source Gap Discovery Report
 
-Generated: 2026-03-31T01:28:55.894Z
+Generated: 2026-03-31T12:12:45.962Z
 
 ## Bucket counts
-- source_needed_now: 26
-- safety_source_needed: 15
-- human_evidence_gap: 4
-- mechanism_source_gap: 30
-- traditional_only_gap: 0
+- source_needed_now: 27
+- safety_source_needed: 27
+- human_evidence_gap: 16
+- mechanism_source_gap: 54
+- traditional_only_gap: 1
 - defer_until_sources_available: 0
 
 ## Gap type counts
-- missing_source_coverage_by_topic: 32
-- weak_source_diversity: 16
-- lack_of_safety_sources: 11
-- lack_of_mechanism_sources: 12
-- overreliance_single_source_class: 0
-- missing_modern_human_evidence: 4
-- traditional_or_preclinical_only: 0
+- missing_source_coverage_by_topic: 35
+- weak_source_diversity: 14
+- lack_of_safety_sources: 22
+- lack_of_mechanism_sources: 36
+- overreliance_single_source_class: 1
+- missing_modern_human_evidence: 16
+- traditional_or_preclinical_only: 1
 - inactive_registered_sources: 0
 
-- publishBlocking: 68
-- safetyCritical: 15
+- publishBlocking: 119
+- safetyCritical: 27
 
 ## Top actionable items (first 40)
 | gapId | itemType | target | topic | sourceGapType | bucket | publishBlocking | safetyCritical | recommendedSourceClasses |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | gap_wp_browse_search_browse_compounds_summary_source_registry_missing_source_coverage_by_topic | discovery_surface | browse-compounds-summary | source_registry | missing_source_coverage_by_topic | source_needed_now | no | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
-| gap_wp_browse_search_browse_herbs_summary_source_registry_missing_source_coverage_by_topic | discovery_surface | browse-herbs-summary | source_registry | missing_source_coverage_by_topic | source_needed_now | no | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
+| gap_wp_browse_search_browse_herbs_summary_source_registry_missing_source_coverage_by_topic | discovery_surface | browse-herbs-summary | source_registry | missing_source_coverage_by_topic | source_needed_now | yes | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
 | gap_wp_collection_calming_herb_combinations_source_registry_missing_source_coverage_by_topic | collection_page | calming-herb-combinations | source_registry | missing_source_coverage_by_topic | source_needed_now | yes | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
 | gap_wp_collection_cognitive_enhancement_natural_source_registry_missing_source_coverage_by_topic | collection_page | cognitive-enhancement-natural | source_registry | missing_source_coverage_by_topic | source_needed_now | yes | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
 | gap_wp_collection_compounds_for_focus_source_registry_missing_source_coverage_by_topic | collection_page | compounds-for-focus | source_registry | missing_source_coverage_by_topic | source_needed_now | yes | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
@@ -49,23 +49,23 @@ Generated: 2026-03-31T01:28:55.894Z
 | gap_wp_collection_stimulant_herb_combinations_source_registry_missing_source_coverage_by_topic | collection_page | stimulant-herb-combinations | source_registry | missing_source_coverage_by_topic | source_needed_now | yes | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
 | gap_wp_collection_stress_and_cortisol_support_source_registry_missing_source_coverage_by_topic | collection_page | stress-and-cortisol-support | source_registry | missing_source_coverage_by_topic | source_needed_now | yes | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
 | gap_wp_comparison_compare_page_herb_selection_source_registry_missing_source_coverage_by_topic | comparison_page | compare-page-herb-selection | source_registry | missing_source_coverage_by_topic | source_needed_now | yes | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
+| gap_wp_compound_alkaloids_constituent_lack_of_mechanism_sources | compound_page | alkaloids | constituent | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
+| gap_wp_compound_alkaloids_evidence_missing_modern_human_evidence | compound_page | alkaloids | evidence | missing_modern_human_evidence | human_evidence_gap | yes | no | randomized-human-trial, systematic-review-meta-analysis |
+| gap_wp_compound_alkaloids_mechanism_lack_of_mechanism_sources | compound_page | alkaloids | mechanism | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
+| gap_wp_compound_alkaloids_safety_lack_of_safety_sources | compound_page | alkaloids | safety | lack_of_safety_sources | safety_source_needed | yes | yes | regulatory-agency-monograph-guidance, systematic-review-meta-analysis |
+| gap_wp_compound_asarone_constituent_lack_of_mechanism_sources | compound_page | asarone | constituent | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
+| gap_wp_compound_asarone_evidence_missing_modern_human_evidence | compound_page | asarone | evidence | missing_modern_human_evidence | human_evidence_gap | yes | no | randomized-human-trial, systematic-review-meta-analysis |
+| gap_wp_compound_asarone_mechanism_lack_of_mechanism_sources | compound_page | asarone | mechanism | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
+| gap_wp_compound_asarone_safety_lack_of_safety_sources | compound_page | asarone | safety | lack_of_safety_sources | safety_source_needed | yes | yes | regulatory-agency-monograph-guidance, systematic-review-meta-analysis |
+| gap_wp_compound_camphor_constituent_lack_of_mechanism_sources | compound_page | camphor | constituent | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
+| gap_wp_compound_camphor_evidence_missing_modern_human_evidence | compound_page | camphor | evidence | missing_modern_human_evidence | human_evidence_gap | yes | no | randomized-human-trial, systematic-review-meta-analysis |
+| gap_wp_compound_camphor_mechanism_lack_of_mechanism_sources | compound_page | camphor | mechanism | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
+| gap_wp_compound_camphor_safety_lack_of_safety_sources | compound_page | camphor | safety | lack_of_safety_sources | safety_source_needed | yes | yes | regulatory-agency-monograph-guidance, systematic-review-meta-analysis |
+| gap_wp_compound_catechin_constituent_lack_of_mechanism_sources | compound_page | catechin | constituent | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
+| gap_wp_compound_catechin_evidence_missing_modern_human_evidence | compound_page | catechin | evidence | missing_modern_human_evidence | human_evidence_gap | yes | no | randomized-human-trial, systematic-review-meta-analysis |
+| gap_wp_compound_catechin_mechanism_lack_of_mechanism_sources | compound_page | catechin | mechanism | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
+| gap_wp_compound_catechin_safety_lack_of_safety_sources | compound_page | catechin | safety | lack_of_safety_sources | safety_source_needed | yes | yes | regulatory-agency-monograph-guidance, systematic-review-meta-analysis |
 | gap_wp_compound_cbd_constituent_weak_source_diversity | compound_page | cbd | constituent | weak_source_diversity | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
-| gap_wp_compound_cbd_mechanism_weak_source_diversity | compound_page | cbd | mechanism | weak_source_diversity | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
-| gap_wp_compound_cbd_safety_lack_of_safety_sources | compound_page | cbd | safety | lack_of_safety_sources | safety_source_needed | yes | yes | regulatory-agency-monograph-guidance, systematic-review-meta-analysis |
-| gap_wp_compound_luteolin_constituent_weak_source_diversity | compound_page | luteolin | constituent | weak_source_diversity | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
-| gap_wp_compound_luteolin_mechanism_weak_source_diversity | compound_page | luteolin | mechanism | weak_source_diversity | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
-| gap_wp_compound_luteolin_safety_lack_of_safety_sources | compound_page | luteolin | safety | lack_of_safety_sources | safety_source_needed | yes | yes | regulatory-agency-monograph-guidance, systematic-review-meta-analysis |
-| gap_wp_entity_detail_compound_pages_source_registry_missing_source_coverage_by_topic | discovery_surface | compound-pages | source_registry | missing_source_coverage_by_topic | source_needed_now | no | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
-| gap_wp_entity_detail_herb_pages_source_registry_missing_source_coverage_by_topic | discovery_surface | herb-pages | source_registry | missing_source_coverage_by_topic | source_needed_now | yes | no | systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance |
-| gap_wp_herb_alectra_sessiliflora_constituent_lack_of_mechanism_sources | herb_page | alectra-sessiliflora | constituent | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
-| gap_wp_herb_alectra_sessiliflora_evidence_missing_modern_human_evidence | herb_page | alectra-sessiliflora | evidence | missing_modern_human_evidence | human_evidence_gap | yes | no | randomized-human-trial, systematic-review-meta-analysis |
-| gap_wp_herb_alectra_sessiliflora_mechanism_lack_of_mechanism_sources | herb_page | alectra-sessiliflora | mechanism | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
-| gap_wp_herb_alectra_sessiliflora_safety_lack_of_safety_sources | herb_page | alectra-sessiliflora | safety | lack_of_safety_sources | safety_source_needed | yes | yes | regulatory-agency-monograph-guidance, systematic-review-meta-analysis |
-| gap_wp_herb_anisoptera_thurifera_constituent_lack_of_mechanism_sources | herb_page | anisoptera-thurifera | constituent | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
-| gap_wp_herb_anisoptera_thurifera_evidence_missing_modern_human_evidence | herb_page | anisoptera-thurifera | evidence | missing_modern_human_evidence | human_evidence_gap | yes | no | randomized-human-trial, systematic-review-meta-analysis |
-| gap_wp_herb_anisoptera_thurifera_mechanism_lack_of_mechanism_sources | herb_page | anisoptera-thurifera | mechanism | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
-| gap_wp_herb_anisoptera_thurifera_safety_lack_of_safety_sources | herb_page | anisoptera-thurifera | safety | lack_of_safety_sources | safety_source_needed | yes | yes | regulatory-agency-monograph-guidance, systematic-review-meta-analysis |
-| gap_wp_herb_calliandra_anomala_constituent_lack_of_mechanism_sources | herb_page | calliandra-anomala | constituent | lack_of_mechanism_sources | mechanism_source_gap | yes | no | preclinical-mechanistic-study, reference-database-authority |
 
 ## Contractor notes
 

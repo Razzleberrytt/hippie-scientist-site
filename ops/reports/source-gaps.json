@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T01:28:55.894Z",
+  "generatedAt": "2026-03-31T12:12:45.962Z",
   "deterministicModelVersion": "source-gap-discovery-v1",
   "sources": {
     "sourceRegistry": "public/data/source-registry.json",
@@ -7,27 +7,27 @@
     "publicationManifest": "public/data/publication-manifest.json"
   },
   "summary": {
-    "totalGapItems": 75,
+    "totalGapItems": 125,
     "byBucket": {
-      "source_needed_now": 26,
-      "safety_source_needed": 15,
-      "human_evidence_gap": 4,
-      "mechanism_source_gap": 30,
-      "traditional_only_gap": 0,
+      "source_needed_now": 27,
+      "safety_source_needed": 27,
+      "human_evidence_gap": 16,
+      "mechanism_source_gap": 54,
+      "traditional_only_gap": 1,
       "defer_until_sources_available": 0
     },
     "bySourceGapType": {
-      "missing_source_coverage_by_topic": 32,
-      "weak_source_diversity": 16,
-      "lack_of_safety_sources": 11,
-      "lack_of_mechanism_sources": 12,
-      "overreliance_single_source_class": 0,
-      "missing_modern_human_evidence": 4,
-      "traditional_or_preclinical_only": 0,
+      "missing_source_coverage_by_topic": 35,
+      "weak_source_diversity": 14,
+      "lack_of_safety_sources": 22,
+      "lack_of_mechanism_sources": 36,
+      "overreliance_single_source_class": 1,
+      "missing_modern_human_evidence": 16,
+      "traditional_or_preclinical_only": 1,
       "inactive_registered_sources": 0
     },
-    "publishBlockingCount": 68,
-    "safetyCriticalCount": 15
+    "publishBlockingCount": 119,
+    "safetyCriticalCount": 27
   },
   "buckets": {
     "source_needed_now": [
@@ -60,7 +60,7 @@
         "itemType": "discovery_surface",
         "entitySlug": null,
         "surfaceId": "browse-herbs-summary",
-        "priorityLabel": "low_priority",
+        "priorityLabel": "do_now",
         "topicType": "source_registry",
         "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
@@ -72,11 +72,11 @@
           "regulatory-agency-monograph-guidance"
         ],
         "safetyCritical": false,
-        "publishBlocking": false,
+        "publishBlocking": true,
         "relatedWorkpackIds": [
           "wp_browse_search_browse_herbs_summary"
         ],
-        "notesForContractor": "Target browse-herbs-summary has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. Partial enrichment is acceptable, but mark uncertainty and schedule follow-up sourcing.",
+        "notesForContractor": "Target browse-herbs-summary has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. This gap is publish-blocking under current governance and should be resolved before release.",
         "bucket": "source_needed_now"
       },
       {
@@ -584,6 +584,29 @@
         "bucket": "source_needed_now"
       },
       {
+        "gapId": "gap_wp_compound_cbd_overreliance_single_source_class",
+        "itemType": "compound_page",
+        "entitySlug": "cbd",
+        "surfaceId": null,
+        "priorityLabel": "governance_fix_needed",
+        "topicType": "evidence",
+        "sourceGapType": "overreliance_single_source_class",
+        "currentSourceClasses": [
+          "preclinical-mechanistic-study"
+        ],
+        "recommendedSourceClasses": [
+          "systematic-review-meta-analysis",
+          "regulatory-agency-monograph-guidance"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_cbd"
+        ],
+        "notesForContractor": "Coverage relies on a single source class. Add at least one independent complementary class to reduce uncertainty and conflict fragility.",
+        "bucket": "source_needed_now"
+      },
+      {
         "gapId": "gap_wp_entity_detail_compound_pages_source_registry_missing_source_coverage_by_topic",
         "itemType": "discovery_surface",
         "entitySlug": null,
@@ -658,6 +681,98 @@
     ],
     "safety_source_needed": [
       {
+        "gapId": "gap_wp_compound_alkaloids_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "alkaloids",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_alkaloids"
+        ],
+        "notesForContractor": "Target alkaloids has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_asarone_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "asarone",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_asarone"
+        ],
+        "notesForContractor": "Target asarone has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_camphor_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "camphor",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_camphor"
+        ],
+        "notesForContractor": "Target camphor has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_catechin_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "catechin",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_catechin"
+        ],
+        "notesForContractor": "Target catechin has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
         "gapId": "gap_wp_compound_cbd_safety_lack_of_safety_sources",
         "itemType": "compound_page",
         "entitySlug": "cbd",
@@ -681,15 +796,131 @@
         "bucket": "safety_source_needed"
       },
       {
-        "gapId": "gap_wp_compound_luteolin_safety_lack_of_safety_sources",
+        "gapId": "gap_wp_compound_ephedrine_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "ephedrine",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_ephedrine"
+        ],
+        "notesForContractor": "Target ephedrine has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_flavonoids_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "flavonoids",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_flavonoids"
+        ],
+        "notesForContractor": "Target flavonoids has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_gallic_acid_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "gallic-acid",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_gallic_acid"
+        ],
+        "notesForContractor": "Target gallic-acid has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_kaempferol_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "kaempferol",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_kaempferol"
+        ],
+        "notesForContractor": "Target kaempferol has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_limonene_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "limonene",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_limonene"
+        ],
+        "notesForContractor": "Target limonene has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_luteolin_safety_missing_source_coverage_by_topic",
         "itemType": "compound_page",
         "entitySlug": "luteolin",
         "surfaceId": null,
         "priorityLabel": "governance_fix_needed",
         "topicType": "safety",
-        "sourceGapType": "lack_of_safety_sources",
+        "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
-          "preclinical-mechanistic-study"
+          "preclinical-mechanistic-study",
+          "systematic-review-meta-analysis"
         ],
         "recommendedSourceClasses": [
           "regulatory-agency-monograph-guidance",
@@ -700,7 +931,76 @@
         "relatedWorkpackIds": [
           "wp_compound_luteolin"
         ],
-        "notesForContractor": "Target luteolin has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "notesForContractor": "Target luteolin has topic gap in safety. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_quercetin_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "quercetin",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_quercetin"
+        ],
+        "notesForContractor": "Target quercetin has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_saponins_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "saponins",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_saponins"
+        ],
+        "notesForContractor": "Target saponins has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "safety_source_needed"
+      },
+      {
+        "gapId": "gap_wp_compound_volatile_oils_safety_lack_of_safety_sources",
+        "itemType": "compound_page",
+        "entitySlug": "volatile-oils",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "safety",
+        "sourceGapType": "lack_of_safety_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "regulatory-agency-monograph-guidance",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": true,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_volatile_oils"
+        ],
+        "notesForContractor": "Target volatile-oils has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
         "bucket": "safety_source_needed"
       },
       {
@@ -824,7 +1124,7 @@
         "itemType": "herb_page",
         "entitySlug": "ipomoea-tricolor-heavenly-blue",
         "surfaceId": null,
-        "priorityLabel": "governance_fix_needed",
+        "priorityLabel": "re_review_needed",
         "topicType": "safety",
         "sourceGapType": "lack_of_safety_sources",
         "currentSourceClasses": [
@@ -916,7 +1216,7 @@
         "itemType": "herb_page",
         "entitySlug": "mandrake-root",
         "surfaceId": null,
-        "priorityLabel": "do_now",
+        "priorityLabel": "governance_fix_needed",
         "topicType": "safety",
         "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
@@ -1006,6 +1306,282 @@
       }
     ],
     "human_evidence_gap": [
+      {
+        "gapId": "gap_wp_compound_alkaloids_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "alkaloids",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_alkaloids"
+        ],
+        "notesForContractor": "Target alkaloids has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_asarone_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "asarone",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_asarone"
+        ],
+        "notesForContractor": "Target asarone has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_camphor_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "camphor",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_camphor"
+        ],
+        "notesForContractor": "Target camphor has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_catechin_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "catechin",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_catechin"
+        ],
+        "notesForContractor": "Target catechin has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_ephedrine_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "ephedrine",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_ephedrine"
+        ],
+        "notesForContractor": "Target ephedrine has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_flavonoids_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "flavonoids",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_flavonoids"
+        ],
+        "notesForContractor": "Target flavonoids has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_gallic_acid_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "gallic-acid",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_gallic_acid"
+        ],
+        "notesForContractor": "Target gallic-acid has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_kaempferol_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "kaempferol",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_kaempferol"
+        ],
+        "notesForContractor": "Target kaempferol has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_limonene_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "limonene",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_limonene"
+        ],
+        "notesForContractor": "Target limonene has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_quercetin_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "quercetin",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_quercetin"
+        ],
+        "notesForContractor": "Target quercetin has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_saponins_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "saponins",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_saponins"
+        ],
+        "notesForContractor": "Target saponins has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_volatile_oils_evidence_missing_modern_human_evidence",
+        "itemType": "compound_page",
+        "entitySlug": "volatile-oils",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "missing_modern_human_evidence",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_volatile_oils"
+        ],
+        "notesForContractor": "Target volatile-oils has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "human_evidence_gap"
+      },
       {
         "gapId": "gap_wp_herb_alectra_sessiliflora_evidence_missing_modern_human_evidence",
         "itemType": "herb_page",
@@ -1101,6 +1677,190 @@
     ],
     "mechanism_source_gap": [
       {
+        "gapId": "gap_wp_compound_alkaloids_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "alkaloids",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_alkaloids"
+        ],
+        "notesForContractor": "Target alkaloids has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_alkaloids_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "alkaloids",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_alkaloids"
+        ],
+        "notesForContractor": "Target alkaloids has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_asarone_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "asarone",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_asarone"
+        ],
+        "notesForContractor": "Target asarone has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_asarone_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "asarone",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_asarone"
+        ],
+        "notesForContractor": "Target asarone has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_camphor_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "camphor",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_camphor"
+        ],
+        "notesForContractor": "Target camphor has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_camphor_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "camphor",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_camphor"
+        ],
+        "notesForContractor": "Target camphor has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_catechin_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "catechin",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_catechin"
+        ],
+        "notesForContractor": "Target catechin has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_catechin_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "catechin",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_catechin"
+        ],
+        "notesForContractor": "Target catechin has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
         "gapId": "gap_wp_compound_cbd_constituent_weak_source_diversity",
         "itemType": "compound_page",
         "entitySlug": "cbd",
@@ -1147,15 +1907,246 @@
         "bucket": "mechanism_source_gap"
       },
       {
-        "gapId": "gap_wp_compound_luteolin_constituent_weak_source_diversity",
+        "gapId": "gap_wp_compound_ephedrine_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "ephedrine",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_ephedrine"
+        ],
+        "notesForContractor": "Target ephedrine has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_ephedrine_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "ephedrine",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_ephedrine"
+        ],
+        "notesForContractor": "Target ephedrine has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_flavonoids_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "flavonoids",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_flavonoids"
+        ],
+        "notesForContractor": "Target flavonoids has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_flavonoids_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "flavonoids",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_flavonoids"
+        ],
+        "notesForContractor": "Target flavonoids has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_gallic_acid_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "gallic-acid",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_gallic_acid"
+        ],
+        "notesForContractor": "Target gallic-acid has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_gallic_acid_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "gallic-acid",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_gallic_acid"
+        ],
+        "notesForContractor": "Target gallic-acid has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_kaempferol_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "kaempferol",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_kaempferol"
+        ],
+        "notesForContractor": "Target kaempferol has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_kaempferol_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "kaempferol",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_kaempferol"
+        ],
+        "notesForContractor": "Target kaempferol has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_limonene_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "limonene",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_limonene"
+        ],
+        "notesForContractor": "Target limonene has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_limonene_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "limonene",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_limonene"
+        ],
+        "notesForContractor": "Target limonene has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_luteolin_constituent_missing_source_coverage_by_topic",
         "itemType": "compound_page",
         "entitySlug": "luteolin",
         "surfaceId": null,
         "priorityLabel": "governance_fix_needed",
         "topicType": "constituent",
-        "sourceGapType": "weak_source_diversity",
+        "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
-          "preclinical-mechanistic-study"
+          "preclinical-mechanistic-study",
+          "systematic-review-meta-analysis"
         ],
         "recommendedSourceClasses": [
           "preclinical-mechanistic-study",
@@ -1166,19 +2157,20 @@
         "relatedWorkpackIds": [
           "wp_compound_luteolin"
         ],
-        "notesForContractor": "Target luteolin has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "notesForContractor": "Target luteolin has topic gap in constituent. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
         "bucket": "mechanism_source_gap"
       },
       {
-        "gapId": "gap_wp_compound_luteolin_mechanism_weak_source_diversity",
+        "gapId": "gap_wp_compound_luteolin_mechanism_missing_source_coverage_by_topic",
         "itemType": "compound_page",
         "entitySlug": "luteolin",
         "surfaceId": null,
         "priorityLabel": "governance_fix_needed",
         "topicType": "mechanism",
-        "sourceGapType": "weak_source_diversity",
+        "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
-          "preclinical-mechanistic-study"
+          "preclinical-mechanistic-study",
+          "systematic-review-meta-analysis"
         ],
         "recommendedSourceClasses": [
           "preclinical-mechanistic-study",
@@ -1189,7 +2181,145 @@
         "relatedWorkpackIds": [
           "wp_compound_luteolin"
         ],
-        "notesForContractor": "Target luteolin has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "notesForContractor": "Target luteolin has topic gap in mechanism. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_quercetin_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "quercetin",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_quercetin"
+        ],
+        "notesForContractor": "Target quercetin has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_quercetin_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "quercetin",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_quercetin"
+        ],
+        "notesForContractor": "Target quercetin has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_saponins_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "saponins",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_saponins"
+        ],
+        "notesForContractor": "Target saponins has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_saponins_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "saponins",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_saponins"
+        ],
+        "notesForContractor": "Target saponins has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_volatile_oils_constituent_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "volatile-oils",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "constituent",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_volatile_oils"
+        ],
+        "notesForContractor": "Target volatile-oils has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "mechanism_source_gap"
+      },
+      {
+        "gapId": "gap_wp_compound_volatile_oils_mechanism_lack_of_mechanism_sources",
+        "itemType": "compound_page",
+        "entitySlug": "volatile-oils",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "mechanism",
+        "sourceGapType": "lack_of_mechanism_sources",
+        "currentSourceClasses": [
+          "none_registered_or_active"
+        ],
+        "recommendedSourceClasses": [
+          "preclinical-mechanistic-study",
+          "reference-database-authority"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_compound_volatile_oils"
+        ],
+        "notesForContractor": "Target volatile-oils has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
         "bucket": "mechanism_source_gap"
       },
       {
@@ -1429,7 +2559,7 @@
         "itemType": "herb_page",
         "entitySlug": "ipomoea-tricolor-heavenly-blue",
         "surfaceId": null,
-        "priorityLabel": "governance_fix_needed",
+        "priorityLabel": "re_review_needed",
         "topicType": "constituent",
         "sourceGapType": "weak_source_diversity",
         "currentSourceClasses": [
@@ -1452,7 +2582,7 @@
         "itemType": "herb_page",
         "entitySlug": "ipomoea-tricolor-heavenly-blue",
         "surfaceId": null,
-        "priorityLabel": "governance_fix_needed",
+        "priorityLabel": "re_review_needed",
         "topicType": "mechanism",
         "sourceGapType": "weak_source_diversity",
         "currentSourceClasses": [
@@ -1613,7 +2743,7 @@
         "itemType": "herb_page",
         "entitySlug": "mandrake-root",
         "surfaceId": null,
-        "priorityLabel": "do_now",
+        "priorityLabel": "governance_fix_needed",
         "topicType": "constituent",
         "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
@@ -1637,7 +2767,7 @@
         "itemType": "herb_page",
         "entitySlug": "mandrake-root",
         "surfaceId": null,
-        "priorityLabel": "do_now",
+        "priorityLabel": "governance_fix_needed",
         "topicType": "mechanism",
         "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
@@ -1795,7 +2925,31 @@
         "bucket": "mechanism_source_gap"
       }
     ],
-    "traditional_only_gap": [],
+    "traditional_only_gap": [
+      {
+        "gapId": "gap_wp_herb_ipomoea_tricolor_heavenly_blue_evidence_traditional_or_preclinical_only",
+        "itemType": "herb_page",
+        "entitySlug": "ipomoea-tricolor-heavenly-blue",
+        "surfaceId": null,
+        "priorityLabel": "re_review_needed",
+        "topicType": "evidence",
+        "sourceGapType": "traditional_or_preclinical_only",
+        "currentSourceClasses": [
+          "preclinical-mechanistic-study"
+        ],
+        "recommendedSourceClasses": [
+          "randomized-human-trial",
+          "systematic-review-meta-analysis"
+        ],
+        "safetyCritical": false,
+        "publishBlocking": true,
+        "relatedWorkpackIds": [
+          "wp_herb_ipomoea_tricolor_heavenly_blue"
+        ],
+        "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in evidence. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "bucket": "traditional_only_gap"
+      }
+    ],
     "defer_until_sources_available": []
   },
   "gapItems": [
@@ -1828,7 +2982,7 @@
       "itemType": "discovery_surface",
       "entitySlug": null,
       "surfaceId": "browse-herbs-summary",
-      "priorityLabel": "low_priority",
+      "priorityLabel": "do_now",
       "topicType": "source_registry",
       "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
@@ -1840,11 +2994,11 @@
         "regulatory-agency-monograph-guidance"
       ],
       "safetyCritical": false,
-      "publishBlocking": false,
+      "publishBlocking": true,
       "relatedWorkpackIds": [
         "wp_browse_search_browse_herbs_summary"
       ],
-      "notesForContractor": "Target browse-herbs-summary has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. Partial enrichment is acceptable, but mark uncertainty and schedule follow-up sourcing.",
+      "notesForContractor": "Target browse-herbs-summary has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. This gap is publish-blocking under current governance and should be resolved before release.",
       "bucket": "source_needed_now"
     },
     {
@@ -2352,6 +3506,374 @@
       "bucket": "source_needed_now"
     },
     {
+      "gapId": "gap_wp_compound_alkaloids_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "alkaloids",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_alkaloids"
+      ],
+      "notesForContractor": "Target alkaloids has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_alkaloids_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "alkaloids",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_alkaloids"
+      ],
+      "notesForContractor": "Target alkaloids has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_alkaloids_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "alkaloids",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_alkaloids"
+      ],
+      "notesForContractor": "Target alkaloids has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_alkaloids_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "alkaloids",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_alkaloids"
+      ],
+      "notesForContractor": "Target alkaloids has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_asarone_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "asarone",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_asarone"
+      ],
+      "notesForContractor": "Target asarone has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_asarone_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "asarone",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_asarone"
+      ],
+      "notesForContractor": "Target asarone has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_asarone_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "asarone",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_asarone"
+      ],
+      "notesForContractor": "Target asarone has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_asarone_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "asarone",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_asarone"
+      ],
+      "notesForContractor": "Target asarone has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_camphor_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "camphor",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_camphor"
+      ],
+      "notesForContractor": "Target camphor has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_camphor_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "camphor",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_camphor"
+      ],
+      "notesForContractor": "Target camphor has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_camphor_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "camphor",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_camphor"
+      ],
+      "notesForContractor": "Target camphor has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_camphor_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "camphor",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_camphor"
+      ],
+      "notesForContractor": "Target camphor has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_catechin_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "catechin",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_catechin"
+      ],
+      "notesForContractor": "Target catechin has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_catechin_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "catechin",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_catechin"
+      ],
+      "notesForContractor": "Target catechin has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_catechin_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "catechin",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_catechin"
+      ],
+      "notesForContractor": "Target catechin has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_catechin_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "catechin",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_catechin"
+      ],
+      "notesForContractor": "Target catechin has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
       "gapId": "gap_wp_compound_cbd_constituent_weak_source_diversity",
       "itemType": "compound_page",
       "entitySlug": "cbd",
@@ -2398,6 +3920,29 @@
       "bucket": "mechanism_source_gap"
     },
     {
+      "gapId": "gap_wp_compound_cbd_overreliance_single_source_class",
+      "itemType": "compound_page",
+      "entitySlug": "cbd",
+      "surfaceId": null,
+      "priorityLabel": "governance_fix_needed",
+      "topicType": "evidence",
+      "sourceGapType": "overreliance_single_source_class",
+      "currentSourceClasses": [
+        "preclinical-mechanistic-study"
+      ],
+      "recommendedSourceClasses": [
+        "systematic-review-meta-analysis",
+        "regulatory-agency-monograph-guidance"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_cbd"
+      ],
+      "notesForContractor": "Coverage relies on a single source class. Add at least one independent complementary class to reduce uncertainty and conflict fragility.",
+      "bucket": "source_needed_now"
+    },
+    {
       "gapId": "gap_wp_compound_cbd_safety_lack_of_safety_sources",
       "itemType": "compound_page",
       "entitySlug": "cbd",
@@ -2421,15 +3966,476 @@
       "bucket": "safety_source_needed"
     },
     {
-      "gapId": "gap_wp_compound_luteolin_constituent_weak_source_diversity",
+      "gapId": "gap_wp_compound_ephedrine_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "ephedrine",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_ephedrine"
+      ],
+      "notesForContractor": "Target ephedrine has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_ephedrine_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "ephedrine",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_ephedrine"
+      ],
+      "notesForContractor": "Target ephedrine has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_ephedrine_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "ephedrine",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_ephedrine"
+      ],
+      "notesForContractor": "Target ephedrine has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_ephedrine_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "ephedrine",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_ephedrine"
+      ],
+      "notesForContractor": "Target ephedrine has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_flavonoids_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "flavonoids",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_flavonoids"
+      ],
+      "notesForContractor": "Target flavonoids has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_flavonoids_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "flavonoids",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_flavonoids"
+      ],
+      "notesForContractor": "Target flavonoids has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_flavonoids_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "flavonoids",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_flavonoids"
+      ],
+      "notesForContractor": "Target flavonoids has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_flavonoids_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "flavonoids",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_flavonoids"
+      ],
+      "notesForContractor": "Target flavonoids has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_gallic_acid_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "gallic-acid",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_gallic_acid"
+      ],
+      "notesForContractor": "Target gallic-acid has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_gallic_acid_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "gallic-acid",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_gallic_acid"
+      ],
+      "notesForContractor": "Target gallic-acid has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_gallic_acid_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "gallic-acid",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_gallic_acid"
+      ],
+      "notesForContractor": "Target gallic-acid has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_gallic_acid_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "gallic-acid",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_gallic_acid"
+      ],
+      "notesForContractor": "Target gallic-acid has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_kaempferol_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "kaempferol",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_kaempferol"
+      ],
+      "notesForContractor": "Target kaempferol has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_kaempferol_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "kaempferol",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_kaempferol"
+      ],
+      "notesForContractor": "Target kaempferol has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_kaempferol_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "kaempferol",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_kaempferol"
+      ],
+      "notesForContractor": "Target kaempferol has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_kaempferol_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "kaempferol",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_kaempferol"
+      ],
+      "notesForContractor": "Target kaempferol has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_limonene_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "limonene",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_limonene"
+      ],
+      "notesForContractor": "Target limonene has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_limonene_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "limonene",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_limonene"
+      ],
+      "notesForContractor": "Target limonene has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_limonene_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "limonene",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_limonene"
+      ],
+      "notesForContractor": "Target limonene has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_limonene_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "limonene",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_limonene"
+      ],
+      "notesForContractor": "Target limonene has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_luteolin_constituent_missing_source_coverage_by_topic",
       "itemType": "compound_page",
       "entitySlug": "luteolin",
       "surfaceId": null,
       "priorityLabel": "governance_fix_needed",
       "topicType": "constituent",
-      "sourceGapType": "weak_source_diversity",
+      "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
-        "preclinical-mechanistic-study"
+        "preclinical-mechanistic-study",
+        "systematic-review-meta-analysis"
       ],
       "recommendedSourceClasses": [
         "preclinical-mechanistic-study",
@@ -2440,19 +4446,20 @@
       "relatedWorkpackIds": [
         "wp_compound_luteolin"
       ],
-      "notesForContractor": "Target luteolin has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "notesForContractor": "Target luteolin has topic gap in constituent. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
       "bucket": "mechanism_source_gap"
     },
     {
-      "gapId": "gap_wp_compound_luteolin_mechanism_weak_source_diversity",
+      "gapId": "gap_wp_compound_luteolin_mechanism_missing_source_coverage_by_topic",
       "itemType": "compound_page",
       "entitySlug": "luteolin",
       "surfaceId": null,
       "priorityLabel": "governance_fix_needed",
       "topicType": "mechanism",
-      "sourceGapType": "weak_source_diversity",
+      "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
-        "preclinical-mechanistic-study"
+        "preclinical-mechanistic-study",
+        "systematic-review-meta-analysis"
       ],
       "recommendedSourceClasses": [
         "preclinical-mechanistic-study",
@@ -2463,19 +4470,20 @@
       "relatedWorkpackIds": [
         "wp_compound_luteolin"
       ],
-      "notesForContractor": "Target luteolin has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "notesForContractor": "Target luteolin has topic gap in mechanism. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
       "bucket": "mechanism_source_gap"
     },
     {
-      "gapId": "gap_wp_compound_luteolin_safety_lack_of_safety_sources",
+      "gapId": "gap_wp_compound_luteolin_safety_missing_source_coverage_by_topic",
       "itemType": "compound_page",
       "entitySlug": "luteolin",
       "surfaceId": null,
       "priorityLabel": "governance_fix_needed",
       "topicType": "safety",
-      "sourceGapType": "lack_of_safety_sources",
+      "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
-        "preclinical-mechanistic-study"
+        "preclinical-mechanistic-study",
+        "systematic-review-meta-analysis"
       ],
       "recommendedSourceClasses": [
         "regulatory-agency-monograph-guidance",
@@ -2486,7 +4494,283 @@
       "relatedWorkpackIds": [
         "wp_compound_luteolin"
       ],
-      "notesForContractor": "Target luteolin has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "notesForContractor": "Target luteolin has topic gap in safety. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_quercetin_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "quercetin",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_quercetin"
+      ],
+      "notesForContractor": "Target quercetin has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_quercetin_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "quercetin",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_quercetin"
+      ],
+      "notesForContractor": "Target quercetin has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_quercetin_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "quercetin",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_quercetin"
+      ],
+      "notesForContractor": "Target quercetin has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_quercetin_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "quercetin",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_quercetin"
+      ],
+      "notesForContractor": "Target quercetin has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_saponins_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "saponins",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_saponins"
+      ],
+      "notesForContractor": "Target saponins has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_saponins_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "saponins",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_saponins"
+      ],
+      "notesForContractor": "Target saponins has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_saponins_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "saponins",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_saponins"
+      ],
+      "notesForContractor": "Target saponins has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_saponins_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "saponins",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_saponins"
+      ],
+      "notesForContractor": "Target saponins has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "safety_source_needed"
+    },
+    {
+      "gapId": "gap_wp_compound_volatile_oils_constituent_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "volatile-oils",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "constituent",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_volatile_oils"
+      ],
+      "notesForContractor": "Target volatile-oils has topic gap in constituent. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_volatile_oils_evidence_missing_modern_human_evidence",
+      "itemType": "compound_page",
+      "entitySlug": "volatile-oils",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "missing_modern_human_evidence",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_volatile_oils"
+      ],
+      "notesForContractor": "Target volatile-oils has topic gap in evidence. Current active evidence classes: none. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "human_evidence_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_volatile_oils_mechanism_lack_of_mechanism_sources",
+      "itemType": "compound_page",
+      "entitySlug": "volatile-oils",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "mechanism",
+      "sourceGapType": "lack_of_mechanism_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "preclinical-mechanistic-study",
+        "reference-database-authority"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_volatile_oils"
+      ],
+      "notesForContractor": "Target volatile-oils has topic gap in mechanism. Current active evidence classes: none. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "mechanism_source_gap"
+    },
+    {
+      "gapId": "gap_wp_compound_volatile_oils_safety_lack_of_safety_sources",
+      "itemType": "compound_page",
+      "entitySlug": "volatile-oils",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "safety",
+      "sourceGapType": "lack_of_safety_sources",
+      "currentSourceClasses": [
+        "none_registered_or_active"
+      ],
+      "recommendedSourceClasses": [
+        "regulatory-agency-monograph-guidance",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": true,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_compound_volatile_oils"
+      ],
+      "notesForContractor": "Target volatile-oils has topic gap in safety. Current active evidence classes: none. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
       "bucket": "safety_source_needed"
     },
     {
@@ -2982,7 +5266,7 @@
       "itemType": "herb_page",
       "entitySlug": "ipomoea-tricolor-heavenly-blue",
       "surfaceId": null,
-      "priorityLabel": "governance_fix_needed",
+      "priorityLabel": "re_review_needed",
       "topicType": "constituent",
       "sourceGapType": "weak_source_diversity",
       "currentSourceClasses": [
@@ -3001,11 +5285,34 @@
       "bucket": "mechanism_source_gap"
     },
     {
+      "gapId": "gap_wp_herb_ipomoea_tricolor_heavenly_blue_evidence_traditional_or_preclinical_only",
+      "itemType": "herb_page",
+      "entitySlug": "ipomoea-tricolor-heavenly-blue",
+      "surfaceId": null,
+      "priorityLabel": "re_review_needed",
+      "topicType": "evidence",
+      "sourceGapType": "traditional_or_preclinical_only",
+      "currentSourceClasses": [
+        "preclinical-mechanistic-study"
+      ],
+      "recommendedSourceClasses": [
+        "randomized-human-trial",
+        "systematic-review-meta-analysis"
+      ],
+      "safetyCritical": false,
+      "publishBlocking": true,
+      "relatedWorkpackIds": [
+        "wp_herb_ipomoea_tricolor_heavenly_blue"
+      ],
+      "notesForContractor": "Target ipomoea-tricolor-heavenly-blue has topic gap in evidence. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: randomized-human-trial, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "bucket": "traditional_only_gap"
+    },
+    {
       "gapId": "gap_wp_herb_ipomoea_tricolor_heavenly_blue_mechanism_weak_source_diversity",
       "itemType": "herb_page",
       "entitySlug": "ipomoea-tricolor-heavenly-blue",
       "surfaceId": null,
-      "priorityLabel": "governance_fix_needed",
+      "priorityLabel": "re_review_needed",
       "topicType": "mechanism",
       "sourceGapType": "weak_source_diversity",
       "currentSourceClasses": [
@@ -3028,7 +5335,7 @@
       "itemType": "herb_page",
       "entitySlug": "ipomoea-tricolor-heavenly-blue",
       "surfaceId": null,
-      "priorityLabel": "governance_fix_needed",
+      "priorityLabel": "re_review_needed",
       "topicType": "safety",
       "sourceGapType": "lack_of_safety_sources",
       "currentSourceClasses": [
@@ -3258,7 +5565,7 @@
       "itemType": "herb_page",
       "entitySlug": "mandrake-root",
       "surfaceId": null,
-      "priorityLabel": "do_now",
+      "priorityLabel": "governance_fix_needed",
       "topicType": "constituent",
       "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
@@ -3282,7 +5589,7 @@
       "itemType": "herb_page",
       "entitySlug": "mandrake-root",
       "surfaceId": null,
-      "priorityLabel": "do_now",
+      "priorityLabel": "governance_fix_needed",
       "topicType": "mechanism",
       "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
@@ -3306,7 +5613,7 @@
       "itemType": "herb_page",
       "entitySlug": "mandrake-root",
       "surfaceId": null,
-      "priorityLabel": "do_now",
+      "priorityLabel": "governance_fix_needed",
       "topicType": "safety",
       "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
