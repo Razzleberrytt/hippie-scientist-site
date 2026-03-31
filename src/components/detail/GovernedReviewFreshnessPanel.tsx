@@ -11,9 +11,11 @@ function toneClass(tone: GovernedReviewFreshnessDecision['statusTone']) {
 
 export default function GovernedReviewFreshnessPanel({
   decision,
+  nextStepHref,
   analyticsContext,
 }: {
   decision: GovernedReviewFreshnessDecision
+  nextStepHref?: string
   analyticsContext?: {
     pageType: GovernedPageType
     entityType: 'herb' | 'compound'
@@ -54,8 +56,20 @@ export default function GovernedReviewFreshnessPanel({
       </div>
 
       <div className='mt-3'>
+        <p className='text-xs text-white/70'>
+          Trust cue only: use this with safety notes and evidence sections before acting.
+        </p>
+      </div>
+
+      {nextStepHref && (
+        <a href={nextStepHref} className='mt-3 inline-flex text-xs text-cyan-200 underline-offset-2 hover:underline'>
+          Review safety and evidence details next
+        </a>
+      )}
+
+      <div className='mt-3'>
         <Collapse
-          title='What changed recently'
+          title='Review freshness details'
           onToggle={open => {
             if (!open || !analyticsContext) return
             trackGovernedEvent({

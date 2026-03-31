@@ -371,6 +371,7 @@ export default function CompoundDetail() {
           />
           <GovernedReviewFreshnessPanel
             decision={governedReviewFreshness}
+            nextStepHref='#governed-safety-interactions'
             analyticsContext={{
               pageType: 'compound_detail',
               entityType: 'compound',

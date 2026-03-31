@@ -828,6 +828,10 @@ export default function CollectionPage() {
                 {activeDiscovery.eligibility.total}
               </p>
             </div>
+            <p className='mt-2 text-[11px] text-white/70'>
+              Start with <span className='font-semibold text-white'>Reviewed recently</span>, then sort by{' '}
+              <span className='font-semibold text-white'>Review freshness</span> to narrow a shortlist.
+            </p>
             <div className='mt-2 grid gap-2 sm:grid-cols-2'>
               <label className='flex flex-col gap-1 text-xs text-white/75'>
                 Filter

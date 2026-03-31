@@ -94,6 +94,9 @@ export default function StructuredDetailIntro({
       </div>
 
       {quickFacts.length > 0 && <p className='mt-2 text-xs text-sky-100/85'>{quickFacts.join(' · ')}</p>}
+      <p className='mt-2 text-xs text-sky-100/80'>
+        Suggested order: check interactions first, then compare related profiles.
+      </p>
 
       <div className='mt-3 flex flex-wrap gap-2'>
         {nextSteps.map(step => (

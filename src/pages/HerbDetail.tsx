@@ -501,6 +501,7 @@ export default function HerbDetail() {
           />
           <GovernedReviewFreshnessPanel
             decision={governedReviewFreshness}
+            nextStepHref='#governed-safety-interactions'
             analyticsContext={{
               pageType: 'herb_detail',
               entityType: 'herb',

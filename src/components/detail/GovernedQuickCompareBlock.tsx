@@ -55,6 +55,9 @@ export default function GovernedQuickCompareBlock({
         Compact comparisons across approved governed pages only. This is not a ranking and does not
         replace interaction/safety review.
       </p>
+      <p className='mt-1 text-xs text-white/55'>
+        Use this as a shortlisting step, then open a full profile to review cautions and uncertainty.
+      </p>
 
       <div className='mt-3 space-y-3'>
         {section.cards.map(card => (
@@ -85,6 +88,31 @@ export default function GovernedQuickCompareBlock({
                 }}
               >
                 {card.targetName}
+              </Link>
+            </p>
+            <p className='mt-1 text-xs'>
+              <Link
+                className='text-cyan-200 underline-offset-2 hover:underline'
+                to={card.href}
+                onClick={() => {
+                  if (!analyticsContext) return
+                  trackGovernedEvent({
+                    type: 'governed_quick_compare_click',
+                    eventAction: 'click',
+                    pageType: analyticsContext.pageType,
+                    entityType: analyticsContext.entityType,
+                    entitySlug: analyticsContext.entitySlug,
+                    surfaceId: 'governed_quick_compare',
+                    componentType: 'quick_compare_card',
+                    item: `${card.targetType}:${card.targetSlug}`,
+                    evidenceLabel: analyticsContext.evidenceLabel,
+                    safetySignalPresent: analyticsContext.safetySignalPresent,
+                    reviewedStatus: 'reviewed',
+                    freshnessState: 'not_applicable',
+                  })
+                }}
+              >
+                Open full governed profile →
               </Link>
             </p>
             <dl className='mt-2 space-y-1 text-xs text-white/80'>
