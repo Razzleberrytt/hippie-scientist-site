@@ -12,7 +12,14 @@ import { CompoundDetailSkeleton } from '@/components/skeletons/DetailSkeletons'
 import { mapRelatedHerbsForCompound } from '@/lib/compoundHerbRelations'
 import RelatedHerbCard from '@/components/RelatedHerbCard'
 import Collapse from '@/components/ui/Collapse'
-import { breadcrumbJsonLd, compoundJsonLd, formatMetaDescription, SITE_URL } from '@/lib/seo'
+import {
+  breadcrumbJsonLd,
+  buildGovernedMetaDescription,
+  buildGovernedMetaTitle,
+  compoundJsonLd,
+  formatMetaDescription,
+  SITE_URL,
+} from '@/lib/seo'
 import { countCautionSignals, inferContentFlags } from '@/lib/trust'
 import { SEO_COLLECTIONS } from '@/data/seoCollections'
 import { filterCompoundByCollection } from '@/lib/collectionQuality'
@@ -210,11 +217,21 @@ export default function CompoundDetail() {
     compound.mechanism ||
     compoundEffectsMetaText
   ).trim()
-  const compoundMetaDescription = formatMetaDescription(
+  const baseCompoundMetaDescription = formatMetaDescription(
     compoundDescriptionSource,
     `${compound.name} compound guide with pharmacology, effects, and safety notes.`,
   )
-  const compoundMetaTitle = `${compound.name} Compound Guide: Mechanism, Effects & Safety`
+  const baseCompoundMetaTitle = `${compound.name} Compound Guide: Mechanism, Effects & Safety`
+  const compoundMetaTitle = buildGovernedMetaTitle(
+    baseCompoundMetaTitle,
+    compound.name,
+    'Compound',
+    compound.researchEnrichmentSummary,
+  )
+  const compoundMetaDescription = buildGovernedMetaDescription(
+    baseCompoundMetaDescription,
+    compound.researchEnrichmentSummary,
+  )
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>

@@ -90,6 +90,20 @@ function buildSeoDescription(collection: SeoCollection, topItems: CollectionEnti
   )
 }
 
+function buildGovernedCollectionSeoDescription(
+  baseline: string,
+  governedReviewedCount: number,
+  strongerHumanSupportCount: number,
+  limitedHumanSupportCount: number,
+) {
+  const strongHuman = strongerHumanSupportCount + limitedHumanSupportCount
+  if (strongHuman < 2 || governedReviewedCount < 2) return baseline
+  return formatMetaDescription(
+    `${baseline} Includes ${strongHuman} governed profiles with stronger or limited human-support evidence labels and safety-aware comparison framing.`,
+    baseline,
+  )
+}
+
 function summarizeItemValue(item: CollectionEntity): string {
   const rawEffects = 'common' in item ? item.effects : item.effects
   if (Array.isArray(rawEffects) && rawEffects.length > 0) {
@@ -355,7 +369,14 @@ export default function CollectionPage() {
     [topItems],
   )
   const pageTitle = collection ? `${collection.title} Collection Guide` : 'Collections'
-  const pageDescription = collection ? buildSeoDescription(collection, topItems) : ''
+  const pageDescription = collection
+    ? buildGovernedCollectionSeoDescription(
+        buildSeoDescription(collection, topItems),
+        governedCollectionSummary?.governedReviewedCount || 0,
+        governedCollectionSummary?.strongerHumanSupportCount || 0,
+        governedCollectionSummary?.limitedHumanSupportCount || 0,
+      )
+    : ''
 
   useEffect(() => {
     if (!shareToast) return
