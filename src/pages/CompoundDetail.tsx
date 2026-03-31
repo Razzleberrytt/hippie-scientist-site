@@ -48,6 +48,7 @@ import {
   trackDetailCheckerClick,
   trackDetailRelatedEntityClick,
 } from '@/lib/contentJourneyTracking'
+import { trackGovernedEvent } from '@/lib/governedAnalytics'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -361,8 +362,21 @@ export default function CompoundDetail() {
                 })
               }
             }}
+            analyticsContext={{
+              pageType: 'compound_detail',
+              entityType: 'compound',
+              entitySlug: compound.slug,
+              profile: governedIntro.decision.mode,
+            }}
           />
-          <GovernedReviewFreshnessPanel decision={governedReviewFreshness} />
+          <GovernedReviewFreshnessPanel
+            decision={governedReviewFreshness}
+            analyticsContext={{
+              pageType: 'compound_detail',
+              entityType: 'compound',
+              entitySlug: compound.slug,
+            }}
+          />
 
           <CtaVariantLayout
             variant={ctaExperiment.variant}
@@ -455,6 +469,21 @@ export default function CompoundDetail() {
                         key={`cta-${collection.slug}`}
                         to={`/collections/${collection.slug}`}
                         className='btn-secondary text-xs'
+                        onClick={() =>
+                          trackGovernedEvent({
+                            type: 'governed_cta_click',
+                            eventAction: 'click',
+                            pageType: 'compound_detail',
+                            entityType: 'compound',
+                            entitySlug: compound.slug,
+                            surfaceId: 'detail_cta_related',
+                            componentType: 'related_collection_cta',
+                            item: collection.slug,
+                            variantId: ctaVariantId,
+                            reviewedStatus: 'reviewed',
+                            freshnessState: 'not_applicable',
+                          })
+                        }
                       >
                         {collection.title}
                       </Link>
@@ -497,6 +526,11 @@ export default function CompoundDetail() {
             enrichment={governedResearch}
             governedFaq={governedFaq}
             relatedQuestions={governedRelatedQuestions}
+            analyticsContext={{
+              pageType: 'compound_detail',
+              entityType: 'compound',
+              entitySlug: compound.slug,
+            }}
           />
         )}
 
@@ -651,7 +685,16 @@ export default function CompoundDetail() {
         )}
 
         <section id='governed-compare-links'>
-          <GovernedQuickCompareBlock section={quickCompareSection} />
+          <GovernedQuickCompareBlock
+            section={quickCompareSection}
+            analyticsContext={{
+              pageType: 'compound_detail',
+              entityType: 'compound',
+              entitySlug: compound.slug,
+              evidenceLabel: governedResearch?.pageEvidenceJudgment?.evidenceLabel,
+              safetySignalPresent: cautionCount > 0,
+            }}
+          />
           <EnrichmentRecommendationBlocks
             bundle={enrichmentRecommendations}
             names={recommendationNames}

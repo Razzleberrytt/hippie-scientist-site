@@ -12,7 +12,16 @@ export type StoredAnalyticsEvent = {
   sourceType?: string
   targetType?: string
   pageType?: string
+  entityType?: string
   entitySlug?: string
+  surfaceId?: string
+  componentType?: string
+  eventAction?: string
+  profile?: string
+  evidenceLabel?: string
+  safetySignalPresent?: boolean
+  reviewedStatus?: string
+  freshnessState?: string
   ctaType?: string
   ctaPosition?: string
   variantId?: string
@@ -42,7 +51,16 @@ function normalizeStoredEvent(event: StoredAnalyticsEvent): StoredAnalyticsEvent
   if (event.sourceType) normalized.sourceType = event.sourceType
   if (event.targetType) normalized.targetType = event.targetType
   if (event.pageType) normalized.pageType = event.pageType
+  if (event.entityType) normalized.entityType = event.entityType
   if (event.entitySlug) normalized.entitySlug = event.entitySlug
+  if (event.surfaceId) normalized.surfaceId = event.surfaceId
+  if (event.componentType) normalized.componentType = event.componentType
+  if (event.eventAction) normalized.eventAction = event.eventAction
+  if (event.profile) normalized.profile = event.profile
+  if (event.evidenceLabel) normalized.evidenceLabel = event.evidenceLabel
+  if (typeof event.safetySignalPresent === 'boolean') normalized.safetySignalPresent = event.safetySignalPresent
+  if (event.reviewedStatus) normalized.reviewedStatus = event.reviewedStatus
+  if (event.freshnessState) normalized.freshnessState = event.freshnessState
   if (event.ctaType) normalized.ctaType = event.ctaType
   if (event.ctaPosition) normalized.ctaPosition = event.ctaPosition
   if (event.variantId) normalized.variantId = event.variantId
@@ -101,7 +119,16 @@ function isRapidDuplicate(previous: StoredAnalyticsEvent | undefined, next: Stor
     previous.sourceType === next.sourceType &&
     previous.targetType === next.targetType &&
     previous.pageType === next.pageType &&
+    previous.entityType === next.entityType &&
     previous.entitySlug === next.entitySlug &&
+    previous.surfaceId === next.surfaceId &&
+    previous.componentType === next.componentType &&
+    previous.eventAction === next.eventAction &&
+    previous.profile === next.profile &&
+    previous.evidenceLabel === next.evidenceLabel &&
+    previous.safetySignalPresent === next.safetySignalPresent &&
+    previous.reviewedStatus === next.reviewedStatus &&
+    previous.freshnessState === next.freshnessState &&
     previous.ctaType === next.ctaType &&
     previous.ctaPosition === next.ctaPosition &&
     previous.variantId === next.variantId

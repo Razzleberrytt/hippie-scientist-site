@@ -36,6 +36,7 @@ import {
   SITE_URL,
 } from '@/lib/seo'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
+import { trackGovernedEvent } from '@/lib/governedAnalytics'
 
 type CollectionHerb = ReturnType<typeof useHerbData>[number]
 type CollectionCompound = ReturnType<typeof useCompoundData>[number]
@@ -437,6 +438,17 @@ export default function CollectionPage() {
       itemType: collection.itemType,
       matchCount: itemCount,
     })
+    trackGovernedEvent({
+      type: 'governed_card_summary_visible',
+      eventAction: 'visible',
+      pageType: 'collection_page',
+      entityType: 'collection',
+      entitySlug: collection.slug,
+      surfaceId: 'collection_intro_summary',
+      componentType: 'collection_intro',
+      reviewedStatus: 'not_applicable',
+      freshnessState: 'not_applicable',
+    })
   }, [collection, itemCount])
 
   useEffect(() => {
@@ -477,6 +489,19 @@ export default function CollectionPage() {
       ctaType: cta === 'checker' ? 'tool' : cta === 'stack' ? 'builder' : 'tool',
       ctaPosition: 'collection_funnel',
       variantId: ctaExperiment.activeVariantId,
+    })
+    trackGovernedEvent({
+      type: 'governed_cta_click',
+      eventAction: 'click',
+      pageType: 'collection_page',
+      entityType: 'collection',
+      entitySlug: collection.slug,
+      surfaceId: 'collection_cta_funnel',
+      componentType: 'cta_button',
+      item: cta,
+      variantId: ctaExperiment.activeVariantId,
+      reviewedStatus: 'not_applicable',
+      freshnessState: 'not_applicable',
     })
 
     if (cta === 'combo') {
@@ -808,7 +833,22 @@ export default function CollectionPage() {
                 Filter
                 <select
                   value={governedFilter}
-                  onChange={event => setGovernedFilter(event.target.value as GovernedDiscoveryFilter)}
+                  onChange={event => {
+                    const next = event.target.value as GovernedDiscoveryFilter
+                    setGovernedFilter(next)
+                    trackGovernedEvent({
+                      type: 'governed_collection_filter_change',
+                      eventAction: 'change',
+                      pageType: 'collection_page',
+                      entityType: 'collection',
+                      entitySlug: collection.slug,
+                      surfaceId: 'collection_governed_controls',
+                      componentType: 'collection_filter',
+                      item: next,
+                      reviewedStatus: 'not_applicable',
+                      freshnessState: 'not_applicable',
+                    })
+                  }}
                   className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
                 >
                   <option value='all'>All entries</option>
@@ -824,7 +864,22 @@ export default function CollectionPage() {
                 Sort
                 <select
                   value={governedSort}
-                  onChange={event => setGovernedSort(event.target.value as GovernedDiscoverySort)}
+                  onChange={event => {
+                    const next = event.target.value as GovernedDiscoverySort
+                    setGovernedSort(next)
+                    trackGovernedEvent({
+                      type: 'governed_collection_filter_change',
+                      eventAction: 'change',
+                      pageType: 'collection_page',
+                      entityType: 'collection',
+                      entitySlug: collection.slug,
+                      surfaceId: 'collection_governed_controls',
+                      componentType: 'collection_sort',
+                      item: next,
+                      reviewedStatus: 'not_applicable',
+                      freshnessState: 'not_applicable',
+                    })
+                  }}
                   className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
                 >
                   <option value='default'>Default collection order</option>

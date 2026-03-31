@@ -10,6 +10,7 @@ import {
   type GovernedDiscoverySort,
 } from '@/lib/governedCollectionDiscovery'
 import type { Herb } from '@/types'
+import { trackGovernedEvent } from '@/lib/governedAnalytics'
 
 const FIELDS: Array<[keyof Herb, string]> = [
   ['common', 'Common Name'],
@@ -75,6 +76,19 @@ export default function Compare() {
       }),
     [governedComparisonSummary],
   )
+  React.useEffect(() => {
+    trackGovernedEvent({
+      type: 'governed_card_summary_visible',
+      eventAction: 'visible',
+      pageType: 'compare_page',
+      entityType: 'compare',
+      surfaceId: 'compare_governed_summary',
+      componentType: 'comparison_summary',
+      item: String(visibleHerbs.length),
+      reviewedStatus: 'not_applicable',
+      freshnessState: 'not_applicable',
+    })
+  }, [visibleHerbs.length])
 
   return (
     <main className='mx-auto max-w-6xl px-4 py-8'>
@@ -145,7 +159,21 @@ export default function Compare() {
                 Filter
                 <select
                   value={governedFilter}
-                  onChange={event => setGovernedFilter(event.target.value as GovernedDiscoveryFilter)}
+                  onChange={event => {
+                    const next = event.target.value as GovernedDiscoveryFilter
+                    setGovernedFilter(next)
+                    trackGovernedEvent({
+                      type: 'governed_collection_filter_change',
+                      eventAction: 'change',
+                      pageType: 'compare_page',
+                      entityType: 'compare',
+                      surfaceId: 'compare_governed_controls',
+                      componentType: 'compare_filter',
+                      item: next,
+                      reviewedStatus: 'not_applicable',
+                      freshnessState: 'not_applicable',
+                    })
+                  }}
                   className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
                 >
                   <option value='all'>All selected herbs</option>
@@ -161,7 +189,21 @@ export default function Compare() {
                 Sort
                 <select
                   value={governedSort}
-                  onChange={event => setGovernedSort(event.target.value as GovernedDiscoverySort)}
+                  onChange={event => {
+                    const next = event.target.value as GovernedDiscoverySort
+                    setGovernedSort(next)
+                    trackGovernedEvent({
+                      type: 'governed_collection_filter_change',
+                      eventAction: 'change',
+                      pageType: 'compare_page',
+                      entityType: 'compare',
+                      surfaceId: 'compare_governed_controls',
+                      componentType: 'compare_sort',
+                      item: next,
+                      reviewedStatus: 'not_applicable',
+                      freshnessState: 'not_applicable',
+                    })
+                  }}
                   className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
                 >
                   <option value='default'>Selected order</option>
