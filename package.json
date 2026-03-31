@@ -158,6 +158,7 @@
     "report:governed-release-history": "npm run report:governed-followup-queue && tsx scripts/report-governed-release-history.ts",
     "report:adaptive-retry-tuning": "npm run report:source-candidate-review && npm run report:adaptive-source-coverage && tsx scripts/report-adaptive-retry-tuning.ts",
     "report:completion-scorecards": "npm run report:adaptive-retry-tuning && npm run report:enrichment-submission-review && tsx scripts/report-completion-scorecards.ts",
+    "report:manual-review-packets": "npm run report:completion-scorecards && tsx scripts/report-manual-review-packets.ts",
     "report:completion-aware-wave-targets": "npm run report:completion-scorecards && tsx scripts/report-enrichment-wave-targets.ts --profile balanced-completion"
   },
   "engines": {
