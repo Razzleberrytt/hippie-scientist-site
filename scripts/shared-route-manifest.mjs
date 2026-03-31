@@ -71,12 +71,110 @@ const normalizePath = route => {
 const dedupe = routes => [...new Set(routes.map(normalizePath))]
 const clip = (value, max = 155) => String(value || '').trim().slice(0, max)
 const NAN_TOKEN_PATTERN = /(^|[\s;,.()-])nan([\s;,.()-]|$)/i
+const GOVERNED_MODEL_VERSION = 'seo-enrichment-refresh-v1'
+const WEAK_OR_UNCERTAIN_EVIDENCE = new Set([
+  'preclinical_only',
+  'traditional_use_only',
+  'insufficient_evidence',
+  'mixed_or_uncertain',
+  'conflicting_evidence',
+])
+const BLOCKED_ENRICHMENT_LABELS = new Set([
+  'blocked',
+  'rejected',
+  'revision_requested',
+  'partial',
+])
 
 function safeStr(value) {
   if (!value || typeof value === 'number' || value !== value) return ''
   const normalized = String(value).trim()
   if (!normalized || NAN_TOKEN_PATTERN.test(normalized)) return ''
   return normalized
+}
+
+function normalizeEvidenceLabelTitle(label) {
+  return String(label || 'insufficient_evidence')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, char => char.toUpperCase())
+}
+
+function buildGovernedSeoMeta({ name, kind, fallbackTitle, fallbackDescription, summary, noindex }) {
+  if (noindex || !summary || summary.enrichedAndReviewed !== true) {
+    return {
+      title: fallbackTitle,
+      description: fallbackDescription,
+      changed: false,
+      reasons: noindex ? ['noindex-route'] : ['missing-governed-summary'],
+      usedSignals: [],
+      excludedSignals: [],
+    }
+  }
+
+  const evidenceLabel = safeStr(summary.evidenceLabel || 'insufficient_evidence')
+  const evidenceLabelTitle = safeStr(summary.evidenceLabelTitle) || normalizeEvidenceLabelTitle(evidenceLabel)
+  const weakOrUncertain = WEAK_OR_UNCERTAIN_EVIDENCE.has(evidenceLabel)
+
+  const usedSignals = [`evidence_label:${evidenceLabel}`, 'enriched_reviewed:true']
+  const excludedSignals = []
+
+  const descriptionParts = [`Governed review: ${evidenceLabelTitle.toLowerCase()}.`]
+  if (summary.supportedUseCoveragePresent && !weakOrUncertain) {
+    descriptionParts.push('Includes scoped supported-use context from approved sources.')
+    usedSignals.push('supported_use:included')
+  } else if (summary.supportedUseCoveragePresent && weakOrUncertain) {
+    excludedSignals.push('supported_use:excluded_weak_or_uncertain_evidence')
+  }
+
+  if (summary.safetyCautionsPresent) {
+    descriptionParts.push('Safety and interaction cautions are included.')
+    usedSignals.push('safety_interactions:present')
+  } else {
+    excludedSignals.push('safety_interactions:absent')
+  }
+
+  if (summary.mechanismOrConstituentCoveragePresent) {
+    descriptionParts.push('Mechanism and constituent coverage is available.')
+    usedSignals.push('mechanism_constituent:present')
+  } else {
+    excludedSignals.push('mechanism_constituent:absent')
+  }
+
+  if (summary.conflictingEvidence) {
+    descriptionParts.push('Evidence includes unresolved conflicts; avoid overconfident conclusions.')
+    usedSignals.push('conflict_uncertainty:present')
+  } else if (weakOrUncertain) {
+    descriptionParts.push(
+      'Evidence remains limited and should not be interpreted as strong human proof.',
+    )
+    usedSignals.push('weak_evidence_guardrail:applied')
+  }
+
+  const reviewedDate = normalizeDate(summary.lastReviewedAt)
+  if (reviewedDate) {
+    descriptionParts.push(`Last reviewed ${reviewedDate}.`)
+    usedSignals.push('last_reviewed:included')
+  }
+
+  descriptionParts.push('Educational reference only.')
+  const governedDescription = clip(descriptionParts.join(' '), 155)
+
+  let governedTitle = fallbackTitle
+  if (!weakOrUncertain && summary.hasHumanEvidence) {
+    governedTitle = `${name} ${kind} Guide | ${evidenceLabelTitle}`
+    usedSignals.push('title_enrichment:enabled')
+  } else {
+    excludedSignals.push('title_enrichment:excluded_weak_or_nonhuman')
+  }
+
+  return {
+    title: governedTitle,
+    description: governedDescription || fallbackDescription,
+    changed: governedTitle !== fallbackTitle || governedDescription !== fallbackDescription,
+    reasons: [],
+    usedSignals,
+    excludedSignals,
+  }
 }
 
 const readJson = relativePath => {
@@ -417,6 +515,19 @@ function getBlogEntries() {
   })
 }
 
+function getGovernedSummaryMap(filePath) {
+  const rows = readJson(filePath)
+  const map = new Map()
+  for (const row of rows) {
+    const slug = safeStr(row?.slug)
+    if (!slug) continue
+    const summary = row?.researchEnrichmentSummary
+    if (!summary || typeof summary !== 'object') continue
+    map.set(slug, summary)
+  }
+  return map
+}
+
 export function getSharedRouteManifest() {
   const routeMeta = new Map()
   const sitemapMeta = new Map()
@@ -424,6 +535,11 @@ export function getSharedRouteManifest() {
   const putRouteMeta = (route, title, description) => routeMeta.set(route, { title, description })
   const putSitemapMeta = (route, meta = {}) => sitemapMeta.set(route, meta)
   const putRouteDirectives = (route, directives = {}) => routeDirectives.set(route, directives)
+  const herbSummaryRows = readJson('public/data/herbs-summary.json')
+  const compoundSummaryRows = readJson('public/data/compounds-summary.json')
+  const herbGovernedSummaryBySlug = getGovernedSummaryMap('public/data/herbs-summary.json')
+  const compoundGovernedSummaryBySlug = getGovernedSummaryMap('public/data/compounds-summary.json')
+  const seoRefreshRows = []
 
   CORE_STATIC_ROUTES.forEach(route => {
     const meta = CORE_ROUTE_META.get(route)
@@ -440,9 +556,14 @@ export function getSharedRouteManifest() {
 
   const goalRoutes = extractGoalRoutes()
   goalRoutes.forEach(route => {
+    const goalLabel = route
+      .replace('/herbs-for-', '')
+      .split('-')
+      .map(token => token.charAt(0).toUpperCase() + token.slice(1))
+      .join(' ')
     putRouteMeta(
       route,
-      'Goal-Based Herb Guide | The Hippie Scientist',
+      `${goalLabel} Herb Guide | The Hippie Scientist`,
       'Explore herbs aligned to a specific effect goal with safety context.'
     )
     putSitemapMeta(route, { priority: 0.7, changefreq: 'weekly' })
@@ -453,9 +574,62 @@ export function getSharedRouteManifest() {
     compounds: readJson('public/data/compounds.json'),
     combos: readJson('public/data/prebuiltCombos.json'),
   })
+  const collections = parseSeoCollections()
+  const collectionBySlug = new Map(
+    collections.map(collection => [safeStr(collection?.slug), collection]),
+  )
   const collectionRoutes = collectionQuality.routes
   collectionRoutes.forEach(route => {
-    putRouteMeta(route, 'Collection Guide | The Hippie Scientist', 'Topic-focused collections for herb and compound exploration.')
+    const slug = safeStr(route.split('/').pop())
+    const collection = collectionBySlug.get(slug)
+    const baseTitle = collection?.title
+      ? `${collection.title} Collection Guide`
+      : 'Collection Guide | The Hippie Scientist'
+    const baseDescription = clip(
+      safeStr(collection?.description) || 'Topic-focused collections for herb and compound exploration.',
+    )
+    const itemType = safeStr(collection?.itemType || 'herb')
+    const matches =
+      itemType === 'herb'
+        ? herbSummaryRows.filter(entry => filterHerbByCollection(entry, collection?.filters || {}))
+        : itemType === 'compound'
+          ? compoundSummaryRows.filter(entry =>
+              filterCompoundByCollection(entry, collection?.filters || {}),
+            )
+          : []
+    const governedMatches = matches.filter(
+      entry => entry?.researchEnrichmentSummary?.enrichedAndReviewed === true,
+    )
+    const strongGovernedMatches = governedMatches.filter(entry => {
+      const label = safeStr(entry?.researchEnrichmentSummary?.evidenceLabel)
+      return label === 'stronger_human_support' || label === 'limited_human_support'
+    })
+    const finalDescription =
+      strongGovernedMatches.length > 0
+        ? clip(
+            `${baseDescription} Includes ${strongGovernedMatches.length} governed profiles with human-support labels and safety-aware comparison context.`,
+          )
+        : baseDescription
+    putRouteMeta(route, baseTitle, finalDescription)
+    seoRefreshRows.push({
+      route,
+      pageType: 'collection_page',
+      entitySlug: slug,
+      changed: finalDescription !== baseDescription,
+      usedSignals:
+        strongGovernedMatches.length > 0
+          ? [
+              'governed_collection_coverage:enabled',
+              `governed_stronger_or_limited:${strongGovernedMatches.length}`,
+            ]
+          : [],
+      excludedSignals:
+        strongGovernedMatches.length === 0
+          ? ['governed_collection_coverage:excluded_insufficient_human_signal']
+          : [],
+      unchangedReason:
+        strongGovernedMatches.length === 0 ? 'insufficient-strong-governed-coverage' : null,
+    })
     putSitemapMeta(route, { priority: 0.7, changefreq: 'weekly' })
   })
 
@@ -512,11 +686,38 @@ export function getSharedRouteManifest() {
   const toRouteEntry = (entry, fallbackKind) => {
     const route = normalizePath(entry?.route || `/${fallbackKind}s/${entry?.slug || ''}`)
     if (!route.startsWith(`/${fallbackKind}s/`)) return null
+    const slug = safeStr(route.split('/').pop())
+    const fallbackTitle =
+      safeStr(entry?.title) || `${safeStr(entry?.name) || route.split('/').pop()} | The Hippie Scientist`
+    const fallbackDescription = clip(
+      safeStr(entry?.description) || `${safeStr(entry?.name) || route.split('/').pop()} reference profile.`,
+    )
+    const summary =
+      fallbackKind === 'herb'
+        ? herbGovernedSummaryBySlug.get(slug)
+        : compoundGovernedSummaryBySlug.get(slug)
+    const governedSeo = buildGovernedSeoMeta({
+      name: safeStr(entry?.name) || slug,
+      kind: fallbackKind === 'herb' ? 'Herb' : 'Compound',
+      fallbackTitle,
+      fallbackDescription,
+      summary,
+      noindex: false,
+    })
+    seoRefreshRows.push({
+      route,
+      pageType: `${fallbackKind}_detail`,
+      entitySlug: slug,
+      changed: governedSeo.changed,
+      usedSignals: governedSeo.usedSignals,
+      excludedSignals: governedSeo.excludedSignals,
+      unchangedReason: governedSeo.changed ? null : governedSeo.reasons[0] || 'no-change',
+    })
     return {
       route,
       score: Number(entry?.completenessScore || 0),
-      title: safeStr(entry?.title) || `${safeStr(entry?.name) || route.split('/').pop()} | The Hippie Scientist`,
-      description: clip(safeStr(entry?.description) || `${safeStr(entry?.name) || route.split('/').pop()} reference profile.`),
+      title: governedSeo.title,
+      description: governedSeo.description,
       kind: fallbackKind,
       lastmod: normalizeDate(entry?.lastmod) || new Date().toISOString().slice(0, 10),
     }
@@ -594,6 +795,27 @@ export function getSharedRouteManifest() {
             })
             return acc
           }, {}),
+      },
+      seoEnrichmentRefresh: {
+        modelVersion: GOVERNED_MODEL_VERSION,
+        totalEvaluated: seoRefreshRows.length,
+        changedCount: seoRefreshRows.filter(row => row.changed).length,
+        unchangedCount: seoRefreshRows.filter(row => !row.changed).length,
+        changedByPageType: seoRefreshRows
+          .filter(row => row.changed)
+          .reduce((acc, row) => {
+            acc[row.pageType] = (acc[row.pageType] || 0) + 1
+            return acc
+          }, {}),
+        unchangedReasons: seoRefreshRows
+          .filter(row => !row.changed)
+          .reduce((acc, row) => {
+            const reason = row.unchangedReason || 'unknown'
+            acc[reason] = (acc[reason] || 0) + 1
+            return acc
+          }, {}),
+        blockedSignalPolicy: [...BLOCKED_ENRICHMENT_LABELS],
+        rows: seoRefreshRows,
       },
       indexableCollections: collectionQuality.audits.filter(audit => audit.approved),
       excludedCollections: collectionQuality.audits.filter(audit => !audit.approved),

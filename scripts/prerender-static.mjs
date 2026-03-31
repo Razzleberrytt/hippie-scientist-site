@@ -255,6 +255,7 @@ function makeCardList(items, fallbackText = 'Content is being updated.') {
 
 function renderRouteContent(route) {
   const heading = escapeHtml(routeMeta.get(route)?.title || SITE_NAME)
+  const routeDescription = escapeHtml(routeMeta.get(route)?.description || '')
   const staticContentByRoute = {
     '/about':
       'The Hippie Scientist publishes evidence-aware herbal explainers focused on mechanisms, practical risk boundaries, and transparent sourcing.',
@@ -341,7 +342,7 @@ function renderRouteContent(route) {
     const effects = textList(herb?.effects, 8).map(effect => `<li>${escapeHtml(effect)}</li>`)
     const warnings = textList(herb?.contraindications, 6).map(item => `<li>${escapeHtml(item)}</li>`)
 
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${description}</p><p>This static profile is generated from the publication manifest and is intended to give search crawlers a readable summary before hydration adds interactive evidence controls.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending; editorial review continues as new references are validated.')}</section><section><h2>Safety notes</h2>${makeCardList(warnings, 'No contraindications listed in the source dataset yet. Use conservative assumptions and review interactions.')}</section></article></main>`
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${routeDescription || description}</p><p>${description}</p><p>This static profile is generated from the publication manifest and is intended to give search crawlers a readable summary before hydration adds interactive evidence controls.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending; editorial review continues as new references are validated.')}</section><section><h2>Safety notes</h2>${makeCardList(warnings, 'No contraindications listed in the source dataset yet. Use conservative assumptions and review interactions.')}</section></article></main>`
   }
 
   if (route === '/compounds') {
@@ -363,7 +364,7 @@ function renderRouteContent(route) {
     const effects = textList(compound?.effects, 8).map(effect => `<li>${escapeHtml(effect)}</li>`)
     const interactions = textList(compound?.interactions, 6).map(item => `<li>${escapeHtml(item)}</li>`)
 
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${description}</p><p>This prerendered route preserves canonical publication metadata and a static narrative snapshot for indexing while interactive analysis tools load after hydration.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending while this compound remains under active evidence review.')}</section><section><h2>Interaction notes</h2>${makeCardList(interactions, 'No interactions listed in the source dataset yet; verify with primary references before use decisions.')}</section></article></main>`
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${name}</h1><p>${routeDescription || description}</p><p>${description}</p><p>This prerendered route preserves canonical publication metadata and a static narrative snapshot for indexing while interactive analysis tools load after hydration.</p><section><h2>Tracked effects</h2>${makeCardList(effects, 'Effect data pending while this compound remains under active evidence review.')}</section><section><h2>Interaction notes</h2>${makeCardList(interactions, 'No interactions listed in the source dataset yet; verify with primary references before use decisions.')}</section></article></main>`
   }
 
   if (route.startsWith('/herbs-for-')) {
@@ -432,7 +433,7 @@ function renderRouteContent(route) {
         return `<li><a href="/compounds/${escapeHtml(item.slug)}">${name}</a></li>`
       })
 
-    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>${intro}</p><p>${description}</p><section><h2>Who this page is for</h2><p>${whoFor || 'Audience guidance is being revised.'}</p></section><section><h2>How items were selected</h2><p>${selectionRationale || 'Selection criteria are being revised.'}</p></section><section><h2>Cautions and scope</h2>${makeCardList([...cautions, ...exclusions], 'Caution framing is being reviewed before publication.')}</section><section><h2>What to do next</h2><p>${ctaLabel || 'Open the interaction checker before trying combinations.'}</p></section><section><h2>Related alternatives</h2>${makeCardList(alternatives, 'Related alternatives are being curated.')}</section><section><h2>Related collections</h2>${makeCardList(relatedLinks, 'Related collections are being curated.')}</section><section><h2>Indexable herb profiles</h2>${makeCardList(topHerbs, 'No herb profiles currently meet publication thresholds.')}</section><section><h2>Indexable compound profiles</h2>${makeCardList(topCompounds, 'No compound profiles currently meet publication thresholds.')}</section></article></main>`
+    return `<main id="main" class="container-page py-8 text-white"><article><h1>${heading}</h1><p>${routeDescription || intro}</p><p>${intro}</p><p>${description}</p><section><h2>Who this page is for</h2><p>${whoFor || 'Audience guidance is being revised.'}</p></section><section><h2>How items were selected</h2><p>${selectionRationale || 'Selection criteria are being revised.'}</p></section><section><h2>Cautions and scope</h2>${makeCardList([...cautions, ...exclusions], 'Caution framing is being reviewed before publication.')}</section><section><h2>What to do next</h2><p>${ctaLabel || 'Open the interaction checker before trying combinations.'}</p></section><section><h2>Related alternatives</h2>${makeCardList(alternatives, 'Related alternatives are being curated.')}</section><section><h2>Related collections</h2>${makeCardList(relatedLinks, 'Related collections are being curated.')}</section><section><h2>Indexable herb profiles</h2>${makeCardList(topHerbs, 'No herb profiles currently meet publication thresholds.')}</section><section><h2>Indexable compound profiles</h2>${makeCardList(topCompounds, 'No compound profiles currently meet publication thresholds.')}</section></article></main>`
   }
 
   return `<main id="main" class="container-page py-8 text-white"><h1>${heading}</h1><p>This route is prerendered for SEO metadata. Interactive content loads after hydration.</p></main>`
