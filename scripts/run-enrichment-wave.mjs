@@ -131,16 +131,39 @@ function loadTargets(targetPath) {
 
 function buildStagedInputs(targetReport, paths) {
   const sourceCandidates = readJson(paths.sourceCandidates)
+  const intakeQueue = readJson(path.join(ROOT, 'ops', 'reports', 'source-intake-queue.json'))
+  const intakeById = new Map((intakeQueue?.tasks || []).map(task => [task.intakeTaskId, task]))
   const selectedKeys = new Set(targetReport.targets.map(target => `${target.entityType}:${target.entitySlug}`))
 
   const waveCandidates = sourceCandidates
-    .filter(candidate => Array.isArray(candidate.relatedEntities))
+    .map(candidate => {
+      const relatedFromCandidate = Array.isArray(candidate.relatedEntities)
+        ? candidate.relatedEntities
+            .map(entity => ({ entityType: entity?.entityType, entitySlug: slugify(entity?.entitySlug) }))
+            .filter(entity => ['herb', 'compound'].includes(entity.entityType) && entity.entitySlug)
+        : []
+
+      if (relatedFromCandidate.length > 0) {
+        return {
+          ...candidate,
+          relatedEntities: relatedFromCandidate,
+          relatedTopicGaps: Array.isArray(candidate.relatedTopicGaps) ? candidate.relatedTopicGaps : [],
+        }
+      }
+
+      const task = intakeById.get(candidate.intakeTaskId)
+      const entityType = task?.itemType === 'compound_page' ? 'compound' : task?.itemType === 'herb_page' ? 'herb' : null
+      const entitySlug = slugify(task?.entitySlug)
+      if (!entityType || !entitySlug) return null
+      return {
+        ...candidate,
+        relatedEntities: [{ entityType, entitySlug }],
+        relatedTopicGaps: task?.topicType ? [String(task.topicType)] : [],
+      }
+    })
+    .filter(Boolean)
     .filter(candidate =>
-      candidate.relatedEntities.some(entity => {
-        const entityType = entity?.entityType
-        const entitySlug = slugify(entity?.entitySlug)
-        return selectedKeys.has(`${entityType}:${entitySlug}`)
-      }),
+      candidate.relatedEntities.some(entity => selectedKeys.has(`${entity.entityType}:${entity.entitySlug}`)),
     )
 
   return {

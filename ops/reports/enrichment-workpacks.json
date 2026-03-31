@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T12:12:56.317Z",
+  "generatedAt": "2026-03-31T12:33:29.179Z",
   "deterministicModelVersion": "enrichment-workpacks-v1",
   "sources": {
     "enrichmentBacklog": "ops/reports/enrichment-backlog.json",
@@ -11,17 +11,17 @@
     "bucketCounts": {
       "governance_fix": 46,
       "do_now": 0,
-      "re_review": 5,
+      "re_review": 4,
       "next_wave": 0,
-      "defer": 2
+      "defer": 3
     },
     "taskTypeCounts": {
       "source_gathering": 42,
-      "normalization_enrichment_entry": 29,
+      "normalization_enrichment_entry": 28,
       "review_approval": 13,
-      "governance_remediation": 49
+      "governance_remediation": 48
     },
-    "reviewerNeededCount": 51,
+    "reviewerNeededCount": 50,
     "topWorkpacks": [
       {
         "workpackId": "wp_herb_henbane",
@@ -319,13 +319,14 @@
         "entitySlug": "ipomoea-tricolor-heavenly-blue",
         "surfaceId": null,
         "publicStatus": "indexable",
-        "enrichmentHealthState": "missing_governed_enrichment",
-        "reviewCycleState": "depublish_or_hide_enriched_section",
-        "priorityLabel": "re_review_needed",
+        "enrichmentHealthState": "blocked",
+        "reviewCycleState": "blocked_pending_review",
+        "priorityLabel": "governance_fix_needed",
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry"
+          "normalization_enrichment_entry",
+          "review_approval"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -337,18 +338,21 @@
         ],
         "missingTopics": [
           "constituent",
-          "evidence",
           "mechanism",
           "safety"
         ],
         "staleTopics": [
           "constituent",
-          "evidence",
+          "evidence_conflict",
           "mechanism",
           "safety"
         ],
         "blockedReasons": [
-          "indexable_entity_without_healthy_governed_enrichment"
+          "editorialReadiness.publishable:false",
+          "editorialStatus:approved",
+          "governance block prevents safe publication of enrichment content",
+          "indexable_entity_without_healthy_governed_enrichment",
+          "source_linked_claims_without_publishable_status"
         ],
         "availableSourceIds": [
           "src_doi-10-1080-00275514-2025-2483634"
@@ -359,13 +363,14 @@
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
-          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Close missing topic coverage for: constituent, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence_conflict, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
-          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry.",
+          "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
         "publicPriorityScore": 94
       },
       {
@@ -1354,13 +1359,14 @@
         "entitySlug": "ipomoea-tricolor-heavenly-blue",
         "surfaceId": null,
         "publicStatus": "indexable",
-        "enrichmentHealthState": "missing_governed_enrichment",
-        "reviewCycleState": "depublish_or_hide_enriched_section",
-        "priorityLabel": "re_review_needed",
+        "enrichmentHealthState": "blocked",
+        "reviewCycleState": "blocked_pending_review",
+        "priorityLabel": "governance_fix_needed",
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry"
+          "normalization_enrichment_entry",
+          "review_approval"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1372,18 +1378,21 @@
         ],
         "missingTopics": [
           "constituent",
-          "evidence",
           "mechanism",
           "safety"
         ],
         "staleTopics": [
           "constituent",
-          "evidence",
+          "evidence_conflict",
           "mechanism",
           "safety"
         ],
         "blockedReasons": [
-          "indexable_entity_without_healthy_governed_enrichment"
+          "editorialReadiness.publishable:false",
+          "editorialStatus:approved",
+          "governance block prevents safe publication of enrichment content",
+          "indexable_entity_without_healthy_governed_enrichment",
+          "source_linked_claims_without_publishable_status"
         ],
         "availableSourceIds": [
           "src_doi-10-1080-00275514-2025-2483634"
@@ -1394,13 +1403,14 @@
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
-          "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+          "Close missing topic coverage for: constituent, mechanism, safety.",
+          "Refresh stale topics and review timestamps for: constituent, evidence_conflict, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
-          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+          "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry.",
+          "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
         "publicPriorityScore": 94
       },
       {
@@ -3279,6 +3289,7 @@
           "governance block prevents safe publication of enrichment content"
         ],
         "availableSourceIds": [
+          "src_doi-10-1016-j-mnp-2023-11-204",
           "src_doi-10-3389-nprev-2024-220103",
           "src_pubmed-29801717"
         ],
@@ -3295,7 +3306,7 @@
           "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: compound page luteolin. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
+        "notesForContractor": "Scope: compound page luteolin. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
         "publicPriorityScore": 23
       },
       {
@@ -3339,6 +3350,7 @@
         ],
         "availableSourceIds": [
           "src_doi-10-1016-j-molnpharm-2025-07-004",
+          "src_doi-10-1186-cpr-2024-11820",
           "src_doi-10-3390-ijms27062899"
         ],
         "requiredGovernanceChecks": [
@@ -3354,7 +3366,7 @@
           "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
+        "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
         "publicPriorityScore": 18
       }
     ],
@@ -3416,52 +3428,6 @@
         "publicPriorityScore": 91
       },
       {
-        "workpackId": "wp_browse_search_browse_herbs_summary",
-        "itemType": "discovery_surface",
-        "entitySlug": null,
-        "surfaceId": "browse-herbs-summary",
-        "publicStatus": "public_surface",
-        "enrichmentHealthState": "surface_out_of_sync",
-        "reviewCycleState": "downgrade_recommended",
-        "priorityLabel": "do_now",
-        "operationalBucket": "re_review",
-        "taskTypes": [
-          "governance_remediation",
-          "normalization_enrichment_entry",
-          "review_approval",
-          "source_gathering"
-        ],
-        "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
-        "requiredTopics": [
-          "discovery_coverage",
-          "evidence",
-          "safety"
-        ],
-        "missingTopics": [],
-        "staleTopics": [
-          "discovery_quality"
-        ],
-        "blockedReasons": [
-          "summary_leak:herb:mandrake-root"
-        ],
-        "availableSourceIds": [],
-        "requiredGovernanceChecks": [
-          "verify:enrichment-discovery",
-          "verify:source-registry"
-        ],
-        "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
-          "Close missing topic coverage for: discovery_coverage, evidence, safety.",
-          "Refresh stale topics and review timestamps for: discovery_quality.",
-          "Resolve governance blockers without weakening publish-gating or safety checks.",
-          "Pass governance verification checks: verify:enrichment-discovery, verify:source-registry.",
-          "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
-        ],
-        "reviewerNeeded": true,
-        "notesForContractor": "Scope: browse_search surface browse-herbs-summary. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: downgrade_recommended.",
-        "publicPriorityScore": 87
-      },
-      {
         "workpackId": "wp_entity_detail_herb_pages",
         "itemType": "discovery_surface",
         "entitySlug": null,
@@ -3495,7 +3461,7 @@
           "herb:calliandra-anomala:missing_governed_enrichment",
           "herb:delosperma-cooperi:missing_governed_enrichment",
           "herb:henbane:blocked",
-          "herb:ipomoea-tricolor-heavenly-blue:missing_governed_enrichment",
+          "herb:ipomoea-tricolor-heavenly-blue:blocked",
           "herb:iresine-herbstii:blocked",
           "herb:jatropha-podagrica:blocked",
           "herb:mandrake-root:blocked",
@@ -3517,7 +3483,7 @@
         ],
         "reviewerNeeded": true,
         "notesForContractor": "Scope: entity_detail surface herb-pages. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: downgrade_recommended.",
-        "publicPriorityScore": 55.3
+        "publicPriorityScore": 54.8
       },
       {
         "workpackId": "wp_entity_detail_compound_pages",
@@ -3642,6 +3608,41 @@
         ],
         "reviewerNeeded": false,
         "notesForContractor": "Scope: browse_search surface browse-compounds-summary. Primary task types: source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: fresh.",
+        "publicPriorityScore": 69
+      },
+      {
+        "workpackId": "wp_browse_search_browse_herbs_summary",
+        "itemType": "discovery_surface",
+        "entitySlug": null,
+        "surfaceId": "browse-herbs-summary",
+        "publicStatus": "public_surface",
+        "enrichmentHealthState": "healthy",
+        "reviewCycleState": "fresh",
+        "priorityLabel": "low_priority",
+        "operationalBucket": "defer",
+        "taskTypes": [
+          "source_gathering"
+        ],
+        "recommendedAction": "Monitor and refresh after next governed enrichment wave. No immediate changes; monitor as part of routine report cadence.",
+        "requiredTopics": [
+          "discovery_coverage",
+          "evidence",
+          "safety"
+        ],
+        "missingTopics": [],
+        "staleTopics": [],
+        "blockedReasons": [],
+        "availableSourceIds": [],
+        "requiredGovernanceChecks": [
+          "verify:enrichment-discovery",
+          "verify:source-registry"
+        ],
+        "completionCriteria": [
+          "Register and classify all new/updated sources in source registry before claim updates.",
+          "Pass governance verification checks: verify:enrichment-discovery, verify:source-registry."
+        ],
+        "reviewerNeeded": false,
+        "notesForContractor": "Scope: browse_search surface browse-herbs-summary. Primary task types: source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: fresh.",
         "publicPriorityScore": 69
       },
       {
@@ -3978,13 +3979,14 @@
       "entitySlug": "ipomoea-tricolor-heavenly-blue",
       "surfaceId": null,
       "publicStatus": "indexable",
-      "enrichmentHealthState": "missing_governed_enrichment",
-      "reviewCycleState": "depublish_or_hide_enriched_section",
-      "priorityLabel": "re_review_needed",
+      "enrichmentHealthState": "blocked",
+      "reviewCycleState": "blocked_pending_review",
+      "priorityLabel": "governance_fix_needed",
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry"
+        "normalization_enrichment_entry",
+        "review_approval"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3996,18 +3998,21 @@
       ],
       "missingTopics": [
         "constituent",
-        "evidence",
         "mechanism",
         "safety"
       ],
       "staleTopics": [
         "constituent",
-        "evidence",
+        "evidence_conflict",
         "mechanism",
         "safety"
       ],
       "blockedReasons": [
-        "indexable_entity_without_healthy_governed_enrichment"
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "indexable_entity_without_healthy_governed_enrichment",
+        "source_linked_claims_without_publishable_status"
       ],
       "availableSourceIds": [
         "src_doi-10-1080-00275514-2025-2483634"
@@ -4018,13 +4023,14 @@
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
-        "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
+        "Close missing topic coverage for: constituent, mechanism, safety.",
+        "Refresh stale topics and review timestamps for: constituent, evidence_conflict, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
-        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
+        "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry.",
+        "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (1 available). Review-cycle signal: blocked_pending_review.",
       "publicPriorityScore": 94
     },
     {
@@ -5903,6 +5909,7 @@
         "governance block prevents safe publication of enrichment content"
       ],
       "availableSourceIds": [
+        "src_doi-10-1016-j-mnp-2023-11-204",
         "src_doi-10-3389-nprev-2024-220103",
         "src_pubmed-29801717"
       ],
@@ -5919,7 +5926,7 @@
         "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: compound page luteolin. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
+      "notesForContractor": "Scope: compound page luteolin. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
       "publicPriorityScore": 23
     },
     {
@@ -5963,6 +5970,7 @@
       ],
       "availableSourceIds": [
         "src_doi-10-1016-j-molnpharm-2025-07-004",
+        "src_doi-10-1186-cpr-2024-11820",
         "src_doi-10-3390-ijms27062899"
       ],
       "requiredGovernanceChecks": [
@@ -5978,7 +5986,7 @@
         "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
+      "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
       "publicPriorityScore": 18
     },
     {
@@ -6037,52 +6045,6 @@
       "publicPriorityScore": 91
     },
     {
-      "workpackId": "wp_browse_search_browse_herbs_summary",
-      "itemType": "discovery_surface",
-      "entitySlug": null,
-      "surfaceId": "browse-herbs-summary",
-      "publicStatus": "public_surface",
-      "enrichmentHealthState": "surface_out_of_sync",
-      "reviewCycleState": "downgrade_recommended",
-      "priorityLabel": "do_now",
-      "operationalBucket": "re_review",
-      "taskTypes": [
-        "governance_remediation",
-        "normalization_enrichment_entry",
-        "review_approval",
-        "source_gathering"
-      ],
-      "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
-      "requiredTopics": [
-        "discovery_coverage",
-        "evidence",
-        "safety"
-      ],
-      "missingTopics": [],
-      "staleTopics": [
-        "discovery_quality"
-      ],
-      "blockedReasons": [
-        "summary_leak:herb:mandrake-root"
-      ],
-      "availableSourceIds": [],
-      "requiredGovernanceChecks": [
-        "verify:enrichment-discovery",
-        "verify:source-registry"
-      ],
-      "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
-        "Close missing topic coverage for: discovery_coverage, evidence, safety.",
-        "Refresh stale topics and review timestamps for: discovery_quality.",
-        "Resolve governance blockers without weakening publish-gating or safety checks.",
-        "Pass governance verification checks: verify:enrichment-discovery, verify:source-registry.",
-        "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
-      ],
-      "reviewerNeeded": true,
-      "notesForContractor": "Scope: browse_search surface browse-herbs-summary. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: downgrade_recommended.",
-      "publicPriorityScore": 87
-    },
-    {
       "workpackId": "wp_entity_detail_herb_pages",
       "itemType": "discovery_surface",
       "entitySlug": null,
@@ -6116,7 +6078,7 @@
         "herb:calliandra-anomala:missing_governed_enrichment",
         "herb:delosperma-cooperi:missing_governed_enrichment",
         "herb:henbane:blocked",
-        "herb:ipomoea-tricolor-heavenly-blue:missing_governed_enrichment",
+        "herb:ipomoea-tricolor-heavenly-blue:blocked",
         "herb:iresine-herbstii:blocked",
         "herb:jatropha-podagrica:blocked",
         "herb:mandrake-root:blocked",
@@ -6138,7 +6100,7 @@
       ],
       "reviewerNeeded": true,
       "notesForContractor": "Scope: entity_detail surface herb-pages. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: downgrade_recommended.",
-      "publicPriorityScore": 55.3
+      "publicPriorityScore": 54.8
     },
     {
       "workpackId": "wp_entity_detail_compound_pages",
@@ -6260,6 +6222,41 @@
       ],
       "reviewerNeeded": false,
       "notesForContractor": "Scope: browse_search surface browse-compounds-summary. Primary task types: source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: fresh.",
+      "publicPriorityScore": 69
+    },
+    {
+      "workpackId": "wp_browse_search_browse_herbs_summary",
+      "itemType": "discovery_surface",
+      "entitySlug": null,
+      "surfaceId": "browse-herbs-summary",
+      "publicStatus": "public_surface",
+      "enrichmentHealthState": "healthy",
+      "reviewCycleState": "fresh",
+      "priorityLabel": "low_priority",
+      "operationalBucket": "defer",
+      "taskTypes": [
+        "source_gathering"
+      ],
+      "recommendedAction": "Monitor and refresh after next governed enrichment wave. No immediate changes; monitor as part of routine report cadence.",
+      "requiredTopics": [
+        "discovery_coverage",
+        "evidence",
+        "safety"
+      ],
+      "missingTopics": [],
+      "staleTopics": [],
+      "blockedReasons": [],
+      "availableSourceIds": [],
+      "requiredGovernanceChecks": [
+        "verify:enrichment-discovery",
+        "verify:source-registry"
+      ],
+      "completionCriteria": [
+        "Register and classify all new/updated sources in source registry before claim updates.",
+        "Pass governance verification checks: verify:enrichment-discovery, verify:source-registry."
+      ],
+      "reviewerNeeded": false,
+      "notesForContractor": "Scope: browse_search surface browse-herbs-summary. Primary task types: source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: fresh.",
       "publicPriorityScore": 69
     },
     {

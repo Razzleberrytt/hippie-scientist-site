@@ -3,9 +3,10 @@
     "entityType": "compound",
     "entitySlug": "cbd",
     "researchEnrichment": {
-      "evidenceSummary": "2 approved normalized findings across 1 topic types.",
-      "evidenceTier": "tier-4-insufficient",
+      "evidenceSummary": "3 approved normalized findings across 1 topic types.",
+      "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
+        "human-clinical",
         "preclinical-mechanistic"
       ],
       "supportedUses": [],
@@ -19,6 +20,15 @@
       "populationSpecificNotes": [],
       "conflictNotes": [],
       "researchGaps": [
+        {
+          "claim": "Despite expanding systematic evidence, cannabidiol safety governance remains constrained because interaction magnitude and population-specific risk thresholds are inconsistent across formulations, doses, and concomitant therapies.",
+          "evidenceClass": "human-clinical",
+          "sourceRefIds": [
+            "src_doi-10-1186-cpr-2024-11820"
+          ],
+          "uncertaintyNote": "Interaction magnitude remains dose- and product-dependent across studies.",
+          "strengthNote": "moderate"
+        },
         {
           "claim": "Developmental-stage organoid findings for cannabidiol indicate biologic hypotheses that require prospective human validation before therapeutic extrapolation.",
           "evidenceClass": "preclinical-mechanistic",
@@ -50,22 +60,22 @@
           "evidenceLabel": "mixed_or_uncertain",
           "grading": {
             "evidenceClass": [
+              "human-clinical",
               "preclinical-mechanistic"
             ],
-            "studyDesignWeight": 2,
-            "humanRelevance": "preclinical-proxy",
-            "directnessToClaim": "indirect",
-            "replicationDepth": 2,
-            "sourceReliabilityTier": "tier-b",
+            "studyDesignWeight": 5,
+            "humanRelevance": "direct-human",
+            "directnessToClaim": "direct",
+            "replicationDepth": 3,
+            "sourceReliabilityTier": "tier-a",
             "recencyWeight": 2,
             "editorialConfidence": "medium",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 9
+            "confidenceIndex": 17
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
-            "One or more findings carry explicit uncertainty notes from editorial review.",
-            "No direct human evidence was identified for this topic."
+            "One or more findings carry explicit uncertainty notes from editorial review."
           ],
           "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
         }
@@ -74,22 +84,22 @@
         "evidenceLabel": "mixed_or_uncertain",
         "grading": {
           "evidenceClass": [
+            "human-clinical",
             "preclinical-mechanistic"
           ],
-          "studyDesignWeight": 2,
-          "humanRelevance": "preclinical-proxy",
-          "directnessToClaim": "indirect",
-          "replicationDepth": 2,
-          "sourceReliabilityTier": "tier-b",
+          "studyDesignWeight": 5,
+          "humanRelevance": "direct-human",
+          "directnessToClaim": "direct",
+          "replicationDepth": 3,
+          "sourceReliabilityTier": "tier-a",
           "recencyWeight": 2,
           "editorialConfidence": "medium",
           "conflictState": "mixed_or_uncertain",
-          "confidenceIndex": 9
+          "confidenceIndex": 17
         },
         "conflictNotes": [],
         "uncertaintyNotes": [
-          "One or more findings carry explicit uncertainty notes from editorial review.",
-          "No direct human evidence was identified for this topic."
+          "One or more findings carry explicit uncertainty notes from editorial review."
         ],
         "toneGuidance": "Use uncertainty-forward copy and clarify where findings diverge."
       },
@@ -101,9 +111,10 @@
       },
       "sourceRegistryIds": [
         "src_doi-10-1016-j-molnpharm-2025-07-004",
+        "src_doi-10-1186-cpr-2024-11820",
         "src_doi-10-3390-ijms27062899"
       ],
-      "lastReviewedAt": "2026-03-31T15:22:00.000Z",
+      "lastReviewedAt": "2026-03-31T16:20:00.000Z",
       "reviewedBy": "normalized-enrichment-pipeline",
       "editorialStatus": "approved"
     }
@@ -112,7 +123,7 @@
     "entityType": "compound",
     "entitySlug": "luteolin",
     "researchEnrichment": {
-      "evidenceSummary": "2 approved normalized findings across 1 topic types.",
+      "evidenceSummary": "3 approved normalized findings across 1 topic types.",
       "evidenceTier": "tier-1-strong",
       "evidenceClassesPresent": [
         "human-clinical",
@@ -129,6 +140,15 @@
       "populationSpecificNotes": [],
       "conflictNotes": [],
       "researchGaps": [
+        {
+          "claim": "Current luteolin mechanistic evidence remains predominantly preclinical, and additional translational and human data are required before pathway-level findings can support confident clinical interpretation.",
+          "evidenceClass": "preclinical-mechanistic",
+          "sourceRefIds": [
+            "src_doi-10-1016-j-mnp-2023-11-204"
+          ],
+          "uncertaintyNote": "Mechanistic signal is preclinical and should not be treated as confirmed clinical interaction magnitude.",
+          "strengthNote": "limited"
+        },
         {
           "claim": "Current luteolin evidence is predominantly preclinical, leaving controlled human safety, interaction, and population-specific risk coverage as unresolved governance-critical gaps.",
           "evidenceClass": "preclinical-mechanistic",
@@ -166,12 +186,12 @@
             "studyDesignWeight": 5,
             "humanRelevance": "direct-human",
             "directnessToClaim": "direct",
-            "replicationDepth": 2,
+            "replicationDepth": 3,
             "sourceReliabilityTier": "tier-b",
             "recencyWeight": 2,
             "editorialConfidence": "medium",
             "conflictState": "mixed_or_uncertain",
-            "confidenceIndex": 15
+            "confidenceIndex": 16
           },
           "conflictNotes": [],
           "uncertaintyNotes": [
@@ -190,12 +210,12 @@
           "studyDesignWeight": 5,
           "humanRelevance": "direct-human",
           "directnessToClaim": "direct",
-          "replicationDepth": 2,
+          "replicationDepth": 3,
           "sourceReliabilityTier": "tier-b",
           "recencyWeight": 2,
           "editorialConfidence": "medium",
           "conflictState": "mixed_or_uncertain",
-          "confidenceIndex": 15
+          "confidenceIndex": 16
         },
         "conflictNotes": [],
         "uncertaintyNotes": [
@@ -210,10 +230,11 @@
         "weakEvidenceClaimsLabeled": true
       },
       "sourceRegistryIds": [
+        "src_doi-10-1016-j-mnp-2023-11-204",
         "src_doi-10-3389-nprev-2024-220103",
         "src_pubmed-29801717"
       ],
-      "lastReviewedAt": "2026-03-31T15:25:00.000Z",
+      "lastReviewedAt": "2026-03-31T16:23:00.000Z",
       "reviewedBy": "normalized-enrichment-pipeline",
       "editorialStatus": "approved"
     }

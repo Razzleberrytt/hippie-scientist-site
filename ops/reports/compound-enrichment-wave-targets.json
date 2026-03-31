@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-03-31T16:00:00.000Z",
+  "deterministicModelVersion": "compound-enrichment-wave-targets-v1",
+  "selectionPolicy": {
+    "mode": "compound-focused-balanced-wave",
+    "sourceProposalReport": "ops/reports/enrichment-wave-target-proposals.json",
+    "sourceBalancingReport": "ops/reports/enrichment-wave-target-balancing.json",
+    "sourceCandidateSupplyReport": "ops/reports/compound-candidate-supply.json",
+    "notes": "Compound-only wave selected from the expanded compound candidate supply with priority for safety/mechanism/conflict gaps and near-term promotable source likelihood."
+  },
+  "targets": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "waveStatus": "carryover",
+      "selectionWhy": "Carryover compound with safety-critical and mechanism-critical unresolved gaps; already referenced on compound and herb surfaces with promotable authority-class source coverage available.",
+      "highestPriorityMissingTopics": ["safety", "mechanism", "constituent", "conflict-uncertainty"],
+      "criticality": ["safety-critical", "mechanism-critical", "evidence-critical"],
+      "currentGovernedCoverageStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "waveStatus": "carryover",
+      "selectionWhy": "Carryover compound with unresolved safety/interactions and mechanism gaps; already represented in governed artifact but limited to research-gap notes.",
+      "highestPriorityMissingTopics": ["safety", "mechanism", "constituent", "conflict-uncertainty"],
+      "criticality": ["safety-critical", "mechanism-critical", "evidence-critical"],
+      "currentGovernedCoverageStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "waveStatus": "new-entity",
+      "selectionWhy": "High-value new compound candidate from compound-heavy balancing profile with publish-blocking safety/evidence/mechanism gaps and expected promoter-ready source classes.",
+      "highestPriorityMissingTopics": ["safety", "evidence", "mechanism", "constituent"],
+      "criticality": ["safety-critical", "mechanism-critical", "evidence-critical"],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "waveStatus": "new-entity",
+      "selectionWhy": "New compound candidate with safety and mechanism deficits affecting comparison/discovery surfaces; suitable for immediate governed safety + mechanism scaffolding.",
+      "highestPriorityMissingTopics": ["safety", "evidence", "mechanism", "constituent"],
+      "criticality": ["safety-critical", "mechanism-critical", "evidence-critical"],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "waveStatus": "new-entity",
+      "selectionWhy": "Safety-critical compound from intake queue with mechanism and constituent gaps where promoted sources can produce immediate governed deltas while preserving unresolved critical reporting.",
+      "highestPriorityMissingTopics": ["safety", "evidence", "mechanism", "constituent"],
+      "criticality": ["safety-critical", "mechanism-critical", "evidence-critical"],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    }
+  ]
+}
