@@ -1,0 +1,130 @@
+{
+  "generatedAt": "2026-03-31T11:46:29.370Z",
+  "deterministicModelVersion": "enrichment-wave-target-proposals-v2-balancing",
+  "selectionPolicy": {
+    "mode": "balancing-profile:carryover-rescue-mixed",
+    "sourceProposalReport": "ops/reports/enrichment-wave-target-proposals.json",
+    "sourceBalancingReport": "ops/reports/enrichment-wave-target-balancing.json",
+    "notes": "Deterministic balancing-profile target artifact. Human edits are expected before wave execution."
+  },
+  "targets": [
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "waveStatus": "carryover",
+      "selectionWhy": "indexable entity with priority score 112. Critical gaps: safety, evidence, mechanism, constituent. Carryover from wave-2.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "waveStatus": "carryover",
+      "selectionWhy": "indexable entity with priority score 103. Critical gaps: safety, evidence, mechanism, constituent. Carryover from wave-2.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "waveStatus": "carryover",
+      "selectionWhy": "non_indexable entity with priority score 23. Critical gaps: safety, mechanism, constituent. Carryover from wave-1, wave-2, wave-2b.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "waveStatus": "carryover",
+      "selectionWhy": "non_indexable entity with priority score 18. Critical gaps: safety, mechanism, constituent. Carryover from wave-1, wave-2, wave-2b.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "waveStatus": "carryover",
+      "selectionWhy": "indexable entity with priority score 114. Critical gaps: safety, mechanism, constituent. Carryover from wave-2.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "waveStatus": "carryover",
+      "selectionWhy": "indexable entity with priority score 97. Critical gaps: safety, mechanism, constituent. Carryover from wave-2, wave-2b.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "anisoptera-thurifera",
+      "waveStatus": "new-entity",
+      "selectionWhy": "indexable entity with priority score 85. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    }
+  ]
+}

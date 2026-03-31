@@ -1,6 +1,7 @@
 {
-  "generatedAt": "2026-03-31T11:31:56.079Z",
-  "deterministicModelVersion": "enrichment-wave-target-proposals-v1",
+  "generatedAt": "2026-03-31T11:46:29.370Z",
+  "deterministicModelVersion": "enrichment-wave-target-proposals-v2-balancing",
+  "selectedProfileId": "mixed-balanced",
   "inputsUsed": [
     "ops/reports/enrichment-workpacks.json",
     "ops/reports/source-gaps.json",
@@ -13,49 +14,21 @@
     "ops/reports/enrichment-wave-2b-targets.json",
     "public/data/publication-manifest.json"
   ],
-  "selectionRules": {
-    "deterministicModelVersion": "enrichment-wave-target-proposals-v1",
-    "recommendedTargetSize": 8,
-    "scoreWeights": {
-      "publicStatus": {
-        "indexable": 55,
-        "otherIndexable": 40,
-        "nonIndexable": 12
-      },
-      "publicPriorityScoreScaled": "min(50, round(publicPriorityScore * 0.45))",
-      "carryoverBoost": "8 points per prior wave target inclusion, max 24",
-      "criticalGapBoost": {
-        "safety": 28,
-        "evidence": 20,
-        "mechanism": 18,
-        "constituent": 8
-      },
-      "staleOrReviewDue": 12,
-      "governanceFixBucket": 18,
-      "publishBlockingGap": 14,
-      "safetyCriticalGap": 16,
-      "blockerSignals": "3 points per signal, max 18",
-      "promotableSourceLikelihood": {
-        "high": 8,
-        "medium": 4,
-        "low_or_unknown": 0
-      }
-    },
-    "compactSelectionPolicy": {
-      "recommended": "top 8 by priorityScore",
-      "carryover": "top 8 with carryoverFromWaveIds.length > 0",
-      "safety": "top 8 with safety-critical gaps",
-      "mechanism": "top 8 with mechanism-critical gaps",
-      "newEntityOnly": "top 8 with no prior wave carryover"
-    }
-  },
   "summary": {
     "totalCandidates": 15,
-    "recommendedCount": 8,
-    "carryoverCount": 7,
-    "safetyPriorityCount": 8,
-    "mechanismPriorityCount": 8,
-    "newEntityOnlyCount": 8
+    "rawTopSetComposition": {
+      "herb": 8,
+      "compound": 0
+    },
+    "selectedProfileComposition": {
+      "total": 7,
+      "byType": {
+        "herb": 5,
+        "compound": 2
+      },
+      "safetyCriticalCount": 7,
+      "carryoverCount": 6
+    }
   },
   "proposals": [
     {
@@ -65,7 +38,7 @@
       "entitySlug": "calliandra-anomala",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "missing_governed_enrichment",
-      "priorityScore": 269,
+      "rawPriorityScore": 269,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [
         "wave-2"
@@ -96,15 +69,14 @@
       "promotableSourceLikelihood": "low",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 112. Critical gaps: safety, evidence, mechanism, constituent. Carryover from wave-2.",
-      "excludedReason": null,
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=depublish_or_hide_enriched_section",
         "promotableSourceLikelihood=low",
         "sourceGapCount=4",
         "intakeTaskCount=4"
-      ]
+      ],
+      "rawRank": 1
     },
     {
       "proposalId": "proposal_herb_alectra-sessiliflora",
@@ -113,7 +85,7 @@
       "entitySlug": "alectra-sessiliflora",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "missing_governed_enrichment",
-      "priorityScore": 265,
+      "rawPriorityScore": 265,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [
         "wave-2"
@@ -144,15 +116,14 @@
       "promotableSourceLikelihood": "low",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 103. Critical gaps: safety, evidence, mechanism, constituent. Carryover from wave-2.",
-      "excludedReason": null,
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=depublish_or_hide_enriched_section",
         "promotableSourceLikelihood=low",
         "sourceGapCount=4",
         "intakeTaskCount=4"
-      ]
+      ],
+      "rawRank": 2
     },
     {
       "proposalId": "proposal_herb_henbane",
@@ -161,7 +132,7 @@
       "entitySlug": "henbane",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "blocked",
-      "priorityScore": 255,
+      "rawPriorityScore": 255,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [
         "wave-2"
@@ -193,15 +164,14 @@
       "promotableSourceLikelihood": "low",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 114. Critical gaps: safety, mechanism, constituent. Carryover from wave-2.",
-      "excludedReason": null,
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=low",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 3
     },
     {
       "proposalId": "proposal_herb_anisoptera-thurifera",
@@ -210,7 +180,7 @@
       "entitySlug": "anisoptera-thurifera",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "missing_governed_enrichment",
-      "priorityScore": 240,
+      "rawPriorityScore": 240,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [],
       "criticalGapTypes": [
@@ -236,15 +206,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 85. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
-      "excludedReason": null,
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=depublish_or_hide_enriched_section",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=4",
         "intakeTaskCount=4"
-      ]
+      ],
+      "rawRank": 4
     },
     {
       "proposalId": "proposal_herb_rivea-corymbosa",
@@ -253,7 +222,7 @@
       "entitySlug": "rivea-corymbosa",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "blocked",
-      "priorityScore": 240,
+      "rawPriorityScore": 240,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [],
       "criticalGapTypes": [
@@ -280,15 +249,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 109. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
-      "excludedReason": null,
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 5
     },
     {
       "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
@@ -297,7 +265,7 @@
       "entitySlug": "ipomoea-tricolor-heavenly-blue",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "blocked",
-      "priorityScore": 236,
+      "rawPriorityScore": 236,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [],
       "criticalGapTypes": [
@@ -325,15 +293,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 94. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
-      "excludedReason": null,
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 6
     },
     {
       "proposalId": "proposal_herb_delosperma-cooperi",
@@ -342,7 +309,7 @@
       "entitySlug": "delosperma-cooperi",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "missing_governed_enrichment",
-      "priorityScore": 234,
+      "rawPriorityScore": 234,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [],
       "criticalGapTypes": [
@@ -368,15 +335,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 72. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
-      "excludedReason": null,
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=depublish_or_hide_enriched_section",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=4",
         "intakeTaskCount=4"
-      ]
+      ],
+      "rawRank": 7
     },
     {
       "proposalId": "proposal_herb_mandrake-root",
@@ -385,7 +351,7 @@
       "entitySlug": "mandrake-root",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "partial",
-      "priorityScore": 233,
+      "rawPriorityScore": 233,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [
         "wave-2",
@@ -415,15 +381,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 97. Critical gaps: safety, mechanism, constituent. Carryover from wave-2, wave-2b.",
-      "excludedReason": null,
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=re_review",
         "reviewCycleState=downgrade_recommended",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 8
     },
     {
       "proposalId": "proposal_herb_iresine-herbstii",
@@ -432,7 +397,7 @@
       "entitySlug": "iresine-herbstii",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "blocked",
-      "priorityScore": 228,
+      "rawPriorityScore": 228,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [],
       "criticalGapTypes": [
@@ -459,15 +424,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 82. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
-      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 9
     },
     {
       "proposalId": "proposal_herb_jatropha-podagrica",
@@ -476,7 +440,7 @@
       "entitySlug": "jatropha-podagrica",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "blocked",
-      "priorityScore": 227,
+      "rawPriorityScore": 227,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [],
       "criticalGapTypes": [
@@ -503,15 +467,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 79. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
-      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 10
     },
     {
       "proposalId": "proposal_herb_pedicularis-groenlandica",
@@ -520,7 +483,7 @@
       "entitySlug": "pedicularis-groenlandica",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "blocked",
-      "priorityScore": 223,
+      "rawPriorityScore": 223,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [],
       "criticalGapTypes": [
@@ -547,15 +510,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 72. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
-      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 11
     },
     {
       "proposalId": "proposal_compound_luteolin",
@@ -564,7 +526,7 @@
       "entitySlug": "luteolin",
       "publicStatus": "non_indexable",
       "currentGovernedCoverageState": "blocked",
-      "priorityScore": 216,
+      "rawPriorityScore": 216,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [
         "wave-1",
@@ -596,15 +558,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "non_indexable entity with priority score 23. Critical gaps: safety, mechanism, constituent. Carryover from wave-1, wave-2, wave-2b.",
-      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 12
     },
     {
       "proposalId": "proposal_compound_cbd",
@@ -613,7 +574,7 @@
       "entitySlug": "cbd",
       "publicStatus": "non_indexable",
       "currentGovernedCoverageState": "blocked",
-      "priorityScore": 214,
+      "rawPriorityScore": 214,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [
         "wave-1",
@@ -645,15 +606,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "non_indexable entity with priority score 18. Critical gaps: safety, mechanism, constituent. Carryover from wave-1, wave-2, wave-2b.",
-      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=governance_fix",
         "reviewCycleState=blocked_pending_review",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 13
     },
     {
       "proposalId": "proposal_herb_mistletoe",
@@ -662,7 +622,7 @@
       "entitySlug": "mistletoe",
       "publicStatus": "indexable",
       "currentGovernedCoverageState": "partial",
-      "priorityScore": 205,
+      "rawPriorityScore": 205,
       "priorityBucket": "critical",
       "carryoverFromWaveIds": [],
       "criticalGapTypes": [
@@ -686,15 +646,14 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "whySelected": "indexable entity with priority score 91. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
-      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=re_review",
         "reviewCycleState=downgrade_recommended",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 14
     },
     {
       "proposalId": "proposal_herb_kava",
@@ -703,7 +662,7 @@
       "entitySlug": "kava",
       "publicStatus": "non_indexable",
       "currentGovernedCoverageState": "partial",
-      "priorityScore": 138,
+      "rawPriorityScore": 138,
       "priorityBucket": "high",
       "carryoverFromWaveIds": [
         "wave-1"
@@ -725,66 +684,275 @@
       "promotableSourceLikelihood": "unknown",
       "recommendedWaveAction": "Safety refresh needed: update interactions, contraindications, and adverse effects with governed provenance.",
       "whySelected": "non_indexable entity with priority score 18. Critical gaps: safety, mechanism, constituent. Carryover from wave-1.",
-      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
-      "reviewerOverrideAllowed": true,
       "notes": [
         "workpack bucket=re_review",
         "reviewCycleState=downgrade_recommended",
         "promotableSourceLikelihood=unknown",
         "sourceGapCount=3",
         "intakeTaskCount=3"
-      ]
+      ],
+      "rawRank": 15
     }
   ],
-  "recommendationSets": {
-    "recommended": [
-      "proposal_herb_calliandra-anomala",
-      "proposal_herb_alectra-sessiliflora",
-      "proposal_herb_henbane",
-      "proposal_herb_anisoptera-thurifera",
-      "proposal_herb_rivea-corymbosa",
-      "proposal_herb_ipomoea-tricolor-heavenly-blue",
-      "proposal_herb_delosperma-cooperi",
-      "proposal_herb_mandrake-root"
-    ],
-    "carryover": [
-      "proposal_herb_calliandra-anomala",
-      "proposal_herb_alectra-sessiliflora",
-      "proposal_herb_henbane",
-      "proposal_herb_mandrake-root",
-      "proposal_compound_luteolin",
-      "proposal_compound_cbd",
-      "proposal_herb_kava"
-    ],
-    "safety": [
-      "proposal_herb_calliandra-anomala",
-      "proposal_herb_alectra-sessiliflora",
-      "proposal_herb_henbane",
-      "proposal_herb_anisoptera-thurifera",
-      "proposal_herb_rivea-corymbosa",
-      "proposal_herb_ipomoea-tricolor-heavenly-blue",
-      "proposal_herb_delosperma-cooperi",
-      "proposal_herb_mandrake-root"
-    ],
-    "mechanism": [
-      "proposal_herb_calliandra-anomala",
-      "proposal_herb_alectra-sessiliflora",
-      "proposal_herb_henbane",
-      "proposal_herb_anisoptera-thurifera",
-      "proposal_herb_rivea-corymbosa",
-      "proposal_herb_ipomoea-tricolor-heavenly-blue",
-      "proposal_herb_delosperma-cooperi",
-      "proposal_herb_mandrake-root"
-    ],
-    "newEntityOnly": [
-      "proposal_herb_anisoptera-thurifera",
-      "proposal_herb_rivea-corymbosa",
-      "proposal_herb_ipomoea-tricolor-heavenly-blue",
-      "proposal_herb_delosperma-cooperi",
-      "proposal_herb_iresine-herbstii",
-      "proposal_herb_jatropha-podagrica",
-      "proposal_herb_pedicularis-groenlandica",
-      "proposal_herb_mistletoe"
-    ]
-  }
+  "selectedProfileDecisions": [
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_calliandra-anomala",
+      "rawRank": 1,
+      "rawPriorityScore": 269,
+      "balancingAdjustment": 35,
+      "finalPriorityScore": 304,
+      "selected": true,
+      "selectionOrder": 1,
+      "selectedBecause": [
+        "safety-override",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "carryover-blocked:+9",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_alectra-sessiliflora",
+      "rawRank": 2,
+      "rawPriorityScore": 265,
+      "balancingAdjustment": 35,
+      "finalPriorityScore": 300,
+      "selected": true,
+      "selectionOrder": 2,
+      "selectedBecause": [
+        "safety-override",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "carryover-blocked:+9",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_henbane",
+      "rawRank": 3,
+      "rawPriorityScore": 255,
+      "balancingAdjustment": 29,
+      "finalPriorityScore": 284,
+      "selected": true,
+      "selectionOrder": 5,
+      "selectedBecause": [
+        "type-min-floor:herb",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "carryover-blocked:+9",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_anisoptera-thurifera",
+      "rawRank": 4,
+      "rawPriorityScore": 240,
+      "balancingAdjustment": 26,
+      "finalPriorityScore": 266,
+      "selected": true,
+      "selectionOrder": 6,
+      "selectedBecause": [
+        "adjusted-score-rank",
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_rivea-corymbosa",
+      "rawRank": 5,
+      "rawPriorityScore": 240,
+      "balancingAdjustment": 20,
+      "finalPriorityScore": 260,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+      "rawRank": 6,
+      "rawPriorityScore": 236,
+      "balancingAdjustment": 20,
+      "finalPriorityScore": 256,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_delosperma-cooperi",
+      "rawRank": 7,
+      "rawPriorityScore": 234,
+      "balancingAdjustment": 26,
+      "finalPriorityScore": 260,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "topic:evidence-critical:+6",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_mandrake-root",
+      "rawRank": 8,
+      "rawPriorityScore": 233,
+      "balancingAdjustment": 29,
+      "finalPriorityScore": 262,
+      "selected": true,
+      "selectionOrder": 7,
+      "selectedBecause": [
+        "adjusted-score-rank",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "carryover-blocked:+9",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_iresine-herbstii",
+      "rawRank": 9,
+      "rawPriorityScore": 228,
+      "balancingAdjustment": 20,
+      "finalPriorityScore": 248,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_jatropha-podagrica",
+      "rawRank": 10,
+      "rawPriorityScore": 227,
+      "balancingAdjustment": 20,
+      "finalPriorityScore": 247,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_pedicularis-groenlandica",
+      "rawRank": 11,
+      "rawPriorityScore": 223,
+      "balancingAdjustment": 20,
+      "finalPriorityScore": 243,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_luteolin",
+      "rawRank": 12,
+      "rawPriorityScore": 216,
+      "balancingAdjustment": 33,
+      "finalPriorityScore": 249,
+      "selected": true,
+      "selectionOrder": 3,
+      "selectedBecause": [
+        "carryover-rescue-floor",
+        "type:compound:+4",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "carryover-blocked:+9",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_compound_cbd",
+      "rawRank": 13,
+      "rawPriorityScore": 214,
+      "balancingAdjustment": 33,
+      "finalPriorityScore": 247,
+      "selected": true,
+      "selectionOrder": 4,
+      "selectedBecause": [
+        "carryover-rescue-floor",
+        "type:compound:+4",
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "carryover-blocked:+9",
+        "stale:+4"
+      ],
+      "exclusionReason": null
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_mistletoe",
+      "rawRank": 14,
+      "rawPriorityScore": 205,
+      "balancingAdjustment": 20,
+      "finalPriorityScore": 225,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+    },
+    {
+      "profileId": "mixed-balanced",
+      "proposalId": "proposal_herb_kava",
+      "rawRank": 15,
+      "rawPriorityScore": 138,
+      "balancingAdjustment": 20,
+      "finalPriorityScore": 158,
+      "selected": false,
+      "selectionOrder": null,
+      "selectedBecause": [
+        "topic:mechanism-critical:+4",
+        "topic:safety-critical:+12",
+        "stale:+4"
+      ],
+      "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+    }
+  ]
 }
