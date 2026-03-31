@@ -156,7 +156,8 @@
     "report:governed-post-release-watch": "tsx scripts/report-governed-post-release-watch.ts",
     "report:governed-followup-queue": "npm run report:governed-release-readiness && npm run report:governed-post-release-watch && tsx scripts/report-governed-followup-queue.ts",
     "report:governed-release-history": "npm run report:governed-followup-queue && tsx scripts/report-governed-release-history.ts",
-    "report:adaptive-retry-tuning": "npm run report:source-candidate-review && npm run report:adaptive-source-coverage && tsx scripts/report-adaptive-retry-tuning.ts"
+    "report:adaptive-retry-tuning": "npm run report:source-candidate-review && npm run report:adaptive-source-coverage && tsx scripts/report-adaptive-retry-tuning.ts",
+    "report:completion-scorecards": "npm run report:adaptive-retry-tuning && npm run report:enrichment-submission-review && tsx scripts/report-completion-scorecards.ts"
   },
   "engines": {
     "node": ">=20 <21"
