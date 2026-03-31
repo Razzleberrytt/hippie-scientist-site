@@ -1,25 +1,19 @@
 {
-  "generatedAt": "2026-03-30T20:07:15.107Z",
+  "generatedAt": "2026-03-31T00:43:13.658Z",
   "pageTypes": {
     "herb_detail": {
       "enrichmentAwareRecommendations": true,
-      "activeSignalTypes": [
-        "contrast_conflicting_or_uncertain",
-        "shared_safety_theme"
-      ],
+      "activeSignalTypes": [],
       "eligibleEntities": [
-        "kava"
+        "kava",
+        "mandrake-root",
+        "mistletoe"
       ]
     },
     "compound_detail": {
       "enrichmentAwareRecommendations": true,
-      "activeSignalTypes": [
-        "contrast_conflicting_or_uncertain",
-        "shared_safety_theme"
-      ],
-      "eligibleEntities": [
-        "luteolin"
-      ]
+      "activeSignalTypes": [],
+      "eligibleEntities": []
     }
   },
   "ineligibleEntities": [
@@ -30,14 +24,44 @@
       "editorialStatus": "approved"
     },
     {
-      "entityType": "herb",
-      "entitySlug": "ashwagandha",
+      "entityType": "compound",
+      "entitySlug": "luteolin",
       "reason": "insufficient_governed_enrichment_or_not_publishable",
       "editorialStatus": "approved"
     },
     {
       "entityType": "herb",
-      "entitySlug": "chamomile",
+      "entitySlug": "henbane",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ipomoea-tricolor-heavenly-blue",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "iresine-herbstii",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "jatropha-podagrica",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "pedicularis-groenlandica",
+      "reason": "insufficient_governed_enrichment_or_not_publishable",
+      "editorialStatus": "approved"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "rivea-corymbosa",
       "reason": "insufficient_governed_enrichment_or_not_publishable",
       "editorialStatus": "approved"
     }

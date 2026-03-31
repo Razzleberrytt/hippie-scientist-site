@@ -111,7 +111,8 @@
     "report:enrichment-submission-review": "tsx scripts/report-enrichment-submission-review.ts",
     "report:enrichment-wave-1-authoring": "npm run report:enrichment-authoring-packs && npm run report:enrichment-submission-review && tsx scripts/report-enrichment-wave-1-authoring.ts",
     "report:source-wave-1": "npm run report:source-intake-queue && tsx scripts/report-source-wave-1.ts",
-    "report:source-wave-1-review": "npm run report:source-wave-1 && tsx scripts/report-source-wave-1-review.ts"
+    "report:source-wave-1-review": "npm run report:source-wave-1 && tsx scripts/report-source-wave-1-review.ts",
+    "report:enrichment-wave-1-rollup": "node scripts/report-enrichment-wave-1-rollup.mjs"
   },
   "engines": {
     "node": ">=20 <21"

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-30T21:12:28.418Z",
+  "generatedAt": "2026-03-31T00:43:09.977Z",
   "policy": {
     "governedSource": "public/data/enrichment-governed.json",
     "allowedEditorialStatuses": [
@@ -400,11 +400,8 @@
       "contextType": "comparison",
       "contextSlug": "compare-page-herb-selection",
       "itemType": "herb",
-      "enrichmentEligible": false,
-      "ineligibleReasons": [
-        "insufficient-governed-coverage",
-        "limited-human-comparative-signal"
-      ],
+      "enrichmentEligible": true,
+      "ineligibleReasons": [],
       "activeSignals": [
         "evidence_label_distribution",
         "safety_interactions_present",
@@ -412,8 +409,8 @@
         "enriched_reviewed_count",
         "uncertainty_conflict_count"
       ],
-      "includedCount": 1,
-      "governedReviewedCount": 1,
+      "includedCount": 3,
+      "governedReviewedCount": 3,
       "nonGovernedCount": 0
     }
   ]

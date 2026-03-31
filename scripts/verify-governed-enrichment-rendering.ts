@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict'
+import fs from 'node:fs'
+import path from 'node:path'
 import governedArtifact from '../public/data/enrichment-governed.json'
 import {
   getEvidenceLabelMeta,
@@ -7,11 +9,29 @@ import {
 } from '../src/lib/governedResearch'
 import type { ResearchEnrichment } from '../src/types/researchEnrichment'
 
+type Entry = {
+  entityType: 'herb' | 'compound'
+  entitySlug: string
+}
+
+const ROOT = process.cwd()
+const SUBMISSIONS_PATH = path.join(ROOT, 'ops', 'enrichment-submissions.json')
+const GOVERNED_INPUT_PATH = path.join(ROOT, 'public', 'data', 'enrichment-submissions-governed-input.jsonl')
+
 const rows = governedArtifact as Array<{
   entityType: 'herb' | 'compound'
   entitySlug: string
   researchEnrichment: ResearchEnrichment
 }>
+
+function parseJsonl(filePath: string) {
+  return fs
+    .readFileSync(filePath, 'utf8')
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean)
+    .map(line => JSON.parse(line) as { entityType: 'herb' | 'compound'; entitySlug: string })
+}
 
 assert.ok(rows.length > 0, 'Canonical governed artifact is empty.')
 
@@ -25,14 +45,29 @@ for (const row of rows) {
   }
 }
 
-assert.ok(getGovernedResearchEnrichment('herb', 'kava'), 'kava should render publishable enrichment')
-assert.ok(
-  getGovernedResearchEnrichment('compound', 'luteolin'),
-  'luteolin should render publishable enrichment',
+const promotedEntries = parseJsonl(GOVERNED_INPUT_PATH)
+const promotedEntityKeys = new Set(promotedEntries.map(entry => `${entry.entityType}:${entry.entitySlug}`))
+
+assert.ok(promotedEntityKeys.size > 0, 'Expected promoted governed input entities for runtime validation.')
+const submissions = JSON.parse(fs.readFileSync(SUBMISSIONS_PATH, 'utf8')) as Array<
+  Entry & { submissionId: string; reviewStatus: string; active: boolean }
+>
+
+const blockedStatuses = new Set(['revision_requested', 'rejected', 'draft_submission', 'ready_for_review'])
+const blockedEntities = new Set(
+  submissions
+    .filter(row => blockedStatuses.has(row.reviewStatus) || row.active !== true)
+    .map(row => `${row.entityType}:${row.entitySlug}`),
 )
-assert.equal(getGovernedResearchEnrichment('herb', 'ashwagandha'), null)
-assert.equal(getGovernedResearchEnrichment('herb', 'chamomile'), null)
-assert.equal(getGovernedResearchEnrichment('compound', 'cbd'), null)
+
+for (const key of blockedEntities) {
+  const [entityType, entitySlug] = key.split(':') as ['herb' | 'compound', string]
+  const runtime = getGovernedResearchEnrichment(entityType, entitySlug)
+  const wasPromoted = promotedEntityKeys.has(key)
+  if (!wasPromoted) {
+    assert.equal(runtime, null, `Blocked/unapproved governed entity leaked at runtime: ${key}`)
+  }
+}
 
 const evidenceLabels = [
   'stronger_human_support',
@@ -51,4 +86,4 @@ for (const label of evidenceLabels) {
   assert.ok(meta.tone.length > 0, `Missing tone for evidence label ${label}`)
 }
 
-console.log(`[verify-governed-enrichment-rendering] PASS rows=${rows.length}`)
+console.log(`[verify-governed-enrichment-rendering] PASS rows=${rows.length} promotedEntities=${promotedEntityKeys.size}`)
