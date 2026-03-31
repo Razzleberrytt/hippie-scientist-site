@@ -1,0 +1,790 @@
+{
+  "generatedAt": "2026-03-31T11:31:56.079Z",
+  "deterministicModelVersion": "enrichment-wave-target-proposals-v1",
+  "inputsUsed": [
+    "ops/reports/enrichment-workpacks.json",
+    "ops/reports/source-gaps.json",
+    "ops/reports/source-intake-queue.json",
+    "ops/reports/source-wave-2-review.json",
+    "ops/reports/enrichment-wave-2-blockers.json",
+    "ops/reports/enrichment-wave-2-rollup.json",
+    "ops/reports/enrichment-wave-1-targets.json",
+    "ops/reports/enrichment-wave-2-targets.json",
+    "ops/reports/enrichment-wave-2b-targets.json",
+    "public/data/publication-manifest.json"
+  ],
+  "selectionRules": {
+    "deterministicModelVersion": "enrichment-wave-target-proposals-v1",
+    "recommendedTargetSize": 8,
+    "scoreWeights": {
+      "publicStatus": {
+        "indexable": 55,
+        "otherIndexable": 40,
+        "nonIndexable": 12
+      },
+      "publicPriorityScoreScaled": "min(50, round(publicPriorityScore * 0.45))",
+      "carryoverBoost": "8 points per prior wave target inclusion, max 24",
+      "criticalGapBoost": {
+        "safety": 28,
+        "evidence": 20,
+        "mechanism": 18,
+        "constituent": 8
+      },
+      "staleOrReviewDue": 12,
+      "governanceFixBucket": 18,
+      "publishBlockingGap": 14,
+      "safetyCriticalGap": 16,
+      "blockerSignals": "3 points per signal, max 18",
+      "promotableSourceLikelihood": {
+        "high": 8,
+        "medium": 4,
+        "low_or_unknown": 0
+      }
+    },
+    "compactSelectionPolicy": {
+      "recommended": "top 8 by priorityScore",
+      "carryover": "top 8 with carryoverFromWaveIds.length > 0",
+      "safety": "top 8 with safety-critical gaps",
+      "mechanism": "top 8 with mechanism-critical gaps",
+      "newEntityOnly": "top 8 with no prior wave carryover"
+    }
+  },
+  "summary": {
+    "totalCandidates": 15,
+    "recommendedCount": 8,
+    "carryoverCount": 7,
+    "safetyPriorityCount": 8,
+    "mechanismPriorityCount": 8,
+    "newEntityOnlyCount": 8
+  },
+  "proposals": [
+    {
+      "proposalId": "proposal_herb_calliandra-anomala",
+      "waveSuggestionId": "carryover-rescue",
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "priorityScore": 269,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [
+        "wave-2"
+      ],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "indexable_entity_without_healthy_governed_enrichment",
+        "duplicate-only source set",
+        "no promotable source candidates",
+        "The only wave-2 candidate was already present in source registry, leaving no promotable source and no governance-ready enrichment entry."
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "low",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 112. Critical gaps: safety, evidence, mechanism, constituent. Carryover from wave-2.",
+      "excludedReason": null,
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=low",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_alectra-sessiliflora",
+      "waveSuggestionId": "carryover-rescue",
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "priorityScore": 265,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [
+        "wave-2"
+      ],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "indexable_entity_without_healthy_governed_enrichment",
+        "duplicate-only source set",
+        "no promotable source candidates",
+        "Wave-2 mechanism candidate was duplicate against registry, and no alternate promotable candidate was available in the same cycle."
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "low",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 103. Critical gaps: safety, evidence, mechanism, constituent. Carryover from wave-2.",
+      "excludedReason": null,
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=low",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_henbane",
+      "waveSuggestionId": "carryover-rescue",
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "blocked",
+      "priorityScore": 255,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [
+        "wave-2"
+      ],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "indexable_entity_without_healthy_governed_enrichment",
+        "duplicate-only source set",
+        "rollup/public-surface no-op",
+        "All wave-2 source candidates for henbane were duplicates of existing registry sources and approved entries were research-gap carryovers that did not expand governed topic coverage breadth."
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "low",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 114. Critical gaps: safety, mechanism, constituent. Carryover from wave-2.",
+      "excludedReason": null,
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=low",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_anisoptera-thurifera",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "anisoptera-thurifera",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "priorityScore": 240,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 85. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "excludedReason": null,
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_rivea-corymbosa",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "rivea-corymbosa",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "blocked",
+      "priorityScore": 240,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 109. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
+      "excludedReason": null,
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "ipomoea-tricolor-heavenly-blue",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "blocked",
+      "priorityScore": 236,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "indexable_entity_without_healthy_governed_enrichment",
+        "source_linked_claims_without_publishable_status"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 94. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
+      "excludedReason": null,
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_delosperma-cooperi",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "delosperma-cooperi",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "missing_governed_enrichment",
+      "priorityScore": 234,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "evidence-critical",
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 72. Critical gaps: safety, evidence, mechanism, constituent. Not present in prior wave target files.",
+      "excludedReason": null,
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=depublish_or_hide_enriched_section",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=4",
+        "intakeTaskCount=4"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_mandrake-root",
+      "waveSuggestionId": "carryover-rescue",
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "partial",
+      "priorityScore": 233,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [
+        "wave-2",
+        "wave-2b"
+      ],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "indexable_entity_without_healthy_governed_enrichment",
+        "needs_metadata source set",
+        "no promotable enrichment topics",
+        "Source candidate intakeTaskId did not match queue metadata in wave-2, so no new source was promotable and no new governed entry was authored for the target."
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 97. Critical gaps: safety, mechanism, constituent. Carryover from wave-2, wave-2b.",
+      "excludedReason": null,
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=re_review",
+        "reviewCycleState=downgrade_recommended",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_iresine-herbstii",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "iresine-herbstii",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "blocked",
+      "priorityScore": 228,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 82. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
+      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_jatropha-podagrica",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "jatropha-podagrica",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "blocked",
+      "priorityScore": 227,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 79. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
+      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_pedicularis-groenlandica",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "pedicularis-groenlandica",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "blocked",
+      "priorityScore": 223,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 72. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
+      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_compound_luteolin",
+      "waveSuggestionId": "carryover-rescue",
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "blocked",
+      "priorityScore": 216,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [
+        "wave-1",
+        "wave-2",
+        "wave-2b"
+      ],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "needs_metadata source set",
+        "no promotable enrichment topics",
+        "Wave-2 source candidate metadata mismatch blocked promotion and left no approved topic entry to increase governed coverage."
+      ],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "non_indexable entity with priority score 23. Critical gaps: safety, mechanism, constituent. Carryover from wave-1, wave-2, wave-2b.",
+      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_compound_cbd",
+      "waveSuggestionId": "carryover-rescue",
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "blocked",
+      "priorityScore": 214,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [
+        "wave-1",
+        "wave-2",
+        "wave-2b"
+      ],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "editorialReadiness.publishable:false",
+        "editorialStatus:approved",
+        "governance block prevents safe publication of enrichment content",
+        "needs_metadata source set",
+        "submission blocked by framing/governance",
+        "Wave-2 candidate metadata mismatch prevented source promotion and no compliant non-duplicative submission made it through review for new governed coverage."
+      ],
+      "surfaceDependencySignals": [
+        "non-indexable-surface",
+        "publish-blocking-surface-impact"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "non_indexable entity with priority score 18. Critical gaps: safety, mechanism, constituent. Carryover from wave-1, wave-2, wave-2b.",
+      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=governance_fix",
+        "reviewCycleState=blocked_pending_review",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_mistletoe",
+      "waveSuggestionId": "new-entity-priority",
+      "entityType": "herb",
+      "entitySlug": "mistletoe",
+      "publicStatus": "indexable",
+      "currentGovernedCoverageState": "partial",
+      "priorityScore": 205,
+      "priorityBucket": "critical",
+      "carryoverFromWaveIds": [],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [
+        "indexable_entity_without_healthy_governed_enrichment"
+      ],
+      "surfaceDependencySignals": [
+        "indexable-public-surface",
+        "publish-blocking-surface-impact",
+        "publication-manifest-indexable"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
+      "whySelected": "indexable entity with priority score 91. Critical gaps: safety, mechanism, constituent. Not present in prior wave target files.",
+      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=re_review",
+        "reviewCycleState=downgrade_recommended",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    },
+    {
+      "proposalId": "proposal_herb_kava",
+      "waveSuggestionId": "carryover-rescue",
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "publicStatus": "non_indexable",
+      "currentGovernedCoverageState": "partial",
+      "priorityScore": 138,
+      "priorityBucket": "high",
+      "carryoverFromWaveIds": [
+        "wave-1"
+      ],
+      "criticalGapTypes": [
+        "mechanism-critical",
+        "safety-critical"
+      ],
+      "missingTopics": [
+        "constituent",
+        "mechanism",
+        "safety"
+      ],
+      "stale": true,
+      "blockerSignals": [],
+      "surfaceDependencySignals": [
+        "non-indexable-surface"
+      ],
+      "promotableSourceLikelihood": "unknown",
+      "recommendedWaveAction": "Safety refresh needed: update interactions, contraindications, and adverse effects with governed provenance.",
+      "whySelected": "non_indexable entity with priority score 18. Critical gaps: safety, mechanism, constituent. Carryover from wave-1.",
+      "excludedReason": "Not in top compact recommended set after deterministic rank ordering.",
+      "reviewerOverrideAllowed": true,
+      "notes": [
+        "workpack bucket=re_review",
+        "reviewCycleState=downgrade_recommended",
+        "promotableSourceLikelihood=unknown",
+        "sourceGapCount=3",
+        "intakeTaskCount=3"
+      ]
+    }
+  ],
+  "recommendationSets": {
+    "recommended": [
+      "proposal_herb_calliandra-anomala",
+      "proposal_herb_alectra-sessiliflora",
+      "proposal_herb_henbane",
+      "proposal_herb_anisoptera-thurifera",
+      "proposal_herb_rivea-corymbosa",
+      "proposal_herb_ipomoea-tricolor-heavenly-blue",
+      "proposal_herb_delosperma-cooperi",
+      "proposal_herb_mandrake-root"
+    ],
+    "carryover": [
+      "proposal_herb_calliandra-anomala",
+      "proposal_herb_alectra-sessiliflora",
+      "proposal_herb_henbane",
+      "proposal_herb_mandrake-root",
+      "proposal_compound_luteolin",
+      "proposal_compound_cbd",
+      "proposal_herb_kava"
+    ],
+    "safety": [
+      "proposal_herb_calliandra-anomala",
+      "proposal_herb_alectra-sessiliflora",
+      "proposal_herb_henbane",
+      "proposal_herb_anisoptera-thurifera",
+      "proposal_herb_rivea-corymbosa",
+      "proposal_herb_ipomoea-tricolor-heavenly-blue",
+      "proposal_herb_delosperma-cooperi",
+      "proposal_herb_mandrake-root"
+    ],
+    "mechanism": [
+      "proposal_herb_calliandra-anomala",
+      "proposal_herb_alectra-sessiliflora",
+      "proposal_herb_henbane",
+      "proposal_herb_anisoptera-thurifera",
+      "proposal_herb_rivea-corymbosa",
+      "proposal_herb_ipomoea-tricolor-heavenly-blue",
+      "proposal_herb_delosperma-cooperi",
+      "proposal_herb_mandrake-root"
+    ],
+    "newEntityOnly": [
+      "proposal_herb_anisoptera-thurifera",
+      "proposal_herb_rivea-corymbosa",
+      "proposal_herb_ipomoea-tricolor-heavenly-blue",
+      "proposal_herb_delosperma-cooperi",
+      "proposal_herb_iresine-herbstii",
+      "proposal_herb_jatropha-podagrica",
+      "proposal_herb_pedicularis-groenlandica",
+      "proposal_herb_mistletoe"
+    ]
+  }
+}
