@@ -3,6 +3,7 @@ import type { GovernedFaqSectionContent } from '@/lib/governedFaq'
 import type { GovernedRelatedQuestionsSection } from '@/lib/governedRelatedQuestions'
 import type { ResearchClaim, ResearchEnrichment } from '@/types/researchEnrichment'
 import { getEvidenceLabelMeta, getTopicJudgment } from '@/lib/governedResearch'
+import GovernedReviewFreshnessCard from '@/components/detail/GovernedReviewFreshnessCard'
 
 type ClaimSectionConfig = {
   key: string
@@ -91,6 +92,8 @@ export default function GovernedResearchSections({
 
   return (
     <>
+      <GovernedReviewFreshnessCard enrichment={enrichment} />
+
       <section id='governed-evidence-snapshot' className='mt-6 rounded-2xl border border-white/15 bg-white/[0.03] p-4'>
         <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/80'>
           Evidence snapshot
