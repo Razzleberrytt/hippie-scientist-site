@@ -4,11 +4,18 @@ import type { CtaSlotType, CtaVariantDefinition } from '@/config/ctaExperiments'
 type CtaVariantLayoutProps = {
   variant: CtaVariantDefinition
   slots: Partial<Record<CtaSlotType, ReactNode>>
+  slotOrderOverride?: CtaSlotType[]
   onSlotImpression?: (slot: CtaSlotType, position: number) => void
 }
 
-export default function CtaVariantLayout({ variant, slots, onSlotImpression }: CtaVariantLayoutProps) {
-  const visibleSlots = variant.slotOrder.filter(slot => Boolean(slots[slot]))
+export default function CtaVariantLayout({
+  variant,
+  slots,
+  slotOrderOverride,
+  onSlotImpression,
+}: CtaVariantLayoutProps) {
+  const slotOrder = slotOrderOverride?.length ? slotOrderOverride : variant.slotOrder
+  const visibleSlots = slotOrder.filter(slot => Boolean(slots[slot]))
 
   useEffect(() => {
     visibleSlots.forEach((slot, index) => onSlotImpression?.(slot, index + 1))
@@ -17,8 +24,10 @@ export default function CtaVariantLayout({ variant, slots, onSlotImpression }: C
   if (!visibleSlots.length) return null
 
   return (
-    <section className='mt-5 rounded-xl border border-white/12 bg-black/20 p-3'>
-      <p className='text-[11px] uppercase tracking-[0.14em] text-white/45'>CTA layout variant {variant.id}</p>
+    <section className='border-white/12 mt-5 rounded-xl border bg-black/20 p-3'>
+      <p className='text-[11px] uppercase tracking-[0.14em] text-white/45'>
+        CTA layout variant {variant.id}
+      </p>
       <div className='mt-2 space-y-3'>
         {visibleSlots.map(slot => (
           <Fragment key={slot}>{slots[slot]}</Fragment>

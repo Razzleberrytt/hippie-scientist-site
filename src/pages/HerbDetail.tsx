@@ -39,6 +39,7 @@ import { buildGovernedRelatedQuestions } from '@/lib/governedRelatedQuestions'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import { buildGovernedQuickCompareSection } from '@/lib/governedQuickCompare'
 import { buildFallbackHerbIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
+import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -289,6 +290,15 @@ export default function HerbDetail() {
   })
   const ctaVariantId = ctaExperiment.activeVariantId
   const governedResearch = getGovernedResearchEnrichment('herb', herb.slug)
+  const governedCta = resolveGovernedCtaDecision({
+    entityType: 'herb',
+    entitySlug: herb.slug,
+    cautionCount,
+    confidence,
+    sourceCount,
+    relatedCollectionCount: relatedCollections.length,
+    enrichment: governedResearch,
+  })
   const governedFaq = governedResearch
     ? buildGovernedFaqSectionContent({
         entityType: 'herb',
@@ -296,15 +306,16 @@ export default function HerbDetail() {
         enrichment: governedResearch,
       })
     : null
-  const governedRelatedQuestions = governedResearch && governedFaq
-    ? buildGovernedRelatedQuestions({
-        entityType: 'herb',
-        entityName: herbDisplayName,
-        enrichment: governedResearch,
-        governedFaq,
-        hasVisibleCompareSection: Boolean(linkedCompounds.length || relatedCollections.length),
-      })
-    : null
+  const governedRelatedQuestions =
+    governedResearch && governedFaq
+      ? buildGovernedRelatedQuestions({
+          entityType: 'herb',
+          entityName: herbDisplayName,
+          enrichment: governedResearch,
+          governedFaq,
+          hasVisibleCompareSection: Boolean(linkedCompounds.length || relatedCollections.length),
+        })
+      : null
   const fallbackIntro = buildFallbackHerbIntro({
     herbDisplayName,
     description,
@@ -360,11 +371,14 @@ export default function HerbDetail() {
             breadcrumbId,
             governedSummary: herb.researchEnrichmentSummary,
           }),
-          breadcrumbJsonLd([
-            { name: 'Home', url: SITE_URL },
-            { name: 'Herbs', url: `${SITE_URL}/herbs` },
-            { name: herbDisplayName, url: `${SITE_URL}${pagePath}` },
-          ], { id: breadcrumbId }),
+          breadcrumbJsonLd(
+            [
+              { name: 'Home', url: SITE_URL },
+              { name: 'Herbs', url: `${SITE_URL}/herbs` },
+              { name: herbDisplayName, url: `${SITE_URL}${pagePath}` },
+            ],
+            { id: breadcrumbId },
+          ),
           ...(governedFaq?.emitFaqSchema
             ? [
                 faqPageJsonLd({
@@ -478,6 +492,7 @@ export default function HerbDetail() {
 
           <CtaVariantLayout
             variant={ctaExperiment.variant}
+            slotOrderOverride={governedCta.slotOrder}
             onSlotImpression={(slot, position) => {
               const ctaType =
                 slot === 'tool'
@@ -505,11 +520,9 @@ export default function HerbDetail() {
               tool: (
                 <div className='rounded-lg border border-emerald-300/30 bg-emerald-500/10 p-3'>
                   <p className='text-xs font-semibold uppercase tracking-[0.14em] text-emerald-100'>
-                    Interaction check first
+                    {governedCta.copy.toolTitle}
                   </p>
-                  <p className='mt-1 text-xs text-white/75'>
-                    Run this herb in the checker before combining with other items.
-                  </p>
+                  <p className='mt-1 text-xs text-white/75'>{governedCta.copy.toolBody}</p>
                   <Link
                     to={herbCheckerHref}
                     className='btn-primary mt-2 inline-flex text-xs'
@@ -534,9 +547,7 @@ export default function HerbDetail() {
               ),
               builder: (
                 <div className='rounded-lg border border-cyan-300/25 bg-cyan-500/10 p-3'>
-                  <p className='text-xs text-white/75'>
-                    Continue to builder only after reviewing cautions and overlap.
-                  </p>
+                  <p className='text-xs text-white/75'>{governedCta.copy.builderBody}</p>
                   <Link
                     to='/build'
                     className='btn-secondary mt-2 inline-flex text-xs'
@@ -562,7 +573,7 @@ export default function HerbDetail() {
               related: relatedCollections.length > 0 && (
                 <div className='rounded-lg border border-white/10 bg-white/[0.02] p-3'>
                   <p className='text-xs font-semibold text-white'>
-                    Compare adjacent goal collections
+                    {governedCta.copy.relatedTitle}
                   </p>
                   <div className='mt-2 flex flex-wrap gap-2'>
                     {relatedCollections.slice(0, 3).map(collection => (
@@ -586,6 +597,7 @@ export default function HerbDetail() {
                   pageType='herb_detail'
                   variantId={ctaVariantId}
                   ctaPosition='detail_affiliate_module'
+                  preDisclosureGuidance={governedCta.copy.affiliateLeadIn}
                 />
               ),
             }}
