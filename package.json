@@ -118,7 +118,8 @@
     "report:enrichment-wave-2-authoring": "npm run report:enrichment-authoring-packs && npm run report:enrichment-submission-review && tsx scripts/report-enrichment-wave-2-authoring.ts",
     "report:enrichment-wave-2-rollup": "node scripts/report-enrichment-wave-2-rollup.mjs",
     "report:enrichment-wave-2": "npm run report:source-wave-2-review && npm run report:enrichment-wave-2-rollup && npm run report:enrichment-wave-2:summary",
-    "report:enrichment-wave-2:summary": "tsx scripts/report-enrichment-wave-2.ts"
+    "report:enrichment-wave-2:summary": "tsx scripts/report-enrichment-wave-2.ts",
+    "report:enrichment-wave-2b": "tsx scripts/report-enrichment-wave-2b.ts"
   },
   "engines": {
     "node": ">=20 <21"

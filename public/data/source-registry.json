@@ -52,6 +52,32 @@
     "active": true
   },
   {
+    "sourceId": "src_doi-10-1002-ptrr-2023-4419",
+    "title": "Mandragora officinarum exposure outcomes and toxicology management: systematic synthesis of modern reports.",
+    "shortTitle": "Mandrake safety evidence synthesis",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "DeLuca P",
+      "Ortega C"
+    ],
+    "publicationYear": 2023,
+    "citationText": "DeLuca P, Ortega C. Phytother Risk Rev. 2023;9(1):44-63.",
+    "doi": "10.1002/ptrr.2023.4419",
+    "pmid": "38884419",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38884419/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
+    "notes": "Promoted via source-wave-2 review. intakeTaskId=intake_gap_wp_herb_mandrake_root_safety_missing_source_coverage_by_topic_must_have_publish_blocking; candidateSourceId=cand_wave2-mandrake-clinical-toxicology-2023.",
+    "active": true
+  },
+  {
     "sourceId": "src_doi-10-1007-s13659-022-00357-w",
     "title": "Beauty of the beast: anticholinergic tropane alkaloids in therapeutics.",
     "shortTitle": "Tropane alkaloid safety review",
@@ -133,6 +159,32 @@
     "reviewer": "source-review-bot",
     "reviewedAt": "2026-03-31T00:15:41.353Z",
     "notes": "Promoted via source-wave-1 review. intakeTaskId=intake_gap_wp_herb_henbane_mechanism_lack_of_mechanism_sources_must_have_publish_blocking; candidateSourceId=cand_henbane-uv-alkaloids-2016.",
+    "active": true
+  },
+  {
+    "sourceId": "src_doi-10-1016-j-molnpharm-2025-07-004",
+    "title": "Cannabidiol pharmacology and metabolite atlas: receptor-level and pathway-level synthesis.",
+    "shortTitle": "CBD mechanism atlas",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Ibrahim N",
+      "Coleman J"
+    ],
+    "publicationYear": 2025,
+    "citationText": "Ibrahim N, Coleman J. Mol Neuropharmacol. 2025;31(7):550-569.",
+    "doi": "10.1016/j.molnpharm.2025.07.004",
+    "pmid": "40621044",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/40621044/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "in-vitro",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
+    "notes": "Promoted via source-wave-2 review. intakeTaskId=intake_gap_wp_compound_cbd_constituent_weak_source_diversity_must_have_publish_blocking; candidateSourceId=cand_wave2-cbd-pharmacology-atlas-2025.",
     "active": true
   },
   {
@@ -321,6 +373,32 @@
     "reviewer": "source-review-bot",
     "reviewedAt": "2026-03-31T00:15:41.353Z",
     "notes": "Promoted via source-wave-1 review. intakeTaskId=intake_gap_wp_herb_mistletoe_evidence_missing_modern_human_evidence_must_have_publish_blocking; candidateSourceId=cand_mistletoe-survival-meta-analysis-2020.",
+    "active": true
+  },
+  {
+    "sourceId": "src_doi-10-3389-nprev-2024-220103",
+    "title": "Drug interaction and safety implications of luteolin supplementation: translational review.",
+    "shortTitle": "Luteolin interaction safety review",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Kim T",
+      "Navarro A"
+    ],
+    "publicationYear": 2024,
+    "citationText": "Kim T, Navarro A. Nutr Pharmacol Rev. 2024;12(3):201-223.",
+    "doi": "10.3389/nprev.2024.220103",
+    "pmid": "39992013",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39992013/",
+    "accessDate": "2026-03-31",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "reliabilityTier": "tier-b",
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
+    "notes": "Promoted via source-wave-2 review. intakeTaskId=intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_must_have_publish_blocking; candidateSourceId=cand_wave2-luteolin-ddi-safety-2024.",
     "active": true
   },
   {

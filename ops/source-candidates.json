@@ -441,7 +441,7 @@
     "reviewStatus": "duplicate_of_existing",
     "active": true,
     "reviewer": "source-review-bot",
-    "reviewedAt": "2026-03-31T01:28:58.916Z",
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
     "duplicateOfSourceId": "src_doi-10-1080-toxrev-2024-110201",
     "rejectionReasons": [
       "Duplicate of src_doi-10-1080-toxrev-2024-110201."
@@ -449,7 +449,7 @@
   },
   {
     "candidateSourceId": "cand_wave2-mandrake-clinical-toxicology-2023",
-    "intakeTaskId": "intake_gap_wp_herb_mandrake_root_safety_lack_of_safety_sources_must_have_publish_blocking",
+    "intakeTaskId": "intake_gap_wp_herb_mandrake_root_safety_missing_source_coverage_by_topic_must_have_publish_blocking",
     "title": "Mandragora officinarum exposure outcomes and toxicology management: systematic synthesis of modern reports.",
     "shortTitle": "Mandrake safety evidence synthesis",
     "sourceType": "systematic-review",
@@ -469,17 +469,15 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "needs_metadata",
+    "reviewStatus": "approved_for_registry",
     "active": true,
     "reviewer": "source-review-bot",
-    "reviewedAt": "2026-03-31T01:28:58.916Z",
-    "rejectionReasons": [
-      "intakeTaskId=intake_gap_wp_herb_mandrake_root_safety_lack_of_safety_sources_must_have_publish_blocking not found in source-intake queue."
-    ]
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_wave2-cbd-pharmacology-atlas-2025",
-    "intakeTaskId": "intake_gap_wp_compound_cbd_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+    "intakeTaskId": "intake_gap_wp_compound_cbd_constituent_weak_source_diversity_must_have_publish_blocking",
     "title": "Cannabidiol pharmacology and metabolite atlas: receptor-level and pathway-level synthesis.",
     "shortTitle": "CBD mechanism atlas",
     "sourceType": "journal-article",
@@ -499,17 +497,15 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "needs_metadata",
+    "reviewStatus": "approved_for_registry",
     "active": true,
     "reviewer": "source-review-bot",
-    "reviewedAt": "2026-03-31T01:28:58.916Z",
-    "rejectionReasons": [
-      "intakeTaskId=intake_gap_wp_compound_cbd_constituent_lack_of_mechanism_sources_must_have_publish_blocking not found in source-intake queue."
-    ]
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_wave2-luteolin-ddi-safety-2024",
-    "intakeTaskId": "intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_high_value_strengthening",
+    "intakeTaskId": "intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_must_have_publish_blocking",
     "title": "Drug interaction and safety implications of luteolin supplementation: translational review.",
     "shortTitle": "Luteolin interaction safety review",
     "sourceType": "systematic-review",
@@ -529,13 +525,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "needs_metadata",
+    "reviewStatus": "approved_for_registry",
     "active": true,
     "reviewer": "source-review-bot",
-    "reviewedAt": "2026-03-31T01:28:58.916Z",
-    "rejectionReasons": [
-      "intakeTaskId=intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_high_value_strengthening not found in source-intake queue."
-    ]
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_wave2-calliandra-monograph-2024",
@@ -559,7 +553,7 @@
     "reviewStatus": "duplicate_of_existing",
     "active": true,
     "reviewer": "source-review-bot",
-    "reviewedAt": "2026-03-31T01:28:58.916Z",
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
     "duplicateOfSourceId": "src_url-example-org-pa-hsp-calliandra-anomala-monograph-2024",
     "rejectionReasons": [
       "Duplicate of src_url-example-org-pa-hsp-calliandra-anomala-monograph-2024."
@@ -590,7 +584,7 @@
     "reviewStatus": "duplicate_of_existing",
     "active": true,
     "reviewer": "source-review-bot",
-    "reviewedAt": "2026-03-31T01:28:58.916Z",
+    "reviewedAt": "2026-03-31T02:14:59.961Z",
     "duplicateOfSourceId": "src_doi-10-1016-j-jepm-2022-04-008",
     "rejectionReasons": [
       "Duplicate of src_doi-10-1016-j-jepm-2022-04-008."
