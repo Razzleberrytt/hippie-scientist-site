@@ -34,6 +34,7 @@ import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
 import { buildGovernedFaqSectionContent } from '@/lib/governedFaq'
+import { buildGovernedRelatedQuestions } from '@/lib/governedRelatedQuestions'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import { buildFallbackCompoundIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import {
@@ -179,6 +180,15 @@ export default function CompoundDetail() {
         entityType: 'compound',
         entityName: compound.name,
         enrichment: governedResearch,
+      })
+    : null
+  const governedRelatedQuestions = governedResearch && governedFaq
+    ? buildGovernedRelatedQuestions({
+        entityType: 'compound',
+        entityName: compound.name,
+        enrichment: governedResearch,
+        governedFaq,
+        hasVisibleCompareSection: Boolean(linkedHerbs.length || relatedCollections.length),
       })
     : null
   const fallbackIntro = buildFallbackCompoundIntro({
@@ -458,8 +468,12 @@ export default function CompoundDetail() {
           </div>
         )}
 
-        {governedResearch && governedFaq && (
-          <GovernedResearchSections enrichment={governedResearch} governedFaq={governedFaq} />
+        {governedResearch && governedFaq && governedRelatedQuestions && (
+          <GovernedResearchSections
+            enrichment={governedResearch}
+            governedFaq={governedFaq}
+            relatedQuestions={governedRelatedQuestions}
+          />
         )}
 
         {/* Core fields — only render when value is present */}
@@ -612,19 +626,21 @@ export default function CompoundDetail() {
           </section>
         )}
 
-        <EnrichmentRecommendationBlocks
-          bundle={enrichmentRecommendations}
-          names={recommendationNames}
-          onRecommendationClick={(item, placement) =>
-            trackDetailRelatedEntityClick({
-              detailType: 'compound',
-              detailSlug: compound.slug,
-              targetType: item.targetType,
-              targetSlug: item.targetSlug,
-              placement,
-            })
-          }
-        />
+        <section id='governed-compare-links'>
+          <EnrichmentRecommendationBlocks
+            bundle={enrichmentRecommendations}
+            names={recommendationNames}
+            onRecommendationClick={(item, placement) =>
+              trackDetailRelatedEntityClick({
+                detailType: 'compound',
+                detailSlug: compound.slug,
+                targetType: item.targetType,
+                targetSlug: item.targetSlug,
+                placement,
+              })
+            }
+          />
+        </section>
 
         {/* Practical info */}
         {compound.dosage && <Section title='Dosage'>{compound.dosage}</Section>}
