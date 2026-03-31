@@ -106,6 +106,12 @@ const CAUTION_LABELS = new Set<EvidenceLabel>([
   'insufficient_evidence',
 ])
 
+const WEAK_ONLY_LABELS = new Set<EvidenceLabel>([
+  'preclinical_only',
+  'traditional_use_only',
+  'insufficient_evidence',
+])
+
 function tokenize(text: string) {
   return text
     .toLowerCase()
@@ -310,6 +316,125 @@ function sliceByType(
   return recommendations.filter(item => item.targetType === targetType).slice(0, limit)
 }
 
+function filterRelatedRecommendations(
+  scored: EnrichmentRecommendation[],
+  source: GovernedRecommendationRow,
+  targetType: GovernedEntityType,
+  limit: number,
+) {
+  const sourceWeakOnly = WEAK_ONLY_LABELS.has(
+    source.researchEnrichment.pageEvidenceJudgment.evidenceLabel,
+  )
+  return scored
+    .filter(item => item.targetType === targetType)
+    .filter(item => {
+      if (item.signalType === 'herb_compound_relationship') return true
+      if (item.signalType === 'shared_supported_use') return true
+      if (
+        item.signalType === 'shared_safety_theme' ||
+        item.signalType === 'shared_mechanism_or_constituent'
+      ) {
+        return !sourceWeakOnly
+      }
+      return false
+    })
+    .slice(0, limit)
+}
+
+function buildLegacyRelatedSlices(
+  scored: EnrichmentRecommendation[],
+  targetType: GovernedEntityType,
+  limit: number,
+) {
+  return sliceByType(
+    scored.filter(
+      item =>
+        item.signalType === 'shared_supported_use' ||
+        item.signalType === 'herb_compound_relationship',
+    ),
+    targetType,
+    limit,
+  )
+}
+
+export function buildEnrichmentRecommendationsFromRowsLegacy(
+  source: GovernedRecommendationRow | null | undefined,
+  rows: GovernedRecommendationRow[],
+): EnrichmentRecommendationBundle {
+  if (!source) {
+    return {
+      relatedHerbs: [],
+      relatedCompounds: [],
+      compareContrast: [],
+      safetyNextSteps: [],
+      mechanismNextSteps: [],
+      activeSignals: [],
+    }
+  }
+
+  const sourceEnrichment = source.researchEnrichment
+  const candidateRows = rows.filter(
+    row => !(row.entityType === source.entityType && row.entitySlug === source.entitySlug),
+  )
+
+  const scored = dedupeRecommendations(
+    candidateRows.flatMap(candidate => evaluatePair(source, candidate)),
+  )
+
+  const relatedHerbs = buildLegacyRelatedSlices(scored, 'herb', 2)
+  const relatedCompounds = buildLegacyRelatedSlices(scored, 'compound', 2)
+  const compareContrast = scored
+    .filter(
+      item =>
+        item.signalType === 'contrast_conflicting_or_uncertain' ||
+        item.signalType === 'evidence_strength_comparison',
+    )
+    .slice(0, 2)
+  const safetyNextSteps = scored
+    .filter(item => item.signalType === 'shared_safety_theme')
+    .slice(0, 2)
+  const mechanismNextSteps = scored
+    .filter(item => item.signalType === 'shared_mechanism_or_constituent')
+    .slice(0, 2)
+
+  const cautionLabel = sourceEnrichment.pageEvidenceJudgment.evidenceLabel
+  const activeSignals = Array.from(
+    new Set(
+      [
+        ...relatedHerbs,
+        ...relatedCompounds,
+        ...compareContrast,
+        ...safetyNextSteps,
+        ...mechanismNextSteps,
+      ].map(item => item.signalType),
+    ),
+  )
+
+  if (CAUTION_LABELS.has(cautionLabel) && compareContrast.length === 0) {
+    const fallback = scored.find(item => item.signalType === 'shared_supported_use')
+    if (fallback) {
+      compareContrast.push({
+        ...fallback,
+        signalType: 'contrast_conflicting_or_uncertain',
+        reason:
+          'Evidence is mixed or uncertain here, so compare this page with another governed profile before drawing conclusions.',
+      })
+      if (!activeSignals.includes('contrast_conflicting_or_uncertain')) {
+        activeSignals.push('contrast_conflicting_or_uncertain')
+      }
+    }
+  }
+
+  return {
+    relatedHerbs,
+    relatedCompounds,
+    compareContrast,
+    safetyNextSteps,
+    mechanismNextSteps,
+    activeSignals,
+  }
+}
+
 export function buildEnrichmentRecommendationsFromRows(
   source: GovernedRecommendationRow | null | undefined,
   rows: GovernedRecommendationRow[],
@@ -334,24 +459,8 @@ export function buildEnrichmentRecommendationsFromRows(
     candidateRows.flatMap(candidate => evaluatePair(source, candidate)),
   )
 
-  const relatedHerbs = sliceByType(
-    scored.filter(
-      item =>
-        item.signalType === 'shared_supported_use' ||
-        item.signalType === 'herb_compound_relationship',
-    ),
-    'herb',
-    2,
-  )
-  const relatedCompounds = sliceByType(
-    scored.filter(
-      item =>
-        item.signalType === 'shared_supported_use' ||
-        item.signalType === 'herb_compound_relationship',
-    ),
-    'compound',
-    2,
-  )
+  const relatedHerbs = filterRelatedRecommendations(scored, source, 'herb', 2)
+  const relatedCompounds = filterRelatedRecommendations(scored, source, 'compound', 2)
   const compareContrast = scored
     .filter(
       item =>
