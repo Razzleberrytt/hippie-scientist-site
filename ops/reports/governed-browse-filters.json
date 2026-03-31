@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-03-31T15:32:09.362Z",
+  "deterministicModelVersion": "governed-browse-filters-v1",
+  "surfacesUpdated": [
+    "/herbs",
+    "/compounds"
+  ],
+  "canonicalArtifacts": {
+    "governedRollup": "public/data/enrichment-governed.json",
+    "herbSummary": "public/data/herbs-summary.json",
+    "compoundSummary": "public/data/compounds-summary.json"
+  },
+  "signals": {
+    "used": [
+      "researchEnrichmentSummary.evidenceLabel",
+      "researchEnrichmentSummary.hasHumanEvidence",
+      "researchEnrichmentSummary.safetyCautionsPresent",
+      "researchEnrichmentSummary.conflictingEvidence",
+      "researchEnrichmentSummary.enrichedAndReviewed",
+      "researchEnrichmentSummary.lastReviewedAt",
+      "researchEnrichmentSummary.mechanismOrConstituentCoveragePresent"
+    ],
+    "excluded": [
+      {
+        "signal": "enrichment submissions reviewStatus (blocked/rejected/revision_requested/partial)",
+        "reason": "Not used for positive ranking/filter signals; guarded by publishable-governed summary gate only."
+      },
+      {
+        "signal": "source count / source registry volume",
+        "reason": "Volume does not equal quality and can overstate weak evidence."
+      },
+      {
+        "signal": "unsupported claim-level confidence indexes",
+        "reason": "Browse/search remains lightweight and uses only summary-safe governed fields."
+      }
+    ]
+  },
+  "coverage": {
+    "herbs": {
+      "total": 677,
+      "eligibleForGovernedFilters": 2,
+      "ineligibleForGovernedFilters": 675,
+      "bySignal": {
+        "hasHumanEvidence": 2,
+        "safetyCautionsPresent": 0,
+        "conflictingEvidence": 0,
+        "mechanismOrConstituentCoveragePresent": 0
+      }
+    },
+    "compounds": {
+      "total": 389,
+      "eligibleForGovernedFilters": 0,
+      "ineligibleForGovernedFilters": 389,
+      "bySignal": {
+        "hasHumanEvidence": 0,
+        "safetyCautionsPresent": 0,
+        "conflictingEvidence": 0,
+        "mechanismOrConstituentCoveragePresent": 0
+      }
+    }
+  },
+  "controlsAdded": {
+    "filters": [
+      "reviewed_recently",
+      "human_clinical_or_limited",
+      "mechanism_or_constituent_coverage"
+    ],
+    "sorts": [
+      "governed_evidence",
+      "review_freshness",
+      "safety_first"
+    ]
+  },
+  "verification": {
+    "approvedGovernedOnlyInfluence": true,
+    "blockedRejectedRevisionRequestedCannotInfluenceControls": true,
+    "browseSearchRemainsLightweight": true,
+    "deterministicConservativeWhenSparse": true
+  },
+  "ineligibleReasons": {
+    "noPublishSafeSummary": "Entity lacks researchEnrichmentSummary.enrichedAndReviewed from governed rollup, so governed controls do not treat it as eligible.",
+    "sparseCompounds": "Current compounds summary has sparse governed summaries, so compound governed filters degrade to low-match states rather than fallback to ungoverned trust signals."
+  },
+  "representativeExamples": {
+    "herbs": {
+      "query": "sleep",
+      "beforeTop3": [
+        "corydalis yanhusuo",
+        "erythrina mulungu",
+        "griffonia simplicifolia"
+      ],
+      "afterTop3": [],
+      "beforeCount": 7,
+      "afterCount": 0
+    },
+    "compounds": {
+      "query": "anti",
+      "beforeTop3": [
+        "2,4,5-trimethoxybenzaldehyde",
+        "aconine",
+        "aconitine"
+      ],
+      "afterTop3": [],
+      "beforeCount": 144,
+      "afterCount": 0
+    }
+  }
+}
