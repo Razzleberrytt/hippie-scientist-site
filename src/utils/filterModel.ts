@@ -1,5 +1,11 @@
 export type ConfidenceFilter = 'all' | 'high' | 'medium' | 'low'
-export type SortFilter = 'az' | 'confidence' | 'effects'
+export type SortFilter =
+  | 'az'
+  | 'confidence'
+  | 'effects'
+  | 'governed_evidence'
+  | 'review_freshness'
+  | 'safety_first'
 import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 
 export type EntryFilterState = {
@@ -35,7 +41,14 @@ export function parseFilterStateFromSearchParams(
     : defaults.confidence
 
   const sortRaw = (params.get('sort') || defaults.sort).toLowerCase()
-  const sort: SortFilter = ['az', 'confidence', 'effects'].includes(sortRaw)
+  const sort: SortFilter = [
+    'az',
+    'confidence',
+    'effects',
+    'governed_evidence',
+    'review_freshness',
+    'safety_first',
+  ].includes(sortRaw)
     ? (sortRaw as SortFilter)
     : defaults.sort
   const enrichmentRaw = (params.get('enrichment') || defaults.enrichment).toLowerCase()
@@ -45,6 +58,9 @@ export function parseFilterStateFromSearchParams(
     'safety_cautions',
     'traditional_only',
     'conflicting_evidence',
+    'reviewed_recently',
+    'mechanism_or_constituent_coverage',
+    'human_clinical_or_limited',
     'enriched_reviewed',
   ].includes(enrichmentRaw)
     ? (enrichmentRaw as EnrichmentFilter)

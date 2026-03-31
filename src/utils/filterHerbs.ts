@@ -3,7 +3,7 @@ import { normalizeText } from './normalizeText'
 import { searchEntries } from './searchEntries'
 import type { EntryFilterState } from './filterModel'
 import { asStringArray } from './asStringArray'
-import { matchesEnrichmentFilter } from '@/lib/enrichmentDiscovery'
+import { getReviewFreshnessState, matchesEnrichmentFilter } from '@/lib/enrichmentDiscovery'
 
 function getConfidenceRank(level: string) {
   if (level === 'high') return 3
@@ -15,6 +15,27 @@ function getHerbConfidence(herb: Herb) {
   const confidenceValue = String(herb.confidence ?? '').toLowerCase()
   if (confidenceValue === 'high' || confidenceValue === 'medium') return confidenceValue
   return 'low'
+}
+
+function getEvidenceRank(herb: Herb) {
+  const label = herb.researchEnrichmentSummary?.evidenceLabel
+  if (label === 'stronger_human_support') return 8
+  if (label === 'limited_human_support') return 7
+  if (label === 'observational_only') return 6
+  if (label === 'mixed_or_uncertain') return 5
+  if (label === 'preclinical_only') return 4
+  if (label === 'traditional_use_only') return 3
+  if (label === 'conflicting_evidence') return 2
+  if (label === 'insufficient_evidence') return 1
+  return 0
+}
+
+function getFreshnessRank(herb: Herb) {
+  const freshness = getReviewFreshnessState(herb.researchEnrichmentSummary?.lastReviewedAt)
+  if (freshness === 'fresh') return 3
+  if (freshness === 'aging') return 2
+  if (freshness === 'stale') return 1
+  return 0
 }
 
 export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
@@ -61,6 +82,30 @@ export function filterHerbs(herbs: Herb[], filters: EntryFilterState): Herb[] {
 
     if (filters.sort === 'confidence') {
       return getConfidenceRank(getHerbConfidence(b)) - getConfidenceRank(getHerbConfidence(a))
+    }
+
+    if (filters.sort === 'governed_evidence') {
+      const evidenceDiff = getEvidenceRank(b) - getEvidenceRank(a)
+      if (evidenceDiff !== 0) return evidenceDiff
+      return getFreshnessRank(b) - getFreshnessRank(a)
+    }
+
+    if (filters.sort === 'review_freshness') {
+      const freshnessDiff = getFreshnessRank(b) - getFreshnessRank(a)
+      if (freshnessDiff !== 0) return freshnessDiff
+      return getEvidenceRank(b) - getEvidenceRank(a)
+    }
+
+    if (filters.sort === 'safety_first') {
+      const safetyDiff =
+        Number(Boolean(b.researchEnrichmentSummary?.safetyCautionsPresent)) -
+        Number(Boolean(a.researchEnrichmentSummary?.safetyCautionsPresent))
+      if (safetyDiff !== 0) return safetyDiff
+      const conflictDiff =
+        Number(Boolean(b.researchEnrichmentSummary?.conflictingEvidence)) -
+        Number(Boolean(a.researchEnrichmentSummary?.conflictingEvidence))
+      if (conflictDiff !== 0) return conflictDiff
+      return getEvidenceRank(b) - getEvidenceRank(a)
     }
 
     const effectCountDiff = asStringArray(b.effects).length - asStringArray(a.effects).length
