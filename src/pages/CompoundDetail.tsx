@@ -35,6 +35,7 @@ import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
 import { buildGovernedFaqSectionContent } from '@/lib/governedFaq'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
+import { buildFallbackCompoundIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -70,13 +71,6 @@ function ListSection({ items }: { items: string[] }) {
 function buildInteractionsLink(tokens: string[]) {
   if (!tokens.length) return '/interactions'
   return `/interactions?items=${tokens.join(',')}`
-}
-
-function firstSentence(value: string, fallback: string) {
-  const cleaned = value.replace(/\s+/g, ' ').trim()
-  if (!cleaned) return fallback
-  const sentence = cleaned.match(/[^.!?]+[.!?]?/)?.[0]?.trim() || cleaned
-  return sentence.length > 180 ? `${sentence.slice(0, 177).trimEnd()}…` : sentence
 }
 
 export default function CompoundDetail() {
@@ -166,28 +160,6 @@ export default function CompoundDetail() {
       ? `${cautionCount} caution signal${cautionCount === 1 ? '' : 's'}`
       : 'no caution flags listed',
   ]
-  const whatItIsSummary = firstSentence(
-    compound.description || compound.mechanism,
-    `${compound.name} is a compound entry with sparse descriptive context so far.`,
-  )
-  const commonUseSummary = compound.therapeuticUses.length
-    ? `Commonly discussed in connection with ${compound.therapeuticUses.slice(0, 2).join(' and ')}.`
-    : primaryEffects.length
-      ? `Most often tracked for ${primaryEffects.slice(0, 2).join(' and ')} outcomes in herb profiles.`
-      : `Usage context is still being expanded; currently linked to ${linkedHerbs.length} herb profile${linkedHerbs.length === 1 ? '' : 's'}.`
-  const evidenceSummary =
-    confidence === 'high'
-      ? `Confidence is high with ${sourceCount || 'no'} listed source${sourceCount === 1 ? '' : 's'}; still review mechanism and safety fit.`
-      : confidence === 'medium'
-        ? 'Confidence is mixed; evidence is useful but not equally strong across all claims.'
-        : 'Confidence is low, so read this as a preliminary summary and verify against primary references.'
-  const cautionSummary =
-    cautionCount > 0
-      ? compound.contraindications[0] ||
-        compound.interactions[0] ||
-        compound.sideEffects[0] ||
-        'Review contraindications and interaction notes before use.'
-      : undefined
   const curatedProducts = getRenderableCuratedProducts({
     entityType: 'compound',
     entitySlug: compound.slug,
@@ -209,6 +181,27 @@ export default function CompoundDetail() {
         enrichment: governedResearch,
       })
     : null
+  const fallbackIntro = buildFallbackCompoundIntro({
+    compoundName: compound.name,
+    description: compound.description,
+    mechanism: compound.mechanism,
+    therapeuticUses: compound.therapeuticUses,
+    primaryEffects,
+    linkedHerbCount: linkedHerbs.length,
+    confidence,
+    sourceCount,
+    cautionCount,
+    contraindications: compound.contraindications,
+    interactions: compound.interactions,
+    sideEffects: compound.sideEffects,
+    introFacts,
+  })
+  const governedIntro = buildGovernedDetailIntro({
+    entityName: compound.name,
+    fallback: fallbackIntro,
+    enrichment: governedResearch,
+    sourceCount,
+  })
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
@@ -312,11 +305,11 @@ export default function CompoundDetail() {
 
           <StructuredDetailIntro
             confidence={confidence}
-            whatItIs={whatItIsSummary}
-            commonUse={commonUseSummary}
-            evidenceContext={evidenceSummary}
-            cautionNote={cautionSummary}
-            quickFacts={introFacts}
+            whatItIs={governedIntro.whatItIs}
+            commonUse={governedIntro.commonUse}
+            evidenceContext={governedIntro.evidenceContext}
+            cautionNote={governedIntro.cautionNote}
+            quickFacts={governedIntro.quickFacts}
             nextSteps={[
               { label: 'Check this compound in interactions', to: compoundCheckerHref },
               { label: 'Review related herbs', to: '#related-herbs', variant: 'secondary' },
