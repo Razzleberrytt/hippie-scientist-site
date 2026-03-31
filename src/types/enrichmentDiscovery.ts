@@ -6,6 +6,9 @@ export type EnrichmentFilter =
   | 'safety_cautions'
   | 'traditional_only'
   | 'conflicting_evidence'
+  | 'reviewed_recently'
+  | 'mechanism_or_constituent_coverage'
+  | 'human_clinical_or_limited'
   | 'enriched_reviewed'
 
 export type PublishSafeEnrichmentSummary = {

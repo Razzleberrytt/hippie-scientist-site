@@ -20,8 +20,11 @@ import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
 const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
   { value: 'all', label: 'All research states' },
   { value: 'enriched_reviewed', label: 'Enriched & reviewed' },
+  { value: 'reviewed_recently', label: 'Reviewed recently' },
+  { value: 'human_clinical_or_limited', label: 'Human clinical/limited support' },
   { value: 'has_human_evidence', label: 'Has human evidence' },
   { value: 'safety_cautions', label: 'Safety cautions present' },
+  { value: 'mechanism_or_constituent_coverage', label: 'Mechanism/constituent coverage' },
   { value: 'traditional_only', label: 'Traditional-use only' },
   { value: 'conflicting_evidence', label: 'Conflicting evidence' },
 ]
