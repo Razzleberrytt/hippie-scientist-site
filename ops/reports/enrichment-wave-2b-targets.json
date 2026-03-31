@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-03-31T02:16:47.108Z",
+  "deterministicModelVersion": "enrichment-wave-2b-targets-v1",
+  "targets": [
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "waveStatus": "wave-2b-retargeted",
+      "selectionWhy": "Metadata-fixable wave-2 candidate with promotable non-duplicate systematic safety evidence.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "waveStatus": "wave-2b-retargeted",
+      "selectionWhy": "Metadata-fixable non-duplicate mechanism candidate with governance-safe research-gap framing.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "waveStatus": "wave-2b-retargeted",
+      "selectionWhy": "Metadata-fixable non-duplicate interaction/safety candidate likely to produce immediate governed delta.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    }
+  ]
+}

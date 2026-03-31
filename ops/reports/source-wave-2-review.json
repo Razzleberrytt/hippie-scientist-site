@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T01:28:58.916Z",
+  "generatedAt": "2026-03-31T02:14:59.961Z",
   "deterministicModelVersion": "source-wave-2-review-v1",
   "sources": {
     "waveTargets": "ops/reports/source-wave-2-targets.json",
@@ -10,13 +10,20 @@
   },
   "summary": {
     "reviewedCandidateCount": 6,
-    "approvedCount": 0,
+    "approvedCount": 3,
     "rejectedCount": 0,
     "duplicateCount": 3,
-    "needsMetadataCount": 3,
-    "promotedCount": 0,
-    "sourceCountsByClass": {},
-    "sourceCountsByEntity": {}
+    "needsMetadataCount": 0,
+    "promotedCount": 3,
+    "sourceCountsByClass": {
+      "preclinical-mechanistic-study": 1,
+      "systematic-review-meta-analysis": 2
+    },
+    "sourceCountsByEntity": {
+      "compound:cbd": 1,
+      "compound:luteolin": 1,
+      "herb:mandrake-root": 1
+    }
   },
   "candidateDecisions": [
     {
@@ -47,12 +54,13 @@
     },
     {
       "candidateSourceId": "cand_wave2-cbd-pharmacology-atlas-2025",
-      "intakeTaskId": "intake_gap_wp_compound_cbd_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
-      "reviewStatus": "needs_metadata",
-      "outcomeCategory": "insufficient_metadata",
+      "intakeTaskId": "intake_gap_wp_compound_cbd_constituent_weak_source_diversity_must_have_publish_blocking",
+      "reviewStatus": "approved_for_registry",
+      "outcomeCategory": "approved_new_source",
       "reasons": [
-        "intakeTaskId=intake_gap_wp_compound_cbd_constituent_lack_of_mechanism_sources_must_have_publish_blocking not found in source-intake queue."
+        "Approved via governed wave-1 review checks and promoted to source registry."
       ],
+      "promotedSourceId": "src_doi-10-1016-j-molnpharm-2025-07-004",
       "entityKeys": [
         "compound:cbd"
       ]
@@ -72,40 +80,49 @@
     },
     {
       "candidateSourceId": "cand_wave2-luteolin-ddi-safety-2024",
-      "intakeTaskId": "intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_high_value_strengthening",
-      "reviewStatus": "needs_metadata",
-      "outcomeCategory": "insufficient_metadata",
+      "intakeTaskId": "intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "reviewStatus": "approved_for_registry",
+      "outcomeCategory": "approved_new_source",
       "reasons": [
-        "intakeTaskId=intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_high_value_strengthening not found in source-intake queue."
+        "Approved via governed wave-1 review checks and promoted to source registry."
       ],
+      "promotedSourceId": "src_doi-10-3389-nprev-2024-220103",
       "entityKeys": [
         "compound:luteolin"
       ]
     },
     {
       "candidateSourceId": "cand_wave2-mandrake-clinical-toxicology-2023",
-      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_safety_lack_of_safety_sources_must_have_publish_blocking",
-      "reviewStatus": "needs_metadata",
-      "outcomeCategory": "insufficient_metadata",
+      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_safety_missing_source_coverage_by_topic_must_have_publish_blocking",
+      "reviewStatus": "approved_for_registry",
+      "outcomeCategory": "approved_new_source",
       "reasons": [
-        "intakeTaskId=intake_gap_wp_herb_mandrake_root_safety_lack_of_safety_sources_must_have_publish_blocking not found in source-intake queue."
+        "Approved via governed wave-1 review checks and promoted to source registry."
       ],
+      "promotedSourceId": "src_doi-10-1002-ptrr-2023-4419",
       "entityKeys": [
         "herb:mandrake-root"
       ]
     }
   ],
-  "promotedSourceIdsByEntity": {},
+  "promotedSourceIdsByEntity": {
+    "compound:cbd": [
+      "src_doi-10-1016-j-molnpharm-2025-07-004"
+    ],
+    "compound:luteolin": [
+      "src_doi-10-3389-nprev-2024-220103"
+    ],
+    "herb:mandrake-root": [
+      "src_doi-10-1002-ptrr-2023-4419"
+    ]
+  },
   "unresolvedHighPriorityGaps": {
     "compound:cbd": [
-      "constituent",
-      "mechanism",
       "safety"
     ],
     "compound:luteolin": [
       "constituent",
-      "mechanism",
-      "safety"
+      "mechanism"
     ],
     "herb:alectra-sessiliflora": [
       "constituent",
@@ -126,17 +143,13 @@
     ],
     "herb:mandrake-root": [
       "constituent",
-      "mechanism",
-      "safety"
+      "mechanism"
     ]
   },
   "unresolvedSafetyCriticalGaps": {
     "compound:cbd": [
       "safety"
     ],
-    "compound:luteolin": [
-      "safety"
-    ],
     "herb:alectra-sessiliflora": [
       "safety"
     ],
@@ -144,9 +157,6 @@
       "safety"
     ],
     "herb:henbane": [
-      "safety"
-    ],
-    "herb:mandrake-root": [
       "safety"
     ]
   }
