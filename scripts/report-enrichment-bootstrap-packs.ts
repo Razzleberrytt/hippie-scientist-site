@@ -421,10 +421,10 @@ function run() {
       const requiredGovernanceChecks = dedupe([...workpack.requiredGovernanceChecks, 'enrichment:validate:normalized']).sort()
 
       const status: BootstrapPack['status'] =
-        workpack.operationalBucket === 'governance_fix' || workpack.blockedReasons.length > 0
-          ? 'blocked_governance'
-          : candidateTopicTypes.length === 0
-            ? 'blocked_source'
+        candidateTopicTypes.length === 0
+          ? 'blocked_source'
+          : workpack.operationalBucket === 'governance_fix' && workpack.availableSourceIds.length === 0
+            ? 'blocked_governance'
             : 'ready_for_authoring'
 
       const bootstrapPackId = `bp_${stableId(workpack.workpackId)}_${stableId(source.sourceId)}`

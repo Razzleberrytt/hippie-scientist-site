@@ -100,6 +100,16 @@ type GovernedRow = {
   }
 }
 
+type SourceRegistryRow = {
+  sourceId: string
+  notes?: string
+  active: boolean
+}
+
+type SourceWaveTargetsReport = {
+  targets: Array<{ entityType: EntityType; entitySlug: string }>
+}
+
 type Workpack = {
   workpackId: string
   itemType: WorkpackItemType
@@ -128,6 +138,8 @@ const ROOT = process.cwd()
 const BACKLOG_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-backlog.json')
 const REVIEW_CYCLE_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-review-cycle.json')
 const GOVERNED_PATH = path.join(ROOT, 'public', 'data', 'enrichment-governed.json')
+const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
+const SOURCE_WAVE_TARGETS_PATH = path.join(ROOT, 'ops', 'reports', 'source-wave-1-targets.json')
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'enrichment-workpacks.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'enrichment-workpacks.md')
 
@@ -141,6 +153,21 @@ function normalizeSlug(value: string) {
 
 function entityKey(entityType: EntityType, slug: string) {
   return `${entityType}:${normalizeSlug(slug)}`
+}
+
+function normalizeIntakeSlug(raw: string) {
+  return raw.replace(/_/g, '-').replace(/--+/g, '-')
+}
+
+function promotedSourceEntityKey(source: SourceRegistryRow): string | null {
+  if (!source.active || !source.notes) return null
+  const match = source.notes.match(
+    /intakeTaskId=intake_gap_wp_(herb|compound)_([a-z0-9_]+?)_(?:safety|evidence|mechanism|constituent|interaction|contraindication|adverse|population|conflict|research)/,
+  )
+  if (!match) return null
+  const entityType = match[1] as EntityType
+  const entitySlug = normalizeIntakeSlug(match[2])
+  return entityKey(entityType, entitySlug)
 }
 
 function workpackItemType(item: BacklogItem): WorkpackItemType {
@@ -386,6 +413,11 @@ function run() {
   const backlog = readJson<BacklogReport>(BACKLOG_PATH)
   const reviewCycle = readJson<ReviewCycleReport>(REVIEW_CYCLE_PATH)
   const governed = readJson<GovernedRow[]>(GOVERNED_PATH)
+  const sourceRegistry = readJson<SourceRegistryRow[]>(SOURCE_REGISTRY_PATH)
+  const sourceWaveTargets = readJson<SourceWaveTargetsReport>(SOURCE_WAVE_TARGETS_PATH)
+  const sourceWaveTargetKeys = new Set(
+    sourceWaveTargets.targets.map(target => entityKey(target.entityType, target.entitySlug)),
+  )
 
   const reviewByKey = new Map<string, ReviewCycleItem>()
   for (const item of reviewCycle.items) {
@@ -399,6 +431,12 @@ function run() {
   const sourceIdsByEntity = new Map<string, string[]>()
   for (const row of governed) {
     sourceIdsByEntity.set(entityKey(row.entityType, row.entitySlug), (row.researchEnrichment.sourceRegistryIds || []).slice().sort())
+  }
+  for (const source of sourceRegistry) {
+    const key = promotedSourceEntityKey(source)
+    if (!key || !sourceWaveTargetKeys.has(key)) continue
+    const existing = sourceIdsByEntity.get(key) || []
+    if (!existing.includes(source.sourceId)) sourceIdsByEntity.set(key, [...existing, source.sourceId].sort())
   }
 
   const workpacks: Workpack[] = backlog.items
