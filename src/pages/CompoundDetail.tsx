@@ -27,6 +27,7 @@ import { filterCompoundByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 import GovernedResearchSections from '@/components/detail/GovernedResearchSections'
 import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
+import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
 import CuratedProductModule from '@/components/CuratedProductModule'
 import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
@@ -36,6 +37,7 @@ import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
 import { buildGovernedFaqSectionContent } from '@/lib/governedFaq'
 import { buildGovernedRelatedQuestions } from '@/lib/governedRelatedQuestions'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
+import { buildGovernedQuickCompareSection } from '@/lib/governedQuickCompare'
 import { buildFallbackCompoundIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import {
   trackDetailBuilderClick,
@@ -213,6 +215,7 @@ export default function CompoundDetail() {
     sourceCount,
   })
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
+  const quickCompareSection = buildGovernedQuickCompareSection('compound', compound.slug)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
     compound: new Map(compounds.map(item => [item.slug, item.name || item.slug])),
@@ -627,6 +630,7 @@ export default function CompoundDetail() {
         )}
 
         <section id='governed-compare-links'>
+          <GovernedQuickCompareBlock section={quickCompareSection} />
           <EnrichmentRecommendationBlocks
             bundle={enrichmentRecommendations}
             names={recommendationNames}

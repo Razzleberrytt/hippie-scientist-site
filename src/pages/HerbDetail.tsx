@@ -29,6 +29,7 @@ import { filterHerbByCollection } from '@/lib/collectionQuality'
 import StructuredDetailIntro from '@/components/detail/StructuredDetailIntro'
 import GovernedResearchSections from '@/components/detail/GovernedResearchSections'
 import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecommendationBlocks'
+import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
@@ -36,6 +37,7 @@ import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
 import { buildGovernedFaqSectionContent } from '@/lib/governedFaq'
 import { buildGovernedRelatedQuestions } from '@/lib/governedRelatedQuestions'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
+import { buildGovernedQuickCompareSection } from '@/lib/governedQuickCompare'
 import { buildFallbackHerbIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import {
   trackDetailBuilderClick,
@@ -336,6 +338,7 @@ export default function HerbDetail() {
   const pagePath = `/herbs/${herb.slug}`
   const breadcrumbId = `${SITE_URL}${pagePath}#breadcrumb`
   const enrichmentRecommendations = buildEnrichmentRecommendations('herb', herb.slug)
+  const quickCompareSection = buildGovernedQuickCompareSection('herb', herb.slug)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
     compound: new Map(compounds.map(item => [item.slug, item.name || item.slug])),
@@ -673,6 +676,7 @@ export default function HerbDetail() {
         )}
 
         <section id='governed-compare-links'>
+          <GovernedQuickCompareBlock section={quickCompareSection} />
           <EnrichmentRecommendationBlocks
             bundle={enrichmentRecommendations}
             names={recommendationNames}
