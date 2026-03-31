@@ -13882,16 +13882,16 @@
     "hasInteractionData": false,
     "hasEvidenceNotes": true,
     "researchEnrichmentSummary": {
-      "evidenceLabel": "mixed_or_uncertain",
-      "evidenceLabelTitle": "Mixed or uncertain",
+      "evidenceLabel": "limited_human_support",
+      "evidenceLabelTitle": "Limited human support",
       "hasHumanEvidence": true,
-      "safetyCautionsPresent": true,
-      "supportedUseCoveragePresent": true,
+      "safetyCautionsPresent": false,
+      "supportedUseCoveragePresent": false,
       "mechanismOrConstituentCoveragePresent": false,
       "traditionalUseOnly": false,
       "conflictingEvidence": false,
       "enrichedAndReviewed": true,
-      "lastReviewedAt": "2026-03-30T18:35:00.000Z"
+      "lastReviewedAt": "2026-03-30T18:37:00.000Z"
     },
     "image": "",
     "aliases": [
@@ -15416,6 +15416,18 @@
     "interactionTags": [],
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "researchEnrichmentSummary": {
+      "evidenceLabel": "limited_human_support",
+      "evidenceLabelTitle": "Limited human support",
+      "hasHumanEvidence": true,
+      "safetyCautionsPresent": false,
+      "supportedUseCoveragePresent": false,
+      "mechanismOrConstituentCoveragePresent": false,
+      "traditionalUseOnly": false,
+      "conflictingEvidence": false,
+      "enrichedAndReviewed": true,
+      "lastReviewedAt": "2026-03-31T02:11:00.000Z"
+    },
     "image": "",
     "aliases": [
       "mandrake root",
@@ -15966,6 +15978,18 @@
     "interactionTags": [],
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
+    "researchEnrichmentSummary": {
+      "evidenceLabel": "limited_human_support",
+      "evidenceLabelTitle": "Limited human support",
+      "hasHumanEvidence": true,
+      "safetyCautionsPresent": false,
+      "supportedUseCoveragePresent": false,
+      "mechanismOrConstituentCoveragePresent": false,
+      "traditionalUseOnly": false,
+      "conflictingEvidence": false,
+      "enrichedAndReviewed": true,
+      "lastReviewedAt": "2026-03-31T02:14:00.000Z"
+    },
     "image": "",
     "aliases": [
       "mistletoe",
