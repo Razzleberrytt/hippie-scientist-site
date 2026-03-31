@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T00:07:52.979Z",
+  "generatedAt": "2026-03-31T00:28:37.899Z",
   "deterministicModelVersion": "enrichment-workpacks-v1",
   "sources": {
     "enrichmentBacklog": "ops/reports/enrichment-backlog.json",
@@ -16,7 +16,7 @@
       "defer": 3
     },
     "taskTypeCounts": {
-      "source_gathering": 38,
+      "source_gathering": 30,
       "normalization_enrichment_entry": 18,
       "review_approval": 7,
       "governance_remediation": 37
@@ -35,8 +35,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -61,21 +60,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1016-j-jphotobiol-2016-04-028"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page henbane. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page henbane. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 114
       },
       {
@@ -145,8 +145,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -171,21 +170,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1055-a-0577-8049"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page rivea-corymbosa. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page rivea-corymbosa. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 109
       },
       {
@@ -255,8 +255,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -281,21 +280,23 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1007-s13659-022-00357-w",
+          "src_doi-10-1016-j-plantsci-2019-03-013"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (2 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 97
       },
       {
@@ -310,8 +311,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -336,21 +336,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 94
       },
       {
@@ -365,8 +366,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -391,21 +391,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1159-000505202"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page mistletoe. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page mistletoe. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 91
       },
       {
@@ -475,8 +476,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -501,21 +501,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1016-j-sjbs-2019-10-002"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page iresine-herbstii. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page iresine-herbstii. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 82
       },
       {
@@ -575,8 +576,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -601,21 +601,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1021-acs-orglett-6c00670"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page jatropha-podagrica. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page jatropha-podagrica. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 79
       },
       {
@@ -774,8 +775,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -800,21 +800,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1002-jemt-23847"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page pedicularis-groenlandica. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page pedicularis-groenlandica. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 72
       },
       {
@@ -1054,8 +1055,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1080,21 +1080,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1016-j-jphotobiol-2016-04-028"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page henbane. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page henbane. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 114
       },
       {
@@ -1164,8 +1165,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1190,21 +1190,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1055-a-0577-8049"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page rivea-corymbosa. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page rivea-corymbosa. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 109
       },
       {
@@ -1274,8 +1275,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1300,21 +1300,23 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1007-s13659-022-00357-w",
+          "src_doi-10-1016-j-plantsci-2019-03-013"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (2 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 97
       },
       {
@@ -1329,8 +1331,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1355,21 +1356,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 94
       },
       {
@@ -1384,8 +1386,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1410,21 +1411,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1159-000505202"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page mistletoe. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page mistletoe. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 91
       },
       {
@@ -1494,8 +1496,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1520,21 +1521,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1016-j-sjbs-2019-10-002"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page iresine-herbstii. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page iresine-herbstii. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 82
       },
       {
@@ -1594,8 +1596,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1620,21 +1621,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1021-acs-orglett-6c00670"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page jatropha-podagrica. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page jatropha-podagrica. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 79
       },
       {
@@ -1793,8 +1795,7 @@
         "operationalBucket": "governance_fix",
         "taskTypes": [
           "governance_remediation",
-          "normalization_enrichment_entry",
-          "source_gathering"
+          "normalization_enrichment_entry"
         ],
         "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
         "requiredTopics": [
@@ -1819,21 +1820,22 @@
         "blockedReasons": [
           "indexable_entity_without_healthy_governed_enrichment"
         ],
-        "availableSourceIds": [],
+        "availableSourceIds": [
+          "src_doi-10-1002-jemt-23847"
+        ],
         "requiredGovernanceChecks": [
           "verify:enrichment-editorial",
           "verify:research-enrichment",
           "verify:source-registry"
         ],
         "completionCriteria": [
-          "Register and classify all new/updated sources in source registry before claim updates.",
           "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
           "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
           "Resolve governance blockers without weakening publish-gating or safety checks.",
           "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: herb page pedicularis-groenlandica. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+        "notesForContractor": "Scope: herb page pedicularis-groenlandica. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
         "publicPriorityScore": 72
       },
       {
@@ -2779,6 +2781,7 @@
           "source_linked_claims_without_publishable_status"
         ],
         "availableSourceIds": [
+          "src_doi-10-3390-ijms27062899",
           "src_fda-epidiolex-label-2021",
           "src_pubmed-40622698"
         ],
@@ -2795,7 +2798,7 @@
           "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
         ],
         "reviewerNeeded": true,
-        "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
+        "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
         "publicPriorityScore": 18
       }
     ],
@@ -3114,8 +3117,7 @@
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry",
-        "source_gathering"
+        "normalization_enrichment_entry"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3140,21 +3142,22 @@
       "blockedReasons": [
         "indexable_entity_without_healthy_governed_enrichment"
       ],
-      "availableSourceIds": [],
+      "availableSourceIds": [
+        "src_doi-10-1016-j-jphotobiol-2016-04-028"
+      ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
         "verify:research-enrichment",
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
         "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
         "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
         "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page henbane. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page henbane. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 114
     },
     {
@@ -3224,8 +3227,7 @@
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry",
-        "source_gathering"
+        "normalization_enrichment_entry"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3250,21 +3252,22 @@
       "blockedReasons": [
         "indexable_entity_without_healthy_governed_enrichment"
       ],
-      "availableSourceIds": [],
+      "availableSourceIds": [
+        "src_doi-10-1055-a-0577-8049"
+      ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
         "verify:research-enrichment",
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
         "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
         "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
         "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page rivea-corymbosa. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page rivea-corymbosa. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 109
     },
     {
@@ -3334,8 +3337,7 @@
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry",
-        "source_gathering"
+        "normalization_enrichment_entry"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3360,21 +3362,23 @@
       "blockedReasons": [
         "indexable_entity_without_healthy_governed_enrichment"
       ],
-      "availableSourceIds": [],
+      "availableSourceIds": [
+        "src_doi-10-1007-s13659-022-00357-w",
+        "src_doi-10-1016-j-plantsci-2019-03-013"
+      ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
         "verify:research-enrichment",
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
         "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
         "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
         "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page mandrake-root. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (2 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 97
     },
     {
@@ -3389,8 +3393,7 @@
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry",
-        "source_gathering"
+        "normalization_enrichment_entry"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3415,21 +3418,22 @@
       "blockedReasons": [
         "indexable_entity_without_healthy_governed_enrichment"
       ],
-      "availableSourceIds": [],
+      "availableSourceIds": [
+        "src_doi-10-1080-00275514-2025-2483634"
+      ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
         "verify:research-enrichment",
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
         "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
         "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
         "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page ipomoea-tricolor-heavenly-blue. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 94
     },
     {
@@ -3444,8 +3448,7 @@
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry",
-        "source_gathering"
+        "normalization_enrichment_entry"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3470,21 +3473,22 @@
       "blockedReasons": [
         "indexable_entity_without_healthy_governed_enrichment"
       ],
-      "availableSourceIds": [],
+      "availableSourceIds": [
+        "src_doi-10-1159-000505202"
+      ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
         "verify:research-enrichment",
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
         "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
         "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
         "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page mistletoe. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page mistletoe. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 91
     },
     {
@@ -3554,8 +3558,7 @@
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry",
-        "source_gathering"
+        "normalization_enrichment_entry"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3580,21 +3583,22 @@
       "blockedReasons": [
         "indexable_entity_without_healthy_governed_enrichment"
       ],
-      "availableSourceIds": [],
+      "availableSourceIds": [
+        "src_doi-10-1016-j-sjbs-2019-10-002"
+      ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
         "verify:research-enrichment",
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
         "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
         "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
         "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page iresine-herbstii. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page iresine-herbstii. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 82
     },
     {
@@ -3654,8 +3658,7 @@
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry",
-        "source_gathering"
+        "normalization_enrichment_entry"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3680,21 +3683,22 @@
       "blockedReasons": [
         "indexable_entity_without_healthy_governed_enrichment"
       ],
-      "availableSourceIds": [],
+      "availableSourceIds": [
+        "src_doi-10-1021-acs-orglett-6c00670"
+      ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
         "verify:research-enrichment",
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
         "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
         "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
         "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page jatropha-podagrica. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page jatropha-podagrica. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 79
     },
     {
@@ -3853,8 +3857,7 @@
       "operationalBucket": "governance_fix",
       "taskTypes": [
         "governance_remediation",
-        "normalization_enrichment_entry",
-        "source_gathering"
+        "normalization_enrichment_entry"
       ],
       "recommendedAction": "Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval.",
       "requiredTopics": [
@@ -3879,21 +3882,22 @@
       "blockedReasons": [
         "indexable_entity_without_healthy_governed_enrichment"
       ],
-      "availableSourceIds": [],
+      "availableSourceIds": [
+        "src_doi-10-1002-jemt-23847"
+      ],
       "requiredGovernanceChecks": [
         "verify:enrichment-editorial",
         "verify:research-enrichment",
         "verify:source-registry"
       ],
       "completionCriteria": [
-        "Register and classify all new/updated sources in source registry before claim updates.",
         "Close missing topic coverage for: constituent, evidence, mechanism, safety.",
         "Refresh stale topics and review timestamps for: constituent, evidence, mechanism, safety.",
         "Resolve governance blockers without weakening publish-gating or safety checks.",
         "Pass governance verification checks: verify:enrichment-editorial, verify:research-enrichment, verify:source-registry."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: herb page pedicularis-groenlandica. Primary task types: governance_remediation, normalization_enrichment_entry, source_gathering. No registered sources attached; start with source gathering and registry classification. Review-cycle signal: depublish_or_hide_enriched_section.",
+      "notesForContractor": "Scope: herb page pedicularis-groenlandica. Primary task types: governance_remediation, normalization_enrichment_entry. Reuse registered sources first (1 available). Review-cycle signal: depublish_or_hide_enriched_section.",
       "publicPriorityScore": 72
     },
     {
@@ -4839,6 +4843,7 @@
         "source_linked_claims_without_publishable_status"
       ],
       "availableSourceIds": [
+        "src_doi-10-3390-ijms27062899",
         "src_fda-epidiolex-label-2021",
         "src_pubmed-40622698"
       ],
@@ -4855,7 +4860,7 @@
         "Obtain reviewer sign-off and ensure review-cycle state is no longer due/blocked."
       ],
       "reviewerNeeded": true,
-      "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (2 available). Review-cycle signal: blocked_pending_review.",
+      "notesForContractor": "Scope: compound page cbd. Primary task types: governance_remediation, normalization_enrichment_entry, review_approval. Reuse registered sources first (3 available). Review-cycle signal: blocked_pending_review.",
       "publicPriorityScore": 18
     },
     {
