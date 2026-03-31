@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T00:43:13.658Z",
+  "generatedAt": "2026-03-31T01:29:17.271Z",
   "pageTypes": {
     "herb_detail": {
       "enrichmentAwareRecommendations": true,
@@ -32,12 +32,6 @@
     {
       "entityType": "herb",
       "entitySlug": "henbane",
-      "reason": "insufficient_governed_enrichment_or_not_publishable",
-      "editorialStatus": "approved"
-    },
-    {
-      "entityType": "herb",
-      "entitySlug": "ipomoea-tricolor-heavenly-blue",
       "reason": "insufficient_governed_enrichment_or_not_publishable",
       "editorialStatus": "approved"
     },

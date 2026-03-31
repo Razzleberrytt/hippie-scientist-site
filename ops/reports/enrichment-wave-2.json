@@ -1,0 +1,340 @@
+{
+  "generatedAt": "2026-03-31T01:29:20.374Z",
+  "deterministicModelVersion": "enrichment-wave-2-summary-v1",
+  "selectedTargets": [
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "waveStatus": "wave-1-carryover",
+      "selectionWhy": "Wave-1 carryover with unresolved safety/evidence/mechanism critical gaps and toxicity-sensitive profile.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "waveStatus": "wave-1-carryover",
+      "selectionWhy": "Wave-1 carryover still missing strong safety and mechanism coverage in governed rollup.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "waveStatus": "wave-1-carryover",
+      "selectionWhy": "High-value compound from wave 1 with unresolved constituent/mechanism conflict handling needs.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "waveStatus": "wave-1-carryover",
+      "selectionWhy": "High-value compound still lacking safety/interactions population caution depth.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "waveStatus": "new-wave-2-entity",
+      "selectionWhy": "Public/indexable herb not in wave 1 and fully publish-blocked on safety/evidence/mechanism source gaps.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "no-governed-coverage"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "waveStatus": "new-wave-2-entity",
+      "selectionWhy": "Public/indexable herb not in wave 1 with complete critical-gap profile and no governed enrichment yet.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "no-governed-coverage"
+    }
+  ],
+  "sourceCycle": {
+    "reviewedCandidates": 6,
+    "approvedNewSources": 0,
+    "promotedToRegistry": 0,
+    "byClass": {}
+  },
+  "enrichmentCycle": {
+    "wave2SubmissionCount": 3,
+    "wave2PromotedCount": 2,
+    "wave2BlockedCount": 1,
+    "byTopicType": {
+      "research_gap": 3
+    }
+  },
+  "coverageDeltas": [
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "waveStatus": "wave-1-carryover",
+      "beforeGovernedEntries": 0,
+      "afterGovernedEntries": 0,
+      "deltaGovernedEntries": 0,
+      "beforeTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "waveStatus": "wave-1-carryover",
+      "beforeGovernedEntries": 0,
+      "afterGovernedEntries": 0,
+      "deltaGovernedEntries": 0,
+      "beforeTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "waveStatus": "wave-1-carryover",
+      "beforeGovernedEntries": 0,
+      "afterGovernedEntries": 0,
+      "deltaGovernedEntries": 0,
+      "beforeTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "waveStatus": "wave-1-carryover",
+      "beforeGovernedEntries": 0,
+      "afterGovernedEntries": 0,
+      "deltaGovernedEntries": 0,
+      "beforeTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "waveStatus": "new-wave-2-entity",
+      "beforeGovernedEntries": 0,
+      "afterGovernedEntries": 0,
+      "deltaGovernedEntries": 0,
+      "beforeTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "waveStatus": "new-wave-2-entity",
+      "beforeGovernedEntries": 0,
+      "afterGovernedEntries": 0,
+      "deltaGovernedEntries": 0,
+      "beforeTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 0,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    }
+  ],
+  "unresolvedCriticalGapsAfterWave2": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "criticality": [
+        "safety-critical",
+        "evidence-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical"
+      ],
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    }
+  ],
+  "strengthenedPublicSurfaces": {
+    "discoveryPublishableCount": 0,
+    "rollupSurfaceCoverage": []
+  }
+}

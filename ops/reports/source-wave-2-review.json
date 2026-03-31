@@ -1,0 +1,153 @@
+{
+  "generatedAt": "2026-03-31T01:28:58.916Z",
+  "deterministicModelVersion": "source-wave-2-review-v1",
+  "sources": {
+    "waveTargets": "ops/reports/source-wave-2-targets.json",
+    "waveCandidates": "ops/reports/source-wave-2-candidates.json",
+    "intakeQueue": "ops/reports/source-intake-queue.json",
+    "sourceCandidates": "ops/source-candidates.json",
+    "sourceRegistry": "public/data/source-registry.json"
+  },
+  "summary": {
+    "reviewedCandidateCount": 6,
+    "approvedCount": 0,
+    "rejectedCount": 0,
+    "duplicateCount": 3,
+    "needsMetadataCount": 3,
+    "promotedCount": 0,
+    "sourceCountsByClass": {},
+    "sourceCountsByEntity": {}
+  },
+  "candidateDecisions": [
+    {
+      "candidateSourceId": "cand_wave2-alectra-phytochemistry-2022",
+      "intakeTaskId": "intake_gap_wp_herb_alectra_sessiliflora_mechanism_lack_of_mechanism_sources_must_have_publish_blocking",
+      "reviewStatus": "duplicate_of_existing",
+      "outcomeCategory": "duplicate_of_existing",
+      "reasons": [
+        "Duplicate detected against src_doi-10-1016-j-jepm-2022-04-008:doi, src_doi-10-1016-j-jepm-2022-04-008:pmid, src_doi-10-1016-j-jepm-2022-04-008:canonicalUrl."
+      ],
+      "duplicateOfSourceId": "src_doi-10-1016-j-jepm-2022-04-008",
+      "entityKeys": [
+        "herb:alectra-sessiliflora"
+      ]
+    },
+    {
+      "candidateSourceId": "cand_wave2-calliandra-monograph-2024",
+      "intakeTaskId": "intake_gap_wp_herb_calliandra_anomala_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "reviewStatus": "duplicate_of_existing",
+      "outcomeCategory": "duplicate_of_existing",
+      "reasons": [
+        "Duplicate detected against src_url-example-org-pa-hsp-calliandra-anomala-monograph-2024:canonicalUrl."
+      ],
+      "duplicateOfSourceId": "src_url-example-org-pa-hsp-calliandra-anomala-monograph-2024",
+      "entityKeys": [
+        "herb:calliandra-anomala"
+      ]
+    },
+    {
+      "candidateSourceId": "cand_wave2-cbd-pharmacology-atlas-2025",
+      "intakeTaskId": "intake_gap_wp_compound_cbd_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
+      "reviewStatus": "needs_metadata",
+      "outcomeCategory": "insufficient_metadata",
+      "reasons": [
+        "intakeTaskId=intake_gap_wp_compound_cbd_constituent_lack_of_mechanism_sources_must_have_publish_blocking not found in source-intake queue."
+      ],
+      "entityKeys": [
+        "compound:cbd"
+      ]
+    },
+    {
+      "candidateSourceId": "cand_wave2-henbane-anticholinergic-review-2024",
+      "intakeTaskId": "intake_gap_wp_herb_henbane_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "reviewStatus": "duplicate_of_existing",
+      "outcomeCategory": "duplicate_of_existing",
+      "reasons": [
+        "Duplicate detected against src_doi-10-1080-toxrev-2024-110201:doi, src_doi-10-1080-toxrev-2024-110201:pmid, src_doi-10-1080-toxrev-2024-110201:canonicalUrl."
+      ],
+      "duplicateOfSourceId": "src_doi-10-1080-toxrev-2024-110201",
+      "entityKeys": [
+        "herb:henbane"
+      ]
+    },
+    {
+      "candidateSourceId": "cand_wave2-luteolin-ddi-safety-2024",
+      "intakeTaskId": "intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_high_value_strengthening",
+      "reviewStatus": "needs_metadata",
+      "outcomeCategory": "insufficient_metadata",
+      "reasons": [
+        "intakeTaskId=intake_gap_wp_compound_luteolin_safety_lack_of_safety_sources_high_value_strengthening not found in source-intake queue."
+      ],
+      "entityKeys": [
+        "compound:luteolin"
+      ]
+    },
+    {
+      "candidateSourceId": "cand_wave2-mandrake-clinical-toxicology-2023",
+      "intakeTaskId": "intake_gap_wp_herb_mandrake_root_safety_lack_of_safety_sources_must_have_publish_blocking",
+      "reviewStatus": "needs_metadata",
+      "outcomeCategory": "insufficient_metadata",
+      "reasons": [
+        "intakeTaskId=intake_gap_wp_herb_mandrake_root_safety_lack_of_safety_sources_must_have_publish_blocking not found in source-intake queue."
+      ],
+      "entityKeys": [
+        "herb:mandrake-root"
+      ]
+    }
+  ],
+  "promotedSourceIdsByEntity": {},
+  "unresolvedHighPriorityGaps": {
+    "compound:cbd": [
+      "constituent",
+      "mechanism",
+      "safety"
+    ],
+    "compound:luteolin": [
+      "constituent",
+      "mechanism",
+      "safety"
+    ],
+    "herb:alectra-sessiliflora": [
+      "constituent",
+      "evidence",
+      "mechanism",
+      "safety"
+    ],
+    "herb:calliandra-anomala": [
+      "constituent",
+      "evidence",
+      "mechanism",
+      "safety"
+    ],
+    "herb:henbane": [
+      "constituent",
+      "mechanism",
+      "safety"
+    ],
+    "herb:mandrake-root": [
+      "constituent",
+      "mechanism",
+      "safety"
+    ]
+  },
+  "unresolvedSafetyCriticalGaps": {
+    "compound:cbd": [
+      "safety"
+    ],
+    "compound:luteolin": [
+      "safety"
+    ],
+    "herb:alectra-sessiliflora": [
+      "safety"
+    ],
+    "herb:calliandra-anomala": [
+      "safety"
+    ],
+    "herb:henbane": [
+      "safety"
+    ],
+    "herb:mandrake-root": [
+      "safety"
+    ]
+  }
+}
