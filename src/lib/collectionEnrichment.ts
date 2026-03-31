@@ -18,6 +18,7 @@ export type GovernedEntitySnapshot = {
   hasConstituentCoverage: boolean
   hasConflictOrUncertainty: boolean
   weakEvidenceOnly: boolean
+  supportedUseTokens: string[]
   lastReviewedAt: string
 }
 
@@ -41,6 +42,8 @@ export type GovernedCollectionSummary = {
   degradeReasons: string[]
   relatedGovernedCompoundCount: number
   relatedGovernedCompoundSlugs: string[]
+  supportedUseThemesTop: string[]
+  weakEvidenceOnlyCount: number
   governedEntities: GovernedEntitySnapshot[]
 }
 
@@ -83,6 +86,15 @@ function hasConflictOrUncertainty(enrichment: ResearchEnrichment) {
   )
 }
 
+function normalizeTokens(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, ' ')
+    .split(/\s+/)
+    .map(token => token.trim())
+    .filter(token => token.length >= 5)
+}
+
 function toSnapshot(entity: EnrichmentComparableEntity): GovernedEntitySnapshot | null {
   const enrichment = getGovernedResearchEnrichment(entity.entityType, entity.entitySlug)
   if (!enrichment) return null
@@ -98,6 +110,11 @@ function toSnapshot(entity: EnrichmentComparableEntity): GovernedEntitySnapshot 
     hasConstituentCoverage: enrichment.constituents.length > 0,
     hasConflictOrUncertainty: hasConflictOrUncertainty(enrichment),
     weakEvidenceOnly: WEAK_EVIDENCE_ONLY.has(evidenceLabel),
+    supportedUseTokens: Array.from(
+      new Set(
+        enrichment.supportedUses.flatMap(claim => normalizeTokens(String(claim.claim || ''))),
+      ),
+    ),
     lastReviewedAt: enrichment.lastReviewedAt,
   }
 }
@@ -174,6 +191,18 @@ export function buildGovernedCollectionSummary(
     degradeReasons.push('no-related-governed-compound-signals')
   }
 
+  const themeCounts = new Map<string, number>()
+  for (const entity of governedEntities) {
+    for (const token of entity.supportedUseTokens) {
+      themeCounts.set(token, (themeCounts.get(token) || 0) + 1)
+    }
+  }
+  const supportedUseThemesTop = Array.from(themeCounts.entries())
+    .filter(([, count]) => count >= 2)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 3)
+    .map(([token]) => token)
+
   return {
     includedCount,
     governedReviewedCount,
@@ -203,6 +232,8 @@ export function buildGovernedCollectionSummary(
     degradeReasons: Array.from(new Set(degradeReasons)),
     relatedGovernedCompoundCount: relatedGovernedCompoundSlugs.size,
     relatedGovernedCompoundSlugs: Array.from(relatedGovernedCompoundSlugs).sort(),
+    supportedUseThemesTop,
+    weakEvidenceOnlyCount: governedEntities.filter(entity => entity.weakEvidenceOnly).length,
     governedEntities,
   }
 }

@@ -21,6 +21,7 @@ import {
   filterHerbByCollection,
 } from '@/lib/collectionQuality'
 import { buildGovernedCollectionSummary } from '@/lib/collectionEnrichment'
+import { buildGovernedCollectionIntro } from '@/lib/governedCollectionIntro'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import {
   breadcrumbJsonLd,
@@ -369,6 +370,15 @@ export default function CollectionPage() {
     [topItems],
   )
   const pageTitle = collection ? `${collection.title} Collection Guide` : 'Collections'
+  const collectionIntro = useMemo(
+    () =>
+      buildGovernedCollectionIntro({
+        fallbackIntro: collection?.intro || '',
+        summary: governedCollectionSummary,
+        qualityApproved: collectionQuality.approved,
+      }),
+    [collection?.intro, governedCollectionSummary, collectionQuality.approved],
+  )
   const pageDescription = collection
     ? buildGovernedCollectionSeoDescription(
         buildSeoDescription(collection, topItems),
@@ -521,11 +531,14 @@ export default function CollectionPage() {
           path: pagePath,
           items: schemaItems,
         }),
-        breadcrumbJsonLd([
-          { name: 'Home', url: SITE_URL },
-          { name: 'Collections', url: `${SITE_URL}/collections` },
-          { name: collection.title, url: `${SITE_URL}${pagePath}` },
-        ], { id: breadcrumbId }),
+        breadcrumbJsonLd(
+          [
+            { name: 'Home', url: SITE_URL },
+            { name: 'Collections', url: `${SITE_URL}/collections` },
+            { name: collection.title, url: `${SITE_URL}${pagePath}` },
+          ],
+          { id: breadcrumbId },
+        ),
       ]
     : undefined
 
@@ -554,7 +567,10 @@ export default function CollectionPage() {
           ]}
         />
         <h1 className='text-3xl font-semibold text-white'>{collection.title}</h1>
-        <p className='mt-3 max-w-3xl text-sm leading-7 text-white/80'>{collection.intro}</p>
+        <p className='mt-3 max-w-3xl text-sm leading-7 text-white/80'>{collectionIntro.intro}</p>
+        {collectionIntro.mode === 'governed' && collectionIntro.supportingNote ? (
+          <p className='mt-2 text-xs text-indigo-100/90'>{collectionIntro.supportingNote}</p>
+        ) : null}
         <p className='mt-3 text-xs text-white/65'>
           {itemCount} matching entries in this collection.
         </p>

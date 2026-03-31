@@ -136,7 +136,9 @@
     "report:governed-related-questions": "tsx scripts/report-governed-related-questions.ts",
     "verify:governed-related-questions": "tsx scripts/verify-governed-related-questions.ts",
     "report:governed-quick-compare": "tsx scripts/report-governed-quick-compare.ts",
-    "verify:governed-quick-compare": "tsx scripts/verify-governed-quick-compare.ts"
+    "verify:governed-quick-compare": "tsx scripts/verify-governed-quick-compare.ts",
+    "report:governed-collection-intro-refresh": "tsx scripts/report-governed-collection-intro-refresh.ts",
+    "verify:governed-collection-intro-refresh": "tsx scripts/verify-governed-collection-intro-refresh.ts"
   },
   "engines": {
     "node": ">=20 <21"
