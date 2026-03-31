@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-03-31T17:04:16.124Z",
+  "deterministicModelVersion": "governed-refinement-pass-v1",
+  "inputs": {
+    "scorecardGeneratedAt": "2026-03-31T16:54:50.436Z",
+    "analyticsGeneratedAt": "2026-03-31T16:43:16.172Z",
+    "governedArtifactPaths": [
+      "public/data/enrichment-governed.json",
+      "public/data/herbs-summary.json",
+      "public/data/compounds-summary.json",
+      "public/data/publication-manifest.json"
+    ],
+    "enrichmentOpsArtifacts": [
+      "ops/reports/enrichment-workpacks.json",
+      "ops/reports/enrichment-wave-2-blockers.json"
+    ]
+  },
+  "weakRefinementTargets": [
+    {
+      "pageType": "herb_detail|compound_detail",
+      "entityType": "herb|compound",
+      "entitySlug": null,
+      "surfaceId": "governed_review_freshness",
+      "weakSurfaceComponent": "Review freshness visibility",
+      "whyWeak": "Trust cue is visible in baseline but does not drive any observed engagement signal.",
+      "measurableSignal": "baselineVisibility=1, trackedVisibility=0, interactions=0, ctr=n/a"
+    },
+    {
+      "pageType": "collection_page|compare_page",
+      "entityType": "collection|compare",
+      "entitySlug": null,
+      "surfaceId": "governed_collection_compare_controls",
+      "weakSurfaceComponent": "Collection/comparison controls",
+      "whyWeak": "High baseline visibility with zero interaction indicates weak follow-through on governed next steps.",
+      "measurableSignal": "baselineVisibility=19, trackedVisibility=0, interactions=0, ctr=n/a"
+    },
+    {
+      "pageType": "herb_detail|compound_detail|collection_page",
+      "entityType": "herb|compound|collection",
+      "entitySlug": null,
+      "surfaceId": "governed_cta",
+      "weakSurfaceComponent": "Governed CTA clicks",
+      "whyWeak": "High baseline visibility with zero interaction indicates weak follow-through on governed next steps.",
+      "measurableSignal": "baselineVisibility=12, trackedVisibility=0, interactions=0, ctr=n/a"
+    },
+    {
+      "pageType": "herb_detail|compound_detail|collection_page",
+      "entityType": "herb|compound|collection",
+      "entitySlug": null,
+      "surfaceId": "tool_affiliate_related_journey",
+      "weakSurfaceComponent": "Tool / affiliate / related-link journey",
+      "whyWeak": "High baseline visibility with zero interaction indicates weak follow-through on governed next steps.",
+      "measurableSignal": "baselineVisibility=12, trackedVisibility=0, interactions=0, ctr=n/a"
+    }
+  ],
+  "beforeAfter": [
+    {
+      "targetSurfaceId": "governed_review_freshness",
+      "intendedWeakness": "Trust cue visible but low interaction and unclear next action",
+      "changed": [
+        "Added a concise trust-use note so freshness is framed as a cue, not a standalone decision signal.",
+        "Added a deterministic next-step anchor link to safety/evidence section for follow-through.",
+        "Renamed collapse title to \"Review freshness details\" to reduce ambiguity."
+      ],
+      "files": [
+        "src/components/detail/GovernedReviewFreshnessPanel.tsx",
+        "src/pages/HerbDetail.tsx",
+        "src/pages/CompoundDetail.tsx"
+      ]
+    },
+    {
+      "targetSurfaceId": "governed_quick_compare",
+      "intendedWeakness": "Visibility present but weak click-through into deeper governed context",
+      "changed": [
+        "Added explicit shortlisting guidance under quick compare heading.",
+        "Added explicit \"Open full governed profile\" link per card to improve next-step clarity."
+      ],
+      "files": [
+        "src/components/detail/GovernedQuickCompareBlock.tsx"
+      ]
+    },
+    {
+      "targetSurfaceId": "governed_collection_compare_controls",
+      "intendedWeakness": "Highest-visibility governed controls had zero measured interaction in scorecard snapshot",
+      "changed": [
+        "Added deterministic inline guidance to start with \"Reviewed recently\" and then sort by \"Review freshness\"."
+      ],
+      "files": [
+        "src/pages/CollectionPage.tsx",
+        "src/pages/Compare.tsx"
+      ]
+    },
+    {
+      "targetSurfaceId": "governed_intro_summary",
+      "intendedWeakness": "Intro visibility with low next-step engagement",
+      "changed": [
+        "Added a compact suggested action order below quick facts to clarify the next click path."
+      ],
+      "files": [
+        "src/components/detail/StructuredDetailIntro.tsx"
+      ]
+    }
+  ],
+  "intentionallyUnchangedCandidates": [
+    {
+      "surfaceId": "governed_browse_search_filters",
+      "reason": "Baseline visibility is low (2) in this snapshot; deferred until post-instrumentation evidence is richer."
+    },
+    {
+      "surfaceId": "governed_faq_related_questions",
+      "reason": "Low baseline volume (2) and sparse evidence make copy tightening less impactful than high-visibility control surfaces."
+    }
+  ],
+  "deterministicVerification": {
+    "onlyGovernedSignalsInfluenceRefinements": true,
+    "sparseCoverageDegradesGracefully": true,
+    "noBlockedRejectedRevisionRequestedInfluence": true,
+    "supportingSignals": {
+      "analyticsVerification": {
+        "supportedSurfaceOnlyEmission": true,
+        "weakOrPartialPagesGraceful": true,
+        "existingCtaToolAffiliateEventsStillPresent": true,
+        "noBroadAnalyticsRegression": true
+      },
+      "enrichmentGovernedRecordCount": 10,
+      "reviewerNeededCount": 50,
+      "governanceFixBucketCount": 46,
+      "failedWaveTargetCount": 6
+    }
+  }
+}

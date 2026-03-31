@@ -154,6 +154,10 @@ export default function Compare() {
             ) : null}
           </section>
           <section className='rounded-xl border border-white/10 bg-white/[0.02] p-3'>
+            <p className='text-[11px] text-white/70'>
+              Start with <span className='font-semibold text-white'>Reviewed recently</span>, then sort by{' '}
+              <span className='font-semibold text-white'>Review freshness</span> to compare safer shortlists first.
+            </p>
             <div className='grid gap-2 sm:grid-cols-2'>
               <label className='flex flex-col gap-1 text-xs text-white/75'>
                 Filter
