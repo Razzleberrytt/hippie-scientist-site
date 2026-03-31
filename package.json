@@ -109,7 +109,8 @@
     "report:enrichment-bootstrap-packs": "npm run report:enrichment-workpacks && tsx scripts/report-enrichment-bootstrap-packs.ts",
     "report:enrichment-authoring-packs": "npm run report:enrichment-bootstrap-packs && tsx scripts/report-enrichment-authoring-packs.ts",
     "report:enrichment-submission-review": "tsx scripts/report-enrichment-submission-review.ts",
-    "report:source-wave-1": "npm run report:source-intake-queue && tsx scripts/report-source-wave-1.ts"
+    "report:source-wave-1": "npm run report:source-intake-queue && tsx scripts/report-source-wave-1.ts",
+    "report:source-wave-1-review": "npm run report:source-wave-1 && tsx scripts/report-source-wave-1-review.ts"
   },
   "engines": {
     "node": ">=20 <21"
