@@ -63,6 +63,51 @@ type SourceRegistryRow = {
   active: boolean
 }
 
+type SourceCandidate = {
+  candidateSourceId: string
+  intakeTaskId: string
+  sourceType: string
+  sourceClass: string
+  language?: string
+  publicationStatus?: string
+  reviewStatus?: string
+  doi?: string
+  pmid?: string
+  canonicalUrl?: string
+  monographId?: string
+  isbn?: string
+}
+
+type CompletionState = 'complete' | 'partial' | 'missing_critical' | 'blocked_manual_review'
+
+type CompletionMetrics = {
+  totalRequiredFields: number
+  completedRequiredFields: number
+  missingRequiredFields: string[]
+  completionPercent: number
+  completionState: CompletionState
+  criticalMissingFields: string[]
+  optionalFieldsCompleted: number
+  topicCoverageCompleted: number
+  topicCoverageTotal: number
+}
+
+type RetryPass =
+  | 'pass_1_strict_high_confidence'
+  | 'pass_2_expand_high_quality_classes'
+  | 'pass_3_broader_approved_classes'
+  | 'pass_4_stop_manual_review'
+
+type RetryAttempt = {
+  pass: RetryPass
+  allowedSourceClasses: string[]
+  relaxedConstraints: string[]
+  whyAllowed: string
+  attemptCandidateCount: number
+  matchedCandidateIds: string[]
+  unresolvedRequiredFields: string[]
+}
+
 type SourceIntakeTask = {
   intakeTaskId: string
   itemType: ItemType
@@ -85,6 +130,9 @@ type SourceIntakeTask = {
   requiredGovernanceChecksBeforeRegistryEntry: string[]
   status: IntakeStatus
   notesForContractor: string
+  completion: CompletionMetrics
+  adaptiveRetryAttempts: RetryAttempt[]
+  unresolvedAfterRetries: string[]
 }
 
 type SourceIntakeQueueReport = {
@@ -115,6 +163,7 @@ const ROOT = process.cwd()
 const SOURCE_GAPS_PATH = path.join(ROOT, 'ops', 'reports', 'source-gaps.json')
 const WORKPACKS_PATH = path.join(ROOT, 'ops', 'reports', 'enrichment-workpacks.json')
 const SOURCE_REGISTRY_PATH = path.join(ROOT, 'public', 'data', 'source-registry.json')
+const SOURCE_CANDIDATES_PATH = path.join(ROOT, 'ops', 'source-candidates.json')
 const OUTPUT_JSON = path.join(ROOT, 'ops', 'reports', 'source-intake-queue.json')
 const OUTPUT_MD = path.join(ROOT, 'ops', 'reports', 'source-intake-queue.md')
 
@@ -155,6 +204,33 @@ const GAP_WHY_MATTERS: Partial<Record<SourceGapType, string>> = {
     'This topic has no adequate active source coverage and needs baseline references before enrichment can be considered complete.',
   weak_source_diversity: 'Coverage is too narrow and should be widened with complementary source classes.',
   inactive_registered_sources: 'Inactive references cannot support publishable enrichment; replacement active sources are required.',
+}
+
+const TOPIC_CLASS_FALLBACKS: Record<TopicType, { pass2: string[]; pass3: string[] }> = {
+  safety: {
+    pass2: ['regulatory-agency-monograph-guidance', 'systematic-review-meta-analysis'],
+    pass3: ['reference-database-authority', 'observational-human-evidence'],
+  },
+  evidence: {
+    pass2: ['systematic-review-meta-analysis', 'randomized-human-trial'],
+    pass3: ['non-randomized-human-study', 'observational-human-evidence'],
+  },
+  mechanism: {
+    pass2: ['preclinical-mechanistic-study', 'reference-database-authority'],
+    pass3: ['systematic-review-meta-analysis'],
+  },
+  constituent: {
+    pass2: ['preclinical-mechanistic-study', 'reference-database-authority'],
+    pass3: ['traditional-use-monograph'],
+  },
+  source_registry: {
+    pass2: ['systematic-review-meta-analysis', 'regulatory-agency-monograph-guidance'],
+    pass3: ['reference-database-authority', 'observational-human-evidence'],
+  },
+  surface_coverage: {
+    pass2: ['systematic-review-meta-analysis', 'observational-human-evidence'],
+    pass3: ['reference-database-authority', 'traditional-use-monograph'],
+  },
 }
 
 function readJson<T>(filePath: string): T {
@@ -264,10 +340,133 @@ function reviewerNeeded(gap: SourceGapItem, workpackIds: string[], workpackById:
   return false
 }
 
+function hasPrimaryAnchor(candidate: SourceCandidate): boolean {
+  return Boolean(candidate.doi || candidate.pmid || candidate.canonicalUrl || candidate.monographId || candidate.isbn)
+}
+
+function completionForTask(task: Omit<SourceIntakeTask, 'completion' | 'adaptiveRetryAttempts' | 'unresolvedAfterRetries'>): CompletionMetrics {
+  const requiredFields = [
+    'intakeTaskId',
+    'itemType',
+    'topicType',
+    'sourceGapType',
+    'recommendedSourceClasses',
+    'minimumAcceptanceCriteria',
+    'requiredGovernanceChecksBeforeRegistryEntry',
+    'status',
+  ] as const
+  const criticalFields = ['recommendedSourceClasses', 'minimumAcceptanceCriteria', 'requiredGovernanceChecksBeforeRegistryEntry']
+  const missingRequiredFields: string[] = []
+
+  for (const field of requiredFields) {
+    const value = task[field]
+    const missing = Array.isArray(value) ? value.length === 0 : !value
+    if (missing) missingRequiredFields.push(field)
+  }
+
+  const criticalMissingFields = criticalFields.filter(field => missingRequiredFields.includes(field))
+  const completedRequiredFields = requiredFields.length - missingRequiredFields.length
+  const completionPercent = requiredFields.length === 0 ? 100 : Number(((completedRequiredFields / requiredFields.length) * 100).toFixed(2))
+  const completionState: CompletionState =
+    criticalMissingFields.length > 0
+      ? 'missing_critical'
+      : missingRequiredFields.length === 0
+        ? 'complete'
+        : 'partial'
+
+  return {
+    totalRequiredFields: requiredFields.length,
+    completedRequiredFields,
+    missingRequiredFields,
+    completionPercent,
+    completionState,
+    criticalMissingFields,
+    optionalFieldsCompleted: [task.entitySlug, task.surfaceId, task.notesForContractor].filter(Boolean).length,
+    topicCoverageCompleted: task.recommendedSourceClasses.length > 0 ? 1 : 0,
+    topicCoverageTotal: 1,
+  }
+}
+
+function buildRetryAttempts(task: Omit<SourceIntakeTask, 'completion' | 'adaptiveRetryAttempts' | 'unresolvedAfterRetries'>, candidatePool: SourceCandidate[]): RetryAttempt[] {
+  const fallbacks = TOPIC_CLASS_FALLBACKS[task.topicType] || TOPIC_CLASS_FALLBACKS.surface_coverage
+  const passDefinitions: Array<{ pass: RetryPass; classes: string[]; relaxedConstraints: string[]; whyAllowed: string }> = [
+    {
+      pass: 'pass_1_strict_high_confidence',
+      classes: task.recommendedSourceClasses,
+      relaxedConstraints: [],
+      whyAllowed: 'Start with exact recommended source classes and strict metadata anchors.',
+    },
+    {
+      pass: 'pass_2_expand_high_quality_classes',
+      classes: dedupe([...task.recommendedSourceClasses, ...fallbacks.pass2]).sort(),
+      relaxedConstraints: ['allow alternate high-quality class list by topic'],
+      whyAllowed: 'Pass 1 found no acceptable candidate coverage for required fields.',
+    },
+    {
+      pass: 'pass_3_broader_approved_classes',
+      classes: dedupe([...task.recommendedSourceClasses, ...fallbacks.pass2, ...fallbacks.pass3]).sort(),
+      relaxedConstraints: ['allow broader approved source classes', 'allow needs_metadata review status while retaining governance checks'],
+      whyAllowed: 'Pass 2 still unresolved; expand to approved fallback classes without auto-approval.',
+    },
+  ]
+
+  const attempts: RetryAttempt[] = []
+  let resolved = false
+
+  for (const passDef of passDefinitions) {
+    const matched = candidatePool.filter(candidate => {
+      if (!passDef.classes.includes(candidate.sourceClass)) return false
+      if (passDef.pass === 'pass_1_strict_high_confidence') {
+        return (
+          hasPrimaryAnchor(candidate) &&
+          candidate.publicationStatus === 'published' &&
+          candidate.reviewStatus === 'approved_for_registry' &&
+          Boolean(candidate.language)
+        )
+      }
+      if (passDef.pass === 'pass_2_expand_high_quality_classes') {
+        return hasPrimaryAnchor(candidate) && ['published', 'preprint'].includes(String(candidate.publicationStatus || ''))
+      }
+      return hasPrimaryAnchor(candidate)
+    })
+
+    const unresolvedRequiredFields = matched.length > 0 ? [] : ['source_candidate.title', 'source_candidate.sourceClass', 'source_candidate.primary_identifier']
+    attempts.push({
+      pass: passDef.pass,
+      allowedSourceClasses: passDef.classes,
+      relaxedConstraints: passDef.relaxedConstraints,
+      whyAllowed: passDef.whyAllowed,
+      attemptCandidateCount: matched.length,
+      matchedCandidateIds: matched.map(candidate => candidate.candidateSourceId).sort(),
+      unresolvedRequiredFields,
+    })
+
+    if (unresolvedRequiredFields.length === 0) {
+      resolved = true
+      break
+    }
+  }
+
+  if (!resolved) {
+    attempts.push({
+      pass: 'pass_4_stop_manual_review',
+      allowedSourceClasses: [],
+      relaxedConstraints: ['stop escalation and require human decision'],
+      whyAllowed: 'All deterministic retry passes exhausted without satisfying required source candidate fields.',
+      attemptCandidateCount: 0,
+      matchedCandidateIds: [],
+      unresolvedRequiredFields: ['manual_review_required'],
+    })
+  }
+
+  return attempts
+}
+
 function run() {
   const gapReport = readJson<SourceGapReport>(SOURCE_GAPS_PATH)
   const workpackReport = readJson<WorkpackReport>(WORKPACKS_PATH)
   const sourceRegistry = readJson<SourceRegistryRow[]>(SOURCE_REGISTRY_PATH)
+  const sourceCandidates = readJson<SourceCandidate[]>(SOURCE_CANDIDATES_PATH)
 
   const workpackById = new Map(workpackReport.workpacks.map(workpack => [workpack.workpackId, workpack]))
 
@@ -282,7 +481,7 @@ function run() {
         GAP_WHY_MATTERS[gap.sourceGapType] ||
         `Source coverage should be improved for ${gap.topicType} so this target can pass deterministic governance checks.`
 
-      return {
+      const baseTask = {
         intakeTaskId,
         itemType: gap.itemType,
         entitySlug: gap.entitySlug,
@@ -304,6 +503,15 @@ function run() {
         requiredGovernanceChecksBeforeRegistryEntry: governanceChecksForTask(workpackIds, workpackById),
         status: statusForTier(tier),
         notesForContractor: `${gap.notesForContractor} Treat this as an intake-planning task only; registry entry still requires governance review. Target: ${target}.`,
+      }
+      const candidatesForTask = sourceCandidates.filter(candidate => candidate.intakeTaskId === intakeTaskId)
+      const adaptiveRetryAttempts = buildRetryAttempts(baseTask, candidatesForTask)
+      const unresolvedAfterRetries = adaptiveRetryAttempts[adaptiveRetryAttempts.length - 1]?.unresolvedRequiredFields || []
+      return {
+        ...baseTask,
+        completion: completionForTask(baseTask),
+        adaptiveRetryAttempts,
+        unresolvedAfterRetries,
       }
     })
     .sort((a, b) => {
@@ -359,7 +567,7 @@ function run() {
 
   const report: SourceIntakeQueueReport = {
     generatedAt: new Date().toISOString(),
-    deterministicModelVersion: 'source-intake-queue-v1',
+    deterministicModelVersion: 'source-intake-queue-v2',
     sources: {
       sourceGaps: path.relative(ROOT, SOURCE_GAPS_PATH),
       enrichmentWorkpacks: path.relative(ROOT, WORKPACKS_PATH),
@@ -409,13 +617,13 @@ function run() {
     '- defer_until_later: track only; do not pull forward without explicit reprioritization.',
     '',
     '## Top intake tasks (first 40)',
-    '| intakeTaskId | tier | target | topic | gap | source classes | reviewer | governance checks |',
-    '| --- | --- | --- | --- | --- | --- | --- | --- |',
+    '| intakeTaskId | tier | target | topic | gap | source classes | completion | retry outcome | reviewer | governance checks |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   ]
 
   for (const task of report.tasks.slice(0, 40)) {
     md.push(
-      `| ${task.intakeTaskId} | ${task.acquisitionTier} | ${task.entitySlug || task.surfaceId || '-'} | ${task.topicType} | ${task.sourceGapType} | ${task.recommendedSourceClasses.join(', ')} | ${task.reviewerNeeded ? 'yes' : 'no'} | ${task.requiredGovernanceChecksBeforeRegistryEntry.join(', ')} |`,
+      `| ${task.intakeTaskId} | ${task.acquisitionTier} | ${task.entitySlug || task.surfaceId || '-'} | ${task.topicType} | ${task.sourceGapType} | ${task.recommendedSourceClasses.join(', ')} | ${task.completion.completedRequiredFields}/${task.completion.totalRequiredFields} (${task.completion.completionPercent}%) | ${task.unresolvedAfterRetries.join(', ') || 'resolved'} | ${task.reviewerNeeded ? 'yes' : 'no'} | ${task.requiredGovernanceChecksBeforeRegistryEntry.join(', ')} |`,
     )
   }
 

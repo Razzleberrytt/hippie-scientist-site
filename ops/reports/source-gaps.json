@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T12:31:22.806Z",
+  "generatedAt": "2026-03-31T19:05:23.240Z",
   "deterministicModelVersion": "source-gap-discovery-v1",
   "sources": {
     "sourceRegistry": "public/data/source-registry.json",
@@ -7,9 +7,9 @@
     "publicationManifest": "public/data/publication-manifest.json"
   },
   "summary": {
-    "totalGapItems": 125,
+    "totalGapItems": 124,
     "byBucket": {
-      "source_needed_now": 27,
+      "source_needed_now": 26,
       "safety_source_needed": 27,
       "human_evidence_gap": 16,
       "mechanism_source_gap": 54,
@@ -17,16 +17,16 @@
       "defer_until_sources_available": 0
     },
     "bySourceGapType": {
-      "missing_source_coverage_by_topic": 35,
-      "weak_source_diversity": 14,
-      "lack_of_safety_sources": 22,
+      "missing_source_coverage_by_topic": 38,
+      "weak_source_diversity": 12,
+      "lack_of_safety_sources": 21,
       "lack_of_mechanism_sources": 36,
-      "overreliance_single_source_class": 1,
+      "overreliance_single_source_class": 0,
       "missing_modern_human_evidence": 16,
       "traditional_or_preclinical_only": 1,
       "inactive_registered_sources": 0
     },
-    "publishBlockingCount": 119,
+    "publishBlockingCount": 117,
     "safetyCriticalCount": 27
   },
   "buckets": {
@@ -60,7 +60,7 @@
         "itemType": "discovery_surface",
         "entitySlug": null,
         "surfaceId": "browse-herbs-summary",
-        "priorityLabel": "do_now",
+        "priorityLabel": "low_priority",
         "topicType": "source_registry",
         "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
@@ -72,11 +72,11 @@
           "regulatory-agency-monograph-guidance"
         ],
         "safetyCritical": false,
-        "publishBlocking": true,
+        "publishBlocking": false,
         "relatedWorkpackIds": [
           "wp_browse_search_browse_herbs_summary"
         ],
-        "notesForContractor": "Target browse-herbs-summary has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. This gap is publish-blocking under current governance and should be resolved before release.",
+        "notesForContractor": "Target browse-herbs-summary has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. Partial enrichment is acceptable, but mark uncertainty and schedule follow-up sourcing.",
         "bucket": "source_needed_now"
       },
       {
@@ -584,29 +584,6 @@
         "bucket": "source_needed_now"
       },
       {
-        "gapId": "gap_wp_compound_cbd_overreliance_single_source_class",
-        "itemType": "compound_page",
-        "entitySlug": "cbd",
-        "surfaceId": null,
-        "priorityLabel": "governance_fix_needed",
-        "topicType": "evidence",
-        "sourceGapType": "overreliance_single_source_class",
-        "currentSourceClasses": [
-          "preclinical-mechanistic-study"
-        ],
-        "recommendedSourceClasses": [
-          "systematic-review-meta-analysis",
-          "regulatory-agency-monograph-guidance"
-        ],
-        "safetyCritical": false,
-        "publishBlocking": true,
-        "relatedWorkpackIds": [
-          "wp_compound_cbd"
-        ],
-        "notesForContractor": "Coverage relies on a single source class. Add at least one independent complementary class to reduce uncertainty and conflict fragility.",
-        "bucket": "source_needed_now"
-      },
-      {
         "gapId": "gap_wp_entity_detail_compound_pages_source_registry_missing_source_coverage_by_topic",
         "itemType": "discovery_surface",
         "entitySlug": null,
@@ -773,15 +750,16 @@
         "bucket": "safety_source_needed"
       },
       {
-        "gapId": "gap_wp_compound_cbd_safety_lack_of_safety_sources",
+        "gapId": "gap_wp_compound_cbd_safety_missing_source_coverage_by_topic",
         "itemType": "compound_page",
         "entitySlug": "cbd",
         "surfaceId": null,
         "priorityLabel": "governance_fix_needed",
         "topicType": "safety",
-        "sourceGapType": "lack_of_safety_sources",
+        "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
-          "preclinical-mechanistic-study"
+          "preclinical-mechanistic-study",
+          "systematic-review-meta-analysis"
         ],
         "recommendedSourceClasses": [
           "regulatory-agency-monograph-guidance",
@@ -792,7 +770,7 @@
         "relatedWorkpackIds": [
           "wp_compound_cbd"
         ],
-        "notesForContractor": "Target cbd has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+        "notesForContractor": "Target cbd has topic gap in safety. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
         "bucket": "safety_source_needed"
       },
       {
@@ -1861,15 +1839,16 @@
         "bucket": "mechanism_source_gap"
       },
       {
-        "gapId": "gap_wp_compound_cbd_constituent_weak_source_diversity",
+        "gapId": "gap_wp_compound_cbd_constituent_missing_source_coverage_by_topic",
         "itemType": "compound_page",
         "entitySlug": "cbd",
         "surfaceId": null,
         "priorityLabel": "governance_fix_needed",
         "topicType": "constituent",
-        "sourceGapType": "weak_source_diversity",
+        "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
-          "preclinical-mechanistic-study"
+          "preclinical-mechanistic-study",
+          "systematic-review-meta-analysis"
         ],
         "recommendedSourceClasses": [
           "preclinical-mechanistic-study",
@@ -1880,19 +1859,20 @@
         "relatedWorkpackIds": [
           "wp_compound_cbd"
         ],
-        "notesForContractor": "Target cbd has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "notesForContractor": "Target cbd has topic gap in constituent. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
         "bucket": "mechanism_source_gap"
       },
       {
-        "gapId": "gap_wp_compound_cbd_mechanism_weak_source_diversity",
+        "gapId": "gap_wp_compound_cbd_mechanism_missing_source_coverage_by_topic",
         "itemType": "compound_page",
         "entitySlug": "cbd",
         "surfaceId": null,
         "priorityLabel": "governance_fix_needed",
         "topicType": "mechanism",
-        "sourceGapType": "weak_source_diversity",
+        "sourceGapType": "missing_source_coverage_by_topic",
         "currentSourceClasses": [
-          "preclinical-mechanistic-study"
+          "preclinical-mechanistic-study",
+          "systematic-review-meta-analysis"
         ],
         "recommendedSourceClasses": [
           "preclinical-mechanistic-study",
@@ -1903,7 +1883,7 @@
         "relatedWorkpackIds": [
           "wp_compound_cbd"
         ],
-        "notesForContractor": "Target cbd has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+        "notesForContractor": "Target cbd has topic gap in mechanism. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
         "bucket": "mechanism_source_gap"
       },
       {
@@ -2982,7 +2962,7 @@
       "itemType": "discovery_surface",
       "entitySlug": null,
       "surfaceId": "browse-herbs-summary",
-      "priorityLabel": "do_now",
+      "priorityLabel": "low_priority",
       "topicType": "source_registry",
       "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
@@ -2994,11 +2974,11 @@
         "regulatory-agency-monograph-guidance"
       ],
       "safetyCritical": false,
-      "publishBlocking": true,
+      "publishBlocking": false,
       "relatedWorkpackIds": [
         "wp_browse_search_browse_herbs_summary"
       ],
-      "notesForContractor": "Target browse-herbs-summary has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. This gap is publish-blocking under current governance and should be resolved before release.",
+      "notesForContractor": "Target browse-herbs-summary has topic gap in source_registry. Current active evidence classes: none. Focus next sourcing on: systematic-review-meta-analysis, randomized-human-trial, regulatory-agency-monograph-guidance. Partial enrichment is acceptable, but mark uncertainty and schedule follow-up sourcing.",
       "bucket": "source_needed_now"
     },
     {
@@ -3874,15 +3854,16 @@
       "bucket": "safety_source_needed"
     },
     {
-      "gapId": "gap_wp_compound_cbd_constituent_weak_source_diversity",
+      "gapId": "gap_wp_compound_cbd_constituent_missing_source_coverage_by_topic",
       "itemType": "compound_page",
       "entitySlug": "cbd",
       "surfaceId": null,
       "priorityLabel": "governance_fix_needed",
       "topicType": "constituent",
-      "sourceGapType": "weak_source_diversity",
+      "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
-        "preclinical-mechanistic-study"
+        "preclinical-mechanistic-study",
+        "systematic-review-meta-analysis"
       ],
       "recommendedSourceClasses": [
         "preclinical-mechanistic-study",
@@ -3893,19 +3874,20 @@
       "relatedWorkpackIds": [
         "wp_compound_cbd"
       ],
-      "notesForContractor": "Target cbd has topic gap in constituent. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "notesForContractor": "Target cbd has topic gap in constituent. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
       "bucket": "mechanism_source_gap"
     },
     {
-      "gapId": "gap_wp_compound_cbd_mechanism_weak_source_diversity",
+      "gapId": "gap_wp_compound_cbd_mechanism_missing_source_coverage_by_topic",
       "itemType": "compound_page",
       "entitySlug": "cbd",
       "surfaceId": null,
       "priorityLabel": "governance_fix_needed",
       "topicType": "mechanism",
-      "sourceGapType": "weak_source_diversity",
+      "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
-        "preclinical-mechanistic-study"
+        "preclinical-mechanistic-study",
+        "systematic-review-meta-analysis"
       ],
       "recommendedSourceClasses": [
         "preclinical-mechanistic-study",
@@ -3916,42 +3898,20 @@
       "relatedWorkpackIds": [
         "wp_compound_cbd"
       ],
-      "notesForContractor": "Target cbd has topic gap in mechanism. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
+      "notesForContractor": "Target cbd has topic gap in mechanism. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: preclinical-mechanistic-study, reference-database-authority. This gap is publish-blocking under current governance and should be resolved before release.",
       "bucket": "mechanism_source_gap"
     },
     {
-      "gapId": "gap_wp_compound_cbd_overreliance_single_source_class",
-      "itemType": "compound_page",
-      "entitySlug": "cbd",
-      "surfaceId": null,
-      "priorityLabel": "governance_fix_needed",
-      "topicType": "evidence",
-      "sourceGapType": "overreliance_single_source_class",
-      "currentSourceClasses": [
-        "preclinical-mechanistic-study"
-      ],
-      "recommendedSourceClasses": [
-        "systematic-review-meta-analysis",
-        "regulatory-agency-monograph-guidance"
-      ],
-      "safetyCritical": false,
-      "publishBlocking": true,
-      "relatedWorkpackIds": [
-        "wp_compound_cbd"
-      ],
-      "notesForContractor": "Coverage relies on a single source class. Add at least one independent complementary class to reduce uncertainty and conflict fragility.",
-      "bucket": "source_needed_now"
-    },
-    {
-      "gapId": "gap_wp_compound_cbd_safety_lack_of_safety_sources",
+      "gapId": "gap_wp_compound_cbd_safety_missing_source_coverage_by_topic",
       "itemType": "compound_page",
       "entitySlug": "cbd",
       "surfaceId": null,
       "priorityLabel": "governance_fix_needed",
       "topicType": "safety",
-      "sourceGapType": "lack_of_safety_sources",
+      "sourceGapType": "missing_source_coverage_by_topic",
       "currentSourceClasses": [
-        "preclinical-mechanistic-study"
+        "preclinical-mechanistic-study",
+        "systematic-review-meta-analysis"
       ],
       "recommendedSourceClasses": [
         "regulatory-agency-monograph-guidance",
@@ -3962,7 +3922,7 @@
       "relatedWorkpackIds": [
         "wp_compound_cbd"
       ],
-      "notesForContractor": "Target cbd has topic gap in safety. Current active evidence classes: preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
+      "notesForContractor": "Target cbd has topic gap in safety. Current active evidence classes: human-clinical, preclinical-mechanistic. Focus next sourcing on: regulatory-agency-monograph-guidance, systematic-review-meta-analysis. This gap is publish-blocking under current governance and should be resolved before release.",
       "bucket": "safety_source_needed"
     },
     {
