@@ -1,6 +1,6 @@
 # Enrichment Workpacks
 
-Generated: 2026-03-30T22:34:20.281Z
+Generated: 2026-03-31T00:07:52.979Z
 
 ## Operational buckets
 - governance_fix: 36
