@@ -15416,18 +15416,6 @@
     "interactionTags": [],
     "hasInteractionData": true,
     "hasEvidenceNotes": true,
-    "researchEnrichmentSummary": {
-      "evidenceLabel": "limited_human_support",
-      "evidenceLabelTitle": "Limited human support",
-      "hasHumanEvidence": true,
-      "safetyCautionsPresent": false,
-      "supportedUseCoveragePresent": false,
-      "mechanismOrConstituentCoveragePresent": false,
-      "traditionalUseOnly": false,
-      "conflictingEvidence": false,
-      "enrichedAndReviewed": true,
-      "lastReviewedAt": "2026-03-31T02:11:00.000Z"
-    },
     "image": "",
     "aliases": [
       "mandrake root",

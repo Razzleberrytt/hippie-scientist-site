@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T13:22:32.396Z",
+  "generatedAt": "2026-03-31T13:36:17.646Z",
   "counts": {
     "herbs": 812,
     "compounds": 394,
@@ -21,7 +21,7 @@
     {
       "slug": "mistletoe",
       "name": "mistletoe",
-      "blurb": "Immune regulation, Sedation, Nervous system balance, Blood pressure modulation",
+      "blurb": "mistletoe: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
       "kind": "herb",
       "whyItMatters": "mistletoe matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -50,7 +50,7 @@
     {
       "slug": "kava",
       "name": "kava",
-      "blurb": "No direct effects data. Contextual inference:, nan.. No direct mechanismofaction data. Contextual inference:, nan.., nan.",
+      "blurb": "kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
       "kind": "herb",
       "whyItMatters": "kava matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -81,7 +81,7 @@
     {
       "slug": "mistletoe",
       "name": "mistletoe",
-      "blurb": "Immune regulation, Sedation, Nervous system balance, Blood pressure modulation",
+      "blurb": "mistletoe: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
       "kind": "herb",
       "whyItMatters": "mistletoe matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -110,7 +110,7 @@
     {
       "slug": "kava",
       "name": "kava",
-      "blurb": "No direct effects data. Contextual inference:, nan.. No direct mechanismofaction data. Contextual inference:, nan.., nan.",
+      "blurb": "kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
       "kind": "herb",
       "whyItMatters": "kava matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -141,7 +141,7 @@
     {
       "slug": "mistletoe",
       "name": "mistletoe",
-      "blurb": "Immune regulation, Sedation, Nervous system balance, Blood pressure modulation",
+      "blurb": "mistletoe: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
       "kind": "herb",
       "whyItMatters": "mistletoe matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -170,7 +170,7 @@
     {
       "slug": "kava",
       "name": "kava",
-      "blurb": "No direct effects data. Contextual inference:, nan.. No direct mechanismofaction data. Contextual inference:, nan.., nan.",
+      "blurb": "kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
       "kind": "herb",
       "whyItMatters": "kava matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -201,7 +201,7 @@
     {
       "slug": "mistletoe",
       "name": "mistletoe",
-      "blurb": "Immune regulation, Sedation, Nervous system balance, Blood pressure modulation",
+      "blurb": "mistletoe: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
       "kind": "herb",
       "whyItMatters": "mistletoe matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {
@@ -230,7 +230,7 @@
     {
       "slug": "kava",
       "name": "kava",
-      "blurb": "No direct effects data. Contextual inference:, nan.. No direct mechanismofaction data. Contextual inference:, nan.., nan.",
+      "blurb": "kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
       "kind": "herb",
       "whyItMatters": "kava matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.",
       "quality": {

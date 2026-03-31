@@ -224,6 +224,25 @@ function toEvidenceBadge(summary) {
   }
 }
 
+function buildGovernedCardSummary(name, governedSummary) {
+  if (!governedSummary?.enrichedAndReviewed) return ''
+  const parts = [`Governed review: ${governedSummary.title.toLowerCase()}.`]
+  parts.push(
+    governedSummary.safetyCautionsPresent
+      ? 'Safety and interaction cautions are documented.'
+      : 'No specific governed safety cautions are listed yet; use standard caution and check interactions.',
+  )
+  parts.push(
+    governedSummary.mechanismCoveragePresent
+      ? 'Mechanism or constituent context is available.'
+      : 'Mechanism and constituent coverage remains limited in current governed summaries.',
+  )
+  if (governedSummary.conflictingEvidence) {
+    parts.push('Evidence includes conflict markers and should be interpreted conservatively.')
+  }
+  return `${name}: ${parts.join(' ')}`
+}
+
 function getGovernedMap(governedRows) {
   const publishableByEntity = new Map()
   const blockedByEntity = new Map()
@@ -317,13 +336,15 @@ function buildHomepageData() {
     return {
       slug: herb.slug,
       name: herb.name,
-      blurb: buildCardSummary({
-        effects: herb.effects,
-        mechanism: herb.mechanism,
-        description: herb.description,
-        activeCompounds: herb.activeCompounds,
-        maxLen: 150,
-      }),
+      blurb:
+        buildGovernedCardSummary(herb.name, governedSummary) ||
+        buildCardSummary({
+          effects: herb.effects,
+          mechanism: herb.mechanism,
+          description: herb.description,
+          activeCompounds: herb.activeCompounds,
+          maxLen: 150,
+        }),
       kind: 'herb',
       whyItMatters: buildHerbWhyItMatters(herb),
       quality,
@@ -349,14 +370,16 @@ function buildHomepageData() {
       return {
         slug,
         name: cleanText(compound.name),
-        blurb: buildCardSummary({
-          effects: splitClean(compound.effects),
-          mechanism: cleanText(compound.mechanism || compound.mechanismOfAction),
-          description: cleanText(compound.description),
-          activeCompounds: splitClean(compound.activeCompounds),
-          therapeuticUses: splitClean(compound.therapeuticUses),
-          maxLen: 150,
-        }),
+        blurb:
+          buildGovernedCardSummary(cleanText(compound.name), governedSummary) ||
+          buildCardSummary({
+            effects: splitClean(compound.effects),
+            mechanism: cleanText(compound.mechanism || compound.mechanismOfAction),
+            description: cleanText(compound.description),
+            activeCompounds: splitClean(compound.activeCompounds),
+            therapeuticUses: splitClean(compound.therapeuticUses),
+            maxLen: 150,
+          }),
         kind: 'compound',
         whyItMatters: 'Why it matters: compound-level literacy helps you evaluate mechanism, interactions, and realistic outcomes.',
         quality,
@@ -476,6 +499,7 @@ function buildRefreshReport({ beforePayload, afterPayload, diagnostics }) {
   const beforeFeatured = new Set((beforePayload?.featuredPool || []).map(toEntityKey))
   const afterFeatured = new Set((afterPayload?.featuredPool || []).map(toEntityKey))
   const gainedVisibility = [...afterFeatured].filter(key => !beforeFeatured.has(key))
+  const beforeByEntity = new Map((beforePayload?.featuredPool || []).map(item => [toEntityKey(item), item]))
 
   const payloadSizeBefore = beforePayload ? Buffer.byteLength(JSON.stringify(beforePayload), 'utf8') : null
   const payloadSizeAfter = Buffer.byteLength(JSON.stringify(afterPayload), 'utf8')
@@ -502,6 +526,28 @@ function buildRefreshReport({ beforePayload, afterPayload, diagnostics }) {
         lastReviewedDate: formatReviewDate(item.governedSummary?.lastReviewedAt),
       })),
     },
+    cardSummaryExamples: diagnostics.governedHighlights.slice(0, 4).map(item => {
+      const key = toEntityKey(item)
+      const before = beforeByEntity.get(key)
+      const baselineHerb = (afterPayload.effectExplorerHerbs || []).find(
+        row => row.slug === item.slug && item.kind === 'herb',
+      )
+      const baselineCandidate = baselineHerb
+        ? buildCardSummary({
+            effects: baselineHerb.effects,
+            mechanism: baselineHerb.mechanism,
+            description: baselineHerb.description,
+            activeCompounds: baselineHerb.activeCompounds,
+            maxLen: 150,
+          })
+        : null
+      return {
+        entityKey: key,
+        previousRunBlurb: before?.blurb || null,
+        baselineCandidate,
+        afterBlurb: item.blurb,
+      }
+    }),
     exclusions: diagnostics.entityExclusions,
     payloadShape: {
       keysBefore: beforePayload ? Object.keys(beforePayload) : [],
@@ -544,6 +590,14 @@ function buildRefreshReport({ beforePayload, afterPayload, diagnostics }) {
     '## Excluded governed candidates',
     ...(report.exclusions.length
       ? report.exclusions.map(row => `- ${row.entityKey}: ${row.excludedReason}`)
+      : ['- none']),
+    '',
+    '## Card summary examples (before → after)',
+    ...(report.cardSummaryExamples.length
+      ? report.cardSummaryExamples.map(
+          row =>
+            `- ${row.entityKey}: baseline="${row.baselineCandidate || 'n/a'}" | previous_run="${row.previousRunBlurb || 'n/a'}" | after="${row.afterBlurb}"`,
+        )
       : ['- none']),
     '',
     '## Payload notes',

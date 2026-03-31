@@ -1,6 +1,6 @@
 # Homepage governed enrichment refresh
 
-- Generated at: 2026-03-31T13:22:32.430Z
+- Generated at: 2026-03-31T13:36:17.704Z
 - Deterministic model version: homepage-enrichment-refresh-v1
 
 ## Modules changed
@@ -27,8 +27,12 @@
 - herb:pedicularis-groenlandica: non_publishable_approved
 - herb:rivea-corymbosa: non_publishable_approved
 
+## Card summary examples (before → after)
+- herb:mistletoe: baseline="Immune regulation, Sedation, Nervous system balance, Blood pressure modulation" | previous_run="mistletoe: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries." | after="mistletoe: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries."
+- herb:kava: baseline="No direct effects data. Contextual inference:, nan.. No direct mechanismofaction data. Contextual inference:, nan.., nan." | previous_run="kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries." | after="kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries."
+
 ## Payload notes
 - Keys changed: false
-- Bytes before: 531177
-- Bytes after: 528069
-- Byte delta: -3108
+- Bytes before: 529093
+- Bytes after: 529093
+- Byte delta: 0

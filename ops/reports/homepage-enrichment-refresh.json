@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T13:22:32.430Z",
+  "generatedAt": "2026-03-31T13:36:17.704Z",
   "deterministicModelVersion": "homepage-enrichment-refresh-v1",
   "canonicalGovernedArtifacts": {
     "governed": "public/data/enrichment-governed.json",
@@ -45,6 +45,20 @@
       }
     ]
   },
+  "cardSummaryExamples": [
+    {
+      "entityKey": "herb:mistletoe",
+      "previousRunBlurb": "mistletoe: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
+      "baselineCandidate": "Immune regulation, Sedation, Nervous system balance, Blood pressure modulation",
+      "afterBlurb": "mistletoe: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries."
+    },
+    {
+      "entityKey": "herb:kava",
+      "previousRunBlurb": "kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries.",
+      "baselineCandidate": "No direct effects data. Contextual inference:, nan.. No direct mechanismofaction data. Contextual inference:, nan.., nan.",
+      "afterBlurb": "kava: Governed review: limited human support. No specific governed safety cautions are listed yet; use standard caution and check interactions. Mechanism and constituent coverage remains limited in current governed summaries."
+    }
+  ],
   "exclusions": [
     {
       "entityKey": "compound:cbd",
@@ -105,9 +119,9 @@
       "governance"
     ],
     "changed": false,
-    "bytesBefore": 531177,
-    "bytesAfter": 528069,
-    "byteDelta": -3108
+    "bytesBefore": 529093,
+    "bytesAfter": 529093,
+    "byteDelta": 0
   },
   "verification": {
     "usesOnlyApprovedGovernedSignals": true,
