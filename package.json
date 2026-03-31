@@ -132,7 +132,9 @@
     "report:governed-faq-refresh": "tsx scripts/report-governed-faq-refresh.ts",
     "verify:governed-faq-refresh": "tsx scripts/verify-governed-faq-refresh.ts",
     "report:governed-intro-refresh": "tsx scripts/report-governed-intro-refresh.ts",
-    "verify:governed-intro-refresh": "tsx scripts/verify-governed-intro-refresh.ts"
+    "verify:governed-intro-refresh": "tsx scripts/verify-governed-intro-refresh.ts",
+    "report:governed-related-questions": "tsx scripts/report-governed-related-questions.ts",
+    "verify:governed-related-questions": "tsx scripts/verify-governed-related-questions.ts"
   },
   "engines": {
     "node": ">=20 <21"

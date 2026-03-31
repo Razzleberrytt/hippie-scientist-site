@@ -34,6 +34,7 @@ import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
 import { buildGovernedFaqSectionContent } from '@/lib/governedFaq'
+import { buildGovernedRelatedQuestions } from '@/lib/governedRelatedQuestions'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import { buildFallbackHerbIntro, buildGovernedDetailIntro } from '@/lib/governedIntro'
 import {
@@ -291,6 +292,15 @@ export default function HerbDetail() {
         entityType: 'herb',
         entityName: herbDisplayName,
         enrichment: governedResearch,
+      })
+    : null
+  const governedRelatedQuestions = governedResearch && governedFaq
+    ? buildGovernedRelatedQuestions({
+        entityType: 'herb',
+        entityName: herbDisplayName,
+        enrichment: governedResearch,
+        governedFaq,
+        hasVisibleCompareSection: Boolean(linkedCompounds.length || relatedCollections.length),
       })
     : null
   const fallbackIntro = buildFallbackHerbIntro({
@@ -593,8 +603,12 @@ export default function HerbDetail() {
           </div>
         )}
 
-        {governedResearch && governedFaq && (
-          <GovernedResearchSections enrichment={governedResearch} governedFaq={governedFaq} />
+        {governedResearch && governedFaq && governedRelatedQuestions && (
+          <GovernedResearchSections
+            enrichment={governedResearch}
+            governedFaq={governedFaq}
+            relatedQuestions={governedRelatedQuestions}
+          />
         )}
 
         {/* Core content */}
@@ -658,19 +672,21 @@ export default function HerbDetail() {
           </section>
         )}
 
-        <EnrichmentRecommendationBlocks
-          bundle={enrichmentRecommendations}
-          names={recommendationNames}
-          onRecommendationClick={(item, placement) =>
-            trackDetailRelatedEntityClick({
-              detailType: 'herb',
-              detailSlug: herb.slug,
-              targetType: item.targetType,
-              targetSlug: item.targetSlug,
-              placement,
-            })
-          }
-        />
+        <section id='governed-compare-links'>
+          <EnrichmentRecommendationBlocks
+            bundle={enrichmentRecommendations}
+            names={recommendationNames}
+            onRecommendationClick={(item, placement) =>
+              trackDetailRelatedEntityClick({
+                detailType: 'herb',
+                detailSlug: herb.slug,
+                targetType: item.targetType,
+                targetSlug: item.targetSlug,
+                placement,
+              })
+            }
+          />
+        </section>
 
         {relatedCollections.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
