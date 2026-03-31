@@ -21,7 +21,9 @@ export type GovernedCtaDecision = {
   copy: {
     toolTitle: string
     toolBody: string
+    toolButtonLabel: string
     builderBody: string
+    builderButtonLabel: string
     relatedTitle: string
     affiliateLeadIn: string
   }
@@ -46,13 +48,15 @@ function hasSafetySignals(enrichment: ResearchEnrichment | null, cautionCount: n
 }
 
 export function resolveGovernedCtaDecision(params: GovernedCtaParams): GovernedCtaDecision {
-  const { cautionCount, confidence, sourceCount, relatedCollectionCount, enrichment } = params
+  const { entityType, cautionCount, confidence, sourceCount, relatedCollectionCount, enrichment } = params
   const usedSignals: string[] = []
   const excludedSignals: Array<{ signal: string; reason: string }> = []
+  const entityLabel = entityType === 'herb' ? 'herb' : 'compound'
 
   const hasPublishableGoverned = Boolean(enrichment)
   if (hasPublishableGoverned) {
     usedSignals.push('publishable_governed_enrichment')
+    usedSignals.push(`governed_editorial_status:${enrichment?.editorialStatus}`)
   } else {
     excludedSignals.push({
       signal: 'governed_enrichment',
@@ -78,6 +82,8 @@ export function resolveGovernedCtaDecision(params: GovernedCtaParams): GovernedC
   )
   if (hasMechanismCoverage) {
     usedSignals.push('mechanism_or_constituent_coverage')
+  } else {
+    excludedSignals.push({ signal: 'mechanism_or_constituent_coverage', reason: 'not_available' })
   }
 
   const conservativePage = confidence === 'low' || sourceCount < 2 || weakOrConflictingEvidence
@@ -91,6 +97,8 @@ export function resolveGovernedCtaDecision(params: GovernedCtaParams): GovernedC
 
   if (relatedCollectionCount === 0) {
     excludedSignals.push({ signal: 'related_compare_step', reason: 'no_related_collections' })
+  } else {
+    usedSignals.push('related_compare_available')
   }
 
   const tone: GovernedCtaDecision['tone'] = safetySensitive
@@ -102,31 +110,37 @@ export function resolveGovernedCtaDecision(params: GovernedCtaParams): GovernedC
   const copy =
     tone === 'safety_first'
       ? {
-          toolTitle: 'Check interactions before next steps',
+          toolTitle: `Check ${entityLabel} interactions before next steps`,
           toolBody:
-            'Caution signals are present. Run this profile in the checker before planning combinations or products.',
+            'Caution signals are present. Run this profile in the checker before stack planning or product exploration.',
+          toolButtonLabel: `Check ${entityLabel} interactions first`,
           builderBody:
-            'Move to the builder only after the interaction check and caution notes are reviewed.',
+            'Move to the builder only after reviewing interaction flags, cautions, and dose overlap.',
+          builderButtonLabel: 'Plan carefully in Stack Builder',
           relatedTitle: 'Learn or compare before stacking',
           affiliateLeadIn:
             'After reviewing safety and evidence context, compare these manually reviewed product options.',
         }
       : tone === 'conservative'
         ? {
-            toolTitle: 'Start with the interaction checker',
+            toolTitle: `Start with the ${entityLabel} interaction check`,
             toolBody:
-              'Evidence is limited or mixed for this page. Use the checker and supporting guidance before making stack or product decisions.',
+              'Evidence is limited, mixed, or sparse on this page. Check interactions and read compare guidance before acting.',
+            toolButtonLabel: `Run ${entityLabel} safety check`,
             builderBody:
-              'If the checker looks clear, keep builder plans conservative and add one change at a time.',
+              'If the checker looks clear, keep plans conservative and change one variable at a time.',
+            builderButtonLabel: 'Build a conservative plan',
             relatedTitle: 'Review comparisons and context first',
             affiliateLeadIn:
               'These products stay secondary while evidence remains limited; review fit and disclosure before exploring.',
           }
         : {
-            toolTitle: 'Validate interactions first',
+            toolTitle: `Validate ${entityLabel} interactions first`,
             toolBody:
-              'Use the checker as a first pass, then continue with compare guidance or stack planning.',
-            builderBody: 'Continue to the builder after checking interactions and overlap.',
+              'Use the checker as a first pass, then continue with compare guidance before finalizing stack decisions.',
+            toolButtonLabel: `Check ${entityLabel} in interactions`,
+            builderBody: 'Continue to the builder once interaction overlap and context checks look clear.',
+            builderButtonLabel: 'Continue to Stack Builder',
             relatedTitle: 'Compare adjacent collections',
             affiliateLeadIn:
               'When fit looks appropriate, review these curated options and disclosures after tool-based checks.',

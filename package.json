@@ -139,7 +139,8 @@
     "verify:governed-quick-compare": "tsx scripts/verify-governed-quick-compare.ts",
     "report:governed-collection-intro-refresh": "tsx scripts/report-governed-collection-intro-refresh.ts",
     "verify:governed-collection-intro-refresh": "tsx scripts/verify-governed-collection-intro-refresh.ts",
-    "report:governed-cta-refresh": "tsx scripts/report-governed-cta-refresh.ts"
+    "report:governed-cta-refresh": "tsx scripts/report-governed-cta-refresh.ts",
+    "verify:governed-cta-refresh": "tsx scripts/verify-governed-cta-refresh.ts"
   },
   "engines": {
     "node": ">=20 <21"

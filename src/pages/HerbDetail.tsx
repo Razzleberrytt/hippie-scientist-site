@@ -541,7 +541,7 @@ export default function HerbDetail() {
                       })
                     }
                   >
-                    Open Interaction Checker
+                    {governedCta.copy.toolButtonLabel}
                   </Link>
                 </div>
               ),
@@ -566,7 +566,7 @@ export default function HerbDetail() {
                       })
                     }
                   >
-                    Add to Stack Builder
+                    {governedCta.copy.builderButtonLabel}
                   </Link>
                 </div>
               ),
