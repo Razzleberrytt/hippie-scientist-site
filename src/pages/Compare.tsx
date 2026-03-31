@@ -4,6 +4,11 @@ import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 import { buildGovernedCollectionSummary } from '@/lib/collectionEnrichment'
 import { buildGovernedCollectionIntro } from '@/lib/governedCollectionIntro'
+import {
+  applyGovernedDiscoveryControls,
+  type GovernedDiscoveryFilter,
+  type GovernedDiscoverySort,
+} from '@/lib/governedCollectionDiscovery'
 import type { Herb } from '@/types'
 
 const FIELDS: Array<[keyof Herb, string]> = [
@@ -35,17 +40,30 @@ export default function Compare() {
     () => ids.map(slug => data.find(h => h.slug === slug)).filter(Boolean) as Herb[],
     [ids, data],
   )
+  const [governedFilter, setGovernedFilter] = React.useState<GovernedDiscoveryFilter>('all')
+  const [governedSort, setGovernedSort] = React.useState<GovernedDiscoverySort>('default')
+  const governedDiscovery = useMemo(
+    () =>
+      applyGovernedDiscoveryControls({
+        items: herbs,
+        getSummary: herb => herb.researchEnrichmentSummary,
+        filter: governedFilter,
+        sort: governedSort,
+      }),
+    [herbs, governedFilter, governedSort],
+  )
+  const visibleHerbs = governedDiscovery.items
   const loadingSelection = ids.length > 0 && data.length === 0
   const governedComparisonSummary = useMemo(
     () =>
       buildGovernedCollectionSummary(
-        herbs.map(herb => ({
+        visibleHerbs.map(herb => ({
           entityType: 'herb',
           entitySlug: herb.slug,
           entityName: herb.common || herb.scientific || herb.slug,
         })),
       ),
-    [herbs],
+    [visibleHerbs],
   )
   const governedComparisonIntro = useMemo(
     () =>
@@ -121,13 +139,57 @@ export default function Compare() {
               </p>
             ) : null}
           </section>
+          <section className='rounded-xl border border-white/10 bg-white/[0.02] p-3'>
+            <div className='grid gap-2 sm:grid-cols-2'>
+              <label className='flex flex-col gap-1 text-xs text-white/75'>
+                Filter
+                <select
+                  value={governedFilter}
+                  onChange={event => setGovernedFilter(event.target.value as GovernedDiscoveryFilter)}
+                  className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
+                >
+                  <option value='all'>All selected herbs</option>
+                  <option value='governed_reviewed'>Enriched + reviewed only</option>
+                  <option value='human_support'>Human-support evidence labels</option>
+                  <option value='review_fresh'>Reviewed recently</option>
+                  <option value='safety_present'>Safety cautions present</option>
+                  <option value='uncertainty_or_conflict'>Uncertainty/conflict flagged</option>
+                  <option value='mechanism_or_constituent'>Mechanism/constituent coverage</option>
+                </select>
+              </label>
+              <label className='flex flex-col gap-1 text-xs text-white/75'>
+                Sort
+                <select
+                  value={governedSort}
+                  onChange={event => setGovernedSort(event.target.value as GovernedDiscoverySort)}
+                  className='rounded-lg border border-white/20 bg-slate-950/80 px-2 py-1 text-xs text-white'
+                >
+                  <option value='default'>Selected order</option>
+                  <option value='best_covered_first'>Best covered first (conservative)</option>
+                  <option value='evidence_strength'>Evidence strength label</option>
+                  <option value='review_freshness'>Review freshness</option>
+                </select>
+              </label>
+            </div>
+            <p className='mt-2 text-[11px] text-white/70'>
+              Governed-eligible in current selection: {governedDiscovery.eligibility.governedEligible}/
+              {governedDiscovery.eligibility.total}
+            </p>
+          </section>
 
-          <div className='overflow-x-auto'>
+          {visibleHerbs.length === 0 ? (
+            <p className='rounded-xl border border-amber-300/35 bg-amber-500/10 p-3 text-sm text-amber-100'>
+              No herbs match this governed filter. Widen the filter to keep side-by-side coverage.
+            </p>
+          ) : null}
+
+          {visibleHerbs.length > 0 ? (
+            <div className='overflow-x-auto'>
             <table className='w-full border-collapse'>
               <thead>
                 <tr>
                   <th className='border-b p-2 text-left'>Field</th>
-                  {herbs.map(h => (
+                  {visibleHerbs.map(h => (
                     <th key={h.slug} className='border-b p-2 text-left'>
                       <div className='font-semibold'>{h.common || h.scientific}</div>
                       <div className='text-sm opacity-70'>{h.scientific}</div>
@@ -139,7 +201,7 @@ export default function Compare() {
                 {FIELDS.map(([key, label]) => (
                   <tr key={String(key)}>
                     <td className='border-b p-2 align-top font-medium'>{label}</td>
-                    {herbs.map(h => {
+                    {visibleHerbs.map(h => {
                       const v = (h as any)[key]
                       const text = Array.isArray(v) ? v.join(', ') : (v ?? '')
                       return (
@@ -155,7 +217,8 @@ export default function Compare() {
                 ))}
               </tbody>
             </table>
-          </div>
+            </div>
+          ) : null}
         </div>
       )}
 
