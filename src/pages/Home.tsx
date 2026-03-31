@@ -54,6 +54,32 @@ export default function Home() {
     []
   )
 
+  const renderGovernedSignals = (item: HomepageFeaturedItem) => {
+    if (!item.governedSummary?.enrichedAndReviewed) return null
+    return (
+      <div className='mt-2 flex flex-wrap gap-1.5'>
+        <span className='rounded-full border border-emerald-300/45 bg-emerald-500/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-emerald-100'>
+          {item.governedSummary.title}
+        </span>
+        {item.governedSummary.safetyCautionsPresent && (
+          <span className='rounded-full border border-amber-300/45 bg-amber-500/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-amber-100'>
+            Safety cautions
+          </span>
+        )}
+        {item.governedSummary.mechanismCoveragePresent && (
+          <span className='rounded-full border border-cyan-300/45 bg-cyan-500/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-cyan-100'>
+            Mechanism coverage
+          </span>
+        )}
+        {item.governedSummary.conflictingEvidence && (
+          <span className='rounded-full border border-rose-300/45 bg-rose-500/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.14em] text-rose-100'>
+            Conflicting evidence
+          </span>
+        )}
+      </div>
+    )
+  }
+
   return (
     <>
       <Meta
@@ -170,6 +196,7 @@ export default function Home() {
                   </p>
                   <h3 className='mt-1 text-sm font-semibold text-white'>{item.name}</h3>
                   <p className='mt-2 line-clamp-3 text-xs text-white/80'>{item.blurb}</p>
+                  {renderGovernedSignals(item)}
                   <Link
                     to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
                     className='mt-3 inline-flex text-xs text-emerald-200 hover:text-emerald-100'
@@ -306,6 +333,11 @@ export default function Home() {
               <span className='ds-pill text-xs text-emerald-100/85'>
                 {dailyDiscovery.qualityBadge}
               </span>
+              {dailyDiscovery.governedSummary?.lastReviewedAt && (
+                <span className='ds-pill text-xs text-white/80'>
+                  Reviewed {dailyDiscovery.governedSummary.lastReviewedAt.slice(0, 10)}
+                </span>
+              )}
             </div>
           </div>
         </section>
@@ -354,6 +386,7 @@ export default function Home() {
                 </p>
                 <h3 className='mt-1 text-lg font-semibold text-white'>{item.name}</h3>
                 <p className='mt-2 line-clamp-3 text-sm text-white/70'>{item.blurb}</p>
+                {renderGovernedSignals(item)}
                 <p className='mt-3 text-xs text-emerald-100/80'>{item.whyItMatters}</p>
                 <p className='mt-2 text-[11px] uppercase tracking-[0.16em] text-white/55'>
                   {item.qualityBadge}
@@ -363,6 +396,32 @@ export default function Home() {
           </div>
         </Collapse>
       </section>
+
+      {homepageData.governedHighlights.length > 0 && (
+        <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
+          <Collapse title='Reviewed research highlights'>
+            <div className='grid gap-3 sm:grid-cols-2'>
+              {homepageData.governedHighlights.slice(0, 4).map(item => (
+                <Link
+                  key={`reviewed-${item.kind}-${item.slug}`}
+                  to={item.kind === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`}
+                  className='ds-card p-4 transition hover:border-white/25'
+                >
+                  <p className='text-xs uppercase tracking-[0.14em] text-emerald-200/80'>
+                    {item.kind} · enriched + reviewed
+                  </p>
+                  <h3 className='mt-1 text-sm font-semibold text-white'>{item.name}</h3>
+                  <p className='mt-2 text-xs text-white/80'>{item.blurb}</p>
+                  {renderGovernedSignals(item)}
+                </Link>
+              ))}
+            </div>
+            <p className='text-xs text-white/55'>
+              Signals above only appear when governed enrichment is publishable and approved.
+            </p>
+          </Collapse>
+        </section>
+      )}
 
       {(recent.length > 0 || recentBlends.length > 0 || recentChecks.length > 0) && (
         <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>

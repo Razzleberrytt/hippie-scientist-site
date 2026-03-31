@@ -10,6 +10,17 @@ export type HomepageQuality = {
   }
 }
 
+export type HomepageGovernedSummary = {
+  label: string
+  title: string
+  hasHumanEvidence: boolean
+  safetyCautionsPresent: boolean
+  mechanismCoveragePresent: boolean
+  conflictingEvidence: boolean
+  enrichedAndReviewed: boolean
+  lastReviewedAt: string
+}
+
 export type HomepageFeaturedItem = {
   slug: string
   name: string
@@ -17,7 +28,11 @@ export type HomepageFeaturedItem = {
   kind: 'herb' | 'compound'
   whyItMatters: string
   quality: HomepageQuality
-  qualityBadge: 'High confidence' | 'Needs sources' | 'Incomplete'
+  qualityBadge: 'High confidence' | 'Needs sources' | 'Incomplete' | 'Enriched + reviewed'
+  governedSummary?: HomepageGovernedSummary | null
+  governedEligible?: boolean
+  publicationIndexed?: boolean
+  governanceSource?: 'approved_governed_rollup' | 'none'
 }
 
 type HomepagePayload = {
@@ -28,6 +43,7 @@ type HomepagePayload = {
   featuredPool: HomepageFeaturedItem[]
   diverseFeatured: HomepageFeaturedItem[]
   curated: HomepageFeaturedItem[]
+  governedHighlights: HomepageFeaturedItem[]
   effectExplorerHerbs: Herb[]
 }
 
@@ -67,6 +83,7 @@ export function getHomepageData() {
     popularEffects: payload.popularEffects,
     curated: payload.curated,
     featured: getHomepageFeaturedItems(),
+    governedHighlights: payload.governedHighlights,
     effectExplorerHerbs: payload.effectExplorerHerbs,
   }
 }
