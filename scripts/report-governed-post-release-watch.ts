@@ -5,6 +5,7 @@ type WatchState = 'stable' | 'improving' | 'watch_closely' | 'degraded' | 'criti
 type Severity = 'low' | 'medium' | 'high' | 'critical'
 type CauseCategory =
   | 'ux_regression_drift'
+  | 'release_readiness_regression'
   | 'analytics_coverage_gap'
   | 'engagement_underperformance'
   | 'governance_leakage_risk'
@@ -132,6 +133,9 @@ function main() {
 
   const refinement = readJsonIfExists<{
     weakRefinementTargets?: Array<{ surfaceId?: string }>
+    deterministicVerification?: {
+      noBlockedRejectedRevisionRequestedInfluence?: boolean
+    }
   }>(INPUTS.governedRefinement)
 
   const patternRollout = readJsonIfExists<{
@@ -217,6 +221,42 @@ function main() {
   }>(INPUTS.governedReviewFreshness)
 
   const dimensions: WatchDimension[] = []
+
+  if (!releaseReadiness) {
+    addMissingInputDimension(dimensions, 'release_readiness_post_merge_regression', 'governed_release_gates', [INPUTS.governedReleaseReadiness])
+  } else {
+    const blockedDimensions = asCount(releaseReadiness.summary?.blockedDimensions)
+    const failedDimensions = asCount(releaseReadiness.summary?.failedDimensions)
+    const warnedDimensions = asCount(releaseReadiness.summary?.warnedDimensions)
+    const releaseState = String(releaseReadiness.releaseState || 'unknown')
+    const unstableReadiness = blockedDimensions > 0 || failedDimensions > 0 || releaseState === 'blocked'
+
+    dimensions.push({
+      dimensionId: 'release_readiness_post_merge_regression',
+      watchedSurface: 'governed_release_gates',
+      watchState: unstableReadiness ? 'critical_follow_up' : warnedDimensions > 0 ? 'watch_closely' : 'stable',
+      changeSignalDetected: unstableReadiness
+        ? `Release-readiness gate drift detected post-release (state=${releaseState}, blocked=${blockedDimensions}, failed=${failedDimensions}).`
+        : warnedDimensions > 0
+          ? `Release is not blocked but has ${warnedDimensions} warned dimensions to monitor post-release.`
+          : 'Release-readiness summary remains stable after merge/deploy.',
+      likelyCauseCategory: 'release_readiness_regression',
+      severity: unstableReadiness ? 'critical' : warnedDimensions > 0 ? 'medium' : 'low',
+      recommendedFollowUpAction: unstableReadiness
+        ? 'Treat as rollback-attention gate failure: review blocked/failed readiness dimensions and pause further governed expansion.'
+        : warnedDimensions > 0
+          ? 'Track warned readiness dimensions in post-release triage until they return to pass state.'
+          : 'Keep release-readiness report in the deterministic watch runbook.',
+      rollbackAttention: unstableReadiness,
+      affectedEntitiesOrSurfaces: ['governed_release_readiness', 'detail_pages', 'collection_pages', 'comparison_pages'],
+      supportingMetrics: {
+        releaseState,
+        blockedDimensions,
+        failedDimensions,
+        warnedDimensions,
+      },
+    })
+  }
 
   if (!uxRegression) {
     addMissingInputDimension(dimensions, 'ux_regression_drift', 'governed_detail_surfaces', [INPUTS.governedUxRegression])
@@ -307,24 +347,33 @@ function main() {
       asCount(patternRollout.deterministicVerification?.checks?.failedWaveTargetCount)
     const leakageSafe = patternRollout.deterministicVerification?.noBlockedRejectedRevisionRequestedInfluence === true
 
+    const refinementLeakageSafe = refinement?.deterministicVerification?.noBlockedRejectedRevisionRequestedInfluence
+    const weakRefinementTargets = asCount(refinement?.weakRefinementTargets?.length)
+
     dimensions.push({
       dimensionId: 'blocked_unreviewed_leakage',
       watchedSurface: 'governed_publication_pipeline',
-      watchState: leakageSafe ? 'stable' : leakageCount > 0 ? 'critical_follow_up' : 'degraded',
+      watchState: leakageSafe && refinementLeakageSafe !== false ? 'stable' : leakageCount > 0 ? 'critical_follow_up' : 'degraded',
       changeSignalDetected: leakageSafe
-        ? 'No blocked/rejected/revision-requested influence detected in governed rollout verification.'
+        ? refinementLeakageSafe === false
+          ? 'Pattern rollout passed leakage checks, but refinement verification reports blocked/rejected influence risk.'
+          : 'No blocked/rejected/revision-requested influence detected in rollout/refinement verification.'
         : 'Pattern rollout verification indicates blocked/unapproved influence risk in publishable governed outputs.',
       likelyCauseCategory: 'governance_leakage_risk',
-      severity: leakageSafe ? 'low' : leakageCount > 0 ? 'critical' : 'high',
+      severity: leakageSafe && refinementLeakageSafe !== false ? 'low' : leakageCount > 0 ? 'critical' : 'high',
       recommendedFollowUpAction: leakageSafe
-        ? 'Continue enforcing blocked/non-approved exclusion in governed rollups.'
+        ? refinementLeakageSafe === false
+          ? 'Re-run refinement pass with governance leakage safeguards and verify source-status filtering before next rollout.'
+          : 'Continue enforcing blocked/non-approved exclusion in governed rollups.'
         : 'Audit enrichment submission statuses and governed rollup inputs; block further rollout and evaluate rollback scope.',
-      rollbackAttention: !leakageSafe,
+      rollbackAttention: !leakageSafe || refinementLeakageSafe === false,
       affectedEntitiesOrSurfaces: ['public/data/enrichment-governed.json', 'detail_pages', 'collection_pages'],
       supportingMetrics: {
         noBlockedRejectedRevisionRequestedInfluence: leakageSafe,
+        refinementNoBlockedRejectedRevisionRequestedInfluence: refinementLeakageSafe ?? 'unknown',
         blockedOrUnapprovedVisibleCount: asCount(patternRollout.deterministicVerification?.checks?.sourceVerification?.blockedOrUnapprovedVisibleCount),
         failedWaveTargetCount: asCount(patternRollout.deterministicVerification?.checks?.failedWaveTargetCount),
+        weakRefinementTargetCount: weakRefinementTargets,
       },
     })
   }
@@ -652,6 +701,7 @@ function main() {
   lines.push('- For any degraded/critical dimension, copy the recommended action into the release triage thread.')
   lines.push('- If rollbackAttention=true appears on any dimension, open rollback-attention review before the next release increment.')
   lines.push('- Verify blocked/unreviewed leakage dimensions stay stable before approving further governed rollout.')
+  lines.push('- Apply state playbook: stable=observe, improving=retain winner pattern, watch_closely=collect next snapshot, degraded=open follow-up ticket, critical_follow_up=escalate rollback-attention review.')
   lines.push('')
   lines.push('## Dimension triage table')
   lines.push('| Dimension | Surface | State | Severity | Rollback attention | Signal |')
