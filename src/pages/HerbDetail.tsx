@@ -48,6 +48,7 @@ import {
   trackDetailCheckerClick,
   trackDetailRelatedEntityClick,
 } from '@/lib/contentJourneyTracking'
+import { trackGovernedEvent } from '@/lib/governedAnalytics'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -491,8 +492,21 @@ export default function HerbDetail() {
                 })
               }
             }}
+            analyticsContext={{
+              pageType: 'herb_detail',
+              entityType: 'herb',
+              entitySlug: herb.slug,
+              profile: governedIntro.decision.mode,
+            }}
           />
-          <GovernedReviewFreshnessPanel decision={governedReviewFreshness} />
+          <GovernedReviewFreshnessPanel
+            decision={governedReviewFreshness}
+            analyticsContext={{
+              pageType: 'herb_detail',
+              entityType: 'herb',
+              entitySlug: herb.slug,
+            }}
+          />
 
           <CtaVariantLayout
             variant={ctaExperiment.variant}
@@ -585,6 +599,21 @@ export default function HerbDetail() {
                         key={`cta-${collection.slug}`}
                         to={`/collections/${collection.slug}`}
                         className='btn-secondary text-xs'
+                        onClick={() =>
+                          trackGovernedEvent({
+                            type: 'governed_cta_click',
+                            eventAction: 'click',
+                            pageType: 'herb_detail',
+                            entityType: 'herb',
+                            entitySlug: herb.slug,
+                            surfaceId: 'detail_cta_related',
+                            componentType: 'related_collection_cta',
+                            item: collection.slug,
+                            variantId: ctaVariantId,
+                            reviewedStatus: 'reviewed',
+                            freshnessState: 'not_applicable',
+                          })
+                        }
                       >
                         {collection.title}
                       </Link>
@@ -627,6 +656,11 @@ export default function HerbDetail() {
             enrichment={governedResearch}
             governedFaq={governedFaq}
             relatedQuestions={governedRelatedQuestions}
+            analyticsContext={{
+              pageType: 'herb_detail',
+              entityType: 'herb',
+              entitySlug: herb.slug,
+            }}
           />
         )}
 
@@ -692,7 +726,16 @@ export default function HerbDetail() {
         )}
 
         <section id='governed-compare-links'>
-          <GovernedQuickCompareBlock section={quickCompareSection} />
+          <GovernedQuickCompareBlock
+            section={quickCompareSection}
+            analyticsContext={{
+              pageType: 'herb_detail',
+              entityType: 'herb',
+              entitySlug: herb.slug,
+              evidenceLabel: governedResearch?.pageEvidenceJudgment?.evidenceLabel,
+              safetySignalPresent: cautionCount > 0,
+            }}
+          />
           <EnrichmentRecommendationBlocks
             bundle={enrichmentRecommendations}
             names={recommendationNames}

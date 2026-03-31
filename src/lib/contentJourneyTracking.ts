@@ -1,4 +1,5 @@
 import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
+import { trackGovernedEvent } from '@/lib/governedAnalytics'
 
 type EntityType = 'herb' | 'compound' | 'collection'
 type DetailType = 'herb' | 'compound'
@@ -39,6 +40,23 @@ function trackJourneyEvent(params: {
     ctaPosition: params.ctaMetadata?.ctaPosition,
     variantId: params.ctaMetadata?.variantId,
   })
+
+  if (params.ctaMetadata) {
+    const entityType = params.ctaMetadata.pageType === 'compound_detail' ? 'compound' : 'herb'
+    trackGovernedEvent({
+      type: 'governed_cta_click',
+      eventAction: 'click',
+      pageType: params.ctaMetadata.pageType,
+      entityType,
+      entitySlug: params.ctaMetadata.entitySlug,
+      surfaceId: 'governed_cta_refresh',
+      componentType: params.targetType,
+      item: params.placement,
+      variantId: params.ctaMetadata.variantId,
+      reviewedStatus: 'reviewed',
+      freshnessState: 'not_applicable',
+    })
+  }
 }
 
 export function trackHomepageEntityClick(params: {

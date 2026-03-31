@@ -1,6 +1,8 @@
 import Collapse from '@/components/ui/Collapse'
+import { useEffect } from 'react'
 import type { GovernedFaqSectionContent } from '@/lib/governedFaq'
 import type { GovernedRelatedQuestionsSection } from '@/lib/governedRelatedQuestions'
+import { trackGovernedEvent, type GovernedPageType } from '@/lib/governedAnalytics'
 import type { ResearchClaim, ResearchEnrichment } from '@/types/researchEnrichment'
 import { getEvidenceLabelMeta, getTopicJudgment } from '@/lib/governedResearch'
 
@@ -44,10 +46,16 @@ export default function GovernedResearchSections({
   enrichment,
   governedFaq,
   relatedQuestions,
+  analyticsContext,
 }: {
   enrichment: ResearchEnrichment
   governedFaq: GovernedFaqSectionContent
   relatedQuestions: GovernedRelatedQuestionsSection
+  analyticsContext?: {
+    pageType: GovernedPageType
+    entityType: 'herb' | 'compound'
+    entitySlug: string
+  }
 }) {
   const safetyEntries = enrichment.safetyProfile?.safetyEntries || []
   const sections: ClaimSectionConfig[] = [
@@ -88,6 +96,23 @@ export default function GovernedResearchSections({
       items: enrichment.researchGaps,
     },
   ]
+  useEffect(() => {
+    if (!analyticsContext) return
+    trackGovernedEvent({
+      type: 'governed_faq_visible',
+      eventAction: 'visible',
+      pageType: analyticsContext.pageType,
+      entityType: analyticsContext.entityType,
+      entitySlug: analyticsContext.entitySlug,
+      surfaceId: 'governed_faq',
+      componentType: 'faq_and_related_questions',
+      evidenceLabel: enrichment.pageEvidenceJudgment?.evidenceLabel,
+      safetySignalPresent:
+        enrichment.interactions.length > 0 || enrichment.contraindications.length > 0,
+      reviewedStatus: 'reviewed',
+      freshnessState: 'not_applicable',
+    })
+  }, [analyticsContext, enrichment])
 
   return (
     <>
@@ -110,7 +135,29 @@ export default function GovernedResearchSections({
                 <p className='text-sm font-semibold text-white'>{item.question}</p>
                 <p className='mt-1 text-sm leading-relaxed text-white/80'>{item.answer}</p>
                 {item.href && item.linkLabel && (
-                  <a href={item.href} className='mt-2 inline-flex text-xs text-cyan-200 underline-offset-2 hover:underline'>
+                  <a
+                    href={item.href}
+                    className='mt-2 inline-flex text-xs text-cyan-200 underline-offset-2 hover:underline'
+                    onClick={() => {
+                      if (!analyticsContext) return
+                      trackGovernedEvent({
+                        type: 'governed_related_question_click',
+                        eventAction: 'click',
+                        pageType: analyticsContext.pageType,
+                        entityType: analyticsContext.entityType,
+                        entitySlug: analyticsContext.entitySlug,
+                        surfaceId: 'governed_related_questions',
+                        componentType: 'related_questions_link',
+                        item: item.questionType,
+                        evidenceLabel: enrichment.pageEvidenceJudgment?.evidenceLabel,
+                        safetySignalPresent:
+                          enrichment.interactions.length > 0 ||
+                          enrichment.contraindications.length > 0,
+                        reviewedStatus: 'reviewed',
+                        freshnessState: 'not_applicable',
+                      })
+                    }}
+                  >
                     {item.linkLabel}
                   </a>
                 )}

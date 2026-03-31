@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import type {
   GovernedQuickCompareDimension,
   GovernedQuickCompareSection,
 } from '@/lib/governedQuickCompare'
+import { trackGovernedEvent, type GovernedPageType } from '@/lib/governedAnalytics'
 
 const DIMENSION_LABELS: Record<GovernedQuickCompareDimension, string> = {
   evidence_strength: 'Evidence strength',
@@ -14,9 +16,34 @@ const DIMENSION_LABELS: Record<GovernedQuickCompareDimension, string> = {
 
 export default function GovernedQuickCompareBlock({
   section,
+  analyticsContext,
 }: {
   section: GovernedQuickCompareSection | null
+  analyticsContext?: {
+    pageType: GovernedPageType
+    entityType: 'herb' | 'compound'
+    entitySlug: string
+    evidenceLabel?: string
+    safetySignalPresent?: boolean
+  }
 }) {
+  useEffect(() => {
+    if (!analyticsContext || !section || section.cards.length === 0) return
+    trackGovernedEvent({
+      type: 'governed_quick_compare_visible',
+      eventAction: 'visible',
+      pageType: analyticsContext.pageType,
+      entityType: analyticsContext.entityType,
+      entitySlug: analyticsContext.entitySlug,
+      surfaceId: 'governed_quick_compare',
+      componentType: 'quick_compare_block',
+      evidenceLabel: analyticsContext.evidenceLabel,
+      safetySignalPresent: analyticsContext.safetySignalPresent,
+      reviewedStatus: 'reviewed',
+      freshnessState: 'not_applicable',
+    })
+  }, [analyticsContext, section])
+
   if (!section || section.cards.length === 0) return null
 
   return (
@@ -36,7 +63,27 @@ export default function GovernedQuickCompareBlock({
             className='rounded-xl border border-white/10 bg-white/[0.02] p-3'
           >
             <p className='text-sm font-semibold text-white'>
-              <Link className='link' to={card.href}>
+              <Link
+                className='link'
+                to={card.href}
+                onClick={() => {
+                  if (!analyticsContext) return
+                  trackGovernedEvent({
+                    type: 'governed_quick_compare_click',
+                    eventAction: 'click',
+                    pageType: analyticsContext.pageType,
+                    entityType: analyticsContext.entityType,
+                    entitySlug: analyticsContext.entitySlug,
+                    surfaceId: 'governed_quick_compare',
+                    componentType: 'quick_compare_card',
+                    item: `${card.targetType}:${card.targetSlug}`,
+                    evidenceLabel: analyticsContext.evidenceLabel,
+                    safetySignalPresent: analyticsContext.safetySignalPresent,
+                    reviewedStatus: 'reviewed',
+                    freshnessState: 'not_applicable',
+                  })
+                }}
+              >
                 {card.targetName}
               </Link>
             </p>

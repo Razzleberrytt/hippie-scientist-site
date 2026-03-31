@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
+import { trackGovernedEvent, type GovernedPageType } from '@/lib/governedAnalytics'
 
 type IntroLink = {
   label: string
@@ -16,6 +18,12 @@ type StructuredDetailIntroProps = {
   quickFacts?: string[]
   nextSteps: IntroLink[]
   onStepClick?: (step: IntroLink) => void
+  analyticsContext?: {
+    pageType: GovernedPageType
+    entityType: 'herb' | 'compound'
+    entitySlug: string
+    profile?: string
+  }
 }
 
 function confidenceLabel(confidence: ConfidenceLevel) {
@@ -39,7 +47,24 @@ export default function StructuredDetailIntro({
   quickFacts = [],
   nextSteps,
   onStepClick,
+  analyticsContext,
 }: StructuredDetailIntroProps) {
+  useEffect(() => {
+    if (!analyticsContext) return
+    trackGovernedEvent({
+      type: 'governed_intro_visible',
+      eventAction: 'visible',
+      pageType: analyticsContext.pageType,
+      entityType: analyticsContext.entityType,
+      entitySlug: analyticsContext.entitySlug,
+      surfaceId: 'structured_detail_intro',
+      componentType: 'intro_summary',
+      profile: analyticsContext.profile,
+      reviewedStatus: 'reviewed',
+      freshnessState: 'not_applicable',
+    })
+  }, [analyticsContext])
+
   return (
     <section className='mt-4 rounded-xl border border-sky-300/25 bg-sky-500/10 p-4 text-sm text-sky-50'>
       <div className='flex flex-wrap items-center gap-2'>
@@ -75,7 +100,24 @@ export default function StructuredDetailIntro({
           <Link
             key={`${step.to}-${step.label}`}
             to={step.to}
-            onClick={() => onStepClick?.(step)}
+            onClick={() => {
+              if (analyticsContext) {
+                trackGovernedEvent({
+                  type: 'governed_intro_step_click',
+                  eventAction: 'click',
+                  pageType: analyticsContext.pageType,
+                  entityType: analyticsContext.entityType,
+                  entitySlug: analyticsContext.entitySlug,
+                  surfaceId: 'structured_detail_intro',
+                  componentType: 'intro_next_step',
+                  item: step.label,
+                  profile: analyticsContext.profile,
+                  reviewedStatus: 'reviewed',
+                  freshnessState: 'not_applicable',
+                })
+              }
+              onStepClick?.(step)
+            }}
             className={step.variant === 'secondary' ? 'btn-secondary text-xs' : 'btn-primary text-xs'}
           >
             {step.label}

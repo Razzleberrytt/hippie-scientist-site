@@ -15,6 +15,7 @@ import { DEFAULT_FILTER_STATE } from '@/utils/filterModel'
 import { extractFilterOptions } from '@/utils/extractFilterOptions'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
 import type { EnrichmentFilter } from '@/types/enrichmentDiscovery'
+import { trackGovernedEvent } from '@/lib/governedAnalytics'
 
 const ENRICHMENT_FILTER_OPTIONS: Array<{ value: EnrichmentFilter; label: string }> = [
   { value: 'all', label: 'All research states' },
@@ -57,6 +58,19 @@ export default function CompoundsPage() {
   useEffect(() => {
     setVisibleCount(INITIAL_RESULTS)
   }, [filters])
+  useEffect(() => {
+    trackGovernedEvent({
+      type: 'governed_card_summary_visible',
+      eventAction: 'visible',
+      pageType: 'compounds_index',
+      entityType: 'compound',
+      surfaceId: 'compounds_search_index',
+      componentType: 'browse_cards',
+      item: String(filtered.length),
+      reviewedStatus: 'not_applicable',
+      freshnessState: 'not_applicable',
+    })
+  }, [filtered.length])
 
   const toggleEffect = (effect: string) => {
     setFilters(prev => ({
@@ -65,6 +79,17 @@ export default function CompoundsPage() {
         ? prev.selectedEffects.filter(item => item !== effect)
         : [...prev.selectedEffects, effect],
     }))
+    trackGovernedEvent({
+      type: 'governed_browse_filter_change',
+      eventAction: 'change',
+      pageType: 'compounds_index',
+      entityType: 'compound',
+      surfaceId: 'compounds_search_index',
+      componentType: 'effect_filter',
+      item: effect,
+      reviewedStatus: 'not_applicable',
+      freshnessState: 'not_applicable',
+    })
   }
 
   const clearAll = () => setFilters(DEFAULT_FILTER_STATE)
@@ -87,24 +112,76 @@ export default function CompoundsPage() {
       <section className='mb-4 space-y-3'>
         <SearchBar
           value={filters.query}
-          onChange={value => setFilters(prev => ({ ...prev, query: value }))}
+          onChange={value => {
+            setFilters(prev => ({ ...prev, query: value }))
+            trackGovernedEvent({
+              type: 'governed_browse_filter_change',
+              eventAction: 'change',
+              pageType: 'compounds_index',
+              entityType: 'compound',
+              surfaceId: 'compounds_search_index',
+              componentType: 'search_bar',
+              item: value ? 'query:set' : 'query:clear',
+              reviewedStatus: 'not_applicable',
+              freshnessState: 'not_applicable',
+            })
+          }}
           placeholder='Search compounds, effects, mechanisms...'
         />
 
         <div className='grid gap-3 lg:grid-cols-3'>
           <ConfidenceFilter
             value={filters.confidence}
-            onChange={value => setFilters(prev => ({ ...prev, confidence: value }))}
+            onChange={value => {
+              setFilters(prev => ({ ...prev, confidence: value }))
+              trackGovernedEvent({
+                type: 'governed_browse_filter_change',
+                eventAction: 'change',
+                pageType: 'compounds_index',
+                entityType: 'compound',
+                surfaceId: 'compounds_search_index',
+                componentType: 'confidence_filter',
+                item: value,
+                reviewedStatus: 'not_applicable',
+                freshnessState: 'not_applicable',
+              })
+            }}
           />
           <TypeFilter
             label='Category'
             options={options.categories}
             value={filters.type}
-            onChange={value => setFilters(prev => ({ ...prev, type: value }))}
+            onChange={value => {
+              setFilters(prev => ({ ...prev, type: value }))
+              trackGovernedEvent({
+                type: 'governed_browse_filter_change',
+                eventAction: 'change',
+                pageType: 'compounds_index',
+                entityType: 'compound',
+                surfaceId: 'compounds_search_index',
+                componentType: 'type_filter',
+                item: value,
+                reviewedStatus: 'not_applicable',
+                freshnessState: 'not_applicable',
+              })
+            }}
           />
           <SortSelect
             value={filters.sort}
-            onChange={value => setFilters(prev => ({ ...prev, sort: value }))}
+            onChange={value => {
+              setFilters(prev => ({ ...prev, sort: value }))
+              trackGovernedEvent({
+                type: 'governed_browse_filter_change',
+                eventAction: 'change',
+                pageType: 'compounds_index',
+                entityType: 'compound',
+                surfaceId: 'compounds_search_index',
+                componentType: 'sort_select',
+                item: value,
+                reviewedStatus: 'not_applicable',
+                freshnessState: 'not_applicable',
+              })
+            }}
           />
         </div>
         <TypeFilter
@@ -114,6 +191,17 @@ export default function CompoundsPage() {
           onChange={label => {
             const next = ENRICHMENT_FILTER_OPTIONS.find(option => option.label === label)
             setFilters(prev => ({ ...prev, enrichment: next?.value || 'all' }))
+            trackGovernedEvent({
+              type: 'governed_browse_filter_change',
+              eventAction: 'change',
+              pageType: 'compounds_index',
+              entityType: 'compound',
+              surfaceId: 'compounds_search_index',
+              componentType: 'enrichment_filter',
+              item: next?.value || 'all',
+              reviewedStatus: 'not_applicable',
+              freshnessState: 'not_applicable',
+            })
           }}
         />
 
