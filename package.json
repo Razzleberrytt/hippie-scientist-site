@@ -120,7 +120,8 @@
     "report:enrichment-wave-2": "npm run report:source-wave-2-review && npm run report:enrichment-wave-2-rollup && npm run report:enrichment-wave-2:summary",
     "report:enrichment-wave-2:summary": "tsx scripts/report-enrichment-wave-2.ts",
     "report:enrichment-wave-2b": "tsx scripts/report-enrichment-wave-2b.ts",
-    "run:enrichment-wave": "node scripts/run-enrichment-wave.mjs"
+    "run:enrichment-wave": "node scripts/run-enrichment-wave.mjs",
+    "report:enrichment-wave-targets": "tsx scripts/report-enrichment-wave-targets.ts"
   },
   "engines": {
     "node": ">=20 <21"
