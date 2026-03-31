@@ -153,7 +153,8 @@
     "report:governed-pattern-rollout": "npm run report:governed-scorecard && npm run report:governed-refinement-pass && tsx scripts/report-governed-pattern-rollout.ts",
     "report:governed-release-readiness": "npm run report:enrichment-review-cycle && npm run report:governed-review-freshness && npm run verify:governed-ux && tsx scripts/report-governed-release-readiness.ts",
     "report:governed-post-release-watch": "tsx scripts/report-governed-post-release-watch.ts",
-    "report:governed-followup-queue": "npm run report:governed-release-readiness && npm run report:governed-post-release-watch && tsx scripts/report-governed-followup-queue.ts"
+    "report:governed-followup-queue": "npm run report:governed-release-readiness && npm run report:governed-post-release-watch && tsx scripts/report-governed-followup-queue.ts",
+    "report:governed-release-history": "npm run report:governed-followup-queue && tsx scripts/report-governed-release-history.ts"
   },
   "engines": {
     "node": ">=20 <21"
