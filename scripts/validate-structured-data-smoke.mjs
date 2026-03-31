@@ -49,23 +49,26 @@ function unescapeHtml(value) {
 
 function validateSchemaObject(entity) {
   if (!entity || typeof entity !== 'object') return 'entity-not-object'
-  const type = String(entity['@type'] || '')
-  if (!type) return 'missing-type'
+  const rawType = entity['@type']
+  const types = Array.isArray(rawType)
+    ? rawType.map(value => String(value || '')).filter(Boolean)
+    : [String(rawType || '')].filter(Boolean)
+  if (!types.length) return 'missing-type'
   if (!entity['@context']) return 'missing-context'
 
-  if (type === 'BreadcrumbList') {
+  if (types.includes('BreadcrumbList')) {
     if (!Array.isArray(entity.itemListElement) || entity.itemListElement.length < 2) {
       return 'breadcrumb-missing-items'
     }
   }
 
-  if (type === 'WebPage' || type === 'CollectionPage') {
+  if (types.includes('WebPage') || types.includes('CollectionPage')) {
     if (!entity.name || !entity.url || !entity.description) {
-      return `${type.toLowerCase()}-missing-required`
+      return 'webpage-or-collectionpage-missing-required'
     }
   }
 
-  if (type === 'ItemList') {
+  if (types.includes('ItemList')) {
     if (
       !entity.name ||
       !entity.url ||
@@ -198,7 +201,13 @@ function main() {
       }
 
       const entities = flattenEntities(parsed)
-      const topTypes = entities.map(entity => String(entity?.['@type'] || '')).filter(Boolean)
+      const topTypes = entities.flatMap(entity => {
+        const rawType = entity?.['@type']
+        if (Array.isArray(rawType)) {
+          return rawType.map(value => String(value || '')).filter(Boolean)
+        }
+        return [String(rawType || '')].filter(Boolean)
+      })
       schemaTypes.push(...topTypes)
 
       const duplicates = topTypes.filter((type, index) => topTypes.indexOf(type) !== index)

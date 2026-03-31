@@ -322,6 +322,8 @@ export default function HerbDetail() {
     baseHerbMetaDescription,
     herb.researchEnrichmentSummary,
   )
+  const pagePath = `/herbs/${herb.slug}`
+  const breadcrumbId = `${SITE_URL}${pagePath}#breadcrumb`
   const enrichmentRecommendations = buildEnrichmentRecommendations('herb', herb.slug)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
@@ -333,7 +335,7 @@ export default function HerbDetail() {
       <Meta
         title={herbMetaTitle}
         description={herbMetaDescription}
-        path={`/herbs/${herb.slug}`}
+        path={pagePath}
         image={`/og/herb/${herb.slug}.png`}
         jsonLd={[
           herbJsonLd({
@@ -341,12 +343,14 @@ export default function HerbDetail() {
             slug: herb.slug,
             description: herbMetaDescription,
             latinName: herb.scientific || herb.latinName,
+            breadcrumbId,
+            governedSummary: herb.researchEnrichmentSummary,
           }),
           breadcrumbJsonLd([
             { name: 'Home', url: SITE_URL },
             { name: 'Herbs', url: `${SITE_URL}/herbs` },
-            { name: herbDisplayName, url: `${SITE_URL}/herbs/${herb.slug}` },
-          ]),
+            { name: herbDisplayName, url: `${SITE_URL}${pagePath}` },
+          ], { id: breadcrumbId }),
         ]}
       />
       <BreadcrumbTrail

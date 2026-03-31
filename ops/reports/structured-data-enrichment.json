@@ -1,0 +1,1799 @@
+{
+  "generatedAt": "2026-03-31T14:00:27.141Z",
+  "deterministicModelVersion": "structured-data-enrichment-v1",
+  "sources": {
+    "governedArtifact": "public/data/enrichment-governed.json",
+    "publicationManifest": "public/data/publication-manifest.json",
+    "herbSummary": "public/data/herbs-summary.json",
+    "compoundSummary": "public/data/compounds-summary.json",
+    "enrichmentCollectionSummary": "ops/reports/enrichment-collections-summary.json"
+  },
+  "totals": {
+    "evaluatedPages": 32,
+    "pagesWithGainedSchemaTypes": 7,
+    "pagesWithSemanticUpgrades": 8,
+    "intentionallyUnchanged": 24
+  },
+  "pageTypesNowEmitting": {
+    "herb_detail": {
+      "schemaTypes": {
+        "WebPage": 12,
+        "BreadcrumbList": 12
+      },
+      "pages": 12
+    },
+    "collection_page": {
+      "schemaTypes": {
+        "CollectionPage": 7,
+        "WebPage": 7,
+        "ItemList": 7,
+        "BreadcrumbList": 7
+      },
+      "pages": 20
+    }
+  },
+  "pagesWithGainedTypes": [
+    {
+      "route": "/collections/herbs-for-relaxation",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-focus",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-sleep",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-energy",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/calming-herb-combinations",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "item_entity_type:combo_link_only",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/stimulant-herb-combinations",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "item_entity_type:combo_link_only",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-deep-sleep-recovery",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    }
+  ],
+  "semanticUpgrades": [
+    {
+      "route": "/herbs/mistletoe",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "governed_enrichment:reviewed",
+        "evidence_label:limited_human_support",
+        "breadcrumb_context:linked",
+        "evidence_summary_presence:visible"
+      ],
+      "excludedSignals": [
+        "supported_use_presence:not_available",
+        "safety_caution_presence:not_available",
+        "mechanism_or_constituent_presence:not_available",
+        "conflict_uncertainty_presence:not_flagged",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-relaxation",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-focus",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-sleep",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-energy",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/calming-herb-combinations",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "item_entity_type:combo_link_only",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/stimulant-herb-combinations",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "item_entity_type:combo_link_only",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-deep-sleep-recovery",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    }
+  ],
+  "intentionallyUnchanged": [
+    {
+      "route": "/herbs/rivea-corymbosa",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/calliandra-anomala",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/alectra-sessiliflora",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/mandrake-root",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/henbane",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/ipomoea-tricolor-heavenly-blue",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/anisoptera-thurifera",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/iresine-herbstii",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/jatropha-podagrica",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/pedicularis-groenlandica",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/delosperma-cooperi",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/collections/compounds-for-relaxation",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/compounds-for-focus",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/serotonergic-compounds",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/gabaergic-herbs",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/herbs-for-anxiety-and-overthinking",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/natural-focus-without-caffeine",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/mood-stabilizing-herbs",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/herbs-for-burnout-recovery",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/stress-and-cortisol-support",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/herbs-for-social-anxiety",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/cognitive-enhancement-natural",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/relaxation-without-sedation",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/energy-without-crash",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    }
+  ],
+  "usedSignalCounts": {
+    "governed_enrichment:reviewed": 1,
+    "evidence_label:limited_human_support": 1,
+    "breadcrumb_context:linked": 8,
+    "evidence_summary_presence:visible": 1,
+    "collection_page_schema:enabled": 7,
+    "item_list_schema:enabled": 7,
+    "webpage_schema:enabled": 7
+  },
+  "excludedSignalCounts": {
+    "governed_enrichment:absent_or_not_reviewed": 11,
+    "supported_use_presence:not_available": 1,
+    "safety_caution_presence:not_available": 1,
+    "mechanism_or_constituent_presence:not_available": 1,
+    "conflict_uncertainty_presence:not_flagged": 1,
+    "medical_authority_schema:policy_excluded": 8,
+    "product_review_rating_schema:policy_excluded": 8,
+    "faq_schema:excluded_no_visible_faq": 21,
+    "governed_collection_summary:absent": 7,
+    "item_entity_type:combo_link_only": 2,
+    "collection_schema:excluded_noindex_or_low_quality": 13,
+    "itemlist_schema:excluded_noindex_or_low_quality": 13
+  },
+  "verification": {
+    "approvedGovernedOnlyInfluence": true,
+    "noDuplicateOrConflictingSchemaBlocks": true,
+    "requiredFieldsDefinedForSupportedTypes": true,
+    "noindexPagesDoNotEmitIndexOrientedSchema": true
+  },
+  "verificationDetails": {
+    "duplicateConflicts": [],
+    "requiredFieldsValidation": {
+      "WebPage": [
+        "name",
+        "description",
+        "url"
+      ],
+      "CollectionPage": [
+        "name",
+        "description",
+        "url"
+      ],
+      "ItemList": [
+        "name",
+        "url",
+        "itemListElement"
+      ],
+      "BreadcrumbList": [
+        "itemListElement"
+      ]
+    },
+    "noindexCollectionRoutes": [
+      "/collections/cognitive-enhancement-natural",
+      "/collections/compounds-for-focus",
+      "/collections/compounds-for-relaxation",
+      "/collections/energy-without-crash",
+      "/collections/gabaergic-herbs",
+      "/collections/herbs-for-anxiety-and-overthinking",
+      "/collections/herbs-for-burnout-recovery",
+      "/collections/herbs-for-social-anxiety",
+      "/collections/mood-stabilizing-herbs",
+      "/collections/natural-focus-without-caffeine",
+      "/collections/relaxation-without-sedation",
+      "/collections/serotonergic-compounds",
+      "/collections/stress-and-cortisol-support"
+    ],
+    "improperNoindexSchemaRows": []
+  },
+  "rows": [
+    {
+      "route": "/herbs/rivea-corymbosa",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/calliandra-anomala",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/alectra-sessiliflora",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/mandrake-root",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/henbane",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/ipomoea-tricolor-heavenly-blue",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/mistletoe",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "governed_enrichment:reviewed",
+        "evidence_label:limited_human_support",
+        "breadcrumb_context:linked",
+        "evidence_summary_presence:visible"
+      ],
+      "excludedSignals": [
+        "supported_use_presence:not_available",
+        "safety_caution_presence:not_available",
+        "mechanism_or_constituent_presence:not_available",
+        "conflict_uncertainty_presence:not_flagged",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/herbs/anisoptera-thurifera",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/iresine-herbstii",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/jatropha-podagrica",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/pedicularis-groenlandica",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/herbs/delosperma-cooperi",
+      "pageType": "herb_detail",
+      "beforeTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "governed_enrichment:absent_or_not_reviewed"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "no_publishable_governed_enrichment"
+    },
+    {
+      "route": "/collections/herbs-for-relaxation",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-focus",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-sleep",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-energy",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/calming-herb-combinations",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "item_entity_type:combo_link_only",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/stimulant-herb-combinations",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "item_entity_type:combo_link_only",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/herbs-for-deep-sleep-recovery",
+      "pageType": "collection_page",
+      "beforeTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "afterTypes": [
+        "CollectionPage",
+        "WebPage",
+        "ItemList",
+        "BreadcrumbList"
+      ],
+      "gainedTypes": [
+        "WebPage"
+      ],
+      "removedTypes": [],
+      "semanticUpgrade": true,
+      "usedSignals": [
+        "breadcrumb_context:linked",
+        "collection_page_schema:enabled",
+        "item_list_schema:enabled",
+        "webpage_schema:enabled"
+      ],
+      "excludedSignals": [
+        "governed_collection_summary:absent",
+        "medical_authority_schema:policy_excluded",
+        "product_review_rating_schema:policy_excluded",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": false,
+      "unchangedReason": null
+    },
+    {
+      "route": "/collections/compounds-for-relaxation",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/compounds-for-focus",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/serotonergic-compounds",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/gabaergic-herbs",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/herbs-for-anxiety-and-overthinking",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/natural-focus-without-caffeine",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/mood-stabilizing-herbs",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/herbs-for-burnout-recovery",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/stress-and-cortisol-support",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/herbs-for-social-anxiety",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/cognitive-enhancement-natural",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/relaxation-without-sedation",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    },
+    {
+      "route": "/collections/energy-without-crash",
+      "pageType": "collection_page",
+      "beforeTypes": [],
+      "afterTypes": [],
+      "gainedTypes": [],
+      "removedTypes": [],
+      "semanticUpgrade": false,
+      "usedSignals": [],
+      "excludedSignals": [
+        "collection_schema:excluded_noindex_or_low_quality",
+        "itemlist_schema:excluded_noindex_or_low_quality",
+        "faq_schema:excluded_no_visible_faq"
+      ],
+      "intentionallyUnchanged": true,
+      "unchangedReason": "collection_not_index_approved"
+    }
+  ]
+}

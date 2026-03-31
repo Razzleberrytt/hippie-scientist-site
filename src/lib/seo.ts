@@ -241,10 +241,25 @@ export type HerbJsonLdArgs = {
   description?: string
   latinName?: string
   image?: string
+  breadcrumbId?: string
+  governedSummary?: GovernedSummarySignals
 }
 
 export function herbJsonLd(herb: HerbJsonLdArgs) {
   const url = `${SITE_URL}/herbs/${herb.slug}`
+  const governed = herb.governedSummary
+  const hasGoverned = Boolean(governed?.enrichedAndReviewed)
+  const hasPart = hasGoverned
+    ? [
+        { name: 'Evidence summary' },
+        governed?.supportedUseCoveragePresent ? { name: 'Supported and unclear uses' } : null,
+        governed?.safetyCautionsPresent ? { name: 'Safety, interactions, and contraindications' } : null,
+        governed?.mechanismOrConstituentCoveragePresent
+          ? { name: 'Constituents and mechanisms' }
+          : null,
+        governed?.conflictingEvidence ? { name: 'Uncertainty and conflict notes' } : null,
+      ].filter(Boolean)
+    : []
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -254,11 +269,28 @@ export function herbJsonLd(herb: HerbJsonLdArgs) {
     url,
     mainEntityOfPage: url,
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+    ...(herb.breadcrumbId ? { breadcrumb: { '@id': herb.breadcrumbId } } : {}),
+    ...(hasGoverned
+      ? {
+          about: {
+            '@type': 'Thing',
+            name: herb.latinName || herb.name,
+            description: `Governed review: ${String(
+              governed?.evidenceLabelTitle || governed?.evidenceLabel || 'insufficient evidence',
+            ).toLowerCase()}. Educational reference only.`,
+          },
+          ...(hasPart.length ? { hasPart } : {}),
+        }
+      : {}),
     ...(herb.image ? { image: herb.image } : {}),
-    about: {
-      '@type': 'Thing',
-      name: herb.latinName || herb.name,
-    },
+    ...(!hasGoverned
+      ? {
+          about: {
+            '@type': 'Thing',
+            name: herb.latinName || herb.name,
+          },
+        }
+      : {}),
   }
 }
 
@@ -267,10 +299,25 @@ export type CompoundJsonLdArgs = {
   slug: string
   description?: string
   category?: string
+  breadcrumbId?: string
+  governedSummary?: GovernedSummarySignals
 }
 
 export function compoundJsonLd(compound: CompoundJsonLdArgs) {
   const url = `${SITE_URL}/compounds/${compound.slug}`
+  const governed = compound.governedSummary
+  const hasGoverned = Boolean(governed?.enrichedAndReviewed)
+  const hasPart = hasGoverned
+    ? [
+        { name: 'Evidence summary' },
+        governed?.supportedUseCoveragePresent ? { name: 'Supported and unclear uses' } : null,
+        governed?.safetyCautionsPresent ? { name: 'Safety, interactions, and contraindications' } : null,
+        governed?.mechanismOrConstituentCoveragePresent
+          ? { name: 'Constituents and mechanisms' }
+          : null,
+        governed?.conflictingEvidence ? { name: 'Uncertainty and conflict notes' } : null,
+      ].filter(Boolean)
+    : []
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -280,18 +327,31 @@ export function compoundJsonLd(compound: CompoundJsonLdArgs) {
     url,
     mainEntityOfPage: url,
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+    ...(compound.breadcrumbId ? { breadcrumb: { '@id': compound.breadcrumbId } } : {}),
     about: {
       '@type': 'ChemicalSubstance',
       name: compound.name,
       ...(compound.category ? { description: compound.category } : {}),
+      ...(hasGoverned
+        ? {
+            disambiguatingDescription: `Governed review: ${String(
+              governed?.evidenceLabelTitle || governed?.evidenceLabel || 'insufficient evidence',
+            ).toLowerCase()}. Educational reference only.`,
+          }
+        : {}),
     },
+    ...(hasPart.length ? { hasPart } : {}),
   }
 }
 
-export function breadcrumbJsonLd(crumbs: Array<{ name: string; url: string }>) {
+export function breadcrumbJsonLd(
+  crumbs: Array<{ name: string; url: string }>,
+  options?: { id?: string },
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
+    ...(options?.id ? { '@id': options.id } : {}),
     itemListElement: crumbs.map((crumb, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -306,13 +366,30 @@ export function collectionPageJsonLd(args: {
   description: string
   path: string
   itemListId?: string
+  breadcrumbId?: string
+  governedSummary?: {
+    governedReviewedCount: number
+    safetySignalsPresentCount: number
+  } | null
 }) {
+  const url = toAbsoluteUrl(args.path)
   return {
     '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
+    '@type': ['CollectionPage', 'WebPage'],
     name: args.title,
     description: args.description,
-    url: toAbsoluteUrl(args.path),
+    url,
+    mainEntityOfPage: url,
+    ...(args.breadcrumbId ? { breadcrumb: { '@id': args.breadcrumbId } } : {}),
+    ...(args.governedSummary
+      ? {
+          abstract: `Governed coverage across ${
+            args.governedSummary.governedReviewedCount
+          } reviewed profiles with ${
+            args.governedSummary.safetySignalsPresentCount
+          } safety-signal profiles.`,
+        }
+      : {}),
     ...(args.itemListId
       ? {
           mainEntity: {

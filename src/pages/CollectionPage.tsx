@@ -499,6 +499,7 @@ export default function CollectionPage() {
     })),
   ]
   const listSchemaId = `${SITE_URL}${pagePath}#items`
+  const breadcrumbId = `${SITE_URL}${pagePath}#breadcrumb`
   const jsonLd = collectionQuality.approved
     ? [
         collectionPageJsonLd({
@@ -506,6 +507,13 @@ export default function CollectionPage() {
           description: pageDescription,
           path: pagePath,
           itemListId: listSchemaId,
+          breadcrumbId,
+          governedSummary: governedCollectionSummary
+            ? {
+                governedReviewedCount: governedCollectionSummary.governedReviewedCount,
+                safetySignalsPresentCount: governedCollectionSummary.safetySignalsPresentCount,
+              }
+            : null,
         }),
         itemListJsonLd({
           id: listSchemaId,
@@ -517,7 +525,7 @@ export default function CollectionPage() {
           { name: 'Home', url: SITE_URL },
           { name: 'Collections', url: `${SITE_URL}/collections` },
           { name: collection.title, url: `${SITE_URL}${pagePath}` },
-        ]),
+        ], { id: breadcrumbId }),
       ]
     : undefined
 

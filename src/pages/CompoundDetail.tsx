@@ -232,25 +232,29 @@ export default function CompoundDetail() {
     baseCompoundMetaDescription,
     compound.researchEnrichmentSummary,
   )
+  const pagePath = `/compounds/${compound.slug}`
+  const breadcrumbId = `${SITE_URL}${pagePath}#breadcrumb`
 
   return (
     <main className='container mx-auto max-w-4xl px-4 py-8 text-white'>
       <Meta
         title={compoundMetaTitle}
         description={compoundMetaDescription}
-        path={`/compounds/${compound.slug}`}
+        path={pagePath}
         jsonLd={[
           compoundJsonLd({
             name: compound.name,
             slug: compound.slug,
             description: compoundMetaDescription,
             category: compound.category,
+            breadcrumbId,
+            governedSummary: compound.researchEnrichmentSummary,
           }),
           breadcrumbJsonLd([
             { name: 'Home', url: SITE_URL },
             { name: 'Compounds', url: `${SITE_URL}/compounds` },
-            { name: compound.name, url: `${SITE_URL}/compounds/${compound.slug}` },
-          ]),
+            { name: compound.name, url: `${SITE_URL}${pagePath}` },
+          ], { id: breadcrumbId }),
         ]}
       />
       <BreadcrumbTrail
