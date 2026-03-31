@@ -3,6 +3,7 @@ import { useSearchParams, Link } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import { useHerbData } from '@/lib/herb-data'
 import { buildGovernedCollectionSummary } from '@/lib/collectionEnrichment'
+import { buildGovernedCollectionIntro } from '@/lib/governedCollectionIntro'
 import type { Herb } from '@/types'
 
 const FIELDS: Array<[keyof Herb, string]> = [
@@ -46,6 +47,16 @@ export default function Compare() {
       ),
     [herbs],
   )
+  const governedComparisonIntro = useMemo(
+    () =>
+      buildGovernedCollectionIntro({
+        fallbackIntro:
+          'Compare up to three herbs side-by-side. This view is descriptive and should not be treated as a ranked efficacy claim.',
+        summary: governedComparisonSummary,
+        qualityApproved: true,
+      }),
+    [governedComparisonSummary],
+  )
 
   return (
     <main className='mx-auto max-w-6xl px-4 py-8'>
@@ -61,6 +72,12 @@ export default function Compare() {
           ← Back to Database
         </Link>
       </div>
+      <p className='mt-3 max-w-3xl text-sm leading-7 text-white/80'>
+        {governedComparisonIntro.intro}
+      </p>
+      {governedComparisonIntro.mode === 'governed' && governedComparisonIntro.supportingNote ? (
+        <p className='mt-2 text-xs text-indigo-100/90'>{governedComparisonIntro.supportingNote}</p>
+      ) : null}
 
       {loadingSelection ? (
         <p className='mt-4'>Loading comparison…</p>
