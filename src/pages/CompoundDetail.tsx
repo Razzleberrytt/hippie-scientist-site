@@ -17,6 +17,7 @@ import {
   buildGovernedMetaDescription,
   buildGovernedMetaTitle,
   compoundJsonLd,
+  faqPageJsonLd,
   formatMetaDescription,
   SITE_URL,
 } from '@/lib/seo'
@@ -32,6 +33,7 @@ import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
+import { buildGovernedFaqSectionContent } from '@/lib/governedFaq'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import {
   trackDetailBuilderClick,
@@ -200,6 +202,13 @@ export default function CompoundDetail() {
   })
   const ctaVariantId = ctaExperiment.activeVariantId
   const governedResearch = getGovernedResearchEnrichment('compound', compound.slug)
+  const governedFaq = governedResearch
+    ? buildGovernedFaqSectionContent({
+        entityType: 'compound',
+        entityName: compound.name,
+        enrichment: governedResearch,
+      })
+    : null
   const enrichmentRecommendations = buildEnrichmentRecommendations('compound', compound.slug)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
@@ -255,7 +264,18 @@ export default function CompoundDetail() {
             { name: 'Compounds', url: `${SITE_URL}/compounds` },
             { name: compound.name, url: `${SITE_URL}${pagePath}` },
           ], { id: breadcrumbId }),
-        ]}
+          ...(governedFaq?.emitFaqSchema
+            ? [
+                faqPageJsonLd({
+                  pagePath,
+                  questions: governedFaq.faqItems.map(item => ({
+                    question: item.question,
+                    answer: item.answer,
+                  })),
+                }),
+              ]
+            : []),
+        ].filter(Boolean)}
       />
       <BreadcrumbTrail
         items={[
@@ -445,7 +465,9 @@ export default function CompoundDetail() {
           </div>
         )}
 
-        {governedResearch && <GovernedResearchSections enrichment={governedResearch} />}
+        {governedResearch && governedFaq && (
+          <GovernedResearchSections enrichment={governedResearch} governedFaq={governedFaq} />
+        )}
 
         {/* Core fields — only render when value is present */}
         {compound.description && (

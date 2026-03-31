@@ -1,4 +1,5 @@
 import Collapse from '@/components/ui/Collapse'
+import type { GovernedFaqSectionContent } from '@/lib/governedFaq'
 import type { ResearchClaim, ResearchEnrichment } from '@/types/researchEnrichment'
 import { getEvidenceLabelMeta, getTopicJudgment } from '@/lib/governedResearch'
 
@@ -38,7 +39,13 @@ function ClaimList({
   )
 }
 
-export default function GovernedResearchSections({ enrichment }: { enrichment: ResearchEnrichment }) {
+export default function GovernedResearchSections({
+  enrichment,
+  governedFaq,
+}: {
+  enrichment: ResearchEnrichment
+  governedFaq: GovernedFaqSectionContent
+}) {
   const safetyEntries = enrichment.safetyProfile?.safetyEntries || []
   const sections: ClaimSectionConfig[] = [
     {
@@ -81,6 +88,70 @@ export default function GovernedResearchSections({ enrichment }: { enrichment: R
 
   return (
     <>
+      <section className='mt-6 rounded-2xl border border-white/15 bg-white/[0.03] p-4'>
+        <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/80'>
+          Evidence snapshot
+        </h2>
+        <p className='mt-2 text-sm text-white/80'>{governedFaq.evidenceSnapshot}</p>
+      </section>
+
+      {governedFaq.whatWeKnow.length > 0 && (
+        <section className='border-white/8 mt-6 border-t pt-5'>
+          <h2 className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
+            What we know
+          </h2>
+          <ul className='list-disc space-y-2 pl-5 text-sm leading-relaxed text-white/85'>
+            {governedFaq.whatWeKnow.map(item => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {governedFaq.whatRemainsUncertain.length > 0 && (
+        <section className='border-white/8 mt-6 border-t pt-5'>
+          <h2 className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
+            What remains uncertain
+          </h2>
+          <ul className='list-disc space-y-2 pl-5 text-sm leading-relaxed text-white/85'>
+            {governedFaq.whatRemainsUncertain.map(item => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {governedFaq.keyCautions.length > 0 && (
+        <section className='border-white/8 mt-6 border-t pt-5'>
+          <h2 className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
+            Key cautions
+          </h2>
+          <ul className='space-y-2 text-sm leading-relaxed text-rose-100/95'>
+            {governedFaq.keyCautions.map(item => (
+              <li key={item} className='rounded-xl border border-rose-300/25 bg-rose-500/10 px-3 py-2'>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {governedFaq.faqItems.length > 0 && (
+        <section className='border-white/8 mt-6 border-t pt-5'>
+          <h2 className='mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
+            FAQ
+          </h2>
+          <div className='space-y-3'>
+            {governedFaq.faqItems.map(item => (
+              <div key={`${item.questionType}:${item.question}`} className='rounded-xl border border-white/12 bg-white/[0.02] p-3'>
+                <p className='text-sm font-semibold text-white'>{item.question}</p>
+                <p className='mt-1 text-sm leading-relaxed text-white/80'>{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className='mt-6 rounded-2xl border border-rose-300/35 bg-rose-500/10 p-4'>
         <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-rose-100'>Safety & interactions first</h2>
         <p className='mt-2 text-sm text-rose-50/90'>

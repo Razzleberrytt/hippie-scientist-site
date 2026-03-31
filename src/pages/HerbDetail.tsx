@@ -16,6 +16,7 @@ import {
   breadcrumbJsonLd,
   buildGovernedMetaDescription,
   buildGovernedMetaTitle,
+  faqPageJsonLd,
   formatMetaDescription,
   herbJsonLd,
   SITE_URL,
@@ -32,6 +33,7 @@ import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
 import { getGovernedResearchEnrichment } from '@/lib/governedResearch'
+import { buildGovernedFaqSectionContent } from '@/lib/governedFaq'
 import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
 import {
   trackDetailBuilderClick,
@@ -312,6 +314,13 @@ export default function HerbDetail() {
   })
   const ctaVariantId = ctaExperiment.activeVariantId
   const governedResearch = getGovernedResearchEnrichment('herb', herb.slug)
+  const governedFaq = governedResearch
+    ? buildGovernedFaqSectionContent({
+        entityType: 'herb',
+        entityName: herbDisplayName,
+        enrichment: governedResearch,
+      })
+    : null
   const herbMetaTitle = buildGovernedMetaTitle(
     baseHerbMetaTitle,
     herbDisplayName,
@@ -351,7 +360,18 @@ export default function HerbDetail() {
             { name: 'Herbs', url: `${SITE_URL}/herbs` },
             { name: herbDisplayName, url: `${SITE_URL}${pagePath}` },
           ], { id: breadcrumbId }),
-        ]}
+          ...(governedFaq?.emitFaqSchema
+            ? [
+                faqPageJsonLd({
+                  pagePath,
+                  questions: governedFaq.faqItems.map(item => ({
+                    question: item.question,
+                    answer: item.answer,
+                  })),
+                }),
+              ]
+            : []),
+        ].filter(Boolean)}
       />
       <BreadcrumbTrail
         items={[
@@ -581,7 +601,9 @@ export default function HerbDetail() {
           </div>
         )}
 
-        {governedResearch && <GovernedResearchSections enrichment={governedResearch} />}
+        {governedResearch && governedFaq && (
+          <GovernedResearchSections enrichment={governedResearch} governedFaq={governedFaq} />
+        )}
 
         {/* Core content */}
         {description && (

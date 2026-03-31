@@ -421,3 +421,23 @@ export function itemListJsonLd(args: {
     })),
   }
 }
+
+export function faqPageJsonLd(args: {
+  pagePath: string
+  questions: Array<{ question: string; answer: string }>
+}) {
+  if (!args.questions.length) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: args.questions.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+    url: toAbsoluteUrl(args.pagePath),
+  }
+}

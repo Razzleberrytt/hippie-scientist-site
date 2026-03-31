@@ -128,7 +128,9 @@
     "verify:compound-propagation": "tsx scripts/verify-compound-propagation.ts",
     "report:homepage-enrichment-refresh": "node scripts/generate-homepage-data.mjs --report-refresh && node scripts/verify-homepage-payload.mjs",
     "report:seo-enrichment-refresh": "node scripts/report-seo-enrichment-refresh.mjs",
-    "report:structured-data-enrichment": "node scripts/report-structured-data-enrichment.mjs"
+    "report:structured-data-enrichment": "node scripts/report-structured-data-enrichment.mjs",
+    "report:governed-faq-refresh": "tsx scripts/report-governed-faq-refresh.ts",
+    "verify:governed-faq-refresh": "tsx scripts/verify-governed-faq-refresh.ts"
   },
   "engines": {
     "node": ">=20 <21"
