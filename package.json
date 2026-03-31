@@ -143,7 +143,9 @@
     "verify:governed-cta-refresh": "tsx scripts/verify-governed-cta-refresh.ts",
     "report:governed-browse-filters": "tsx scripts/report-governed-browse-filters.ts",
     "report:governed-collection-filters": "tsx scripts/report-governed-collection-filters.ts",
-    "verify:governed-collection-filters": "tsx scripts/verify-governed-collection-filters.ts"
+    "verify:governed-collection-filters": "tsx scripts/verify-governed-collection-filters.ts",
+    "report:governed-review-freshness": "tsx scripts/report-governed-review-freshness.ts && tsx scripts/verify-governed-review-freshness.ts",
+    "verify:governed-review-freshness": "tsx scripts/verify-governed-review-freshness.ts"
   },
   "engines": {
     "node": ">=20 <21"
