@@ -146,7 +146,8 @@
     "verify:governed-collection-filters": "tsx scripts/verify-governed-collection-filters.ts",
     "report:governed-review-freshness": "tsx scripts/report-governed-review-freshness.ts && tsx scripts/verify-governed-review-freshness.ts",
     "verify:governed-review-freshness": "tsx scripts/verify-governed-review-freshness.ts",
-    "report:governed-analytics": "tsx scripts/report-governed-analytics.ts"
+    "report:governed-analytics": "tsx scripts/report-governed-analytics.ts",
+    "report:governed-scorecard": "tsx scripts/report-governed-scorecard.ts"
   },
   "engines": {
     "node": ">=20 <21"
