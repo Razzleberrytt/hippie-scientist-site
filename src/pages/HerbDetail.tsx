@@ -12,7 +12,14 @@ import { extractPrimaryEffects } from '@/utils/extractPrimaryEffects'
 import { getHerbDataCompleteness } from '@/utils/getDataCompleteness'
 import { splitClean } from '@/lib/sanitize'
 import { pushRecentlyViewed, useSavedItems } from '@/lib/growth'
-import { breadcrumbJsonLd, formatMetaDescription, herbJsonLd, SITE_URL } from '@/lib/seo'
+import {
+  breadcrumbJsonLd,
+  buildGovernedMetaDescription,
+  buildGovernedMetaTitle,
+  formatMetaDescription,
+  herbJsonLd,
+  SITE_URL,
+} from '@/lib/seo'
 import CuratedProductModule from '@/components/CuratedProductModule'
 import CtaVariantLayout from '@/components/cta/CtaVariantLayout'
 import Collapse from '@/components/ui/Collapse'
@@ -195,11 +202,11 @@ export default function HerbDetail() {
     therapeuticUses[0] ||
     effects.slice(0, 2).join(', ')
   ).trim()
-  const herbMetaDescription = formatMetaDescription(
+  const baseHerbMetaDescription = formatMetaDescription(
     herbMetaDescriptionSource,
     `${herbDisplayName} herb guide with effects, safety notes, and practical context.`,
   )
-  const herbMetaTitle = `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
+  const baseHerbMetaTitle = `${herbDisplayName} Herb Guide: Effects, Uses & Safety`
 
   // Scalar fields already cleaned by normalization
   const description = herb.description || ''
@@ -305,6 +312,16 @@ export default function HerbDetail() {
   })
   const ctaVariantId = ctaExperiment.activeVariantId
   const governedResearch = getGovernedResearchEnrichment('herb', herb.slug)
+  const herbMetaTitle = buildGovernedMetaTitle(
+    baseHerbMetaTitle,
+    herbDisplayName,
+    'Herb',
+    herb.researchEnrichmentSummary,
+  )
+  const herbMetaDescription = buildGovernedMetaDescription(
+    baseHerbMetaDescription,
+    herb.researchEnrichmentSummary,
+  )
   const enrichmentRecommendations = buildEnrichmentRecommendations('herb', herb.slug)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),

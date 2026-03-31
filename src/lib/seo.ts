@@ -12,6 +12,18 @@ export type BuildMetaArgs = {
   keepQueryParams?: string[]
 }
 
+export type GovernedSummarySignals = {
+  evidenceLabel?: string
+  evidenceLabelTitle?: string
+  hasHumanEvidence?: boolean
+  safetyCautionsPresent?: boolean
+  supportedUseCoveragePresent?: boolean
+  mechanismOrConstituentCoveragePresent?: boolean
+  conflictingEvidence?: boolean
+  enrichedAndReviewed?: boolean
+  lastReviewedAt?: string
+}
+
 type NormalizedMeta = {
   title: string
   description: string
@@ -94,6 +106,63 @@ export function formatMetaDescription(value: string, fallback: string, maxLength
   )
   const compact = (lastBreak > 90 ? cutoff.slice(0, lastBreak) : cutoff).trim()
   return `${compact}…`
+}
+
+const WEAK_OR_UNCERTAIN_LABELS = new Set([
+  'preclinical_only',
+  'traditional_use_only',
+  'insufficient_evidence',
+  'mixed_or_uncertain',
+  'conflicting_evidence',
+])
+
+export function buildGovernedMetaDescription(
+  fallbackDescription: string,
+  summary?: GovernedSummarySignals,
+): string {
+  if (!summary?.enrichedAndReviewed) return fallbackDescription
+  const evidenceLabel = String(summary.evidenceLabel || 'insufficient_evidence')
+  const weakOrUncertain = WEAK_OR_UNCERTAIN_LABELS.has(evidenceLabel)
+  const labelText = String(summary.evidenceLabelTitle || evidenceLabel.replace(/_/g, ' ')).toLowerCase()
+
+  const parts = [`Governed review: ${labelText}.`]
+  if (summary.supportedUseCoveragePresent && !weakOrUncertain) {
+    parts.push('Includes scoped supported-use context from approved sources.')
+  }
+  if (summary.safetyCautionsPresent) {
+    parts.push('Safety and interaction cautions are included.')
+  }
+  if (summary.mechanismOrConstituentCoveragePresent) {
+    parts.push('Mechanism and constituent coverage is available.')
+  }
+  if (summary.conflictingEvidence) {
+    parts.push('Evidence includes unresolved conflicts; avoid overconfident conclusions.')
+  } else if (weakOrUncertain) {
+    parts.push('Evidence remains limited and should not be interpreted as strong human proof.')
+  }
+  if (summary.lastReviewedAt) {
+    const reviewedDate = new Date(summary.lastReviewedAt)
+    if (!Number.isNaN(reviewedDate.getTime())) {
+      parts.push(`Last reviewed ${reviewedDate.toISOString().slice(0, 10)}.`)
+    }
+  }
+  parts.push('Educational reference only.')
+  return formatMetaDescription(parts.join(' '), fallbackDescription)
+}
+
+export function buildGovernedMetaTitle(
+  fallbackTitle: string,
+  name: string,
+  kind: 'Herb' | 'Compound',
+  summary?: GovernedSummarySignals,
+): string {
+  if (!summary?.enrichedAndReviewed) return fallbackTitle
+  const evidenceLabel = String(summary.evidenceLabel || 'insufficient_evidence')
+  const weakOrUncertain = WEAK_OR_UNCERTAIN_LABELS.has(evidenceLabel)
+  if (weakOrUncertain || !summary.hasHumanEvidence) return fallbackTitle
+  const labelTitle = String(summary.evidenceLabelTitle || '').trim()
+  if (!labelTitle) return fallbackTitle
+  return `${name} ${kind} Guide | ${labelTitle}`
 }
 
 export function websiteJsonLd() {
