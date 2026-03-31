@@ -6,7 +6,9 @@
     "shortTitle": "Henbane poisoning case report",
     "sourceType": "journal-article",
     "sourceClass": "observational-human-evidence",
-    "authors": ["Hassan IN"],
+    "authors": [
+      "Hassan IN"
+    ],
     "publicationYear": 2025,
     "citationText": "Hassan IN. Trop Doct. 2025;55(1):69-70.",
     "doi": "10.1177/00494755241289456",
@@ -18,8 +20,13 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "needs_metadata",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "rejectionReasons": [
+      "studyDesign=other is inconsistent with sourceClass=observational-human-evidence."
+    ]
   },
   {
     "candidateSourceId": "cand_henbane-uv-alkaloids-2016",
@@ -28,7 +35,13 @@
     "shortTitle": "Henbane tropane alkaloid variability",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
-    "authors": ["Jan S", "Kamili AN", "Parray JA", "Bedi YS", "Ahmad P"],
+    "authors": [
+      "Jan S",
+      "Kamili AN",
+      "Parray JA",
+      "Bedi YS",
+      "Ahmad P"
+    ],
     "publicationYear": 2016,
     "citationText": "Jan S, et al. J Photochem Photobiol B. 2016;160:226-234.",
     "doi": "10.1016/j.jphotobiol.2016.04.028",
@@ -40,8 +53,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_mandrake-tropane-therapeutics-2022",
@@ -50,7 +66,13 @@
     "shortTitle": "Tropane alkaloid safety review",
     "sourceType": "journal-article",
     "sourceClass": "systematic-review-meta-analysis",
-    "authors": ["Mou M", "Wang J", "Ling J", "Li Y", "Lei P"],
+    "authors": [
+      "Mou M",
+      "Wang J",
+      "Ling J",
+      "Li Y",
+      "Lei P"
+    ],
     "publicationYear": 2022,
     "citationText": "Mou M, et al. Nat Prod Bioprospect. 2022;12(1):29.",
     "doi": "10.1007/s13659-022-00357-w",
@@ -62,8 +84,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_mandrake-alkaloid-chemodiversity-2019",
@@ -72,7 +97,12 @@
     "shortTitle": "Mandragora alkaloid chemodiversity",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
-    "authors": ["Krunic A", "Sajer JM", "Elsen NL", "et al."],
+    "authors": [
+      "Krunic A",
+      "Sajer JM",
+      "Elsen NL",
+      "et al."
+    ],
     "publicationYear": 2019,
     "citationText": "Krunic A, et al. Plant Sci. 2019;283:331-340.",
     "doi": "10.1016/j.plantsci.2019.03.013",
@@ -84,8 +114,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_mistletoe-survival-meta-analysis-2020",
@@ -94,7 +127,10 @@
     "shortTitle": "Mistletoe survival meta-analysis",
     "sourceType": "systematic-review",
     "sourceClass": "systematic-review-meta-analysis",
-    "authors": ["Loef M", "Walach H"],
+    "authors": [
+      "Loef M",
+      "Walach H"
+    ],
     "publicationYear": 2020,
     "citationText": "Loef M, Walach H. Complement Med Res. 2020;27(4):260-271.",
     "doi": "10.1159/000505202",
@@ -106,8 +142,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_mistletoe-adverse-reactions-2017",
@@ -116,7 +155,13 @@
     "shortTitle": "Mistletoe adverse reactions",
     "sourceType": "journal-article",
     "sourceClass": "observational-human-evidence",
-    "authors": ["Steele ML", "Axtner J", "Huber R", "Kröz M", "Matthes H"],
+    "authors": [
+      "Steele ML",
+      "Axtner J",
+      "Huber R",
+      "Kröz M",
+      "Matthes H"
+    ],
     "publicationYear": 2017,
     "citationText": "Steele ML, et al. Phytomedicine. 2017;36:54-60.",
     "doi": "10.1016/j.phymed.2017.09.004",
@@ -128,8 +173,13 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "rejected",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "rejectionReasons": [
+      "sourceClass=observational-human-evidence is not in intake recommendedSourceClasses=regulatory-agency-monograph-guidance, systematic-review-meta-analysis for safety/topic gap safety."
+    ]
   },
   {
     "candidateSourceId": "cand_ipomoea-periglandula-2025",
@@ -138,7 +188,12 @@
     "shortTitle": "Ipomoea symbiont alkaloid source",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
-    "authors": ["Pintor-Toro N", "Panaccione DG", "Woudenberg JHC", "et al."],
+    "authors": [
+      "Pintor-Toro N",
+      "Panaccione DG",
+      "Woudenberg JHC",
+      "et al."
+    ],
     "publicationYear": 2025,
     "citationText": "Pintor-Toro N, et al. Mycologia. 2025;117(4):741-753.",
     "doi": "10.1080/00275514.2025.2483634",
@@ -150,8 +205,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_rivea-hallucinogenic-potential-2018",
@@ -160,7 +218,9 @@
     "shortTitle": "Morning glory ergot alkaloid review",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
-    "authors": ["Eich E"],
+    "authors": [
+      "Eich E"
+    ],
     "publicationYear": 2018,
     "citationText": "Eich E. Planta Med. 2018;84(11-12):751-761.",
     "doi": "10.1055/a-0577-8049",
@@ -172,8 +232,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_jatropha-lathyrane-dimers-2026",
@@ -182,7 +245,12 @@
     "shortTitle": "Jatropha diterpenoid mechanism",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
-    "authors": ["Wu Q", "Li Y", "Yin Y", "et al."],
+    "authors": [
+      "Wu Q",
+      "Li Y",
+      "Yin Y",
+      "et al."
+    ],
     "publicationYear": 2026,
     "citationText": "Wu Q, et al. Org Lett. 2026;28(7):1909-1913.",
     "doi": "10.1021/acs.orglett.6c00670",
@@ -194,8 +262,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_jatropha-curcas-child-toxicity-2011",
@@ -204,7 +275,11 @@
     "shortTitle": "Jatropha ingestion toxicity",
     "sourceType": "journal-article",
     "sourceClass": "observational-human-evidence",
-    "authors": ["Nuntawong N", "Sibhat S", "et al."],
+    "authors": [
+      "Nuntawong N",
+      "Sibhat S",
+      "et al."
+    ],
     "publicationYear": 2011,
     "citationText": "Nuntawong N, et al. Southeast Asian J Trop Med Public Health. 2011;42(4):946-950.",
     "pmid": "22299477",
@@ -215,8 +290,13 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-c",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "rejected",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "rejectionReasons": [
+      "sourceClass=observational-human-evidence is not in intake recommendedSourceClasses=regulatory-agency-monograph-guidance, systematic-review-meta-analysis for safety/topic gap safety."
+    ]
   },
   {
     "candidateSourceId": "cand_iresine-antiviral-phytochemistry-2020",
@@ -225,7 +305,11 @@
     "shortTitle": "Iresine antiviral phytochemistry",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
-    "authors": ["Aly MM", "Abdel-Ghany HM", "et al."],
+    "authors": [
+      "Aly MM",
+      "Abdel-Ghany HM",
+      "et al."
+    ],
     "publicationYear": 2020,
     "citationText": "Aly MM, et al. Saudi J Biol Sci. 2020;27(2):594-601.",
     "doi": "10.1016/j.sjbs.2019.10.002",
@@ -237,8 +321,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-c",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_pedicularis-chemotaxonomic-2021",
@@ -247,7 +334,11 @@
     "shortTitle": "Pedicularis chemo-taxonomic profile",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
-    "authors": ["Afzal M", "Mannan A", "Shah S"],
+    "authors": [
+      "Afzal M",
+      "Mannan A",
+      "Shah S"
+    ],
     "publicationYear": 2021,
     "citationText": "Afzal M, et al. Microsc Res Tech. 2021;84(12):2861-2876.",
     "doi": "10.1002/jemt.23847",
@@ -259,8 +350,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-c",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_cbd-organoid-precision-2026",
@@ -269,7 +363,11 @@
     "shortTitle": "CBD organoid mechanism",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
-    "authors": ["Damaskinou E", "Kyriacou M", "et al."],
+    "authors": [
+      "Damaskinou E",
+      "Kyriacou M",
+      "et al."
+    ],
     "publicationYear": 2026,
     "citationText": "Damaskinou E, et al. Int J Mol Sci. 2026;27(6):2899.",
     "doi": "10.3390/ijms27062899",
@@ -281,8 +379,11 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-b",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "approved_for_registry",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
   },
   {
     "candidateSourceId": "cand_luteolin-integrated-stress-2026",
@@ -291,7 +392,11 @@
     "shortTitle": "Luteolin safety case",
     "sourceType": "journal-article",
     "sourceClass": "non-randomized-human-study",
-    "authors": ["Nam YH", "Yang S", "et al."],
+    "authors": [
+      "Nam YH",
+      "Yang S",
+      "et al."
+    ],
     "publicationYear": 2026,
     "citationText": "Nam YH, et al. Eur J Paediatr Neurol. 2026;52:148-152.",
     "doi": "10.1016/j.ejpn.2026.02.001",
@@ -303,7 +408,12 @@
     "publicationStatus": "published",
     "proposedReliabilityTier": "tier-c",
     "duplicateRisk": "low",
-    "reviewStatus": "draft_candidate",
-    "active": true
+    "reviewStatus": "needs_metadata",
+    "active": true,
+    "reviewer": "source-review-bot",
+    "reviewedAt": "2026-03-31T00:15:41.353Z",
+    "rejectionReasons": [
+      "studyDesign=other is inconsistent with sourceClass=non-randomized-human-study."
+    ]
   }
 ]
