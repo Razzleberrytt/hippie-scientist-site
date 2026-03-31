@@ -4,6 +4,12 @@ import path from 'node:path'
 type EntityType = 'herb' | 'compound'
 type PriorityBucket = 'critical' | 'high' | 'medium' | 'low'
 type CriticalGapType = 'safety-critical' | 'evidence-critical' | 'mechanism-critical'
+type ProposalClass =
+  | 'high-value-highly-actionable'
+  | 'high-value-but-badly-blocked'
+  | 'low-value-but-easy'
+  | 'carryover-rescue-candidate'
+  | 'manual-review-first-candidate'
 
 type Workpack = {
   itemType: 'herb_page' | 'compound_page' | string
@@ -28,10 +34,13 @@ type SourceGapItem = {
 }
 
 type IntakeTask = {
+  intakeTaskId: string
   itemType: string
   entitySlug: string | null
   topicType: string
   acquisitionTier: string
+  adaptiveRetryAttempts?: Array<{ unresolvedRequiredFields?: string[] }>
+  unresolvedAfterRetries?: string[]
 }
 
 type PriorWaveTarget = { entityType: EntityType; entitySlug: string }
@@ -55,6 +64,19 @@ type RollupCriticalGap = {
   unresolvedCriticalTopics: string[]
 }
 
+type CompletionScorecard = {
+  itemType: string
+  itemId: string
+  entitySlug: string | null
+  completionPercent: number
+  criticalMissingFields: string[]
+  blockingCategory: string
+  retryAttempts: number
+  manualReviewNeeded: boolean
+  readyState: string
+  blockerDetails: string[]
+}
+
 type Proposal = {
   proposalId: string
   waveSuggestionId: string
@@ -75,6 +97,17 @@ type Proposal = {
   whySelected: string
   notes: string[]
   rawRank: number
+  scoringInputs: {
+    completionPercent: number
+    criticalMissingFieldCount: number
+    blockerSeverity: number
+    retryExhausted: boolean
+    manualReviewNeeded: boolean
+    readyForNextStage: boolean
+  }
+  actionable: boolean
+  nearCompleteHighValue: boolean
+  proposalClass: ProposalClass
 }
 
 type BalancingProfile = {
@@ -83,12 +116,17 @@ type BalancingProfile = {
   targetSize: number
   minByType: Partial<Record<EntityType, number>>
   maxByType: Partial<Record<EntityType, number>>
-  typeAdjustment: Partial<Record<EntityType, number>>
-  topicAdjustment: Partial<Record<CriticalGapType, number>>
-  carryoverBlockedBoost: number
-  staleBoost: number
-  safetyOverride: { minRawScore: number; slots: number }
-  carryoverRescue: { minSlots: number; entityType: EntityType }
+  weights: {
+    completionMultiplier: number
+    blockerPenaltyMultiplier: number
+    actionabilityBoost: number
+    nearCompleteBoost: number
+    carryoverRescueBoost: number
+    manualReviewPenalty: number
+    retryExhaustionPenalty: number
+    severeBlockerBoost: number
+  }
+  severeBlockerVisibilitySlots: number
 }
 
 type ProfileDecision = {
@@ -96,7 +134,14 @@ type ProfileDecision = {
   proposalId: string
   rawRank: number
   rawPriorityScore: number
-  balancingAdjustment: number
+  completionBlockerAdjustments: {
+    completionAdjustment: number
+    blockerAdjustment: number
+    actionabilityAdjustment: number
+    carryoverAdjustment: number
+    totalAdjustment: number
+    reasons: string[]
+  }
   finalPriorityScore: number
   selected: boolean
   selectionOrder: number | null
@@ -117,83 +162,80 @@ const INPUTS = {
   wave2Targets: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-2-targets.json'),
   wave2bTargets: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-2b-targets.json'),
   publicationManifest: path.join(ROOT, 'public', 'data', 'publication-manifest.json'),
+  completionScorecards: path.join(ROOT, 'ops', 'reports', 'completion-scorecards.json'),
 }
 
 const OUTPUTS = {
-  proposalJson: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-target-proposals.json'),
-  proposalMd: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-target-proposals.md'),
-  balancingJson: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-target-balancing.json'),
-  balancingMd: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-target-balancing.md'),
+  proposalJson: path.join(ROOT, 'ops', 'reports', 'completion-aware-wave-targets.json'),
+  proposalMd: path.join(ROOT, 'ops', 'reports', 'completion-aware-wave-targets.md'),
+  legacyProposalJson: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-target-proposals.json'),
+  legacyBalancingJson: path.join(ROOT, 'ops', 'reports', 'enrichment-wave-target-balancing.json'),
   profileTargetsDir: path.join(ROOT, 'ops', 'targets'),
 }
 
-const MODEL_VERSION = 'enrichment-wave-target-proposals-v2-balancing'
+const MODEL_VERSION = 'completion-aware-wave-targets-v1'
+const PROPOSAL_CLASSES: ProposalClass[] = [
+  'high-value-highly-actionable',
+  'high-value-but-badly-blocked',
+  'low-value-but-easy',
+  'carryover-rescue-candidate',
+  'manual-review-first-candidate',
+]
 
 const BALANCING_PROFILES: Record<string, BalancingProfile> = {
-  'mixed-balanced': {
-    id: 'mixed-balanced',
-    description: 'Evenly balance herb/compound representation while preserving safety and stale carryover pressure.',
+  'actionability-priority': {
+    id: 'actionability-priority',
+    description: 'Favor high-value entities with strong actionability and near-complete momentum.',
     targetSize: 8,
     minByType: { herb: 3, compound: 3 },
     maxByType: { herb: 5, compound: 5 },
-    typeAdjustment: { herb: 0, compound: 4 },
-    topicAdjustment: { 'safety-critical': 12, 'evidence-critical': 6, 'mechanism-critical': 4 },
-    carryoverBlockedBoost: 9,
-    staleBoost: 4,
-    safetyOverride: { minRawScore: 90, slots: 2 },
-    carryoverRescue: { minSlots: 2, entityType: 'compound' },
+    weights: {
+      completionMultiplier: 0.48,
+      blockerPenaltyMultiplier: 0.35,
+      actionabilityBoost: 18,
+      nearCompleteBoost: 16,
+      carryoverRescueBoost: 6,
+      manualReviewPenalty: 14,
+      retryExhaustionPenalty: 12,
+      severeBlockerBoost: 2,
+    },
+    severeBlockerVisibilitySlots: 1,
   },
-  'herb-heavy': {
-    id: 'herb-heavy',
-    description: 'Favor herb throughput while preserving guaranteed compound slots and safety overrides.',
-    targetSize: 8,
-    minByType: { herb: 5, compound: 2 },
-    maxByType: { herb: 7, compound: 3 },
-    typeAdjustment: { herb: 7, compound: -2 },
-    topicAdjustment: { 'safety-critical': 10, 'evidence-critical': 6, 'mechanism-critical': 3 },
-    carryoverBlockedBoost: 8,
-    staleBoost: 3,
-    safetyOverride: { minRawScore: 88, slots: 2 },
-    carryoverRescue: { minSlots: 1, entityType: 'compound' },
-  },
-  'compound-heavy': {
-    id: 'compound-heavy',
-    description: 'Favor compounds while preserving guaranteed herb slots and safety overrides.',
-    targetSize: 8,
-    minByType: { herb: 2, compound: 5 },
-    maxByType: { herb: 3, compound: 7 },
-    typeAdjustment: { herb: -2, compound: 8 },
-    topicAdjustment: { 'safety-critical': 10, 'evidence-critical': 5, 'mechanism-critical': 5 },
-    carryoverBlockedBoost: 11,
-    staleBoost: 4,
-    safetyOverride: { minRawScore: 88, slots: 2 },
-    carryoverRescue: { minSlots: 2, entityType: 'compound' },
-  },
-  'safety-priority-mixed': {
-    id: 'safety-priority-mixed',
-    description: 'Mixed entity distribution with explicit safety critical escalation.',
+  'blocker-rescue': {
+    id: 'blocker-rescue',
+    description: 'Escalate high-value entities with severe blockers for manual/governance rescue.',
     targetSize: 8,
     minByType: { herb: 3, compound: 3 },
     maxByType: { herb: 5, compound: 5 },
-    typeAdjustment: { herb: 0, compound: 3 },
-    topicAdjustment: { 'safety-critical': 16, 'evidence-critical': 4, 'mechanism-critical': 3 },
-    carryoverBlockedBoost: 9,
-    staleBoost: 4,
-    safetyOverride: { minRawScore: 84, slots: 3 },
-    carryoverRescue: { minSlots: 1, entityType: 'compound' },
+    weights: {
+      completionMultiplier: 0.2,
+      blockerPenaltyMultiplier: -0.28,
+      actionabilityBoost: 4,
+      nearCompleteBoost: 6,
+      carryoverRescueBoost: 18,
+      manualReviewPenalty: -10,
+      retryExhaustionPenalty: -8,
+      severeBlockerBoost: 18,
+    },
+    severeBlockerVisibilitySlots: 4,
   },
-  'carryover-rescue-mixed': {
-    id: 'carryover-rescue-mixed',
-    description: 'Mixed distribution that reserves slots for stale/blocked carryover entities, especially compounds.',
+  'balanced-completion': {
+    id: 'balanced-completion',
+    description: 'Blend value and actionability while reserving visibility for severe blockers and carryover rescue.',
     targetSize: 8,
     minByType: { herb: 3, compound: 3 },
     maxByType: { herb: 5, compound: 5 },
-    typeAdjustment: { herb: 0, compound: 4 },
-    topicAdjustment: { 'safety-critical': 10, 'evidence-critical': 5, 'mechanism-critical': 3 },
-    carryoverBlockedBoost: 14,
-    staleBoost: 6,
-    safetyOverride: { minRawScore: 88, slots: 2 },
-    carryoverRescue: { minSlots: 3, entityType: 'compound' },
+    weights: {
+      completionMultiplier: 0.34,
+      blockerPenaltyMultiplier: 0.15,
+      actionabilityBoost: 10,
+      nearCompleteBoost: 12,
+      carryoverRescueBoost: 10,
+      manualReviewPenalty: 4,
+      retryExhaustionPenalty: 3,
+      severeBlockerBoost: 8,
+    },
+    severeBlockerVisibilitySlots: 2,
   },
 }
 
@@ -218,9 +260,7 @@ function waveTargetsFrom(payload: { targets?: PriorWaveTarget[]; entities?: Prio
 }
 
 function ensureExists(filePath: string) {
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`Required proposal input is missing: ${path.relative(ROOT, filePath)}`)
-  }
+  if (!fs.existsSync(filePath)) throw new Error(`Required proposal input is missing: ${path.relative(ROOT, filePath)}`)
 }
 
 function writeJson(filePath: string, value: unknown) {
@@ -250,8 +290,19 @@ function topicToCriticalGapType(topic: string): CriticalGapType | null {
   return null
 }
 
+function blockerCategoryBase(category: string) {
+  if (category === 'blocked_by_safety_critical_missing_fields') return 38
+  if (category === 'blocked_by_evidence_critical_missing_fields') return 32
+  if (category === 'blocked_by_mechanism_critical_missing_fields') return 28
+  if (category === 'blocked_by_governance') return 34
+  if (category === 'blocked_by_review_state') return 26
+  if (category === 'blocked_by_source_scarcity') return 30
+  if (category === 'blocked_by_metadata') return 22
+  return 0
+}
+
 function parseArgs(argv: string[]) {
-  const parsed = { profile: 'mixed-balanced' }
+  const parsed = { profile: 'balanced-completion' }
   for (let i = 0; i < argv.length; i += 1) {
     const token = argv[i]
     if (token === '--profile') {
@@ -276,146 +327,111 @@ function usage() {
   ].join('\n')
 }
 
-function scoreAdjustment(profile: BalancingProfile, proposal: Proposal): { adjustment: number; reasons: string[] } {
-  let adjustment = 0
+function scoreAdjustment(profile: BalancingProfile, proposal: Proposal) {
   const reasons: string[] = []
+  const completionAdjustment = Number(((proposal.scoringInputs.completionPercent - 50) * profile.weights.completionMultiplier).toFixed(2))
+  let blockerAdjustment = Number((-proposal.scoringInputs.blockerSeverity * profile.weights.blockerPenaltyMultiplier).toFixed(2))
+  let actionabilityAdjustment = proposal.actionable ? profile.weights.actionabilityBoost : -Math.abs(profile.weights.actionabilityBoost / 2)
+  const carryoverAdjustment = proposal.carryoverFromWaveIds.length > 0 ? profile.weights.carryoverRescueBoost : 0
 
-  const typeAdjust = profile.typeAdjustment[proposal.entityType] || 0
-  if (typeAdjust !== 0) {
-    adjustment += typeAdjust
-    reasons.push(`type:${proposal.entityType}:${typeAdjust > 0 ? '+' : ''}${typeAdjust}`)
+  if (proposal.nearCompleteHighValue) actionabilityAdjustment += profile.weights.nearCompleteBoost
+  if (proposal.scoringInputs.manualReviewNeeded) actionabilityAdjustment -= profile.weights.manualReviewPenalty
+  if (proposal.scoringInputs.retryExhausted) actionabilityAdjustment -= profile.weights.retryExhaustionPenalty
+  if (proposal.scoringInputs.blockerSeverity >= 70) blockerAdjustment += profile.weights.severeBlockerBoost
+
+  reasons.push(`completion:${completionAdjustment >= 0 ? '+' : ''}${completionAdjustment}`)
+  reasons.push(`blocker:${blockerAdjustment >= 0 ? '+' : ''}${blockerAdjustment}`)
+  reasons.push(`actionability:${actionabilityAdjustment >= 0 ? '+' : ''}${Number(actionabilityAdjustment.toFixed(2))}`)
+  if (carryoverAdjustment !== 0) reasons.push(`carryover:${carryoverAdjustment >= 0 ? '+' : ''}${carryoverAdjustment}`)
+
+  const totalAdjustment = Number((completionAdjustment + blockerAdjustment + actionabilityAdjustment + carryoverAdjustment).toFixed(2))
+  return {
+    completionAdjustment,
+    blockerAdjustment,
+    actionabilityAdjustment: Number(actionabilityAdjustment.toFixed(2)),
+    carryoverAdjustment,
+    totalAdjustment,
+    reasons,
   }
-
-  for (const topic of proposal.criticalGapTypes) {
-    const topicAdjust = profile.topicAdjustment[topic] || 0
-    if (topicAdjust !== 0) {
-      adjustment += topicAdjust
-      reasons.push(`topic:${topic}:${topicAdjust > 0 ? '+' : ''}${topicAdjust}`)
-    }
-  }
-
-  const carryoverBlocked = proposal.carryoverFromWaveIds.length > 0 && proposal.blockerSignals.length > 0
-  if (carryoverBlocked) {
-    adjustment += profile.carryoverBlockedBoost
-    reasons.push(`carryover-blocked:+${profile.carryoverBlockedBoost}`)
-  }
-
-  if (proposal.stale) {
-    adjustment += profile.staleBoost
-    reasons.push(`stale:+${profile.staleBoost}`)
-  }
-
-  return { adjustment, reasons }
 }
 
 function applyBalancingProfile(profile: BalancingProfile, proposals: Proposal[]) {
-  const rawTop = new Set(proposals.slice(0, profile.targetSize).map(row => row.proposalId))
-  const byId = new Map(proposals.map(row => [row.proposalId, row]))
-  const adjustments = new Map<string, { adjustment: number; reasons: string[] }>()
+  const adjustments = new Map<string, ReturnType<typeof scoreAdjustment>>()
+  for (const proposal of proposals) adjustments.set(proposal.proposalId, scoreAdjustment(profile, proposal))
 
-  for (const proposal of proposals) {
-    adjustments.set(proposal.proposalId, scoreAdjustment(profile, proposal))
-  }
+  const adjusted = proposals
+    .map(proposal => {
+      const adjustment = adjustments.get(proposal.proposalId)!
+      return {
+        proposal,
+        adjustment,
+        finalPriorityScore: Number((proposal.rawPriorityScore + adjustment.totalAdjustment).toFixed(2)),
+      }
+    })
+    .sort((a, b) => b.finalPriorityScore - a.finalPriorityScore || a.proposal.rawRank - b.proposal.rawRank)
 
   const selected: Proposal[] = []
   const selectedSet = new Set<string>()
   const selectedReason = new Map<string, string[]>()
   const selectedCountByType: Record<EntityType, number> = { herb: 0, compound: 0 }
 
-  const canSelect = (proposal: Proposal, allowOverflowForSafety = false) => {
+  const canSelect = (proposal: Proposal, allowOverflow = false) => {
     if (selectedSet.has(proposal.proposalId)) return false
     if (selected.length >= profile.targetSize) return false
-    const maxForType = profile.maxByType[proposal.entityType]
-    if (!allowOverflowForSafety && typeof maxForType === 'number' && selectedCountByType[proposal.entityType] >= maxForType) {
-      return false
-    }
+    const maxByType = profile.maxByType[proposal.entityType]
+    if (!allowOverflow && typeof maxByType === 'number' && selectedCountByType[proposal.entityType] >= maxByType) return false
     return true
   }
 
-  const select = (proposal: Proposal, reason: string, allowOverflowForSafety = false) => {
-    if (!canSelect(proposal, allowOverflowForSafety)) return false
+  const select = (proposal: Proposal, reason: string, allowOverflow = false) => {
+    if (!canSelect(proposal, allowOverflow)) return false
     selected.push(proposal)
     selectedSet.add(proposal.proposalId)
     selectedCountByType[proposal.entityType] += 1
-    const bucket = selectedReason.get(proposal.proposalId) || []
-    bucket.push(reason)
-    selectedReason.set(proposal.proposalId, bucket)
+    selectedReason.set(proposal.proposalId, [...(selectedReason.get(proposal.proposalId) || []), reason])
     return true
   }
 
-  for (const proposal of proposals) {
+  const severeCandidates = adjusted.filter(row => row.proposal.scoringInputs.blockerSeverity >= 70)
+  for (const row of severeCandidates) {
     if (selected.length >= profile.targetSize) break
-    if (!proposal.criticalGapTypes.includes('safety-critical')) continue
-    if (proposal.rawPriorityScore < profile.safetyOverride.minRawScore) continue
-    if (
-      selected.filter(row => selectedReason.get(row.proposalId)?.includes('safety-override')).length >= profile.safetyOverride.slots
-    ) {
-      break
-    }
-    select(proposal, 'safety-override', true)
-  }
-
-  const carryoverCandidates = proposals.filter(
-    row =>
-      row.entityType === profile.carryoverRescue.entityType &&
-      row.carryoverFromWaveIds.length > 0 &&
-      (row.blockerSignals.length > 0 || row.stale),
-  )
-
-  for (const proposal of carryoverCandidates) {
-    if (selected.length >= profile.targetSize) break
-    const currentlySelectedOfType = selected.filter(row => row.entityType === profile.carryoverRescue.entityType).length
-    if (currentlySelectedOfType >= profile.carryoverRescue.minSlots) break
-    select(proposal, 'carryover-rescue-floor')
+    const severeSelected = selected.filter(item => item.scoringInputs.blockerSeverity >= 70).length
+    if (severeSelected >= profile.severeBlockerVisibilitySlots) break
+    select(row.proposal, 'severe-blocker-visibility', true)
   }
 
   for (const entityType of ['herb', 'compound'] as const) {
-    const minForType = profile.minByType[entityType] || 0
-    if (minForType <= 0) continue
-    for (const proposal of proposals) {
+    const min = profile.minByType[entityType] || 0
+    if (min <= 0) continue
+    for (const row of adjusted) {
       if (selected.length >= profile.targetSize) break
-      if (proposal.entityType !== entityType) continue
-      if (selectedCountByType[entityType] >= minForType) break
-      select(proposal, `type-min-floor:${entityType}`)
+      if (row.proposal.entityType !== entityType) continue
+      if (selectedCountByType[entityType] >= min) break
+      select(row.proposal, `type-min-floor:${entityType}`)
     }
   }
 
-  const adjustedRank = proposals
-    .map(row => {
-      const entry = adjustments.get(row.proposalId) || { adjustment: 0, reasons: [] }
-      return {
-        proposal: row,
-        finalPriorityScore: Number((row.rawPriorityScore + entry.adjustment).toFixed(2)),
-        adjustment: entry.adjustment,
-      }
-    })
-    .sort(
-      (a, b) =>
-        b.finalPriorityScore - a.finalPriorityScore ||
-        a.proposal.rawRank - b.proposal.rawRank ||
-        a.proposal.proposalId.localeCompare(b.proposal.proposalId),
-    )
-
-  for (const row of adjustedRank) {
+  for (const row of adjusted) {
     if (selected.length >= profile.targetSize) break
     select(row.proposal, 'adjusted-score-rank')
   }
 
   const decisions: ProfileDecision[] = proposals.map(proposal => {
-    const adjust = adjustments.get(proposal.proposalId) || { adjustment: 0, reasons: [] }
-    const finalPriorityScore = Number((proposal.rawPriorityScore + adjust.adjustment).toFixed(2))
+    const adjustment = adjustments.get(proposal.proposalId)!
+    const finalPriorityScore = Number((proposal.rawPriorityScore + adjustment.totalAdjustment).toFixed(2))
     const selectedIdx = selected.findIndex(row => row.proposalId === proposal.proposalId)
     const selectedBecause = selectedReason.get(proposal.proposalId) || []
 
     let exclusionReason: string | null = null
     if (selectedIdx === -1) {
-      const maxForType = profile.maxByType[proposal.entityType]
-      if (rawTop.has(proposal.proposalId)) {
-        exclusionReason = 'Excluded by balancing policy after raw-score top set selection.'
-      } else if (typeof maxForType === 'number' && selectedCountByType[proposal.entityType] >= maxForType) {
-        exclusionReason = `Type max quota reached for ${proposal.entityType} under profile ${profile.id}.`
+      const highValue = proposal.rawPriorityScore >= 130
+      if (highValue && !proposal.actionable) {
+        exclusionReason =
+          proposal.scoringInputs.blockerSeverity >= 70
+            ? 'High-value entity omitted from this profile due to severe blocker severity and low actionability.'
+            : 'High-value entity omitted from this profile due to low actionability/manual-review burden.'
       } else {
-        exclusionReason = 'Below final adjusted-score cutoff after balancing policy application.'
+        exclusionReason = 'Below adjusted-score cutoff after deterministic completion/blocker balancing.'
       }
     }
 
@@ -424,11 +440,11 @@ function applyBalancingProfile(profile: BalancingProfile, proposals: Proposal[])
       proposalId: proposal.proposalId,
       rawRank: proposal.rawRank,
       rawPriorityScore: proposal.rawPriorityScore,
-      balancingAdjustment: adjust.adjustment,
+      completionBlockerAdjustments: adjustment,
       finalPriorityScore,
       selected: selectedIdx !== -1,
       selectionOrder: selectedIdx === -1 ? null : selectedIdx + 1,
-      selectedBecause: [...selectedBecause, ...adjust.reasons],
+      selectedBecause: [...selectedBecause, ...adjustment.reasons],
       exclusionReason,
     }
   })
@@ -441,6 +457,9 @@ function applyBalancingProfile(profile: BalancingProfile, proposals: Proposal[])
     highestPriorityMissingTopics: row.missingTopics,
     criticality: row.criticalGapTypes,
     currentGovernedCoverageStatus: row.currentGovernedCoverageState,
+    proposalClass: row.proposalClass,
+    completionPercent: row.scoringInputs.completionPercent,
+    blockerSeverity: row.scoringInputs.blockerSeverity,
   }))
 
   return {
@@ -453,21 +472,17 @@ function applyBalancingProfile(profile: BalancingProfile, proposals: Proposal[])
         herb: selected.filter(row => row.entityType === 'herb').length,
         compound: selected.filter(row => row.entityType === 'compound').length,
       },
-      safetyCriticalCount: selected.filter(row => row.criticalGapTypes.includes('safety-critical')).length,
+      severeBlockerCount: selected.filter(row => row.scoringInputs.blockerSeverity >= 70).length,
       carryoverCount: selected.filter(row => row.carryoverFromWaveIds.length > 0).length,
+      nearCompleteCount: selected.filter(row => row.nearCompleteHighValue).length,
     },
   }
 }
 
 function run() {
   const args = parseArgs(process.argv.slice(2))
-  if (args.profile === 'help') {
-    console.log(usage())
-    return
-  }
-  if (!BALANCING_PROFILES[args.profile]) {
-    throw new Error(`Unknown --profile '${args.profile}'.\n${usage()}`)
-  }
+  if (args.profile === 'help') return void console.log(usage())
+  if (!BALANCING_PROFILES[args.profile]) throw new Error(`Unknown --profile '${args.profile}'.\n${usage()}`)
 
   Object.values(INPUTS).forEach(ensureExists)
 
@@ -477,6 +492,7 @@ function run() {
   const wave2Review = readJson<{ candidateDecisions: SourceReviewDecision[] }>(INPUTS.wave2Review)
   const wave2Blockers = readJson<{ blockersByTarget: WaveBlocker[] }>(INPUTS.wave2Blockers)
   const wave2Rollup = readJson<{ unresolvedCriticalGaps: RollupCriticalGap[] }>(INPUTS.wave2Rollup)
+  const completionScorecards = readJson<{ scorecards: CompletionScorecard[] }>(INPUTS.completionScorecards)
   const wave1Targets = waveTargetsFrom(readJson<{ targets?: PriorWaveTarget[]; entities?: PriorWaveTarget[] }>(INPUTS.wave1Targets))
   const wave2Targets = waveTargetsFrom(readJson<{ targets?: PriorWaveTarget[]; entities?: PriorWaveTarget[] }>(INPUTS.wave2Targets))
   const wave2bTargets = waveTargetsFrom(readJson<{ targets?: PriorWaveTarget[]; entities?: PriorWaveTarget[] }>(INPUTS.wave2bTargets))
@@ -497,9 +513,7 @@ function run() {
   ] as const) {
     for (const target of payload) {
       const key = entityKey(target.entityType, target.entitySlug)
-      const bucket = carryoverByEntity.get(key) || []
-      bucket.push(waveId)
-      carryoverByEntity.set(key, bucket)
+      carryoverByEntity.set(key, [...(carryoverByEntity.get(key) || []), waveId])
     }
   }
 
@@ -508,41 +522,41 @@ function run() {
     if (!item.entitySlug) continue
     const entityType: EntityType = item.itemType === 'compound_page' ? 'compound' : 'herb'
     const key = entityKey(entityType, item.entitySlug)
-    const bucket = sourceGapsByEntity.get(key) || []
-    bucket.push(item)
-    sourceGapsByEntity.set(key, bucket)
+    sourceGapsByEntity.set(key, [...(sourceGapsByEntity.get(key) || []), item])
   }
 
   const intakeByEntity = new Map<string, IntakeTask[]>()
   for (const task of sourceIntake.tasks) {
     if (!task.entitySlug) continue
-    const entityType: EntityType = task.itemType === 'compound_page' ? 'compound' : 'herb'
+    const entityType: EntityType = task.itemType === 'compound_page' ? 'compound' : task.itemType === 'herb_page' ? 'herb' : 'herb'
     const key = entityKey(entityType, task.entitySlug)
-    const bucket = intakeByEntity.get(key) || []
-    bucket.push(task)
-    intakeByEntity.set(key, bucket)
+    intakeByEntity.set(key, [...(intakeByEntity.get(key) || []), task])
   }
 
   const blockersByEntity = new Map<string, WaveBlocker>()
-  for (const blocker of wave2Blockers.blockersByTarget) {
-    blockersByEntity.set(entityKey(blocker.entityType, blocker.entitySlug), blocker)
-  }
+  for (const blocker of wave2Blockers.blockersByTarget) blockersByEntity.set(entityKey(blocker.entityType, blocker.entitySlug), blocker)
 
   const rollupByEntity = new Map<string, RollupCriticalGap>()
-  for (const gap of wave2Rollup.unresolvedCriticalGaps || []) {
-    rollupByEntity.set(entityKey(gap.entityType, gap.entitySlug), gap)
-  }
+  for (const gap of wave2Rollup.unresolvedCriticalGaps || []) rollupByEntity.set(entityKey(gap.entityType, gap.entitySlug), gap)
 
   const reviewStatsByEntity = new Map<string, { promoted: number; duplicate: number; total: number }>()
   for (const decision of wave2Review.candidateDecisions) {
-    const keys = Array.isArray(decision.entityKeys) ? decision.entityKeys : []
-    for (const key of keys) {
+    for (const key of Array.isArray(decision.entityKeys) ? decision.entityKeys : []) {
       const bucket = reviewStatsByEntity.get(key) || { promoted: 0, duplicate: 0, total: 0 }
       bucket.total += 1
       if (decision.reviewStatus === 'approved_and_promoted') bucket.promoted += 1
       if (decision.outcomeCategory === 'duplicate_of_existing') bucket.duplicate += 1
       reviewStatsByEntity.set(key, bucket)
     }
+  }
+
+  const completionByEntity = new Map<string, CompletionScorecard>()
+  for (const score of completionScorecards.scorecards) {
+    const match = score.itemId.match(/^(herb_page|compound_page):(.*)$/)
+    if (!match) continue
+    const entityType: EntityType = match[1] === 'compound_page' ? 'compound' : 'herb'
+    const slug = normalizeSlug(match[2])
+    completionByEntity.set(entityKey(entityType, slug), score)
   }
 
   const proposalsUnranked: Proposal[] = workpacks.workpacks
@@ -557,61 +571,69 @@ function run() {
       const intakeTasks = intakeByEntity.get(key) || []
       const unresolvedRollup = rollupByEntity.get(key)
       const unresolvedTopics = Array.from(new Set([...(unresolvedRollup?.unresolvedCriticalTopics || []), ...missingTopics]))
-
-      const criticalGapTypes = Array.from(
-        new Set(unresolvedTopics.map(topicToCriticalGapType).filter((value): value is CriticalGapType => Boolean(value))),
-      ).sort() as CriticalGapType[]
-
+      const criticalGapTypes = Array.from(new Set(unresolvedTopics.map(topicToCriticalGapType).filter(Boolean))).sort() as CriticalGapType[]
       const carryoverFromWaveIds = (carryoverByEntity.get(key) || []).sort()
       const priorBlocker = blockersByEntity.get(key)
       const reviewStats = reviewStatsByEntity.get(key) || { promoted: 0, duplicate: 0, total: 0 }
-      const stale =
-        (row.staleTopics || []).length > 0 || /review_due|blocked_pending_review|depublish_or_hide/.test(row.reviewCycleState)
+      const stale = (row.staleTopics || []).length > 0 || /review_due|blocked_pending_review|depublish_or_hide/.test(row.reviewCycleState)
 
       const blockerSignals = Array.from(
-        new Set(
-          [...(row.blockedReasons || []), ...(priorBlocker?.blockerClasses || []), priorBlocker?.endedAtDeltaZeroWhy || ''].filter(
-            Boolean,
-          ),
-        ),
+        new Set([...(row.blockedReasons || []), ...(priorBlocker?.blockerClasses || []), priorBlocker?.endedAtDeltaZeroWhy || ''].filter(Boolean)),
       )
 
       const surfaceDependencySignals = Array.from(
-        new Set(
-          [
-            row.publicStatus.startsWith('indexable') ? 'indexable-public-surface' : 'non-indexable-surface',
-            gapItems.some(item => item.publishBlocking) ? 'publish-blocking-surface-impact' : '',
-            indexableKeys.has(key) ? 'publication-manifest-indexable' : '',
-          ].filter(Boolean),
-        ),
+        new Set([
+          row.publicStatus.startsWith('indexable') ? 'indexable-public-surface' : 'non-indexable-surface',
+          gapItems.some(item => item.publishBlocking) ? 'publish-blocking-surface-impact' : '',
+          indexableKeys.has(key) ? 'publication-manifest-indexable' : '',
+        ].filter(Boolean)),
       )
 
       let score = 0
       if (row.publicStatus === 'indexable') score += 55
       else if (row.publicStatus.includes('indexable')) score += 40
       else score += 12
-
       score += Math.min(50, Math.round((row.publicPriorityScore || 0) * 0.45))
       score += Math.min(24, carryoverFromWaveIds.length * 8)
-
       if (unresolvedTopics.includes('safety')) score += 28
       if (unresolvedTopics.includes('evidence')) score += 20
       if (unresolvedTopics.includes('mechanism')) score += 18
       if (unresolvedTopics.includes('constituent')) score += 8
-
       if (stale) score += 12
       if (row.operationalBucket === 'governance_fix') score += 18
       if (gapItems.some(item => item.publishBlocking)) score += 14
       if (gapItems.some(item => item.safetyCritical)) score += 16
-      if (intakeTasks.some(task => task.acquisitionTier === 'must_have_publish_blocking')) score += 10
-      if (blockerSignals.length > 0) score += Math.min(18, blockerSignals.length * 3)
+
+      const completion = completionByEntity.get(key)
+      const completionPercent = Number((completion?.completionPercent || 0).toFixed(2))
+      const criticalMissingFieldCount = completion?.criticalMissingFields?.length || missingTopics.length
+      const manualReviewNeeded = Boolean(completion?.manualReviewNeeded)
+      const readyForNextStage = completion?.readyState === 'ready_for_next_stage'
+      const retryExhausted = intakeTasks.some(task => (task.unresolvedAfterRetries || []).length > 0)
+      const blockerSeverity = Math.min(
+        95,
+        blockerCategoryBase(completion?.blockingCategory || 'none') +
+          criticalMissingFieldCount * 4 +
+          (manualReviewNeeded ? 6 : 0) +
+          (retryExhausted ? 6 : 0) +
+          Math.min(8, blockerSignals.length * 1.5),
+      )
 
       const promotableSourceLikelihood = classifyPromotableLikelihood(reviewStats)
       if (promotableSourceLikelihood === 'high') score += 8
       if (promotableSourceLikelihood === 'medium') score += 4
 
+      const actionable = readyForNextStage || (completionPercent >= 55 && blockerSeverity <= 60 && !retryExhausted)
+      const nearCompleteHighValue = completionPercent >= 80 && score >= 120 && criticalMissingFieldCount <= 1
+
+      let proposalClass: ProposalClass = 'low-value-but-easy'
+      if (score >= 130 && actionable) proposalClass = 'high-value-highly-actionable'
+      else if (score >= 130 && !actionable) proposalClass = 'high-value-but-badly-blocked'
+      else if (carryoverFromWaveIds.length > 0 && (retryExhausted || blockerSeverity >= 70 || stale))
+        proposalClass = 'carryover-rescue-candidate'
+      else if (manualReviewNeeded && retryExhausted && completionPercent < 50) proposalClass = 'manual-review-first-candidate'
+
       const waveSuggestionId = carryoverFromWaveIds.length ? 'carryover-rescue' : 'new-entity-priority'
-      const prioritizedTopics = ['safety', 'evidence', 'mechanism', 'constituent'].filter(topic => unresolvedTopics.includes(topic))
 
       return {
         proposalId: `proposal_${entityType}_${entitySlug}`,
@@ -630,29 +652,28 @@ function run() {
         surfaceDependencySignals,
         promotableSourceLikelihood,
         recommendedWaveAction: row.recommendedAction,
-        whySelected: [
-          `${row.publicStatus} entity with priority score ${row.publicPriorityScore}.`,
-          prioritizedTopics.length
-            ? `Critical gaps: ${prioritizedTopics.join(', ')}.`
-            : 'No critical safety/evidence/mechanism gaps currently open.',
-          carryoverFromWaveIds.length
-            ? `Carryover from ${carryoverFromWaveIds.join(', ')}.`
-            : 'Not present in prior wave target files.',
-        ].join(' '),
+        whySelected: `${row.publicStatus} entity with completion=${completionPercent}%, blockerSeverity=${blockerSeverity}, class=${proposalClass}.`,
         notes: [
           `workpack bucket=${row.operationalBucket}`,
           `reviewCycleState=${row.reviewCycleState}`,
           `promotableSourceLikelihood=${promotableSourceLikelihood}`,
-          `sourceGapCount=${gapItems.length}`,
-          `intakeTaskCount=${intakeTasks.length}`,
         ],
         rawRank: 0,
+        scoringInputs: {
+          completionPercent,
+          criticalMissingFieldCount,
+          blockerSeverity: Number(blockerSeverity.toFixed(2)),
+          retryExhausted,
+          manualReviewNeeded,
+          readyForNextStage,
+        },
+        actionable,
+        nearCompleteHighValue,
+        proposalClass,
       }
     })
 
-  proposalsUnranked.sort(
-    (a, b) => b.rawPriorityScore - a.rawPriorityScore || a.entityType.localeCompare(b.entityType) || a.entitySlug.localeCompare(b.entitySlug),
-  )
+  proposalsUnranked.sort((a, b) => b.rawPriorityScore - a.rawPriorityScore || a.entityType.localeCompare(b.entityType) || a.entitySlug.localeCompare(b.entitySlug))
   const proposals = proposalsUnranked.map((row, index) => ({ ...row, rawRank: index + 1 }))
 
   const profileResults = Object.values(BALANCING_PROFILES).map(profile => applyBalancingProfile(profile, proposals))
@@ -660,29 +681,17 @@ function run() {
   if (!selectedProfileResult) throw new Error(`Selected profile result missing: ${args.profile}`)
 
   const generatedAt = new Date().toISOString()
-
-  const proposalPayload = {
+  const payload = {
     generatedAt,
     deterministicModelVersion: MODEL_VERSION,
     selectedProfileId: args.profile,
     inputsUsed: Object.values(INPUTS).map(filePath => path.relative(ROOT, filePath)),
     summary: {
       totalCandidates: proposals.length,
-      rawTopSetComposition: {
-        herb: proposals.slice(0, selectedProfileResult.profile.targetSize).filter(row => row.entityType === 'herb').length,
-        compound: proposals.slice(0, selectedProfileResult.profile.targetSize).filter(row => row.entityType === 'compound').length,
-      },
+      byProposalClass: Object.fromEntries(PROPOSAL_CLASSES.map(kind => [kind, proposals.filter(row => row.proposalClass === kind).length])),
       selectedProfileComposition: selectedProfileResult.composition,
     },
     proposals,
-    selectedProfileDecisions: selectedProfileResult.decisions,
-  }
-
-  const balancingPayload = {
-    generatedAt,
-    deterministicModelVersion: MODEL_VERSION,
-    balancingProfiles: BALANCING_PROFILES,
-    selectedProfileId: args.profile,
     profileResults: profileResults.map(result => ({
       profileId: result.profile.id,
       description: result.profile.description,
@@ -695,98 +704,84 @@ function run() {
     })),
   }
 
-  const runnerTargetFrom = (profileId: string, selected: ReturnType<typeof applyBalancingProfile>['selectedTargets']) => ({
-    generatedAt,
-    deterministicModelVersion: MODEL_VERSION,
-    selectionPolicy: {
-      mode: `balancing-profile:${profileId}`,
-      sourceProposalReport: path.relative(ROOT, OUTPUTS.proposalJson),
-      sourceBalancingReport: path.relative(ROOT, OUTPUTS.balancingJson),
-      notes: 'Deterministic balancing-profile target artifact. Human edits are expected before wave execution.',
-    },
-    targets: selected,
-  })
-
-  for (const result of profileResults) {
-    const outputPath = path.join(OUTPUTS.profileTargetsDir, `enrichment-wave-${result.profile.id}.json`)
-    writeJson(outputPath, runnerTargetFrom(result.profile.id, result.selectedTargets))
+  const targetNameByProfile: Record<string, string> = {
+    'actionability-priority': 'enrichment-wave-actionability.json',
+    'blocker-rescue': 'enrichment-wave-blocker-rescue.json',
+    'balanced-completion': 'enrichment-wave-balanced-completion.json',
   }
 
-  writeJson(OUTPUTS.proposalJson, proposalPayload)
-  writeJson(OUTPUTS.balancingJson, balancingPayload)
+  for (const result of profileResults) {
+    const outputPath = path.join(OUTPUTS.profileTargetsDir, targetNameByProfile[result.profile.id])
+    writeJson(outputPath, {
+      generatedAt,
+      deterministicModelVersion: MODEL_VERSION,
+      selectionPolicy: {
+        mode: `completion-aware-profile:${result.profile.id}`,
+        sourceProposalReport: path.relative(ROOT, OUTPUTS.proposalJson),
+        notes: 'Deterministic completion/blocker-aware target artifact for governed enrichment wave runner input.',
+      },
+      targets: result.selectedTargets,
+    })
+  }
 
-  const mdLines = [
-    '# Enrichment Wave Target Proposals (Balanced)',
+  writeJson(OUTPUTS.proposalJson, payload)
+  writeJson(OUTPUTS.legacyProposalJson, payload)
+  writeJson(OUTPUTS.legacyBalancingJson, {
+    generatedAt,
+    deterministicModelVersion: MODEL_VERSION,
+    selectedProfileId: args.profile,
+    balancingProfiles: BALANCING_PROFILES,
+    profileResults: payload.profileResults,
+  })
+
+  const md = [
+    '# Completion-Aware Enrichment Wave Targets',
     '',
     `- Generated at: ${generatedAt}`,
     `- Deterministic model version: ${MODEL_VERSION}`,
     `- Selected profile: ${args.profile}`,
-    `- Candidate count: ${proposals.length}`,
     '',
-    '## Raw-score concentration audit',
-    `- Raw top-${selectedProfileResult.profile.targetSize} composition: herbs=${proposalPayload.summary.rawTopSetComposition.herb}, compounds=${proposalPayload.summary.rawTopSetComposition.compound}.`,
-    '- Over-concentration is addressed by deterministic profile constraints and score adjustments (not by replacing base scoring).',
+    '## Scoring inputs (deterministic)',
+    '- completionPercent',
+    '- criticalMissingFieldCount',
+    '- blockerSeverity',
+    '- retryExhausted',
+    '- manualReviewNeeded',
+    '- readyForNextStage',
     '',
-    '## Selected profile composition',
-    `- ${args.profile}: total=${selectedProfileResult.composition.total}, herbs=${selectedProfileResult.composition.byType.herb}, compounds=${selectedProfileResult.composition.byType.compound}, safetyCritical=${selectedProfileResult.composition.safetyCriticalCount}, carryover=${selectedProfileResult.composition.carryoverCount}`,
-    '',
-    '## Selected profile target list',
-    '| Order | Entity | Raw score | Adjustment | Final score | Inclusion basis |',
-    '| ---: | --- | ---: | ---: | ---: | --- |',
+    '## Selected profile decisions',
+    '| Order | Entity | Raw | Completion adj | Blocker adj | Actionability adj | Final | Outcome |',
+    '| ---: | --- | ---: | ---: | ---: | ---: | ---: | --- |',
     ...selectedProfileResult.decisions
-      .filter(row => row.selected)
-      .sort((a, b) => (a.selectionOrder || 999) - (b.selectionOrder || 999))
+      .sort((a, b) => (a.selectionOrder || 999) - (b.selectionOrder || 999) || a.rawRank - b.rawRank)
+      .slice(0, 16)
       .map(row => {
-        const proposal = proposals.find(item => item.proposalId === row.proposalId)
-        const entity = `${proposal?.entityType}:${proposal?.entitySlug}`
-        return `| ${row.selectionOrder} | ${entity} | ${row.rawPriorityScore} | ${row.balancingAdjustment} | ${row.finalPriorityScore} | ${row.selectedBecause.join(', ') || 'adjusted-score-rank'} |`
+        const proposal = proposals.find(p => p.proposalId === row.proposalId)
+        return `| ${row.selectionOrder || '-'} | ${proposal?.entityType}:${proposal?.entitySlug} | ${row.rawPriorityScore} | ${row.completionBlockerAdjustments.completionAdjustment} | ${row.completionBlockerAdjustments.blockerAdjustment} | ${row.completionBlockerAdjustments.actionabilityAdjustment} | ${row.finalPriorityScore} | ${row.selected ? 'selected' : row.exclusionReason || 'excluded'} |`
       }),
     '',
-    '## High-scoring exclusions caused by balancing',
-    '| Entity | Raw rank | Raw score | Final score | Exclusion reason |',
-    '| --- | ---: | ---: | ---: | --- |',
+    '## High-value exclusions',
     ...selectedProfileResult.decisions
-      .filter(row => !row.selected && row.rawRank <= selectedProfileResult.profile.targetSize)
+      .filter(row => !row.selected && row.rawPriorityScore >= 130)
+      .slice(0, 10)
       .map(row => {
-        const proposal = proposals.find(item => item.proposalId === row.proposalId)
-        return `| ${proposal?.entityType}:${proposal?.entitySlug} | ${row.rawRank} | ${row.rawPriorityScore} | ${row.finalPriorityScore} | ${row.exclusionReason || 'n/a'} |`
+        const proposal = proposals.find(p => p.proposalId === row.proposalId)
+        return `- ${proposal?.entityType}:${proposal?.entitySlug} (raw=${row.rawPriorityScore}, final=${row.finalPriorityScore}) -> ${row.exclusionReason}`
       }),
     '',
-    '## Generated runner-ready target artifacts',
-    ...profileResults.map(result => `- \`ops/targets/enrichment-wave-${result.profile.id}.json\``),
+    '## Runner-ready target artifacts',
+    '- `ops/targets/enrichment-wave-actionability.json`',
+    '- `ops/targets/enrichment-wave-blocker-rescue.json`',
+    '- `ops/targets/enrichment-wave-balanced-completion.json`',
   ]
 
-  fs.mkdirSync(path.dirname(OUTPUTS.proposalMd), { recursive: true })
-  fs.writeFileSync(OUTPUTS.proposalMd, `${mdLines.join('\n')}\n`, 'utf8')
-
-  const balancingMd = [
-    '# Enrichment Wave Target Balancing Profiles',
-    '',
-    `- Generated at: ${generatedAt}`,
-    `- Deterministic model version: ${MODEL_VERSION}`,
-    '',
-    '## Profile composition summary',
-    '| Profile | Description | Total | Herbs | Compounds | Safety-critical | Carryover |',
-    '| --- | --- | ---: | ---: | ---: | ---: | ---: |',
-    ...profileResults.map(result => {
-      const c = result.composition
-      return `| ${result.profile.id} | ${result.profile.description} | ${c.total} | ${c.byType.herb} | ${c.byType.compound} | ${c.safetyCriticalCount} | ${c.carryoverCount} |`
-    }),
-    '',
-    '## Verification checkpoints',
-    '- Raw vs final scores are available in `ops/reports/enrichment-wave-target-balancing.json` (per-profile decisions).',
-    '- Exclusion reasons are explicit for omitted high-scoring entities.',
-    '- Safety overrides and carryover-rescue floors are deterministic and profile-configured.',
-  ]
-  fs.writeFileSync(OUTPUTS.balancingMd, `${balancingMd.join('\n')}\n`, 'utf8')
+  fs.writeFileSync(OUTPUTS.proposalMd, `${md.join('\n')}\n`, 'utf8')
 
   console.log(`Wrote ${path.relative(ROOT, OUTPUTS.proposalJson)}`)
   console.log(`Wrote ${path.relative(ROOT, OUTPUTS.proposalMd)}`)
-  console.log(`Wrote ${path.relative(ROOT, OUTPUTS.balancingJson)}`)
-  console.log(`Wrote ${path.relative(ROOT, OUTPUTS.balancingMd)}`)
-  for (const result of profileResults) {
-    console.log(`Wrote ${path.relative(ROOT, path.join(OUTPUTS.profileTargetsDir, `enrichment-wave-${result.profile.id}.json`))}`)
-  }
+  console.log('Wrote ops/targets/enrichment-wave-actionability.json')
+  console.log('Wrote ops/targets/enrichment-wave-blocker-rescue.json')
+  console.log('Wrote ops/targets/enrichment-wave-balanced-completion.json')
 }
 
 run()

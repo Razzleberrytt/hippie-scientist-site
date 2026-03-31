@@ -1,10 +1,11 @@
 {
-  "generatedAt": "2026-03-31T12:12:58.574Z",
-  "deterministicModelVersion": "enrichment-wave-target-proposals-v2-balancing",
+  "generatedAt": "2026-03-31T20:00:56.192Z",
+  "deterministicModelVersion": "completion-aware-wave-targets-v1",
+  "selectedProfileId": "balanced-completion",
   "balancingProfiles": {
-    "mixed-balanced": {
-      "id": "mixed-balanced",
-      "description": "Evenly balance herb/compound representation while preserving safety and stale carryover pressure.",
+    "actionability-priority": {
+      "id": "actionability-priority",
+      "description": "Favor high-value entities with strong actionability and near-complete momentum.",
       "targetSize": 8,
       "minByType": {
         "herb": 3,
@@ -14,93 +15,21 @@
         "herb": 5,
         "compound": 5
       },
-      "typeAdjustment": {
-        "herb": 0,
-        "compound": 4
+      "weights": {
+        "completionMultiplier": 0.48,
+        "blockerPenaltyMultiplier": 0.35,
+        "actionabilityBoost": 18,
+        "nearCompleteBoost": 16,
+        "carryoverRescueBoost": 6,
+        "manualReviewPenalty": 14,
+        "retryExhaustionPenalty": 12,
+        "severeBlockerBoost": 2
       },
-      "topicAdjustment": {
-        "safety-critical": 12,
-        "evidence-critical": 6,
-        "mechanism-critical": 4
-      },
-      "carryoverBlockedBoost": 9,
-      "staleBoost": 4,
-      "safetyOverride": {
-        "minRawScore": 90,
-        "slots": 2
-      },
-      "carryoverRescue": {
-        "minSlots": 2,
-        "entityType": "compound"
-      }
+      "severeBlockerVisibilitySlots": 1
     },
-    "herb-heavy": {
-      "id": "herb-heavy",
-      "description": "Favor herb throughput while preserving guaranteed compound slots and safety overrides.",
-      "targetSize": 8,
-      "minByType": {
-        "herb": 5,
-        "compound": 2
-      },
-      "maxByType": {
-        "herb": 7,
-        "compound": 3
-      },
-      "typeAdjustment": {
-        "herb": 7,
-        "compound": -2
-      },
-      "topicAdjustment": {
-        "safety-critical": 10,
-        "evidence-critical": 6,
-        "mechanism-critical": 3
-      },
-      "carryoverBlockedBoost": 8,
-      "staleBoost": 3,
-      "safetyOverride": {
-        "minRawScore": 88,
-        "slots": 2
-      },
-      "carryoverRescue": {
-        "minSlots": 1,
-        "entityType": "compound"
-      }
-    },
-    "compound-heavy": {
-      "id": "compound-heavy",
-      "description": "Favor compounds while preserving guaranteed herb slots and safety overrides.",
-      "targetSize": 8,
-      "minByType": {
-        "herb": 2,
-        "compound": 5
-      },
-      "maxByType": {
-        "herb": 3,
-        "compound": 7
-      },
-      "typeAdjustment": {
-        "herb": -2,
-        "compound": 8
-      },
-      "topicAdjustment": {
-        "safety-critical": 10,
-        "evidence-critical": 5,
-        "mechanism-critical": 5
-      },
-      "carryoverBlockedBoost": 11,
-      "staleBoost": 4,
-      "safetyOverride": {
-        "minRawScore": 88,
-        "slots": 2
-      },
-      "carryoverRescue": {
-        "minSlots": 2,
-        "entityType": "compound"
-      }
-    },
-    "safety-priority-mixed": {
-      "id": "safety-priority-mixed",
-      "description": "Mixed entity distribution with explicit safety critical escalation.",
+    "blocker-rescue": {
+      "id": "blocker-rescue",
+      "description": "Escalate high-value entities with severe blockers for manual/governance rescue.",
       "targetSize": 8,
       "minByType": {
         "herb": 3,
@@ -110,29 +39,21 @@
         "herb": 5,
         "compound": 5
       },
-      "typeAdjustment": {
-        "herb": 0,
-        "compound": 3
+      "weights": {
+        "completionMultiplier": 0.2,
+        "blockerPenaltyMultiplier": -0.28,
+        "actionabilityBoost": 4,
+        "nearCompleteBoost": 6,
+        "carryoverRescueBoost": 18,
+        "manualReviewPenalty": -10,
+        "retryExhaustionPenalty": -8,
+        "severeBlockerBoost": 18
       },
-      "topicAdjustment": {
-        "safety-critical": 16,
-        "evidence-critical": 4,
-        "mechanism-critical": 3
-      },
-      "carryoverBlockedBoost": 9,
-      "staleBoost": 4,
-      "safetyOverride": {
-        "minRawScore": 84,
-        "slots": 3
-      },
-      "carryoverRescue": {
-        "minSlots": 1,
-        "entityType": "compound"
-      }
+      "severeBlockerVisibilitySlots": 4
     },
-    "carryover-rescue-mixed": {
-      "id": "carryover-rescue-mixed",
-      "description": "Mixed distribution that reserves slots for stale/blocked carryover entities, especially compounds.",
+    "balanced-completion": {
+      "id": "balanced-completion",
+      "description": "Blend value and actionability while reserving visibility for severe blockers and carryover rescue.",
       "targetSize": 8,
       "minByType": {
         "herb": 3,
@@ -142,2562 +63,2348 @@
         "herb": 5,
         "compound": 5
       },
-      "typeAdjustment": {
-        "herb": 0,
-        "compound": 4
+      "weights": {
+        "completionMultiplier": 0.34,
+        "blockerPenaltyMultiplier": 0.15,
+        "actionabilityBoost": 10,
+        "nearCompleteBoost": 12,
+        "carryoverRescueBoost": 10,
+        "manualReviewPenalty": 4,
+        "retryExhaustionPenalty": 3,
+        "severeBlockerBoost": 8
       },
-      "topicAdjustment": {
-        "safety-critical": 10,
-        "evidence-critical": 5,
-        "mechanism-critical": 3
-      },
-      "carryoverBlockedBoost": 14,
-      "staleBoost": 6,
-      "safetyOverride": {
-        "minRawScore": 88,
-        "slots": 2
-      },
-      "carryoverRescue": {
-        "minSlots": 3,
-        "entityType": "compound"
-      }
+      "severeBlockerVisibilitySlots": 2
     }
   },
-  "selectedProfileId": "mixed-balanced",
   "profileResults": [
     {
-      "profileId": "mixed-balanced",
-      "description": "Evenly balance herb/compound representation while preserving safety and stale carryover pressure.",
+      "profileId": "actionability-priority",
+      "description": "Favor high-value entities with strong actionability and near-complete momentum.",
       "composition": {
         "total": 8,
         "byType": {
           "herb": 5,
           "compound": 3
         },
-        "safetyCriticalCount": 8,
-        "carryoverCount": 6
+        "severeBlockerCount": 6,
+        "carryoverCount": 6,
+        "nearCompleteCount": 0
       },
       "selectedProposalIds": [
         "proposal_herb_calliandra-anomala",
         "proposal_herb_alectra-sessiliflora",
+        "proposal_herb_mandrake-root",
         "proposal_compound_luteolin",
         "proposal_compound_cbd",
-        "proposal_herb_mandrake-root",
         "proposal_compound_flavonoids",
         "proposal_herb_henbane",
         "proposal_herb_ipomoea-tricolor-heavenly-blue"
       ],
       "decisions": [
         {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
           "proposalId": "proposal_herb_calliandra-anomala",
           "rawRank": 1,
-          "rawPriorityScore": 269,
-          "balancingAdjustment": 35,
-          "finalPriorityScore": 304,
+          "rawPriorityScore": 247,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.2,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 6,
+            "totalAdjustment": -66.6,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.2",
+              "actionability:-35",
+              "carryover:+6"
+            ]
+          },
+          "finalPriorityScore": 180.4,
           "selected": true,
           "selectionOrder": 1,
           "selectedBecause": [
-            "safety-override",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "carryover-blocked:+9",
-            "stale:+4"
+            "severe-blocker-visibility",
+            "completion:-14.4",
+            "blocker:-23.2",
+            "actionability:-35",
+            "carryover:+6"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
           "proposalId": "proposal_herb_alectra-sessiliflora",
           "rawRank": 2,
-          "rawPriorityScore": 265,
-          "balancingAdjustment": 35,
-          "finalPriorityScore": 300,
+          "rawPriorityScore": 243,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.2,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 6,
+            "totalAdjustment": -66.6,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.2",
+              "actionability:-35",
+              "carryover:+6"
+            ]
+          },
+          "finalPriorityScore": 176.4,
           "selected": true,
           "selectionOrder": 2,
           "selectedBecause": [
-            "safety-override",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "carryover-blocked:+9",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_mandrake-root",
-          "rawRank": 3,
-          "rawPriorityScore": 257,
-          "balancingAdjustment": 29,
-          "finalPriorityScore": 286,
-          "selected": true,
-          "selectionOrder": 5,
-          "selectedBecause": [
             "type-min-floor:herb",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "carryover-blocked:+9",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.2",
+            "actionability:-35",
+            "carryover:+6"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_henbane",
-          "rawRank": 4,
-          "rawPriorityScore": 255,
-          "balancingAdjustment": 29,
-          "finalPriorityScore": 284,
-          "selected": true,
-          "selectionOrder": 7,
-          "selectedBecause": [
-            "adjusted-score-rank",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "carryover-blocked:+9",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
           "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
-          "rawRank": 5,
-          "rawPriorityScore": 244,
-          "balancingAdjustment": 26,
-          "finalPriorityScore": 270,
+          "rawRank": 3,
+          "rawPriorityScore": 231,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.63,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -73.03,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.63",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 157.97,
           "selected": true,
           "selectionOrder": 8,
           "selectedBecause": [
             "adjusted-score-rank",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.63",
+            "actionability:-35"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_anisoptera-thurifera",
-          "rawRank": 6,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 26,
-          "finalPriorityScore": 266,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_rivea-corymbosa",
-          "rawRank": 7,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 260,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_delosperma-cooperi",
-          "rawRank": 8,
-          "rawPriorityScore": 234,
-          "balancingAdjustment": 26,
-          "finalPriorityScore": 260,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_iresine-herbstii",
-          "rawRank": 9,
-          "rawPriorityScore": 228,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 248,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_jatropha-podagrica",
-          "rawRank": 10,
-          "rawPriorityScore": 227,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 247,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_pedicularis-groenlandica",
-          "rawRank": 11,
-          "rawPriorityScore": 223,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 243,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_luteolin",
-          "rawRank": 12,
-          "rawPriorityScore": 216,
-          "balancingAdjustment": 33,
-          "finalPriorityScore": 249,
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_mandrake-root",
+          "rawRank": 4,
+          "rawPriorityScore": 229,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -22.5,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 6,
+            "totalAdjustment": -56.3,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-22.5",
+              "actionability:-35",
+              "carryover:+6"
+            ]
+          },
+          "finalPriorityScore": 172.7,
           "selected": true,
           "selectionOrder": 3,
           "selectedBecause": [
-            "carryover-rescue-floor",
-            "type:compound:+4",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "carryover-blocked:+9",
-            "stale:+4"
+            "type-min-floor:herb",
+            "completion:-4.8",
+            "blocker:-22.5",
+            "actionability:-35",
+            "carryover:+6"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_cbd",
-          "rawRank": 13,
-          "rawPriorityScore": 214,
-          "balancingAdjustment": 33,
-          "finalPriorityScore": 247,
-          "selected": true,
-          "selectionOrder": 4,
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_anisoptera-thurifera",
+          "rawRank": 5,
+          "rawPriorityScore": 227,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.63,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -73.03,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.63",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 153.97,
+          "selected": false,
+          "selectionOrder": null,
           "selectedBecause": [
-            "carryover-rescue-floor",
-            "type:compound:+4",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "carryover-blocked:+9",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.63",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_henbane",
+          "rawRank": 6,
+          "rawPriorityScore": 227,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -22.5,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 6,
+            "totalAdjustment": -56.3,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-22.5",
+              "actionability:-35",
+              "carryover:+6"
+            ]
+          },
+          "finalPriorityScore": 170.7,
+          "selected": true,
+          "selectionOrder": 7,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "completion:-4.8",
+            "blocker:-22.5",
+            "actionability:-35",
+            "carryover:+6"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_delosperma-cooperi",
+          "rawRank": 7,
+          "rawPriorityScore": 221,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.63,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -73.03,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.63",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 147.97,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-14.4",
+            "blocker:-23.63",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_rivea-corymbosa",
+          "rawRank": 8,
+          "rawPriorityScore": 218,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -23.8,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -63.6,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-23.8",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 154.4,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-4.8",
+            "blocker:-23.8",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_iresine-herbstii",
+          "rawRank": 9,
+          "rawPriorityScore": 206,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -23.8,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -63.6,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-23.8",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 142.4,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-4.8",
+            "blocker:-23.8",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_jatropha-podagrica",
+          "rawRank": 10,
+          "rawPriorityScore": 205,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -23.8,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -63.6,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-23.8",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 141.4,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-4.8",
+            "blocker:-23.8",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_pedicularis-groenlandica",
+          "rawRank": 11,
+          "rawPriorityScore": 201,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -23.8,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -63.6,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-23.8",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 137.4,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-4.8",
+            "blocker:-23.8",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
           "proposalId": "proposal_compound_flavonoids",
-          "rawRank": 14,
-          "rawPriorityScore": 210,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 240,
+          "rawRank": 12,
+          "rawPriorityScore": 200,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 127.5,
           "selected": true,
           "selectionOrder": 6,
           "selectedBecause": [
             "type-min-floor:compound",
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
           "proposalId": "proposal_compound_quercetin",
-          "rawRank": 15,
-          "rawPriorityScore": 209,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 239,
+          "rawRank": 13,
+          "rawPriorityScore": 199,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 126.5,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
           "proposalId": "proposal_compound_asarone",
-          "rawRank": 16,
-          "rawPriorityScore": 207,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 237,
+          "rawRank": 14,
+          "rawPriorityScore": 197,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 124.5,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
           "proposalId": "proposal_compound_saponins",
-          "rawRank": 17,
-          "rawPriorityScore": 206,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 236,
+          "rawRank": 15,
+          "rawPriorityScore": 196,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 123.5,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
           "proposalId": "proposal_compound_volatile-oils",
-          "rawRank": 18,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 235,
+          "rawRank": 16,
+          "rawPriorityScore": 195,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 122.5,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "mixed-balanced",
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_alkaloids",
+          "rawRank": 17,
+          "rawPriorityScore": 193,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 120.5,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_camphor",
+          "rawRank": 18,
+          "rawPriorityScore": 192,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 119.5,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
           "proposalId": "proposal_herb_mistletoe",
           "rawRank": 19,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 225,
+          "rawPriorityScore": 192,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -22.22,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -62.02,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-22.22",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 129.98,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
+            "completion:-4.8",
+            "blocker:-22.22",
+            "actionability:-35"
           ],
-          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_alkaloids",
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_catechin",
           "rawRank": 20,
-          "rawPriorityScore": 203,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 233,
+          "rawPriorityScore": 191,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 118.5,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_camphor",
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_ephedrine",
           "rawRank": 21,
-          "rawPriorityScore": 202,
-          "balancingAdjustment": 30,
+          "rawPriorityScore": 189,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 116.5,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_gallic-acid",
+          "rawRank": 22,
+          "rawPriorityScore": 188,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 115.5,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_luteolin",
+          "rawRank": 23,
+          "rawPriorityScore": 188,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -22.5,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 6,
+            "totalAdjustment": -56.3,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-22.5",
+              "actionability:-35",
+              "carryover:+6"
+            ]
+          },
+          "finalPriorityScore": 131.7,
+          "selected": true,
+          "selectionOrder": 4,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "completion:-4.8",
+            "blocker:-22.5",
+            "actionability:-35",
+            "carryover:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_kaempferol",
+          "rawRank": 24,
+          "rawPriorityScore": 187,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 114.5,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_cbd",
+          "rawRank": 25,
+          "rawPriorityScore": 186,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -22.5,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 6,
+            "totalAdjustment": -56.3,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-22.5",
+              "actionability:-35",
+              "carryover:+6"
+            ]
+          },
+          "finalPriorityScore": 129.7,
+          "selected": true,
+          "selectionOrder": 5,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "completion:-4.8",
+            "blocker:-22.5",
+            "actionability:-35",
+            "carryover:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_compound_limonene",
+          "rawRank": 26,
+          "rawPriorityScore": 185,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -14.4,
+            "blockerAdjustment": -23.1,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -72.5,
+            "reasons": [
+              "completion:-14.4",
+              "blocker:-23.1",
+              "actionability:-35"
+            ]
+          },
+          "finalPriorityScore": 112.5,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-14.4",
+            "blocker:-23.1",
+            "actionability:-35"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "actionability-priority",
+          "proposalId": "proposal_herb_kava",
+          "rawRank": 27,
+          "rawPriorityScore": 138,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -4.8,
+            "blockerAdjustment": -21.7,
+            "actionabilityAdjustment": -35,
+            "carryoverAdjustment": 6,
+            "totalAdjustment": -55.5,
+            "reasons": [
+              "completion:-4.8",
+              "blocker:-21.7",
+              "actionability:-35",
+              "carryover:+6"
+            ]
+          },
+          "finalPriorityScore": 82.5,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-4.8",
+            "blocker:-21.7",
+            "actionability:-35",
+            "carryover:+6"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        }
+      ]
+    },
+    {
+      "profileId": "blocker-rescue",
+      "description": "Escalate high-value entities with severe blockers for manual/governance rescue.",
+      "composition": {
+        "total": 8,
+        "byType": {
+          "herb": 5,
+          "compound": 3
+        },
+        "severeBlockerCount": 6,
+        "carryoverCount": 6,
+        "nearCompleteCount": 0
+      },
+      "selectedProposalIds": [
+        "proposal_herb_calliandra-anomala",
+        "proposal_herb_alectra-sessiliflora",
+        "proposal_herb_mandrake-root",
+        "proposal_herb_henbane",
+        "proposal_compound_luteolin",
+        "proposal_compound_cbd",
+        "proposal_compound_flavonoids",
+        "proposal_herb_ipomoea-tricolor-heavenly-blue"
+      ],
+      "decisions": [
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_calliandra-anomala",
+          "rawRank": 1,
+          "rawPriorityScore": 247,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 38.16,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 18,
+            "totalAdjustment": 66.16,
+            "reasons": [
+              "completion:-6",
+              "blocker:+38.16",
+              "actionability:+16",
+              "carryover:+18"
+            ]
+          },
+          "finalPriorityScore": 313.16,
+          "selected": true,
+          "selectionOrder": 1,
+          "selectedBecause": [
+            "severe-blocker-visibility",
+            "completion:-6",
+            "blocker:+38.16",
+            "actionability:+16",
+            "carryover:+18"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_alectra-sessiliflora",
+          "rawRank": 2,
+          "rawPriorityScore": 243,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 38.16,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 18,
+            "totalAdjustment": 66.16,
+            "reasons": [
+              "completion:-6",
+              "blocker:+38.16",
+              "actionability:+16",
+              "carryover:+18"
+            ]
+          },
+          "finalPriorityScore": 309.16,
+          "selected": true,
+          "selectionOrder": 2,
+          "selectedBecause": [
+            "severe-blocker-visibility",
+            "completion:-6",
+            "blocker:+38.16",
+            "actionability:+16",
+            "carryover:+18"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+          "rawRank": 3,
+          "rawPriorityScore": 231,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.9,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.9,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.9",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 259.9,
+          "selected": true,
+          "selectionOrder": 8,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "completion:-6",
+            "blocker:+18.9",
+            "actionability:+16"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_mandrake-root",
+          "rawRank": 4,
+          "rawPriorityScore": 229,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 37.6,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 18,
+            "totalAdjustment": 69.6,
+            "reasons": [
+              "completion:-2",
+              "blocker:+37.6",
+              "actionability:+16",
+              "carryover:+18"
+            ]
+          },
+          "finalPriorityScore": 298.6,
+          "selected": true,
+          "selectionOrder": 3,
+          "selectedBecause": [
+            "severe-blocker-visibility",
+            "completion:-2",
+            "blocker:+37.6",
+            "actionability:+16",
+            "carryover:+18"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_anisoptera-thurifera",
+          "rawRank": 5,
+          "rawPriorityScore": 227,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.9,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.9,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.9",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 255.9,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.9",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_henbane",
+          "rawRank": 6,
+          "rawPriorityScore": 227,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 37.6,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 18,
+            "totalAdjustment": 69.6,
+            "reasons": [
+              "completion:-2",
+              "blocker:+37.6",
+              "actionability:+16",
+              "carryover:+18"
+            ]
+          },
+          "finalPriorityScore": 296.6,
+          "selected": true,
+          "selectionOrder": 4,
+          "selectedBecause": [
+            "severe-blocker-visibility",
+            "completion:-2",
+            "blocker:+37.6",
+            "actionability:+16",
+            "carryover:+18"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_delosperma-cooperi",
+          "rawRank": 7,
+          "rawPriorityScore": 221,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.9,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.9,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.9",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 249.9,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.9",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_rivea-corymbosa",
+          "rawRank": 8,
+          "rawPriorityScore": 218,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 19.04,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 33.04,
+            "reasons": [
+              "completion:-2",
+              "blocker:+19.04",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 251.04,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-2",
+            "blocker:+19.04",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_iresine-herbstii",
+          "rawRank": 9,
+          "rawPriorityScore": 206,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 19.04,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 33.04,
+            "reasons": [
+              "completion:-2",
+              "blocker:+19.04",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 239.04,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-2",
+            "blocker:+19.04",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_jatropha-podagrica",
+          "rawRank": 10,
+          "rawPriorityScore": 205,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 19.04,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 33.04,
+            "reasons": [
+              "completion:-2",
+              "blocker:+19.04",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 238.04,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-2",
+            "blocker:+19.04",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_pedicularis-groenlandica",
+          "rawRank": 11,
+          "rawPriorityScore": 201,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 19.04,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 33.04,
+            "reasons": [
+              "completion:-2",
+              "blocker:+19.04",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 234.04,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-2",
+            "blocker:+19.04",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_flavonoids",
+          "rawRank": 12,
+          "rawPriorityScore": 200,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 228.48,
+          "selected": true,
+          "selectionOrder": 7,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_quercetin",
+          "rawRank": 13,
+          "rawPriorityScore": 199,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 227.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_asarone",
+          "rawRank": 14,
+          "rawPriorityScore": 197,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 225.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_saponins",
+          "rawRank": 15,
+          "rawPriorityScore": 196,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 224.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_volatile-oils",
+          "rawRank": 16,
+          "rawPriorityScore": 195,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 223.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_alkaloids",
+          "rawRank": 17,
+          "rawPriorityScore": 193,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 221.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_camphor",
+          "rawRank": 18,
+          "rawPriorityScore": 192,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 220.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_mistletoe",
+          "rawRank": 19,
+          "rawPriorityScore": 192,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 17.78,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 31.78,
+            "reasons": [
+              "completion:-2",
+              "blocker:+17.78",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 223.78,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-2",
+            "blocker:+17.78",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_catechin",
+          "rawRank": 20,
+          "rawPriorityScore": 191,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 219.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_ephedrine",
+          "rawRank": 21,
+          "rawPriorityScore": 189,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 217.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_gallic-acid",
+          "rawRank": 22,
+          "rawPriorityScore": 188,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 216.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_luteolin",
+          "rawRank": 23,
+          "rawPriorityScore": 188,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 37.6,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 18,
+            "totalAdjustment": 69.6,
+            "reasons": [
+              "completion:-2",
+              "blocker:+37.6",
+              "actionability:+16",
+              "carryover:+18"
+            ]
+          },
+          "finalPriorityScore": 257.6,
+          "selected": true,
+          "selectionOrder": 5,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "completion:-2",
+            "blocker:+37.6",
+            "actionability:+16",
+            "carryover:+18"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_kaempferol",
+          "rawRank": 24,
+          "rawPriorityScore": 187,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 215.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_cbd",
+          "rawRank": 25,
+          "rawPriorityScore": 186,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 37.6,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 18,
+            "totalAdjustment": 69.6,
+            "reasons": [
+              "completion:-2",
+              "blocker:+37.6",
+              "actionability:+16",
+              "carryover:+18"
+            ]
+          },
+          "finalPriorityScore": 255.6,
+          "selected": true,
+          "selectionOrder": 6,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "completion:-2",
+            "blocker:+37.6",
+            "actionability:+16",
+            "carryover:+18"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_compound_limonene",
+          "rawRank": 26,
+          "rawPriorityScore": 185,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -6,
+            "blockerAdjustment": 18.48,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": 28.48,
+            "reasons": [
+              "completion:-6",
+              "blocker:+18.48",
+              "actionability:+16"
+            ]
+          },
+          "finalPriorityScore": 213.48,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-6",
+            "blocker:+18.48",
+            "actionability:+16"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "blocker-rescue",
+          "proposalId": "proposal_herb_kava",
+          "rawRank": 27,
+          "rawPriorityScore": 138,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -2,
+            "blockerAdjustment": 17.36,
+            "actionabilityAdjustment": 16,
+            "carryoverAdjustment": 18,
+            "totalAdjustment": 49.36,
+            "reasons": [
+              "completion:-2",
+              "blocker:+17.36",
+              "actionability:+16",
+              "carryover:+18"
+            ]
+          },
+          "finalPriorityScore": 187.36,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-2",
+            "blocker:+17.36",
+            "actionability:+16",
+            "carryover:+18"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        }
+      ]
+    },
+    {
+      "profileId": "balanced-completion",
+      "description": "Blend value and actionability while reserving visibility for severe blockers and carryover rescue.",
+      "composition": {
+        "total": 8,
+        "byType": {
+          "herb": 5,
+          "compound": 3
+        },
+        "severeBlockerCount": 6,
+        "carryoverCount": 6,
+        "nearCompleteCount": 0
+      },
+      "selectedProposalIds": [
+        "proposal_herb_calliandra-anomala",
+        "proposal_herb_alectra-sessiliflora",
+        "proposal_herb_mandrake-root",
+        "proposal_compound_luteolin",
+        "proposal_compound_cbd",
+        "proposal_compound_flavonoids",
+        "proposal_herb_henbane",
+        "proposal_herb_ipomoea-tricolor-heavenly-blue"
+      ],
+      "decisions": [
+        {
+          "profileId": "balanced-completion",
+          "proposalId": "proposal_herb_calliandra-anomala",
+          "rawRank": 1,
+          "rawPriorityScore": 247,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -2.8000000000000007,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 10,
+            "totalAdjustment": -15,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-2.8000000000000007",
+              "actionability:-12",
+              "carryover:+10"
+            ]
+          },
           "finalPriorityScore": 232,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_catechin",
-          "rawRank": 22,
-          "rawPriorityScore": 201,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 231,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_ephedrine",
-          "rawRank": 23,
-          "rawPriorityScore": 199,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 229,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_gallic-acid",
-          "rawRank": 24,
-          "rawPriorityScore": 198,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 228,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_kaempferol",
-          "rawRank": 25,
-          "rawPriorityScore": 197,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 227,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_compound_limonene",
-          "rawRank": 26,
-          "rawPriorityScore": 195,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 225,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "mixed-balanced",
-          "proposalId": "proposal_herb_kava",
-          "rawRank": 27,
-          "rawPriorityScore": 138,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 158,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+4",
-            "topic:safety-critical:+12",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
-        }
-      ]
-    },
-    {
-      "profileId": "herb-heavy",
-      "description": "Favor herb throughput while preserving guaranteed compound slots and safety overrides.",
-      "composition": {
-        "total": 8,
-        "byType": {
-          "herb": 6,
-          "compound": 2
-        },
-        "safetyCriticalCount": 8,
-        "carryoverCount": 6
-      },
-      "selectedProposalIds": [
-        "proposal_herb_calliandra-anomala",
-        "proposal_herb_alectra-sessiliflora",
-        "proposal_compound_luteolin",
-        "proposal_herb_mandrake-root",
-        "proposal_herb_henbane",
-        "proposal_herb_ipomoea-tricolor-heavenly-blue",
-        "proposal_compound_cbd",
-        "proposal_herb_anisoptera-thurifera"
-      ],
-      "decisions": [
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_calliandra-anomala",
-          "rawRank": 1,
-          "rawPriorityScore": 269,
-          "balancingAdjustment": 37,
-          "finalPriorityScore": 306,
           "selected": true,
           "selectionOrder": 1,
           "selectedBecause": [
-            "safety-override",
-            "type:herb:+7",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+8",
-            "stale:+3"
+            "severe-blocker-visibility",
+            "completion:-10.2",
+            "blocker:-2.8000000000000007",
+            "actionability:-12",
+            "carryover:+10"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "herb-heavy",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_alectra-sessiliflora",
           "rawRank": 2,
-          "rawPriorityScore": 265,
-          "balancingAdjustment": 37,
-          "finalPriorityScore": 302,
+          "rawPriorityScore": 243,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -2.8000000000000007,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 10,
+            "totalAdjustment": -15,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-2.8000000000000007",
+              "actionability:-12",
+              "carryover:+10"
+            ]
+          },
+          "finalPriorityScore": 228,
           "selected": true,
           "selectionOrder": 2,
           "selectedBecause": [
-            "safety-override",
-            "type:herb:+7",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+8",
-            "stale:+3"
+            "severe-blocker-visibility",
+            "completion:-10.2",
+            "blocker:-2.8000000000000007",
+            "actionability:-12",
+            "carryover:+10"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_mandrake-root",
-          "rawRank": 3,
-          "rawPriorityScore": 257,
-          "balancingAdjustment": 31,
-          "finalPriorityScore": 288,
-          "selected": true,
-          "selectionOrder": 4,
-          "selectedBecause": [
-            "type-min-floor:herb",
-            "type:herb:+7",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+8",
-            "stale:+3"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_henbane",
-          "rawRank": 4,
-          "rawPriorityScore": 255,
-          "balancingAdjustment": 31,
-          "finalPriorityScore": 286,
-          "selected": true,
-          "selectionOrder": 5,
-          "selectedBecause": [
-            "type-min-floor:herb",
-            "type:herb:+7",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+8",
-            "stale:+3"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "herb-heavy",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
-          "rawRank": 5,
-          "rawPriorityScore": 244,
-          "balancingAdjustment": 29,
-          "finalPriorityScore": 273,
-          "selected": true,
-          "selectionOrder": 6,
-          "selectedBecause": [
-            "type-min-floor:herb",
-            "type:herb:+7",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_anisoptera-thurifera",
-          "rawRank": 6,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 29,
-          "finalPriorityScore": 269,
+          "rawRank": 3,
+          "rawPriorityScore": 231,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -10.13,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.33,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-10.13",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 198.67,
           "selected": true,
           "selectionOrder": 8,
           "selectedBecause": [
             "adjusted-score-rank",
-            "type:herb:+7",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
+            "completion:-10.2",
+            "blocker:-10.13",
+            "actionability:-12"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_rivea-corymbosa",
-          "rawRank": 7,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 263,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:+7",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_delosperma-cooperi",
-          "rawRank": 8,
-          "rawPriorityScore": 234,
-          "balancingAdjustment": 29,
-          "finalPriorityScore": 263,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:+7",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_iresine-herbstii",
-          "rawRank": 9,
-          "rawPriorityScore": 228,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 251,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:+7",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_jatropha-podagrica",
-          "rawRank": 10,
-          "rawPriorityScore": 227,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 250,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:+7",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_pedicularis-groenlandica",
-          "rawRank": 11,
-          "rawPriorityScore": 223,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 246,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:+7",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_luteolin",
-          "rawRank": 12,
-          "rawPriorityScore": 216,
-          "balancingAdjustment": 22,
-          "finalPriorityScore": 238,
-          "selected": true,
-          "selectionOrder": 3,
-          "selectedBecause": [
-            "carryover-rescue-floor",
-            "type:compound:-2",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+8",
-            "stale:+3"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_cbd",
-          "rawRank": 13,
-          "rawPriorityScore": 214,
-          "balancingAdjustment": 22,
-          "finalPriorityScore": 236,
-          "selected": true,
-          "selectionOrder": 7,
-          "selectedBecause": [
-            "type-min-floor:compound",
-            "type:compound:-2",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+8",
-            "stale:+3"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_flavonoids",
-          "rawRank": 14,
-          "rawPriorityScore": 210,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 230,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_quercetin",
-          "rawRank": 15,
-          "rawPriorityScore": 209,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 229,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_asarone",
-          "rawRank": 16,
-          "rawPriorityScore": 207,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 227,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_saponins",
-          "rawRank": 17,
-          "rawPriorityScore": 206,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 226,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_volatile-oils",
-          "rawRank": 18,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 225,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_mistletoe",
-          "rawRank": 19,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 228,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:+7",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_alkaloids",
-          "rawRank": 20,
-          "rawPriorityScore": 203,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 223,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_camphor",
-          "rawRank": 21,
-          "rawPriorityScore": 202,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 222,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_catechin",
-          "rawRank": 22,
-          "rawPriorityScore": 201,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 221,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_ephedrine",
-          "rawRank": 23,
-          "rawPriorityScore": 199,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 219,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_gallic-acid",
-          "rawRank": 24,
-          "rawPriorityScore": 198,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 218,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_kaempferol",
-          "rawRank": 25,
-          "rawPriorityScore": 197,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 217,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_compound_limonene",
-          "rawRank": 26,
-          "rawPriorityScore": 195,
-          "balancingAdjustment": 20,
-          "finalPriorityScore": 215,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:-2",
-            "topic:evidence-critical:+6",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "herb-heavy",
-          "proposalId": "proposal_herb_kava",
-          "rawRank": 27,
-          "rawPriorityScore": 138,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 161,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:+7",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+3"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        }
-      ]
-    },
-    {
-      "profileId": "compound-heavy",
-      "description": "Favor compounds while preserving guaranteed herb slots and safety overrides.",
-      "composition": {
-        "total": 8,
-        "byType": {
-          "herb": 3,
-          "compound": 5
-        },
-        "safetyCriticalCount": 8,
-        "carryoverCount": 5
-      },
-      "selectedProposalIds": [
-        "proposal_herb_calliandra-anomala",
-        "proposal_herb_alectra-sessiliflora",
-        "proposal_compound_luteolin",
-        "proposal_compound_cbd",
-        "proposal_compound_flavonoids",
-        "proposal_compound_quercetin",
-        "proposal_compound_asarone",
-        "proposal_herb_mandrake-root"
-      ],
-      "decisions": [
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_calliandra-anomala",
-          "rawRank": 1,
-          "rawPriorityScore": 269,
-          "balancingAdjustment": 33,
-          "finalPriorityScore": 302,
-          "selected": true,
-          "selectionOrder": 1,
-          "selectedBecause": [
-            "safety-override",
-            "type:herb:-2",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+11",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_alectra-sessiliflora",
-          "rawRank": 2,
-          "rawPriorityScore": 265,
-          "balancingAdjustment": 33,
-          "finalPriorityScore": 298,
-          "selected": true,
-          "selectionOrder": 2,
-          "selectedBecause": [
-            "safety-override",
-            "type:herb:-2",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+11",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "compound-heavy",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_mandrake-root",
-          "rawRank": 3,
-          "rawPriorityScore": 257,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 285,
-          "selected": true,
-          "selectionOrder": 8,
-          "selectedBecause": [
-            "adjusted-score-rank",
-            "type:herb:-2",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+11",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_henbane",
           "rawRank": 4,
-          "rawPriorityScore": 255,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 283,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+11",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
-          "rawRank": 5,
-          "rawPriorityScore": 244,
-          "balancingAdjustment": 22,
-          "finalPriorityScore": 266,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_anisoptera-thurifera",
-          "rawRank": 6,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 22,
-          "finalPriorityScore": 262,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_rivea-corymbosa",
-          "rawRank": 7,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 17,
-          "finalPriorityScore": 257,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_delosperma-cooperi",
-          "rawRank": 8,
-          "rawPriorityScore": 234,
-          "balancingAdjustment": 22,
-          "finalPriorityScore": 256,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_iresine-herbstii",
-          "rawRank": 9,
-          "rawPriorityScore": 228,
-          "balancingAdjustment": 17,
-          "finalPriorityScore": 245,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_jatropha-podagrica",
-          "rawRank": 10,
-          "rawPriorityScore": 227,
-          "balancingAdjustment": 17,
-          "finalPriorityScore": 244,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_pedicularis-groenlandica",
-          "rawRank": 11,
-          "rawPriorityScore": 223,
-          "balancingAdjustment": 17,
-          "finalPriorityScore": 240,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_luteolin",
-          "rawRank": 12,
-          "rawPriorityScore": 216,
-          "balancingAdjustment": 38,
-          "finalPriorityScore": 254,
+          "rawPriorityScore": 229,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -2.5,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 10,
+            "totalAdjustment": -7.9,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-2.5",
+              "actionability:-12",
+              "carryover:+10"
+            ]
+          },
+          "finalPriorityScore": 221.1,
           "selected": true,
           "selectionOrder": 3,
-          "selectedBecause": [
-            "carryover-rescue-floor",
-            "type:compound:+8",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+11",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_cbd",
-          "rawRank": 13,
-          "rawPriorityScore": 214,
-          "balancingAdjustment": 38,
-          "finalPriorityScore": 252,
-          "selected": true,
-          "selectionOrder": 4,
-          "selectedBecause": [
-            "carryover-rescue-floor",
-            "type:compound:+8",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+11",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_flavonoids",
-          "rawRank": 14,
-          "rawPriorityScore": 210,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 242,
-          "selected": true,
-          "selectionOrder": 5,
-          "selectedBecause": [
-            "type-min-floor:compound",
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_quercetin",
-          "rawRank": 15,
-          "rawPriorityScore": 209,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 241,
-          "selected": true,
-          "selectionOrder": 6,
-          "selectedBecause": [
-            "type-min-floor:compound",
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_asarone",
-          "rawRank": 16,
-          "rawPriorityScore": 207,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 239,
-          "selected": true,
-          "selectionOrder": 7,
-          "selectedBecause": [
-            "type-min-floor:compound",
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_saponins",
-          "rawRank": 17,
-          "rawPriorityScore": 206,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 238,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_volatile-oils",
-          "rawRank": 18,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 237,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_mistletoe",
-          "rawRank": 19,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 17,
-          "finalPriorityScore": 222,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_alkaloids",
-          "rawRank": 20,
-          "rawPriorityScore": 203,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 235,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_camphor",
-          "rawRank": 21,
-          "rawPriorityScore": 202,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 234,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_catechin",
-          "rawRank": 22,
-          "rawPriorityScore": 201,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 233,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_ephedrine",
-          "rawRank": 23,
-          "rawPriorityScore": 199,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 231,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_gallic-acid",
-          "rawRank": 24,
-          "rawPriorityScore": 198,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 230,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_kaempferol",
-          "rawRank": 25,
-          "rawPriorityScore": 197,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 229,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_compound_limonene",
-          "rawRank": 26,
-          "rawPriorityScore": 195,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 227,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+8",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "compound-heavy",
-          "proposalId": "proposal_herb_kava",
-          "rawRank": 27,
-          "rawPriorityScore": 138,
-          "balancingAdjustment": 17,
-          "finalPriorityScore": 155,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:herb:-2",
-            "topic:mechanism-critical:+5",
-            "topic:safety-critical:+10",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
-        }
-      ]
-    },
-    {
-      "profileId": "safety-priority-mixed",
-      "description": "Mixed entity distribution with explicit safety critical escalation.",
-      "composition": {
-        "total": 8,
-        "byType": {
-          "herb": 5,
-          "compound": 3
-        },
-        "safetyCriticalCount": 8,
-        "carryoverCount": 6
-      },
-      "selectedProposalIds": [
-        "proposal_herb_calliandra-anomala",
-        "proposal_herb_alectra-sessiliflora",
-        "proposal_herb_mandrake-root",
-        "proposal_compound_luteolin",
-        "proposal_compound_cbd",
-        "proposal_compound_flavonoids",
-        "proposal_herb_henbane",
-        "proposal_herb_ipomoea-tricolor-heavenly-blue"
-      ],
-      "decisions": [
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_calliandra-anomala",
-          "rawRank": 1,
-          "rawPriorityScore": 269,
-          "balancingAdjustment": 36,
-          "finalPriorityScore": 305,
-          "selected": true,
-          "selectionOrder": 1,
-          "selectedBecause": [
-            "safety-override",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "carryover-blocked:+9",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_alectra-sessiliflora",
-          "rawRank": 2,
-          "rawPriorityScore": 265,
-          "balancingAdjustment": 36,
-          "finalPriorityScore": 301,
-          "selected": true,
-          "selectionOrder": 2,
-          "selectedBecause": [
-            "safety-override",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "carryover-blocked:+9",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_mandrake-root",
-          "rawRank": 3,
-          "rawPriorityScore": 257,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 289,
-          "selected": true,
-          "selectionOrder": 3,
-          "selectedBecause": [
-            "safety-override",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "carryover-blocked:+9",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_henbane",
-          "rawRank": 4,
-          "rawPriorityScore": 255,
-          "balancingAdjustment": 32,
-          "finalPriorityScore": 287,
-          "selected": true,
-          "selectionOrder": 7,
-          "selectedBecause": [
-            "adjusted-score-rank",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "carryover-blocked:+9",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
-          "rawRank": 5,
-          "rawPriorityScore": 244,
-          "balancingAdjustment": 27,
-          "finalPriorityScore": 271,
-          "selected": true,
-          "selectionOrder": 8,
-          "selectedBecause": [
-            "adjusted-score-rank",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_anisoptera-thurifera",
-          "rawRank": 6,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 27,
-          "finalPriorityScore": 267,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_rivea-corymbosa",
-          "rawRank": 7,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 263,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_delosperma-cooperi",
-          "rawRank": 8,
-          "rawPriorityScore": 234,
-          "balancingAdjustment": 27,
-          "finalPriorityScore": 261,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_iresine-herbstii",
-          "rawRank": 9,
-          "rawPriorityScore": 228,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 251,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_jatropha-podagrica",
-          "rawRank": 10,
-          "rawPriorityScore": 227,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 250,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_pedicularis-groenlandica",
-          "rawRank": 11,
-          "rawPriorityScore": 223,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 246,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_luteolin",
-          "rawRank": 12,
-          "rawPriorityScore": 216,
-          "balancingAdjustment": 35,
-          "finalPriorityScore": 251,
-          "selected": true,
-          "selectionOrder": 4,
-          "selectedBecause": [
-            "carryover-rescue-floor",
-            "type:compound:+3",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "carryover-blocked:+9",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_cbd",
-          "rawRank": 13,
-          "rawPriorityScore": 214,
-          "balancingAdjustment": 35,
-          "finalPriorityScore": 249,
-          "selected": true,
-          "selectionOrder": 5,
-          "selectedBecause": [
-            "type-min-floor:compound",
-            "type:compound:+3",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "carryover-blocked:+9",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_flavonoids",
-          "rawRank": 14,
-          "rawPriorityScore": 210,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 240,
-          "selected": true,
-          "selectionOrder": 6,
-          "selectedBecause": [
-            "type-min-floor:compound",
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_quercetin",
-          "rawRank": 15,
-          "rawPriorityScore": 209,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 239,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_asarone",
-          "rawRank": 16,
-          "rawPriorityScore": 207,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 237,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_saponins",
-          "rawRank": 17,
-          "rawPriorityScore": 206,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 236,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_volatile-oils",
-          "rawRank": 18,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 235,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_mistletoe",
-          "rawRank": 19,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 228,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_alkaloids",
-          "rawRank": 20,
-          "rawPriorityScore": 203,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 233,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_camphor",
-          "rawRank": 21,
-          "rawPriorityScore": 202,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 232,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_catechin",
-          "rawRank": 22,
-          "rawPriorityScore": 201,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 231,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_ephedrine",
-          "rawRank": 23,
-          "rawPriorityScore": 199,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 229,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_gallic-acid",
-          "rawRank": 24,
-          "rawPriorityScore": 198,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 228,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_kaempferol",
-          "rawRank": 25,
-          "rawPriorityScore": 197,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 227,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_compound_limonene",
-          "rawRank": 26,
-          "rawPriorityScore": 195,
-          "balancingAdjustment": 30,
-          "finalPriorityScore": 225,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+3",
-            "topic:evidence-critical:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "safety-priority-mixed",
-          "proposalId": "proposal_herb_kava",
-          "rawRank": 27,
-          "rawPriorityScore": 138,
-          "balancingAdjustment": 23,
-          "finalPriorityScore": 161,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+16",
-            "stale:+4"
-          ],
-          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
-        }
-      ]
-    },
-    {
-      "profileId": "carryover-rescue-mixed",
-      "description": "Mixed distribution that reserves slots for stale/blocked carryover entities, especially compounds.",
-      "composition": {
-        "total": 8,
-        "byType": {
-          "herb": 5,
-          "compound": 3
-        },
-        "safetyCriticalCount": 8,
-        "carryoverCount": 6
-      },
-      "selectedProposalIds": [
-        "proposal_herb_calliandra-anomala",
-        "proposal_herb_alectra-sessiliflora",
-        "proposal_compound_luteolin",
-        "proposal_compound_cbd",
-        "proposal_herb_mandrake-root",
-        "proposal_compound_flavonoids",
-        "proposal_herb_henbane",
-        "proposal_herb_ipomoea-tricolor-heavenly-blue"
-      ],
-      "decisions": [
-        {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_herb_calliandra-anomala",
-          "rawRank": 1,
-          "rawPriorityScore": 269,
-          "balancingAdjustment": 38,
-          "finalPriorityScore": 307,
-          "selected": true,
-          "selectionOrder": 1,
-          "selectedBecause": [
-            "safety-override",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+14",
-            "stale:+6"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_herb_alectra-sessiliflora",
-          "rawRank": 2,
-          "rawPriorityScore": 265,
-          "balancingAdjustment": 38,
-          "finalPriorityScore": 303,
-          "selected": true,
-          "selectionOrder": 2,
-          "selectedBecause": [
-            "safety-override",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+14",
-            "stale:+6"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_herb_mandrake-root",
-          "rawRank": 3,
-          "rawPriorityScore": 257,
-          "balancingAdjustment": 33,
-          "finalPriorityScore": 290,
-          "selected": true,
-          "selectionOrder": 5,
           "selectedBecause": [
             "type-min-floor:herb",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+14",
-            "stale:+6"
+            "completion:-3.4",
+            "blocker:-2.5",
+            "actionability:-12",
+            "carryover:+10"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
+          "proposalId": "proposal_herb_anisoptera-thurifera",
+          "rawRank": 5,
+          "rawPriorityScore": 227,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -10.13,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.33,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-10.13",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 194.67,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-10.2",
+            "blocker:-10.13",
+            "actionability:-12"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_henbane",
-          "rawRank": 4,
-          "rawPriorityScore": 255,
-          "balancingAdjustment": 33,
-          "finalPriorityScore": 288,
+          "rawRank": 6,
+          "rawPriorityScore": 227,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -2.5,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 10,
+            "totalAdjustment": -7.9,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-2.5",
+              "actionability:-12",
+              "carryover:+10"
+            ]
+          },
+          "finalPriorityScore": 219.1,
           "selected": true,
           "selectionOrder": 7,
           "selectedBecause": [
             "adjusted-score-rank",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+14",
-            "stale:+6"
+            "completion:-3.4",
+            "blocker:-2.5",
+            "actionability:-12",
+            "carryover:+10"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
-          "rawRank": 5,
-          "rawPriorityScore": 244,
-          "balancingAdjustment": 24,
-          "finalPriorityScore": 268,
-          "selected": true,
-          "selectionOrder": 8,
-          "selectedBecause": [
-            "adjusted-score-rank",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_herb_anisoptera-thurifera",
-          "rawRank": 6,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 24,
-          "finalPriorityScore": 264,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_herb_rivea-corymbosa",
-          "rawRank": 7,
-          "rawPriorityScore": 240,
-          "balancingAdjustment": 19,
-          "finalPriorityScore": 259,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
-          ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_delosperma-cooperi",
-          "rawRank": 8,
-          "rawPriorityScore": 234,
-          "balancingAdjustment": 24,
-          "finalPriorityScore": 258,
+          "rawRank": 7,
+          "rawPriorityScore": 221,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -10.13,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.33,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-10.13",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 188.67,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-10.13",
+            "actionability:-12"
           ],
-          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
+          "proposalId": "proposal_herb_rivea-corymbosa",
+          "rawRank": 8,
+          "rawPriorityScore": 218,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -10.2,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -25.6,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-10.2",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 192.4,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-3.4",
+            "blocker:-10.2",
+            "actionability:-12"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_iresine-herbstii",
           "rawRank": 9,
-          "rawPriorityScore": 228,
-          "balancingAdjustment": 19,
-          "finalPriorityScore": 247,
+          "rawPriorityScore": 206,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -10.2,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -25.6,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-10.2",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 180.4,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-3.4",
+            "blocker:-10.2",
+            "actionability:-12"
           ],
-          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_jatropha-podagrica",
           "rawRank": 10,
-          "rawPriorityScore": 227,
-          "balancingAdjustment": 19,
-          "finalPriorityScore": 246,
+          "rawPriorityScore": 205,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -10.2,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -25.6,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-10.2",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 179.4,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-3.4",
+            "blocker:-10.2",
+            "actionability:-12"
           ],
-          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_pedicularis-groenlandica",
           "rawRank": 11,
-          "rawPriorityScore": 223,
-          "balancingAdjustment": 19,
-          "finalPriorityScore": 242,
+          "rawPriorityScore": 201,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -10.2,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -25.6,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-10.2",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 175.4,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-3.4",
+            "blocker:-10.2",
+            "actionability:-12"
           ],
-          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_compound_luteolin",
-          "rawRank": 12,
-          "rawPriorityScore": 216,
-          "balancingAdjustment": 37,
-          "finalPriorityScore": 253,
-          "selected": true,
-          "selectionOrder": 3,
-          "selectedBecause": [
-            "carryover-rescue-floor",
-            "type:compound:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+14",
-            "stale:+6"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_compound_cbd",
-          "rawRank": 13,
-          "rawPriorityScore": 214,
-          "balancingAdjustment": 37,
-          "finalPriorityScore": 251,
-          "selected": true,
-          "selectionOrder": 4,
-          "selectedBecause": [
-            "carryover-rescue-floor",
-            "type:compound:+4",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "carryover-blocked:+14",
-            "stale:+6"
-          ],
-          "exclusionReason": null
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_flavonoids",
-          "rawRank": 14,
-          "rawPriorityScore": 210,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 238,
+          "rawRank": 12,
+          "rawPriorityScore": 200,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 167.9,
           "selected": true,
           "selectionOrder": 6,
           "selectedBecause": [
             "type-min-floor:compound",
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
           "exclusionReason": null
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_quercetin",
-          "rawRank": 15,
-          "rawPriorityScore": 209,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 237,
+          "rawRank": 13,
+          "rawPriorityScore": 199,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 166.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_asarone",
-          "rawRank": 16,
-          "rawPriorityScore": 207,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 235,
+          "rawRank": 14,
+          "rawPriorityScore": 197,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 164.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_saponins",
-          "rawRank": 17,
-          "rawPriorityScore": 206,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 234,
+          "rawRank": 15,
+          "rawPriorityScore": 196,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 163.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_volatile-oils",
-          "rawRank": 18,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 233,
+          "rawRank": 16,
+          "rawPriorityScore": 195,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 162.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
+          "proposalId": "proposal_compound_alkaloids",
+          "rawRank": 17,
+          "rawPriorityScore": 193,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 160.9,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "balanced-completion",
+          "proposalId": "proposal_compound_camphor",
+          "rawRank": 18,
+          "rawPriorityScore": 192,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 159.9,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
+          ],
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
+        },
+        {
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_mistletoe",
           "rawRank": 19,
-          "rawPriorityScore": 205,
-          "balancingAdjustment": 19,
-          "finalPriorityScore": 224,
+          "rawPriorityScore": 192,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -9.53,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -24.93,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-9.53",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 167.07,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-3.4",
+            "blocker:-9.53",
+            "actionability:-12"
           ],
-          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_compound_alkaloids",
-          "rawRank": 20,
-          "rawPriorityScore": 203,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 231,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
-          "proposalId": "proposal_compound_camphor",
-          "rawRank": 21,
-          "rawPriorityScore": 202,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 230,
-          "selected": false,
-          "selectionOrder": null,
-          "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
-          ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
-        },
-        {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_catechin",
-          "rawRank": 22,
-          "rawPriorityScore": 201,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 229,
+          "rawRank": 20,
+          "rawPriorityScore": 191,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 158.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_ephedrine",
-          "rawRank": 23,
-          "rawPriorityScore": 199,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 227,
+          "rawRank": 21,
+          "rawPriorityScore": 189,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 156.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_gallic-acid",
-          "rawRank": 24,
-          "rawPriorityScore": 198,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 226,
+          "rawRank": 22,
+          "rawPriorityScore": 188,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 155.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
+          "proposalId": "proposal_compound_luteolin",
+          "rawRank": 23,
+          "rawPriorityScore": 188,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -2.5,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 10,
+            "totalAdjustment": -7.9,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-2.5",
+              "actionability:-12",
+              "carryover:+10"
+            ]
+          },
+          "finalPriorityScore": 180.1,
+          "selected": true,
+          "selectionOrder": 4,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "completion:-3.4",
+            "blocker:-2.5",
+            "actionability:-12",
+            "carryover:+10"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_kaempferol",
-          "rawRank": 25,
-          "rawPriorityScore": 197,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 225,
+          "rawRank": 24,
+          "rawPriorityScore": 187,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 154.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
+          "proposalId": "proposal_compound_cbd",
+          "rawRank": 25,
+          "rawPriorityScore": 186,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -2.5,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 10,
+            "totalAdjustment": -7.9,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-2.5",
+              "actionability:-12",
+              "carryover:+10"
+            ]
+          },
+          "finalPriorityScore": 178.1,
+          "selected": true,
+          "selectionOrder": 5,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "completion:-3.4",
+            "blocker:-2.5",
+            "actionability:-12",
+            "carryover:+10"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "balanced-completion",
           "proposalId": "proposal_compound_limonene",
           "rawRank": 26,
-          "rawPriorityScore": 195,
-          "balancingAdjustment": 28,
-          "finalPriorityScore": 223,
+          "rawPriorityScore": 185,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -10.2,
+            "blockerAdjustment": -9.9,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 0,
+            "totalAdjustment": -32.1,
+            "reasons": [
+              "completion:-10.2",
+              "blocker:-9.9",
+              "actionability:-12"
+            ]
+          },
+          "finalPriorityScore": 152.9,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "type:compound:+4",
-            "topic:evidence-critical:+5",
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-10.2",
+            "blocker:-9.9",
+            "actionability:-12"
           ],
-          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         },
         {
-          "profileId": "carryover-rescue-mixed",
+          "profileId": "balanced-completion",
           "proposalId": "proposal_herb_kava",
           "rawRank": 27,
           "rawPriorityScore": 138,
-          "balancingAdjustment": 19,
-          "finalPriorityScore": 157,
+          "completionBlockerAdjustments": {
+            "completionAdjustment": -3.4,
+            "blockerAdjustment": -9.3,
+            "actionabilityAdjustment": -12,
+            "carryoverAdjustment": 10,
+            "totalAdjustment": -14.7,
+            "reasons": [
+              "completion:-3.4",
+              "blocker:-9.3",
+              "actionability:-12",
+              "carryover:+10"
+            ]
+          },
+          "finalPriorityScore": 123.3,
           "selected": false,
           "selectionOrder": null,
           "selectedBecause": [
-            "topic:mechanism-critical:+3",
-            "topic:safety-critical:+10",
-            "stale:+6"
+            "completion:-3.4",
+            "blocker:-9.3",
+            "actionability:-12",
+            "carryover:+10"
           ],
-          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+          "exclusionReason": "High-value entity omitted from this profile due to low actionability/manual-review burden."
         }
       ]
     }
