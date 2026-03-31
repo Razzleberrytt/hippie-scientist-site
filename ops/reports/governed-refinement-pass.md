@@ -1,13 +1,13 @@
 # Governed refinement pass
 
-Generated: 2026-03-31T17:04:16.124Z
+Generated: 2026-03-31T17:10:37.017Z
 Deterministic model: governed-refinement-pass-v1
 
 ## Weak refinement targets
-- governed_review_freshness (herb_detail|compound_detail): Trust cue is visible in baseline but does not drive any observed engagement signal. Signal: baselineVisibility=1, trackedVisibility=0, interactions=0, ctr=n/a
-- governed_collection_compare_controls (collection_page|compare_page): High baseline visibility with zero interaction indicates weak follow-through on governed next steps. Signal: baselineVisibility=19, trackedVisibility=0, interactions=0, ctr=n/a
-- governed_cta (herb_detail|compound_detail|collection_page): High baseline visibility with zero interaction indicates weak follow-through on governed next steps. Signal: baselineVisibility=12, trackedVisibility=0, interactions=0, ctr=n/a
-- tool_affiliate_related_journey (herb_detail|compound_detail|collection_page): High baseline visibility with zero interaction indicates weak follow-through on governed next steps. Signal: baselineVisibility=12, trackedVisibility=0, interactions=0, ctr=n/a
+- governed_review_freshness (herb_detail|compound_detail): Trust cue is visible in baseline but does not drive any observed engagement signal. Signal: baselineVisibility=0, trackedVisibility=0, interactions=0, ctr=n/a
+- governed_collection_compare_controls (collection_page|compare_page): Visible governed surface currently has no measured interaction. Signal: baselineVisibility=1, trackedVisibility=0, interactions=0, ctr=n/a
+- governed_cta (herb_detail|compound_detail|collection_page): Insufficient observed engagement in current governed scorecard snapshot. Signal: baselineVisibility=0, trackedVisibility=0, interactions=0, ctr=n/a
+- tool_affiliate_related_journey (herb_detail|compound_detail|collection_page): Insufficient observed engagement in current governed scorecard snapshot. Signal: baselineVisibility=0, trackedVisibility=0, interactions=0, ctr=n/a
 
 ## Targeted changes (before/after intent)
 - governed_review_freshness: Trust cue visible but low interaction and unclear next action

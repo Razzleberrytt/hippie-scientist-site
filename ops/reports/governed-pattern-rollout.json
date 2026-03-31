@@ -1,0 +1,343 @@
+{
+  "generatedAt": "2026-03-31T17:10:38.022Z",
+  "deterministicModelVersion": "governed-pattern-rollout-v1",
+  "inputs": {
+    "scorecardGeneratedAt": "2026-03-31T17:10:35.807Z",
+    "refinementGeneratedAt": "2026-03-31T17:10:37.017Z",
+    "analyticsGeneratedAt": "2026-03-31T16:43:16.172Z",
+    "governedArtifacts": [
+      "public/data/enrichment-governed.json",
+      "public/data/herbs-summary.json",
+      "public/data/compounds-summary.json",
+      "public/data/publication-manifest.json"
+    ],
+    "opsArtifacts": [
+      "ops/reports/enrichment-workpacks.json",
+      "ops/reports/enrichment-wave-2-blockers.json"
+    ]
+  },
+  "standardizationTargets": [
+    {
+      "pageType": "herb_detail|compound_detail",
+      "componentType": "intro_summary",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "standardize",
+      "why": "Refinement pass already established a deterministic intro action-order pattern; apply as default while data remains sparse.",
+      "evidence": {
+        "scorecardSurface": "governed_intro_summary",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail",
+      "componentType": "faq_and_related_questions",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "standardize",
+      "why": "Governed FAQ/related content remains trusted context; standardize concise review-order framing without expanding claim scope.",
+      "evidence": {
+        "scorecardSurface": "governed_faq_related_questions",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail",
+      "componentType": "quick_compare",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "standardize",
+      "why": "Refinement pass identified quick-compare next-step framing as the strongest governed discovery improvement candidate.",
+      "evidence": {
+        "scorecardSurface": "governed_quick_compare",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail",
+      "componentType": "review_freshness_panel",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "standardize",
+      "why": "Trust-only freshness cue plus deterministic next-step guidance is the conservative default for caution-sensitive pages.",
+      "evidence": {
+        "scorecardSurface": "governed_review_freshness",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herbs_index|compounds_index",
+      "componentType": "browse_governed_filters",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "keep_experimental",
+      "why": "Browse controls still have low governed baseline in this snapshot; retain but avoid broader expansion until richer evidence exists.",
+      "evidence": {
+        "scorecardSurface": "governed_browse_search_filters",
+        "baselineVisibilityCount": 2,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "collection_page|compare_page",
+      "componentType": "collection_compare_controls",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "de_emphasize",
+      "why": "Highest governed baseline visibility (19) still showed zero interactions; keep controls but reduce surrounding UI clutter and keep guidance conservative.",
+      "evidence": {
+        "scorecardSurface": "governed_collection_compare_controls",
+        "baselineVisibilityCount": 1,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail|collection_page",
+      "componentType": "governed_cta_stack",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "de_emphasize",
+      "why": "CTA surface had high baseline visibility (12) with zero interactions; reduce non-essential CTA chrome while preserving safety-first ordering.",
+      "evidence": {
+        "scorecardSurface": "governed_cta",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail|collection_page",
+      "componentType": "tool_affiliate_related_journey",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "keep_experimental",
+      "why": "Tool/affiliate journey signals remain zero-interaction in snapshot; keep conservative journey copy but do not expand UI footprint.",
+      "evidence": {
+        "scorecardSurface": "tool_affiliate_related_journey",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    }
+  ],
+  "strongestPatternsUsedForDecisions": [
+    {
+      "pageType": "herbs_index|compounds_index",
+      "componentType": "browse_governed_filters",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "keep_experimental",
+      "why": "Browse controls still have low governed baseline in this snapshot; retain but avoid broader expansion until richer evidence exists.",
+      "evidence": {
+        "scorecardSurface": "governed_browse_search_filters",
+        "baselineVisibilityCount": 2,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "collection_page|compare_page",
+      "componentType": "collection_compare_controls",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "de_emphasize",
+      "why": "Highest governed baseline visibility (19) still showed zero interactions; keep controls but reduce surrounding UI clutter and keep guidance conservative.",
+      "evidence": {
+        "scorecardSurface": "governed_collection_compare_controls",
+        "baselineVisibilityCount": 1,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail",
+      "componentType": "intro_summary",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "standardize",
+      "why": "Refinement pass already established a deterministic intro action-order pattern; apply as default while data remains sparse.",
+      "evidence": {
+        "scorecardSurface": "governed_intro_summary",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail",
+      "componentType": "faq_and_related_questions",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "standardize",
+      "why": "Governed FAQ/related content remains trusted context; standardize concise review-order framing without expanding claim scope.",
+      "evidence": {
+        "scorecardSurface": "governed_faq_related_questions",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    }
+  ],
+  "weakestPatternsUsedForDecisions": [
+    {
+      "pageType": "herbs_index|compounds_index",
+      "componentType": "browse_governed_filters",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "keep_experimental",
+      "why": "Browse controls still have low governed baseline in this snapshot; retain but avoid broader expansion until richer evidence exists.",
+      "evidence": {
+        "scorecardSurface": "governed_browse_search_filters",
+        "baselineVisibilityCount": 2,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "collection_page|compare_page",
+      "componentType": "collection_compare_controls",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "de_emphasize",
+      "why": "Highest governed baseline visibility (19) still showed zero interactions; keep controls but reduce surrounding UI clutter and keep guidance conservative.",
+      "evidence": {
+        "scorecardSurface": "governed_collection_compare_controls",
+        "baselineVisibilityCount": 1,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail",
+      "componentType": "intro_summary",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "standardize",
+      "why": "Refinement pass already established a deterministic intro action-order pattern; apply as default while data remains sparse.",
+      "evidence": {
+        "scorecardSurface": "governed_intro_summary",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    },
+    {
+      "pageType": "herb_detail|compound_detail",
+      "componentType": "faq_and_related_questions",
+      "currentPerformanceClassification": "insufficient_data",
+      "recommendedAction": "standardize",
+      "why": "Governed FAQ/related content remains trusted context; standardize concise review-order framing without expanding claim scope.",
+      "evidence": {
+        "scorecardSurface": "governed_faq_related_questions",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0
+      }
+    }
+  ],
+  "standardizedPatterns": [
+    {
+      "pattern": "Intro summary action-order microcopy",
+      "action": "standardized",
+      "surfaces": [
+        "governed_intro_summary"
+      ],
+      "files": [
+        "src/components/detail/StructuredDetailIntro.tsx"
+      ]
+    },
+    {
+      "pattern": "FAQ/related review-order framing",
+      "action": "standardized",
+      "surfaces": [
+        "governed_faq_related_questions"
+      ],
+      "files": [
+        "src/components/detail/GovernedResearchSections.tsx"
+      ]
+    },
+    {
+      "pattern": "Quick compare shortlisting + profile handoff",
+      "action": "standardized",
+      "surfaces": [
+        "governed_quick_compare"
+      ],
+      "files": [
+        "src/components/detail/GovernedQuickCompareBlock.tsx"
+      ]
+    },
+    {
+      "pattern": "Review freshness trust-cue treatment with next-step link",
+      "action": "standardized",
+      "surfaces": [
+        "governed_review_freshness"
+      ],
+      "files": [
+        "src/components/detail/GovernedReviewFreshnessPanel.tsx"
+      ]
+    },
+    {
+      "pattern": "Collection/compare guidance to reviewed+freshness flow",
+      "action": "standardized",
+      "surfaces": [
+        "governed_collection_compare_controls"
+      ],
+      "files": [
+        "src/pages/CollectionPage.tsx",
+        "src/pages/Compare.tsx"
+      ]
+    }
+  ],
+  "deEmphasizedOrRemovedPatterns": [
+    {
+      "pattern": "Collection quick-action CTA strip duplicated the governed CTA stack",
+      "action": "removed",
+      "surfaces": [
+        "governed_cta",
+        "tool_affiliate_related_journey"
+      ],
+      "files": [
+        "src/pages/CollectionPage.tsx"
+      ],
+      "evidence": "baselineVisibility=12, trackedVisibility=0, interactionCount=0 from scorecard governed_cta snapshot"
+    },
+    {
+      "pattern": "CTA variant-id chrome inside governed CTA section",
+      "action": "de_emphasized",
+      "surfaces": [
+        "governed_cta"
+      ],
+      "files": [
+        "src/components/cta/CtaVariantLayout.tsx"
+      ],
+      "evidence": "supports low-noise CTA presentation while retaining safety-first slot ordering and deterministic impression tracking"
+    }
+  ],
+  "experimentalPatterns": [
+    {
+      "surfaceId": "governed_browse_search_filters",
+      "reason": "Baseline visibility is low (2) in this snapshot; deferred until post-instrumentation evidence is richer."
+    },
+    {
+      "surfaceId": "governed_faq_related_questions",
+      "reason": "Low baseline volume (2) and sparse evidence make copy tightening less impactful than high-visibility control surfaces."
+    }
+  ],
+  "deterministicVerification": {
+    "onlyGovernedSignalsInfluenceStandardizedOutputs": true,
+    "noBlockedRejectedRevisionRequestedInfluence": false,
+    "sparseEnrichmentPagesDegradeGracefully": true,
+    "removedOrDeEmphasizedElementsKeepPageStructure": true,
+    "checks": {
+      "analyticsSurfaceVerification": {
+        "supportedSurfaceOnlyEmission": true,
+        "weakOrPartialPagesGraceful": true,
+        "existingCtaToolAffiliateEventsStillPresent": true,
+        "noBroadAnalyticsRegression": true
+      },
+      "sourceVerification": {
+        "governedRecordCount": 10,
+        "blockedOrUnapprovedVisibleCount": 1,
+        "noBlockedRejectedRevisionRequestedInfluence": false
+      },
+      "reviewerNeededCount": 50,
+      "governanceFixBucketCount": 46,
+      "failedWaveTargetCount": 6
+    }
+  }
+}

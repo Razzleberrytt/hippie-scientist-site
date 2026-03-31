@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T16:54:50.436Z",
+  "generatedAt": "2026-03-31T17:10:35.807Z",
   "deterministicModelVersion": "governed-scorecard-v1",
   "constraints": {
     "deterministicOnly": true,
@@ -52,7 +52,7 @@
     "analyticsEventsAvailable": false,
     "analyticsEventCount": 0,
     "surfaceCount": 8,
-    "surfacesWithVisibilityButNoInteractions": 8,
+    "surfacesWithVisibilityButNoInteractions": 2,
     "surfacesWithMeaningfulEngagement": 0,
     "insufficientDataCases": 8
   },
@@ -60,7 +60,7 @@
     {
       "surface": "governed_intro_summary",
       "label": "Governed intro summaries",
-      "baselineVisibilityCount": 1,
+      "baselineVisibilityCount": 0,
       "trackedVisibilityCount": 0,
       "interactionCount": 0,
       "clickThroughRate": null,
@@ -74,7 +74,7 @@
     {
       "surface": "governed_faq_related_questions",
       "label": "FAQ / related questions",
-      "baselineVisibilityCount": 2,
+      "baselineVisibilityCount": 0,
       "trackedVisibilityCount": 0,
       "interactionCount": 0,
       "clickThroughRate": null,
@@ -88,7 +88,7 @@
     {
       "surface": "governed_quick_compare",
       "label": "Quick compare blocks",
-      "baselineVisibilityCount": 2,
+      "baselineVisibilityCount": 0,
       "trackedVisibilityCount": 0,
       "interactionCount": 0,
       "clickThroughRate": null,
@@ -102,7 +102,7 @@
     {
       "surface": "governed_review_freshness",
       "label": "Review freshness visibility",
-      "baselineVisibilityCount": 1,
+      "baselineVisibilityCount": 0,
       "trackedVisibilityCount": 0,
       "interactionCount": 0,
       "clickThroughRate": null,
@@ -130,7 +130,7 @@
     {
       "surface": "governed_collection_compare_controls",
       "label": "Collection/comparison controls",
-      "baselineVisibilityCount": 19,
+      "baselineVisibilityCount": 1,
       "trackedVisibilityCount": 0,
       "interactionCount": 0,
       "clickThroughRate": null,
@@ -144,7 +144,7 @@
     {
       "surface": "governed_cta",
       "label": "Governed CTA clicks",
-      "baselineVisibilityCount": 12,
+      "baselineVisibilityCount": 0,
       "trackedVisibilityCount": 0,
       "interactionCount": 0,
       "clickThroughRate": null,
@@ -158,7 +158,7 @@
     {
       "surface": "tool_affiliate_related_journey",
       "label": "Tool / affiliate / related-link journey",
-      "baselineVisibilityCount": 12,
+      "baselineVisibilityCount": 0,
       "trackedVisibilityCount": 0,
       "interactionCount": 0,
       "clickThroughRate": null,
@@ -172,48 +172,6 @@
   ],
   "buckets": {
     "strongestGovernedDiscoverySurfaces": [
-      {
-        "surface": "governed_collection_compare_controls",
-        "label": "Collection/comparison controls",
-        "baselineVisibilityCount": 19,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_faq_related_questions",
-        "label": "FAQ / related questions",
-        "baselineVisibilityCount": 2,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_quick_compare",
-        "label": "Quick compare blocks",
-        "baselineVisibilityCount": 2,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
       {
         "surface": "governed_browse_search_filters",
         "label": "Browse/search filters",
@@ -229,9 +187,51 @@
         "hasMeaningfulEngagement": false
       },
       {
+        "surface": "governed_collection_compare_controls",
+        "label": "Collection/comparison controls",
+        "baselineVisibilityCount": 1,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0,
+        "clickThroughRate": null,
+        "filterUsageCount": 0,
+        "faqOrCompareEngagementCount": 0,
+        "ctaClickCount": 0,
+        "toolFirstInteractions": 0,
+        "affiliatePathInteractions": 0,
+        "hasMeaningfulEngagement": false
+      },
+      {
         "surface": "governed_intro_summary",
         "label": "Governed intro summaries",
-        "baselineVisibilityCount": 1,
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0,
+        "clickThroughRate": null,
+        "filterUsageCount": 0,
+        "faqOrCompareEngagementCount": 0,
+        "ctaClickCount": 0,
+        "toolFirstInteractions": 0,
+        "affiliatePathInteractions": 0,
+        "hasMeaningfulEngagement": false
+      },
+      {
+        "surface": "governed_faq_related_questions",
+        "label": "FAQ / related questions",
+        "baselineVisibilityCount": 0,
+        "trackedVisibilityCount": 0,
+        "interactionCount": 0,
+        "clickThroughRate": null,
+        "filterUsageCount": 0,
+        "faqOrCompareEngagementCount": 0,
+        "ctaClickCount": 0,
+        "toolFirstInteractions": 0,
+        "affiliatePathInteractions": 0,
+        "hasMeaningfulEngagement": false
+      },
+      {
+        "surface": "governed_quick_compare",
+        "label": "Quick compare blocks",
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -247,7 +247,7 @@
       {
         "surface": "governed_cta",
         "label": "Governed CTA clicks",
-        "baselineVisibilityCount": 12,
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -261,7 +261,7 @@
       {
         "surface": "tool_affiliate_related_journey",
         "label": "Tool / affiliate / related-link journey",
-        "baselineVisibilityCount": 12,
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -275,62 +275,6 @@
     ],
     "surfacesWithVisibilityButWeakInteraction": [
       {
-        "surface": "governed_intro_summary",
-        "label": "Governed intro summaries",
-        "baselineVisibilityCount": 1,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_faq_related_questions",
-        "label": "FAQ / related questions",
-        "baselineVisibilityCount": 2,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_quick_compare",
-        "label": "Quick compare blocks",
-        "baselineVisibilityCount": 2,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_review_freshness",
-        "label": "Review freshness visibility",
-        "baselineVisibilityCount": 1,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
         "surface": "governed_browse_search_filters",
         "label": "Browse/search filters",
         "baselineVisibilityCount": 2,
@@ -347,50 +291,6 @@
       {
         "surface": "governed_collection_compare_controls",
         "label": "Collection/comparison controls",
-        "baselineVisibilityCount": 19,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_cta",
-        "label": "Governed CTA clicks",
-        "baselineVisibilityCount": 12,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "tool_affiliate_related_journey",
-        "label": "Tool / affiliate / related-link journey",
-        "baselineVisibilityCount": 12,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      }
-    ],
-    "pagesOrEntitiesWithStrongTrustButWeakConversion": [
-      {
-        "surface": "governed_review_freshness",
-        "label": "Review freshness visibility",
         "baselineVisibilityCount": 1,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
@@ -403,64 +303,9 @@
         "hasMeaningfulEngagement": false
       }
     ],
+    "pagesOrEntitiesWithStrongTrustButWeakConversion": [],
     "weakEngagementLikelyLowValueGovernedUi": [
       {
-        "surface": "governed_intro_summary",
-        "label": "Governed intro summaries",
-        "baselineVisibilityCount": 1,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_faq_related_questions",
-        "label": "FAQ / related questions",
-        "baselineVisibilityCount": 2,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_quick_compare",
-        "label": "Quick compare blocks",
-        "baselineVisibilityCount": 2,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_review_freshness",
-        "label": "Review freshness visibility",
-        "baselineVisibilityCount": 1,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
         "surface": "governed_browse_search_filters",
         "label": "Browse/search filters",
         "baselineVisibilityCount": 2,
@@ -477,35 +322,7 @@
       {
         "surface": "governed_collection_compare_controls",
         "label": "Collection/comparison controls",
-        "baselineVisibilityCount": 19,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "governed_cta",
-        "label": "Governed CTA clicks",
-        "baselineVisibilityCount": 12,
-        "trackedVisibilityCount": 0,
-        "interactionCount": 0,
-        "clickThroughRate": null,
-        "filterUsageCount": 0,
-        "faqOrCompareEngagementCount": 0,
-        "ctaClickCount": 0,
-        "toolFirstInteractions": 0,
-        "affiliatePathInteractions": 0,
-        "hasMeaningfulEngagement": false
-      },
-      {
-        "surface": "tool_affiliate_related_journey",
-        "label": "Tool / affiliate / related-link journey",
-        "baselineVisibilityCount": 12,
+        "baselineVisibilityCount": 1,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -521,7 +338,7 @@
       {
         "surface": "governed_intro_summary",
         "label": "Governed intro summaries",
-        "baselineVisibilityCount": 1,
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -535,7 +352,7 @@
       {
         "surface": "governed_faq_related_questions",
         "label": "FAQ / related questions",
-        "baselineVisibilityCount": 2,
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -549,7 +366,7 @@
       {
         "surface": "governed_quick_compare",
         "label": "Quick compare blocks",
-        "baselineVisibilityCount": 2,
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -563,7 +380,7 @@
       {
         "surface": "governed_review_freshness",
         "label": "Review freshness visibility",
-        "baselineVisibilityCount": 1,
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -591,7 +408,7 @@
       {
         "surface": "governed_collection_compare_controls",
         "label": "Collection/comparison controls",
-        "baselineVisibilityCount": 19,
+        "baselineVisibilityCount": 1,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -605,7 +422,7 @@
       {
         "surface": "governed_cta",
         "label": "Governed CTA clicks",
-        "baselineVisibilityCount": 12,
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,
@@ -619,7 +436,7 @@
       {
         "surface": "tool_affiliate_related_journey",
         "label": "Tool / affiliate / related-link journey",
-        "baselineVisibilityCount": 12,
+        "baselineVisibilityCount": 0,
         "trackedVisibilityCount": 0,
         "interactionCount": 0,
         "clickThroughRate": null,

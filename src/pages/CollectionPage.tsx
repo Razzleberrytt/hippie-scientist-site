@@ -903,20 +903,6 @@ export default function CollectionPage() {
         ) : null}
 
         <div className='mt-4 flex flex-wrap items-center gap-2'>
-          <Link
-            to={checkerHref}
-            className='btn-primary text-xs'
-            onClick={() => handleFunnelClick('checker')}
-          >
-            Start with Interaction Checker
-          </Link>
-          <Link
-            to={stackHref}
-            className='btn-secondary text-xs'
-            onClick={() => handleFunnelClick('stack')}
-          >
-            Continue to Stack Builder
-          </Link>
           <Button type='button' variant='secondary' onClick={handleCopyLink} className='text-xs'>
             Copy Link
           </Button>
