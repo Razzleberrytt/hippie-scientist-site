@@ -1,0 +1,1608 @@
+{
+  "generatedAt": "2026-03-31T11:46:29.370Z",
+  "deterministicModelVersion": "enrichment-wave-target-proposals-v2-balancing",
+  "balancingProfiles": {
+    "mixed-balanced": {
+      "id": "mixed-balanced",
+      "description": "Evenly balance herb/compound representation while preserving safety and stale carryover pressure.",
+      "targetSize": 8,
+      "minByType": {
+        "herb": 3,
+        "compound": 3
+      },
+      "maxByType": {
+        "herb": 5,
+        "compound": 5
+      },
+      "typeAdjustment": {
+        "herb": 0,
+        "compound": 4
+      },
+      "topicAdjustment": {
+        "safety-critical": 12,
+        "evidence-critical": 6,
+        "mechanism-critical": 4
+      },
+      "carryoverBlockedBoost": 9,
+      "staleBoost": 4,
+      "safetyOverride": {
+        "minRawScore": 90,
+        "slots": 2
+      },
+      "carryoverRescue": {
+        "minSlots": 2,
+        "entityType": "compound"
+      }
+    },
+    "herb-heavy": {
+      "id": "herb-heavy",
+      "description": "Favor herb throughput while preserving guaranteed compound slots and safety overrides.",
+      "targetSize": 8,
+      "minByType": {
+        "herb": 5,
+        "compound": 2
+      },
+      "maxByType": {
+        "herb": 7,
+        "compound": 3
+      },
+      "typeAdjustment": {
+        "herb": 7,
+        "compound": -2
+      },
+      "topicAdjustment": {
+        "safety-critical": 10,
+        "evidence-critical": 6,
+        "mechanism-critical": 3
+      },
+      "carryoverBlockedBoost": 8,
+      "staleBoost": 3,
+      "safetyOverride": {
+        "minRawScore": 88,
+        "slots": 2
+      },
+      "carryoverRescue": {
+        "minSlots": 1,
+        "entityType": "compound"
+      }
+    },
+    "compound-heavy": {
+      "id": "compound-heavy",
+      "description": "Favor compounds while preserving guaranteed herb slots and safety overrides.",
+      "targetSize": 8,
+      "minByType": {
+        "herb": 2,
+        "compound": 5
+      },
+      "maxByType": {
+        "herb": 3,
+        "compound": 7
+      },
+      "typeAdjustment": {
+        "herb": -2,
+        "compound": 8
+      },
+      "topicAdjustment": {
+        "safety-critical": 10,
+        "evidence-critical": 5,
+        "mechanism-critical": 5
+      },
+      "carryoverBlockedBoost": 11,
+      "staleBoost": 4,
+      "safetyOverride": {
+        "minRawScore": 88,
+        "slots": 2
+      },
+      "carryoverRescue": {
+        "minSlots": 2,
+        "entityType": "compound"
+      }
+    },
+    "safety-priority-mixed": {
+      "id": "safety-priority-mixed",
+      "description": "Mixed entity distribution with explicit safety critical escalation.",
+      "targetSize": 8,
+      "minByType": {
+        "herb": 3,
+        "compound": 3
+      },
+      "maxByType": {
+        "herb": 5,
+        "compound": 5
+      },
+      "typeAdjustment": {
+        "herb": 0,
+        "compound": 3
+      },
+      "topicAdjustment": {
+        "safety-critical": 16,
+        "evidence-critical": 4,
+        "mechanism-critical": 3
+      },
+      "carryoverBlockedBoost": 9,
+      "staleBoost": 4,
+      "safetyOverride": {
+        "minRawScore": 84,
+        "slots": 3
+      },
+      "carryoverRescue": {
+        "minSlots": 1,
+        "entityType": "compound"
+      }
+    },
+    "carryover-rescue-mixed": {
+      "id": "carryover-rescue-mixed",
+      "description": "Mixed distribution that reserves slots for stale/blocked carryover entities, especially compounds.",
+      "targetSize": 8,
+      "minByType": {
+        "herb": 3,
+        "compound": 3
+      },
+      "maxByType": {
+        "herb": 5,
+        "compound": 5
+      },
+      "typeAdjustment": {
+        "herb": 0,
+        "compound": 4
+      },
+      "topicAdjustment": {
+        "safety-critical": 10,
+        "evidence-critical": 5,
+        "mechanism-critical": 3
+      },
+      "carryoverBlockedBoost": 14,
+      "staleBoost": 6,
+      "safetyOverride": {
+        "minRawScore": 88,
+        "slots": 2
+      },
+      "carryoverRescue": {
+        "minSlots": 3,
+        "entityType": "compound"
+      }
+    }
+  },
+  "selectedProfileId": "mixed-balanced",
+  "profileResults": [
+    {
+      "profileId": "mixed-balanced",
+      "description": "Evenly balance herb/compound representation while preserving safety and stale carryover pressure.",
+      "composition": {
+        "total": 7,
+        "byType": {
+          "herb": 5,
+          "compound": 2
+        },
+        "safetyCriticalCount": 7,
+        "carryoverCount": 6
+      },
+      "selectedProposalIds": [
+        "proposal_herb_calliandra-anomala",
+        "proposal_herb_alectra-sessiliflora",
+        "proposal_compound_luteolin",
+        "proposal_compound_cbd",
+        "proposal_herb_henbane",
+        "proposal_herb_anisoptera-thurifera",
+        "proposal_herb_mandrake-root"
+      ],
+      "decisions": [
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_calliandra-anomala",
+          "rawRank": 1,
+          "rawPriorityScore": 269,
+          "balancingAdjustment": 35,
+          "finalPriorityScore": 304,
+          "selected": true,
+          "selectionOrder": 1,
+          "selectedBecause": [
+            "safety-override",
+            "topic:evidence-critical:+6",
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_alectra-sessiliflora",
+          "rawRank": 2,
+          "rawPriorityScore": 265,
+          "balancingAdjustment": 35,
+          "finalPriorityScore": 300,
+          "selected": true,
+          "selectionOrder": 2,
+          "selectedBecause": [
+            "safety-override",
+            "topic:evidence-critical:+6",
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_henbane",
+          "rawRank": 3,
+          "rawPriorityScore": 255,
+          "balancingAdjustment": 29,
+          "finalPriorityScore": 284,
+          "selected": true,
+          "selectionOrder": 5,
+          "selectedBecause": [
+            "type-min-floor:herb",
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_anisoptera-thurifera",
+          "rawRank": 4,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 26,
+          "finalPriorityScore": 266,
+          "selected": true,
+          "selectionOrder": 6,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "topic:evidence-critical:+6",
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_rivea-corymbosa",
+          "rawRank": 5,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 20,
+          "finalPriorityScore": 260,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+          "rawRank": 6,
+          "rawPriorityScore": 236,
+          "balancingAdjustment": 20,
+          "finalPriorityScore": 256,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_delosperma-cooperi",
+          "rawRank": 7,
+          "rawPriorityScore": 234,
+          "balancingAdjustment": 26,
+          "finalPriorityScore": 260,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:evidence-critical:+6",
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_mandrake-root",
+          "rawRank": 8,
+          "rawPriorityScore": 233,
+          "balancingAdjustment": 29,
+          "finalPriorityScore": 262,
+          "selected": true,
+          "selectionOrder": 7,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_iresine-herbstii",
+          "rawRank": 9,
+          "rawPriorityScore": 228,
+          "balancingAdjustment": 20,
+          "finalPriorityScore": 248,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_jatropha-podagrica",
+          "rawRank": 10,
+          "rawPriorityScore": 227,
+          "balancingAdjustment": 20,
+          "finalPriorityScore": 247,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_pedicularis-groenlandica",
+          "rawRank": 11,
+          "rawPriorityScore": 223,
+          "balancingAdjustment": 20,
+          "finalPriorityScore": 243,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_compound_luteolin",
+          "rawRank": 12,
+          "rawPriorityScore": 216,
+          "balancingAdjustment": 33,
+          "finalPriorityScore": 249,
+          "selected": true,
+          "selectionOrder": 3,
+          "selectedBecause": [
+            "carryover-rescue-floor",
+            "type:compound:+4",
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_compound_cbd",
+          "rawRank": 13,
+          "rawPriorityScore": 214,
+          "balancingAdjustment": 33,
+          "finalPriorityScore": 247,
+          "selected": true,
+          "selectionOrder": 4,
+          "selectedBecause": [
+            "carryover-rescue-floor",
+            "type:compound:+4",
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_mistletoe",
+          "rawRank": 14,
+          "rawPriorityScore": 205,
+          "balancingAdjustment": 20,
+          "finalPriorityScore": 225,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+        },
+        {
+          "profileId": "mixed-balanced",
+          "proposalId": "proposal_herb_kava",
+          "rawRank": 15,
+          "rawPriorityScore": 138,
+          "balancingAdjustment": 20,
+          "finalPriorityScore": 158,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+4",
+            "topic:safety-critical:+12",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile mixed-balanced."
+        }
+      ]
+    },
+    {
+      "profileId": "herb-heavy",
+      "description": "Favor herb throughput while preserving guaranteed compound slots and safety overrides.",
+      "composition": {
+        "total": 8,
+        "byType": {
+          "herb": 6,
+          "compound": 2
+        },
+        "safetyCriticalCount": 8,
+        "carryoverCount": 6
+      },
+      "selectedProposalIds": [
+        "proposal_herb_calliandra-anomala",
+        "proposal_herb_alectra-sessiliflora",
+        "proposal_compound_luteolin",
+        "proposal_herb_henbane",
+        "proposal_herb_anisoptera-thurifera",
+        "proposal_herb_rivea-corymbosa",
+        "proposal_compound_cbd",
+        "proposal_herb_mandrake-root"
+      ],
+      "decisions": [
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_calliandra-anomala",
+          "rawRank": 1,
+          "rawPriorityScore": 269,
+          "balancingAdjustment": 37,
+          "finalPriorityScore": 306,
+          "selected": true,
+          "selectionOrder": 1,
+          "selectedBecause": [
+            "safety-override",
+            "type:herb:+7",
+            "topic:evidence-critical:+6",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+8",
+            "stale:+3"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_alectra-sessiliflora",
+          "rawRank": 2,
+          "rawPriorityScore": 265,
+          "balancingAdjustment": 37,
+          "finalPriorityScore": 302,
+          "selected": true,
+          "selectionOrder": 2,
+          "selectedBecause": [
+            "safety-override",
+            "type:herb:+7",
+            "topic:evidence-critical:+6",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+8",
+            "stale:+3"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_henbane",
+          "rawRank": 3,
+          "rawPriorityScore": 255,
+          "balancingAdjustment": 31,
+          "finalPriorityScore": 286,
+          "selected": true,
+          "selectionOrder": 4,
+          "selectedBecause": [
+            "type-min-floor:herb",
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+8",
+            "stale:+3"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_anisoptera-thurifera",
+          "rawRank": 4,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 29,
+          "finalPriorityScore": 269,
+          "selected": true,
+          "selectionOrder": 5,
+          "selectedBecause": [
+            "type-min-floor:herb",
+            "type:herb:+7",
+            "topic:evidence-critical:+6",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_rivea-corymbosa",
+          "rawRank": 5,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 263,
+          "selected": true,
+          "selectionOrder": 6,
+          "selectedBecause": [
+            "type-min-floor:herb",
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+          "rawRank": 6,
+          "rawPriorityScore": 236,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 259,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_delosperma-cooperi",
+          "rawRank": 7,
+          "rawPriorityScore": 234,
+          "balancingAdjustment": 29,
+          "finalPriorityScore": 263,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:+7",
+            "topic:evidence-critical:+6",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_mandrake-root",
+          "rawRank": 8,
+          "rawPriorityScore": 233,
+          "balancingAdjustment": 31,
+          "finalPriorityScore": 264,
+          "selected": true,
+          "selectionOrder": 8,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+8",
+            "stale:+3"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_iresine-herbstii",
+          "rawRank": 9,
+          "rawPriorityScore": 228,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 251,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_jatropha-podagrica",
+          "rawRank": 10,
+          "rawPriorityScore": 227,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 250,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_pedicularis-groenlandica",
+          "rawRank": 11,
+          "rawPriorityScore": 223,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 246,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_compound_luteolin",
+          "rawRank": 12,
+          "rawPriorityScore": 216,
+          "balancingAdjustment": 22,
+          "finalPriorityScore": 238,
+          "selected": true,
+          "selectionOrder": 3,
+          "selectedBecause": [
+            "carryover-rescue-floor",
+            "type:compound:-2",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+8",
+            "stale:+3"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_compound_cbd",
+          "rawRank": 13,
+          "rawPriorityScore": 214,
+          "balancingAdjustment": 22,
+          "finalPriorityScore": 236,
+          "selected": true,
+          "selectionOrder": 7,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "type:compound:-2",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+8",
+            "stale:+3"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_mistletoe",
+          "rawRank": 14,
+          "rawPriorityScore": 205,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 228,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+        },
+        {
+          "profileId": "herb-heavy",
+          "proposalId": "proposal_herb_kava",
+          "rawRank": 15,
+          "rawPriorityScore": 138,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 161,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:+7",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+3"
+          ],
+          "exclusionReason": "Below final adjusted-score cutoff after balancing policy application."
+        }
+      ]
+    },
+    {
+      "profileId": "compound-heavy",
+      "description": "Favor compounds while preserving guaranteed herb slots and safety overrides.",
+      "composition": {
+        "total": 5,
+        "byType": {
+          "herb": 3,
+          "compound": 2
+        },
+        "safetyCriticalCount": 5,
+        "carryoverCount": 5
+      },
+      "selectedProposalIds": [
+        "proposal_herb_calliandra-anomala",
+        "proposal_herb_alectra-sessiliflora",
+        "proposal_compound_luteolin",
+        "proposal_compound_cbd",
+        "proposal_herb_henbane"
+      ],
+      "decisions": [
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_calliandra-anomala",
+          "rawRank": 1,
+          "rawPriorityScore": 269,
+          "balancingAdjustment": 33,
+          "finalPriorityScore": 302,
+          "selected": true,
+          "selectionOrder": 1,
+          "selectedBecause": [
+            "safety-override",
+            "type:herb:-2",
+            "topic:evidence-critical:+5",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+11",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_alectra-sessiliflora",
+          "rawRank": 2,
+          "rawPriorityScore": 265,
+          "balancingAdjustment": 33,
+          "finalPriorityScore": 298,
+          "selected": true,
+          "selectionOrder": 2,
+          "selectedBecause": [
+            "safety-override",
+            "type:herb:-2",
+            "topic:evidence-critical:+5",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+11",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_henbane",
+          "rawRank": 3,
+          "rawPriorityScore": 255,
+          "balancingAdjustment": 28,
+          "finalPriorityScore": 283,
+          "selected": true,
+          "selectionOrder": 5,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+11",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_anisoptera-thurifera",
+          "rawRank": 4,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 22,
+          "finalPriorityScore": 262,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:evidence-critical:+5",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_rivea-corymbosa",
+          "rawRank": 5,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 17,
+          "finalPriorityScore": 257,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+          "rawRank": 6,
+          "rawPriorityScore": 236,
+          "balancingAdjustment": 17,
+          "finalPriorityScore": 253,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_delosperma-cooperi",
+          "rawRank": 7,
+          "rawPriorityScore": 234,
+          "balancingAdjustment": 22,
+          "finalPriorityScore": 256,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:evidence-critical:+5",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_mandrake-root",
+          "rawRank": 8,
+          "rawPriorityScore": 233,
+          "balancingAdjustment": 28,
+          "finalPriorityScore": 261,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+11",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_iresine-herbstii",
+          "rawRank": 9,
+          "rawPriorityScore": 228,
+          "balancingAdjustment": 17,
+          "finalPriorityScore": 245,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_jatropha-podagrica",
+          "rawRank": 10,
+          "rawPriorityScore": 227,
+          "balancingAdjustment": 17,
+          "finalPriorityScore": 244,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_pedicularis-groenlandica",
+          "rawRank": 11,
+          "rawPriorityScore": 223,
+          "balancingAdjustment": 17,
+          "finalPriorityScore": 240,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_compound_luteolin",
+          "rawRank": 12,
+          "rawPriorityScore": 216,
+          "balancingAdjustment": 38,
+          "finalPriorityScore": 254,
+          "selected": true,
+          "selectionOrder": 3,
+          "selectedBecause": [
+            "carryover-rescue-floor",
+            "type:compound:+8",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+11",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_compound_cbd",
+          "rawRank": 13,
+          "rawPriorityScore": 214,
+          "balancingAdjustment": 38,
+          "finalPriorityScore": 252,
+          "selected": true,
+          "selectionOrder": 4,
+          "selectedBecause": [
+            "carryover-rescue-floor",
+            "type:compound:+8",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+11",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_mistletoe",
+          "rawRank": 14,
+          "rawPriorityScore": 205,
+          "balancingAdjustment": 17,
+          "finalPriorityScore": 222,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
+        },
+        {
+          "profileId": "compound-heavy",
+          "proposalId": "proposal_herb_kava",
+          "rawRank": 15,
+          "rawPriorityScore": 138,
+          "balancingAdjustment": 17,
+          "finalPriorityScore": 155,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "type:herb:-2",
+            "topic:mechanism-critical:+5",
+            "topic:safety-critical:+10",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile compound-heavy."
+        }
+      ]
+    },
+    {
+      "profileId": "safety-priority-mixed",
+      "description": "Mixed entity distribution with explicit safety critical escalation.",
+      "composition": {
+        "total": 7,
+        "byType": {
+          "herb": 5,
+          "compound": 2
+        },
+        "safetyCriticalCount": 7,
+        "carryoverCount": 6
+      },
+      "selectedProposalIds": [
+        "proposal_herb_calliandra-anomala",
+        "proposal_herb_alectra-sessiliflora",
+        "proposal_herb_henbane",
+        "proposal_compound_luteolin",
+        "proposal_compound_cbd",
+        "proposal_herb_anisoptera-thurifera",
+        "proposal_herb_mandrake-root"
+      ],
+      "decisions": [
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_calliandra-anomala",
+          "rawRank": 1,
+          "rawPriorityScore": 269,
+          "balancingAdjustment": 36,
+          "finalPriorityScore": 305,
+          "selected": true,
+          "selectionOrder": 1,
+          "selectedBecause": [
+            "safety-override",
+            "topic:evidence-critical:+4",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_alectra-sessiliflora",
+          "rawRank": 2,
+          "rawPriorityScore": 265,
+          "balancingAdjustment": 36,
+          "finalPriorityScore": 301,
+          "selected": true,
+          "selectionOrder": 2,
+          "selectedBecause": [
+            "safety-override",
+            "topic:evidence-critical:+4",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_henbane",
+          "rawRank": 3,
+          "rawPriorityScore": 255,
+          "balancingAdjustment": 32,
+          "finalPriorityScore": 287,
+          "selected": true,
+          "selectionOrder": 3,
+          "selectedBecause": [
+            "safety-override",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_anisoptera-thurifera",
+          "rawRank": 4,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 27,
+          "finalPriorityScore": 267,
+          "selected": true,
+          "selectionOrder": 6,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "topic:evidence-critical:+4",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_rivea-corymbosa",
+          "rawRank": 5,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 263,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+          "rawRank": 6,
+          "rawPriorityScore": 236,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 259,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_delosperma-cooperi",
+          "rawRank": 7,
+          "rawPriorityScore": 234,
+          "balancingAdjustment": 27,
+          "finalPriorityScore": 261,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:evidence-critical:+4",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_mandrake-root",
+          "rawRank": 8,
+          "rawPriorityScore": 233,
+          "balancingAdjustment": 32,
+          "finalPriorityScore": 265,
+          "selected": true,
+          "selectionOrder": 7,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_iresine-herbstii",
+          "rawRank": 9,
+          "rawPriorityScore": 228,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 251,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_jatropha-podagrica",
+          "rawRank": 10,
+          "rawPriorityScore": 227,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 250,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_pedicularis-groenlandica",
+          "rawRank": 11,
+          "rawPriorityScore": 223,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 246,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_compound_luteolin",
+          "rawRank": 12,
+          "rawPriorityScore": 216,
+          "balancingAdjustment": 35,
+          "finalPriorityScore": 251,
+          "selected": true,
+          "selectionOrder": 4,
+          "selectedBecause": [
+            "carryover-rescue-floor",
+            "type:compound:+3",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_compound_cbd",
+          "rawRank": 13,
+          "rawPriorityScore": 214,
+          "balancingAdjustment": 35,
+          "finalPriorityScore": 249,
+          "selected": true,
+          "selectionOrder": 5,
+          "selectedBecause": [
+            "type-min-floor:compound",
+            "type:compound:+3",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "carryover-blocked:+9",
+            "stale:+4"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_mistletoe",
+          "rawRank": 14,
+          "rawPriorityScore": 205,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 228,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
+        },
+        {
+          "profileId": "safety-priority-mixed",
+          "proposalId": "proposal_herb_kava",
+          "rawRank": 15,
+          "rawPriorityScore": 138,
+          "balancingAdjustment": 23,
+          "finalPriorityScore": 161,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+16",
+            "stale:+4"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile safety-priority-mixed."
+        }
+      ]
+    },
+    {
+      "profileId": "carryover-rescue-mixed",
+      "description": "Mixed distribution that reserves slots for stale/blocked carryover entities, especially compounds.",
+      "composition": {
+        "total": 7,
+        "byType": {
+          "herb": 5,
+          "compound": 2
+        },
+        "safetyCriticalCount": 7,
+        "carryoverCount": 6
+      },
+      "selectedProposalIds": [
+        "proposal_herb_calliandra-anomala",
+        "proposal_herb_alectra-sessiliflora",
+        "proposal_compound_luteolin",
+        "proposal_compound_cbd",
+        "proposal_herb_henbane",
+        "proposal_herb_mandrake-root",
+        "proposal_herb_anisoptera-thurifera"
+      ],
+      "decisions": [
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_calliandra-anomala",
+          "rawRank": 1,
+          "rawPriorityScore": 269,
+          "balancingAdjustment": 38,
+          "finalPriorityScore": 307,
+          "selected": true,
+          "selectionOrder": 1,
+          "selectedBecause": [
+            "safety-override",
+            "topic:evidence-critical:+5",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+14",
+            "stale:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_alectra-sessiliflora",
+          "rawRank": 2,
+          "rawPriorityScore": 265,
+          "balancingAdjustment": 38,
+          "finalPriorityScore": 303,
+          "selected": true,
+          "selectionOrder": 2,
+          "selectedBecause": [
+            "safety-override",
+            "topic:evidence-critical:+5",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+14",
+            "stale:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_henbane",
+          "rawRank": 3,
+          "rawPriorityScore": 255,
+          "balancingAdjustment": 33,
+          "finalPriorityScore": 288,
+          "selected": true,
+          "selectionOrder": 5,
+          "selectedBecause": [
+            "type-min-floor:herb",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+14",
+            "stale:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_anisoptera-thurifera",
+          "rawRank": 4,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 24,
+          "finalPriorityScore": 264,
+          "selected": true,
+          "selectionOrder": 7,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "topic:evidence-critical:+5",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_rivea-corymbosa",
+          "rawRank": 5,
+          "rawPriorityScore": 240,
+          "balancingAdjustment": 19,
+          "finalPriorityScore": 259,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_ipomoea-tricolor-heavenly-blue",
+          "rawRank": 6,
+          "rawPriorityScore": 236,
+          "balancingAdjustment": 19,
+          "finalPriorityScore": 255,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_delosperma-cooperi",
+          "rawRank": 7,
+          "rawPriorityScore": 234,
+          "balancingAdjustment": 24,
+          "finalPriorityScore": 258,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:evidence-critical:+5",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": "Excluded by balancing policy after raw-score top set selection."
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_mandrake-root",
+          "rawRank": 8,
+          "rawPriorityScore": 233,
+          "balancingAdjustment": 33,
+          "finalPriorityScore": 266,
+          "selected": true,
+          "selectionOrder": 6,
+          "selectedBecause": [
+            "adjusted-score-rank",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+14",
+            "stale:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_iresine-herbstii",
+          "rawRank": 9,
+          "rawPriorityScore": 228,
+          "balancingAdjustment": 19,
+          "finalPriorityScore": 247,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_jatropha-podagrica",
+          "rawRank": 10,
+          "rawPriorityScore": 227,
+          "balancingAdjustment": 19,
+          "finalPriorityScore": 246,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_pedicularis-groenlandica",
+          "rawRank": 11,
+          "rawPriorityScore": 223,
+          "balancingAdjustment": 19,
+          "finalPriorityScore": 242,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_compound_luteolin",
+          "rawRank": 12,
+          "rawPriorityScore": 216,
+          "balancingAdjustment": 37,
+          "finalPriorityScore": 253,
+          "selected": true,
+          "selectionOrder": 3,
+          "selectedBecause": [
+            "carryover-rescue-floor",
+            "type:compound:+4",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+14",
+            "stale:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_compound_cbd",
+          "rawRank": 13,
+          "rawPriorityScore": 214,
+          "balancingAdjustment": 37,
+          "finalPriorityScore": 251,
+          "selected": true,
+          "selectionOrder": 4,
+          "selectedBecause": [
+            "carryover-rescue-floor",
+            "type:compound:+4",
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "carryover-blocked:+14",
+            "stale:+6"
+          ],
+          "exclusionReason": null
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_mistletoe",
+          "rawRank": 14,
+          "rawPriorityScore": 205,
+          "balancingAdjustment": 19,
+          "finalPriorityScore": 224,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+        },
+        {
+          "profileId": "carryover-rescue-mixed",
+          "proposalId": "proposal_herb_kava",
+          "rawRank": 15,
+          "rawPriorityScore": 138,
+          "balancingAdjustment": 19,
+          "finalPriorityScore": 157,
+          "selected": false,
+          "selectionOrder": null,
+          "selectedBecause": [
+            "topic:mechanism-critical:+3",
+            "topic:safety-critical:+10",
+            "stale:+6"
+          ],
+          "exclusionReason": "Type max quota reached for herb under profile carryover-rescue-mixed."
+        }
+      ]
+    }
+  ]
+}
