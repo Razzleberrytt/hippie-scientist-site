@@ -1,6 +1,6 @@
 # Enrichment Workpacks
 
-Generated: 2026-03-31T12:33:29.179Z
+Generated: 2026-03-31T19:05:41.686Z
 
 ## Operational buckets
 - governance_fix: 46
@@ -12,7 +12,7 @@ Generated: 2026-03-31T12:33:29.179Z
 ## Task type split
 - source_gathering: 42
 - normalization_enrichment_entry: 28
-- review_approval: 13
+- review_approval: 12
 - governance_remediation: 48
 
 ## Contractor queue (top 30)
@@ -23,7 +23,7 @@ Generated: 2026-03-31T12:33:29.179Z
 | wp_herb_rivea_corymbosa | herb_page | rivea-corymbosa | governance_fix | governance_fix_needed | Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval. | missing:constituent,mechanism,safety / stale:constituent,evidence_conflict,mechanism,safety | 1 | blocked_pending_review |
 | wp_herb_alectra_sessiliflora | herb_page | alectra-sessiliflora | governance_fix | re_review_needed | Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval. | missing:constituent,evidence,mechanism,safety / stale:constituent,evidence,mechanism,safety | 0 | depublish_or_hide_enriched_section |
 | wp_herb_mandrake_root | herb_page | mandrake-root | governance_fix | governance_fix_needed | Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval. | missing:constituent,mechanism,safety / stale:constituent,evidence_conflict,mechanism,safety | 3 | blocked_pending_review |
-| wp_herb_ipomoea_tricolor_heavenly_blue | herb_page | ipomoea-tricolor-heavenly-blue | governance_fix | governance_fix_needed | Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval. | missing:constituent,mechanism,safety / stale:constituent,evidence_conflict,mechanism,safety | 1 | blocked_pending_review |
+| wp_herb_ipomoea_tricolor_heavenly_blue | herb_page | ipomoea-tricolor-heavenly-blue | governance_fix | re_review_needed | Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval. | missing:constituent,evidence,mechanism,safety / stale:constituent,evidence,mechanism,safety | 1 | depublish_or_hide_enriched_section |
 | wp_herb_anisoptera_thurifera | herb_page | anisoptera-thurifera | governance_fix | re_review_needed | Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval. | missing:constituent,evidence,mechanism,safety / stale:constituent,evidence,mechanism,safety | 0 | depublish_or_hide_enriched_section |
 | wp_herb_iresine_herbstii | herb_page | iresine-herbstii | governance_fix | governance_fix_needed | Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval. | missing:constituent,mechanism,safety / stale:constituent,evidence_conflict,mechanism,safety | 1 | blocked_pending_review |
 | wp_collection_herbs_for_relaxation | collection_page | herbs-for-relaxation | governance_fix | do_now | Governance fix needed before publish: clear blockers, verify source status, then request reviewer approval. | stale:discovery_quality | 0 | depublish_or_hide_enriched_section |
