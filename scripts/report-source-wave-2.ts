@@ -49,10 +49,12 @@ function toEntityKey(entityType: 'herb' | 'compound', entitySlug: string): strin
 
 function run() {
   const root = process.cwd()
-  const targetsPath = path.join(root, 'ops', 'reports', 'source-wave-2-targets.json')
-  const candidatesPath = path.join(root, 'ops', 'reports', 'source-wave-2-candidates.json')
+  const waveId = process.env.ENRICHMENT_WAVE_ID || 'wave-2'
+  const safeWaveId = waveId.replace(/[^a-z0-9-]+/gi, '-').toLowerCase()
+  const targetsPath = process.env.ENRICHMENT_WAVE_TARGETS_PATH || path.join(root, 'ops', 'reports', `source-${safeWaveId}-targets.json`)
+  const candidatesPath = process.env.ENRICHMENT_WAVE_CANDIDATES_PATH || path.join(root, 'ops', 'reports', `source-${safeWaveId}-candidates.json`)
   const intakePath = path.join(root, 'ops', 'reports', 'source-intake-queue.json')
-  const outPath = path.join(root, 'ops', 'reports', 'source-wave-2-summary.md')
+  const outPath = process.env.ENRICHMENT_WAVE_SOURCE_SUMMARY_PATH || path.join(root, 'ops', 'reports', `source-${safeWaveId}-summary.md`)
 
   const targets = readJson<TargetReport>(targetsPath)
   const candidates = readJson<CandidateReport>(candidatesPath)
@@ -98,7 +100,7 @@ function run() {
   }
 
   const lines: string[] = []
-  lines.push('# Source Wave 2 Summary')
+  lines.push(`# Source ${waveId} Summary`)
   lines.push('')
   lines.push(`Generated at: ${targets.generatedAt}`)
   lines.push(`Selected entities: ${targets.targets.length}`)
@@ -115,7 +117,7 @@ function run() {
     lines.push(`- ${key}: ${candidateCountByEntity.get(key) || 0}`)
   }
   lines.push('')
-  lines.push('## Unresolved high-priority gaps after wave 1 intake prep')
+  lines.push(`## Unresolved high-priority gaps after ${waveId} intake prep`)
   for (const target of targets.targets) {
     const key = toEntityKey(target.entityType, target.entitySlug)
     const gaps = unresolved.get(key) || []
