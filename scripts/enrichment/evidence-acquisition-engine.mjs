@@ -96,6 +96,16 @@ function pubmedAbstract(pmid) {
   return runCurl(url.toString());
 }
 
+function europePmcSearch(query, pageSize = 8) {
+  const url = new URL('https://www.ebi.ac.uk/europepmc/webservices/rest/search');
+  url.searchParams.set('query', query);
+  url.searchParams.set('format', 'json');
+  url.searchParams.set('resultType', 'core');
+  url.searchParams.set('pageSize', String(pageSize));
+  const json = JSON.parse(runCurl(url.toString()));
+  return json?.resultList?.result ?? [];
+}
+
 function sentenceSplit(text) {
   return String(text)
     .split(/(?<=[.!?])\s+/u)
@@ -230,9 +240,9 @@ function normalizeFieldValue(schemaField, evidenceText, herb) {
 }
 
 function titleMatchesHerb(title, herb) {
-  const haystack = `${String(title ?? '').toLowerCase()} ${String(herb.displayName ?? herb.name ?? '').toLowerCase()}`;
-  const tokens = String(herb.displayName ?? herb.name ?? '')
-    .toLowerCase()
+  const aliasText = buildHerbAliases(herb).join(' ').toLowerCase();
+  const haystack = `${String(title ?? '').toLowerCase()} ${aliasText}`;
+  const tokens = aliasText
     .split(/[^a-z0-9]+/u)
     .filter((token) => token.length > 3);
   const hits = tokens.filter((token) => haystack.includes(token));
@@ -246,53 +256,154 @@ function confidenceFromSource({ qualityScore, evidenceText, schemaField }) {
   return 'low';
 }
 
+function buildHerbAliases(herb) {
+  const aliases = [
+    herb.displayName,
+    herb.name,
+    herb.displayScientificName,
+    herb.latin,
+    herb.scientificNormalized,
+    ...(Array.isArray(herb.aliases) ? herb.aliases : []),
+  ]
+    .map((value) => normalizeWhitespace(value))
+    .filter((value) => value && value.toLowerCase() !== 'nan');
+  return [...new Set(aliases)];
+}
+
+function compactTerm(value) {
+  return normalizeWhitespace(value).replace(/\s+/g, ' ').trim();
+}
+
+function buildQueryPlan(herb, targetField) {
+  const aliases = buildHerbAliases(herb);
+  const primaryName = aliases[0] || herb.slug;
+  const compoundHints = [
+    ...(Array.isArray(herb.activeCompounds) ? herb.activeCompounds.slice(0, 3) : []),
+  ].map((value) => compactTerm(value)).filter(Boolean);
+  const fieldQueries = {
+    activeCompounds: `${primaryName} ${compoundHints.join(' ')} active compounds phytochemistry`,
+    effects: `${primaryName} pharmacology pharmacological effects`,
+    mechanism: `${primaryName} pharmacology mechanism receptor pathway`,
+    contraindications: `${primaryName} contraindications adverse effects interaction toxicity`,
+    traditionalUse: `${primaryName} traditional use ethnobotanical`,
+  };
+
+  const focused = [fieldQueries[targetField.schemaField] ?? `${primaryName} ${targetField.requestField}`];
+  const aliasQueries = aliases.slice(1, 4).map((alias) => `${alias} ${targetField.requestField}`);
+  const broadFallback = [
+    `${primaryName} medicinal plant review`,
+    `${primaryName} ${targetField.schemaField}`,
+    `${primaryName}`,
+  ];
+
+  return {
+    aliases,
+    queries: [...new Set([...focused, ...aliasQueries, ...broadFallback].map((q) => compactTerm(q)).filter(Boolean))].map((q) => ({
+      query: q,
+      stage: focused.includes(q) ? 'focused' : aliasQueries.includes(q) ? 'alias' : 'fallback',
+    })),
+  };
+}
+
 function mapTaskForField(schemaField) {
   if (schemaField === 'activeCompounds') return 'link_integrity';
   return 'herb_mechanism';
 }
 
 async function collectFieldEvidence(herb, targetField) {
-  const searchTerm = `(${herb.displayName || herb.name}) AND (${targetField.requestField})`;
-  const ids = pubmedSearch(searchTerm, 6);
-  const summaries = pubmedSummaries(ids);
+  const plan = buildQueryPlan(herb, targetField);
+  const stats = {
+    aliasesTried: plan.aliases,
+    queryAttempts: [],
+    sourcesFound: 0,
+    highQualitySources: 0,
+    acceptedSource: null,
+  };
 
-  for (const summary of summaries) {
-    if (!titleMatchesHerb(summary.title, herb)) continue;
-    const sourceUrl = `https://pubmed.ncbi.nlm.nih.gov/${summary.uid || summary.id}/`;
-    const quality = domainQuality(sourceUrl);
-    if (quality.score < 0.7) continue;
-    const abstractText = pubmedAbstract(summary.uid || summary.id);
-    const extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, summary.title);
-    if (extracted.length === 0) continue;
+  for (const item of plan.queries) {
+    const queryStats = { query: item.query, stage: item.stage, sourcesFound: 0, highQualitySources: 0, accepted: false, providers: [] };
+    const pubmedIds = pubmedSearch(item.query, 8);
+    const summaries = pubmedSummaries(pubmedIds);
+    const europeRows = europePmcSearch(item.query, 8);
+    const candidates = [];
 
-    const evidence = extracted.join(' ');
-    const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
-    if (!normalization.ok) continue;
-
-    const confidence = confidenceFromSource({ qualityScore: quality.score, evidenceText: evidence, schemaField: targetField.schemaField });
-    return {
-      herb: herb.slug,
-      field: targetField.requestField,
-      schemaField: targetField.schemaField,
-      patchField: targetField.patchField,
-      value: normalization.after,
-      normalization: {
-        before: normalization.before,
-        after: normalization.after,
-      },
-      source: {
+    for (const summary of summaries) {
+      candidates.push({
+        provider: 'pubmed',
         title: summary.title,
-        url: sourceUrl,
+        sourceUrl: `https://pubmed.ncbi.nlm.nih.gov/${summary.uid || summary.id}/`,
         pubmedId: String(summary.uid || summary.id),
-        quality: quality.label,
-      },
-      evidence,
-      confidence,
-      evidenceClass: confidence === 'high' ? 'human-clinical' : confidence === 'medium' ? 'preclinical-mechanistic' : 'traditional-use',
-    };
+        getAbstract: () => pubmedAbstract(summary.uid || summary.id),
+      });
+    }
+
+    for (const row of europeRows) {
+      const id = row.pmid || row.id;
+      const sourceUrl =
+        row?.fullTextUrlList?.fullTextUrl?.[0]?.url
+        || (row.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${row.pmid}/` : null)
+        || (row.doi ? `https://doi.org/${row.doi}` : null)
+        || `https://europepmc.org/article/${row.source || 'MED'}/${id}`;
+      candidates.push({
+        provider: 'europe_pmc',
+        title: row.title,
+        sourceUrl,
+        pubmedId: row.pmid ? String(row.pmid) : null,
+        getAbstract: () => String(row.abstractText || ''),
+      });
+    }
+
+    queryStats.providers = ['pubmed', 'europe_pmc'];
+    queryStats.sourcesFound = candidates.length;
+    stats.sourcesFound += candidates.length;
+
+    for (const candidate of candidates) {
+      if (!titleMatchesHerb(candidate.title, herb)) continue;
+      const quality = domainQuality(candidate.sourceUrl);
+      if (quality.score < 0.7) continue;
+      queryStats.highQualitySources += 1;
+      stats.highQualitySources += 1;
+      const abstractText = candidate.getAbstract();
+      if (!abstractText) continue;
+      const extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, candidate.title);
+      if (extracted.length === 0) continue;
+
+      const evidence = extracted.join(' ');
+      const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
+      if (!normalization.ok) continue;
+
+      const confidence = confidenceFromSource({ qualityScore: quality.score, evidenceText: evidence, schemaField: targetField.schemaField });
+      const row = {
+        herb: herb.slug,
+        field: targetField.requestField,
+        schemaField: targetField.schemaField,
+        patchField: targetField.patchField,
+        value: normalization.after,
+        normalization: {
+          before: normalization.before,
+          after: normalization.after,
+        },
+        source: {
+          title: candidate.title,
+          url: candidate.sourceUrl,
+          pubmedId: candidate.pubmedId,
+          quality: quality.label,
+          provider: candidate.provider,
+        },
+        evidence,
+        confidence,
+        evidenceClass: confidence === 'high' ? 'human-clinical' : confidence === 'medium' ? 'preclinical-mechanistic' : 'traditional-use',
+        retrieval: stats,
+      };
+      queryStats.accepted = true;
+      stats.acceptedSource = { query: item.query, provider: candidate.provider, url: candidate.sourceUrl };
+      stats.queryAttempts.push(queryStats);
+      return { row, retrieval: stats };
+    }
+    stats.queryAttempts.push(queryStats);
   }
 
-  return null;
+  return { row: null, retrieval: stats };
 }
 
 function buildPatch(runId, herb, acceptedRows) {
@@ -392,7 +503,9 @@ async function main() {
     const herbRows = [];
     for (const targetField of missingTargets) {
       try {
-        const row = await collectFieldEvidence(herb, targetField);
+        const result = await collectFieldEvidence(herb, targetField);
+        const row = result?.row ?? null;
+        const retrieval = result?.retrieval ?? null;
         if (!row) {
           rejected.push({
             herb: herb.slug,
@@ -400,6 +513,7 @@ async function main() {
             schemaField: targetField.schemaField,
             confidence: 'low',
             reason: 'no-high-quality-source-evidence-found-or-clean-normalization-failed',
+            retrieval,
           });
           continue;
         }
@@ -436,6 +550,26 @@ async function main() {
       apply: 'node scripts/enrichment/apply-patches.mjs',
       reviewQueue: 'low confidence rows are written under rejected[] for manual review queue intake',
       note: 'Patches are emitted in ops/evidence-acquisition and can be promoted to patches/ after human review.',
+    },
+    retrievalSummary: {
+      perHerb: Object.fromEntries(
+        selected.slice(0, options.maxHerbs).map((herb) => {
+          const herbRows = [...accepted, ...rejected].filter((row) => row.herb === herb.slug);
+          const queryAttempts = herbRows.reduce((sum, row) => sum + (row.retrieval?.queryAttempts?.length ?? 0), 0);
+          const sourcesFound = herbRows.reduce((sum, row) => sum + (row.retrieval?.sourcesFound ?? 0), 0);
+          const highQualitySources = herbRows.reduce((sum, row) => sum + (row.retrieval?.highQualitySources ?? 0), 0);
+          const successfulQueries = herbRows
+            .flatMap((row) => row.retrieval?.queryAttempts ?? [])
+            .filter((item) => item.accepted)
+            .map((item) => item.query);
+          return [herb.slug, {
+            queryAttempts,
+            sourcesFound,
+            highQualitySources,
+            successfulQueries: [...new Set(successfulQueries)],
+          }];
+        }),
+      ),
     },
   };
 
