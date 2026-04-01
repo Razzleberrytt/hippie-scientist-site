@@ -43,6 +43,18 @@ function readJson(relativePath) {
   }
 }
 
+function readObject(relativePath) {
+  const full = path.resolve(__dirname, '..', relativePath)
+  if (!fs.existsSync(full)) return {}
+
+  try {
+    const parsed = JSON.parse(fs.readFileSync(full, 'utf-8'))
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {}
+  } catch {
+    return {}
+  }
+}
+
 
 function normalizeDate(value) {
   if (!value) return null
@@ -83,10 +95,30 @@ function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}
 
 function buildSitemapXml() {
   const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
+  const publicationManifest = readObject('public/data/publication-manifest.json')
 
-  const blogEntries = getBlogEntries(readJson('src/data/blog/posts.json'))
+  const blogEntries = getBlogEntries(readJson('public/blogdata/index.json'))
+  const herbRoutes = Array.isArray(publicationManifest?.routes?.herbs) ? publicationManifest.routes.herbs : []
+  const compoundRoutes = Array.isArray(publicationManifest?.routes?.compounds)
+    ? publicationManifest.routes.compounds
+    : []
 
-  const allRoutes = uniq(sitemapRoutes).filter(route => !disallowedRoutes.includes(route))
+  const allRoutes = uniq([...sitemapRoutes, ...herbRoutes, ...compoundRoutes, ...blogEntries.map(entry => entry.route)])
+    .filter(route => !disallowedRoutes.includes(route))
+
+  for (const route of herbRoutes) {
+    sitemapMeta.set(normalizePathname(route), {
+      priority: 0.8,
+      changefreq: 'monthly',
+    })
+  }
+
+  for (const route of compoundRoutes) {
+    sitemapMeta.set(normalizePathname(route), {
+      priority: 0.7,
+      changefreq: 'monthly',
+    })
+  }
 
   for (const entry of blogEntries) {
     sitemapMeta.set(entry.route, {
