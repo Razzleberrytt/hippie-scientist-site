@@ -1606,5 +1606,364 @@
         "ops/source-candidates.json"
       ]
     }
+  },
+  {
+    "candidateSourceId": "cand_wave_cov_calea_ternifolia_39389391",
+    "intakeTaskId": "intake_cov_repair_herb_calea_ternifolia_safety_mechanism_batch02",
+    "title": "Mexican calea (Calea zacatechichi Schltdl.) interferes with cholinergic and dopaminergic pathways and causes neuroglial toxicity.",
+    "shortTitle": "Calea neuroglial toxicity pathways",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Garcia MR",
+      "Ferreres F",
+      "Mineiro T",
+      "Videira RA",
+      "Gil-Izquierdo Á",
+      "Andrade PB"
+    ],
+    "publicationYear": 2025,
+    "citationText": "Garcia MR et al. J Ethnopharmacol. 2025; PMID:39389391.",
+    "doi": "10.1016/j.jep.2024.118915",
+    "pmid": "39389391",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39389391/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "in-vitro",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "calea-ternifolia"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "safetyNotes",
+      "contraindications"
+    ],
+    "whyThisSourceMatters": "Direct Calea zacatechichi mechanistic toxicity data helps replace placeholder mechanism/safety text with traceable pathway evidence.",
+    "blockerToPromotion": "Needs secondary reviewer confirmation that dosing context is not overstated for human claims.",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_cov_calea_ternifolia_31949470",
+    "intakeTaskId": "intake_cov_repair_herb_calea_ternifolia_safety_human_context_batch02",
+    "title": "Safety of Aqueous Extract of Calea ternifolia Used in Mexican Traditional Medicine.",
+    "shortTitle": "Calea ternifolia safety study",
+    "sourceType": "journal-article",
+    "sourceClass": "observational-human-evidence",
+    "authors": [
+      "González-Yáñez MGE",
+      "Rivas-Morales C",
+      "Oranday-Cárdenas MA",
+      "Verde-Star MJ",
+      "Núñez-González MA",
+      "Sanchez E"
+    ],
+    "publicationYear": 2019,
+    "citationText": "González-Yáñez MGE et al. Evid Based Complement Alternat Med. 2019; PMID:31949470.",
+    "doi": "10.1155/2019/7478152",
+    "pmid": "31949470",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/31949470/",
+    "language": "en",
+    "evidenceClass": "human-observational",
+    "studyDesign": "non-randomized-controlled",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "calea-ternifolia"
+      }
+    ],
+    "relatedTopicGaps": [
+      "safetyNotes",
+      "contraindications",
+      "interactions"
+    ],
+    "whyThisSourceMatters": "Provides directly indexed safety observations for Calea ternifolia, a core missing field cluster in the blocked record.",
+    "blockerToPromotion": "Requires metadata normalization for exact intervention details before promotion.",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_cov_catha_edulis_39092911",
+    "intakeTaskId": "intake_cov_repair_herb_catha_edulis_genitourinary_meta_batch02",
+    "title": "The effects of khat (Catha edulis) use on the genitourinary system: A systematic review and meta-analysis.",
+    "shortTitle": "Khat genitourinary meta-analysis",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Ahmed F",
+      "Alnadhari I",
+      "Ghabisha S",
+      "Altam A",
+      "Almatary A",
+      "Mahyoub Abdo BA"
+    ],
+    "publicationYear": 2024,
+    "citationText": "Ahmed F et al. J Ethn Subst Abuse. 2024; PMID:39092911.",
+    "doi": "10.1080/15332640.2024.2382691",
+    "pmid": "39092911",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39092911/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-a",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "catha-edulis"
+      }
+    ],
+    "relatedTopicGaps": [
+      "effects",
+      "safetyNotes",
+      "contraindications"
+    ],
+    "whyThisSourceMatters": "Adds high-tier synthesized clinical risk evidence for khat complications, directly improving blocked safety/contraindication coverage.",
+    "blockerToPromotion": null,
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_cov_catha_edulis_29387278",
+    "intakeTaskId": "intake_cov_repair_herb_catha_edulis_cardiovascular_meta_batch02",
+    "title": "Khat (Catha Edulis) as a Risk Factor for Cardiovascular Disorders: Systematic Review and Meta-Analysis.",
+    "shortTitle": "Khat cardiovascular risk meta-analysis",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Mega TA",
+      "Dabe NE"
+    ],
+    "publicationYear": 2017,
+    "citationText": "Mega TA, Dabe NE. Open Cardiovasc Med J. 2017; PMID:29387278.",
+    "doi": "10.2174/1874192401711010146",
+    "pmid": "29387278",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/29387278/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-a",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "catha-edulis"
+      }
+    ],
+    "relatedTopicGaps": [
+      "safetyNotes",
+      "interactions",
+      "contraindications"
+    ],
+    "whyThisSourceMatters": "Adds cardiovascular harm synthesis needed for interaction and contraindication narratives that are currently blocked by low evidence.",
+    "blockerToPromotion": null,
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_cov_crocus_sativus_39657222",
+    "intakeTaskId": "intake_cov_repair_herb_crocus_sativus_metabolic_safety_meta_batch02",
+    "title": "Effect of Saffron (Crocus sativus) Supplementation on Oxidative Stress, Inflammatory Indices, and Renal and Liver Function Parameters in Patients With Type 2 Diabetes Mellitus: A GRADE-Assessed Systematic Review and Meta-analysis of Randomized Clinical Trials.",
+    "shortTitle": "Saffron metabolic safety meta-analysis",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Mafi A",
+      "Mokhtari Z",
+      "Hosseini E",
+      "Alimohammadi M",
+      "Aarabi MH",
+      "Askari G"
+    ],
+    "publicationYear": 2025,
+    "citationText": "Mafi A et al. Nutr Rev. 2025; PMID:39657222.",
+    "doi": "10.1093/nutrit/nuae121",
+    "pmid": "39657222",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39657222/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-a",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "crocus-sativus"
+      }
+    ],
+    "relatedTopicGaps": [
+      "effects",
+      "safetyNotes",
+      "interactions"
+    ],
+    "whyThisSourceMatters": "Recent GRADE-assessed synthesis strengthens clinical effects and organ-safety coverage for a still-blocked saffron record.",
+    "blockerToPromotion": null,
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_cov_crocus_sativus_30502528",
+    "intakeTaskId": "intake_cov_repair_herb_crocus_sativus_cardiovascular_meta_batch02",
+    "title": "Clinical evidence on the effects of saffron (Crocus sativus L.) on cardiovascular risk factors: A systematic review meta-analysis.",
+    "shortTitle": "Saffron cardiovascular evidence meta-analysis",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Pourmasoumi M",
+      "Hadi A",
+      "Najafgholizadeh A",
+      "Kafeshani M",
+      "Sahebkar A"
+    ],
+    "publicationYear": 2019,
+    "citationText": "Pourmasoumi M et al. Pharmacol Res. 2019; PMID:30502528.",
+    "doi": "10.1016/j.phrs.2018.11.038",
+    "pmid": "30502528",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/30502528/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-a",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "crocus-sativus"
+      }
+    ],
+    "relatedTopicGaps": [
+      "effects",
+      "contraindications",
+      "interactions"
+    ],
+    "whyThisSourceMatters": "Provides pooled clinical cardiometabolic outcome estimates that can populate currently missing high-impact effect and safety fields.",
+    "blockerToPromotion": null,
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_cov_acorus_calamus_var_angustatus_36871902",
+    "intakeTaskId": "intake_cov_repair_herb_acorus_calamus_var_angustatus_comprehensive_review_batch02",
+    "title": "Acorus calamus var. angustatus Besser: Insight into current research on ethnopharmacological use, phytochemistry, pharmacology, toxicology, and pharmacokinetics.",
+    "shortTitle": "Acorus var. angustatus comprehensive review",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "He X",
+      "Chen X",
+      "Yang Y",
+      "Liu Y",
+      "Xie Y"
+    ],
+    "publicationYear": 2023,
+    "citationText": "Zhu K et al. Phytochemistry. 2023; PMID:36871902.",
+    "doi": "10.1016/j.phytochem.2023.113626",
+    "pmid": "36871902",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36871902/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "acorus-calamus-var-angustatus"
+      }
+    ],
+    "relatedTopicGaps": [
+      "description",
+      "mechanism",
+      "safetyNotes",
+      "traditionalUse"
+    ],
+    "whyThisSourceMatters": "Entity-specific comprehensive evidence synthesis offers a single high-coverage anchor for missing mechanism, toxicology, and traditional-use sections.",
+    "blockerToPromotion": "Confirm sourceClass/studyDesign mapping (narrative review vs systematic) during reviewer triage.",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
   }
 ]
