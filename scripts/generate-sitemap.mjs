@@ -66,6 +66,10 @@ function uniq(list) {
   return [...new Set(list)]
 }
 
+function normalizeRoutes(list) {
+  return uniq(list.map(route => normalizePathname(route)).filter(Boolean))
+}
+
 
 function getBlogEntries(records) {
   return records
@@ -103,8 +107,13 @@ function buildSitemapXml() {
     ? publicationManifest.routes.compounds
     : []
 
-  const allRoutes = uniq([...sitemapRoutes, ...herbRoutes, ...compoundRoutes, ...blogEntries.map(entry => entry.route)])
-    .filter(route => !disallowedRoutes.includes(route))
+  const blockedRoutes = new Set(disallowedRoutes.map(route => normalizePathname(route)))
+  const allRoutes = normalizeRoutes([
+    ...sitemapRoutes,
+    ...herbRoutes,
+    ...compoundRoutes,
+    ...blogEntries.map(entry => entry.route),
+  ]).filter(route => !blockedRoutes.has(route))
 
   for (const route of herbRoutes) {
     sitemapMeta.set(normalizePathname(route), {
