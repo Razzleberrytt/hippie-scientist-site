@@ -44,6 +44,17 @@
     "lastmod": "2026-04-01"
   },
   {
+    "slug": "ipomoea-tricolor",
+    "route": "/herbs/ipomoea-tricolor",
+    "name": "ipomoea tricolor",
+    "kind": "herb",
+    "title": "ipomoea tricolor | The Hippie Scientist",
+    "description": "Ipomoea tricolor (morning glory) is discussed for ergoline-associated chemistry linked to hallucinogenic potential; evidence is primarily preclinical/mecha",
+    "completenessScore": 13,
+    "tier": "stub",
+    "lastmod": "2026-04-01"
+  },
+  {
     "slug": "mandrake-root",
     "route": "/herbs/mandrake-root",
     "name": "mandrake root",
@@ -172,6 +183,17 @@
     "title": "pedicularis densiflora (indian warrior) | The Hippie Scientist",
     "description": "north american wildflower smoked for muscle relaxation.",
     "completenessScore": 10,
+    "tier": "stub",
+    "lastmod": "2026-04-01"
+  },
+  {
+    "slug": "withania-somnifera",
+    "route": "/herbs/withania-somnifera",
+    "name": "withania somnifera",
+    "kind": "herb",
+    "title": "withania somnifera | The Hippie Scientist",
+    "description": "Withania somnifera has moderate randomized evidence for stress-related symptom improvements in standardized extracts, with unresolved long-term safety and ",
+    "completenessScore": 9,
     "tier": "stub",
     "lastmod": "2026-04-01"
   }

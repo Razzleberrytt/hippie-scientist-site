@@ -3,53 +3,37 @@
   "latin": "Withania somnifera",
   "class": null,
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. No direct region data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "Proposed actions include HPA-axis modulation and anti-inflammatory signaling; these mechanisms remain partly inferential across study designs.",
   "activeCompounds": [],
   "effects": [
-    "Adaptogen",
-    "anti-anxiety",
-    "cognitive enhancer",
-    "anti",
-    "anxiety"
+    "Randomized controlled trial evidence suggests improvements in stress outcomes in some adults."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Avoid in pregnancy unless supervised by qualified clinicians."
+  ],
   "safetyNotes": [
-    "safe",
-    "Drowsiness",
-    "GI upset",
-    "avoid in hyperthyroidism",
-    "No direct toxicity data. Contextual inference: Adaptogen",
-    "anti-anxiety",
-    "cognitive enhancer. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Adaptogen",
-    "cognitive enhancer. none."
+    "Short-term studies suggest tolerability, but real-world products vary in concentration and quality."
   ],
   "sources": [
     {
-      "title": "Inferred from scientific name:"
-    },
-    {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "src_pubmed-31517876",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Withania somnifera is the scientific name for ashwagandha and is used in Ayurvedic practice and modern standardized supplements.",
   "dosage": [
-    "250",
-    "1000 mg",
-    "day root extract"
+    "Clinical dosing is extract-specific and cannot be generalized across powders, teas, and concentrated products."
   ],
   "duration": "Chronic",
-  "interactions": [],
+  "interactions": [
+    "Monitor potential interactions with sedatives and thyroid-related medications."
+  ],
   "legalStatus": "Legal globally",
-  "preparation": "Roots dried, powdered, decocted, or tinctured (Ashwagandha); Ayurvedic adaptogen",
-  "region": "No direct region data. Contextual inference: Adaptogen, anti-anxiety, cognitive enhancer. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Adaptogen, anti-anxiety, cognitive enhancer. none. ; nan; nan",
+  "preparation": "Typically prepared as root powder or standardized root extract capsules/tablets.",
+  "region": "Originates in South Asia and is now marketed worldwide.",
   "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
+  "traditionalUse": "Traditional Ayurvedic use includes vitality, sleep, and stress resilience support.",
   "sideEffects": [
     "Drowsiness",
     "GI upset",
@@ -59,5 +43,88 @@
   "id": "withania-somnifera",
   "displayName": "withania somnifera",
   "displayScientificName": "Withania somnifera",
-  "scientificNormalized": "withania somnifera"
+  "scientificNormalized": "withania somnifera",
+  "summary": "Withania somnifera has moderate randomized evidence for stress-related symptom improvements in standardized extracts, with unresolved long-term safety and interaction questions.",
+  "researchEnrichment": {
+    "evidenceSummary": "Curated governance-backed enrichment for withania-somnifera using 1 registry sources.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "human-clinical"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [],
+    "mechanisms": [
+      {
+        "claim": "Proposed actions include HPA-axis modulation and anti-inflammatory signaling; these mechanisms remain partly inferential across study designs.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ],
+        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Monitor potential interactions with sedatives and thyroid-related medications.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Avoid in pregnancy unless supervised by qualified clinicians.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Short-term studies suggest tolerability, but real-world products vary in concentration and quality.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "Clinical dosing is extract-specific and cannot be generalized across powders, teas, and concentrated products.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ],
+        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-31517876"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-31517876",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }

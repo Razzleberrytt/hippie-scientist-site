@@ -3,59 +3,43 @@
   "latin": "Hyoscyamus niger",
   "class": "deliriant / toxic / visionary",
   "intensity": "Extreme",
-  "mechanism": "Scopolamine, hyoscyamine, and atropine block muscarinic acetylcholine receptors (anticholinergic), disrupting sensory and cognitive processing.",
+  "mechanism": "Key alkaloids act as muscarinic antagonists. Preclinical studies characterize alkaloid variability, while clinical review literature emphasizes toxicodynamic risk.",
   "activeCompounds": [],
   "effects": [
-    "Hallucinations",
-    "Disorientation",
-    "Sedation",
-    "Dryness",
-    "Trance"
+    "Anticholinergic manifestations (for example delirium, agitation, tachycardia, mydriasis) are reported in toxicity-focused human literature.",
+    "Alkaloid composition varies by growing conditions in preclinical compositional studies."
   ],
   "contraindications": [
-    "unsafe in all non-clinical contexts. avoid with any psychiatric history or cardiovascular conditions.",
-    "unsafe in all non",
-    "clinical contexts. avoid with any psychiatric history or cardiovascular conditions."
+    "Avoid in children, pregnancy, and breastfeeding due to severe toxicity potential.",
+    "Avoid in patients with glaucoma, urinary retention risk, or severe psychiatric vulnerability."
   ],
   "safetyNotes": [
-    "Toxic – deliriant",
-    "anticholinergic effects",
-    "extreme dry mouth",
-    "confusion",
-    "hallucinations",
-    "overheating",
-    "pupil dilation",
-    "urinary retention. risk of fatal respiratory failure.",
-    "Very high. Narrow therapeutic index."
+    "High poisoning risk with unpredictable alkaloid content.",
+    "Potential for severe neuropsychiatric and autonomic adverse effects."
   ],
   "sources": [
     {
-      "title": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1318951/"
+      "title": "src_doi-10-1016-j-jphotobiol-2016-04-028",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27285814/"
     },
     {
-      "note": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1318951/;Plants of the Gods – Rätsch;Handbook of Medicinal Plants – CRC Press",
-      "url": ""
+      "title": "src_doi-10-1080-toxrev-2024-110201",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40110201/"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "a notorious nightshade plant used historically in european witchcraft, sedatives, and flying ointments. contains powerful tropane alkaloids that can induce delirium, amnesia, and visionary states.",
+  "description": "Hyoscyamus niger is a historical medicinal and ritual nightshade with modern concern centered on poisoning and anticholinergic toxidrome.",
   "dosage": [
-    "Toxic",
-    "ritual",
-    "medical use only",
-    "~0.1",
-    "0.3 g dried leaf (unsafe)"
+    "No reliable safe oral self-dosing range is established in available governed evidence."
   ],
   "duration": "No direct duration data. Contextual inference: a notorious nightshade plant used historically in european witchcraft, sedatives, and flying ointments. contains powerful tropane alkaloids that can induce delirium, amnesia, and visionary states.. Scopolamine, hyoscyamine, and atropine block muscarinic acetylcholine receptors (anticholinergic), disrupting sensory and cognitive processing.. Hallucinations;Disorientation;Sedation;Dryness;Trance. europe, north africa, asia. ; nan; nan",
   "interactions": [
-    "dangerous with cns depressants",
-    "alcohol",
-    "maois",
-    "or other anticholinergics."
+    "Additive toxicity with anticholinergic drugs.",
+    "Potentially dangerous when combined with sedatives, alcohol, or psychoactive substances."
   ],
   "legalStatus": "Legal in some countries, restricted elsewhere",
-  "preparation": "Historically used in ointments or smoked in ritual blends. Not for recreational or internal use today.",
-  "region": "europe, north africa, asia",
+  "preparation": "Historically prepared as smoked, infused, or topical ritual material; modern toxicology sources support avoidance outside medical toxicology contexts.",
+  "region": "Native/introduced across parts of Europe, North Africa, and Asia.",
   "therapeuticUses": [
     "used in minute doses for pain",
     "asthma",
@@ -63,7 +47,7 @@
     "or surgery pre",
     "medication. historically employed in magic and sedation."
   ],
-  "traditionalUse": "; nan; nan",
+  "traditionalUse": "Traditional European and West Asian use included sedative and ritual contexts, but historical use does not demonstrate modern efficacy or safety.",
   "sideEffects": [
     "extreme dry mouth",
     "confusion",
@@ -76,5 +60,96 @@
   "id": "hyoscyamus-niger",
   "displayName": "hyoscyamus niger",
   "displayScientificName": "Hyoscyamus niger",
-  "scientificNormalized": "hyoscyamus niger"
+  "scientificNormalized": "hyoscyamus niger",
+  "summary": "Hyoscyamus niger (henbane) is a tropane-alkaloid-containing nightshade with strong anticholinergic toxicity risk; evidence supports safety warnings more than therapeutic positioning.",
+  "researchEnrichment": {
+    "evidenceSummary": "Curated governance-backed enrichment for hyoscyamus-niger using 2 registry sources.",
+    "evidenceTier": "tier-2-moderate",
+    "evidenceClassesPresent": [
+      "human-clinical",
+      "preclinical-mechanistic"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [],
+    "mechanisms": [
+      {
+        "claim": "Key alkaloids act as muscarinic antagonists. Preclinical studies characterize alkaloid variability, while clinical review literature emphasizes toxicodynamic risk.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_doi-10-1016-j-jphotobiol-2016-04-028"
+        ],
+        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Additive toxicity with anticholinergic drugs.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1016-j-jphotobiol-2016-04-028"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Avoid in children, pregnancy, and breastfeeding due to severe toxicity potential.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1016-j-jphotobiol-2016-04-028"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "High poisoning risk with unpredictable alkaloid content.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1016-j-jphotobiol-2016-04-028"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No reliable safe oral self-dosing range is established in available governed evidence.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1016-j-jphotobiol-2016-04-028"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1016-j-jphotobiol-2016-04-028"
+        ],
+        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_doi-10-1016-j-jphotobiol-2016-04-028",
+      "src_doi-10-1080-toxrev-2024-110201"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_doi-10-1016-j-jphotobiol-2016-04-028",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      },
+      {
+        "sourceId": "src_doi-10-1080-toxrev-2024-110201",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }

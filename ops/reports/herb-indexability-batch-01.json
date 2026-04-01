@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-04-01T00:00:00.000Z",
+  "batchId": "herb-indexability-batch-01",
+  "selectionMethod": "Top herbs from indexability audit ranked by promotable-source coverage (candidateApprovedHits, candidateHits, registryHits, priority)",
+  "selectedHerbs": [
+    "mandrake",
+    "hyoscyamus-niger",
+    "ipomoea-tricolor",
+    "cbd",
+    "ashwagandha",
+    "chamomile",
+    "kava",
+    "withania-somnifera",
+    "african-dream-root",
+    "acorus-calamus-var-angustatus"
+  ],
+  "completedHerbs": [
+    "mandrake",
+    "hyoscyamus-niger",
+    "ipomoea-tricolor",
+    "cbd",
+    "ashwagandha",
+    "chamomile",
+    "kava",
+    "withania-somnifera"
+  ],
+  "blockedHerbs": [
+    {
+      "slug": "african-dream-root",
+      "reason": "No approved candidates and no registry-backed sources in provided input set; could not build schema-compliant researchEnrichment with real sourceRegistryIds."
+    },
+    {
+      "slug": "acorus-calamus-var-angustatus",
+      "reason": "No approved candidates and no clearly herb-scoped governed source set in provided candidate wave for claim-level mapping; deferred for human source curation."
+    }
+  ],
+  "sourceRegistryPromotions": [],
+  "notes": [
+    "All approved source candidates in ops/source-candidates.json were already represented in public/data/source-registry.json.",
+    "No indexability gate thresholds or placeholder patterns were modified."
+  ]
+}

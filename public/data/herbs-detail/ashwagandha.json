@@ -3,44 +3,123 @@
   "latin": "ashwagandha",
   "class": null,
   "intensity": "No direct intensity data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan",
+  "mechanism": "Proposed mechanisms include neuroendocrine stress-response modulation and anti-inflammatory signaling; direct clinical mechanisms remain incompletely resolved.",
   "activeCompounds": [],
   "effects": [
-    "No direct effects data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan."
+    "Some randomized evidence suggests stress and anxiety symptom improvements with standardized extracts."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Avoid in pregnancy pending stronger safety evidence."
+  ],
   "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan."
+    "Generally tolerated in short-term trials, but adverse effects and product variability require caution."
   ],
-  "sources": [],
+  "sources": [
+    {
+      "title": "src_pubmed-31517876",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "; nan; nan.",
+  "description": "Ashwagandha is an Ayurvedic adaptogenic herb (Withania somnifera) studied in standardized extract formulations for stress-related outcomes.",
   "dosage": [
-    "No direct dosage data. Contextual inference:",
-    "nan.. No direct mechanismofaction data. Contextual inference:",
-    "nan..",
-    "nan. No direct effects data. Contextual inference:",
-    "nan.",
-    "nan. No direct region data. Contextual inference:"
+    "Dose ranges vary by extract standardization; source-backed context supports formulation-specific rather than universal dosing statements."
   ],
   "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "interactions": [],
+  "interactions": [
+    "Potential additive sedation with CNS depressants; monitor with thyroid-active therapy due to reported endocrine effects in broader literature."
+  ],
   "legalStatus": null,
-  "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
+  "preparation": "Common modern preparations are standardized root extracts in capsules or tablets.",
+  "region": "Traditional origin and sustained use in South Asia with global supplement adoption.",
   "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
+  "traditionalUse": "Traditional Ayurvedic use includes resilience and vitality support; this traditional context should not be treated as proof of all modern claims.",
   "slug": "ashwagandha",
   "id": "ashwagandha",
   "displayName": "ashwagandha",
   "displayScientificName": "ashwagandha",
-  "scientificNormalized": "ashwagandha"
+  "scientificNormalized": "ashwagandha",
+  "summary": "Ashwagandha (Withania somnifera) has moderate human evidence for stress-related symptom improvement in some standardized extract trials, with important product and dose heterogeneity.",
+  "researchEnrichment": {
+    "evidenceSummary": "Curated governance-backed enrichment for ashwagandha using 1 registry sources.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "human-clinical"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [],
+    "mechanisms": [
+      {
+        "claim": "Proposed mechanisms include neuroendocrine stress-response modulation and anti-inflammatory signaling; direct clinical mechanisms remain incompletely resolved.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ],
+        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Potential additive sedation with CNS depressants; monitor with thyroid-active therapy due to reported endocrine effects in broader literature.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Avoid in pregnancy pending stronger safety evidence.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Generally tolerated in short-term trials, but adverse effects and product variability require caution.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "Dose ranges vary by extract standardization; source-backed context supports formulation-specific rather than universal dosing statements.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-31517876"
+        ],
+        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-31517876"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-31517876",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }

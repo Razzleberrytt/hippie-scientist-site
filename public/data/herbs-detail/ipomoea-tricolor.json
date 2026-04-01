@@ -3,54 +3,137 @@
   "latin": "Ipomoea tricolor",
   "class": null,
   "intensity": "No direct intensity data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "mechanism": "Periglandula-associated symbiosis contributes ergoline alkaloid production in seeds; mechanistic findings are preclinical and do not establish clinical benefit.",
   "activeCompounds": [],
   "effects": [
-    "Psychedelic effects from ergoline alkaloids",
-    "traditional use in rituals"
+    "Reports emphasize psychoactive/hallucinogenic potential linked to ergoline alkaloids.",
+    "Direct therapeutic efficacy claims remain unsupported by robust controlled human trials in reviewed sources."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Avoid in people with psychosis risk, bipolar-spectrum instability, or severe anxiety vulnerability.",
+    "Avoid in pregnancy/breastfeeding because safety has not been established."
+  ],
   "safetyNotes": [
-    "No direct toxicity data. Contextual inference: Psychedelic effects from ergoline alkaloids",
-    "traditional use in rituals. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Psychedelic effects from ergoline alkaloids",
-    "traditional use in rituals. none."
+    "Potential for acute psychological distress, dysphoria, or intoxication-related harm.",
+    "Product variability and co-exposures increase unpredictability of effects."
   ],
   "sources": [
     {
-      "title": "Inferred from scientific name:"
+      "title": "src_doi-10-1080-00275514-2025-2483634",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40261263/"
     },
     {
-      "note": "Inferred from scientific name:",
-      "url": ""
+      "title": "src_doi-10-1055-a-0577-8049",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29499587/"
     }
   ],
   "lastUpdated": "2026-03-21",
-  "description": "Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+  "description": "Ipomoea tricolor seeds are historically associated with ritual psychoactive use in parts of Mesoamerica. Modern literature mainly addresses fungal symbiosis and ergoline alkaloid biosynthesis.",
   "dosage": [
-    "No direct dosage data. Contextual inference: Psychedelic effects from ergoline alkaloids",
-    "traditional use in rituals. Herbs often act via neurotransmitter modulation",
-    "antioxidant effects",
-    "or enzyme inhibition.. None.",
-    "nan.. Herbs often act via neurotransmitter modulation",
-    "or enzyme inhibition.. Psychedelic effects from ergoline alkaloids",
-    "traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids",
-    "traditional use in rituals. none.",
-    "nan."
+    "No validated therapeutic dosage context was identified in the approved source set."
   ],
   "duration": "6–10 hours",
-  "interactions": [],
+  "interactions": [
+    "Potential additive psychoactive effects with serotonergic or CNS-active substances."
+  ],
   "legalStatus": "Restricted in some countries",
-  "preparation": "No direct preparation data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan. ; nan; nan",
-  "region": "No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan",
+  "preparation": "Historical use centers on seed preparations in ceremonial settings; modern evidence does not support unsupervised therapeutic ingestion.",
+  "region": "Cultivated globally; traditional ritual contexts are most documented in Mesoamerican settings.",
   "therapeuticUses": [],
-  "traditionalUse": "; nan; nan",
+  "traditionalUse": "Traditional ceremonial use is described in ethnobotanical records; this should remain separated from clinical-efficacy claims.",
   "slug": "ipomoea-tricolor",
   "id": "ipomoea-tricolor",
   "displayName": "ipomoea tricolor",
   "displayScientificName": "Ipomoea tricolor",
-  "scientificNormalized": "ipomoea tricolor"
+  "scientificNormalized": "ipomoea tricolor",
+  "summary": "Ipomoea tricolor (morning glory) is discussed for ergoline-associated chemistry linked to hallucinogenic potential; evidence is primarily preclinical/mechanistic with limited direct human therapeutic data.",
+  "researchEnrichment": {
+    "evidenceSummary": "Curated governance-backed enrichment for ipomoea-tricolor using 2 registry sources.",
+    "evidenceTier": "tier-2-moderate",
+    "evidenceClassesPresent": [
+      "preclinical-mechanistic"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [],
+    "mechanisms": [
+      {
+        "claim": "Periglandula-associated symbiosis contributes ergoline alkaloid production in seeds; mechanistic findings are preclinical and do not establish clinical benefit.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ],
+        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Potential additive psychoactive effects with serotonergic or CNS-active substances.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Avoid in people with psychosis risk, bipolar-spectrum instability, or severe anxiety vulnerability.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Potential for acute psychological distress, dysphoria, or intoxication-related harm.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No validated therapeutic dosage context was identified in the approved source set.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_doi-10-1080-00275514-2025-2483634"
+        ],
+        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_doi-10-1080-00275514-2025-2483634",
+      "src_doi-10-1055-a-0577-8049"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_doi-10-1080-00275514-2025-2483634",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      },
+      {
+        "sourceId": "src_doi-10-1055-a-0577-8049",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }
