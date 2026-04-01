@@ -19,6 +19,10 @@ const INDEXABILITY_WEIGHTS = {
   traditionalUse: 0.9,
 };
 
+function herbKey(herb) {
+  return String(herb?.slug ?? herb?.id ?? herb?.name ?? herb?.displayName ?? '').trim();
+}
+
 function parseArgs(argv) {
   const out = { outDir: 'ops/evidence-acquisition/reports', runId: null };
   for (let i = 2; i < argv.length; i += 1) {
@@ -79,6 +83,8 @@ function summarizeCoverage({ herbs, latestRun, allRuns }) {
   let totalMissing = 0;
 
   for (const herb of herbs) {
+    const currentHerbKey = herbKey(herb);
+    if (!currentHerbKey) continue;
     const missingFields = [];
     let completedCount = 0;
 
@@ -95,7 +101,7 @@ function summarizeCoverage({ herbs, latestRun, allRuns }) {
     }
 
     byHerb.push({
-      herb: herb.slug,
+      herb: currentHerbKey,
       completed: completedCount,
       missing: missingFields.length,
       completionPct: Number(((completedCount / TARGET_FIELDS.length) * 100).toFixed(2)),
@@ -120,10 +126,11 @@ function summarizeCoverage({ herbs, latestRun, allRuns }) {
   let engineRejected = 0;
 
   for (const herb of herbs) {
-    if (!selectedHerbSet.has(herb.slug)) continue;
+    const currentHerbKey = herbKey(herb);
+    if (!currentHerbKey || !selectedHerbSet.has(currentHerbKey)) continue;
     for (const field of TARGET_FIELDS) {
       if (!isMissing(herb[field])) continue;
-      const key = `${herb.slug}:${field}`;
+      const key = `${currentHerbKey}:${field}`;
       if (fieldFillMap.has(key)) engineFilled += 1;
       else if (fieldRejectMap.has(key)) engineRejected += 1;
       else unresolved += 1;
@@ -245,6 +252,8 @@ function buildPriorityQueue({ herbs, allRuns }) {
 
   const queue = [];
   for (const herb of herbs) {
+    const currentHerbKey = herbKey(herb);
+    if (!currentHerbKey) continue;
     const missingFields = TARGET_FIELDS.filter((field) => isMissing(herb[field]));
     if (missingFields.length === 0) continue;
 
@@ -255,16 +264,16 @@ function buildPriorityQueue({ herbs, allRuns }) {
 
     for (const field of missingFields) {
       indexabilityUpside += INDEXABILITY_WEIGHTS[field] ?? 1;
-      const key = `${herb.slug}:${field}`;
+      const key = `${currentHerbKey}:${field}`;
       if (acceptedByHerbField.has(key)) recoverableCount += 1;
       const rejections = rejectedByHerbField.get(key) ?? 0;
       repeatedRejections += rejections;
       if (rejections >= 2) normalizationGapSignals += 1;
     }
 
-    const sourceSignal = sourceSignalsByHerb.get(herb.slug) ?? 0;
-    const acceptedCount = acceptedByHerb.get(herb.slug) ?? 0;
-    const rejectedCount = TARGET_FIELDS.reduce((sum, field) => sum + (rejectedByHerbField.get(`${herb.slug}:${field}`) ?? 0), 0);
+    const sourceSignal = sourceSignalsByHerb.get(currentHerbKey) ?? 0;
+    const acceptedCount = acceptedByHerb.get(currentHerbKey) ?? 0;
+    const rejectedCount = TARGET_FIELDS.reduce((sum, field) => sum + (rejectedByHerbField.get(`${currentHerbKey}:${field}`) ?? 0), 0);
 
     const priorityScore = Number((indexabilityUpside * 20 + recoverableCount * 16 + normalizationGapSignals * 14 + sourceSignal * 4 + missingFields.length * 7 - repeatedRejections * 3).toFixed(2));
 
@@ -274,9 +283,9 @@ function buildPriorityQueue({ herbs, allRuns }) {
     else if (acceptedCount > 0 && missingFields.length <= 2) recommendedNextAction = 'promote_patch_and_validate';
 
     queue.push({
-      herb: herb.slug,
+      herb: currentHerbKey,
       missingFields,
-      lastRunStatus: lastRunStatusByHerb.get(herb.slug) ?? 'not_attempted',
+      lastRunStatus: lastRunStatusByHerb.get(currentHerbKey) ?? 'not_attempted',
       acceptedCount,
       rejectedCount,
       recommendedNextAction,
@@ -331,7 +340,7 @@ function main() {
   if (!latestRun) throw new Error(`Unable to resolve run id: ${options.runId}`);
 
   const coverageSummary = summarizeCoverage({ herbs, latestRun, allRuns });
-  const herbsBySlug = new Map(herbs.map((herb) => [herb.slug, herb]));
+  const herbsBySlug = new Map(herbs.map((herb) => [herbKey(herb), herb]).filter(([key]) => key));
   const fieldBreakdown = fieldLevelBreakdown({ latestRun, herbsBySlug });
   const rejectionAnalysis = buildRejectionAnalysis({ allRuns });
   const priorityQueue = buildPriorityQueue({ herbs, allRuns });

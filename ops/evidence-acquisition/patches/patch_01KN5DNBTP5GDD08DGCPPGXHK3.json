@@ -1,0 +1,114 @@
+{
+  "patch_id": "patch_01KN5DNBTP5GDD08DGCPPGXHK3",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-01T21:02:18.967Z",
+  "operations": [
+    {
+      "op": "set",
+      "task": "link_integrity",
+      "entity_type": "herb",
+      "entity_id": "alpinia galanga",
+      "field": "/activeCompounds",
+      "value": [
+        "hydroxy-7--1--3-heptanone"
+      ]
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "alpinia galanga",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DNBTQ9M1CYJGW4REE0QGA",
+        "claim": "[effects] anti-inflammatory activity; antimicrobial activity; antidiabetic activity; anticancer activity",
+        "source_ids": [
+          "src_01KN5DNBTQ3MRTKACNBW61XEG9"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "alpinia galanga",
+      "field": "/mechanism",
+      "value": "tumor growth inhibition"
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "alpinia galanga",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DNBTQC2DWN6RPACW77YEG",
+        "claim": "[mechanism] tumor growth inhibition",
+        "source_ids": [
+          "src_01KN5DNBTQFGPM6G23H4T8ZZZ4"
+        ]
+      }
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "alpinia galanga",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DNBTQFFHNMTFWWC786EZD",
+        "claim": "[contraindications] anti-inflammatory activity; antioxidant activity; toxicity concern",
+        "source_ids": [
+          "src_01KN5DNBTQKFDR5SYS4W3KT52H"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "alpinia galanga",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KN5DMNXTEVE224WVTXGHGECZ",
+        "sources": [
+          {
+            "id": "src_01KN5DNBTQZYC05M9KBK9DW6VW",
+            "title": "Antiemetic principles of Alpinia officinarum.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/12350154/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5DNBTQ3MRTKACNBW61XEG9",
+            "title": "Pharmacological Effects of 1'-Acetoxychavicol Acetate, a Major Constituent in the Rhizomes of Alpinia galanga and Alpinia conchigera.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32069429/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5DNBTQFGPM6G23H4T8ZZZ4",
+            "title": "Potent anti-angiogenic component in Kaempferia galanga L. and its mechanism of action.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38286156/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5DNBTQKFDR5SYS4W3KT52H",
+            "title": "Alpinia galanga Rhizome Extract Shields Against Noise-Induced Cardiotoxicity via Antioxidant and Anti-Inflammatory Actions: Experimental Insights.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41246931/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "alpinia galanga",
+      "field": "/_review",
+      "value": {
+        "status": "pending"
+      }
+    }
+  ]
+}
