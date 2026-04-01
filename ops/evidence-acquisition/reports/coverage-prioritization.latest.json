@@ -1,10 +1,11 @@
 {
-  "generatedAt": "2026-04-01T21:40:46.857Z",
-  "runId": "run_01KN5FK3NRDP1JQG9BCXJB9WRH",
+  "generatedAt": "2026-04-01T21:54:41.279Z",
+  "runId": "run_01KN5GN422BKASQJJZTKFW4DDW",
   "sourceArtifacts": [
     "ops/evidence-acquisition/run_01KN52AJ314A9KFW55W1ET5PWT.json",
     "ops/evidence-acquisition/run_01KN5DMNXTEVE224WVTXGHGECZ.json",
-    "ops/evidence-acquisition/run_01KN5FK3NRDP1JQG9BCXJB9WRH.json"
+    "ops/evidence-acquisition/run_01KN5FK3NRDP1JQG9BCXJB9WRH.json",
+    "ops/evidence-acquisition/run_01KN5GN422BKASQJJZTKFW4DDW.json"
   ],
   "coverageSummary": {
     "totals": {
@@ -12,9 +13,9 @@
       "totalTargetFields": 3490,
       "completedFields": 2018,
       "missingFields": 1472,
-      "fieldsFilledByEvidenceEngine": 27,
-      "fieldsRejectedByEvidenceEngine": 13,
-      "unresolvedFields": 0,
+      "fieldsFilledByEvidenceEngine": 1,
+      "fieldsRejectedByEvidenceEngine": 0,
+      "unresolvedFields": 7,
       "completionPctOverall": 57.82
     },
     "completionByFieldType": {
@@ -7051,44 +7052,36 @@
   },
   "fieldLevelBreakdown": {
     "activeCompounds": {
-      "totalMissingBeforeRun": 10,
-      "acceptedFills": 9,
-      "rejectedAttempts": 1,
+      "totalMissingBeforeRun": 1,
+      "acceptedFills": 1,
+      "rejectedAttempts": 0,
       "stillUnresolved": 0,
-      "rejectionReasons": {
-        "unknown": 1
-      },
-      "acceptanceRate": 90
+      "rejectionReasons": {},
+      "acceptanceRate": 100
     },
     "effects": {
-      "totalMissingBeforeRun": 10,
-      "acceptedFills": 6,
-      "rejectedAttempts": 4,
-      "stillUnresolved": 0,
-      "rejectionReasons": {
-        "no_high_quality_source_found": 4
-      },
-      "acceptanceRate": 60
+      "totalMissingBeforeRun": 1,
+      "acceptedFills": 0,
+      "rejectedAttempts": 0,
+      "stillUnresolved": 1,
+      "rejectionReasons": {},
+      "acceptanceRate": 0
     },
     "mechanism": {
-      "totalMissingBeforeRun": 10,
-      "acceptedFills": 4,
-      "rejectedAttempts": 6,
-      "stillUnresolved": 0,
-      "rejectionReasons": {
-        "no_high_quality_source_found": 6
-      },
-      "acceptanceRate": 40
+      "totalMissingBeforeRun": 3,
+      "acceptedFills": 0,
+      "rejectedAttempts": 0,
+      "stillUnresolved": 3,
+      "rejectionReasons": {},
+      "acceptanceRate": 0
     },
     "contraindications": {
-      "totalMissingBeforeRun": 10,
-      "acceptedFills": 8,
-      "rejectedAttempts": 2,
-      "stillUnresolved": 0,
-      "rejectionReasons": {
-        "no_high_quality_source_found": 2
-      },
-      "acceptanceRate": 80
+      "totalMissingBeforeRun": 3,
+      "acceptedFills": 0,
+      "rejectedAttempts": 0,
+      "stillUnresolved": 3,
+      "rejectionReasons": {},
+      "acceptanceRate": 0
     },
     "traditionalUse": {
       "totalMissingBeforeRun": 0,
@@ -10576,6 +10569,24 @@
       }
     },
     {
+      "herb": "aconitum ferox",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 1,
+      "rejectedCount": 0,
+      "recommendedNextAction": "promote_patch_and_validate",
+      "priorityScore": 85,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 1
+      }
+    },
+    {
       "herb": "artemisia vulgaris (mugwort)",
       "missingFields": [
         "activeCompounds",
@@ -10840,24 +10851,6 @@
       "priorityScore": 66,
       "signals": {
         "indexabilityUpside": 2.6,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "aconitum ferox",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
         "likelyRecoverableFields": 0,
         "normalizationGapSignals": 0,
         "sourceAvailabilitySignal": 0
@@ -18917,5 +18910,11 @@
         "rejectedCount": 1
       }
     ]
+  },
+  "sourceTierDistribution": {
+    "tier1": 1,
+    "tier2": 0,
+    "tier3": 0,
+    "unclassified": 0
   }
 }

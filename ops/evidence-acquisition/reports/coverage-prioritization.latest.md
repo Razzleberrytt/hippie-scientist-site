@@ -1,7 +1,7 @@
 # Evidence Acquisition Coverage + Prioritization
 
-- Generated at: 2026-04-01T21:40:46.857Z
-- Run ID: run_01KN5FK3NRDP1JQG9BCXJB9WRH
+- Generated at: 2026-04-01T21:54:41.279Z
+- Run ID: run_01KN5GN422BKASQJJZTKFW4DDW
 
 ## Coverage Summary
 
@@ -9,9 +9,9 @@
 - Total target fields: 3490
 - Completed fields: 2018
 - Missing fields: 1472
-- Fields filled by evidence engine: 27
-- Fields rejected by evidence engine: 13
-- Unresolved fields: 0
+- Fields filled by evidence engine: 1
+- Fields rejected by evidence engine: 0
+- Unresolved fields: 7
 - Completion overall: 57.82%
 
 ### Top unresolved field types
@@ -25,10 +25,10 @@
 
 | Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |
 |---|---:|---:|---:|---:|---:|
-| activeCompounds | 10 | 9 | 1 | 0 | 90% |
-| effects | 10 | 6 | 4 | 0 | 60% |
-| mechanism | 10 | 4 | 6 | 0 | 40% |
-| contraindications | 10 | 8 | 2 | 0 | 80% |
+| activeCompounds | 1 | 1 | 0 | 0 | 100% |
+| effects | 1 | 0 | 0 | 1 | 0% |
+| mechanism | 3 | 0 | 0 | 3 | 0% |
+| contraindications | 3 | 0 | 0 | 3 | 0% |
 | traditionalUse | 0 | 0 | 0 | 0 | 0% |
 
 ## Top 10 Priority Herbs
@@ -49,3 +49,10 @@
 - no_high_quality_source_found: 27
 - unknown: 4
 - other: 1
+
+## Accepted Source Tier Distribution (latest run)
+
+- tier1: 1
+- tier2: 0
+- tier3: 0
+- unclassified: 0

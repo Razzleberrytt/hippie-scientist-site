@@ -31,7 +31,7 @@ const VAGUE_LANGUAGE_RE = /\b(may|might|could|potentially|suggests?|appears?|pos
 const HARD_SPECULATIVE_RE = /\b(more research|further study|unclear|unknown)\b/iu;
 
 function parseArgs(argv) {
-  const out = { herbs: [], maxHerbs: 5, outDir: 'ops/evidence-acquisition', includeLowConfidence: false };
+  const out = { herbs: [], maxHerbs: 5, outDir: 'ops/evidence-acquisition', includeLowConfidence: false, focusField: null };
   for (let i = 2; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === '--herbs' && argv[i + 1]) {
@@ -47,8 +47,15 @@ function parseArgs(argv) {
       i += 1;
     } else if (arg.startsWith('--out-dir=')) out.outDir = arg.slice('--out-dir='.length);
     else if (arg === '--include-low-confidence') out.includeLowConfidence = true;
+    else if (arg === '--focus-field' && argv[i + 1]) {
+      out.focusField = String(argv[i + 1]).trim();
+      i += 1;
+    } else if (arg.startsWith('--focus-field=')) out.focusField = String(arg.slice('--focus-field='.length)).trim();
   }
   if (!Number.isInteger(out.maxHerbs) || out.maxHerbs <= 0) throw new Error('--max-herbs must be a positive integer');
+  if (out.focusField && !TARGET_FIELDS.some((field) => field.schemaField === out.focusField || field.requestField === out.focusField)) {
+    throw new Error(`--focus-field must match one of: ${TARGET_FIELDS.map((field) => field.schemaField).join(', ')}`);
+  }
   return out;
 }
 
@@ -79,6 +86,20 @@ function domainQuality(url) {
   if (host.endsWith('.gov') || host.endsWith('.edu')) return { score: 0.85, label: 'academic_or_gov' };
   if (host.includes('sciencedirect.com') || host.includes('springer.com') || host.includes('wiley.com')) return { score: 0.75, label: 'secondary_academic' };
   return { score: 0.2, label: 'secondary_or_untrusted' };
+}
+
+function classifySourceTier(url) {
+  const host = (() => {
+    try { return new URL(url).hostname.toLowerCase(); } catch { return ''; }
+  })();
+  if (
+    host.includes('pubmed.ncbi.nlm.nih.gov')
+    || host.includes('ncbi.nlm.nih.gov')
+    || host.endsWith('.nih.gov')
+    || host.includes('sciencedirect.com')
+  ) return 'tier1';
+  if (host.includes('wikipedia.org') || host.includes('examine.com')) return 'tier2';
+  return 'tier3';
 }
 
 function pubmedSearch(term, retmax = 8) {
@@ -412,12 +433,23 @@ async function collectFieldEvidence(herb, targetField) {
     aliasesTried: plan.aliases,
     queryAttempts: [],
     sourcesFound: 0,
+    sourcesFoundByTier: { tier1: 0, tier2: 0, tier3: 0 },
     highQualitySources: 0,
+    acceptedByTier: { tier1: 0, tier2: 0, tier3: 0 },
     acceptedSource: null,
   };
 
   for (const item of plan.queries) {
-    const queryStats = { query: item.query, stage: item.stage, sourcesFound: 0, highQualitySources: 0, accepted: false, providers: [] };
+    const queryStats = {
+      query: item.query,
+      stage: item.stage,
+      sourcesFound: 0,
+      highQualitySources: 0,
+      accepted: false,
+      providers: [],
+      candidateCountByTier: { tier1: 0, tier2: 0, tier3: 0 },
+      attemptedTiers: [],
+    };
     const pubmedIds = pubmedSearch(item.query, 8);
     const summaries = pubmedSummaries(pubmedIds);
     const europeRows = europePmcSearch(item.query, 8);
@@ -452,65 +484,108 @@ async function collectFieldEvidence(herb, targetField) {
     queryStats.providers = ['pubmed', 'europe_pmc'];
     queryStats.sourcesFound = candidates.length;
     stats.sourcesFound += candidates.length;
-
+    const tieredCandidates = { tier1: [], tier2: [], tier3: [] };
     for (const candidate of candidates) {
-      if (!titleMatchesHerb(candidate.title, herb)) continue;
-      const quality = domainQuality(candidate.sourceUrl);
-      if (quality.score < 0.7) continue;
-      queryStats.highQualitySources += 1;
-      stats.highQualitySources += 1;
-      const abstractText = candidate.getAbstract();
-      if (!abstractText) continue;
-      const extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, candidate.title);
-      if (extracted.phrases.length === 0) {
-        queryStats.lastFailure = {
-          stage: 'extract',
-          reason: 'no_atomic_field_mapped_phrases',
-          rawText: normalizeWhitespace(abstractText).slice(0, 400),
+      const sourceTier = classifySourceTier(candidate.sourceUrl);
+      candidate.sourceTier = sourceTier;
+      tieredCandidates[sourceTier].push(candidate);
+      queryStats.candidateCountByTier[sourceTier] += 1;
+      stats.sourcesFoundByTier[sourceTier] += 1;
+    }
+
+    const tiersToTry = tieredCandidates.tier1.length > 0
+      ? ['tier1']
+      : (tieredCandidates.tier2.length > 0 ? ['tier2'] : ['tier3']);
+    const corroboratedCompounds = new Set();
+
+    for (const tier of tiersToTry) {
+      const tierCandidates = tieredCandidates[tier];
+      if (tierCandidates.length === 0) continue;
+      queryStats.attemptedTiers.push(tier);
+      for (const candidate of tierCandidates) {
+        if (!titleMatchesHerb(candidate.title, herb)) continue;
+        const quality = domainQuality(candidate.sourceUrl);
+        const qualityThreshold = tier === 'tier1' ? 0.7 : (tier === 'tier2' ? 0.5 : 0.4);
+        if (quality.score < qualityThreshold) continue;
+        queryStats.highQualitySources += 1;
+        stats.highQualitySources += 1;
+        const abstractText = candidate.getAbstract();
+        if (!abstractText) continue;
+        const extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, candidate.title);
+        if (extracted.phrases.length === 0) {
+          queryStats.lastFailure = {
+            stage: 'extract',
+            reason: 'no_atomic_field_mapped_phrases',
+            rawText: normalizeWhitespace(abstractText).slice(0, 400),
+            extractionDebug: extracted.debug,
+          };
+          continue;
+        }
+
+        const evidence = extracted.phrases.join(' ');
+        const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
+        if (!normalization.ok) {
+          queryStats.lastFailure = {
+            stage: 'normalize',
+            reason: normalization.reason,
+            rawText: evidence,
+          };
+          continue;
+        }
+
+        if (
+          targetField.schemaField === 'activeCompounds'
+          && Array.isArray(normalization.after)
+          && (tier === 'tier1' || tier === 'tier2')
+        ) {
+          normalization.after.forEach((compound) => corroboratedCompounds.add(String(compound).toLowerCase()));
+        }
+
+        if (targetField.schemaField === 'activeCompounds' && tier === 'tier3') {
+          const values = Array.isArray(normalization.after) ? normalization.after : [];
+          const corroborated = values.filter((value) => corroboratedCompounds.has(String(value).toLowerCase()));
+          if (corroborated.length === 0) {
+            queryStats.lastFailure = {
+              stage: 'tier-policy',
+              reason: 'tier3_active_compounds_not_corroborated',
+              rawText: evidence,
+            };
+            continue;
+          }
+          normalization.after = corroborated;
+        }
+
+        const confidence = confidenceFromSource({ qualityScore: quality.score, evidenceText: evidence, schemaField: targetField.schemaField });
+        const row = {
+          herb: herbKey(herb),
+          field: targetField.requestField,
+          schemaField: targetField.schemaField,
+          patchField: targetField.patchField,
+          value: normalization.after,
+          normalization: {
+            before: normalization.before,
+            after: normalization.after,
+          },
+          source: {
+            title: candidate.title,
+            url: candidate.sourceUrl,
+            pubmedId: candidate.pubmedId,
+            quality: quality.label,
+            provider: candidate.provider,
+            tier,
+          },
+          evidence,
           extractionDebug: extracted.debug,
+          confidence,
+          evidenceClass: confidence === 'high' ? 'human-clinical' : confidence === 'medium' ? 'preclinical-mechanistic' : 'traditional-use',
+          retrieval: stats,
         };
-        continue;
+        queryStats.accepted = true;
+        stats.acceptedByTier[tier] += 1;
+        stats.acceptedSource = { query: item.query, provider: candidate.provider, url: candidate.sourceUrl };
+        stats.queryAttempts.push(queryStats);
+        return { row, retrieval: stats };
       }
-
-      const evidence = extracted.phrases.join(' ');
-      const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
-      if (!normalization.ok) {
-        queryStats.lastFailure = {
-          stage: 'normalize',
-          reason: normalization.reason,
-          rawText: evidence,
-        };
-        continue;
-      }
-
-      const confidence = confidenceFromSource({ qualityScore: quality.score, evidenceText: evidence, schemaField: targetField.schemaField });
-      const row = {
-        herb: herbKey(herb),
-        field: targetField.requestField,
-        schemaField: targetField.schemaField,
-        patchField: targetField.patchField,
-        value: normalization.after,
-        normalization: {
-          before: normalization.before,
-          after: normalization.after,
-        },
-        source: {
-          title: candidate.title,
-          url: candidate.sourceUrl,
-          pubmedId: candidate.pubmedId,
-          quality: quality.label,
-          provider: candidate.provider,
-        },
-        evidence,
-        extractionDebug: extracted.debug,
-        confidence,
-        evidenceClass: confidence === 'high' ? 'human-clinical' : confidence === 'medium' ? 'preclinical-mechanistic' : 'traditional-use',
-        retrieval: stats,
-      };
-      queryStats.accepted = true;
-      stats.acceptedSource = { query: item.query, provider: candidate.provider, url: candidate.sourceUrl };
-      stats.queryAttempts.push(queryStats);
-      return { row, retrieval: stats };
     }
     stats.queryAttempts.push(queryStats);
   }
@@ -615,7 +690,8 @@ async function main() {
   for (const herb of selected.slice(0, options.maxHerbs)) {
     const currentHerbKey = herbKey(herb);
     if (!currentHerbKey) continue;
-    const missingTargets = TARGET_FIELDS.filter((field) => isMissingField(herb[field.schemaField]));
+    const missingTargets = TARGET_FIELDS.filter((field) => isMissingField(herb[field.schemaField]))
+      .filter((field) => !options.focusField || field.schemaField === options.focusField || field.requestField === options.focusField);
     const herbRows = [];
     for (const targetField of missingTargets) {
       try {
@@ -623,14 +699,18 @@ async function main() {
         const row = result?.row ?? null;
         const retrieval = result?.retrieval ?? null;
         if (!row) {
+          const lastFailure = retrieval?.queryAttempts?.find((item) => item.lastFailure)?.lastFailure ?? null;
+          const rejectionReason = lastFailure?.reason === 'tier3_active_compounds_not_corroborated'
+            ? 'tier-policy-rejection-tier3-active-compounds-not-corroborated'
+            : 'no-high-quality-source-evidence-found-or-clean-normalization-failed';
           rejected.push({
             herb: currentHerbKey,
             field: targetField.requestField,
             schemaField: targetField.schemaField,
             confidence: 'low',
-            reason: 'no-high-quality-source-evidence-found-or-clean-normalization-failed',
-            rawExtractedText: retrieval?.queryAttempts?.find((item) => item.lastFailure)?.lastFailure?.rawText ?? '',
-            failureDetail: retrieval?.queryAttempts?.find((item) => item.lastFailure)?.lastFailure ?? null,
+            reason: rejectionReason,
+            rawExtractedText: lastFailure?.rawText ?? '',
+            failureDetail: lastFailure,
             retrieval,
           });
           continue;
@@ -670,6 +750,11 @@ async function main() {
       note: 'Patches are emitted in ops/evidence-acquisition and can be promoted to patches/ after human review.',
     },
     retrievalSummary: {
+      acceptedTierCounts: accepted.reduce((acc, row) => {
+        const tier = row?.source?.tier ?? 'unclassified';
+        acc[tier] = (acc[tier] ?? 0) + 1;
+        return acc;
+      }, {}),
       perHerb: Object.fromEntries(
         selected.slice(0, options.maxHerbs).map((herb) => {
           const currentHerbKey = herbKey(herb);
@@ -685,6 +770,13 @@ async function main() {
             queryAttempts,
             sourcesFound,
             highQualitySources,
+            sourcesFoundByTier: herbRows.reduce((acc, row) => {
+              const tiers = row.retrieval?.sourcesFoundByTier ?? {};
+              acc.tier1 += tiers.tier1 ?? 0;
+              acc.tier2 += tiers.tier2 ?? 0;
+              acc.tier3 += tiers.tier3 ?? 0;
+              return acc;
+            }, { tier1: 0, tier2: 0, tier3: 0 }),
             successfulQueries: [...new Set(successfulQueries)],
           }];
         }),
@@ -701,6 +793,7 @@ async function main() {
   patches.forEach((patch) => writeJson(join(patchOutDir, `${patch.patch_id}.json`), patch));
 
   console.log(`[evidence-acquisition] run=${runId} herbs=${report.selectedHerbs.length} extracted=${records.length} accepted=${accepted.length} rejected=${rejected.length} patches=${patches.length}`);
+  console.log(`[evidence-acquisition] accepted-tier-counts=${JSON.stringify(report.retrievalSummary.acceptedTierCounts)}`);
   console.log(`[evidence-acquisition] report=${options.outDir}/${runId}.json`);
 }
 
