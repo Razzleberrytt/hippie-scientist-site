@@ -3,47 +3,140 @@
   "latin": "crocus sativus",
   "class": null,
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "Hypothesized mechanisms include serotonergic modulation and antioxidant/anti-inflammatory signaling; mechanistic certainty remains incomplete.",
   "activeCompounds": [],
   "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Meta-analysis of randomized trials reports symptom improvements versus controls in depression/anxiety contexts.",
+    "Magnitude and certainty vary by extract standardization, comparator, and trial quality."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Use caution in pregnancy and in bipolar-spectrum conditions unless supervised by qualified clinicians."
+  ],
   "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Short-term controlled use is often tolerated, but concentrated extracts can differ from culinary exposure."
   ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in ritual, dreaming or folk medicine.",
+  "sources": [
+    {
+      "title": "src_pubmed-38913392",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38913392/"
+    }
+  ],
+  "lastUpdated": "2026-04-01",
+  "description": "Crocus sativus (saffron) is a culinary and medicinal spice with modern randomized-trial syntheses for mood-related outcomes.",
   "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
+    "Dose-response depends on standardized extract and indication; no single cross-product dose is appropriate."
   ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [],
+  "interactions": [
+    "Potential interactions with serotonergic or CNS-active medicines require medication-level review."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "preparation": "Used as culinary stigma material and as standardized oral extracts in clinical research.",
+  "region": "Cultivated historically in Iran and the Mediterranean, now distributed globally.",
   "therapeuticUses": [],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "traditionalUse": "Traditional Persian and Mediterranean medical systems include saffron for mood and general vitality support.",
   "slug": "crocus-sativus",
   "id": "crocus-sativus",
   "displayName": "crocus sativus",
   "displayScientificName": "crocus sativus",
-  "scientificNormalized": "crocus sativus"
+  "scientificNormalized": "crocus sativus",
+  "summary": "Recent meta-analysis evidence suggests saffron preparations may improve depression and anxiety outcomes in some settings, though formulation and trial heterogeneity remain important limitations.",
+  "researchEnrichment": {
+    "evidenceSummary": "Indexability remediation update for crocus-sativus using curated registry sources and claim-level provenance.",
+    "evidenceTier": "tier-2-moderate",
+    "evidenceClassesPresent": [
+      "human-clinical",
+      "traditional-use"
+    ],
+    "supportedUses": [
+      {
+        "claim": "Recent meta-analysis evidence suggests saffron preparations may improve depression and anxiety outcomes in some settings, though formulation and trial heterogeneity remain important limitations.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-38913392"
+        ]
+      }
+    ],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Evidence remains limited by study design heterogeneity and/or sparse direct human trials for this exact herb preparation.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-38913392"
+        ]
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Hypothesized mechanisms include serotonergic modulation and antioxidant/anti-inflammatory signaling; mechanistic certainty remains incomplete.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-38913392"
+        ],
+        "uncertaintyNote": "Mechanistic findings should not be interpreted as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Potential interactions with serotonergic or CNS-active medicines require medication-level review.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-38913392"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Use caution in pregnancy and in bipolar-spectrum conditions unless supervised by qualified clinicians.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-38913392"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Short-term controlled use is often tolerated, but concentrated extracts can differ from culinary exposure.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-38913392"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "Dose-response depends on standardized extract and indication; no single cross-product dose is appropriate.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-38913392"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "High-quality, formulation-specific human trials and longer-term safety follow-up are still needed.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-38913392"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-38913392"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-38913392",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Indexability remediation batch-01 claim mapping."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }

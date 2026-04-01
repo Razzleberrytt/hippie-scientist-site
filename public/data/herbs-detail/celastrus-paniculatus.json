@@ -3,53 +3,143 @@
   "latin": "celastrus paniculatus",
   "class": null,
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.",
+  "mechanism": "Preclinical studies describe antioxidant, anti-inflammatory, cholinergic, and neuroprotective signaling hypotheses.",
   "activeCompounds": [
     "Celastrine",
     "Paniculatin"
   ],
   "effects": [
-    "No direct effects data. Contextual inference: Used in ayurveda for cognition",
-    "focus",
-    "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
-    "and learning... Used in Ayurveda for cognition",
-    "and learning.. Used in Ayurveda for cognition",
-    "and learning."
+    "Review evidence highlights neuroprotective potential in experimental models.",
+    "Human clinical confirmation for neurological indications remains limited."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Avoid use in pregnancy/breastfeeding until human safety is better characterized."
+  ],
   "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ayurveda for cognition",
-    "focus",
-    "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
-    "and learning... Used in Ayurveda for cognition",
-    "and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition",
-    "and learning.. Used in Ayurveda for cognition",
-    "and learning."
+    "Human dose-finding and long-term safety data are limited in modern controlled settings."
   ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in ayurveda for cognition, focus, and learning..",
+  "sources": [
+    {
+      "title": "src_pubmed-35005853",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35005853/"
+    }
+  ],
+  "lastUpdated": "2026-04-01",
+  "description": "Celastrus paniculatus is an Ayurvedic medicinal seed plant often discussed for memory-related traditional use and modern neuroprotection research.",
   "dosage": [
-    "No direct dosage data. Contextual inference: Used in ayurveda for cognition",
-    "focus",
-    "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
-    "and learning... Used in Ayurveda for cognition",
-    "and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition",
-    "and learning.. Used in Ayurveda for cognition",
-    "and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition",
-    "and learning."
+    "No validated, product-agnostic therapeutic dosing standard was identified in the promoted review source."
   ],
   "duration": "No direct duration data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
-  "interactions": [],
+  "interactions": [
+    "Potential CNS-active interactions are plausible but insufficiently quantified."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
-  "region": "No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
+  "preparation": "Traditional use frequently involves seed oil preparations with variable concentration.",
+  "region": "Native to South and Southeast Asia, especially India and Sri Lanka.",
   "therapeuticUses": [],
-  "traditionalUse": "Used in Ayurveda for cognition, focus, and learning.",
+  "traditionalUse": "Traditional South Asian medicine describes seed oil use for memory and cognition support.",
   "slug": "celastrus-paniculatus",
   "id": "celastrus-paniculatus",
   "displayName": "celastrus paniculatus",
   "displayScientificName": "celastrus paniculatus",
-  "scientificNormalized": "celastrus paniculatus"
+  "scientificNormalized": "celastrus paniculatus",
+  "summary": "Current promoted evidence for Celastrus paniculatus is mainly narrative and preclinical, supporting mechanistic plausibility but not definitive clinical efficacy.",
+  "researchEnrichment": {
+    "evidenceSummary": "Indexability remediation update for celastrus-paniculatus using curated registry sources and claim-level provenance.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "preclinical-mechanistic",
+      "traditional-use"
+    ],
+    "supportedUses": [
+      {
+        "claim": "Current promoted evidence for Celastrus paniculatus is mainly narrative and preclinical, supporting mechanistic plausibility but not definitive clinical efficacy.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-35005853"
+        ]
+      }
+    ],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Evidence remains limited by study design heterogeneity and/or sparse direct human trials for this exact herb preparation.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-35005853"
+        ]
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Preclinical studies describe antioxidant, anti-inflammatory, cholinergic, and neuroprotective signaling hypotheses.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-35005853"
+        ],
+        "uncertaintyNote": "Mechanistic findings should not be interpreted as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Potential CNS-active interactions are plausible but insufficiently quantified.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-35005853"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Avoid use in pregnancy/breastfeeding until human safety is better characterized.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-35005853"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Human dose-finding and long-term safety data are limited in modern controlled settings.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-35005853"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No validated, product-agnostic therapeutic dosing standard was identified in the promoted review source.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-35005853"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "High-quality, formulation-specific human trials and longer-term safety follow-up are still needed.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-35005853"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-35005853"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-35005853",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Indexability remediation batch-01 claim mapping."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }

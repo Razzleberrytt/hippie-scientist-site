@@ -3,47 +3,140 @@
   "latin": "catha edulis",
   "class": null,
   "intensity": "moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "Primary psychoactive effects are attributed to cathinone/cathine stimulant activity on monoaminergic pathways.",
   "activeCompounds": [],
   "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Human observational and review literature describes stimulant, alerting, and appetite-suppressing effects among users.",
+    "Evidence synthesis emphasizes burden and risk outcomes rather than validated therapeutic indication."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Avoid in people with cardiovascular disease, uncontrolled hypertension, psychosis vulnerability, or substance-use instability."
+  ],
   "safetyNotes": [
-    "caution",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Systematic-review literature associates frequent use with cardiovascular, psychiatric, sleep, and oral-health concerns."
   ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in ritual, dreaming or folk medicine.",
+  "sources": [
+    {
+      "title": "src_pubmed-36508190",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36508190/"
+    }
+  ],
+  "lastUpdated": "2026-04-01",
+  "description": "Catha edulis (khat) is a stimulant plant with substantial public-health literature focused on chewing prevalence and associated risks.",
   "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
+    "No safe therapeutic dosing framework is established for self-care use."
   ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [],
+  "interactions": [
+    "Potentially hazardous additive stimulation with sympathomimetics, caffeine-heavy products, or other psychoactive substances."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "preparation": "Use is most commonly fresh-leaf chewing rather than standardized medicinal dosing forms.",
+  "region": "Most strongly documented in the Horn of Africa and the Arabian Peninsula, with diaspora use globally.",
   "therapeuticUses": [],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "traditionalUse": "Traditional social use (leaf chewing) is documented in East African and Arabian contexts and should remain separate from medical efficacy claims.",
   "slug": "catha-edulis",
   "id": "catha-edulis",
   "displayName": "catha edulis",
   "displayScientificName": "catha edulis",
-  "scientificNormalized": "catha edulis"
+  "scientificNormalized": "catha edulis",
+  "summary": "Systematic-review evidence supports that khat chewing is widespread in some regions and linked to health and social risk patterns; this is not evidence of therapeutic efficacy.",
+  "researchEnrichment": {
+    "evidenceSummary": "Indexability remediation update for catha-edulis using curated registry sources and claim-level provenance.",
+    "evidenceTier": "tier-2-moderate",
+    "evidenceClassesPresent": [
+      "human-clinical",
+      "traditional-use"
+    ],
+    "supportedUses": [
+      {
+        "claim": "Systematic-review evidence supports that khat chewing is widespread in some regions and linked to health and social risk patterns; this is not evidence of therapeutic efficacy.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-36508190"
+        ]
+      }
+    ],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Evidence remains limited by study design heterogeneity and/or sparse direct human trials for this exact herb preparation.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-36508190"
+        ]
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Primary psychoactive effects are attributed to cathinone/cathine stimulant activity on monoaminergic pathways.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-36508190"
+        ],
+        "uncertaintyNote": "Mechanistic findings should not be interpreted as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Potentially hazardous additive stimulation with sympathomimetics, caffeine-heavy products, or other psychoactive substances.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-36508190"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Avoid in people with cardiovascular disease, uncontrolled hypertension, psychosis vulnerability, or substance-use instability.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-36508190"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Systematic-review literature associates frequent use with cardiovascular, psychiatric, sleep, and oral-health concerns.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-36508190"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No safe therapeutic dosing framework is established for self-care use.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-36508190"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "High-quality, formulation-specific human trials and longer-term safety follow-up are still needed.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_pubmed-36508190"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-36508190"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-36508190",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Indexability remediation batch-01 claim mapping."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }

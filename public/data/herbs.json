@@ -786,53 +786,44 @@
     "latin": "acorus calamus var. angustatus",
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+    "mechanism": "Review literature describes asarone-related signaling, oxidative-stress modulation, and apoptosis pathways in experimental models only.",
     "activeCompounds": [
       "Beta-asarone",
       "Beta",
       "asarone"
     ],
     "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Experimental literature reports bioactivity signals in cell and animal models, including chemoprevention-relevant pathways.",
+      "No high-quality controlled human efficacy evidence was established in the reviewed source set."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid use in pregnancy or breastfeeding until herb-specific human safety data are available."
+    ],
     "safetyNotes": [
-      "Toxic – not approved in most pharmacopeias",
-      "No direct toxicity data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Beta-asarone exposure and product variability are recurring safety concerns in modern reviews.",
+      "Use should be framed cautiously because toxicology risk can vary by chemotype and preparation."
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
+    "description": "Acorus calamus var. angustatus is a calamus chemotype discussed in phytochemistry literature for asarone-rich composition and toxicology concerns.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine"
+      "No validated therapeutic dose range was established in the promoted source; dosing remains formulation-dependent and uncertain."
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Potential interactions are insufficiently characterized; use caution with CNS-active co-exposures until stronger data are available."
+    ],
     "legalStatus": null,
-    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "preparation": "Traditional preparations include rhizome-based decoctions and powders; review literature emphasizes chemotype-dependent safety differences.",
+    "region": "Acorus species are described across South and East Asian traditional systems and in broader wetland habitats.",
     "therapeuticUses": [],
-    "traditionalUse": "Used in ritual, dreaming or folk medicine",
+    "traditionalUse": "Traditional use is described in regional materia medica records, but those records are distinct from modern clinical efficacy evidence.",
     "slug": "acorus-calamus-var-angustatus",
     "id": "acorus-calamus-var-angustatus",
     "displayName": "acorus calamus var. angustatus",
     "displayScientificName": "acorus calamus var. angustatus",
-    "scientificNormalized": "acorus calamus angustatus"
+    "scientificNormalized": "acorus calamus angustatus",
+    "summary": "Current indexed evidence for Acorus calamus var. angustatus is mainly preclinical or review-level; mechanistic findings should not be interpreted as proven human therapeutic efficacy."
   },
   {
     "name": "acorus gramineus",
@@ -5173,49 +5164,39 @@
     "latin": "artemisia vulgaris (mugwort)",
     "class": null,
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+    "mechanism": "Artemisia review literature discusses sesquiterpene and flavonoid pathways with anti-inflammatory and oxidative-stress modulation signals in preclinical models.",
     "activeCompounds": [],
     "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Preclinical and narrative review sources describe broad pharmacologic potential across Artemisia species.",
+      "Direct human efficacy evidence specific to Artemisia vulgaris remains limited in the current curated source set."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid unsupervised use during pregnancy because uterotonic concern is repeatedly cited in traditional and safety discussions."
+    ],
     "safetyNotes": [
-      "caution",
-      "No direct toxicity data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Species-level and preparation-level variability can materially change safety profile and constituent exposure."
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
+    "description": "Artemisia vulgaris (mugwort) is a traditional herb in Eurasian medicine with modern pharmacology discussions concentrated in broader Artemisia reviews.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine"
+      "No single modern therapeutic dosage standard was established in the promoted review source."
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Potential additive effects with other CNS-active or uterine-stimulating herbs/medications are not well quantified."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "preparation": "Common preparations include tea infusions and dried aerial parts, but constituent concentration is preparation-dependent.",
+    "region": "Traditional use is documented across Europe and Asia, with later spread to North America.",
     "therapeuticUses": [],
-    "traditionalUse": "Used in ritual, dreaming or folk medicine",
+    "traditionalUse": "Traditional records describe digestive, menstrual, and ritual uses in multiple regions; these are traditional-use claims, not clinical proof.",
     "slug": "artemisia-vulgaris-mugwort",
     "id": "artemisia-vulgaris-mugwort",
     "displayName": "artemisia vulgaris (mugwort)",
     "displayScientificName": "artemisia vulgaris (mugwort)",
-    "scientificNormalized": "artemisia vulgaris mugwort"
+    "scientificNormalized": "artemisia vulgaris mugwort",
+    "summary": "For this slug, available promoted evidence is mainly mechanistic/traditional context from Artemisia review literature rather than direct clinical efficacy trials on mugwort."
   },
   {
     "name": "arundo donax",
@@ -9697,103 +9678,80 @@
     "latin": "catha edulis",
     "class": null,
     "intensity": "moderate",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+    "mechanism": "Primary psychoactive effects are attributed to cathinone/cathine stimulant activity on monoaminergic pathways.",
     "activeCompounds": [],
     "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Human observational and review literature describes stimulant, alerting, and appetite-suppressing effects among users.",
+      "Evidence synthesis emphasizes burden and risk outcomes rather than validated therapeutic indication."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid in people with cardiovascular disease, uncontrolled hypertension, psychosis vulnerability, or substance-use instability."
+    ],
     "safetyNotes": [
-      "caution",
-      "No direct toxicity data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Systematic-review literature associates frequent use with cardiovascular, psychiatric, sleep, and oral-health concerns."
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
+    "description": "Catha edulis (khat) is a stimulant plant with substantial public-health literature focused on chewing prevalence and associated risks.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine"
+      "No safe therapeutic dosing framework is established for self-care use."
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Potentially hazardous additive stimulation with sympathomimetics, caffeine-heavy products, or other psychoactive substances."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "preparation": "Use is most commonly fresh-leaf chewing rather than standardized medicinal dosing forms.",
+    "region": "Most strongly documented in the Horn of Africa and the Arabian Peninsula, with diaspora use globally.",
     "therapeuticUses": [],
-    "traditionalUse": "Used in ritual, dreaming or folk medicine",
+    "traditionalUse": "Traditional social use (leaf chewing) is documented in East African and Arabian contexts and should remain separate from medical efficacy claims.",
     "slug": "catha-edulis",
     "id": "catha-edulis",
     "displayName": "catha edulis",
     "displayScientificName": "catha edulis",
-    "scientificNormalized": "catha edulis"
+    "scientificNormalized": "catha edulis",
+    "summary": "Systematic-review evidence supports that khat chewing is widespread in some regions and linked to health and social risk patterns; this is not evidence of therapeutic efficacy."
   },
   {
     "name": "catnip",
     "latin": "catnip",
     "class": null,
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.",
+    "mechanism": "Review literature discusses nepetalactones and polyphenols with potential CNS and anti-inflammatory pathway effects in experimental models.",
     "activeCompounds": [
       "Nepetalactone"
     ],
     "effects": [
-      "No direct effects data. Contextual inference: Used in folk medicine for relaxation",
-      "colds",
-      "and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation",
-      "and digestive issues... Used in folk medicine for relaxation",
-      "and digestive issues.. Used in folk medicine for relaxation",
-      "and digestive issues."
+      "Traditional-use records describe calming and digestive-soothing applications.",
+      "Modern pharmacology evidence for catnip remains largely preclinical and does not establish definitive clinical outcomes."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid concentrated preparations during pregnancy until clearer safety evidence is available."
+    ],
     "safetyNotes": [
-      "safe",
-      "No direct toxicity data. Contextual inference: Used in folk medicine for relaxation",
-      "colds",
-      "and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation",
-      "and digestive issues... Used in folk medicine for relaxation",
-      "and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation",
-      "and digestive issues.. Used in folk medicine for relaxation",
-      "and digestive issues."
+      "Human safety data are limited and product composition can vary substantially by preparation."
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in folk medicine for relaxation, colds, and digestive issues..",
+    "description": "Catnip (Nepeta cataria) is a Nepeta genus herb used in traditional preparations, with modern literature emphasizing phytochemistry and preclinical pharmacology.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used in folk medicine for relaxation",
-      "colds",
-      "and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation",
-      "and digestive issues... Used in folk medicine for relaxation",
-      "and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation",
-      "and digestive issues.. Used in folk medicine for relaxation",
-      "and digestive issues.. No direct region data. Contextual inference: Used in folk medicine for relaxation",
-      "and digestive issues."
+      "No standardized evidence-based adult therapeutic dosing was established in the promoted source."
     ],
     "duration": "No direct duration data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. No direct region data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.",
-    "interactions": [],
+    "interactions": [
+      "Potential additive sedation with sedative medications or alcohol is plausible but not well quantified."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. No direct region data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.",
-    "region": "No direct region data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. No direct effects data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... No direct mechanismofaction data. Contextual inference: Used in folk medicine for relaxation, colds, and digestive issues... Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.. Used in folk medicine for relaxation, colds, and digestive issues.",
+    "preparation": "Most common forms are dried-leaf infusions and tinctures with variable constituent strength.",
+    "region": "Native to parts of Europe and Asia and now naturalized widely, including North America.",
     "therapeuticUses": [],
-    "traditionalUse": "Used in folk medicine for relaxation, colds, and digestive issues.",
+    "traditionalUse": "Traditional preparations include tea use for restlessness, digestive discomfort, and mild cold-related symptoms.",
     "slug": "catnip",
     "id": "catnip",
     "displayName": "catnip",
     "displayScientificName": "catnip",
-    "scientificNormalized": "catnip"
+    "scientificNormalized": "catnip",
+    "summary": "Promoted evidence for catnip is mostly traditional-use and preclinical review data; robust modern human efficacy evidence is limited."
   },
   {
     "name": "catuaba",
@@ -10005,55 +9963,42 @@
     "latin": "celastrus paniculatus",
     "class": null,
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.",
+    "mechanism": "Preclinical studies describe antioxidant, anti-inflammatory, cholinergic, and neuroprotective signaling hypotheses.",
     "activeCompounds": [
       "Celastrine",
       "Paniculatin"
     ],
     "effects": [
-      "No direct effects data. Contextual inference: Used in ayurveda for cognition",
-      "focus",
-      "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
-      "and learning... Used in Ayurveda for cognition",
-      "and learning.. Used in Ayurveda for cognition",
-      "and learning."
+      "Review evidence highlights neuroprotective potential in experimental models.",
+      "Human clinical confirmation for neurological indications remains limited."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid use in pregnancy/breastfeeding until human safety is better characterized."
+    ],
     "safetyNotes": [
-      "safe",
-      "No direct toxicity data. Contextual inference: Used in ayurveda for cognition",
-      "focus",
-      "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
-      "and learning... Used in Ayurveda for cognition",
-      "and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition",
-      "and learning.. Used in Ayurveda for cognition",
-      "and learning."
+      "Human dose-finding and long-term safety data are limited in modern controlled settings."
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ayurveda for cognition, focus, and learning..",
+    "description": "Celastrus paniculatus is an Ayurvedic medicinal seed plant often discussed for memory-related traditional use and modern neuroprotection research.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used in ayurveda for cognition",
-      "focus",
-      "and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition",
-      "and learning... Used in Ayurveda for cognition",
-      "and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition",
-      "and learning.. Used in Ayurveda for cognition",
-      "and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition",
-      "and learning."
+      "No validated, product-agnostic therapeutic dosing standard was identified in the promoted review source."
     ],
     "duration": "No direct duration data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
-    "interactions": [],
+    "interactions": [
+      "Potential CNS-active interactions are plausible but insufficiently quantified."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
-    "region": "No direct region data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. No direct effects data. Contextual inference: Used in ayurveda for cognition, focus, and learning... No direct mechanismofaction data. Contextual inference: Used in ayurveda for cognition, focus, and learning... Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.. Used in Ayurveda for cognition, focus, and learning.",
+    "preparation": "Traditional use frequently involves seed oil preparations with variable concentration.",
+    "region": "Native to South and Southeast Asia, especially India and Sri Lanka.",
     "therapeuticUses": [],
-    "traditionalUse": "Used in Ayurveda for cognition, focus, and learning.",
+    "traditionalUse": "Traditional South Asian medicine describes seed oil use for memory and cognition support.",
     "slug": "celastrus-paniculatus",
     "id": "celastrus-paniculatus",
     "displayName": "celastrus paniculatus",
     "displayScientificName": "celastrus paniculatus",
-    "scientificNormalized": "celastrus paniculatus"
+    "scientificNormalized": "celastrus paniculatus",
+    "summary": "Current promoted evidence for Celastrus paniculatus is mainly narrative and preclinical, supporting mechanistic plausibility but not definitive clinical efficacy."
   },
   {
     "name": "celastrus paniculatus (intellect tree)",
@@ -13046,49 +12991,39 @@
     "latin": "crocus sativus",
     "class": null,
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+    "mechanism": "Hypothesized mechanisms include serotonergic modulation and antioxidant/anti-inflammatory signaling; mechanistic certainty remains incomplete.",
     "activeCompounds": [],
     "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Meta-analysis of randomized trials reports symptom improvements versus controls in depression/anxiety contexts.",
+      "Magnitude and certainty vary by extract standardization, comparator, and trial quality."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Use caution in pregnancy and in bipolar-spectrum conditions unless supervised by qualified clinicians."
+    ],
     "safetyNotes": [
-      "safe",
-      "No direct toxicity data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Short-term controlled use is often tolerated, but concentrated extracts can differ from culinary exposure."
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
+    "description": "Crocus sativus (saffron) is a culinary and medicinal spice with modern randomized-trial syntheses for mood-related outcomes.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine"
+      "Dose-response depends on standardized extract and indication; no single cross-product dose is appropriate."
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Potential interactions with serotonergic or CNS-active medicines require medication-level review."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "preparation": "Used as culinary stigma material and as standardized oral extracts in clinical research.",
+    "region": "Cultivated historically in Iran and the Mediterranean, now distributed globally.",
     "therapeuticUses": [],
-    "traditionalUse": "Used in ritual, dreaming or folk medicine",
+    "traditionalUse": "Traditional Persian and Mediterranean medical systems include saffron for mood and general vitality support.",
     "slug": "crocus-sativus",
     "id": "crocus-sativus",
     "displayName": "crocus sativus",
     "displayScientificName": "crocus sativus",
-    "scientificNormalized": "crocus sativus"
+    "scientificNormalized": "crocus sativus",
+    "summary": "Recent meta-analysis evidence suggests saffron preparations may improve depression and anxiety outcomes in some settings, though formulation and trial heterogeneity remain important limitations."
   },
   {
     "name": "croton lechleri",
@@ -18963,59 +18898,33 @@
     "latin": "guaraná",
     "class": null,
     "intensity": "moderate",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+    "mechanism": "Mechanistic hypotheses center on caffeine and methylxanthine-mediated adenosine antagonism plus possible polyphenol contributions.",
     "activeCompounds": [],
     "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
+      "Meta-analysis reports modest improvements in selected cognitive-performance domains.",
+      "Clinical effects are context-dependent and should not be generalized to all formulations."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Use caution in people with arrhythmia risk, uncontrolled hypertension, panic disorder, or severe insomnia."
+    ],
     "safetyNotes": [
-      "safe",
-      "No direct toxicity data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "No direct toxicity data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan. No direct effects data. Contextual inference:",
-      "nan."
+      "Caffeine-related adverse effects (for example insomnia, palpitations, anxiety) remain a practical safety concern."
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
+    "description": "Guarana (Paullinia cupana) is a caffeine-rich Amazonian plant used in beverages and supplements, with modern clinical syntheses focused on cognition and fatigue.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine",
-      "No direct dosage data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan. No direct effects data. Contextual inference:",
-      "nan.",
-      "nan. No direct region data. Contextual inference:"
+      "Clinical dosing varies by caffeine-equivalent content and standardized extract composition."
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Potential additive stimulation with caffeine-containing products, sympathomimetics, and other CNS stimulants."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "preparation": "Prepared as seeds/powder in traditional beverages and as standardized extracts in supplements.",
+    "region": "Indigenous to the Amazon basin, especially Brazil, with global commercial distribution.",
     "therapeuticUses": [],
-    "traditionalUse": "Used in ritual, dreaming or folk medicine",
+    "traditionalUse": "Traditional Amazonian use includes stimulant and endurance contexts.",
     "displayName": "guaraná",
     "displayScientificName": "guaraná",
     "scientificNormalized": "guarana",
@@ -19023,56 +18932,47 @@
     "id": "guarana",
     "aliases": [
       "guarana"
-    ]
+    ],
+    "summary": "Systematic-review and meta-analytic evidence suggests guarana can improve some cognitive-performance outcomes, but effects vary by dose, comparator, and caffeine background."
   },
   {
     "name": "guayusa",
     "latin": "guayusa",
     "class": null,
     "intensity": "mild",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+    "mechanism": "Mechanism discussions focus on caffeine, theobromine, and polyphenol antioxidant pathways from leaf infusions.",
     "activeCompounds": [],
     "effects": [
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Human-use narratives describe alertness effects consistent with methylxanthine content.",
+      "Direct controlled clinical efficacy data remain limited in the current source set."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "People sensitive to caffeine or with significant cardiovascular or sleep disorders should use caution."
+    ],
     "safetyNotes": [
-      "safe",
-      "No direct toxicity data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine"
+      "Critical reviews report a documented history of beverage use, but product standardization and caffeine load still determine risk."
     ],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "description": "Used in ritual, dreaming or folk medicine.",
+    "description": "Guayusa (Ilex guayusa) is an Amazonian caffeinated leaf beverage plant with published reviews on composition and safe-use history.",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine"
+      "No universally accepted therapeutic dosing standard is available; caffeine-equivalent intake context is necessary."
     ],
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "interactions": [],
+    "interactions": [
+      "Potential additive stimulant burden with other caffeine-containing products or sympathomimetic drugs."
+    ],
     "legalStatus": "legal",
-    "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+    "preparation": "Commonly prepared as a brewed leaf infusion rather than concentrated pharmaceutical extracts.",
+    "region": "Native use is concentrated in Ecuadorian and broader Amazonian regions.",
     "therapeuticUses": [],
-    "traditionalUse": "Used in ritual, dreaming or folk medicine",
+    "traditionalUse": "Traditional Amazonian communities use guayusa infusions in social and early-morning ritual contexts.",
     "slug": "guayusa",
     "id": "guayusa",
     "displayName": "guayusa",
     "displayScientificName": "guayusa",
-    "scientificNormalized": "guayusa"
+    "scientificNormalized": "guayusa",
+    "summary": "Available review evidence for guayusa is strongest for compositional characterization and historical safe-use context rather than modern controlled efficacy trials."
   },
   {
     "name": "gymnema sylvestre",
@@ -21151,19 +21051,17 @@
     "latin": "Ipomoea tricolor",
     "class": null,
     "intensity": "No direct intensity data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Periglandula-associated symbiosis contributes ergoline alkaloid production in seeds; mechanistic findings are preclinical and do not establish clinical benefit.",
+    "mechanism": "A fungal symbiosis (Periglandula) is linked to ergoline alkaloid production in plant tissues and associated defensive functions.",
     "activeCompounds": [],
     "effects": [
-      "Reports emphasize psychoactive/hallucinogenic potential linked to ergoline alkaloids.",
-      "Direct therapeutic efficacy claims remain unsupported by robust controlled human trials in reviewed sources."
+      "Mechanistic literature supports alkaloid-related psychoactive potential and plant defense roles.",
+      "No controlled human therapeutic efficacy evidence was established in the current promoted source set."
     ],
     "contraindications": [
-      "Avoid in people with psychosis risk, bipolar-spectrum instability, or severe anxiety vulnerability.",
-      "Avoid in pregnancy/breastfeeding because safety has not been established."
+      "Avoid in people with psychosis risk, bipolar instability, or during pregnancy/breastfeeding."
     ],
     "safetyNotes": [
-      "Potential for acute psychological distress, dysphoria, or intoxication-related harm.",
-      "Product variability and co-exposures increase unpredictability of effects."
+      "Ergoline-associated exposure can be unpredictable and may carry significant neuropsychiatric risk."
     ],
     "sources": [
       {
@@ -21176,25 +21074,25 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "Ipomoea tricolor seeds are historically associated with ritual psychoactive use in parts of Mesoamerica. Modern literature mainly addresses fungal symbiosis and ergoline alkaloid biosynthesis.",
+    "description": "Ipomoea tricolor (morning glory) is discussed in ethnobotanical and plant-symbiosis literature, including ergoline-associated chemistry.",
     "dosage": [
-      "No validated therapeutic dosage context was identified in the approved source set."
+      "No validated therapeutic dosage recommendation is supported by promoted sources."
     ],
     "duration": "6–10 hours",
     "interactions": [
-      "Potential additive psychoactive effects with serotonergic or CNS-active substances."
+      "Potential additive effects with serotonergic or other psychoactive substances."
     ],
     "legalStatus": "Restricted in some countries",
-    "preparation": "Historical use centers on seed preparations in ceremonial settings; modern evidence does not support unsupervised therapeutic ingestion.",
-    "region": "Cultivated globally; traditional ritual contexts are most documented in Mesoamerican settings.",
+    "preparation": "Historical ritual contexts involve seed use; modern self-experimentation is not supported by safety evidence.",
+    "region": "Native to Mesoamerica and cultivated widely as an ornamental species.",
     "therapeuticUses": [],
-    "traditionalUse": "Traditional ceremonial use is described in ethnobotanical records; this should remain separated from clinical-efficacy claims.",
+    "traditionalUse": "Historical Mesoamerican ritual use is described in ethnobotanical records and should be treated as traditional-use context.",
     "slug": "ipomoea-tricolor",
     "id": "ipomoea-tricolor",
     "displayName": "ipomoea tricolor",
     "displayScientificName": "Ipomoea tricolor",
     "scientificNormalized": "ipomoea tricolor",
-    "summary": "Ipomoea tricolor (morning glory) is discussed for ergoline-associated chemistry linked to hallucinogenic potential; evidence is primarily preclinical/mechanistic with limited direct human therapeutic data."
+    "summary": "Current promoted evidence for Ipomoea tricolor is mechanistic and ecological, not human clinical efficacy evidence."
   },
   {
     "name": "ipomoea tricolor (heavenly blue)",
