@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T14:11:34.622Z",
+  "generatedAt": "2026-04-01T14:40:00.989Z",
   "thresholds": {
     "minDescriptionLength": 30,
     "minSources": 2,
@@ -9,14 +9,14 @@
   },
   "herbs": {
     "total": 699,
-    "indexable": 18,
-    "excluded": 681,
+    "indexable": 23,
+    "excluded": 676,
     "excludedByReason": {
-      "weakDescription": 636,
-      "placeholderText": 665,
+      "weakDescription": 634,
+      "placeholderText": 660,
       "insufficientEffects": 197,
-      "invalidNameOrSlug": 28,
-      "nanArtifacts": 23
+      "invalidNameOrSlug": 27,
+      "nanArtifacts": 22
     }
   },
   "compounds": {

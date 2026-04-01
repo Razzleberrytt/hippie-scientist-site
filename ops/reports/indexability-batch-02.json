@@ -1,0 +1,99 @@
+{
+  "generatedAt": "2026-04-01T00:00:00.000Z",
+  "batchId": "indexability-batch-02",
+  "selectionBasis": "Post-batch-01 quality-gate rerun prioritized still-blocked herbs with existing multi-source coverage and minimal identity risk.",
+  "beforeCounts": {
+    "herbs": {
+      "total": 699,
+      "indexable": 18,
+      "excluded": 681
+    },
+    "compounds": {
+      "total": 393,
+      "indexable": 10,
+      "excluded": 383
+    }
+  },
+  "afterCounts": {
+    "herbs": {
+      "total": 699,
+      "indexable": 23,
+      "excluded": 676
+    },
+    "compounds": {
+      "total": 393,
+      "indexable": 10,
+      "excluded": 383
+    }
+  },
+  "selectedEntities": {
+    "herbs": [
+      {
+        "slug": "mentha-piperita",
+        "whySelected": "Blocked mainly by placeholder artifacts despite strong source coverage and usable effect evidence.",
+        "fieldsChanged": ["summary", "mechanism", "region", "intensity", "safetyNotes"]
+      },
+      {
+        "slug": "achillea-millefolium",
+        "whySelected": "Near-pass candidate with identity/name cleanup and limited placeholder residue.",
+        "fieldsChanged": ["name", "displayName", "summary", "safetyNotes"]
+      },
+      {
+        "slug": "nepeta-cataria",
+        "whySelected": "Near-pass candidate with multiple sources and isolated placeholder wording.",
+        "fieldsChanged": ["summary", "mechanism", "region", "intensity", "safetyNotes"]
+      },
+      {
+        "slug": "papaver-somniferum",
+        "whySelected": "Safety-critical record with high source density and placeholder contamination in top-level narrative fields.",
+        "fieldsChanged": ["description", "summary", "mechanism", "region", "intensity", "preparation", "safetyNotes"]
+      },
+      {
+        "slug": "heimia-salicifolia",
+        "whySelected": "Close-to-pass record with credible source coverage and fixable placeholder artifacts in core text fields.",
+        "fieldsChanged": ["summary", "mechanism", "region", "duration", "preparation", "dosage", "effects", "safetyNotes", "sources"]
+      }
+    ],
+    "compounds": []
+  },
+  "sourcesPromoted": [],
+  "unresolvedBlockers": [
+    {
+      "entityType": "herb",
+      "slug": "hyoscyamus-niger",
+      "reason": "Candidate source remains blocked_pending_manual_review / needs_metadata; skipped for governed automation."
+    },
+    {
+      "entityType": "compound",
+      "slug": "object-object",
+      "reason": "Corrupted identity; requires human identity repair."
+    },
+    {
+      "entityType": "compound",
+      "slug": "alpha",
+      "reason": "Ambiguous placeholder identity; requires manual disambiguation."
+    },
+    {
+      "entityType": "compound",
+      "slug": "beta",
+      "reason": "Ambiguous placeholder identity; requires manual disambiguation."
+    }
+  ],
+  "intentionallySkipped": [
+    {
+      "entityType": "compound",
+      "slug": "unverified-cannabinoids",
+      "reason": "Category label is not a resolvable single-compound identity."
+    },
+    {
+      "entityType": "compound",
+      "slug": "cbd",
+      "reason": "Already indexable after batch-01; not part of still-blocked set."
+    },
+    {
+      "entityType": "compound",
+      "slug": "luteolin",
+      "reason": "Already indexable after batch-01; not part of still-blocked set."
+    }
+  ]
+}

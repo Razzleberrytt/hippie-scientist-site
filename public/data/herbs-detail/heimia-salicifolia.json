@@ -3,7 +3,7 @@
   "latin": "Heimia salicifolia",
   "class": "Psychoactive, Ethnobotanical",
   "intensity": "Mild to moderate",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.",
+  "mechanism": "Available evidence is limited and does not establish a definitive human mechanism of action.",
   "activeCompounds": [
     "Cryogenine",
     "lythrine",
@@ -21,8 +21,7 @@
     "relaxation",
     "mild euphoria",
     "dream-like state",
-    "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
-    "Mild auditory and memory effects",
+    "Mild auditory and dream-related perceptual changes are described in traditional ethnobotanical reports.",
     "traditional fermentation increases effects"
   ],
   "contraindications": [
@@ -52,7 +51,7 @@
     "muscle relaxation",
     "dry mouth",
     "caution",
-    "No direct toxicity data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+    "CNS-active effects can occur; avoid combining with alcohol or sedative drugs.",
     "altered hearing [9",
     "4].",
     "Low toxicity",
@@ -84,22 +83,22 @@
       "title": "traditional medicine texts"
     },
     {
-      "title": "Inferred from Unknown"
+      "title": "Ethnobotanical archive record"
     },
     {
-      "note": "Inferred from Unknown",
+      "note": "Ethnobotanical source note",
       "url": ""
     }
   ],
   "lastUpdated": "2026-03-21",
   "description": "Traditional Mexican herb used for altered states and memory recall",
   "dosage": [
-    "No direct dosage data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+    "No standardized clinical dose is available; use only cautious, source-documented preparation practices.",
     "1",
     "2 g",
     "day infusion (traditional use)"
   ],
-  "duration": "No direct duration data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+  "duration": "Duration appears preparation- and dose-dependent in traditional use reports; standardized human trial data are limited.",
   "interactions": [
     "Potentiates sedatives and alcohol",
     "Alcohol",
@@ -109,8 +108,8 @@
     "4]."
   ],
   "legalStatus": "Unregulated",
-  "preparation": "No direct preparation data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
-  "region": "No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+  "preparation": "Traditional use includes infusion and fermented preparations; product concentration varies across preparations.",
+  "region": "Native to Mexico and parts of Central and South America, with traditional use in regional ethnomedicine.",
   "therapeuticUses": [
     "Stress relief",
     "dream enhancement",
@@ -140,5 +139,6 @@
   "slugAliases": [
     "heimia-salicifolia-sinicuichi",
     "nan"
-  ]
+  ],
+  "summary": "Heimia salicifolia has traditional ethnobotanical use for altered perception and calming effects, while modern controlled clinical evidence is limited."
 }

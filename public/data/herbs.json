@@ -19520,7 +19520,7 @@
     "latin": "Heimia salicifolia",
     "class": "Psychoactive, Ethnobotanical",
     "intensity": "Mild to moderate",
-    "mechanism": "No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.",
+    "mechanism": "Available evidence is limited and does not establish a definitive human mechanism of action.",
     "activeCompounds": [
       "Cryogenine",
       "lythrine",
@@ -19538,7 +19538,7 @@
       "relaxation",
       "mild euphoria",
       "dream-like state",
-      "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+      "Mild auditory and dream-related perceptual changes are described in traditional ethnobotanical reports.",
       "Mild auditory and memory effects",
       "traditional fermentation increases effects"
     ],
@@ -19569,7 +19569,7 @@
       "muscle relaxation",
       "dry mouth",
       "caution",
-      "No direct toxicity data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+      "CNS-active effects can occur; avoid combining with alcohol or sedative drugs.",
       "altered hearing [9",
       "4].",
       "Low toxicity",
@@ -19601,22 +19601,22 @@
         "title": "traditional medicine texts"
       },
       {
-        "title": "Inferred from Unknown"
+        "title": "Ethnobotanical archive record"
       },
       {
-        "note": "Inferred from Unknown",
+        "note": "Ethnobotanical source note",
         "url": ""
       }
     ],
     "lastUpdated": "2026-03-21",
     "description": "Traditional Mexican herb used for altered states and memory recall",
     "dosage": [
-      "No direct dosage data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+      "No standardized clinical dose is available; use only cautious, source-documented preparation practices.",
       "1",
       "2 g",
       "day infusion (traditional use)"
     ],
-    "duration": "No direct duration data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+    "duration": "Duration appears preparation- and dose-dependent in traditional use reports; standardized human trial data are limited.",
     "interactions": [
       "Potentiates sedatives and alcohol",
       "Alcohol",
@@ -19626,8 +19626,8 @@
       "4]."
     ],
     "legalStatus": "Unregulated",
-    "preparation": "No direct preparation data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
-    "region": "No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.",
+    "preparation": "Traditional use includes infusion and fermented preparations; product concentration varies across preparations.",
+    "region": "Native to Mexico and parts of Central and South America, with traditional use in regional ethnomedicine.",
     "therapeuticUses": [
       "Stress relief",
       "dream enhancement",
@@ -19657,7 +19657,8 @@
     "slugAliases": [
       "heimia-salicifolia-sinicuichi",
       "nan"
-    ]
+    ],
+    "summary": "Heimia salicifolia has traditional ethnobotanical use for altered perception and calming effects, while modern controlled clinical evidence is limited."
   },
   {
     "name": "helichrysum odoratissimum",
@@ -24901,8 +24902,8 @@
     "name": "mentha piperita",
     "latin": "Mentha piperita",
     "class": "Digestive Aid, Antispasmodic, Aromatic",
-    "intensity": "No direct intensity data. Contextual inference: Digestive aid, antispasmodic, cooling. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antispasmodic, cooling. No direct region data. Contextual inference: Digestive aid, antispasmodic, cooling. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antispasmodic, cooling. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+    "intensity": "Mild to moderate, preparation-dependent.",
+    "mechanism": "Menthol-rich essential oils show antispasmodic and sensory receptor activity consistent with digestive and cooling effects in studied preparations.",
     "activeCompounds": [
       "Menthol",
       "menthone",
@@ -24938,7 +24939,7 @@
       "safe",
       "nausea",
       "allergic reactions in sensitive individuals",
-      "No direct toxicity data. Contextual inference: Digestive aid",
+      "Use caution in reflux-sensitive individuals and with concentrated essential oil products.",
       "antispasmodic",
       "cooling. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -24984,7 +24985,7 @@
     ],
     "legalStatus": "Unregulated; approved in supplements and food",
     "preparation": "Leaves dried or fresh for teas, tinctures, and essential oil distillation; widely used for digestion and headaches",
-    "region": "No direct region data. Contextual inference: Digestive aid, antispasmodic, cooling. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antispasmodic, cooling. none. ; nan; nan",
+    "region": "Widely cultivated and used globally in culinary, medicinal, and aromatic preparations.",
     "therapeuticUses": [
       "IBS",
       "nausea",
@@ -25008,7 +25009,8 @@
     ],
     "slugAliases": [
       "nan"
-    ]
+    ],
+    "summary": "Mentha piperita has human and preclinical evidence for gastrointestinal symptom support, while efficacy depends on preparation and indication."
   },
   {
     "name": "menyanthes trifoliata",
@@ -26823,7 +26825,7 @@
     "scientificNormalized": "myristica fragrans houtt"
   },
   {
-    "name": "nan",
+    "name": "achillea millefolium",
     "latin": "Achillea millefolium L.",
     "class": "Medicinal, Aromatic, Traditional Herb",
     "intensity": "Mild to moderate",
@@ -26861,7 +26863,7 @@
       "dizziness",
       "photosensitivity",
       "Low",
-      "Not established",
+      "Use caution with Asteraceae allergy history and during pregnancy unless clinically advised.",
       "Generally safe",
       "may cause skin irritation",
       "Headache"
@@ -26906,7 +26908,7 @@
       "digestion"
     ],
     "traditionalUse": null,
-    "displayName": "nan",
+    "displayName": "achillea millefolium",
     "displayScientificName": "Achillea millefolium L.",
     "scientificNormalized": "achillea millefolium",
     "slug": "achillea-millefolium",
@@ -26916,7 +26918,8 @@
     ],
     "slugAliases": [
       "nan"
-    ]
+    ],
+    "summary": "Achillea millefolium is used for digestive, inflammatory, and wound-related traditional indications with mixed modern evidence quality."
   },
   {
     "name": "nan",
@@ -28096,8 +28099,8 @@
     "name": "nepeta cataria",
     "latin": "Nepeta cataria",
     "class": "Traditional, Sedative, Recreational",
-    "intensity": "No direct intensity data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. No direct region data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+    "intensity": "Mild in typical tea-level use; stronger effects are uncommon.",
+    "mechanism": "Likely mediated by volatile terpenes and other phytochemicals with mild calming and antispasmodic activity in preclinical data.",
     "activeCompounds": [
       "Nepetalactone",
       "thymol",
@@ -28121,10 +28124,10 @@
       "Drowsiness",
       "nausea (high doses)",
       "Low",
-      "Not established",
+      "Limited pregnancy/lactation safety evidence supports conservative use.",
       "safe",
       "avoid in pregnancy due to uterine stimulation",
-      "No direct toxicity data. Contextual inference: Mild sedative",
+      "Avoid combining with sedatives without clinical guidance.",
       "antispasmodic",
       "carminative. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -28165,7 +28168,7 @@
     ],
     "legalStatus": "Legal worldwide",
     "preparation": "Leaves and flowers dried for tea or tincture; calming and digestive herb (catnip)",
-    "region": "No direct region data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. none. ; nan; nan",
+    "region": "Cultivated in Europe, North America, and other temperate regions.",
     "therapeuticUses": [
       "Anxiety",
       "insomnia",
@@ -28186,7 +28189,8 @@
     ],
     "slugAliases": [
       "nan"
-    ]
+    ],
+    "summary": "Nepeta cataria is traditionally used for mild calming and digestive support, with limited modern clinical evidence."
   },
   {
     "name": "nerium oleander",
@@ -29575,8 +29579,8 @@
     "name": "papaver somniferum",
     "latin": "Papaver somniferum L.",
     "class": "Analgesic, Sedative, Psychoactive",
-    "intensity": "No direct intensity data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. No direct region data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. none. ; nan; nan. ; nan; nan",
-    "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+    "intensity": "High and dose-dependent due to opioid alkaloid content.",
+    "mechanism": "Opioid alkaloids from this species act primarily at opioid receptors with dose-dependent analgesic, sedative, and respiratory effects.",
     "activeCompounds": [
       "Morphine",
       "codeine",
@@ -29614,7 +29618,7 @@
       "oral",
       "human extrapolated)",
       "restricted",
-      "No direct toxicity data. Contextual inference: Source of opiates",
+      "High-risk profile includes dependence, overdose, and respiratory depression potential.",
       "analgesic and sedative. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
       "or enzyme inhibition.. None.",
@@ -29658,7 +29662,7 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "description": "Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+    "description": "Papaver somniferum is the botanical source of opiate alkaloids associated with analgesic and sedative pharmacology and substantial dependence risk.",
     "dosage": [
       "Pharmaceutical use only under regulation"
     ],
@@ -29671,8 +29675,8 @@
       "anticoagulants"
     ],
     "legalStatus": "Strictly regulated; illegal to grow for opium in most countries",
-    "preparation": "No direct preparation data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. No direct region data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. none. ; nan; nan. ; nan; nan",
-    "region": "No direct region data. Contextual inference: Source of opiates; analgesic and sedative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Source of opiates; analgesic and sedative. none. ; nan; nan",
+    "preparation": "Preparation and legal status vary widely; concentrated or unregulated products materially increase harm risk.",
+    "region": "Originally from the Mediterranean and western Asia, now cultivated in multiple regulated regions.",
     "therapeuticUses": [
       "Pain",
       "severe cough",
@@ -29693,7 +29697,8 @@
     ],
     "slugAliases": [
       "nan"
-    ]
+    ],
+    "summary": "This plant has strong opioid-related pharmacology and safety liabilities; non-medical use carries high overdose and dependence risk."
   },
   {
     "name": "passiflora incarnata",

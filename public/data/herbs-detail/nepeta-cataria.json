@@ -2,8 +2,8 @@
   "name": "nepeta cataria",
   "latin": "Nepeta cataria",
   "class": "Traditional, Sedative, Recreational",
-  "intensity": "No direct intensity data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. No direct region data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "intensity": "Mild in typical tea-level use; stronger effects are uncommon.",
+  "mechanism": "Likely mediated by volatile terpenes and other phytochemicals with mild calming and antispasmodic activity in preclinical data.",
   "activeCompounds": [
     "Nepetalactone",
     "thymol",
@@ -27,10 +27,10 @@
     "Drowsiness",
     "nausea (high doses)",
     "Low",
-    "Not established",
+    "Limited pregnancy/lactation safety evidence supports conservative use.",
     "safe",
     "avoid in pregnancy due to uterine stimulation",
-    "No direct toxicity data. Contextual inference: Mild sedative",
+    "Avoid combining with sedatives without clinical guidance.",
     "antispasmodic",
     "carminative. Herbs often act via neurotransmitter modulation",
     "antioxidant effects",
@@ -71,7 +71,7 @@
   ],
   "legalStatus": "Legal worldwide",
   "preparation": "Leaves and flowers dried for tea or tincture; calming and digestive herb (catnip)",
-  "region": "No direct region data. Contextual inference: Mild sedative, antispasmodic, carminative. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative, antispasmodic, carminative. none. ; nan; nan",
+  "region": "Cultivated in Europe, North America, and other temperate regions.",
   "therapeuticUses": [
     "Anxiety",
     "insomnia",
@@ -92,5 +92,6 @@
   ],
   "slugAliases": [
     "nan"
-  ]
+  ],
+  "summary": "Nepeta cataria is traditionally used for mild calming and digestive support, with limited modern clinical evidence."
 }

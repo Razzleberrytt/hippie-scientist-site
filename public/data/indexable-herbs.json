@@ -1,5 +1,60 @@
 [
   {
+    "slug": "heimia-salicifolia",
+    "route": "/herbs/heimia-salicifolia",
+    "name": "heimia salicifolia (sinicuichi)",
+    "kind": "herb",
+    "title": "heimia salicifolia (sinicuichi) | The Hippie Scientist",
+    "description": "Heimia salicifolia has traditional ethnobotanical use for altered perception and calming effects, while modern controlled clinical evidence is limited.",
+    "completenessScore": 43,
+    "tier": "partial",
+    "lastmod": "2026-04-01"
+  },
+  {
+    "slug": "papaver-somniferum",
+    "route": "/herbs/papaver-somniferum",
+    "name": "papaver somniferum",
+    "kind": "herb",
+    "title": "papaver somniferum | The Hippie Scientist",
+    "description": "This plant has strong opioid-related pharmacology and safety liabilities; non-medical use carries high overdose and dependence risk.",
+    "completenessScore": 37,
+    "tier": "partial",
+    "lastmod": "2026-04-01"
+  },
+  {
+    "slug": "mentha-piperita",
+    "route": "/herbs/mentha-piperita",
+    "name": "mentha piperita",
+    "kind": "herb",
+    "title": "mentha piperita | The Hippie Scientist",
+    "description": "Mentha piperita has human and preclinical evidence for gastrointestinal symptom support, while efficacy depends on preparation and indication.",
+    "completenessScore": 27,
+    "tier": "partial",
+    "lastmod": "2026-04-01"
+  },
+  {
+    "slug": "achillea-millefolium",
+    "route": "/herbs/achillea-millefolium",
+    "name": "achillea millefolium",
+    "kind": "herb",
+    "title": "achillea millefolium | The Hippie Scientist",
+    "description": "Achillea millefolium is used for digestive, inflammatory, and wound-related traditional indications with mixed modern evidence quality.",
+    "completenessScore": 26,
+    "tier": "partial",
+    "lastmod": "2026-04-01"
+  },
+  {
+    "slug": "nepeta-cataria",
+    "route": "/herbs/nepeta-cataria",
+    "name": "nepeta cataria",
+    "kind": "herb",
+    "title": "nepeta cataria | The Hippie Scientist",
+    "description": "Nepeta cataria is traditionally used for mild calming and digestive support, with limited modern clinical evidence.",
+    "completenessScore": 22,
+    "tier": "stub",
+    "lastmod": "2026-04-01"
+  },
+  {
     "slug": "rivea-corymbosa",
     "route": "/herbs/rivea-corymbosa",
     "name": "rivea corymbosa",
