@@ -49,6 +49,7 @@ function isMissing(value) {
 function normalizeReason(reason = '') {
   const text = String(reason || '').toLowerCase();
   if (!text) return 'unknown';
+  if (text.includes('tier-policy') || text.includes('tier3_active_compounds_not_corroborated')) return 'tier_policy_rejection';
   if (text.includes('no-high-quality-source') || text.includes('no high-quality source')) return 'no_high_quality_source_found';
   if (text.includes('sparse')) return 'extraction_too_sparse';
   if (text.includes('normalization') || text.includes('no_clean_compound_names') || text.includes('no_structured_phrase_extracted')) return 'normalization_failed';
@@ -56,6 +57,15 @@ function normalizeReason(reason = '') {
   if (text.includes('schema')) return 'schema_mismatch';
   if (text.includes('duplicate') || text.includes('weak evidence')) return 'duplicate_or_weak_evidence';
   return 'other';
+}
+
+function summarizeSourceTiers(latestRun) {
+  const acceptedTierCounts = { tier1: 0, tier2: 0, tier3: 0, unclassified: 0 };
+  for (const row of latestRun.payload.accepted ?? []) {
+    const tier = row?.source?.tier ?? 'unclassified';
+    acceptedTierCounts[tier] = (acceptedTierCounts[tier] ?? 0) + 1;
+  }
+  return acceptedTierCounts;
 }
 
 function loadEvidenceRuns() {
@@ -302,7 +312,7 @@ function buildPriorityQueue({ herbs, allRuns }) {
   return queue.sort((a, b) => b.priorityScore - a.priorityScore || a.herb.localeCompare(b.herb));
 }
 
-function markdownReport({ generatedAt, runId, coverageSummary, fieldBreakdown, priorityQueue, rejectionAnalysis }) {
+function markdownReport({ generatedAt, runId, coverageSummary, fieldBreakdown, priorityQueue, rejectionAnalysis, sourceTierDistribution }) {
   const topFields = Object.entries(coverageSummary.completionByFieldType)
     .sort((a, b) => b[1].missing - a[1].missing)
     .slice(0, 5)
@@ -318,13 +328,14 @@ function markdownReport({ generatedAt, runId, coverageSummary, fieldBreakdown, p
     .slice(0, 5)
     .map((row) => `- ${row.cause}: ${row.count}`)
     .join('\n');
+  const tierLines = Object.entries(sourceTierDistribution).map(([tier, count]) => `- ${tier}: ${count}`).join('\n');
 
   const fieldTable = TARGET_FIELDS.map((field) => {
     const row = fieldBreakdown[field];
     return `| ${field} | ${row.totalMissingBeforeRun} | ${row.acceptedFills} | ${row.rejectedAttempts} | ${row.stillUnresolved} | ${row.acceptanceRate}% |`;
   }).join('\n');
 
-  return `# Evidence Acquisition Coverage + Prioritization\n\n- Generated at: ${generatedAt}\n- Run ID: ${runId}\n\n## Coverage Summary\n\n- Total herbs: ${coverageSummary.totals.totalHerbs}\n- Total target fields: ${coverageSummary.totals.totalTargetFields}\n- Completed fields: ${coverageSummary.totals.completedFields}\n- Missing fields: ${coverageSummary.totals.missingFields}\n- Fields filled by evidence engine: ${coverageSummary.totals.fieldsFilledByEvidenceEngine}\n- Fields rejected by evidence engine: ${coverageSummary.totals.fieldsRejectedByEvidenceEngine}\n- Unresolved fields: ${coverageSummary.totals.unresolvedFields}\n- Completion overall: ${coverageSummary.totals.completionPctOverall}%\n\n### Top unresolved field types\n${topFields}\n\n## Field-level Breakdown (latest run)\n\n| Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |\n|---|---:|---:|---:|---:|---:|\n${fieldTable}\n\n## Top 10 Priority Herbs\n\n${topQueue}\n\n## Rejection Analytics\n\n${topRejections}\n`;
+  return `# Evidence Acquisition Coverage + Prioritization\n\n- Generated at: ${generatedAt}\n- Run ID: ${runId}\n\n## Coverage Summary\n\n- Total herbs: ${coverageSummary.totals.totalHerbs}\n- Total target fields: ${coverageSummary.totals.totalTargetFields}\n- Completed fields: ${coverageSummary.totals.completedFields}\n- Missing fields: ${coverageSummary.totals.missingFields}\n- Fields filled by evidence engine: ${coverageSummary.totals.fieldsFilledByEvidenceEngine}\n- Fields rejected by evidence engine: ${coverageSummary.totals.fieldsRejectedByEvidenceEngine}\n- Unresolved fields: ${coverageSummary.totals.unresolvedFields}\n- Completion overall: ${coverageSummary.totals.completionPctOverall}%\n\n### Top unresolved field types\n${topFields}\n\n## Field-level Breakdown (latest run)\n\n| Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |\n|---|---:|---:|---:|---:|---:|\n${fieldTable}\n\n## Top 10 Priority Herbs\n\n${topQueue}\n\n## Rejection Analytics\n\n${topRejections}\n\n## Accepted Source Tier Distribution (latest run)\n\n${tierLines}\n`;
 }
 
 function main() {
@@ -344,6 +355,7 @@ function main() {
   const fieldBreakdown = fieldLevelBreakdown({ latestRun, herbsBySlug });
   const rejectionAnalysis = buildRejectionAnalysis({ allRuns });
   const priorityQueue = buildPriorityQueue({ herbs, allRuns });
+  const sourceTierDistribution = summarizeSourceTiers(latestRun);
 
   const generatedAt = nowIso();
   const artifact = {
@@ -354,6 +366,7 @@ function main() {
     fieldLevelBreakdown: fieldBreakdown,
     priorityQueue,
     rejectionAnalysis,
+    sourceTierDistribution,
   };
 
   const outDir = join(REPO_ROOT, options.outDir);
@@ -385,7 +398,15 @@ function main() {
     ...rejectionAnalysis,
   });
 
-  const markdown = markdownReport({ generatedAt, runId: latestRun.runId, coverageSummary, fieldBreakdown, priorityQueue, rejectionAnalysis });
+  const markdown = markdownReport({
+    generatedAt,
+    runId: latestRun.runId,
+    coverageSummary,
+    fieldBreakdown,
+    priorityQueue,
+    rejectionAnalysis,
+    sourceTierDistribution,
+  });
   writeFileSync(join(outDir, 'coverage-prioritization.latest.md'), markdown);
   writeFileSync(join(historyDir, `coverage-prioritization.${latestRun.runId}.md`), markdown);
 
@@ -395,11 +416,13 @@ function main() {
     .map(([field, row]) => `${field}:${row.missing}`)
     .join(', ');
   const topRejections = rejectionAnalysis.rejectionCauses.slice(0, 5).map((row) => `${row.cause}:${row.count}`).join(', ');
+  const tierSummary = Object.entries(sourceTierDistribution).map(([tier, count]) => `${tier}:${count}`).join(', ');
 
   console.log(`[evidence-report] run=${latestRun.runId} queue=${priorityQueue.length}`);
   console.log(`[evidence-report] top-10=${priorityQueue.slice(0, 10).map((item) => item.herb).join(',')}`);
   console.log(`[evidence-report] top-unresolved-fields=${topUnresolved}`);
   console.log(`[evidence-report] top-rejection-causes=${topRejections}`);
+  console.log(`[evidence-report] accepted-tier-distribution=${tierSummary}`);
   console.log(`[evidence-report] output=${options.outDir}`);
 }
 

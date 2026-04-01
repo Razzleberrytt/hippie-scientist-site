@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-01T21:40:46.857Z",
-  "runId": "run_01KN5FK3NRDP1JQG9BCXJB9WRH",
+  "generatedAt": "2026-04-01T21:54:41.279Z",
+  "runId": "run_01KN5GN422BKASQJJZTKFW4DDW",
   "queue": [
     {
       "herb": "alpinia galanga",
@@ -3478,6 +3478,24 @@
       }
     },
     {
+      "herb": "aconitum ferox",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 1,
+      "rejectedCount": 0,
+      "recommendedNextAction": "promote_patch_and_validate",
+      "priorityScore": 85,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 1
+      }
+    },
+    {
       "herb": "artemisia vulgaris (mugwort)",
       "missingFields": [
         "activeCompounds",
@@ -3742,24 +3760,6 @@
       "priorityScore": 66,
       "signals": {
         "indexabilityUpside": 2.6,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "aconitum ferox",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
         "likelyRecoverableFields": 0,
         "normalizationGapSignals": 0,
         "sourceAvailabilitySignal": 0
