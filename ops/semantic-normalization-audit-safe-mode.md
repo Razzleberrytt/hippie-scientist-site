@@ -1,7 +1,22 @@
 # Semantic Normalization Audit
 
 - sampled herbs: 25
-- recommendation: **needs adjustment**
+- recommendation: **safe to merge**
+
+## Failing examples (original vs normalized)
+- **acorus gramineus**
+  - original: Similar risks to Acorus calamus | avoid large doses
+  - normalized: similar risks to acorus calamus | avoid large doses
+  - reason flags: compound_overlap_low
+
+## Failure categories
+- compound mismatch: 1
+
+## Micro-rules applied
+- protect phrases: may help, associated with, traditionally used for, reported to
+- if contraindication contains soft uncertainty language, do not escalate to hard avoid phrasing
+- if overlap is below category threshold, fallback to cleaned original
+- last-line defense: any detected risky category forces fallback to cleaned original
 
 ### Safe transformations
 - **acacia confusa**
@@ -14,6 +29,11 @@
   - overlap (compounds/effects/contra): 1/0.93/1
   - before contra: Use with MAOIs | unverified internal use
   - after contra: use with maois | unverified internal use
+- **acacia nilotica**
+  - risk flags: none
+  - overlap (compounds/effects/contra): 1/1/1
+  - before contra: High doses of bark decoction can irritate the digestive tract and cause constipation or nausea | Avoid during pregnancy or lactation due to potential anti-fertility effects | Not recommended for children under 12
+  - after contra: high doses of bark decoction can irritate the digestive tract and cause constipation or nausea | avoid during pregnancy or lactation due to potential anti-fertility effects | not recommended for children under 12
 - **acacia phlebophylla**
   - risk flags: none
   - overlap (compounds/effects/contra): 1/1/1
@@ -39,63 +59,14 @@
   - overlap (compounds/effects/contra): 1/0.88/1
   - before contra: none
   - after contra: none
-- **acorus calamus**
-  - risk flags: none
-  - overlap (compounds/effects/contra): 1/0.97/1
-  - before contra: Pregnancy | seizures | liver disease | children | high doses | pregnancy | cancer risk (β-asarone in some strains). | cancer risk (β | asarone in some strains).
-  - after contra: pregnancy | seizures | liver disease | children | high doses | cancer risk (β-asarone in some strains) | cancer risk (β | asarone in some strains)
 
 ### Risky transformations
-- **acacia nilotica**
-  - risk flags: contraindication_may_be_overly_strict, compound_overlap_low
-  - overlap (compounds/effects/contra): 0.21/1/0.53
-  - before contra: High doses of bark decoction can irritate the digestive tract and cause constipation or nausea | Avoid during pregnancy or lactation due to potential anti-fertility effects | Not recommended for children under 12
-  - after contra: avoid during pregnancy or lactation due to potential anti-fertility effects | not recommended for children under 12
-- **acorus calamus var. angustatus**
-  - risk flags: effect_overlap_low
-  - overlap (compounds/effects/contra): 1/0/1
-  - before contra: Avoid use in pregnancy or breastfeeding until herb-specific human safety data are available.
-  - after contra: avoid use in pregnancy or breastfeeding until herb-specific human safety data are available
 - **acorus gramineus**
   - risk flags: compound_overlap_low
   - overlap (compounds/effects/contra): 0.33/0.92/1
   - before contra: Similar risks to Acorus calamus | avoid large doses
   - after contra: similar risks to acorus calamus | avoid large doses
-- **acorus tatarinowii**
-  - risk flags: contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/1
-  - before contra: β-asarone is potentially carcinogenic | avoid long-term or high-dose use | contraindicated in pregnancy and children.
-  - after contra: β-asarone is potentially carcinogenic | avoid long-term or high-dose use | contraindicated in pregnancy and children
-- **agrimonia eupatoria**
-  - risk flags: contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/1
-  - before contra: Generally safe when used as tea | due to tannins may cause constipation or reduce absorption of minerals | avoid large doses during pregnancy.
-  - after contra: generally safe when used as tea | due to tannins may cause constipation or reduce absorption of minerals | avoid large doses during pregnancy
-- **albizia julibrissin**
-  - risk flags: contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 0.9/0.88/1
-  - before contra: Limited safety data | may potentiate sedative or antidepressant drugs | avoid in pregnancy or lactation unless supervised.
-  - after contra: limited safety data | may potentiate sedative or antidepressant drugs | avoid in pregnancy or lactation unless supervised
 
 ### Should be reverted / manually reviewed
-- **acacia nilotica**
-  - risk flags: contraindication_may_be_overly_strict, compound_overlap_low
-  - overlap (compounds/effects/contra): 0.21/1/0.53
-  - before contra: High doses of bark decoction can irritate the digestive tract and cause constipation or nausea | Avoid during pregnancy or lactation due to potential anti-fertility effects | Not recommended for children under 12
-  - after contra: avoid during pregnancy or lactation due to potential anti-fertility effects | not recommended for children under 12
-- **acorus tatarinowii**
-  - risk flags: contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/1
-  - before contra: β-asarone is potentially carcinogenic | avoid long-term or high-dose use | contraindicated in pregnancy and children.
-  - after contra: β-asarone is potentially carcinogenic | avoid long-term or high-dose use | contraindicated in pregnancy and children
-- **agrimonia eupatoria**
-  - risk flags: contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/1
-  - before contra: Generally safe when used as tea | due to tannins may cause constipation or reduce absorption of minerals | avoid large doses during pregnancy.
-  - after contra: generally safe when used as tea | due to tannins may cause constipation or reduce absorption of minerals | avoid large doses during pregnancy
-- **albizia julibrissin**
-  - risk flags: contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 0.9/0.88/1
-  - before contra: Limited safety data | may potentiate sedative or antidepressant drugs | avoid in pregnancy or lactation unless supervised.
-  - after contra: limited safety data | may potentiate sedative or antidepressant drugs | avoid in pregnancy or lactation unless supervised
+- none
 

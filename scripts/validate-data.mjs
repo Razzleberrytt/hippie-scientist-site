@@ -50,8 +50,15 @@ const MAX_WORDS = 12
 const MIN_WORDS = 1
 const OVERLAP_MIN_STRICT = 0.7
 const OVERLAP_MIN_RELAXED = 0.55
+const OVERLAP_MIN_PROTECTED = 0.85
 const MEDICAL_RISK_PATTERN =
   /\b(?:risk|contraindicat|interact|pregnan|breastfeed|bleed|tox|adverse|warning|caution|safety|disease|disorder|syndrome|maoi|ssri|anticoagul)\b/i
+const PROTECTED_PHRASE_PATTERNS = [
+  /\bmay help\b/i,
+  /\bassociated with\b/i,
+  /\btraditionally used for\b/i,
+  /\breported to\b/i,
+]
 
 function isObject(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
@@ -86,14 +93,25 @@ function normalizeStyle(text) {
 function normalizePhraseBase(value, options = {}) {
   const cleaned = cleanText(value)
   if (!cleaned) return ''
+  const isProtected = PROTECTED_PHRASE_PATTERNS.some(pattern => pattern.test(cleaned))
+  if (isProtected) return normalizeStyle(cleaned)
   const base = normalizeStyle(cleaned).replace(FILLER_PATTERN, '')
-  const preserveUncertainty = options.safeMode || MEDICAL_RISK_PATTERN.test(cleaned)
+  const preserveUncertainty =
+    options.safeMode ||
+    options.field === 'effects' ||
+    options.field === 'contraindications' ||
+    MEDICAL_RISK_PATTERN.test(cleaned)
   const withoutHedging = preserveUncertainty ? base : base.replace(HEDGING_PATTERN, '')
   return withoutHedging.replace(/\s+/g, ' ').trim()
 }
 
 function wordCount(text) {
   return text ? text.split(/\s+/).filter(Boolean).length : 0
+}
+
+function containsHedging(value) {
+  HEDGING_PATTERN.lastIndex = 0
+  return HEDGING_PATTERN.test(String(value || ''))
 }
 
 function isLengthValid(text) {
@@ -107,10 +125,10 @@ function normalizeActiveCompounds(value, fixes) {
   const originalCleanedVersion = []
   const normalizedSafeVersion = []
   for (const item of toArray(value)) {
-    const phrase = normalizePhraseBase(item, fixes)
+    const phrase = normalizePhraseBase(item, { ...fixes, field: 'activeCompounds' })
     if (!phrase) continue
     if (/\b(?:contains|used|effect|helps|avoid|interact|data)\b/i.test(phrase)) continue
-    if (!/^[a-z0-9\-\sα-ωβγδ]+$/i.test(phrase)) continue
+    if (!/^[a-z0-9\-\sα-ωβγδ(),./]+$/i.test(phrase)) continue
     if (!isLengthValid(phrase)) {
       fixes.longPhrasesRemoved += 1
       continue
@@ -119,7 +137,7 @@ function normalizeActiveCompounds(value, fixes) {
     out.push(result.value)
     originalCleanedVersion.push(result.originalCleaned)
     normalizedSafeVersion.push(result.normalizedCandidate)
-    if (result.rejected) rejected.push({ original: result.originalCleaned, candidate: result.normalizedCandidate, overlap: Number(result.overlap.toFixed(2)) })
+    if (result.rejected) rejected.push({ original: result.originalCleaned, candidate: result.normalizedCandidate, overlap: Number(result.overlap.toFixed(2)), category: result.category })
   }
   return {
     values: Array.from(new Set(out)),
@@ -135,11 +153,19 @@ function normalizeEffects(value, fixes) {
   const originalCleanedVersion = []
   const normalizedSafeVersion = []
   for (const item of toArray(value)) {
-    const phrase = normalizePhraseBase(item, fixes)
+    const phrase = normalizePhraseBase(item, { ...fixes, field: 'effects' })
     if (!phrase) continue
     const cleaned = phrase.replace(/\s+/g, ' ').trim()
     if (!cleaned) continue
     if (!isLengthValid(cleaned)) {
+      const sourceCleaned = cleanOriginalPhrase(item)
+      if (sourceCleaned) {
+        const fallback = guardedTransformation(item, sourceCleaned, OVERLAP_MIN_STRICT, fixes, 'effects')
+        out.push(fallback.value)
+        originalCleanedVersion.push(fallback.originalCleaned)
+        normalizedSafeVersion.push(fallback.normalizedCandidate)
+        if (fallback.rejected) rejected.push({ original: fallback.originalCleaned, candidate: fallback.normalizedCandidate, overlap: Number(fallback.overlap.toFixed(2)), category: fallback.category })
+      }
       fixes.longPhrasesRemoved += 1
       continue
     }
@@ -147,7 +173,7 @@ function normalizeEffects(value, fixes) {
     out.push(result.value)
     originalCleanedVersion.push(result.originalCleaned)
     normalizedSafeVersion.push(result.normalizedCandidate)
-    if (result.rejected) rejected.push({ original: result.originalCleaned, candidate: result.normalizedCandidate, overlap: Number(result.overlap.toFixed(2)) })
+    if (result.rejected) rejected.push({ original: result.originalCleaned, candidate: result.normalizedCandidate, overlap: Number(result.overlap.toFixed(2)), category: result.category })
   }
   return {
     values: Array.from(new Set(out)),
@@ -164,14 +190,14 @@ function normalizeContraindications(value, fixes) {
   const normalizedSafeVersion = []
 
   for (const item of toArray(value)) {
-    const phrase = normalizePhraseBase(item, fixes)
+    const phrase = normalizePhraseBase(item, { ...fixes, field: 'contraindications' })
     if (!phrase) continue
 
     const hasHardSignal = /\b(?:contraindicated|must avoid|do not use|avoid|not recommended)\b/i.test(String(item || ''))
     const hasSoftSignal = /\b(?:may|might|potential|associated with|caution|may interact)\b/i.test(String(item || ''))
 
     let standardized = phrase
-    if (hasHardSignal) {
+    if (hasHardSignal && !hasSoftSignal) {
       if (/pregnan/.test(phrase)) standardized = 'avoid in pregnancy'
       else if (/breastfeed|lactat/.test(phrase)) standardized = 'avoid during breastfeeding'
       else if (/liver/.test(phrase)) standardized = 'avoid in liver disease'
@@ -185,6 +211,14 @@ function normalizeContraindications(value, fixes) {
 
     standardized = standardized.replace(/\s+/g, ' ').trim()
     if (!isLengthValid(standardized)) {
+      const sourceCleaned = cleanOriginalPhrase(item)
+      if (sourceCleaned) {
+        const fallback = guardedTransformation(item, sourceCleaned, OVERLAP_MIN_STRICT, fixes, 'contraindications')
+        out.push(fallback.value)
+        originalCleanedVersion.push(fallback.originalCleaned)
+        normalizedSafeVersion.push(fallback.normalizedCandidate)
+        if (fallback.rejected) rejected.push({ original: fallback.originalCleaned, candidate: fallback.normalizedCandidate, overlap: Number(fallback.overlap.toFixed(2)), category: fallback.category })
+      }
       fixes.longPhrasesRemoved += 1
       continue
     }
@@ -192,7 +226,7 @@ function normalizeContraindications(value, fixes) {
     out.push(result.value)
     originalCleanedVersion.push(result.originalCleaned)
     normalizedSafeVersion.push(result.normalizedCandidate)
-    if (result.rejected) rejected.push({ original: result.originalCleaned, candidate: result.normalizedCandidate, overlap: Number(result.overlap.toFixed(2)) })
+    if (result.rejected) rejected.push({ original: result.originalCleaned, candidate: result.normalizedCandidate, overlap: Number(result.overlap.toFixed(2)), category: result.category })
   }
 
   return {
@@ -340,7 +374,7 @@ function validateHerbConsistency(herb, options = {}) {
         field === 'contraindications'
           ? phrase.replace(/\bmay interact with\b/gi, '').trim()
           : phrase
-      if (!options.safeMode && HEDGING_PATTERN.test(hedgingCandidate)) issues.push(`${field} includes hedging language`)
+      if (!options.safeMode && containsHedging(hedgingCandidate)) issues.push(`${field} includes hedging language`)
     }
   }
 
@@ -350,7 +384,7 @@ function validateHerbConsistency(herb, options = {}) {
     const mechanismParts = herb.mechanism.split('|').map(part => part.trim()).filter(Boolean)
     for (const phrase of mechanismParts) {
       if (!isLengthValid(phrase)) issues.push('mechanism phrase has out-of-range length')
-      if (!options.safeMode && HEDGING_PATTERN.test(phrase)) issues.push('mechanism includes hedging language')
+      if (!options.safeMode && containsHedging(phrase)) issues.push('mechanism includes hedging language')
     }
   }
 
@@ -541,7 +575,7 @@ function collectVariationMetrics(records) {
           field === 'contraindications'
             ? text.replace(/\bmay interact with\b/gi, '').trim()
             : text
-        if (HEDGING_PATTERN.test(hedgingCandidate)) hedgingCount += 1
+        if (containsHedging(hedgingCandidate)) hedgingCount += 1
         if (PUNCTUATION_PATTERN.test(text)) punctuationCount += 1
         if (/[A-Z]/.test(text)) mixedCaseCount += 1
       }
@@ -618,22 +652,49 @@ function cleanOriginalPhrase(value) {
   return normalizeStyle(cleanText(value))
 }
 
+function detectFailureCategory(field, original, candidate, overlap, minimumOverlap) {
+  const source = String(original || '')
+  const transformed = String(candidate || '')
+  const hasProtected = PROTECTED_PHRASE_PATTERNS.some(pattern => pattern.test(source))
+  if (hasProtected && normalizeStyle(source) !== normalizeStyle(transformed)) return 'protected_phrase_preservation'
+  if (field === 'effects' && /\bmay help\b/i.test(source) && !/\bmay help\b/i.test(transformed)) return 'synonym_strengthening'
+  if (
+    field === 'contraindications' &&
+    /\b(?:may|might|potential|associated with)\b/i.test(source) &&
+    /\bavoid\b/i.test(transformed) &&
+    !/\bavoid\b/i.test(source)
+  ) {
+    return 'contraindication_escalation'
+  }
+  if (field === 'activeCompounds' && overlap < minimumOverlap) return 'compound_mismatch'
+  if (overlap < minimumOverlap) return 'truncation_loss'
+  return ''
+}
+
 function guardedTransformation(original, candidate, minimumOverlap, fixes, field) {
   const originalCleaned = cleanOriginalPhrase(original)
   const normalizedCandidate = cleanOriginalPhrase(candidate)
-  if (!originalCleaned) return { value: normalizedCandidate, rejected: false, overlap: 1, originalCleaned, normalizedCandidate }
+  if (!originalCleaned) return { value: normalizedCandidate, rejected: false, overlap: 1, originalCleaned, normalizedCandidate, category: '' }
   if (!normalizedCandidate) {
     fixes.lowOverlapRejected += 1
     fixes.rejectedByField[field] = (fixes.rejectedByField[field] || 0) + 1
-    return { value: originalCleaned, rejected: true, overlap: 0, originalCleaned, normalizedCandidate }
+    const category = field === 'activeCompounds' ? 'compound_mismatch' : 'truncation_loss'
+    fixes.rejectedByCategory[category] = (fixes.rejectedByCategory[category] || 0) + 1
+    return { value: originalCleaned, rejected: true, overlap: 0, originalCleaned, normalizedCandidate, category }
   }
   const overlap = overlapRatio([originalCleaned], [normalizedCandidate])
-  if (overlap < minimumOverlap) {
+  const effectiveMinimum = PROTECTED_PHRASE_PATTERNS.some(pattern => pattern.test(String(original || '')))
+    ? Math.max(minimumOverlap, OVERLAP_MIN_PROTECTED)
+    : minimumOverlap
+  const category = detectFailureCategory(field, original, candidate, overlap, effectiveMinimum)
+  if (category || overlap < effectiveMinimum) {
     fixes.lowOverlapRejected += 1
     fixes.rejectedByField[field] = (fixes.rejectedByField[field] || 0) + 1
-    return { value: originalCleaned, rejected: true, overlap, originalCleaned, normalizedCandidate }
+    const rejectionCategory = category || (field === 'activeCompounds' ? 'compound_mismatch' : 'truncation_loss')
+    fixes.rejectedByCategory[rejectionCategory] = (fixes.rejectedByCategory[rejectionCategory] || 0) + 1
+    return { value: originalCleaned, rejected: true, overlap, originalCleaned, normalizedCandidate, category: rejectionCategory }
   }
-  return { value: normalizedCandidate, rejected: false, overlap, originalCleaned, normalizedCandidate }
+  return { value: normalizedCandidate, rejected: false, overlap, originalCleaned, normalizedCandidate, category: '' }
 }
 
 function transformType(beforeText, afterText) {
@@ -671,12 +732,16 @@ function buildSemanticAudit(beforeHerbs, afterHerbs, sampleSize) {
     const contraindicationOverlap = overlapRatio(beforeContra, afterContra)
     const compoundOverlap = overlapRatio(beforeCompounds, afterCompounds)
 
-    const hedgingBefore = [...beforeEffects, ...beforeContra, beforeMechanism].some(value => HEDGING_PATTERN.test(String(value || '')))
-    const hedgingAfter = [...afterEffects, ...afterContra, afterMechanism].some(value => HEDGING_PATTERN.test(String(value || '')))
+    const hedgingBefore = [...beforeEffects, ...beforeContra, beforeMechanism].some(value => containsHedging(value))
+    const hedgingAfter = [...afterEffects, ...afterContra, afterMechanism].some(value => containsHedging(value))
     const hedgingLossRisk = hedgingBefore && !hedgingAfter
 
+    const sourceHasHardContraLanguage = beforeContra.some(value =>
+      /\b(?:avoid|not recommended|contraindicated|do not use|must avoid)\b/i.test(String(value || '')),
+    )
     const contraindicationStrictnessRisk =
-      beforeContra.some(value => /\bmay|might|could|potential/i.test(String(value || ''))) &&
+      !sourceHasHardContraLanguage &&
+      beforeContra.some(value => /\bmay|might|could|potential|associated with/i.test(String(value || ''))) &&
       afterContra.some(value => /^avoid\b/i.test(String(value || ''))) &&
       !afterContra.some(value => /^may interact\b/i.test(String(value || '')))
 
@@ -743,6 +808,17 @@ function buildSemanticAudit(beforeHerbs, afterHerbs, sampleSize) {
 }
 
 function semanticAuditMarkdown(audit) {
+  const categoryLabel = {
+    hedging_removed_maybe_meaningful: 'hedging misinterpretation',
+    synonym_strengthening: 'synonym strengthening',
+    effect_overlap_low: 'truncation loss',
+    contraindication_overlap_low: 'truncation loss',
+    active_compounds_truncated: 'compound mismatch',
+    compound_overlap_low: 'compound mismatch',
+    contraindication_may_be_overly_strict: 'contraindication escalation',
+    effects_oversimplified: 'truncation loss',
+  }
+
   const formatSamples = (samples, title) => {
     if (!samples.length) return `### ${title}\n- none\n`
     return `### ${title}\n${samples
@@ -750,7 +826,19 @@ function semanticAuditMarkdown(audit) {
       .join('\n')}\n`
   }
 
-  return `# Semantic Normalization Audit\n\n- sampled herbs: ${audit.sampleSize}\n- recommendation: **${audit.recommendation}**\n\n${formatSamples(audit.safeExamples, 'Safe transformations')}\n${formatSamples(audit.riskyExamples, 'Risky transformations')}\n${formatSamples(audit.revertExamples, 'Should be reverted / manually reviewed')}\n`
+  const failingExamples = audit.riskyExamples
+    .map(sample => `- **${sample.herb}**\n  - original: ${sample.before.contraindications.join(' | ') || sample.before.effects.join(' | ') || sample.before.mechanism || 'none'}\n  - normalized: ${sample.after.contraindications.join(' | ') || sample.after.effects.join(' | ') || sample.after.mechanism || 'none'}\n  - reason flags: ${sample.riskFlags.join(', ')}`)
+    .join('\n')
+
+  const categoryCounts = audit.riskyExamples.reduce((acc, sample) => {
+    for (const flag of sample.riskFlags) {
+      const category = categoryLabel[flag] || 'other'
+      acc[category] = (acc[category] || 0) + 1
+    }
+    return acc
+  }, {})
+
+  return `# Semantic Normalization Audit\n\n- sampled herbs: ${audit.sampleSize}\n- recommendation: **${audit.recommendation}**\n\n## Failing examples (original vs normalized)\n${failingExamples || '- none'}\n\n## Failure categories\n${Object.entries(categoryCounts).map(([category, count]) => `- ${category}: ${count}`).join('\n') || '- none'}\n\n## Micro-rules applied\n- protect phrases: may help, associated with, traditionally used for, reported to\n- if contraindication contains soft uncertainty language, do not escalate to hard avoid phrasing\n- if overlap is below category threshold, fallback to cleaned original\n- last-line defense: any detected risky category forces fallback to cleaned original\n\n${formatSamples(audit.safeExamples, 'Safe transformations')}\n${formatSamples(audit.riskyExamples, 'Risky transformations')}\n${formatSamples(audit.revertExamples, 'Should be reverted / manually reviewed')}\n`
 }
 
 async function main() {
@@ -765,6 +853,7 @@ async function main() {
     crossFieldDuplicatesRemoved: 0,
     lowOverlapRejected: 0,
     rejectedByField: {},
+    rejectedByCategory: {},
     safeMode: args.safeMode,
   }
 
@@ -813,7 +902,7 @@ async function main() {
     unresolvedIssues.push(`Consistency validation found ${consistencyIssues.length} issues.`)
   }
 
-  const report = `# Data Quality Report\n\n- Generated: ${new Date().toISOString()}\n- Total herbs: ${herbsNormalized.length}\n- Total compounds: ${compoundsNormalized.length}\n- Completeness: ${overallCompleteness}%\n\n## Missing field counts\n\n### Herbs\n${printMissingCounts(herbCompleteness.missingCounts)}\n\n### Compounds\n${printMissingCounts(compoundCompleteness.missingCounts)}\n\n## Formatting consistency metrics\n\n### Variation reduction\n- Phrases analyzed: ${beforeMetrics.phraseCount} → ${afterMetrics.phraseCount}\n- Hedging phrases: ${beforeMetrics.hedgingCount} → ${afterMetrics.hedgingCount}\n- Punctuation variants: ${beforeMetrics.punctuationCount} → ${afterMetrics.punctuationCount}\n- Mixed casing variants: ${beforeMetrics.mixedCaseCount} → ${afterMetrics.mixedCaseCount}\n\n## Integrity guardrails\n- Low-overlap transformations rejected: ${fixes.lowOverlapRejected}\n- Rejected by field: ${JSON.stringify(fixes.rejectedByField)}\n\n## Validation fixes applied\n\n- Removed invalid/placeholder source entries: ${fixes.invalidSourcesRemoved}\n- Fixed non-ISO lastUpdated fields: ${fixes.lastUpdatedFixed}\n- Merged duplicate names: ${fixes.duplicatesMerged}\n- Removed invalid herb references from compounds: ${fixes.invalidHerbRefsRemoved}\n- Removed "nan" list values: ${fixes.nanRemoved}\n- Removed over-length phrases: ${fixes.longPhrasesRemoved}\n- Removed cross-field duplicates: ${fixes.crossFieldDuplicatesRemoved}\n\n## 10-herb before vs after sample\n\n\`\`\`json\n${JSON.stringify(samples, null, 2)}\n\`\`\`\n\n## Unresolved issues\n\n${unresolvedIssues.length ? unresolvedIssues.map(item => `- ${item}`).join('\n') : '- None'}\n`
+  const report = `# Data Quality Report\n\n- Generated: ${new Date().toISOString()}\n- Total herbs: ${herbsNormalized.length}\n- Total compounds: ${compoundsNormalized.length}\n- Completeness: ${overallCompleteness}%\n\n## Missing field counts\n\n### Herbs\n${printMissingCounts(herbCompleteness.missingCounts)}\n\n### Compounds\n${printMissingCounts(compoundCompleteness.missingCounts)}\n\n## Formatting consistency metrics\n\n### Variation reduction\n- Phrases analyzed: ${beforeMetrics.phraseCount} → ${afterMetrics.phraseCount}\n- Hedging phrases: ${beforeMetrics.hedgingCount} → ${afterMetrics.hedgingCount}\n- Punctuation variants: ${beforeMetrics.punctuationCount} → ${afterMetrics.punctuationCount}\n- Mixed casing variants: ${beforeMetrics.mixedCaseCount} → ${afterMetrics.mixedCaseCount}\n\n## Integrity guardrails\n- Low-overlap transformations rejected: ${fixes.lowOverlapRejected}\n- Rejected by field: ${JSON.stringify(fixes.rejectedByField)}\n- Rejected by category: ${JSON.stringify(fixes.rejectedByCategory)}\n\n## Validation fixes applied\n\n- Removed invalid/placeholder source entries: ${fixes.invalidSourcesRemoved}\n- Fixed non-ISO lastUpdated fields: ${fixes.lastUpdatedFixed}\n- Merged duplicate names: ${fixes.duplicatesMerged}\n- Removed invalid herb references from compounds: ${fixes.invalidHerbRefsRemoved}\n- Removed "nan" list values: ${fixes.nanRemoved}\n- Removed over-length phrases: ${fixes.longPhrasesRemoved}\n- Removed cross-field duplicates: ${fixes.crossFieldDuplicatesRemoved}\n\n## 10-herb before vs after sample\n\n\`\`\`json\n${JSON.stringify(samples, null, 2)}\n\`\`\`\n\n## Unresolved issues\n\n${unresolvedIssues.length ? unresolvedIssues.map(item => `- ${item}`).join('\n') : '- None'}\n`
 
   await writeFile(REPORT_PATH, report)
 
@@ -842,6 +931,7 @@ async function main() {
     integrity: {
       lowOverlapRejected: fixes.lowOverlapRejected,
       rejectedByField: fixes.rejectedByField,
+      rejectedByCategory: fixes.rejectedByCategory,
     },
     options: args,
   }
