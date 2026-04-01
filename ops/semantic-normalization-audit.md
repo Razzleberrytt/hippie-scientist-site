@@ -4,11 +4,26 @@
 - recommendation: **needs adjustment**
 
 ### Safe transformations
+- **acacia confusa**
+  - risk flags: none
+  - overlap (compounds/effects/contra): 1/0.92/1
+  - before contra: Mental health conditions | MAOI use | pregnancy | liver disease
+  - after contra: mental health conditions | maoi use | pregnancy | liver disease
+- **acacia maidenii**
+  - risk flags: none
+  - overlap (compounds/effects/contra): 1/0.93/1
+  - before contra: Use with MAOIs | unverified internal use
+  - after contra: use with maois | unverified internal use
+- **acacia phlebophylla**
+  - risk flags: none
+  - overlap (compounds/effects/contra): 1/1/1
+  - before contra: Not recommended for those with psychotic disorders or serotonin syndrome risk
+  - after contra: not recommended for those with psychotic disorders or serotonin syndrome risk
 - **acmella oleracea**
   - risk flags: none
   - overlap (compounds/effects/contra): 1/1/1
   - before contra: Pregnancy | oral surgery | allergy to Asteraceae | None established | avoid overuse on broken skin
-  - after contra: avoid in pregnancy | avoid with oral surgery | avoid with allergy to asteraceae | avoid with none established | avoid overuse on broken skin
+  - after contra: pregnancy | oral surgery | allergy to asteraceae | none established | avoid overuse on broken skin
 - **aconitum ferox**
   - risk flags: none
   - overlap (compounds/effects/contra): 1/1/1
@@ -18,129 +33,84 @@
   - risk flags: none
   - overlap (compounds/effects/contra): 1/1/1
   - before contra: Highly toxic | ingestion can cause severe arrhythmias | paralysis and death | avoid internal use | handling requires caution.
-  - after contra: avoid with highly toxic | avoid with ingestion can cause severe arrhythmias | avoid with paralysis and death | avoid internal use | avoid with handling requires caution
+  - after contra: highly toxic | ingestion can cause severe arrhythmias | paralysis and death | avoid internal use | handling requires caution
+- **acorus americanus**
+  - risk flags: none
+  - overlap (compounds/effects/contra): 1/0.88/1
+  - before contra: none
+  - after contra: none
 - **acorus calamus**
   - risk flags: none
-  - overlap (compounds/effects/contra): 1/0.79/1
+  - overlap (compounds/effects/contra): 1/0.97/1
   - before contra: Pregnancy | seizures | liver disease | children | high doses | pregnancy | cancer risk (β-asarone in some strains). | cancer risk (β | asarone in some strains).
-  - after contra: avoid in pregnancy | avoid with seizures | avoid in liver disease | avoid with children | avoid with high doses | avoid with cancer risk (β-asarone in some strains) | avoid with cancer risk (β | avoid with asarone in some strains)
-- **adenium obesum**
-  - risk flags: none
-  - overlap (compounds/effects/contra): 1/1/1
-  - before contra: none
-  - after contra: none
-- **agastache foeniculum**
-  - risk flags: none
-  - overlap (compounds/effects/contra): 1/1/1
-  - before contra: none
-  - after contra: none
-- **alangium salvifolium**
-  - risk flags: none
-  - overlap (compounds/effects/contra): 0.88/1/0.56
-  - before contra: Due to potent alkaloids | can be toxic | use with caution and avoid during pregnancy or without medical supervision.
-  - after contra: avoid with due to potent alkaloids | avoid with can be toxic | avoid in pregnancy
+  - after contra: pregnancy | seizures | liver disease | children | high doses | cancer risk (β-asarone in some strains) | cancer risk (β | asarone in some strains)
 
 ### Risky transformations
-- **acacia confusa**
-  - risk flags: effects_oversimplified
-  - overlap (compounds/effects/contra): 1/0.46/0.75
-  - before contra: Mental health conditions | MAOI use | pregnancy | liver disease
-  - after contra: avoid with unstable mental health conditions | may interact with maois | avoid in pregnancy | avoid in liver disease
-- **acacia maidenii**
-  - risk flags: effects_oversimplified
-  - overlap (compounds/effects/contra): 1/0.5/1
-  - before contra: Use with MAOIs | unverified internal use
-  - after contra: may interact with maois | avoid with unverified internal use
 - **acacia nilotica**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict, compound_overlap_low, contraindication_overlap_low, effect_overlap_low
-  - overlap (compounds/effects/contra): 0.21/0.22/0.27
+  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict, compound_overlap_low
+  - overlap (compounds/effects/contra): 0.21/1/0.53
   - before contra: High doses of bark decoction can irritate the digestive tract and cause constipation or nausea | Avoid during pregnancy or lactation due to potential anti-fertility effects | Not recommended for children under 12
-  - after contra: avoid in pregnancy | avoid with not recommended for children under 12
-- **acacia phlebophylla**
-  - risk flags: contraindication_overlap_low
-  - overlap (compounds/effects/contra): 1/0.92/0
-  - before contra: Not recommended for those with psychotic disorders or serotonin syndrome risk
-  - after contra: none
-- **acorus americanus**
-  - risk flags: effects_oversimplified, effect_overlap_low
-  - overlap (compounds/effects/contra): 1/0.13/1
-  - before contra: none
-  - after contra: none
+  - after contra: avoid during pregnancy or lactation due to potential anti-fertility effects | not recommended for children under 12
 - **acorus calamus var. angustatus**
-  - risk flags: contraindication_overlap_low, effect_overlap_low
-  - overlap (compounds/effects/contra): 1/0/0.23
+  - risk flags: effect_overlap_low
+  - overlap (compounds/effects/contra): 1/0/1
   - before contra: Avoid use in pregnancy or breastfeeding until herb-specific human safety data are available.
-  - after contra: avoid in pregnancy
+  - after contra: avoid use in pregnancy or breastfeeding until herb-specific human safety data are available
 - **acorus gramineus**
-  - risk flags: effects_oversimplified, compound_overlap_low
-  - overlap (compounds/effects/contra): 0.33/0.42/1
+  - risk flags: compound_overlap_low
+  - overlap (compounds/effects/contra): 0.33/0.92/1
   - before contra: Similar risks to Acorus calamus | avoid large doses
-  - after contra: avoid with similar risks to acorus calamus | avoid large doses
+  - after contra: similar risks to acorus calamus | avoid large doses
 - **acorus tatarinowii**
   - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/0.71
+  - overlap (compounds/effects/contra): 1/1/0.93
   - before contra: β-asarone is potentially carcinogenic | avoid long-term or high-dose use | contraindicated in pregnancy and children.
-  - after contra: avoid with β-asarone is carcinogenic | avoid long-term or high-dose use | avoid in pregnancy
+  - after contra: β-asarone is carcinogenic | avoid long-term or high-dose use | contraindicated in pregnancy and children
 - **adenostoma fasciculatum**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict, contraindication_overlap_low
-  - overlap (compounds/effects/contra): 1/1/0.2
+  - risk flags: hedging_removed_maybe_meaningful
+  - overlap (compounds/effects/contra): 1/1/0.93
   - before contra: Limited safety data | high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone.
-  - after contra: avoid with limited safety data
+  - after contra: limited safety data | high doses cause gastrointestinal upset or phototoxic reactions due to hydroquinone
 - **adhatoda vasica**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict, effects_oversimplified, effect_overlap_low
-  - overlap (compounds/effects/contra): 1/0.13/0.4
+  - risk flags: hedging_removed_maybe_meaningful
+  - overlap (compounds/effects/contra): 1/0.88/0.96
   - before contra: High doses may cause nausea or vomiting | Not recommended during pregnancy or lactation without medical guidance | Use cautiously in individuals with bleeding disorders or on anticoagulant medications
-  - after contra: avoid with high doses cause nausea or vomiting | avoid in pregnancy | increase bleeding risk
-- **aegle marmelos**
-  - risk flags: effect_overlap_low
-  - overlap (compounds/effects/contra): 1/0.22/1
-  - before contra: none
-  - after contra: none
-- **aerva lanata**
+  - after contra: high doses cause nausea or vomiting | not recommended during pregnancy or lactation without medical guidance | use cautiously in individuals with bleeding disorders or on anticoagulant medications
+- **african dream root**
+  - risk flags: hedging_removed_maybe_meaningful
+  - overlap (compounds/effects/contra): 1/1/0.69
+  - before contra: Limited safety data; high doses may irritate the digestive tract and cause vomiting | May cause disturbing or confusing dreams at high doses | Children, pregnant and breastfeeding individuals should avoid use | Consult healthcare professional before use
+  - after contra: cause disturbing or confusing dreams at high doses | children pregnant and breastfeeding individuals should avoid use | consult healthcare professional before use
+- **agrimonia eupatoria**
   - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/0.63
-  - before contra: Limited safety data; some alkaloids may be toxic at high doses | Pregnant women should use cautiously
-  - after contra: avoid with limited safety data some alkaloids be toxic at high doses | avoid in pregnancy
+  - overlap (compounds/effects/contra): 1/1/0.95
+  - before contra: Generally safe when used as tea | due to tannins may cause constipation or reduce absorption of minerals | avoid large doses during pregnancy.
+  - after contra: generally safe when used as tea | due to tannins cause constipation or reduce absorption of minerals | avoid large doses during pregnancy
+- **albizia julibrissin**
+  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
+  - overlap (compounds/effects/contra): 0.9/0.88/0.93
+  - before contra: Limited safety data | may potentiate sedative or antidepressant drugs | avoid in pregnancy or lactation unless supervised.
+  - after contra: limited safety data | potentiate sedative or antidepressant drugs | avoid in pregnancy or lactation unless supervised
 
 ### Should be reverted / manually reviewed
 - **acacia nilotica**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict, compound_overlap_low, contraindication_overlap_low, effect_overlap_low
-  - overlap (compounds/effects/contra): 0.21/0.22/0.27
+  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict, compound_overlap_low
+  - overlap (compounds/effects/contra): 0.21/1/0.53
   - before contra: High doses of bark decoction can irritate the digestive tract and cause constipation or nausea | Avoid during pregnancy or lactation due to potential anti-fertility effects | Not recommended for children under 12
-  - after contra: avoid in pregnancy | avoid with not recommended for children under 12
+  - after contra: avoid during pregnancy or lactation due to potential anti-fertility effects | not recommended for children under 12
 - **acorus tatarinowii**
   - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/0.71
+  - overlap (compounds/effects/contra): 1/1/0.93
   - before contra: β-asarone is potentially carcinogenic | avoid long-term or high-dose use | contraindicated in pregnancy and children.
-  - after contra: avoid with β-asarone is carcinogenic | avoid long-term or high-dose use | avoid in pregnancy
-- **adenostoma fasciculatum**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict, contraindication_overlap_low
-  - overlap (compounds/effects/contra): 1/1/0.2
-  - before contra: Limited safety data | high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone.
-  - after contra: avoid with limited safety data
-- **adhatoda vasica**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict, effects_oversimplified, effect_overlap_low
-  - overlap (compounds/effects/contra): 1/0.13/0.4
-  - before contra: High doses may cause nausea or vomiting | Not recommended during pregnancy or lactation without medical guidance | Use cautiously in individuals with bleeding disorders or on anticoagulant medications
-  - after contra: avoid with high doses cause nausea or vomiting | avoid in pregnancy | increase bleeding risk
-- **aerva lanata**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/0.63
-  - before contra: Limited safety data; some alkaloids may be toxic at high doses | Pregnant women should use cautiously
-  - after contra: avoid with limited safety data some alkaloids be toxic at high doses | avoid in pregnancy
-- **aesculus hippocastanum**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 0.5/1/0.55
-  - before contra: Individuals with bleeding disorders or taking anticoagulants should avoid use | May interfere with blood sugar regulation; caution in diabetics | May cause mild nausea or abdominal upset | Pregnant or breastfeeding individuals should consult healthcare provider before use
-  - after contra: increase bleeding risk | avoid with interfere with blood sugar regulation caution in diabetics | avoid with cause mild nausea or abdominal upset | avoid in pregnancy
-- **african dream root**
-  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/0.5/0.48
-  - before contra: Limited safety data; high doses may irritate the digestive tract and cause vomiting | May cause disturbing or confusing dreams at high doses | Children, pregnant and breastfeeding individuals should avoid use | Consult healthcare professional before use
-  - after contra: avoid with cause disturbing or confusing dreams at high doses | avoid in pregnancy | avoid with consult healthcare professional before use
+  - after contra: β-asarone is carcinogenic | avoid long-term or high-dose use | contraindicated in pregnancy and children
 - **agrimonia eupatoria**
   - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
-  - overlap (compounds/effects/contra): 1/1/0.82
+  - overlap (compounds/effects/contra): 1/1/0.95
   - before contra: Generally safe when used as tea | due to tannins may cause constipation or reduce absorption of minerals | avoid large doses during pregnancy.
-  - after contra: avoid with generally safe when used as tea | avoid with due to tannins cause constipation or reduce absorption of minerals | avoid in pregnancy
+  - after contra: generally safe when used as tea | due to tannins cause constipation or reduce absorption of minerals | avoid large doses during pregnancy
+- **albizia julibrissin**
+  - risk flags: hedging_removed_maybe_meaningful, contraindication_may_be_overly_strict
+  - overlap (compounds/effects/contra): 0.9/0.88/0.93
+  - before contra: Limited safety data | may potentiate sedative or antidepressant drugs | avoid in pregnancy or lactation unless supervised.
+  - after contra: limited safety data | potentiate sedative or antidepressant drugs | avoid in pregnancy or lactation unless supervised
 
