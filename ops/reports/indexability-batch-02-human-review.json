@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-04-01T00:00:00.000Z",
+  "batchId": "indexability-batch-02",
+  "humanReviewRequired": [
+    {
+      "entityType": "herb",
+      "slug": "hyoscyamus-niger",
+      "reason": "Source candidate metadata/design mismatch and blocked review status prevent safe auto-promotion."
+    },
+    {
+      "entityType": "compound",
+      "slug": "object-object",
+      "reason": "Corrupted identifier; cannot be mapped to a valid compound entity without manual identity repair."
+    },
+    {
+      "entityType": "compound",
+      "slug": "alpha",
+      "reason": "Placeholder-like ambiguous identity lacking unique source binding."
+    },
+    {
+      "entityType": "compound",
+      "slug": "beta",
+      "reason": "Placeholder-like ambiguous identity lacking unique source binding."
+    },
+    {
+      "entityType": "compound",
+      "slug": "unverified-cannabinoids",
+      "reason": "Category label rather than single resolvable compound."
+    }
+  ]
+}

@@ -2,8 +2,8 @@
   "name": "mentha piperita",
   "latin": "Mentha piperita",
   "class": "Digestive Aid, Antispasmodic, Aromatic",
-  "intensity": "No direct intensity data. Contextual inference: Digestive aid, antispasmodic, cooling. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antispasmodic, cooling. No direct region data. Contextual inference: Digestive aid, antispasmodic, cooling. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antispasmodic, cooling. none. ; nan; nan. ; nan; nan",
-  "mechanism": "Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.",
+  "intensity": "Mild to moderate, preparation-dependent.",
+  "mechanism": "Menthol-rich essential oils show antispasmodic and sensory receptor activity consistent with digestive and cooling effects in studied preparations.",
   "activeCompounds": [
     "Menthol",
     "menthone",
@@ -39,7 +39,7 @@
     "safe",
     "nausea",
     "allergic reactions in sensitive individuals",
-    "No direct toxicity data. Contextual inference: Digestive aid",
+    "Use caution in reflux-sensitive individuals and with concentrated essential oil products.",
     "antispasmodic",
     "cooling. Herbs often act via neurotransmitter modulation",
     "antioxidant effects",
@@ -85,7 +85,7 @@
   ],
   "legalStatus": "Unregulated; approved in supplements and food",
   "preparation": "Leaves dried or fresh for teas, tinctures, and essential oil distillation; widely used for digestion and headaches",
-  "region": "No direct region data. Contextual inference: Digestive aid, antispasmodic, cooling. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Digestive aid, antispasmodic, cooling. none. ; nan; nan",
+  "region": "Widely cultivated and used globally in culinary, medicinal, and aromatic preparations.",
   "therapeuticUses": [
     "IBS",
     "nausea",
@@ -109,5 +109,6 @@
   ],
   "slugAliases": [
     "nan"
-  ]
+  ],
+  "summary": "Mentha piperita has human and preclinical evidence for gastrointestinal symptom support, while efficacy depends on preparation and indication."
 }

@@ -1,5 +1,5 @@
 {
-  "name": "nan",
+  "name": "achillea millefolium",
   "latin": "Achillea millefolium L.",
   "class": "Medicinal, Aromatic, Traditional Herb",
   "intensity": "Mild to moderate",
@@ -37,7 +37,7 @@
     "dizziness",
     "photosensitivity",
     "Low",
-    "Not established",
+    "Use caution with Asteraceae allergy history and during pregnancy unless clinically advised.",
     "Generally safe",
     "may cause skin irritation",
     "Headache"
@@ -83,7 +83,7 @@
   ],
   "traditionalUse": null,
   "slug": "achillea-millefolium",
-  "displayName": "nan",
+  "displayName": "achillea millefolium",
   "displayScientificName": "Achillea millefolium L.",
   "scientificNormalized": "achillea millefolium",
   "id": "achillea-millefolium",
@@ -92,5 +92,6 @@
   ],
   "slugAliases": [
     "nan"
-  ]
+  ],
+  "summary": "Achillea millefolium is used for digestive, inflammatory, and wound-related traditional indications with mixed modern evidence quality."
 }
