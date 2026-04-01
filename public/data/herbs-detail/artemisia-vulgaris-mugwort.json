@@ -3,47 +3,140 @@
   "latin": "artemisia vulgaris (mugwort)",
   "class": null,
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "Artemisia review literature discusses sesquiterpene and flavonoid pathways with anti-inflammatory and oxidative-stress modulation signals in preclinical models.",
   "activeCompounds": [],
   "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Preclinical and narrative review sources describe broad pharmacologic potential across Artemisia species.",
+    "Direct human efficacy evidence specific to Artemisia vulgaris remains limited in the current curated source set."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Avoid unsupervised use during pregnancy because uterotonic concern is repeatedly cited in traditional and safety discussions."
+  ],
   "safetyNotes": [
-    "caution",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Species-level and preparation-level variability can materially change safety profile and constituent exposure."
   ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in ritual, dreaming or folk medicine.",
+  "sources": [
+    {
+      "title": "src_pubmed-32758647",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32758647/"
+    }
+  ],
+  "lastUpdated": "2026-04-01",
+  "description": "Artemisia vulgaris (mugwort) is a traditional herb in Eurasian medicine with modern pharmacology discussions concentrated in broader Artemisia reviews.",
   "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
+    "No single modern therapeutic dosage standard was established in the promoted review source."
   ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [],
+  "interactions": [
+    "Potential additive effects with other CNS-active or uterine-stimulating herbs/medications are not well quantified."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "preparation": "Common preparations include tea infusions and dried aerial parts, but constituent concentration is preparation-dependent.",
+  "region": "Traditional use is documented across Europe and Asia, with later spread to North America.",
   "therapeuticUses": [],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "traditionalUse": "Traditional records describe digestive, menstrual, and ritual uses in multiple regions; these are traditional-use claims, not clinical proof.",
   "slug": "artemisia-vulgaris-mugwort",
   "id": "artemisia-vulgaris-mugwort",
   "displayName": "artemisia vulgaris (mugwort)",
   "displayScientificName": "artemisia vulgaris (mugwort)",
-  "scientificNormalized": "artemisia vulgaris mugwort"
+  "scientificNormalized": "artemisia vulgaris mugwort",
+  "summary": "For this slug, available promoted evidence is mainly mechanistic/traditional context from Artemisia review literature rather than direct clinical efficacy trials on mugwort.",
+  "researchEnrichment": {
+    "evidenceSummary": "Indexability remediation update for artemisia-vulgaris-mugwort using curated registry sources and claim-level provenance.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "preclinical-mechanistic",
+      "traditional-use"
+    ],
+    "supportedUses": [
+      {
+        "claim": "For this slug, available promoted evidence is mainly mechanistic/traditional context from Artemisia review literature rather than direct clinical efficacy trials on mugwort.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-32758647"
+        ]
+      }
+    ],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Evidence remains limited by study design heterogeneity and/or sparse direct human trials for this exact herb preparation.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-32758647"
+        ]
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Artemisia review literature discusses sesquiterpene and flavonoid pathways with anti-inflammatory and oxidative-stress modulation signals in preclinical models.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-32758647"
+        ],
+        "uncertaintyNote": "Mechanistic findings should not be interpreted as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Potential additive effects with other CNS-active or uterine-stimulating herbs/medications are not well quantified.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-32758647"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Avoid unsupervised use during pregnancy because uterotonic concern is repeatedly cited in traditional and safety discussions.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-32758647"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Species-level and preparation-level variability can materially change safety profile and constituent exposure.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-32758647"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No single modern therapeutic dosage standard was established in the promoted review source.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-32758647"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "High-quality, formulation-specific human trials and longer-term safety follow-up are still needed.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-32758647"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-32758647"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-32758647",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Indexability remediation batch-01 claim mapping."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }

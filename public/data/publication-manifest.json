@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T12:46:52.482Z",
+  "generatedAt": "2026-04-01T13:58:11.168Z",
   "thresholds": {
     "minDescriptionLength": 30,
     "minSources": 2,
@@ -59,7 +59,7 @@
         "name": "ipomoea tricolor",
         "kind": "herb",
         "title": "ipomoea tricolor | The Hippie Scientist",
-        "description": "Ipomoea tricolor (morning glory) is discussed for ergoline-associated chemistry linked to hallucinogenic potential; evidence is primarily preclinical/mecha",
+        "description": "Current promoted evidence for Ipomoea tricolor is mechanistic and ecological, not human clinical efficacy evidence.",
         "completenessScore": 13,
         "tier": "stub",
         "lastmod": "2026-04-01"
@@ -239,7 +239,7 @@
       "indexable": 18,
       "excluded": 681,
       "excludedByReason": {
-        "weakDescription": 644,
+        "weakDescription": 636,
         "placeholderText": 665,
         "insufficientEffects": 197,
         "invalidNameOrSlug": 28,

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T12:46:52.482Z",
+  "generatedAt": "2026-04-01T13:58:11.168Z",
   "thresholds": {
     "minDescriptionLength": 30,
     "minSources": 2,
@@ -12,7 +12,7 @@
     "indexable": 18,
     "excluded": 681,
     "excludedByReason": {
-      "weakDescription": 644,
+      "weakDescription": 636,
       "placeholderText": 665,
       "insufficientEffects": 197,
       "invalidNameOrSlug": 28,

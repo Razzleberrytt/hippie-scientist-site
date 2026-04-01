@@ -3,47 +3,140 @@
   "latin": "guayusa",
   "class": null,
   "intensity": "mild",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "Mechanism discussions focus on caffeine, theobromine, and polyphenol antioxidant pathways from leaf infusions.",
   "activeCompounds": [],
   "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Human-use narratives describe alertness effects consistent with methylxanthine content.",
+    "Direct controlled clinical efficacy data remain limited in the current source set."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "People sensitive to caffeine or with significant cardiovascular or sleep disorders should use caution."
+  ],
   "safetyNotes": [
-    "safe",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Critical reviews report a documented history of beverage use, but product standardization and caffeine load still determine risk."
   ],
-  "sources": [],
-  "lastUpdated": "2026-03-21",
-  "description": "Used in ritual, dreaming or folk medicine.",
+  "sources": [
+    {
+      "title": "src_pubmed-31366209",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31366209/"
+    }
+  ],
+  "lastUpdated": "2026-04-01",
+  "description": "Guayusa (Ilex guayusa) is an Amazonian caffeinated leaf beverage plant with published reviews on composition and safe-use history.",
   "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
+    "No universally accepted therapeutic dosing standard is available; caffeine-equivalent intake context is necessary."
   ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [],
+  "interactions": [
+    "Potential additive stimulant burden with other caffeine-containing products or sympathomimetic drugs."
+  ],
   "legalStatus": "legal",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "preparation": "Commonly prepared as a brewed leaf infusion rather than concentrated pharmaceutical extracts.",
+  "region": "Native use is concentrated in Ecuadorian and broader Amazonian regions.",
   "therapeuticUses": [],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "traditionalUse": "Traditional Amazonian communities use guayusa infusions in social and early-morning ritual contexts.",
   "slug": "guayusa",
   "id": "guayusa",
   "displayName": "guayusa",
   "displayScientificName": "guayusa",
-  "scientificNormalized": "guayusa"
+  "scientificNormalized": "guayusa",
+  "summary": "Available review evidence for guayusa is strongest for compositional characterization and historical safe-use context rather than modern controlled efficacy trials.",
+  "researchEnrichment": {
+    "evidenceSummary": "Indexability remediation update for guayusa using curated registry sources and claim-level provenance.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "preclinical-mechanistic",
+      "traditional-use"
+    ],
+    "supportedUses": [
+      {
+        "claim": "Available review evidence for guayusa is strongest for compositional characterization and historical safe-use context rather than modern controlled efficacy trials.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-31366209"
+        ]
+      }
+    ],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Evidence remains limited by study design heterogeneity and/or sparse direct human trials for this exact herb preparation.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-31366209"
+        ]
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Mechanism discussions focus on caffeine, theobromine, and polyphenol antioxidant pathways from leaf infusions.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-31366209"
+        ],
+        "uncertaintyNote": "Mechanistic findings should not be interpreted as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Potential additive stimulant burden with other caffeine-containing products or sympathomimetic drugs.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-31366209"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "People sensitive to caffeine or with significant cardiovascular or sleep disorders should use caution.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-31366209"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Critical reviews report a documented history of beverage use, but product standardization and caffeine load still determine risk.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-31366209"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No universally accepted therapeutic dosing standard is available; caffeine-equivalent intake context is necessary.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-31366209"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "High-quality, formulation-specific human trials and longer-term safety follow-up are still needed.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-31366209"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-31366209"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-31366209",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Indexability remediation batch-01 claim mapping."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }
