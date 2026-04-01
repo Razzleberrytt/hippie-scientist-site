@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-01T21:05:16.737Z",
-  "runId": "run_01KN5DMNXTEVE224WVTXGHGECZ",
+  "generatedAt": "2026-04-01T21:40:46.857Z",
+  "runId": "run_01KN5FK3NRDP1JQG9BCXJB9WRH",
   "queue": [
     {
       "herb": "alpinia galanga",
@@ -24,6 +24,26 @@
     },
     {
       "herb": "argemone mexicana",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 4,
+      "rejectedCount": 0,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 228,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 4,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 8
+      }
+    },
+    {
+      "herb": "bacopa",
       "missingFields": [
         "activeCompounds",
         "effects",
@@ -103,6 +123,126 @@
       }
     },
     {
+      "herb": "asian ginseng",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 3,
+      "rejectedCount": 1,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 201,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 3,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 6
+      }
+    },
+    {
+      "herb": "avena sativa",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 3,
+      "rejectedCount": 1,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 201,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 3,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 6
+      }
+    },
+    {
+      "herb": "ayahuasca",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 3,
+      "rejectedCount": 1,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 201,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 3,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 6
+      }
+    },
+    {
+      "herb": "belladonna",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 3,
+      "rejectedCount": 1,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 201,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 3,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 6
+      }
+    },
+    {
+      "herb": "betel nut",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 3,
+      "rejectedCount": 1,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 201,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 3,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 6
+      }
+    },
+    {
+      "herb": "boldo",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 3,
+      "rejectedCount": 1,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 201,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 3,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 6
+      }
+    },
+    {
       "herb": "amanita pantherina",
       "missingFields": [
         "activeCompounds",
@@ -163,6 +303,46 @@
       }
     },
     {
+      "herb": "baybean",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 2,
+      "rejectedCount": 2,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 174,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 2,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 4
+      }
+    },
+    {
+      "herb": "blue lotus (nymphaea caerulea)",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 2,
+      "rejectedCount": 2,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 174,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 2,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 4
+      }
+    },
+    {
       "herb": "argyreia speciosa",
       "missingFields": [
         "activeCompounds",
@@ -203,166 +383,6 @@
       }
     },
     {
-      "herb": "asian ginseng",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "avena sativa",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "ayahuasca",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "bacopa",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "baybean",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "belladonna",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "betel nut",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "blue lotus (nymphaea caerulea)",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
       "herb": "blue vervain",
       "missingFields": [
         "activeCompounds",
@@ -370,36 +390,16 @@
         "mechanism",
         "contraindications"
       ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
+      "lastRunStatus": "accepted",
+      "acceptedCount": 1,
+      "rejectedCount": 3,
       "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
+      "priorityScore": 147,
       "signals": {
         "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
+        "likelyRecoverableFields": 1,
         "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "boldo",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 132,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
+        "sourceAvailabilitySignal": 2
       }
     },
     {

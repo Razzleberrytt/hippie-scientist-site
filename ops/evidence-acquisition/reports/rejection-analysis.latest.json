@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-04-01T21:05:16.737Z",
-  "runId": "run_01KN5DMNXTEVE224WVTXGHGECZ",
-  "totalRejectedRows": 19,
+  "generatedAt": "2026-04-01T21:40:46.857Z",
+  "runId": "run_01KN5FK3NRDP1JQG9BCXJB9WRH",
+  "totalRejectedRows": 32,
   "rejectionCauses": [
     {
       "cause": "no_high_quality_source_found",
-      "count": 15
+      "count": 27
     },
     {
       "cause": "unknown",
-      "count": 3
+      "count": 4
     },
     {
       "cause": "other",
@@ -19,24 +19,28 @@
   "rejectionByField": {
     "activeCompounds": {
       "no_high_quality_source_found": 4,
-      "unknown": 3
+      "unknown": 4
     },
     "contraindications": {
-      "no_high_quality_source_found": 9
+      "no_high_quality_source_found": 11
     },
     "mechanism": {
-      "no_high_quality_source_found": 1
+      "no_high_quality_source_found": 7
     },
     "undefined": {
       "other": 1
     },
     "effects": {
-      "no_high_quality_source_found": 1
+      "no_high_quality_source_found": 5
     }
   },
   "mostRejectedHerbs": [
     {
       "herb": "american yellow lotus",
+      "rejectedCount": 3
+    },
+    {
+      "herb": "blue vervain",
       "rejectedCount": 3
     },
     {
@@ -57,6 +61,14 @@
     },
     {
       "herb": "argyreia speciosa",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "baybean",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "blue lotus (nymphaea caerulea)",
       "rejectedCount": 2
     },
     {
@@ -81,6 +93,30 @@
     },
     {
       "herb": "asclepias syriaca",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "asian ginseng",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "avena sativa",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "ayahuasca",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "belladonna",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "betel nut",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "boldo",
       "rejectedCount": 1
     }
   ]
