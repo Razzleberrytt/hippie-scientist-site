@@ -82,6 +82,12 @@ function domainQuality(url) {
     try { return new URL(url).hostname.toLowerCase(); } catch { return ''; }
   })();
   if (host.includes('pubmed.ncbi.nlm.nih.gov')) return { score: 1, label: 'primary_pubmed' };
+  if (host.includes('pubchem.ncbi.nlm.nih.gov')) return { score: 0.96, label: 'primary_pubchem' };
+  if (host.includes('chembl.ebi.ac.uk')) return { score: 0.95, label: 'primary_chembl' };
+  if (host.includes('kegg.jp')) return { score: 0.94, label: 'primary_kegg' };
+  if (host.includes('drugbank.com')) return { score: 0.93, label: 'primary_drugbank' };
+  if (host.includes('phytochem.nal.usda.gov')) return { score: 0.93, label: 'primary_usda_phytochem' };
+  if (host.includes('ebi.ac.uk')) return { score: 0.9, label: 'primary_ebi' };
   if (host.endsWith('.nih.gov')) return { score: 0.95, label: 'primary_nih' };
   if (host.endsWith('.gov') || host.endsWith('.edu')) return { score: 0.85, label: 'academic_or_gov' };
   if (host.includes('sciencedirect.com') || host.includes('springer.com') || host.includes('wiley.com')) return { score: 0.75, label: 'secondary_academic' };
@@ -94,12 +100,36 @@ function classifySourceTier(url) {
   })();
   if (
     host.includes('pubmed.ncbi.nlm.nih.gov')
+    || host.includes('pubchem.ncbi.nlm.nih.gov')
+    || host.includes('chembl.ebi.ac.uk')
+    || host.includes('ebi.ac.uk')
+    || host.includes('kegg.jp')
+    || host.includes('drugbank.com')
+    || host.includes('phytochem.nal.usda.gov')
     || host.includes('ncbi.nlm.nih.gov')
     || host.endsWith('.nih.gov')
     || host.includes('sciencedirect.com')
   ) return 'tier1';
   if (host.includes('wikipedia.org') || host.includes('examine.com')) return 'tier2';
   return 'tier3';
+}
+
+function sourceHost(url) {
+  try {
+    return new URL(url).hostname.toLowerCase();
+  } catch {
+    return 'unknown';
+  }
+}
+
+function isStructuredTier1Host(url) {
+  const host = sourceHost(url);
+  return host.includes('pubchem.ncbi.nlm.nih.gov')
+    || host.includes('chembl.ebi.ac.uk')
+    || host.includes('kegg.jp')
+    || host.includes('drugbank.com')
+    || host.includes('phytochem.nal.usda.gov')
+    || host.includes('ebi.ac.uk');
 }
 
 function pubmedSearch(term, retmax = 8) {
@@ -160,6 +190,34 @@ function pmcAbstract(pmcId) {
   url.searchParams.set('retmode', 'text');
   url.searchParams.set('id', String(pmcId));
   return runCurl(url.toString());
+}
+
+function pubchemAutocomplete(term, limit = 6) {
+  const url = new URL(`https://pubchem.ncbi.nlm.nih.gov/rest/autocomplete/compound/${encodeURIComponent(term)}/JSON`);
+  url.searchParams.set('limit', String(limit));
+  const json = JSON.parse(runCurl(url.toString()));
+  return json?.dictionary_terms?.compound ?? [];
+}
+
+function chemblMoleculeSearch(term, limit = 6) {
+  const url = new URL('https://www.ebi.ac.uk/chembl/api/data/molecule/search.json');
+  url.searchParams.set('q', term);
+  url.searchParams.set('limit', String(limit));
+  const json = JSON.parse(runCurl(url.toString()));
+  return json?.molecules ?? [];
+}
+
+function keggCompoundSearch(term, limit = 8) {
+  const response = runCurl(`https://rest.kegg.jp/find/compound/${encodeURIComponent(term)}`);
+  return response
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .slice(0, limit)
+    .map((line) => {
+      const [id, names] = line.split('\t');
+      return { id, names: names ?? '' };
+    });
 }
 
 function europePmcSearch(query, pageSize = 8) {
@@ -578,9 +636,60 @@ async function collectFieldEvidence(herb, targetField) {
         },
       },
     ];
+    if (targetField.schemaField === 'activeCompounds') {
+      providerPlans.push(
+        {
+          name: 'pubchem_structured',
+          fetch: () => {
+            const suggestions = pubchemAutocomplete(item.query, 8);
+            return suggestions.map((name) => ({
+              provider: 'pubchem_structured',
+              title: `${name} - PubChem compound entry`,
+              sourceUrl: `https://pubchem.ncbi.nlm.nih.gov/#query=${encodeURIComponent(name)}`,
+              pubmedId: null,
+              getAbstract: () => `PubChem structured compound listing includes ${name}`,
+            }));
+          },
+        },
+        {
+          name: 'chembl_structured',
+          fetch: () => {
+            const molecules = chemblMoleculeSearch(item.query, 8);
+            return molecules.map((entry) => {
+              const name = entry.pref_name || entry.molecule_chembl_id;
+              return {
+                provider: 'chembl_structured',
+                title: `${name} - ChEMBL molecule`,
+                sourceUrl: `https://chembl.ebi.ac.uk/chembl/api/data/molecule/${entry.molecule_chembl_id}`,
+                pubmedId: null,
+                getAbstract: () => `ChEMBL structured compound listing includes ${name}`,
+              };
+            });
+          },
+        },
+        {
+          name: 'kegg_structured',
+          fetch: () => {
+            const compounds = keggCompoundSearch(item.query, 8);
+            return compounds.map((entry) => ({
+              provider: 'kegg_structured',
+              title: `${entry.id} - KEGG compound`,
+              sourceUrl: `https://www.kegg.jp/entry/${entry.id.replace(/^cpd:/u, '')}`,
+              pubmedId: null,
+              getAbstract: () => `KEGG structured compound listing includes ${entry.names}`,
+            }));
+          },
+        },
+      );
+    }
 
     for (const provider of providerPlans) {
-      const providerCandidates = provider.fetch();
+      let providerCandidates = [];
+      try {
+        providerCandidates = provider.fetch();
+      } catch {
+        providerCandidates = [];
+      }
       queryStats.providersUsed.push(provider.name);
       queryStats.providerResults.push({ provider: provider.name, resultsFound: providerCandidates.length });
       candidates.push(...providerCandidates);
@@ -603,9 +712,12 @@ async function collectFieldEvidence(herb, targetField) {
     const corroboratedCompounds = new Set();
 
     for (const tier of tiersToTry) {
-      const tierCandidates = tieredCandidates[tier];
+      const tierCandidates = [...tieredCandidates[tier]];
       if (tierCandidates.length === 0) continue;
       queryStats.attemptedTiers.push(tier);
+      if (targetField.schemaField === 'activeCompounds' && tier === 'tier1') {
+        tierCandidates.sort((a, b) => Number(isStructuredTier1Host(b.sourceUrl)) - Number(isStructuredTier1Host(a.sourceUrl)));
+      }
       for (const candidate of tierCandidates) {
         if (!titleMatchesHerb(candidate.title, herb)) continue;
         const quality = domainQuality(candidate.sourceUrl);
@@ -888,6 +1000,11 @@ async function main() {
           }];
         }),
       ),
+      acceptedSourceContributions: accepted.reduce((acc, row) => {
+        const host = sourceHost(row?.source?.url ?? '');
+        acc[host] = (acc[host] ?? 0) + 1;
+        return acc;
+      }, {}),
     },
   };
 
