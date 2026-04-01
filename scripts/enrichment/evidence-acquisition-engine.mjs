@@ -468,6 +468,18 @@ function titleMatchesHerb(title, herb) {
   })();
 }
 
+function structuredCompoundLinksToHerb(compoundValues, herb) {
+  const tokens = buildHerbAliases(herb)
+    .flatMap((alias) => alias.toLowerCase().split(/[^a-z0-9]+/u))
+    .filter((token) => token.length >= 5);
+  if (tokens.length === 0) return false;
+  const uniqueTokens = [...new Set(tokens)];
+  return compoundValues.some((value) => {
+    const normalized = String(value).toLowerCase();
+    return uniqueTokens.some((token) => normalized.includes(token));
+  });
+}
+
 function confidenceFromSource({ qualityScore, evidenceText, schemaField }) {
   const lower = evidenceText.toLowerCase();
   const directSignal = FIELD_TERMS[schemaField].some((term) => lower.includes(term));
@@ -547,6 +559,14 @@ function buildQueryPlan(herb, targetField) {
 
   return {
     aliases,
+    structuredTerms: [...new Set([
+      scientificName,
+      displayName,
+      scientificName.split(/\s+/u).slice(0, 2).join(' '),
+      scientificName.split(/\s+/u)[0],
+      displayName.split(/\s+/u).slice(0, 2).join(' '),
+      ...aliases.slice(0, 3),
+    ].map((value) => compactTerm(value)).filter((value) => value.length >= 3))],
     queries: [...new Set([...focused, ...aliasQueries, ...broadFallback].map((q) => compactTerm(q)).filter(Boolean))].map((q) => ({
       query: q,
       stage: focused.includes(q) ? 'focused' : aliasQueries.includes(q) ? 'alias' : 'fallback',
@@ -641,12 +661,14 @@ async function collectFieldEvidence(herb, targetField) {
         {
           name: 'pubchem_structured',
           fetch: () => {
-            const suggestions = pubchemAutocomplete(item.query, 8);
+            const term = plan.structuredTerms[0] || item.query;
+            const suggestions = pubchemAutocomplete(term, 8);
             return suggestions.map((name) => ({
               provider: 'pubchem_structured',
               title: `${name} - PubChem compound entry`,
               sourceUrl: `https://pubchem.ncbi.nlm.nih.gov/#query=${encodeURIComponent(name)}`,
               pubmedId: null,
+              structuredCompounds: [name],
               getAbstract: () => `PubChem structured compound listing includes ${name}`,
             }));
           },
@@ -654,7 +676,8 @@ async function collectFieldEvidence(herb, targetField) {
         {
           name: 'chembl_structured',
           fetch: () => {
-            const molecules = chemblMoleculeSearch(item.query, 8);
+            const term = plan.structuredTerms[0] || item.query;
+            const molecules = chemblMoleculeSearch(term, 8);
             return molecules.map((entry) => {
               const name = entry.pref_name || entry.molecule_chembl_id;
               return {
@@ -662,6 +685,7 @@ async function collectFieldEvidence(herb, targetField) {
                 title: `${name} - ChEMBL molecule`,
                 sourceUrl: `https://chembl.ebi.ac.uk/chembl/api/data/molecule/${entry.molecule_chembl_id}`,
                 pubmedId: null,
+                structuredCompounds: [name],
                 getAbstract: () => `ChEMBL structured compound listing includes ${name}`,
               };
             });
@@ -670,12 +694,27 @@ async function collectFieldEvidence(herb, targetField) {
         {
           name: 'kegg_structured',
           fetch: () => {
-            const compounds = keggCompoundSearch(item.query, 8);
-            return compounds.map((entry) => ({
+            const terms = plan.structuredTerms.slice(0, 3);
+            const compounds = [];
+            for (const term of terms) compounds.push(...keggCompoundSearch(term, 4));
+            const dedup = [];
+            const seen = new Set();
+            for (const entry of compounds) {
+              const key = `${entry.id}:${entry.names}`.toLowerCase();
+              if (seen.has(key)) continue;
+              seen.add(key);
+              dedup.push(entry);
+            }
+            return dedup.slice(0, 8).map((entry) => ({
               provider: 'kegg_structured',
               title: `${entry.id} - KEGG compound`,
               sourceUrl: `https://www.kegg.jp/entry/${entry.id.replace(/^cpd:/u, '')}`,
               pubmedId: null,
+              structuredCompounds: String(entry.names)
+                .split(/\s*;\s*/u)
+                .map((value) => normalizeWhitespace(value))
+                .filter(Boolean)
+                .slice(0, 3),
               getAbstract: () => `KEGG structured compound listing includes ${entry.names}`,
             }));
           },
@@ -716,29 +755,40 @@ async function collectFieldEvidence(herb, targetField) {
       if (tierCandidates.length === 0) continue;
       queryStats.attemptedTiers.push(tier);
       if (targetField.schemaField === 'activeCompounds' && tier === 'tier1') {
-        tierCandidates.sort((a, b) => Number(isStructuredTier1Host(b.sourceUrl)) - Number(isStructuredTier1Host(a.sourceUrl)));
+        tierCandidates.sort((a, b) => Number(isStructuredTier1Host(a.sourceUrl)) - Number(isStructuredTier1Host(b.sourceUrl)));
       }
       for (const candidate of tierCandidates) {
-        if (!titleMatchesHerb(candidate.title, herb)) continue;
+        const hasStructuredCompounds = targetField.schemaField === 'activeCompounds' && Array.isArray(candidate.structuredCompounds) && candidate.structuredCompounds.length > 0;
+        if (!hasStructuredCompounds && !titleMatchesHerb(candidate.title, herb)) continue;
         const quality = domainQuality(candidate.sourceUrl);
         const qualityThreshold = tier === 'tier1' ? 0.7 : (tier === 'tier2' ? 0.5 : 0.4);
         if (quality.score < qualityThreshold) continue;
         queryStats.highQualitySources += 1;
         stats.highQualitySources += 1;
-        const abstractText = candidate.getAbstract();
-        if (!abstractText) continue;
-        const extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, candidate.title);
-        if (extracted.phrases.length === 0) {
-          queryStats.lastFailure = {
-            stage: 'extract',
-            reason: 'no_atomic_field_mapped_phrases',
-            rawText: normalizeWhitespace(abstractText).slice(0, 400),
-            extractionDebug: extracted.debug,
+        let evidence = '';
+        let extracted = { phrases: [], debug: { pass: 'none', considered: 0, rejected: [] } };
+        if (hasStructuredCompounds) {
+          const structuredText = candidate.structuredCompounds.join('; ');
+          evidence = `Structured compound fields: ${structuredText}`;
+          extracted = {
+            phrases: candidate.structuredCompounds.map((value) => `contains ${value}`),
+            debug: { pass: 'structured_fields', considered: candidate.structuredCompounds.length, rejected: [] },
           };
-          continue;
+        } else {
+          const abstractText = candidate.getAbstract();
+          if (!abstractText) continue;
+          extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, candidate.title);
+          if (extracted.phrases.length === 0) {
+            queryStats.lastFailure = {
+              stage: 'extract',
+              reason: 'no_atomic_field_mapped_phrases',
+              rawText: normalizeWhitespace(abstractText).slice(0, 400),
+              extractionDebug: extracted.debug,
+            };
+            continue;
+          }
+          evidence = extracted.phrases.join(' ');
         }
-
-        const evidence = extracted.phrases.join(' ');
         const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
         if (!normalization.ok) {
           queryStats.lastFailure = {
@@ -747,6 +797,25 @@ async function collectFieldEvidence(herb, targetField) {
             rawText: evidence,
           };
           continue;
+        }
+        if (
+          hasStructuredCompounds
+          && targetField.schemaField === 'activeCompounds'
+          && (tier === 'tier1' || tier === 'tier2')
+        ) {
+          const values = Array.isArray(normalization.after) ? normalization.after : [];
+          const corroborated = values.filter((value) => corroboratedCompounds.has(String(value).toLowerCase()));
+          const herbLinked = values.filter((value) => structuredCompoundLinksToHerb([value], herb));
+          const allowed = [...new Set([...corroborated, ...herbLinked])];
+          if (allowed.length === 0) {
+            queryStats.lastFailure = {
+              stage: 'tier-policy',
+              reason: 'structured_active_compounds_not_corroborated',
+              rawText: evidence,
+            };
+            continue;
+          }
+          normalization.after = allowed;
         }
 
         if (
@@ -969,6 +1038,34 @@ async function main() {
       note: 'Patches are emitted in ops/evidence-acquisition and can be promoted to patches/ after human review.',
     },
     retrievalSummary: {
+      providerMetrics: (() => {
+        const metrics = {};
+        const allRows = [...accepted, ...rejected];
+        for (const row of allRows) {
+          for (const attempt of row?.retrieval?.queryAttempts ?? []) {
+            for (const provider of attempt.providersUsed ?? []) {
+              metrics[provider] = metrics[provider] ?? { queried: 0, candidates: 0, accepted: 0, acceptanceRate: 0 };
+              metrics[provider].queried += 1;
+            }
+            for (const providerResult of attempt.providerResults ?? []) {
+              metrics[providerResult.provider] = metrics[providerResult.provider] ?? { queried: 0, candidates: 0, accepted: 0, acceptanceRate: 0 };
+              metrics[providerResult.provider].candidates += providerResult.resultsFound ?? 0;
+            }
+          }
+        }
+        for (const row of accepted) {
+          const provider = row?.source?.provider;
+          if (!provider) continue;
+          metrics[provider] = metrics[provider] ?? { queried: 0, candidates: 0, accepted: 0, acceptanceRate: 0 };
+          metrics[provider].accepted += 1;
+        }
+        for (const metric of Object.values(metrics)) {
+          metric.acceptanceRate = metric.candidates > 0
+            ? Number(((metric.accepted / metric.candidates) * 100).toFixed(2))
+            : 0;
+        }
+        return Object.fromEntries(Object.entries(metrics).sort((a, b) => b[1].accepted - a[1].accepted || a[0].localeCompare(b[0])));
+      })(),
       acceptedTierCounts: accepted.reduce((acc, row) => {
         const tier = row?.source?.tier ?? 'unclassified';
         acc[tier] = (acc[tier] ?? 0) + 1;
@@ -1018,6 +1115,7 @@ async function main() {
 
   console.log(`[evidence-acquisition] run=${runId} herbs=${report.selectedHerbs.length} extracted=${records.length} accepted=${accepted.length} rejected=${rejected.length} patches=${patches.length}`);
   console.log(`[evidence-acquisition] accepted-tier-counts=${JSON.stringify(report.retrievalSummary.acceptedTierCounts)}`);
+  console.log(`[evidence-acquisition] provider-metrics=${JSON.stringify(report.retrievalSummary.providerMetrics)}`);
   console.log(`[evidence-acquisition] report=${options.outDir}/${runId}.json`);
 }
 

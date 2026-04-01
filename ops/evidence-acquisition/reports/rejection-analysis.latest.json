@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-04-01T21:54:41.279Z",
-  "runId": "run_01KN5GN422BKASQJJZTKFW4DDW",
-  "totalRejectedRows": 32,
+  "generatedAt": "2026-04-01T23:16:40.874Z",
+  "runId": "run_01KN5N2XMPZBSX3V9V8RKB8Z5Y",
+  "totalRejectedRows": 45,
   "rejectionCauses": [
     {
       "cause": "no_high_quality_source_found",
-      "count": 27
+      "count": 33
     },
     {
       "cause": "unknown",
-      "count": 4
+      "count": 11
     },
     {
       "cause": "other",
@@ -18,8 +18,8 @@
   ],
   "rejectionByField": {
     "activeCompounds": {
-      "no_high_quality_source_found": 4,
-      "unknown": 4
+      "no_high_quality_source_found": 10,
+      "unknown": 11
     },
     "contraindications": {
       "no_high_quality_source_found": 11
@@ -36,6 +36,18 @@
   },
   "mostRejectedHerbs": [
     {
+      "herb": "alectra sessiliflora",
+      "rejectedCount": 4
+    },
+    {
+      "herb": "aletris farinosa",
+      "rejectedCount": 4
+    },
+    {
+      "herb": "adenium obesum",
+      "rejectedCount": 3
+    },
+    {
       "herb": "american yellow lotus",
       "rejectedCount": 3
     },
@@ -45,6 +57,10 @@
     },
     {
       "herb": "aconitum-ferox",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "alyxia stellata",
       "rejectedCount": 2
     },
     {
