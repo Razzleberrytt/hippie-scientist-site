@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
 import NonEmpty from './NonEmpty'
-import { normalizeHref } from '../lib/routing'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
 
 const exploreLinks = [
@@ -44,9 +44,9 @@ export default function Footer() {
                 <ul className='text-white/78 space-y-2 text-sm'>
                   {exploreLinks.map(link => (
                     <li key={link.href}>
-                      <a className='transition hover:text-white' href={normalizeHref(link.href)}>
+                      <Link className='transition hover:text-white' to={link.href}>
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -62,9 +62,9 @@ export default function Footer() {
                 <ul className='text-white/78 space-y-2 text-sm'>
                   {availableLegalLinks.map(link => (
                     <li key={link.href}>
-                      <a className='transition hover:text-white' href={normalizeHref(link.href)}>
+                      <Link className='transition hover:text-white' to={link.href}>
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                   <li>
