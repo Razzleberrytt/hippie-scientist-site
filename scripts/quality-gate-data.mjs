@@ -4,7 +4,7 @@ import path from 'node:path'
 const ROOT = process.cwd()
 
 const QUALITY_THRESHOLDS = {
-  minDescriptionLength: 80,
+  minDescriptionLength: 30,
   minSources: 2,
   minEffects: 1,
   minCompletenessScore: 0.4,
@@ -94,7 +94,10 @@ function hasPlaceholderText(record) {
 }
 
 function hasNanArtifacts(record) {
-  return NAN_PATTERN.test(collectTextFields(record))
+  const nameField = asText(record?.name)
+  if (!nameField) return true
+  if (INVALID_NAME_PATTERN.test(nameField)) return true
+  return NAN_PATTERN.test(nameField)
 }
 
 function hasUsableDescription(record) {

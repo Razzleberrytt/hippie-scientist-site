@@ -22,6 +22,17 @@
     "lastmod": "2026-04-01"
   },
   {
+    "slug": "tylophora-indica",
+    "route": "/herbs/tylophora-indica",
+    "name": "tylophora indica",
+    "kind": "herb",
+    "title": "tylophora indica | The Hippie Scientist",
+    "description": "an ayurvedic herb used for bronchial conditions, immune regulation, and allergic responses. known as indian ipecac for its traditional role in treating ast",
+    "completenessScore": 14,
+    "tier": "stub",
+    "lastmod": "2026-04-01"
+  },
+  {
     "slug": "alectra-sessiliflora",
     "route": "/herbs/alectra-sessiliflora",
     "name": "alectra sessiliflora",
@@ -121,12 +132,45 @@
     "lastmod": "2026-04-01"
   },
   {
+    "slug": "sceletium-tortuosum-kanna",
+    "route": "/herbs/sceletium-tortuosum-kanna",
+    "name": "sceletium tortuosum (kanna)",
+    "kind": "herb",
+    "title": "sceletium tortuosum (kanna) | The Hippie Scientist",
+    "description": "south african succulent chewed to elevate mood and decrease tension.",
+    "completenessScore": 11,
+    "tier": "stub",
+    "lastmod": "2026-04-01"
+  },
+  {
     "slug": "delosperma-cooperi",
     "route": "/herbs/delosperma-cooperi",
     "name": "delosperma cooperi",
     "kind": "herb",
     "title": "delosperma cooperi | The Hippie Scientist",
     "description": "Succulent used as groundcover; mild traditional use.",
+    "completenessScore": 10,
+    "tier": "stub",
+    "lastmod": "2026-04-01"
+  },
+  {
+    "slug": "kra-thum-na-kok",
+    "route": "/herbs/kra-thum-na-kok",
+    "name": "kra thum na / kok",
+    "kind": "herb",
+    "title": "kra thum na / kok | The Hippie Scientist",
+    "description": "southeast asian tree related to kratom with stimulating leaves.",
+    "completenessScore": 10,
+    "tier": "stub",
+    "lastmod": "2026-04-01"
+  },
+  {
+    "slug": "pedicularis-densiflora-indian-warrior",
+    "route": "/herbs/pedicularis-densiflora-indian-warrior",
+    "name": "pedicularis densiflora (indian warrior)",
+    "kind": "herb",
+    "title": "pedicularis densiflora (indian warrior) | The Hippie Scientist",
+    "description": "north american wildflower smoked for muscle relaxation.",
     "completenessScore": 10,
     "tier": "stub",
     "lastmod": "2026-04-01"
