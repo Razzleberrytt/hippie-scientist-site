@@ -1,10 +1,10 @@
 import React from 'react'
 import { motion } from '@/lib/motion'
-import PanelWrapper from '../components/PanelWrapper'
-import LearnTabs, { type LearnSection } from '../components/LearnTabs'
-import StarfieldBackground from '../components/StarfieldBackground'
-import FloatingParticles from '../components/FloatingParticles'
-import Meta from '../components/Meta'
+import PanelWrapper from '../../components/PanelWrapper'
+import LearnTabs, { type LearnSection } from '../../components/LearnTabs'
+import StarfieldBackground from '../../components/StarfieldBackground'
+import FloatingParticles from '../../components/FloatingParticles'
+import Meta from '../../components/Meta'
 import { LearningPanelSkeleton } from '@/components/skeletons/DetailSkeletons'
 
 export default function Learn() {
@@ -12,7 +12,7 @@ export default function Learn() {
 
   React.useEffect(() => {
     let alive = true
-    import('../data/learnContent.enrichedXL')
+    import('../../data/learnContent.enrichedXL')
       .then(module => {
         if (!alive) return
         setSections(module.learnSections as LearnSection[])
