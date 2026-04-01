@@ -164,7 +164,8 @@
     "report:indexability-evidence-gaps": "node scripts/report-indexability-evidence-gaps.mjs",
     "report:indexability-rescue": "node scripts/report-indexability-rescue-wave.mjs",
     "workflow:indexability-rescue": "npm run report:indexability-rescue && npm run enrichment:validate:dry",
-    "enrichment:evidence": "node scripts/enrichment/run-evidence-pipeline.mjs"
+    "enrichment:evidence": "node scripts/enrichment/run-evidence-pipeline.mjs",
+    "enrichment:evidence:acquire": "node scripts/enrichment/evidence-acquisition-engine.mjs"
   },
   "engines": {
     "node": ">=20 <21"
