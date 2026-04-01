@@ -12,7 +12,7 @@ const TARGET_FIELDS = [
 ];
 
 const FIELD_TERMS = {
-  activeCompounds: ['constituent', 'compound', 'alkaloid', 'flavonoid', 'terpene', 'contains'],
+  activeCompounds: ['constituent', 'constituents', 'compound', 'compounds', 'alkaloid', 'alkaloids', 'flavonoid', 'flavonoids', 'terpene', 'terpenes', 'glycoside', 'glycosides', 'phytochemical', 'contains'],
   effects: ['effect', 'anti', 'activity', 'pharmacological', 'bioactivity', 'clinical'],
   mechanism: ['mechanism', 'pathway', 'receptor', 'enzyme', 'signal', 'modulate', 'inhibit', 'activate'],
   contraindications: ['contraindication', 'adverse', 'toxicity', 'pregnan', 'interaction', 'risk', 'warning'],
@@ -20,7 +20,7 @@ const FIELD_TERMS = {
 };
 
 const FIELD_CUES = {
-  activeCompounds: ['contains', 'identified', 'phytochemical', 'constituent', 'including', 'rich in'],
+  activeCompounds: ['contains', 'identified', 'phytochemical', 'constituent', 'including', 'rich in', 'isolated', 'phytoconstituent'],
   effects: ['shown to', 'demonstrated', 'activity', 'effect', 'improved', 'reduced', 'modulated'],
   mechanism: ['mechanism', 'inhibit', 'activate', 'modulate', 'receptor', 'pathway', 'enzyme'],
   contraindications: ['contraindicated', 'may cause', 'adverse', 'toxicity', 'risk', 'warning', 'interaction'],
@@ -113,6 +113,27 @@ function pubmedSearch(term, retmax = 8) {
   return json?.esearchresult?.idlist ?? [];
 }
 
+function pmcSearch(term, retmax = 8) {
+  const url = new URL('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi');
+  url.searchParams.set('db', 'pmc');
+  url.searchParams.set('retmode', 'json');
+  url.searchParams.set('sort', 'relevance');
+  url.searchParams.set('retmax', String(retmax));
+  url.searchParams.set('term', term);
+  const json = JSON.parse(runCurl(url.toString()));
+  return json?.esearchresult?.idlist ?? [];
+}
+
+function pmcSummaries(ids) {
+  if (ids.length === 0) return [];
+  const url = new URL('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi');
+  url.searchParams.set('db', 'pmc');
+  url.searchParams.set('retmode', 'json');
+  url.searchParams.set('id', ids.join(','));
+  const json = JSON.parse(runCurl(url.toString()));
+  return ids.map((id) => ({ id, ...(json?.result?.[id] ?? {}) })).filter((entry) => entry?.title);
+}
+
 function pubmedSummaries(ids) {
   if (ids.length === 0) return [];
   const url = new URL('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi');
@@ -129,6 +150,15 @@ function pubmedAbstract(pmid) {
   url.searchParams.set('rettype', 'abstract');
   url.searchParams.set('retmode', 'text');
   url.searchParams.set('id', String(pmid));
+  return runCurl(url.toString());
+}
+
+function pmcAbstract(pmcId) {
+  const url = new URL('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi');
+  url.searchParams.set('db', 'pmc');
+  url.searchParams.set('rettype', 'abstract');
+  url.searchParams.set('retmode', 'text');
+  url.searchParams.set('id', String(pmcId));
   return runCurl(url.toString());
 }
 
@@ -353,13 +383,31 @@ function normalizeFieldValue(schemaField, evidenceText, herb) {
 }
 
 function titleMatchesHerb(title, herb) {
-  const aliasText = buildHerbAliases(herb).join(' ').toLowerCase();
-  const haystack = `${String(title ?? '').toLowerCase()} ${aliasText}`;
-  const tokens = aliasText
-    .split(/[^a-z0-9]+/u)
-    .filter((token) => token.length > 3);
-  const hits = tokens.filter((token) => haystack.includes(token));
-  return hits.length >= Math.min(2, Math.max(1, tokens.length));
+  const normalizedTitle = String(title ?? '').toLowerCase();
+  const aliases = buildHerbAliases(herb)
+    .map((alias) => alias.toLowerCase())
+    .filter(Boolean);
+  if (aliases.length === 0) return false;
+  if (aliases.some((alias) => new RegExp(`\\b${alias.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&')}\\b`, 'u').test(normalizedTitle))) {
+    return true;
+  }
+  return aliases.some((alias) => {
+    const tokens = alias.split(/[^a-z0-9]+/u).filter((token) => token.length >= 4);
+    if (tokens.length < 2) return false;
+    return tokens.every((token) => new RegExp(`\\b${token.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&')}\\b`, 'u').test(normalizedTitle));
+  }) || (() => {
+    const scientific = compactTerm(herb.displayScientificName || herb.scientificNormalized || herb.latin || '');
+    const genus = scientific.split(/\s+/u)[0]?.toLowerCase();
+    if (!genus || genus.length < 4) return false;
+    const hasGenus = new RegExp(`\\b${genus.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&')}\\b`, 'u').test(normalizedTitle);
+    const hasCompoundContext = /\b(phytochem|constituent|alkaloid|flavonoid|terpene|glycoside|compound)\b/u.test(normalizedTitle);
+    return hasGenus && hasCompoundContext;
+  })() || (() => {
+    const distinctiveTokens = aliases
+      .flatMap((alias) => alias.split(/[^a-z0-9]+/u))
+      .filter((token) => token.length >= 7);
+    return distinctiveTokens.some((token) => new RegExp(`\\b${token.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&')}\\b`, 'u').test(normalizedTitle));
+  })();
 }
 
 function confidenceFromSource({ qualityScore, evidenceText, schemaField }) {
@@ -374,6 +422,14 @@ function confidenceFromSource({ qualityScore, evidenceText, schemaField }) {
 }
 
 function buildHerbAliases(herb) {
+  const aliasVariants = [];
+  const pushVariant = (value) => {
+    const normalized = normalizeWhitespace(value);
+    if (!normalized) return;
+    aliasVariants.push(normalized);
+    aliasVariants.push(normalized.replace(/[’']/gu, ''));
+    aliasVariants.push(normalized.replace(/[-–]/gu, ' '));
+  };
   const aliases = [
     herb.displayName,
     herb.name,
@@ -382,9 +438,9 @@ function buildHerbAliases(herb) {
     herb.scientificNormalized,
     ...(Array.isArray(herb.aliases) ? herb.aliases : []),
   ]
-    .map((value) => normalizeWhitespace(value))
-    .filter((value) => value && value.toLowerCase() !== 'nan');
-  return [...new Set(aliases)];
+    .filter((value) => normalizeWhitespace(value) && normalizeWhitespace(value).toLowerCase() !== 'nan');
+  aliases.forEach((alias) => pushVariant(alias));
+  return [...new Set(aliasVariants.map((value) => normalizeWhitespace(value)).filter(Boolean))];
 }
 
 function compactTerm(value) {
@@ -393,19 +449,37 @@ function compactTerm(value) {
 
 function buildQueryPlan(herb, targetField) {
   const aliases = buildHerbAliases(herb);
-  const primaryName = aliases[0] || herb.slug;
+  const scientificName = compactTerm(herb.displayScientificName || herb.scientificNormalized || herb.latin || aliases[0] || herb.slug);
+  const displayName = compactTerm(herb.displayName || herb.name || aliases[0] || herb.slug);
+  const primaryName = scientificName || displayName || herb.slug;
   const compoundHints = [
     ...(Array.isArray(herb.activeCompounds) ? herb.activeCompounds.slice(0, 3) : []),
   ].map((value) => compactTerm(value)).filter(Boolean);
+  const combinedName = [displayName, scientificName].filter(Boolean).join(' ');
+  const phytochemTopics = ['phytochemistry', '"active compounds"', 'constituents', 'phytochemical profile'];
+  const compoundFamilies = ['alkaloids', 'flavonoids', 'terpenes', 'glycosides'];
+  const activeCompoundQueries = [
+    `${scientificName} active compounds phytochemistry`,
+    `${scientificName} phytochemistry`,
+    `${scientificName} active compounds`,
+    `${scientificName} constituents`,
+    ...compoundFamilies.map((family) => `${scientificName} ${family}`),
+    `${combinedName} active compounds`,
+    `${combinedName} phytochemical analysis`,
+    `${primaryName} phytochemical isolation review`,
+    `${primaryName} constituent analysis review`,
+  ];
   const fieldQueries = {
-    activeCompounds: `${primaryName} ${compoundHints.join(' ')} active compounds phytochemistry`,
+    activeCompounds: `${primaryName} ${compoundHints.join(' ')} ${phytochemTopics.join(' ')} isolation review constituent analysis`,
     effects: `${primaryName} pharmacology pharmacological effects`,
     mechanism: `${primaryName} pharmacology mechanism receptor pathway`,
     contraindications: `${primaryName} contraindications adverse effects interaction toxicity`,
     traditionalUse: `${primaryName} traditional use ethnobotanical`,
   };
 
-  const focused = [fieldQueries[targetField.schemaField] ?? `${primaryName} ${targetField.requestField}`];
+  const focused = targetField.schemaField === 'activeCompounds'
+    ? [...activeCompoundQueries, fieldQueries[targetField.schemaField]]
+    : [fieldQueries[targetField.schemaField] ?? `${primaryName} ${targetField.requestField}`];
   const aliasQueries = aliases.slice(1, 4).map((alias) => `${alias} ${targetField.requestField}`);
   const broadFallback = [
     `${primaryName} medicinal plant review`,
@@ -443,45 +517,75 @@ async function collectFieldEvidence(herb, targetField) {
     const queryStats = {
       query: item.query,
       stage: item.stage,
+      providersUsed: [],
+      providerResults: [],
       sourcesFound: 0,
       highQualitySources: 0,
+      acceptedCompoundsProduced: 0,
       accepted: false,
-      providers: [],
       candidateCountByTier: { tier1: 0, tier2: 0, tier3: 0 },
       attemptedTiers: [],
     };
-    const pubmedIds = pubmedSearch(item.query, 8);
-    const summaries = pubmedSummaries(pubmedIds);
-    const europeRows = europePmcSearch(item.query, 8);
     const candidates = [];
+    const providerPlans = [
+      {
+        name: 'pubmed',
+        fetch: () => {
+          const ids = pubmedSearch(item.query, 8);
+          const summaries = pubmedSummaries(ids);
+          return summaries.map((summary) => ({
+            provider: 'pubmed',
+            title: summary.title,
+            sourceUrl: `https://pubmed.ncbi.nlm.nih.gov/${summary.uid || summary.id}/`,
+            pubmedId: String(summary.uid || summary.id),
+            getAbstract: () => pubmedAbstract(summary.uid || summary.id),
+          }));
+        },
+      },
+      {
+        name: 'europe_pmc',
+        fetch: () => {
+          const europeRows = europePmcSearch(item.query, 8);
+          return europeRows.map((row) => {
+            const id = row.pmid || row.id;
+            const sourceUrl =
+              row?.fullTextUrlList?.fullTextUrl?.[0]?.url
+              || (row.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${row.pmid}/` : null)
+              || (row.doi ? `https://doi.org/${row.doi}` : null)
+              || `https://europepmc.org/article/${row.source || 'MED'}/${id}`;
+            return {
+              provider: 'europe_pmc',
+              title: row.title,
+              sourceUrl,
+              pubmedId: row.pmid ? String(row.pmid) : null,
+              getAbstract: () => String(row.abstractText || ''),
+            };
+          });
+        },
+      },
+      {
+        name: 'nih_ncbi_pmc',
+        fetch: () => {
+          const ids = pmcSearch(item.query, 8);
+          const summaries = pmcSummaries(ids);
+          return summaries.map((summary) => ({
+            provider: 'nih_ncbi_pmc',
+            title: summary.title,
+            sourceUrl: `https://www.ncbi.nlm.nih.gov/pmc/articles/${summary.articleids?.find((item) => item.idtype === 'pmcid')?.value || summary.uid || summary.id}/`,
+            pubmedId: summary.articleids?.find((entry) => entry.idtype === 'pmid')?.value || null,
+            getAbstract: () => pmcAbstract(summary.uid || summary.id),
+          }));
+        },
+      },
+    ];
 
-    for (const summary of summaries) {
-      candidates.push({
-        provider: 'pubmed',
-        title: summary.title,
-        sourceUrl: `https://pubmed.ncbi.nlm.nih.gov/${summary.uid || summary.id}/`,
-        pubmedId: String(summary.uid || summary.id),
-        getAbstract: () => pubmedAbstract(summary.uid || summary.id),
-      });
+    for (const provider of providerPlans) {
+      const providerCandidates = provider.fetch();
+      queryStats.providersUsed.push(provider.name);
+      queryStats.providerResults.push({ provider: provider.name, resultsFound: providerCandidates.length });
+      candidates.push(...providerCandidates);
     }
 
-    for (const row of europeRows) {
-      const id = row.pmid || row.id;
-      const sourceUrl =
-        row?.fullTextUrlList?.fullTextUrl?.[0]?.url
-        || (row.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${row.pmid}/` : null)
-        || (row.doi ? `https://doi.org/${row.doi}` : null)
-        || `https://europepmc.org/article/${row.source || 'MED'}/${id}`;
-      candidates.push({
-        provider: 'europe_pmc',
-        title: row.title,
-        sourceUrl,
-        pubmedId: row.pmid ? String(row.pmid) : null,
-        getAbstract: () => String(row.abstractText || ''),
-      });
-    }
-
-    queryStats.providers = ['pubmed', 'europe_pmc'];
     queryStats.sourcesFound = candidates.length;
     stats.sourcesFound += candidates.length;
     const tieredCandidates = { tier1: [], tier2: [], tier3: [] };
@@ -581,6 +685,9 @@ async function collectFieldEvidence(herb, targetField) {
           retrieval: stats,
         };
         queryStats.accepted = true;
+        queryStats.acceptedCompoundsProduced = targetField.schemaField === 'activeCompounds' && Array.isArray(normalization.after)
+          ? normalization.after.length
+          : 0;
         stats.acceptedByTier[tier] += 1;
         stats.acceptedSource = { query: item.query, provider: candidate.provider, url: candidate.sourceUrl };
         stats.queryAttempts.push(queryStats);
