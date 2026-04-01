@@ -1,62 +1,63 @@
 # Source Wave: Indexability Targets
 
-Generated at: 2026-04-01T12:35:45Z
+Generated at: 2026-04-01T18:10:00Z
 Targets selected: 60 (herbs=30, compounds=30)
-Candidate sources prepared: 15
+Candidate sources prepared: 18
 
 ## Selection focus
-- Highest-value blocked entities by recommended priority from the indexability evidence gap audit.
-- Preference for entities estimated to unblock with a small number of promotable sources.
-- Preference for safety/mechanism/usable narrative blockers over cosmetic fields.
+- Strict top-30 blocked herbs and top-30 blocked compounds by audit priority score.
+- Tie-breakers favored lower estimated source count and stronger existing source-signal momentum.
+- Priority emphasis on safety, mechanism, and usable narrative gaps over cosmetic fields.
 
-## Candidate coverage notes
-- Candidate set includes only PubMed-indexed authority-grade records with PMID and canonical URL anchors.
-- Entries with DOI/PMID collisions against registry or prior candidates are marked blocked_pending_manual_review and high duplicate risk.
-- Targets without credible promotable candidates in this pass remain blocked and require additional manual discovery.
+## Candidate quality controls
+- Authority-grade sources only (PubMed-indexed journal or systematic review records in this wave).
+- Dedupe checks executed against registry and existing candidates using PMID/DOI anchors.
+- Sources with anchor collisions remain candidate-only and require manual adjudication before promotion.
 
-## Remaining blocked targets without promotable candidates in this pass
-- herb:african-dream-root — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:selinum-tenuifolium — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:anadenanthera-colubrina — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:artemisia-abrotanum — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:artemisia-ludoviciana — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:bobinsana — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:calea-ternifolia — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:calliandra-angustifolia — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:casimiroa-edulis — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:catnip — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:celastrus-paniculatus-intellect-tree — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:cestrum-nocturnum — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:clavo-huasca — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:club-moss — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:cyperus-articulatus — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:datura-inoxia — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:desmodium-adscendens — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:desmodium-gangeticum — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:dysphania-ambrosioides — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:espeletia-grandiflora — blocked (no authority-grade promotable candidate confirmed in this wave).
-- herb:genipa-americana — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alpha — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:beta — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:unverified-cannabinoids — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alkaloids — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:beta-asarone — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:flavonoids — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:quercetin — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:2-4-5-trimethoxybenzaldehyde — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:7-hydroxybaruol — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:aconine — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:aervine — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:aervolanine — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:aervoside — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:aescin-escin — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alamarckine — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alamaridine — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alamarine — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alangamide — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alangimaridine — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alangimarin — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alangimarine — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alangiside — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alkaloids-uncharacterized — blocked (no authority-grade promotable candidate confirmed in this wave).
-- compound:alkylamides — blocked (no authority-grade promotable candidate confirmed in this wave).
+## Coverage snapshot
+- Target entities with at least one proposed candidate: 18
+- Target entities still blocked in source discovery: 42
+
+## Still blocked after this discovery pass
+- herb:african-dream-root — blocked (no new promotable authority-grade source identified in this pass).
+- herb:selinum-tenuifolium — blocked (no new promotable authority-grade source identified in this pass).
+- herb:anadenanthera-colubrina — blocked (no new promotable authority-grade source identified in this pass).
+- herb:artemisia-abrotanum — blocked (no new promotable authority-grade source identified in this pass).
+- herb:artemisia-ludoviciana — blocked (no new promotable authority-grade source identified in this pass).
+- herb:bobinsana — blocked (no new promotable authority-grade source identified in this pass).
+- herb:calea-ternifolia — blocked (no new promotable authority-grade source identified in this pass).
+- herb:calliandra-angustifolia — blocked (no new promotable authority-grade source identified in this pass).
+- herb:casimiroa-edulis — blocked (no new promotable authority-grade source identified in this pass).
+- herb:celastrus-paniculatus-intellect-tree — blocked (no new promotable authority-grade source identified in this pass).
+- herb:cestrum-nocturnum — blocked (no new promotable authority-grade source identified in this pass).
+- herb:clavo-huasca — blocked (no new promotable authority-grade source identified in this pass).
+- herb:club-moss — blocked (no new promotable authority-grade source identified in this pass).
+- herb:cyperus-articulatus — blocked (no new promotable authority-grade source identified in this pass).
+- herb:datura-inoxia — blocked (no new promotable authority-grade source identified in this pass).
+- herb:desmodium-adscendens — blocked (no new promotable authority-grade source identified in this pass).
+- herb:desmodium-gangeticum — blocked (no new promotable authority-grade source identified in this pass).
+- herb:dysphania-ambrosioides — blocked (no new promotable authority-grade source identified in this pass).
+- herb:espeletia-grandiflora — blocked (no new promotable authority-grade source identified in this pass).
+- herb:genipa-americana — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alpha — blocked (no new promotable authority-grade source identified in this pass).
+- compound:beta — blocked (no new promotable authority-grade source identified in this pass).
+- compound:unverified-cannabinoids — blocked (no new promotable authority-grade source identified in this pass).
+- compound:beta-asarone — blocked (no new promotable authority-grade source identified in this pass).
+- compound:flavonoids — blocked (no new promotable authority-grade source identified in this pass).
+- compound:quercetin — blocked (no new promotable authority-grade source identified in this pass).
+- compound:2-4-5-trimethoxybenzaldehyde — blocked (no new promotable authority-grade source identified in this pass).
+- compound:7-hydroxybaruol — blocked (no new promotable authority-grade source identified in this pass).
+- compound:aconine — blocked (no new promotable authority-grade source identified in this pass).
+- compound:aervine — blocked (no new promotable authority-grade source identified in this pass).
+- compound:aervolanine — blocked (no new promotable authority-grade source identified in this pass).
+- compound:aervoside — blocked (no new promotable authority-grade source identified in this pass).
+- compound:aescin-escin — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alamarckine — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alamaridine — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alamarine — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alangamide — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alangimaridine — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alangimarin — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alangimarine — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alangiside — blocked (no new promotable authority-grade source identified in this pass).
+- compound:alkaloids — blocked (no new promotable authority-grade source identified in this pass).

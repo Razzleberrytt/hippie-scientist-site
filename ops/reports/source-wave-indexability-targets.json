@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-01T12:35:45Z",
-  "deterministicModelVersion": "source-wave-indexability-v1",
+  "generatedAt": "2026-04-01T18:10:00Z",
+  "deterministicModelVersion": "source-wave-indexability-v2",
   "selectionPolicy": {
     "entityQuota": {
       "herbs": 30,
@@ -11,7 +11,7 @@
       "ops/source-candidates.json",
       "public/data/source-registry.json"
     ],
-    "notes": "Prioritize high recommendedPriorityScore plus low estimated source count and existing source-signal momentum."
+    "notes": "Strict top-30-by-priority selection per entity type, with tie-breakers favoring lower estimated source count and existing source-signal momentum."
   },
   "targets": [
     {
@@ -26,11 +26,11 @@
         "candidateApprovedHits": 3
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -46,11 +46,9 @@
         "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
         "evidence"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -66,31 +64,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
-      "waveStatus": "selected",
-      "currentIndexabilityStatus": "blocked"
-    },
-    {
-      "entityType": "herb",
-      "entitySlug": "cbd",
-      "displayName": "cbd",
-      "recommendedPriorityScore": 54,
-      "estimatedGoodSourcesNeeded": 5,
-      "sourceSignals": {
-        "registryHits": 4,
-        "candidateHits": 0,
-        "candidateApprovedHits": 0
-      },
-      "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
-      ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -106,11 +83,10 @@
         "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -126,11 +102,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -146,11 +121,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -166,11 +141,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -186,11 +161,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -206,11 +181,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -226,11 +201,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -246,11 +221,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -266,11 +241,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -286,11 +261,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -306,11 +281,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -326,11 +301,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -346,11 +321,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -366,11 +341,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -386,11 +361,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -406,11 +381,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -426,11 +401,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -446,11 +421,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -466,11 +441,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -486,11 +461,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -506,11 +481,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -526,11 +501,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -546,11 +521,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -566,11 +541,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -586,11 +561,11 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -606,11 +581,31 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "guarana",
+      "displayName": "guaraná",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "evidence",
+        "mechanism",
+        "safety"
+      ],
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -626,11 +621,10 @@
         "candidateApprovedHits": 2
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -646,18 +640,17 @@
         "candidateApprovedHits": 2
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
     {
       "entityType": "compound",
       "entitySlug": "asarone",
-      "displayName": "\u03b1-asarone",
+      "displayName": "α-asarone",
       "recommendedPriorityScore": 52,
       "estimatedGoodSourcesNeeded": 3,
       "sourceSignals": {
@@ -666,11 +659,29 @@
         "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "displayName": "β-asarone",
+      "recommendedPriorityScore": 52,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "evidence",
+        "mechanism"
+      ],
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -686,11 +697,10 @@
         "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -706,11 +716,10 @@
         "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -726,31 +735,29 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
     {
       "entityType": "compound",
-      "entitySlug": "alkaloids",
-      "displayName": "alkaloids",
+      "entitySlug": "asarone",
+      "displayName": "asarone",
       "recommendedPriorityScore": 44,
       "estimatedGoodSourcesNeeded": 3,
       "sourceSignals": {
-        "registryHits": 2,
-        "candidateHits": 0,
-        "candidateApprovedHits": 0
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -766,11 +773,10 @@
         "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -786,11 +792,10 @@
         "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -806,11 +811,10 @@
         "candidateApprovedHits": 1
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -826,11 +830,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -846,18 +849,17 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
     {
       "entityType": "compound",
       "entitySlug": "7-hydroxybaruol",
-      "displayName": "7\u03b1-hydroxybaruol",
+      "displayName": "7α-hydroxybaruol",
       "recommendedPriorityScore": 44,
       "estimatedGoodSourcesNeeded": 3,
       "sourceSignals": {
@@ -866,11 +868,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -886,11 +887,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -906,11 +906,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -926,11 +925,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -946,11 +944,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -966,11 +963,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -986,11 +982,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1006,11 +1001,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1026,11 +1020,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1046,11 +1039,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1066,11 +1058,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1086,11 +1077,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1106,11 +1096,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1126,11 +1115,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1146,11 +1134,10 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
@@ -1166,51 +1153,30 @@
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
+        "evidence",
+        "mechanism"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     },
     {
       "entityType": "compound",
-      "entitySlug": "alkaloids-uncharacterized",
-      "displayName": "alkaloids (uncharacterized)",
+      "entitySlug": "alkaloids",
+      "displayName": "alkaloids",
       "recommendedPriorityScore": 44,
       "estimatedGoodSourcesNeeded": 3,
       "sourceSignals": {
-        "registryHits": 0,
+        "registryHits": 2,
         "candidateHits": 0,
         "candidateApprovedHits": 0
       },
       "highestPriorityMissingTopics": [
-        "safety",
+        "evidence",
         "mechanism",
-        "evidence"
+        "safety"
       ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
-      "waveStatus": "selected",
-      "currentIndexabilityStatus": "blocked"
-    },
-    {
-      "entityType": "compound",
-      "entitySlug": "alkylamides",
-      "displayName": "alkylamides",
-      "recommendedPriorityScore": 44,
-      "estimatedGoodSourcesNeeded": 3,
-      "sourceSignals": {
-        "registryHits": 0,
-        "candidateHits": 0,
-        "candidateApprovedHits": 0
-      },
-      "highestPriorityMissingTopics": [
-        "safety",
-        "mechanism",
-        "evidence"
-      ],
-      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "selectionWhy": "Selected from top-priority blocked entities; emphasis on candidates that can unlock safety/mechanism/evidence narratives with small promotable-source deltas.",
       "waveStatus": "selected",
       "currentIndexabilityStatus": "blocked"
     }
