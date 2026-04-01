@@ -4,10 +4,10 @@ import path from 'node:path'
 const ROOT = process.cwd()
 
 const QUALITY_THRESHOLDS = {
-  minDescriptionLength: 30,
+  minDescriptionLength: 80,
   minSources: 2,
   minEffects: 1,
-  minCompletenessScore: 0,
+  minCompletenessScore: 0.4,
   minSlugLength: 2,
 }
 
