@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { createHash } from 'node:crypto'
 
 const ROOT = process.cwd()
-const DETERMINISTIC_MODEL_VERSION = 'indexability-rescue-wave-v1'
+const DETERMINISTIC_MODEL_VERSION = 'indexability-rescue-wave-v2'
 
 const QUALITY_THRESHOLDS = {
   minDescriptionLength: 30,
@@ -242,6 +243,10 @@ function estimatedPromotableSourceCount(entitySlug, candidatesBySlug) {
   return rows.filter(row => ['approved_for_registry', 'draft_candidate'].includes(row?.reviewStatus)).length
 }
 
+function stableHash(value) {
+  return createHash('sha256').update(JSON.stringify(value)).digest('hex').slice(0, 16)
+}
+
 function inferGovernedCoverageStatus(audit) {
   if (audit.exclusionReasons.includes('invalidNameOrSlug') || audit.exclusionReasons.includes('nanArtifacts')) {
     return 'identity-corrupted'
@@ -266,6 +271,65 @@ function inferNextAction(target) {
   return 'enrichment-batch'
 }
 
+function buildWorkpack(target) {
+  const scopeId = `${target.entityType}_${target.entitySlug.replace(/-/g, '_')}`
+  const mechanismTask = target.entityType === 'compound' ? 'mechanism-compound' : 'mechanism-herb'
+  if (target.blockedForHumanReview) {
+    return {
+      workpackType: 'human-review-blocker',
+      workpackId: `idx_rescue_hr_${scopeId}`,
+      lane: 'C',
+      blockedForHumanReview: true,
+      objective: 'Resolve identity/name integrity before source or enrichment operations.',
+      suggestedCommands: ['npm run report:indexability-rescue'],
+      deliverables: ['Manual identity remediation decision record'],
+    }
+  }
+
+  if (target.recommendedNextAction === 'source-discovery-workpack') {
+    return {
+      workpackType: 'source-discovery',
+      workpackId: `idx_rescue_sd_${scopeId}`,
+      lane: 'B',
+      blockedForHumanReview: false,
+      objective: 'Discover candidate sources for highest-priority missing topics without altering gate rules.',
+      suggestedCommands: ['npm run report:indexability-rescue', 'npm run report:source-intake-queue'],
+      deliverables: ['Candidate additions in ops/source-candidates.json'],
+    }
+  }
+
+  if (target.recommendedNextAction === 'source-promotion-then-enrichment-batch') {
+    return {
+      workpackType: 'source-promotion-and-enrichment',
+      workpackId: `idx_rescue_sp_${scopeId}`,
+      lane: 'B',
+      blockedForHumanReview: false,
+      objective: 'Promote promotable candidates, then enqueue governed enrichment batch work.',
+      suggestedCommands: [
+        'npm run report:indexability-rescue',
+        'npm run enrichment:plan -- --task sources --batch-size 10 --dry-run',
+        'npm run enrichment:run -- --task sources --batch-size 10 --dry-run',
+      ],
+      deliverables: ['Promoted source candidates and planned enrichment run manifest'],
+    }
+  }
+
+  return {
+    workpackType: 'enrichment-batch',
+    workpackId: `idx_rescue_eb_${scopeId}`,
+    lane: 'A',
+    blockedForHumanReview: false,
+    objective: 'Execute governed enrichment with existing promoted source coverage.',
+    suggestedCommands: [
+      'npm run report:indexability-rescue',
+      `npm run enrichment:plan -- --task ${mechanismTask} --batch-size 10 --dry-run`,
+      `npm run enrichment:run -- --task ${mechanismTask} --batch-size 10 --dry-run`,
+      'npm run enrichment:validate:dry',
+    ],
+    deliverables: ['Batch manifest and validated patch set'],
+  }
+}
+
 function toMarkdown(report) {
   const lines = []
   lines.push('# Indexability Rescue Wave')
@@ -274,6 +338,7 @@ function toMarkdown(report) {
   lines.push(`- Deterministic model version: ${report.deterministicModelVersion}`)
   lines.push(`- Candidate count: ${report.summary.totalTargets}`)
   lines.push(`- Blocked for human review: ${report.summary.blockedForHumanReview}`)
+  lines.push(`- Deterministic target hash: ${report.summary.deterministicTargetHash}`)
   lines.push('')
 
   lines.push('## Workflow queues')
@@ -338,6 +403,7 @@ function run() {
         blockedForHumanReview,
       }
       target.recommendedNextAction = inferNextAction(target)
+      target.workpack = buildWorkpack(target)
       return target
     })
     .sort((a, b) => {
@@ -348,6 +414,22 @@ function run() {
       return `${a.entityType}:${a.entitySlug}`.localeCompare(`${b.entityType}:${b.entitySlug}`)
     })
 
+  const deterministicTargetHash = stableHash(
+    targets.map(target => ({
+      entityType: target.entityType,
+      entitySlug: target.entitySlug,
+      currentFailingReasons: target.currentFailingReasons,
+      highestPriorityMissingTopics: target.highestPriorityMissingTopics,
+      sourceGapTypes: target.sourceGapTypes,
+      estimatedPromotableSourceCount: target.estimatedPromotableSourceCount,
+      currentGovernedCoverageStatus: target.currentGovernedCoverageStatus,
+      recommendedNextAction: target.recommendedNextAction,
+      safetyCriticality: target.safetyCriticality,
+      blockedForHumanReview: target.blockedForHumanReview,
+      workpackType: target.workpack.workpackType,
+    })),
+  )
+
   const report = {
     generatedAt: new Date().toISOString(),
     deterministicModelVersion: DETERMINISTIC_MODEL_VERSION,
@@ -357,6 +439,7 @@ function run() {
     },
     summary: {
       totalTargets: targets.length,
+      deterministicTargetHash,
       blockedForHumanReview: targets.filter(target => target.blockedForHumanReview).length,
       sourceDiscoveryQueue: targets.filter(target => target.recommendedNextAction === 'source-discovery-workpack').length,
       sourcePromotionQueue: targets.filter(target => target.recommendedNextAction === 'source-promotion-then-enrichment-batch').length,
@@ -374,6 +457,7 @@ function run() {
   writeJson('ops/targets/indexability-rescue-wave.json', {
     generatedAt: report.generatedAt,
     deterministicModelVersion: report.deterministicModelVersion,
+    deterministicTargetHash,
     targets: report.targets,
     summary: report.summary,
   })
