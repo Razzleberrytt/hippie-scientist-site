@@ -1,0 +1,87 @@
+{
+  "generatedAt": "2026-04-01T21:05:16.737Z",
+  "runId": "run_01KN5DMNXTEVE224WVTXGHGECZ",
+  "totalRejectedRows": 19,
+  "rejectionCauses": [
+    {
+      "cause": "no_high_quality_source_found",
+      "count": 15
+    },
+    {
+      "cause": "unknown",
+      "count": 3
+    },
+    {
+      "cause": "other",
+      "count": 1
+    }
+  ],
+  "rejectionByField": {
+    "activeCompounds": {
+      "no_high_quality_source_found": 4,
+      "unknown": 3
+    },
+    "contraindications": {
+      "no_high_quality_source_found": 9
+    },
+    "mechanism": {
+      "no_high_quality_source_found": 1
+    },
+    "undefined": {
+      "other": 1
+    },
+    "effects": {
+      "no_high_quality_source_found": 1
+    }
+  },
+  "mostRejectedHerbs": [
+    {
+      "herb": "american yellow lotus",
+      "rejectedCount": 3
+    },
+    {
+      "herb": "aconitum-ferox",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "amanita pantherina",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "anemone pulsatilla",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "aquilaria malaccensis",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "argyreia speciosa",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "acorus-americanus",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "adenium-obesum",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "agastache-foeniculum",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "american ginseng",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "anadenanthera colubrina (cebíl)",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "asclepias syriaca",
+      "rejectedCount": 1
+    }
+  ]
+}

@@ -59,6 +59,10 @@ function isMissingField(value) {
   return false;
 }
 
+function herbKey(herb) {
+  return String(herb?.slug ?? herb?.id ?? herb?.name ?? herb?.displayName ?? '').trim();
+}
+
 
 function runCurl(url) {
   const result = spawnSync('curl', ['-sSL', url], { encoding: 'utf8' });
@@ -481,7 +485,7 @@ async function collectFieldEvidence(herb, targetField) {
 
       const confidence = confidenceFromSource({ qualityScore: quality.score, evidenceText: evidence, schemaField: targetField.schemaField });
       const row = {
-        herb: herb.slug,
+        herb: herbKey(herb),
         field: targetField.requestField,
         schemaField: targetField.schemaField,
         patchField: targetField.patchField,
@@ -515,6 +519,8 @@ async function collectFieldEvidence(herb, targetField) {
 }
 
 function buildPatch(runId, herb, acceptedRows) {
+  const entityId = herbKey(herb);
+  if (!entityId) return null;
   const patchId = generatePrefixedUlid('patch');
   const operations = [];
   const sourceRows = [];
@@ -528,7 +534,7 @@ function buildPatch(runId, herb, acceptedRows) {
         op: 'set',
         task: mapTaskForField(row.schemaField),
         entity_type: 'herb',
-        entity_id: herb.slug,
+        entity_id: entityId,
         field: row.patchField,
         value: row.value,
       });
@@ -540,7 +546,7 @@ function buildPatch(runId, herb, acceptedRows) {
         op: 'set',
         task: 'herb_mechanism',
         entity_type: 'herb',
-        entity_id: herb.slug,
+        entity_id: entityId,
         field: '/mechanism',
         value: Array.isArray(row.value) ? row.value.join(' ') : row.value,
       });
@@ -551,7 +557,7 @@ function buildPatch(runId, herb, acceptedRows) {
       op: 'append',
       task: 'herb_mechanism',
       entity_type: 'herb',
-      entity_id: herb.slug,
+      entity_id: entityId,
       field: '/claims/-',
       value: {
         id: claimId,
@@ -567,7 +573,7 @@ function buildPatch(runId, herb, acceptedRows) {
     op: 'set',
     task: 'herb_mechanism',
     entity_type: 'herb',
-    entity_id: herb.slug,
+    entity_id: entityId,
     field: '/_provenance',
     value: {
       run_id: runId,
@@ -579,7 +585,7 @@ function buildPatch(runId, herb, acceptedRows) {
     op: 'set',
     task: 'herb_mechanism',
     entity_type: 'herb',
-    entity_id: herb.slug,
+    entity_id: entityId,
     field: '/_review',
     value: { status: 'pending' },
   });
@@ -597,16 +603,18 @@ async function main() {
   const options = parseArgs(process.argv);
   const herbs = loadJson(join(REPO_ROOT, 'public', 'data', 'herbs.json'));
   const selected = (options.herbs.length > 0
-    ? herbs.filter((h) => options.herbs.includes(h.slug) || options.herbs.includes(h.id) || options.herbs.includes(h.name))
+    ? herbs.filter((h) => options.herbs.includes(herbKey(h)) || options.herbs.includes(h.id) || options.herbs.includes(h.name))
     : herbs.filter((h) => TARGET_FIELDS.some((f) => isMissingField(h[f.schemaField]))).slice(0, options.maxHerbs));
 
-  const runId = deterministicRunId({ phase: 'evidence-acquisition', herbs: selected.map((h) => h.slug) });
+  const runId = deterministicRunId({ phase: 'evidence-acquisition', herbs: selected.map((h) => herbKey(h)) });
   const records = [];
   const accepted = [];
   const rejected = [];
   const patches = [];
 
   for (const herb of selected.slice(0, options.maxHerbs)) {
+    const currentHerbKey = herbKey(herb);
+    if (!currentHerbKey) continue;
     const missingTargets = TARGET_FIELDS.filter((field) => isMissingField(herb[field.schemaField]));
     const herbRows = [];
     for (const targetField of missingTargets) {
@@ -616,7 +624,7 @@ async function main() {
         const retrieval = result?.retrieval ?? null;
         if (!row) {
           rejected.push({
-            herb: herb.slug,
+            herb: currentHerbKey,
             field: targetField.requestField,
             schemaField: targetField.schemaField,
             confidence: 'low',
@@ -635,7 +643,7 @@ async function main() {
         }
       } catch (error) {
         rejected.push({
-          herb: herb.slug,
+          herb: currentHerbKey,
           field: targetField.requestField,
           confidence: 'low',
           reason: String(error.message || error),
@@ -650,7 +658,7 @@ async function main() {
   const report = {
     runId,
     createdAt: nowIso(),
-    selectedHerbs: selected.slice(0, options.maxHerbs).map((h) => h.slug),
+    selectedHerbs: selected.slice(0, options.maxHerbs).map((h) => herbKey(h)).filter(Boolean),
     extracted: records,
     accepted,
     rejected,
@@ -664,7 +672,8 @@ async function main() {
     retrievalSummary: {
       perHerb: Object.fromEntries(
         selected.slice(0, options.maxHerbs).map((herb) => {
-          const herbRows = [...accepted, ...rejected].filter((row) => row.herb === herb.slug);
+          const currentHerbKey = herbKey(herb);
+          const herbRows = [...accepted, ...rejected].filter((row) => row.herb === currentHerbKey);
           const queryAttempts = herbRows.reduce((sum, row) => sum + (row.retrieval?.queryAttempts?.length ?? 0), 0);
           const sourcesFound = herbRows.reduce((sum, row) => sum + (row.retrieval?.sourcesFound ?? 0), 0);
           const highQualitySources = herbRows.reduce((sum, row) => sum + (row.retrieval?.highQualitySources ?? 0), 0);
@@ -672,7 +681,7 @@ async function main() {
             .flatMap((row) => row.retrieval?.queryAttempts ?? [])
             .filter((item) => item.accepted)
             .map((item) => item.query);
-          return [herb.slug, {
+          return [currentHerbKey, {
             queryAttempts,
             sourcesFound,
             highQualitySources,

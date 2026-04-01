@@ -1,0 +1,98 @@
+{
+  "patch_id": "patch_01KN5DQQHQKVW0KJYBAQ41REY3",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-01T21:03:36.504Z",
+  "operations": [
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "anadenanthera colubrina (cebíl)",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DQQHR0KG29Q0KEP9GNKC1",
+        "claim": "[effects] anti-inflammatory activity; antioxidant activity",
+        "source_ids": [
+          "src_01KN5DQQHQGPF2M58JMQHPHPGW"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "anadenanthera colubrina (cebíl)",
+      "field": "/mechanism",
+      "value": "intestinal smooth muscle inhibition"
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "anadenanthera colubrina (cebíl)",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DQQHRR35BD2W46SYT8VGB",
+        "claim": "[mechanism] intestinal smooth muscle inhibition",
+        "source_ids": [
+          "src_01KN5DQQHR01T0PT1DVKSXB7HK"
+        ]
+      }
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "anadenanthera colubrina (cebíl)",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DQQHRBW0HFMQYVVGB7R3Y",
+        "claim": "[contraindications] toxicity concern",
+        "source_ids": [
+          "src_01KN5DQQHRMNGN3JGX4HM908TQ"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "anadenanthera colubrina (cebíl)",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KN5DMNXTEVE224WVTXGHGECZ",
+        "sources": [
+          {
+            "id": "src_01KN5DQQHQGPF2M58JMQHPHPGW",
+            "title": "Anti-inflammatory effect of Anadenanthera colubrina var. cebil (Griseb.) Altschul in experimental elastase-induced pulmonary emphysema in rats.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38642622/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5DQQHR01T0PT1DVKSXB7HK",
+            "title": "Biopolymer Extracted from Anadenanthera colubrina (Red Angico Gum) Exerts Therapeutic Potential in Mice: Antidiarrheal Activity and Safety Assessment.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31963683/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5DQQHRMNGN3JGX4HM908TQ",
+            "title": "Anti-inflammatory effect of Anadenanthera colubrina var. cebil (Griseb.) Altschul in experimental elastase-induced pulmonary emphysema in rats.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38642622/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "anadenanthera colubrina (cebíl)",
+      "field": "/_review",
+      "value": {
+        "status": "pending"
+      }
+    }
+  ]
+}
