@@ -49,7 +49,7 @@ function isMissing(value) {
 function normalizeReason(reason = '') {
   const text = String(reason || '').toLowerCase();
   if (!text) return 'unknown';
-  if (text.includes('tier-policy') || text.includes('tier3_active_compounds_not_corroborated')) return 'tier_policy_rejection';
+  if (text.includes('tier-policy') || text.includes('tier3_active_compounds_not_corroborated') || text.includes('structured_active_compounds_not_corroborated')) return 'tier_policy_rejection';
   if (text.includes('no-high-quality-source') || text.includes('no high-quality source')) return 'no_high_quality_source_found';
   if (text.includes('sparse')) return 'extraction_too_sparse';
   if (text.includes('normalization') || text.includes('no_clean_compound_names') || text.includes('no_structured_phrase_extracted')) return 'normalization_failed';
@@ -81,6 +81,11 @@ function summarizeAcceptedSourceContributions(latestRun) {
     byHost[host] = (byHost[host] ?? 0) + 1;
   }
   return Object.fromEntries(Object.entries(byHost).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])));
+}
+
+function summarizeProviderMetrics(latestRun) {
+  const metrics = latestRun?.payload?.retrievalSummary?.providerMetrics;
+  return metrics && typeof metrics === 'object' ? metrics : {};
 }
 
 function loadEvidenceRuns() {
@@ -336,6 +341,7 @@ function markdownReport({
   rejectionAnalysis,
   sourceTierDistribution,
   sourceContributionBreakdown,
+  providerMetrics,
 }) {
   const topFields = Object.entries(coverageSummary.completionByFieldType)
     .sort((a, b) => b[1].missing - a[1].missing)
@@ -354,13 +360,16 @@ function markdownReport({
     .join('\n');
   const tierLines = Object.entries(sourceTierDistribution).map(([tier, count]) => `- ${tier}: ${count}`).join('\n');
   const sourceContributionLines = Object.entries(sourceContributionBreakdown).map(([source, count]) => `- ${source}: ${count}`).join('\n') || '- none';
+  const providerLines = Object.entries(providerMetrics)
+    .map(([provider, row]) => `- ${provider}: queried=${row.queried}, candidates=${row.candidates}, accepted=${row.accepted}, acceptanceRate=${row.acceptanceRate}%`)
+    .join('\n') || '- none';
 
   const fieldTable = TARGET_FIELDS.map((field) => {
     const row = fieldBreakdown[field];
     return `| ${field} | ${row.totalMissingBeforeRun} | ${row.acceptedFills} | ${row.rejectedAttempts} | ${row.stillUnresolved} | ${row.acceptanceRate}% |`;
   }).join('\n');
 
-  return `# Evidence Acquisition Coverage + Prioritization\n\n- Generated at: ${generatedAt}\n- Run ID: ${runId}\n\n## Coverage Summary\n\n- Total herbs: ${coverageSummary.totals.totalHerbs}\n- Total target fields: ${coverageSummary.totals.totalTargetFields}\n- Completed fields: ${coverageSummary.totals.completedFields}\n- Missing fields: ${coverageSummary.totals.missingFields}\n- Fields filled by evidence engine: ${coverageSummary.totals.fieldsFilledByEvidenceEngine}\n- Fields rejected by evidence engine: ${coverageSummary.totals.fieldsRejectedByEvidenceEngine}\n- Unresolved fields: ${coverageSummary.totals.unresolvedFields}\n- Completion overall: ${coverageSummary.totals.completionPctOverall}%\n\n### Top unresolved field types\n${topFields}\n\n## Field-level Breakdown (latest run)\n\n| Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |\n|---|---:|---:|---:|---:|---:|\n${fieldTable}\n\n## Top 10 Priority Herbs\n\n${topQueue}\n\n## Rejection Analytics\n\n${topRejections}\n\n## Accepted Source Tier Distribution (latest run)\n\n${tierLines}\n\n## Accepted Source Contributions (latest run)\n\n${sourceContributionLines}\n`;
+  return `# Evidence Acquisition Coverage + Prioritization\n\n- Generated at: ${generatedAt}\n- Run ID: ${runId}\n\n## Coverage Summary\n\n- Total herbs: ${coverageSummary.totals.totalHerbs}\n- Total target fields: ${coverageSummary.totals.totalTargetFields}\n- Completed fields: ${coverageSummary.totals.completedFields}\n- Missing fields: ${coverageSummary.totals.missingFields}\n- Fields filled by evidence engine: ${coverageSummary.totals.fieldsFilledByEvidenceEngine}\n- Fields rejected by evidence engine: ${coverageSummary.totals.fieldsRejectedByEvidenceEngine}\n- Unresolved fields: ${coverageSummary.totals.unresolvedFields}\n- Completion overall: ${coverageSummary.totals.completionPctOverall}%\n\n### Top unresolved field types\n${topFields}\n\n## Field-level Breakdown (latest run)\n\n| Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |\n|---|---:|---:|---:|---:|---:|\n${fieldTable}\n\n## Top 10 Priority Herbs\n\n${topQueue}\n\n## Rejection Analytics\n\n${topRejections}\n\n## Accepted Source Tier Distribution (latest run)\n\n${tierLines}\n\n## Accepted Source Contributions (latest run)\n\n${sourceContributionLines}\n\n## Provider Performance (latest run)\n\n${providerLines}\n`;
 }
 
 function main() {
@@ -382,6 +391,7 @@ function main() {
   const priorityQueue = buildPriorityQueue({ herbs, allRuns });
   const sourceTierDistribution = summarizeSourceTiers(latestRun);
   const sourceContributionBreakdown = summarizeAcceptedSourceContributions(latestRun);
+  const providerMetrics = summarizeProviderMetrics(latestRun);
 
   const generatedAt = nowIso();
   const artifact = {
@@ -394,6 +404,7 @@ function main() {
     rejectionAnalysis,
     sourceTierDistribution,
     sourceContributionBreakdown,
+    providerMetrics,
   };
 
   const outDir = join(REPO_ROOT, options.outDir);
@@ -434,6 +445,7 @@ function main() {
     rejectionAnalysis,
     sourceTierDistribution,
     sourceContributionBreakdown,
+    providerMetrics,
   });
   writeFileSync(join(outDir, 'coverage-prioritization.latest.md'), markdown);
   writeFileSync(join(historyDir, `coverage-prioritization.${latestRun.runId}.md`), markdown);
@@ -446,6 +458,7 @@ function main() {
   const topRejections = rejectionAnalysis.rejectionCauses.slice(0, 5).map((row) => `${row.cause}:${row.count}`).join(', ');
   const tierSummary = Object.entries(sourceTierDistribution).map(([tier, count]) => `${tier}:${count}`).join(', ');
   const sourceSummary = Object.entries(sourceContributionBreakdown).slice(0, 5).map(([source, count]) => `${source}:${count}`).join(', ');
+  const providerSummary = Object.entries(providerMetrics).slice(0, 6).map(([provider, row]) => `${provider}:q${row.queried}/c${row.candidates}/a${row.accepted}`).join(', ');
 
   console.log(`[evidence-report] run=${latestRun.runId} queue=${priorityQueue.length}`);
   console.log(`[evidence-report] top-10=${priorityQueue.slice(0, 10).map((item) => item.herb).join(',')}`);
@@ -453,6 +466,7 @@ function main() {
   console.log(`[evidence-report] top-rejection-causes=${topRejections}`);
   console.log(`[evidence-report] accepted-tier-distribution=${tierSummary}`);
   console.log(`[evidence-report] accepted-source-contributions=${sourceSummary}`);
+  console.log(`[evidence-report] provider-performance=${providerSummary}`);
   console.log(`[evidence-report] output=${options.outDir}`);
 }
 

@@ -1,11 +1,15 @@
 {
-  "generatedAt": "2026-04-01T21:54:41.279Z",
-  "runId": "run_01KN5GN422BKASQJJZTKFW4DDW",
+  "generatedAt": "2026-04-01T23:16:40.874Z",
+  "runId": "run_01KN5N2XMPZBSX3V9V8RKB8Z5Y",
   "sourceArtifacts": [
     "ops/evidence-acquisition/run_01KN52AJ314A9KFW55W1ET5PWT.json",
     "ops/evidence-acquisition/run_01KN5DMNXTEVE224WVTXGHGECZ.json",
     "ops/evidence-acquisition/run_01KN5FK3NRDP1JQG9BCXJB9WRH.json",
-    "ops/evidence-acquisition/run_01KN5GN422BKASQJJZTKFW4DDW.json"
+    "ops/evidence-acquisition/run_01KN5GN422BKASQJJZTKFW4DDW.json",
+    "ops/evidence-acquisition/run_01KN5JBCQ05H205RT6MMA2YNQ7.json",
+    "ops/evidence-acquisition/run_01KN5MH4EKF6N9RZS1TX2RJ1A6.json",
+    "ops/evidence-acquisition/run_01KN5MR8JST7WKZD18HS4YVJD9.json",
+    "ops/evidence-acquisition/run_01KN5N2XMPZBSX3V9V8RKB8Z5Y.json"
   ],
   "coverageSummary": {
     "totals": {
@@ -13,9 +17,9 @@
       "totalTargetFields": 3490,
       "completedFields": 2018,
       "missingFields": 1472,
-      "fieldsFilledByEvidenceEngine": 1,
-      "fieldsRejectedByEvidenceEngine": 0,
-      "unresolvedFields": 7,
+      "fieldsFilledByEvidenceEngine": 15,
+      "fieldsRejectedByEvidenceEngine": 3,
+      "unresolvedFields": 27,
       "completionPctOverall": 57.82
     },
     "completionByFieldType": {
@@ -7052,34 +7056,37 @@
   },
   "fieldLevelBreakdown": {
     "activeCompounds": {
-      "totalMissingBeforeRun": 1,
-      "acceptedFills": 1,
-      "rejectedAttempts": 0,
+      "totalMissingBeforeRun": 12,
+      "acceptedFills": 8,
+      "rejectedAttempts": 4,
       "stillUnresolved": 0,
-      "rejectionReasons": {},
-      "acceptanceRate": 100
+      "rejectionReasons": {
+        "unknown": 2,
+        "no_high_quality_source_found": 2
+      },
+      "acceptanceRate": 66.67
     },
     "effects": {
-      "totalMissingBeforeRun": 1,
+      "totalMissingBeforeRun": 8,
       "acceptedFills": 0,
       "rejectedAttempts": 0,
-      "stillUnresolved": 1,
+      "stillUnresolved": 8,
       "rejectionReasons": {},
       "acceptanceRate": 0
     },
     "mechanism": {
-      "totalMissingBeforeRun": 3,
+      "totalMissingBeforeRun": 9,
       "acceptedFills": 0,
       "rejectedAttempts": 0,
-      "stillUnresolved": 3,
+      "stillUnresolved": 9,
       "rejectionReasons": {},
       "acceptanceRate": 0
     },
     "contraindications": {
-      "totalMissingBeforeRun": 3,
+      "totalMissingBeforeRun": 16,
       "acceptedFills": 0,
       "rejectedAttempts": 0,
-      "stillUnresolved": 3,
+      "stillUnresolved": 16,
       "rejectionReasons": {},
       "acceptanceRate": 0
     },
@@ -7102,15 +7109,15 @@
         "contraindications"
       ],
       "lastRunStatus": "accepted",
-      "acceptedCount": 4,
+      "acceptedCount": 8,
       "rejectedCount": 0,
       "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 228,
+      "priorityScore": 256,
       "signals": {
         "indexabilityUpside": 5.2,
         "likelyRecoverableFields": 4,
         "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 8
+        "sourceAvailabilitySignal": 15
       }
     },
     {
@@ -7151,6 +7158,26 @@
         "likelyRecoverableFields": 4,
         "normalizationGapSignals": 0,
         "sourceAvailabilitySignal": 8
+      }
+    },
+    {
+      "herb": "amanita pantherina",
+      "missingFields": [
+        "activeCompounds",
+        "effects",
+        "mechanism",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 6,
+      "rejectedCount": 2,
+      "recommendedNextAction": "run_evidence_acquisition",
+      "priorityScore": 222,
+      "signals": {
+        "indexabilityUpside": 5.2,
+        "likelyRecoverableFields": 3,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 12
       }
     },
     {
@@ -7331,26 +7358,6 @@
         "likelyRecoverableFields": 3,
         "normalizationGapSignals": 0,
         "sourceAvailabilitySignal": 6
-      }
-    },
-    {
-      "herb": "amanita pantherina",
-      "missingFields": [
-        "activeCompounds",
-        "effects",
-        "mechanism",
-        "contraindications"
-      ],
-      "lastRunStatus": "accepted",
-      "acceptedCount": 2,
-      "rejectedCount": 2,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 174,
-      "signals": {
-        "indexabilityUpside": 5.2,
-        "likelyRecoverableFields": 2,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 4
       }
     },
     {
@@ -9714,6 +9721,78 @@
       }
     },
     {
+      "herb": "allium sativum",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 4,
+      "rejectedCount": 0,
+      "recommendedNextAction": "promote_patch_and_validate",
+      "priorityScore": 113,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 8
+      }
+    },
+    {
+      "herb": "aloe vera",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 4,
+      "rejectedCount": 0,
+      "recommendedNextAction": "promote_patch_and_validate",
+      "priorityScore": 109,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 7
+      }
+    },
+    {
+      "herb": "alnus rubra",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 4,
+      "rejectedCount": 0,
+      "recommendedNextAction": "promote_patch_and_validate",
+      "priorityScore": 105,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 6
+      }
+    },
+    {
+      "herb": "aconitum ferox",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 5,
+      "rejectedCount": 0,
+      "recommendedNextAction": "promote_patch_and_validate",
+      "priorityScore": 101,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 5
+      }
+    },
+    {
       "herb": "bobinsana",
       "missingFields": [
         "activeCompounds",
@@ -10550,6 +10629,60 @@
       }
     },
     {
+      "herb": "agastache foeniculum",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 4,
+      "rejectedCount": 0,
+      "recommendedNextAction": "promote_patch_and_validate",
+      "priorityScore": 97,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 4
+      }
+    },
+    {
+      "herb": "althaea officinalis",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 4,
+      "rejectedCount": 0,
+      "recommendedNextAction": "promote_patch_and_validate",
+      "priorityScore": 97,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 4
+      }
+    },
+    {
+      "herb": "alyxia stellata",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "accepted",
+      "acceptedCount": 2,
+      "rejectedCount": 2,
+      "recommendedNextAction": "manual_normalization_review",
+      "priorityScore": 97,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 1,
+        "normalizationGapSignals": 1,
+        "sourceAvailabilitySignal": 2
+      }
+    },
+    {
       "herb": "corydalis yanhusuo",
       "missingFields": [
         "activeCompounds",
@@ -10569,20 +10702,20 @@
       }
     },
     {
-      "herb": "aconitum ferox",
+      "herb": "adenium obesum",
       "missingFields": [
         "activeCompounds",
         "contraindications"
       ],
       "lastRunStatus": "accepted",
       "acceptedCount": 1,
-      "rejectedCount": 0,
-      "recommendedNextAction": "promote_patch_and_validate",
-      "priorityScore": 85,
+      "rejectedCount": 3,
+      "recommendedNextAction": "manual_normalization_review",
+      "priorityScore": 90,
       "signals": {
         "indexabilityUpside": 2.55,
         "likelyRecoverableFields": 1,
-        "normalizationGapSignals": 0,
+        "normalizationGapSignals": 1,
         "sourceAvailabilitySignal": 1
       }
     },
@@ -10655,6 +10788,42 @@
         "indexabilityUpside": 2.75,
         "likelyRecoverableFields": 0,
         "normalizationGapSignals": 0,
+        "sourceAvailabilitySignal": 0
+      }
+    },
+    {
+      "herb": "alectra sessiliflora",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "rejected",
+      "acceptedCount": 0,
+      "rejectedCount": 4,
+      "recommendedNextAction": "manual_normalization_review",
+      "priorityScore": 67,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 0,
+        "normalizationGapSignals": 1,
+        "sourceAvailabilitySignal": 0
+      }
+    },
+    {
+      "herb": "aletris farinosa",
+      "missingFields": [
+        "activeCompounds",
+        "contraindications"
+      ],
+      "lastRunStatus": "rejected",
+      "acceptedCount": 0,
+      "rejectedCount": 4,
+      "recommendedNextAction": "manual_normalization_review",
+      "priorityScore": 67,
+      "signals": {
+        "indexabilityUpside": 2.55,
+        "likelyRecoverableFields": 0,
+        "normalizationGapSignals": 1,
         "sourceAvailabilitySignal": 0
       }
     },
@@ -10851,168 +11020,6 @@
       "priorityScore": 66,
       "signals": {
         "indexabilityUpside": 2.6,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "adenium obesum",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "agastache foeniculum",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "alectra sessiliflora",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "aletris farinosa",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "allium sativum",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "alnus rubra",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "aloe vera",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "althaea officinalis",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
-        "likelyRecoverableFields": 0,
-        "normalizationGapSignals": 0,
-        "sourceAvailabilitySignal": 0
-      }
-    },
-    {
-      "herb": "alyxia stellata",
-      "missingFields": [
-        "activeCompounds",
-        "contraindications"
-      ],
-      "lastRunStatus": "not_attempted",
-      "acceptedCount": 0,
-      "rejectedCount": 0,
-      "recommendedNextAction": "run_evidence_acquisition",
-      "priorityScore": 65,
-      "signals": {
-        "indexabilityUpside": 2.55,
         "likelyRecoverableFields": 0,
         "normalizationGapSignals": 0,
         "sourceAvailabilitySignal": 0
@@ -18791,15 +18798,15 @@
     }
   ],
   "rejectionAnalysis": {
-    "totalRejectedRows": 32,
+    "totalRejectedRows": 45,
     "rejectionCauses": [
       {
         "cause": "no_high_quality_source_found",
-        "count": 27
+        "count": 33
       },
       {
         "cause": "unknown",
-        "count": 4
+        "count": 11
       },
       {
         "cause": "other",
@@ -18808,8 +18815,8 @@
     ],
     "rejectionByField": {
       "activeCompounds": {
-        "no_high_quality_source_found": 4,
-        "unknown": 4
+        "no_high_quality_source_found": 10,
+        "unknown": 11
       },
       "contraindications": {
         "no_high_quality_source_found": 11
@@ -18826,6 +18833,18 @@
     },
     "mostRejectedHerbs": [
       {
+        "herb": "alectra sessiliflora",
+        "rejectedCount": 4
+      },
+      {
+        "herb": "aletris farinosa",
+        "rejectedCount": 4
+      },
+      {
+        "herb": "adenium obesum",
+        "rejectedCount": 3
+      },
+      {
         "herb": "american yellow lotus",
         "rejectedCount": 3
       },
@@ -18835,6 +18854,10 @@
       },
       {
         "herb": "aconitum-ferox",
+        "rejectedCount": 2
+      },
+      {
+        "herb": "alyxia stellata",
         "rejectedCount": 2
       },
       {
@@ -18912,9 +18935,53 @@
     ]
   },
   "sourceTierDistribution": {
-    "tier1": 1,
+    "tier1": 8,
     "tier2": 0,
     "tier3": 0,
     "unclassified": 0
+  },
+  "sourceContributionBreakdown": {
+    "pubmed.ncbi.nlm.nih.gov": 4,
+    "www.ncbi.nlm.nih.gov": 2,
+    "pubchem.ncbi.nlm.nih.gov": 1,
+    "www.kegg.jp": 1
+  },
+  "providerMetrics": {
+    "pubmed": {
+      "queried": 47,
+      "candidates": 34,
+      "accepted": 4,
+      "acceptanceRate": 11.76
+    },
+    "europe_pmc": {
+      "queried": 47,
+      "candidates": 132,
+      "accepted": 1,
+      "acceptanceRate": 0.76
+    },
+    "kegg_structured": {
+      "queried": 47,
+      "candidates": 8,
+      "accepted": 1,
+      "acceptanceRate": 12.5
+    },
+    "nih_ncbi_pmc": {
+      "queried": 47,
+      "candidates": 208,
+      "accepted": 1,
+      "acceptanceRate": 0.48
+    },
+    "pubchem_structured": {
+      "queried": 47,
+      "candidates": 67,
+      "accepted": 1,
+      "acceptanceRate": 1.49
+    },
+    "chembl_structured": {
+      "queried": 47,
+      "candidates": 23,
+      "accepted": 0,
+      "acceptanceRate": 0
+    }
   }
 }
