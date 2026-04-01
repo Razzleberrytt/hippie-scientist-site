@@ -1,0 +1,1218 @@
+{
+  "generatedAt": "2026-04-01T12:35:45Z",
+  "deterministicModelVersion": "source-wave-indexability-v1",
+  "selectionPolicy": {
+    "entityQuota": {
+      "herbs": 30,
+      "compounds": 30
+    },
+    "selectionInputs": [
+      "ops/reports/indexability-evidence-gap-audit.json",
+      "ops/source-candidates.json",
+      "public/data/source-registry.json"
+    ],
+    "notes": "Prioritize high recommendedPriorityScore plus low estimated source count and existing source-signal momentum."
+  },
+  "targets": [
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake",
+      "displayName": "mandrake",
+      "recommendedPriorityScore": 74,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 3,
+        "candidateApprovedHits": 3
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "hyoscyamus-niger",
+      "displayName": "hyoscyamus niger",
+      "recommendedPriorityScore": 58,
+      "estimatedGoodSourcesNeeded": 2,
+      "sourceSignals": {
+        "registryHits": 2,
+        "candidateHits": 3,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "african-dream-root",
+      "displayName": "african dream root",
+      "recommendedPriorityScore": 58,
+      "estimatedGoodSourcesNeeded": 2,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "cbd",
+      "displayName": "cbd",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 5,
+      "sourceSignals": {
+        "registryHits": 4,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ipomoea-tricolor",
+      "displayName": "ipomoea tricolor",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "selinum-tenuifolium",
+      "displayName": "selinum tenuifolium",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "acorus-calamus-var-angustatus",
+      "displayName": "acorus calamus var. angustatus",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "anadenanthera-colubrina",
+      "displayName": "anadenanthera colubrina",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "artemisia-abrotanum",
+      "displayName": "artemisia abrotanum",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "artemisia-ludoviciana",
+      "displayName": "artemisia ludoviciana",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "artemisia-vulgaris-mugwort",
+      "displayName": "artemisia vulgaris (mugwort)",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "bobinsana",
+      "displayName": "bobinsana",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calea-ternifolia",
+      "displayName": "calea ternifolia",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-angustifolia",
+      "displayName": "calliandra angustifolia",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "casimiroa-edulis",
+      "displayName": "casimiroa edulis",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "catha-edulis",
+      "displayName": "catha edulis",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "catnip",
+      "displayName": "catnip",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "celastrus-paniculatus",
+      "displayName": "celastrus paniculatus",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "celastrus-paniculatus-intellect-tree",
+      "displayName": "celastrus paniculatus (intellect tree)",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "cestrum-nocturnum",
+      "displayName": "cestrum nocturnum",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "clavo-huasca",
+      "displayName": "clavo huasca",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "club-moss",
+      "displayName": "club moss",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "crocus-sativus",
+      "displayName": "crocus sativus",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "cyperus-articulatus",
+      "displayName": "cyperus articulatus",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "datura-inoxia",
+      "displayName": "datura inoxia",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "desmodium-adscendens",
+      "displayName": "desmodium adscendens",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "desmodium-gangeticum",
+      "displayName": "desmodium gangeticum",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "dysphania-ambrosioides",
+      "displayName": "dysphania ambrosioides",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "espeletia-grandiflora",
+      "displayName": "espeletia grandiflora",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "genipa-americana",
+      "displayName": "genipa americana",
+      "recommendedPriorityScore": 54,
+      "estimatedGoodSourcesNeeded": 4,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "displayName": "luteolin",
+      "recommendedPriorityScore": 65,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 3,
+        "candidateHits": 3,
+        "candidateApprovedHits": 2
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "displayName": "CBD",
+      "recommendedPriorityScore": 59,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 4,
+        "candidateHits": 3,
+        "candidateApprovedHits": 2
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "displayName": "\u03b1-asarone",
+      "recommendedPriorityScore": 52,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alpha",
+      "displayName": "Alpha",
+      "recommendedPriorityScore": 48,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "beta",
+      "displayName": "Beta",
+      "recommendedPriorityScore": 48,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "unverified-cannabinoids",
+      "displayName": "unverified cannabinoids",
+      "recommendedPriorityScore": 48,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alkaloids",
+      "displayName": "alkaloids",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 2,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "beta-asarone",
+      "displayName": "Beta-asarone",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "displayName": "flavonoids",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "displayName": "quercetin",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 1,
+        "candidateHits": 1,
+        "candidateApprovedHits": 1
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "2-4-5-trimethoxybenzaldehyde",
+      "displayName": "2,4,5-trimethoxybenzaldehyde",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "7-hydroxymitragynine",
+      "displayName": "7-hydroxymitragynine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "7-hydroxybaruol",
+      "displayName": "7\u03b1-hydroxybaruol",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "aconine",
+      "displayName": "aconine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "aconitine",
+      "displayName": "aconitine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "aervine",
+      "displayName": "aervine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "aervolanine",
+      "displayName": "aervolanine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "aervoside",
+      "displayName": "aervoside",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "aescin-escin",
+      "displayName": "aescin (escin)",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "agrimoniin",
+      "displayName": "agrimoniin",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alamarckine",
+      "displayName": "alamarckine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alamaridine",
+      "displayName": "alamaridine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alamarine",
+      "displayName": "alamarine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alangamide",
+      "displayName": "alangamide",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alangimaridine",
+      "displayName": "alangimaridine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alangimarin",
+      "displayName": "alangimarin",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alangimarine",
+      "displayName": "alangimarine",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alangiside",
+      "displayName": "alangiside",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alkaloids-uncharacterized",
+      "displayName": "alkaloids (uncharacterized)",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "alkylamides",
+      "displayName": "alkylamides",
+      "recommendedPriorityScore": 44,
+      "estimatedGoodSourcesNeeded": 3,
+      "sourceSignals": {
+        "registryHits": 0,
+        "candidateHits": 0,
+        "candidateApprovedHits": 0
+      },
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "evidence"
+      ],
+      "selectionWhy": "High-priority blocked entity with source-discovery-only resolution likely and limited additional promotable-source need.",
+      "waveStatus": "selected",
+      "currentIndexabilityStatus": "blocked"
+    }
+  ]
+}
