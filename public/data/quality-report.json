@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T13:58:11.168Z",
+  "generatedAt": "2026-04-01T14:11:34.622Z",
   "thresholds": {
     "minDescriptionLength": 30,
     "minSources": 2,
@@ -21,11 +21,11 @@
   },
   "compounds": {
     "total": 393,
-    "indexable": 0,
-    "excluded": 393,
+    "indexable": 10,
+    "excluded": 383,
     "excludedByReason": {
       "invalidNameOrSlug": 12,
-      "weakDescription": 393,
+      "weakDescription": 382,
       "placeholderText": 222,
       "insufficientEffects": 52,
       "insufficientEvidenceOrCompleteness": 40

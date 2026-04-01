@@ -18,5 +18,109 @@
   "lastUpdated": "2026-03-21",
   "slug": "anabasine",
   "id": "anabasine",
-  "displayName": "anabasine"
+  "displayName": "anabasine",
+  "researchEnrichment": {
+    "evidenceSummary": "Anabasine has human observational exposure evidence and nicotine-like mechanistic risk context.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "human-observational"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ],
+        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Nicotinic receptor activity supports stimulant/autonomic and dependence-related concerns.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ]
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No reliable universal dosage range can be asserted from current evidence.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [
+      {
+        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ]
+      }
+    ],
+    "conflictNotes": [
+      {
+        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ]
+      }
+    ],
+    "researchGaps": [
+      {
+        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_doi-10-1021-acs-chemrestox-2c00020"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_doi-10-1021-acs-chemrestox-2c00020"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_doi-10-1021-acs-chemrestox-2c00020",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "editorial-team",
+    "editorialStatus": "in-review"
+  }
 }

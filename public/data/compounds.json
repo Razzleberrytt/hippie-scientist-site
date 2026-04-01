@@ -1,7 +1,9 @@
 [
   {
     "name": "(-)-syringaresnol-4-O-D-apiofuranosyl-(1→2)-D-glucopyranoside",
-    "herbs": ["albizia julibrissin"],
+    "herbs": [
+      "albizia julibrissin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -22,7 +24,11 @@
   },
   {
     "name": "[object Object]",
-    "herbs": ["kratom hybrids", "nan", "yarrow"],
+    "herbs": [
+      "kratom hybrids",
+      "nan",
+      "yarrow"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -33,7 +39,10 @@
       "subtle mood lift",
       "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
-    "contraindications": ["Avoid during pregnancy", "neurotoxic in high doses"],
+    "contraindications": [
+      "Avoid during pregnancy",
+      "neurotoxic in high doses"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -42,38 +51,40 @@
     "displayName": "[object Object]"
   },
   {
-    "name": "2,4,5-trimethoxybenzaldehyde",
-    "herbs": ["acorus tatarinowii"],
+    "name": "2,4,5-Trimethoxybenzaldehyde",
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
-      "CNS stimulant",
-      "memory aid",
-      "and anti-epileptic in TCM",
-      "and anti",
-      "epileptic in TCM"
+      "Identified as an aromatic constituent in Acorus-related phytochemical profiles.",
+      "Direct human pharmacology evidence remains limited."
     ],
     "contraindications": [
-      "β",
-      "asarone is potentially carcinogenic",
-      "avoid long",
-      "term or high",
-      "dose use",
-      "contraindicated in pregnancy and children."
+      "Insufficient direct clinical safety evidence; avoid high-dose supplemental use."
     ],
-    "category": null,
+    "category": "aromatic aldehyde",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "Alpha- and beta-asarone toxicology, interaction potential, and human safety context: a systematic review.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34401729/"
       }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-04-01",
     "slug": "2-4-5-trimethoxybenzaldehyde",
     "id": "2-4-5-trimethoxybenzaldehyde",
-    "displayName": "2,4,5-trimethoxybenzaldehyde"
+    "displayName": "2,4,5-trimethoxybenzaldehyde",
+    "interactions": [
+      "No compound-specific interaction trials identified; uncertainty remains high."
+    ],
+    "description": "2,4,5-Trimethoxybenzaldehyde is an aromatic aldehyde reported in Acorus phytochemistry. Direct clinical evidence for efficacy or safety is sparse, so interpretation is largely mechanistic/contextual.",
+    "summary": "Current evidence is preclinical/contextual, not definitive for clinical claims.",
+    "mechanism": "Proposed mechanisms are inferred from structural class and Acorus-associated preclinical literature, without compound-specific human confirmation."
   },
   {
     "name": "5",
-    "herbs": ["virola theiodora"],
+    "herbs": [
+      "virola theiodora"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
     ],
@@ -87,7 +98,9 @@
   },
   {
     "name": "5-MeO-DMT",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Intense visuals",
       "spiritual experiences",
@@ -127,48 +140,71 @@
     "displayName": "5-MeO-DMT"
   },
   {
-    "name": "7-hydroxymitragynine",
-    "herbs": ["nan"],
+    "name": "7-Hydroxymitragynine",
+    "herbs": [
+      "mitragyna speciosa"
+    ],
     "effects": [
-      "Stimulation",
-      "mild euphoria",
-      "analgesia",
-      "Mild stimulation",
-      "mood lift",
-      "Mild sedative",
-      "analgesic (less potent than M. speciosa)"
+      "Discussed as a potent kratom alkaloid with opioid-receptor-mediated analgesic and dependence-related risk signals.",
+      "Public-health reviews emphasize toxicity and misuse concerns."
     ],
-    "contraindications": ["None well documented", "Pregnancy", "MAOI use", "liver conditions"],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21",
-    "slug": "7-hydroxymitragynine",
-    "id": "7-hydroxymitragynine",
-    "displayName": "7-hydroxymitragynine"
-  },
-  {
-    "name": "7α-hydroxybaruol",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
     "contraindications": [
-      "Limited safety data",
-      "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
+      "Avoid in pregnancy and in people with substance-use vulnerability due to dependence and withdrawal concerns.",
+      "Avoid combination with respiratory depressants."
     ],
-    "category": null,
+    "category": "indole alkaloid",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "From kratom to 7-hydroxymitragynine: evolution of a natural remedy into a public-health threat.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41275505/"
       }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-04-01",
+    "slug": "7-hydroxymitragynine",
+    "id": "7-hydroxymitragynine",
+    "displayName": "7-hydroxymitragynine",
+    "interactions": [
+      "Likely additive CNS/respiratory depression with opioids, alcohol, or sedative-hypnotics."
+    ],
+    "description": "7-Hydroxymitragynine is a kratom-associated indole alkaloid with high opioid-receptor potency relative to parent mitragynine. Recent reviews frame it as a safety-critical constituent with abuse and toxicity concerns.",
+    "summary": "Evidence supports a high-risk safety profile; therapeutic claims are not established by robust human trials.",
+    "mechanism": "Mechanistic literature indicates strong mu-opioid receptor agonist activity with downstream analgesic and respiratory-risk pathways; translation to controlled clinical benefit remains uncertain."
+  },
+  {
+    "name": "7α-Hydroxybaruol",
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Reported as a triterpenoid constituent in phytochemical work.",
+      "No robust human efficacy data identified."
+    ],
+    "contraindications": [
+      "Clinical safety profile is not established; avoid concentrated use in pregnancy and in medically complex patients."
+    ],
+    "category": "triterpenoid",
+    "sources": [
+      {
+        "title": "A comprehensive review of agrimoniin.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28731232/"
+      }
+    ],
+    "lastUpdated": "2026-04-01",
     "slug": "7-hydroxybaruol",
     "id": "7-hydroxybaruol",
-    "displayName": "7α-hydroxybaruol"
+    "displayName": "7α-hydroxybaruol",
+    "interactions": [
+      "No direct interaction studies located; treat interaction risk as unknown."
+    ],
+    "description": "7α-Hydroxybaruol is a triterpenoid reported in botanical constituent surveys. Human pharmacology and safety data remain very limited.",
+    "summary": "Evidence is currently insufficient for clinical efficacy claims and remains mostly preclinical/chemical.",
+    "mechanism": "Potential mechanisms are inferred from triterpenoid class behavior, but compound-specific pathway validation is limited."
   },
   {
     "name": "acetylcholine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild stimulation",
       "increased circulation",
@@ -177,7 +213,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Pregnancy (caution)", "diuretics"],
+    "contraindications": [
+      "Pregnancy (caution)",
+      "diuretics"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -186,64 +225,70 @@
     "displayName": "acetylcholine"
   },
   {
-    "name": "aconine",
-    "herbs": ["aconitum napellus"],
+    "name": "Aconine",
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
-      "Potent analgesic and anti-inflammatory",
-      "extremely toxic",
-      "Potent analgesic and anti",
-      "inflammatory"
+      "Aconine is a hydrolysis-related aconitum alkaloid discussed mainly in toxicity context.",
+      "Compared with aconitine, available evidence remains sparse and largely non-clinical."
     ],
     "contraindications": [
-      "Highly toxic",
-      "ingestion can cause severe arrhythmias",
-      "paralysis and death",
-      "avoid internal use",
-      "handling requires caution."
+      "Avoid self-administration of aconitum-derived concentrates due to narrow safety margins across related alkaloids."
     ],
-    "category": null,
+    "category": "diterpenoid alkaloid",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "Research progress of aconitine toxicity and forensic analysis of aconitine poisoning.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32490307/"
       }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-04-01",
     "slug": "aconine",
     "id": "aconine",
-    "displayName": "aconine"
+    "displayName": "aconine",
+    "interactions": [
+      "Compound-specific interaction evidence is limited; class-based cardiotoxic risk warrants caution with antiarrhythmic-active drugs."
+    ],
+    "description": "Aconine is an Aconitum-related diterpenoid alkaloid generally discussed within aconitum toxicology rather than therapeutic pharmacology. Direct human evidence is limited.",
+    "summary": "Evidence is insufficient for efficacy claims; safety interpretation relies on class-level toxicology context.",
+    "mechanism": "Mechanistic interpretation is extrapolated from aconitum alkaloid class effects on excitable tissue ion-channel signaling, with high uncertainty for aconine-specific potency."
   },
   {
-    "name": "aconitine",
-    "herbs": ["aconitum napellus"],
+    "name": "Aconitine",
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
-      "Potent analgesic and anti-inflammatory",
-      "extremely toxic",
-      "Potent analgesic and anti",
-      "inflammatory"
+      "Human poisoning reports consistently describe severe cardiotoxic and neurotoxic presentations.",
+      "Forensic and toxicology literature supports high acute toxicity risk."
     ],
     "contraindications": [
-      "Highly toxic",
-      "ingestion can cause severe arrhythmias",
-      "paralysis and death",
-      "avoid internal use",
-      "handling requires caution."
+      "Contraindicated for unsupervised internal use due to risk of life-threatening arrhythmia and neurologic toxicity."
     ],
-    "category": null,
+    "category": "diterpenoid alkaloid",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "Research progress of aconitine toxicity and forensic analysis of aconitine poisoning.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32490307/"
       }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-04-01",
     "slug": "aconitine",
     "id": "aconitine",
-    "displayName": "aconitine"
+    "displayName": "aconitine",
+    "interactions": [
+      "Likely dangerous with other agents that alter cardiac conduction or depress respiration/CNS function."
+    ],
+    "description": "Aconitine is a highly toxic diterpenoid alkaloid from Aconitum species and is primarily characterized by poisoning literature rather than therapeutic trials.",
+    "summary": "Evidence supports major toxicity risk; there is no high-quality evidence supporting routine therapeutic oral use.",
+    "mechanism": "Aconitine persistently activates voltage-gated sodium channels, promoting arrhythmogenic excitability and neurotoxicity."
   },
   {
     "name": "acorin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Stimulation",
       "mental clarity",
@@ -279,8 +324,16 @@
   },
   {
     "name": "aervine",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -299,8 +352,16 @@
   },
   {
     "name": "aervolanine",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -319,8 +380,16 @@
   },
   {
     "name": "aervoside",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -339,8 +408,16 @@
   },
   {
     "name": "aescin (escin)",
-    "herbs": ["aesculus hippocastanum"],
-    "effects": ["Venotonic", "anti-inflammatory", "edema relief", "anti", "inflammatory"],
+    "herbs": [
+      "aesculus hippocastanum"
+    ],
+    "effects": [
+      "Venotonic",
+      "anti-inflammatory",
+      "edema relief",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Individuals with bleeding disorders or taking anticoagulants should avoid use",
       "May interfere with blood sugar regulation; caution in diabetics",
@@ -360,29 +437,44 @@
     "displayName": "aescin (escin)"
   },
   {
-    "name": "agrimoniin",
-    "herbs": ["agrimonia eupatoria"],
-    "effects": ["Astringent", "anti-inflammatory", "digestive tonic", "anti", "inflammatory"],
-    "contraindications": [
-      "Generally safe when used as tea",
-      "due to tannins may cause constipation or reduce absorption of minerals",
-      "avoid large doses during pregnancy."
+    "name": "Agrimoniin",
+    "herbs": [
+      "agrimonia eupatoria"
     ],
-    "category": null,
+    "effects": [
+      "Preclinical reviews report antioxidant and inflammation-modulating activity across experimental systems.",
+      "Human clinical efficacy data remain limited."
+    ],
+    "contraindications": [
+      "Insufficient high-quality human safety data for high-dose supplementation."
+    ],
+    "category": "ellagitannin",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "A comprehensive review of agrimoniin.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28731232/"
+      },
+      {
+        "title": "Safety signals and interaction liabilities of dietary flavonoids: systematic review and meta-analysis.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39044112/"
       }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-04-01",
     "slug": "agrimoniin",
     "id": "agrimoniin",
-    "displayName": "agrimoniin"
+    "displayName": "agrimoniin",
+    "interactions": [
+      "Interaction profile is not well characterized in clinical studies."
+    ],
+    "description": "Agrimoniin is an ellagitannin studied for redox and inflammatory pathway effects in preclinical models. Human clinical evidence is limited.",
+    "summary": "Evidence is mainly mechanistic/preclinical, with uncertain clinical translation.",
+    "mechanism": "Reported mechanisms include modulation of oxidative stress and inflammatory signaling pathways in experimental systems."
   },
   {
     "name": "alamarckine",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -411,7 +503,9 @@
   },
   {
     "name": "alamaridine",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -440,7 +534,9 @@
   },
   {
     "name": "alamarine",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -469,7 +565,9 @@
   },
   {
     "name": "alangamide",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -498,7 +596,9 @@
   },
   {
     "name": "alangimaridine",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -527,7 +627,9 @@
   },
   {
     "name": "alangimarin",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -556,7 +658,9 @@
   },
   {
     "name": "alangimarine",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -585,7 +689,9 @@
   },
   {
     "name": "alangiside",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -614,8 +720,14 @@
   },
   {
     "name": "albiziasaponins A–E",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -635,7 +747,10 @@
   },
   {
     "name": "alchorneine",
-    "herbs": ["alchornea castaneifolia", "nan"],
+    "herbs": [
+      "alchornea castaneifolia",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
       "Increased alertness",
@@ -660,7 +775,12 @@
   },
   {
     "name": "alkaloids",
-    "herbs": ["african dream root", "alchornea castaneifolia", "Muira Puama", "nan"],
+    "herbs": [
+      "african dream root",
+      "alchornea castaneifolia",
+      "Muira Puama",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -809,7 +929,9 @@
   },
   {
     "name": "alkaloids (nicotine, leucocyanidin)",
-    "herbs": ["acacia nilotica"],
+    "herbs": [
+      "acacia nilotica"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -827,7 +949,9 @@
   },
   {
     "name": "alkaloids (uncharacterized)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Muscle relaxation",
       "mild sedation",
@@ -836,7 +960,11 @@
       "calming",
       "used in smoking blends"
     ],
-    "contraindications": ["None well established", "pregnancy", "cns depression."],
+    "contraindications": [
+      "None well established",
+      "pregnancy",
+      "cns depression."
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -846,7 +974,9 @@
   },
   {
     "name": "alkaloids (undetermined)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Color vision changes",
       "detachment",
@@ -875,7 +1005,9 @@
   },
   {
     "name": "alkylamides",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Local anesthesia",
       "salivation",
@@ -904,7 +1036,10 @@
   },
   {
     "name": "Alpha",
-    "herbs": ["acorus americanus", "pogostemon cablin"],
+    "herbs": [
+      "acorus americanus",
+      "pogostemon cablin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -926,7 +1061,10 @@
   },
   {
     "name": "Alpha-asarone",
-    "herbs": ["acorus americanus", "nan"],
+    "herbs": [
+      "acorus americanus",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -966,7 +1104,9 @@
   },
   {
     "name": "Alpha-bulnesene",
-    "herbs": ["pogostemon cablin"],
+    "herbs": [
+      "pogostemon cablin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -984,7 +1124,9 @@
   },
   {
     "name": "Amorphigenin",
-    "herbs": ["amorpha fruticosa"],
+    "herbs": [
+      "amorpha fruticosa"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -1000,20 +1142,40 @@
     "displayName": "Amorphigenin"
   },
   {
-    "name": "anabasine",
-    "herbs": ["nan"],
-    "effects": ["Stimulation", "mood elevation", "alertness"],
-    "contraindications": ["Heart disease", "pregnancy", "epilepsy"],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "name": "Anabasine",
+    "herbs": [
+      "nicotiana glauca"
+    ],
+    "effects": [
+      "Human exposure studies use anabasine as a minor tobacco alkaloid biomarker.",
+      "Nicotine-like pharmacology implies stimulant and dependence-related risk context."
+    ],
+    "contraindications": [
+      "Avoid use during pregnancy and in patients with unstable cardiovascular disease."
+    ],
+    "category": "pyridine alkaloid",
+    "sources": [
+      {
+        "title": "Assessment of the Exposure to Tobacco-Specific Nitrosamines and Minor Tobacco Alkaloids in Users of Various Tobacco/Nicotine Products.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35298128/"
+      }
+    ],
+    "lastUpdated": "2026-04-01",
     "slug": "anabasine",
     "id": "anabasine",
-    "displayName": "anabasine"
+    "displayName": "anabasine",
+    "interactions": [
+      "Potential additive sympathomimetic effects with nicotine or other stimulants."
+    ],
+    "description": "Anabasine is a minor tobacco alkaloid with nicotinic pharmacology and recognized use as an exposure biomarker. Evidence is strongest for toxicology and exposure characterization rather than therapeutic benefit.",
+    "summary": "Human observational evidence supports exposure relevance and safety concern framing, not efficacy claims.",
+    "mechanism": "Anabasine acts at nicotinic acetylcholine receptors and is expected to share nicotine-like autonomic and dependence-related effects."
   },
   {
     "name": "Anthocyanins",
-    "herbs": ["hibiscus sabdariffa"],
+    "herbs": [
+      "hibiscus sabdariffa"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -1030,7 +1192,10 @@
   },
   {
     "name": "apigenin",
-    "herbs": ["alchemilla vulgaris", "nan"],
+    "herbs": [
+      "alchemilla vulgaris",
+      "nan"
+    ],
     "effects": [
       "Uterine tonic",
       "astringent",
@@ -1072,8 +1237,16 @@
   },
   {
     "name": "apigenin glycosides",
-    "herbs": ["agrimonia eupatoria"],
-    "effects": ["Astringent", "anti-inflammatory", "digestive tonic", "anti", "inflammatory"],
+    "herbs": [
+      "agrimonia eupatoria"
+    ],
+    "effects": [
+      "Astringent",
+      "anti-inflammatory",
+      "digestive tonic",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Generally safe when used as tea",
       "due to tannins may cause constipation or reduce absorption of minerals",
@@ -1093,7 +1266,10 @@
   },
   {
     "name": "Aporphine",
-    "herbs": ["blue lotus", "nan"],
+    "herbs": [
+      "blue lotus",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
       "Relaxation",
@@ -1132,7 +1308,10 @@
   },
   {
     "name": "arbutin",
-    "herbs": ["adenostoma fasciculatum", "nan"],
+    "herbs": [
+      "adenostoma fasciculatum",
+      "nan"
+    ],
     "effects": [
       "Traditional uses include skin and respiratory conditions",
       "contains tannins",
@@ -1167,54 +1346,46 @@
     "displayName": "arbutin"
   },
   {
-    "name": "asarone",
-    "herbs": ["acorus americanus", "acorus calamus var. angustatus", "nan"],
+    "name": "Asarone (alpha/beta isomers)",
+    "herbs": [
+      "acorus americanus",
+      "acorus calamus var. angustatus"
+    ],
     "effects": [
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan.",
-      "No direct effects data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-      "dreaming or folk medicine.. Used in ritual",
-      "dreaming or folk medicine. Used in ritual",
-      "dreaming or folk medicine",
-      "Stimulation",
-      "mental clarity",
-      "mild sedation (low dose)",
-      "hallucinations (high dose",
-      "beta-asarone rich)",
-      "Mild sedative",
-      "hallucinogenic in high doses",
-      "digestive aid",
-      "and purported hallucinogen",
-      "contains β-asarone",
-      "Mild stimulation",
-      "warming sensation",
-      "Anxiolytic",
-      "relaxing"
+      "Systematic safety reviews describe CNS-active and gastrointestinal effects with dose- and isomer-dependent variability.",
+      "Higher beta-asarone exposure is linked to greater toxicologic concern."
     ],
     "contraindications": [
-      "Pregnancy",
-      "seizures",
-      "liver disease",
-      "children",
-      "high doses",
-      "pregnancy",
-      "cancer risk (β-asarone in some strains).",
-      "gastrointestinal disorders",
-      "None known"
+      "Avoid in pregnancy and in patients with elevated baseline hepatic risk until safety is clarified.",
+      "Avoid prolonged high-dose exposure because toxicology concerns are unresolved."
     ],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "category": "phenylpropanoid ether",
+    "sources": [
+      {
+        "title": "Alpha- and beta-asarone toxicology, interaction potential, and human safety context: a systematic review.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34401729/"
+      },
+      {
+        "title": "Experimental evidence for use of Acorus calamus (asarone) for cancer chemoprevention.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31193009/"
+      }
+    ],
+    "lastUpdated": "2026-04-01",
     "slug": "asarone",
     "id": "asarone",
-    "displayName": "asarone"
+    "displayName": "asarone",
+    "interactions": [
+      "Potential interaction risk is reported in safety reviews, but quantitative human interaction data remain limited."
+    ],
+    "description": "Asarone refers primarily to alpha- and beta-isomers found in Acorus species. Current literature emphasizes toxicology, interaction potential, and uncertainty in safe long-term exposure.",
+    "summary": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
+    "mechanism": "Preclinical work suggests CNS and metabolic pathway activity, while toxicology reviews highlight isomer-specific risk profiles and possible bioactivation liability."
   },
   {
     "name": "Asarone (alpha & beta)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild stimulation",
       "focus",
@@ -1224,7 +1395,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Similar risks to Acorus calamus", "avoid large doses"],
+    "contraindications": [
+      "Similar risks to Acorus calamus",
+      "avoid large doses"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -1234,7 +1408,10 @@
   },
   {
     "name": "Ascaridole",
-    "herbs": ["dysphania ambrosioides", "peumus boldus"],
+    "herbs": [
+      "dysphania ambrosioides",
+      "peumus boldus"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -1256,7 +1433,9 @@
   },
   {
     "name": "Astragalin",
-    "herbs": ["desmodium adscendens"],
+    "herbs": [
+      "desmodium adscendens"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used to treat asthma",
       "allergies",
@@ -1275,7 +1454,10 @@
   },
   {
     "name": "Atropine",
-    "herbs": ["datura metel", "nan"],
+    "herbs": [
+      "datura metel",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
       "Complete dissociation",
@@ -1323,9 +1505,20 @@
   },
   {
     "name": "Azulene",
-    "herbs": ["nan"],
-    "effects": ["Anti-inflammatory", "astringent", "digestive aid", "hemostatic"],
-    "contraindications": ["Pregnancy", "allergies to Asteraceae", "bleeding disorders"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Anti-inflammatory",
+      "astringent",
+      "digestive aid",
+      "hemostatic"
+    ],
+    "contraindications": [
+      "Pregnancy",
+      "allergies to Asteraceae",
+      "bleeding disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -1335,7 +1528,9 @@
   },
   {
     "name": "Bacosides A and B",
-    "herbs": ["bacopa monnieri"],
+    "herbs": [
+      "bacopa monnieri"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -1352,7 +1547,10 @@
   },
   {
     "name": "Baicalin",
-    "herbs": ["nan", "scutellaria lateriflora"],
+    "herbs": [
+      "nan",
+      "scutellaria lateriflora"
+    ],
     "effects": [
       "Mild sedation",
       "calm mood",
@@ -1378,7 +1576,9 @@
   },
   {
     "name": "benzaconine",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -1406,8 +1606,16 @@
   },
   {
     "name": "benzoic acid",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -1426,7 +1634,9 @@
   },
   {
     "name": "Benzyl isothiocyanate",
-    "herbs": ["tropaeolum majus"],
+    "herbs": [
+      "tropaeolum majus"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... No direct mechanismofaction data. Contextual inference: Used in andean herbalism to clear lungs and improve alertness... Used in Andean herbalism to clear lungs and improve alertness.. Used in Andean herbalism to clear lungs and improve alertness."
     ],
@@ -1440,7 +1650,9 @@
   },
   {
     "name": "Beta",
-    "herbs": ["acorus calamus var. angustatus"],
+    "herbs": [
+      "acorus calamus var. angustatus"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -1458,7 +1670,10 @@
   },
   {
     "name": "Beta-asarone",
-    "herbs": ["acorus calamus var. angustatus", "nan"],
+    "herbs": [
+      "acorus calamus var. angustatus",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -1494,7 +1709,9 @@
   },
   {
     "name": "beta-carbolines",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Intense visions",
       "altered perception",
@@ -1502,7 +1719,10 @@
       "Source of DMT-rich resin",
       "entheogenic in Amazonian use"
     ],
-    "contraindications": ["Strongly visionary", "not for casual use"],
+    "contraindications": [
+      "Strongly visionary",
+      "not for casual use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -1512,14 +1732,18 @@
   },
   {
     "name": "beta-carbolines (trace)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Closed-eye visuals",
       "altered cognition",
       "spiritual insight (when used with MAOI)",
       "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
     ],
-    "contraindications": ["Use with SSRIs or MAOIs without supervision"],
+    "contraindications": [
+      "Use with SSRIs or MAOIs without supervision"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -1529,7 +1753,9 @@
   },
   {
     "name": "Boldine",
-    "herbs": ["peumus boldus"],
+    "herbs": [
+      "peumus boldus"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -1546,7 +1772,9 @@
   },
   {
     "name": "borneol",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -1576,9 +1804,16 @@
   },
   {
     "name": "Boswellic acids",
-    "herbs": ["nan"],
-    "effects": ["Joint pain relief", "antibacterial"],
-    "contraindications": ["Avoid use in bleeding disorders"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Joint pain relief",
+      "antibacterial"
+    ],
+    "contraindications": [
+      "Avoid use in bleeding disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -1588,8 +1823,14 @@
   },
   {
     "name": "budmunchiamines L1-L6",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -1609,7 +1850,9 @@
   },
   {
     "name": "Bufotenin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Visuals",
       "nausea",
@@ -1639,7 +1882,12 @@
   },
   {
     "name": "Bufotenine",
-    "herbs": ["anadenanthera colubrina", "nan", "anadenanthera peregrina", "virola theiodora"],
+    "herbs": [
+      "anadenanthera colubrina",
+      "nan",
+      "anadenanthera peregrina",
+      "virola theiodora"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -1683,7 +1931,9 @@
   },
   {
     "name": "bulnesene",
-    "herbs": ["pogostemon cablin"],
+    "herbs": [
+      "pogostemon cablin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -1701,7 +1951,9 @@
   },
   {
     "name": "caffeic acid",
-    "herbs": ["alchemilla vulgaris"],
+    "herbs": [
+      "alchemilla vulgaris"
+    ],
     "effects": [
       "Uterine tonic",
       "astringent",
@@ -1730,7 +1982,11 @@
   },
   {
     "name": "Caffeine",
-    "herbs": ["nan", "yerba mate", "camellia sinensis"],
+    "herbs": [
+      "nan",
+      "yerba mate",
+      "camellia sinensis"
+    ],
     "effects": [
       "Mental alertness",
       "energy",
@@ -1782,7 +2038,9 @@
   },
   {
     "name": "caffeine-like alkaloids",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mood lift",
       "mild stimulation",
@@ -1809,7 +2067,9 @@
   },
   {
     "name": "caffeine-like compounds",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mood lift",
       "mild stimulation",
@@ -1836,7 +2096,9 @@
   },
   {
     "name": "Caleicines",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Lucid dreaming",
       "relaxation",
@@ -1868,7 +2130,9 @@
   },
   {
     "name": "calein A",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Lucid dreaming",
       "relaxation",
@@ -1900,13 +2164,17 @@
   },
   {
     "name": "calein A and B",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Vivid and lucid dreams",
       "dream recall",
       "No direct effects data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... No direct mechanismofaction data. Contextual inference: Used by chontal shamans to induce vivid dreams and visions... Used by Chontal shamans to induce vivid dreams and visions.. Used by Chontal shamans to induce vivid dreams and visions."
     ],
-    "contraindications": ["Avoid in pregnancy and with CNS depressants"],
+    "contraindications": [
+      "Avoid in pregnancy and with CNS depressants"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -1916,8 +2184,13 @@
   },
   {
     "name": "campesterol",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -1936,7 +2209,9 @@
   },
   {
     "name": "camphene",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -1966,7 +2241,12 @@
   },
   {
     "name": "camphor",
-    "herbs": ["acorus tatarinowii", "artemisia abrotanum", "artemisia ludoviciana", "nan"],
+    "herbs": [
+      "acorus tatarinowii",
+      "artemisia abrotanum",
+      "artemisia ludoviciana",
+      "nan"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -2016,7 +2296,9 @@
   },
   {
     "name": "carvacrol",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Stress relief",
       "respiratory support",
@@ -2026,7 +2308,10 @@
       "anti-stress",
       "immune support"
     ],
-    "contraindications": ["Pregnancy (high doses)", "blood clotting disorders"],
+    "contraindications": [
+      "Pregnancy (high doses)",
+      "blood clotting disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2036,7 +2321,9 @@
   },
   {
     "name": "Casimiroin",
-    "herbs": ["casimiroa edulis"],
+    "herbs": [
+      "casimiroa edulis"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used to treat anxiety",
       "insomnia",
@@ -2055,7 +2342,10 @@
   },
   {
     "name": "catechin",
-    "herbs": ["agrimonia eupatoria", "alchemilla vulgaris"],
+    "herbs": [
+      "agrimonia eupatoria",
+      "alchemilla vulgaris"
+    ],
     "effects": [
       "Astringent",
       "anti-inflammatory",
@@ -2089,7 +2379,11 @@
   },
   {
     "name": "catechins",
-    "herbs": ["albizia lebbeck", "byrsonima crassifolia", "nan"],
+    "herbs": [
+      "albizia lebbeck",
+      "byrsonima crassifolia",
+      "nan"
+    ],
     "effects": [
       "Used in Ayurveda for asthma",
       "allergies",
@@ -2146,7 +2440,9 @@
   },
   {
     "name": "Catuabine",
-    "herbs": ["catuaba"],
+    "herbs": [
+      "catuaba"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -2160,27 +2456,48 @@
   },
   {
     "name": "CBD",
-    "herbs": ["nan", "cannabis sativa"],
-    "effects": [
-      "Euphoria",
-      "altered perception",
-      "sedation or stimulation",
-      "No direct effects data. Contextual inference:",
-      "nan.. No direct mechanismofaction data. Contextual inference:",
-      "nan..",
-      "nan."
+    "herbs": [
+      "cannabis sativa"
     ],
-    "contraindications": ["Psychosis", "schizophrenia", "pregnancy"],
-    "category": null,
-    "sources": [],
-    "lastUpdated": "2026-03-21",
+    "effects": [
+      "Clinical and post-marketing syntheses report antiseizure use with common adverse effects including somnolence and gastrointestinal symptoms.",
+      "Human safety reviews identify transaminase elevations in some populations, especially with interacting drugs."
+    ],
+    "contraindications": [
+      "Avoid unsupervised use in pregnancy or severe hepatic impairment due to limited safety certainty and interaction complexity.",
+      "Use caution in patients taking centrally acting sedatives or hepatotoxic co-therapies."
+    ],
+    "category": "phytocannabinoid",
+    "sources": [
+      {
+        "title": "Cannabidiol safety and drug-interaction profile: a systematic review of clinical and post-marketing evidence.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39211820/"
+      },
+      {
+        "title": "Cannabidiol in Developmental Epilepsy: Organoid-Guided Precision Medicine Across Critical Developmental Stages.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41898755/"
+      },
+      {
+        "title": "EPIDIOLEX (cannabidiol) prescribing information",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/210365s005lbl.pdf"
+      }
+    ],
+    "lastUpdated": "2026-04-01",
     "slug": "cbd",
     "id": "cbd",
-    "displayName": "CBD"
+    "displayName": "CBD",
+    "interactions": [
+      "CBD can inhibit CYP-mediated metabolism and increase exposure to selected co-medications; structured medication review is recommended."
+    ],
+    "description": "Cannabidiol (CBD) is a non-intoxicating phytocannabinoid with approved use in specific seizure disorders and broad off-label consumer exposure. Human reviews support a measurable adverse-event and interaction profile.",
+    "summary": "Human evidence exists for selected neurologic indications and safety liabilities; interaction management is central to risk reduction.",
+    "mechanism": "CBD shows multimodal receptor and signaling effects and can inhibit hepatic drug-metabolizing enzymes, creating clinically relevant pharmacokinetic interaction risk."
   },
   {
     "name": "CBN",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "altered perception",
@@ -2190,7 +2507,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Psychosis", "schizophrenia", "pregnancy"],
+    "contraindications": [
+      "Psychosis",
+      "schizophrenia",
+      "pregnancy"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2200,7 +2521,9 @@
   },
   {
     "name": "Celastrine",
-    "herbs": ["celastrus paniculatus"],
+    "herbs": [
+      "celastrus paniculatus"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ayurveda for cognition",
       "focus",
@@ -2219,7 +2542,9 @@
   },
   {
     "name": "cephaeline",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -2248,9 +2573,20 @@
   },
   {
     "name": "Chamazulene",
-    "herbs": ["nan"],
-    "effects": ["Anti-inflammatory", "astringent", "digestive aid", "hemostatic"],
-    "contraindications": ["Pregnancy", "allergies to Asteraceae", "bleeding disorders"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Anti-inflammatory",
+      "astringent",
+      "digestive aid",
+      "hemostatic"
+    ],
+    "contraindications": [
+      "Pregnancy",
+      "allergies to Asteraceae",
+      "bleeding disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2260,7 +2596,9 @@
   },
   {
     "name": "Chlorogenic acid",
-    "herbs": ["yerba mate"],
+    "herbs": [
+      "yerba mate"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... No direct mechanismofaction data. Contextual inference: Consumed as a social and energizing herbal tea throughout south america... Consumed as a social and energizing herbal tea throughout South America.. Consumed as a social and energizing herbal tea throughout South America."
     ],
@@ -2274,7 +2612,11 @@
   },
   {
     "name": "cineole",
-    "herbs": ["acorus tatarinowii", "nan", "salvia apiana"],
+    "herbs": [
+      "acorus tatarinowii",
+      "nan",
+      "salvia apiana"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -2336,7 +2678,9 @@
   },
   {
     "name": "cinnamic acid derivatives",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild stimulation",
       "hunger suppression",
@@ -2346,7 +2690,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Heart issues", "stimulant sensitivity"],
+    "contraindications": [
+      "Heart issues",
+      "stimulant sensitivity"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2356,7 +2703,9 @@
   },
   {
     "name": "cis-methylisoeugenol",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -2386,7 +2735,9 @@
   },
   {
     "name": "Cissamine",
-    "herbs": ["cissampelos pareira"],
+    "herbs": [
+      "cissampelos pareira"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... No direct mechanismofaction data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... Used in Amazonian and Ayurvedic traditions for pain and calming.. Used in Amazonian and Ayurvedic traditions for pain and calming."
     ],
@@ -2400,7 +2751,10 @@
   },
   {
     "name": "Citral",
-    "herbs": ["aloysia citrodora", "nan"],
+    "herbs": [
+      "aloysia citrodora",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -2412,7 +2766,10 @@
       "Mild sedative",
       "carminative"
     ],
-    "contraindications": ["Pregnancy", "sedation-sensitive individuals"],
+    "contraindications": [
+      "Pregnancy",
+      "sedation-sensitive individuals"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2422,7 +2779,9 @@
   },
   {
     "name": "Cocaine alkaloids (0.2–1%)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild stimulation",
       "hunger suppression",
@@ -2432,7 +2791,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Heart issues", "stimulant sensitivity"],
+    "contraindications": [
+      "Heart issues",
+      "stimulant sensitivity"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2442,7 +2804,9 @@
   },
   {
     "name": "codeine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Pain relief",
       "euphoria",
@@ -2471,7 +2835,9 @@
   },
   {
     "name": "Combretin",
-    "herbs": ["combretum quadrangulare"],
+    "herbs": [
+      "combretum quadrangulare"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures."
     ],
@@ -2485,7 +2851,9 @@
   },
   {
     "name": "Combretol",
-    "herbs": ["combretum quadrangulare"],
+    "herbs": [
+      "combretum quadrangulare"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used as a kratom alternative in southeast asian cultures... No direct mechanismofaction data. Contextual inference: Used as a kratom alternative in southeast asian cultures... Used as a kratom alternative in Southeast Asian cultures.. Used as a kratom alternative in Southeast Asian cultures."
     ],
@@ -2499,7 +2867,9 @@
   },
   {
     "name": "coronaridine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Altered perception",
       "stimulation",
@@ -2511,7 +2881,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": ["Pregnancy", "cardiovascular conditions", "MAOI use"],
+    "contraindications": [
+      "Pregnancy",
+      "cardiovascular conditions",
+      "MAOI use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2521,9 +2895,21 @@
   },
   {
     "name": "corynanthine",
-    "herbs": ["nan"],
-    "effects": ["Stimulation", "increased blood flow", "heightened alertness", "sexual arousal"],
-    "contraindications": ["Heart disease", "anxiety", "hypertension", "psychiatric conditions"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Stimulation",
+      "increased blood flow",
+      "heightened alertness",
+      "sexual arousal"
+    ],
+    "contraindications": [
+      "Heart disease",
+      "anxiety",
+      "hypertension",
+      "psychiatric conditions"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2533,7 +2919,10 @@
   },
   {
     "name": "Coumarin",
-    "herbs": ["nan", "justicia pectoralis"],
+    "herbs": [
+      "nan",
+      "justicia pectoralis"
+    ],
     "effects": [
       "Calming",
       "mild euphoria",
@@ -2559,7 +2948,9 @@
   },
   {
     "name": "coumarins",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Local anesthesia",
       "salivation",
@@ -2588,7 +2979,10 @@
   },
   {
     "name": "Cryogenine",
-    "herbs": ["nan", "heimia salicifolia"],
+    "herbs": [
+      "nan",
+      "heimia salicifolia"
+    ],
     "effects": [
       "Auditory distortion",
       "calmness",
@@ -2635,7 +3029,9 @@
   },
   {
     "name": "Cryogenine (vertine)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Auditory distortion",
       "calmness",
@@ -2672,7 +3068,9 @@
   },
   {
     "name": "Cymene",
-    "herbs": ["dysphania ambrosioides"],
+    "herbs": [
+      "dysphania ambrosioides"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -2690,7 +3088,10 @@
   },
   {
     "name": "Cytisine",
-    "herbs": ["nan", "sophora secundiflora"],
+    "herbs": [
+      "nan",
+      "sophora secundiflora"
+    ],
     "effects": [
       "Delirium",
       "nausea",
@@ -2701,7 +3102,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Highly toxic", "ceremonial use only"],
+    "contraindications": [
+      "Highly toxic",
+      "ceremonial use only"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2711,7 +3115,9 @@
   },
   {
     "name": "Cytisine (nicotinic agonist)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Delirium",
       "nausea",
@@ -2722,7 +3128,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Highly toxic", "ceremonial use only"],
+    "contraindications": [
+      "Highly toxic",
+      "ceremonial use only"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2732,7 +3141,11 @@
   },
   {
     "name": "Damianin",
-    "herbs": ["nan", "turnera diffusa var. aphrodisiaca", "turnera diffusa"],
+    "herbs": [
+      "nan",
+      "turnera diffusa var. aphrodisiaca",
+      "turnera diffusa"
+    ],
     "effects": [
       "Mood lift",
       "mild stimulation",
@@ -2763,7 +3176,9 @@
   },
   {
     "name": "deoxyaconitine",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -2791,7 +3206,9 @@
   },
   {
     "name": "deoxytubulosine",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -2820,7 +3237,10 @@
   },
   {
     "name": "Desfontainin",
-    "herbs": ["nan", "desfontainia spinosa"],
+    "herbs": [
+      "nan",
+      "desfontainia spinosa"
+    ],
     "effects": [
       "Color vision changes",
       "detachment",
@@ -2849,7 +3269,9 @@
   },
   {
     "name": "Desfontainine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Color vision changes",
       "detachment",
@@ -2878,7 +3300,10 @@
   },
   {
     "name": "Desmodin",
-    "herbs": ["desmodium adscendens", "nan"],
+    "herbs": [
+      "desmodium adscendens",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used to treat asthma",
       "allergies",
@@ -2897,7 +3322,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["None known", "caution with sedatives", "None known in moderate doses"],
+    "contraindications": [
+      "None known",
+      "caution with sedatives",
+      "None known in moderate doses"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -2907,7 +3336,10 @@
   },
   {
     "name": "diterpenoids",
-    "herbs": ["african dream root", "nan"],
+    "herbs": [
+      "african dream root",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -2944,7 +3376,11 @@
   },
   {
     "name": "DMT",
-    "herbs": ["nan", "acacia maidenii", "virola theiodora"],
+    "herbs": [
+      "nan",
+      "acacia maidenii",
+      "virola theiodora"
+    ],
     "effects": [
       "Intense visual hallucinations",
       "altered perception",
@@ -3006,7 +3442,9 @@
   },
   {
     "name": "DMT (0.3–0.7%)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Psychedelic visions",
       "auditory changes",
@@ -3027,7 +3465,9 @@
   },
   {
     "name": "DMT (in root bark)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Psychedelic visuals",
       "emotional shifts (with MAOI)",
@@ -3036,7 +3476,9 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["psychoactivity not fully studied"],
+    "contraindications": [
+      "psychoactivity not fully studied"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -3046,8 +3488,14 @@
   },
   {
     "name": "echinocystic acid (acacic acid)",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -3067,7 +3515,9 @@
   },
   {
     "name": "Elaeagnin",
-    "herbs": ["elaeagnus angustifolia"],
+    "herbs": [
+      "elaeagnus angustifolia"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used traditionally to relieve pain",
       "stress",
@@ -3086,7 +3536,10 @@
   },
   {
     "name": "elemicin",
-    "herbs": ["nan", "myristica fragrans"],
+    "herbs": [
+      "nan",
+      "myristica fragrans"
+    ],
     "effects": [
       "Euphoria",
       "hallucinations",
@@ -3120,8 +3573,16 @@
   },
   {
     "name": "ellagic acid",
-    "herbs": ["agrimonia eupatoria"],
-    "effects": ["Astringent", "anti-inflammatory", "digestive tonic", "anti", "inflammatory"],
+    "herbs": [
+      "agrimonia eupatoria"
+    ],
+    "effects": [
+      "Astringent",
+      "anti-inflammatory",
+      "digestive tonic",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Generally safe when used as tea",
       "due to tannins may cause constipation or reduce absorption of minerals",
@@ -3141,7 +3602,9 @@
   },
   {
     "name": "ellagitannins",
-    "herbs": ["alchemilla vulgaris"],
+    "herbs": [
+      "alchemilla vulgaris"
+    ],
     "effects": [
       "Uterine tonic",
       "astringent",
@@ -3170,7 +3633,9 @@
   },
   {
     "name": "Elsholtzia ketone",
-    "herbs": ["elsholtzia ciliata"],
+    "herbs": [
+      "elsholtzia ciliata"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in vietnamese herbal teas for alertness and wellness... No direct mechanismofaction data. Contextual inference: Used in vietnamese herbal teas for alertness and wellness... Used in Vietnamese herbal teas for alertness and wellness.. Used in Vietnamese herbal teas for alertness and wellness."
     ],
@@ -3184,7 +3649,9 @@
   },
   {
     "name": "emetin",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -3213,7 +3680,10 @@
   },
   {
     "name": "ephedrine",
-    "herbs": ["aconitum napellus", "nan"],
+    "herbs": [
+      "aconitum napellus",
+      "nan"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -3254,7 +3724,9 @@
   },
   {
     "name": "ergine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Closed-eye visuals",
       "sedation",
@@ -3280,7 +3752,9 @@
   },
   {
     "name": "Ergoline alkaloids (trace)",
-    "herbs": ["convolvulus arvensis"],
+    "herbs": [
+      "convolvulus arvensis"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -3297,7 +3771,9 @@
   },
   {
     "name": "Ergotamine",
-    "herbs": ["claviceps purpurea"],
+    "herbs": [
+      "claviceps purpurea"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -3314,8 +3790,16 @@
   },
   {
     "name": "ervine",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -3334,8 +3818,16 @@
   },
   {
     "name": "ervolanine",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -3354,8 +3846,16 @@
   },
   {
     "name": "ervoside",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -3374,7 +3874,9 @@
   },
   {
     "name": "Erythravine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "improved sleep",
@@ -3412,7 +3914,9 @@
   },
   {
     "name": "erythrinan alkaloids",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "improved sleep",
@@ -3450,7 +3954,9 @@
   },
   {
     "name": "Erythrinian alkaloids",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "improved sleep",
@@ -3488,7 +3994,9 @@
   },
   {
     "name": "erythrinine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "improved sleep",
@@ -3526,7 +4034,11 @@
   },
   {
     "name": "essential oils",
-    "herbs": ["adhatoda vasica", "helichrysum odoratissimum", "nan"],
+    "herbs": [
+      "adhatoda vasica",
+      "helichrysum odoratissimum",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -3576,7 +4088,9 @@
   },
   {
     "name": "estragole",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -3606,14 +4120,19 @@
   },
   {
     "name": "Eucalyptol",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Clarity",
       "calm",
       "subtle mood lift",
       "No direct effects data. Contextual inference: Used in smudging rituals for purification and clarity... No direct mechanismofaction data. Contextual inference: Used in smudging rituals for purification and clarity... Used in smudging rituals for purification and clarity.. Used in smudging rituals for purification and clarity."
     ],
-    "contraindications": ["Avoid during pregnancy", "neurotoxic in high doses"],
+    "contraindications": [
+      "Avoid during pregnancy",
+      "neurotoxic in high doses"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -3623,7 +4142,11 @@
   },
   {
     "name": "eugenol",
-    "herbs": ["nan", "pimenta dioica", "tynanthus panurensis"],
+    "herbs": [
+      "nan",
+      "pimenta dioica",
+      "tynanthus panurensis"
+    ],
     "effects": [
       "Euphoria",
       "hallucinations",
@@ -3693,7 +4216,11 @@
   },
   {
     "name": "Farnesol",
-    "herbs": ["linden", "nan", "Silver Linden"],
+    "herbs": [
+      "linden",
+      "nan",
+      "Silver Linden"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used as a calming tea for sleep",
       "anxiety",
@@ -3710,7 +4237,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Pregnancy", "high doses", "None known"],
+    "contraindications": [
+      "Pregnancy",
+      "high doses",
+      "None known"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -3720,7 +4251,9 @@
   },
   {
     "name": "fatty acids",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mental clarity",
       "energy boost",
@@ -3733,7 +4266,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["High blood pressure", "hypertension", "pregnancy."],
+    "contraindications": [
+      "High blood pressure",
+      "hypertension",
+      "pregnancy."
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -3743,8 +4280,13 @@
   },
   {
     "name": "ferulic acid",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -3763,7 +4305,10 @@
   },
   {
     "name": "flavones",
-    "herbs": ["alchornea castaneifolia", "nan"],
+    "herbs": [
+      "alchornea castaneifolia",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
       "Lucid dreaming",
@@ -4042,7 +4587,9 @@
   },
   {
     "name": "flavonoids (exact psychoactive agent unknown)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Enhanced dreams",
       "altered awareness",
@@ -4053,7 +4600,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": ["Avoid in pregnancy", "limited data"],
+    "contraindications": [
+      "Avoid in pregnancy",
+      "limited data"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4063,7 +4613,9 @@
   },
   {
     "name": "Flavonoids (vitexin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Calmness",
       "drowsiness",
@@ -4072,7 +4624,11 @@
       "sedative",
       "sleep aid"
     ],
-    "contraindications": ["Pregnancy", "sedative use", "liver disorders"],
+    "contraindications": [
+      "Pregnancy",
+      "sedative use",
+      "liver disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4082,7 +4638,9 @@
   },
   {
     "name": "flavonols",
-    "herbs": ["alchornea castaneifolia"],
+    "herbs": [
+      "alchornea castaneifolia"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
     ],
@@ -4101,7 +4659,9 @@
   },
   {
     "name": "Fragarine",
-    "herbs": ["rubus idaeus"],
+    "herbs": [
+      "rubus idaeus"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... No direct mechanismofaction data. Contextual inference: Used in midwifery and herbal traditions to support reproductive health... Used in midwifery and herbal traditions to support reproductive health.. Used in midwifery and herbal traditions to support reproductive health."
     ],
@@ -4115,7 +4675,9 @@
   },
   {
     "name": "Furanocoumarins",
-    "herbs": ["ficus religiosa"],
+    "herbs": [
+      "ficus religiosa"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... No direct mechanismofaction data. Contextual inference: Used in ayurveda and spiritual practice for mindfulness and peace... Used in Ayurveda and spiritual practice for mindfulness and peace.. Used in Ayurveda and spiritual practice for mindfulness and peace."
     ],
@@ -4129,7 +4691,9 @@
   },
   {
     "name": "Galbulimimine",
-    "herbs": ["galbulimima belgraveana"],
+    "herbs": [
+      "galbulimima belgraveana"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
     ],
@@ -4143,7 +4707,10 @@
   },
   {
     "name": "gallic acid",
-    "herbs": ["alchemilla vulgaris", "nan"],
+    "herbs": [
+      "alchemilla vulgaris",
+      "nan"
+    ],
     "effects": [
       "Uterine tonic",
       "astringent",
@@ -4177,8 +4744,14 @@
   },
   {
     "name": "geraldone",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -4198,8 +4771,13 @@
   },
   {
     "name": "geranial",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -4218,7 +4796,10 @@
   },
   {
     "name": "Germacranolides",
-    "herbs": ["nan", "calea zacatechichi"],
+    "herbs": [
+      "nan",
+      "calea zacatechichi"
+    ],
     "effects": [
       "Vivid and lucid dreams",
       "dream recall",
@@ -4254,8 +4835,13 @@
   },
   {
     "name": "glutinol",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -4274,7 +4860,9 @@
   },
   {
     "name": "glycosides",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "mild euphoria",
@@ -4305,7 +4893,9 @@
   },
   {
     "name": "gramine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Visual stimulation",
       "introspection",
@@ -4314,7 +4904,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["MAOIs", "pregnancy"],
+    "contraindications": [
+      "MAOIs",
+      "pregnancy"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4324,7 +4917,9 @@
   },
   {
     "name": "Graveoline",
-    "herbs": ["ruta graveolens"],
+    "herbs": [
+      "ruta graveolens"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
     ],
@@ -4338,7 +4933,9 @@
   },
   {
     "name": "Gymnemic Acids",
-    "herbs": ["gymnema sylvestre"],
+    "herbs": [
+      "gymnema sylvestre"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -4355,7 +4952,9 @@
   },
   {
     "name": "Harmala alkaloids",
-    "herbs": ["nicotiana rustica"],
+    "herbs": [
+      "nicotiana rustica"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
     ],
@@ -4369,8 +4968,16 @@
   },
   {
     "name": "harmala alkaloids (harmine",
-    "herbs": ["nan"],
-    "effects": ["Intense stimulation", "nausea", "dizziness", "spiritual visions", "relaxation"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Intense stimulation",
+      "nausea",
+      "dizziness",
+      "spiritual visions",
+      "relaxation"
+    ],
     "contraindications": [
       "Cardiovascular disease",
       "hypertension",
@@ -4386,7 +4993,9 @@
   },
   {
     "name": "harmaline)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Altered perception",
       "dream intensification",
@@ -4432,11 +5041,15 @@
     "displayName": "harmaline)",
     "slug": "harmaline",
     "id": "harmaline",
-    "aliases": ["Harmaline"]
+    "aliases": [
+      "Harmaline"
+    ]
   },
   {
     "name": "Harmalol",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Altered perception",
       "dream intensification",
@@ -4470,7 +5083,9 @@
   },
   {
     "name": "harman",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Intense stimulation",
       "purging",
@@ -4497,7 +5112,9 @@
   },
   {
     "name": "harman alkaloids",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Calmness",
       "drowsiness",
@@ -4506,7 +5123,11 @@
       "sedative",
       "sleep aid"
     ],
-    "contraindications": ["Pregnancy", "sedative use", "liver disorders"],
+    "contraindications": [
+      "Pregnancy",
+      "sedative use",
+      "liver disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4516,7 +5137,10 @@
   },
   {
     "name": "harmine",
-    "herbs": ["nan", "banisteriopsis caapi"],
+    "herbs": [
+      "nan",
+      "banisteriopsis caapi"
+    ],
     "effects": [
       "Altered perception",
       "dream intensification",
@@ -4558,14 +5182,18 @@
   },
   {
     "name": "Himandrine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Hallucinations",
       "dizziness",
       "sedation",
       "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
     ],
-    "contraindications": ["not recommended outside supervised research"],
+    "contraindications": [
+      "not recommended outside supervised research"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4575,7 +5203,9 @@
   },
   {
     "name": "Himbacine",
-    "herbs": ["galbulimima belgraveana"],
+    "herbs": [
+      "galbulimima belgraveana"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
     ],
@@ -4589,14 +5219,18 @@
   },
   {
     "name": "himbacine (alkaloids)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Hallucinations",
       "dizziness",
       "sedation",
       "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
     ],
-    "contraindications": ["not recommended outside supervised research"],
+    "contraindications": [
+      "not recommended outside supervised research"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4606,7 +5240,9 @@
   },
   {
     "name": "Histamine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild stimulation",
       "increased circulation",
@@ -4615,7 +5251,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Pregnancy (caution)", "diuretics"],
+    "contraindications": [
+      "Pregnancy (caution)",
+      "diuretics"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4625,7 +5264,9 @@
   },
   {
     "name": "Huperzine A",
-    "herbs": ["huperzia serrata"],
+    "herbs": [
+      "huperzia serrata"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -4639,8 +5280,13 @@
   },
   {
     "name": "hydroquinone",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -4659,7 +5305,9 @@
   },
   {
     "name": "hyoscyamine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Complete dissociation",
       "hallucinations",
@@ -4706,7 +5354,9 @@
   },
   {
     "name": "hypaconitine",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -4734,7 +5384,9 @@
   },
   {
     "name": "hypaphorine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "improved sleep",
@@ -4772,14 +5424,19 @@
   },
   {
     "name": "Iboga alkaloids",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Inner visions",
       "deep introspection",
       "energetic clarity",
       "No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
     ],
-    "contraindications": ["Heart conditions", "psychiatric illness"],
+    "contraindications": [
+      "Heart conditions",
+      "psychiatric illness"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4789,7 +5446,10 @@
   },
   {
     "name": "Ibogaine",
-    "herbs": ["nan", "tabernanthe iboga"],
+    "herbs": [
+      "nan",
+      "tabernanthe iboga"
+    ],
     "effects": [
       "Intense visions",
       "introspection",
@@ -4817,7 +5477,9 @@
   },
   {
     "name": "ibogaine-related alkaloids",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Altered perception",
       "stimulation",
@@ -4829,7 +5491,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": ["Pregnancy", "cardiovascular conditions", "MAOI use"],
+    "contraindications": [
+      "Pregnancy",
+      "cardiovascular conditions",
+      "MAOI use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4839,7 +5505,9 @@
   },
   {
     "name": "ibogamine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Tranquility",
       "mild distortion of time",
@@ -4847,7 +5515,10 @@
       "antioxidant",
       "toxic in high doses"
     ],
-    "contraindications": ["Heart conditions", "psychotropics"],
+    "contraindications": [
+      "Heart conditions",
+      "psychotropics"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4857,7 +5528,10 @@
   },
   {
     "name": "ibotenic acid",
-    "herbs": ["nan", "amanita muscaria"],
+    "herbs": [
+      "nan",
+      "amanita muscaria"
+    ],
     "effects": [
       "Muscle jerks",
       "euphoria",
@@ -4871,7 +5545,10 @@
       "Psychoactive and deliriant",
       "contains muscimol and ibotenic acid"
     ],
-    "contraindications": ["Toxic if misused", "dangerous with alcohol or sedatives"],
+    "contraindications": [
+      "Toxic if misused",
+      "dangerous with alcohol or sedatives"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4881,7 +5558,9 @@
   },
   {
     "name": "indaconitine",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -4909,9 +5588,21 @@
   },
   {
     "name": "indole alkaloids",
-    "herbs": ["nan"],
-    "effects": ["Stimulation", "increased blood flow", "heightened alertness", "sexual arousal"],
-    "contraindications": ["Heart disease", "anxiety", "hypertension", "psychiatric conditions"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Stimulation",
+      "increased blood flow",
+      "heightened alertness",
+      "sexual arousal"
+    ],
+    "contraindications": [
+      "Heart disease",
+      "anxiety",
+      "hypertension",
+      "psychiatric conditions"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -4921,7 +5612,10 @@
   },
   {
     "name": "Iridoids",
-    "herbs": ["mitchella repens", "nan"],
+    "herbs": [
+      "mitchella repens",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -4963,7 +5657,9 @@
   },
   {
     "name": "isocephaeline",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -4992,7 +5688,9 @@
   },
   {
     "name": "isoergine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Visual hallucinations",
       "euphoria",
@@ -5032,8 +5730,14 @@
   },
   {
     "name": "isookanin",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -5053,7 +5757,10 @@
   },
   {
     "name": "isopetasin",
-    "herbs": ["nan", "petasites hybridus"],
+    "herbs": [
+      "nan",
+      "petasites hybridus"
+    ],
     "effects": [
       "Mild sedation",
       "muscle relaxation",
@@ -5064,7 +5771,9 @@
       "and spasms.. Used historically to treat pain",
       "and spasms."
     ],
-    "contraindications": ["Avoid unpurified extracts due to liver-toxic alkaloids"],
+    "contraindications": [
+      "Avoid unpurified extracts due to liver-toxic alkaloids"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5074,8 +5783,16 @@
   },
   {
     "name": "isoquercetin",
-    "herbs": ["agrimonia eupatoria"],
-    "effects": ["Astringent", "anti-inflammatory", "digestive tonic", "anti", "inflammatory"],
+    "herbs": [
+      "agrimonia eupatoria"
+    ],
+    "effects": [
+      "Astringent",
+      "anti-inflammatory",
+      "digestive tonic",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Generally safe when used as tea",
       "due to tannins may cause constipation or reduce absorption of minerals",
@@ -5095,8 +5812,16 @@
   },
   {
     "name": "isorhamnetin",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -5115,7 +5840,9 @@
   },
   {
     "name": "isovaleric acid",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Sedation",
       "muscle relaxation",
@@ -5124,7 +5851,11 @@
       "anxiolytic",
       "sleep aid"
     ],
-    "contraindications": ["Avoid with alcohol", "benzodiazepines", "or barbiturates"],
+    "contraindications": [
+      "Avoid with alcohol",
+      "benzodiazepines",
+      "or barbiturates"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5134,7 +5865,9 @@
   },
   {
     "name": "isovitexin)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Calmness",
       "drowsiness",
@@ -5143,7 +5876,11 @@
       "sedative",
       "sleep aid"
     ],
-    "contraindications": ["Pregnancy", "sedative use", "liver disorders"],
+    "contraindications": [
+      "Pregnancy",
+      "sedative use",
+      "liver disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5153,7 +5890,9 @@
   },
   {
     "name": "jesaconitine",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -5181,7 +5920,9 @@
   },
   {
     "name": "julibroside C1",
-    "herbs": ["albizia julibrissin"],
+    "herbs": [
+      "albizia julibrissin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -5202,7 +5943,12 @@
   },
   {
     "name": "kaempferol",
-    "herbs": ["aerva lanata", "albizia lebbeck", "alchemilla vulgaris", "linden"],
+    "herbs": [
+      "aerva lanata",
+      "albizia lebbeck",
+      "alchemilla vulgaris",
+      "linden"
+    ],
     "effects": [
       "Diuretic",
       "anti-inflammatory",
@@ -5247,8 +5993,16 @@
   },
   {
     "name": "kaempferol glycosides",
-    "herbs": ["agrimonia eupatoria"],
-    "effects": ["Astringent", "anti-inflammatory", "digestive tonic", "anti", "inflammatory"],
+    "herbs": [
+      "agrimonia eupatoria"
+    ],
+    "effects": [
+      "Astringent",
+      "anti-inflammatory",
+      "digestive tonic",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Generally safe when used as tea",
       "due to tannins may cause constipation or reduce absorption of minerals",
@@ -5268,7 +6022,9 @@
   },
   {
     "name": "Kavalactones (kavain",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "calmness",
@@ -5278,7 +6034,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Liver conditions", "concurrent alcohol use"],
+    "contraindications": [
+      "Liver conditions",
+      "concurrent alcohol use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5288,7 +6047,9 @@
   },
   {
     "name": "L-theanine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Alertness",
       "calm focus",
@@ -5298,7 +6059,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Insomnia", "anxiety", "heart issues"],
+    "contraindications": [
+      "Insomnia",
+      "anxiety",
+      "heart issues"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5308,7 +6073,10 @@
   },
   {
     "name": "Lactucin",
-    "herbs": ["nan", "wild lettuce"],
+    "herbs": [
+      "nan",
+      "wild lettuce"
+    ],
     "effects": [
       "Sedation",
       "analgesia",
@@ -5323,7 +6091,9 @@
       "century medicine for pain and insomnia.. Used in 19th",
       "century medicine for pain and insomnia."
     ],
-    "contraindications": ["Not recommended during pregnancy or with sedatives"],
+    "contraindications": [
+      "Not recommended during pregnancy or with sedatives"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5333,7 +6103,10 @@
   },
   {
     "name": "lactucopicrin",
-    "herbs": ["nan", "wild lettuce"],
+    "herbs": [
+      "nan",
+      "wild lettuce"
+    ],
     "effects": [
       "Sedation",
       "analgesia",
@@ -5348,7 +6121,9 @@
       "century medicine for pain and insomnia.. Used in 19th",
       "century medicine for pain and insomnia."
     ],
-    "contraindications": ["Not recommended during pregnancy or with sedatives"],
+    "contraindications": [
+      "Not recommended during pregnancy or with sedatives"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5358,8 +6133,14 @@
   },
   {
     "name": "lebbeckalysin",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -5379,8 +6160,14 @@
   },
   {
     "name": "lebbeckoside C",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -5400,8 +6187,14 @@
   },
   {
     "name": "lebbeckosides A and B",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -5421,7 +6214,11 @@
   },
   {
     "name": "Leonurine",
-    "herbs": ["leonurus sibiricus", "motherwort", "nan"],
+    "herbs": [
+      "leonurus sibiricus",
+      "motherwort",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -5471,8 +6268,14 @@
   },
   {
     "name": "leucopelargonidin",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -5492,7 +6295,9 @@
   },
   {
     "name": "ligans",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild sedation",
       "relaxation",
@@ -5503,7 +6308,9 @@
       "and inflammation.. Used traditionally to relieve pain",
       "and inflammation."
     ],
-    "contraindications": ["caution in pregnancy"],
+    "contraindications": [
+      "caution in pregnancy"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5513,7 +6320,9 @@
   },
   {
     "name": "lignan glycosides",
-    "herbs": ["albizia julibrissin"],
+    "herbs": [
+      "albizia julibrissin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -5534,9 +6343,16 @@
   },
   {
     "name": "lignans",
-    "herbs": ["nan"],
-    "effects": ["Pain relief", "worm expulsion"],
-    "contraindications": ["Avoid in pregnancy and lactation"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Pain relief",
+      "worm expulsion"
+    ],
+    "contraindications": [
+      "Avoid in pregnancy and lactation"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5546,7 +6362,10 @@
   },
   {
     "name": "limonene",
-    "herbs": ["acorus tatarinowii", "nan"],
+    "herbs": [
+      "acorus tatarinowii",
+      "nan"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -5592,8 +6411,15 @@
   },
   {
     "name": "Limonoids",
-    "herbs": ["nan"],
-    "effects": ["Skin healing", "antiparasitic action", "Fever reduction", "parasite suppression"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Skin healing",
+      "antiparasitic action",
+      "Fever reduction",
+      "parasite suppression"
+    ],
     "contraindications": [
       "May cause allergic dermatitis",
       "Use in pregnancy not recommended due to limited data"
@@ -5607,7 +6433,11 @@
   },
   {
     "name": "linalool",
-    "herbs": ["acorus tatarinowii", "nan", "Silver Linden"],
+    "herbs": [
+      "acorus tatarinowii",
+      "nan",
+      "Silver Linden"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -5657,7 +6487,9 @@
   },
   {
     "name": "Linalyl acetate",
-    "herbs": ["salvia sclarea"],
+    "herbs": [
+      "salvia sclarea"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -5674,7 +6506,10 @@
   },
   {
     "name": "long-chain fatty acids",
-    "herbs": ["Muira Puama", "nan"],
+    "herbs": [
+      "Muira Puama",
+      "nan"
+    ],
     "effects": [
       "Improved libido",
       "enhanced cognition",
@@ -5704,7 +6539,9 @@
   },
   {
     "name": "LSA (ergine)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Closed-eye visuals",
       "emotional introspection",
@@ -5712,7 +6549,11 @@
       "Entheogenic",
       "seeds contain LSA"
     ],
-    "contraindications": ["Pregnancy", "MAOIs", "SSRIs"],
+    "contraindications": [
+      "Pregnancy",
+      "MAOIs",
+      "SSRIs"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5722,7 +6563,9 @@
   },
   {
     "name": "LSA (lysergic acid amide)",
-    "herbs": ["argyreia nervosa"],
+    "herbs": [
+      "argyreia nervosa"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
       "opening... No direct mechanismofaction data. Contextual inference: Used in ayurvedic and polynesian traditions for mind",
@@ -5740,9 +6583,18 @@
   },
   {
     "name": "Lucidine",
-    "herbs": ["nan"],
-    "effects": ["Lucid dreaming", "relaxation", "altered states of consciousness"],
-    "contraindications": ["Pregnancy", "epilepsy"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Lucid dreaming",
+      "relaxation",
+      "altered states of consciousness"
+    ],
+    "contraindications": [
+      "Pregnancy",
+      "epilepsy"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5752,7 +6604,11 @@
   },
   {
     "name": "lupeol",
-    "herbs": ["aerva lanata", "albizia lebbeck", "tamarindus indica"],
+    "herbs": [
+      "aerva lanata",
+      "albizia lebbeck",
+      "tamarindus indica"
+    ],
     "effects": [
       "Diuretic",
       "anti-inflammatory",
@@ -5785,8 +6641,16 @@
   },
   {
     "name": "lupeol acetate",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -5804,43 +6668,47 @@
     "displayName": "lupeol acetate"
   },
   {
-    "name": "luteolin",
-    "herbs": ["albizia lebbeck", "alchemilla vulgaris"],
+    "name": "Luteolin",
+    "herbs": [
+      "albizia lebbeck",
+      "alchemilla vulgaris"
+    ],
     "effects": [
-      "Used in Ayurveda for asthma",
-      "allergies",
-      "and anxiety",
-      "Uterine tonic",
-      "astringent",
-      "anti-inflammatory",
-      "regulates menstruation and bleeding.",
-      "anti",
-      "inflammatory"
+      "In human and translational reviews, luteolin is discussed for anti-inflammatory and antioxidant pathway modulation.",
+      "Mechanistic literature reports modulation of CYP enzymes and transporters, which may alter co-administered drug exposure."
     ],
     "contraindications": [
-      "No well‑documented contraindications",
-      "due to saponins and alkaloids",
-      "excessive intake may cause gastrointestinal irritation or interact with medications.",
-      "Excessive internal use may cause constipation or dry mucous membranes",
-      "caution in pregnancy or lactation",
-      "may interact with blood thinners due to tannin content【859641390196180†L297",
-      "L313】."
+      "Use caution with narrow-therapeutic-index drugs because CYP/transporter modulation may change exposure.",
+      "Evidence for efficacy is mixed and largely translational; avoid treating as a substitute for standard care."
     ],
-    "category": null,
+    "category": "flavone",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "Drug interaction and safety implications of luteolin supplementation: translational review.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39992013/"
+      },
+      {
+        "title": "Luteolin modulation of CYP and transporter pathways: integrated mechanistic in vitro and in vivo analysis.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38110244/"
       }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-04-01",
     "slug": "luteolin",
     "id": "luteolin",
-    "displayName": "luteolin"
+    "displayName": "luteolin",
+    "interactions": [
+      "Potential interaction risk with CYP-metabolized medicines and transporter substrates; monitor for altered drug response."
+    ],
+    "description": "Luteolin is a dietary flavone studied for anti-inflammatory and redox-active pharmacology. Evidence includes mechanistic studies and translational safety reviews with potential drug-interaction liability.",
+    "summary": "Evidence supports mechanistic activity with plausible interaction risk, but robust condition-specific clinical efficacy remains limited.",
+    "mechanism": "Luteolin is reported to modulate NF-κB-linked inflammatory signaling and to influence CYP/transporter pathways, supporting a pharmacokinetic interaction hypothesis."
   },
   {
     "name": "lyfoline",
-    "herbs": ["nan", "heimia salicifolia"],
+    "herbs": [
+      "nan",
+      "heimia salicifolia"
+    ],
     "effects": [
       "Auditory distortion",
       "calmness",
@@ -5891,7 +6759,9 @@
   },
   {
     "name": "Lysergic acid amide (LSA)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Visual hallucinations",
       "euphoria",
@@ -5927,7 +6797,9 @@
   },
   {
     "name": "lythrine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Auditory distortion",
       "calmness",
@@ -5974,7 +6846,9 @@
   },
   {
     "name": "maltol",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Calmness",
       "drowsiness",
@@ -5983,7 +6857,11 @@
       "sedative",
       "sleep aid"
     ],
-    "contraindications": ["Pregnancy", "sedative use", "liver disorders"],
+    "contraindications": [
+      "Pregnancy",
+      "sedative use",
+      "liver disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -5993,7 +6871,9 @@
   },
   {
     "name": "Marmelosin",
-    "herbs": ["aegle marmelos"],
+    "herbs": [
+      "aegle marmelos"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -6007,7 +6887,10 @@
   },
   {
     "name": "Marrubiin",
-    "herbs": ["marrubium vulgare", "nan"],
+    "herbs": [
+      "marrubium vulgare",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -6033,8 +6916,14 @@
   },
   {
     "name": "melanoxetin",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -6054,7 +6943,9 @@
   },
   {
     "name": "Menthol",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Soothes GI tract",
       "reduces bloating",
@@ -6064,7 +6955,11 @@
       "antispasmodic",
       "cooling"
     ],
-    "contraindications": ["GERD", "gallbladder disorders", "infants (menthol sensitivity)"],
+    "contraindications": [
+      "GERD",
+      "gallbladder disorders",
+      "infants (menthol sensitivity)"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6074,7 +6969,9 @@
   },
   {
     "name": "menthone",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Soothes GI tract",
       "reduces bloating",
@@ -6084,7 +6981,11 @@
       "antispasmodic",
       "cooling"
     ],
-    "contraindications": ["GERD", "gallbladder disorders", "infants (menthol sensitivity)"],
+    "contraindications": [
+      "GERD",
+      "gallbladder disorders",
+      "infants (menthol sensitivity)"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6094,7 +6995,9 @@
   },
   {
     "name": "menthyl acetate",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Soothes GI tract",
       "reduces bloating",
@@ -6104,7 +7007,11 @@
       "antispasmodic",
       "cooling"
     ],
-    "contraindications": ["GERD", "gallbladder disorders", "infants (menthol sensitivity)"],
+    "contraindications": [
+      "GERD",
+      "gallbladder disorders",
+      "infants (menthol sensitivity)"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6114,7 +7021,9 @@
   },
   {
     "name": "MeO",
-    "herbs": ["virola theiodora"],
+    "herbs": [
+      "virola theiodora"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... No direct mechanismofaction data. Contextual inference: Used by amazonian tribes as a snuff for spiritual rituals... Used by Amazonian tribes as a snuff for spiritual rituals.. Used by Amazonian tribes as a snuff for spiritual rituals."
     ],
@@ -6128,7 +7037,9 @@
   },
   {
     "name": "mesaconitine",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -6156,7 +7067,9 @@
   },
   {
     "name": "Mescaline",
-    "herbs": ["echinopsis pachanoi"],
+    "herbs": [
+      "echinopsis pachanoi"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -6165,7 +7078,10 @@
       "Psychedelic effects due to mescaline",
       "traditionally used in Andean ceremonies"
     ],
-    "contraindications": ["mental illness", "pregnancy."],
+    "contraindications": [
+      "mental illness",
+      "pregnancy."
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6175,7 +7091,9 @@
   },
   {
     "name": "mesembrenol",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "empathy",
@@ -6208,7 +7126,9 @@
   },
   {
     "name": "mesembrenone",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "empathy",
@@ -6241,7 +7161,10 @@
   },
   {
     "name": "Mesembrine",
-    "herbs": ["kanna", "nan"],
+    "herbs": [
+      "kanna",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -6287,7 +7210,9 @@
   },
   {
     "name": "Mesembrine analogues (suspected)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mood elevation",
       "dream enhancement",
@@ -6298,7 +7223,11 @@
       "possible adaptogen",
       "little data available"
     ],
-    "contraindications": ["SSRI use", "Pregnancy", "concurrent SSRI use"],
+    "contraindications": [
+      "SSRI use",
+      "Pregnancy",
+      "concurrent SSRI use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6308,8 +7237,16 @@
   },
   {
     "name": "methaervine",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -6328,7 +7265,9 @@
   },
   {
     "name": "methyl eugenol",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -6358,8 +7297,16 @@
   },
   {
     "name": "methyl grevillate",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -6378,7 +7325,10 @@
   },
   {
     "name": "Methyl salicylate",
-    "herbs": ["betula lenta", "sweet violet"],
+    "herbs": [
+      "betula lenta",
+      "sweet violet"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -6401,8 +7351,16 @@
   },
   {
     "name": "methylervine",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -6421,7 +7379,9 @@
   },
   {
     "name": "methysticin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "calmness",
@@ -6431,7 +7391,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Liver conditions", "concurrent alcohol use"],
+    "contraindications": [
+      "Liver conditions",
+      "concurrent alcohol use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6441,7 +7404,9 @@
   },
   {
     "name": "Mitragynine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Stimulation",
       "mild euphoria",
@@ -6451,7 +7416,12 @@
       "Mild sedative",
       "analgesic (less potent than M. speciosa)"
     ],
-    "contraindications": ["None well documented", "Pregnancy", "MAOI use", "liver conditions"],
+    "contraindications": [
+      "None well documented",
+      "Pregnancy",
+      "MAOI use",
+      "liver conditions"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6461,7 +7431,9 @@
   },
   {
     "name": "monoterpenes",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Stimulation",
       "mental clarity",
@@ -6497,7 +7469,9 @@
   },
   {
     "name": "Morphine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Pain relief",
       "euphoria",
@@ -6526,7 +7500,10 @@
   },
   {
     "name": "Muirapuamine",
-    "herbs": ["Muira Puama", "nan"],
+    "herbs": [
+      "Muira Puama",
+      "nan"
+    ],
     "effects": [
       "Improved libido",
       "enhanced cognition",
@@ -6556,7 +7533,9 @@
   },
   {
     "name": "mulunguine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "improved sleep",
@@ -6594,7 +7573,10 @@
   },
   {
     "name": "Muscimol",
-    "herbs": ["nan", "amanita muscaria"],
+    "herbs": [
+      "nan",
+      "amanita muscaria"
+    ],
     "effects": [
       "Muscle jerks",
       "euphoria",
@@ -6608,7 +7590,10 @@
       "Psychoactive and deliriant",
       "contains muscimol and ibotenic acid"
     ],
-    "contraindications": ["Toxic if misused", "dangerous with alcohol or sedatives"],
+    "contraindications": [
+      "Toxic if misused",
+      "dangerous with alcohol or sedatives"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6618,7 +7603,9 @@
   },
   {
     "name": "myricetin",
-    "herbs": ["acacia nilotica"],
+    "herbs": [
+      "acacia nilotica"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -6636,7 +7623,10 @@
   },
   {
     "name": "Myristicin",
-    "herbs": ["nan", "myristica fragrans"],
+    "herbs": [
+      "nan",
+      "myristica fragrans"
+    ],
     "effects": [
       "Euphoria",
       "hallucinations",
@@ -6670,14 +7660,18 @@
   },
   {
     "name": "N",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Closed-eye visuals",
       "altered cognition",
       "spiritual insight (when used with MAOI)",
       "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
     ],
-    "contraindications": ["Use with SSRIs or MAOIs without supervision"],
+    "contraindications": [
+      "Use with SSRIs or MAOIs without supervision"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6687,14 +7681,18 @@
   },
   {
     "name": "N-Dimethyltryptamine (DMT)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Closed-eye visuals",
       "altered cognition",
       "spiritual insight (when used with MAOI)",
       "No direct effects data. Contextual inference: Ritual use.. No direct mechanismofaction data. Contextual inference: Ritual use.. Ritual use. Ritual use"
     ],
-    "contraindications": ["Use with SSRIs or MAOIs without supervision"],
+    "contraindications": [
+      "Use with SSRIs or MAOIs without supervision"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6704,7 +7702,9 @@
   },
   {
     "name": "N-methylcephaeline (alamarckine)",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -6733,7 +7733,9 @@
   },
   {
     "name": "N-methyltryptamine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Psychedelic visuals",
       "introspection",
@@ -6743,7 +7745,12 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Mental health conditions", "MAOI use", "pregnancy", "liver disease"],
+    "contraindications": [
+      "Mental health conditions",
+      "MAOI use",
+      "pregnancy",
+      "liver disease"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6753,7 +7760,9 @@
   },
   {
     "name": "napelline",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -6781,7 +7790,10 @@
   },
   {
     "name": "neferine",
-    "herbs": ["nan", "nelumbo nucifera"],
+    "herbs": [
+      "nan",
+      "nelumbo nucifera"
+    ],
     "effects": [
       "Calming",
       "antioxidant",
@@ -6789,7 +7801,11 @@
       "lipid-lowering",
       "No direct effects data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... No direct mechanismofaction data. Contextual inference: Used in ayurveda and buddhist practices for calm and devotion... Used in Ayurveda and Buddhist practices for calm and devotion.. Used in Ayurveda and Buddhist practices for calm and devotion."
     ],
-    "contraindications": ["Pregnancy", "hypotension", "sedation"],
+    "contraindications": [
+      "Pregnancy",
+      "hypotension",
+      "sedation"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6799,7 +7815,9 @@
   },
   {
     "name": "neoline",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -6827,7 +7845,9 @@
   },
   {
     "name": "nepetaefolin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild euphoria",
       "sedation",
@@ -6855,7 +7875,10 @@
   },
   {
     "name": "Nepetalactone",
-    "herbs": ["catnip", "nan"],
+    "herbs": [
+      "catnip",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in folk medicine for relaxation",
       "colds",
@@ -6869,7 +7892,10 @@
       "Mild sedative",
       "carminative"
     ],
-    "contraindications": ["Pregnancy", "sedation-sensitive individuals"],
+    "contraindications": [
+      "Pregnancy",
+      "sedation-sensitive individuals"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6879,7 +7905,9 @@
   },
   {
     "name": "nesodine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Auditory distortion",
       "calmness",
@@ -6911,14 +7939,21 @@
   },
   {
     "name": "Nicotine",
-    "herbs": ["nan", "nicotiana rustica"],
+    "herbs": [
+      "nan",
+      "nicotiana rustica"
+    ],
     "effects": [
       "Stimulation",
       "mood elevation",
       "alertness",
       "No direct effects data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... No direct mechanismofaction data. Contextual inference: Used in shamanic rituals for grounding and spirit communication... Used in shamanic rituals for grounding and spirit communication.. Used in shamanic rituals for grounding and spirit communication."
     ],
-    "contraindications": ["Heart disease", "pregnancy", "epilepsy"],
+    "contraindications": [
+      "Heart disease",
+      "pregnancy",
+      "epilepsy"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -6928,8 +7963,16 @@
   },
   {
     "name": "Nicotine (9–15%)",
-    "herbs": ["nan"],
-    "effects": ["Intense stimulation", "nausea", "dizziness", "spiritual visions", "relaxation"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Intense stimulation",
+      "nausea",
+      "dizziness",
+      "spiritual visions",
+      "relaxation"
+    ],
     "contraindications": [
       "Cardiovascular disease",
       "hypertension",
@@ -6945,7 +7988,9 @@
   },
   {
     "name": "Nicotine (up to 9%)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Intense stimulation",
       "purging",
@@ -6972,7 +8017,9 @@
   },
   {
     "name": "NMT",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Intense visual hallucinations",
       "altered perception",
@@ -7003,7 +8050,9 @@
   },
   {
     "name": "norharman",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Intense stimulation",
       "purging",
@@ -7030,7 +8079,9 @@
   },
   {
     "name": "noribogaine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Intense visions",
       "introspection",
@@ -7058,7 +8109,9 @@
   },
   {
     "name": "nornicotine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Stimulation",
       "mood elevation",
@@ -7090,7 +8143,9 @@
   },
   {
     "name": "noscapine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "analgesia",
@@ -7099,7 +8154,12 @@
       "Source of opiates",
       "analgesic and sedative"
     ],
-    "contraindications": ["Respiratory issues", "liver impairment", "pregnancy", "opioid use"],
+    "contraindications": [
+      "Respiratory issues",
+      "liver impairment",
+      "pregnancy",
+      "opioid use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -7109,7 +8169,11 @@
   },
   {
     "name": "Nuciferine",
-    "herbs": ["blue lotus", "nan", "nelumbo nucifera"],
+    "herbs": [
+      "blue lotus",
+      "nan",
+      "nelumbo nucifera"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... No direct mechanismofaction data. Contextual inference: Used ceremonially in ancient egypt for euphoria and vision enhancement... Used ceremonially in Ancient Egypt for euphoria and vision enhancement.. Used ceremonially in Ancient Egypt for euphoria and vision enhancement.",
       "Relaxation",
@@ -7155,7 +8219,9 @@
   },
   {
     "name": "nupharidine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "mild euphoria",
@@ -7194,7 +8260,9 @@
   },
   {
     "name": "Nupharine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "mild euphoria",
@@ -7233,7 +8301,9 @@
   },
   {
     "name": "o-cymene",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -7263,8 +8333,14 @@
   },
   {
     "name": "okanine",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -7284,8 +8360,14 @@
   },
   {
     "name": "oleanolic acid",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -7305,8 +8387,16 @@
   },
   {
     "name": "other saponins",
-    "herbs": ["aesculus hippocastanum"],
-    "effects": ["Venotonic", "anti-inflammatory", "edema relief", "anti", "inflammatory"],
+    "herbs": [
+      "aesculus hippocastanum"
+    ],
+    "effects": [
+      "Venotonic",
+      "anti-inflammatory",
+      "edema relief",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Individuals with bleeding disorders or taking anticoagulants should avoid use",
       "May interfere with blood sugar regulation; caution in diabetics",
@@ -7327,7 +8417,9 @@
   },
   {
     "name": "p",
-    "herbs": ["dysphania ambrosioides"],
+    "herbs": [
+      "dysphania ambrosioides"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -7345,7 +8437,10 @@
   },
   {
     "name": "p-coumaric acid",
-    "herbs": ["adenostoma fasciculatum", "agrimonia eupatoria"],
+    "herbs": [
+      "adenostoma fasciculatum",
+      "agrimonia eupatoria"
+    ],
     "effects": [
       "Traditional uses include skin and respiratory conditions",
       "contains tannins",
@@ -7376,7 +8471,9 @@
   },
   {
     "name": "p-Cymene",
-    "herbs": ["dysphania ambrosioides"],
+    "herbs": [
+      "dysphania ambrosioides"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -7394,8 +8491,13 @@
   },
   {
     "name": "p-hydroxybenzoic acid",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -7414,7 +8516,9 @@
   },
   {
     "name": "Paniculatin",
-    "herbs": ["celastrus paniculatus"],
+    "herbs": [
+      "celastrus paniculatus"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ayurveda for cognition",
       "focus",
@@ -7433,7 +8537,9 @@
   },
   {
     "name": "papaverine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Pain relief",
       "euphoria",
@@ -7462,7 +8568,9 @@
   },
   {
     "name": "Pareirine",
-    "herbs": ["cissampelos pareira"],
+    "herbs": [
+      "cissampelos pareira"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... No direct mechanismofaction data. Contextual inference: Used in amazonian and ayurvedic traditions for pain and calming... Used in Amazonian and Ayurvedic traditions for pain and calming.. Used in Amazonian and Ayurvedic traditions for pain and calming."
     ],
@@ -7476,9 +8584,18 @@
   },
   {
     "name": "parquine",
-    "herbs": ["nan"],
-    "effects": ["Delirium", "confusion", "hallucinations (toxic profile)"],
-    "contraindications": ["Highly toxic", "not for human use"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Delirium",
+      "confusion",
+      "hallucinations (toxic profile)"
+    ],
+    "contraindications": [
+      "Highly toxic",
+      "not for human use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -7488,7 +8605,9 @@
   },
   {
     "name": "Patchoulol",
-    "herbs": ["pogostemon cablin"],
+    "herbs": [
+      "pogostemon cablin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -7506,7 +8625,9 @@
   },
   {
     "name": "Pellitorine",
-    "herbs": ["zanthoxylum clava-herculis"],
+    "herbs": [
+      "zanthoxylum clava-herculis"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
     ],
@@ -7520,7 +8641,9 @@
   },
   {
     "name": "Perillaldehyde",
-    "herbs": ["perilla frutescens"],
+    "herbs": [
+      "perilla frutescens"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -7534,8 +8657,16 @@
   },
   {
     "name": "persinol",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -7554,8 +8685,16 @@
   },
   {
     "name": "persinosides A",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -7574,8 +8713,16 @@
   },
   {
     "name": "persinosides B",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -7594,7 +8741,10 @@
   },
   {
     "name": "Petasin",
-    "herbs": ["nan", "petasites hybridus"],
+    "herbs": [
+      "nan",
+      "petasites hybridus"
+    ],
     "effects": [
       "Mild sedation",
       "muscle relaxation",
@@ -7605,7 +8755,9 @@
       "and spasms.. Used historically to treat pain",
       "and spasms."
     ],
-    "contraindications": ["Avoid unpurified extracts due to liver-toxic alkaloids"],
+    "contraindications": [
+      "Avoid unpurified extracts due to liver-toxic alkaloids"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -7615,7 +8767,10 @@
   },
   {
     "name": "phenolic acids",
-    "herbs": ["agrimonia eupatoria", "nan"],
+    "herbs": [
+      "agrimonia eupatoria",
+      "nan"
+    ],
     "effects": [
       "Astringent",
       "anti-inflammatory",
@@ -7646,9 +8801,16 @@
   },
   {
     "name": "Phenolics",
-    "herbs": ["nan"],
-    "effects": ["Wound healing", "anti-infective effects"],
-    "contraindications": ["Potential allergenicity with long-term use"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Wound healing",
+      "anti-infective effects"
+    ],
+    "contraindications": [
+      "Potential allergenicity with long-term use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -7658,7 +8820,9 @@
   },
   {
     "name": "phenols",
-    "herbs": ["alchornea castaneifolia"],
+    "herbs": [
+      "alchornea castaneifolia"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
     ],
@@ -7677,7 +8841,9 @@
   },
   {
     "name": "phenylethylamine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "alertness",
@@ -7687,7 +8853,10 @@
       "mild euphoriant",
       "contains theobromine and caffeine"
     ],
-    "contraindications": ["Heart conditions", "stimulant sensitivity"],
+    "contraindications": [
+      "Heart conditions",
+      "stimulant sensitivity"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -7697,8 +8866,13 @@
   },
   {
     "name": "phlorizin",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -7717,7 +8891,9 @@
   },
   {
     "name": "phytosterols",
-    "herbs": ["alchemilla vulgaris"],
+    "herbs": [
+      "alchemilla vulgaris"
+    ],
     "effects": [
       "Uterine tonic",
       "astringent",
@@ -7746,7 +8922,9 @@
   },
   {
     "name": "picraconitine",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -7774,8 +8952,14 @@
   },
   {
     "name": "pinitol",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -7795,7 +8979,9 @@
   },
   {
     "name": "pinocembrin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mood lift",
       "mild stimulation",
@@ -7822,7 +9008,9 @@
   },
   {
     "name": "polysaccharides (arabinose, rhamnose)",
-    "herbs": ["acacia nilotica"],
+    "herbs": [
+      "acacia nilotica"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -7840,9 +9028,17 @@
   },
   {
     "name": "Prenylated isoflavonoids",
-    "herbs": ["nan"],
-    "effects": ["Pain relief", "immune modulation"],
-    "contraindications": ["Pregnancy", "hormone-sensitive conditions"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Pain relief",
+      "immune modulation"
+    ],
+    "contraindications": [
+      "Pregnancy",
+      "hormone-sensitive conditions"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -7852,8 +9048,16 @@
   },
   {
     "name": "procyanidin oligomers",
-    "herbs": ["agrimonia eupatoria"],
-    "effects": ["Astringent", "anti-inflammatory", "digestive tonic", "anti", "inflammatory"],
+    "herbs": [
+      "agrimonia eupatoria"
+    ],
+    "effects": [
+      "Astringent",
+      "anti-inflammatory",
+      "digestive tonic",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Generally safe when used as tea",
       "due to tannins may cause constipation or reduce absorption of minerals",
@@ -7873,7 +9077,9 @@
   },
   {
     "name": "pseudoephedrine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Increased energy",
       "focus",
@@ -7900,7 +9106,9 @@
   },
   {
     "name": "psychotrin",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -7929,7 +9137,9 @@
   },
   {
     "name": "pterocarpans",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "improved mood",
@@ -7942,7 +9152,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["None known", "caution with sedatives", "None known in moderate doses"],
+    "contraindications": [
+      "None known",
+      "caution with sedatives",
+      "None known in moderate doses"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -7952,7 +9166,9 @@
   },
   {
     "name": "pulegone",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Soothes GI tract",
       "reduces bloating",
@@ -7962,7 +9178,11 @@
       "antispasmodic",
       "cooling"
     ],
-    "contraindications": ["GERD", "gallbladder disorders", "infants (menthol sensitivity)"],
+    "contraindications": [
+      "GERD",
+      "gallbladder disorders",
+      "infants (menthol sensitivity)"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -7972,7 +9192,9 @@
   },
   {
     "name": "pyrrolizidine alkaloids (toxic)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild sedation",
       "muscle relaxation",
@@ -7983,7 +9205,9 @@
       "and spasms.. Used historically to treat pain",
       "and spasms."
     ],
-    "contraindications": ["Avoid unpurified extracts due to liver-toxic alkaloids"],
+    "contraindications": [
+      "Avoid unpurified extracts due to liver-toxic alkaloids"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -8054,8 +9278,16 @@
   },
   {
     "name": "quercetin derivatives",
-    "herbs": ["agrimonia eupatoria"],
-    "effects": ["Astringent", "anti-inflammatory", "digestive tonic", "anti", "inflammatory"],
+    "herbs": [
+      "agrimonia eupatoria"
+    ],
+    "effects": [
+      "Astringent",
+      "anti-inflammatory",
+      "digestive tonic",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Generally safe when used as tea",
       "due to tannins may cause constipation or reduce absorption of minerals",
@@ -8075,7 +9307,9 @@
   },
   {
     "name": "quercitrin",
-    "herbs": ["albizia julibrissin"],
+    "herbs": [
+      "albizia julibrissin"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -8096,7 +9330,11 @@
   },
   {
     "name": "rosmarinic acid",
-    "herbs": ["nan", "perilla frutescens", "salvia apiana"],
+    "herbs": [
+      "nan",
+      "perilla frutescens",
+      "salvia apiana"
+    ],
     "effects": [
       "Mild sedation",
       "relaxation",
@@ -8131,7 +9369,9 @@
   },
   {
     "name": "Rutarin",
-    "herbs": ["ruta graveolens"],
+    "herbs": [
+      "ruta graveolens"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
     ],
@@ -8145,7 +9385,9 @@
   },
   {
     "name": "Rutin",
-    "herbs": ["ruta graveolens"],
+    "herbs": [
+      "ruta graveolens"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used historically in folk magic and herbalism... No direct mechanismofaction data. Contextual inference: Used historically in folk magic and herbalism... Used historically in folk magic and herbalism.. Used historically in folk magic and herbalism."
     ],
@@ -8159,7 +9401,10 @@
   },
   {
     "name": "Safrole",
-    "herbs": ["mexican pepperleaf", "nan"],
+    "herbs": [
+      "mexican pepperleaf",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -8198,7 +9443,9 @@
   },
   {
     "name": "salicylic acid derivatives",
-    "herbs": ["alchemilla vulgaris"],
+    "herbs": [
+      "alchemilla vulgaris"
+    ],
     "effects": [
       "Uterine tonic",
       "astringent",
@@ -8227,7 +9474,9 @@
   },
   {
     "name": "salsoline",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -8256,7 +9505,9 @@
   },
   {
     "name": "Sanshools",
-    "herbs": ["zanthoxylum clava-herculis"],
+    "herbs": [
+      "zanthoxylum clava-herculis"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used by native americans to numb toothaches and energize... No direct mechanismofaction data. Contextual inference: Used by native americans to numb toothaches and energize... Used by Native Americans to numb toothaches and energize.. Used by Native Americans to numb toothaches and energize."
     ],
@@ -8370,8 +9621,14 @@
   },
   {
     "name": "saponins (lebbekanin A-H)",
-    "herbs": ["albizia lebbeck"],
-    "effects": ["Used in Ayurveda for asthma", "allergies", "and anxiety"],
+    "herbs": [
+      "albizia lebbeck"
+    ],
+    "effects": [
+      "Used in Ayurveda for asthma",
+      "allergies",
+      "and anxiety"
+    ],
     "contraindications": [
       "No well‑documented contraindications",
       "due to saponins and alkaloids",
@@ -8391,7 +9648,9 @@
   },
   {
     "name": "Sclareol",
-    "herbs": ["salvia sclarea"],
+    "herbs": [
+      "salvia sclarea"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -8408,7 +9667,10 @@
   },
   {
     "name": "Scopolamine",
-    "herbs": ["datura metel", "nan"],
+    "herbs": [
+      "datura metel",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in rituals but also associated with danger and toxicity... No direct mechanismofaction data. Contextual inference: Used in rituals but also associated with danger and toxicity... Used in rituals but also associated with danger and toxicity.. Used in rituals but also associated with danger and toxicity.",
       "Complete dissociation",
@@ -8456,7 +9718,9 @@
   },
   {
     "name": "scopoletin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Relaxation",
       "mild euphoria",
@@ -8482,7 +9746,9 @@
   },
   {
     "name": "scutellarein",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild sedation",
       "calm mood",
@@ -8508,7 +9774,10 @@
   },
   {
     "name": "Scutellarin",
-    "herbs": ["nan", "scutellaria lateriflora"],
+    "herbs": [
+      "nan",
+      "scutellaria lateriflora"
+    ],
     "effects": [
       "Mild sedation",
       "calm mood",
@@ -8534,7 +9803,9 @@
   },
   {
     "name": "serotonin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild stimulation",
       "increased circulation",
@@ -8543,7 +9814,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Pregnancy (caution)", "diuretics"],
+    "contraindications": [
+      "Pregnancy (caution)",
+      "diuretics"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -8553,7 +9827,9 @@
   },
   {
     "name": "Sesquiterpene lactones",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Blood sugar regulation",
       "cytotoxic effects on cancer cells",
@@ -8577,7 +9853,9 @@
   },
   {
     "name": "sesquiterpenes",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Anti-inflammatory",
       "diuretic",
@@ -8623,9 +9901,18 @@
   },
   {
     "name": "Solanine",
-    "herbs": ["nan"],
-    "effects": ["Delirium", "confusion", "hallucinations (toxic profile)"],
-    "contraindications": ["Highly toxic", "not for human use"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Delirium",
+      "confusion",
+      "hallucinations (toxic profile)"
+    ],
+    "contraindications": [
+      "Highly toxic",
+      "not for human use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -8635,7 +9922,9 @@
   },
   {
     "name": "songoramine",
-    "herbs": ["aconitum napellus"],
+    "herbs": [
+      "aconitum napellus"
+    ],
     "effects": [
       "Potent analgesic and anti-inflammatory",
       "extremely toxic",
@@ -8663,7 +9952,9 @@
   },
   {
     "name": "speciogynine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Stimulation",
       "mild euphoria",
@@ -8673,7 +9964,12 @@
       "Mild sedative",
       "analgesic (less potent than M. speciosa)"
     ],
-    "contraindications": ["None well documented", "Pregnancy", "MAOI use", "liver conditions"],
+    "contraindications": [
+      "None well documented",
+      "Pregnancy",
+      "MAOI use",
+      "liver conditions"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -8683,7 +9979,9 @@
   },
   {
     "name": "Spilanthol",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Local anesthesia",
       "salivation",
@@ -8712,7 +10010,9 @@
   },
   {
     "name": "Stachydrine",
-    "herbs": ["motherwort"],
+    "herbs": [
+      "motherwort"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
     ],
@@ -8726,7 +10026,9 @@
   },
   {
     "name": "steroids",
-    "herbs": ["alchornea castaneifolia"],
+    "herbs": [
+      "alchornea castaneifolia"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain."
     ],
@@ -8745,7 +10047,11 @@
   },
   {
     "name": "sterols",
-    "herbs": ["albizia julibrissin", "Muira Puama", "nan"],
+    "herbs": [
+      "albizia julibrissin",
+      "Muira Puama",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -8795,8 +10101,13 @@
   },
   {
     "name": "suberosol",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -8815,7 +10126,9 @@
   },
   {
     "name": "Sulfur compounds",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Calmness",
       "clarity",
@@ -8824,7 +10137,10 @@
       "anti-inflammatory",
       "analgesic"
     ],
-    "contraindications": ["Pregnancy", "blood disorders"],
+    "contraindications": [
+      "Pregnancy",
+      "blood disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -8834,8 +10150,13 @@
   },
   {
     "name": "syringic acid",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -8854,14 +10175,19 @@
   },
   {
     "name": "tabersonine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Inner visions",
       "deep introspection",
       "energetic clarity",
       "No direct effects data. Contextual inference: Used by indigenous healers to improve vision and intuition... No direct mechanismofaction data. Contextual inference: Used by indigenous healers to improve vision and intuition... Used by indigenous healers to improve vision and intuition.. Used by indigenous healers to improve vision and intuition."
     ],
-    "contraindications": ["Heart conditions", "psychiatric illness"],
+    "contraindications": [
+      "Heart conditions",
+      "psychiatric illness"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -8871,8 +10197,16 @@
   },
   {
     "name": "tannic acid",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -8891,7 +10225,12 @@
   },
   {
     "name": "tannins",
-    "herbs": ["agrimonia eupatoria", "alchornea castaneifolia", "ficus religiosa", "nan"],
+    "herbs": [
+      "agrimonia eupatoria",
+      "alchornea castaneifolia",
+      "ficus religiosa",
+      "nan"
+    ],
     "effects": [
       "Astringent",
       "anti-inflammatory",
@@ -9026,7 +10365,9 @@
   },
   {
     "name": "tannins (gallic acid, ellagic acid, catechin)",
-    "herbs": ["acacia nilotica"],
+    "herbs": [
+      "acacia nilotica"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
@@ -9044,7 +10385,9 @@
   },
   {
     "name": "Tartaric acid",
-    "herbs": ["tamarindus indica"],
+    "herbs": [
+      "tamarindus indica"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional medicine and cuisine for digestive support... No direct mechanismofaction data. Contextual inference: Used in traditional medicine and cuisine for digestive support... Used in traditional medicine and cuisine for digestive support.. Used in traditional medicine and cuisine for digestive support."
     ],
@@ -9058,7 +10401,9 @@
   },
   {
     "name": "terpenes",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "hallucinations",
@@ -9103,9 +10448,19 @@
   },
   {
     "name": "terpenoids",
-    "herbs": ["nan"],
-    "effects": ["Skin healing", "antiparasitic action", "Joint pain relief", "antibacterial"],
-    "contraindications": ["May cause allergic dermatitis", "Avoid use in bleeding disorders"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Skin healing",
+      "antiparasitic action",
+      "Joint pain relief",
+      "antibacterial"
+    ],
+    "contraindications": [
+      "May cause allergic dermatitis",
+      "Avoid use in bleeding disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -9115,7 +10470,9 @@
   },
   {
     "name": "tetrahydroharmine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Altered perception",
       "dream intensification",
@@ -9157,7 +10514,9 @@
   },
   {
     "name": "tetrahydroharmine (beta-carbolines)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Altered perception",
       "dream intensification",
@@ -9191,7 +10550,9 @@
   },
   {
     "name": "Tetrahydropalmatine (THP)",
-    "herbs": ["corydalis yanhusuo"],
+    "herbs": [
+      "corydalis yanhusuo"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional chinese medicine for pain and sleep... No direct mechanismofaction data. Contextual inference: Used in traditional chinese medicine for pain and sleep... Used in Traditional Chinese Medicine for pain and sleep.. Used in Traditional Chinese Medicine for pain and sleep."
     ],
@@ -9205,8 +10566,13 @@
   },
   {
     "name": "thaliandiol",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -9225,8 +10591,13 @@
   },
   {
     "name": "thalianol",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -9245,7 +10616,10 @@
   },
   {
     "name": "THC",
-    "herbs": ["nan", "cannabis sativa"],
+    "herbs": [
+      "nan",
+      "cannabis sativa"
+    ],
     "effects": [
       "Euphoria",
       "altered perception",
@@ -9255,7 +10629,11 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Psychosis", "schizophrenia", "pregnancy"],
+    "contraindications": [
+      "Psychosis",
+      "schizophrenia",
+      "pregnancy"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -9265,7 +10643,9 @@
   },
   {
     "name": "thebaine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Pain relief",
       "euphoria",
@@ -9294,7 +10674,10 @@
   },
   {
     "name": "theobromine",
-    "herbs": ["nan", "yerba mate"],
+    "herbs": [
+      "nan",
+      "yerba mate"
+    ],
     "effects": [
       "Mental alertness",
       "energy",
@@ -9340,7 +10723,9 @@
   },
   {
     "name": "theophylline",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mental alertness",
       "energy",
@@ -9369,7 +10754,12 @@
   },
   {
     "name": "Thujone",
-    "herbs": ["artemisia abrotanum", "artemisia absinthium", "artemisia ludoviciana", "nan"],
+    "herbs": [
+      "artemisia abrotanum",
+      "artemisia absinthium",
+      "artemisia ludoviciana",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -9411,7 +10801,10 @@
   },
   {
     "name": "thymol",
-    "herbs": ["nan", "thymus vulgaris"],
+    "herbs": [
+      "nan",
+      "thymus vulgaris"
+    ],
     "effects": [
       "Mild sedation",
       "relaxation",
@@ -9447,7 +10840,10 @@
   },
   {
     "name": "tiliroside",
-    "herbs": ["agrimonia eupatoria", "rubus idaeus"],
+    "herbs": [
+      "agrimonia eupatoria",
+      "rubus idaeus"
+    ],
     "effects": [
       "Astringent",
       "anti-inflammatory",
@@ -9475,7 +10871,9 @@
   },
   {
     "name": "trans-methylisoeugenol",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -9505,7 +10903,9 @@
   },
   {
     "name": "triterpene saponins",
-    "herbs": ["african dream root"],
+    "herbs": [
+      "african dream root"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in ritual",
       "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
@@ -9528,9 +10928,16 @@
   },
   {
     "name": "triterpenes",
-    "herbs": ["nan"],
-    "effects": ["Anti-inflammatory", "hepatoprotective"],
-    "contraindications": ["Avoid in patients with liver dysfunction"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Anti-inflammatory",
+      "hepatoprotective"
+    ],
+    "contraindications": [
+      "Avoid in patients with liver dysfunction"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -9540,7 +10947,9 @@
   },
   {
     "name": "Triterpenoid saponins",
-    "herbs": ["silene undulata"],
+    "herbs": [
+      "silene undulata"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used by xhosa shamans to induce vivid",
       "meaningful dreams... No direct mechanismofaction data. Contextual inference: Used by xhosa shamans to induce vivid",
@@ -9558,7 +10967,11 @@
   },
   {
     "name": "triterpenoids",
-    "herbs": ["agrimonia eupatoria", "albizia julibrissin", "nan"],
+    "herbs": [
+      "agrimonia eupatoria",
+      "albizia julibrissin",
+      "nan"
+    ],
     "effects": [
       "Astringent",
       "anti-inflammatory",
@@ -9595,7 +11008,9 @@
   },
   {
     "name": "triterpenoids (undisclosed alkaloids)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Vivid dreams",
       "dream recall",
@@ -9606,7 +11021,9 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": ["Not studied in pregnant or breastfeeding individuals"],
+    "contraindications": [
+      "Not studied in pregnant or breastfeeding individuals"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -9616,7 +11033,9 @@
   },
   {
     "name": "trithiolanes",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Calmness",
       "clarity",
@@ -9625,7 +11044,10 @@
       "anti-inflammatory",
       "analgesic"
     ],
-    "contraindications": ["Pregnancy", "blood disorders"],
+    "contraindications": [
+      "Pregnancy",
+      "blood disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -9635,7 +11057,9 @@
   },
   {
     "name": "tryptamines",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Psychedelic visions",
       "auditory changes",
@@ -9668,7 +11092,9 @@
   },
   {
     "name": "Tynanthin",
-    "herbs": ["tynanthus panurensis"],
+    "herbs": [
+      "tynanthus panurensis"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... No direct mechanismofaction data. Contextual inference: Used in amazonian herbalism for sexual energy and digestion... Used in Amazonian herbalism for sexual energy and digestion.. Used in Amazonian herbalism for sexual energy and digestion."
     ],
@@ -9682,7 +11108,10 @@
   },
   {
     "name": "umbelliferone",
-    "herbs": ["adenostoma fasciculatum", "nan"],
+    "herbs": [
+      "adenostoma fasciculatum",
+      "nan"
+    ],
     "effects": [
       "Traditional uses include skin and respiratory conditions",
       "contains tannins",
@@ -9717,7 +11146,9 @@
   },
   {
     "name": "Umelliferone",
-    "herbs": ["justicia pectoralis"],
+    "herbs": [
+      "justicia pectoralis"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
     ],
@@ -9731,7 +11162,9 @@
   },
   {
     "name": "unverified cannabinoids",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Calmness",
       "mild euphoria",
@@ -9750,7 +11183,9 @@
   },
   {
     "name": "ursolic acid",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Stress relief",
       "respiratory support",
@@ -9760,7 +11195,10 @@
       "anti-stress",
       "immune support"
     ],
-    "contraindications": ["Pregnancy (high doses)", "blood clotting disorders"],
+    "contraindications": [
+      "Pregnancy (high doses)",
+      "blood clotting disorders"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -9770,7 +11208,9 @@
   },
   {
     "name": "Valeranon",
-    "herbs": ["valeriana jatamansi"],
+    "herbs": [
+      "valeriana jatamansi"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -9787,7 +11227,9 @@
   },
   {
     "name": "Valerenic acid",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Sedation",
       "muscle relaxation",
@@ -9796,7 +11238,11 @@
       "anxiolytic",
       "sleep aid"
     ],
-    "contraindications": ["Avoid with alcohol", "benzodiazepines", "or barbiturates"],
+    "contraindications": [
+      "Avoid with alcohol",
+      "benzodiazepines",
+      "or barbiturates"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -9806,8 +11252,13 @@
   },
   {
     "name": "vanillic acid",
-    "herbs": ["adenostoma fasciculatum"],
-    "effects": ["Traditional uses include skin and respiratory conditions", "contains tannins"],
+    "herbs": [
+      "adenostoma fasciculatum"
+    ],
+    "effects": [
+      "Traditional uses include skin and respiratory conditions",
+      "contains tannins"
+    ],
     "contraindications": [
       "Limited safety data",
       "high doses may cause gastrointestinal upset or phototoxic reactions due to hydroquinone."
@@ -9826,7 +11277,10 @@
   },
   {
     "name": "vasicine",
-    "herbs": ["adhatoda vasica", "justicia adhatoda"],
+    "herbs": [
+      "adhatoda vasica",
+      "justicia adhatoda"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -9847,7 +11301,11 @@
   },
   {
     "name": "vasicinone",
-    "herbs": ["adhatoda vasica", "justicia adhatoda", "nan"],
+    "herbs": [
+      "adhatoda vasica",
+      "justicia adhatoda",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -9881,7 +11339,9 @@
   },
   {
     "name": "venoterpine",
-    "herbs": ["alangium salvifolium"],
+    "herbs": [
+      "alangium salvifolium"
+    ],
     "effects": [
       "Used in Ayurveda for anti-epileptic",
       "anti-inflammatory",
@@ -9910,7 +11370,9 @@
   },
   {
     "name": "Verbascoside",
-    "herbs": ["aloysia citrodora"],
+    "herbs": [
+      "aloysia citrodora"
+    ],
     "effects": [
       "No direct effects data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -9927,7 +11389,9 @@
   },
   {
     "name": "Verbenalin",
-    "herbs": ["verbena officinalis"],
+    "herbs": [
+      "verbena officinalis"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in european folk medicine for anxiety and dreaming... No direct mechanismofaction data. Contextual inference: Used in european folk medicine for anxiety and dreaming... Used in European folk medicine for anxiety and dreaming.. Used in European folk medicine for anxiety and dreaming."
     ],
@@ -9941,7 +11405,9 @@
   },
   {
     "name": "Vertine (cryogenine)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Auditory shifts",
       "relaxed dreamlike state",
@@ -9967,7 +11433,9 @@
   },
   {
     "name": "Violine",
-    "herbs": ["sweet violet"],
+    "herbs": [
+      "sweet violet"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used for sleep",
       "coughs",
@@ -9986,7 +11454,9 @@
   },
   {
     "name": "Voacamine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Tranquility",
       "mild distortion of time",
@@ -10019,7 +11489,10 @@
   },
   {
     "name": "voacangine",
-    "herbs": ["nan", "tabernaemontana undulata"],
+    "herbs": [
+      "nan",
+      "tabernaemontana undulata"
+    ],
     "effects": [
       "Inner visions",
       "deep introspection",
@@ -10051,7 +11524,9 @@
   },
   {
     "name": "voacristine",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Altered perception",
       "stimulation",
@@ -10063,7 +11538,11 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": ["Pregnancy", "cardiovascular conditions", "MAOI use"],
+    "contraindications": [
+      "Pregnancy",
+      "cardiovascular conditions",
+      "MAOI use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -10118,7 +11597,9 @@
   },
   {
     "name": "wogonin",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Mild sedation",
       "calm mood",
@@ -10144,7 +11625,10 @@
   },
   {
     "name": "xanthones",
-    "herbs": ["alchornea castaneifolia", "nan"],
+    "herbs": [
+      "alchornea castaneifolia",
+      "nan"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
       "Pain relief",
@@ -10166,7 +11650,9 @@
   },
   {
     "name": "yangonin)",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Euphoria",
       "calmness",
@@ -10176,7 +11662,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": ["Liver conditions", "concurrent alcohol use"],
+    "contraindications": [
+      "Liver conditions",
+      "concurrent alcohol use"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -10186,9 +11675,21 @@
   },
   {
     "name": "Yohimbine",
-    "herbs": ["nan"],
-    "effects": ["Stimulation", "increased blood flow", "heightened alertness", "sexual arousal"],
-    "contraindications": ["Heart disease", "anxiety", "hypertension", "psychiatric conditions"],
+    "herbs": [
+      "nan"
+    ],
+    "effects": [
+      "Stimulation",
+      "increased blood flow",
+      "heightened alertness",
+      "sexual arousal"
+    ],
+    "contraindications": [
+      "Heart disease",
+      "anxiety",
+      "hypertension",
+      "psychiatric conditions"
+    ],
     "category": null,
     "sources": [],
     "lastUpdated": "2026-03-21",
@@ -10198,7 +11699,9 @@
   },
   {
     "name": "Zapotin",
-    "herbs": ["casimiroa edulis"],
+    "herbs": [
+      "casimiroa edulis"
+    ],
     "effects": [
       "No direct effects data. Contextual inference: Used to treat anxiety",
       "insomnia",
@@ -10216,38 +11719,46 @@
     "displayName": "Zapotin"
   },
   {
-    "name": "α-asarone",
-    "herbs": ["acorus tatarinowii"],
+    "name": "Asarone (alpha/beta isomers)",
+    "herbs": [
+      "acorus americanus",
+      "acorus calamus var. angustatus"
+    ],
     "effects": [
-      "CNS stimulant",
-      "memory aid",
-      "and anti-epileptic in TCM",
-      "and anti",
-      "epileptic in TCM"
+      "Systematic safety reviews describe CNS-active and gastrointestinal effects with dose- and isomer-dependent variability.",
+      "Higher beta-asarone exposure is linked to greater toxicologic concern."
     ],
     "contraindications": [
-      "β",
-      "asarone is potentially carcinogenic",
-      "avoid long",
-      "term or high",
-      "dose use",
-      "contraindicated in pregnancy and children."
+      "Avoid in pregnancy and in patients with elevated baseline hepatic risk until safety is clarified.",
+      "Avoid prolonged high-dose exposure because toxicology concerns are unresolved."
     ],
-    "category": null,
+    "category": "phenylpropanoid ether",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "Alpha- and beta-asarone toxicology, interaction potential, and human safety context: a systematic review.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34401729/"
+      },
+      {
+        "title": "Experimental evidence for use of Acorus calamus (asarone) for cancer chemoprevention.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31193009/"
       }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-04-01",
     "slug": "asarone",
     "id": "asarone",
-    "displayName": "α-asarone"
+    "displayName": "α-asarone",
+    "interactions": [
+      "Potential interaction risk is reported in safety reviews, but quantitative human interaction data remain limited."
+    ],
+    "description": "Asarone refers primarily to alpha- and beta-isomers found in Acorus species. Current literature emphasizes toxicology, interaction potential, and uncertainty in safe long-term exposure.",
+    "summary": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
+    "mechanism": "Preclinical work suggests CNS and metabolic pathway activity, while toxicology reviews highlight isomer-specific risk profiles and possible bioactivation liability."
   },
   {
     "name": "α-calacorene",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -10277,7 +11788,9 @@
   },
   {
     "name": "α-pinene",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -10307,7 +11820,9 @@
   },
   {
     "name": "α-terpinene",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -10337,7 +11852,9 @@
   },
   {
     "name": "α-terpineol",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -10366,38 +11883,46 @@
     "displayName": "α-terpineol"
   },
   {
-    "name": "β-asarone",
-    "herbs": ["acorus tatarinowii"],
+    "name": "Asarone (alpha/beta isomers)",
+    "herbs": [
+      "acorus americanus",
+      "acorus calamus var. angustatus"
+    ],
     "effects": [
-      "CNS stimulant",
-      "memory aid",
-      "and anti-epileptic in TCM",
-      "and anti",
-      "epileptic in TCM"
+      "Systematic safety reviews describe CNS-active and gastrointestinal effects with dose- and isomer-dependent variability.",
+      "Higher beta-asarone exposure is linked to greater toxicologic concern."
     ],
     "contraindications": [
-      "β",
-      "asarone is potentially carcinogenic",
-      "avoid long",
-      "term or high",
-      "dose use",
-      "contraindicated in pregnancy and children."
+      "Avoid in pregnancy and in patients with elevated baseline hepatic risk until safety is clarified.",
+      "Avoid prolonged high-dose exposure because toxicology concerns are unresolved."
     ],
-    "category": null,
+    "category": "phenylpropanoid ether",
     "sources": [
       {
-        "note": "Inferred from scientific name:",
-        "url": ""
+        "title": "Alpha- and beta-asarone toxicology, interaction potential, and human safety context: a systematic review.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34401729/"
+      },
+      {
+        "title": "Experimental evidence for use of Acorus calamus (asarone) for cancer chemoprevention.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31193009/"
       }
     ],
-    "lastUpdated": "2026-03-21",
+    "lastUpdated": "2026-04-01",
     "slug": "asarone",
     "id": "asarone",
-    "displayName": "β-asarone"
+    "displayName": "β-asarone",
+    "interactions": [
+      "Potential interaction risk is reported in safety reviews, but quantitative human interaction data remain limited."
+    ],
+    "description": "Asarone refers primarily to alpha- and beta-isomers found in Acorus species. Current literature emphasizes toxicology, interaction potential, and uncertainty in safe long-term exposure.",
+    "summary": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
+    "mechanism": "Preclinical work suggests CNS and metabolic pathway activity, while toxicology reviews highlight isomer-specific risk profiles and possible bioactivation liability."
   },
   {
     "name": "β-carbolines",
-    "herbs": ["nan"],
+    "herbs": [
+      "nan"
+    ],
     "effects": [
       "Intense stimulation",
       "nausea",
@@ -10430,7 +11955,9 @@
   },
   {
     "name": "β-caryophyllene",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -10460,7 +11987,9 @@
   },
   {
     "name": "β-pinene",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",
@@ -10490,8 +12019,16 @@
   },
   {
     "name": "β-sitosteryl acetate",
-    "herbs": ["aerva lanata"],
-    "effects": ["Diuretic", "anti-inflammatory", "antimicrobial", "anti", "inflammatory"],
+    "herbs": [
+      "aerva lanata"
+    ],
+    "effects": [
+      "Diuretic",
+      "anti-inflammatory",
+      "antimicrobial",
+      "anti",
+      "inflammatory"
+    ],
     "contraindications": [
       "Limited safety data; some alkaloids may be toxic at high doses",
       "Pregnant women should use cautiously"
@@ -10510,7 +12047,9 @@
   },
   {
     "name": "γ-terpinene",
-    "herbs": ["acorus tatarinowii"],
+    "herbs": [
+      "acorus tatarinowii"
+    ],
     "effects": [
       "CNS stimulant",
       "memory aid",

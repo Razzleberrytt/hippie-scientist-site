@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T13:58:11.168Z",
+  "generatedAt": "2026-04-01T14:11:34.622Z",
   "thresholds": {
     "minDescriptionLength": 30,
     "minSources": 2,
@@ -208,7 +208,118 @@
         "lastmod": "2026-04-01"
       }
     ],
-    "compounds": []
+    "compounds": [
+      {
+        "slug": "cbd",
+        "route": "/compounds/cbd",
+        "name": "CBD",
+        "kind": "compound",
+        "title": "CBD | The Hippie Scientist",
+        "description": "Human evidence exists for selected neurologic indications and safety liabilities; interaction management is central to risk reduction.",
+        "completenessScore": 16,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "agrimoniin",
+        "route": "/compounds/agrimoniin",
+        "name": "Agrimoniin",
+        "kind": "compound",
+        "title": "Agrimoniin | The Hippie Scientist",
+        "description": "Evidence is mainly mechanistic/preclinical, with uncertain clinical translation.",
+        "completenessScore": 13,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "asarone",
+        "route": "/compounds/asarone",
+        "name": "Asarone (alpha/beta isomers)",
+        "kind": "compound",
+        "title": "Asarone (alpha/beta isomers) | The Hippie Scientist",
+        "description": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
+        "completenessScore": 13,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "luteolin",
+        "route": "/compounds/luteolin",
+        "name": "Luteolin",
+        "kind": "compound",
+        "title": "Luteolin | The Hippie Scientist",
+        "description": "Evidence supports mechanistic activity with plausible interaction risk, but robust condition-specific clinical efficacy remains limited.",
+        "completenessScore": 13,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "asarone",
+        "route": "/compounds/asarone",
+        "name": "Asarone (alpha/beta isomers)",
+        "kind": "compound",
+        "title": "Asarone (alpha/beta isomers) | The Hippie Scientist",
+        "description": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
+        "completenessScore": 13,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "asarone",
+        "route": "/compounds/asarone",
+        "name": "Asarone (alpha/beta isomers)",
+        "kind": "compound",
+        "title": "Asarone (alpha/beta isomers) | The Hippie Scientist",
+        "description": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
+        "completenessScore": 13,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "2-4-5-trimethoxybenzaldehyde",
+        "route": "/compounds/2-4-5-trimethoxybenzaldehyde",
+        "name": "2,4,5-Trimethoxybenzaldehyde",
+        "kind": "compound",
+        "title": "2,4,5-Trimethoxybenzaldehyde | The Hippie Scientist",
+        "description": "Current evidence is preclinical/contextual, not definitive for clinical claims.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "aconine",
+        "route": "/compounds/aconine",
+        "name": "Aconine",
+        "kind": "compound",
+        "title": "Aconine | The Hippie Scientist",
+        "description": "Evidence is insufficient for efficacy claims; safety interpretation relies on class-level toxicology context.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "aconitine",
+        "route": "/compounds/aconitine",
+        "name": "Aconitine",
+        "kind": "compound",
+        "title": "Aconitine | The Hippie Scientist",
+        "description": "Evidence supports major toxicity risk; there is no high-quality evidence supporting routine therapeutic oral use.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      },
+      {
+        "slug": "anabasine",
+        "route": "/compounds/anabasine",
+        "name": "Anabasine",
+        "kind": "compound",
+        "title": "Anabasine | The Hippie Scientist",
+        "description": "Human observational evidence supports exposure relevance and safety concern framing, not efficacy claims.",
+        "completenessScore": 10,
+        "tier": "stub",
+        "lastmod": "2026-04-01"
+      }
+    ]
   },
   "routes": {
     "herbs": [
@@ -231,7 +342,18 @@
       "/herbs/pedicularis-densiflora-indian-warrior",
       "/herbs/withania-somnifera"
     ],
-    "compounds": []
+    "compounds": [
+      "/compounds/cbd",
+      "/compounds/agrimoniin",
+      "/compounds/asarone",
+      "/compounds/luteolin",
+      "/compounds/asarone",
+      "/compounds/asarone",
+      "/compounds/2-4-5-trimethoxybenzaldehyde",
+      "/compounds/aconine",
+      "/compounds/aconitine",
+      "/compounds/anabasine"
+    ]
   },
   "summaries": {
     "herbs": {
@@ -248,11 +370,11 @@
     },
     "compounds": {
       "total": 393,
-      "indexable": 0,
-      "excluded": 393,
+      "indexable": 10,
+      "excluded": 383,
       "excludedByReason": {
         "invalidNameOrSlug": 12,
-        "weakDescription": 393,
+        "weakDescription": 382,
         "placeholderText": 222,
         "insufficientEffects": 52,
         "insufficientEvidenceOrCompleteness": 40
