@@ -19,6 +19,17 @@ const FIELD_TERMS = {
   traditionalUse: ['traditional', 'ethnobotanical', 'folk', 'used for', 'ayurveda', 'tcm'],
 };
 
+const FIELD_CUES = {
+  activeCompounds: ['contains', 'identified', 'phytochemical', 'constituent', 'including', 'rich in'],
+  effects: ['shown to', 'demonstrated', 'activity', 'effect', 'improved', 'reduced', 'modulated'],
+  mechanism: ['mechanism', 'inhibit', 'activate', 'modulate', 'receptor', 'pathway', 'enzyme'],
+  contraindications: ['contraindicated', 'may cause', 'adverse', 'toxicity', 'risk', 'warning', 'interaction'],
+  traditionalUse: ['traditionally', 'used for', 'ethnobotanical', 'ayurveda', 'tcm', 'folk'],
+};
+
+const VAGUE_LANGUAGE_RE = /\b(may|might|could|potentially|suggests?|appears?|possibly|preliminary)\b/iu;
+const HARD_SPECULATIVE_RE = /\b(more research|further study|unclear|unknown)\b/iu;
+
 function parseArgs(argv) {
   const out = { herbs: [], maxHerbs: 5, outDir: 'ops/evidence-acquisition', includeLowConfidence: false };
   for (let i = 2; i < argv.length; i += 1) {
@@ -113,15 +124,86 @@ function sentenceSplit(text) {
     .filter(Boolean);
 }
 
+function cleanAtomicPhrase(value) {
+  const stripped = normalizeWhitespace(String(value))
+    .replace(/^(background|objective|methods?|results?|conclusion|conclusions)[:-]\s*/iu, '')
+    .replace(/\((?:[^)(]|\([^)(]*\))*\)/gu, '')
+    .replace(/\[[^\]]+\]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!stripped) return '';
+  return stripped.replace(/^[,;:-]+|[,;:-]+$/g, '').trim();
+}
+
+function splitCandidateSegments(sentence) {
+  return String(sentence)
+    .split(/\s*;\s*|\s+-\s+|\s+but\s+|\s+however,\s+/iu)
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+}
+
+function extractListFromContains(segment) {
+  const m = segment.match(/\b(?:contains?|contained|including|identified)\s+(.+)/iu);
+  if (!m) return [];
+  return m[1]
+    .split(/\s*,\s*|\s+and\s+/iu)
+    .map((item) => cleanAtomicPhrase(item))
+    .filter((item) => item.length >= 3 && item.length <= 48);
+}
+
+function isVaguePhrase(value) {
+  return HARD_SPECULATIVE_RE.test(value) || (VAGUE_LANGUAGE_RE.test(value) && value.length > 90);
+}
+
 function extractEvidenceFromAbstract(abstractText, schemaField, title = '') {
   const terms = FIELD_TERMS[schemaField] ?? [];
+  const cues = FIELD_CUES[schemaField] ?? [];
   const normalized = String(abstractText).replace(/\s+/g, ' ').trim();
   const sentences = sentenceSplit(normalized);
-  const hits = sentences.filter((sentence) => terms.some((term) => sentence.toLowerCase().includes(term)));
-  if (hits.length > 0) return hits.slice(0, 2);
+  const debug = { pass: 'none', considered: sentences.length, rejected: [] };
+  const hits = [];
+
+  // Pass 1: strict sentence-level extraction with field cues/terms.
+  for (const sentence of sentences) {
+    const lower = sentence.toLowerCase();
+    if (!terms.some((term) => lower.includes(term)) && !cues.some((cue) => lower.includes(cue))) continue;
+    const cleaned = cleanAtomicPhrase(sentence);
+    if (cleaned.length < 16 || cleaned.length > 200) {
+      debug.rejected.push({ phrase: cleaned, reason: 'length_out_of_range' });
+      continue;
+    }
+    if (isVaguePhrase(cleaned)) {
+      debug.rejected.push({ phrase: cleaned, reason: 'too_vague_or_speculative' });
+      continue;
+    }
+    hits.push(cleaned);
+  }
+
+  if (hits.length > 0) return { phrases: hits.slice(0, 3), debug: { ...debug, pass: 'strict_sentence' } };
+
+  // Pass 2: relaxed segmentation into clauses/list-items while keeping same quality thresholds.
+  const relaxed = [];
+  for (const sentence of sentences) {
+    for (const part of splitCandidateSegments(sentence)) {
+      const lower = part.toLowerCase();
+      if (!terms.some((term) => lower.includes(term)) && !cues.some((cue) => lower.includes(cue))) continue;
+      const containsList = schemaField === 'activeCompounds' ? extractListFromContains(part) : [];
+      const candidates = containsList.length > 0 ? containsList : [cleanAtomicPhrase(part)];
+      for (const candidate of candidates) {
+        if (candidate.length < 12 || candidate.length > 160) continue;
+        if (isVaguePhrase(candidate)) continue;
+        relaxed.push(candidate);
+      }
+    }
+  }
+  if (relaxed.length > 0) return { phrases: relaxed.slice(0, 4), debug: { ...debug, pass: 'relaxed_clause' } };
+
   const titleLower = String(title).toLowerCase();
-  if (terms.some((term) => titleLower.includes(term))) return [String(title).trim()];
-  return sentences.slice(0, 1);
+  if (terms.some((term) => titleLower.includes(term))) {
+    const titlePhrase = cleanAtomicPhrase(String(title));
+    if (titlePhrase) return { phrases: [titlePhrase], debug: { ...debug, pass: 'title_fallback' } };
+  }
+  return { phrases: [], debug: { ...debug, pass: 'none' } };
 }
 
 const GENERIC_TOKENS = new Set([
@@ -139,7 +221,7 @@ function normalizeWhitespace(value) {
 }
 
 function normalizeActiveCompounds(rawText, herb) {
-  const text = normalizeWhitespace(rawText);
+  const text = normalizeWhitespace(rawText).replace(/<[^>]+>/g, ' ');
   const herbTokens = new Set(
     String(herb.displayName ?? herb.name ?? '')
       .toLowerCase()
@@ -147,9 +229,15 @@ function normalizeActiveCompounds(rawText, herb) {
       .filter(Boolean),
   );
   const candidates = text.match(/\b[A-Za-z][A-Za-z0-9-]{2,}(?:\s+[A-Za-z][A-Za-z0-9-]{2,}){0,2}\b/g) ?? [];
+  const typedFamilies = [...text.matchAll(/\b([A-Za-z][A-Za-z0-9-]{3,})\s+type of\s+[A-Za-z -]{3,}alkaloids?\b/giu)].map((m) => m[1]);
+  const containsList = [...text.matchAll(/\b(?:contains?|including|identified)\s+([^.;]+)/giu)]
+    .flatMap((m) => m[1].split(/\s*,\s*|\s+and\s+/iu))
+    .map((token) => normalizeWhitespace(token))
+    .filter(Boolean);
+  const allCandidates = [...candidates, ...typedFamilies, ...containsList];
   const cleaned = [];
 
-  for (const candidate of candidates) {
+  for (const candidate of allCandidates) {
     const value = normalizeWhitespace(candidate);
     const parts = value.toLowerCase().split(/\s+/u);
     if (parts.length > 2) continue;
@@ -250,9 +338,13 @@ function titleMatchesHerb(title, herb) {
 }
 
 function confidenceFromSource({ qualityScore, evidenceText, schemaField }) {
-  const directSignal = FIELD_TERMS[schemaField].some((term) => evidenceText.toLowerCase().includes(term));
-  if (qualityScore >= 0.9 && directSignal) return 'high';
-  if (qualityScore >= 0.75 && directSignal) return 'medium';
+  const lower = evidenceText.toLowerCase();
+  const directSignal = FIELD_TERMS[schemaField].some((term) => lower.includes(term));
+  const structuredSignal = /contains?\s+[a-z]|has been shown to|contraindicated|may cause|inhibit(?:s|ed|ion)?|activate(?:s|d|ion)?/iu.test(evidenceText);
+  const vaguePenalty = isVaguePhrase(evidenceText) ? 0.15 : 0;
+  const score = qualityScore + (directSignal ? 0.05 : 0) + (structuredSignal ? 0.08 : 0) - vaguePenalty;
+  if (score >= 0.9 && directSignal) return 'high';
+  if (score >= 0.75 && directSignal) return 'medium';
   return 'low';
 }
 
@@ -366,11 +458,26 @@ async function collectFieldEvidence(herb, targetField) {
       const abstractText = candidate.getAbstract();
       if (!abstractText) continue;
       const extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, candidate.title);
-      if (extracted.length === 0) continue;
+      if (extracted.phrases.length === 0) {
+        queryStats.lastFailure = {
+          stage: 'extract',
+          reason: 'no_atomic_field_mapped_phrases',
+          rawText: normalizeWhitespace(abstractText).slice(0, 400),
+          extractionDebug: extracted.debug,
+        };
+        continue;
+      }
 
-      const evidence = extracted.join(' ');
+      const evidence = extracted.phrases.join(' ');
       const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
-      if (!normalization.ok) continue;
+      if (!normalization.ok) {
+        queryStats.lastFailure = {
+          stage: 'normalize',
+          reason: normalization.reason,
+          rawText: evidence,
+        };
+        continue;
+      }
 
       const confidence = confidenceFromSource({ qualityScore: quality.score, evidenceText: evidence, schemaField: targetField.schemaField });
       const row = {
@@ -391,6 +498,7 @@ async function collectFieldEvidence(herb, targetField) {
           provider: candidate.provider,
         },
         evidence,
+        extractionDebug: extracted.debug,
         confidence,
         evidenceClass: confidence === 'high' ? 'human-clinical' : confidence === 'medium' ? 'preclinical-mechanistic' : 'traditional-use',
         retrieval: stats,
@@ -513,6 +621,8 @@ async function main() {
             schemaField: targetField.schemaField,
             confidence: 'low',
             reason: 'no-high-quality-source-evidence-found-or-clean-normalization-failed',
+            rawExtractedText: retrieval?.queryAttempts?.find((item) => item.lastFailure)?.lastFailure?.rawText ?? '',
+            failureDetail: retrieval?.queryAttempts?.find((item) => item.lastFailure)?.lastFailure ?? null,
             retrieval,
           });
           continue;
