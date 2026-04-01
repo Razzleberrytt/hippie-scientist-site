@@ -1,6 +1,3 @@
-export function slugify(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
+// Canonical slug logic lives in src/lib/slug.ts
+// This file is kept for import compatibility — do not add logic here.
+export { slugify } from '@/lib/slug'
