@@ -1,4 +1,5 @@
-import { readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { dirname } from 'node:path'
 
 const HERBS_PATH = 'public/data/herbs.json'
 const COMPOUNDS_PATH = 'public/data/compounds.json'
@@ -78,14 +79,13 @@ function normalizeStyle(text) {
     .trim()
 }
 
-function normalizePhraseBase(value) {
+function normalizePhraseBase(value, options = {}) {
   const cleaned = cleanText(value)
   if (!cleaned) return ''
-  return normalizeStyle(cleaned)
-    .replace(HEDGING_PATTERN, '')
+  const base = normalizeStyle(cleaned)
     .replace(FILLER_PATTERN, '')
-    .replace(/\s+/g, ' ')
-    .trim()
+  const withoutHedging = options.safeMode ? base : base.replace(HEDGING_PATTERN, '')
+  return withoutHedging.replace(/\s+/g, ' ').trim()
 }
 
 function wordCount(text) {
@@ -100,7 +100,7 @@ function isLengthValid(text) {
 function normalizeActiveCompounds(value, fixes) {
   const out = []
   for (const item of toArray(value)) {
-    const phrase = normalizePhraseBase(item)
+    const phrase = normalizePhraseBase(item, fixes)
     if (!phrase) continue
     if (/\b(?:contains|used|effect|helps|avoid|interact|data)\b/i.test(phrase)) continue
     if (!/^[a-z0-9\-\sα-ωβγδ]+$/i.test(phrase)) continue
@@ -116,7 +116,7 @@ function normalizeActiveCompounds(value, fixes) {
 function normalizeEffects(value, fixes) {
   const out = []
   for (const item of toArray(value)) {
-    const phrase = normalizePhraseBase(item)
+    const phrase = normalizePhraseBase(item, fixes)
     if (!phrase) continue
     const cleaned = phrase
       .replace(/\b(?:help with|help|with|can|supports?)\b/g, '')
@@ -136,7 +136,7 @@ function normalizeContraindications(value, fixes) {
   const out = []
 
   for (const item of toArray(value)) {
-    const phrase = normalizePhraseBase(item)
+    const phrase = normalizePhraseBase(item, fixes)
     if (!phrase) continue
 
     let standardized = ''
@@ -150,7 +150,7 @@ function normalizeContraindications(value, fixes) {
     else if (/mental health|psychosis|mania/.test(phrase)) standardized = 'avoid with unstable mental health conditions'
     else standardized = phrase.startsWith('avoid') || phrase.startsWith('may interact') ? phrase : `avoid with ${phrase}`
 
-    if (!standardized.startsWith('may interact with')) {
+    if (!fixes.safeMode && !standardized.startsWith('may interact with')) {
       standardized = standardized.replace(HEDGING_PATTERN, '').replace(/\s+/g, ' ').trim()
     }
     standardized = standardized.replace(/\s+/g, ' ').trim()
@@ -167,7 +167,7 @@ function normalizeContraindications(value, fixes) {
 function normalizeMechanism(value, fixes) {
   const phrases = toArray(value)
     .flatMap(item => String(item).split(/[.!?;,|]/))
-    .map(part => normalizePhraseBase(part))
+    .map(part => normalizePhraseBase(part, fixes))
     .filter(Boolean)
     .filter(part => !/\b(?:herbs often act|contextual inference|no direct data)\b/i.test(part))
     .filter(part => {
@@ -287,7 +287,7 @@ function removeCrossFieldDuplicates(herb, fixes) {
   return herb
 }
 
-function validateHerbConsistency(herb) {
+function validateHerbConsistency(herb, options = {}) {
   const issues = []
 
   const listFields = ['activeCompounds', 'effects', 'contraindications']
@@ -301,7 +301,7 @@ function validateHerbConsistency(herb) {
         field === 'contraindications'
           ? phrase.replace(/\bmay interact with\b/gi, '').trim()
           : phrase
-      if (HEDGING_PATTERN.test(hedgingCandidate)) issues.push(`${field} includes hedging language`)
+      if (!options.safeMode && HEDGING_PATTERN.test(hedgingCandidate)) issues.push(`${field} includes hedging language`)
     }
   }
 
@@ -311,7 +311,7 @@ function validateHerbConsistency(herb) {
     const mechanismParts = herb.mechanism.split('|').map(part => part.trim()).filter(Boolean)
     for (const phrase of mechanismParts) {
       if (!isLengthValid(phrase)) issues.push('mechanism phrase has out-of-range length')
-      if (HEDGING_PATTERN.test(phrase)) issues.push('mechanism includes hedging language')
+      if (!options.safeMode && HEDGING_PATTERN.test(phrase)) issues.push('mechanism includes hedging language')
     }
   }
 
@@ -506,7 +506,166 @@ function pickSampleRows(beforeRows, afterRows, size = 10) {
   return output
 }
 
+function parseArgs(argv) {
+  const args = {
+    safeMode: false,
+    auditOnly: false,
+    sampleSize: 25,
+    auditReportPath: 'ops/semantic-normalization-audit.md',
+    beforeFile: '',
+  }
+
+  for (const raw of argv) {
+    if (raw === '--safe-mode') args.safeMode = true
+    else if (raw === '--audit-only') args.auditOnly = true
+    else if (raw.startsWith('--sample-size=')) args.sampleSize = Math.max(1, Number.parseInt(raw.split('=')[1], 10) || 25)
+    else if (raw.startsWith('--audit-report=')) args.auditReportPath = raw.split('=')[1] || args.auditReportPath
+    else if (raw.startsWith('--before-file=')) args.beforeFile = raw.split('=')[1] || ''
+  }
+
+  return args
+}
+
+function normalizedTokenSet(values) {
+  return new Set(
+    values
+      .flatMap(value => toArray(value))
+      .map(value => normalizeStyle(String(value || '')))
+      .flatMap(value => value.split(/\s+/))
+      .filter(Boolean),
+  )
+}
+
+function overlapRatio(beforeValues, afterValues) {
+  const beforeTokens = normalizedTokenSet(beforeValues)
+  const afterTokens = normalizedTokenSet(afterValues)
+  if (beforeTokens.size === 0) return 1
+  let overlap = 0
+  for (const token of beforeTokens) {
+    if (afterTokens.has(token)) overlap += 1
+  }
+  return overlap / beforeTokens.size
+}
+
+function transformType(beforeText, afterText) {
+  const normalizedBefore = normalizeStyle(beforeText)
+  const normalizedAfter = normalizeStyle(afterText)
+  if (!normalizedBefore && normalizedAfter) return 'added'
+  if (normalizedBefore && !normalizedAfter) return 'removed'
+  if (normalizedBefore === normalizedAfter) return 'format_only'
+  return 'meaning_change'
+}
+
+function buildSemanticAudit(beforeHerbs, afterHerbs, sampleSize) {
+  const afterByName = new Map(afterHerbs.map(row => [normalizeStyle(row.name), row]))
+  const samples = []
+  const risky = []
+  const revertCandidates = []
+  const safeExamples = []
+
+  for (const beforeHerb of beforeHerbs) {
+    const key = normalizeStyle(beforeHerb.name || beforeHerb.common || beforeHerb.latin)
+    const afterHerb = afterByName.get(key)
+    if (!afterHerb) continue
+    if (samples.length >= sampleSize) break
+
+    const beforeEffects = toArray(beforeHerb.effects)
+    const afterEffects = toArray(afterHerb.effects)
+    const beforeContra = toArray(beforeHerb.contraindications)
+    const afterContra = toArray(afterHerb.contraindications)
+    const beforeCompounds = toArray(beforeHerb.activeCompounds ?? beforeHerb.active_compounds ?? beforeHerb.compounds)
+    const afterCompounds = toArray(afterHerb.activeCompounds)
+    const beforeMechanism = cleanText(beforeHerb.mechanism || beforeHerb.mechanismOfAction)
+    const afterMechanism = cleanText(afterHerb.mechanism)
+
+    const effectOverlap = overlapRatio(beforeEffects, afterEffects)
+    const contraindicationOverlap = overlapRatio(beforeContra, afterContra)
+    const compoundOverlap = overlapRatio(beforeCompounds, afterCompounds)
+
+    const hedgingBefore = [...beforeEffects, ...beforeContra, beforeMechanism].some(value => HEDGING_PATTERN.test(String(value || '')))
+    const hedgingAfter = [...afterEffects, ...afterContra, afterMechanism].some(value => HEDGING_PATTERN.test(String(value || '')))
+    const hedgingLossRisk = hedgingBefore && !hedgingAfter
+
+    const contraindicationStrictnessRisk =
+      beforeContra.some(value => /\bmay|might|could|potential/i.test(String(value || ''))) &&
+      afterContra.some(value => /^avoid\b/i.test(String(value || ''))) &&
+      !afterContra.some(value => /^may interact\b/i.test(String(value || '')))
+
+    const compoundsTruncatedRisk = beforeCompounds.length > 0 && afterCompounds.length / beforeCompounds.length < 0.5
+    const effectsOverSimplifiedRisk =
+      beforeEffects.length > 0 &&
+      afterEffects.length > 0 &&
+      afterEffects.every(effect => wordCount(effect) <= 3) &&
+      beforeEffects.some(effect => wordCount(effect) >= 7)
+
+    const riskFlags = []
+    if (hedgingLossRisk) riskFlags.push('hedging_removed_maybe_meaningful')
+    if (contraindicationStrictnessRisk) riskFlags.push('contraindication_may_be_overly_strict')
+    if (compoundsTruncatedRisk) riskFlags.push('active_compounds_truncated')
+    if (effectsOverSimplifiedRisk) riskFlags.push('effects_oversimplified')
+    if (compoundOverlap < 0.45) riskFlags.push('compound_overlap_low')
+    if (contraindicationOverlap < 0.35 && beforeContra.length > 0) riskFlags.push('contraindication_overlap_low')
+    if (effectOverlap < 0.35 && beforeEffects.length > 0) riskFlags.push('effect_overlap_low')
+
+    const sample = {
+      herb: afterHerb.name,
+      before: {
+        activeCompounds: beforeCompounds,
+        effects: beforeEffects,
+        contraindications: beforeContra,
+        mechanism: beforeMechanism,
+      },
+      after: {
+        activeCompounds: afterCompounds,
+        effects: afterEffects,
+        contraindications: afterContra,
+        mechanism: afterMechanism,
+      },
+      overlap: {
+        activeCompounds: Number(compoundOverlap.toFixed(2)),
+        effects: Number(effectOverlap.toFixed(2)),
+        contraindications: Number(contraindicationOverlap.toFixed(2)),
+      },
+      transform: {
+        mechanism: transformType(beforeMechanism, afterMechanism),
+      },
+      riskFlags,
+    }
+
+    samples.push(sample)
+    if (riskFlags.length === 0) safeExamples.push(sample)
+    else risky.push(sample)
+    if (riskFlags.includes('active_compounds_truncated') || riskFlags.includes('contraindication_may_be_overly_strict')) {
+      revertCandidates.push(sample)
+    }
+  }
+
+  const recommendation = revertCandidates.length > 0 || risky.length > Math.floor(sampleSize * 0.4)
+    ? 'needs adjustment'
+    : 'safe to merge'
+
+  return {
+    sampleSize: samples.length,
+    safeExamples: safeExamples.slice(0, 8),
+    riskyExamples: risky.slice(0, 12),
+    revertExamples: revertCandidates.slice(0, 8),
+    recommendation,
+  }
+}
+
+function semanticAuditMarkdown(audit) {
+  const formatSamples = (samples, title) => {
+    if (!samples.length) return `### ${title}\n- none\n`
+    return `### ${title}\n${samples
+      .map(sample => `- **${sample.herb}**\n  - risk flags: ${sample.riskFlags.length ? sample.riskFlags.join(', ') : 'none'}\n  - overlap (compounds/effects/contra): ${sample.overlap.activeCompounds}/${sample.overlap.effects}/${sample.overlap.contraindications}\n  - before contra: ${sample.before.contraindications.join(' | ') || 'none'}\n  - after contra: ${sample.after.contraindications.join(' | ') || 'none'}`)
+      .join('\n')}\n`
+  }
+
+  return `# Semantic Normalization Audit\n\n- sampled herbs: ${audit.sampleSize}\n- recommendation: **${audit.recommendation}**\n\n${formatSamples(audit.safeExamples, 'Safe transformations')}\n${formatSamples(audit.riskyExamples, 'Risky transformations')}\n${formatSamples(audit.revertExamples, 'Should be reverted / manually reviewed')}\n`
+}
+
 async function main() {
+  const args = parseArgs(process.argv.slice(2))
   const fixes = {
     nanRemoved: 0,
     invalidSourcesRemoved: 0,
@@ -515,9 +674,10 @@ async function main() {
     invalidHerbRefsRemoved: 0,
     longPhrasesRemoved: 0,
     crossFieldDuplicatesRemoved: 0,
+    safeMode: args.safeMode,
   }
 
-  const herbRaw = JSON.parse(await readFile(HERBS_PATH, 'utf8'))
+  const herbRaw = JSON.parse(await readFile(args.beforeFile || HERBS_PATH, 'utf8'))
   const compoundRaw = JSON.parse(await readFile(COMPOUNDS_PATH, 'utf8'))
 
   const herbsInput = Array.isArray(herbRaw) ? herbRaw : []
@@ -540,14 +700,16 @@ async function main() {
   const overallCompleteness = Number(((herbCompleteness.percent + compoundCompleteness.percent) / 2).toFixed(2))
 
   const consistencyIssues = herbsNormalized.flatMap(herb =>
-    validateHerbConsistency(herb).map(issue => `${herb.name}: ${issue}`),
+    validateHerbConsistency(herb, args).map(issue => `${herb.name}: ${issue}`),
   )
 
   const afterMetrics = collectVariationMetrics(herbsNormalized)
   const samples = pickSampleRows(herbsInput, herbsNormalized, 10)
 
-  await writeFile(HERBS_PATH, `${JSON.stringify(herbsNormalized, null, 2)}\n`)
-  await writeFile(COMPOUNDS_PATH, `${JSON.stringify(compoundsNormalized, null, 2)}\n`)
+  if (!args.auditOnly) {
+    await writeFile(HERBS_PATH, `${JSON.stringify(herbsNormalized, null, 2)}\n`)
+    await writeFile(COMPOUNDS_PATH, `${JSON.stringify(compoundsNormalized, null, 2)}\n`)
+  }
 
   const unresolvedIssues = []
   if (herbsNormalized.some(herb => !herb.sources.length)) {
@@ -564,6 +726,10 @@ async function main() {
 
   await writeFile(REPORT_PATH, report)
 
+  const audit = buildSemanticAudit(herbsInput, herbsNormalized, args.sampleSize)
+  await mkdir(dirname(args.auditReportPath), { recursive: true })
+  await writeFile(args.auditReportPath, semanticAuditMarkdown(audit))
+
   const summary = {
     fixes,
     passed: consistencyIssues.length === 0,
@@ -576,6 +742,13 @@ async function main() {
     },
     unresolvedIssues,
     sampleSize: samples.length,
+    semanticAudit: {
+      recommendation: audit.recommendation,
+      safeExamples: audit.safeExamples.length,
+      riskyExamples: audit.riskyExamples.length,
+      revertExamples: audit.revertExamples.length,
+    },
+    options: args,
   }
 
   console.log('Validation complete.')
