@@ -4,10 +4,10 @@ import path from 'node:path'
 const ROOT = process.cwd()
 
 const QUALITY_THRESHOLDS = {
-  minDescriptionLength: 60,
+  minDescriptionLength: 30,
   minSources: 2,
   minEffects: 1,
-  minCompletenessScore: 10,
+  minCompletenessScore: 0,
   minSlugLength: 2,
 }
 
@@ -22,6 +22,7 @@ const PLACEHOLDER_PATTERNS = [
 ]
 
 const NAN_PATTERN = /(^|[^a-z0-9])nan([^a-z0-9]|$)/i
+const INVALID_NAME_PATTERN = /^(?:nan|null|undefined|n\/a)$/i
 const NUMERIC_ONLY_NAME = /^\d+(?:[\s.,/-]\d+)*$/
 const VALID_NAME_CHARS = /^[\p{L}\p{N}][\p{L}\p{N}\s\-,'()./]*[\p{L}\p{N})]$/u
 
@@ -111,6 +112,7 @@ function hasValidName(record) {
   const name = asText(record?.name || record?.commonName || record?.common || record?.latinName || record?.latin)
   const slug = slugify(record?.slug || name || record?.id)
   if (!name || !slug) return false
+  if (INVALID_NAME_PATTERN.test(name)) return false
   if (slug.length < QUALITY_THRESHOLDS.minSlugLength) return false
   if (!VALID_NAME_CHARS.test(name)) return false
   if (NAN_PATTERN.test(name)) return false
@@ -118,6 +120,12 @@ function hasValidName(record) {
   if (NUMERIC_ONLY_NAME.test(name)) return false
   if (PLACEHOLDER_PATTERNS.some(pattern => pattern.test(name))) return false
   return true
+}
+
+function tierFromScore(score) {
+  if (score <= 25) return 'stub'
+  if (score <= 50) return 'partial'
+  return 'full'
 }
 
 function scoreRecord(record) {
@@ -144,13 +152,13 @@ function auditEntity(record, type) {
   }
 
   const completenessScore = scoreRecord(record)
+  const tier = tierFromScore(completenessScore)
   const passesIndexThreshold =
     flags.hasValidName &&
     flags.hasUsableDescription &&
     !flags.hasPlaceholderText &&
     !flags.hasNanArtifacts &&
-    flags.effectCount >= QUALITY_THRESHOLDS.minEffects &&
-    (flags.sourceCount >= QUALITY_THRESHOLDS.minSources || completenessScore >= QUALITY_THRESHOLDS.minCompletenessScore)
+    flags.effectCount >= QUALITY_THRESHOLDS.minEffects
 
   const exclusionReasons = []
   if (!flags.hasValidName) exclusionReasons.push('invalidNameOrSlug')
@@ -168,6 +176,7 @@ function auditEntity(record, type) {
     name,
     flags,
     completenessScore,
+    tier,
     passesIndexThreshold,
     exclusionReasons,
   }
@@ -191,6 +200,7 @@ function buildPublicationEntry(record, type, audit) {
     title: `${displayName} | The Hippie Scientist`,
     description,
     completenessScore: audit.completenessScore,
+    tier: audit.tier,
     lastmod,
   }
 }

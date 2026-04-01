@@ -7,7 +7,8 @@
     "title": "rivea corymbosa | The Hippie Scientist",
     "description": "Morning glory species used in Mesoamerican rituals.",
     "completenessScore": 22,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "calliandra-anomala",
@@ -17,7 +18,8 @@
     "title": "calliandra anomala | The Hippie Scientist",
     "description": "Shrubby Fabaceae species with bright pink flowers; limited pharmacological research.",
     "completenessScore": 21,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "alectra-sessiliflora",
@@ -27,7 +29,8 @@
     "title": "alectra sessiliflora | The Hippie Scientist",
     "description": "Parasitic herb in the Orobanchaceae family; possibly used in traditional African medicine.",
     "completenessScore": 13,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "mandrake-root",
@@ -37,7 +40,8 @@
     "title": "mandrake root | The Hippie Scientist",
     "description": "A legendary plant with anthropomorphic root; used as sedative and aphrodisiac.",
     "completenessScore": 13,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "henbane",
@@ -47,7 +51,8 @@
     "title": "henbane | The Hippie Scientist",
     "description": "A toxic plant used historically as an anesthetic, sedative, and hallucinogen.",
     "completenessScore": 12,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "ipomoea-tricolor-heavenly-blue",
@@ -57,7 +62,8 @@
     "title": "ipomoea tricolor (heavenly blue) | The Hippie Scientist",
     "description": "Ornamental morning glory whose seeds contain LSA.",
     "completenessScore": 12,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "mistletoe",
@@ -67,7 +73,8 @@
     "title": "mistletoe | The Hippie Scientist",
     "description": "a sacred plant in ancient druidic and european traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and",
     "completenessScore": 12,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "anisoptera-thurifera",
@@ -77,7 +84,8 @@
     "title": "anisoptera thurifera | The Hippie Scientist",
     "description": "Dipterocarpaceae tree native to Southeast Asia; known for aromatic resin.",
     "completenessScore": 11,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "iresine-herbstii",
@@ -87,7 +95,8 @@
     "title": "iresine herbstii | The Hippie Scientist",
     "description": "Vibrant ornamental plant; used in folk remedies.",
     "completenessScore": 11,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "jatropha-podagrica",
@@ -97,7 +106,8 @@
     "title": "jatropha podagrica | The Hippie Scientist",
     "description": "Ornamental and medicinal plant with thick stem and red flowers.",
     "completenessScore": 11,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "pedicularis-groenlandica",
@@ -107,7 +117,8 @@
     "title": "pedicularis groenlandica | The Hippie Scientist",
     "description": "High-altitude flowering plant known for CNS and muscle relaxation.",
     "completenessScore": 11,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   },
   {
     "slug": "delosperma-cooperi",
@@ -117,6 +128,7 @@
     "title": "delosperma cooperi | The Hippie Scientist",
     "description": "Succulent used as groundcover; mild traditional use.",
     "completenessScore": 10,
-    "lastmod": "2026-03-30"
+    "tier": "stub",
+    "lastmod": "2026-04-01"
   }
 ]

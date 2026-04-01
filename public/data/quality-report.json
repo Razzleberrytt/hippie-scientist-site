@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-03-30T11:49:44.014Z",
+  "generatedAt": "2026-04-01T10:50:16.078Z",
   "thresholds": {
-    "minDescriptionLength": 60,
+    "minDescriptionLength": 30,
     "minSources": 2,
     "minEffects": 1,
-    "minCompletenessScore": 10,
+    "minCompletenessScore": 0,
     "minSlugLength": 2
   },
   "herbs": {
@@ -16,7 +16,6 @@
       "placeholderText": 667,
       "nanArtifacts": 572,
       "insufficientEffects": 201,
-      "insufficientEvidenceOrCompleteness": 468,
       "invalidNameOrSlug": 28
     }
   },
@@ -29,8 +28,7 @@
       "weakDescription": 393,
       "placeholderText": 222,
       "nanArtifacts": 86,
-      "insufficientEffects": 52,
-      "insufficientEvidenceOrCompleteness": 296
+      "insufficientEffects": 52
     }
   },
   "blogIndex": {
