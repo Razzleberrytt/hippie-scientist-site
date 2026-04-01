@@ -114,15 +114,119 @@ function extractEvidenceFromAbstract(abstractText, schemaField, title = '') {
   return sentences.slice(0, 1);
 }
 
-function normalizeValues(schemaField, evidenceText) {
-  const text = evidenceText.replace(/\s+/g, ' ').trim();
-  if (schemaField === 'mechanism') return text;
-  if (schemaField === 'activeCompounds') {
-    const matches = text.match(/\b([a-z]{4,}(?:ine|ins|ol|one|ene|acid)|[A-Z][a-z]{3,}(?:\s+[A-Z][a-z]{3,})?)\b/g) ?? [];
-    const stopwords = new Set(['thus', 'this', 'that', 'with', 'from', 'were', 'have', 'into', 'important']);
-    return [...new Set(matches.map((m) => m.trim()).filter((m) => !stopwords.has(m.toLowerCase())))].slice(0, 6);
+const GENERIC_TOKENS = new Set([
+  'a', 'an', 'and', 'or', 'the', 'of', 'for', 'with', 'that', 'this', 'these', 'those', 'into', 'from', 'due',
+  'compound', 'compounds', 'constituent', 'constituents', 'extract', 'study', 'activity', 'activities', 'effect',
+  'effects', 'analysis', 'screening', 'investigation', 'evidence', 'treatment', 'plant', 'herb', 'species', 'source',
+  'valuable', 'profile', 'profiling', 'present', 'showed', 'shows', 'found', 'demonstrates', 'demonstrated', 'evaluate',
+  'evaluated', 'correlate', 'correlated', 'presence', 'detected', 'important',
+]);
+
+const COMPOUND_SUFFIX_RE = /(ine|in|ol|one|ene|acid|ose|etin|oside|glycoside|sterol|terpene|flavone|flavonoid|alkaloid|saponin|phenol)$/iu;
+
+function normalizeWhitespace(value) {
+  return String(value ?? '').replace(/\s+/g, ' ').trim();
+}
+
+function normalizeActiveCompounds(rawText, herb) {
+  const text = normalizeWhitespace(rawText);
+  const herbTokens = new Set(
+    String(herb.displayName ?? herb.name ?? '')
+      .toLowerCase()
+      .split(/[^a-z0-9]+/u)
+      .filter(Boolean),
+  );
+  const candidates = text.match(/\b[A-Za-z][A-Za-z0-9-]{2,}(?:\s+[A-Za-z][A-Za-z0-9-]{2,}){0,2}\b/g) ?? [];
+  const cleaned = [];
+
+  for (const candidate of candidates) {
+    const value = normalizeWhitespace(candidate);
+    const parts = value.toLowerCase().split(/\s+/u);
+    if (parts.length > 2) continue;
+    if (GENERIC_TOKENS.has(parts[0])) continue;
+    if (parts.length === 2 && !/(acid|oside|glycoside|sterol|flavonoid|alkaloid|terpene|phenol)$/iu.test(parts[1])) continue;
+    if (parts.some((part) => herbTokens.has(part))) continue;
+    if (parts.some((part) => GENERIC_TOKENS.has(part))) continue;
+    if (!parts.some((part) => COMPOUND_SUFFIX_RE.test(part))) continue;
+    if (value.length < 4 || value.length > 40) continue;
+    cleaned.push(value);
   }
-  return [text].filter(Boolean);
+
+  return [...new Set(cleaned)].slice(0, 8);
+}
+
+function normalizeStructuredPhrases(rawText, schemaField) {
+  const text = normalizeWhitespace(rawText).toLowerCase();
+  const out = new Set();
+  const push = (value) => {
+    const cleaned = normalizeWhitespace(value).toLowerCase();
+    if (!cleaned) return;
+    if (/[.?!]/u.test(cleaned)) return;
+    out.add(cleaned);
+  };
+
+  const lexicalEffects = [
+    'anti-inflammatory activity',
+    'antioxidant activity',
+    'antimicrobial activity',
+    'analgesic activity',
+    'antidiabetic activity',
+    'anticancer activity',
+    'hepatoprotective activity',
+    'immunomodulatory activity',
+  ];
+  for (const phrase of lexicalEffects) {
+    if (text.includes(phrase.replace(' activity', '')) || text.includes(phrase)) push(phrase);
+  }
+
+  const mechPatterns = [
+    { re: /\binhibit(?:s|ed|ion)?\s+([a-z0-9-]{3,}(?:\s+[a-z0-9-]{3,}){0,2})/giu, fmt: (m) => `${m} inhibition` },
+    { re: /\bactivate(?:s|d|ion)?\s+([a-z0-9-]{3,}(?:\s+[a-z0-9-]{3,}){0,2})/giu, fmt: (m) => `${m} activation` },
+    { re: /\bmodulat(?:e|es|ed|ion)\s+([a-z0-9-]{3,}(?:\s+[a-z0-9-]{3,}){0,2})/giu, fmt: (m) => `${m} modulation` },
+    { re: /\bagonist(?:s)?\s+(?:of\s+)?([a-z0-9-]{3,}(?:\s+[a-z0-9-]{3,}){0,2})/giu, fmt: (m) => `${m} agonism` },
+    { re: /\bantagonist(?:s)?\s+(?:of\s+)?([a-z0-9-]{3,}(?:\s+[a-z0-9-]{3,}){0,2})/giu, fmt: (m) => `${m} antagonism` },
+  ];
+  for (const pattern of mechPatterns) {
+    for (const match of text.matchAll(pattern.re)) push(pattern.fmt(match[1]));
+  }
+
+  if (schemaField === 'mechanism') return Array.from(out).slice(0, 3);
+  if (schemaField === 'effects') return Array.from(out).slice(0, 4);
+  if (schemaField === 'contraindications') {
+    if (text.includes('contraindication')) push('contraindication reported');
+    if (text.includes('toxicity')) push('toxicity concern');
+    if (text.includes('adverse')) push('adverse-effect signal');
+    if (text.includes('pregnan')) push('pregnancy caution');
+    return Array.from(out).slice(0, 4);
+  }
+  if (schemaField === 'traditionalUse') {
+    if (text.includes('traditional')) push('traditional-use context');
+    if (text.includes('ethnobotanical')) push('ethnobotanical use');
+    if (text.includes('ayurveda')) push('ayurvedic use');
+    if (text.includes('tcm')) push('tcm use');
+    return Array.from(out).slice(0, 4);
+  }
+  return Array.from(out);
+}
+
+function normalizeFieldValue(schemaField, evidenceText, herb) {
+  const before = normalizeWhitespace(evidenceText);
+  if (!before) return { ok: false, before, after: null, reason: 'empty_evidence' };
+
+  if (schemaField === 'activeCompounds') {
+    const values = normalizeActiveCompounds(before, herb);
+    if (values.length === 0) return { ok: false, before, after: null, reason: 'no_clean_compound_names' };
+    return { ok: true, before, after: values };
+  }
+
+  if (schemaField === 'effects' || schemaField === 'mechanism' || schemaField === 'contraindications' || schemaField === 'traditionalUse') {
+    const phrases = normalizeStructuredPhrases(before, schemaField);
+    if (phrases.length === 0) return { ok: false, before, after: null, reason: 'no_structured_phrase_extracted' };
+    const after = schemaField === 'mechanism' ? phrases.join('; ') : phrases;
+    return { ok: true, before, after };
+  }
+
+  return { ok: false, before, after: null, reason: 'unsupported_field' };
 }
 
 function titleMatchesHerb(title, herb) {
@@ -162,17 +266,20 @@ async function collectFieldEvidence(herb, targetField) {
     if (extracted.length === 0) continue;
 
     const evidence = extracted.join(' ');
-    const normalized = normalizeValues(targetField.schemaField, evidence);
-    if ((Array.isArray(normalized) && normalized.length === 0) || (!Array.isArray(normalized) && !normalized)) continue;
+    const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
+    if (!normalization.ok) continue;
 
     const confidence = confidenceFromSource({ qualityScore: quality.score, evidenceText: evidence, schemaField: targetField.schemaField });
-    if (targetField.schemaField === 'activeCompounds' && Array.isArray(normalized) && normalized.length === 0) continue;
     return {
       herb: herb.slug,
       field: targetField.requestField,
       schemaField: targetField.schemaField,
       patchField: targetField.patchField,
-      value: normalized,
+      value: normalization.after,
+      normalization: {
+        before: normalization.before,
+        after: normalization.after,
+      },
       source: {
         title: summary.title,
         url: sourceUrl,
@@ -292,7 +399,7 @@ async function main() {
             field: targetField.requestField,
             schemaField: targetField.schemaField,
             confidence: 'low',
-            reason: 'no-high-quality-source-evidence-found',
+            reason: 'no-high-quality-source-evidence-found-or-clean-normalization-failed',
           });
           continue;
         }

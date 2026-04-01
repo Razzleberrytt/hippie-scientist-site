@@ -13,6 +13,7 @@ Input: herb records with missing values in:
 
 Output:
 - structured extraction records with source + evidence + confidence
+- normalization trace (`before` vs `after`) per extracted field value
 - accepted vs rejected extraction sets
 - patch files in existing patch shape (staged in `ops/evidence-acquisition/patches`)
 
@@ -35,6 +36,7 @@ node scripts/enrichment/evidence-acquisition-engine.mjs --herbs=aconitum-ferox,a
 - `low`: rejected from patch output unless `--include-low-confidence`
 
 Low-confidence rows are emitted under `rejected[]` and intended for manual review queue intake.
+Rows that cannot be normalized into clean schema-ready values are also rejected.
 
 ## Integration path
 

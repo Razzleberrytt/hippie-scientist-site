@@ -1,8 +1,8 @@
 {
-  "patch_id": "patch_01KN51T22SFCD9WMB5JSEYA6ZT",
+  "patch_id": "patch_01KN52ANR0NGNA93YAPZ25BYA8",
   "producer": "evidence-acquisition-engine@v1",
   "lane": "B",
-  "created_at": "2026-04-01T17:35:09.914Z",
+  "created_at": "2026-04-01T17:44:14.336Z",
   "operations": [
     {
       "op": "append",
@@ -11,10 +11,10 @@
       "entity_id": "aegle-marmelos",
       "field": "/claims/-",
       "value": {
-        "id": "clm_01KN51T22TPTYA4J9ADAGKPS6C",
-        "claim": "[contraindications] Despite advancements in prandial insulin therapeutics, real-world usage of these products is associated with challenges such as injection-related anxiety, an increased risk of hypoglycemia, and weight gain. This review seeks to clarify the clinical role of inhaled insulin by addressing common myths associated with its usage and presenting evidence-based insights on its pharmacokinetic (PK) and pharmacodynamic (PD) profile, efficacy and safety, pulmonary safety, dosing considerations, storage requirements, use in special populations, and contraindications.",
+        "id": "clm_01KN52ANR04WSV0CSAF8SVY0CN",
+        "claim": "[contraindications] contraindication reported",
         "source_ids": [
-          "src_01KN51T22S4VJADSZMM55K355W"
+          "src_01KN52ANR043H5QP3ARXZMFZG6"
         ]
       }
     },
@@ -25,10 +25,10 @@
       "entity_id": "aegle-marmelos",
       "field": "/_provenance",
       "value": {
-        "run_id": "run_01KN51SZD7JFW4V6EQ00AZ42CW",
+        "run_id": "run_01KN52AJ314A9KFW55W1ET5PWT",
         "sources": [
           {
-            "id": "src_01KN51T22S4VJADSZMM55K355W",
+            "id": "src_01KN52ANR043H5QP3ARXZMFZG6",
             "title": "Inhaled Insulin Decoded: Dispelling Myths and Presenting Clinical Evidence.",
             "url": "https://pubmed.ncbi.nlm.nih.gov/41607985/",
             "evidenceClass": "human-clinical"
