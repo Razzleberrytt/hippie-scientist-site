@@ -3,48 +3,150 @@
   "latin": "mandrake",
   "class": null,
   "intensity": "very strong",
-  "mechanism": "No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine",
+  "mechanism": "Mandragora species contain tropane alkaloids (for example hyoscyamine/scopolamine-like compounds) that exert antimuscarinic effects; available mechanistic data are preclinical and do not establish therapeutic efficacy.",
   "activeCompounds": [],
   "effects": [
-    "No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Anticholinergic toxicity patterns are documented in clinical toxicology literature.",
+    "Preclinical chemistry work supports tropane-alkaloid biosynthesis variability across Mandragora species."
   ],
-  "contraindications": [],
+  "contraindications": [
+    "Avoid in pregnancy and breastfeeding because safety has not been established and anticholinergic toxicity is plausible.",
+    "Contraindicated in people at risk for anticholinergic complications (for example narrow-angle glaucoma or urinary retention risk)."
+  ],
   "safetyNotes": [
-    "Toxic – deliriant",
-    "anticholinergic",
-    "No direct toxicity data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine"
+    "Risk of delirium, tachycardia, dry mouth, urinary retention, and confusion from anticholinergic exposure.",
+    "Toxicity management requires medical supervision; non-clinical ingestion is high risk."
   ],
-  "sources": [],
+  "sources": [
+    {
+      "title": "src_doi-10-1007-s13659-022-00357-w",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36109439/"
+    },
+    {
+      "title": "src_doi-10-1016-j-plantsci-2019-03-013",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31128700/"
+    },
+    {
+      "title": "src_doi-10-1002-ptrr-2023-4419",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38884419/"
+    }
+  ],
   "lastUpdated": "2026-03-21",
-  "description": "Used in ritual, dreaming or folk medicine.",
+  "description": "Mandrake is a Solanaceae plant historically documented in Mediterranean and Middle Eastern materia medica and ritual contexts. Modern publications focus on tropane alkaloid chemistry and poisoning management concerns.",
   "dosage": [
-    "No direct dosage data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine.. Used in ritual",
-    "dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine. Used in ritual",
-    "dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual",
-    "dreaming or folk medicine"
+    "No safe self-care dosage is established in reviewed sources; toxicology-focused literature should guide cautionary copy only."
   ],
   "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "interactions": [],
+  "interactions": [
+    "Potential additive anticholinergic burden with other anticholinergic medicines.",
+    "Potential additive CNS effects with sedatives or alcohol; toxicity risk may increase."
+  ],
   "legalStatus": "restricted",
-  "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-  "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
+  "preparation": "Traditional preparations include roots in decoctions or topical folkloric preparations, but modern safety literature does not support unsupervised internal use.",
+  "region": "Mediterranean basin and parts of Western/Central Asia in traditional records.",
   "therapeuticUses": [],
-  "traditionalUse": "Used in ritual, dreaming or folk medicine",
+  "traditionalUse": "Traditional records describe sedative, ritual, and analgesic uses; these historical uses should not be interpreted as evidence of modern clinical efficacy.",
   "slug": "mandrake",
   "id": "mandrake",
   "displayName": "mandrake",
   "displayScientificName": "mandrake",
-  "scientificNormalized": "mandrake"
+  "scientificNormalized": "mandrake",
+  "summary": "Mandrake (Mandragora spp.) contains tropane alkaloids with anticholinergic activity; modern literature emphasizes toxicity risk and the need for strict safety framing rather than self-medication claims.",
+  "researchEnrichment": {
+    "evidenceSummary": "Curated governance-backed enrichment for mandrake using 3 registry sources.",
+    "evidenceTier": "tier-2-moderate",
+    "evidenceClassesPresent": [
+      "human-clinical",
+      "preclinical-mechanistic"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [],
+    "mechanisms": [
+      {
+        "claim": "Mandragora species contain tropane alkaloids (for example hyoscyamine/scopolamine-like compounds) that exert antimuscarinic effects; available mechanistic data are preclinical and do not establish therapeutic efficacy.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_doi-10-1007-s13659-022-00357-w"
+        ],
+        "uncertaintyNote": "Mechanistic interpretation should not be treated as proven clinical efficacy."
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Potential additive anticholinergic burden with other anticholinergic medicines.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s13659-022-00357-w"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Avoid in pregnancy and breastfeeding because safety has not been established and anticholinergic toxicity is plausible.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s13659-022-00357-w"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Risk of delirium, tachycardia, dry mouth, urinary retention, and confusion from anticholinergic exposure.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s13659-022-00357-w"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No safe self-care dosage is established in reviewed sources; toxicology-focused literature should guide cautionary copy only.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s13659-022-00357-w"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [],
+    "conflictNotes": [],
+    "researchGaps": [
+      {
+        "claim": "Evidence remains limited or heterogeneous; avoid overgeneralizing efficacy across formulations or populations.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s13659-022-00357-w"
+        ],
+        "uncertaintyNote": "Additional controlled human data are needed for stronger confidence."
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_doi-10-1007-s13659-022-00357-w",
+      "src_doi-10-1016-j-plantsci-2019-03-013",
+      "src_doi-10-1002-ptrr-2023-4419"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_doi-10-1007-s13659-022-00357-w",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      },
+      {
+        "sourceId": "src_doi-10-1016-j-plantsci-2019-03-013",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      },
+      {
+        "sourceId": "src_doi-10-1002-ptrr-2023-4419",
+        "extractConfidence": "medium",
+        "reviewer": "codex",
+        "notes": "Claim mapping for indexability remediation batch-01."
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "codex-batch-01",
+    "editorialStatus": "in-review"
+  }
 }
