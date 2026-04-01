@@ -23,5 +23,109 @@
   "lastUpdated": "2026-03-21",
   "slug": "7-hydroxymitragynine",
   "id": "7-hydroxymitragynine",
-  "displayName": "7-hydroxymitragynine"
+  "displayName": "7-hydroxymitragynine",
+  "researchEnrichment": {
+    "evidenceSummary": "Current evidence frames 7-hydroxymitragynine primarily as a high-risk pharmacologic constituent with limited controlled clinical evidence.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "preclinical-mechanistic"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ],
+        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Potent mu-opioid receptor activity underlies analgesic effects and dependence/toxicity liabilities.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ]
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No reliable universal dosage range can be asserted from current evidence.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [
+      {
+        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ]
+      }
+    ],
+    "conflictNotes": [
+      {
+        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ]
+      }
+    ],
+    "researchGaps": [
+      {
+        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_pubmed-41275505"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-41275505"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-41275505",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "editorial-team",
+    "editorialStatus": "in-review"
+  }
 }

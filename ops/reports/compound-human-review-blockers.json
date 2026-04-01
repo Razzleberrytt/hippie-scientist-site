@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-04-01T00:00:00.000Z",
+  "blockers": [
+    {
+      "entityType": "compound",
+      "slug": "object-object",
+      "name": "[object Object]",
+      "reason": "Corrupted non-recoverable identifier; cannot map to a valid compound identity from provided evidence.",
+      "action": "human_review_required"
+    },
+    {
+      "entityType": "compound",
+      "slug": "alpha",
+      "name": "Alpha",
+      "reason": "Ambiguous placeholder-like identity without unique evidence binding to a specific chemical entity.",
+      "action": "human_review_required"
+    },
+    {
+      "entityType": "compound",
+      "slug": "beta",
+      "name": "Beta",
+      "reason": "Ambiguous placeholder-like identity without unique evidence binding to a specific chemical entity.",
+      "action": "human_review_required"
+    },
+    {
+      "entityType": "compound",
+      "slug": "unverified-cannabinoids",
+      "name": "unverified cannabinoids",
+      "reason": "Category label rather than a resolvable single compound identity.",
+      "action": "human_review_required"
+    }
+  ]
+}

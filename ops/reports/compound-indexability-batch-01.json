@@ -1,0 +1,177 @@
+{
+  "generatedAt": "2026-04-01T00:00:00.000Z",
+  "batchId": "compound-indexability-batch-01",
+  "selectionBasis": "Top indexability candidates from indexability-evidence-gap-audit with preference for recoverable slugs and available source-backed evidence.",
+  "selectedCompounds": [
+    {
+      "rank": 1,
+      "slug": "luteolin",
+      "name": "Luteolin",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/luteolin.json"
+    },
+    {
+      "rank": 2,
+      "slug": "cbd",
+      "name": "CBD",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/cbd.json"
+    },
+    {
+      "rank": 3,
+      "slug": "asarone",
+      "name": "Asarone (alpha/beta isomers)",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/asarone.json"
+    },
+    {
+      "rank": 4,
+      "slug": "2-4-5-trimethoxybenzaldehyde",
+      "name": "2,4,5-Trimethoxybenzaldehyde",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/2-4-5-trimethoxybenzaldehyde.json"
+    },
+    {
+      "rank": 5,
+      "slug": "7-hydroxymitragynine",
+      "name": "7-Hydroxymitragynine",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/7-hydroxymitragynine.json"
+    },
+    {
+      "rank": 6,
+      "slug": "7-hydroxybaruol",
+      "name": "7α-Hydroxybaruol",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/7-hydroxybaruol.json"
+    },
+    {
+      "rank": 7,
+      "slug": "aconine",
+      "name": "Aconine",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/aconine.json"
+    },
+    {
+      "rank": 8,
+      "slug": "aconitine",
+      "name": "Aconitine",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/aconitine.json"
+    },
+    {
+      "rank": 9,
+      "slug": "agrimoniin",
+      "name": "Agrimoniin",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/agrimoniin.json"
+    },
+    {
+      "rank": 10,
+      "slug": "anabasine",
+      "name": "Anabasine",
+      "updatedFields": [
+        "description",
+        "summary",
+        "mechanism",
+        "effects",
+        "contraindications",
+        "interactions",
+        "category",
+        "sources"
+      ],
+      "detailFile": "public/data/compounds-detail/anabasine.json"
+    }
+  ],
+  "promotedSourceIds": [
+    "src_pubmed-32490307",
+    "src_pubmed-41275505",
+    "src_pubmed-28731232",
+    "src_doi-10-1021-acs-chemrestox-2c00020"
+  ],
+  "notes": [
+    "No dosage ranges were introduced.",
+    "Preclinical-only compounds retain explicit uncertainty language."
+  ]
+}

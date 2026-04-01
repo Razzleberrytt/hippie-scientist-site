@@ -46,5 +46,125 @@
   "lastUpdated": "2026-03-21",
   "slug": "asarone",
   "id": "asarone",
-  "displayName": "asarone"
+  "displayName": "asarone",
+  "researchEnrichment": {
+    "evidenceSummary": "Asarone evidence is weighted toward toxicology and uncertainty, especially for beta-asarone-rich exposure.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "human-clinical",
+      "preclinical-mechanistic"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ],
+        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Isomer-dependent CNS/metabolic activity with unresolved long-term safety margins.",
+        "evidenceClass": "preclinical-mechanistic",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ]
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No reliable universal dosage range can be asserted from current evidence.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [
+      {
+        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ]
+      }
+    ],
+    "conflictNotes": [
+      {
+        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ]
+      }
+    ],
+    "researchGaps": [
+      {
+        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1007-s43440-021-00273-9",
+          "src_pubmed-31193009"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_doi-10-1007-s43440-021-00273-9",
+      "src_pubmed-31193009"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_doi-10-1007-s43440-021-00273-9",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      },
+      {
+        "sourceId": "src_pubmed-31193009",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "editorial-team",
+    "editorialStatus": "in-review"
+  }
 }

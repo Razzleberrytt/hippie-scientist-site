@@ -23,5 +23,156 @@
   "lastUpdated": "2026-03-21",
   "slug": "cbd",
   "id": "cbd",
-  "displayName": "CBD"
+  "displayName": "CBD",
+  "researchEnrichment": {
+    "evidenceSummary": "CBD has human clinical safety data and established interaction liabilities, with mechanistic literature still evolving.",
+    "evidenceTier": "tier-2-moderate",
+    "evidenceClassesPresent": [
+      "human-clinical",
+      "preclinical-mechanistic",
+      "regulatory-monograph"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ],
+        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Multimodal receptor/signaling effects plus CYP inhibition drive important pharmacokinetic interactions.",
+        "evidenceClass": "regulatory-monograph",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ]
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No reliable universal dosage range can be asserted from current evidence.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [
+      {
+        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ]
+      }
+    ],
+    "conflictNotes": [
+      {
+        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ]
+      }
+    ],
+    "researchGaps": [
+      {
+        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
+        "evidenceClass": "human-clinical",
+        "sourceRefIds": [
+          "src_doi-10-1186-cpr-2024-11820",
+          "src_doi-10-3390-ijms27062899",
+          "src_fda-epidiolex-label-2021",
+          "src_pubmed-40622698"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_doi-10-1186-cpr-2024-11820",
+      "src_doi-10-3390-ijms27062899",
+      "src_fda-epidiolex-label-2021",
+      "src_pubmed-40622698"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_doi-10-1186-cpr-2024-11820",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      },
+      {
+        "sourceId": "src_doi-10-3390-ijms27062899",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      },
+      {
+        "sourceId": "src_fda-epidiolex-label-2021",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      },
+      {
+        "sourceId": "src_pubmed-40622698",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "editorial-team",
+    "editorialStatus": "in-review"
+  }
 }

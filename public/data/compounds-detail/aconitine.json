@@ -26,5 +26,109 @@
   "lastUpdated": "2026-03-21",
   "slug": "aconitine",
   "id": "aconitine",
-  "displayName": "aconitine"
+  "displayName": "aconitine",
+  "researchEnrichment": {
+    "evidenceSummary": "Aconitine has strong toxicology signal from human poisoning and forensic evidence.",
+    "evidenceTier": "tier-3-limited",
+    "evidenceClassesPresent": [
+      "human-observational"
+    ],
+    "supportedUses": [],
+    "unsupportedOrUnclearUses": [
+      {
+        "claim": "Clinical efficacy claims remain uncertain or condition-limited for this compound.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ],
+        "uncertaintyNote": "Evidence base is limited, heterogeneous, or indirect."
+      }
+    ],
+    "mechanisms": [
+      {
+        "claim": "Persistent sodium-channel activation produces arrhythmogenic and neurotoxic effects.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ]
+      }
+    ],
+    "constituents": [],
+    "interactions": [
+      {
+        "claim": "Interaction risk is present or uncertain; medication reconciliation is advised before use.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ]
+      }
+    ],
+    "contraindications": [
+      {
+        "claim": "Use should be avoided or medically supervised in higher-risk populations due to limited certainty.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ]
+      }
+    ],
+    "adverseEffects": [
+      {
+        "claim": "Adverse-event profile varies by dose and context; evidence quality is heterogeneous.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ]
+      }
+    ],
+    "dosageContextNotes": [
+      {
+        "claim": "No reliable universal dosage range can be asserted from current evidence.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ]
+      }
+    ],
+    "populationSpecificNotes": [
+      {
+        "claim": "Pregnancy, pediatric, and medically complex populations require extra caution because direct evidence is limited.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ]
+      }
+    ],
+    "conflictNotes": [
+      {
+        "claim": "Evidence includes mechanistic and observational findings that do not consistently translate to proven clinical benefit.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ]
+      }
+    ],
+    "researchGaps": [
+      {
+        "claim": "Need better-controlled human trials with standardized exposure definitions and interaction monitoring.",
+        "evidenceClass": "human-observational",
+        "sourceRefIds": [
+          "src_pubmed-32490307"
+        ]
+      }
+    ],
+    "sourceRegistryIds": [
+      "src_pubmed-32490307"
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "src_pubmed-32490307",
+        "extractConfidence": "medium",
+        "reviewer": "editorial-team"
+      }
+    ],
+    "lastReviewedAt": "2026-04-01T00:00:00.000Z",
+    "reviewedBy": "editorial-team",
+    "editorialStatus": "in-review"
+  }
 }
