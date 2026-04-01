@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-04-01T12:35:45Z",
-  "deterministicModelVersion": "source-wave-indexability-v1",
+  "generatedAt": "2026-04-01T18:10:00Z",
+  "deterministicModelVersion": "source-wave-indexability-v2",
   "dedupeAgainst": {
     "sourceRegistry": "public/data/source-registry.json",
     "existingCandidates": "ops/source-candidates.json"
@@ -14,7 +14,7 @@
       "sourceType": "journal-article",
       "sourceClass": "preclinical-mechanistic-study",
       "authors": [
-        "Maff\u00e8 S",
+        "Maffè S",
         "Paffoni P",
         "Laura Colombo M",
         "Davanzo F",
@@ -22,7 +22,7 @@
         "Cucchi L"
       ],
       "publicationYear": 2013,
-      "citationText": "Maff\u00e8 S et al. G Ital Cardiol (Rome). 2013; PMID:23748541.",
+      "citationText": "Maffè S et al. G Ital Cardiol (Rome). 2013; PMID:23748541.",
       "doi": "10.1714/1280.14158",
       "pmid": "23748541",
       "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/23748541/",
@@ -93,7 +93,7 @@
       "dedupeCheck": {
         "matchedRegistrySourceIds": [],
         "matchedCandidateSourceIds": [
-          "pmid-or-doi-match"
+          "cand_henbane-poisoning-sudan-2025"
         ],
         "checkedAgainst": [
           "public/data/source-registry.json",
@@ -542,15 +542,15 @@
     {
       "candidateSourceId": "cand_wave_indexability_asarone_33236787",
       "intakeTaskId": "intake_gap_wp_compound_asarone_safety_source_wave_indexability",
-      "title": "\u03b1-Asarone, \u03b2-asarone, and \u03b3-asarone: Current status of toxicological evaluation.",
-      "shortTitle": "\u03b1-Asarone, \u03b2-asarone, and \u03b3-asarone: Current status of toxicological eva...",
+      "title": "α-Asarone, β-asarone, and γ-asarone: Current status of toxicological evaluation.",
+      "shortTitle": "α-Asarone, β-asarone, and γ-asarone: Current status of toxicological eva...",
       "sourceType": "journal-article",
       "sourceClass": "preclinical-mechanistic-study",
       "authors": [
         "Uebel T",
         "Hermes L",
         "Haupenthal S",
-        "M\u00fcller L",
+        "Müller L",
         "Esselen M"
       ],
       "publicationYear": 2021,
@@ -692,7 +692,7 @@
       "sourceClass": "preclinical-mechanistic-study",
       "authors": [
         "Grochowski DM",
-        "Skalicka-Wo\u017aniak K",
+        "Skalicka-Woźniak K",
         "Orhan IE",
         "Xiao J",
         "Locatelli M",
@@ -724,6 +724,151 @@
         "evidence"
       ],
       "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+      "dedupeCheck": {
+        "matchedRegistrySourceIds": [],
+        "matchedCandidateSourceIds": [],
+        "checkedAgainst": [
+          "public/data/source-registry.json",
+          "ops/source-candidates.json"
+        ]
+      }
+    },
+    {
+      "candidateSourceId": "cand_wave_indexability_catnip_33307050",
+      "intakeTaskId": "intake_gap_wp_herb_catnip_mechanism_source_wave_indexability",
+      "title": "The genus Nepeta: Traditional uses, phytochemicals and pharmacological properties.",
+      "shortTitle": "Genus Nepeta traditional use and pharmacology review",
+      "sourceType": "journal-article",
+      "sourceClass": "preclinical-mechanistic-study",
+      "authors": [
+        "Sharma A",
+        "Cooper R",
+        "Bhardwaj G",
+        "Cannoo DS"
+      ],
+      "publicationYear": 2021,
+      "citationText": "Sharma A, et al. J Ethnopharmacol. 2021;276:113679.",
+      "doi": "10.1016/j.jep.2020.113679",
+      "pmid": "33307050",
+      "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33307050/",
+      "language": "en",
+      "evidenceClass": "preclinical-mechanistic",
+      "studyDesign": "narrative-review",
+      "publicationStatus": "published",
+      "proposedReliabilityTier": "tier-b",
+      "duplicateRisk": "low",
+      "reviewStatus": "draft_candidate",
+      "active": true,
+      "organization": null,
+      "jurisdiction": null,
+      "relatedEntities": [
+        {
+          "entityType": "herb",
+          "entitySlug": "catnip"
+        }
+      ],
+      "relatedTopicGaps": [
+        "mechanism",
+        "traditionalUse",
+        "safety"
+      ],
+      "whyThisSourceMatters": "Adds authority-grade Nepeta genus evidence to support catnip mechanism and traditional-use narrative without weakening evidence-class boundaries.",
+      "dedupeCheck": {
+        "matchedRegistrySourceIds": [],
+        "matchedCandidateSourceIds": [],
+        "checkedAgainst": [
+          "public/data/source-registry.json",
+          "ops/source-candidates.json"
+        ]
+      }
+    },
+    {
+      "candidateSourceId": "cand_wave_indexability_guayusa_31366209",
+      "intakeTaskId": "intake_gap_wp_herb_guayusa_safety_source_wave_indexability",
+      "title": "A critical review of the composition and history of safe use of guayusa: a stimulant and antioxidant novel food.",
+      "shortTitle": "Guayusa composition and safe-use review",
+      "sourceType": "journal-article",
+      "sourceClass": "preclinical-mechanistic-study",
+      "authors": [
+        "Wise G",
+        "Negrin A"
+      ],
+      "publicationYear": 2020,
+      "citationText": "Wise G, Negrin A. Crit Rev Food Sci Nutr. 2020;60(10):1768-1789.",
+      "doi": "10.1080/10408398.2019.1643286",
+      "pmid": "31366209",
+      "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/31366209/",
+      "language": "en",
+      "evidenceClass": "preclinical-mechanistic",
+      "studyDesign": "narrative-review",
+      "publicationStatus": "published",
+      "proposedReliabilityTier": "tier-b",
+      "duplicateRisk": "low",
+      "reviewStatus": "draft_candidate",
+      "active": true,
+      "organization": null,
+      "jurisdiction": null,
+      "relatedEntities": [
+        {
+          "entityType": "herb",
+          "entitySlug": "guayusa"
+        }
+      ],
+      "relatedTopicGaps": [
+        "safety",
+        "constituent",
+        "traditionalUse"
+      ],
+      "whyThisSourceMatters": "Provides indexed safety-history and composition synthesis for guayusa where registry coverage is currently absent.",
+      "dedupeCheck": {
+        "matchedRegistrySourceIds": [],
+        "matchedCandidateSourceIds": [],
+        "checkedAgainst": [
+          "public/data/source-registry.json",
+          "ops/source-candidates.json"
+        ]
+      }
+    },
+    {
+      "candidateSourceId": "cand_wave_indexability_anabasine_35298128",
+      "intakeTaskId": "intake_gap_wp_compound_anabasine_safety_source_wave_indexability",
+      "title": "Assessment of the Exposure to Tobacco-Specific Nitrosamines and Minor Tobacco Alkaloids in Users of Various Tobacco/Nicotine Products.",
+      "shortTitle": "Human exposure study including anabasine",
+      "sourceType": "journal-article",
+      "sourceClass": "observational-human-evidence",
+      "authors": [
+        "Scherer G",
+        "Scherer M",
+        "Mütze J",
+        "Hauke T",
+        "Pluym N"
+      ],
+      "publicationYear": 2022,
+      "citationText": "Scherer G, et al. Chem Res Toxicol. 2022;35(4):620-634.",
+      "doi": "10.1021/acs.chemrestox.2c00020",
+      "pmid": "35298128",
+      "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/35298128/",
+      "language": "en",
+      "evidenceClass": "human-observational",
+      "studyDesign": "cross-sectional",
+      "publicationStatus": "published",
+      "proposedReliabilityTier": "tier-b",
+      "duplicateRisk": "low",
+      "reviewStatus": "draft_candidate",
+      "active": true,
+      "organization": null,
+      "jurisdiction": null,
+      "relatedEntities": [
+        {
+          "entityType": "compound",
+          "entitySlug": "anabasine"
+        }
+      ],
+      "relatedTopicGaps": [
+        "safety",
+        "evidence"
+      ],
+      "whyThisSourceMatters": "Introduces human observational exposure data for anabasine to reduce pure preclinical dependence in safety narratives.",
       "dedupeCheck": {
         "matchedRegistrySourceIds": [],
         "matchedCandidateSourceIds": [],
