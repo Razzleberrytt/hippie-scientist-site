@@ -162,7 +162,8 @@
     "report:completion-aware-wave-targets": "npm run report:completion-scorecards && tsx scripts/report-enrichment-wave-targets.ts --profile balanced-completion",
     "fix:enriched-names": "node scripts/fix-enriched-names.mjs",
     "report:indexability-evidence-gaps": "node scripts/report-indexability-evidence-gaps.mjs",
-    "report:indexability-rescue": "node scripts/report-indexability-rescue-wave.mjs"
+    "report:indexability-rescue": "node scripts/report-indexability-rescue-wave.mjs",
+    "workflow:indexability-rescue": "npm run report:indexability-rescue && npm run enrichment:validate:dry"
   },
   "engines": {
     "node": ">=20 <21"
