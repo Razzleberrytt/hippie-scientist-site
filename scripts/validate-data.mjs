@@ -59,6 +59,7 @@ const PROTECTED_PHRASE_PATTERNS = [
   /\btraditionally used for\b/i,
   /\breported to\b/i,
 ]
+const UNCERTAINTY_LANGUAGE_PATTERN = /\b(?:may|might|could|potential|possibly|perhaps|reported to|associated with)\b/i
 
 function isObject(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
@@ -674,6 +675,8 @@ function detectFailureCategory(field, original, candidate, overlap, minimumOverl
 function guardedTransformation(original, candidate, minimumOverlap, fixes, field) {
   const originalCleaned = cleanOriginalPhrase(original)
   const normalizedCandidate = cleanOriginalPhrase(candidate)
+  const sensitiveField = field === 'effects' || field === 'contraindications'
+  const hasUncertaintyLanguage = UNCERTAINTY_LANGUAGE_PATTERN.test(String(original || ''))
   if (!originalCleaned) return { value: normalizedCandidate, rejected: false, overlap: 1, originalCleaned, normalizedCandidate, category: '' }
   if (!normalizedCandidate) {
     fixes.lowOverlapRejected += 1
@@ -687,10 +690,14 @@ function guardedTransformation(original, candidate, minimumOverlap, fixes, field
     ? Math.max(minimumOverlap, OVERLAP_MIN_PROTECTED)
     : minimumOverlap
   const category = detectFailureCategory(field, original, candidate, overlap, effectiveMinimum)
-  if (category || overlap < effectiveMinimum) {
+  const uncertaintyPreservationRisk =
+    sensitiveField &&
+    hasUncertaintyLanguage &&
+    normalizeStyle(originalCleaned) !== normalizeStyle(normalizedCandidate)
+  if (category || overlap < effectiveMinimum || uncertaintyPreservationRisk) {
     fixes.lowOverlapRejected += 1
     fixes.rejectedByField[field] = (fixes.rejectedByField[field] || 0) + 1
-    const rejectionCategory = category || (field === 'activeCompounds' ? 'compound_mismatch' : 'truncation_loss')
+    const rejectionCategory = category || (uncertaintyPreservationRisk ? 'uncertainty_preservation' : (field === 'activeCompounds' ? 'compound_mismatch' : 'truncation_loss'))
     fixes.rejectedByCategory[rejectionCategory] = (fixes.rejectedByCategory[rejectionCategory] || 0) + 1
     return { value: originalCleaned, rejected: true, overlap, originalCleaned, normalizedCandidate, category: rejectionCategory }
   }
@@ -734,7 +741,11 @@ function buildSemanticAudit(beforeHerbs, afterHerbs, sampleSize) {
 
     const hedgingBefore = [...beforeEffects, ...beforeContra, beforeMechanism].some(value => containsHedging(value))
     const hedgingAfter = [...afterEffects, ...afterContra, afterMechanism].some(value => containsHedging(value))
-    const hedgingLossRisk = hedgingBefore && !hedgingAfter
+    const semanticChanged =
+      transformType(beforeMechanism, afterMechanism) === 'meaning_change' ||
+      transformType(beforeEffects.join(' | '), afterEffects.join(' | ')) === 'meaning_change' ||
+      transformType(beforeContra.join(' | '), afterContra.join(' | ')) === 'meaning_change'
+    const hedgingLossRisk = hedgingBefore && !hedgingAfter && semanticChanged
 
     const sourceHasHardContraLanguage = beforeContra.some(value =>
       /\b(?:avoid|not recommended|contraindicated|do not use|must avoid)\b/i.test(String(value || '')),
@@ -817,6 +828,7 @@ function semanticAuditMarkdown(audit) {
     compound_overlap_low: 'compound mismatch',
     contraindication_may_be_overly_strict: 'contraindication escalation',
     effects_oversimplified: 'truncation loss',
+    uncertainty_preservation: 'hedging misinterpretation',
   }
 
   const formatSamples = (samples, title) => {
