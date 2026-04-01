@@ -93,7 +93,7 @@
   {
     "candidateSourceId": "cand_mandrake-alkaloid-chemodiversity-2019",
     "intakeTaskId": "intake_gap_wp_herb_mandrake_root_constituent_lack_of_mechanism_sources_must_have_publish_blocking",
-    "title": "Alkaloid chemodiversity in Mandragora spp. is associated with loss-of-functionality of MoH6H, a hyoscyamine 6β-hydroxylase.",
+    "title": "Alkaloid chemodiversity in Mandragora spp. is associated with loss-of-functionality of MoH6H, a hyoscyamine 6\u03b2-hydroxylase.",
     "shortTitle": "Mandragora alkaloid chemodiversity",
     "sourceType": "journal-article",
     "sourceClass": "preclinical-mechanistic-study",
@@ -159,7 +159,7 @@
       "Steele ML",
       "Axtner J",
       "Huber R",
-      "Kröz M",
+      "Kr\u00f6z M",
       "Matthes H"
     ],
     "publicationYear": 2017,
@@ -734,5 +734,732 @@
     "reviewer": "source-review-bot",
     "reviewedAt": "2026-03-31T12:31:26.156Z",
     "approvalNotes": "Approved via governed wave-1 review checks and promoted to source registry."
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_mandrake_23748541",
+    "intakeTaskId": "intake_gap_wp_herb_mandrake_safety_source_wave_indexability",
+    "title": "[Herbs and cardiotoxic effects].",
+    "shortTitle": "[Herbs and cardiotoxic effects].",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Maff\u00e8 S",
+      "Paffoni P",
+      "Laura Colombo M",
+      "Davanzo F",
+      "Dellavesa P",
+      "Cucchi L"
+    ],
+    "publicationYear": 2013,
+    "citationText": "Maff\u00e8 S et al. G Ital Cardiol (Rome). 2013; PMID:23748541.",
+    "doi": "10.1714/1280.14158",
+    "pmid": "23748541",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/23748541/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "mandrake"
+      }
+    ],
+    "relatedTopicGaps": [
+      "safety"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_hyoscyamus_niger_39420840",
+    "intakeTaskId": "intake_gap_wp_herb_hyoscyamus_niger_safety_source_wave_indexability",
+    "title": "Hyoscyamus niger poisoning in Sudan: A case report.",
+    "shortTitle": "Hyoscyamus niger poisoning in Sudan: A case report.",
+    "sourceType": "journal-article",
+    "sourceClass": "observational-human-evidence",
+    "authors": [
+      "Hassan IN"
+    ],
+    "publicationYear": 2025,
+    "citationText": "Hassan IN et al. Trop Doct. 2025; PMID:39420840.",
+    "doi": "10.1177/00494755241289456",
+    "pmid": "39420840",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/39420840/",
+    "language": "en",
+    "evidenceClass": "human-observational",
+    "studyDesign": "case-report",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "high",
+    "reviewStatus": "blocked_pending_manual_review",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "hyoscyamus-niger"
+      }
+    ],
+    "relatedTopicGaps": [
+      "safety"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [
+        "pmid-or-doi-match"
+      ],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_ipomoea_tricolor_31686336",
+    "intakeTaskId": "intake_gap_wp_herb_ipomoea_tricolor_mechanism_source_wave_indexability",
+    "title": "Decreased Root-Knot Nematode Gall Formation in Roots of the Morning Glory Ipomoea tricolor Symbiotic with Ergot Alkaloid-Producing Fungal Periglandula Sp.",
+    "shortTitle": "Decreased Root-Knot Nematode Gall Formation in Roots of the Morning Glor...",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Durden L",
+      "Wang D",
+      "Panaccione D",
+      "Clay K"
+    ],
+    "publicationYear": 2019,
+    "citationText": "Durden L et al. J Chem Ecol. 2019; PMID:31686336.",
+    "doi": "10.1007/s10886-019-01109-w",
+    "pmid": "31686336",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/31686336/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "ipomoea-tricolor"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_catha_edulis_36508190",
+    "intakeTaskId": "intake_gap_wp_herb_catha_edulis_safety_source_wave_indexability",
+    "title": "Epidemiology of Khat (Catha edulis) Chewing in Ethiopia: A Systematic Review and meta-analysis.",
+    "shortTitle": "Epidemiology of Khat (Catha edulis) Chewing in Ethiopia: A Systematic Re...",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Ayano G",
+      "Ayalew M",
+      "Bedaso A",
+      "Duko B"
+    ],
+    "publicationYear": 2024,
+    "citationText": "Ayano G et al. J Psychoactive Drugs. 2024; PMID:36508190.",
+    "doi": "10.1080/02791072.2022.2155735",
+    "pmid": "36508190",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36508190/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-a",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "catha-edulis"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_crocus_sativus_38913392",
+    "intakeTaskId": "intake_gap_wp_herb_crocus_sativus_evidence_source_wave_indexability",
+    "title": "Effect of Saffron Versus Selective Serotonin Reuptake Inhibitors (SSRIs) in Treatment of Depression and Anxiety: A Meta-analysis of Randomized Controlled Trials.",
+    "shortTitle": "Effect of Saffron Versus Selective Serotonin Reuptake Inhibitors (SSRIs)...",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Shafiee A",
+      "Jafarabady K",
+      "Seighali N",
+      "Mohammadi I",
+      "Rajai Firouz Abadi S",
+      "Abhari FS"
+    ],
+    "publicationYear": 2025,
+    "citationText": "Shafiee A et al. Nutr Rev. 2025; PMID:38913392.",
+    "doi": "10.1093/nutrit/nuae076",
+    "pmid": "38913392",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/38913392/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-a",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "crocus-sativus"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_guarana_36678305",
+    "intakeTaskId": "intake_gap_wp_herb_guarana_evidence_source_wave_indexability",
+    "title": "Effect of Guarana (Paullinia cupana) on Cognitive Performance: A Systematic Review and Meta-Analysis.",
+    "shortTitle": "Effect of Guarana (Paullinia cupana) on Cognitive Performance: A Systema...",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Hack B",
+      "Penna EM",
+      "Talik T",
+      "Chandrashekhar R",
+      "Millard-Stafford M"
+    ],
+    "publicationYear": 2023,
+    "citationText": "Hack B et al. Nutrients. 2023; PMID:36678305.",
+    "doi": "10.3390/nu15020434",
+    "pmid": "36678305",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/36678305/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-a",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "guarana"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_acorus_calamus_var_angustatus_31193009",
+    "intakeTaskId": "intake_gap_wp_herb_acorus_calamus_var_angustatus_safety_source_wave_indexability",
+    "title": "Experimental evidence for use of Acorus calamus (asarone) for cancer chemoprevention.",
+    "shortTitle": "Experimental evidence for use of Acorus calamus (asarone) for cancer che...",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Das BK",
+      "Swamy AV",
+      "Koti BC",
+      "Gadad PC"
+    ],
+    "publicationYear": 2019,
+    "citationText": "Das BK et al. Heliyon. 2019; PMID:31193009.",
+    "doi": "10.1016/j.heliyon.2019.e01585",
+    "pmid": "31193009",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/31193009/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "acorus-calamus-var-angustatus"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_artemisia_vulgaris_mugwort_32758647",
+    "intakeTaskId": "intake_gap_wp_herb_artemisia_vulgaris_mugwort_traditional_use_source_wave_indexability",
+    "title": "Traditional application and modern pharmacological research of Artemisia annua L.",
+    "shortTitle": "Traditional application and modern pharmacological research of Artemisia...",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Feng X",
+      "Cao S",
+      "Qiu F",
+      "Zhang B"
+    ],
+    "publicationYear": 2020,
+    "citationText": "Feng X et al. Pharmacol Ther. 2020; PMID:32758647.",
+    "doi": "10.1016/j.pharmthera.2020.107650",
+    "pmid": "32758647",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/32758647/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "artemisia-vulgaris-mugwort"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_celastrus_paniculatus_35005853",
+    "intakeTaskId": "intake_gap_wp_herb_celastrus_paniculatus_mechanism_source_wave_indexability",
+    "title": "Neuroprotective potential of Celastrus paniculatus seeds against common neurological ailments: a narrative review.",
+    "shortTitle": "Neuroprotective potential of Celastrus paniculatus seeds against common ...",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Sankaramourthy D",
+      "Sankaranarayanan L",
+      "Subramanian K",
+      "Sadras SR"
+    ],
+    "publicationYear": 2023,
+    "citationText": "Sankaramourthy D et al. J Complement Integr Med. 2023; PMID:35005853.",
+    "doi": "10.1515/jcim-2021-0448",
+    "pmid": "35005853",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/35005853/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "herb",
+        "entitySlug": "celastrus-paniculatus"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_cbd_37079302",
+    "intakeTaskId": "intake_gap_wp_compound_cbd_safety_source_wave_indexability",
+    "title": "Adverse Events of Cannabidiol Use in Patients With Epilepsy: A Systematic Review and Meta-analysis.",
+    "shortTitle": "Adverse Events of Cannabidiol Use in Patients With Epilepsy: A Systemati...",
+    "sourceType": "systematic-review",
+    "sourceClass": "systematic-review-meta-analysis",
+    "authors": [
+      "Fazlollahi A",
+      "Zahmatyar M",
+      "ZareDini M",
+      "Golabi B",
+      "Nejadghaderi SA",
+      "Sullman MJM"
+    ],
+    "publicationYear": 2023,
+    "citationText": "Fazlollahi A et al. JAMA Netw Open. 2023; PMID:37079302.",
+    "doi": "10.1001/jamanetworkopen.2023.9126",
+    "pmid": "37079302",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/37079302/",
+    "language": "en",
+    "evidenceClass": "human-clinical",
+    "studyDesign": "systematic-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-a",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "cbd"
+      }
+    ],
+    "relatedTopicGaps": [
+      "safety"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_luteolin_40311831",
+    "intakeTaskId": "intake_gap_wp_compound_luteolin_mechanism_source_wave_indexability",
+    "title": "Molecular mechanisms and therapeutic perspectives of luteolin on diabetes and its complications.",
+    "shortTitle": "Molecular mechanisms and therapeutic perspectives of luteolin on diabete...",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Liang Q",
+      "Liu X",
+      "Xu X",
+      "Chen Z",
+      "Luo T",
+      "Su Y"
+    ],
+    "publicationYear": 2025,
+    "citationText": "Liang Q et al. Eur J Pharmacol. 2025; PMID:40311831.",
+    "doi": "10.1016/j.ejphar.2025.177691",
+    "pmid": "40311831",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/40311831/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "luteolin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_asarone_33236787",
+    "intakeTaskId": "intake_gap_wp_compound_asarone_safety_source_wave_indexability",
+    "title": "\u03b1-Asarone, \u03b2-asarone, and \u03b3-asarone: Current status of toxicological evaluation.",
+    "shortTitle": "\u03b1-Asarone, \u03b2-asarone, and \u03b3-asarone: Current status of toxicological eva...",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Uebel T",
+      "Hermes L",
+      "Haupenthal S",
+      "M\u00fcller L",
+      "Esselen M"
+    ],
+    "publicationYear": 2021,
+    "citationText": "Uebel T et al. J Appl Toxicol. 2021; PMID:33236787.",
+    "doi": "10.1002/jat.4112",
+    "pmid": "33236787",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/33236787/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "asarone"
+      }
+    ],
+    "relatedTopicGaps": [
+      "safety"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_aconitine_32490307",
+    "intakeTaskId": "intake_gap_wp_compound_aconitine_safety_source_wave_indexability",
+    "title": "Research progress of aconitine toxicity and forensic analysis of aconitine poisoning.",
+    "shortTitle": "Research progress of aconitine toxicity and forensic analysis of aconiti...",
+    "sourceType": "journal-article",
+    "sourceClass": "observational-human-evidence",
+    "authors": [
+      "Gao X",
+      "Hu J",
+      "Zhang X",
+      "Zuo Y",
+      "Wang Y",
+      "Zhu S"
+    ],
+    "publicationYear": 2020,
+    "citationText": "Gao X et al. Forensic Sci Res. 2020; PMID:32490307.",
+    "doi": "10.1080/20961790.2018.1452346",
+    "pmid": "32490307",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/32490307/",
+    "language": "en",
+    "evidenceClass": "human-observational",
+    "studyDesign": "case-report",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "aconitine"
+      }
+    ],
+    "relatedTopicGaps": [
+      "safety"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_7_hydroxymitragynine_41275505",
+    "intakeTaskId": "intake_gap_wp_compound_7_hydroxymitragynine_safety_source_wave_indexability",
+    "title": "From kratom to 7-hydroxymitragynine: evolution of a natural remedy into a public-health threat.",
+    "shortTitle": "From kratom to 7-hydroxymitragynine: evolution of a natural remedy into ...",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Alsbrook S",
+      "Pro G",
+      "Koturbash I"
+    ],
+    "publicationYear": 2025,
+    "citationText": "Alsbrook S et al. Pharm Biol. 2025; PMID:41275505.",
+    "doi": "10.1080/13880209.2025.2590311",
+    "pmid": "41275505",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/41275505/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "7-hydroxymitragynine"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
+  },
+  {
+    "candidateSourceId": "cand_wave_indexability_agrimoniin_28731232",
+    "intakeTaskId": "intake_gap_wp_compound_agrimoniin_mechanism_source_wave_indexability",
+    "title": "A comprehensive review of agrimoniin.",
+    "shortTitle": "A comprehensive review of agrimoniin.",
+    "sourceType": "journal-article",
+    "sourceClass": "preclinical-mechanistic-study",
+    "authors": [
+      "Grochowski DM",
+      "Skalicka-Wo\u017aniak K",
+      "Orhan IE",
+      "Xiao J",
+      "Locatelli M",
+      "Piwowarski JP"
+    ],
+    "publicationYear": 2017,
+    "citationText": "Grochowski DM et al. Ann N Y Acad Sci. 2017; PMID:28731232.",
+    "doi": "10.1111/nyas.13421",
+    "pmid": "28731232",
+    "canonicalUrl": "https://pubmed.ncbi.nlm.nih.gov/28731232/",
+    "language": "en",
+    "evidenceClass": "preclinical-mechanistic",
+    "studyDesign": "narrative-review",
+    "publicationStatus": "published",
+    "proposedReliabilityTier": "tier-b",
+    "duplicateRisk": "low",
+    "reviewStatus": "draft_candidate",
+    "active": true,
+    "organization": null,
+    "jurisdiction": null,
+    "relatedEntities": [
+      {
+        "entityType": "compound",
+        "entitySlug": "agrimoniin"
+      }
+    ],
+    "relatedTopicGaps": [
+      "mechanism",
+      "evidence"
+    ],
+    "whyThisSourceMatters": "Authority-grade PubMed-indexed source that can close high-priority indexability evidence gaps without lowering validation thresholds.",
+    "dedupeCheck": {
+      "matchedRegistrySourceIds": [],
+      "matchedCandidateSourceIds": [],
+      "checkedAgainst": [
+        "public/data/source-registry.json",
+        "ops/source-candidates.json"
+      ]
+    }
   }
 ]
