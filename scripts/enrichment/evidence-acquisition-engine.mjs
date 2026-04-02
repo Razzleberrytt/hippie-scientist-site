@@ -98,9 +98,31 @@ function herbKey(herb) {
 }
 
 
+const CURL_CONNECT_TIMEOUT_SECONDS = 8;
+const CURL_MAX_TIME_SECONDS = 20;
+const CURL_PROCESS_TIMEOUT_MS = 25_000;
+
 function runCurl(url) {
-  const result = spawnSync('curl', ['-sSL', url], { encoding: 'utf8' });
-  if (result.status !== 0) throw new Error(`curl failed for ${url}`);
+  const result = spawnSync(
+    'curl',
+    [
+      '--silent',
+      '--show-error',
+      '--location',
+      '--fail',
+      '--connect-timeout',
+      String(CURL_CONNECT_TIMEOUT_SECONDS),
+      '--max-time',
+      String(CURL_MAX_TIME_SECONDS),
+      url,
+    ],
+    { encoding: 'utf8', timeout: CURL_PROCESS_TIMEOUT_MS, killSignal: 'SIGKILL' },
+  );
+  if (result.error) throw new Error(`curl invocation failed for ${url}: ${result.error.message}`);
+  if (result.status !== 0) {
+    const stderr = String(result.stderr ?? '').trim();
+    throw new Error(`curl failed for ${url}${stderr ? ` (${stderr})` : ''}`);
+  }
   return result.stdout;
 }
 
