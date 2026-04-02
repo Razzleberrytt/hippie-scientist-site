@@ -101,15 +101,20 @@ function buildSitemapXml() {
   const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
   const publicationManifest = readObject('public/data/publication-manifest.json')
   const publicationIndex = readObject('public/data/publication-index.json')
+  const indexableHerbs = readJson('public/data/indexable-herbs.json')
+  const indexableCompounds = readJson('public/data/indexable-compounds.json')
 
   const blogEntries = getBlogEntries(readJson('public/blogdata/index.json'))
-  const herbRoutes = Array.isArray(publicationManifest?.routes?.herbs) && publicationManifest.routes.herbs.length > 0
-    ? publicationManifest.routes.herbs
-    : Array.isArray(publicationIndex?.routes?.herbs)
-      ? publicationIndex.routes.herbs
-      : []
-  const compoundRoutes =
-    Array.isArray(publicationManifest?.routes?.compounds) && publicationManifest.routes.compounds.length > 0
+  const herbRoutes = Array.isArray(indexableHerbs) && indexableHerbs.length > 0
+    ? indexableHerbs.map(row => row?.route).filter(Boolean)
+    : Array.isArray(publicationManifest?.routes?.herbs) && publicationManifest.routes.herbs.length > 0
+      ? publicationManifest.routes.herbs
+      : Array.isArray(publicationIndex?.routes?.herbs)
+        ? publicationIndex.routes.herbs
+        : []
+  const compoundRoutes = Array.isArray(indexableCompounds) && indexableCompounds.length > 0
+    ? indexableCompounds.map(row => row?.route).filter(Boolean)
+    : Array.isArray(publicationManifest?.routes?.compounds) && publicationManifest.routes.compounds.length > 0
       ? publicationManifest.routes.compounds
       : Array.isArray(publicationIndex?.routes?.compounds)
         ? publicationIndex.routes.compounds
