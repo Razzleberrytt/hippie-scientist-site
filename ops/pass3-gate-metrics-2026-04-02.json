@@ -1,0 +1,36 @@
+{
+  "before": {
+    "herbs": {
+      "strong": 0,
+      "publishable": 23,
+      "needs_work": 0,
+      "excluded": 676
+    },
+    "compounds": {
+      "strong": 0,
+      "publishable": 10,
+      "needs_work": 0,
+      "excluded": 383
+    },
+    "publicationManifestEntries": 33,
+    "indexableHerbs": 23,
+    "indexableCompounds": 10
+  },
+  "after": {
+    "herbs": {
+      "strong": 8,
+      "publishable": 150,
+      "needs_work": 533,
+      "excluded": 7
+    },
+    "compounds": {
+      "strong": 9,
+      "publishable": 1,
+      "needs_work": 369,
+      "excluded": 11
+    },
+    "publicationManifestEntries": 168,
+    "indexableHerbs": 158,
+    "indexableCompounds": 10
+  }
+}

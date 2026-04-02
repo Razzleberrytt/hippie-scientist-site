@@ -1,34 +1,39 @@
 {
-  "generatedAt": "2026-04-01T14:40:00.989Z",
+  "generatedAt": "2026-04-02T23:27:29.497Z",
   "thresholds": {
-    "minDescriptionLength": 30,
-    "minSources": 2,
-    "minEffects": 1,
-    "minCompletenessScore": 0.4,
+    "strongDescriptionLength": 60,
+    "strongMinSources": 2,
+    "publishableDescriptionLength": 20,
+    "publishableMinSources": 1,
     "minSlugLength": 2
   },
   "herbs": {
-    "total": 699,
-    "indexable": 23,
-    "excluded": 676,
+    "total": 698,
+    "indexable": 158,
+    "excluded": 7,
+    "tierCounts": {
+      "strong": 8,
+      "publishable": 150,
+      "needs_work": 533,
+      "excluded": 7
+    },
     "excludedByReason": {
-      "weakDescription": 634,
-      "placeholderText": 660,
-      "insufficientEffects": 197,
-      "invalidNameOrSlug": 27,
-      "nanArtifacts": 22
+      "invalidNameOrSlug": 7
     }
   },
   "compounds": {
-    "total": 393,
+    "total": 390,
     "indexable": 10,
-    "excluded": 383,
+    "excluded": 11,
+    "tierCounts": {
+      "strong": 9,
+      "publishable": 1,
+      "needs_work": 369,
+      "excluded": 11
+    },
     "excludedByReason": {
-      "invalidNameOrSlug": 12,
-      "weakDescription": 382,
-      "placeholderText": 222,
-      "insufficientEffects": 52,
-      "insufficientEvidenceOrCompleteness": 40
+      "invalidNameOrSlug": 11,
+      "corruptedContent": 1
     }
   },
   "blogIndex": {

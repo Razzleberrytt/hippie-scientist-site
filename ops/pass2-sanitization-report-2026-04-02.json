@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-04-02T23:23:41.757Z",
+  "canonicalFiles": {
+    "herbs": "public/data/herbs.json",
+    "compounds": "public/data/compounds.json"
+  },
+  "cleanupCounts": {
+    "herbs": {
+      "removedJunkNameRecords": 0,
+      "cleanedJunkFieldValues": 0,
+      "cleanedPlaceholderSegments": 2
+    },
+    "compounds": {
+      "removedJunkNameRecords": 1,
+      "cleanedJunkFieldValues": 1,
+      "cleanedPlaceholderSegments": 0
+    }
+  },
+  "gateMetrics": {
+    "before": {
+      "herbsPassing": 37,
+      "compoundsPassing": 9,
+      "herbsZeroSources": 690,
+      "compoundsZeroSources": 382,
+      "herbsBlankDescriptions": 0,
+      "compoundsBlankDescriptions": 381
+    },
+    "after": {
+      "herbsPassing": 37,
+      "compoundsPassing": 9,
+      "herbsZeroSources": 690,
+      "compoundsZeroSources": 381,
+      "herbsBlankDescriptions": 0,
+      "compoundsBlankDescriptions": 380
+    }
+  }
+}

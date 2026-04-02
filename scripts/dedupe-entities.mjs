@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { countBootstrapSources } from './source-normalization.mjs'
 
 const ROOT = process.cwd()
 
@@ -113,7 +114,7 @@ function mergeArrays(a, b) {
 }
 
 function completenessScore(record) {
-  const sources = asArray(record?.sources).length
+  const sources = countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
   const effects = asArray(record?.effects).length
   const contraindications = asArray(record?.contraindications).length
   const hasDescription = text(record?.description || record?.summary).length > 0 ? 1 : 0
