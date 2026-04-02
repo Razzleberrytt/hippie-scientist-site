@@ -345,7 +345,7 @@ function buildPublicationEntry(record, type, audit) {
   const displayName = asText(record?.commonName || record?.common || record?.name || record?.latinName || record?.latin || audit.slug)
   const descriptionCandidate = asText(record?.summary || record?.description || record?.mechanism)
   const description = clip(
-    PLACEHOLDER_PATTERNS.some(pattern => pattern.test(descriptionCandidate))
+    PLACEHOLDER_PATTERNS.some(pattern => pattern.test(descriptionCandidate)) || NAN_PATTERN.test(descriptionCandidate)
       ? `${displayName} reference profile.`
       : descriptionCandidate || `${displayName} reference profile.`
   )
