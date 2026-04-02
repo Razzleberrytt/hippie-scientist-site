@@ -758,13 +758,29 @@ function normalizeWhitespace(value) {
 const COMPOUND_HERB_LINK_INDEX = (() => {
   const compounds = loadJson(join(REPO_ROOT, 'public', 'data', 'compounds.json'));
   const index = new Map();
+  const canonicalIndex = new Map();
+  const canonicalizeCompoundKey = (value) => normalizeWhitespace(value)
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/gu, '')
+    .replace(/β/gu, 'beta')
+    .replace(/α/gu, 'alpha')
+    .replace(/γ/gu, 'gamma')
+    .replace(/δ/gu, 'delta')
+    .replace(/[^a-z0-9]/giu, '')
+    .toLowerCase();
   const push = (compoundName, herbName) => {
     const cKey = normalizeWhitespace(compoundName).toLowerCase();
+    const canonicalKey = canonicalizeCompoundKey(compoundName);
     const hKey = normalizeWhitespace(herbName).toLowerCase();
     if (!cKey || !hKey) return;
     const existing = index.get(cKey) ?? new Set();
     existing.add(hKey);
     index.set(cKey, existing);
+    if (canonicalKey) {
+      const canonicalExisting = canonicalIndex.get(canonicalKey) ?? new Set();
+      canonicalExisting.add(hKey);
+      canonicalIndex.set(canonicalKey, canonicalExisting);
+    }
   };
   for (const row of compounds) {
     const compoundName = normalizeWhitespace(row?.name ?? row?.displayName ?? row?.id ?? '');
@@ -773,7 +789,7 @@ const COMPOUND_HERB_LINK_INDEX = (() => {
       push(compoundName, herbName);
     }
   }
-  return index;
+  return { exact: index, canonical: canonicalIndex };
 })();
 
 function normalizeActiveCompounds(rawText, herb) {
@@ -929,7 +945,29 @@ function structuredCompoundLinksToHerb(compoundValues, herb) {
   return compoundValues.some((value) => {
     const normalized = normalizeWhitespace(value).toLowerCase();
     if (!normalized) return false;
-    const linkedHerbs = COMPOUND_HERB_LINK_INDEX.get(normalized);
+    const linkedHerbs = COMPOUND_HERB_LINK_INDEX.exact.get(normalized);
+    if (!linkedHerbs) return false;
+    return aliases.some((alias) => linkedHerbs.has(alias));
+  });
+}
+
+function structuredChemblCompoundLinksToHerb(compoundValues, herb) {
+  const aliases = buildHerbAliases(herb).map((alias) => alias.toLowerCase());
+  if (aliases.length === 0) return false;
+  const canonicalizeCompoundKey = (value) => normalizeWhitespace(value)
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/gu, '')
+    .replace(/β/gu, 'beta')
+    .replace(/α/gu, 'alpha')
+    .replace(/γ/gu, 'gamma')
+    .replace(/δ/gu, 'delta')
+    .replace(/[^a-z0-9]/giu, '')
+    .toLowerCase();
+  return compoundValues.some((value) => {
+    const normalized = normalizeWhitespace(value).toLowerCase();
+    const canonical = canonicalizeCompoundKey(value);
+    const linkedHerbs = COMPOUND_HERB_LINK_INDEX.exact.get(normalized)
+      ?? COMPOUND_HERB_LINK_INDEX.canonical.get(canonical);
     if (!linkedHerbs) return false;
     return aliases.some((alias) => linkedHerbs.has(alias));
   });
@@ -950,7 +988,7 @@ function looksGenericCompoundLabel(value) {
   return false;
 }
 
-function scoreChemblCandidate(entry, herb, hints = []) {
+function scoreChemblCandidate(entry, herb, hints = [], matchedQueryTerm = '') {
   const prefName = normalizeWhitespace(entry?.pref_name ?? '');
   const chemblId = normalizeWhitespace(entry?.molecule_chembl_id ?? '');
   const synonymRows = Array.isArray(entry?.molecule_synonyms) ? entry.molecule_synonyms : [];
@@ -962,12 +1000,16 @@ function scoreChemblCandidate(entry, herb, hints = []) {
   const lowerNames = names.map((name) => name.toLowerCase());
   const lowerHints = hints.map((hint) => hint.toLowerCase());
   const hintOverlap = lowerNames.some((name) => lowerHints.some((hint) => hint && name.includes(hint)));
-  const linkedToHerb = structuredCompoundLinksToHerb(names, herb);
+  const herbAliases = new Set(buildHerbAliases(herb).map((alias) => alias.toLowerCase()));
+  const normalizedQueryTerm = normalizeWhitespace(matchedQueryTerm).toLowerCase();
+  const queryLinkedToHerb = normalizedQueryTerm.split(/\s+/u).length >= 2 && herbAliases.has(normalizedQueryTerm);
+  const linkedToHerb = structuredChemblCompoundLinksToHerb(names, herb);
   const genericPenalty = names.every((name) => looksGenericCompoundLabel(name)) ? 0.45 : 0;
-  const score = (linkedToHerb ? 0.7 : 0) + (hintOverlap ? 0.35 : 0) + (prefName ? 0.15 : 0) - genericPenalty;
+  const score = (linkedToHerb ? 0.7 : 0) + (queryLinkedToHerb ? 0.25 : 0) + (hintOverlap ? 0.35 : 0) + (prefName ? 0.15 : 0) - genericPenalty;
   return {
     score,
     linkedToHerb,
+    queryLinkedToHerb,
     hintOverlap,
     prefName,
     chemblId,
@@ -1203,16 +1245,20 @@ async function collectFieldEvidence(herb, targetField) {
               .filter(Boolean)
               .slice(0, 8);
             const molecules = [];
-            for (const term of terms) molecules.push(...chemblMoleculeSearch(term, 4));
+            for (const term of terms) {
+              const rows = chemblMoleculeSearch(term, 4);
+              for (const row of rows) molecules.push({ entry: row, matchedQueryTerm: term });
+            }
             const dedupById = new Map();
-            for (const entry of molecules) {
+            for (const payload of molecules) {
+              const entry = payload.entry;
               const id = normalizeWhitespace(entry?.molecule_chembl_id ?? '');
               if (!id) continue;
-              if (!dedupById.has(id)) dedupById.set(id, entry);
+              if (!dedupById.has(id)) dedupById.set(id, payload);
             }
             const ranked = [...dedupById.values()]
-              .map((entry) => ({ entry, relevance: scoreChemblCandidate(entry, herb, hintCompounds) }))
-              .filter(({ relevance }) => relevance.score >= 0.3 && (relevance.linkedToHerb || relevance.hintOverlap || !looksGenericCompoundLabel(relevance.prefName || relevance.chemblId)))
+              .map(({ entry, matchedQueryTerm }) => ({ entry, relevance: scoreChemblCandidate(entry, herb, hintCompounds, matchedQueryTerm) }))
+              .filter(({ relevance }) => relevance.score >= 0.15 && (relevance.linkedToHerb || relevance.hintOverlap || !looksGenericCompoundLabel(relevance.prefName || relevance.chemblId)))
               .sort((a, b) => b.relevance.score - a.relevance.score)
               .slice(0, 8);
             return ranked.map(({ relevance }) => {
@@ -1222,6 +1268,7 @@ async function collectFieldEvidence(herb, targetField) {
                 title: `${name} - ChEMBL molecule`,
                 sourceUrl: `https://chembl.ebi.ac.uk/chembl/api/data/molecule/${relevance.chemblId}`,
                 pubmedId: null,
+                chemblQueryLinked: relevance.queryLinkedToHerb,
                 structuredCompounds: relevance.names.length > 0 ? relevance.names : [name],
                 getAbstract: () => `ChEMBL structured compound fields include ${relevance.names.join('; ') || name}`,
               };
@@ -1361,8 +1408,15 @@ async function collectFieldEvidence(herb, targetField) {
         ) {
           const values = Array.isArray(normalization.after) ? normalization.after : [];
           const corroborated = values.filter((value) => corroboratedCompounds.has(String(value).toLowerCase()));
-          const herbLinked = values.filter((value) => structuredCompoundLinksToHerb([value], herb));
-          const allowed = [...new Set([...corroborated, ...herbLinked])];
+          const herbLinked = values.filter((value) => (
+            candidate.provider === 'chembl_structured'
+              ? structuredChemblCompoundLinksToHerb([value], herb)
+              : structuredCompoundLinksToHerb([value], herb)
+          ));
+          const queryLinked = candidate.provider === 'chembl_structured' && candidate.chemblQueryLinked
+            ? values
+            : [];
+          const allowed = [...new Set([...corroborated, ...herbLinked, ...queryLinked])];
           if (allowed.length === 0) {
             recordProviderRejection(queryStats, candidate.provider, 'structured_active_compounds_not_corroborated');
             queryStats.lastFailure = {
