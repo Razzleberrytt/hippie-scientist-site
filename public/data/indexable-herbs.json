@@ -1,69 +1,25 @@
 [
   {
-    "slug": "heimia-salicifolia",
-    "route": "/herbs/heimia-salicifolia",
+    "slug": "ipomoea-tricolor",
+    "route": "/herbs/ipomoea-tricolor",
+    "name": "ipomoea tricolor",
+    "kind": "herb",
+    "title": "ipomoea tricolor | The Hippie Scientist",
+    "description": "Ipomoea tricolor (morning glory) is discussed in ethnobotanical and plant-symbiosis literature, including ergoline-associated chemistry.",
+    "completenessScore": 16,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "heimia-salicifolia-sinicuichi",
+    "route": "/herbs/heimia-salicifolia-sinicuichi",
     "name": "heimia salicifolia (sinicuichi)",
     "kind": "herb",
     "title": "heimia salicifolia (sinicuichi) | The Hippie Scientist",
-    "description": "Heimia salicifolia has traditional ethnobotanical use for altered perception and calming effects, while modern controlled clinical evidence is limited.",
-    "completenessScore": 43,
-    "tier": "partial",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "papaver-somniferum",
-    "route": "/herbs/papaver-somniferum",
-    "name": "papaver somniferum",
-    "kind": "herb",
-    "title": "papaver somniferum | The Hippie Scientist",
-    "description": "This plant has strong opioid-related pharmacology and safety liabilities; non-medical use carries high overdose and dependence risk.",
-    "completenessScore": 37,
-    "tier": "partial",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "mentha-piperita",
-    "route": "/herbs/mentha-piperita",
-    "name": "mentha piperita",
-    "kind": "herb",
-    "title": "mentha piperita | The Hippie Scientist",
-    "description": "Mentha piperita has human and preclinical evidence for gastrointestinal symptom support, while efficacy depends on preparation and indication.",
-    "completenessScore": 27,
-    "tier": "partial",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "achillea-millefolium",
-    "route": "/herbs/achillea-millefolium",
-    "name": "achillea millefolium",
-    "kind": "herb",
-    "title": "achillea millefolium | The Hippie Scientist",
-    "description": "Achillea millefolium is used for digestive, inflammatory, and wound-related traditional indications with mixed modern evidence quality.",
-    "completenessScore": 26,
-    "tier": "partial",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "nepeta-cataria",
-    "route": "/herbs/nepeta-cataria",
-    "name": "nepeta cataria",
-    "kind": "herb",
-    "title": "nepeta cataria | The Hippie Scientist",
-    "description": "Nepeta cataria is traditionally used for mild calming and digestive support, with limited modern clinical evidence.",
-    "completenessScore": 22,
+    "description": "Traditional Mexican herb used for altered states and memory recall",
+    "completenessScore": 14,
     "tier": "stub",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "rivea-corymbosa",
-    "route": "/herbs/rivea-corymbosa",
-    "name": "rivea corymbosa",
-    "kind": "herb",
-    "title": "rivea corymbosa | The Hippie Scientist",
-    "description": "Morning glory species used in Mesoamerican rituals.",
-    "completenessScore": 22,
-    "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "calliandra-anomala",
@@ -72,9 +28,42 @@
     "kind": "herb",
     "title": "calliandra anomala | The Hippie Scientist",
     "description": "Shrubby Fabaceae species with bright pink flowers; limited pharmacological research.",
-    "completenessScore": 21,
+    "completenessScore": 12,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "papaver-somniferum",
+    "route": "/herbs/papaver-somniferum",
+    "name": "papaver somniferum",
+    "kind": "herb",
+    "title": "papaver somniferum | The Hippie Scientist",
+    "description": "Papaver somniferum is the botanical source of opiate alkaloids associated with analgesic and sedative pharmacology and substantial dependence risk.",
+    "completenessScore": 12,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "withania-somnifera",
+    "route": "/herbs/withania-somnifera",
+    "name": "withania somnifera",
+    "kind": "herb",
+    "title": "withania somnifera | The Hippie Scientist",
+    "description": "Withania somnifera is the scientific name for ashwagandha and is used in Ayurvedic practice and modern standardized supplements.",
+    "completenessScore": 12,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "achillea-millefolium",
+    "route": "/herbs/achillea-millefolium",
+    "name": "achillea millefolium",
+    "kind": "herb",
+    "title": "achillea millefolium | The Hippie Scientist",
+    "description": "A flowering plant native to temperate regions, used for centuries in traditional medicine for wound healing, digestion, and fever reduction.",
+    "completenessScore": 11,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "tylophora-indica",
@@ -83,9 +72,9 @@
     "kind": "herb",
     "title": "tylophora indica | The Hippie Scientist",
     "description": "an ayurvedic herb used for bronchial conditions, immune regulation, and allergic responses. known as indian ipecac for its traditional role in treating ast",
-    "completenessScore": 14,
+    "completenessScore": 11,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "alectra-sessiliflora",
@@ -94,20 +83,9 @@
     "kind": "herb",
     "title": "alectra sessiliflora | The Hippie Scientist",
     "description": "Parasitic herb in the Orobanchaceae family; possibly used in traditional African medicine.",
-    "completenessScore": 13,
+    "completenessScore": 10,
     "tier": "stub",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "ipomoea-tricolor",
-    "route": "/herbs/ipomoea-tricolor",
-    "name": "ipomoea tricolor",
-    "kind": "herb",
-    "title": "ipomoea tricolor | The Hippie Scientist",
-    "description": "Current promoted evidence for Ipomoea tricolor is mechanistic and ecological, not human clinical efficacy evidence.",
-    "completenessScore": 13,
-    "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "mandrake-root",
@@ -116,9 +94,31 @@
     "kind": "herb",
     "title": "mandrake root | The Hippie Scientist",
     "description": "A legendary plant with anthropomorphic root; used as sedative and aphrodisiac.",
-    "completenessScore": 13,
+    "completenessScore": 10,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "mentha-piperita",
+    "route": "/herbs/mentha-piperita",
+    "name": "mentha piperita",
+    "kind": "herb",
+    "title": "mentha piperita | The Hippie Scientist",
+    "description": "A hybrid mint (Mentha aquatica × Mentha spicata) widely used for digestive support, flavoring, and aromatherapy; possesses antispasmodic, carminative, and ",
+    "completenessScore": 10,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "rivea-corymbosa",
+    "route": "/herbs/rivea-corymbosa",
+    "name": "rivea corymbosa",
+    "kind": "herb",
+    "title": "rivea corymbosa | The Hippie Scientist",
+    "description": "Morning glory species used in Mesoamerican rituals.",
+    "completenessScore": 10,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "henbane",
@@ -127,9 +127,9 @@
     "kind": "herb",
     "title": "henbane | The Hippie Scientist",
     "description": "A toxic plant used historically as an anesthetic, sedative, and hallucinogen.",
-    "completenessScore": 12,
+    "completenessScore": 9,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "ipomoea-tricolor-heavenly-blue",
@@ -138,9 +138,9 @@
     "kind": "herb",
     "title": "ipomoea tricolor (heavenly blue) | The Hippie Scientist",
     "description": "Ornamental morning glory whose seeds contain LSA.",
-    "completenessScore": 12,
+    "completenessScore": 9,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "mistletoe",
@@ -149,9 +149,31 @@
     "kind": "herb",
     "title": "mistletoe | The Hippie Scientist",
     "description": "a sacred plant in ancient druidic and european traditions, mistletoe has been used both ritually and medicinally for nervous disorders, cancer support, and",
-    "completenessScore": 12,
+    "completenessScore": 9,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "pausinystalia-johimbe",
+    "route": "/herbs/pausinystalia-johimbe",
+    "name": "Pausinystalia johimbe",
+    "kind": "herb",
+    "title": "Pausinystalia johimbe | The Hippie Scientist",
+    "description": "West African tree bark traditionally used as an aphrodisiac and stimulant, especially for male sexual dysfunction.",
+    "completenessScore": 9,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "sinicuichi-heimia-salicifolia",
+    "route": "/herbs/sinicuichi-heimia-salicifolia",
+    "name": "Sinicuichi (Heimia salicifolia)",
+    "kind": "herb",
+    "title": "Sinicuichi (Heimia salicifolia) | The Hippie Scientist",
+    "description": "Sinicuichi is a traditional Mexican herb used for inducing auditory distortions, mild sedation, and dream enhancement. It has historical use in spiritual a",
+    "completenessScore": 9,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "anisoptera-thurifera",
@@ -160,9 +182,9 @@
     "kind": "herb",
     "title": "anisoptera thurifera | The Hippie Scientist",
     "description": "Dipterocarpaceae tree native to Southeast Asia; known for aromatic resin.",
-    "completenessScore": 11,
+    "completenessScore": 8,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "iresine-herbstii",
@@ -171,9 +193,9 @@
     "kind": "herb",
     "title": "iresine herbstii | The Hippie Scientist",
     "description": "Vibrant ornamental plant; used in folk remedies.",
-    "completenessScore": 11,
+    "completenessScore": 8,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "jatropha-podagrica",
@@ -182,9 +204,64 @@
     "kind": "herb",
     "title": "jatropha podagrica | The Hippie Scientist",
     "description": "Ornamental and medicinal plant with thick stem and red flowers.",
-    "completenessScore": 11,
+    "completenessScore": 8,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "cestrum-parqui",
+    "route": "/herbs/cestrum-parqui",
+    "name": "Cestrum parqui",
+    "kind": "herb",
+    "title": "Cestrum parqui | The Hippie Scientist",
+    "description": "Toxic ornamental shrub sometimes misused for psychoactive effects",
+    "completenessScore": 8,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "solandra-grandiflora",
+    "route": "/herbs/solandra-grandiflora",
+    "name": "Solandra grandiflora",
+    "kind": "herb",
+    "title": "Solandra grandiflora | The Hippie Scientist",
+    "description": "Powerful deliriant used in Huichol rituals; causes intense hallucinations and confusion.",
+    "completenessScore": 8,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "herba-lucidum-fictus",
+    "route": "/herbs/herba-lucidum-fictus",
+    "name": "Herba lucidum fictus",
+    "kind": "herb",
+    "title": "Herba lucidum fictus | The Hippie Scientist",
+    "description": "Used to promote vivid and lucid dreams in traditional cultures.",
+    "completenessScore": 8,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "calliandra-lucidum",
+    "route": "/herbs/calliandra-lucidum",
+    "name": "Calliandra lucidum",
+    "kind": "herb",
+    "title": "Calliandra lucidum | The Hippie Scientist",
+    "description": "Traditional plant believed to induce visionary states.",
+    "completenessScore": 8,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "nepeta-cataria",
+    "route": "/herbs/nepeta-cataria",
+    "name": "nepeta cataria",
+    "kind": "herb",
+    "title": "nepeta cataria | The Hippie Scientist",
+    "description": "A member of the mint family known for its euphoric effects on cats and mild sedative properties in humans. Traditionally used for colds, anxiety, and cramp",
+    "completenessScore": 8,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "pedicularis-groenlandica",
@@ -193,9 +270,9 @@
     "kind": "herb",
     "title": "pedicularis groenlandica | The Hippie Scientist",
     "description": "High-altitude flowering plant known for CNS and muscle relaxation.",
-    "completenessScore": 11,
+    "completenessScore": 8,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "sceletium-tortuosum-kanna",
@@ -204,9 +281,20 @@
     "kind": "herb",
     "title": "sceletium tortuosum (kanna) | The Hippie Scientist",
     "description": "south african succulent chewed to elevate mood and decrease tension.",
-    "completenessScore": 11,
+    "completenessScore": 8,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "aquilegia-vulgaris",
+    "route": "/herbs/aquilegia-vulgaris",
+    "name": "aquilegia vulgaris",
+    "kind": "herb",
+    "title": "aquilegia vulgaris | The Hippie Scientist",
+    "description": "Decorative European herb; historically used medicinally despite toxicity.",
+    "completenessScore": 7,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "delosperma-cooperi",
@@ -215,9 +303,9 @@
     "kind": "herb",
     "title": "delosperma cooperi | The Hippie Scientist",
     "description": "Succulent used as groundcover; mild traditional use.",
-    "completenessScore": 10,
+    "completenessScore": 7,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "kra-thum-na-kok",
@@ -226,9 +314,86 @@
     "kind": "herb",
     "title": "kra thum na / kok | The Hippie Scientist",
     "description": "southeast asian tree related to kratom with stimulating leaves.",
-    "completenessScore": 10,
+    "completenessScore": 7,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "rhynchosia-pyramidalis",
+    "route": "/herbs/rhynchosia-pyramidalis",
+    "name": "Rhynchosia pyramidalis",
+    "kind": "herb",
+    "title": "Rhynchosia pyramidalis | The Hippie Scientist",
+    "description": "Traditional African medicinal herb with analgesic and anti-inflammatory use",
+    "completenessScore": 7,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "trichilia-monadelpha",
+    "route": "/herbs/trichilia-monadelpha",
+    "name": "Trichilia monadelpha",
+    "kind": "herb",
+    "title": "Trichilia monadelpha | The Hippie Scientist",
+    "description": "West African medicinal plant used for malaria and inflammation",
+    "completenessScore": 7,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "gymnosporia-senegalensis",
+    "route": "/herbs/gymnosporia-senegalensis",
+    "name": "Gymnosporia senegalensis",
+    "kind": "herb",
+    "title": "Gymnosporia senegalensis | The Hippie Scientist",
+    "description": "Shrub used traditionally to treat pain and joint issues",
+    "completenessScore": 7,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "zanthoxylum-zanthoxyloides",
+    "route": "/herbs/zanthoxylum-zanthoxyloides",
+    "name": "Zanthoxylum zanthoxyloides",
+    "kind": "herb",
+    "title": "Zanthoxylum zanthoxyloides | The Hippie Scientist",
+    "description": "Traditional remedy for toothache, worms, and infections",
+    "completenessScore": 7,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "entada-africana",
+    "route": "/herbs/entada-africana",
+    "name": "Entada africana",
+    "kind": "herb",
+    "title": "Entada africana | The Hippie Scientist",
+    "description": "Used in traditional medicine for inflammation, liver support, and pain",
+    "completenessScore": 7,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "vernonia-amygdalina",
+    "route": "/herbs/vernonia-amygdalina",
+    "name": "Vernonia amygdalina",
+    "kind": "herb",
+    "title": "Vernonia amygdalina | The Hippie Scientist",
+    "description": "Widely used in West Africa for malaria, diabetes, and cancer adjunct therapy",
+    "completenessScore": 7,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "boswellia-dalzielii",
+    "route": "/herbs/boswellia-dalzielii",
+    "name": "Boswellia dalzielii",
+    "kind": "herb",
+    "title": "Boswellia dalzielii | The Hippie Scientist",
+    "description": "Gum resin used in ethnomedicine for arthritis, ulcers, and infections",
+    "completenessScore": 7,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "pedicularis-densiflora-indian-warrior",
@@ -237,19 +402,8 @@
     "kind": "herb",
     "title": "pedicularis densiflora (indian warrior) | The Hippie Scientist",
     "description": "north american wildflower smoked for muscle relaxation.",
-    "completenessScore": 10,
+    "completenessScore": 7,
     "tier": "stub",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "withania-somnifera",
-    "route": "/herbs/withania-somnifera",
-    "name": "withania somnifera",
-    "kind": "herb",
-    "title": "withania somnifera | The Hippie Scientist",
-    "description": "Withania somnifera has moderate randomized evidence for stress-related symptom improvements in standardized extracts, with unresolved long-term safety and ",
-    "completenessScore": 9,
-    "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   }
 ]
