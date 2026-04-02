@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { isBootstrapSource, normalizeSourceEntries, sourceCountBuckets } from './source-normalization.mjs'
 
 const root = process.cwd()
 const herbsPath = path.join(root, 'public/data/herbs.json')
@@ -105,19 +106,10 @@ function buildCardSummary({ effects, mechanism, description, activeCompounds, th
 }
 
 function scoreSources(value) {
-  if (!Array.isArray(value) || value.length === 0) return { score: -8, hasWeakSources: true }
-  const normalized = value
-    .map(item => {
-      if (typeof item === 'string') return cleanText(item)
-      if (!item || typeof item !== 'object') return null
-      return { title: cleanText(item.title), url: cleanText(item.url) }
-    })
-    .filter(Boolean)
+  const normalized = normalizeSourceEntries(value)
+  if (normalized.length === 0) return { score: -8, hasWeakSources: true }
 
-  const good = normalized.filter(source => {
-    if (typeof source === 'string') return /^https?:\/\//i.test(source) || source.length > 12
-    return source.title.length > 8 && /^https?:\/\//i.test(source.url)
-  }).length
+  const good = normalized.filter(source => isBootstrapSource(source)).length
 
   if (good === 0) return { score: -6, hasWeakSources: true }
   if (good < Math.min(2, normalized.length)) return { score: 2, hasWeakSources: true }
@@ -326,6 +318,8 @@ function buildHomepageData() {
 
   const herbItemBySlug = new Map((Array.isArray(herbsSummary) ? herbsSummary : []).map(item => [cleanText(item.slug), item]))
   const compoundItemBySlug = new Map((Array.isArray(compoundsSummary) ? compoundsSummary : []).map(item => [cleanText(item.slug), item]))
+  const herbSourceBuckets = sourceCountBuckets((Array.isArray(herbs) ? herbs : []).map(herb => herb?.sources))
+  const compoundSourceBuckets = sourceCountBuckets((Array.isArray(compounds) ? compounds : []).map(compound => compound?.sources))
 
   const herbItems = effectExplorerHerbs.map(herb => {
     const key = `herb:${herb.slug}`
@@ -479,6 +473,10 @@ function buildHomepageData() {
   return {
     payload,
     diagnostics: {
+      sourceBuckets: {
+        herbs: herbSourceBuckets,
+        compounds: compoundSourceBuckets,
+      },
       governedHighlights,
       featuredPool,
       curated,
@@ -631,5 +629,11 @@ if (emitReport) {
 }
 
 console.log(`Wrote ${path.relative(root, outPath)}`)
+console.log(
+  `[homepage-data] herbs normalized-sources zero=${diagnostics.sourceBuckets.herbs.zero} one=${diagnostics.sourceBuckets.herbs.one} twoPlus=${diagnostics.sourceBuckets.herbs.twoOrMore}`,
+)
+console.log(
+  `[homepage-data] compounds normalized-sources zero=${diagnostics.sourceBuckets.compounds.zero} one=${diagnostics.sourceBuckets.compounds.one} twoPlus=${diagnostics.sourceBuckets.compounds.twoOrMore}`,
+)
 console.log(`homepage artifact bytes: ${fs.statSync(outPath).size}`)
 console.log(`corpora bytes: herbs=${fs.statSync(herbsPath).size}, compounds=${fs.statSync(compoundsPath).size}`)

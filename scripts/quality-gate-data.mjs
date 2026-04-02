@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { countBootstrapSources, sourceCountBuckets } from './source-normalization.mjs'
 
 const ROOT = process.cwd()
 
@@ -56,18 +57,7 @@ function normalizeDate(value) {
 }
 
 function countSources(record) {
-  const sourceBuckets = [record?.sources, record?.source, record?.references, record?.citations]
-  return sourceBuckets
-    .flatMap(value => {
-      if (!value) return []
-      if (Array.isArray(value)) return value
-      if (typeof value === 'string') return value.split(/[;|\n]+/g)
-      if (typeof value === 'object') return [value]
-      return []
-    })
-    .map(item => (typeof item === 'string' ? item : item?.url || item?.title || item?.name || ''))
-    .map(asText)
-    .filter(Boolean).length
+  return countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
 }
 
 function countEffects(record) {
@@ -281,6 +271,10 @@ function run() {
   const herbSummary = summarizeAudits(herbAudits)
   const compoundSummary = summarizeAudits(compoundAudits)
   const blogSummary = auditBlogIndex(asArray(blogIndex))
+  const herbSourceBuckets = sourceCountBuckets(herbs.map(record => [record?.sources, record?.source, record?.references, record?.citations]))
+  const compoundSourceBuckets = sourceCountBuckets(
+    compounds.map(record => [record?.sources, record?.source, record?.references, record?.citations]),
+  )
 
   const indexableHerbEntries = herbAudits
     .map((audit, index) => ({ audit, record: herbs[index] }))
@@ -329,12 +323,18 @@ function run() {
   console.log(
     `[quality-gate] herbs total=${herbSummary.total} indexable=${herbSummary.indexable} excluded=${herbSummary.excluded}`
   )
+  console.log(
+    `[quality-gate] herbs normalized-sources zero=${herbSourceBuckets.zero} one=${herbSourceBuckets.one} twoPlus=${herbSourceBuckets.twoOrMore}`
+  )
   Object.entries(herbSummary.excludedByReason).forEach(([reason, count]) => {
     console.log(`[quality-gate] herbs excluded ${reason}=${count}`)
   })
 
   console.log(
     `[quality-gate] compounds total=${compoundSummary.total} indexable=${compoundSummary.indexable} excluded=${compoundSummary.excluded}`
+  )
+  console.log(
+    `[quality-gate] compounds normalized-sources zero=${compoundSourceBuckets.zero} one=${compoundSourceBuckets.one} twoPlus=${compoundSourceBuckets.twoOrMore}`
   )
   Object.entries(compoundSummary.excludedByReason).forEach(([reason, count]) => {
     console.log(`[quality-gate] compounds excluded ${reason}=${count}`)
