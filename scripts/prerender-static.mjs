@@ -114,14 +114,14 @@ const indexableCompoundCards = indexableCompounds
 function textList(value, limit = 5) {
   const list = Array.isArray(value) ? value : []
   return list
-    .map(item => String(item || '').trim())
+    .map(item => safeStr(item))
     .filter(Boolean)
     .slice(0, limit)
 }
 
 function textFrom(...values) {
   for (const value of values) {
-    const next = String(value || '').trim()
+    const next = safeStr(value)
     if (next) return next
   }
   return ''
