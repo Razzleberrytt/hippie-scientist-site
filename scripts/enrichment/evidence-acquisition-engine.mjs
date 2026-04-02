@@ -32,6 +32,7 @@ const HARD_SPECULATIVE_RE = /\b(more research|further study|unclear|unknown)\b/i
 const MECHANISM_ACTION_RE = /\b(agonis(?:t|m)|antagonis(?:t|m)|inhibit(?:or|ion|s|ed)?|activat(?:e|ion|es|ed)|modulat(?:e|ion|es|ed)|reuptake|bind(?:ing|s)?|block(?:s|ed|ade)?|suppress(?:es|ed|ion)?|upregulat(?:e|es|ed|ion)|downregulat(?:e|es|ed|ion))\b/iu;
 const MECHANISM_VAGUE_RE = /\b(calming effect|sedative effect|beneficial effect|therapeutic effect|improves?\s+health|supports?\s+wellness|traditional use)\b/iu;
 const MECHANISM_TARGET_RE = /\b(receptor|enzyme|transporter|uptake|nf-?κ?b|mao|gaba[-\s]*a|dopamine|serotonin|noradrenaline|norepinephrine|pi3k|akt|creb|mapk|tnf-?α?|cox-?2|acetylcholinesterase|butyrylcholinesterase|5-?ht1a|ace|p-?glycoprotein|cyp1a2)\b/iu;
+const MECHANISM_PROCESS_OUTCOME_TITLE_RE = /\b(nitrogen metabolism|nitrate uptake|no3-?\s*uptake|nutrient uptake)\b/iu;
 const WEAK_MECHANISM_FRAGMENT_RE = /\b(other indirect mechanisms?|indirect mechanisms?|various mechanisms?|active biomolecules|strong inhibition on binding to [a-z]\b)\b/iu;
 const WEAK_MECHANISM_QUALIFIER_RE = /\b(weak|slight|limited|uncertain|putative|possible|potential)\b/iu;
 const MECHANISM_CONNECTOR_PREFIX_RE = /^(whereas|thus|therefore|however|moreover|furthermore|in addition|additionally|meanwhile|notably|overall|this suggests?|these suggest|suggesting that)\b[:,]?\s*/iu;
@@ -1010,6 +1011,12 @@ function compactTerm(value) {
   return normalizeWhitespace(value).replace(/\s+/g, ' ').trim();
 }
 
+function shouldSkipMechanismProcessOutcomeTitle(title) {
+  const normalized = normalizeWhitespace(title);
+  if (!normalized) return false;
+  return MECHANISM_PROCESS_OUTCOME_TITLE_RE.test(normalized);
+}
+
 function buildQueryPlan(herb, targetField) {
   const aliases = buildHerbAliases(herb);
   const scientificName = compactTerm(herb.displayScientificName || herb.scientificNormalized || herb.latin || aliases[0] || herb.slug);
@@ -1038,6 +1045,9 @@ function buildQueryPlan(herb, targetField) {
     `${scientificName} receptor activity`,
     `${scientificName} neurotransmitter effects`,
     `${scientificName} binding agonist antagonist`,
+    `${scientificName} pharmacology enzyme inhibition`,
+    `${scientificName} receptor agonist antagonist`,
+    `${scientificName} transporter inhibition`,
     `${combinedName} mechanism of action`,
     `${primaryName} pharmacological mechanism study`,
   ].map((query) => compactTerm(query)).filter(Boolean);
@@ -1124,11 +1134,12 @@ async function collectFieldEvidence(herb, targetField) {
       attemptedTiers: [],
     };
     const candidates = [];
+    const providerResultWindow = targetField.schemaField === 'mechanism' ? 20 : 8;
     const providerPlans = [
       {
         name: 'pubmed',
         fetch: () => {
-          const ids = pubmedSearch(item.query, 8);
+          const ids = pubmedSearch(item.query, providerResultWindow);
           const summaries = pubmedSummaries(ids);
           return summaries.map((summary) => ({
             provider: 'pubmed',
@@ -1142,7 +1153,7 @@ async function collectFieldEvidence(herb, targetField) {
       {
         name: 'europe_pmc',
         fetch: () => {
-          const europeRows = europePmcSearch(item.query, 8);
+          const europeRows = europePmcSearch(item.query, providerResultWindow);
           return europeRows.map((row) => {
             const id = row.pmid || row.id;
             const sourceUrl =
@@ -1163,7 +1174,7 @@ async function collectFieldEvidence(herb, targetField) {
       {
         name: 'nih_ncbi_pmc',
         fetch: () => {
-          const ids = pmcSearch(item.query, 8);
+          const ids = pmcSearch(item.query, providerResultWindow);
           const summaries = pmcSummaries(ids);
           return summaries.map((summary) => ({
             provider: 'nih_ncbi_pmc',
@@ -1295,6 +1306,11 @@ async function collectFieldEvidence(herb, targetField) {
       }
       for (const candidate of tierCandidates) {
         const hasStructuredCompounds = targetField.schemaField === 'activeCompounds' && Array.isArray(candidate.structuredCompounds) && candidate.structuredCompounds.length > 0;
+        if (targetField.schemaField === 'mechanism' && shouldSkipMechanismProcessOutcomeTitle(candidate.title)) {
+          recordProviderRejection(queryStats, candidate.provider, 'mechanism_process_outcome_title_blocked');
+          addMechanismRejectionReason('mechanism_process_outcome_title_blocked');
+          continue;
+        }
         if (!hasStructuredCompounds && !titleMatchesHerb(candidate.title, herb)) {
           recordProviderRejection(queryStats, candidate.provider, 'title_not_linked_to_herb');
           if (targetField.schemaField === 'mechanism') addMechanismRejectionReason('title_not_linked_to_herb');
