@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { countBootstrapSources, sourceCountBuckets } from './source-normalization.mjs'
 
 const ROOT = process.cwd()
 
@@ -71,10 +72,7 @@ function writeText(relativePath, text) {
 }
 
 function countSources(record) {
-  return asArray(record?.sources)
-    .map(item => (typeof item === 'string' ? item : item?.url || item?.title || ''))
-    .map(asText)
-    .filter(Boolean).length
+  return countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
 }
 
 function countEffects(record) {
@@ -248,6 +246,10 @@ function run() {
   const compounds = readJson('public/data/compounds.json')
   const sourceRegistry = readJson('public/data/source-registry.json')
   const sourceRegistryIdSet = new Set(sourceRegistry.map(item => item.sourceId))
+  const herbSourceBuckets = sourceCountBuckets(herbs.map(record => [record?.sources, record?.source, record?.references, record?.citations]))
+  const compoundSourceBuckets = sourceCountBuckets(
+    compounds.map(record => [record?.sources, record?.source, record?.references, record?.citations]),
+  )
 
   const detailMaps = {
     herbs: new Map(),
@@ -542,6 +544,12 @@ function run() {
   writeText('ops/reports/full-missing-data-inventory.md', mdLines.join('\n') + '\n')
 
   console.log(`[full-missing-data-inventory] inventory=${inventory.length} herbs=${herbItems.length} compounds=${compoundItems.length}`)
+  console.log(
+    `[full-missing-data-inventory] herbs normalized-sources zero=${herbSourceBuckets.zero} one=${herbSourceBuckets.one} twoPlus=${herbSourceBuckets.twoOrMore}`
+  )
+  console.log(
+    `[full-missing-data-inventory] compounds normalized-sources zero=${compoundSourceBuckets.zero} one=${compoundSourceBuckets.one} twoPlus=${compoundSourceBuckets.twoOrMore}`
+  )
 }
 
 run()

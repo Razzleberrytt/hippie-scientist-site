@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { createHash } from 'node:crypto'
+import { countBootstrapSources, sourceCountBuckets } from './source-normalization.mjs'
 
 const ROOT = process.cwd()
 const DETERMINISTIC_MODEL_VERSION = 'indexability-rescue-wave-v2'
@@ -55,10 +56,7 @@ function writeText(relativePath, text) {
 }
 
 function countSources(record) {
-  return asArray(record?.sources)
-    .map(item => (typeof item === 'string' ? item : item?.url || item?.title || ''))
-    .map(asText)
-    .filter(Boolean).length
+  return countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
 }
 
 function countEffects(record) {
@@ -175,7 +173,7 @@ function auditEntity(record, type) {
 
 function topicCandidates(record) {
   return {
-    evidence: asArray(record?.sources).length,
+    evidence: countSources(record),
     mechanism: asText(record?.mechanism).length,
     safety:
       asArray(record?.contraindications).length +
@@ -373,6 +371,10 @@ function run() {
   const sourceCandidates = readJson('ops/source-candidates.json')
 
   const candidatesBySlug = buildCandidateLookup(sourceCandidates)
+  const herbSourceBuckets = sourceCountBuckets(herbs.map(record => [record?.sources, record?.source, record?.references, record?.citations]))
+  const compoundSourceBuckets = sourceCountBuckets(
+    compounds.map(record => [record?.sources, record?.source, record?.references, record?.citations]),
+  )
 
   const blockedRecords = [
     ...herbs.map(record => ({ entityType: 'herb', record })),
@@ -465,6 +467,12 @@ function run() {
 
   console.log(`[report-indexability-rescue-wave] wrote ops/targets/indexability-rescue-wave.json (${targets.length} targets)`)
   console.log('[report-indexability-rescue-wave] wrote ops/reports/indexability-rescue-wave.md')
+  console.log(
+    `[report-indexability-rescue-wave] herbs normalized-sources zero=${herbSourceBuckets.zero} one=${herbSourceBuckets.one} twoPlus=${herbSourceBuckets.twoOrMore}`
+  )
+  console.log(
+    `[report-indexability-rescue-wave] compounds normalized-sources zero=${compoundSourceBuckets.zero} one=${compoundSourceBuckets.one} twoPlus=${compoundSourceBuckets.twoOrMore}`
+  )
 }
 
 run()

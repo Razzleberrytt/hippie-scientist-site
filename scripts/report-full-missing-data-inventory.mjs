@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
+import { countBootstrapSources, sourceCountBuckets } from './source-normalization.mjs'
 
 const ROOT = process.cwd()
 const REPORT_DIR = path.join(ROOT, 'ops', 'reports')
@@ -72,10 +73,7 @@ function readJsonAbsolute(filePath) {
 }
 
 function countSources(record) {
-  return asArray(record?.sources)
-    .map(item => (typeof item === 'string' ? item : item?.url || item?.title || ''))
-    .map(asText)
-    .filter(Boolean).length
+  return countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
 }
 
 function countEffects(record) {
@@ -251,6 +249,10 @@ function run() {
   const qualityReport = readJson('public/data/quality-report.json')
 
   const sourceIdSet = new Set(sourceRegistry.map(entry => entry.sourceId))
+  const herbSourceBuckets = sourceCountBuckets(herbs.map(record => [record?.sources, record?.source, record?.references, record?.citations]))
+  const compoundSourceBuckets = sourceCountBuckets(
+    compounds.map(record => [record?.sources, record?.source, record?.references, record?.citations]),
+  )
 
   const herbDetailMap = getDetailMap(path.join(ROOT, 'public', 'data', 'herbs-detail'))
   const compoundDetailMap = getDetailMap(path.join(ROOT, 'public', 'data', 'compounds-detail'))
@@ -557,6 +559,12 @@ function run() {
   console.log(`[full-missing-data-inventory] wrote inventory=${inventory.length}`)
   console.log(
     `[full-missing-data-inventory] herbs=${summary.totals.herbs} compounds=${summary.totals.compounds} missingEnrichment=${summary.totals.withMissingEnrichment}`,
+  )
+  console.log(
+    `[full-missing-data-inventory] herbs normalized-sources zero=${herbSourceBuckets.zero} one=${herbSourceBuckets.one} twoPlus=${herbSourceBuckets.twoOrMore}`
+  )
+  console.log(
+    `[full-missing-data-inventory] compounds normalized-sources zero=${compoundSourceBuckets.zero} one=${compoundSourceBuckets.one} twoPlus=${compoundSourceBuckets.twoOrMore}`
   )
 }
 

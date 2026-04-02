@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { countBootstrapSources, sourceCountBuckets } from './source-normalization.mjs'
 
 const ROOT = process.cwd()
 
@@ -62,10 +63,7 @@ function writeText(relativePath, text) {
 }
 
 function countSources(record) {
-  return asArray(record?.sources)
-    .map(item => (typeof item === 'string' ? item : item?.url || item?.title || ''))
-    .map(asText)
-    .filter(Boolean).length
+  return countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
 }
 
 function countEffects(record) {
@@ -452,6 +450,10 @@ function run() {
 
   const herbAudits = herbs.map(record => auditEntity(record, 'herb'))
   const compoundAudits = compounds.map(record => auditEntity(record, 'compound'))
+  const herbSourceBuckets = sourceCountBuckets(herbs.map(record => [record?.sources, record?.source, record?.references, record?.citations]))
+  const compoundSourceBuckets = sourceCountBuckets(
+    compounds.map(record => [record?.sources, record?.source, record?.references, record?.citations]),
+  )
 
   const blockedHerbs = herbAudits
     .map((audit, index) => ({ audit, record: herbs[index] }))
@@ -502,6 +504,12 @@ function run() {
 
   console.log(
     `[report-indexability-evidence-gaps] wrote blocked=${rankedBlocked.length} herbs=${blockedHerbs.length} compounds=${blockedCompounds.length}`
+  )
+  console.log(
+    `[report-indexability-evidence-gaps] herbs normalized-sources zero=${herbSourceBuckets.zero} one=${herbSourceBuckets.one} twoPlus=${herbSourceBuckets.twoOrMore}`
+  )
+  console.log(
+    `[report-indexability-evidence-gaps] compounds normalized-sources zero=${compoundSourceBuckets.zero} one=${compoundSourceBuckets.one} twoPlus=${compoundSourceBuckets.twoOrMore}`
   )
 }
 
