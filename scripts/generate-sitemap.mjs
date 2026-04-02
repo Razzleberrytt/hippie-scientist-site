@@ -100,12 +100,20 @@ function toUrlEntry(loc, { priority = 0.6, changefreq = 'weekly', lastmod } = {}
 function buildSitemapXml() {
   const { sitemapRoutes, sitemapMeta, disallowedRoutes } = getSharedRouteManifest()
   const publicationManifest = readObject('public/data/publication-manifest.json')
+  const publicationIndex = readObject('public/data/publication-index.json')
 
   const blogEntries = getBlogEntries(readJson('public/blogdata/index.json'))
-  const herbRoutes = Array.isArray(publicationManifest?.routes?.herbs) ? publicationManifest.routes.herbs : []
-  const compoundRoutes = Array.isArray(publicationManifest?.routes?.compounds)
-    ? publicationManifest.routes.compounds
-    : []
+  const herbRoutes = Array.isArray(publicationManifest?.routes?.herbs) && publicationManifest.routes.herbs.length > 0
+    ? publicationManifest.routes.herbs
+    : Array.isArray(publicationIndex?.routes?.herbs)
+      ? publicationIndex.routes.herbs
+      : []
+  const compoundRoutes =
+    Array.isArray(publicationManifest?.routes?.compounds) && publicationManifest.routes.compounds.length > 0
+      ? publicationManifest.routes.compounds
+      : Array.isArray(publicationIndex?.routes?.compounds)
+        ? publicationIndex.routes.compounds
+        : []
 
   const blockedRoutes = new Set(disallowedRoutes.map(route => normalizePathname(route)))
   const allRoutes = normalizeRoutes([

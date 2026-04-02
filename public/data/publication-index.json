@@ -1,0 +1,142 @@
+{
+  "generatedAt": "2026-04-02T22:14:29.676Z",
+  "source": "public/data/publication-manifest.json",
+  "counts": {
+    "herbs": 16,
+    "compounds": 0,
+    "entities": 16,
+    "herbRoutes": 16,
+    "compoundRoutes": 0,
+    "routes": 16
+  },
+  "routes": {
+    "herbs": [
+      "/herbs/rivea-corymbosa",
+      "/herbs/calliandra-anomala",
+      "/herbs/tylophora-indica",
+      "/herbs/alectra-sessiliflora",
+      "/herbs/mandrake-root",
+      "/herbs/henbane",
+      "/herbs/ipomoea-tricolor-heavenly-blue",
+      "/herbs/mistletoe",
+      "/herbs/anisoptera-thurifera",
+      "/herbs/iresine-herbstii",
+      "/herbs/jatropha-podagrica",
+      "/herbs/pedicularis-groenlandica",
+      "/herbs/sceletium-tortuosum-kanna",
+      "/herbs/delosperma-cooperi",
+      "/herbs/kra-thum-na-kok",
+      "/herbs/pedicularis-densiflora-indian-warrior"
+    ],
+    "compounds": []
+  },
+  "entities": {
+    "herbs": [
+      {
+        "slug": "rivea-corymbosa",
+        "route": "/herbs/rivea-corymbosa"
+      },
+      {
+        "slug": "calliandra-anomala",
+        "route": "/herbs/calliandra-anomala"
+      },
+      {
+        "slug": "tylophora-indica",
+        "route": "/herbs/tylophora-indica"
+      },
+      {
+        "slug": "alectra-sessiliflora",
+        "route": "/herbs/alectra-sessiliflora"
+      },
+      {
+        "slug": "mandrake-root",
+        "route": "/herbs/mandrake-root"
+      },
+      {
+        "slug": "henbane",
+        "route": "/herbs/henbane"
+      },
+      {
+        "slug": "ipomoea-tricolor-heavenly-blue",
+        "route": "/herbs/ipomoea-tricolor-heavenly-blue"
+      },
+      {
+        "slug": "mistletoe",
+        "route": "/herbs/mistletoe"
+      },
+      {
+        "slug": "anisoptera-thurifera",
+        "route": "/herbs/anisoptera-thurifera"
+      },
+      {
+        "slug": "iresine-herbstii",
+        "route": "/herbs/iresine-herbstii"
+      },
+      {
+        "slug": "jatropha-podagrica",
+        "route": "/herbs/jatropha-podagrica"
+      },
+      {
+        "slug": "pedicularis-groenlandica",
+        "route": "/herbs/pedicularis-groenlandica"
+      },
+      {
+        "slug": "sceletium-tortuosum-kanna",
+        "route": "/herbs/sceletium-tortuosum-kanna"
+      },
+      {
+        "slug": "delosperma-cooperi",
+        "route": "/herbs/delosperma-cooperi"
+      },
+      {
+        "slug": "kra-thum-na-kok",
+        "route": "/herbs/kra-thum-na-kok"
+      },
+      {
+        "slug": "pedicularis-densiflora-indian-warrior",
+        "route": "/herbs/pedicularis-densiflora-indian-warrior"
+      }
+    ],
+    "compounds": []
+  },
+  "summaries": {
+    "herbs": {
+      "total": 699,
+      "indexable": 16,
+      "excluded": 683,
+      "excludedByReason": {
+        "weakDescription": 651,
+        "placeholderText": 667,
+        "insufficientEffects": 201,
+        "invalidNameOrSlug": 28,
+        "nanArtifacts": 23
+      }
+    },
+    "compounds": {
+      "total": 393,
+      "indexable": 0,
+      "excluded": 393,
+      "excludedByReason": {
+        "invalidNameOrSlug": 12,
+        "weakDescription": 393,
+        "placeholderText": 222,
+        "insufficientEffects": 52,
+        "insufficientEvidenceOrCompleteness": 40
+      }
+    },
+    "blogIndex": {
+      "total": 15,
+      "invalidSlug": 0,
+      "weakSummary": 0,
+      "placeholderText": 0,
+      "nanArtifacts": 0
+    }
+  },
+  "thresholds": {
+    "minDescriptionLength": 30,
+    "minSources": 2,
+    "minEffects": 1,
+    "minCompletenessScore": 0.4,
+    "minSlugLength": 2
+  }
+}

@@ -56,8 +56,16 @@ function normalizeDate(value) {
 }
 
 function countSources(record) {
-  return asArray(record?.sources)
-    .map(item => (typeof item === 'string' ? item : item?.url || item?.title || ''))
+  const sourceBuckets = [record?.sources, record?.source, record?.references, record?.citations]
+  return sourceBuckets
+    .flatMap(value => {
+      if (!value) return []
+      if (Array.isArray(value)) return value
+      if (typeof value === 'string') return value.split(/[;|\n]+/g)
+      if (typeof value === 'object') return [value]
+      return []
+    })
+    .map(item => (typeof item === 'string' ? item : item?.url || item?.title || item?.name || ''))
     .map(asText)
     .filter(Boolean).length
 }
@@ -188,7 +196,12 @@ function auditEntity(record, type) {
 
 function buildPublicationEntry(record, type, audit) {
   const displayName = asText(record?.commonName || record?.common || record?.name || record?.latinName || record?.latin || audit.slug)
-  const description = clip(asText(record?.summary || record?.description || record?.mechanism || `${displayName} reference profile.`))
+  const descriptionCandidate = asText(record?.summary || record?.description || record?.mechanism)
+  const description = clip(
+    PLACEHOLDER_PATTERNS.some(pattern => pattern.test(descriptionCandidate))
+      ? `${displayName} reference profile.`
+      : descriptionCandidate || `${displayName} reference profile.`
+  )
   const lastmod =
     normalizeDate(record?.updated_at) ||
     normalizeDate(record?.lastmod) ||
