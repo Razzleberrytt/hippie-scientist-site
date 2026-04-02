@@ -5,10 +5,10 @@
     "name": "CBD",
     "kind": "compound",
     "title": "CBD | The Hippie Scientist",
-    "description": "Human evidence exists for selected neurologic indications and safety liabilities; interaction management is central to risk reduction.",
-    "completenessScore": 16,
+    "description": "Cannabidiol (CBD) is a non-intoxicating phytocannabinoid with approved use in specific seizure disorders and broad off-label consumer exposure. Human revie",
+    "completenessScore": 23,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "agrimoniin",
@@ -16,21 +16,10 @@
     "name": "Agrimoniin",
     "kind": "compound",
     "title": "Agrimoniin | The Hippie Scientist",
-    "description": "Evidence is mainly mechanistic/preclinical, with uncertain clinical translation.",
-    "completenessScore": 13,
+    "description": "Agrimoniin is an ellagitannin studied for redox and inflammatory pathway effects in preclinical models. Human clinical evidence is limited.",
+    "completenessScore": 17,
     "tier": "stub",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "asarone",
-    "route": "/compounds/asarone",
-    "name": "Asarone (alpha/beta isomers)",
-    "kind": "compound",
-    "title": "Asarone (alpha/beta isomers) | The Hippie Scientist",
-    "description": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
-    "completenessScore": 13,
-    "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "luteolin",
@@ -38,32 +27,10 @@
     "name": "Luteolin",
     "kind": "compound",
     "title": "Luteolin | The Hippie Scientist",
-    "description": "Evidence supports mechanistic activity with plausible interaction risk, but robust condition-specific clinical efficacy remains limited.",
-    "completenessScore": 13,
+    "description": "Luteolin is a dietary flavone studied for anti-inflammatory and redox-active pharmacology. Evidence includes mechanistic studies and translational safety r",
+    "completenessScore": 17,
     "tier": "stub",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "asarone",
-    "route": "/compounds/asarone",
-    "name": "Asarone (alpha/beta isomers)",
-    "kind": "compound",
-    "title": "Asarone (alpha/beta isomers) | The Hippie Scientist",
-    "description": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
-    "completenessScore": 13,
-    "tier": "stub",
-    "lastmod": "2026-04-01"
-  },
-  {
-    "slug": "asarone",
-    "route": "/compounds/asarone",
-    "name": "Asarone (alpha/beta isomers)",
-    "kind": "compound",
-    "title": "Asarone (alpha/beta isomers) | The Hippie Scientist",
-    "description": "Evidence is strongest for safety concern framing rather than proven therapeutic efficacy.",
-    "completenessScore": 13,
-    "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "2-4-5-trimethoxybenzaldehyde",
@@ -71,10 +38,21 @@
     "name": "2,4,5-Trimethoxybenzaldehyde",
     "kind": "compound",
     "title": "2,4,5-Trimethoxybenzaldehyde | The Hippie Scientist",
-    "description": "Current evidence is preclinical/contextual, not definitive for clinical claims.",
-    "completenessScore": 10,
+    "description": "2,4,5-Trimethoxybenzaldehyde is an aromatic aldehyde reported in Acorus phytochemistry. Direct clinical evidence for efficacy or safety is sparse, so inter",
+    "completenessScore": 11,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "7-hydroxymitragynine",
+    "route": "/compounds/7-hydroxymitragynine",
+    "name": "7-Hydroxymitragynine",
+    "kind": "compound",
+    "title": "7-Hydroxymitragynine | The Hippie Scientist",
+    "description": "7-Hydroxymitragynine is a kratom-associated indole alkaloid with high opioid-receptor potency relative to parent mitragynine. Recent reviews frame it as a ",
+    "completenessScore": 11,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "aconine",
@@ -82,10 +60,10 @@
     "name": "Aconine",
     "kind": "compound",
     "title": "Aconine | The Hippie Scientist",
-    "description": "Evidence is insufficient for efficacy claims; safety interpretation relies on class-level toxicology context.",
-    "completenessScore": 10,
+    "description": "Aconine is an Aconitum-related diterpenoid alkaloid generally discussed within aconitum toxicology rather than therapeutic pharmacology. Direct human evide",
+    "completenessScore": 11,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "aconitine",
@@ -93,10 +71,10 @@
     "name": "Aconitine",
     "kind": "compound",
     "title": "Aconitine | The Hippie Scientist",
-    "description": "Evidence supports major toxicity risk; there is no high-quality evidence supporting routine therapeutic oral use.",
-    "completenessScore": 10,
+    "description": "Aconitine is a highly toxic diterpenoid alkaloid from Aconitum species and is primarily characterized by poisoning literature rather than therapeutic trial",
+    "completenessScore": 11,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
   },
   {
     "slug": "anabasine",
@@ -104,9 +82,20 @@
     "name": "Anabasine",
     "kind": "compound",
     "title": "Anabasine | The Hippie Scientist",
-    "description": "Human observational evidence supports exposure relevance and safety concern framing, not efficacy claims.",
-    "completenessScore": 10,
+    "description": "Anabasine is a minor tobacco alkaloid with nicotinic pharmacology and recognized use as an exposure biomarker. Evidence is strongest for toxicology and exp",
+    "completenessScore": 11,
     "tier": "stub",
-    "lastmod": "2026-04-01"
+    "lastmod": "2026-04-02"
+  },
+  {
+    "slug": "asarone-alpha-beta-isomers",
+    "route": "/compounds/asarone-alpha-beta-isomers",
+    "name": "Asarone (alpha/beta isomers)",
+    "kind": "compound",
+    "title": "Asarone (alpha/beta isomers) | The Hippie Scientist",
+    "description": "Asarone refers primarily to alpha- and beta-isomers found in Acorus species. Current literature emphasizes toxicology, interaction potential, and uncertain",
+    "completenessScore": 5,
+    "tier": "stub",
+    "lastmod": "2026-04-02"
   }
 ]

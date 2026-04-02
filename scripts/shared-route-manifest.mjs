@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { countBootstrapSources } from './source-normalization.mjs'
 
 const ROOT = process.cwd()
 const BLOG_PER_PAGE = 12
@@ -232,7 +233,7 @@ const normalizeDate = value => {
 }
 
 function scoreEntity(record) {
-  const sources = Array.isArray(record?.sources) ? record.sources.length : 0
+  const sources = countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
   const effects = Array.isArray(record?.effects) ? record.effects.length : 0
   const hasMechanism = String(record?.mechanism || '').trim().length > 0 ? 1 : 0
   const hasDescription = String(record?.description || record?.summary || '').trim().length > 0 ? 1 : 0

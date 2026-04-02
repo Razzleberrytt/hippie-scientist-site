@@ -116,6 +116,10 @@ function scoreSources(value) {
   return { score: Math.min(16, good * 6), hasWeakSources: false }
 }
 
+function gatherSourceInputs(record) {
+  return [record?.sources, record?.source, record?.references, record?.citations]
+}
+
 function toQualityBadge(quality, governedSummary) {
   if (governedSummary?.enrichedAndReviewed) return 'Enriched + reviewed'
   if (quality.flags.isIncomplete) return 'Incomplete'
@@ -140,7 +144,7 @@ function scoreHerbQuality(herb) {
   if (splitClean(herb.interactions).length > 0) score += 8
   if (sanitizeSurfaceText(herb.description).length >= 70) score += 8
 
-  const sourceQuality = scoreSources(herb.sources)
+  const sourceQuality = scoreSources(gatherSourceInputs(herb.__raw || herb))
   score += sourceQuality.score
 
   const hasPlaceholder = [herb.description, herb.effects, herb.mechanism, herb.mechanismOfAction, herb.therapeuticUses].some(
@@ -171,7 +175,7 @@ function scoreCompoundQuality(compound) {
   if (splitClean(compound.interactions).length > 0) score += 6
   if (sanitizeSurfaceText(compound.description).length >= 50) score += 8
 
-  const sourceQuality = scoreSources(compound.sources)
+  const sourceQuality = scoreSources(gatherSourceInputs(compound.__raw || compound))
   score += sourceQuality.score
 
   const hasPlaceholder = [compound.description, compound.effects, compound.mechanism, compound.mechanismOfAction].some(
@@ -314,12 +318,13 @@ function buildHomepageData() {
             url: cleanText(item?.url),
           }))
         : [],
+      __raw: herb,
     }))
 
   const herbItemBySlug = new Map((Array.isArray(herbsSummary) ? herbsSummary : []).map(item => [cleanText(item.slug), item]))
   const compoundItemBySlug = new Map((Array.isArray(compoundsSummary) ? compoundsSummary : []).map(item => [cleanText(item.slug), item]))
-  const herbSourceBuckets = sourceCountBuckets((Array.isArray(herbs) ? herbs : []).map(herb => herb?.sources))
-  const compoundSourceBuckets = sourceCountBuckets((Array.isArray(compounds) ? compounds : []).map(compound => compound?.sources))
+  const herbSourceBuckets = sourceCountBuckets((Array.isArray(herbs) ? herbs : []).map(gatherSourceInputs))
+  const compoundSourceBuckets = sourceCountBuckets((Array.isArray(compounds) ? compounds : []).map(gatherSourceInputs))
 
   const herbItems = effectExplorerHerbs.map(herb => {
     const key = `herb:${herb.slug}`
