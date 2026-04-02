@@ -38,10 +38,7 @@ jobs:
           git diff --cached --quiet && echo "No new OG images" || \
             (git commit -m "chore(og): weekly OG image refresh" && git push)
 
-      - name: Trigger Netlify deploy
-        if: success()
-        env:
-          NETLIFY_DEPLOY_HOOK_URL: ${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}
+
+      - name: Deployment handoff
         run: |
-          if [ -z "$NETLIFY_DEPLOY_HOOK_URL" ]; then exit 0; fi
-          curl -s -X POST "$NETLIFY_DEPLOY_HOOK_URL"
+          echo "Cloudflare Pages picks up main-branch commits automatically via Git integration."

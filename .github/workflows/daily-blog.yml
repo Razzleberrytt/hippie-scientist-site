@@ -43,13 +43,7 @@ jobs:
           git add content/blog public/blog public/blogdata public/data/herbs.json public/data/compounds.json public/sitemap.xml
           git diff --cached --quiet && echo "No changes" || (git commit -m "chore(blog): daily post $(date -u +'%Y-%m-%d')" && git push)
 
-      - name: Trigger Netlify deploy
-        if: ${{ success() }}
-        env:
-          NETLIFY_DEPLOY_HOOK_URL: ${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}
+
+      - name: Deployment handoff
         run: |
-          if [ -z "$NETLIFY_DEPLOY_HOOK_URL" ]; then
-            echo "NETLIFY_DEPLOY_HOOK_URL is not set; skipping deploy trigger."
-            exit 0
-          fi
-          curl -s -X POST "$NETLIFY_DEPLOY_HOOK_URL"
+          echo "Cloudflare Pages picks up main-branch commits automatically via Git integration."

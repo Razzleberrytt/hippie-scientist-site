@@ -102,9 +102,10 @@ Optional environment variables for production URL shaping:
 This repository is a **source repo**.
 
 - Build output is generated into `dist/` via `npm run build`.
-- Canonical host is **Netlify**. `netlify.toml` is the deployment contract (`command = npm ci && npm run build`, `publish = dist`).
-- GitHub Actions runs validation/build and can trigger `NETLIFY_DEPLOY_HOOK_URL`; it does **not** publish to `gh-pages`.
-- SPA routing is handled with `public/_redirects` (`/* /index.html 200`), so `BrowserRouter` is the correct router mode.
+- Canonical host is **Cloudflare Pages**.
+- GitHub Actions `.github/workflows/deploy.yml` runs `npm ci`, `npm run enrichment:release:gate`, `npm run build`, verifies critical generated assets, then deploys `dist/` with `wrangler pages deploy`.
+- Required deploy secrets are `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, and `CLOUDFLARE_PAGES_PROJECT`.
+- SPA routing is handled with `public/_redirects` (`/* /index.html 200`), which is copied into `dist/_redirects` during build.
 - Do **not** commit deploy output folders as source.
 
 Legacy/secondary notes:
