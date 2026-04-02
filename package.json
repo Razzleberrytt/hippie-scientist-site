@@ -166,7 +166,8 @@
     "workflow:indexability-rescue": "npm run report:indexability-rescue && npm run enrichment:validate:dry",
     "enrichment:evidence": "node scripts/enrichment/run-evidence-pipeline.mjs",
     "enrichment:evidence:acquire": "node scripts/enrichment/evidence-acquisition-engine.mjs",
-    "enrichment:evidence:report": "node scripts/enrichment/report-evidence-acquisition.mjs"
+    "enrichment:evidence:report": "node scripts/enrichment/report-evidence-acquisition.mjs",
+    "enrichment:benchmark:mechanism": "node scripts/enrichment/run-mechanism-regression-harness.mjs"
   },
   "engines": {
     "node": ">=20 <21"

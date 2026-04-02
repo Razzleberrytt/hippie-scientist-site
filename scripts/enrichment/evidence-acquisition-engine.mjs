@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { REPO_ROOT, deterministicRunId, ensureDir, generatePrefixedUlid, loadJson, nowIso, writeJson } from './_shared.mjs';
 
 const TARGET_FIELDS = [
@@ -58,7 +59,7 @@ const ACTION_TO_LABEL = [
 ];
 
 function parseArgs(argv) {
-  const out = { herbs: [], maxHerbs: 5, outDir: 'ops/evidence-acquisition', includeLowConfidence: false, focusField: null };
+  const out = { herbs: [], maxHerbs: 5, outDir: 'ops/evidence-acquisition', includeLowConfidence: false, focusField: null, mechanismSelfTestOnly: false };
   for (let i = 2; i < argv.length; i += 1) {
     const arg = argv[i];
     if (arg === '--herbs' && argv[i + 1]) {
@@ -78,6 +79,7 @@ function parseArgs(argv) {
       out.focusField = String(argv[i + 1]).trim();
       i += 1;
     } else if (arg.startsWith('--focus-field=')) out.focusField = String(arg.slice('--focus-field='.length)).trim();
+    else if (arg === '--mechanism-self-test-only') out.mechanismSelfTestOnly = true;
   }
   if (!Number.isInteger(out.maxHerbs) || out.maxHerbs <= 0) throw new Error('--max-herbs must be a positive integer');
   if (out.focusField && !TARGET_FIELDS.some((field) => field.schemaField === out.focusField || field.requestField === out.focusField)) {
@@ -1524,6 +1526,11 @@ function buildPatch(runId, herb, acceptedRows) {
 async function main() {
   assertMechanismSemanticFixtures();
   const options = parseArgs(process.argv);
+  if (options.mechanismSelfTestOnly) {
+    console.log('[mechanism-self-test] PASS');
+    return;
+  }
+
   const herbs = loadJson(join(REPO_ROOT, 'public', 'data', 'herbs.json'));
   const selected = (options.herbs.length > 0
     ? herbs.filter((h) => options.herbs.includes(herbKey(h)) || options.herbs.includes(h.id) || options.herbs.includes(h.name))
@@ -1747,7 +1754,11 @@ async function main() {
   console.log(`[evidence-acquisition] report=${options.outDir}/${runId}.json`);
 }
 
-main().catch((error) => {
-  console.error(`[evidence-acquisition] FAIL ${error.message}`);
-  process.exit(1);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(`[evidence-acquisition] FAIL ${error.message}`);
+    process.exit(1);
+  });
+}
+
+export { canonicalizeMechanismPhrase, extractMechanismAtomicPhrases };
