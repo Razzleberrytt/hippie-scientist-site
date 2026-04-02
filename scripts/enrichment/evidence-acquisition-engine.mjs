@@ -98,32 +98,161 @@ function herbKey(herb) {
 }
 
 
-const CURL_CONNECT_TIMEOUT_SECONDS = 8;
-const CURL_MAX_TIME_SECONDS = 20;
-const CURL_PROCESS_TIMEOUT_MS = 25_000;
+function positiveIntFromEnv(name, fallback) {
+  const raw = process.env[name];
+  if (raw == null || String(raw).trim() === '') return fallback;
+  const parsed = Number.parseInt(String(raw), 10);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
 
-function runCurl(url) {
-  const result = spawnSync(
-    'curl',
-    [
-      '--silent',
-      '--show-error',
-      '--location',
-      '--fail',
-      '--connect-timeout',
-      String(CURL_CONNECT_TIMEOUT_SECONDS),
-      '--max-time',
-      String(CURL_MAX_TIME_SECONDS),
-      url,
-    ],
-    { encoding: 'utf8', timeout: CURL_PROCESS_TIMEOUT_MS, killSignal: 'SIGKILL' },
-  );
-  if (result.error) throw new Error(`curl invocation failed for ${url}: ${result.error.message}`);
-  if (result.status !== 0) {
-    const stderr = String(result.stderr ?? '').trim();
-    throw new Error(`curl failed for ${url}${stderr ? ` (${stderr})` : ''}`);
+const CURL_CONNECT_TIMEOUT_SECONDS = positiveIntFromEnv('EVIDENCE_CURL_CONNECT_TIMEOUT_SECONDS', 8);
+const CURL_MAX_TIME_SECONDS = positiveIntFromEnv('EVIDENCE_CURL_MAX_TIME_SECONDS', 20);
+const CURL_PROCESS_TIMEOUT_MS = positiveIntFromEnv('EVIDENCE_CURL_PROCESS_TIMEOUT_MS', 25_000);
+const CURL_RETRY_MAX_RETRIES = 2;
+const CURL_RETRY_BASE_BACKOFF_MS = 250;
+const RETRY_VALIDATION_MODE = process.env.EVIDENCE_RETRY_VALIDATION_MODE === '1';
+const RETRY_VALIDATION_MAX_INJECTIONS = positiveIntFromEnv('EVIDENCE_RETRY_VALIDATION_MAX_INJECTIONS', 0);
+const RETRY_VALIDATION_FAILURE_SEQUENCE = String(process.env.EVIDENCE_RETRY_VALIDATION_FAILURE_SEQUENCE || '429,503,timeout')
+  .split(',')
+  .map((part) => part.trim().toLowerCase())
+  .filter(Boolean);
+
+const providerRequestTelemetry = new Map();
+const retryValidationInjectedRequestKeys = new Set();
+let retryValidationInjectedCount = 0;
+
+function sleepMs(ms) {
+  if (!Number.isFinite(ms) || ms <= 0) return;
+  const shared = new SharedArrayBuffer(4);
+  const view = new Int32Array(shared);
+  Atomics.wait(view, 0, 0, ms);
+}
+
+function telemetryForProvider(provider) {
+  const key = String(provider || 'unknown');
+  if (!providerRequestTelemetry.has(key)) {
+    providerRequestTelemetry.set(key, {
+      requests_attempted: 0,
+      requests_succeeded: 0,
+      requests_failed: 0,
+      requests_retried: 0,
+      transient_failures_by_type: {},
+      timeout_failures: 0,
+      '429_count': 0,
+      '503_count': 0,
+    });
   }
-  return result.stdout;
+  return providerRequestTelemetry.get(key);
+}
+
+function classifyCurlFailure(errorMessage) {
+  const msg = String(errorMessage || '').toLowerCase();
+  const statusMatch = msg.match(/error:\s*(\d{3})/);
+  const status = statusMatch ? Number.parseInt(statusMatch[1], 10) : null;
+  const retryableStatus = new Set([429, 500, 502, 503, 504]);
+  const transientTransportPatterns = [
+    /timed out/,
+    /timeout/,
+    /connection reset/,
+    /could not connect/,
+    /recv failure/,
+    /empty reply from server/,
+    /temporary failure/,
+    /connection refused/,
+    /operation too slow/,
+  ];
+  const isTransportTransient = transientTransportPatterns.some((pattern) => pattern.test(msg));
+  const isTimeout = /timed out|timeout|operation timed out|max-time/.test(msg);
+  const isTransient = (status != null && retryableStatus.has(status)) || isTransportTransient;
+  const type = status != null ? `http_${status}` : (isTimeout ? 'timeout' : 'transport');
+  return { status, isTransient, isTimeout, type };
+}
+
+function simulatedTransientFailureMessage(url) {
+  if (!RETRY_VALIDATION_MODE || RETRY_VALIDATION_MAX_INJECTIONS <= 0) return null;
+  if (RETRY_VALIDATION_FAILURE_SEQUENCE.length === 0) return null;
+  if (retryValidationInjectedCount >= RETRY_VALIDATION_MAX_INJECTIONS) return null;
+  const key = String(url);
+  if (retryValidationInjectedRequestKeys.has(key)) return null;
+  const failureType = RETRY_VALIDATION_FAILURE_SEQUENCE[retryValidationInjectedCount % RETRY_VALIDATION_FAILURE_SEQUENCE.length];
+  retryValidationInjectedRequestKeys.add(key);
+  retryValidationInjectedCount += 1;
+  if (failureType === '429' || failureType === 'http_429') {
+    return `curl failed for ${url} (curl: (22) The requested URL returned error: 429)`;
+  }
+  if (failureType === '503' || failureType === 'http_503') {
+    return `curl failed for ${url} (curl: (22) The requested URL returned error: 503)`;
+  }
+  return `curl invocation failed for ${url}: operation timed out`;
+}
+
+function runCurl(url, provider = 'unknown') {
+  const telemetry = telemetryForProvider(provider);
+  for (let attempt = 0; attempt <= CURL_RETRY_MAX_RETRIES; attempt += 1) {
+    telemetry.requests_attempted += 1;
+    const injectedError = attempt === 0 ? simulatedTransientFailureMessage(url) : null;
+    if (injectedError) {
+      const failure = classifyCurlFailure(injectedError);
+      if (failure.isTransient) {
+        telemetry.transient_failures_by_type[failure.type] = (telemetry.transient_failures_by_type[failure.type] ?? 0) + 1;
+      }
+      if (failure.isTimeout) telemetry.timeout_failures += 1;
+      if (failure.status === 429) telemetry['429_count'] += 1;
+      if (failure.status === 503) telemetry['503_count'] += 1;
+      if (attempt < CURL_RETRY_MAX_RETRIES) {
+        telemetry.requests_retried += 1;
+        const jitter = Math.floor(Math.random() * 100);
+        const delay = (CURL_RETRY_BASE_BACKOFF_MS * (2 ** attempt)) + jitter;
+        sleepMs(delay);
+        continue;
+      }
+      telemetry.requests_failed += 1;
+      throw new Error(injectedError);
+    }
+    const result = spawnSync(
+      'curl',
+      [
+        '--silent',
+        '--show-error',
+        '--location',
+        '--fail',
+        '--connect-timeout',
+        String(CURL_CONNECT_TIMEOUT_SECONDS),
+        '--max-time',
+        String(CURL_MAX_TIME_SECONDS),
+        url,
+      ],
+      { encoding: 'utf8', timeout: CURL_PROCESS_TIMEOUT_MS, killSignal: 'SIGKILL' },
+    );
+    if (!result.error && result.status === 0) {
+      telemetry.requests_succeeded += 1;
+      return result.stdout;
+    }
+    const errorMessage = result.error
+      ? `curl invocation failed for ${url}: ${result.error.message}`
+      : (() => {
+        const stderr = String(result.stderr ?? '').trim();
+        return `curl failed for ${url}${stderr ? ` (${stderr})` : ''}`;
+      })();
+    const failure = classifyCurlFailure(errorMessage);
+    if (failure.isTransient) {
+      telemetry.transient_failures_by_type[failure.type] = (telemetry.transient_failures_by_type[failure.type] ?? 0) + 1;
+    }
+    if (failure.isTimeout) telemetry.timeout_failures += 1;
+    if (failure.status === 429) telemetry['429_count'] += 1;
+    if (failure.status === 503) telemetry['503_count'] += 1;
+    if (failure.isTransient && attempt < CURL_RETRY_MAX_RETRIES) {
+      telemetry.requests_retried += 1;
+      const jitter = Math.floor(Math.random() * 100);
+      const delay = (CURL_RETRY_BASE_BACKOFF_MS * (2 ** attempt)) + jitter;
+      sleepMs(delay);
+      continue;
+    }
+    telemetry.requests_failed += 1;
+    throw new Error(errorMessage);
+  }
+  telemetry.requests_failed += 1;
+  throw new Error(`curl failed for ${url}`);
 }
 
 function domainQuality(url) {
@@ -188,7 +317,7 @@ function pubmedSearch(term, retmax = 8) {
   url.searchParams.set('sort', 'relevance');
   url.searchParams.set('retmax', String(retmax));
   url.searchParams.set('term', term);
-  const json = JSON.parse(runCurl(url.toString()));
+  const json = JSON.parse(runCurl(url.toString(), 'pubmed'));
   return json?.esearchresult?.idlist ?? [];
 }
 
@@ -199,7 +328,7 @@ function pmcSearch(term, retmax = 8) {
   url.searchParams.set('sort', 'relevance');
   url.searchParams.set('retmax', String(retmax));
   url.searchParams.set('term', term);
-  const json = JSON.parse(runCurl(url.toString()));
+  const json = JSON.parse(runCurl(url.toString(), 'nih_ncbi_pmc'));
   return json?.esearchresult?.idlist ?? [];
 }
 
@@ -209,7 +338,7 @@ function pmcSummaries(ids) {
   url.searchParams.set('db', 'pmc');
   url.searchParams.set('retmode', 'json');
   url.searchParams.set('id', ids.join(','));
-  const json = JSON.parse(runCurl(url.toString()));
+  const json = JSON.parse(runCurl(url.toString(), 'nih_ncbi_pmc'));
   return ids.map((id) => ({ id, ...(json?.result?.[id] ?? {}) })).filter((entry) => entry?.title);
 }
 
@@ -219,7 +348,7 @@ function pubmedSummaries(ids) {
   url.searchParams.set('db', 'pubmed');
   url.searchParams.set('retmode', 'json');
   url.searchParams.set('id', ids.join(','));
-  const json = JSON.parse(runCurl(url.toString()));
+  const json = JSON.parse(runCurl(url.toString(), 'pubmed'));
   return ids.map((id) => ({ id, ...(json?.result?.[id] ?? {}) })).filter((entry) => entry?.title);
 }
 
@@ -229,7 +358,7 @@ function pubmedAbstract(pmid) {
   url.searchParams.set('rettype', 'abstract');
   url.searchParams.set('retmode', 'text');
   url.searchParams.set('id', String(pmid));
-  return runCurl(url.toString());
+  return runCurl(url.toString(), 'pubmed');
 }
 
 function pmcAbstract(pmcId) {
@@ -238,13 +367,13 @@ function pmcAbstract(pmcId) {
   url.searchParams.set('rettype', 'abstract');
   url.searchParams.set('retmode', 'text');
   url.searchParams.set('id', String(pmcId));
-  return runCurl(url.toString());
+  return runCurl(url.toString(), 'nih_ncbi_pmc');
 }
 
 function pubchemAutocomplete(term, limit = 6) {
   const url = new URL(`https://pubchem.ncbi.nlm.nih.gov/rest/autocomplete/compound/${encodeURIComponent(term)}/JSON`);
   url.searchParams.set('limit', String(limit));
-  const json = JSON.parse(runCurl(url.toString()));
+  const json = JSON.parse(runCurl(url.toString(), 'pubchem_structured'));
   return json?.dictionary_terms?.compound ?? [];
 }
 
@@ -252,12 +381,12 @@ function chemblMoleculeSearch(term, limit = 6) {
   const url = new URL('https://www.ebi.ac.uk/chembl/api/data/molecule/search.json');
   url.searchParams.set('q', term);
   url.searchParams.set('limit', String(limit));
-  const json = JSON.parse(runCurl(url.toString()));
+  const json = JSON.parse(runCurl(url.toString(), 'chembl_structured'));
   return json?.molecules ?? [];
 }
 
 function keggCompoundSearch(term, limit = 8) {
-  const response = runCurl(`https://rest.kegg.jp/find/compound/${encodeURIComponent(term)}`);
+  const response = runCurl(`https://rest.kegg.jp/find/compound/${encodeURIComponent(term)}`, 'kegg_structured');
   return response
     .split('\n')
     .map((line) => line.trim())
@@ -275,7 +404,7 @@ function europePmcSearch(query, pageSize = 8) {
   url.searchParams.set('format', 'json');
   url.searchParams.set('resultType', 'core');
   url.searchParams.set('pageSize', String(pageSize));
-  const json = JSON.parse(runCurl(url.toString()));
+  const json = JSON.parse(runCurl(url.toString(), 'europe_pmc'));
   return json?.resultList?.result ?? [];
 }
 
@@ -1469,6 +1598,18 @@ async function main() {
       note: 'Patches are emitted in ops/evidence-acquisition and can be promoted to patches/ after human review.',
     },
     retrievalSummary: {
+      retryValidation: {
+        enabled: RETRY_VALIDATION_MODE,
+        maxInjections: RETRY_VALIDATION_MAX_INJECTIONS,
+        appliedInjections: retryValidationInjectedCount,
+      },
+      providerRequestTelemetry: (() => {
+        const output = {};
+        for (const [provider, telemetry] of [...providerRequestTelemetry.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+          output[provider] = telemetry;
+        }
+        return output;
+      })(),
       providerMetrics: (() => {
         const metrics = {};
         const allRows = [...accepted, ...rejected];
