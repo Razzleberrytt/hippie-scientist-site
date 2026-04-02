@@ -88,6 +88,19 @@ function summarizeProviderMetrics(latestRun) {
   return metrics && typeof metrics === 'object' ? metrics : {};
 }
 
+function summarizeChemblTelemetry(latestRun) {
+  const telemetry = latestRun?.payload?.retrievalSummary?.chemblTelemetry;
+  if (telemetry && typeof telemetry === 'object') return telemetry;
+  const fallback = latestRun?.payload?.retrievalSummary?.providerMetrics?.chembl_structured ?? {};
+  return {
+    queried: fallback.queried ?? 0,
+    candidates: fallback.candidates ?? 0,
+    accepted: fallback.accepted ?? 0,
+    acceptanceRate: fallback.acceptanceRate ?? 0,
+    topRejectionReasons: [],
+  };
+}
+
 function loadEvidenceRuns() {
   const runDir = join(REPO_ROOT, 'ops', 'evidence-acquisition');
   const files = readdirSync(runDir)
@@ -342,6 +355,7 @@ function markdownReport({
   sourceTierDistribution,
   sourceContributionBreakdown,
   providerMetrics,
+  chemblTelemetry,
 }) {
   const topFields = Object.entries(coverageSummary.completionByFieldType)
     .sort((a, b) => b[1].missing - a[1].missing)
@@ -363,13 +377,17 @@ function markdownReport({
   const providerLines = Object.entries(providerMetrics)
     .map(([provider, row]) => `- ${provider}: queried=${row.queried}, candidates=${row.candidates}, accepted=${row.accepted}, acceptanceRate=${row.acceptanceRate}%`)
     .join('\n') || '- none';
+  const chemblRejectionLines = (chemblTelemetry.topRejectionReasons ?? [])
+    .slice(0, 8)
+    .map((row) => `- ${row.reason}: ${row.count}`)
+    .join('\n') || '- none';
 
   const fieldTable = TARGET_FIELDS.map((field) => {
     const row = fieldBreakdown[field];
     return `| ${field} | ${row.totalMissingBeforeRun} | ${row.acceptedFills} | ${row.rejectedAttempts} | ${row.stillUnresolved} | ${row.acceptanceRate}% |`;
   }).join('\n');
 
-  return `# Evidence Acquisition Coverage + Prioritization\n\n- Generated at: ${generatedAt}\n- Run ID: ${runId}\n\n## Coverage Summary\n\n- Total herbs: ${coverageSummary.totals.totalHerbs}\n- Total target fields: ${coverageSummary.totals.totalTargetFields}\n- Completed fields: ${coverageSummary.totals.completedFields}\n- Missing fields: ${coverageSummary.totals.missingFields}\n- Fields filled by evidence engine: ${coverageSummary.totals.fieldsFilledByEvidenceEngine}\n- Fields rejected by evidence engine: ${coverageSummary.totals.fieldsRejectedByEvidenceEngine}\n- Unresolved fields: ${coverageSummary.totals.unresolvedFields}\n- Completion overall: ${coverageSummary.totals.completionPctOverall}%\n\n### Top unresolved field types\n${topFields}\n\n## Field-level Breakdown (latest run)\n\n| Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |\n|---|---:|---:|---:|---:|---:|\n${fieldTable}\n\n## Top 10 Priority Herbs\n\n${topQueue}\n\n## Rejection Analytics\n\n${topRejections}\n\n## Accepted Source Tier Distribution (latest run)\n\n${tierLines}\n\n## Accepted Source Contributions (latest run)\n\n${sourceContributionLines}\n\n## Provider Performance (latest run)\n\n${providerLines}\n`;
+  return `# Evidence Acquisition Coverage + Prioritization\n\n- Generated at: ${generatedAt}\n- Run ID: ${runId}\n\n## Coverage Summary\n\n- Total herbs: ${coverageSummary.totals.totalHerbs}\n- Total target fields: ${coverageSummary.totals.totalTargetFields}\n- Completed fields: ${coverageSummary.totals.completedFields}\n- Missing fields: ${coverageSummary.totals.missingFields}\n- Fields filled by evidence engine: ${coverageSummary.totals.fieldsFilledByEvidenceEngine}\n- Fields rejected by evidence engine: ${coverageSummary.totals.fieldsRejectedByEvidenceEngine}\n- Unresolved fields: ${coverageSummary.totals.unresolvedFields}\n- Completion overall: ${coverageSummary.totals.completionPctOverall}%\n\n### Top unresolved field types\n${topFields}\n\n## Field-level Breakdown (latest run)\n\n| Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |\n|---|---:|---:|---:|---:|---:|\n${fieldTable}\n\n## Top 10 Priority Herbs\n\n${topQueue}\n\n## Rejection Analytics\n\n${topRejections}\n\n## Accepted Source Tier Distribution (latest run)\n\n${tierLines}\n\n## Accepted Source Contributions (latest run)\n\n${sourceContributionLines}\n\n## Provider Performance (latest run)\n\n${providerLines}\n\n## ChEMBL Telemetry (latest run)\n\n- queried=${chemblTelemetry.queried}\n- candidates=${chemblTelemetry.candidates}\n- accepted=${chemblTelemetry.accepted}\n- acceptanceRate=${chemblTelemetry.acceptanceRate}%\n- topRejectionReasons:\n${chemblRejectionLines}\n`;
 }
 
 function main() {
@@ -392,6 +410,7 @@ function main() {
   const sourceTierDistribution = summarizeSourceTiers(latestRun);
   const sourceContributionBreakdown = summarizeAcceptedSourceContributions(latestRun);
   const providerMetrics = summarizeProviderMetrics(latestRun);
+  const chemblTelemetry = summarizeChemblTelemetry(latestRun);
 
   const generatedAt = nowIso();
   const artifact = {
@@ -405,6 +424,7 @@ function main() {
     sourceTierDistribution,
     sourceContributionBreakdown,
     providerMetrics,
+    chemblTelemetry,
   };
 
   const outDir = join(REPO_ROOT, options.outDir);
@@ -446,6 +466,7 @@ function main() {
     sourceTierDistribution,
     sourceContributionBreakdown,
     providerMetrics,
+    chemblTelemetry,
   });
   writeFileSync(join(outDir, 'coverage-prioritization.latest.md'), markdown);
   writeFileSync(join(historyDir, `coverage-prioritization.${latestRun.runId}.md`), markdown);
@@ -459,6 +480,7 @@ function main() {
   const tierSummary = Object.entries(sourceTierDistribution).map(([tier, count]) => `${tier}:${count}`).join(', ');
   const sourceSummary = Object.entries(sourceContributionBreakdown).slice(0, 5).map(([source, count]) => `${source}:${count}`).join(', ');
   const providerSummary = Object.entries(providerMetrics).slice(0, 6).map(([provider, row]) => `${provider}:q${row.queried}/c${row.candidates}/a${row.accepted}`).join(', ');
+  const chemblTopRejections = (chemblTelemetry.topRejectionReasons ?? []).slice(0, 5).map((row) => `${row.reason}:${row.count}`).join(', ');
 
   console.log(`[evidence-report] run=${latestRun.runId} queue=${priorityQueue.length}`);
   console.log(`[evidence-report] top-10=${priorityQueue.slice(0, 10).map((item) => item.herb).join(',')}`);
@@ -467,6 +489,8 @@ function main() {
   console.log(`[evidence-report] accepted-tier-distribution=${tierSummary}`);
   console.log(`[evidence-report] accepted-source-contributions=${sourceSummary}`);
   console.log(`[evidence-report] provider-performance=${providerSummary}`);
+  console.log(`[evidence-report] chembl=q${chemblTelemetry.queried}/c${chemblTelemetry.candidates}/a${chemblTelemetry.accepted}/r${chemblTelemetry.acceptanceRate}%`);
+  console.log(`[evidence-report] chembl-top-rejections=${chemblTopRejections}`);
   console.log(`[evidence-report] output=${options.outDir}`);
 }
 
