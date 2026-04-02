@@ -22,6 +22,7 @@ const reportJsonPath = path.join(root, 'ops/reports/homepage-enrichment-refresh.
 const reportMdPath = path.join(root, 'ops/reports/homepage-enrichment-refresh.md')
 
 const CURATED_FALLBACK = ['withania-somnifera-ashwagandha', 'rhodiola-rosea', 'passionflower', 'caffeine', 'quercetin']
+const CURATED_FALLBACK_EXPANDED = [...CURATED_FALLBACK, 'curcumin', 'l-theanine', 'omega-3-fatty-acids']
 const POPULAR_EFFECTS = ['sleep', 'relaxation', 'focus', 'stress support', 'mood']
 const PUBLISHABLE_EDITORIAL_STATUSES = new Set(['approved', 'published'])
 const MIN_FALLBACK_FEATURE_QUALITY = 24
@@ -268,6 +269,20 @@ function formatReviewDate(isoString) {
   return date.toISOString().slice(0, 10)
 }
 
+function slugSetFromRows(rows) {
+  const set = new Set()
+  for (const row of Array.isArray(rows) ? rows : []) {
+    const slug = cleanText(row?.slug)
+    if (slug) set.add(slug)
+  }
+  return set
+}
+
+function slugSetFromManifest(manifest, kind) {
+  const rows = Array.isArray(manifest?.entities?.[kind]) ? manifest.entities[kind] : []
+  return slugSetFromRows(rows)
+}
+
 function buildHomepageData() {
   const herbs = readJson(herbsPath)
   const herbsSummary = readJson(herbsSummaryPath)
@@ -284,13 +299,35 @@ function buildHomepageData() {
     : { herbs: herbs.length, compounds: compounds.length, articles: 0 }
 
   const { publishableByEntity, blockedByEntity } = getGovernedMap(governed)
+  const publicationHerbSlugs = (() => {
+    const fromManifest = slugSetFromManifest(publicationManifest, 'herbs')
+    if (fromManifest.size > 0) return fromManifest
+    return slugSetFromManifest(publicationIndex, 'herbs')
+  })()
+  const publicationCompoundSlugs = (() => {
+    const fromManifest = slugSetFromManifest(publicationManifest, 'compounds')
+    if (fromManifest.size > 0) return fromManifest
+    return slugSetFromManifest(publicationIndex, 'compounds')
+  })()
+  const indexableHerbSlugs = slugSetFromRows(indexableHerbs)
+  const indexableCompoundSlugs = slugSetFromRows(indexableCompounds)
+  const homepageHerbSlugs =
+    indexableHerbSlugs.size > 0 ? new Set([...indexableHerbSlugs].filter(slug => publicationHerbSlugs.has(slug))) : publicationHerbSlugs
+  const homepageCompoundSlugs =
+    indexableCompoundSlugs.size > 0
+      ? new Set([...indexableCompoundSlugs].filter(slug => publicationCompoundSlugs.has(slug)))
+      : publicationCompoundSlugs
+
   const indexableSet = new Set([
-    ...indexableHerbs.map(row => `herb:${cleanText(row.slug)}`),
-    ...indexableCompounds.map(row => `compound:${cleanText(row.slug)}`),
+    ...[...indexableHerbSlugs].map(slug => `herb:${slug}`),
+    ...[...indexableCompoundSlugs].map(slug => `compound:${slug}`),
   ])
 
-  const effectExplorerHerbs = (Array.isArray(herbs) ? herbs : [])
+  const herbItemBySlug = new Map((Array.isArray(herbsSummary) ? herbsSummary : []).map(item => [cleanText(item.slug), item]))
+  const compoundItemBySlug = new Map((Array.isArray(compoundsSummary) ? compoundsSummary : []).map(item => [cleanText(item.slug), item]))
+  const effectExplorerHerbs = (Array.isArray(herbsSummary) ? herbsSummary : [])
     .filter(herb => isRenderableEntity(herb.slug, herb.common || herb.name || herb.scientific))
+    .filter(herb => homepageHerbSlugs.has(cleanText(herb.slug)))
     .map(herb => ({
       slug: cleanText(herb.slug),
       id: cleanText(herb.id || herb.slug),
@@ -298,12 +335,12 @@ function buildHomepageData() {
       common: cleanText(herb.common),
       scientific: cleanText(herb.scientific),
       effects: splitClean(herb.effects),
-      effectsSummary: cleanText(herb.effectsSummary),
+      effectsSummary: cleanText(herb.effectsSummary || herb.summaryShort),
       description: cleanText(herb.description),
       mechanism: cleanText(herb.mechanism || herb.mechanismOfAction),
-      safety: cleanText(herb.safety || herb.sideEffects || herb.contraindicationsText),
-      sideEffects: splitClean(herb.sideEffects ?? herb.sideeffects),
-      contraindicationsText: cleanText(herb.contraindicationsText),
+      safety: '',
+      sideEffects: [],
+      contraindicationsText: '',
       tags: splitClean(herb.tags),
       activeCompounds: splitClean(herb.activeCompounds ?? herb.active_compounds ?? herb.compounds),
       active_compounds: splitClean(herb.activeCompounds ?? herb.active_compounds ?? herb.compounds),
@@ -311,18 +348,10 @@ function buildHomepageData() {
       confidence: ['high', 'medium', 'low'].includes(cleanText(herb.confidence).toLowerCase())
         ? cleanText(herb.confidence).toLowerCase()
         : 'low',
-      productRecommendations: Array.isArray(herb.productRecommendations)
-        ? herb.productRecommendations.slice(0, 2).map(item => ({
-            label: cleanText(item?.label),
-            type: cleanText(item?.type),
-            url: cleanText(item?.url),
-          }))
-        : [],
+      productRecommendations: [],
       __raw: herb,
     }))
 
-  const herbItemBySlug = new Map((Array.isArray(herbsSummary) ? herbsSummary : []).map(item => [cleanText(item.slug), item]))
-  const compoundItemBySlug = new Map((Array.isArray(compoundsSummary) ? compoundsSummary : []).map(item => [cleanText(item.slug), item]))
   const herbSourceBuckets = sourceCountBuckets((Array.isArray(herbs) ? herbs : []).map(gatherSourceInputs))
   const compoundSourceBuckets = sourceCountBuckets((Array.isArray(compounds) ? compounds : []).map(gatherSourceInputs))
 
@@ -357,8 +386,9 @@ function buildHomepageData() {
     }
   })
 
-  const compoundItems = (Array.isArray(compounds) ? compounds : [])
+  const compoundItems = (Array.isArray(compoundsSummary) ? compoundsSummary : [])
     .filter(compound => isRenderableEntity(compound.slug, compound.name))
+    .filter(compound => homepageCompoundSlugs.has(cleanText(compound.slug)))
     .map(compound => {
       const slug = cleanText(compound.slug)
       const key = `compound:${slug}`
@@ -402,7 +432,9 @@ function buildHomepageData() {
     all.filter(item => !item.quality.flags.hasPlaceholderText && item.quality.score >= MIN_FALLBACK_FEATURE_QUALITY),
   )
 
-  const featuredPool = (governedHighlights.length ? governedHighlights : fallbackPool).slice(0, 24)
+  const featuredPoolBase = governedHighlights.length ? governedHighlights : fallbackPool
+  const featuredPool = [...featuredPoolBase, ...fallbackPool.filter(item => !featuredPoolBase.some(seed => seed.slug === item.slug))]
+    .slice(0, 24)
 
   const diverseFeatured = (() => {
     const governedHerbs = sortByScore(governedHighlights.filter(item => item.kind === 'herb')).slice(0, 4)
@@ -412,13 +444,14 @@ function buildHomepageData() {
     return featuredPool.slice(0, 5)
   })()
 
-  const curatedFromSlugs = CURATED_FALLBACK.map(slug => sortByScore(all).find(item => item.slug === slug)).filter(
+  const curatedFromSlugs = CURATED_FALLBACK_EXPANDED.map(slug => sortByScore(all).find(item => item.slug === slug)).filter(
     item => Boolean(item && item.quality.score >= MIN_FALLBACK_FEATURE_QUALITY),
   )
 
   const curatedGoverned = sortByScore(governedHighlights).slice(0, 3)
   const curatedFallback = sortByScore(featuredPool).slice(0, 3)
-  const curated = (curatedGoverned.length >= 2 ? [...curatedGoverned, ...curatedFromSlugs] : curatedFallback).slice(0, 3)
+  const curatedSeeds = curatedGoverned.length >= 2 ? [...curatedGoverned, ...curatedFromSlugs, ...curatedFallback] : curatedFallback
+  const curated = [...new Map(curatedSeeds.map(item => [toEntityKey(item), item])).values()].slice(0, 3)
 
   const trustBadges = [
     `Governed enrichment on entry points: ${governedHighlights.length} approved, publishable profiles (blocked/unreviewed excluded).`,
