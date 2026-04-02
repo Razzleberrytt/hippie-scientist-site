@@ -5,10 +5,10 @@ import { countBootstrapSources, sourceCountBuckets } from './source-normalizatio
 const ROOT = process.cwd()
 
 const QUALITY_THRESHOLDS = {
-  minDescriptionLength: 30,
-  minSources: 2,
-  minEffects: 1,
-  minCompletenessScore: 0.4,
+  strongDescriptionLength: 60,
+  strongMinSources: 2,
+  publishableDescriptionLength: 20,
+  publishableMinSources: 1,
   minSlugLength: 2,
 }
 
@@ -109,6 +109,38 @@ function hasUsableDescription(record) {
   return true
 }
 
+function supportingFieldCount(record) {
+  const effectCount = countEffects(record)
+  const mechanism = asText(record?.mechanism || record?.mechanismOfAction)
+  const safetyCount =
+    asArray(record?.contraindications).map(asText).filter(Boolean).length +
+    asArray(record?.interactions).map(asText).filter(Boolean).length +
+    (asText(record?.safetyNotes || record?.safety).length > 0 ? 1 : 0)
+  const activeContextCount =
+    asArray(record?.activeCompounds ?? record?.active_compounds ?? record?.compounds).map(asText).filter(Boolean).length +
+    asArray(record?.herbs).map(asText).filter(Boolean).length
+  const categoryCount = [
+    record?.category,
+    record?.class,
+    record?.className,
+    record?.therapeuticClass,
+    record?.traditionalUse,
+  ]
+    .map(asText)
+    .filter(Boolean).length
+
+  return [effectCount > 0, mechanism.length > 0, safetyCount > 0, activeContextCount > 0, categoryCount > 0].filter(Boolean).length
+}
+
+function hasLinkedContext(record) {
+  return (
+    asArray(record?.activeCompounds ?? record?.active_compounds ?? record?.compounds).map(asText).filter(Boolean).length > 0 ||
+    asArray(record?.herbs).map(asText).filter(Boolean).length > 0 ||
+    asArray(record?.relatedHerbs).map(asText).filter(Boolean).length > 0 ||
+    asArray(record?.relatedCompounds).map(asText).filter(Boolean).length > 0
+  )
+}
+
 function hasValidName(record) {
   const name = asText(record?.name || record?.commonName || record?.common || record?.latinName || record?.latin)
   const slug = slugify(record?.slug || name || record?.id)
@@ -152,33 +184,48 @@ function auditEntity(record, type) {
     effectCount: countEffects(record),
   }
 
+  const descriptionLength = asText(record?.description).length
+  const hasSummary = asText(record?.summary).length > 0
+  const sourceCountNormalized = flags.sourceCount
+  const supportingFields = supportingFieldCount(record)
+  const hasUsefulSupportingField = supportingFields > 0
+  const hasMeaningfulLinkedContext = hasLinkedContext(record)
+  const stronglyCorrupted = flags.hasNanArtifacts || /^\[object\s+object\]$/i.test(asText(record?.description))
+  const hasAnyUsefulContent = descriptionLength > 0 || hasSummary || sourceCountNormalized > 0 || hasUsefulSupportingField
+
+  const isStrong =
+    descriptionLength >= QUALITY_THRESHOLDS.strongDescriptionLength &&
+    sourceCountNormalized >= QUALITY_THRESHOLDS.strongMinSources &&
+    hasUsefulSupportingField
+
+  const isPublishable =
+    (descriptionLength >= QUALITY_THRESHOLDS.publishableDescriptionLength || hasSummary) &&
+    (sourceCountNormalized >= QUALITY_THRESHOLDS.publishableMinSources || hasMeaningfulLinkedContext) &&
+    hasUsefulSupportingField
+
+  const shouldExclude = !flags.hasValidName || stronglyCorrupted || !hasAnyUsefulContent
+
   const completenessScore = scoreRecord(record)
   const tier = tierFromScore(completenessScore)
-  const passesIndexThreshold =
-    flags.hasValidName &&
-    flags.hasUsableDescription &&
-    !flags.hasPlaceholderText &&
-    !flags.hasNanArtifacts &&
-    flags.effectCount >= QUALITY_THRESHOLDS.minEffects
+  const qualityTier = shouldExclude ? 'excluded' : isStrong ? 'strong' : isPublishable ? 'publishable' : 'needs_work'
+  const publicationEligible = qualityTier === 'strong' || qualityTier === 'publishable'
 
   const exclusionReasons = []
   if (!flags.hasValidName) exclusionReasons.push('invalidNameOrSlug')
-  if (!flags.hasUsableDescription) exclusionReasons.push('weakDescription')
-  if (flags.hasPlaceholderText) exclusionReasons.push('placeholderText')
-  if (flags.hasNanArtifacts) exclusionReasons.push('nanArtifacts')
-  if (flags.effectCount < QUALITY_THRESHOLDS.minEffects) exclusionReasons.push('insufficientEffects')
-  if (flags.sourceCount < QUALITY_THRESHOLDS.minSources && completenessScore < QUALITY_THRESHOLDS.minCompletenessScore) {
-    exclusionReasons.push('insufficientEvidenceOrCompleteness')
-  }
+  if (stronglyCorrupted) exclusionReasons.push('corruptedContent')
+  if (!hasAnyUsefulContent) exclusionReasons.push('noUsefulContent')
 
   return {
     slug,
     route,
     name,
     flags,
+    sourceCountNormalized,
+    qualityTier,
+    publicationEligible,
     completenessScore,
     tier,
-    passesIndexThreshold,
+    passesIndexThreshold: publicationEligible,
     exclusionReasons,
   }
 }
@@ -207,29 +254,34 @@ function buildPublicationEntry(record, type, audit) {
     description,
     completenessScore: audit.completenessScore,
     tier: audit.tier,
+    qualityTier: audit.qualityTier,
+    sourceCountNormalized: audit.sourceCountNormalized,
+    publicationEligible: audit.publicationEligible,
     lastmod,
   }
 }
 
 function summarizeAudits(audits) {
   const excludedByReason = {}
+  const tierCounts = { strong: 0, publishable: 0, needs_work: 0, excluded: 0 }
   let indexable = 0
 
   for (const audit of audits) {
-    if (audit.passesIndexThreshold) {
+    tierCounts[audit.qualityTier] = (tierCounts[audit.qualityTier] || 0) + 1
+    if (audit.publicationEligible) {
       indexable += 1
-      continue
-    }
-
-    for (const reason of audit.exclusionReasons) {
-      excludedByReason[reason] = (excludedByReason[reason] || 0) + 1
+    } else if (audit.qualityTier === 'excluded') {
+      for (const reason of audit.exclusionReasons) {
+        excludedByReason[reason] = (excludedByReason[reason] || 0) + 1
+      }
     }
   }
 
   return {
     total: audits.length,
     indexable,
-    excluded: audits.length - indexable,
+    excluded: tierCounts.excluded,
+    tierCounts,
     excludedByReason,
   }
 }

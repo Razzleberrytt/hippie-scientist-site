@@ -23,8 +23,23 @@ function normalizeSourceEntriesInner(value) {
   return []
 }
 
+function sourceDedupeKey(value) {
+  const text = asText(value).replace(/\s+/g, ' ')
+  if (!text) return ''
+  if (/^https?:\/\//i.test(text)) return text.replace(/\/+$/g, '').toLowerCase()
+  return text.toLowerCase()
+}
+
 export function normalizeSourceEntries(value) {
-  return normalizeSourceEntriesInner(value)
+  const seen = new Set()
+  const deduped = []
+  for (const entry of normalizeSourceEntriesInner(value)) {
+    const key = sourceDedupeKey(entry)
+    if (!key || seen.has(key)) continue
+    seen.add(key)
+    deduped.push(asText(entry))
+  }
+  return deduped
 }
 
 export function isBootstrapSource(value) {
