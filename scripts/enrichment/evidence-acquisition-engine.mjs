@@ -29,6 +29,33 @@ const FIELD_CUES = {
 
 const VAGUE_LANGUAGE_RE = /\b(may|might|could|potentially|suggests?|appears?|possibly|preliminary)\b/iu;
 const HARD_SPECULATIVE_RE = /\b(more research|further study|unclear|unknown)\b/iu;
+const MECHANISM_ACTION_RE = /\b(agonis(?:t|m)|antagonis(?:t|m)|inhibit(?:or|ion|s|ed)?|activat(?:e|ion|es|ed)|modulat(?:e|ion|es|ed)|reuptake|bind(?:ing|s)?|block(?:s|ed|ade)?|suppress(?:es|ed|ion)?|upregulat(?:e|es|ed|ion)|downregulat(?:e|es|ed|ion))\b/iu;
+const MECHANISM_VAGUE_RE = /\b(calming effect|sedative effect|beneficial effect|therapeutic effect|improves?\s+health|supports?\s+wellness|traditional use)\b/iu;
+const MECHANISM_TARGET_RE = /\b(receptor|enzyme|transporter|uptake|nf-?κ?b|mao|gaba[-\s]*a|dopamine|serotonin|noradrenaline|norepinephrine|pi3k|akt|creb|mapk|tnf-?α?|cox-?2|acetylcholinesterase|butyrylcholinesterase|5-?ht1a|ace|p-?glycoprotein|cyp1a2)\b/iu;
+const WEAK_MECHANISM_FRAGMENT_RE = /\b(other indirect mechanisms?|indirect mechanisms?|various mechanisms?|active biomolecules|strong inhibition on binding to [a-z]\b)\b/iu;
+const WEAK_MECHANISM_QUALIFIER_RE = /\b(weak|slight|limited|uncertain|putative|possible|potential)\b/iu;
+const MECHANISM_CONNECTOR_PREFIX_RE = /^(whereas|thus|therefore|however|moreover|furthermore|in addition|additionally|meanwhile|notably|overall|this suggests?|these suggest|suggesting that)\b[:,]?\s*/iu;
+const SENTENCE_RESIDUE_RE = /\.\.\.|<\/?[a-z][^>]*>|&[a-z]+;|\b(in addition|however|whereas)\b\s*$/iu;
+const NARRATIVE_RE = /\b(was|were|showed|shows|suggests?|demonstrated|reported|caused|resulted|concomitant)\b/iu;
+const GENERIC_TARGET_RE = /^(selective|multiple|various|different|highest|lowest|dose-dependent|pathway|receptor|enzyme|transporter)$/iu;
+const TARGET_RESIDUE_RE = /\b(contain|contains|containing|domain|domains|protein|cell|cells|showing|showed|stimulates?|stimulated|properties|transcription)\b/iu;
+const ALLOWED_MECHANISM_ACTION_RE = /\b(inhibit(?:ion|s|ed)?|activat(?:ion|es|ed)?|agonis(?:m|t)|antagonis(?:m|t)|block(?:ade|er|s|ed)?|induc(?:tion|es|ed)|suppress(?:ion|es|ed)?|modulat(?:ion|es|ed)?)\b/iu;
+const EFFECT_NOT_MECHANISM_RE = /\b(anti-inflammatory|antioxidant|effect|activity|apoptosis induction|cytokine suppression|immune modulation|oxidative stress reduction|inflammation inhibition)\b/iu;
+const GENERIC_PROCESS_TARGET_RE = /\b(pathway|signaling|signalling|cascade|inflammation|inflammatory response|oxidative stress|apoptosis|proliferation|cytokine|immune response|nitric oxide|no production|antioxidant defense|cell viability|mitochondrial dysfunction|nf-?κ?b|mapk)\b/iu;
+const NON_MOLECULAR_TARGET_RE = /\b(pathway|signaling|signalling|cascade|process|response|activity|effect|defense|stress|viability|dysfunction)\b/iu;
+const EXPRESSION_REGULATION_RE = /\b(expression|mRNA|transcript|upregulat(?:e|ion|ed|es)|downregulat(?:e|ion|ed|es)|protein level|gene level)\b/iu;
+const DOWNSTREAM_BIOMARKER_RE = /\b(biomarker|elevation|reduction|increase|decrease|levels?)\b/iu;
+const MECHANISM_SEMANTIC_FIXTURES = loadJson(join(REPO_ROOT, 'scripts', 'enrichment', 'fixtures', 'mechanism-semantic.fixtures.json'));
+const ACTION_TO_LABEL = [
+  { re: /\b(inhibit(?:ion|es|ed|s)?)\b/iu, label: 'inhibition' },
+  { re: /\b(activat(?:ion|es|ed)?)\b/iu, label: 'activation' },
+  { re: /\b(agonis(?:m|t))\b/iu, label: 'agonism' },
+  { re: /\b(antagonis(?:m|t))\b/iu, label: 'antagonism' },
+  { re: /\b(block(?:ade|er|s|ed)?)\b/iu, label: 'blockade' },
+  { re: /\b(induc(?:tion|es|ed)?)\b/iu, label: 'induction' },
+  { re: /\b(suppress(?:ion|es|ed)?)\b/iu, label: 'suppression' },
+  { re: /\b(modulat(?:ion|es|ed)?)\b/iu, label: 'modulation' },
+];
 
 function parseArgs(argv) {
   const out = { herbs: [], maxHerbs: 5, outDir: 'ops/evidence-acquisition', includeLowConfidence: false, focusField: null };
@@ -268,12 +295,235 @@ function isVaguePhrase(value) {
   return HARD_SPECULATIVE_RE.test(value) || (VAGUE_LANGUAGE_RE.test(value) && value.length > 90);
 }
 
+function normalizeMechanismTarget(rawTarget) {
+  return normalizeWhitespace(rawTarget)
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\b(the|a|an|its|their|this|that)\b/giu, ' ')
+    .replace(/\bacts?\s+as\b/giu, ' ')
+    .replace(/^(to|of)\s+/iu, '')
+    .replace(/\b(in mammals?|in humans?|in vitro|in vivo|in dose-dependent manner|dose-dependent manner|by itself|showing highest|showing|associated with|is associated with)\b/giu, ' ')
+    .replace(/\b(on|in|at|by|for|from|with|into|to)\s+$/iu, '')
+    .replace(/[.;,:-]+$/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function hasSpecificMechanismTarget(target) {
+  const normalized = normalizeWhitespace(target).toLowerCase();
+  if (!normalized) return false;
+  const words = normalized.split(/\s+/u).filter(Boolean);
+  if (words.length === 0 || words.length > 6) return false;
+  if (GENERIC_TARGET_RE.test(normalized)) return false;
+  if (TARGET_RESIDUE_RE.test(normalized)) return false;
+  if (GENERIC_PROCESS_TARGET_RE.test(normalized)) return false;
+  if (!MECHANISM_TARGET_RE.test(normalized)) return false;
+  if (words.length <= 2 && /(pathway|receptor|enzyme|transporter)$/iu.test(normalized) && !/(nf-?κ?b|gaba|serotonin|dopamine|mao|pi3k|akt|creb|mapk|tnf|5-?ht1a|cox-?2|acetylcholinesterase|butyrylcholinesterase|ace|p-?glycoprotein|cyp1a2)/iu.test(normalized)) {
+    return false;
+  }
+  return true;
+}
+
+function cleanMechanismSegment(rawSegment) {
+  let text = normalizeWhitespace(rawSegment)
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;|&amp;|&quot;|&lt;|&gt;/g, ' ')
+    .replace(/^[“"'`]+|[”"'`]+$/g, '')
+    .trim();
+  while (MECHANISM_CONNECTOR_PREFIX_RE.test(text)) text = text.replace(MECHANISM_CONNECTOR_PREFIX_RE, '').trim();
+  return text.replace(/^[,;:. -]+|[,;:. -]+$/g, '').trim();
+}
+
+function canonicalizeMechanismPhrase(rawSegment) {
+  const segment = cleanMechanismSegment(rawSegment);
+  const lower = segment.toLowerCase();
+  if (!segment) return { ok: false, reason: 'sentence_residue_detected' };
+  if (SENTENCE_RESIDUE_RE.test(segment)) return { ok: false, reason: 'sentence_residue_detected' };
+  if (EXPRESSION_REGULATION_RE.test(lower)) return { ok: false, reason: 'expression_regulation_not_direct_mechanism' };
+  if (DOWNSTREAM_BIOMARKER_RE.test(lower) && !ALLOWED_MECHANISM_ACTION_RE.test(lower)) return { ok: false, reason: 'downstream_biomarker_change' };
+  if (EFFECT_NOT_MECHANISM_RE.test(lower)) return { ok: false, reason: 'effect_not_mechanism' };
+  if (segment.includes('.') || segment.includes('!') || segment.includes('?')) return { ok: false, reason: 'mechanism_fragment_too_narrative' };
+  if (segment.length < 12 || segment.length > 90) return { ok: false, reason: 'mechanism_fragment_too_narrative' };
+  if (MECHANISM_VAGUE_RE.test(lower) || WEAK_MECHANISM_FRAGMENT_RE.test(lower) || WEAK_MECHANISM_QUALIFIER_RE.test(lower) || isVaguePhrase(segment)) {
+    return { ok: false, reason: 'mechanism_fragment_too_narrative' };
+  }
+
+  const patterns = [
+    { re: /\b(reuptake)\s+inhibition\s+of\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} reuptake inhibition` },
+    { re: /\b(inhibition|activation|modulation|agonism|antagonism)\s+of\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} ${m[1].toLowerCase()}` },
+    { re: /\b(inhibits?|inhibited)\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} inhibition` },
+    { re: /\b(suppresses?|suppressed)\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} suppression` },
+    { re: /\b(blocking|blocks?|blocked)\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} blockade` },
+    { re: /\b(induces?|induced)\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} induction` },
+    { re: /\b(activates?|activated|upregulates?|upregulated)\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} activation` },
+    { re: /\b(modulates?|modulated|downregulates?|downregulated)\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} modulation` },
+    { re: /\b(agonist|agonism)\s+(?:of\s+)?(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} agonism` },
+    { re: /\b(antagonist|antagonism)\s+(?:of\s+)?(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} antagonism` },
+    { re: /\b(.+?)\s+agonist\b/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[1])} agonism` },
+    { re: /\b(.+?)\s+antagonist\b/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[1])} antagonism` },
+    { re: /\b(binding|binds?)\s+to\s+(.+)/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[2])} binding` },
+    { re: /\b([a-z0-9-κ\s]+?)\s+(inhibition|activation|modulation|agonism|antagonism|binding)\b/iu, toPhrase: (m) => `${normalizeMechanismTarget(m[1])} ${m[2].toLowerCase()}` },
+  ];
+
+  let phrase = '';
+  for (const pattern of patterns) {
+    const match = segment.match(pattern.re);
+    if (!match) continue;
+    phrase = normalizeWhitespace(pattern.toPhrase(match));
+    break;
+  }
+  if (!phrase) {
+    if (!ALLOWED_MECHANISM_ACTION_RE.test(segment) && MECHANISM_TARGET_RE.test(segment)) return { ok: false, reason: 'synthesized_action_not_in_source' };
+    if (!ALLOWED_MECHANISM_ACTION_RE.test(segment)) return { ok: false, reason: 'missing_clear_action' };
+    if (!MECHANISM_TARGET_RE.test(segment)) return { ok: false, reason: 'missing_clear_target' };
+    return { ok: false, reason: 'same_span_action_target_not_found' };
+  }
+  if (!ALLOWED_MECHANISM_ACTION_RE.test(segment)) return { ok: false, reason: 'synthesized_action_not_in_source' };
+  if (!ALLOWED_MECHANISM_ACTION_RE.test(phrase)) return { ok: false, reason: 'missing_clear_action' };
+  const phraseMatch = phrase.match(/^(.+?)\s+(reuptake inhibition|inhibition|activation|modulation|agonism|antagonism|binding)$/iu);
+  if (!phraseMatch) return { ok: false, reason: 'mechanism_fragment_too_narrative' };
+  const target = normalizeMechanismTarget(phraseMatch[1]);
+  if (/\b(agonist properties|gene transcription|expression)\b/iu.test(target)) return { ok: false, reason: 'expression_regulation_not_direct_mechanism' };
+  if (!hasSpecificMechanismTarget(target)) {
+    if (!hasSpecificMechanismTarget(target) && MECHANISM_TARGET_RE.test(segment) && !MECHANISM_TARGET_RE.test(target)) {
+      return { ok: false, reason: 'action_bound_to_wrong_object' };
+    }
+    if (GENERIC_PROCESS_TARGET_RE.test(target)) return { ok: false, reason: 'generic_pathway_or_process' };
+    if (NON_MOLECULAR_TARGET_RE.test(target)) return { ok: false, reason: 'target_not_molecular' };
+    return { ok: false, reason: 'missing_clear_target' };
+  }
+  if (NARRATIVE_RE.test(phrase)) return { ok: false, reason: 'mechanism_fragment_too_narrative' };
+  const action = phraseMatch[2].toLowerCase();
+  const normalizedPhrase = `${target} ${action}`
+    .replace(/\bnf-?κ?b\b/giu, 'NF-κB')
+    .replace(/\bmao\b/giu, 'MAO')
+    .replace(/\bgaba[-\s]*a\b/giu, 'GABA-A')
+    .replace(/\btnf-?α?\b/giu, 'TNF-α')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (GENERIC_PROCESS_TARGET_RE.test(normalizedPhrase)) return { ok: false, reason: 'generic_pathway_or_process' };
+  return { ok: true, phrase: normalizedPhrase };
+}
+
+function actionLabelFromSource(segment) {
+  for (const { re, label } of ACTION_TO_LABEL) {
+    if (re.test(segment)) return label;
+  }
+  return null;
+}
+
+function recoverMechanismCandidatesFromMixedSpan(rawSegment) {
+  const segment = cleanMechanismSegment(rawSegment);
+  if (EXPRESSION_REGULATION_RE.test(segment)) return { phrases: [], reason: 'expression_regulation_not_direct_mechanism' };
+  const actionVerbMatches = [...segment.matchAll(/\b(inhibits?|inhibited|suppresses?|suppressed|activates?|activated|modulates?|modulated|induces?|induced|blocks?|blocked)\b/giu)];
+  if (actionVerbMatches.length === 0) return { phrases: [], reason: 'same_span_action_target_not_found' };
+  const labels = [...new Set(actionVerbMatches.map((m) => actionLabelFromSource(m[0])).filter(Boolean))];
+  if (labels.length !== 1) return { phrases: [], reason: 'clause_binding_ambiguous' };
+  const actionLabel = labels[0];
+  const actionVerbMatch = actionVerbMatches[0];
+  const afterAction = normalizeWhitespace(segment.slice(actionVerbMatch.index + actionVerbMatch[0].length));
+  if (!afterAction) return { phrases: [], reason: 'same_span_action_target_not_found' };
+  const chunks = afterAction
+    .split(/\s+and\s+|\s*,\s*/iu)
+    .map((chunk) => normalizeWhitespace(chunk)
+      .replace(/^(the\s+)?activity of\s+/iu, '')
+      .replace(/^(enzyme|receptor|transporter)\s+/iu, '')
+      .replace(/\b(functions?|activity)\b/giu, '')
+      .trim())
+    .filter(Boolean);
+  const recovered = [];
+  for (const match of segment.matchAll(/\bactivity of enzyme\s+([A-Za-z0-9-]+)/giu)) {
+    const target = normalizeMechanismTarget(match[1]);
+    if (!target || GENERIC_PROCESS_TARGET_RE.test(target)) continue;
+    recovered.push(`${target} ${actionLabel}`);
+  }
+  for (const chunk of chunks) {
+    const target = normalizeMechanismTarget(chunk);
+    if (!hasSpecificMechanismTarget(target)) continue;
+    if (GENERIC_PROCESS_TARGET_RE.test(target) || NON_MOLECULAR_TARGET_RE.test(target)) continue;
+    recovered.push(`${target} ${actionLabel}`);
+  }
+  for (const match of segment.matchAll(/\b(CYP[0-9A-Z]+|P-glycoprotein|acetylcholinesterase|butyrylcholinesterase|5-HT1A receptor|ACE|COX-2)\b/giu)) {
+    const target = normalizeMechanismTarget(match[1]);
+    if (!hasSpecificMechanismTarget(target)) continue;
+    recovered.push(`${target} ${actionLabel}`);
+  }
+  const phrases = [...new Set(recovered)].slice(0, 4);
+  if (phrases.length === 0) return { phrases: [], reason: 'action_bound_to_wrong_object' };
+  return { phrases, reason: null };
+}
+
+function assertMechanismSemanticFixtures() {
+  for (const sample of MECHANISM_SEMANTIC_FIXTURES.pass) {
+    const input = typeof sample === 'string' ? sample : sample.input;
+    const expected = typeof sample === 'string' ? null : (Array.isArray(sample.expected) ? sample.expected : null);
+    const extraction = extractMechanismAtomicPhrases(input);
+    const output = extraction.phrases;
+    if (expected) {
+      const normalizedOut = [...output].sort();
+      const normalizedExpected = [...expected].sort();
+      if (JSON.stringify(normalizedOut) !== JSON.stringify(normalizedExpected)) {
+        throw new Error(`mechanism semantic fixture failed pass-case: "${input}" -> ${JSON.stringify(normalizedOut)} expected ${JSON.stringify(normalizedExpected)}`);
+      }
+      continue;
+    }
+    const result = canonicalizeMechanismPhrase(input);
+    if (!result.ok) throw new Error(`mechanism semantic fixture failed pass-case: "${input}" -> ${result.reason}`);
+  }
+  for (const sample of MECHANISM_SEMANTIC_FIXTURES.fail) {
+    const input = typeof sample === 'string' ? sample : sample.input;
+    const result = canonicalizeMechanismPhrase(input);
+    if (result.ok) throw new Error(`mechanism semantic fixture failed fail-case: "${input}" -> accepted as "${result.phrase}"`);
+  }
+}
+
+function extractMechanismAtomicPhrases(text) {
+  const normalized = normalizeWhitespace(text);
+  if (!normalized) return { phrases: [], rejectionReasons: ['sentence_residue_detected'], splitTelemetry: { attempted: 0, recovered: 0, rejected: 0, recoveredFromMixedSpan: 0 } };
+  const segments = normalized
+    .split(/\s*;\s*|\s*,\s*(?=(?:[^()]*\([^()]*\))*[^()]*$)|\s+but\s+|\s+however,\s+/iu)
+    .map((segment) => cleanAtomicPhrase(segment))
+    .filter(Boolean);
+  const phrases = [];
+  const rejectionReasons = [];
+  const splitTelemetry = { attempted: 0, recovered: 0, rejected: 0, recoveredFromMixedSpan: 0 };
+  for (const segment of segments) {
+    if (/\band\b/iu.test(segment) && /\b(inhibits?|suppresses?|activates?|modulates?|induces?|blocks?|antagonist|agonist)\b/iu.test(segment)) {
+      splitTelemetry.attempted += 1;
+      const recovered = recoverMechanismCandidatesFromMixedSpan(segment);
+      if (recovered.phrases.length > 0) {
+        recovered.phrases.forEach((phrase) => phrases.push(phrase));
+        splitTelemetry.recovered += recovered.phrases.length;
+        splitTelemetry.recoveredFromMixedSpan += 1;
+        continue;
+      }
+      if (recovered.reason) rejectionReasons.push(recovered.reason);
+      splitTelemetry.rejected += 1;
+    }
+    const result = canonicalizeMechanismPhrase(segment);
+    if (!result.ok) {
+      splitTelemetry.attempted += 1;
+      const recovered = recoverMechanismCandidatesFromMixedSpan(segment);
+      if (recovered.phrases.length > 0) {
+        recovered.phrases.forEach((phrase) => phrases.push(phrase));
+        splitTelemetry.recovered += recovered.phrases.length;
+        splitTelemetry.recoveredFromMixedSpan += 1;
+      } else {
+        rejectionReasons.push(recovered.reason || result.reason);
+        splitTelemetry.rejected += 1;
+      }
+      continue;
+    }
+    phrases.push(result.phrase);
+  }
+  return { phrases: [...new Set(phrases)].slice(0, 4), rejectionReasons, splitTelemetry };
+}
+
 function extractEvidenceFromAbstract(abstractText, schemaField, title = '') {
   const terms = FIELD_TERMS[schemaField] ?? [];
   const cues = FIELD_CUES[schemaField] ?? [];
   const normalized = String(abstractText).replace(/\s+/g, ' ').trim();
   const sentences = sentenceSplit(normalized);
-  const debug = { pass: 'none', considered: sentences.length, rejected: [] };
+  const debug = { pass: 'none', considered: sentences.length, rejected: [], splitTelemetry: { attempted: 0, recovered: 0, rejected: 0, recoveredFromMixedSpan: 0 } };
   const hits = [];
 
   // Pass 1: strict sentence-level extraction with field cues/terms.
@@ -289,6 +539,10 @@ function extractEvidenceFromAbstract(abstractText, schemaField, title = '') {
       debug.rejected.push({ phrase: cleaned, reason: 'too_vague_or_speculative' });
       continue;
     }
+    if (schemaField === 'mechanism' && !MECHANISM_ACTION_RE.test(cleaned)) {
+      debug.rejected.push({ phrase: cleaned, reason: 'no_clear_pharmacological_action' });
+      continue;
+    }
     hits.push(cleaned);
   }
 
@@ -301,11 +555,26 @@ function extractEvidenceFromAbstract(abstractText, schemaField, title = '') {
       const lower = part.toLowerCase();
       if (!terms.some((term) => lower.includes(term)) && !cues.some((cue) => lower.includes(cue))) continue;
       const containsList = schemaField === 'activeCompounds' ? extractListFromContains(part) : [];
-      const candidates = containsList.length > 0 ? containsList : [cleanAtomicPhrase(part)];
+      const mechanismExtraction = schemaField === 'mechanism'
+        ? extractMechanismAtomicPhrases(part)
+        : { phrases: [], rejectionReasons: [], splitTelemetry: { attempted: 0, recovered: 0, rejected: 0, recoveredFromMixedSpan: 0 } };
+      const candidates = containsList.length > 0
+        ? containsList
+        : (schemaField === 'mechanism' ? mechanismExtraction.phrases : [cleanAtomicPhrase(part)]);
       for (const candidate of candidates) {
         if (candidate.length < 12 || candidate.length > 160) continue;
         if (isVaguePhrase(candidate)) continue;
+        if (schemaField === 'mechanism' && !MECHANISM_ACTION_RE.test(candidate)) continue;
         relaxed.push(candidate);
+      }
+      if (schemaField === 'mechanism' && candidates.length === 0) {
+        mechanismExtraction.rejectionReasons.forEach((reason) => debug.rejected.push({ phrase: part, reason }));
+      }
+      if (schemaField === 'mechanism') {
+        debug.splitTelemetry.attempted += mechanismExtraction.splitTelemetry.attempted;
+        debug.splitTelemetry.recovered += mechanismExtraction.splitTelemetry.recovered;
+        debug.splitTelemetry.rejected += mechanismExtraction.splitTelemetry.rejected;
+        debug.splitTelemetry.recoveredFromMixedSpan += mechanismExtraction.splitTelemetry.recoveredFromMixedSpan;
       }
     }
   }
@@ -452,6 +721,18 @@ function normalizeFieldValue(schemaField, evidenceText, herb) {
   }
 
   if (schemaField === 'effects' || schemaField === 'mechanism' || schemaField === 'contraindications' || schemaField === 'traditionalUse') {
+    if (schemaField === 'mechanism') {
+      const mechanismExtraction = extractMechanismAtomicPhrases(before);
+      if (mechanismExtraction.phrases.length === 0) {
+        const reasonCounts = mechanismExtraction.rejectionReasons.reduce((acc, reason) => {
+          acc[reason] = (acc[reason] ?? 0) + 1;
+          return acc;
+        }, {});
+        const [topReason] = Object.entries(reasonCounts).sort((a, b) => b[1] - a[1]);
+        return { ok: false, before, after: null, reason: topReason?.[0] ?? 'no_clear_pharmacological_action' };
+      }
+      return { ok: true, before, after: mechanismExtraction.phrases.join('; ') };
+    }
     const phrases = normalizeStructuredPhrases(before, schemaField);
     if (phrases.length === 0) return { ok: false, before, after: null, reason: 'no_structured_phrase_extracted' };
     const after = schemaField === 'mechanism' ? phrases.join('; ') : phrases;
@@ -600,6 +881,15 @@ function buildQueryPlan(herb, targetField) {
     `${primaryName} phytochemical isolation review`,
     `${primaryName} constituent analysis review`,
   ];
+  const mechanismQueries = [
+    `${scientificName} mechanism of action`,
+    `${scientificName} pharmacology review`,
+    `${scientificName} receptor activity`,
+    `${scientificName} neurotransmitter effects`,
+    `${scientificName} binding agonist antagonist`,
+    `${combinedName} mechanism of action`,
+    `${primaryName} pharmacological mechanism study`,
+  ].map((query) => compactTerm(query)).filter(Boolean);
   const fieldQueries = {
     activeCompounds: `${primaryName} ${compoundHints.join(' ')} ${phytochemTopics.join(' ')} isolation review constituent analysis`,
     effects: `${primaryName} pharmacology pharmacological effects`,
@@ -610,7 +900,9 @@ function buildQueryPlan(herb, targetField) {
 
   const focused = targetField.schemaField === 'activeCompounds'
     ? [...activeCompoundQueries, fieldQueries[targetField.schemaField]]
-    : [fieldQueries[targetField.schemaField] ?? `${primaryName} ${targetField.requestField}`];
+    : targetField.schemaField === 'mechanism'
+      ? [...mechanismQueries, fieldQueries[targetField.schemaField]]
+      : [fieldQueries[targetField.schemaField] ?? `${primaryName} ${targetField.requestField}`];
   const aliasQueries = aliases.slice(1, 4).map((alias) => `${alias} ${targetField.requestField}`);
   const broadFallback = [
     `${primaryName} medicinal plant review`,
@@ -650,6 +942,21 @@ async function collectFieldEvidence(herb, targetField) {
     highQualitySources: 0,
     acceptedByTier: { tier1: 0, tier2: 0, tier3: 0 },
     acceptedSource: null,
+    mechanismTelemetry: targetField.schemaField === 'mechanism'
+      ? {
+        candidatesFound: 0,
+        acceptedMechanisms: 0,
+        rejectionReasons: {},
+        candidate_split_attempted: 0,
+        candidate_split_recovered: 0,
+        candidate_split_rejected: 0,
+        recovered_from_mixed_span: 0,
+      }
+      : null,
+  };
+  const addMechanismRejectionReason = (reason) => {
+    if (!stats.mechanismTelemetry) return;
+    stats.mechanismTelemetry.rejectionReasons[reason] = (stats.mechanismTelemetry.rejectionReasons[reason] ?? 0) + 1;
   };
 
   for (const item of plan.queries) {
@@ -813,6 +1120,7 @@ async function collectFieldEvidence(herb, targetField) {
 
     queryStats.sourcesFound = candidates.length;
     stats.sourcesFound += candidates.length;
+    if (stats.mechanismTelemetry) stats.mechanismTelemetry.candidatesFound += candidates.length;
     const tieredCandidates = { tier1: [], tier2: [], tier3: [] };
     for (const candidate of candidates) {
       const sourceTier = classifySourceTier(candidate.sourceUrl);
@@ -838,12 +1146,14 @@ async function collectFieldEvidence(herb, targetField) {
         const hasStructuredCompounds = targetField.schemaField === 'activeCompounds' && Array.isArray(candidate.structuredCompounds) && candidate.structuredCompounds.length > 0;
         if (!hasStructuredCompounds && !titleMatchesHerb(candidate.title, herb)) {
           recordProviderRejection(queryStats, candidate.provider, 'title_not_linked_to_herb');
+          if (targetField.schemaField === 'mechanism') addMechanismRejectionReason('title_not_linked_to_herb');
           continue;
         }
         const quality = domainQuality(candidate.sourceUrl);
         const qualityThreshold = tier === 'tier1' ? 0.7 : (tier === 'tier2' ? 0.5 : 0.4);
         if (quality.score < qualityThreshold) {
           recordProviderRejection(queryStats, candidate.provider, 'below_quality_threshold');
+          if (targetField.schemaField === 'mechanism') addMechanismRejectionReason('below_quality_threshold');
           continue;
         }
         queryStats.highQualitySources += 1;
@@ -861,8 +1171,15 @@ async function collectFieldEvidence(herb, targetField) {
           const abstractText = candidate.getAbstract();
           if (!abstractText) continue;
           extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, candidate.title);
+          if (stats.mechanismTelemetry && extracted?.debug?.splitTelemetry) {
+            stats.mechanismTelemetry.candidate_split_attempted += extracted.debug.splitTelemetry.attempted ?? 0;
+            stats.mechanismTelemetry.candidate_split_recovered += extracted.debug.splitTelemetry.recovered ?? 0;
+            stats.mechanismTelemetry.candidate_split_rejected += extracted.debug.splitTelemetry.rejected ?? 0;
+            stats.mechanismTelemetry.recovered_from_mixed_span += extracted.debug.splitTelemetry.recoveredFromMixedSpan ?? 0;
+          }
           if (extracted.phrases.length === 0) {
             recordProviderRejection(queryStats, candidate.provider, 'no_atomic_field_mapped_phrases');
+            if (targetField.schemaField === 'mechanism') addMechanismRejectionReason('no_atomic_field_mapped_phrases');
             queryStats.lastFailure = {
               stage: 'extract',
               reason: 'no_atomic_field_mapped_phrases',
@@ -876,6 +1193,7 @@ async function collectFieldEvidence(herb, targetField) {
         const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
         if (!normalization.ok) {
           recordProviderRejection(queryStats, candidate.provider, normalization.reason || 'normalization_failed');
+          if (targetField.schemaField === 'mechanism') addMechanismRejectionReason(normalization.reason || 'normalization_failed');
           queryStats.lastFailure = {
             stage: 'normalize',
             reason: normalization.reason,
@@ -953,6 +1271,7 @@ async function collectFieldEvidence(herb, targetField) {
           retrieval: stats,
         };
         queryStats.accepted = true;
+        if (stats.mechanismTelemetry) stats.mechanismTelemetry.acceptedMechanisms += 1;
         queryStats.providerAccepted = queryStats.providerAccepted ?? {};
         queryStats.providerAccepted[candidate.provider] = (queryStats.providerAccepted[candidate.provider] ?? 0) + 1;
         queryStats.acceptedCompoundsProduced = targetField.schemaField === 'activeCompounds' && Array.isArray(normalization.after)
@@ -1052,6 +1371,7 @@ function buildPatch(runId, herb, acceptedRows) {
 }
 
 async function main() {
+  assertMechanismSemanticFixtures();
   const options = parseArgs(process.argv);
   const herbs = loadJson(join(REPO_ROOT, 'public', 'data', 'herbs.json'));
   const selected = (options.herbs.length > 0
@@ -1217,6 +1537,36 @@ async function main() {
         acc[host] = (acc[host] ?? 0) + 1;
         return acc;
       }, {}),
+      mechanismTelemetry: (() => {
+        const telemetry = {
+          candidatesFound: 0,
+          acceptedMechanisms: 0,
+          rejectionReasons: {},
+          candidate_split_attempted: 0,
+          candidate_split_recovered: 0,
+          candidate_split_rejected: 0,
+          recovered_from_mixed_span: 0,
+        };
+        const allRows = [...accepted, ...rejected];
+        for (const row of allRows) {
+          const perRow = row?.retrieval?.mechanismTelemetry;
+          if (!perRow) continue;
+          telemetry.candidatesFound += perRow.candidatesFound ?? 0;
+          telemetry.acceptedMechanisms += perRow.acceptedMechanisms ?? 0;
+          telemetry.candidate_split_attempted += perRow.candidate_split_attempted ?? 0;
+          telemetry.candidate_split_recovered += perRow.candidate_split_recovered ?? 0;
+          telemetry.candidate_split_rejected += perRow.candidate_split_rejected ?? 0;
+          telemetry.recovered_from_mixed_span += perRow.recovered_from_mixed_span ?? 0;
+          for (const [reason, count] of Object.entries(perRow.rejectionReasons ?? {})) {
+            telemetry.rejectionReasons[reason] = (telemetry.rejectionReasons[reason] ?? 0) + (count ?? 0);
+          }
+        }
+        telemetry.topRejectionReasons = Object.entries(telemetry.rejectionReasons)
+          .map(([reason, count]) => ({ reason, count }))
+          .sort((a, b) => b.count - a.count || a.reason.localeCompare(b.reason))
+          .slice(0, 8);
+        return telemetry;
+      })(),
     },
   };
 

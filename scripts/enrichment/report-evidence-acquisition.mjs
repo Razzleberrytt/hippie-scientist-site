@@ -51,6 +51,19 @@ function normalizeReason(reason = '') {
   if (!text) return 'unknown';
   if (text.includes('tier-policy') || text.includes('tier3_active_compounds_not_corroborated') || text.includes('structured_active_compounds_not_corroborated')) return 'tier_policy_rejection';
   if (text.includes('no-high-quality-source') || text.includes('no high-quality source')) return 'no_high_quality_source_found';
+  if (text.includes('mechanism_fragment_too_narrative')) return 'mechanism_fragment_too_narrative';
+  if (text.includes('generic_pathway_or_process')) return 'generic_pathway_or_process';
+  if (text.includes('effect_not_mechanism')) return 'effect_not_mechanism';
+  if (text.includes('synthesized_action_not_in_source')) return 'synthesized_action_not_in_source';
+  if (text.includes('target_not_molecular')) return 'target_not_molecular';
+  if (text.includes('same_span_action_target_not_found')) return 'same_span_action_target_not_found';
+  if (text.includes('action_bound_to_wrong_object')) return 'action_bound_to_wrong_object';
+  if (text.includes('clause_binding_ambiguous')) return 'clause_binding_ambiguous';
+  if (text.includes('expression_regulation_not_direct_mechanism')) return 'expression_regulation_not_direct_mechanism';
+  if (text.includes('downstream_biomarker_change')) return 'downstream_biomarker_change';
+  if (text.includes('missing_clear_target')) return 'missing_clear_target';
+  if (text.includes('missing_clear_action')) return 'missing_clear_action';
+  if (text.includes('sentence_residue_detected')) return 'sentence_residue_detected';
   if (text.includes('sparse')) return 'extraction_too_sparse';
   if (text.includes('normalization') || text.includes('no_clean_compound_names') || text.includes('no_structured_phrase_extracted')) return 'normalization_failed';
   if (text.includes('confidence') || text.includes('low')) return 'confidence_too_low';
@@ -97,6 +110,21 @@ function summarizeChemblTelemetry(latestRun) {
     candidates: fallback.candidates ?? 0,
     accepted: fallback.accepted ?? 0,
     acceptanceRate: fallback.acceptanceRate ?? 0,
+    topRejectionReasons: [],
+  };
+}
+
+function summarizeMechanismTelemetry(latestRun) {
+  const telemetry = latestRun?.payload?.retrievalSummary?.mechanismTelemetry;
+  if (telemetry && typeof telemetry === 'object') return telemetry;
+  return {
+    candidatesFound: 0,
+    acceptedMechanisms: 0,
+    candidate_split_attempted: 0,
+    candidate_split_recovered: 0,
+    candidate_split_rejected: 0,
+    recovered_from_mixed_span: 0,
+    rejectionReasons: {},
     topRejectionReasons: [],
   };
 }
@@ -356,6 +384,7 @@ function markdownReport({
   sourceContributionBreakdown,
   providerMetrics,
   chemblTelemetry,
+  mechanismTelemetry,
 }) {
   const topFields = Object.entries(coverageSummary.completionByFieldType)
     .sort((a, b) => b[1].missing - a[1].missing)
@@ -381,13 +410,17 @@ function markdownReport({
     .slice(0, 8)
     .map((row) => `- ${row.reason}: ${row.count}`)
     .join('\n') || '- none';
+  const mechanismRejectionLines = (mechanismTelemetry.topRejectionReasons ?? [])
+    .slice(0, 8)
+    .map((row) => `- ${row.reason}: ${row.count}`)
+    .join('\n') || '- none';
 
   const fieldTable = TARGET_FIELDS.map((field) => {
     const row = fieldBreakdown[field];
     return `| ${field} | ${row.totalMissingBeforeRun} | ${row.acceptedFills} | ${row.rejectedAttempts} | ${row.stillUnresolved} | ${row.acceptanceRate}% |`;
   }).join('\n');
 
-  return `# Evidence Acquisition Coverage + Prioritization\n\n- Generated at: ${generatedAt}\n- Run ID: ${runId}\n\n## Coverage Summary\n\n- Total herbs: ${coverageSummary.totals.totalHerbs}\n- Total target fields: ${coverageSummary.totals.totalTargetFields}\n- Completed fields: ${coverageSummary.totals.completedFields}\n- Missing fields: ${coverageSummary.totals.missingFields}\n- Fields filled by evidence engine: ${coverageSummary.totals.fieldsFilledByEvidenceEngine}\n- Fields rejected by evidence engine: ${coverageSummary.totals.fieldsRejectedByEvidenceEngine}\n- Unresolved fields: ${coverageSummary.totals.unresolvedFields}\n- Completion overall: ${coverageSummary.totals.completionPctOverall}%\n\n### Top unresolved field types\n${topFields}\n\n## Field-level Breakdown (latest run)\n\n| Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |\n|---|---:|---:|---:|---:|---:|\n${fieldTable}\n\n## Top 10 Priority Herbs\n\n${topQueue}\n\n## Rejection Analytics\n\n${topRejections}\n\n## Accepted Source Tier Distribution (latest run)\n\n${tierLines}\n\n## Accepted Source Contributions (latest run)\n\n${sourceContributionLines}\n\n## Provider Performance (latest run)\n\n${providerLines}\n\n## ChEMBL Telemetry (latest run)\n\n- queried=${chemblTelemetry.queried}\n- candidates=${chemblTelemetry.candidates}\n- accepted=${chemblTelemetry.accepted}\n- acceptanceRate=${chemblTelemetry.acceptanceRate}%\n- topRejectionReasons:\n${chemblRejectionLines}\n`;
+  return `# Evidence Acquisition Coverage + Prioritization\n\n- Generated at: ${generatedAt}\n- Run ID: ${runId}\n\n## Coverage Summary\n\n- Total herbs: ${coverageSummary.totals.totalHerbs}\n- Total target fields: ${coverageSummary.totals.totalTargetFields}\n- Completed fields: ${coverageSummary.totals.completedFields}\n- Missing fields: ${coverageSummary.totals.missingFields}\n- Fields filled by evidence engine: ${coverageSummary.totals.fieldsFilledByEvidenceEngine}\n- Fields rejected by evidence engine: ${coverageSummary.totals.fieldsRejectedByEvidenceEngine}\n- Unresolved fields: ${coverageSummary.totals.unresolvedFields}\n- Completion overall: ${coverageSummary.totals.completionPctOverall}%\n\n### Top unresolved field types\n${topFields}\n\n## Field-level Breakdown (latest run)\n\n| Field | Missing before run | Accepted fills | Rejected attempts | Still unresolved | Acceptance rate |\n|---|---:|---:|---:|---:|---:|\n${fieldTable}\n\n## Top 10 Priority Herbs\n\n${topQueue}\n\n## Rejection Analytics\n\n${topRejections}\n\n## Accepted Source Tier Distribution (latest run)\n\n${tierLines}\n\n## Accepted Source Contributions (latest run)\n\n${sourceContributionLines}\n\n## Provider Performance (latest run)\n\n${providerLines}\n\n## ChEMBL Telemetry (latest run)\n\n- queried=${chemblTelemetry.queried}\n- candidates=${chemblTelemetry.candidates}\n- accepted=${chemblTelemetry.accepted}\n- acceptanceRate=${chemblTelemetry.acceptanceRate}%\n- topRejectionReasons:\n${chemblRejectionLines}\n\n## Mechanism Telemetry (latest run)\n\n- candidatesFound=${mechanismTelemetry.candidatesFound}\n- acceptedMechanisms=${mechanismTelemetry.acceptedMechanisms}\n- candidate_split_attempted=${mechanismTelemetry.candidate_split_attempted ?? 0}\n- candidate_split_recovered=${mechanismTelemetry.candidate_split_recovered ?? 0}\n- candidate_split_rejected=${mechanismTelemetry.candidate_split_rejected ?? 0}\n- recovered_from_mixed_span=${mechanismTelemetry.recovered_from_mixed_span ?? 0}\n- topRejectionReasons:\n${mechanismRejectionLines}\n`;
 }
 
 function main() {
@@ -411,6 +444,7 @@ function main() {
   const sourceContributionBreakdown = summarizeAcceptedSourceContributions(latestRun);
   const providerMetrics = summarizeProviderMetrics(latestRun);
   const chemblTelemetry = summarizeChemblTelemetry(latestRun);
+  const mechanismTelemetry = summarizeMechanismTelemetry(latestRun);
 
   const generatedAt = nowIso();
   const artifact = {
@@ -425,6 +459,7 @@ function main() {
     sourceContributionBreakdown,
     providerMetrics,
     chemblTelemetry,
+    mechanismTelemetry,
   };
 
   const outDir = join(REPO_ROOT, options.outDir);
@@ -467,6 +502,7 @@ function main() {
     sourceContributionBreakdown,
     providerMetrics,
     chemblTelemetry,
+    mechanismTelemetry,
   });
   writeFileSync(join(outDir, 'coverage-prioritization.latest.md'), markdown);
   writeFileSync(join(historyDir, `coverage-prioritization.${latestRun.runId}.md`), markdown);
@@ -481,6 +517,7 @@ function main() {
   const sourceSummary = Object.entries(sourceContributionBreakdown).slice(0, 5).map(([source, count]) => `${source}:${count}`).join(', ');
   const providerSummary = Object.entries(providerMetrics).slice(0, 6).map(([provider, row]) => `${provider}:q${row.queried}/c${row.candidates}/a${row.accepted}`).join(', ');
   const chemblTopRejections = (chemblTelemetry.topRejectionReasons ?? []).slice(0, 5).map((row) => `${row.reason}:${row.count}`).join(', ');
+  const mechanismTopRejections = (mechanismTelemetry.topRejectionReasons ?? []).slice(0, 5).map((row) => `${row.reason}:${row.count}`).join(', ');
 
   console.log(`[evidence-report] run=${latestRun.runId} queue=${priorityQueue.length}`);
   console.log(`[evidence-report] top-10=${priorityQueue.slice(0, 10).map((item) => item.herb).join(',')}`);
@@ -491,6 +528,9 @@ function main() {
   console.log(`[evidence-report] provider-performance=${providerSummary}`);
   console.log(`[evidence-report] chembl=q${chemblTelemetry.queried}/c${chemblTelemetry.candidates}/a${chemblTelemetry.accepted}/r${chemblTelemetry.acceptanceRate}%`);
   console.log(`[evidence-report] chembl-top-rejections=${chemblTopRejections}`);
+  console.log(`[evidence-report] mechanism=candidates${mechanismTelemetry.candidatesFound}/accepted${mechanismTelemetry.acceptedMechanisms}`);
+  console.log(`[evidence-report] mechanism-split=attempted${mechanismTelemetry.candidate_split_attempted ?? 0}/recovered${mechanismTelemetry.candidate_split_recovered ?? 0}/rejected${mechanismTelemetry.candidate_split_rejected ?? 0}/mixed${mechanismTelemetry.recovered_from_mixed_span ?? 0}`);
+  console.log(`[evidence-report] mechanism-top-rejections=${mechanismTopRejections}`);
   console.log(`[evidence-report] output=${options.outDir}`);
 }
 

@@ -1,0 +1,47 @@
+{
+  "pass": [
+    {
+      "input": "suppresses P-glycoprotein functions and the activity of enzyme CYP1A2",
+      "expected": [
+        "P-glycoprotein suppression",
+        "CYP1A2 suppression"
+      ]
+    },
+    {
+      "input": "acts as a 5-HT1A receptor agonist",
+      "expected": [
+        "5-HT1A receptor agonism"
+      ]
+    },
+    {
+      "input": "inhibits acetylcholinesterase and butyrylcholinesterase",
+      "expected": [
+        "acetylcholinesterase inhibition",
+        "butyrylcholinesterase inhibition"
+      ]
+    },
+    {
+      "input": "suppresses P-glycoprotein function",
+      "expected": [
+        "P-glycoprotein suppression"
+      ]
+    },
+    {
+      "input": "activates Akt",
+      "expected": [
+        "Akt activation"
+      ]
+    }
+  ],
+  "fail": [
+    "activated extracellular signal-regulated kinase and Akt to inhibit glutamate-induced excitotoxicity",
+    "induced the expression of synaptophysin and glutamatergic receptor 1",
+    "reduced CYP1A2 expression",
+    "increased receptor mRNA levels",
+    "reduces oxidative stress and inflammation",
+    "modulates NF-κB signaling",
+    "improves antioxidant activity",
+    "enhances cell viability",
+    "nitric oxide pathway antagonism"
+  ]
+}
