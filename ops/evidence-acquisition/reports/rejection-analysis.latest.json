@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-04-01T23:16:40.874Z",
+  "generatedAt": "2026-04-01T23:50:55.515Z",
   "runId": "run_01KN5N2XMPZBSX3V9V8RKB8Z5Y",
-  "totalRejectedRows": 45,
+  "totalRejectedRows": 39,
   "rejectionCauses": [
     {
       "cause": "no_high_quality_source_found",
-      "count": 33
+      "count": 30
     },
     {
       "cause": "unknown",
-      "count": 11
+      "count": 8
     },
     {
       "cause": "other",
@@ -18,8 +18,8 @@
   ],
   "rejectionByField": {
     "activeCompounds": {
-      "no_high_quality_source_found": 10,
-      "unknown": 11
+      "no_high_quality_source_found": 7,
+      "unknown": 8
     },
     "contraindications": {
       "no_high_quality_source_found": 11
@@ -36,18 +36,6 @@
   },
   "mostRejectedHerbs": [
     {
-      "herb": "alectra sessiliflora",
-      "rejectedCount": 4
-    },
-    {
-      "herb": "aletris farinosa",
-      "rejectedCount": 4
-    },
-    {
-      "herb": "adenium obesum",
-      "rejectedCount": 3
-    },
-    {
       "herb": "american yellow lotus",
       "rejectedCount": 3
     },
@@ -60,7 +48,15 @@
       "rejectedCount": 2
     },
     {
-      "herb": "alyxia stellata",
+      "herb": "adenium obesum",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "alectra sessiliflora",
+      "rejectedCount": 2
+    },
+    {
+      "herb": "aletris farinosa",
       "rejectedCount": 2
     },
     {
@@ -97,6 +93,10 @@
     },
     {
       "herb": "agastache-foeniculum",
+      "rejectedCount": 1
+    },
+    {
+      "herb": "alyxia stellata",
       "rejectedCount": 1
     },
     {

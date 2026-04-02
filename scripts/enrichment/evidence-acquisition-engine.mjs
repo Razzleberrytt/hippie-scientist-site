@@ -333,6 +333,27 @@ function normalizeWhitespace(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim();
 }
 
+const COMPOUND_HERB_LINK_INDEX = (() => {
+  const compounds = loadJson(join(REPO_ROOT, 'public', 'data', 'compounds.json'));
+  const index = new Map();
+  const push = (compoundName, herbName) => {
+    const cKey = normalizeWhitespace(compoundName).toLowerCase();
+    const hKey = normalizeWhitespace(herbName).toLowerCase();
+    if (!cKey || !hKey) return;
+    const existing = index.get(cKey) ?? new Set();
+    existing.add(hKey);
+    index.set(cKey, existing);
+  };
+  for (const row of compounds) {
+    const compoundName = normalizeWhitespace(row?.name ?? row?.displayName ?? row?.id ?? '');
+    if (!compoundName) continue;
+    for (const herbName of [...(Array.isArray(row?.herbs) ? row.herbs : []), ...(Array.isArray(row?.foundIn) ? row.foundIn : [])]) {
+      push(compoundName, herbName);
+    }
+  }
+  return index;
+})();
+
 function normalizeActiveCompounds(rawText, herb) {
   const text = normalizeWhitespace(rawText).replace(/<[^>]+>/g, ' ');
   const herbTokens = new Set(
@@ -469,15 +490,55 @@ function titleMatchesHerb(title, herb) {
 }
 
 function structuredCompoundLinksToHerb(compoundValues, herb) {
-  const tokens = buildHerbAliases(herb)
-    .flatMap((alias) => alias.toLowerCase().split(/[^a-z0-9]+/u))
-    .filter((token) => token.length >= 5);
-  if (tokens.length === 0) return false;
-  const uniqueTokens = [...new Set(tokens)];
+  const aliases = buildHerbAliases(herb).map((alias) => alias.toLowerCase());
+  if (aliases.length === 0) return false;
   return compoundValues.some((value) => {
-    const normalized = String(value).toLowerCase();
-    return uniqueTokens.some((token) => normalized.includes(token));
+    const normalized = normalizeWhitespace(value).toLowerCase();
+    if (!normalized) return false;
+    const linkedHerbs = COMPOUND_HERB_LINK_INDEX.get(normalized);
+    if (!linkedHerbs) return false;
+    return aliases.some((alias) => linkedHerbs.has(alias));
   });
+}
+
+function recordProviderRejection(queryStats, provider, reason) {
+  queryStats.providerRejections = queryStats.providerRejections ?? {};
+  queryStats.providerRejections[provider] = queryStats.providerRejections[provider] ?? {};
+  queryStats.providerRejections[provider][reason] = (queryStats.providerRejections[provider][reason] ?? 0) + 1;
+}
+
+function looksGenericCompoundLabel(value) {
+  const normalized = normalizeWhitespace(value).toLowerCase();
+  if (!normalized) return true;
+  if (/^chembl\d+$/u.test(normalized)) return true;
+  if (/^(compound|molecule|metabolite|chemical)\s*\d*$/u.test(normalized)) return true;
+  if (normalized.length < 4) return true;
+  return false;
+}
+
+function scoreChemblCandidate(entry, herb, hints = []) {
+  const prefName = normalizeWhitespace(entry?.pref_name ?? '');
+  const chemblId = normalizeWhitespace(entry?.molecule_chembl_id ?? '');
+  const synonymRows = Array.isArray(entry?.molecule_synonyms) ? entry.molecule_synonyms : [];
+  const synonyms = synonymRows
+    .map((row) => normalizeWhitespace(row?.molecule_synonym ?? row?.synonym ?? ''))
+    .filter(Boolean)
+    .slice(0, 6);
+  const names = [...new Set([prefName, ...synonyms].filter(Boolean))];
+  const lowerNames = names.map((name) => name.toLowerCase());
+  const lowerHints = hints.map((hint) => hint.toLowerCase());
+  const hintOverlap = lowerNames.some((name) => lowerHints.some((hint) => hint && name.includes(hint)));
+  const linkedToHerb = structuredCompoundLinksToHerb(names, herb);
+  const genericPenalty = names.every((name) => looksGenericCompoundLabel(name)) ? 0.45 : 0;
+  const score = (linkedToHerb ? 0.7 : 0) + (hintOverlap ? 0.35 : 0) + (prefName ? 0.15 : 0) - genericPenalty;
+  return {
+    score,
+    linkedToHerb,
+    hintOverlap,
+    prefName,
+    chemblId,
+    names,
+  };
 }
 
 function confidenceFromSource({ qualityScore, evidenceText, schemaField }) {
@@ -676,17 +737,33 @@ async function collectFieldEvidence(herb, targetField) {
         {
           name: 'chembl_structured',
           fetch: () => {
-            const term = plan.structuredTerms[0] || item.query;
-            const molecules = chemblMoleculeSearch(term, 8);
-            return molecules.map((entry) => {
-              const name = entry.pref_name || entry.molecule_chembl_id;
+            const terms = plan.structuredTerms.slice(0, 4);
+            const hintCompounds = (Array.isArray(herb.activeCompounds) ? herb.activeCompounds : [])
+              .map((value) => compactTerm(value))
+              .filter(Boolean)
+              .slice(0, 8);
+            const molecules = [];
+            for (const term of terms) molecules.push(...chemblMoleculeSearch(term, 4));
+            const dedupById = new Map();
+            for (const entry of molecules) {
+              const id = normalizeWhitespace(entry?.molecule_chembl_id ?? '');
+              if (!id) continue;
+              if (!dedupById.has(id)) dedupById.set(id, entry);
+            }
+            const ranked = [...dedupById.values()]
+              .map((entry) => ({ entry, relevance: scoreChemblCandidate(entry, herb, hintCompounds) }))
+              .filter(({ relevance }) => relevance.score >= 0.3 && (relevance.linkedToHerb || relevance.hintOverlap || !looksGenericCompoundLabel(relevance.prefName || relevance.chemblId)))
+              .sort((a, b) => b.relevance.score - a.relevance.score)
+              .slice(0, 8);
+            return ranked.map(({ relevance }) => {
+              const name = relevance.prefName || relevance.chemblId;
               return {
                 provider: 'chembl_structured',
                 title: `${name} - ChEMBL molecule`,
-                sourceUrl: `https://chembl.ebi.ac.uk/chembl/api/data/molecule/${entry.molecule_chembl_id}`,
+                sourceUrl: `https://chembl.ebi.ac.uk/chembl/api/data/molecule/${relevance.chemblId}`,
                 pubmedId: null,
-                structuredCompounds: [name],
-                getAbstract: () => `ChEMBL structured compound listing includes ${name}`,
+                structuredCompounds: relevance.names.length > 0 ? relevance.names : [name],
+                getAbstract: () => `ChEMBL structured compound fields include ${relevance.names.join('; ') || name}`,
               };
             });
           },
@@ -759,10 +836,16 @@ async function collectFieldEvidence(herb, targetField) {
       }
       for (const candidate of tierCandidates) {
         const hasStructuredCompounds = targetField.schemaField === 'activeCompounds' && Array.isArray(candidate.structuredCompounds) && candidate.structuredCompounds.length > 0;
-        if (!hasStructuredCompounds && !titleMatchesHerb(candidate.title, herb)) continue;
+        if (!hasStructuredCompounds && !titleMatchesHerb(candidate.title, herb)) {
+          recordProviderRejection(queryStats, candidate.provider, 'title_not_linked_to_herb');
+          continue;
+        }
         const quality = domainQuality(candidate.sourceUrl);
         const qualityThreshold = tier === 'tier1' ? 0.7 : (tier === 'tier2' ? 0.5 : 0.4);
-        if (quality.score < qualityThreshold) continue;
+        if (quality.score < qualityThreshold) {
+          recordProviderRejection(queryStats, candidate.provider, 'below_quality_threshold');
+          continue;
+        }
         queryStats.highQualitySources += 1;
         stats.highQualitySources += 1;
         let evidence = '';
@@ -779,6 +862,7 @@ async function collectFieldEvidence(herb, targetField) {
           if (!abstractText) continue;
           extracted = extractEvidenceFromAbstract(abstractText, targetField.schemaField, candidate.title);
           if (extracted.phrases.length === 0) {
+            recordProviderRejection(queryStats, candidate.provider, 'no_atomic_field_mapped_phrases');
             queryStats.lastFailure = {
               stage: 'extract',
               reason: 'no_atomic_field_mapped_phrases',
@@ -791,6 +875,7 @@ async function collectFieldEvidence(herb, targetField) {
         }
         const normalization = normalizeFieldValue(targetField.schemaField, evidence, herb);
         if (!normalization.ok) {
+          recordProviderRejection(queryStats, candidate.provider, normalization.reason || 'normalization_failed');
           queryStats.lastFailure = {
             stage: 'normalize',
             reason: normalization.reason,
@@ -808,6 +893,7 @@ async function collectFieldEvidence(herb, targetField) {
           const herbLinked = values.filter((value) => structuredCompoundLinksToHerb([value], herb));
           const allowed = [...new Set([...corroborated, ...herbLinked])];
           if (allowed.length === 0) {
+            recordProviderRejection(queryStats, candidate.provider, 'structured_active_compounds_not_corroborated');
             queryStats.lastFailure = {
               stage: 'tier-policy',
               reason: 'structured_active_compounds_not_corroborated',
@@ -830,6 +916,7 @@ async function collectFieldEvidence(herb, targetField) {
           const values = Array.isArray(normalization.after) ? normalization.after : [];
           const corroborated = values.filter((value) => corroboratedCompounds.has(String(value).toLowerCase()));
           if (corroborated.length === 0) {
+            recordProviderRejection(queryStats, candidate.provider, 'tier3_active_compounds_not_corroborated');
             queryStats.lastFailure = {
               stage: 'tier-policy',
               reason: 'tier3_active_compounds_not_corroborated',
@@ -866,6 +953,8 @@ async function collectFieldEvidence(herb, targetField) {
           retrieval: stats,
         };
         queryStats.accepted = true;
+        queryStats.providerAccepted = queryStats.providerAccepted ?? {};
+        queryStats.providerAccepted[candidate.provider] = (queryStats.providerAccepted[candidate.provider] ?? 0) + 1;
         queryStats.acceptedCompoundsProduced = targetField.schemaField === 'activeCompounds' && Array.isArray(normalization.after)
           ? normalization.after.length
           : 0;
@@ -1065,6 +1154,32 @@ async function main() {
             : 0;
         }
         return Object.fromEntries(Object.entries(metrics).sort((a, b) => b[1].accepted - a[1].accepted || a[0].localeCompare(b[0])));
+      })(),
+      chemblTelemetry: (() => {
+        const provider = 'chembl_structured';
+        const allRows = [...accepted, ...rejected];
+        const rejections = {};
+        for (const row of allRows) {
+          for (const attempt of row?.retrieval?.queryAttempts ?? []) {
+            const providerRejections = attempt?.providerRejections?.[provider] ?? {};
+            for (const [reason, count] of Object.entries(providerRejections)) {
+              rejections[reason] = (rejections[reason] ?? 0) + (count ?? 0);
+            }
+          }
+        }
+        const queried = allRows.reduce((sum, row) => sum + (row?.retrieval?.queryAttempts ?? []).filter((attempt) => (attempt?.providersUsed ?? []).includes(provider)).length, 0);
+        const candidates = allRows.reduce((sum, row) => sum + (row?.retrieval?.queryAttempts ?? []).reduce((inner, attempt) => inner + ((attempt?.providerResults ?? []).find((item) => item.provider === provider)?.resultsFound ?? 0), 0), 0);
+        const acceptedCount = accepted.filter((row) => row?.source?.provider === provider).length;
+        return {
+          queried,
+          candidates,
+          accepted: acceptedCount,
+          acceptanceRate: candidates > 0 ? Number(((acceptedCount / candidates) * 100).toFixed(2)) : 0,
+          topRejectionReasons: Object.entries(rejections)
+            .map(([reason, count]) => ({ reason, count }))
+            .sort((a, b) => b.count - a.count || a.reason.localeCompare(b.reason))
+            .slice(0, 8),
+        };
       })(),
       acceptedTierCounts: accepted.reduce((acc, row) => {
         const tier = row?.source?.tier ?? 'unclassified';

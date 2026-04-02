@@ -1,6 +1,6 @@
 # Evidence Acquisition Coverage + Prioritization
 
-- Generated at: 2026-04-01T23:16:40.874Z
+- Generated at: 2026-04-01T23:50:55.515Z
 - Run ID: run_01KN5N2XMPZBSX3V9V8RKB8Z5Y
 
 ## Coverage Summary
@@ -9,8 +9,8 @@
 - Total target fields: 3490
 - Completed fields: 2018
 - Missing fields: 1472
-- Fields filled by evidence engine: 15
-- Fields rejected by evidence engine: 3
+- Fields filled by evidence engine: 14
+- Fields rejected by evidence engine: 4
 - Unresolved fields: 27
 - Completion overall: 57.82%
 
@@ -33,10 +33,10 @@
 
 ## Top 10 Priority Herbs
 
-1. alpinia galanga — score 256, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
+1. alpinia galanga — score 244, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
 2. argemone mexicana — score 228, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
 3. bacopa — score 228, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
-4. amanita pantherina — score 222, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
+4. amanita pantherina — score 206, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
 5. american ginseng — score 201, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
 6. anadenanthera colubrina (cebíl) — score 201, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
 7. asclepias syriaca — score 201, missing=activeCompounds, effects, mechanism, contraindications, action=run_evidence_acquisition
@@ -46,8 +46,8 @@
 
 ## Rejection Analytics
 
-- no_high_quality_source_found: 33
-- unknown: 11
+- no_high_quality_source_found: 30
+- unknown: 8
 - other: 1
 
 ## Accepted Source Tier Distribution (latest run)
@@ -72,3 +72,12 @@
 - nih_ncbi_pmc: queried=47, candidates=208, accepted=1, acceptanceRate=0.48%
 - pubchem_structured: queried=47, candidates=67, accepted=1, acceptanceRate=1.49%
 - chembl_structured: queried=47, candidates=23, accepted=0, acceptanceRate=0%
+
+## ChEMBL Telemetry (latest run)
+
+- queried=47
+- candidates=23
+- accepted=0
+- acceptanceRate=0%
+- topRejectionReasons:
+- none
