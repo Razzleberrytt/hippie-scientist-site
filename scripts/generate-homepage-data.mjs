@@ -11,6 +11,7 @@ const governedPath = path.join(root, 'public/data/enrichment-governed.json')
 const indexableHerbsPath = path.join(root, 'public/data/indexable-herbs.json')
 const indexableCompoundsPath = path.join(root, 'public/data/indexable-compounds.json')
 const publicationManifestPath = path.join(root, 'public/data/publication-manifest.json')
+const publicationIndexPath = path.join(root, 'public/data/publication-index.json')
 const wave2bReportPath = path.join(root, 'ops/reports/enrichment-wave-2b.json')
 const healthReportPath = path.join(root, 'ops/reports/enrichment-health.json')
 const backlogReportPath = path.join(root, 'ops/reports/enrichment-backlog.json')
@@ -280,6 +281,7 @@ function buildHomepageData() {
   const indexableHerbs = readJson(indexableHerbsPath)
   const indexableCompounds = readJson(indexableCompoundsPath)
   const publicationManifest = readJson(publicationManifestPath)
+  const publicationIndex = fs.existsSync(publicationIndexPath) ? readJson(publicationIndexPath) : null
 
   const counts = fs.existsSync(siteCountsPath)
     ? readJson(siteCountsPath)
@@ -463,13 +465,14 @@ function buildHomepageData() {
         herbsSummary: 'public/data/herbs-summary.json',
         compoundsSummary: 'public/data/compounds-summary.json',
         publicationManifest: 'public/data/publication-manifest.json',
+        publicationIndex: 'public/data/publication-index.json',
       },
       publishableEntityCount: publishableByEntity.size,
       blockedEntityCount: blockedByEntity.size,
       indexableEntityCount: indexableSet.size,
       indexablePublishableEntityCount: governedHighlights.filter(item => item.publicationIndexed).length,
       modules,
-      publicationManifestGeneratedAt: cleanText(publicationManifest.generatedAt),
+      publicationManifestGeneratedAt: cleanText(publicationManifest.generatedAt || publicationIndex?.generatedAt),
     },
   }
 
@@ -481,7 +484,7 @@ function buildHomepageData() {
       curated,
       modules,
       entityExclusions,
-      publicationManifestGeneratedAt: cleanText(publicationManifest.generatedAt),
+      publicationManifestGeneratedAt: cleanText(publicationManifest.generatedAt || publicationIndex?.generatedAt),
       reportInputs: {
         wave2b: fs.existsSync(wave2bReportPath) ? cleanText(readJson(wave2bReportPath).generatedAt) : null,
         enrichmentHealth: fs.existsSync(healthReportPath) ? cleanText(readJson(healthReportPath).generatedAt) : null,
