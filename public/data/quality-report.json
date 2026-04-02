@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-02T23:27:29.497Z",
+  "generatedAt": "2026-04-02T23:34:01.605Z",
   "thresholds": {
     "strongDescriptionLength": 60,
     "strongMinSources": 2,
@@ -23,12 +23,12 @@
   },
   "compounds": {
     "total": 390,
-    "indexable": 10,
+    "indexable": 359,
     "excluded": 11,
     "tierCounts": {
       "strong": 9,
-      "publishable": 1,
-      "needs_work": 369,
+      "publishable": 350,
+      "needs_work": 20,
       "excluded": 11
     },
     "excludedByReason": {

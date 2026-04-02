@@ -48,6 +48,17 @@ function writeJson(relativePath, data) {
 const asArray = value => (Array.isArray(value) ? value : [])
 const asText = value => String(value || '').trim()
 const clip = (value, max = 155) => asText(value).slice(0, max)
+const normalizeKey = value =>
+  asText(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+const toTitle = value =>
+  asText(value)
+    .split(/\s+/)
+    .filter(Boolean)
+    .map(chunk => chunk.charAt(0).toUpperCase() + chunk.slice(1))
+    .join(' ')
 
 function normalizeDate(value) {
   if (!value) return null
@@ -58,6 +69,105 @@ function normalizeDate(value) {
 
 function countSources(record) {
   return countBootstrapSources([record?.sources, record?.source, record?.references, record?.citations])
+}
+
+function mergeSources(...sourceSets) {
+  const merged = []
+  const seen = new Set()
+  for (const set of sourceSets) {
+    for (const source of asArray(set)) {
+      if (!source) continue
+      if (typeof source === 'string') {
+        const title = asText(source)
+        if (!title) continue
+        const key = `string:${title.toLowerCase()}`
+        if (seen.has(key)) continue
+        seen.add(key)
+        merged.push({ title })
+        continue
+      }
+
+      const title = asText(source?.title || source?.name || source?.citation || source?.url)
+      const url = asText(source?.url || source?.link)
+      if (!title && !url) continue
+      const key = `${title.toLowerCase()}|${url.toLowerCase()}`
+      if (seen.has(key)) continue
+      seen.add(key)
+      merged.push(url ? { title: title || url, url } : { title })
+    }
+  }
+
+  return merged
+}
+
+function deriveCompoundRescueContext(compounds, herbs) {
+  const herbByKey = new Map()
+  const compoundToHerbs = new Map()
+
+  for (const herb of herbs) {
+    const herbName = asText(herb?.name || herb?.commonName || herb?.common || herb?.latinName || herb?.latin)
+    if (!herbName) continue
+
+    const herbSummary = asText(herb?.summary || herb?.description)
+    const herbCategory = asText(herb?.category || herb?.class || herb?.subcategory || herb?.traditionalUse)
+    const herbSources = asArray(herb?.sources)
+    const herbRecord = { herbName, herbSummary, herbCategory, herbSources }
+
+    for (const alias of [herbName, herb?.slug, herb?.id, herb?.latin, herb?.name]) {
+      const key = normalizeKey(alias)
+      if (!key || herbByKey.has(key)) continue
+      herbByKey.set(key, herbRecord)
+    }
+
+    for (const compoundName of asArray(herb?.activeCompounds ?? herb?.active_compounds ?? herb?.compounds)) {
+      const key = normalizeKey(compoundName)
+      if (!key) continue
+      const bucket = compoundToHerbs.get(key) || []
+      bucket.push(herbRecord)
+      compoundToHerbs.set(key, bucket)
+    }
+  }
+
+  return compounds.map(record => {
+    const compoundName = asText(record?.name || record?.commonName || record?.common || record?.latinName || record?.latin)
+    const key = normalizeKey(compoundName || record?.slug || record?.id)
+    const parentFromRecord = asArray(record?.herbs).map(asText).filter(Boolean)
+    const parentFromLinks = asArray(record?.relatedHerbs).map(asText).filter(Boolean)
+    const inferredFromHerbCompounds = (compoundToHerbs.get(key) || []).map(item => item.herbName)
+    const parentHerbs = Array.from(new Set([...parentFromRecord, ...parentFromLinks, ...inferredFromHerbCompounds]))
+
+    const linkedHerbRecords = parentHerbs
+      .map(name => herbByKey.get(normalizeKey(name)))
+      .filter(Boolean)
+
+    const inheritedCategory = linkedHerbRecords.map(item => asText(item.herbCategory)).find(Boolean) || ''
+    const broadContext = asText(record?.category || record?.class || inheritedCategory || 'general context')
+    const inheritedSources = linkedHerbRecords.flatMap(item => item.herbSources || [])
+    const mergedSourceSet = countSources(record) > 0 ? mergeSources(record?.sources) : mergeSources(record?.sources, inheritedSources)
+
+    const hasDescription = asText(record?.description).length > 0
+    const hasSummary = asText(record?.summary).length > 0
+    const displayName = compoundName || toTitle(asText(record?.slug || record?.id || 'This compound'))
+    const herbLabel =
+      parentHerbs.length === 0
+        ? 'linked herb profiles'
+        : parentHerbs.length <= 3
+          ? parentHerbs.join(', ')
+          : `${parentHerbs.slice(0, 3).join(', ')}, and related herbs`
+    const conservativeDescription =
+      parentHerbs.length > 0
+        ? `${displayName} is a constituent reported in ${herbLabel}. Current site data links it to ${broadContext}, but evidence depth is still limited.`
+        : ''
+
+    return {
+      ...record,
+      herbs: parentHerbs.length > 0 ? parentHerbs : asArray(record?.herbs),
+      category: asText(record?.category) || inheritedCategory || asText(record?.class) || '',
+      sources: mergedSourceSet.length > 0 ? mergedSourceSet : asArray(record?.sources),
+      description: hasDescription ? record?.description : conservativeDescription || record?.description,
+      summary: hasSummary ? record?.summary : conservativeDescription || record?.summary,
+    }
+  })
 }
 
 function countEffects(record) {
@@ -316,16 +426,17 @@ function run() {
   const herbs = readJson('public/data/herbs.json')
   const compounds = readJson('public/data/compounds.json')
   const blogIndex = readJson('public/blogdata/index.json')
+  const rescuedCompounds = deriveCompoundRescueContext(compounds, herbs)
 
   const herbAudits = herbs.map(record => auditEntity(record, 'herbs'))
-  const compoundAudits = compounds.map(record => auditEntity(record, 'compounds'))
+  const compoundAudits = rescuedCompounds.map(record => auditEntity(record, 'compounds'))
 
   const herbSummary = summarizeAudits(herbAudits)
   const compoundSummary = summarizeAudits(compoundAudits)
   const blogSummary = auditBlogIndex(asArray(blogIndex))
   const herbSourceBuckets = sourceCountBuckets(herbs.map(record => [record?.sources, record?.source, record?.references, record?.citations]))
   const compoundSourceBuckets = sourceCountBuckets(
-    compounds.map(record => [record?.sources, record?.source, record?.references, record?.citations]),
+    rescuedCompounds.map(record => [record?.sources, record?.source, record?.references, record?.citations]),
   )
 
   const indexableHerbEntries = herbAudits
@@ -335,7 +446,7 @@ function run() {
     .sort((a, b) => b.completenessScore - a.completenessScore)
 
   const indexableCompoundEntries = compoundAudits
-    .map((audit, index) => ({ audit, record: compounds[index] }))
+    .map((audit, index) => ({ audit, record: rescuedCompounds[index] }))
     .filter(item => item.audit.passesIndexThreshold)
     .map(item => buildPublicationEntry(item.record, 'compound', item.audit))
     .sort((a, b) => b.completenessScore - a.completenessScore)
