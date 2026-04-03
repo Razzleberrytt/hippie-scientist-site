@@ -242,6 +242,8 @@ const CLICK_CAP = 6
 const MIN_EXPOSURE_CLICKS = 2
 const MIN_EXPOSURE_BOOST = 1.25
 const CLOSE_SCORE_DELTA = 0.35
+const TIME_DECAY_HALF_LIFE_MS = 7 * 24 * 60 * 60 * 1000
+const MAX_CLICK_EVENT_AGE_MS = 60 * 24 * 60 * 60 * 1000
 
 function getHerbSlugFromAnalyticsEvent(event: { slug?: string; entitySlug?: string }): string | null {
   const slug = String(event.slug || '').trim()
@@ -271,24 +273,48 @@ function getDwellWeight(dwellTimeMs: number | null): number {
   return 1.5
 }
 
+export function getTimeDecayWeight(timestamp?: number, nowMs: number = Date.now()): number {
+  if (typeof timestamp !== 'number' || !Number.isFinite(timestamp)) return 1
+
+  const ageMs = Math.max(0, nowMs - timestamp)
+  return Math.pow(0.5, ageMs / TIME_DECAY_HALF_LIFE_MS)
+}
+
+function shouldSkipByAge(timestamp?: number, nowMs: number = Date.now()): boolean {
+  if (typeof timestamp !== 'number' || !Number.isFinite(timestamp)) return false
+  const ageMs = Math.max(0, nowMs - timestamp)
+  return ageMs > MAX_CLICK_EVENT_AGE_MS
+}
+
 function hasWeightedSignal(event: StoredAnalyticsEvent): boolean {
   return typeof event.position === 'number' || 'dwellTimeMs' in event
 }
 
-function getEventWeightedScore(event: StoredAnalyticsEvent): number {
+function getEventWeightedScore(event: StoredAnalyticsEvent, nowMs: number): number {
   const position = typeof event.position === 'number' && Number.isFinite(event.position) ? event.position : 6
   const dwellTimeMs =
     event.dwellTimeMs === null || (typeof event.dwellTimeMs === 'number' && Number.isFinite(event.dwellTimeMs))
       ? event.dwellTimeMs
       : null
-  return getPositionWeight(position) * getDwellWeight(dwellTimeMs)
+  const timeDecayWeight = getTimeDecayWeight(event.timestamp, nowMs)
+  return getPositionWeight(position) * getDwellWeight(dwellTimeMs) * timeDecayWeight
 }
 
-export function getWeightedClickScore(events: StoredAnalyticsEvent[]): number {
-  return events.reduce((total, event) => total + getEventWeightedScore(event), 0)
+export function getWeightedClickScore(events: StoredAnalyticsEvent[], nowMs: number = Date.now()): number {
+  return events.reduce((total, event) => {
+    if (shouldSkipByAge(event.timestamp, nowMs)) return total
+    return total + getEventWeightedScore(event, nowMs)
+  }, 0)
 }
 
-function addClickEvent(metrics: ClickMetricsByProductId, productId: string, event: StoredAnalyticsEvent) {
+function addClickEvent(
+  metrics: ClickMetricsByProductId,
+  productId: string,
+  event: StoredAnalyticsEvent,
+  nowMs: number,
+) {
+  if (shouldSkipByAge(event.timestamp, nowMs)) return
+
   const next = (metrics[productId] ||= {
     rawCount: 0,
     weightedScore: 0,
@@ -297,12 +323,12 @@ function addClickEvent(metrics: ClickMetricsByProductId, productId: string, even
 
   next.rawCount += 1
   if (hasWeightedSignal(event)) {
-    next.weightedScore += getEventWeightedScore(event)
+    next.weightedScore += getEventWeightedScore(event, nowMs)
     next.weightedEventCount += 1
   }
 }
 
-function getHerbProductClickCountsByAnchor(): HerbProductClickMetricsByAnchor {
+function getHerbProductClickCountsByAnchor(nowMs: number): HerbProductClickMetricsByAnchor {
   const countsByHerb: HerbProductClickMetricsByAnchor = {}
 
   const events = readAnalyticsEvents()
@@ -315,12 +341,12 @@ function getHerbProductClickCountsByAnchor(): HerbProductClickMetricsByAnchor {
 
     const herbCounts = (countsByHerb[herbSlug] ||= {})
     const globalCounts = (herbCounts.__global ||= {})
-    addClickEvent(globalCounts, productId, event)
+    addClickEvent(globalCounts, productId, event, nowMs)
 
     const anchorKey = String(event.useCaseAnchor || '').trim()
     if (!anchorKey) return
     const anchorCounts = (herbCounts[anchorKey] ||= {})
-    addClickEvent(anchorCounts, productId, event)
+    addClickEvent(anchorCounts, productId, event, nowMs)
   })
 
   return countsByHerb
@@ -346,10 +372,14 @@ function deterministicJitter(seed: string): number {
 
 export function getRenderableCuratedProducts(
   context: CuratedProductPageContext,
+  options?: { nowMs?: number },
 ): RenderableCuratedProduct[] {
   if (context.sourceCount <= 0) return []
+  const nowMs = options?.nowMs ?? Date.now()
   const herbClickCountsByAnchor =
-    context.entityType === 'herb' ? getHerbProductClickCountsByAnchor()[context.entitySlug] : null
+    context.entityType === 'herb'
+      ? getHerbProductClickCountsByAnchor(nowMs)[context.entitySlug]
+      : null
   const activeAnchorKey = String(context.useCaseAnchor || '').trim()
   const anchorSpecificClickCounts =
     activeAnchorKey && herbClickCountsByAnchor ? herbClickCountsByAnchor[activeAnchorKey] : undefined
