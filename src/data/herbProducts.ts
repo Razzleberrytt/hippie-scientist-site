@@ -1,75 +1,75 @@
-export const AMAZON_AFFILIATE_TRACKING_ID = 'razzleberry02-20'
-
-export type ProductForm = 'capsule' | 'powder' | 'tea' | 'loose herb'
-
 export type HerbProduct = {
-  label: string
-  form: ProductForm
-  asin: string
-  note: string
-  bestFor: string
+  name: string
+  brand?: string
+  form: string
+  attributes: string[]
+  notes?: string
 }
 
-export type HerbProductCatalogEntry = {
-  herb: string
+export type HerbProductEntry = {
+  herbSlug: string
   products: HerbProduct[]
 }
 
-export const herbProductCatalog: HerbProductCatalogEntry[] = [
+export const herbProducts: HerbProductEntry[] = [
   {
-    herb: 'ashwagandha',
+    herbSlug: 'ashwagandha',
     products: [
       {
-        label: 'Himalaya Organic Ashwagandha Capsules',
+        name: 'Organic Ashwagandha Root Extract',
+        brand: 'Himalaya',
         form: 'capsule',
-        asin: 'B003ODIZL6',
-        note: 'Convenient daily use, standardized extract',
-        bestFor: 'Best for daily use',
+        attributes: ['root-only', 'standardized withanolides', 'third-party tested'],
+        notes: 'Good fit when you want a measured daily format with straightforward labeling.',
       },
       {
-        label: 'Ashwagandha Root Powder',
+        name: 'Ashwagandha Root Powder',
         form: 'powder',
-        asin: 'B01M0KJX7E',
-        note: 'Traditional form for tea or mixing',
-        bestFor: 'Best for traditional preparation',
+        attributes: ['root powder', 'single-herb formula', 'clear serving scoop'],
+        notes: 'Works well for tea or warm milk-style preparation when flavor is acceptable.',
       },
     ],
   },
   {
-    herb: 'lions mane',
+    herbSlug: 'chamomile',
     products: [
       {
-        label: 'Host Defense Lion’s Mane Capsules',
-        form: 'capsule',
-        asin: 'B002WJ2ALA',
-        note: 'Trusted brand, widely used',
-        bestFor: 'Best for convenience',
-      },
-      {
-        label: 'Lion’s Mane Mushroom Powder',
-        form: 'powder',
-        asin: 'B01BK871DE',
-        note: 'Mixable powder for coffee or smoothies',
-        bestFor: 'Best for daily use',
-      },
-    ],
-  },
-  {
-    herb: 'chamomile',
-    products: [
-      {
-        label: 'Traditional Medicinals Chamomile Tea',
+        name: 'Single-Herb Chamomile Tea Bags',
         form: 'tea',
-        asin: 'B0009F3POO',
-        note: 'Easy entry point, calming herbal tea',
-        bestFor: 'Best for convenience',
+        attributes: ['flower-only listing', 'no stimulant add-ins', 'aroma-forward dried flowers'],
+        notes: 'Easy entry option for nightly wind-down routines.',
       },
       {
-        label: 'Organic Chamomile Flowers',
+        name: 'Whole Chamomile Flowers',
         form: 'loose herb',
-        asin: 'B0001M0Z6A',
-        note: 'Loose flowers for traditional preparation',
-        bestFor: 'Best for traditional preparation',
+        attributes: ['whole flower heads', 'clean sifted material', 'organic when available'],
+      },
+    ],
+  },
+  {
+    herbSlug: 'rhodiola-rosea',
+    products: [
+      {
+        name: 'Rhodiola Rosea Standardized Extract',
+        form: 'capsule',
+        attributes: ['rhodiola rosea species named', 'rosavin/salidroside listed', 'clear per-serving mg'],
+        notes: 'Most comparable format when choosing between extract products.',
+      },
+    ],
+  },
+  {
+    herbSlug: 'turmeric',
+    products: [
+      {
+        name: 'Turmeric Curcuminoid Extract',
+        form: 'capsule',
+        attributes: ['curcuminoid standardization', 'third-party tested', 'clear extract amount'],
+      },
+      {
+        name: 'Culinary Turmeric Root Powder',
+        form: 'powder',
+        attributes: ['root powder', 'single-ingredient', 'batch freshness details'],
+        notes: 'Practical for food-first use when you prefer gradual daily intake.',
       },
     ],
   },

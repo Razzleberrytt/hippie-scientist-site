@@ -33,6 +33,7 @@ import EnrichmentRecommendationBlocks from '@/components/detail/EnrichmentRecomm
 import GovernedQuickCompareBlock from '@/components/detail/GovernedQuickCompareBlock'
 import PremiumDataSection from '@/components/detail/PremiumDataSection'
 import HerbBuyerGuidanceSection from '@/components/detail/HerbBuyerGuidanceSection'
+import HerbProductSection from '@/components/detail/HerbProductSection'
 import { resolveCtaVariant } from '@/config/ctaExperiments'
 import { getRenderableCuratedProducts } from '@/lib/curatedProducts'
 import BreadcrumbTrail from '@/components/navigation/BreadcrumbTrail'
@@ -45,6 +46,7 @@ import { buildFallbackHerbIntro, buildGovernedDetailIntro } from '@/lib/governed
 import { resolveGovernedCtaDecision } from '@/lib/governedCta'
 import { buildGovernedReviewFreshness } from '@/lib/governedReviewFreshness'
 import { getHerbRecommendation } from '@/lib/herbRecommendations'
+import { getHerbProducts } from '@/lib/herbProducts'
 import {
   trackDetailBuilderClick,
   trackCtaSlotImpression,
@@ -439,6 +441,7 @@ export default function HerbDetail() {
   const enrichmentRecommendations = buildEnrichmentRecommendations('herb', herb.slug)
   const quickCompareSection = buildGovernedQuickCompareSection('herb', herb.slug)
   const herbRecommendation = getHerbRecommendation(herb.slug)
+  const herbProducts = getHerbProducts(herb.slug)
   const recommendationNames = {
     herb: new Map(herbs.map(item => [item.slug, item.common || item.name || item.slug])),
     compound: new Map(compounds.map(item => [item.slug, item.name || item.slug])),
@@ -979,6 +982,7 @@ export default function HerbDetail() {
           <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
         </div>
         {herbRecommendation && <HerbBuyerGuidanceSection recommendation={herbRecommendation} />}
+        {herbProducts.length > 0 && <HerbProductSection products={herbProducts} />}
       </article>
     </main>
   )
