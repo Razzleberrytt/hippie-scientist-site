@@ -96,7 +96,7 @@ a:hover {
   }
 
   .ds-section {
-    @apply mb-8 sm:mb-10;
+    @apply mb-7 sm:mb-9;
   }
 
   .ds-stack {
@@ -104,7 +104,7 @@ a:hover {
   }
 
   .ds-card {
-    @apply rounded-2xl border border-white/15 bg-white/[0.04] p-5 backdrop-blur-md;
+    @apply rounded-2xl border border-white/15 bg-white/[0.04] p-4 sm:p-5 backdrop-blur-md;
     box-shadow:
       0 14px 30px -26px rgba(16, 185, 129, 0.5),
       0 8px 22px -22px rgba(0, 0, 0, 0.72);
@@ -112,6 +112,19 @@ a:hover {
 
   .ds-card-lg {
     @apply ds-card p-5 sm:p-6;
+  }
+
+  .ds-card-grid {
+    @apply grid gap-3 sm:gap-4;
+    grid-auto-rows: 1fr;
+  }
+
+  .ds-card-tight {
+    @apply rounded-2xl border border-white/15 bg-white/[0.03] p-4;
+  }
+
+  .ds-action-row {
+    @apply flex flex-wrap gap-2;
   }
 
   .ds-heading {
@@ -139,7 +152,7 @@ a:hover {
   .btn-primary,
   .btn-secondary,
   .btn-ghost {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold transition duration-200;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-semibold leading-none transition duration-200;
   }
 
   .btn {

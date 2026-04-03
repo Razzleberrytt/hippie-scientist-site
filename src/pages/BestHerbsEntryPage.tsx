@@ -25,7 +25,7 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     path: '/best-herbs-for-anxiety',
     title: 'Best Herbs for Anxiety Support',
     intro:
-      'These herbs are commonly used to reduce anxious tension and support calmer day-to-day functioning. Use this list to compare practical options, then review the full herb pages for interactions and contraindications.',
+      'Compare herbs commonly used for anxious tension and calmer day-to-day functioning. Start with one option, then verify interactions on the full herb page.',
     rankingTerms: ['relaxation', 'mood'],
     metaTitle: 'Best Herbs for Anxiety (Natural Options That Actually Help)',
     metaDescription:
@@ -36,7 +36,7 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     path: '/best-herbs-for-sleep',
     title: 'Best Herbs for Better Sleep',
     intro:
-      'If your goal is falling asleep faster or winding down before bed, these herbs are a practical starting point. Compare quick summaries here, then check each herb profile for dosing context and safety details.',
+      'Use this shortlist if your goal is falling asleep faster or winding down before bed. Pick one option, then check dosing and interactions on the full herb page.',
     rankingTerms: ['sleep', 'relaxation'],
     metaTitle: 'Best Herbs for Sleep (Natural Nighttime Support)',
     metaDescription:
@@ -47,7 +47,7 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     path: '/best-herbs-for-focus',
     title: 'Best Herbs for Focus and Clarity',
     intro:
-      'Focus support can come from stimulation, stress reduction, or cognitive support. This page highlights herbs often used for sharper attention and cleaner concentration during work or study blocks.',
+      'Focus support can come from stimulation, stress reduction, or cognitive support. Compare options for work or study, then validate fit and safety in the full profile.',
     rankingTerms: ['focus', 'energy'],
     metaTitle: 'Best Herbs for Focus (Natural Clarity and Concentration)',
     metaDescription:
@@ -58,7 +58,7 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     path: '/best-herbs-for-stress',
     title: 'Best Herbs for Stress Relief',
     intro:
-      'For daily stress load, these herbs are often used to soften physical and mental strain without overcomplicating routines. Start with one option, track response, and adjust conservatively.',
+      'These herbs are often used to soften daily physical and mental stress load. Start with one option, track response, and adjust conservatively.',
     rankingTerms: ['relaxation', 'mood'],
     metaTitle: 'Best Herbs for Stress Relief (Calmer Daily Support)',
     metaDescription:
@@ -69,7 +69,7 @@ const ENTRY_PAGE_CONFIGS: Record<EntryIntent, EntryPageConfig> = {
     path: '/best-herbs-for-energy',
     title: 'Best Herbs for Natural Energy',
     intro:
-      'These herbs are commonly used for non-jittery energy, stamina, or daytime alertness. Use this page to shortlist options and click through for full evidence, interactions, and formulation notes.',
+      'These herbs are commonly used for non-jittery energy, stamina, or daytime alertness. Shortlist one or two, then use full pages for evidence and interaction checks.',
     rankingTerms: ['energy', 'focus'],
     metaTitle: 'Best Herbs for Natural Energy (Steady, Non-Jittery Options)',
     metaDescription:
@@ -162,7 +162,7 @@ export default function BestHerbsEntryPage() {
             <p className='text-xs text-white/60'>Open any herb for full safety and interaction detail.</p>
           </div>
 
-          <ol className='mt-4 space-y-3'>
+          <ol className='mt-4 ds-card-grid'>
           {ranked.map((entry, index) => {
             const slug = String(entry.herb.slug || '').trim()
             const herbName = getCommonName(entry.herb) || entry.herb.scientific || slug
@@ -170,7 +170,7 @@ export default function BestHerbsEntryPage() {
             const shouldSurfaceProducts = index < 3 && products.length > 0
 
             return (
-              <li key={slug} className='rounded-xl border border-white/10 bg-white/[0.04] p-4'>
+              <li key={slug} className='ds-card-tight h-full'>
                 <div className='flex items-center justify-between gap-3'>
                   <h3 className='text-base font-semibold text-white'>
                     <Link
@@ -187,21 +187,22 @@ export default function BestHerbsEntryPage() {
                   {buildPracticalSummary(entry.herb, entry.matchedEffects)}
                 </p>
 
+                <p className='mt-2 text-xs text-white/80'>
+                  <span className='font-semibold text-white/95'>Best when:</span>{' '}
+                  {entry.matchedEffects[0] || 'general support'}
+                </p>
                 <p className='mt-2 text-xs text-white/65'>
                   Matched effects: {entry.matchedEffects.slice(0, 3).join(', ') || 'general support'}
                 </p>
 
                 {shouldSurfaceProducts && (
-                  <div className='mt-3 rounded-lg border border-white/10 bg-black/15 p-3'>
+                  <div className='mt-3 rounded-xl border border-white/10 bg-black/15 p-3'>
                     <p className='text-xs font-semibold uppercase tracking-wide text-white/70'>
                       Product options
                     </p>
                     <div className='mt-2 space-y-2'>
                       {products.map(product => (
-                        <article
-                          key={`${slug}-${product.productTitle}`}
-                          className='rounded-lg border border-white/10 bg-white/[0.03] p-2.5'
-                        >
+                        <article key={`${slug}-${product.productTitle}`} className='ds-card-tight'>
                           <p className='text-sm font-medium text-white'>{product.productTitle}</p>
                           <p className='mt-1 text-xs capitalize text-white/65'>Form: {product.form}</p>
                           {product.notes && <p className='mt-1 text-xs text-white/70'>{product.notes}</p>}
@@ -233,7 +234,7 @@ export default function BestHerbsEntryPage() {
               <Link
                 key={item}
                 to={ENTRY_PAGE_CONFIGS[item].path}
-                className='rounded-xl border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white/85 transition hover:border-cyan-300/50 hover:text-cyan-100'
+                className='ds-card-tight text-sm text-white/85 transition hover:border-cyan-300/50 hover:text-cyan-100'
               >
                 {ENTRY_PAGE_CONFIGS[item].title}
               </Link>

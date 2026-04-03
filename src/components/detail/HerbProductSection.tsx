@@ -63,7 +63,7 @@ export default function HerbProductSection({
           )}
         </div>
 
-        <div className='mt-4 grid gap-3 md:grid-cols-2'>
+        <div className='ds-card-grid mt-4 md:grid-cols-2'>
           {sortedProducts.map((product, index) => {
             const normalizedAffiliateUrl = normalizeAmazonAffiliateUrl(
               product.affiliateUrl,
@@ -75,7 +75,7 @@ export default function HerbProductSection({
             return (
               <article
                 key={`${product.productTitle}-${product.form}`}
-                className={`rounded-xl border p-3 ${
+                className={`rounded-2xl border p-4 ${
                   product.highlight
                     ? 'border-emerald-200/30 bg-emerald-200/[0.04]'
                     : 'border-white/10 bg-white/[0.02]'
@@ -121,7 +121,7 @@ export default function HerbProductSection({
                     href={normalizedAffiliateUrl}
                     target='_blank'
                     rel='nofollow noopener noreferrer'
-                    className='text-white/78 mt-3 inline-flex items-center rounded-md border border-white/20 bg-white/[0.03] px-3 py-1.5 text-xs font-medium'
+                    className='btn-secondary mt-3 inline-flex text-xs'
                     onClick={() =>
                       trackAffiliateLinkClick({
                         herbSlug,
@@ -138,7 +138,7 @@ export default function HerbProductSection({
                   <button
                     type='button'
                     aria-disabled='true'
-                    className='text-white/78 mt-3 inline-flex cursor-default items-center rounded-md border border-white/20 bg-white/[0.03] px-3 py-1.5 text-xs font-medium'
+                    className='btn-secondary mt-3 inline-flex cursor-default text-xs opacity-70'
                   >
                     View Options
                   </button>

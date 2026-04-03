@@ -412,6 +412,11 @@ export default function HerbDetail() {
   )
   const missingFieldCount = 6 - renderableKeys.length
   const shouldShowContributionCta = renderableKeys.length < 5
+  const practicalInfo = [
+    dosage ? `Dosage: ${dosage}` : '',
+    duration ? `Duration: ${duration}` : '',
+    preparation ? `Preparation: ${preparation}` : '',
+  ].filter(Boolean)
   const herbToken = encodeURIComponent(`herb:${herb.slug}`)
   const herbCheckerHref = buildInteractionsLink([herbToken])
   const relatedCollections = SEO_COLLECTIONS.filter(collection => collection.itemType === 'herb')
@@ -880,65 +885,33 @@ export default function HerbDetail() {
           </Section>
         )}
 
-        {whyPeopleChooseBullets.length > 0 && (
+        {(whyPeopleChooseBullets.length > 0 || useCaseAnchors.length > 0) && (
           <section className='border-white/8 mt-6 border-t pt-5'>
             <div className='rounded-2xl border border-white/12 bg-white/[0.03] p-4'>
               <h2 className='text-xs font-semibold uppercase tracking-[0.18em] text-white/55'>
-                Why people choose this herb
+                Why it matters and how to choose
               </h2>
-              <ul className='mt-3 list-disc space-y-1.5 pl-5 text-sm text-white/85'>
-                {whyPeopleChooseBullets.map(item => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )}
-
-        {useCaseAnchors.length > 0 && (
-          <section className='border-white/8 mt-6 border-t pt-5'>
-            <h2 className='mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
-              Use-case guidance
-            </h2>
-            <div className='space-y-3'>
-              {useCaseAnchors.map(anchor => (
-                <article
-                  key={anchor.key}
-                  className='rounded-lg border border-white/15 bg-white/[0.02] p-3 text-sm text-white/85'
-                  onClick={() => setActiveUseCaseAnchor(anchor.key)}
-                >
-                  <p className='text-sm font-semibold text-white'>{anchor.question}</p>
-                  <p className='mt-1 text-xs text-white/70'>{anchor.guidance}</p>
-                  <p className='mt-2 text-[11px] uppercase tracking-[0.12em] text-white/50'>
-                    Buyer signals tied to this use case
-                  </p>
-                  <p className='mt-2 text-xs text-white/70'>
-                    Matching tags: {anchor.matchedTags.join(' · ')}
-                  </p>
-                  <div className='mt-2 flex flex-wrap gap-2'>
-                    {anchor.matchedProducts.slice(0, 2).map(product => (
-                      <span
-                        key={`${anchor.key}-${product.productId}`}
-                        className='rounded-full border border-emerald-300/35 bg-emerald-500/10 px-2.5 py-1 text-xs text-emerald-100'
-                      >
-                        {product.productTitle}
-                      </span>
-                    ))}
-                  </div>
-                  {anchor.relatedHerbLinks.length > 0 && (
-                    <p className='mt-2 text-xs text-white/75'>
-                      {anchor.relatedHerbLinks.map(link => (
-                        <span key={`${anchor.key}-${link.to}`} className='mr-4 inline-block'>
-                          {link.leadIn}:{' '}
-                          <Link to={link.to} className='text-violet-200 underline-offset-2 hover:underline'>
-                            {link.label}
-                          </Link>
-                        </span>
-                      ))}
-                    </p>
-                  )}
-                </article>
-              ))}
+              {whyPeopleChooseBullets.length > 0 && (
+                <ul className='mt-3 list-disc space-y-1.5 pl-5 text-sm text-white/85'>
+                  {whyPeopleChooseBullets.map(item => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {useCaseAnchors.length > 0 && (
+                <div className='mt-4 space-y-2'>
+                  {useCaseAnchors.map(anchor => (
+                    <article
+                      key={anchor.key}
+                      className='rounded-xl border border-white/12 bg-white/[0.02] p-3 text-sm text-white/85'
+                      onClick={() => setActiveUseCaseAnchor(anchor.key)}
+                    >
+                      <p className='text-sm font-semibold text-white'>{anchor.question}</p>
+                      <p className='mt-1 text-xs text-white/70'>{anchor.guidance}</p>
+                    </article>
+                  ))}
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -1120,10 +1093,12 @@ export default function HerbDetail() {
           </section>
         )}
 
-        {/* Practical info — only render if value exists */}
-        {dosage && <Section title='Dosage'>{dosage}</Section>}
-        {duration && <Section title='Duration'>{duration}</Section>}
-        {preparation && <Section title='Preparation'>{preparation}</Section>}
+        {/* Practical info — merged for faster scanning */}
+        {practicalInfo.length > 0 && (
+          <Section title='How to use'>
+            <ListSection items={practicalInfo} />
+          </Section>
+        )}
         {region && <Section title='Region'>{region}</Section>}
         {legalStatus && <Section title='Legal Status'>{legalStatus}</Section>}
 
