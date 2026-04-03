@@ -5,9 +5,15 @@
   "intensity": "mild",
   "mechanism": "",
   "activeCompounds": [],
-  "effects": [],
+  "effects": [
+    "May reduce perceived stress scores",
+    "May improve anxiety symptom scales in randomized trials",
+    "May improve sleep quality in stressed adults"
+  ],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "Potential additive sedation with CNS depressants; monitor with thyroid medications."
+  ],
   "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
   "sources": [
     {

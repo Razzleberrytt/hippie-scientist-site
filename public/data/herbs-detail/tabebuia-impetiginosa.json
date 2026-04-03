@@ -13,7 +13,10 @@
     "inflammatory"
   ],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
   "safetyNotes": "Generally well tolerated,rare allergic or GI reactions,No direct toxicity data. Contextual inference: Antimicrobial,anti-inflammatory,immune stimulant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,immune stimulant. none.",
   "sources": [
     {

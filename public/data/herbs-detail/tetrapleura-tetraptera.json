@@ -11,7 +11,10 @@
     "used in african medicine and cuisine"
   ],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
   "safetyNotes": "Generally safe,limited data on adverse effects,No direct toxicity data. Contextual inference: Antidiabetic,antimicrobial,used in african medicine and cuisine. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antidiabetic,used in African medicine and cuisine. none.",
   "sources": [
     {

@@ -9,7 +9,10 @@
     "used in traditional medicine as digestive aid and relaxant"
   ],
   "contraindications": [],
-  "interactions": [],
+  "interactions": [
+    "Insufficient direct interaction data for this herb; consult a clinician before combining with prescription medications.",
+    "Use extra caution with anticoagulants, sedatives, and serotonergic drugs until herb-specific interaction evidence is established."
+  ],
   "safetyNotes": "Insufficient data,unknown toxicity profile,No direct toxicity data. Contextual inference: Used in traditional medicine as digestive aid and relaxant. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Used in traditional medicine as digestive aid and relaxant. none.",
   "sources": [
     {

@@ -5,7 +5,11 @@
   "intensity": "mild",
   "mechanism": "",
   "activeCompounds": [],
-  "effects": [],
+  "effects": [
+    "May improve subjective sleep quality",
+    "Mild sedative and anxiolytic effect",
+    "Possible modest reduction in sleep latency"
+  ],
   "contraindications": [],
   "interactions": [
     "May increase sedation when combined with CNS depressants."
