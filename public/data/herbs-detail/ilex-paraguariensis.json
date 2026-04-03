@@ -6,10 +6,9 @@
   "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "stimulant",
-    "rich in caffeine and theobromine (yerba mate)",
-    "cognitive enhancer",
-    "mood booster"
+    "stimulation",
+    "focus",
+    "mood"
   ],
   "contraindications": [
     "avoid with heart conditions",

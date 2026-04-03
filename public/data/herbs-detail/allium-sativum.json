@@ -6,14 +6,11 @@
   "mechanism": "Organosulfur compounds (including allicin-derived metabolites) modulate platelet aggregation, endothelial nitric oxide signaling, and inflammatory pathways.",
   "activeCompounds": [],
   "effects": [
-    "antimicrobial",
-    "hypotensive",
-    "cholesterol-lowering",
-    "antioxidant",
-    "stimulant",
+    "stimulation",
     "immune support",
-    "cholesterol",
-    "lowering"
+    "antimicrobial",
+    "antioxidant",
+    "cardiovascular"
   ],
   "contraindications": [],
   "safetyNotes": "Common effects are GI upset and odor; supplemental garlic can increase perioperative bleeding risk. Stop high-dose supplements before surgery unless clinician-directed.",
