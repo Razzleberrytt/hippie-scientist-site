@@ -1,7 +1,7 @@
 {
   "name": "Atropine",
   "category": "general",
-  "description": "Atropine is a compound reported in datura metel, brugmansia sanguinea, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "Atropine is a compound reported in datura metel, brugmansia sanguinea, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "datura metel",
     "brugmansia sanguinea",
@@ -67,5 +67,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "atropine",
-  "summary": "Atropine is a compound reported in datura metel, brugmansia sanguinea, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "Atropine is a compound reported in datura metel, brugmansia sanguinea, and related herbs. Available references are still early and incomplete."
 }

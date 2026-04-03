@@ -1,7 +1,7 @@
 {
   "name": "Fragarine",
   "category": "general",
-  "description": "Fragarine is a compound reported in rubus idaeus. Available source coverage remains preliminary in this dataset.",
+  "description": "Fragarine appears in records as a compound reported in rubus idaeus. Current source coverage is limited and still developing.",
   "herbs": [
     "rubus idaeus"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "fragarine",
-  "summary": "Fragarine is a compound reported in rubus idaeus. Available source coverage remains preliminary in this dataset."
+  "summary": "Fragarine appears in records as a compound reported in rubus idaeus. Current source coverage is limited and still developing."
 }

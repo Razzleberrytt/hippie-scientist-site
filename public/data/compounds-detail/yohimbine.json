@@ -1,7 +1,7 @@
 {
   "name": "Yohimbine",
   "category": "general",
-  "description": "Yohimbine is a compound reported in Pausinystalia johimbe. Available source coverage remains preliminary in this dataset.",
+  "description": "Yohimbine is a compound reported in Pausinystalia johimbe. Available references are still early and incomplete.",
   "herbs": [
     "Pausinystalia johimbe"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "yohimbine",
-  "summary": "Yohimbine is a compound reported in Pausinystalia johimbe. Available source coverage remains preliminary in this dataset."
+  "summary": "Yohimbine is a compound reported in Pausinystalia johimbe. Available references are still early and incomplete."
 }

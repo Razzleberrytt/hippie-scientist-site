@@ -1,7 +1,7 @@
 {
   "name": "Thujone",
   "category": "general",
-  "description": "Thujone is a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "Thujone appears in records as a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "artemisia abrotanum",
     "artemisia absinthium",
@@ -60,5 +60,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "thujone",
-  "summary": "Thujone is a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "Thujone appears in records as a compound reported in artemisia abrotanum, artemisia absinthium, and related herbs. Current source coverage is limited and still developing."
 }

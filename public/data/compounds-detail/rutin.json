@@ -1,7 +1,7 @@
 {
   "name": "Rutin",
   "category": "general",
-  "description": "Rutin is a compound reported in ruta graveolens. Available source coverage remains preliminary in this dataset.",
+  "description": "Rutin is a compound reported in ruta graveolens. Available references are still early and incomplete.",
   "herbs": [
     "ruta graveolens"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "rutin",
-  "summary": "Rutin is a compound reported in ruta graveolens. Available source coverage remains preliminary in this dataset."
+  "summary": "Rutin is a compound reported in ruta graveolens. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "Lysergic acid amide (LSA)",
   "category": "general",
-  "description": "Lysergic acid amide (LSA) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "description": "Lysergic acid amide (LSA) is listed as a compound in this profile. Available references are still early and incomplete.",
   "herbs": [],
   "effects": [
     "Visual hallucinations",
@@ -47,5 +47,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "lysergic-acid-amide-lsa",
-  "summary": "Lysergic acid amide (LSA) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Lysergic acid amide (LSA) is listed as a compound in this profile. Available references are still early and incomplete."
 }

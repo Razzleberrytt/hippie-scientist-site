@@ -1,7 +1,7 @@
 {
   "name": "persinosides A",
   "category": "general",
-  "description": "persinosides A is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset.",
+  "description": "persinosides A appears in records as a compound reported in aerva lanata. Current source coverage is limited and still developing.",
   "herbs": [
     "aerva lanata"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "persinosides-a",
-  "summary": "persinosides A is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset."
+  "summary": "persinosides A appears in records as a compound reported in aerva lanata. Current source coverage is limited and still developing."
 }

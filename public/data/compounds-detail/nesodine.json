@@ -1,7 +1,7 @@
 {
   "name": "nesodine",
   "category": "general",
-  "description": "nesodine is a compound reported in heimia salicifolia (sinicuichi). Available source coverage remains preliminary in this dataset.",
+  "description": "nesodine appears in records as a compound reported in heimia salicifolia (sinicuichi). Current source coverage is limited and still developing.",
   "herbs": [
     "heimia salicifolia (sinicuichi)"
   ],
@@ -45,5 +45,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nesodine",
-  "summary": "nesodine is a compound reported in heimia salicifolia (sinicuichi). Available source coverage remains preliminary in this dataset."
+  "summary": "nesodine appears in records as a compound reported in heimia salicifolia (sinicuichi). Current source coverage is limited and still developing."
 }

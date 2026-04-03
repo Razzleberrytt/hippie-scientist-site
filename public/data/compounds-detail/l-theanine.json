@@ -1,7 +1,7 @@
 {
   "name": "L-theanine",
   "category": "general",
-  "description": "L-theanine is a compound reported in camellia sinensis. Available source coverage remains preliminary in this dataset.",
+  "description": "L-theanine appears in records as a compound reported in camellia sinensis. Current source coverage is limited and still developing.",
   "herbs": [
     "camellia sinensis"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "l-theanine",
-  "summary": "L-theanine is a compound reported in camellia sinensis. Available source coverage remains preliminary in this dataset."
+  "summary": "L-theanine appears in records as a compound reported in camellia sinensis. Current source coverage is limited and still developing."
 }

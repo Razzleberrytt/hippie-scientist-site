@@ -1,7 +1,7 @@
 {
   "name": "pterocarpans",
   "category": "general",
-  "description": "pterocarpans is a compound reported in desmodium gangeticum. Available source coverage remains preliminary in this dataset.",
+  "description": "pterocarpans is a compound reported in desmodium gangeticum. Available references are still early and incomplete.",
   "herbs": [
     "desmodium gangeticum"
   ],
@@ -40,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pterocarpans",
-  "summary": "pterocarpans is a compound reported in desmodium gangeticum. Available source coverage remains preliminary in this dataset."
+  "summary": "pterocarpans is a compound reported in desmodium gangeticum. Available references are still early and incomplete."
 }

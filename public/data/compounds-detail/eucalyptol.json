@@ -1,7 +1,7 @@
 {
   "name": "Eucalyptol",
   "category": "general",
-  "description": "Eucalyptol is a compound reported in salvia apiana. Available source coverage remains preliminary in this dataset.",
+  "description": "Eucalyptol is a compound reported in salvia apiana. Available references are still early and incomplete.",
   "herbs": [
     "salvia apiana"
   ],
@@ -33,5 +33,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "eucalyptol",
-  "summary": "Eucalyptol is a compound reported in salvia apiana. Available source coverage remains preliminary in this dataset."
+  "summary": "Eucalyptol is a compound reported in salvia apiana. Available references are still early and incomplete."
 }

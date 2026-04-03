@@ -1,7 +1,7 @@
 {
   "name": "Galbulimimine",
   "category": "general",
-  "description": "Galbulimimine is a compound reported in galbulimima belgraveana. Available source coverage remains preliminary in this dataset.",
+  "description": "Galbulimimine appears in records as a compound reported in galbulimima belgraveana. Current source coverage is limited and still developing.",
   "herbs": [
     "galbulimima belgraveana"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "galbulimimine",
-  "summary": "Galbulimimine is a compound reported in galbulimima belgraveana. Available source coverage remains preliminary in this dataset."
+  "summary": "Galbulimimine appears in records as a compound reported in galbulimima belgraveana. Current source coverage is limited and still developing."
 }

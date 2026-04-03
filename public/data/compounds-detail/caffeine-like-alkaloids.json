@@ -1,7 +1,7 @@
 {
   "name": "caffeine-like alkaloids",
   "category": "alkaloid",
-  "description": "caffeine-like alkaloids is a alkaloid compound reported in turnera diffusa. Available source coverage remains preliminary in this dataset.",
+  "description": "caffeine-like alkaloids is an alkaloid compound reported in turnera diffusa. Current source coverage is limited and still developing.",
   "herbs": [
     "turnera diffusa"
   ],
@@ -40,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "caffeine-like-alkaloids",
-  "summary": "caffeine-like alkaloids is a alkaloid compound reported in turnera diffusa. Available source coverage remains preliminary in this dataset."
+  "summary": "caffeine-like alkaloids is an alkaloid compound reported in turnera diffusa. Current source coverage is limited and still developing."
 }

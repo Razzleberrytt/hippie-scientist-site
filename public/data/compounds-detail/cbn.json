@@ -1,7 +1,7 @@
 {
   "name": "CBN",
   "category": "general",
-  "description": "CBN is a compound reported in cannabis sativa. Available source coverage remains preliminary in this dataset.",
+  "description": "CBN appears in records as a compound reported in cannabis sativa. Current source coverage is limited and still developing.",
   "herbs": [
     "cannabis sativa"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "cbn",
-  "summary": "CBN is a compound reported in cannabis sativa. Available source coverage remains preliminary in this dataset."
+  "summary": "CBN appears in records as a compound reported in cannabis sativa. Current source coverage is limited and still developing."
 }

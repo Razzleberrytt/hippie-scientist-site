@@ -1,7 +1,7 @@
 {
   "name": "Stachydrine",
   "category": "general",
-  "description": "Stachydrine is a compound reported in motherwort. Available source coverage remains preliminary in this dataset.",
+  "description": "Stachydrine is a compound reported in motherwort. Available references are still early and incomplete.",
   "herbs": [
     "motherwort"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "stachydrine",
-  "summary": "Stachydrine is a compound reported in motherwort. Available source coverage remains preliminary in this dataset."
+  "summary": "Stachydrine is a compound reported in motherwort. Available references are still early and incomplete."
 }

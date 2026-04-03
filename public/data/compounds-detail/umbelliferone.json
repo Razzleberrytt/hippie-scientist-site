@@ -1,7 +1,7 @@
 {
   "name": "umbelliferone",
   "category": "general",
-  "description": "umbelliferone is a compound reported in adenostoma fasciculatum and justicia pectoralis. Available source coverage remains preliminary in this dataset.",
+  "description": "umbelliferone appears in records as a compound reported in adenostoma fasciculatum and justicia pectoralis. Current source coverage is limited and still developing.",
   "herbs": [
     "adenostoma fasciculatum",
     "justicia pectoralis"
@@ -44,5 +44,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "umbelliferone",
-  "summary": "umbelliferone is a compound reported in adenostoma fasciculatum and justicia pectoralis. Available source coverage remains preliminary in this dataset."
+  "summary": "umbelliferone appears in records as a compound reported in adenostoma fasciculatum and justicia pectoralis. Current source coverage is limited and still developing."
 }

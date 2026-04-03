@@ -1,7 +1,7 @@
 {
   "name": "Bufotenin",
   "category": "general",
-  "description": "Bufotenin is a compound reported in anadenanthera peregrina. Available source coverage remains preliminary in this dataset.",
+  "description": "Bufotenin is a compound reported in anadenanthera peregrina. Available references are still early and incomplete.",
   "herbs": [
     "anadenanthera peregrina"
   ],
@@ -43,5 +43,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "bufotenin",
-  "summary": "Bufotenin is a compound reported in anadenanthera peregrina. Available source coverage remains preliminary in this dataset."
+  "summary": "Bufotenin is a compound reported in anadenanthera peregrina. Available references are still early and incomplete."
 }

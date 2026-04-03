@@ -1,7 +1,7 @@
 {
   "name": "Nicotine (9–15%)",
   "category": "general",
-  "description": "Nicotine (9–15%) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "description": "Nicotine (9–15%) is currently cataloged as a compound entry. Current source coverage is limited and still developing.",
   "herbs": [],
   "effects": [
     "Intense stimulation",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nicotine-9-15",
-  "summary": "Nicotine (9–15%) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Nicotine (9–15%) is currently cataloged as a compound entry. Current source coverage is limited and still developing."
 }

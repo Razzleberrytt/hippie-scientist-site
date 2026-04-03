@@ -1,7 +1,7 @@
 {
   "name": "saponins",
   "category": "saponin",
-  "description": "saponins is a saponin compound reported in acacia nilotica, albizia julibrissin, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "saponins is a saponin compound reported in acacia nilotica, albizia julibrissin, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "acacia nilotica",
     "albizia julibrissin",
@@ -118,5 +118,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "saponins",
-  "summary": "saponins is a saponin compound reported in acacia nilotica, albizia julibrissin, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "saponins is a saponin compound reported in acacia nilotica, albizia julibrissin, and related herbs. Current source coverage is limited and still developing."
 }

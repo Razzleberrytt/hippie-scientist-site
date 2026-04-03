@@ -1,7 +1,7 @@
 {
   "name": "melanoxetin",
   "category": "general",
-  "description": "melanoxetin is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset.",
+  "description": "melanoxetin is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
   "herbs": [
     "albizia lebbeck"
   ],
@@ -33,5 +33,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "melanoxetin",
-  "summary": "melanoxetin is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset."
+  "summary": "melanoxetin is a compound reported in albizia lebbeck. Available references are still early and incomplete."
 }

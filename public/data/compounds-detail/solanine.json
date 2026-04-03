@@ -1,7 +1,7 @@
 {
   "name": "Solanine",
   "category": "general",
-  "description": "Solanine is a compound reported in Cestrum parqui. Available source coverage remains preliminary in this dataset.",
+  "description": "Solanine appears in records as a compound reported in Cestrum parqui. Current source coverage is limited and still developing.",
   "herbs": [
     "Cestrum parqui"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "solanine",
-  "summary": "Solanine is a compound reported in Cestrum parqui. Available source coverage remains preliminary in this dataset."
+  "summary": "Solanine appears in records as a compound reported in Cestrum parqui. Current source coverage is limited and still developing."
 }

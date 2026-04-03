@@ -1,7 +1,7 @@
 {
   "name": "quercitrin",
   "category": "general",
-  "description": "quercitrin is a compound reported in albizia julibrissin. Available source coverage remains preliminary in this dataset.",
+  "description": "quercitrin is a compound reported in albizia julibrissin. Available references are still early and incomplete.",
   "herbs": [
     "albizia julibrissin"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "quercitrin",
-  "summary": "quercitrin is a compound reported in albizia julibrissin. Available source coverage remains preliminary in this dataset."
+  "summary": "quercitrin is a compound reported in albizia julibrissin. Available references are still early and incomplete."
 }

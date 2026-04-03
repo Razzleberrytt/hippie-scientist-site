@@ -1,7 +1,7 @@
 {
   "name": "salsoline",
   "category": "general",
-  "description": "salsoline is a compound reported in alangium salvifolium. Available source coverage remains preliminary in this dataset.",
+  "description": "salsoline is a compound reported in alangium salvifolium. Available references are still early and incomplete.",
   "herbs": [
     "alangium salvifolium"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "salsoline",
-  "summary": "salsoline is a compound reported in alangium salvifolium. Available source coverage remains preliminary in this dataset."
+  "summary": "salsoline is a compound reported in alangium salvifolium. Available references are still early and incomplete."
 }

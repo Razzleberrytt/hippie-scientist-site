@@ -1,7 +1,7 @@
 {
   "name": "Safrole",
   "category": "general",
-  "description": "Safrole is a compound reported in mexican pepperleaf, myristica fragrans, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "Safrole is a compound reported in mexican pepperleaf, myristica fragrans, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "mexican pepperleaf",
     "myristica fragrans",
@@ -54,5 +54,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "safrole",
-  "summary": "Safrole is a compound reported in mexican pepperleaf, myristica fragrans, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "Safrole is a compound reported in mexican pepperleaf, myristica fragrans, and related herbs. Available references are still early and incomplete."
 }

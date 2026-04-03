@@ -56,14 +56,34 @@ function formatHerbContext(herbs) {
   return `reported in ${herbs[0]}, ${herbs[1]}, and related herbs`
 }
 
-function formatEvidenceContext(governedSummary, hasEvidence) {
+function chooseVariant(seed, options) {
+  if (!Array.isArray(options) || options.length === 0) return ''
+  const normalizedSeed = asText(seed)
+  const hash = Array.from(normalizedSeed).reduce((acc, char) => acc + char.charCodeAt(0), 0)
+  return options[hash % options.length]
+}
+
+function withIndefiniteArticle(phrase) {
+  const text = asText(phrase)
+  if (!text) return ''
+  const article = /^[aeiou]/i.test(text) ? 'an' : 'a'
+  return `${article} ${text}`
+}
+
+function formatEvidenceContext(governedSummary, hasEvidence, seed) {
   const evidenceLabel = asText(governedSummary?.evidenceLabelTitle)
   if (evidenceLabel) {
     return `Governed evidence review is currently rated ${evidenceLabel.toLowerCase()}.`
   }
   return hasEvidence
-    ? 'Available source coverage remains preliminary in this dataset.'
-    : 'Evidence depth is limited in the current dataset.'
+    ? chooseVariant(seed, [
+        'Available references are still early and incomplete.',
+        'Current source coverage is limited and still developing.',
+      ])
+    : chooseVariant(seed, [
+        'Published evidence is still sparse for this profile.',
+        'This profile currently has very limited evidence depth.',
+      ])
 }
 
 function buildCompoundNarrative(record, governedSummary) {
@@ -73,19 +93,32 @@ function buildCompoundNarrative(record, governedSummary) {
   const mechanism = cleanNarrative(record.mechanism || record.mechanismOfAction)
   const existingDescription = cleanNarrative(record.description)
   const existingSummary = cleanNarrative(record.summary)
-  const evidenceContext = formatEvidenceContext(governedSummary, hasEvidenceNotes(record))
+  const evidenceContext = formatEvidenceContext(governedSummary, hasEvidenceNotes(record), name)
+  const identityWithCategoryAndHerb = `${name} is ${withIndefiniteArticle(category)} compound ${formatHerbContext(herbs)}.`
+  const identityWithCategoryOnly = `${name} is ${withIndefiniteArticle(category)} compound.`
+  const identityWithHerbOnlyOptions = [
+    `${name} is a compound ${formatHerbContext(herbs)}.`,
+    `${name} appears in records as a compound ${formatHerbContext(herbs)}.`,
+  ]
+  const identityFallbackOptions = [
+    `${name} is listed as a compound in this profile.`,
+    `${name} is currently cataloged as a compound entry.`,
+  ]
 
   const identitySentence =
     category && formatHerbContext(herbs)
-      ? `${name} is a ${category} compound ${formatHerbContext(herbs)}.`
+      ? identityWithCategoryAndHerb
       : category
-        ? `${name} is a ${category} compound.`
+        ? identityWithCategoryOnly
         : formatHerbContext(herbs)
-          ? `${name} is a compound ${formatHerbContext(herbs)}.`
-          : `${name} is a compound documented in this dataset.`
+          ? chooseVariant(name, identityWithHerbOnlyOptions)
+          : chooseVariant(name, identityFallbackOptions)
 
   const mechanismSentence = mechanism
-    ? `Current mechanism notes describe ${mechanism.charAt(0).toLowerCase()}${mechanism.slice(1)}.`
+    ? chooseVariant(name, [
+        `Mechanism notes currently mention ${mechanism.charAt(0).toLowerCase()}${mechanism.slice(1)}.`,
+        `Available mechanism notes describe ${mechanism.charAt(0).toLowerCase()}${mechanism.slice(1)}.`,
+      ])
     : ''
 
   const generatedDescription = clip(

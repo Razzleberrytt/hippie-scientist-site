@@ -1,7 +1,7 @@
 {
   "name": "Cytisine (nicotinic agonist)",
   "category": "general",
-  "description": "Cytisine (nicotinic agonist) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "description": "Cytisine (nicotinic agonist) is listed as a compound in this profile. Available references are still early and incomplete.",
   "herbs": [],
   "effects": [
     "Delirium",
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "cytisine-nicotinic-agonist",
-  "summary": "Cytisine (nicotinic agonist) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Cytisine (nicotinic agonist) is listed as a compound in this profile. Available references are still early and incomplete."
 }

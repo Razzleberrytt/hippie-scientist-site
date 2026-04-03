@@ -1,7 +1,7 @@
 {
   "name": "Boldine",
   "category": "general",
-  "description": "Boldine is a compound reported in peumus boldus. Available source coverage remains preliminary in this dataset.",
+  "description": "Boldine appears in records as a compound reported in peumus boldus. Current source coverage is limited and still developing.",
   "herbs": [
     "peumus boldus"
   ],
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "boldine",
-  "summary": "Boldine is a compound reported in peumus boldus. Available source coverage remains preliminary in this dataset."
+  "summary": "Boldine appears in records as a compound reported in peumus boldus. Current source coverage is limited and still developing."
 }

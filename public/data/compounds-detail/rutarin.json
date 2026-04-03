@@ -1,7 +1,7 @@
 {
   "name": "Rutarin",
   "category": "general",
-  "description": "Rutarin is a compound reported in ruta graveolens. Available source coverage remains preliminary in this dataset.",
+  "description": "Rutarin appears in records as a compound reported in ruta graveolens. Current source coverage is limited and still developing.",
   "herbs": [
     "ruta graveolens"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "rutarin",
-  "summary": "Rutarin is a compound reported in ruta graveolens. Available source coverage remains preliminary in this dataset."
+  "summary": "Rutarin appears in records as a compound reported in ruta graveolens. Current source coverage is limited and still developing."
 }

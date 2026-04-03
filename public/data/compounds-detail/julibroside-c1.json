@@ -1,7 +1,7 @@
 {
   "name": "julibroside C1",
   "category": "general",
-  "description": "julibroside C1 is a compound reported in albizia julibrissin. Available source coverage remains preliminary in this dataset.",
+  "description": "julibroside C1 is a compound reported in albizia julibrissin. Available references are still early and incomplete.",
   "herbs": [
     "albizia julibrissin"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "julibroside-c1",
-  "summary": "julibroside C1 is a compound reported in albizia julibrissin. Available source coverage remains preliminary in this dataset."
+  "summary": "julibroside C1 is a compound reported in albizia julibrissin. Available references are still early and incomplete."
 }

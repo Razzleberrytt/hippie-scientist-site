@@ -1,7 +1,7 @@
 {
   "name": "Ascaridole",
   "category": "general",
-  "description": "Ascaridole is a compound reported in dysphania ambrosioides and peumus boldus. Available source coverage remains preliminary in this dataset.",
+  "description": "Ascaridole appears in records as a compound reported in dysphania ambrosioides and peumus boldus. Current source coverage is limited and still developing.",
   "herbs": [
     "dysphania ambrosioides",
     "peumus boldus"
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "ascaridole",
-  "summary": "Ascaridole is a compound reported in dysphania ambrosioides and peumus boldus. Available source coverage remains preliminary in this dataset."
+  "summary": "Ascaridole appears in records as a compound reported in dysphania ambrosioides and peumus boldus. Current source coverage is limited and still developing."
 }

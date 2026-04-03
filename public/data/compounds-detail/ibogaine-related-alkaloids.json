@@ -1,7 +1,7 @@
 {
   "name": "ibogaine-related alkaloids",
   "category": "alkaloid",
-  "description": "ibogaine-related alkaloids is a alkaloid compound reported in voacanga africana. Available source coverage remains preliminary in this dataset.",
+  "description": "ibogaine-related alkaloids is an alkaloid compound reported in voacanga africana. Available references are still early and incomplete.",
   "herbs": [
     "voacanga africana"
   ],
@@ -39,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "ibogaine-related-alkaloids",
-  "summary": "ibogaine-related alkaloids is a alkaloid compound reported in voacanga africana. Available source coverage remains preliminary in this dataset."
+  "summary": "ibogaine-related alkaloids is an alkaloid compound reported in voacanga africana. Available references are still early and incomplete."
 }

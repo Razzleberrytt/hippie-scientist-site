@@ -1,7 +1,7 @@
 {
   "name": "triterpene saponins",
   "category": "saponin",
-  "description": "triterpene saponins is a saponin compound reported in african dream root. Available source coverage remains preliminary in this dataset.",
+  "description": "triterpene saponins is a saponin compound reported in african dream root. Current source coverage is limited and still developing.",
   "herbs": [
     "african dream root"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "triterpene-saponins",
-  "summary": "triterpene saponins is a saponin compound reported in african dream root. Available source coverage remains preliminary in this dataset."
+  "summary": "triterpene saponins is a saponin compound reported in african dream root. Current source coverage is limited and still developing."
 }

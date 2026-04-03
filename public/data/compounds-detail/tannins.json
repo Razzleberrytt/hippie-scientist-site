@@ -1,7 +1,7 @@
 {
   "name": "tannins",
   "category": "tannin",
-  "description": "tannins is a tannin compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "tannins is a tannin compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "agrimonia eupatoria",
     "alchornea castaneifolia",
@@ -161,5 +161,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tannins",
-  "summary": "tannins is a tannin compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "tannins is a tannin compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "hyoscyamine",
   "category": "general",
-  "description": "hyoscyamine is a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "hyoscyamine appears in records as a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "brugmansia sanguinea",
     "brugmansia suaveolens",
@@ -65,5 +65,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "hyoscyamine",
-  "summary": "hyoscyamine is a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "hyoscyamine appears in records as a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Current source coverage is limited and still developing."
 }

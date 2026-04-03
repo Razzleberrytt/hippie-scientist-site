@@ -1,7 +1,7 @@
 {
   "name": "p",
   "category": "general",
-  "description": "p is a compound reported in dysphania ambrosioides. Available source coverage remains preliminary in this dataset.",
+  "description": "p is a compound reported in dysphania ambrosioides. Available references are still early and incomplete.",
   "herbs": [
     "dysphania ambrosioides"
   ],
@@ -31,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "p",
-  "summary": "p is a compound reported in dysphania ambrosioides. Available source coverage remains preliminary in this dataset."
+  "summary": "p is a compound reported in dysphania ambrosioides. Available references are still early and incomplete."
 }

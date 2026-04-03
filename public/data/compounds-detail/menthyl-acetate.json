@@ -1,7 +1,7 @@
 {
   "name": "menthyl acetate",
   "category": "general",
-  "description": "menthyl acetate is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset.",
+  "description": "menthyl acetate is a compound reported in mentha piperita. Available references are still early and incomplete.",
   "herbs": [
     "mentha piperita"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "menthyl-acetate",
-  "summary": "menthyl acetate is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset."
+  "summary": "menthyl acetate is a compound reported in mentha piperita. Available references are still early and incomplete."
 }

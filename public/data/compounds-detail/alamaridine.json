@@ -1,7 +1,7 @@
 {
   "name": "alamaridine",
   "category": "general",
-  "description": "alamaridine is a compound reported in alangium salvifolium. Available source coverage remains preliminary in this dataset.",
+  "description": "alamaridine appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing.",
   "herbs": [
     "alangium salvifolium"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "alamaridine",
-  "summary": "alamaridine is a compound reported in alangium salvifolium. Available source coverage remains preliminary in this dataset."
+  "summary": "alamaridine appears in records as a compound reported in alangium salvifolium. Current source coverage is limited and still developing."
 }

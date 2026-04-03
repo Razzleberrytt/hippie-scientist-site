@@ -1,7 +1,7 @@
 {
   "name": "Erythravine",
   "category": "general",
-  "description": "Erythravine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset.",
+  "description": "Erythravine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing.",
   "herbs": [
     "erythrina mulungu"
   ],
@@ -51,5 +51,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "erythravine",
-  "summary": "Erythravine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset."
+  "summary": "Erythravine appears in records as a compound reported in erythrina mulungu. Current source coverage is limited and still developing."
 }

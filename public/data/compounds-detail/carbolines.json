@@ -1,7 +1,7 @@
 {
   "name": "β-carbolines",
   "category": "general",
-  "description": "β-carbolines is a compound reported in acacia confusa and nicotiana rustica. Available source coverage remains preliminary in this dataset.",
+  "description": "β-carbolines appears in records as a compound reported in acacia confusa and nicotiana rustica. Current source coverage is limited and still developing.",
   "herbs": [
     "acacia confusa",
     "nicotiana rustica"
@@ -47,5 +47,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "carbolines",
-  "summary": "β-carbolines is a compound reported in acacia confusa and nicotiana rustica. Available source coverage remains preliminary in this dataset."
+  "summary": "β-carbolines appears in records as a compound reported in acacia confusa and nicotiana rustica. Current source coverage is limited and still developing."
 }

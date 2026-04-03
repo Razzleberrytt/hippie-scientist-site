@@ -1,7 +1,7 @@
 {
   "name": "neferine",
   "category": "general",
-  "description": "neferine is a compound reported in nelumbo nucifera. Available source coverage remains preliminary in this dataset.",
+  "description": "neferine is a compound reported in nelumbo nucifera. Available references are still early and incomplete.",
   "herbs": [
     "nelumbo nucifera"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "neferine",
-  "summary": "neferine is a compound reported in nelumbo nucifera. Available source coverage remains preliminary in this dataset."
+  "summary": "neferine is a compound reported in nelumbo nucifera. Available references are still early and incomplete."
 }

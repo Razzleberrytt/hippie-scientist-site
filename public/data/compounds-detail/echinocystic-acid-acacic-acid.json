@@ -1,7 +1,7 @@
 {
   "name": "echinocystic acid (acacic acid)",
   "category": "general",
-  "description": "echinocystic acid (acacic acid) is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset.",
+  "description": "echinocystic acid (acacic acid) is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
   "herbs": [
     "albizia lebbeck"
   ],
@@ -33,5 +33,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "echinocystic-acid-acacic-acid",
-  "summary": "echinocystic acid (acacic acid) is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset."
+  "summary": "echinocystic acid (acacic acid) is a compound reported in albizia lebbeck. Available references are still early and incomplete."
 }

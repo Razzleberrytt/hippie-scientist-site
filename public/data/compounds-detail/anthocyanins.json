@@ -1,7 +1,7 @@
 {
   "name": "Anthocyanins",
   "category": "anthocyanin",
-  "description": "Anthocyanins is a anthocyanin compound reported in hibiscus sabdariffa. Available source coverage remains preliminary in this dataset.",
+  "description": "Anthocyanins is an anthocyanin compound reported in hibiscus sabdariffa. Current source coverage is limited and still developing.",
   "herbs": [
     "hibiscus sabdariffa"
   ],
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "anthocyanins",
-  "summary": "Anthocyanins is a anthocyanin compound reported in hibiscus sabdariffa. Available source coverage remains preliminary in this dataset."
+  "summary": "Anthocyanins is an anthocyanin compound reported in hibiscus sabdariffa. Current source coverage is limited and still developing."
 }

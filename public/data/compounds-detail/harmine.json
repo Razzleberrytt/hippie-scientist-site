@@ -1,7 +1,7 @@
 {
   "name": "harmine",
   "category": "general",
-  "description": "harmine is a compound reported in banisteriopsis caapi and peganum harmala. Available source coverage remains preliminary in this dataset.",
+  "description": "harmine is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete.",
   "herbs": [
     "banisteriopsis caapi",
     "peganum harmala"
@@ -56,5 +56,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmine",
-  "summary": "harmine is a compound reported in banisteriopsis caapi and peganum harmala. Available source coverage remains preliminary in this dataset."
+  "summary": "harmine is a compound reported in banisteriopsis caapi and peganum harmala. Available references are still early and incomplete."
 }

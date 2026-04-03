@@ -1,7 +1,7 @@
 {
   "name": "glutinol",
   "category": "general",
-  "description": "glutinol is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset.",
+  "description": "glutinol is a compound reported in adenostoma fasciculatum. Available references are still early and incomplete.",
   "herbs": [
     "adenostoma fasciculatum"
   ],
@@ -31,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "glutinol",
-  "summary": "glutinol is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset."
+  "summary": "glutinol is a compound reported in adenostoma fasciculatum. Available references are still early and incomplete."
 }

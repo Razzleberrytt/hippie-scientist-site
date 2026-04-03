@@ -1,7 +1,7 @@
 {
   "name": "lignan glycosides",
   "category": "glycoside",
-  "description": "lignan glycosides is a glycoside compound reported in albizia julibrissin. Available source coverage remains preliminary in this dataset.",
+  "description": "lignan glycosides is a glycoside compound reported in albizia julibrissin. Current source coverage is limited and still developing.",
   "herbs": [
     "albizia julibrissin"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "lignan-glycosides",
-  "summary": "lignan glycosides is a glycoside compound reported in albizia julibrissin. Available source coverage remains preliminary in this dataset."
+  "summary": "lignan glycosides is a glycoside compound reported in albizia julibrissin. Current source coverage is limited and still developing."
 }

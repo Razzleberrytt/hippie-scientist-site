@@ -1,7 +1,7 @@
 {
   "name": "flavonoids (exact psychoactive agent unknown)",
   "category": "flavonoid",
-  "description": "flavonoids (exact psychoactive agent unknown) is a flavonoid compound. Available source coverage remains preliminary in this dataset.",
+  "description": "flavonoids (exact psychoactive agent unknown) is a flavonoid compound. Available references are still early and incomplete.",
   "herbs": [],
   "effects": [
     "Enhanced dreams",
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "flavonoids-exact-psychoactive-agent-unknown",
-  "summary": "flavonoids (exact psychoactive agent unknown) is a flavonoid compound. Available source coverage remains preliminary in this dataset."
+  "summary": "flavonoids (exact psychoactive agent unknown) is a flavonoid compound. Available references are still early and incomplete."
 }

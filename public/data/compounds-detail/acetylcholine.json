@@ -1,7 +1,7 @@
 {
   "name": "acetylcholine",
   "category": "general",
-  "description": "acetylcholine is a compound reported in urtica dioica. Available source coverage remains preliminary in this dataset.",
+  "description": "acetylcholine is a compound reported in urtica dioica. Available references are still early and incomplete.",
   "herbs": [
     "urtica dioica"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "acetylcholine",
-  "summary": "acetylcholine is a compound reported in urtica dioica. Available source coverage remains preliminary in this dataset."
+  "summary": "acetylcholine is a compound reported in urtica dioica. Available references are still early and incomplete."
 }

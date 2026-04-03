@@ -1,7 +1,7 @@
 {
   "name": "codeine",
   "category": "general",
-  "description": "codeine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset.",
+  "description": "codeine appears in records as a compound reported in papaver somniferum. Current source coverage is limited and still developing.",
   "herbs": [
     "papaver somniferum"
   ],
@@ -42,5 +42,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "codeine",
-  "summary": "codeine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset."
+  "summary": "codeine appears in records as a compound reported in papaver somniferum. Current source coverage is limited and still developing."
 }

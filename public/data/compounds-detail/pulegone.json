@@ -1,7 +1,7 @@
 {
   "name": "pulegone",
   "category": "general",
-  "description": "pulegone is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset.",
+  "description": "pulegone appears in records as a compound reported in mentha piperita. Current source coverage is limited and still developing.",
   "herbs": [
     "mentha piperita"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pulegone",
-  "summary": "pulegone is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset."
+  "summary": "pulegone appears in records as a compound reported in mentha piperita. Current source coverage is limited and still developing."
 }

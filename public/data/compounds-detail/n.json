@@ -1,7 +1,7 @@
 {
   "name": "N",
   "category": "general",
-  "description": "N is a compound reported in psychotria carthagenensis. Available source coverage remains preliminary in this dataset.",
+  "description": "N is a compound reported in psychotria carthagenensis. Available references are still early and incomplete.",
   "herbs": [
     "psychotria carthagenensis"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "n",
-  "summary": "N is a compound reported in psychotria carthagenensis. Available source coverage remains preliminary in this dataset."
+  "summary": "N is a compound reported in psychotria carthagenensis. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "Umelliferone",
   "category": "general",
-  "description": "Umelliferone is a compound reported in justicia pectoralis. Available source coverage remains preliminary in this dataset.",
+  "description": "Umelliferone appears in records as a compound reported in justicia pectoralis. Current source coverage is limited and still developing.",
   "herbs": [
     "justicia pectoralis"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "umelliferone",
-  "summary": "Umelliferone is a compound reported in justicia pectoralis. Available source coverage remains preliminary in this dataset."
+  "summary": "Umelliferone appears in records as a compound reported in justicia pectoralis. Current source coverage is limited and still developing."
 }

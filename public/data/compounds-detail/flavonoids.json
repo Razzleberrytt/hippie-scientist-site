@@ -1,7 +1,7 @@
 {
   "name": "flavonoids",
   "category": "flavonoid",
-  "description": "flavonoids is a flavonoid compound reported in adhatoda vasica, agrimonia eupatoria, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "flavonoids is a flavonoid compound reported in adhatoda vasica, agrimonia eupatoria, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "adhatoda vasica",
     "agrimonia eupatoria",
@@ -277,5 +277,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "flavonoids",
-  "summary": "flavonoids is a flavonoid compound reported in adhatoda vasica, agrimonia eupatoria, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "flavonoids is a flavonoid compound reported in adhatoda vasica, agrimonia eupatoria, and related herbs. Current source coverage is limited and still developing."
 }

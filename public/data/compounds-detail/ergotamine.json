@@ -1,7 +1,7 @@
 {
   "name": "Ergotamine",
   "category": "general",
-  "description": "Ergotamine is a compound reported in claviceps purpurea. Available source coverage remains preliminary in this dataset.",
+  "description": "Ergotamine appears in records as a compound reported in claviceps purpurea. Current source coverage is limited and still developing.",
   "herbs": [
     "claviceps purpurea"
   ],
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ergotamine",
-  "summary": "Ergotamine is a compound reported in claviceps purpurea. Available source coverage remains preliminary in this dataset."
+  "summary": "Ergotamine appears in records as a compound reported in claviceps purpurea. Current source coverage is limited and still developing."
 }

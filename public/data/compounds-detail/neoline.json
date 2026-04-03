@@ -1,7 +1,7 @@
 {
   "name": "neoline",
   "category": "general",
-  "description": "neoline is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset.",
+  "description": "neoline is a compound reported in aconitum napellus. Available references are still early and incomplete.",
   "herbs": [
     "aconitum napellus"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "neoline",
-  "summary": "neoline is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset."
+  "summary": "neoline is a compound reported in aconitum napellus. Available references are still early and incomplete."
 }

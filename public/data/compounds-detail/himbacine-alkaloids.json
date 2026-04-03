@@ -1,7 +1,7 @@
 {
   "name": "himbacine (alkaloids)",
   "category": "alkaloid",
-  "description": "himbacine (alkaloids) is a alkaloid compound. Available source coverage remains preliminary in this dataset.",
+  "description": "himbacine (alkaloids) is an alkaloid compound. Current source coverage is limited and still developing.",
   "herbs": [],
   "effects": [
     "Hallucinations",
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "himbacine-alkaloids",
-  "summary": "himbacine (alkaloids) is a alkaloid compound. Available source coverage remains preliminary in this dataset."
+  "summary": "himbacine (alkaloids) is an alkaloid compound. Current source coverage is limited and still developing."
 }

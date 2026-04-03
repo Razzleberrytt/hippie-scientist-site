@@ -1,7 +1,7 @@
 {
   "name": "DMT",
   "category": "general",
-  "description": "DMT is a compound reported in acacia maidenii, virola theiodora, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "DMT appears in records as a compound reported in acacia maidenii, virola theiodora, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "acacia maidenii",
     "virola theiodora",
@@ -83,5 +83,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "dmt",
-  "summary": "DMT is a compound reported in acacia maidenii, virola theiodora, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "DMT appears in records as a compound reported in acacia maidenii, virola theiodora, and related herbs. Current source coverage is limited and still developing."
 }

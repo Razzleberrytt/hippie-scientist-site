@@ -1,7 +1,7 @@
 {
   "name": "isoergine",
   "category": "general",
-  "description": "isoergine is a compound reported in argyreia nervosa, rivea corymbosa, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "isoergine appears in records as a compound reported in argyreia nervosa, rivea corymbosa, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "argyreia nervosa",
     "rivea corymbosa",
@@ -55,5 +55,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "isoergine",
-  "summary": "isoergine is a compound reported in argyreia nervosa, rivea corymbosa, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "isoergine appears in records as a compound reported in argyreia nervosa, rivea corymbosa, and related herbs. Current source coverage is limited and still developing."
 }

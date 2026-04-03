@@ -1,7 +1,7 @@
 {
   "name": "nupharidine",
   "category": "general",
-  "description": "nupharidine is a compound reported in nymphaea caerulea and nymphaea rubra. Available source coverage remains preliminary in this dataset.",
+  "description": "nupharidine appears in records as a compound reported in nymphaea caerulea and nymphaea rubra. Current source coverage is limited and still developing.",
   "herbs": [
     "nymphaea caerulea",
     "nymphaea rubra"
@@ -53,5 +53,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "nupharidine",
-  "summary": "nupharidine is a compound reported in nymphaea caerulea and nymphaea rubra. Available source coverage remains preliminary in this dataset."
+  "summary": "nupharidine appears in records as a compound reported in nymphaea caerulea and nymphaea rubra. Current source coverage is limited and still developing."
 }

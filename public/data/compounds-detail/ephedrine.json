@@ -1,7 +1,7 @@
 {
   "name": "ephedrine",
   "category": "general",
-  "description": "ephedrine is a compound reported in aconitum napellus and sida cordifolia. Available source coverage remains preliminary in this dataset.",
+  "description": "ephedrine is a compound reported in aconitum napellus and sida cordifolia. Available references are still early and incomplete.",
   "herbs": [
     "aconitum napellus",
     "sida cordifolia"
@@ -50,5 +50,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "ephedrine",
-  "summary": "ephedrine is a compound reported in aconitum napellus and sida cordifolia. Available source coverage remains preliminary in this dataset."
+  "summary": "ephedrine is a compound reported in aconitum napellus and sida cordifolia. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "jesaconitine",
   "category": "general",
-  "description": "jesaconitine is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset.",
+  "description": "jesaconitine is a compound reported in aconitum napellus. Available references are still early and incomplete.",
   "herbs": [
     "aconitum napellus"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "jesaconitine",
-  "summary": "jesaconitine is a compound reported in aconitum napellus. Available source coverage remains preliminary in this dataset."
+  "summary": "jesaconitine is a compound reported in aconitum napellus. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "polysaccharides (arabinose, rhamnose)",
   "category": "general",
-  "description": "polysaccharides (arabinose, rhamnose) is a compound reported in acacia nilotica. Available source coverage remains preliminary in this dataset.",
+  "description": "polysaccharides (arabinose, rhamnose) is a compound reported in acacia nilotica. Available references are still early and incomplete.",
   "herbs": [
     "acacia nilotica"
   ],
@@ -31,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "polysaccharides-arabinose-rhamnose",
-  "summary": "polysaccharides (arabinose, rhamnose) is a compound reported in acacia nilotica. Available source coverage remains preliminary in this dataset."
+  "summary": "polysaccharides (arabinose, rhamnose) is a compound reported in acacia nilotica. Available references are still early and incomplete."
 }

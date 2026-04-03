@@ -1,7 +1,7 @@
 {
   "name": "lupeol acetate",
   "category": "general",
-  "description": "lupeol acetate is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset.",
+  "description": "lupeol acetate is a compound reported in aerva lanata. Available references are still early and incomplete.",
   "herbs": [
     "aerva lanata"
   ],
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "lupeol-acetate",
-  "summary": "lupeol acetate is a compound reported in aerva lanata. Available source coverage remains preliminary in this dataset."
+  "summary": "lupeol acetate is a compound reported in aerva lanata. Available references are still early and incomplete."
 }

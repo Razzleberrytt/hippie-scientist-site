@@ -1,7 +1,7 @@
 {
   "name": "indole alkaloids",
   "category": "alkaloid",
-  "description": "indole alkaloids is a alkaloid compound reported in Pausinystalia johimbe. Available source coverage remains preliminary in this dataset.",
+  "description": "indole alkaloids is an alkaloid compound reported in Pausinystalia johimbe. Current source coverage is limited and still developing.",
   "herbs": [
     "Pausinystalia johimbe"
   ],
@@ -35,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "indole-alkaloids",
-  "summary": "indole alkaloids is a alkaloid compound reported in Pausinystalia johimbe. Available source coverage remains preliminary in this dataset."
+  "summary": "indole alkaloids is an alkaloid compound reported in Pausinystalia johimbe. Current source coverage is limited and still developing."
 }

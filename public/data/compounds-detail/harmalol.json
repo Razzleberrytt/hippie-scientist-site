@@ -1,7 +1,7 @@
 {
   "name": "Harmalol",
   "category": "general",
-  "description": "Harmalol is a compound reported in peganum harmala. Available source coverage remains preliminary in this dataset.",
+  "description": "Harmalol is a compound reported in peganum harmala. Available references are still early and incomplete.",
   "herbs": [
     "peganum harmala"
   ],
@@ -47,5 +47,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmalol",
-  "summary": "Harmalol is a compound reported in peganum harmala. Available source coverage remains preliminary in this dataset."
+  "summary": "Harmalol is a compound reported in peganum harmala. Available references are still early and incomplete."
 }

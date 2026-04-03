@@ -1,7 +1,7 @@
 {
   "name": "Huperzine A",
   "category": "general",
-  "description": "Huperzine A is a compound reported in huperzia serrata. Available source coverage remains preliminary in this dataset.",
+  "description": "Huperzine A appears in records as a compound reported in huperzia serrata. Current source coverage is limited and still developing.",
   "herbs": [
     "huperzia serrata"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "huperzine-a",
-  "summary": "Huperzine A is a compound reported in huperzia serrata. Available source coverage remains preliminary in this dataset."
+  "summary": "Huperzine A appears in records as a compound reported in huperzia serrata. Current source coverage is limited and still developing."
 }

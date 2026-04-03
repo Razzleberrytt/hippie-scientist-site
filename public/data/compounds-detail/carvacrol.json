@@ -1,7 +1,7 @@
 {
   "name": "carvacrol",
   "category": "general",
-  "description": "carvacrol is a compound reported in ocimum sanctum. Available source coverage remains preliminary in this dataset.",
+  "description": "carvacrol appears in records as a compound reported in ocimum sanctum. Current source coverage is limited and still developing.",
   "herbs": [
     "ocimum sanctum"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "carvacrol",
-  "summary": "carvacrol is a compound reported in ocimum sanctum. Available source coverage remains preliminary in this dataset."
+  "summary": "carvacrol appears in records as a compound reported in ocimum sanctum. Current source coverage is limited and still developing."
 }

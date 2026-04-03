@@ -1,7 +1,7 @@
 {
   "name": "Casimiroin",
   "category": "general",
-  "description": "Casimiroin is a compound reported in casimiroa edulis. Available source coverage remains preliminary in this dataset.",
+  "description": "Casimiroin is a compound reported in casimiroa edulis. Available references are still early and incomplete.",
   "herbs": [
     "casimiroa edulis"
   ],
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "casimiroin",
-  "summary": "Casimiroin is a compound reported in casimiroa edulis. Available source coverage remains preliminary in this dataset."
+  "summary": "Casimiroin is a compound reported in casimiroa edulis. Available references are still early and incomplete."
 }

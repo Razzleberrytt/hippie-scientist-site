@@ -1,7 +1,7 @@
 {
   "name": "Sesquiterpene lactones",
   "category": "terpenoid",
-  "description": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available source coverage remains preliminary in this dataset.",
+  "description": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available references are still early and incomplete.",
   "herbs": [
     "lactuca virosa",
     "Vernonia amygdalina"
@@ -38,5 +38,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sesquiterpene-lactones",
-  "summary": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available source coverage remains preliminary in this dataset."
+  "summary": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available references are still early and incomplete."
 }

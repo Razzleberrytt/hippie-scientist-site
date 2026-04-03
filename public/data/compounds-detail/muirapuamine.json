@@ -1,7 +1,7 @@
 {
   "name": "Muirapuamine",
   "category": "general",
-  "description": "Muirapuamine is a compound reported in Muira Puama and ptychopetalum olacoides. Available source coverage remains preliminary in this dataset.",
+  "description": "Muirapuamine appears in records as a compound reported in Muira Puama and ptychopetalum olacoides. Current source coverage is limited and still developing.",
   "herbs": [
     "Muira Puama",
     "ptychopetalum olacoides"
@@ -39,5 +39,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "muirapuamine",
-  "summary": "Muirapuamine is a compound reported in Muira Puama and ptychopetalum olacoides. Available source coverage remains preliminary in this dataset."
+  "summary": "Muirapuamine appears in records as a compound reported in Muira Puama and ptychopetalum olacoides. Current source coverage is limited and still developing."
 }

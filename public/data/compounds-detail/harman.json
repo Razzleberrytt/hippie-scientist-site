@@ -1,7 +1,7 @@
 {
   "name": "harman",
   "category": "general",
-  "description": "harman is a compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset.",
+  "description": "harman appears in records as a compound reported in nicotiana rustica. Current source coverage is limited and still developing.",
   "herbs": [
     "nicotiana rustica"
   ],
@@ -40,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harman",
-  "summary": "harman is a compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset."
+  "summary": "harman appears in records as a compound reported in nicotiana rustica. Current source coverage is limited and still developing."
 }

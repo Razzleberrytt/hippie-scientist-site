@@ -1,7 +1,7 @@
 {
   "name": "Bacosides A and B",
   "category": "general",
-  "description": "Bacosides A and B is a compound reported in bacopa monnieri. Available source coverage remains preliminary in this dataset.",
+  "description": "Bacosides A and B appears in records as a compound reported in bacopa monnieri. Current source coverage is limited and still developing.",
   "herbs": [
     "bacopa monnieri"
   ],
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "bacosides-a-and-b",
-  "summary": "Bacosides A and B is a compound reported in bacopa monnieri. Available source coverage remains preliminary in this dataset."
+  "summary": "Bacosides A and B appears in records as a compound reported in bacopa monnieri. Current source coverage is limited and still developing."
 }

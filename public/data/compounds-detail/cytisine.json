@@ -1,7 +1,7 @@
 {
   "name": "Cytisine",
   "category": "general",
-  "description": "Cytisine is a compound reported in sophora secundiflora. Available source coverage remains preliminary in this dataset.",
+  "description": "Cytisine is a compound reported in sophora secundiflora. Available references are still early and incomplete.",
   "herbs": [
     "sophora secundiflora"
   ],
@@ -37,5 +37,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "cytisine",
-  "summary": "Cytisine is a compound reported in sophora secundiflora. Available source coverage remains preliminary in this dataset."
+  "summary": "Cytisine is a compound reported in sophora secundiflora. Available references are still early and incomplete."
 }

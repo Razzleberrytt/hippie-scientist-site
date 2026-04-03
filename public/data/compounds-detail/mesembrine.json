@@ -1,7 +1,7 @@
 {
   "name": "Mesembrine",
   "category": "general",
-  "description": "Mesembrine is a compound reported in kanna, delosperma bosseranum, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "Mesembrine appears in records as a compound reported in kanna, delosperma bosseranum, and related herbs. Current source coverage is limited and still developing.",
   "herbs": [
     "kanna",
     "delosperma bosseranum",
@@ -61,5 +61,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mesembrine",
-  "summary": "Mesembrine is a compound reported in kanna, delosperma bosseranum, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "Mesembrine appears in records as a compound reported in kanna, delosperma bosseranum, and related herbs. Current source coverage is limited and still developing."
 }

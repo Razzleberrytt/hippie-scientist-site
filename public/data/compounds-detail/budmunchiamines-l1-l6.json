@@ -1,7 +1,7 @@
 {
   "name": "budmunchiamines L1-L6",
   "category": "general",
-  "description": "budmunchiamines L1-L6 is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset.",
+  "description": "budmunchiamines L1-L6 is a compound reported in albizia lebbeck. Available references are still early and incomplete.",
   "herbs": [
     "albizia lebbeck"
   ],
@@ -33,5 +33,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "budmunchiamines-l1-l6",
-  "summary": "budmunchiamines L1-L6 is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset."
+  "summary": "budmunchiamines L1-L6 is a compound reported in albizia lebbeck. Available references are still early and incomplete."
 }

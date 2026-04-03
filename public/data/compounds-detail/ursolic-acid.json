@@ -1,7 +1,7 @@
 {
   "name": "ursolic acid",
   "category": "general",
-  "description": "ursolic acid is a compound reported in ocimum sanctum. Available source coverage remains preliminary in this dataset.",
+  "description": "ursolic acid is a compound reported in ocimum sanctum. Available references are still early and incomplete.",
   "herbs": [
     "ocimum sanctum"
   ],
@@ -36,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "ursolic-acid",
-  "summary": "ursolic acid is a compound reported in ocimum sanctum. Available source coverage remains preliminary in this dataset."
+  "summary": "ursolic acid is a compound reported in ocimum sanctum. Available references are still early and incomplete."
 }

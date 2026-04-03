@@ -1,7 +1,7 @@
 {
   "name": "papaverine",
   "category": "general",
-  "description": "papaverine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset.",
+  "description": "papaverine appears in records as a compound reported in papaver somniferum. Current source coverage is limited and still developing.",
   "herbs": [
     "papaver somniferum"
   ],
@@ -42,5 +42,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "papaverine",
-  "summary": "papaverine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset."
+  "summary": "papaverine appears in records as a compound reported in papaver somniferum. Current source coverage is limited and still developing."
 }

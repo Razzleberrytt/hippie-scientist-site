@@ -1,7 +1,7 @@
 {
   "name": "Ibogaine",
   "category": "general",
-  "description": "Ibogaine is a compound reported in tabernanthe iboga. Available source coverage remains preliminary in this dataset.",
+  "description": "Ibogaine is a compound reported in tabernanthe iboga. Available references are still early and incomplete.",
   "herbs": [
     "tabernanthe iboga"
   ],
@@ -41,5 +41,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "ibogaine",
-  "summary": "Ibogaine is a compound reported in tabernanthe iboga. Available source coverage remains preliminary in this dataset."
+  "summary": "Ibogaine is a compound reported in tabernanthe iboga. Available references are still early and incomplete."
 }

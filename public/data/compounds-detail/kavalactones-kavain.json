@@ -1,7 +1,7 @@
 {
   "name": "Kavalactones (kavain",
   "category": "general",
-  "description": "Kavalactones (kavain is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "description": "Kavalactones (kavain is listed as a compound in this profile. Available references are still early and incomplete.",
   "herbs": [],
   "effects": [
     "Euphoria",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "kavalactones-kavain",
-  "summary": "Kavalactones (kavain is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Kavalactones (kavain is listed as a compound in this profile. Available references are still early and incomplete."
 }

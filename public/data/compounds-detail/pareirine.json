@@ -1,7 +1,7 @@
 {
   "name": "Pareirine",
   "category": "general",
-  "description": "Pareirine is a compound reported in cissampelos pareira. Available source coverage remains preliminary in this dataset.",
+  "description": "Pareirine appears in records as a compound reported in cissampelos pareira. Current source coverage is limited and still developing.",
   "herbs": [
     "cissampelos pareira"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pareirine",
-  "summary": "Pareirine is a compound reported in cissampelos pareira. Available source coverage remains preliminary in this dataset."
+  "summary": "Pareirine appears in records as a compound reported in cissampelos pareira. Current source coverage is limited and still developing."
 }

@@ -1,7 +1,7 @@
 {
   "name": "pyrrolizidine alkaloids (toxic)",
   "category": "alkaloid",
-  "description": "pyrrolizidine alkaloids (toxic) is a alkaloid compound. Available source coverage remains preliminary in this dataset.",
+  "description": "pyrrolizidine alkaloids (toxic) is an alkaloid compound. Available references are still early and incomplete.",
   "herbs": [],
   "effects": [
     "Mild sedation",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pyrrolizidine-alkaloids-toxic",
-  "summary": "pyrrolizidine alkaloids (toxic) is a alkaloid compound. Available source coverage remains preliminary in this dataset."
+  "summary": "pyrrolizidine alkaloids (toxic) is an alkaloid compound. Available references are still early and incomplete."
 }

@@ -1,7 +1,7 @@
 {
   "name": "Aporphine",
   "category": "general",
-  "description": "Aporphine is a compound reported in blue lotus, nymphaea caerulea, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "description": "Aporphine is a compound reported in blue lotus, nymphaea caerulea, and related herbs. Available references are still early and incomplete.",
   "herbs": [
     "blue lotus",
     "nymphaea caerulea",
@@ -54,5 +54,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "aporphine",
-  "summary": "Aporphine is a compound reported in blue lotus, nymphaea caerulea, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "Aporphine is a compound reported in blue lotus, nymphaea caerulea, and related herbs. Available references are still early and incomplete."
 }

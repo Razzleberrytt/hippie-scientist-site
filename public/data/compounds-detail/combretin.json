@@ -1,7 +1,7 @@
 {
   "name": "Combretin",
   "category": "general",
-  "description": "Combretin is a compound reported in combretum quadrangulare. Available source coverage remains preliminary in this dataset.",
+  "description": "Combretin appears in records as a compound reported in combretum quadrangulare. Current source coverage is limited and still developing.",
   "herbs": [
     "combretum quadrangulare"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "combretin",
-  "summary": "Combretin is a compound reported in combretum quadrangulare. Available source coverage remains preliminary in this dataset."
+  "summary": "Combretin appears in records as a compound reported in combretum quadrangulare. Current source coverage is limited and still developing."
 }

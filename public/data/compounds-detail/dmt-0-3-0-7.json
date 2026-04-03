@@ -1,7 +1,7 @@
 {
   "name": "DMT (0.3–0.7%)",
   "category": "general",
-  "description": "DMT (0.3–0.7%) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "description": "DMT (0.3–0.7%) is listed as a compound in this profile. Available references are still early and incomplete.",
   "herbs": [],
   "effects": [
     "Psychedelic visions",
@@ -32,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "dmt-0-3-0-7",
-  "summary": "DMT (0.3–0.7%) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "DMT (0.3–0.7%) is listed as a compound in this profile. Available references are still early and incomplete."
 }

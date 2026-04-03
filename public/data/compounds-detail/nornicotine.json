@@ -1,7 +1,7 @@
 {
   "name": "nornicotine",
   "category": "general",
-  "description": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available source coverage remains preliminary in this dataset.",
+  "description": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available references are still early and incomplete.",
   "herbs": [
     "nicotiana rustica",
     "nicotiana tabacum"
@@ -46,5 +46,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nornicotine",
-  "summary": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available source coverage remains preliminary in this dataset."
+  "summary": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available references are still early and incomplete."
 }

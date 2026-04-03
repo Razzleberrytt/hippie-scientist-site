@@ -1,7 +1,7 @@
 {
   "name": "Cissamine",
   "category": "general",
-  "description": "Cissamine is a compound reported in cissampelos pareira. Available source coverage remains preliminary in this dataset.",
+  "description": "Cissamine is a compound reported in cissampelos pareira. Available references are still early and incomplete.",
   "herbs": [
     "cissampelos pareira"
   ],
@@ -27,5 +27,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "cissamine",
-  "summary": "Cissamine is a compound reported in cissampelos pareira. Available source coverage remains preliminary in this dataset."
+  "summary": "Cissamine is a compound reported in cissampelos pareira. Available references are still early and incomplete."
 }
