@@ -6,10 +6,11 @@
   "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "emollient and demulcent",
-    "used for coughs",
-    "fevers",
-    "and wounds"
+    "emollient",
+    "demulcent",
+    "cough relief",
+    "fever relief",
+    "wound healing"
   ],
   "contraindications": [],
   "interactions": [
@@ -26,7 +27,7 @@
   "lastUpdated": "2026-04-01T18:55:37.941Z",
   "description": "Emollient and demulcent; used for coughs, fevers, and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
   "dosage": "No direct dosage data. Contextual inference: Emollient and demulcent,used for coughs,fevers,and wounds. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Emollient and demulcent,and wounds. No direct region data. Contextual inference: Emollient and demulcent,and wounds. none.,nan.",
-  "duration": "4–6 hours",
+  "duration": "4\u20136 hours",
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Emollient and demulcent; used for coughs, fevers, and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emollient and demulcent; used for coughs, fevers, and wounds. No direct region data. Contextual inference: Emollient and demulcent; used for coughs, fevers, and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emollient and demulcent; used for coughs, fevers, and wounds. none. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Emollient and demulcent; used for coughs, fevers, and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emollient and demulcent; used for coughs, fevers, and wounds. none. ; nan; nan",
