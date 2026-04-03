@@ -3,7 +3,7 @@
   "latin": "Linum usitatissimum",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Laxative, anti-inflammatory, omega-3 source. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, anti-inflammatory, omega-3 source. No direct region data. Contextual inference: Laxative, anti-inflammatory, omega-3 source. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Laxative, anti-inflammatory, omega-3 source. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
     "laxative",
@@ -15,8 +15,10 @@
     "3 source"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,May cause bloating,gas,or allergic reactions,avoid in bowel obstruction,No direct toxicity data. Contextual inference: Laxative,anti-inflammatory,omega-3 source. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Laxative,omega-3 source. none.",
+  "interactions": [
+    "Interaction evidence is limited; use caution with prescription medicines, especially CNS-active, anticoagulant, hepatotoxic, and blood-pressure/glucose-lowering drugs."
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Linum usitatissimum (TaxID 4006)",

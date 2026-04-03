@@ -3,7 +3,7 @@
   "latin": "Juniperus sibirica",
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antiseptic, diuretic, and aromatic; similar to other junipers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, diuretic, and aromatic; similar to other junipers. No direct region data. Contextual inference: Antiseptic, diuretic, and aromatic; similar to other junipers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, diuretic, and aromatic; similar to other junipers. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
     "antiseptic",
@@ -12,8 +12,10 @@
     "similar to other junipers"
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "No direct toxicity data. Contextual inference: Antiseptic,diuretic,and aromatic,similar to other junipers. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antiseptic,similar to other junipers. none.",
+  "interactions": [
+    "Interaction evidence is limited; use caution with prescription medicines, especially CNS-active, anticoagulant, hepatotoxic, and blood-pressure/glucose-lowering drugs."
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: Juniperus sibirica",

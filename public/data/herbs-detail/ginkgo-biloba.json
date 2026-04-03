@@ -3,12 +3,14 @@
   "latin": "ginkgo biloba",
   "class": "general",
   "intensity": "mild",
-  "mechanism": "",
+  "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+  "interactions": [
+    "Interaction evidence is limited; use caution with prescription medicines, especially CNS-active, anticoagulant, hepatotoxic, and blood-pressure/glucose-lowering drugs."
+  ],
+  "safetyNotes": "Safety profile depends on species identity, preparation quality, dose, and co-medications; start low, avoid prolonged high-dose use without supervision, and stop if adverse effects occur.",
   "sources": [
     {
       "title": "NCBI Taxonomy: ginkgo biloba (TaxID 3311)",
