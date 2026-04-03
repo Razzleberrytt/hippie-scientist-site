@@ -112,29 +112,40 @@ export default function CuratedProductModule({
       )}
 
       <div className='mt-3 space-y-3'>
+        <p className='text-[11px] uppercase tracking-[0.12em] text-white/50'>Compare forms</p>
         {products.map(product => (
           <article
             key={`${entityType}-${entitySlug}-${product.productId}`}
             className='rounded-lg border border-white/15 bg-white/[0.02] p-3'
           >
-            <p className='text-sm font-semibold text-white'>{product.productTitle}</p>
+            <div className='flex flex-wrap items-start justify-between gap-2'>
+              <p className='text-sm font-semibold text-white'>{product.productTitle}</p>
+              <p className='rounded-full border border-emerald-200/20 bg-emerald-200/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.08em] text-emerald-100/90'>
+                Best for: {product.bestFor[0]}
+              </p>
+            </div>
             <p className='mt-1 text-xs text-white/70'>Brand: {product.brand}</p>
+            <p className='mt-1 text-xs text-white/65'>Form: {product.productType}</p>
+            {product.formNotes && <p className='mt-1 text-xs text-white/65'>{product.formNotes}</p>}
             <p className='mt-2 text-xs text-emerald-100/90'>Why this product was chosen</p>
             <p className='mt-1 text-xs text-white/75'>{product.rationaleShort}</p>
             <p className='mt-2 text-xs text-white/65'>{product.rationaleLong}</p>
 
-            {(product.cautionNotes.length > 0 || product.avoidIf.length > 0) && (
+            {product.cautionNotes.length > 0 && (
               <div className='mt-2 rounded-lg border border-rose-300/30 bg-rose-500/10 p-2'>
-                <p className='text-xs font-medium text-rose-100'>Caution / avoidance notes</p>
+                <p className='text-xs font-medium text-rose-100'>Caution notes</p>
                 <ul className='mt-1 list-disc space-y-1 pl-4 text-xs text-rose-100/90'>
                   {product.cautionNotes.map(item => (
                     <li key={`${product.productId}-caution-${item}`}>{item}</li>
                   ))}
-                  {product.avoidIf.map(item => (
-                    <li key={`${product.productId}-avoid-${item}`}>Avoid if: {item}</li>
-                  ))}
                 </ul>
               </div>
+            )}
+            {product.avoidIf.length > 0 && (
+              <p className='mt-2 text-xs text-amber-100/85'>
+                <span className='font-medium text-amber-100'>Avoid if:</span>{' '}
+                {product.avoidIf.join(' · ')}
+              </p>
             )}
 
             <div className='mt-2'>
