@@ -8,12 +8,14 @@ import {
 } from '@/data/curatedProducts'
 import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
 import { readAnalyticsEvents } from '@/utils/analytics/eventStorage'
+import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
 
 type CuratedProductPageContext = {
   entityType: CuratedProductEntityType
   entitySlug: string
   confidence: ConfidenceLevel
   sourceCount: number
+  useCaseAnchor?: AffiliateUseCaseAnchor
 }
 
 const CONFIDENCE_RANK: Record<ConfidenceLevel, number> = {
@@ -247,20 +249,32 @@ function getHerbSlugFromAnalyticsEvent(event: { slug?: string; entitySlug?: stri
   return null
 }
 
-function getHerbProductClickCounts(herbSlug: string): Map<string, number> {
-  const counts = new Map<string, number>()
-  if (!herbSlug.trim()) return counts
+type ClickCountsByProductId = Record<string, number>
+type HerbClickCountsByAnchor = Record<string, ClickCountsByProductId>
+type HerbProductClickCountsByAnchor = Record<string, HerbClickCountsByAnchor>
+
+function getHerbProductClickCountsByAnchor(): HerbProductClickCountsByAnchor {
+  const countsByHerb: HerbProductClickCountsByAnchor = {}
 
   const events = readAnalyticsEvents()
   events.forEach(event => {
     if (event.type !== 'curated_product_click') return
+    const herbSlug = getHerbSlugFromAnalyticsEvent(event)
+    if (!herbSlug) return
     const productId = String(event.item || '').trim()
     if (!productId) return
-    if (getHerbSlugFromAnalyticsEvent(event) !== herbSlug) return
-    counts.set(productId, (counts.get(productId) || 0) + 1)
+
+    const herbCounts = (countsByHerb[herbSlug] ||= {})
+    const globalCounts = (herbCounts.__global ||= {})
+    globalCounts[productId] = (globalCounts[productId] || 0) + 1
+
+    const anchorKey = String(event.useCaseAnchor || '').trim()
+    if (!anchorKey) return
+    const anchorCounts = (herbCounts[anchorKey] ||= {})
+    anchorCounts[productId] = (anchorCounts[productId] || 0) + 1
   })
 
-  return counts
+  return countsByHerb
 }
 
 function cappedClickScore(clickCount: number): number {
@@ -285,8 +299,15 @@ export function getRenderableCuratedProducts(
   context: CuratedProductPageContext,
 ): RenderableCuratedProduct[] {
   if (context.sourceCount <= 0) return []
-  const herbClickCounts =
-    context.entityType === 'herb' ? getHerbProductClickCounts(context.entitySlug) : new Map()
+  const herbClickCountsByAnchor =
+    context.entityType === 'herb' ? getHerbProductClickCountsByAnchor()[context.entitySlug] : null
+  const activeAnchorKey = String(context.useCaseAnchor || '').trim()
+  const anchorSpecificClickCounts =
+    activeAnchorKey && herbClickCountsByAnchor ? herbClickCountsByAnchor[activeAnchorKey] : undefined
+  const resolvedClickCounts =
+    anchorSpecificClickCounts && Object.keys(anchorSpecificClickCounts).length > 0
+      ? anchorSpecificClickCounts
+      : herbClickCountsByAnchor?.__global
 
   return curatedProductRecommendations
     .filter(
@@ -306,10 +327,11 @@ export function getRenderableCuratedProducts(
       const featuredRank = Number(b.featured) - Number(a.featured)
       if (featuredRank !== 0) return featuredRank
 
-      const aClicks = herbClickCounts.get(a.productId) || 0
-      const bClicks = herbClickCounts.get(b.productId) || 0
-      const aScore = cappedClickScore(aClicks) + exposureBoost(aClicks)
-      const bScore = cappedClickScore(bClicks) + exposureBoost(bClicks)
+      const aClicks = resolvedClickCounts?.[a.productId] || 0
+      const bClicks = resolvedClickCounts?.[b.productId] || 0
+      const baseScore = 0
+      const aScore = baseScore + cappedClickScore(aClicks) + exposureBoost(aClicks)
+      const bScore = baseScore + cappedClickScore(bClicks) + exposureBoost(bClicks)
       const scoreDelta = bScore - aScore
 
       if (Math.abs(scoreDelta) > CLOSE_SCORE_DELTA) return scoreDelta > 0 ? 1 : -1

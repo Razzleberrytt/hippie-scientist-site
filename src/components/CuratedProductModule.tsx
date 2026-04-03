@@ -45,6 +45,7 @@ function trackProductClick(params: {
   entitySlug: string
   productId: string
   positionContext: string
+  useCaseAnchor?: AffiliateUseCaseAnchor
   pageType?: string
   variantId?: string
   ctaPosition?: string
@@ -58,6 +59,7 @@ function trackProductClick(params: {
     targetType: 'product',
     pageType: params.pageType,
     entitySlug: params.entitySlug,
+    useCaseAnchor: params.useCaseAnchor,
     ctaType: 'affiliate',
     ctaPosition: params.ctaPosition,
     variantId: params.variantId,
@@ -175,6 +177,7 @@ export default function CuratedProductModule({
                   entitySlug,
                   productId: product.productId,
                   positionContext,
+                  useCaseAnchor,
                   pageType,
                   variantId,
                   ctaPosition,

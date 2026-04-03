@@ -142,6 +142,91 @@ async function run() {
   // With close scores, deterministic jitter can reorder alternatives instead of strict click-only lock-in.
   assert.equal([candidateA.productId, candidateB.productId].includes(closeScoreAlternativeRows[0]?.productId || ''), true)
 
+  installAnalyticsWindow([
+    ...Array.from({ length: 2 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      useCaseAnchor: 'sleep',
+      timestamp: 1712300000000 + index,
+    })),
+    ...Array.from({ length: 2 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      useCaseAnchor: 'focus',
+      timestamp: 1712300000100 + index,
+    })),
+  ])
+  const sleepAnchorRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+    useCaseAnchor: 'sleep',
+  }).filter(product => !product.featured)
+  const focusAnchorRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+    useCaseAnchor: 'focus',
+  }).filter(product => !product.featured)
+  assert.equal(sleepAnchorRows[0]?.productId, candidateA.productId)
+  assert.equal(focusAnchorRows[0]?.productId, candidateB.productId)
+
+  installAnalyticsWindow([
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateA.productId, timestamp: 1712400000000 },
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712400000001 },
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712400000002 },
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712400000003 },
+    { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712400000004 },
+  ])
+  const fallbackToGlobalRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+    useCaseAnchor: 'anxiety',
+  }).filter(product => !product.featured)
+  const globalRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(fallbackToGlobalRows[0]?.productId, globalRows[0]?.productId)
+
+  installAnalyticsWindow([
+    ...Array.from({ length: 2 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      timestamp: 1712500000000 + index,
+    })),
+    ...Array.from({ length: 2 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      useCaseAnchor: 'sleep',
+      timestamp: 1712500000100 + index,
+    })),
+  ])
+  const anchorOverridesGlobalRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+    useCaseAnchor: 'sleep',
+  }).filter(product => !product.featured)
+  const globalWithAnchorDataRows = getRenderableCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.notEqual(anchorOverridesGlobalRows[0]?.productId, globalWithAnchorDataRows[0]?.productId)
+
   assert.match(resolveAffiliateUrl(herbRows[0]), /tag=razzleberry02-20/)
   assert.equal(hasGenericAffiliateLink('https://www.amazon.com/s?k=ashwagandha'), true)
   assert.equal(isMalformedAmazonProductUrl('https://www.amazon.com/s?k=ashwagandha'), true)
