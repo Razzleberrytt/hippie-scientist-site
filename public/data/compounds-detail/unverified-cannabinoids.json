@@ -1,8 +1,10 @@
 {
   "name": "unverified cannabinoids",
-  "category": "general",
-  "description": "unverified cannabinoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "cannabinoid",
+  "description": "unverified cannabinoids is a cannabinoid compound reported in zornia latifolia. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "zornia latifolia"
+  ],
   "effects": [
     "Calmness",
     "mild euphoria",
@@ -30,5 +32,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "unverified-cannabinoids",
-  "summary": "unverified cannabinoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "unverified cannabinoids is a cannabinoid compound reported in zornia latifolia. Available source coverage remains preliminary in this dataset."
 }

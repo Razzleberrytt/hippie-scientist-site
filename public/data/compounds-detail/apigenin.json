@@ -1,9 +1,10 @@
 {
   "name": "apigenin",
   "category": "general",
-  "description": "apigenin is a compound reported in alchemilla vulgaris. Available source coverage remains preliminary in this dataset.",
+  "description": "apigenin is a compound reported in alchemilla vulgaris and turnera diffusa. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "alchemilla vulgaris"
+    "alchemilla vulgaris",
+    "turnera diffusa"
   ],
   "effects": [
     "Uterine tonic",
@@ -43,12 +44,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: apigenin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/apigenin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: apigenin (CID 5280443)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280443",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "apigenin",
-  "summary": "apigenin is a compound reported in alchemilla vulgaris. Available source coverage remains preliminary in this dataset."
+  "summary": "apigenin is a compound reported in alchemilla vulgaris and turnera diffusa. Available source coverage remains preliminary in this dataset."
 }

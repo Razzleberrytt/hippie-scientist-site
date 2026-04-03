@@ -1,8 +1,10 @@
 {
   "name": "coumarins",
-  "category": "general",
-  "description": "coumarins is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "coumarin",
+  "description": "coumarins is a coumarin compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "acmella oleracea"
+  ],
   "effects": [
     "Local anesthesia",
     "salivation",
@@ -33,12 +35,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: coumarins",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/coumarins",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: coumarins (CID 54678486)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/54678486",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "coumarins",
-  "summary": "coumarins is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "coumarins is a coumarin compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset."
 }

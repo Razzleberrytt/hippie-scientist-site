@@ -1,8 +1,10 @@
 {
   "name": "gramine",
   "category": "general",
-  "description": "gramine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "gramine is a compound reported in arundo donax. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "arundo donax"
+  ],
   "effects": [
     "Visual stimulation",
     "introspection",
@@ -26,12 +28,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: gramine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/gramine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: gramine (CID 6890)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6890",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "gramine",
-  "summary": "gramine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "gramine is a compound reported in arundo donax. Available source coverage remains preliminary in this dataset."
 }

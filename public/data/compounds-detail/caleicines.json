@@ -1,8 +1,10 @@
 {
   "name": "Caleicines",
   "category": "general",
-  "description": "Caleicines is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Caleicines is a compound reported in calea ternifolia. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "calea ternifolia"
+  ],
   "effects": [
     "Lucid dreaming",
     "relaxation",
@@ -43,5 +45,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "caleicines",
-  "summary": "Caleicines is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Caleicines is a compound reported in calea ternifolia. Available source coverage remains preliminary in this dataset."
 }

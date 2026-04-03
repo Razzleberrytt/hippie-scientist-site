@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Patchoulol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/patchoulol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Patchoulol (CID 10955174)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10955174",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

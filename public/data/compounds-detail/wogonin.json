@@ -1,8 +1,10 @@
 {
   "name": "wogonin",
   "category": "general",
-  "description": "wogonin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "wogonin is a compound reported in scutellaria lateriflora. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "scutellaria lateriflora"
+  ],
   "effects": [
     "Mild sedation",
     "calm mood",
@@ -30,12 +32,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: wogonin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/wogonin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: wogonin (CID 5281703)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281703",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "wogonin",
-  "summary": "wogonin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "wogonin is a compound reported in scutellaria lateriflora. Available source coverage remains preliminary in this dataset."
 }

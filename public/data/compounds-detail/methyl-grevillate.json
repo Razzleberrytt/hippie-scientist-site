@@ -27,9 +27,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: methyl grevillate",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/methyl-grevillate",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: methyl grevillate (CID 5353609)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5353609",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",

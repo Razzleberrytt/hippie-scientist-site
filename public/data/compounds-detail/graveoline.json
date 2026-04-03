@@ -20,9 +20,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Graveoline",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/graveoline",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Graveoline (CID 353825)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/353825",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",

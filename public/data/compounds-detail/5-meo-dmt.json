@@ -1,8 +1,12 @@
 {
   "name": "5-MeO-DMT",
   "category": "general",
-  "description": "5-MeO-DMT is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "5-MeO-DMT is a compound reported in anadenanthera peregrina, virola calophylla, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "anadenanthera peregrina",
+    "virola calophylla",
+    "virola theiodora"
+  ],
   "effects": [
     "Intense visuals",
     "spiritual experiences",
@@ -45,12 +49,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: 5-MeO-DMT",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5-meo-dmt",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: 5-MeO-DMT (CID 1832)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1832",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "5-meo-dmt",
-  "summary": "5-MeO-DMT is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "5-MeO-DMT is a compound reported in anadenanthera peregrina, virola calophylla, and related herbs. Available source coverage remains preliminary in this dataset."
 }

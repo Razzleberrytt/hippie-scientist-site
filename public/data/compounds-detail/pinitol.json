@@ -26,9 +26,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: pinitol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pinitol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: pinitol (CID 164619)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/164619",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

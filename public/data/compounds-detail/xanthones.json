@@ -1,9 +1,10 @@
 {
   "name": "xanthones",
-  "category": "general",
-  "description": "xanthones is a compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset.",
+  "category": "xanthone",
+  "description": "xanthones is a xanthone compound reported in alchornea castaneifolia and Zanthoxylum zanthoxyloides. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "alchornea castaneifolia"
+    "alchornea castaneifolia",
+    "Zanthoxylum zanthoxyloides"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... No direct mechanismofaction data. Contextual inference: Used in traditional amazonian medicine for arthritis and pain... Used in traditional Amazonian medicine for arthritis and pain.. Used in traditional Amazonian medicine for arthritis and pain.",
@@ -35,5 +36,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "xanthones",
-  "summary": "xanthones is a compound reported in alchornea castaneifolia. Available source coverage remains preliminary in this dataset."
+  "summary": "xanthones is a xanthone compound reported in alchornea castaneifolia and Zanthoxylum zanthoxyloides. Available source coverage remains preliminary in this dataset."
 }

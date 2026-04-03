@@ -1,8 +1,12 @@
 {
   "name": "sesquiterpenes",
-  "category": "general",
-  "description": "sesquiterpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "terpenoid",
+  "description": "sesquiterpenes is a terpenoid compound reported in calea ternifolia, achillea millefolium, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "calea ternifolia",
+    "achillea millefolium",
+    "valeriana officinalis"
+  ],
   "effects": [
     "Anti-inflammatory",
     "diuretic",
@@ -50,12 +54,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: sesquiterpenes",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sesquiterpenes",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: sesquiterpenes (CID 139087999)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/139087999",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sesquiterpenes",
-  "summary": "sesquiterpenes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "sesquiterpenes is a terpenoid compound reported in calea ternifolia, achillea millefolium, and related herbs. Available source coverage remains preliminary in this dataset."
 }

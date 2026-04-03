@@ -1,8 +1,15 @@
 {
   "name": "hyoscyamine",
   "category": "general",
-  "description": "hyoscyamine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "hyoscyamine is a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "brugmansia sanguinea",
+    "brugmansia suaveolens",
+    "datura ferox",
+    "datura stramonium",
+    "datura wrightii",
+    "Solandra grandiflora"
+  ],
   "effects": [
     "Complete dissociation",
     "hallucinations",
@@ -51,12 +58,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: hyoscyamine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/hyoscyamine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: hyoscyamine (CID 154417)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/154417",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "hyoscyamine",
-  "summary": "hyoscyamine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "hyoscyamine is a compound reported in brugmansia sanguinea, brugmansia suaveolens, and related herbs. Available source coverage remains preliminary in this dataset."
 }

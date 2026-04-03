@@ -20,9 +20,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Pellitorine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pellitorine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Pellitorine (CID 5318516)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5318516",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

@@ -1,7 +1,7 @@
 {
   "name": "THC",
-  "category": "general",
-  "description": "THC is a compound reported in cannabis sativa. Available source coverage remains preliminary in this dataset.",
+  "category": "cannabinoid",
+  "description": "THC is a cannabinoid compound reported in cannabis sativa. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "cannabis sativa"
   ],
@@ -30,12 +30,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: THC",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thc",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: THC (CID 16078)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16078",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "thc",
-  "summary": "THC is a compound reported in cannabis sativa. Available source coverage remains preliminary in this dataset."
+  "summary": "THC is a cannabinoid compound reported in cannabis sativa. Available source coverage remains preliminary in this dataset."
 }

@@ -5,7 +5,10 @@
   "herbs": [
     "artemisia abrotanum",
     "artemisia absinthium",
-    "artemisia ludoviciana"
+    "artemisia ludoviciana",
+    "artemisia vulgaris",
+    "achillea millefolium",
+    "salvia officinalis"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -50,9 +53,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Thujone",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thujone",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Thujone (CID 261491)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/261491",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",

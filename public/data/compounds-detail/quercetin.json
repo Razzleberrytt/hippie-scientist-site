@@ -59,9 +59,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: quercetin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/quercetin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: quercetin (CID 5280343)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280343",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

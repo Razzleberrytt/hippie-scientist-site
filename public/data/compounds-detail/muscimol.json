@@ -33,9 +33,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Muscimol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/muscimol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Muscimol (CID 4266)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4266",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",

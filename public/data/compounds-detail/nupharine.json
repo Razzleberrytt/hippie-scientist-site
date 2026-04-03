@@ -1,8 +1,11 @@
 {
   "name": "Nupharine",
   "category": "general",
-  "description": "Nupharine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Nupharine is a compound reported in nymphaea caerulea and nymphaea rubra. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "nymphaea caerulea",
+    "nymphaea rubra"
+  ],
   "effects": [
     "Relaxation",
     "mild euphoria",
@@ -50,5 +53,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "nupharine",
-  "summary": "Nupharine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Nupharine is a compound reported in nymphaea caerulea and nymphaea rubra. Available source coverage remains preliminary in this dataset."
 }

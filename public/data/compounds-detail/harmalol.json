@@ -1,8 +1,10 @@
 {
   "name": "Harmalol",
   "category": "general",
-  "description": "Harmalol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Harmalol is a compound reported in peganum harmala. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "peganum harmala"
+  ],
   "effects": [
     "Altered perception",
     "dream intensification",
@@ -38,12 +40,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Harmalol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harmalol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Harmalol (CID 3565)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3565",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmalol",
-  "summary": "Harmalol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Harmalol is a compound reported in peganum harmala. Available source coverage remains preliminary in this dataset."
 }

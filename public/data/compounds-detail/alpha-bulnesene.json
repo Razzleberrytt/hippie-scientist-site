@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Alpha-bulnesene",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alpha-bulnesene",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Alpha-bulnesene (CID 94275)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/94275",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",

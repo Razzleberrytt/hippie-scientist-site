@@ -1,9 +1,10 @@
 {
   "name": "harmine",
   "category": "general",
-  "description": "harmine is a compound reported in banisteriopsis caapi. Available source coverage remains preliminary in this dataset.",
+  "description": "harmine is a compound reported in banisteriopsis caapi and peganum harmala. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "banisteriopsis caapi"
+    "banisteriopsis caapi",
+    "peganum harmala"
   ],
   "effects": [
     "Altered perception",
@@ -48,12 +49,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: harmine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harmine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: harmine (CID 5280953)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280953",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
   "slug": "harmine",
-  "summary": "harmine is a compound reported in banisteriopsis caapi. Available source coverage remains preliminary in this dataset."
+  "summary": "harmine is a compound reported in banisteriopsis caapi and peganum harmala. Available source coverage remains preliminary in this dataset."
 }

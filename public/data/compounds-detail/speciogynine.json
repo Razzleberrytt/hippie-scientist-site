@@ -1,8 +1,10 @@
 {
   "name": "speciogynine",
   "category": "general",
-  "description": "speciogynine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "speciogynine is a compound reported in mitragyna javanica. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "mitragyna javanica"
+  ],
   "effects": [
     "Stimulation",
     "mild euphoria",
@@ -29,12 +31,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: speciogynine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/speciogynine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: speciogynine (CID 15560577)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/15560577",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "speciogynine",
-  "summary": "speciogynine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "speciogynine is a compound reported in mitragyna javanica. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,13 @@
 {
   "name": "lyfoline",
   "category": "general",
-  "description": "lyfoline is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "lyfoline is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "heimia myrtifolia",
+    "heimia salicifolia (sinicuichi)",
+    "Sinicuichi (Heimia myrtifolia)",
+    "Sinicuichi (Heimia salicifolia)"
+  ],
   "effects": [
     "Auditory distortion",
     "calmness",
@@ -55,12 +60,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: lyfoline",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lyfoline",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: lyfoline (CID 6436825)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6436825",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "lyfoline",
-  "summary": "lyfoline is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "lyfoline is a compound reported in heimia myrtifolia, heimia salicifolia (sinicuichi), and related herbs. Available source coverage remains preliminary in this dataset."
 }

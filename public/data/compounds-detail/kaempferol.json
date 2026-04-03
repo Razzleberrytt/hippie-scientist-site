@@ -49,9 +49,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: kaempferol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/kaempferol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: kaempferol (CID 5280863)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280863",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",

@@ -1,8 +1,10 @@
 {
   "name": "menthyl acetate",
   "category": "general",
-  "description": "menthyl acetate is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "menthyl acetate is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "mentha piperita"
+  ],
   "effects": [
     "Soothes GI tract",
     "reduces bloating",
@@ -28,12 +30,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: menthyl acetate",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/menthyl-acetate",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: menthyl acetate (CID 27867)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/27867",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "menthyl-acetate",
-  "summary": "menthyl acetate is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "menthyl acetate is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset."
 }

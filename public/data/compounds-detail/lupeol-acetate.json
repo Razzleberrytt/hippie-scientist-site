@@ -27,9 +27,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: lupeol acetate",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lupeol-acetate",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: lupeol acetate (CID 92157)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92157",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",

@@ -1,8 +1,10 @@
 {
   "name": "Bufotenin",
   "category": "general",
-  "description": "Bufotenin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Bufotenin is a compound reported in anadenanthera peregrina. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "anadenanthera peregrina"
+  ],
   "effects": [
     "Visuals",
     "nausea",
@@ -34,12 +36,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Bufotenin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/bufotenin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Bufotenin (CID 10257)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10257",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "bufotenin",
-  "summary": "Bufotenin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Bufotenin is a compound reported in anadenanthera peregrina. Available source coverage remains preliminary in this dataset."
 }

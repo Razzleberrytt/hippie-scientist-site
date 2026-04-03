@@ -33,9 +33,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: ibotenic acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ibotenic-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: ibotenic acid (CID 1233)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1233",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",

@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: suberosol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/suberosol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: suberosol (CID 21592340)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/21592340",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",

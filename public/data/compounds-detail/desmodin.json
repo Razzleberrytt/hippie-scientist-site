@@ -1,9 +1,10 @@
 {
   "name": "Desmodin",
   "category": "general",
-  "description": "Desmodin is a compound reported in desmodium adscendens. Available source coverage remains preliminary in this dataset.",
+  "description": "Desmodin is a compound reported in desmodium adscendens and desmodium gangeticum. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "desmodium adscendens"
+    "desmodium adscendens",
+    "desmodium gangeticum"
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used to treat asthma",
@@ -39,12 +40,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Desmodin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/desmodin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Desmodin (CID 13338925)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/13338925",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "desmodin",
-  "summary": "Desmodin is a compound reported in desmodium adscendens. Available source coverage remains preliminary in this dataset."
+  "summary": "Desmodin is a compound reported in desmodium adscendens and desmodium gangeticum. Available source coverage remains preliminary in this dataset."
 }

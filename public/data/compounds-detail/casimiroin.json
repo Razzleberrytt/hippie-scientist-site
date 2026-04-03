@@ -25,9 +25,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Casimiroin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/casimiroin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Casimiroin (CID 124075)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/124075",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",

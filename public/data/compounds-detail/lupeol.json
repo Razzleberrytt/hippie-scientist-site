@@ -36,9 +36,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: lupeol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lupeol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: lupeol (CID 259846)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/259846",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",

@@ -1,8 +1,11 @@
 {
   "name": "nornicotine",
   "category": "general",
-  "description": "nornicotine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "nicotiana rustica",
+    "nicotiana tabacum"
+  ],
   "effects": [
     "Stimulation",
     "mood elevation",
@@ -36,12 +39,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: nornicotine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nornicotine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: nornicotine (CID 91462)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/91462",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "nornicotine",
-  "summary": "nornicotine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "nornicotine is a compound reported in nicotiana rustica and nicotiana tabacum. Available source coverage remains preliminary in this dataset."
 }

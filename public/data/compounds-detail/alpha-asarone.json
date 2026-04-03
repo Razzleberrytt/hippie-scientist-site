@@ -1,9 +1,10 @@
 {
   "name": "Alpha-asarone",
   "category": "general",
-  "description": "Alpha-asarone is a compound reported in acorus americanus. Available source coverage remains preliminary in this dataset.",
+  "description": "Alpha-asarone is a compound reported in acorus americanus and acorus calamus. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "acorus americanus"
+    "acorus americanus",
+    "acorus calamus"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -46,12 +47,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Alpha-asarone",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alpha-asarone",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Alpha-asarone (CID 636822)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/636822",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "alpha-asarone",
-  "summary": "Alpha-asarone is a compound reported in acorus americanus. Available source coverage remains preliminary in this dataset."
+  "summary": "Alpha-asarone is a compound reported in acorus americanus and acorus calamus. Available source coverage remains preliminary in this dataset."
 }

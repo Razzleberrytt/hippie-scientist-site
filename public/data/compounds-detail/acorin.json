@@ -1,8 +1,10 @@
 {
   "name": "acorin",
   "category": "general",
-  "description": "acorin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "acorin is a compound reported in acorus calamus. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "acorus calamus"
+  ],
   "effects": [
     "Stimulation",
     "mental clarity",
@@ -47,5 +49,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.038Z",
   "slug": "acorin",
-  "summary": "acorin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "acorin is a compound reported in acorus calamus. Available source coverage remains preliminary in this dataset."
 }

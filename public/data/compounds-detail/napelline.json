@@ -29,9 +29,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: napelline",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/napelline",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: napelline (CID 17749282)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/17749282",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",

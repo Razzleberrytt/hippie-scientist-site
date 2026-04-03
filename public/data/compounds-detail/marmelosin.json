@@ -20,9 +20,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Marmelosin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/marmelosin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Marmelosin (CID 10212)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10212",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",

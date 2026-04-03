@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: bulnesene",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/bulnesene",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: bulnesene (CID 16679399)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16679399",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",

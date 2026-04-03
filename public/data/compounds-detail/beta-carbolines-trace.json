@@ -1,7 +1,7 @@
 {
   "name": "beta-carbolines (trace)",
-  "category": "general",
-  "description": "beta-carbolines (trace) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "category": "beta-carboline alkaloid",
+  "description": "beta-carbolines (trace) is a beta-carboline alkaloid compound. Available source coverage remains preliminary in this dataset.",
   "herbs": [],
   "effects": [
     "Closed-eye visuals",
@@ -30,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "beta-carbolines-trace",
-  "summary": "beta-carbolines (trace) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "beta-carbolines (trace) is a beta-carboline alkaloid compound. Available source coverage remains preliminary in this dataset."
 }

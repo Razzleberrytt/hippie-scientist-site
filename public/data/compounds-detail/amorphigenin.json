@@ -23,9 +23,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Amorphigenin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/amorphigenin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Amorphigenin (CID 92207)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92207",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",

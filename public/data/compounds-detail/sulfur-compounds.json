@@ -1,8 +1,10 @@
 {
   "name": "Sulfur compounds",
   "category": "general",
-  "description": "Sulfur compounds is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Sulfur compounds is a compound reported in petiveria alliacea. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "petiveria alliacea"
+  ],
   "effects": [
     "Calmness",
     "clarity",
@@ -26,12 +28,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Sulfur compounds",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sulfur-compounds",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Sulfur compounds (CID 5362487)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5362487",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sulfur-compounds",
-  "summary": "Sulfur compounds is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Sulfur compounds is a compound reported in petiveria alliacea. Available source coverage remains preliminary in this dataset."
 }

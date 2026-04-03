@@ -1,9 +1,10 @@
 {
   "name": "umbelliferone",
   "category": "general",
-  "description": "umbelliferone is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset.",
+  "description": "umbelliferone is a compound reported in adenostoma fasciculatum and justicia pectoralis. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "adenostoma fasciculatum"
+    "adenostoma fasciculatum",
+    "justicia pectoralis"
   ],
   "effects": [
     "Traditional uses include skin and respiratory conditions",
@@ -36,12 +37,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: umbelliferone",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/umbelliferone",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: umbelliferone (CID 5281426)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281426",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "umbelliferone",
-  "summary": "umbelliferone is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset."
+  "summary": "umbelliferone is a compound reported in adenostoma fasciculatum and justicia pectoralis. Available source coverage remains preliminary in this dataset."
 }

@@ -1,9 +1,10 @@
 {
   "name": "arbutin",
   "category": "general",
-  "description": "arbutin is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset.",
+  "description": "arbutin is a compound reported in adenostoma fasciculatum and turnera diffusa. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "adenostoma fasciculatum"
+    "adenostoma fasciculatum",
+    "turnera diffusa"
   ],
   "effects": [
     "Traditional uses include skin and respiratory conditions",
@@ -37,12 +38,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: arbutin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/arbutin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: arbutin (CID 440936)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/440936",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "arbutin",
-  "summary": "arbutin is a compound reported in adenostoma fasciculatum. Available source coverage remains preliminary in this dataset."
+  "summary": "arbutin is a compound reported in adenostoma fasciculatum and turnera diffusa. Available source coverage remains preliminary in this dataset."
 }

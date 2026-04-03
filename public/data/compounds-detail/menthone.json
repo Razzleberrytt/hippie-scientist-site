@@ -1,8 +1,10 @@
 {
   "name": "menthone",
   "category": "general",
-  "description": "menthone is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "menthone is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "mentha piperita"
+  ],
   "effects": [
     "Soothes GI tract",
     "reduces bloating",
@@ -28,12 +30,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: menthone",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/menthone",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: menthone (CID 26447)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/26447",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "menthone",
-  "summary": "menthone is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "menthone is a compound reported in mentha piperita. Available source coverage remains preliminary in this dataset."
 }

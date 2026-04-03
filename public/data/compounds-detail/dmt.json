@@ -1,10 +1,17 @@
 {
   "name": "DMT",
   "category": "general",
-  "description": "DMT is a compound reported in acacia maidenii and virola theiodora. Available source coverage remains preliminary in this dataset.",
+  "description": "DMT is a compound reported in acacia maidenii, virola theiodora, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "acacia maidenii",
-    "virola theiodora"
+    "virola theiodora",
+    "acacia confusa",
+    "acacia phlebophylla",
+    "anadenanthera peregrina",
+    "arundo donax",
+    "Acacia confusa Merr.",
+    "Calliandra lucidum",
+    "virola calophylla"
   ],
   "effects": [
     "Intense visual hallucinations",
@@ -69,12 +76,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: DMT",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/dmt",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: DMT (CID 6089)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6089",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",
   "slug": "dmt",
-  "summary": "DMT is a compound reported in acacia maidenii and virola theiodora. Available source coverage remains preliminary in this dataset."
+  "summary": "DMT is a compound reported in acacia maidenii, virola theiodora, and related herbs. Available source coverage remains preliminary in this dataset."
 }

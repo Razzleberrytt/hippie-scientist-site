@@ -1,8 +1,10 @@
 {
   "name": "norharman",
   "category": "general",
-  "description": "norharman is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "norharman is a compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "nicotiana rustica"
+  ],
   "effects": [
     "Intense stimulation",
     "purging",
@@ -31,12 +33,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: norharman",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/norharman",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: norharman (CID 64961)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/64961",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "norharman",
-  "summary": "norharman is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "norharman is a compound reported in nicotiana rustica. Available source coverage remains preliminary in this dataset."
 }

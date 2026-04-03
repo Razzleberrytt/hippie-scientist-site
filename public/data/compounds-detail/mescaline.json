@@ -28,9 +28,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Mescaline",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mescaline",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Mescaline (CID 4076)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4076",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",

@@ -1,8 +1,10 @@
 {
   "name": "theophylline",
   "category": "general",
-  "description": "theophylline is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "theophylline is a compound reported in paullinia cupana. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "paullinia cupana"
+  ],
   "effects": [
     "Mental alertness",
     "energy",
@@ -33,12 +35,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: theophylline",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/theophylline",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: theophylline (CID 2153)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2153",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "theophylline",
-  "summary": "theophylline is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "theophylline is a compound reported in paullinia cupana. Available source coverage remains preliminary in this dataset."
 }

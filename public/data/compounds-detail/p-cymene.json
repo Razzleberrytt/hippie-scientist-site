@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: p-Cymene",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/p-cymene",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: p-Cymene (CID 7463)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7463",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

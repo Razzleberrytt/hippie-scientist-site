@@ -1,8 +1,10 @@
 {
   "name": "Boswellic acids",
   "category": "general",
-  "description": "Boswellic acids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Boswellic acids is a compound reported in Boswellia dalzielii. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "Boswellia dalzielii"
+  ],
   "effects": [
     "Joint pain relief",
     "antibacterial"
@@ -28,5 +30,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "boswellic-acids",
-  "summary": "Boswellic acids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Boswellic acids is a compound reported in Boswellia dalzielii. Available source coverage remains preliminary in this dataset."
 }

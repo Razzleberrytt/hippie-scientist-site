@@ -1,8 +1,11 @@
 {
   "name": "Sesquiterpene lactones",
-  "category": "general",
-  "description": "Sesquiterpene lactones is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "category": "terpenoid",
+  "description": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "lactuca virosa",
+    "Vernonia amygdalina"
+  ],
   "effects": [
     "Blood sugar regulation",
     "cytotoxic effects on cancer cells",
@@ -35,5 +38,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "sesquiterpene-lactones",
-  "summary": "Sesquiterpene lactones is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Sesquiterpene lactones is a terpenoid compound reported in lactuca virosa and Vernonia amygdalina. Available source coverage remains preliminary in this dataset."
 }

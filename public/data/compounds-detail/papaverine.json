@@ -1,8 +1,10 @@
 {
   "name": "papaverine",
   "category": "general",
-  "description": "papaverine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "papaverine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "papaver somniferum"
+  ],
   "effects": [
     "Pain relief",
     "euphoria",
@@ -33,12 +35,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: papaverine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/papaverine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: papaverine (CID 4680)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4680",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "papaverine",
-  "summary": "papaverine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "papaverine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset."
 }

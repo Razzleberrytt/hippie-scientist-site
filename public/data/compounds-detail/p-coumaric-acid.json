@@ -33,9 +33,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: p-coumaric acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/p-coumaric-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: p-coumaric acid (CID 637542)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/637542",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

@@ -1,8 +1,10 @@
 {
   "name": "phenylethylamine",
   "category": "general",
-  "description": "phenylethylamine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "phenylethylamine is a compound reported in theobroma cacao. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "theobroma cacao"
+  ],
   "effects": [
     "Euphoria",
     "alertness",
@@ -27,12 +29,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: phenylethylamine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/phenylethylamine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: phenylethylamine (CID 1001)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1001",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "phenylethylamine",
-  "summary": "phenylethylamine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "phenylethylamine is a compound reported in theobroma cacao. Available source coverage remains preliminary in this dataset."
 }

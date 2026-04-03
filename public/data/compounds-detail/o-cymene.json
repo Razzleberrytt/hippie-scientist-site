@@ -31,9 +31,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: o-cymene",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/o-cymene",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: o-cymene (CID 10703)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10703",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

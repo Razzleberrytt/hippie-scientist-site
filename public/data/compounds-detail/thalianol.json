@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: thalianol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thalianol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: thalianol (CID 25229600)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/25229600",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",

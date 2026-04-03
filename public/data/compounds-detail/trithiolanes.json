@@ -1,8 +1,10 @@
 {
   "name": "trithiolanes",
   "category": "general",
-  "description": "trithiolanes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "trithiolanes is a compound reported in petiveria alliacea. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "petiveria alliacea"
+  ],
   "effects": [
     "Calmness",
     "clarity",
@@ -33,5 +35,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "trithiolanes",
-  "summary": "trithiolanes is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "trithiolanes is a compound reported in petiveria alliacea. Available source coverage remains preliminary in this dataset."
 }

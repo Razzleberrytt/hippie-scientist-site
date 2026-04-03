@@ -1,9 +1,10 @@
 {
   "name": "Citral",
   "category": "general",
-  "description": "Citral is a compound reported in aloysia citrodora. Available source coverage remains preliminary in this dataset.",
+  "description": "Citral is a compound reported in aloysia citrodora and nepeta cataria. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "aloysia citrodora"
+    "aloysia citrodora",
+    "nepeta cataria"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -31,12 +32,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Citral",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/citral",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Citral (CID 638011)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/638011",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.040Z",
   "slug": "citral",
-  "summary": "Citral is a compound reported in aloysia citrodora. Available source coverage remains preliminary in this dataset."
+  "summary": "Citral is a compound reported in aloysia citrodora and nepeta cataria. Available source coverage remains preliminary in this dataset."
 }

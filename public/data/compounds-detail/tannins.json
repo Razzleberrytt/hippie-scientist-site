@@ -1,11 +1,27 @@
 {
   "name": "tannins",
-  "category": "general",
-  "description": "tannins is a compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "category": "tannin",
+  "description": "tannins is a tannin compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "agrimonia eupatoria",
     "alchornea castaneifolia",
-    "ficus religiosa"
+    "ficus religiosa",
+    "acacia confusa",
+    "acacia maidenii",
+    "alchornea floribunda",
+    "desmodium gangeticum",
+    "elaeagnus angustifolia",
+    "Acacia confusa Merr.",
+    "Acacia maidenii F. Muell.",
+    "achillea millefolium",
+    "Spathodea campanulata",
+    "Alchornea cordifolia",
+    "Calliandra lucidum",
+    "nelumbo nucifera",
+    "nymphaea lotus",
+    "nymphaea rubra",
+    "paullinia cupana",
+    "paullinia yoco"
   ],
   "effects": [
     "Astringent",
@@ -145,5 +161,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "tannins",
-  "summary": "tannins is a compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "tannins is a tannin compound reported in agrimonia eupatoria, alchornea castaneifolia, and related herbs. Available source coverage remains preliminary in this dataset."
 }

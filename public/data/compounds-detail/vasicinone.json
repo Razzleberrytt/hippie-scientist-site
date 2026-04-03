@@ -1,10 +1,11 @@
 {
   "name": "vasicinone",
   "category": "general",
-  "description": "vasicinone is a compound reported in adhatoda vasica and justicia adhatoda. Available source coverage remains preliminary in this dataset.",
+  "description": "vasicinone is a compound reported in adhatoda vasica, justicia adhatoda, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "adhatoda vasica",
-    "justicia adhatoda"
+    "justicia adhatoda",
+    "sida cordifolia"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -41,12 +42,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: vasicinone",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/vasicinone",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: vasicinone (CID 442935)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442935",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "vasicinone",
-  "summary": "vasicinone is a compound reported in adhatoda vasica and justicia adhatoda. Available source coverage remains preliminary in this dataset."
+  "summary": "vasicinone is a compound reported in adhatoda vasica, justicia adhatoda, and related herbs. Available source coverage remains preliminary in this dataset."
 }

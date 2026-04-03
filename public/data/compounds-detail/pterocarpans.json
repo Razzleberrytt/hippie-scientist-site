@@ -1,8 +1,10 @@
 {
   "name": "pterocarpans",
   "category": "general",
-  "description": "pterocarpans is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "pterocarpans is a compound reported in desmodium gangeticum. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "desmodium gangeticum"
+  ],
   "effects": [
     "Relaxation",
     "improved mood",
@@ -38,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "pterocarpans",
-  "summary": "pterocarpans is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "pterocarpans is a compound reported in desmodium gangeticum. Available source coverage remains preliminary in this dataset."
 }

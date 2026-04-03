@@ -1,8 +1,10 @@
 {
   "name": "isovaleric acid",
   "category": "general",
-  "description": "isovaleric acid is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "isovaleric acid is a compound reported in valeriana officinalis. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "valeriana officinalis"
+  ],
   "effects": [
     "Sedation",
     "muscle relaxation",
@@ -27,12 +29,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: isovaleric acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isovaleric-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: isovaleric acid (CID 10430)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10430",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "isovaleric-acid",
-  "summary": "isovaleric acid is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "isovaleric acid is a compound reported in valeriana officinalis. Available source coverage remains preliminary in this dataset."
 }

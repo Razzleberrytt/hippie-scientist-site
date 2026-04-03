@@ -1,7 +1,7 @@
 {
   "name": "saponins (lebbekanin A-H)",
-  "category": "general",
-  "description": "saponins (lebbekanin A-H) is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset.",
+  "category": "saponin",
+  "description": "saponins (lebbekanin A-H) is a saponin compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "albizia lebbeck"
   ],
@@ -33,5 +33,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "saponins-lebbekanin-a-h",
-  "summary": "saponins (lebbekanin A-H) is a compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset."
+  "summary": "saponins (lebbekanin A-H) is a saponin compound reported in albizia lebbeck. Available source coverage remains preliminary in this dataset."
 }

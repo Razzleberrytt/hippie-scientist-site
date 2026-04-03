@@ -1,8 +1,12 @@
 {
   "name": "isoergine",
   "category": "general",
-  "description": "isoergine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "isoergine is a compound reported in argyreia nervosa, rivea corymbosa, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "argyreia nervosa",
+    "rivea corymbosa",
+    "turbina corymbosa"
+  ],
   "effects": [
     "Visual hallucinations",
     "euphoria",
@@ -44,12 +48,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: isoergine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isoergine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: isoergine (CID 12309749)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/12309749",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",
   "slug": "isoergine",
-  "summary": "isoergine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "isoergine is a compound reported in argyreia nervosa, rivea corymbosa, and related herbs. Available source coverage remains preliminary in this dataset."
 }

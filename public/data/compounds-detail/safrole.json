@@ -1,9 +1,11 @@
 {
   "name": "Safrole",
   "category": "general",
-  "description": "Safrole is a compound reported in mexican pepperleaf. Available source coverage remains preliminary in this dataset.",
+  "description": "Safrole is a compound reported in mexican pepperleaf, myristica fragrans, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "mexican pepperleaf"
+    "mexican pepperleaf",
+    "myristica fragrans",
+    "Myristica fragrans Houtt."
   ],
   "effects": [
     "No direct effects data. Contextual inference: Used in ritual",
@@ -45,12 +47,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Safrole",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/safrole",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Safrole (CID 5144)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5144",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "safrole",
-  "summary": "Safrole is a compound reported in mexican pepperleaf. Available source coverage remains preliminary in this dataset."
+  "summary": "Safrole is a compound reported in mexican pepperleaf, myristica fragrans, and related herbs. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,10 @@
 {
   "name": "Azulene",
   "category": "general",
-  "description": "Azulene is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Azulene is a compound reported in achillea millefolium. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "achillea millefolium"
+  ],
   "effects": [
     "Anti-inflammatory",
     "astringent",
@@ -25,12 +27,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Azulene",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/azulene",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Azulene (CID 9231)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9231",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "azulene",
-  "summary": "Azulene is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Azulene is a compound reported in achillea millefolium. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,10 @@
 {
   "name": "Spilanthol",
   "category": "general",
-  "description": "Spilanthol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Spilanthol is a compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "acmella oleracea"
+  ],
   "effects": [
     "Local anesthesia",
     "salivation",
@@ -33,12 +35,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Spilanthol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/spilanthol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Spilanthol (CID 5353001)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5353001",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "spilanthol",
-  "summary": "Spilanthol is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Spilanthol is a compound reported in acmella oleracea. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,10 @@
 {
   "name": "methysticin",
   "category": "general",
-  "description": "methysticin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "methysticin is a compound reported in piper methysticum. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "piper methysticum"
+  ],
   "effects": [
     "Euphoria",
     "calmness",
@@ -27,12 +29,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: methysticin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/methysticin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: methysticin (CID 5281567)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281567",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "methysticin",
-  "summary": "methysticin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "methysticin is a compound reported in piper methysticum. Available source coverage remains preliminary in this dataset."
 }

@@ -1,8 +1,10 @@
 {
   "name": "mulunguine",
   "category": "general",
-  "description": "mulunguine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "mulunguine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "erythrina mulungu"
+  ],
   "effects": [
     "Relaxation",
     "improved sleep",
@@ -49,5 +51,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.049Z",
   "slug": "mulunguine",
-  "summary": "mulunguine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "mulunguine is a compound reported in erythrina mulungu. Available source coverage remains preliminary in this dataset."
 }

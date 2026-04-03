@@ -1,7 +1,7 @@
 {
   "name": "alkaloids (undetermined)",
-  "category": "general",
-  "description": "alkaloids (undetermined) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "category": "alkaloid",
+  "description": "alkaloids (undetermined) is a alkaloid compound. Available source coverage remains preliminary in this dataset.",
   "herbs": [],
   "effects": [
     "Color vision changes",
@@ -40,5 +40,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.039Z",
   "slug": "alkaloids-undetermined",
-  "summary": "alkaloids (undetermined) is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "alkaloids (undetermined) is a alkaloid compound. Available source coverage remains preliminary in this dataset."
 }

@@ -20,9 +20,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Elsholtzia ketone",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/elsholtzia-ketone",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Elsholtzia ketone (CID 521240)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/521240",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.041Z",

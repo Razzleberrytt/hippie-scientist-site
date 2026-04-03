@@ -1,7 +1,7 @@
 {
   "name": "Flavonoids (vitexin",
-  "category": "general",
-  "description": "Flavonoids (vitexin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
+  "category": "flavonoid",
+  "description": "Flavonoids (vitexin is a flavonoid compound. Available source coverage remains preliminary in this dataset.",
   "herbs": [],
   "effects": [
     "Calmness",
@@ -34,5 +34,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "flavonoids-vitexin",
-  "summary": "Flavonoids (vitexin is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Flavonoids (vitexin is a flavonoid compound. Available source coverage remains preliminary in this dataset."
 }

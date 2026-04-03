@@ -28,9 +28,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: isoquercetin",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isoquercetin",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: isoquercetin (CID 5280804)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280804",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.044Z",

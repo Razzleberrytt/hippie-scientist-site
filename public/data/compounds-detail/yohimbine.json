@@ -1,8 +1,10 @@
 {
   "name": "Yohimbine",
   "category": "general",
-  "description": "Yohimbine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Yohimbine is a compound reported in Pausinystalia johimbe. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "Pausinystalia johimbe"
+  ],
   "effects": [
     "Stimulation",
     "increased blood flow",
@@ -26,12 +28,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Yohimbine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/yohimbine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Yohimbine (CID 8969)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8969",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "yohimbine",
-  "summary": "Yohimbine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Yohimbine is a compound reported in Pausinystalia johimbe. Available source coverage remains preliminary in this dataset."
 }

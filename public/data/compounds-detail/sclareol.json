@@ -23,9 +23,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: Sclareol",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sclareol",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: Sclareol (CID 163263)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/163263",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

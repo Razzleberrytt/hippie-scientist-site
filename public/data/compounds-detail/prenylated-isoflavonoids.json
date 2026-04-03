@@ -1,8 +1,10 @@
 {
   "name": "Prenylated isoflavonoids",
   "category": "general",
-  "description": "Prenylated isoflavonoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "Prenylated isoflavonoids is a compound reported in Rhynchosia pyramidalis. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "Rhynchosia pyramidalis"
+  ],
   "effects": [
     "Pain relief",
     "immune modulation"
@@ -29,5 +31,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",
   "slug": "prenylated-isoflavonoids",
-  "summary": "Prenylated isoflavonoids is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "Prenylated isoflavonoids is a compound reported in Rhynchosia pyramidalis. Available source coverage remains preliminary in this dataset."
 }

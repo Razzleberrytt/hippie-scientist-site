@@ -1,7 +1,7 @@
 {
   "name": "flavonoids",
-  "category": "general",
-  "description": "flavonoids is a compound reported in adhatoda vasica, agrimonia eupatoria, and related herbs. Available source coverage remains preliminary in this dataset.",
+  "category": "flavonoid",
+  "description": "flavonoids is a flavonoid compound reported in adhatoda vasica, agrimonia eupatoria, and related herbs. Available source coverage remains preliminary in this dataset.",
   "herbs": [
     "adhatoda vasica",
     "agrimonia eupatoria",
@@ -10,7 +10,37 @@
     "Muira Puama",
     "rhododendron anthopogon",
     "turnera diffusa var. aphrodisiaca",
-    "elaeagnus angustifolia"
+    "elaeagnus angustifolia",
+    "acacia confusa",
+    "acacia maidenii",
+    "acmella oleracea",
+    "artemisia vulgaris",
+    "asarum canadense",
+    "calliandra anomala",
+    "combretum micranthum",
+    "desmodium gangeticum",
+    "erythrina mulungu",
+    "indian warrior",
+    "justicia pectoralis",
+    "klip dagga",
+    "Acacia confusa Merr.",
+    "Acacia maidenii F. Muell.",
+    "achillea millefolium",
+    "Rhynchosia pyramidalis",
+    "Spathodea campanulata",
+    "Alchornea cordifolia",
+    "Entada africana",
+    "Vernonia amygdalina",
+    "nelumbo nucifera",
+    "nymphaea lotus",
+    "nymphaea rubra",
+    "ptychopetalum olacoides",
+    "salvia apiana",
+    "salvia officinalis",
+    "theobroma cacao",
+    "turnera diffusa",
+    "urtica dioica",
+    "zornia latifolia"
   ],
   "effects": [
     "No direct effects data. Contextual inference:",
@@ -247,5 +277,5 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.042Z",
   "slug": "flavonoids",
-  "summary": "flavonoids is a compound reported in adhatoda vasica, agrimonia eupatoria, and related herbs. Available source coverage remains preliminary in this dataset."
+  "summary": "flavonoids is a flavonoid compound reported in adhatoda vasica, agrimonia eupatoria, and related herbs. Available source coverage remains preliminary in this dataset."
 }

@@ -1,9 +1,10 @@
 {
   "name": "voacangine",
   "category": "general",
-  "description": "voacangine is a compound reported in tabernaemontana undulata. Available source coverage remains preliminary in this dataset.",
+  "description": "voacangine is a compound reported in tabernaemontana undulata and voacanga africana. Available source coverage remains preliminary in this dataset.",
   "herbs": [
-    "tabernaemontana undulata"
+    "tabernaemontana undulata",
+    "voacanga africana"
   ],
   "effects": [
     "Inner visions",
@@ -38,12 +39,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: voacangine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/voacangine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: voacangine (CID 73255)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73255",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.052Z",
   "slug": "voacangine",
-  "summary": "voacangine is a compound reported in tabernaemontana undulata. Available source coverage remains preliminary in this dataset."
+  "summary": "voacangine is a compound reported in tabernaemontana undulata and voacanga africana. Available source coverage remains preliminary in this dataset."
 }

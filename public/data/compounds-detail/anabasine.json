@@ -2,7 +2,9 @@
   "name": "Anabasine",
   "category": "pyridine alkaloid",
   "description": "Anabasine is a minor tobacco alkaloid with nicotinic pharmacology and recognized use as an exposure biomarker. Evidence is strongest for toxicology and exposure characterization rather than therapeutic benefit.",
-  "herbs": [],
+  "herbs": [
+    "nicotiana tabacum"
+  ],
   "effects": [
     "Human exposure studies use anabasine as a minor tobacco alkaloid biomarker.",
     "Nicotine-like pharmacology implies stimulant and dependence-related risk context."

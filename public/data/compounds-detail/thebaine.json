@@ -1,8 +1,10 @@
 {
   "name": "thebaine",
   "category": "general",
-  "description": "thebaine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset.",
-  "herbs": [],
+  "description": "thebaine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset.",
+  "herbs": [
+    "papaver somniferum"
+  ],
   "effects": [
     "Pain relief",
     "euphoria",
@@ -33,12 +35,12 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: thebaine",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thebaine",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: thebaine (CID 5324289)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5324289",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.051Z",
   "slug": "thebaine",
-  "summary": "thebaine is a compound documented in this dataset. Available source coverage remains preliminary in this dataset."
+  "summary": "thebaine is a compound reported in papaver somniferum. Available source coverage remains preliminary in this dataset."
 }

@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: p-hydroxybenzoic acid",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/p-hydroxybenzoic-acid",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: p-hydroxybenzoic acid (CID 135)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/135",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.050Z",

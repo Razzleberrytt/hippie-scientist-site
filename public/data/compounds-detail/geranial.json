@@ -24,9 +24,9 @@
   "sideEffects": [],
   "sources": [
     {
-      "title": "PubChem compound: geranial",
-      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/geranial",
-      "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+      "title": "PubChem compound: geranial (CID 638011)",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/compound/638011",
+      "note": "Bootstrap compound identity source (tier: high, canonical-id)"
     }
   ],
   "lastUpdated": "2026-04-01T18:55:38.043Z",
