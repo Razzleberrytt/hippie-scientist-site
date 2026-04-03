@@ -144,6 +144,12 @@ type UseCaseAnchor = {
   keywords: string[]
 }
 
+type UseCaseRelatedHerbLink = {
+  leadIn: 'See also' | 'Compare with'
+  label: string
+  to: string
+}
+
 const USE_CASE_ANCHORS: UseCaseAnchor[] = [
   {
     key: 'sleep',
@@ -408,10 +414,38 @@ export default function HerbDetail() {
     const matchedProducts = curatedProducts.filter(product =>
       product.bestFor.some(tag => matchesUseCaseTag(tag, anchor.keywords)),
     )
+    const relatedHerbLinks: UseCaseRelatedHerbLink[] = herbs
+      .filter(candidate => candidate.slug && candidate.slug !== herb.slug)
+      .map(candidate => {
+        const candidateProducts = getHerbProducts(candidate.slug)
+        const matchedTagCount = candidateProducts.reduce((count, product) => {
+          const hasMatch = product.bestFor.some(tag => matchesUseCaseTag(tag, anchor.keywords))
+          return hasMatch ? count + 1 : count
+        }, 0)
+        const label = String(
+          candidate.common || candidate.commonName || candidate.name || candidate.slug,
+        ).trim()
+        return {
+          slug: candidate.slug,
+          label,
+          matchedTagCount,
+        }
+      })
+      .filter(candidate => candidate.matchedTagCount > 0 && candidate.label)
+      .sort(
+        (a, b) => b.matchedTagCount - a.matchedTagCount || a.label.localeCompare(b.label),
+      )
+      .slice(0, 2)
+      .map((candidate, index) => ({
+        leadIn: index === 0 ? 'See also' : 'Compare with',
+        label: candidate.label,
+        to: `/herbs/${encodeURIComponent(candidate.slug)}`,
+      }))
 
     return {
       ...anchor,
       matchedProducts,
+      relatedHerbLinks,
       matchedTags: Array.from(
         new Set(
           matchedProducts.flatMap(product =>
@@ -847,6 +881,18 @@ export default function HerbDetail() {
                       </span>
                     ))}
                   </div>
+                  {anchor.relatedHerbLinks.length > 0 && (
+                    <p className='mt-2 text-xs text-white/75'>
+                      {anchor.relatedHerbLinks.map(link => (
+                        <span key={`${anchor.key}-${link.to}`} className='mr-4 inline-block'>
+                          {link.leadIn}:{' '}
+                          <Link to={link.to} className='text-violet-200 underline-offset-2 hover:underline'>
+                            {link.label}
+                          </Link>
+                        </span>
+                      ))}
+                    </p>
+                  )}
                 </article>
               ))}
             </div>
