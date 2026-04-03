@@ -7,6 +7,7 @@ import {
   type CuratedProductRecommendation,
 } from '@/data/curatedProducts'
 import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
+import { readAnalyticsEvents } from '@/utils/analytics/eventStorage'
 
 type CuratedProductPageContext = {
   entityType: CuratedProductEntityType
@@ -235,10 +236,34 @@ export type RenderableCuratedProduct = CuratedProductRecommendation & {
   affiliateUrl: string
 }
 
+function getHerbSlugFromAnalyticsEvent(event: { slug?: string; entitySlug?: string }): string | null {
+  const slug = String(event.slug || '').trim()
+  if (slug.startsWith('herb:')) return slug.slice('herb:'.length)
+  return null
+}
+
+function getHerbProductClickCounts(herbSlug: string): Map<string, number> {
+  const counts = new Map<string, number>()
+  if (!herbSlug.trim()) return counts
+
+  const events = readAnalyticsEvents()
+  events.forEach(event => {
+    if (event.type !== 'curated_product_click') return
+    const productId = String(event.item || '').trim()
+    if (!productId) return
+    if (getHerbSlugFromAnalyticsEvent(event) !== herbSlug) return
+    counts.set(productId, (counts.get(productId) || 0) + 1)
+  })
+
+  return counts
+}
+
 export function getRenderableCuratedProducts(
   context: CuratedProductPageContext,
 ): RenderableCuratedProduct[] {
   if (context.sourceCount <= 0) return []
+  const herbClickCounts =
+    context.entityType === 'herb' ? getHerbProductClickCounts(context.entitySlug) : new Map()
 
   return curatedProductRecommendations
     .filter(
@@ -254,5 +279,13 @@ export function getRenderableCuratedProducts(
       ...product,
       affiliateUrl: resolveAffiliateUrl(product),
     }))
-    .sort((a, b) => Number(b.featured) - Number(a.featured) || a.sortOrder - b.sortOrder)
+    .sort((a, b) => {
+      const featuredRank = Number(b.featured) - Number(a.featured)
+      if (featuredRank !== 0) return featuredRank
+
+      const clickBoost = (herbClickCounts.get(b.productId) || 0) - (herbClickCounts.get(a.productId) || 0)
+      if (clickBoost !== 0) return clickBoost
+
+      return a.sortOrder - b.sortOrder
+    })
 }
