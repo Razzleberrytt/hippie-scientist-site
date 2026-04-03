@@ -6,9 +6,7 @@
   "mechanism": "curcin inhibits protein synthesis",
   "activeCompounds": [],
   "effects": [
-    "antibacterial",
-    "antifungal",
-    "seeds are toxic"
+    "antimicrobial"
   ],
   "contraindications": [
     "avoid with oral use contraindicated due to toxicity"

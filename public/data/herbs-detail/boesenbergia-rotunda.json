@@ -6,9 +6,9 @@
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
   "activeCompounds": [],
   "effects": [
-    "antioxidant",
     "anti-inflammatory",
-    "antimicrobial"
+    "antimicrobial",
+    "antioxidant"
   ],
   "contraindications": [],
   "interactions": [],

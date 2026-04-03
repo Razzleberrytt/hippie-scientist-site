@@ -6,9 +6,10 @@
   "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "antiviral",
-    "immune stimulant",
-    "respiratory"
+    "stimulation",
+    "respiratory support",
+    "immune support",
+    "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [

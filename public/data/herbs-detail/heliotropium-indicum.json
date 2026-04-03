@@ -6,10 +6,8 @@
   "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "anti-inflammatory and antimicrobial",
-    "contains pyrrolizidine alkaloids (toxic)",
-    "anti",
-    "inflammatory and antimicrobial"
+    "anti-inflammatory",
+    "antimicrobial"
   ],
   "contraindications": [],
   "interactions": [

@@ -6,11 +6,10 @@
   "mechanism": "Mechanism is not yet established with high confidence; reported activity is likely multi-component and may vary by extract chemistry and dose.",
   "activeCompounds": [],
   "effects": [
-    "sedative",
-    "hypnotic",
-    "digestive bitter",
-    "anxiolytic",
-    "digestive aid"
+    "relaxation",
+    "sleep",
+    "anxiety relief",
+    "digestive support"
   ],
   "contraindications": [
     "avoid in pregnancy",
@@ -33,7 +32,7 @@
   "lastUpdated": "2026-04-01T18:55:37.942Z",
   "description": "Sedative, anxiolytic, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
   "dosage": "No direct dosage data. Contextual inference: Sedative,hypnotic,digestive bitter,used in beer and herbal medicine. Gaba,a receptor modulation and sedative flavonoids..,nan.. GABA,A receptor modulation and sedative flavonoids.. Sedative,used in beer and herbal medicine. No direct region data. Contextual inference: Sedative,used in beer and herbal medicine.,nan.,anxiolytic,digestive aid. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Sedative,digestive aid. No direct region data. Contextual inference: Sedative,digestive aid. none.",
-  "duration": "4\u20138 hours",
+  "duration": "4–8 hours",
   "legalStatus": "Legal; used in food, medicine, and brewing",
   "preparation": "No direct preparation data. Contextual inference: Sedative, hypnotic, digestive bitter; used in beer and herbal medicine. Gaba-a receptor modulation and sedative flavonoids.. ; nan; nan.. GABA-A receptor modulation and sedative flavonoids.. Sedative, hypnotic, digestive bitter; used in beer and herbal medicine. No direct region data. Contextual inference: Sedative, hypnotic, digestive bitter; used in beer and herbal medicine. Gaba-a receptor modulation and sedative flavonoids.. ; nan; nan.. GABA-A receptor modulation and sedative flavonoids.. Sedative, hypnotic, digestive bitter; used in beer and herbal medicine. ; nan; nan. ; nan; nan",
   "region": "No direct region data. Contextual inference: Sedative, anxiolytic, digestive aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, anxiolytic, digestive aid. none. ; nan; nan",

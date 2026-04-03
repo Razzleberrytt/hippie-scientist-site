@@ -5,10 +5,7 @@
   "intensity": "very strong",
   "mechanism": "available mechanistic data are preclinical and do not establish therapeutic efficacy",
   "activeCompounds": [],
-  "effects": [
-    "anticholinergic toxicity patterns are documented in clinical toxicology literature",
-    "preclinical chemistry work tropane-alkaloid biosynthesis variability across mandragora species"
-  ],
+  "effects": [],
   "contraindications": [
     "avoid in pregnancy"
   ],
