@@ -155,9 +155,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: 5-MeO-DMT",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5-meo-dmt",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: 5-MeO-DMT (CID 1832)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1832",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -257,9 +257,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: acetylcholine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/acetylcholine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: acetylcholine (CID 187)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/187",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -672,9 +672,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: alamarine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alamarine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: alamarine (CID 442157)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442157",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -828,9 +828,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: alangimarine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alangimarine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: alangimarine (CID 442160)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442160",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -867,9 +867,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: alangiside",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alangiside",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: alangiside (CID 442161)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442161",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -942,9 +942,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: alchorneine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alchorneine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: alchorneine (CID 217611)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/217611",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.038Z"
@@ -1294,9 +1294,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Alpha",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alpha",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Alpha (CID 14647596)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14647596",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1349,9 +1349,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Alpha-asarone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alpha-asarone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Alpha-asarone (CID 636822)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/636822",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1382,9 +1382,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Alpha-bulnesene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/alpha-bulnesene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Alpha-bulnesene (CID 94275)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/94275",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1414,9 +1414,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Amorphigenin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/amorphigenin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Amorphigenin (CID 92207)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92207",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1477,9 +1477,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Anthocyanins",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/anthocyanins",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Anthocyanins (CID 145858)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/145858",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1529,9 +1529,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: apigenin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/apigenin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: apigenin (CID 5280443)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280443",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1620,9 +1620,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Aporphine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/aporphine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Aporphine (CID 114911)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/114911",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1666,9 +1666,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: arbutin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/arbutin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: arbutin (CID 440936)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/440936",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1776,9 +1776,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Ascaridole",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ascaridole",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Ascaridole (CID 10545)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10545",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1810,9 +1810,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Astragalin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/astragalin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Astragalin (CID 5282102)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5282102",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1873,9 +1873,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Atropine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/atropine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Atropine (CID 174174)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/174174",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1907,9 +1907,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Azulene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/azulene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Azulene (CID 9231)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9231",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -1980,9 +1980,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Baicalin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/baicalin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Baicalin (CID 64982)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/64982",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2018,9 +2018,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: benzaconine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/benzaconine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: benzaconine (CID 60155417)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/60155417",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2054,9 +2054,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: benzoic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/benzoic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: benzoic acid (CID 243)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/243",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2083,9 +2083,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Benzyl isothiocyanate",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/benzyl-isothiocyanate",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Benzyl isothiocyanate (CID 2346)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2346",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2167,9 +2167,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Beta-asarone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/beta-asarone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Beta-asarone (CID 5281758)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281758",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2265,9 +2265,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Boldine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/boldine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Boldine (CID 10154)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10154",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2305,9 +2305,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: borneol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/borneol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: borneol (CID 64685)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/64685",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2413,9 +2413,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Bufotenin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/bufotenin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Bufotenin (CID 10257)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10257",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2474,9 +2474,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Bufotenine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/bufotenine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Bufotenine (CID 10257)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10257",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2507,9 +2507,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: bulnesene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/bulnesene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: bulnesene (CID 16679399)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16679399",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2546,9 +2546,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: caffeic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/caffeic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: caffeic acid (CID 689043)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/689043",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.039Z"
@@ -2614,9 +2614,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Caffeine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/caffeine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Caffeine (CID 2519)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2519",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -2848,9 +2848,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: campesterol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/campesterol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: campesterol (CID 173183)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/173183",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -2888,9 +2888,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: camphene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/camphene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: camphene (CID 6616)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6616",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -2950,9 +2950,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: camphor",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/camphor",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: camphor (CID 2537)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2537",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -2986,9 +2986,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: carvacrol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/carvacrol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: carvacrol (CID 10364)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10364",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3020,9 +3020,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Casimiroin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/casimiroin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Casimiroin (CID 124075)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/124075",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3065,9 +3065,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: catechin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/catechin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: catechin (CID 9064)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9064",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3133,9 +3133,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: catechins",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/catechins",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: catechins (CID 1203)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1203",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3314,9 +3314,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: cephaeline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cephaeline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: cephaeline (CID 442195)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442195",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3348,9 +3348,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Chamazulene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/chamazulene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Chamazulene (CID 10719)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10719",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3377,9 +3377,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Chlorogenic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/chlorogenic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Chlorogenic acid (CID 1794427)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1794427",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3450,9 +3450,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: cineole",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cineole",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: cineole (CID 2758)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2758",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3526,9 +3526,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: cis-methylisoeugenol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cis-methylisoeugenol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: cis-methylisoeugenol (CID 1549045)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1549045",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3555,9 +3555,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Cissamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cissamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Cissamine (CID 3082134)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3082134",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3595,9 +3595,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Citral",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/citral",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Citral (CID 638011)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/638011",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3673,9 +3673,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: codeine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/codeine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: codeine (CID 5284371)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5284371",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3731,9 +3731,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Combretol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/combretol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Combretol (CID 12303802)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/12303802",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3770,9 +3770,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: coronaridine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/coronaridine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: coronaridine (CID 73489)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73489",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3805,9 +3805,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: corynanthine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/corynanthine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: corynanthine (CID 92766)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92766",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3846,9 +3846,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Coumarin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/coumarin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Coumarin (CID 323)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/323",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.040Z"
@@ -3888,9 +3888,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: coumarins",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/coumarins",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: coumarins (CID 54678486)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/54678486",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -3948,9 +3948,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Cryogenine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cryogenine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Cryogenine (CID 5315204)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5315204",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4031,9 +4031,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Cymene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cymene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Cymene (CID 7463)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7463",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4070,9 +4070,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Cytisine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/cytisine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Cytisine (CID 10235)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10235",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4192,9 +4192,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: deoxyaconitine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/deoxyaconitine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: deoxyaconitine (CID 44445634)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/44445634",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4231,9 +4231,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: deoxytubulosine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/deoxytubulosine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: deoxytubulosine (CID 165003)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/165003",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4365,9 +4365,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Desmodin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/desmodin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Desmodin (CID 13338925)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/13338925",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4495,9 +4495,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: DMT",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/dmt",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: DMT (CID 6089)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6089",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4681,9 +4681,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: elemicin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/elemicin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: elemicin (CID 10248)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10248",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4718,9 +4718,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: ellagic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ellagic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: ellagic acid (CID 5281855)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281855",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4786,9 +4786,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Elsholtzia ketone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/elsholtzia-ketone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Elsholtzia ketone (CID 521240)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/521240",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4825,9 +4825,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: emetin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/emetin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: emetin (CID 10219)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10219",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4876,9 +4876,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: ephedrine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ephedrine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: ephedrine (CID 9294)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9294",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4915,9 +4915,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: ergine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ergine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: ergine (CID 442072)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442072",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -4979,9 +4979,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Ergotamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ergotamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Ergotamine (CID 8223)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8223",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -5015,9 +5015,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: ervine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ervine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: ervine (CID 158929)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/158929",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -5138,9 +5138,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Erythravine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/erythravine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Erythravine (CID 11231853)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/11231853",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.041Z"
@@ -5291,9 +5291,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: erythrinine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/erythrinine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: erythrinine (CID 3084503)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3084503",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.042Z"
@@ -5397,9 +5397,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: estragole",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/estragole",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: estragole (CID 8815)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8815",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.042Z"
@@ -5430,9 +5430,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Eucalyptol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/eucalyptol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Eucalyptol (CID 2758)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2758",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.042Z"
@@ -5516,9 +5516,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: eugenol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/eugenol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: eugenol (CID 3314)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3314",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.042Z"
@@ -5562,9 +5562,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Farnesol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/farnesol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Farnesol (CID 445070)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/445070",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.042Z"
@@ -5635,9 +5635,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: ferulic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ferulic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: ferulic acid (CID 445858)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/445858",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.042Z"
@@ -6043,9 +6043,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: flavonols",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/flavonols",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: flavonols (CID 11349)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/11349",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.042Z"
@@ -6174,9 +6174,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: gallic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/gallic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: gallic acid (CID 370)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/370",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6209,9 +6209,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: geraldone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/geraldone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: geraldone (CID 5281618)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281618",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6242,9 +6242,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: geranial",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/geranial",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: geranial (CID 638011)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/638011",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6326,9 +6326,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: glutinol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/glutinol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: glutinol (CID 9932254)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9932254",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6370,9 +6370,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: glycosides",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/glycosides",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: glycosides (CID 637579)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/637579",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6405,9 +6405,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: gramine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/gramine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: gramine (CID 6890)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6890",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6434,9 +6434,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Graveoline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/graveoline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Graveoline (CID 353825)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/353825",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6640,9 +6640,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Harmalol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harmalol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Harmalol (CID 3565)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3565",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6680,9 +6680,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: harman",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harman",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: harman (CID 5281404)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281404",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6773,9 +6773,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: harmine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/harmine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: harmine (CID 5280953)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280953",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6805,9 +6805,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Himandrine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/himandrine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Himandrine (CID 229901)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/229901",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6834,9 +6834,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Himbacine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/himbacine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Himbacine (CID 6436265)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6436265",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6901,9 +6901,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Histamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/histamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Histamine (CID 774)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/774",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6930,9 +6930,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Huperzine A",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/huperzine-a",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Huperzine A (CID 854026)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/854026",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -6963,9 +6963,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: hydroquinone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/hydroquinone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: hydroquinone (CID 785)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/785",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7023,9 +7023,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: hyoscyamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/hyoscyamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: hyoscyamine (CID 154417)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/154417",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7061,9 +7061,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: hypaconitine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/hypaconitine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: hypaconitine (CID 91973803)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/91973803",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7112,9 +7112,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: hypaphorine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/hypaphorine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: hypaphorine (CID 442106)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442106",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7188,9 +7188,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Ibogaine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ibogaine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Ibogaine (CID 197060)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/197060",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7261,9 +7261,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: ibogamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ibogamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: ibogamine (CID 100217)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/100217",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7303,9 +7303,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: ibotenic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ibotenic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: ibotenic acid (CID 1233)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1233",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7341,9 +7341,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: indaconitine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/indaconitine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: indaconitine (CID 441740)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/441740",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7433,9 +7433,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Iridoids",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/iridoids",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Iridoids (CID 453214)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/453214",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.043Z"
@@ -7472,9 +7472,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: isocephaeline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isocephaeline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: isocephaeline (CID 12302705)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/12302705",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7525,9 +7525,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: isoergine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isoergine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: isoergine (CID 12309749)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/12309749",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7560,9 +7560,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: isookanin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isookanin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: isookanin (CID 91196552)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/91196552",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7598,9 +7598,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: isopetasin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isopetasin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: isopetasin (CID 5318627)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5318627",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7635,9 +7635,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: isoquercetin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isoquercetin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: isoquercetin (CID 5280804)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280804",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7671,9 +7671,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: isorhamnetin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isorhamnetin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: isorhamnetin (CID 5281654)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281654",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7707,9 +7707,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: isovaleric acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/isovaleric-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: isovaleric acid (CID 10430)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10430",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7781,9 +7781,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: jesaconitine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/jesaconitine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: jesaconitine (CID 76963334)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/76963334",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7817,9 +7817,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: julibroside C1",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/julibroside-c1",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: julibroside C1 (CID 177825618)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/177825618",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7875,9 +7875,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: kaempferol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/kaempferol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: kaempferol (CID 5280863)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280863",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -7985,9 +7985,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: L-theanine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/l-theanine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: L-theanine (CID 439378)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/439378",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8027,9 +8027,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Lactucin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lactucin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Lactucin (CID 442266)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442266",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8069,9 +8069,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: lactucopicrin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lactucopicrin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: lactucopicrin (CID 174863)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/174863",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8239,9 +8239,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Leonurine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/leonurine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Leonurine (CID 161464)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/161464",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8274,9 +8274,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: leucopelargonidin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/leucopelargonidin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: leucopelargonidin (CID 3286789)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3286789",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8376,9 +8376,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: lignans",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lignans",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: lignans (CID 443013)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/443013",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8432,9 +8432,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: limonene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/limonene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: limonene (CID 22311)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/22311",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8525,9 +8525,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: linalool",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/linalool",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: linalool (CID 6549)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6549",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8557,9 +8557,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Linalyl acetate",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/linalyl-acetate",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Linalyl acetate (CID 8294)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8294",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8742,9 +8742,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: lupeol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lupeol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: lupeol (CID 259846)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/259846",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8778,9 +8778,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: lupeol acetate",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lupeol-acetate",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: lupeol acetate (CID 92157)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92157",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.044Z"
@@ -8881,9 +8881,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: lyfoline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lyfoline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: lyfoline (CID 6436825)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6436825",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -8990,9 +8990,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: lythrine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/lythrine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: lythrine (CID 6441299)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6441299",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9026,9 +9026,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: maltol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/maltol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: maltol (CID 8369)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8369",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9055,9 +9055,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Marmelosin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/marmelosin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Marmelosin (CID 10212)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10212",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9096,9 +9096,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Marrubiin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/marrubiin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Marrubiin (CID 73401)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73401",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9131,9 +9131,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: melanoxetin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/melanoxetin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: melanoxetin (CID 15560442)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/15560442",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9168,9 +9168,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Menthol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/menthol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Menthol (CID 1254)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1254",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9205,9 +9205,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: menthone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/menthone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: menthone (CID 26447)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/26447",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9242,9 +9242,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: menthyl acetate",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/menthyl-acetate",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: menthyl acetate (CID 27867)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/27867",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9271,9 +9271,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: MeO",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/meo",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: MeO (CID 128395)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/128395",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9309,9 +9309,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: mesaconitine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesaconitine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: mesaconitine (CID 16401314)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16401314",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9346,9 +9346,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Mescaline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mescaline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Mescaline (CID 4076)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4076",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9392,9 +9392,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: mesembrenol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesembrenol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: mesembrenol (CID 46898090)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/46898090",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9438,9 +9438,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: mesembrenone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesembrenone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: mesembrenone (CID 216272)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/216272",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9499,9 +9499,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Mesembrine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mesembrine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Mesembrine (CID 394162)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/394162",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9613,9 +9613,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: methyl eugenol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/methyl-eugenol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: methyl eugenol (CID 7127)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7127",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9649,9 +9649,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: methyl grevillate",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/methyl-grevillate",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: methyl grevillate (CID 5353609)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5353609",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9688,9 +9688,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Methyl salicylate",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/methyl-salicylate",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Methyl salicylate (CID 4133)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4133",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9760,9 +9760,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: methysticin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/methysticin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: methysticin (CID 5281567)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281567",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9798,9 +9798,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Mitragynine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/mitragynine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Mitragynine (CID 3034396)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3034396",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -9889,9 +9889,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Morphine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/morphine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Morphine (CID 5288826)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5288826",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10022,9 +10022,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Muscimol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/muscimol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Muscimol (CID 4266)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4266",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10055,9 +10055,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: myricetin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/myricetin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: myricetin (CID 5281672)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281672",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10104,9 +10104,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Myristicin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/myristicin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Myristicin (CID 4276)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4276",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10136,9 +10136,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: N",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/n",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: N (CID 947)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/947",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10245,9 +10245,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: N-methyltryptamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/n-methyltryptamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: N-methyltryptamine (CID 6088)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6088",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10283,9 +10283,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: napelline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/napelline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: napelline (CID 17749282)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/17749282",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10320,9 +10320,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: neferine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/neferine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: neferine (CID 159654)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/159654",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10358,9 +10358,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: neoline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/neoline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: neoline (CID 10003218)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10003218",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10399,9 +10399,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: nepetaefolin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nepetaefolin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: nepetaefolin (CID 99893)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/99893",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10441,9 +10441,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Nepetalactone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nepetalactone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Nepetalactone (CID 92770)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/92770",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10486,9 +10486,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: nesodine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nesodine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: nesodine (CID 6475455)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6475455",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10522,9 +10522,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Nicotine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nicotine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Nicotine (CID 89594)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/89594",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10682,9 +10682,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: norharman",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/norharman",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: norharman (CID 64961)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/64961",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10723,9 +10723,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: noribogaine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/noribogaine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: noribogaine (CID 3083548)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3083548",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10768,9 +10768,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: nornicotine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nornicotine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: nornicotine (CID 91462)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/91462",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10805,9 +10805,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: noscapine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/noscapine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: noscapine (CID 275196)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/275196",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.049Z"
@@ -10867,9 +10867,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Nuciferine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nuciferine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Nuciferine (CID 10146)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10146",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -10919,9 +10919,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: nupharidine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/nupharidine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: nupharidine (CID 9548786)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/9548786",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11011,9 +11011,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: o-cymene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/o-cymene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: o-cymene (CID 10703)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10703",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11081,9 +11081,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: oleanolic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/oleanolic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: oleanolic acid (CID 10494)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10494",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11152,9 +11152,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: p",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/p",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: p (CID 5462309)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5462309",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11194,9 +11194,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: p-coumaric acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/p-coumaric-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: p-coumaric acid (CID 637542)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/637542",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11227,9 +11227,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: p-Cymene",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/p-cymene",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: p-Cymene (CID 7463)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7463",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11260,9 +11260,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: p-hydroxybenzoic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/p-hydroxybenzoic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: p-hydroxybenzoic acid (CID 135)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/135",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11294,9 +11294,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Paniculatin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/paniculatin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Paniculatin (CID 169419)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/169419",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11336,9 +11336,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: papaverine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/papaverine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: papaverine (CID 4680)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/4680",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11430,9 +11430,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Patchoulol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/patchoulol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Patchoulol (CID 10955174)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10955174",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11459,9 +11459,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Pellitorine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pellitorine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Pellitorine (CID 5318516)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5318516",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11488,9 +11488,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Perillaldehyde",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/perillaldehyde",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Perillaldehyde (CID 16441)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16441",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11634,9 +11634,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Petasin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/petasin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Petasin (CID 5281526)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281526",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11775,9 +11775,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: phenylethylamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/phenylethylamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: phenylethylamine (CID 1001)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1001",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11808,9 +11808,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: phlorizin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/phlorizin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: phlorizin (CID 6072)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6072",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11885,9 +11885,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: picraconitine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/picraconitine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: picraconitine (CID 60155417)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/60155417",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11920,9 +11920,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: pinitol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pinitol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: pinitol (CID 164619)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/164619",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -11960,9 +11960,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: pinocembrin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pinocembrin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: pinocembrin (CID 68071)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/68071",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12101,9 +12101,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: pseudoephedrine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pseudoephedrine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: pseudoephedrine (CID 7028)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/7028",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12140,9 +12140,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: psychotrin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/psychotrin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: psychotrin (CID 3496498)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3496498",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12217,9 +12217,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: pulegone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/pulegone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: pulegone (CID 442495)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442495",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12321,9 +12321,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: quercetin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/quercetin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: quercetin (CID 5280343)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280343",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12394,9 +12394,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: quercitrin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/quercitrin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: quercitrin (CID 5280459)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280459",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12445,9 +12445,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: rosmarinic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/rosmarinic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: rosmarinic acid (CID 5281792)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281792",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12474,9 +12474,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Rutarin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/rutarin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Rutarin (CID 442149)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442149",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12503,9 +12503,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Rutin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/rutin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Rutin (CID 5280805)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280805",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12557,9 +12557,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Safrole",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/safrole",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Safrole (CID 5144)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5144",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12635,9 +12635,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: salsoline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/salsoline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: salsoline (CID 40010)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/40010",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12776,9 +12776,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: saponins",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/saponins",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: saponins (CID 6540709)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6540709",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12843,9 +12843,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Sclareol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sclareol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Sclareol (CID 163263)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/163263",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12906,9 +12906,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Scopolamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/scopolamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Scopolamine (CID 3000322)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/3000322",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.050Z"
@@ -12945,9 +12945,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: scopoletin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/scopoletin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: scopoletin (CID 5280460)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5280460",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -12984,9 +12984,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: scutellarein",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/scutellarein",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: scutellarein (CID 5281697)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281697",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13025,9 +13025,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Scutellarin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/scutellarin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Scutellarin (CID 185617)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/185617",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13060,9 +13060,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: serotonin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/serotonin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: serotonin (CID 5202)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5202",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13156,9 +13156,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: sesquiterpenes",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sesquiterpenes",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: sesquiterpenes (CID 139087999)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/139087999",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13188,9 +13188,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Solanine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/solanine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Solanine (CID 30185)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/30185",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13226,9 +13226,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: songoramine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/songoramine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: songoramine (CID 14526618)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14526618",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13264,9 +13264,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: speciogynine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/speciogynine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: speciogynine (CID 15560577)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/15560577",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13306,9 +13306,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Spilanthol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/spilanthol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Spilanthol (CID 5353001)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5353001",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13335,9 +13335,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Stachydrine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/stachydrine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Stachydrine (CID 115244)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/115244",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13369,9 +13369,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: steroids",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/steroids",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: steroids (CID 139082353)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/139082353",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13430,9 +13430,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: sterols",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sterols",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: sterols (CID 1107)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/1107",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13463,9 +13463,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: suberosol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/suberosol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: suberosol (CID 21592340)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/21592340",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13498,9 +13498,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Sulfur compounds",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/sulfur-compounds",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Sulfur compounds (CID 5362487)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5362487",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13531,9 +13531,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: syringic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/syringic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: syringic acid (CID 10742)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/10742",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13564,9 +13564,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: tabersonine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tabersonine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: tabersonine (CID 20485)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/20485",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13600,9 +13600,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: tannic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tannic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: tannic acid (CID 16129778)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16129778",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13809,9 +13809,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Tartaric acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tartaric-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Tartaric acid (CID 444305)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/444305",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -13955,9 +13955,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: tetrahydroharmine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tetrahydroharmine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: tetrahydroharmine (CID 442118)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442118",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14097,9 +14097,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: thalianol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thalianol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: thalianol (CID 25229600)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/25229600",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14136,9 +14136,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: THC",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thc",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: THC (CID 16078)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/16078",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14178,9 +14178,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: thebaine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thebaine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: thebaine (CID 5324289)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5324289",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14239,9 +14239,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: theobromine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/theobromine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: theobromine (CID 5429)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5429",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14281,9 +14281,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: theophylline",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/theophylline",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: theophylline (CID 2153)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/2153",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14340,9 +14340,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Thujone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thujone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Thujone (CID 261491)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/261491",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14391,9 +14391,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: thymol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/thymol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: thymol (CID 6989)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6989",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14430,9 +14430,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: tiliroside",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/tiliroside",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: tiliroside (CID 5320686)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5320686",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14470,9 +14470,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: trans-methylisoeugenol",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/trans-methylisoeugenol",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: trans-methylisoeugenol (CID 637776)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/637776",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14538,9 +14538,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: triterpenes",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/triterpenes",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: triterpenes (CID 451674)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/451674",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14619,9 +14619,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: triterpenoids",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/triterpenoids",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: triterpenoids (CID 71597391)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/71597391",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.051Z"
@@ -14810,9 +14810,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: umbelliferone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/umbelliferone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: umbelliferone (CID 5281426)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281426",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -14907,9 +14907,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: ursolic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/ursolic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: ursolic acid (CID 64945)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/64945",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -14975,9 +14975,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Valerenic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/valerenic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Valerenic acid (CID 6440940)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/6440940",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15008,9 +15008,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: vanillic acid",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/vanillic-acid",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: vanillic acid (CID 8468)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8468",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15045,9 +15045,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: vasicine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/vasicine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: vasicine (CID 667496)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/667496",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15095,9 +15095,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: vasicinone",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/vasicinone",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: vasicinone (CID 442935)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/442935",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15134,9 +15134,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: venoterpine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/venoterpine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: venoterpine (CID 5315179)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5315179",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15166,9 +15166,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Verbascoside",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/verbascoside",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Verbascoside (CID 5281800)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281800",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15195,9 +15195,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Verbenalin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/verbenalin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Verbenalin (CID 73467)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73467",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15314,9 +15314,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Voacamine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/voacamine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Voacamine (CID 11953931)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/11953931",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15361,9 +15361,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: voacangine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/voacangine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: voacangine (CID 73255)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/73255",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15400,9 +15400,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: voacristine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/voacristine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: voacristine (CID 44566752)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/44566752",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15490,9 +15490,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: wogonin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/wogonin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: wogonin (CID 5281703)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281703",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15598,9 +15598,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Yohimbine",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/yohimbine",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Yohimbine (CID 8969)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/8969",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
@@ -15632,9 +15632,9 @@
     "sideEffects": [],
     "sources": [
       {
-        "title": "PubChem compound: Zapotin",
-        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/zapotin",
-        "note": "Bootstrap compound identity source (tier: high, canonical-by-name)"
+        "title": "PubChem compound: Zapotin (CID 629965)",
+        "url": "https://pubchem.ncbi.nlm.nih.gov/compound/629965",
+        "note": "Bootstrap compound identity source (tier: high, canonical-id)"
       }
     ],
     "lastUpdated": "2026-04-01T18:55:38.052Z"
