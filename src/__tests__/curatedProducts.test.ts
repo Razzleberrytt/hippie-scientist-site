@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { curatedProductRecommendations } from '@/data/curatedProducts'
 import {
   assessCuratedProductReadiness,
+  getTimeDecayWeight,
   getRenderableCuratedProducts,
   getReviewRecencyState,
   hasGenericAffiliateLink,
@@ -9,6 +10,7 @@ import {
   resolveAffiliateUrl,
 } from '@/lib/curatedProducts'
 import { ANALYTICS_STORAGE_KEY } from '@/utils/analytics/eventStorage'
+import type { StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
 
 function installAnalyticsWindow(events: unknown[]) {
   const storage = new Map<string, string>()
@@ -33,9 +35,12 @@ function installAnalyticsWindow(events: unknown[]) {
 }
 
 async function run() {
+  const TEST_NOW_MS = 1711965000000
+  const renderCuratedProducts = (context: Parameters<typeof getRenderableCuratedProducts>[0]) =>
+    getRenderableCuratedProducts(context, { nowMs: TEST_NOW_MS })
   const base = curatedProductRecommendations[0]
 
-  const herbRows = getRenderableCuratedProducts({
+  const herbRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -47,7 +52,7 @@ async function run() {
   assert.equal(herbRows.every(row => Boolean(row.affiliateDisclosure)), true)
   assert.equal(herbRows.every(row => row.affiliateUrl.includes('tag=razzleberry02-20')), true)
 
-  const noSources = getRenderableCuratedProducts({
+  const noSources = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'high',
@@ -55,7 +60,7 @@ async function run() {
   })
   assert.equal(noSources.length, 0)
 
-  const lowConfidenceCompound = getRenderableCuratedProducts({
+  const lowConfidenceCompound = renderCuratedProducts({
     entityType: 'compound',
     entitySlug: 'luteolin',
     confidence: 'low',
@@ -63,7 +68,7 @@ async function run() {
   })
   assert.equal(lowConfidenceCompound.length > 0, true)
 
-  const unknownEntity = getRenderableCuratedProducts({
+  const unknownEntity = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'unknown-herb',
     confidence: 'high',
@@ -97,7 +102,7 @@ async function run() {
       timestamp: 1711950000100 + index,
     })),
   ])
-  const dwellWeightedRows = getRenderableCuratedProducts({
+  const dwellWeightedRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -123,7 +128,7 @@ async function run() {
       timestamp: 1711960000100 + index,
     })),
   ])
-  const positionWeightedRows = getRenderableCuratedProducts({
+  const positionWeightedRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -149,7 +154,7 @@ async function run() {
       timestamp: 1711970000100 + index,
     })),
   ])
-  const shortDwellPenaltyRows = getRenderableCuratedProducts({
+  const shortDwellPenaltyRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -163,7 +168,7 @@ async function run() {
     { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateA.productId, timestamp: 1712000002000 },
   ])
 
-  const boostedRows = getRenderableCuratedProducts({
+  const boostedRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -180,7 +185,7 @@ async function run() {
     timestamp: 1712100000000 + index,
   }))
   installAnalyticsWindow(sixClickBurst)
-  const clickCapBaselineRows = getRenderableCuratedProducts({
+  const clickCapBaselineRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -196,7 +201,7 @@ async function run() {
       timestamp: 1712100000000 + index,
     })),
   )
-  const clickCappedRows = getRenderableCuratedProducts({
+  const clickCappedRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -210,7 +215,7 @@ async function run() {
     { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateA.productId, timestamp: 1712200000000 },
     { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712200000001 },
   ])
-  const closeScoreRows = getRenderableCuratedProducts({
+  const closeScoreRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -236,14 +241,14 @@ async function run() {
       timestamp: 1712300000100 + index,
     })),
   ])
-  const sleepAnchorRows = getRenderableCuratedProducts({
+  const sleepAnchorRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
     sourceCount: 3,
     useCaseAnchor: 'sleep',
   }).filter(product => !product.featured)
-  const focusAnchorRows = getRenderableCuratedProducts({
+  const focusAnchorRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -260,14 +265,14 @@ async function run() {
     { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712400000003 },
     { type: 'curated_product_click', slug: 'herb:ashwagandha', item: candidateB.productId, timestamp: 1712400000004 },
   ])
-  const fallbackToGlobalRows = getRenderableCuratedProducts({
+  const fallbackToGlobalRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
     sourceCount: 3,
     useCaseAnchor: 'anxiety',
   }).filter(product => !product.featured)
-  const globalRows = getRenderableCuratedProducts({
+  const globalRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
@@ -290,20 +295,122 @@ async function run() {
       timestamp: 1712500000100 + index,
     })),
   ])
-  const anchorOverridesGlobalRows = getRenderableCuratedProducts({
+  const anchorOverridesGlobalRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
     sourceCount: 3,
     useCaseAnchor: 'sleep',
   }).filter(product => !product.featured)
-  const globalWithAnchorDataRows = getRenderableCuratedProducts({
+  const globalWithAnchorDataRows = renderCuratedProducts({
     entityType: 'herb',
     entitySlug: 'ashwagandha',
     confidence: 'medium',
     sourceCount: 3,
   }).filter(product => !product.featured)
   assert.notEqual(anchorOverridesGlobalRows[0]?.productId, globalWithAnchorDataRows[0]?.productId)
+
+  const oneDayMs = 24 * 60 * 60 * 1000
+  const recentTimestamp = TEST_NOW_MS - oneDayMs
+  const oldTimestamp = TEST_NOW_MS - oneDayMs * 20
+
+  const recentOnlyEvents = [
+    {
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      position: 6,
+      dwellTimeMs: 12000,
+      timestamp: TEST_NOW_MS - 2 * oneDayMs,
+    },
+  ] satisfies StoredAnalyticsEvent[]
+  installAnalyticsWindow(recentOnlyEvents)
+  const recentOnlyRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+
+  installAnalyticsWindow([
+    {
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      position: 6,
+      dwellTimeMs: 8000,
+      timestamp: oldTimestamp,
+    },
+    {
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      position: 6,
+      dwellTimeMs: 8000,
+      timestamp: recentTimestamp,
+    },
+  ])
+  const recencyRankRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(recencyRankRows[0]?.productId, candidateB.productId)
+
+  const decayRecent = getTimeDecayWeight(recentTimestamp, TEST_NOW_MS)
+  const decayOld = getTimeDecayWeight(oldTimestamp, TEST_NOW_MS)
+  assert.equal(decayRecent > decayOld, true)
+
+  const nearZeroTimestamp = TEST_NOW_MS - 59 * oneDayMs
+  assert.equal(getTimeDecayWeight(nearZeroTimestamp, TEST_NOW_MS) < 0.01, true)
+
+  installAnalyticsWindow([
+    {
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      position: 6,
+      dwellTimeMs: 12000,
+      timestamp: TEST_NOW_MS - 70 * oneDayMs,
+    },
+    ...recentOnlyEvents,
+  ])
+  const oldEventSkippedRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(oldEventSkippedRows[0]?.productId, recentOnlyRows[0]?.productId)
+
+  const missingTimestampEvent = {
+    type: 'curated_product_click',
+    slug: 'herb:ashwagandha',
+    item: candidateA.productId,
+    position: 6,
+    dwellTimeMs: 12000,
+  } satisfies Omit<StoredAnalyticsEvent, 'timestamp'> & { timestamp?: number }
+  assert.equal(getTimeDecayWeight(undefined, TEST_NOW_MS), 1)
+  const explicitTimestampEvent = {
+    ...missingTimestampEvent,
+    timestamp: TEST_NOW_MS,
+  } satisfies StoredAnalyticsEvent
+  installAnalyticsWindow([explicitTimestampEvent])
+  const explicitTimestampRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  installAnalyticsWindow([missingTimestampEvent])
+  const missingTimestampRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(missingTimestampRows[0]?.productId, explicitTimestampRows[0]?.productId)
 
   assert.match(resolveAffiliateUrl(herbRows[0]), /tag=razzleberry02-20/)
   assert.equal(hasGenericAffiliateLink('https://www.amazon.com/s?k=ashwagandha'), true)
