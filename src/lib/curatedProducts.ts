@@ -239,6 +239,8 @@ export type RenderableCuratedProduct = CuratedProductRecommendation & {
 }
 
 const CLICK_CAP = 6
+const CLICK_WEIGHT = 1
+const CONVERSION_WEIGHT = 3
 const MIN_EXPOSURE_CLICKS = 2
 const MIN_EXPOSURE_BOOST = 1.25
 const CLOSE_SCORE_DELTA = 0.35
@@ -259,6 +261,9 @@ type ProductClickMetrics = {
 type ClickMetricsByProductId = Record<string, ProductClickMetrics>
 type HerbClickMetricsByAnchor = Record<string, ClickMetricsByProductId>
 type HerbProductClickMetricsByAnchor = Record<string, HerbClickMetricsByAnchor>
+type ProductConversionScores = Record<string, number>
+type HerbConversionScoresByAnchor = Record<string, ProductConversionScores>
+type HerbProductConversionScoresByAnchor = Record<string, HerbConversionScoresByAnchor>
 
 function getPositionWeight(position: number): number {
   if (position <= 2) return 0.6
@@ -352,6 +357,52 @@ function getHerbProductClickCountsByAnchor(nowMs: number): HerbProductClickMetri
   return countsByHerb
 }
 
+function getConversionEventScore(event: StoredAnalyticsEvent, nowMs: number): number {
+  const base = 1
+  const valueWeight =
+    typeof event.valueUsd === 'number' && Number.isFinite(event.valueUsd) && event.valueUsd > 0
+      ? Math.log(1 + event.valueUsd)
+      : 1
+  const timeDecayWeight = getTimeDecayWeight(event.timestamp, nowMs)
+  return base * valueWeight * timeDecayWeight
+}
+
+function addConversionEvent(
+  scores: ProductConversionScores,
+  productId: string,
+  event: StoredAnalyticsEvent,
+  nowMs: number,
+) {
+  if (shouldSkipByAge(event.timestamp, nowMs)) return
+  scores[productId] = (scores[productId] || 0) + getConversionEventScore(event, nowMs)
+}
+
+export function getHerbProductConversionScores(nowMs: number): HerbProductConversionScoresByAnchor {
+  const scoresByHerb: HerbProductConversionScoresByAnchor = {}
+  const events = readAnalyticsEvents()
+
+  events.forEach(event => {
+    if (event.type !== 'affiliate_conversion') return
+
+    const herbSlug = String(event.herbSlug || '').trim() || getHerbSlugFromAnalyticsEvent(event)
+    if (!herbSlug) return
+
+    const productId = String(event.productId || event.item || '').trim()
+    if (!productId) return
+
+    const herbScores = (scoresByHerb[herbSlug] ||= {})
+    const globalScores = (herbScores.__global ||= {})
+    addConversionEvent(globalScores, productId, event, nowMs)
+
+    const anchorKey = String(event.useCaseAnchor || '').trim()
+    if (!anchorKey) return
+    const anchorScores = (herbScores[anchorKey] ||= {})
+    addConversionEvent(anchorScores, productId, event, nowMs)
+  })
+
+  return scoresByHerb
+}
+
 function cappedClickScore(clickCount: number): number {
   if (clickCount <= 0) return 0
   return Math.log2(Math.min(clickCount, CLICK_CAP) + 1)
@@ -380,13 +431,25 @@ export function getRenderableCuratedProducts(
     context.entityType === 'herb'
       ? getHerbProductClickCountsByAnchor(nowMs)[context.entitySlug]
       : null
+  const herbConversionScoresByAnchor =
+    context.entityType === 'herb'
+      ? getHerbProductConversionScores(nowMs)[context.entitySlug]
+      : null
   const activeAnchorKey = String(context.useCaseAnchor || '').trim()
   const anchorSpecificClickCounts =
     activeAnchorKey && herbClickCountsByAnchor ? herbClickCountsByAnchor[activeAnchorKey] : undefined
+  const anchorSpecificConversionScores =
+    activeAnchorKey && herbConversionScoresByAnchor
+      ? herbConversionScoresByAnchor[activeAnchorKey]
+      : undefined
   const resolvedClickCounts =
     anchorSpecificClickCounts && Object.keys(anchorSpecificClickCounts).length > 0
       ? anchorSpecificClickCounts
       : herbClickCountsByAnchor?.__global
+  const resolvedConversionScores =
+    anchorSpecificConversionScores && Object.keys(anchorSpecificConversionScores).length > 0
+      ? anchorSpecificConversionScores
+      : herbConversionScoresByAnchor?.__global
 
   return curatedProductRecommendations
     .filter(
@@ -418,9 +481,19 @@ export function getRenderableCuratedProducts(
           ? bMetrics.weightedScore
           : bMetrics.rawCount
         : 0
+      const aConversionScore = resolvedConversionScores?.[a.productId] || 0
+      const bConversionScore = resolvedConversionScores?.[b.productId] || 0
       const baseScore = 0
-      const aScore = baseScore + cappedClickScore(aClicks) + exposureBoost(aClicks)
-      const bScore = baseScore + cappedClickScore(bClicks) + exposureBoost(bClicks)
+      const aScore =
+        baseScore +
+        cappedClickScore(aClicks) * CLICK_WEIGHT +
+        aConversionScore * CONVERSION_WEIGHT +
+        exposureBoost(aClicks)
+      const bScore =
+        baseScore +
+        cappedClickScore(bClicks) * CLICK_WEIGHT +
+        bConversionScore * CONVERSION_WEIGHT +
+        exposureBoost(bClicks)
       const scoreDelta = bScore - aScore
 
       if (Math.abs(scoreDelta) > CLOSE_SCORE_DELTA) return scoreDelta > 0 ? 1 : -1

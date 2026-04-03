@@ -11,6 +11,13 @@ type TrackAffiliateLinkClickParams = {
   source: 'curated_product_module' | 'herb_product_section'
 }
 
+type TrackAffiliateConversionParams = {
+  herbSlug: string
+  productId: string
+  useCaseAnchor?: AffiliateUseCaseAnchor
+  valueUsd?: number
+}
+
 export function trackAffiliateLinkClick({
   herbSlug,
   productId,
@@ -50,4 +57,21 @@ export function trackAffiliateLinkClick({
   }
 
   return event
+}
+
+export function trackAffiliateConversion({
+  herbSlug,
+  productId,
+  useCaseAnchor,
+  valueUsd,
+}: TrackAffiliateConversionParams) {
+  if (typeof window === 'undefined') return null
+
+  return appendAnalyticsEvent({
+    type: 'affiliate_conversion',
+    productId,
+    herbSlug,
+    useCaseAnchor,
+    valueUsd,
+  })
 }

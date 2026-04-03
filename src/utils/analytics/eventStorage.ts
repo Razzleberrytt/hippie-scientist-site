@@ -31,6 +31,7 @@ export type StoredAnalyticsEvent = {
   ctaType?: string
   ctaPosition?: string
   variantId?: string
+  valueUsd?: number
   timestamp: number
 }
 
@@ -79,6 +80,9 @@ function normalizeStoredEvent(event: StoredAnalyticsEvent): StoredAnalyticsEvent
   if (event.ctaType) normalized.ctaType = event.ctaType
   if (event.ctaPosition) normalized.ctaPosition = event.ctaPosition
   if (event.variantId) normalized.variantId = event.variantId
+  if (typeof event.valueUsd === 'number' && Number.isFinite(event.valueUsd) && event.valueUsd >= 0) {
+    normalized.valueUsd = event.valueUsd
+  }
 
   return normalized
 }
@@ -152,7 +156,8 @@ function isRapidDuplicate(previous: StoredAnalyticsEvent | undefined, next: Stor
     previous.freshnessState === next.freshnessState &&
     previous.ctaType === next.ctaType &&
     previous.ctaPosition === next.ctaPosition &&
-    previous.variantId === next.variantId
+    previous.variantId === next.variantId &&
+    previous.valueUsd === next.valueUsd
 
   if (!sameCoreIdentity) return false
 

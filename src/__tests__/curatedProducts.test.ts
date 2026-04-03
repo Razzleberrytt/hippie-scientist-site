@@ -358,6 +358,82 @@ async function run() {
   }).filter(product => !product.featured)
   assert.equal(recencyRankRows[0]?.productId, candidateB.productId)
 
+  installAnalyticsWindow([
+    ...Array.from({ length: 5 }, (_, index) => ({
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      timestamp: TEST_NOW_MS - 3 * oneDayMs + index,
+    })),
+    {
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      timestamp: TEST_NOW_MS - 3 * oneDayMs,
+    },
+    {
+      type: 'affiliate_conversion',
+      herbSlug: 'ashwagandha',
+      productId: candidateB.productId,
+      timestamp: TEST_NOW_MS - 2 * oneDayMs,
+    },
+  ])
+  const conversionDominatesClickRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(conversionDominatesClickRows[0]?.productId, candidateB.productId)
+
+  installAnalyticsWindow([
+    {
+      type: 'affiliate_conversion',
+      herbSlug: 'ashwagandha',
+      productId: candidateA.productId,
+      timestamp: TEST_NOW_MS - oneDayMs,
+      valueUsd: 10,
+    },
+    {
+      type: 'affiliate_conversion',
+      herbSlug: 'ashwagandha',
+      productId: candidateB.productId,
+      timestamp: TEST_NOW_MS - oneDayMs,
+      valueUsd: 120,
+    },
+  ])
+  const highValueConversionRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(highValueConversionRows[0]?.productId, candidateB.productId)
+
+  installAnalyticsWindow([
+    {
+      type: 'affiliate_conversion',
+      herbSlug: 'ashwagandha',
+      productId: candidateA.productId,
+      timestamp: TEST_NOW_MS - 20 * oneDayMs,
+      valueUsd: 200,
+    },
+    {
+      type: 'affiliate_conversion',
+      herbSlug: 'ashwagandha',
+      productId: candidateB.productId,
+      timestamp: TEST_NOW_MS - oneDayMs,
+      valueUsd: 20,
+    },
+  ])
+  const conversionRecencyRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(conversionRecencyRows[0]?.productId, candidateB.productId)
+
   const decayRecent = getTimeDecayWeight(recentTimestamp, TEST_NOW_MS)
   const decayOld = getTimeDecayWeight(oldTimestamp, TEST_NOW_MS)
   assert.equal(decayRecent > decayOld, true)
