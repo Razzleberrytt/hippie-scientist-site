@@ -14365,7 +14365,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -14390,9 +14393,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "five-leaved-chaste-tree"
+    "slug": "five-leaved-chaste-tree",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "flame lily",
@@ -14407,7 +14417,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "Toxic – high risk of organ failure",
       "No direct toxicity data. Contextual inference:",
@@ -14432,9 +14445,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "flame-lily"
+    "slug": "flame-lily",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "foeniculum vulgare",
@@ -14507,7 +14527,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "Toxic – narrow therapeutic index",
       "No direct toxicity data. Contextual inference:",
@@ -14532,9 +14555,16 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "foxglove"
+    "slug": "foxglove",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "frankincense (boswellia)",
@@ -14698,7 +14728,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -14723,9 +14756,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "galphimia-glauca"
+    "slug": "galphimia-glauca",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "garcinia cambogia",
@@ -14799,7 +14839,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -14815,9 +14858,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "garden-balsam"
+    "slug": "garden-balsam",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "gardenia jasminoides",
@@ -14886,7 +14936,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -14902,9 +14955,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "gastrodia-elata"
+    "slug": "gastrodia-elata",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "gelsemium sempervirens",
@@ -14951,7 +15011,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -14978,9 +15041,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "genipa-americana"
+    "slug": "genipa-americana",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "gentiana lutea",
@@ -15111,7 +15181,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "Toxic – CNS stimulant properties",
       "No direct toxicity data. Contextual inference:",
@@ -15136,9 +15209,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "giant-reed"
+    "slug": "giant-reed",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "ginger",
@@ -15150,7 +15230,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -15166,9 +15249,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "ginger"
+    "slug": "ginger",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "ginkgo biloba",
@@ -15286,7 +15376,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -15302,9 +15395,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "gliricidia-sepium"
+    "slug": "gliricidia-sepium",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "glycyrrhiza glabra",
@@ -15379,7 +15479,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -15404,9 +15507,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "gorse"
+    "slug": "gorse",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "grains of selim",
@@ -15418,7 +15528,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -15434,9 +15547,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "grains-of-selim"
+    "slug": "grains-of-selim",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "grape seed",
@@ -15451,7 +15571,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -15476,9 +15599,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "grape-seed"
+    "slug": "grape-seed",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "griffonia simplicifolia",
@@ -15493,7 +15623,10 @@
       "Rich in 5",
       "HTP"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Rich in 5-htp",
       "mood support and sleep aid. Herbs often act via neurotransmitter modulation",
@@ -15532,9 +15665,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Rich in 5-htp; mood support and sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in 5-HTP; mood support and sleep aid. No direct region data. Contextual inference: Rich in 5-htp; mood support and sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in 5-HTP; mood support and sleep aid. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Rich in 5-htp; mood support and sleep aid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in 5-HTP; mood support and sleep aid. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "griffonia-simplicifolia"
+    "slug": "griffonia-simplicifolia",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "grindelia robusta",
@@ -15656,7 +15796,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -15683,9 +15826,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "guaran"
+    "slug": "guaran",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "guayusa",
@@ -15747,7 +15897,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -15772,9 +15925,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "gymnema-sylvestre"
+    "slug": "gymnema-sylvestre",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "gynostemma pentaphyllum",
@@ -15789,7 +15949,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -15814,9 +15977,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "gynostemma-pentaphyllum"
+    "slug": "gynostemma-pentaphyllum",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "hamamelis virginiana",
@@ -15997,7 +16167,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -16022,9 +16195,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "heartsease"
+    "slug": "heartsease",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "hedera helix",
@@ -16163,7 +16343,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -16188,9 +16371,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "helichrysum-odoratissimum"
+    "slug": "helichrysum-odoratissimum",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "helinus integrifolius",
@@ -16202,7 +16392,10 @@
     "effects": [
       "Used in African traditional medicine for fever and stomach issues"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in african traditional medicine for fever and stomach issues. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -16235,9 +16428,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Used in african traditional medicine for fever and stomach issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in African traditional medicine for fever and stomach issues. No direct region data. Contextual inference: Used in african traditional medicine for fever and stomach issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in African traditional medicine for fever and stomach issues. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Used in african traditional medicine for fever and stomach issues. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in African traditional medicine for fever and stomach issues. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "helinus-integrifolius"
+    "slug": "helinus-integrifolius",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "heliotropium indicum",
@@ -16252,7 +16452,10 @@
       "Anti",
       "inflammatory and antimicrobial"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Anti-inflammatory and antimicrobial",
       "contains pyrrolizidine alkaloids (toxic). Herbs often act via neurotransmitter modulation",
@@ -16290,9 +16493,16 @@
     "legalStatus": "Use regulated or restricted in some regions",
     "preparation": "No direct preparation data. Contextual inference: Anti-inflammatory and antimicrobial; contains pyrrolizidine alkaloids (toxic). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains pyrrolizidine alkaloids (toxic). No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains pyrrolizidine alkaloids (toxic). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains pyrrolizidine alkaloids (toxic). none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Anti-inflammatory and antimicrobial; contains pyrrolizidine alkaloids (toxic). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Anti-inflammatory and antimicrobial; contains pyrrolizidine alkaloids (toxic). none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "heliotropium-indicum"
+    "slug": "heliotropium-indicum",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "henbane",
@@ -16368,7 +16578,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -16393,9 +16606,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "hibiscus-sabdariffa"
+    "slug": "hibiscus-sabdariffa",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "hibiscus tiliaceus",
@@ -16410,7 +16630,10 @@
       "fevers",
       "and wounds"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Emollient and demulcent",
       "used for coughs",
@@ -16451,9 +16674,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Emollient and demulcent; used for coughs, fevers, and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emollient and demulcent; used for coughs, fevers, and wounds. No direct region data. Contextual inference: Emollient and demulcent; used for coughs, fevers, and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emollient and demulcent; used for coughs, fevers, and wounds. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Emollient and demulcent; used for coughs, fevers, and wounds. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Emollient and demulcent; used for coughs, fevers, and wounds. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "hibiscus-tiliaceus"
+    "slug": "hibiscus-tiliaceus",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "himalayan valerian",
@@ -16468,7 +16698,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -16493,9 +16726,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "himalayan-valerian"
+    "slug": "himalayan-valerian",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "holy basil",
@@ -16511,7 +16751,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -16538,9 +16781,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "holy-basil"
+    "slug": "holy-basil",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "hop flowers",
@@ -16753,7 +17003,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -16769,9 +17022,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "huperzia-serrata"
+    "slug": "huperzia-serrata",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "hydrastis canadensis",
@@ -16960,7 +17220,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -16987,9 +17250,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "hyssopus-officinalis"
+    "slug": "hyssopus-officinalis",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "ilex guayusa",
@@ -17335,7 +17605,10 @@
       "Psychedelic effects from ergoline alkaloids",
       "traditional use in rituals"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Psychedelic effects from ergoline alkaloids",
       "traditional use in rituals. Herbs often act via neurotransmitter modulation",
@@ -17372,9 +17645,16 @@
     "legalStatus": "Restricted in some countries",
     "preparation": "No direct preparation data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Psychedelic effects from ergoline alkaloids; traditional use in rituals. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Psychedelic effects from ergoline alkaloids; traditional use in rituals. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "ipomoea-tricolor"
+    "slug": "ipomoea-tricolor",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "ipomoea tricolor (heavenly blue)",
@@ -17458,7 +17738,10 @@
       "anti",
       "inflammatory."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "Low."
     ],
@@ -17481,9 +17764,16 @@
     "legalStatus": "Unregulated",
     "preparation": "Decoction or crushed leaves.",
     "region": "South and Central America",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk use for fever, wounds, and vitality.",
-    "slug": "iresine-herbstii"
+    "slug": "iresine-herbstii",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "iris germanica",
@@ -17610,7 +17900,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "Toxic – potent anticholinergic",
       "No direct toxicity data. Contextual inference:",
@@ -17635,9 +17928,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "jimson-weed"
+    "slug": "jimson-weed",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "juglans nigra",
@@ -17706,7 +18006,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -17722,9 +18025,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "jujube"
+    "slug": "jujube",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "juniperus communis",
@@ -17795,7 +18105,10 @@
       "and aromatic",
       "similar to other junipers"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Antiseptic",
       "diuretic",
@@ -17836,9 +18149,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Antiseptic, diuretic, and aromatic; similar to other junipers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, diuretic, and aromatic; similar to other junipers. No direct region data. Contextual inference: Antiseptic, diuretic, and aromatic; similar to other junipers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, diuretic, and aromatic; similar to other junipers. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Antiseptic, diuretic, and aromatic; similar to other junipers. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antiseptic, diuretic, and aromatic; similar to other junipers. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "juniperus-sibirica"
+    "slug": "juniperus-sibirica",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "justicia adhatoda",
@@ -17856,7 +18176,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -17881,9 +18204,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "justicia-adhatoda"
+    "slug": "justicia-adhatoda",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "justicia secunda",
@@ -17896,7 +18226,10 @@
       "Rich in anthocyanins",
       "used for anemia and as a blood tonic in folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Rich in anthocyanins",
       "used for anemia and as a blood tonic in folk medicine. Herbs often act via neurotransmitter modulation",
@@ -17933,9 +18266,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Rich in anthocyanins; used for anemia and as a blood tonic in folk medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in anthocyanins; used for anemia and as a blood tonic in folk medicine. No direct region data. Contextual inference: Rich in anthocyanins; used for anemia and as a blood tonic in folk medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in anthocyanins; used for anemia and as a blood tonic in folk medicine. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Rich in anthocyanins; used for anemia and as a blood tonic in folk medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Rich in anthocyanins; used for anemia and as a blood tonic in folk medicine. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "justicia-secunda"
+    "slug": "justicia-secunda",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "kaempferia galanga",
@@ -18011,7 +18351,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -18036,9 +18379,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "kanna"
+    "slug": "kanna",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "kava",
@@ -18137,7 +18487,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "Toxic – hallucinogen",
       "anticholinergic",
@@ -18163,9 +18516,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "kieli"
+    "slug": "kieli",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "kra thum na / kok",
@@ -18231,7 +18591,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -18256,9 +18619,16 @@
     "legalStatus": "varies",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "kratom"
+    "slug": "kratom",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "kratom hybrids",
@@ -18275,7 +18645,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -18300,9 +18673,16 @@
     "legalStatus": "varies",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "kratom-hybrids"
+    "slug": "kratom-hybrids",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "lactuca canadensis",
@@ -18585,7 +18965,10 @@
       "Same as Ledum palustre",
       "sedative and antimicrobial"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Sedative",
       "antiseptic",
@@ -18628,9 +19011,16 @@
     "legalStatus": "Restricted in some countries",
     "preparation": "No direct preparation data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). No direct region data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Sedative, antiseptic; once used as beer spice (toxic in high doses). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Sedative, antiseptic; once used as beer spice (toxic in high doses). none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "ledum-palustre"
+    "slug": "ledum-palustre",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "lemon balm",
@@ -18645,7 +19035,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -18670,9 +19063,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "lemon-balm"
+    "slug": "lemon-balm",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "leonurus cardiaca",
@@ -18743,7 +19143,10 @@
       "Used in gynecological conditions",
       "diuretic and emmenagogue"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in gynecological conditions",
       "diuretic and emmenagogue. Herbs often act via neurotransmitter modulation",
@@ -18780,9 +19183,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Used in gynecological conditions; diuretic and emmenagogue. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in gynecological conditions; diuretic and emmenagogue. No direct region data. Contextual inference: Used in gynecological conditions; diuretic and emmenagogue. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in gynecological conditions; diuretic and emmenagogue. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Used in gynecological conditions; diuretic and emmenagogue. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in gynecological conditions; diuretic and emmenagogue. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "leonurus-japonicus"
+    "slug": "leonurus-japonicus",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "leonurus sibiricus",
@@ -18998,7 +19408,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -19023,9 +19436,16 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "lesser-periwinkle"
+    "slug": "lesser-periwinkle",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "ligusticum chuanxiong",
@@ -19039,7 +19459,10 @@
       "relieves pain",
       "key herb in TCM"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Invigorates blood",
       "relieves pain",
@@ -19078,9 +19501,16 @@
     "legalStatus": "Legal globally",
     "preparation": "No direct preparation data. Contextual inference: Invigorates blood, relieves pain; key herb in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Invigorates blood, relieves pain; key herb in TCM. No direct region data. Contextual inference: Invigorates blood, relieves pain; key herb in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Invigorates blood, relieves pain; key herb in TCM. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Invigorates blood, relieves pain; key herb in tcm. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Invigorates blood, relieves pain; key herb in TCM. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "ligusticum-chuanxiong"
+    "slug": "ligusticum-chuanxiong",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "lilium candidum",
@@ -19158,7 +19588,10 @@
       "and tension.. Used as a calming tea for sleep",
       "and tension."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used as a calming tea for sleep",
@@ -19187,9 +19620,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. No direct region data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.",
     "region": "No direct region data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. No direct effects data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... No direct mechanismofaction data. Contextual inference: Used as a calming tea for sleep, anxiety, and tension... Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.. Used as a calming tea for sleep, anxiety, and tension.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used as a calming tea for sleep, anxiety, and tension.",
-    "slug": "linden"
+    "slug": "linden",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "linum usitatissimum",
@@ -19268,7 +19708,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -19293,9 +19736,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "lion-s-mane"
+    "slug": "lion-s-mane",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "lion’s mane",
@@ -19307,7 +19757,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine"
@@ -19323,9 +19776,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine. Folk medicine",
     "region": "No direct region data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. No direct effects data. Contextual inference: Folk medicine.. No direct mechanismofaction data. Contextual inference: Folk medicine.. Folk medicine. Folk medicine. Folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Folk medicine",
-    "slug": "lion-s-mane"
+    "slug": "lion-s-mane",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "lippia alba",
@@ -19397,7 +19857,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -19422,9 +19885,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "lobelia-inflata"
+    "slug": "lobelia-inflata",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "lobelia tupa",
@@ -19857,7 +20327,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -19882,9 +20355,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "maca"
+    "slug": "maca",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "macaranga tanarius",
@@ -19898,7 +20378,10 @@
       "Traditionally used as anti",
       "inflammatory and for wound healing"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -19933,9 +20416,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. No direct region data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Traditionally used as anti-inflammatory and for wound healing. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Traditionally used as anti-inflammatory and for wound healing. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "macaranga-tanarius"
+    "slug": "macaranga-tanarius",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "maconha brava",
@@ -19951,7 +20441,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -19978,9 +20471,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "maconha-brava"
+    "slug": "maconha-brava",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "macropiper excelsum",
@@ -19992,7 +20492,10 @@
     "effects": [
       "Mild sedative and digestive aid in Māori medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Mild sedative and digestive aid in māori medicine. Herbs often act via neurotransmitter modulation",
       "antioxidant effects",
@@ -20025,9 +20528,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Mild sedative and digestive aid in māori medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and digestive aid in Māori medicine. No direct region data. Contextual inference: Mild sedative and digestive aid in māori medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and digestive aid in Māori medicine. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Mild sedative and digestive aid in māori medicine. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Mild sedative and digestive aid in Māori medicine. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "macropiper-excelsum"
+    "slug": "macropiper-excelsum",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "maerua angolensis",
@@ -20093,7 +20603,10 @@
       "Contains tryptamines",
       "entheogenic use in Amazon basin"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Contains tryptamines",
       "entheogenic use in amazon basin. Herbs often act via neurotransmitter modulation",
@@ -20130,9 +20643,16 @@
     "legalStatus": "Restricted in some countries",
     "preparation": "No direct preparation data. Contextual inference: Contains tryptamines; entheogenic use in amazon basin. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Contains tryptamines; entheogenic use in Amazon basin. No direct region data. Contextual inference: Contains tryptamines; entheogenic use in amazon basin. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Contains tryptamines; entheogenic use in Amazon basin. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Contains tryptamines; entheogenic use in amazon basin. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Contains tryptamines; entheogenic use in Amazon basin. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "malouetia-tamaquarina"
+    "slug": "malouetia-tamaquarina",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "malva sylvestris",
@@ -20204,7 +20724,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "Toxic – deliriant",
       "anticholinergic",
@@ -20232,9 +20755,16 @@
     "legalStatus": "restricted",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "mandrake"
+    "slug": "mandrake",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "mandrake root",
@@ -20323,7 +20853,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -20348,9 +20881,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "marrubium-vulgare"
+    "slug": "marrubium-vulgare",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "marshmallow root",
@@ -20365,7 +20905,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -20390,9 +20933,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "marshmallow-root"
+    "slug": "marshmallow-root",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "matricaria chamomilla",
@@ -20744,7 +21294,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -20771,9 +21324,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "mexican-pepperleaf"
+    "slug": "mexican-pepperleaf",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "mexican tarragon",
@@ -20789,7 +21349,10 @@
       "dreaming or folk medicine. Used in ritual",
       "dreaming or folk medicine"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in ritual",
@@ -20816,9 +21379,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "region": "No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in ritual, dreaming or folk medicine",
-    "slug": "mexican-tarragon"
+    "slug": "mexican-tarragon",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "micromelum minutum",
@@ -20832,7 +21402,10 @@
       "wounds",
       "and inflammation"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Used in traditional medicine for fever",
       "wounds",
@@ -20871,9 +21444,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Used in traditional medicine for fever, wounds, and inflammation. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in traditional medicine for fever, wounds, and inflammation. No direct region data. Contextual inference: Used in traditional medicine for fever, wounds, and inflammation. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in traditional medicine for fever, wounds, and inflammation. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Used in traditional medicine for fever, wounds, and inflammation. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Used in traditional medicine for fever, wounds, and inflammation. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "micromelum-minutum"
+    "slug": "micromelum-minutum",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "mimosa hostilis",
@@ -21027,7 +21607,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -21052,9 +21635,16 @@
     "legalStatus": null,
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "mitchella-repens"
+    "slug": "mitchella-repens",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "mitragyna hirsuta",
@@ -21069,7 +21659,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "caution",
       "No direct toxicity data. Contextual inference:",
@@ -21094,9 +21687,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "mitragyna-hirsuta"
+    "slug": "mitragyna-hirsuta",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "mitragyna parvifolia",
@@ -21225,7 +21825,10 @@
       "Analgesic and antimalarial",
       "related to kratom species"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "No direct toxicity data. Contextual inference: Analgesic and antimalarial",
       "related to kratom species. Herbs often act via neurotransmitter modulation",
@@ -21262,9 +21865,16 @@
     "legalStatus": "Unregulated",
     "preparation": "No direct preparation data. Contextual inference: Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and antimalarial; related to kratom species. No direct region data. Contextual inference: Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and antimalarial; related to kratom species. none. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: Analgesic and antimalarial; related to kratom species. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic and antimalarial; related to kratom species. none. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "mitragyna-stipulosa"
+    "slug": "mitragyna-stipulosa",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "momordica charantia",
@@ -21510,7 +22120,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference:",
@@ -21535,9 +22148,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "mormon-tea"
+    "slug": "mormon-tea",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "morning glory (heavenly blue)",
@@ -21552,7 +22172,10 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "Toxic – hallucinogen",
       "ritual use only",
@@ -21578,9 +22201,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "region": "No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "; nan; nan",
-    "slug": "morning-glory-heavenly-blue"
+    "slug": "morning-glory-heavenly-blue",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "motherwort",
@@ -21595,7 +22225,10 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [
       "safe",
       "No direct toxicity data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support."
@@ -21611,9 +22244,16 @@
     "legalStatus": "legal",
     "preparation": "No direct preparation data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. No direct region data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.",
     "region": "No direct region data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. No direct effects data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... No direct mechanismofaction data. Contextual inference: Used in traditional herbalism for anxiety and female reproductive support... Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.. Used in traditional herbalism for anxiety and female reproductive support.",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "traditionalUse": "Used in traditional herbalism for anxiety and female reproductive support.",
-    "slug": "motherwort"
+    "slug": "motherwort",
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ]
   },
   {
     "name": "mucuna pruriens",
@@ -41348,7 +41988,10 @@
       "Psychoactive and deliriant",
       "contains muscimol and ibotenic acid"
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [],
     "sources": [
       {
@@ -41357,7 +42000,10 @@
       }
     ],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Psychoactive and deliriant",
       "contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation",
@@ -41375,7 +42021,10 @@
     "legalStatus": "Unregulated in most regions",
     "interactions": [],
     "description": "Psychoactive and deliriant; contains muscimol and ibotenic acid. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
     "slug": "fly-agaric"
   },
   {
@@ -41391,11 +42040,17 @@
     "effects": [
       "No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. No direct region data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. No direct effects data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... No direct mechanismofaction data. Contextual inference: Used with homalomena in psychoactive brews by papuan tribes... Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes.. Used with Homalomena in psychoactive brews by Papuan tribes."
     ],
@@ -41405,7 +42060,10 @@
     "legalStatus": null,
     "interactions": [],
     "description": "Used with homalomena in psychoactive brews by papuan tribes..",
-    "sideEffects": [],
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
     "slug": "galbulimima-belgraveana"
   },
   {
@@ -41478,11 +42136,17 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -41497,7 +42161,10 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
     "slug": "heimia-myrtifolia"
   },
   {
@@ -41513,11 +42180,17 @@
     "effects": [
       "No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct region data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. No direct effects data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... No direct mechanismofaction data. Contextual inference: Used by aztecs and indigenous mexicans for spiritual insight... Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight.. Used by Aztecs and indigenous Mexicans for spiritual insight."
     ],
@@ -41527,7 +42200,10 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used by aztecs and indigenous mexicans for spiritual insight..",
-    "sideEffects": [],
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
     "slug": "heimia-salicifolia"
   },
   {
@@ -41754,11 +42430,17 @@
     "effects": [
       "No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. No direct region data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. No direct effects data. Contextual inference: Used in amazonian herbal mixtures and healing brews... No direct mechanismofaction data. Contextual inference: Used in amazonian herbal mixtures and healing brews... Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews.. Used in Amazonian herbal mixtures and healing brews."
     ],
@@ -41768,7 +42450,10 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "Used in amazonian herbal mixtures and healing brews..",
-    "sideEffects": [],
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
     "slug": "justicia-pectoralis"
   },
   {
@@ -41992,11 +42677,17 @@
       "nan..",
       "nan."
     ],
-    "contraindications": [],
+    "contraindications": [
+      "Avoid during pregnancy and breastfeeding unless supervised by a qualified clinician.",
+      "Do not use with known allergy to this plant or related species."
+    ],
     "safetyNotes": [],
     "sources": [],
     "lastUpdated": "2026-03-21",
-    "therapeuticUses": [],
+    "therapeuticUses": [
+      "Traditional supportive use; indication depends on species part and preparation.",
+      "Evidence level varies; use only within established clinical or traditional context."
+    ],
     "dosage": [
       "No direct dosage data. Contextual inference:",
       "nan.. No direct mechanismofaction data. Contextual inference:",
@@ -42011,7 +42702,10 @@
     "legalStatus": "legal",
     "interactions": [],
     "description": "; nan; nan.",
-    "sideEffects": [],
+    "sideEffects": [
+      "May cause gastrointestinal upset (nausea, cramping, or diarrhea).",
+      "Possible headache, dizziness, or allergic skin reaction in sensitive users."
+    ],
     "slug": "leonotis-leonurus"
   },
   {
