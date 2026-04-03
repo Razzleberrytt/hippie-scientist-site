@@ -7,6 +7,8 @@ export type StoredAnalyticsEvent = {
   type: string
   slug?: string
   item?: string
+  productPosition?: 'primary' | 'alternative'
+  useCaseAnchor?: 'sleep' | 'anxiety' | 'focus'
   comboId?: string
   context?: string
   sourceType?: string
@@ -46,6 +48,8 @@ function normalizeStoredEvent(event: StoredAnalyticsEvent): StoredAnalyticsEvent
 
   if (event.slug) normalized.slug = event.slug
   if (event.item) normalized.item = event.item
+  if (event.productPosition) normalized.productPosition = event.productPosition
+  if (event.useCaseAnchor) normalized.useCaseAnchor = event.useCaseAnchor
   if (event.comboId) normalized.comboId = event.comboId
   if (event.context) normalized.context = event.context
   if (event.sourceType) normalized.sourceType = event.sourceType
@@ -114,6 +118,8 @@ function isRapidDuplicate(previous: StoredAnalyticsEvent | undefined, next: Stor
     previous.type === next.type &&
     previous.slug === next.slug &&
     previous.item === next.item &&
+    previous.productPosition === next.productPosition &&
+    previous.useCaseAnchor === next.useCaseAnchor &&
     previous.comboId === next.comboId &&
     previous.context === next.context &&
     previous.sourceType === next.sourceType &&

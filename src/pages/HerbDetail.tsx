@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect } from 'react'
+import { type ReactNode, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Meta from '@/components/Meta'
 import InfoTooltip from '@/components/InfoTooltip'
@@ -54,6 +54,7 @@ import {
   trackDetailRelatedEntityClick,
 } from '@/lib/contentJourneyTracking'
 import { trackGovernedEvent } from '@/lib/governedAnalytics'
+import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
 
 const ISSUE_TEMPLATE_URL =
   'https://github.com/Razzleberrytt/survive-99-evolved/issues/new?template=evidence-update.yml'
@@ -203,6 +204,9 @@ export default function HerbDetail() {
   const { herbs } = useHerbDataState()
   const { compounds } = useCompoundDataState()
   const { toggle, isSaved } = useSavedItems()
+  const [activeUseCaseAnchor, setActiveUseCaseAnchor] = useState<AffiliateUseCaseAnchor | undefined>(
+    undefined,
+  )
 
   useEffect(() => {
     if (!herb?.slug) return
@@ -804,6 +808,7 @@ export default function HerbDetail() {
                   variantId={ctaVariantId}
                   ctaPosition='detail_affiliate_module'
                   preDisclosureGuidance={governedCta.copy.affiliateLeadIn}
+                  useCaseAnchor={activeUseCaseAnchor}
                 />
               ),
             }}
@@ -865,6 +870,7 @@ export default function HerbDetail() {
                 <article
                   key={anchor.key}
                   className='rounded-lg border border-white/15 bg-white/[0.02] p-3 text-sm text-white/85'
+                  onClick={() => setActiveUseCaseAnchor(anchor.key)}
                 >
                   <p className='text-sm font-semibold text-white'>{anchor.question}</p>
                   <p className='mt-1 text-xs text-white/70'>{anchor.guidance}</p>
@@ -1110,7 +1116,13 @@ export default function HerbDetail() {
           <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
         </div>
         {herbRecommendation && <HerbBuyerGuidanceSection recommendation={herbRecommendation} />}
-        {herbProducts.length > 0 && <HerbProductSection products={herbProducts} />}
+        {herbProducts.length > 0 && (
+          <HerbProductSection
+            herbSlug={herb.slug}
+            products={herbProducts}
+            useCaseAnchor={activeUseCaseAnchor}
+          />
+        )}
       </article>
     </main>
   )

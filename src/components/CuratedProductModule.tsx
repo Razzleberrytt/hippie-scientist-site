@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
 import type { CuratedProductEntityType } from '@/data/curatedProducts'
+import { trackAffiliateLinkClick, type AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
 import type { RenderableCuratedProduct } from '@/lib/curatedProducts'
 
 type CuratedProductModuleProps = {
@@ -12,6 +13,7 @@ type CuratedProductModuleProps = {
   variantId?: string
   ctaPosition?: string
   preDisclosureGuidance?: string
+  useCaseAnchor?: AffiliateUseCaseAnchor
 }
 
 function trackProductImpression(params: {
@@ -71,6 +73,7 @@ export default function CuratedProductModule({
   variantId,
   ctaPosition,
   preDisclosureGuidance,
+  useCaseAnchor,
 }: CuratedProductModuleProps) {
   const hasVisibleAffiliateProduct = products.some(product => {
     const affiliateUrl = product.affiliateUrl.trim()
@@ -113,7 +116,7 @@ export default function CuratedProductModule({
 
       <div className='mt-3 space-y-3'>
         <p className='text-[11px] uppercase tracking-[0.12em] text-white/50'>Compare forms</p>
-        {products.map(product => (
+        {products.map((product, index) => (
           <article
             key={`${entityType}-${entitySlug}-${product.productId}`}
             className='rounded-lg border border-white/15 bg-white/[0.02] p-3'
@@ -176,6 +179,15 @@ export default function CuratedProductModule({
                   variantId,
                   ctaPosition,
                 })
+                if (entityType === 'herb') {
+                  trackAffiliateLinkClick({
+                    herbSlug: entitySlug,
+                    productId: product.productId,
+                    position: index === 0 ? 'primary' : 'alternative',
+                    useCaseAnchor,
+                    source: 'curated_product_module',
+                  })
+                }
               }}
             >
               Review product fit & disclosure
