@@ -1,35 +1,54 @@
 {
   "name": "allium sativum",
   "latin": "Allium sativum",
-  "class": "general",
+  "class": null,
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan. ; nan; nan",
-  "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+  "mechanism": "Organosulfur compounds (including allicin-derived metabolites) modulate platelet aggregation, endothelial nitric oxide signaling, and inflammatory pathways.",
   "activeCompounds": [],
   "effects": [
-    "antimicrobial",
+    "Antimicrobial",
     "hypotensive",
     "cholesterol-lowering",
     "antioxidant",
-    "immune-stimulating effects",
+    "immune-stimulating effects.",
     "cholesterol",
     "lowering",
     "immune",
-    "stimulating effects"
+    "stimulating effects."
   ],
   "contraindications": [],
-  "interactions": [],
-  "safetyNotes": "safe,GI discomfort,bad breath,body odor,may cause bleeding in high doses (anticoagulant effect),No direct toxicity data. Contextual inference: Antimicrobial,hypotensive,cholesterol-lowering,antioxidant,immune-stimulating effects.. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Antimicrobial,immune-stimulating effects.. none.",
+  "safetyNotes": "Common effects are GI upset and odor; supplemental garlic can increase perioperative bleeding risk. Stop high-dose supplements before surgery unless clinician-directed.",
   "sources": [
     {
-      "title": "NCBI Taxonomy: Allium sativum (TaxID 4682)",
-      "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4682&mode=Info",
-      "note": "Bootstrap identity source (tier: high, canonical-id)"
+      "title": "Garlic - LiverTox (NCBI Bookshelf)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548561/",
+      "note": "Clinical safety and hepatotoxicity perspective."
+    },
+    {
+      "title": "Effects of garlic on cardiovascular disorders: a review (Nutr J. 2006)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16545108/",
+      "note": "Mechanistic and clinical cardiovascular evidence."
+    },
+    {
+      "title": "Garlic and drug interactions: focus on saquinavir (Clin Infect Dis. 2002)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12173176/",
+      "note": "Documented pharmacokinetic interaction example."
     }
   ],
-  "lastUpdated": "2026-04-01T18:55:37.845Z",
+  "lastUpdated": "2026-03-21",
   "description": "Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "300,900 mg,day extract or 1,2 cloves",
+  "dosage": [
+    "300",
+    "900 mg",
+    "day extract or 1",
+    "2 cloves"
+  ],
   "duration": "Daily use safe, long-term",
+  "interactions": [
+    "May increase bleeding risk when combined with warfarin, antiplatelet agents, or high-dose NSAIDs.",
+    "Can reduce saquinavir exposure and may alter metabolism/transport of some drugs.",
+    "May add to blood-pressure-lowering effects with antihypertensives."
+  ],
   "legalStatus": "Widely approved as food and supplement globally (GRAS).",
   "preparation": "Cloves consumed raw, cooked, or in capsules; also tinctured or oil extracted",
   "region": "No direct region data. Contextual inference: Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, hypotensive, cholesterol-lowering, antioxidant, immune-stimulating effects.. none. ; nan; nan",
@@ -42,6 +61,10 @@
     "may cause bleeding in high doses (anticoagulant effect)"
   ],
   "slug": "allium-sativum",
+  "id": "allium-sativum",
+  "displayName": "allium sativum",
+  "displayScientificName": "Allium sativum",
+  "scientificNormalized": "allium sativum",
   "identity": "",
   "categoryUseContext": "",
   "evidenceLevel": "",
