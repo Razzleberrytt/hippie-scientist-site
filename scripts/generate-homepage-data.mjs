@@ -26,8 +26,9 @@ const CURATED_FALLBACK_EXPANDED = [...CURATED_FALLBACK, 'curcumin', 'l-theanine'
 const POPULAR_EFFECTS = ['sleep', 'relaxation', 'focus', 'stress support', 'mood']
 const PUBLISHABLE_EDITORIAL_STATUSES = new Set(['approved', 'published'])
 const MIN_FALLBACK_FEATURE_QUALITY = 24
-const MIN_FEATURED_COMPOUNDS = 2
-const MIN_FEATURED_HERBS = 3
+const FEATURED_POOL_TARGET = 24
+const FEATURED_HERB_TARGET = 12
+const FEATURED_COMPOUND_TARGET = FEATURED_POOL_TARGET - FEATURED_HERB_TARGET
 
 const EVIDENCE_LABEL_TITLES = {
   stronger_human_support: 'Stronger human support',
@@ -382,6 +383,36 @@ function takeByKind(rows, kind, count, selected) {
   return picked
 }
 
+function buildBalancedFeaturedPool(rankedBase, fallbackByQuality, total = FEATURED_POOL_TARGET) {
+  const rankedFallback = rankFeaturedItems(
+    (Array.isArray(fallbackByQuality) ? fallbackByQuality : []).filter(item => !hasGenericHomepageSummary(item.blurb)),
+  )
+  const combined = [...rankedBase, ...rankedFallback]
+  const selected = new Set()
+  const herbsFromBase = takeByKind(rankedBase, 'herb', FEATURED_HERB_TARGET, selected)
+  const herbsFromFallback = takeByKind(
+    rankedFallback,
+    'herb',
+    Math.max(FEATURED_HERB_TARGET - herbsFromBase.length, 0),
+    selected,
+  )
+  const compoundsFromBase = takeByKind(rankedBase, 'compound', FEATURED_COMPOUND_TARGET, selected)
+  const compoundsFromFallback = takeByKind(
+    rankedFallback,
+    'compound',
+    Math.max(FEATURED_COMPOUND_TARGET - compoundsFromBase.length, 0),
+    selected,
+  )
+  const pool = [
+    ...herbsFromBase,
+    ...herbsFromFallback,
+    ...compoundsFromBase,
+    ...compoundsFromFallback,
+    ...combined.filter(item => !selected.has(toEntityKey(item))).slice(0, total),
+  ]
+  return pool.slice(0, total)
+}
+
 function buildHomepageData() {
   const herbs = readJson(herbsPath)
   const herbsSummary = readJson(herbsSummaryPath)
@@ -548,13 +579,7 @@ function buildHomepageData() {
           ...fallbackPool.filter(item => !governedHighlights.some(seed => toEntityKey(seed) === toEntityKey(item))),
         ])
       : fallbackPool
-    const selected = new Set()
-    const pool = [
-      ...takeByKind(rankedBase, 'herb', MIN_FEATURED_HERBS, selected),
-      ...takeByKind(rankedBase, 'compound', MIN_FEATURED_COMPOUNDS, selected),
-      ...rankedBase.filter(item => !selected.has(toEntityKey(item))).slice(0, 24),
-    ]
-    return pool.slice(0, 24)
+    return buildBalancedFeaturedPool(rankedBase, all)
   })()
 
   const diverseFeatured = (() => {
