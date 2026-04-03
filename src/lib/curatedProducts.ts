@@ -236,6 +236,11 @@ export type RenderableCuratedProduct = CuratedProductRecommendation & {
   affiliateUrl: string
 }
 
+const CLICK_CAP = 6
+const MIN_EXPOSURE_CLICKS = 2
+const MIN_EXPOSURE_BOOST = 1.25
+const CLOSE_SCORE_DELTA = 0.35
+
 function getHerbSlugFromAnalyticsEvent(event: { slug?: string; entitySlug?: string }): string | null {
   const slug = String(event.slug || '').trim()
   if (slug.startsWith('herb:')) return slug.slice('herb:'.length)
@@ -256,6 +261,24 @@ function getHerbProductClickCounts(herbSlug: string): Map<string, number> {
   })
 
   return counts
+}
+
+function cappedClickScore(clickCount: number): number {
+  if (clickCount <= 0) return 0
+  return Math.log2(Math.min(clickCount, CLICK_CAP) + 1)
+}
+
+function exposureBoost(clickCount: number): number {
+  if (clickCount >= MIN_EXPOSURE_CLICKS) return 0
+  return (MIN_EXPOSURE_CLICKS - clickCount) * MIN_EXPOSURE_BOOST
+}
+
+function deterministicJitter(seed: string): number {
+  let hash = 0
+  for (let index = 0; index < seed.length; index += 1) {
+    hash = (hash * 31 + seed.charCodeAt(index)) >>> 0
+  }
+  return (hash % 1000) / 1000
 }
 
 export function getRenderableCuratedProducts(
@@ -283,8 +306,18 @@ export function getRenderableCuratedProducts(
       const featuredRank = Number(b.featured) - Number(a.featured)
       if (featuredRank !== 0) return featuredRank
 
-      const clickBoost = (herbClickCounts.get(b.productId) || 0) - (herbClickCounts.get(a.productId) || 0)
-      if (clickBoost !== 0) return clickBoost
+      const aClicks = herbClickCounts.get(a.productId) || 0
+      const bClicks = herbClickCounts.get(b.productId) || 0
+      const aScore = cappedClickScore(aClicks) + exposureBoost(aClicks)
+      const bScore = cappedClickScore(bClicks) + exposureBoost(bClicks)
+      const scoreDelta = bScore - aScore
+
+      if (Math.abs(scoreDelta) > CLOSE_SCORE_DELTA) return scoreDelta > 0 ? 1 : -1
+
+      const jitterDelta =
+        deterministicJitter(`${context.entitySlug}:${b.productId}`) -
+        deterministicJitter(`${context.entitySlug}:${a.productId}`)
+      if (Math.abs(jitterDelta) > Number.EPSILON) return jitterDelta > 0 ? 1 : -1
 
       return a.sortOrder - b.sortOrder
     })
