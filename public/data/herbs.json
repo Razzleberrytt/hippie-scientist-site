@@ -4,7 +4,7 @@
     "latin": "Acacia confusa",
     "class": "Psychoactive, Traditional, Medicinal",
     "intensity": "High (with MAOI); mild otherwise",
-    "mechanism": "",
+    "mechanism": "Primary psychoactive activity is attributed to N,N-DMT agonism at serotonin receptors (especially 5-HT2A); oral activity generally requires MAO inhibition to reduce first-pass metabolism.",
     "activeCompounds": [
       "dmt",
       "n-methyltryptamine",
@@ -13,31 +13,43 @@
       "tannins"
     ],
     "effects": [
-      "psychedelic visuals",
+      "altered perception",
+      "visual phenomena",
       "introspection",
-      "altered consciousness"
+      "acute anxiety (possible)",
+      "nausea (possible)"
     ],
     "contraindications": [
-      "avoid with unstable mental health conditions",
-      "may interact with maois",
-      "avoid in pregnancy",
-      "avoid in liver disease"
+      "pregnancy or breastfeeding",
+      "history of psychotic disorders",
+      "unstable cardiovascular disease",
+      "concurrent serotonergic medications"
     ],
     "interactions": [
-      "Strong interactions with MAOIs",
-      "SSRIs",
-      "CNS depressants"
+      "MAO inhibitors (strong interaction)",
+      "SSRIs/SNRIs and other serotonergic agents",
+      "stimulants that raise blood pressure/heart rate"
     ],
-    "safetyNotes": "Caution required,psychological risks and drug interactions,Nausea,vomiting,anxiety,confusion,dissociation,Low physical toxicity,high psychological variability,Not established in humans,caution,No direct toxicity data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.",
+    "safetyNotes": "Human clinical data are limited for Acacia confusa preparations. Risk increases substantially when combined with MAO inhibitors due to stronger and longer serotonergic effects; avoid use with serotonergic drugs because of serotonin-toxicity risk.",
     "sources": [
       {
         "title": "NCBI Taxonomy: Acacia confusa (TaxID 3809)",
         "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3809&mode=Info",
         "note": "Bootstrap identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "5-MeO-DMT analog receptor pharmacology (context for serotonergic tryptamines)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39636099/",
+        "note": "PubMed primary source for serotonergic tryptamine receptor activity"
+      },
+      {
+        "title": "Wikipedia: Acacia confusa",
+        "url": "https://en.wikipedia.org/wiki/Acacia_confusa",
+        "note": "Secondary ethnobotanical context"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:37.827Z",
-    "description": "A perennial tree native to Southeast Asia and the Pacific, traditionally used in spiritual practices. Its root bark contains alkaloids used in entheogenic brews.",
+    "lastUpdated": "2026-04-03T23:16:56Z",
+    "description": "A Southeast Asian tree whose root bark contains tryptamines (notably N,N-DMT). Traditional use is mainly ethnobotanical; psychoactive effects are associated with co-administration of MAO inhibitors.",
     "dosage": "No direct dosage data. Contextual inference:,nan.. No direct mechanismofaction data. Contextual inference:,nan..,nan. No direct effects data. Contextual inference:,nan.,nan. No direct region data. Contextual inference:",
     "duration": "No direct duration data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. No direct region data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. No direct effects data. Contextual inference: ; nan; nan.. No direct mechanismofaction data. Contextual inference: ; nan; nan.. ; nan; nan. ; nan; nan. ; nan; nan. ; nan; nan",
     "legalStatus": "Varies; restricted in some countries due to DMT content",
@@ -193,7 +205,7 @@
     "latin": "Acmella oleracea",
     "class": "Traditional, Medicinal",
     "intensity": "No direct intensity data. Contextual inference: Analgesic, sialagogue, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, sialagogue, anti-inflammatory. No direct region data. Contextual inference: Analgesic, sialagogue, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Analgesic, sialagogue, anti-inflammatory. none. ; nan; nan. ; nan; nan",
-    "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
+    "mechanism": "Spilanthol and related alkamides show anti-inflammatory and analgesic activity in preclinical studies, likely through modulation of inflammatory mediators and sensory signaling pathways.",
     "activeCompounds": [
       "spilanthol",
       "alkylamides",
@@ -201,40 +213,39 @@
       "coumarins"
     ],
     "effects": [
-      "local anesthesia",
+      "oral tingling/numbing sensation",
       "salivation",
-      "antimicrobial",
-      "immune stimulation",
-      "oral tingling",
-      "mild euphoria",
-      "muscle relaxation",
-      "analgesic",
-      "sialagogue",
-      "anti-inflammatory",
-      "anti",
-      "inflammatory"
+      "analgesic effect (reported)",
+      "anti-inflammatory activity (preclinical)"
     ],
     "contraindications": [
-      "avoid in pregnancy",
-      "avoid with oral surgery",
-      "avoid with allergy to asteraceae",
-      "avoid with none established",
-      "avoid overuse on broken skin"
+      "pregnancy or breastfeeding (insufficient safety data for concentrated extracts)",
+      "known Asteraceae allergy"
     ],
     "interactions": [
-      "May enhance effects of anesthetics",
-      "limited data"
+      "local anesthetics (possible additive oral numbness)",
+      "anticoagulants/antiplatelets (theoretical; monitor)"
     ],
-    "safetyNotes": "Generally safe topically,avoid in pregnancy,Tingling,irritation (rare),excessive salivation,Low,Not established,Excessive salivation,numbness,allergic reactions (rare),Very low,Greater than 2000 mg/kg (rat oral),Mild tingling,increased salivation,rare allergic reactions possible,No direct toxicity data. Contextual inference: Analgesic,sialagogue,anti-inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic,anti-inflammatory. none.",
+    "safetyNotes": "Generally well tolerated in culinary or short-term traditional use, but concentrated extracts may cause oral irritation, excessive salivation, or GI upset. Human dose-standardization remains limited.",
     "sources": [
       {
         "title": "NCBI Taxonomy: Acmella oleracea (TaxID 469459)",
         "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=469459&mode=Info",
         "note": "Bootstrap identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "Acmella oleracea for pain management",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31705952/",
+        "note": "PubMed review on analgesic/anti-inflammatory profile"
+      },
+      {
+        "title": "Acmella oleracea extract increases collagen content and organization in partially transected tendons",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33973686/",
+        "note": "PubMed study noting spilanthol as major bioactive"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:37.830Z",
-    "description": "Analgesic, sialagogue, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+    "lastUpdated": "2026-04-03T23:16:56Z",
+    "description": "Edible medicinal plant (jambu/toothache plant) rich in spilanthol, used traditionally for oral discomfort and studied for analgesic and anti-inflammatory effects.",
     "dosage": "No direct dosage data. Contextual inference: Analgesic,sialagogue,anti,inflammatory. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Analgesic,inflammatory. No direct region data. Contextual inference: Analgesic,inflammatory. none.,nan.",
     "duration": "1–2 hours",
     "legalStatus": "Legal and used in foods and herbal preparations",
@@ -297,7 +308,7 @@
     "latin": "Aconitum napellus",
     "class": "Herb",
     "intensity": "No direct intensity data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. No direct region data. Contextual inference: Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Potent analgesic and anti-inflammatory; extremely toxic. none. ; nan; nan. ; nan; nan",
-    "mechanism": "toxic diterpenoid alkaloids such as aconitine open voltage-gated sodium channels | increasing sodium influx and delaying repolarization | causing cardiotoxicity and neurotoxicity【472555319349189†l263-l265】【472555319349189†l307-l310】",
+    "mechanism": "Aconitine-type alkaloids bind voltage-gated sodium channels and keep them in an activated state, promoting persistent sodium influx and triggered arrhythmias.",
     "activeCompounds": [
       "aconitine",
       "mesaconitine",
@@ -314,29 +325,36 @@
       "napelline"
     ],
     "effects": [
-      "potent analgesic and anti-inflammatory",
-      "extremely toxic",
-      "potent analgesic and anti",
-      "inflammatory"
+      "paresthesia and numbness",
+      "nausea/vomiting",
+      "hypotension",
+      "ventricular arrhythmias",
+      "potentially fatal cardiotoxicity"
     ],
     "contraindications": [
-      "avoid with highly toxic",
-      "avoid with ingestion can cause severe arrhythmias",
-      "avoid with paralysis and death",
-      "avoid internal use",
-      "avoid with handling requires caution"
+      "all internal/self-medication use",
+      "pregnancy or breastfeeding",
+      "pre-existing arrhythmia or structural heart disease"
     ],
-    "interactions": [],
-    "safetyNotes": "Toxic – avoid oral use,No direct toxicity data. Contextual inference: Potent analgesic and anti-inflammatory,extremely toxic. Herbs often act via neurotransmitter modulation,antioxidant effects,or enzyme inhibition.. None.,nan.. Herbs often act via neurotransmitter modulation,or enzyme inhibition.. Potent analgesic and anti-inflammatory,extremely toxic. none.",
+    "interactions": [
+      "antiarrhythmics (complex interaction risk)",
+      "cardioactive drugs that alter conduction or repolarization"
+    ],
+    "safetyNotes": "High-risk toxic plant. Unprocessed or improperly processed material can cause life-threatening poisoning; accidental ingestion requires urgent medical evaluation.",
     "sources": [
       {
         "title": "NCBI Taxonomy: Aconitum napellus (TaxID 112591)",
         "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=112591&mode=Info",
         "note": "Bootstrap identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "Arrhythmogenesis toxicity of aconitine is related to intracellular Ca(2+) signals",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23935402/",
+        "note": "PubMed primary source on aconitine cardiotoxic mechanism"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:37.836Z",
-    "description": "Potent analgesic and anti-inflammatory; extremely toxic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
+    "lastUpdated": "2026-04-03T23:16:56Z",
+    "description": "Highly toxic Aconitum species containing aconitine-type diterpenoid alkaloids. Historical medicinal use exists, but internal use is dangerous because severe arrhythmias and neurologic toxicity can occur at low doses.",
     "dosage": "Toxic,used in homeopathy only",
     "duration": "4–8 hours",
     "legalStatus": "Restricted or banned in many countries",
@@ -389,7 +407,7 @@
     "latin": "Acorus calamus",
     "class": "Traditional, Aromatic, Cognitive Enhancer",
     "intensity": "No direct intensity data. Contextual inference: Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. Possible gabaergic and dopaminergic effects; unclear active compound mechanism.. ; nan; nan.. Possible GABAergic and dopaminergic effects; unclear active compound mechanism.. Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. No direct region data. Contextual inference: Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. Possible gabaergic and dopaminergic effects; unclear active compound mechanism.. ; nan; nan.. Possible GABAergic and dopaminergic effects; unclear active compound mechanism.. Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. ; nan; nan. ; nan; nan",
-    "mechanism": "",
+    "mechanism": "Reported bioactivity is associated with phenylpropanoids (including asarones) that can modulate CNS signaling in preclinical models; beta-asarone also drives key toxicology concerns.",
     "activeCompounds": [
       "beta-asarone",
       "alpha-asarone",
@@ -399,48 +417,40 @@
       "asarone"
     ],
     "effects": [
-      "stimulation",
-      "mental clarity",
-      "mild sedation (low dose)",
-      "hallucinations (high dose",
-      "beta-asarone rich)",
-      "mild sedative",
-      "hallucinogenic in high doses",
-      "used in ritual",
-      "dreaming or folk medicine used in ritual",
-      "dreaming or folk medicine",
-      "digestive aid",
-      "and purported hallucinogen",
-      "contains β-asarone",
-      "contains β"
+      "digestive symptom relief (traditional use)",
+      "mild CNS effects (reported)",
+      "sedation at higher exposure (reported)",
+      "nausea/vomiting at excessive doses"
     ],
     "contraindications": [
-      "avoid in pregnancy",
-      "avoid with seizures",
-      "avoid in liver disease",
-      "avoid with children",
-      "avoid with high doses",
-      "avoid with cancer risk (β-asarone in some strains)",
-      "avoid with cancer risk (β",
-      "avoid with asarone in some strains)"
+      "pregnancy or breastfeeding",
+      "chronic liver disease",
+      "use in children",
+      "long-term unsupervised internal use"
     ],
     "interactions": [
-      "Sedatives",
-      "antiepileptics",
-      "CNS stimulants",
-      "cns depressants",
-      "antiarrhythmics."
+      "sedatives and other CNS depressants (additive effects possible)"
     ],
-    "safetyNotes": "Moderate,varies by chemotype,Nausea,dizziness,hallucinations (high dose),Dose-dependent hepatotoxicity and carcinogenicity,~2000 mg/kg (rat,oral),Use cautiously,Nausea at high doses,Toxic in large amounts,Toxic – β-asarone content varies by variety,No direct toxicity data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine,nausea,headache,potential carcinogenicity.,No direct toxicity data. Contextual inference: Mild sedative,digestive aid,and purported hallucinogen,contains β-asarone. Possible gabaergic and dopaminergic effects,unclear active compound mechanism..,nan.. Possible GABAergic and dopaminergic effects,unclear active compound mechanism.. Mild sedative,contains β-asarone.",
+    "safetyNotes": "Do not treat Acorus calamus preparations as uniformly safe: beta-asarone exposure has shown carcinogenic findings in animal studies, and product composition varies by variety and extraction method.",
     "sources": [
       {
         "title": "NCBI Taxonomy: Acorus calamus (TaxID 4465)",
         "url": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4465&mode=Info",
         "note": "Bootstrap identity source (tier: high, canonical-id)"
+      },
+      {
+        "title": "Acorus calamus",
+        "url": "https://en.wikipedia.org/wiki/Acorus_calamus",
+        "note": "Secondary source summarizing regulatory and chemotype context"
+      },
+      {
+        "title": "Scientific Committee on Food opinion on beta-asarone",
+        "url": "https://food.ec.europa.eu/document/download/83f0eb6f-1f5b-43f7-af95-3ef66f3a1d77_en?filename=sci-com_scf_out102_en.pdf",
+        "note": "Regulatory toxicology review cited by public agencies"
       }
     ],
-    "lastUpdated": "2026-04-01T18:55:37.839Z",
-    "description": "Mild sedative, digestive aid, and purported hallucinogen; contains β-asarone. Possible gabaergic and dopaminergic effects; unclear active compound mechanism.. ; nan; nan.",
+    "lastUpdated": "2026-04-03T23:16:56Z",
+    "description": "Aromatic wetland plant used traditionally for digestive and aromatic preparations. Safety depends on chemotype because beta-asarone content varies and is linked to toxicology concerns.",
     "dosage": "No direct dosage data. Contextual inference: Used in ritual,dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual,dreaming or folk medicine.. Used in ritual,dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual,dreaming or folk medicine. Used in ritual,dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual,dreaming or folk medicine,No direct dosage data. Contextual inference: Mild sedative,digestive aid,and purported hallucinogen,contains β,asarone. Possible gabaergic and dopaminergic effects,unclear active compound mechanism..,nan.. Possible GABAergic and dopaminergic effects,unclear active compound mechanism.. Mild sedative,asarone. No direct region data. Contextual inference: Mild sedative,asarone.,nan.",
     "duration": "No direct duration data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. No direct region data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. No direct effects data. Contextual inference: Used in ritual, dreaming or folk medicine.. No direct mechanismofaction data. Contextual inference: Used in ritual, dreaming or folk medicine.. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine. Used in ritual, dreaming or folk medicine",
     "legalStatus": "Restricted in USA (beta-asarone concerns)",
