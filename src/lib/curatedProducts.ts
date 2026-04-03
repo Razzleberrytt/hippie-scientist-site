@@ -9,6 +9,7 @@ import {
 import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
 import { readAnalyticsEvents, type StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
 import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
+import { RANKING_CONFIG } from '@/lib/rankingConfig'
 
 type CuratedProductPageContext = {
   entityType: CuratedProductEntityType
@@ -243,15 +244,10 @@ export type RenderableCuratedProductDebug = RenderableCuratedProduct & {
 }
 
 const CLICK_CAP = 6
-const CLICK_WEIGHT = 1
-const CONVERSION_WEIGHT = 3
 const MIN_EXPOSURE_CLICKS = 2
-const MIN_EXPOSURE_BOOST = 1.25
 const MIN_DATA_THRESHOLD = 4
-const COLD_START_BASE_PRIOR = 0.5
 const COLD_START_BOOST_CAP = 0.65
 const HIGH_CONVERSION_PROTECTION_THRESHOLD = 0.75
-const CLOSE_SCORE_DELTA = 0.35
 const TIME_DECAY_HALF_LIFE_MS = 7 * 24 * 60 * 60 * 1000
 const MAX_CLICK_EVENT_AGE_MS = 60 * 24 * 60 * 60 * 1000
 
@@ -471,7 +467,7 @@ function cappedClickScore(clickCount: number): number {
 
 function exposureBoost(clickCount: number): number {
   if (clickCount >= MIN_EXPOSURE_CLICKS) return 0
-  return (MIN_EXPOSURE_CLICKS - clickCount) * MIN_EXPOSURE_BOOST
+  return (MIN_EXPOSURE_CLICKS - clickCount) * RANKING_CONFIG.boosts.exploration
 }
 
 function isColdStart(params: { totalClickScore: number; totalConversionScore: number }): boolean {
@@ -479,7 +475,7 @@ function isColdStart(params: { totalClickScore: number; totalConversionScore: nu
 }
 
 function getColdStartBoost(product: CuratedProductRecommendation): number {
-  let prior = COLD_START_BASE_PRIOR
+  let prior = RANKING_CONFIG.boosts.coldStart
 
   const typedProduct = product as CuratedProductRecommendation & {
     rating?: number
@@ -517,7 +513,7 @@ function deterministicJitter(seed: string): number {
   for (let index = 0; index < seed.length; index += 1) {
     hash = (hash * 31 + seed.charCodeAt(index)) >>> 0
   }
-  return (hash % 1000) / 1000
+  return ((hash % 1000) / 1000) * RANKING_CONFIG.jitter.max
 }
 
 type RankingScoreComponents = {
@@ -541,6 +537,7 @@ export type CuratedProductRankingDebugInfo = {
   finalScore: number
   components: RankingScoreComponents
   metadata: RankingScoreMetadata
+  configSnapshot: typeof RANKING_CONFIG
 }
 
 function getRankingDebugInfo(params: {
@@ -561,8 +558,8 @@ function getRankingDebugInfo(params: {
   })
   const components: RankingScoreComponents = {
     baseScore: 0,
-    clickScore: cappedClickScore(clickSignal) * CLICK_WEIGHT,
-    conversionScore: conversionSignal * CONVERSION_WEIGHT,
+    clickScore: cappedClickScore(clickSignal) * RANKING_CONFIG.weights.click,
+    conversionScore: conversionSignal * RANKING_CONFIG.weights.conversion,
     coldStartBoost: coldStart ? getColdStartScoreBoost(product, clickEvidenceScore) : 0,
     explorationBoost: exposureBoost(clickSignal),
     jitter: deterministicJitter(`${entitySlug}:${product.productId}`),
@@ -586,20 +583,26 @@ function getRankingDebugInfo(params: {
       totalConversions: conversionMetrics?.rawCount || 0,
       lastEventAgeMs: Number.isFinite(latestTimestamp) ? Math.max(0, nowMs - latestTimestamp) : null,
     },
+    configSnapshot: RANKING_CONFIG,
   }
 }
 
 function compareByDebugScore(a: CuratedProductRankingDebugInfo, b: CuratedProductRankingDebugInfo): number {
+  const conversionWeight = RANKING_CONFIG.weights.conversion
   const aProtectedByConversion =
-    a.components.conversionScore / CONVERSION_WEIGHT >= HIGH_CONVERSION_PROTECTION_THRESHOLD
+    conversionWeight > 0 &&
+    a.components.conversionScore / conversionWeight >=
+    HIGH_CONVERSION_PROTECTION_THRESHOLD
   const bProtectedByConversion =
-    b.components.conversionScore / CONVERSION_WEIGHT >= HIGH_CONVERSION_PROTECTION_THRESHOLD
+    conversionWeight > 0 &&
+    b.components.conversionScore / conversionWeight >=
+    HIGH_CONVERSION_PROTECTION_THRESHOLD
   if (aProtectedByConversion !== bProtectedByConversion) {
     return bProtectedByConversion ? 1 : -1
   }
 
   const scoreDelta = b.finalScore - a.finalScore
-  if (Math.abs(scoreDelta) > CLOSE_SCORE_DELTA) return scoreDelta > 0 ? 1 : -1
+  if (Math.abs(scoreDelta) > RANKING_CONFIG.thresholds.closeScore) return scoreDelta > 0 ? 1 : -1
 
   const jitterDelta = b.components.jitter - a.components.jitter
   if (Math.abs(jitterDelta) > Number.EPSILON) return jitterDelta > 0 ? 1 : -1
