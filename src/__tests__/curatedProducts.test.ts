@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { curatedProductRecommendations } from '@/data/curatedProducts'
 import {
   assessCuratedProductReadiness,
+  applyTimeDecay,
   getTimeDecayWeight,
   getRenderableCuratedProducts,
   getReviewRecencyState,
@@ -42,6 +43,7 @@ async function run() {
     Object.assign(RANKING_CONFIG.boosts, defaultRankingConfig.boosts)
     Object.assign(RANKING_CONFIG.jitter, defaultRankingConfig.jitter)
     Object.assign(RANKING_CONFIG.thresholds, defaultRankingConfig.thresholds)
+    Object.assign(RANKING_CONFIG.decay, defaultRankingConfig.decay)
   }
   const TEST_NOW_MS = 1711965000000
   const renderCuratedProducts = (context: Parameters<typeof getRenderableCuratedProducts>[0]) =>
@@ -110,8 +112,15 @@ async function run() {
   assert.equal(debugSample.debug.configSnapshot.boosts.exploration, 0.3)
   assert.equal(debugSample.debug.configSnapshot.jitter.max, 0.01)
   assert.equal(debugSample.debug.configSnapshot.thresholds.closeScore, 0.05)
-  assert.equal(typeof debugSample.debug.metadata.totalClicks, 'number')
-  assert.equal(typeof debugSample.debug.metadata.totalConversions, 'number')
+  assert.equal(debugSample.debug.configSnapshot.decay.clickHalfLifeMs, 1000 * 60 * 60 * 24 * 7)
+  assert.equal(
+    debugSample.debug.configSnapshot.decay.conversionHalfLifeMs,
+    1000 * 60 * 60 * 24 * 14,
+  )
+  assert.equal(typeof debugSample.debug.metadata.rawClicks, 'number')
+  assert.equal(typeof debugSample.debug.metadata.rawConversions, 'number')
+  assert.equal(typeof debugSample.debug.metadata.decayedClicks, 'number')
+  assert.equal(typeof debugSample.debug.metadata.decayedConversions, 'number')
   assert.equal(debugSample.debug.metadata.lastEventAgeMs, null)
   assert.equal(
     debugSample.debug.finalScore,
@@ -214,8 +223,8 @@ async function run() {
   }).filter(product => !product.featured)
   const topPositionDebug = positionWeightedDebugRows[0]?.debug
   assert.ok(topPositionDebug)
-  assert.equal(topPositionDebug.metadata.totalClicks, 3)
-  assert.equal(topPositionDebug.metadata.totalConversions, 0)
+  assert.equal(topPositionDebug.metadata.rawClicks, 3)
+  assert.equal(topPositionDebug.metadata.rawConversions, 0)
   assert.equal(topPositionDebug.metadata.lastEventAgeMs !== null, true)
   assert.equal(topPositionDebug.components.clickScore > 0, true)
   assert.equal(topPositionDebug.components.conversionScore, 0)
@@ -613,9 +622,55 @@ async function run() {
   const decayRecent = getTimeDecayWeight(recentTimestamp, TEST_NOW_MS)
   const decayOld = getTimeDecayWeight(oldTimestamp, TEST_NOW_MS)
   assert.equal(decayRecent > decayOld, true)
+  assert.equal(applyTimeDecay([], RANKING_CONFIG.decay.clickHalfLifeMs, TEST_NOW_MS), 0)
+
+  const decayEvents = [
+    { timestamp: TEST_NOW_MS - oneDayMs },
+    { timestamp: TEST_NOW_MS - oneDayMs * 10 },
+  ]
+  assert.equal(
+    applyTimeDecay(decayEvents, oneDayMs * 2, TEST_NOW_MS) >
+      applyTimeDecay(decayEvents, oneDayMs, TEST_NOW_MS),
+    true,
+  )
 
   const nearZeroTimestamp = TEST_NOW_MS - 59 * oneDayMs
   assert.equal(getTimeDecayWeight(nearZeroTimestamp, TEST_NOW_MS) < 0.01, true)
+
+  installAnalyticsWindow([
+    {
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateA.productId,
+      timestamp: TEST_NOW_MS - 20 * oneDayMs,
+    },
+    {
+      type: 'curated_product_click',
+      slug: 'herb:ashwagandha',
+      item: candidateB.productId,
+      timestamp: TEST_NOW_MS - oneDayMs,
+    },
+  ])
+  const defaultHalfLifeRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(defaultHalfLifeRows[0]?.productId, candidateB.productId)
+
+  RANKING_CONFIG.decay.clickHalfLifeMs = oneDayMs * 365
+  const longHalfLifeRows = renderCuratedProducts({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(
+    [candidateA.productId, candidateB.productId].includes(longHalfLifeRows[0]?.productId || ''),
+    true,
+  )
+  resetRankingConfig()
 
   installAnalyticsWindow([
     {
@@ -665,6 +720,16 @@ async function run() {
   assert.deepEqual(
     missingTimestampRows.map(row => row.productId).sort(),
     explicitTimestampRows.map(row => row.productId).sort(),
+  )
+  const missingTimestampDebugRows = renderCuratedProductsDebug({
+    entityType: 'herb',
+    entitySlug: 'ashwagandha',
+    confidence: 'medium',
+    sourceCount: 3,
+  }).filter(product => !product.featured)
+  assert.equal(
+    missingTimestampDebugRows[0]?.debug.metadata.rawClicks,
+    missingTimestampDebugRows[0]?.debug.metadata.decayedClicks,
   )
 
   assert.match(resolveAffiliateUrl(herbRows[0]), /tag=razzleberry02-20/)
