@@ -136,6 +136,30 @@ export default function Home() {
         </div>
       </section>
 
+
+      <section className='container mx-auto max-w-4xl px-4 pt-4 sm:px-6'>
+        <div className='ds-card p-4'>
+          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
+            Popular guides
+          </p>
+          <h2 className='mt-2 text-lg font-semibold text-white'>Best herbs by goal</h2>
+          <p className='mt-1 text-sm text-white/75'>
+            Start with focused entry pages built for common search intents.
+          </p>
+          <div className='mt-3 flex flex-wrap gap-2'>
+            <Link to='/best-herbs-for-anxiety' className='btn-secondary'>
+              Best herbs for anxiety
+            </Link>
+            <Link to='/best-herbs-for-sleep' className='btn-secondary'>
+              Best herbs for sleep
+            </Link>
+            <Link to='/best-herbs-for-focus' className='btn-secondary'>
+              Best herbs for focus
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <EffectExplorer herbs={homepageData.effectExplorerHerbs} />
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
