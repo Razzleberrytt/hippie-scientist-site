@@ -51,7 +51,7 @@ export default function HerbProductSection({
       <div className='border-white/12 rounded-2xl border bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-4 md:p-5'>
         <div>
           <h2 className='text-sm font-semibold uppercase tracking-[0.16em] text-white/75'>
-            Recommended Products
+            Recommended products
           </h2>
           <p className='mt-1 text-sm text-white/70'>
             Product-format examples that align with the buyer guidance above.

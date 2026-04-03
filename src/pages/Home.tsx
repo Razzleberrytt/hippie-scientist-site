@@ -92,7 +92,7 @@ export default function Home() {
 
       <Hero />
 
-      <section className='container mx-auto max-w-4xl px-4 pt-2 sm:px-6'>
+      <section className='ds-section container mx-auto max-w-4xl px-4 pt-2 sm:px-6'>
         <div className='grid gap-3 sm:grid-cols-2'>
           <div className='ds-card p-4'>
             <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
@@ -136,8 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-
-      <section className='container mx-auto max-w-4xl px-4 pt-4 sm:px-6'>
+      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card p-4'>
           <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/60'>
             Popular guides
@@ -170,13 +169,13 @@ export default function Home() {
           <h2 className='mt-2 text-2xl font-semibold text-white'>
             Educational research, safety-first
           </h2>
-            <div className='mt-3 grid gap-2 sm:grid-cols-3'>
-              {homepageData.trustBadges.map(badge => (
-                <p key={badge} className='ds-card p-3 text-xs text-white/80'>
-                  {badge}
-                </p>
-              ))}
-            </div>
+          <div className='mt-3 grid gap-2 sm:grid-cols-3'>
+            {homepageData.trustBadges.map(badge => (
+              <p key={badge} className='ds-card p-3 text-xs text-white/80'>
+                {badge}
+              </p>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -250,40 +249,6 @@ export default function Home() {
       </section>
 
       <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
-        <Collapse title='Core tools'>
-          <div className='grid gap-3 sm:grid-cols-3'>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Effect Search</h3>
-              <p className='mt-2 text-xs text-white/75'>
-                Start with an outcome and get ranked herb matches with confidence context.
-              </p>
-              <a href='#effect-search' className='mt-3 inline-flex text-xs text-violet-200'>
-                Open tool →
-              </a>
-            </article>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Interaction Checker</h3>
-              <p className='mt-2 text-xs text-white/75'>
-                Compare a stack and surface potential interaction signals before use.
-              </p>
-              <Link to='/interactions' className='mt-3 inline-flex text-xs text-violet-200'>
-                Check interactions →
-              </Link>
-            </article>
-            <article className='ds-card p-4'>
-              <h3 className='text-sm font-semibold text-white'>Blend Builder</h3>
-              <p className='mt-2 text-xs text-white/75'>
-                Build a draft blend with mechanism notes and safety reminders.
-              </p>
-              <Link to='/build' className='mt-3 inline-flex text-xs text-violet-200'>
-                Build a blend →
-              </Link>
-            </article>
-          </div>
-        </Collapse>
-      </section>
-
-      <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
         <div className='ds-card-lg ds-stack'>
           <p className='text-xs font-semibold uppercase tracking-[0.24em] text-white/60'>
             Knowledge scope
@@ -329,7 +294,7 @@ export default function Home() {
       </section>
 
       {dailyDiscovery && (
-        <section className='container mx-auto max-w-4xl px-4 pt-5 sm:px-6'>
+        <section className='ds-section container mx-auto max-w-4xl px-4 sm:px-6'>
           <div className='ds-card-lg border-emerald-200/20 bg-emerald-400/5'>
             <p className='text-xs font-semibold uppercase tracking-[0.24em] text-emerald-100/80'>
               Today&apos;s discovery

@@ -556,9 +556,6 @@ export default function HerbDetail() {
       ? `Common buyer formats: ${herbRecommendation.recommendedForms.slice(0, 3).join(', ')}.`
       : null,
     herbRecommendation ? `Quality checks buyers use: ${herbRecommendation.preferredAttributes[0]}.` : null,
-    herbProducts.length > 0
-      ? `Product options shown: ${herbProducts.length} format${herbProducts.length === 1 ? '' : 's'} for side-by-side comparison.`
-      : null,
     relatedHerbLinks.length > 0
       ? `Related alternatives: ${relatedHerbLinks
           .slice(0, 3)
@@ -870,19 +867,6 @@ export default function HerbDetail() {
           relationGroups={relationGroups}
         />
 
-        {governedResearch && governedFaq && governedRelatedQuestions && (
-          <GovernedResearchSections
-            enrichment={governedResearch}
-            governedFaq={governedFaq}
-            relatedQuestions={governedRelatedQuestions}
-            analyticsContext={{
-              pageType: 'herb_detail',
-              entityType: 'herb',
-              entitySlug: herb.slug,
-            }}
-          />
-        )}
-
         {/* Core content */}
         {description && (
           <Section title='Overview'>
@@ -914,7 +898,7 @@ export default function HerbDetail() {
         {useCaseAnchors.length > 0 && (
           <section className='border-white/8 mt-6 border-t pt-5'>
             <h2 className='mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
-              Use Case Anchors
+              Use-case guidance
             </h2>
             <div className='space-y-3'>
               {useCaseAnchors.map(anchor => (
@@ -925,6 +909,9 @@ export default function HerbDetail() {
                 >
                   <p className='text-sm font-semibold text-white'>{anchor.question}</p>
                   <p className='mt-1 text-xs text-white/70'>{anchor.guidance}</p>
+                  <p className='mt-2 text-[11px] uppercase tracking-[0.12em] text-white/50'>
+                    Buyer signals tied to this use case
+                  </p>
                   <p className='mt-2 text-xs text-white/70'>
                     Matching tags: {anchor.matchedTags.join(' · ')}
                   </p>
@@ -954,6 +941,15 @@ export default function HerbDetail() {
               ))}
             </div>
           </section>
+        )}
+
+        {herbRecommendation && <HerbBuyerGuidanceSection recommendation={herbRecommendation} />}
+        {herbProducts.length > 0 && (
+          <HerbProductSection
+            herbSlug={herb.slug}
+            products={herbProducts}
+            useCaseAnchor={activeUseCaseAnchor}
+          />
         )}
 
         {herbClass && <Section title='Class'>{herbClass}</Section>}
@@ -1063,6 +1059,19 @@ export default function HerbDetail() {
           </section>
         )}
 
+        {governedResearch && governedFaq && governedRelatedQuestions && (
+          <GovernedResearchSections
+            enrichment={governedResearch}
+            governedFaq={governedFaq}
+            relatedQuestions={governedRelatedQuestions}
+            analyticsContext={{
+              pageType: 'herb_detail',
+              entityType: 'herb',
+              entitySlug: herb.slug,
+            }}
+          />
+        )}
+
         {effects.length > 0 && (
           <Section title='Effects'>
             <ListSection items={effects} />
@@ -1166,14 +1175,6 @@ export default function HerbDetail() {
             : 'All core evidence fields present for this profile.'}
           <InfoTooltip text='Values with published studies should be cross-checked against the Sources section.' />
         </div>
-        {herbRecommendation && <HerbBuyerGuidanceSection recommendation={herbRecommendation} />}
-        {herbProducts.length > 0 && (
-          <HerbProductSection
-            herbSlug={herb.slug}
-            products={herbProducts}
-            useCaseAnchor={activeUseCaseAnchor}
-          />
-        )}
       </article>
     </main>
   )
