@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Cardioprotective, antioxidant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardioprotective, antioxidant, anti-inflammatory. No direct region data. Contextual inference: Cardioprotective, antioxidant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Cardioprotective, antioxidant, anti-inflammatory. none. ; nan; nan. ; nan; nan",
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "tanshinones",
+    "salvianolic acid B",
+    "danshensu"
+  ],
   "effects": [
     "cardioprotective",
     "antioxidant",
@@ -27,7 +31,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.017Z",
   "description": "Cardioprotective, antioxidant, anti-inflammatory. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "250,750 mg,day root extract",
+  "dosage": "Traditional use commonly falls around 3-9 g dried root daily in decoction.",
   "duration": "4–6 hours",
   "legalStatus": "Legal; common in traditional Chinese medicine",
   "preparation": "Roots decocted in Traditional Chinese Medicine (Danshen); used for cardiovascular and circulation support",

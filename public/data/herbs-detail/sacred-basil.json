@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. No direct region data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. ; nan; nan. ; nan; nan",
   "mechanism": "modulates cortisol | dopamine | and serotonin",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "eugenol",
+    "ursolic acid",
+    "rosmarinic acid"
+  ],
   "effects": [
     "adaptogen",
     "stress reducer",
@@ -28,7 +32,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.016Z",
   "description": "Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.",
-  "dosage": "No direct dosage data. Contextual inference: Adaptogen,stress reducer,immune modulator. Modulates cortisol,dopamine,and serotonin,adaptogenic and anxiolytic..,nan.. Modulates cortisol,adaptogenic and anxiolytic.. Adaptogen,immune modulator. No direct region data. Contextual inference: Adaptogen,immune modulator.,nan.",
+  "dosage": "As tea: about 2-3 g dried leaf per cup, up to 2-3 times daily.",
   "duration": "4–6 hours",
   "legalStatus": "Legal globally",
   "preparation": "No direct preparation data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. No direct region data. Contextual inference: Adaptogen, stress reducer, immune modulator. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. ; nan; nan.. Modulates cortisol, dopamine, and serotonin; adaptogenic and anxiolytic.. Adaptogen, stress reducer, immune modulator. ; nan; nan. ; nan; nan",

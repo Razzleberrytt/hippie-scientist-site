@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Diuretic, liver support, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, liver support, digestive tonic. No direct region data. Contextual inference: Diuretic, liver support, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Diuretic, liver support, digestive tonic. none. ; nan; nan. ; nan; nan",
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "taraxasterol",
+    "sesquiterpene lactones",
+    "inulin"
+  ],
   "effects": [
     "diuretic",
     "liver",
@@ -25,7 +29,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.025Z",
   "description": "Diuretic, liver support, digestive tonic. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "500,1500 mg,day root or leaf extract",
+  "dosage": "Typical traditional use is about 2-8 g dried root daily as tea or decoction.",
   "duration": "4–8 hours",
   "legalStatus": "Legal globally",
   "preparation": "Roots and leaves decocted, fresh-pressed, or tinctured; digestive, diuretic, and liver support",

@@ -4,7 +4,10 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Antimicrobial, escharotic (topical use only). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, escharotic (topical use only). No direct region data. Contextual inference: Antimicrobial, escharotic (topical use only). Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Antimicrobial, escharotic (topical use only). none. ; nan; nan. ; nan; nan",
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "sanguinarine",
+    "chelerythrine"
+  ],
   "effects": [
     "antimicrobial",
     "escharotic (topical use only)"

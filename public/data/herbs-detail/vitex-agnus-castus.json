@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "No direct intensity data. Contextual inference: Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hormonal modulator, PMS relief, prolactin regulator. No direct region data. Contextual inference: Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. Hormonal modulator, PMS relief, prolactin regulator. none. ; nan; nan. ; nan; nan",
   "mechanism": "herbs act via neurotransmitter modulation | antioxidant effects | or enzyme inhibition",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "agnuside",
+    "casticin",
+    "aucubin"
+  ],
   "effects": [
     "hormonal modulator",
     "pms relief",
@@ -25,7 +29,7 @@
   ],
   "lastUpdated": "2026-04-01T18:55:38.032Z",
   "description": "Hormonal modulator, pms relief, prolactin regulator. Herbs often act via neurotransmitter modulation, antioxidant effects, or enzyme inhibition.. None. ; nan; nan.",
-  "dosage": "150,500 mg,day extract",
+  "dosage": "Common adult use is 20-40 mg/day of standardized fruit extract.",
   "duration": "Chronic",
   "legalStatus": "Legal worldwide",
   "preparation": "Dried berries used in tinctures or capsules; hormone modulator used for PMS and menstrual regulation",

@@ -4,7 +4,11 @@
   "class": "general",
   "intensity": "mild",
   "mechanism": "",
-  "activeCompounds": [],
+  "activeCompounds": [
+    "valerenic acid",
+    "valerenol",
+    "valepotriates"
+  ],
   "effects": [
     "May improve subjective sleep quality",
     "Mild sedative and anxiolytic effect",
@@ -34,7 +38,7 @@
   ],
   "lastUpdated": "2026-04-03T23:27:42Z",
   "description": "Valerian root is usually selected for bedtime-focused routines when users want a stronger evening herb than tea-only calming options.",
-  "dosage": "Use conservative bedtime serving ranges from labeled products and avoid combining multiple sedating herbs without a clear reason.",
+  "dosage": "Common use for sleep is 300-600 mg standardized extract 30-120 minutes before bedtime.",
   "duration": "Commonly used in short sleep-support blocks or intermittent bedtime use based on next-day grogginess tolerance.",
   "legalStatus": "legal",
   "preparation": "Capsules and tinctures are popular for bedtime convenience; teas are used for gentler onboarding.",
