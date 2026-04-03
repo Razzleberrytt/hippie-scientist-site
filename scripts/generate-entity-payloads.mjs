@@ -24,6 +24,7 @@ const splitList = value => {
     .map(item => item.trim())
     .filter(Boolean)
 }
+const asList = value => (Array.isArray(value) ? value : [])
 
 const PLACEHOLDER_PATTERNS = [
   /\bno direct\b/i,
@@ -238,6 +239,95 @@ function hasEvidenceNotes(record) {
   )
 }
 
+function readNarrativeField(value) {
+  if (typeof value === 'string') return cleanNarrative(value)
+  if (!value || typeof value !== 'object') return ''
+  return cleanNarrative(
+    value.summary || value.text || value.description || value.label || value.title,
+  )
+}
+
+function normalizeRelatedEntities(value) {
+  const normalized = []
+  const seen = new Set()
+  for (const item of asList(value)) {
+    let entityType = ''
+    let entitySlug = ''
+    if (typeof item === 'string') {
+      const [typePart, slugPart] = item.includes(':') ? item.split(':') : ['', item]
+      entityType = asText(typePart).toLowerCase()
+      entitySlug = slugify(slugPart)
+    } else if (item && typeof item === 'object') {
+      entityType = asText(item.entityType || item.type).toLowerCase()
+      entitySlug = slugify(item.entitySlug || item.slug || item.targetSlug || item.id)
+    }
+    if (!entitySlug || (entityType !== 'herb' && entityType !== 'compound')) continue
+    const key = `${entityType}:${entitySlug}`
+    if (seen.has(key)) continue
+    seen.add(key)
+    normalized.push({ entityType, entitySlug })
+  }
+  return normalized
+}
+
+function normalizeSlugLinks(value, fallback = []) {
+  const normalized = []
+  const seen = new Set()
+  for (const item of [...asList(value), ...asList(fallback)]) {
+    const slug = slugify(
+      typeof item === 'string'
+        ? item
+        : item?.targetSlug || item?.entitySlug || item?.slug || item?.id || item?.name,
+    )
+    if (!slug || seen.has(slug)) continue
+    seen.add(slug)
+    normalized.push(slug)
+  }
+  return normalized
+}
+
+function extractStructuredFields(record, entityType, governedSummary) {
+  const enrichment = record?.researchEnrichment || {}
+  const identity = readNarrativeField(record.identity || enrichment.identity)
+  const categoryUseContext = readNarrativeField(
+    record.categoryUseContext || enrichment.categoryUseContext,
+  )
+  const evidenceLevel = asText(
+    record.evidenceLevel ||
+      enrichment.evidenceLevel ||
+      governedSummary?.evidenceLabelTitle ||
+      governedSummary?.evidenceLabel,
+  )
+  const relatedEntities = normalizeRelatedEntities(
+    record.relatedEntities || enrichment.relatedEntities,
+  )
+
+  const base = {
+    identity,
+    categoryUseContext,
+    evidenceLevel,
+    relatedEntities,
+  }
+
+  if (entityType === 'herb') {
+    return {
+      ...base,
+      relatedCompounds: normalizeSlugLinks(
+        record.relatedCompounds || enrichment.relatedCompounds,
+        splitList(record.activeCompounds || record.active_compounds || record.compounds),
+      ),
+    }
+  }
+
+  return {
+    ...base,
+    linkedHerbs: normalizeSlugLinks(
+      record.linkedHerbs || enrichment.linkedHerbs,
+      splitList(record.herbs || record.foundInHerbs || record.associatedHerbs),
+    ),
+  }
+}
+
 function buildHerbSummary(record, governedSummaryByEntity) {
   const slug = slugify(
     record.slug || record.id || record.common || record.name || record.scientific,
@@ -249,6 +339,11 @@ function buildHerbSummary(record, governedSummaryByEntity) {
     record.activeCompounds || record.active_compounds || record.compounds,
   )
   const interactionTags = splitList(record.interactionTags)
+  const structured = extractStructuredFields(
+    record,
+    'herb',
+    governedSummaryByEntity.get(`herb:${slug}`),
+  )
 
   return {
     id: asText(record.id || slug),
@@ -273,6 +368,7 @@ function buildHerbSummary(record, governedSummaryByEntity) {
     hasEvidenceNotes: hasEvidenceNotes(record),
     researchEnrichmentSummary:
       governedSummaryByEntity.get(`herb:${slug}`) || undefined,
+    ...structured,
     image: asText(record.image),
     aliases: [common, scientific, asText(record.name)].map(asText).filter(Boolean),
   }
@@ -285,6 +381,7 @@ function buildCompoundSummary(record, governedSummaryByEntity) {
   const interactionTags = splitList(record.interactionTags)
   const governedSummary = governedSummaryByEntity.get(`compound:${slug}`) || undefined
   const narrative = buildCompoundNarrative(record, governedSummary)
+  const structured = extractStructuredFields(record, 'compound', governedSummary)
 
   return {
     id: asText(record.id || slug),
@@ -304,6 +401,7 @@ function buildCompoundSummary(record, governedSummaryByEntity) {
       splitList(record.interactionNotes || record.interactions).length > 0,
     hasEvidenceNotes: hasEvidenceNotes(record),
     researchEnrichmentSummary: governedSummary,
+    ...structured,
     aliases: [asText(record.name), asText(record.className), asText(record.category)]
       .map(asText)
       .filter(Boolean),
@@ -328,7 +426,11 @@ function writeEntityDetails(records, targetDir) {
     const slug = slugify(record.slug || record.id || record.name || record.common)
     if (!slug || writtenSlugs.has(slug)) continue
 
-    const detailRecord = { ...record, slug }
+    const detailRecord = {
+      ...record,
+      slug,
+      ...extractStructuredFields(record, 'herb'),
+    }
     writeJson(path.join(targetDir, `${slug}.json`), detailRecord)
     writtenSlugs.add(slug)
   }
@@ -351,6 +453,7 @@ function writeCompoundDetails(records, targetDir, governedSummaryByEntity) {
       slug,
       description: narrative.description,
       summary: narrative.summary,
+      ...extractStructuredFields(record, 'compound', governedSummary),
     }
     writeJson(path.join(targetDir, `${slug}.json`), detailRecord)
     writtenSlugs.add(slug)
