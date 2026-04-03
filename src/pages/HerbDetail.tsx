@@ -137,8 +137,41 @@ type RelatedLinkItem = {
   to: string
 }
 
+type UseCaseAnchor = {
+  key: 'sleep' | 'anxiety' | 'focus'
+  question: string
+  guidance: string
+  keywords: string[]
+}
+
+const USE_CASE_ANCHORS: UseCaseAnchor[] = [
+  {
+    key: 'sleep',
+    question: 'Best for sleep?',
+    guidance: 'Prioritize lower-friction evening formats and avoid stacking multiple sedating products.',
+    keywords: ['sleep', 'bedtime', 'evening wind-down', 'wind-down', 'night'],
+  },
+  {
+    key: 'anxiety',
+    question: 'Best for anxiety?',
+    guidance: 'Look for steadier daily formats first, then only adjust form if tolerability or routine fit is poor.',
+    keywords: ['anxiety', 'calm', 'stress', 'tension', 'gentle support', 'relax'],
+  },
+  {
+    key: 'focus',
+    question: 'Best for focus?',
+    guidance: 'Use labels and form consistency to compare options rather than relying on broad performance claims.',
+    keywords: ['focus', 'clarity', 'cognitive', 'daytime', 'alertness', 'concentration'],
+  },
+]
+
 function normalizeKey(value: string) {
   return value.trim().toLowerCase()
+}
+
+function matchesUseCaseTag(bestForTag: string, keywords: string[]) {
+  const normalizedTag = normalizeKey(bestForTag)
+  return keywords.some(keyword => normalizedTag.includes(normalizeKey(keyword)))
 }
 
 function buildInteractionsLink(tokens: string[]) {
@@ -371,6 +404,23 @@ export default function HerbDetail() {
     confidence,
     sourceCount,
   })
+  const useCaseAnchors = USE_CASE_ANCHORS.map(anchor => {
+    const matchedProducts = curatedProducts.filter(product =>
+      product.bestFor.some(tag => matchesUseCaseTag(tag, anchor.keywords)),
+    )
+
+    return {
+      ...anchor,
+      matchedProducts,
+      matchedTags: Array.from(
+        new Set(
+          matchedProducts.flatMap(product =>
+            product.bestFor.filter(tag => matchesUseCaseTag(tag, anchor.keywords)),
+          ),
+        ),
+      ),
+    }
+  }).filter(anchor => anchor.matchedProducts.length > 0)
   const ctaExperiment = resolveCtaVariant({
     pageType: 'herb_detail',
     entityType: 'herb',
@@ -769,6 +819,38 @@ export default function HerbDetail() {
             ) : null}
             {description}
           </Section>
+        )}
+
+        {useCaseAnchors.length > 0 && (
+          <section className='border-white/8 mt-6 border-t pt-5'>
+            <h2 className='mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/50'>
+              Use Case Anchors
+            </h2>
+            <div className='space-y-3'>
+              {useCaseAnchors.map(anchor => (
+                <article
+                  key={anchor.key}
+                  className='rounded-lg border border-white/15 bg-white/[0.02] p-3 text-sm text-white/85'
+                >
+                  <p className='text-sm font-semibold text-white'>{anchor.question}</p>
+                  <p className='mt-1 text-xs text-white/70'>{anchor.guidance}</p>
+                  <p className='mt-2 text-xs text-white/70'>
+                    Matching tags: {anchor.matchedTags.join(' · ')}
+                  </p>
+                  <div className='mt-2 flex flex-wrap gap-2'>
+                    {anchor.matchedProducts.slice(0, 2).map(product => (
+                      <span
+                        key={`${anchor.key}-${product.productId}`}
+                        className='rounded-full border border-emerald-300/35 bg-emerald-500/10 px-2.5 py-1 text-xs text-emerald-100'
+                      >
+                        {product.productTitle}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
         )}
 
         {herbClass && <Section title='Class'>{herbClass}</Section>}
